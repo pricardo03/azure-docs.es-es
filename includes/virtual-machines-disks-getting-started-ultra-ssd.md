@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b28830ac2634ad2238d834238de83c9184bcd6f0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ec8fa6c06dff0091627a800c895d45fd3b0e778e
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47010398"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53381676"
 ---
 # <a name="enabling-azure-ultra-ssds"></a>Habilitación de discos SSD Ultra de Azure
 
@@ -31,7 +31,7 @@ La respuesta será similar al formulario siguiente, donde X es la zona que se ut
 
 |ResourceType  |NOMBRE  |Ubicación  |Zones  |Restricción  |Capacidad  |Valor  |
 |---------|---------|---------|---------|---------|---------|---------|
-|discos     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
+|disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
 Si no hubo respuesta del comando, eso significa que el registro de la característica está pendiente o todavía no se ha aprobado.
 
@@ -84,6 +84,6 @@ Cuando se aprovisiona la máquina virtual, puede realizar una partición y dar f
 - Los discos SSD Ultra admiten el ajuste de los atributos de rendimiento del disco (IOPS y rendimiento) en tiempo de ejecución sin necesidad de desasociar el disco de la máquina virtual. Cuando se ha enviado una operación de cambio de tamaño del rendimiento del disco en un disco, este cambio puede tardar hasta una hora en surtir efecto.
 - El aumento de la capacidad del disco requiere que se anule la asignación de una máquina virtual.
 
-# <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Si desea probar el nuevo tipo de disco y aún no se ha registrado para la versión preliminar, [solicite acceso mediante esta encuesta](https://aka.ms/UltraSSDPreviewSignUp).

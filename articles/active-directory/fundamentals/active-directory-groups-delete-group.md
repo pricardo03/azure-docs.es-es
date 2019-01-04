@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: lizross
 ms.reviewer: krbain
-ms.custom: it-pro
-ms.openlocfilehash: 014fe487d23a6c75e94ca2708ed15044bd6cf53b
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 6c08022b47fb1a118e95a54eedf9b5239496ebf7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574341"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092237"
 ---
-# <a name="how-to-delete-a-group-using-azure-active-directory"></a>Procedimiento para eliminar un grupo con Azure Active Directory
-Puede eliminar un grupo para infinidad de motivos, pero normalmente será porque:
+# <a name="delete-a-group-using-azure-active-directory"></a>Eliminación de un grupo con Azure Active Directory
+Puede eliminar un grupo de Azure Active Directory (Azure AD) por infinidad de motivos, pero normalmente será porque:
 
 - Ha establecido incorrectamente el **Tipo de grupo** en la opción incorrecta
 

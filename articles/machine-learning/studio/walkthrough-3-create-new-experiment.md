@@ -1,12 +1,11 @@
 ---
-title: 'Paso 3: Creación de un nuevo experimento de Machine Learning Studio en Azure | Microsoft Docs'
-description: 'Paso 3 del tutorial Desarrollo de una solución predictiva: crear un nuevo experimento de aprendizaje en Azure Machine Learning Studio.'
+title: 'Paso 3: Creación de un experimento de Machine Learning Studio en Azure | Microsoft Docs'
+description: 'Paso 3 del tutorial de desarrollo de una solución predictiva: Creación de un experimento de entrenamiento en Azure Machine Learning Studio'
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: garye
 editor: cgronlun
 ms.assetid: 660e3c27-55ef-4c33-a4e9-dff4d1224630
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: a6f12c536cfc18ed0be55ec1755c7fe5179006ba
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5f3f73e2c2cb281887e795d974403a17cffd5978
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317535"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260793"
 ---
-# <a name="walkthrough-step-3-create-a-new-azure-machine-learning-studio-experiment"></a>Paso 3 del tutorial: Creación de un nuevo experimento de Azure Machine Learning Studio
+# <a name="walkthrough-step-3-create-a-new-azure-machine-learning-studio-experiment"></a>Paso 3 del tutorial: Creación de un experimento de Azure Machine Learning Studio
 Este es el tercer paso del tutorial [Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
 1. [Creación de un área de trabajo de Machine Learning](walkthrough-1-create-ml-workspace.md)
@@ -56,7 +55,7 @@ El siguiente paso de este tutorial es crear un experimento en Machine Learning S
     ![Agregar el conjunto de datos al experimento][7]
 
 ## <a name="prepare-the-data"></a>Preparación de los datos
-Para ver las primeras 100 filas de datos y alguna información estadística de todo el conjunto de datos: haga clic en el puerto de salida del conjunto de datos (el círculo pequeño de la parte inferior) y seleccione **Visualizar**.  
+Puede ver los 100 primeros registros de los datos e información estadística de todo el conjunto: Haga clic en el puerto de salida del conjunto de datos (el círculo pequeño de la parte inferior) y seleccione **Visualizar**.  
 
 Dado que el archivo de datos no incluye encabezados de columna, Estudio de aprendizaje automático ha proporcionado encabezados genéricos (Col1, Col2, *etc.*). No es esencial que los encabezados sean perfectos para crear un modelo, pero facilitan el trabajo con los datos del experimento. Además, cuando finalmente se publique este modelo en un servicio web, los encabezados ayudarán al usuario del servicio a identificar las columnas.  
 

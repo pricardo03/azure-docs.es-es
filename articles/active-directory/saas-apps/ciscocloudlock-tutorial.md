@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 9908dae627ae11a42e8e01a9a4f4d11f35ce0f8d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1fe0db2f0c7fea4b24cc23aaa52deb16376012b2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422967"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092016"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-cloud-security-fabric"></a>Tutorial: Integración de Azure Active Directory con The Cloud Security Fabric
 
@@ -107,13 +107,15 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de The Cloud Security Fabric](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL:
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL:
+
     | |
     |--|
     | `https://platform.cloudlock.com` |
     | `https://app.cloudlock.com` |
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:
+    
     | |
     |--|
     | `https://platform.cloudlock.com/gate/saml/sso/<subdomain>` |
@@ -156,7 +158,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/ciscocloudlock-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -166,7 +168,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 ### <a name="create-a-the-cloud-security-fabric-test-user"></a>Crear un usuario de prueba de The Cloud Security Fabric
 
-En esta sección, creará el usuario Britta Simon en The Cloud Security Fabric. Póngase en contacto con el [equipo de soporte técnico de The Cloud Security Fabric](mailto:support@cloudlock.com) para agregar a los usuarios de la plataforma de The Cloud Security Fabric. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
+En esta sección, creará el usuario Britta Simon en The Cloud Security Fabric. Póngase en contacto con el  [equipo de soporte técnico de The Cloud Security Fabric](mailto:support@cloudlock.com)  para agregar a los usuarios de la plataforma de The Cloud Security Fabric. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -203,7 +205,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de The Cloud Security Fabric en el panel de acceso, debería iniciar sesión automáticamente en la aplicación The Cloud Security Fabric.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

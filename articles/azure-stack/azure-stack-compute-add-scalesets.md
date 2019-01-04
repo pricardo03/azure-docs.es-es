@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.openlocfilehash: accd36c9e0d09da0073570301600b362fff85f6e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 2c615dd781b40c3ebb78ae291453c5b4b2d2ef4d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647347"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971834"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Puesta en disponibilidad de conjuntos de escalado de máquinas virtuales en Azure Stack
 
@@ -33,8 +33,8 @@ En Azure Stack, los conjuntos de escalado de máquinas virtuales no admiten el e
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- **Marketplace:** Registre Azure Stack en Azure global para habilitar la disponibilidad de los artículos en Marketplace. Siga las instrucciones de [Registro de Azure Stack con Azure](azure-stack-registration.md).
-- **Imagen del sistema operativo:** Para poder crear un conjunto de escalado de máquinas virtuales (VMSS), primero debe descargar las imágenes de VM para usarlas en el VMSS desde [Azure Stack Marketplace](azure-stack-download-azure-marketplace-item.md). Las imágenes ya deben existir antes de que un usuario pueda crear un nuevo VMSS. 
+- **Marketplace:** Registre Azure Stack con Azure global para habilitar la disponibilidad de los artículos en Marketplace. Siga las instrucciones de [Registro de Azure Stack con Azure](azure-stack-registration.md).
+- **Imagen del sistema operativo:** Para poder crear un conjunto de escalado de máquinas virtuales (VMSS), primero debe descargar las imágenes de máquina virtual para usarlas en el VMSS desde [Azure Stack Marketplace](azure-stack-download-azure-marketplace-item.md). Las imágenes ya deben existir antes de que un usuario pueda crear un nuevo VMSS. 
 
 ## <a name="use-the-azure-stack-portal"></a>Uso del portal de Azure Stack 
 
@@ -97,7 +97,7 @@ Después de crear un conjunto de escalado de máquinas virtuales, los usuarios p
 
     Si descarga una imagen con una versión más reciente (que cambia la versión disponible), el conjunto de escalado no se podrá escalar verticalmente. Esto es así por diseño, ya que la versión de la imagen especificada en la plantilla del conjunto de escalado debe estar disponible.  
 
-Para más información, consulte [Imágenes y discos del sistema operativo](.\user\azure-stack-compute-overview.md#operating-system-disks-and-images).  
+Para más información, consulte [Imágenes y discos del sistema operativo](./user/azure-stack-compute-overview.md#operating-system-disks-and-images).  
 
 ## <a name="scale-a-virtual-machine-scale-set"></a>Escalar un conjunto de escalado de máquinas virtuales
 

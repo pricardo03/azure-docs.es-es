@@ -3,7 +3,7 @@ title: Obtención de visibilidad de todos los inquilinos en Azure Security Cente
 description: Información sobre cómo obtener visibilidad en todo el inquilino en Azure Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: b85c0e93-9982-48ad-b23f-53b367f22b10
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2018
-ms.author: terrylan
-ms.openlocfilehash: caab7e3d15f6d82ee4daf6eb343601ff849bfde5
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.author: rkarlin
+ms.openlocfilehash: cb70c99d56cb1d09e561a44a90fd6c007ea9b59f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298785"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964124"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtención de visibilidad de todos los inquilinos en Azure Security Center
 Este artículo le ayuda con la realización de varias acciones que maximizan las ventajas que proporciona Azure Security Center. La realización de estas acciones le permite obtener visibilidad en todas las suscripciones de Azure que están vinculadas al inquilino de Azure Active Directory y administrar de un modo eficaz la posición de seguridad de la organización a escala mediante la aplicación de directivas de seguridad en varias suscripciones de forma agregada.
@@ -93,13 +93,16 @@ Para ganar visibilidad en todas las suscripciones, los administradores de inquil
 #### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>Asigne roles de RBAC a usuarios mediante Azure Portal: 
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
-2. Para ver los grupos de administración, seleccione **Todos los servicios** en el menú principal de Azure y, a continuación, seleccione **Grupo de administración**.
-3.  Seleccione un grupo de administración y haga clic en **detalles**.
+1. Para ver los grupos de administración, seleccione **Todos los servicios** en el menú principal de Azure y, a continuación, seleccione **Grupo de administración**.
+1.  Seleccione un grupo de administración y haga clic en **detalles**.
 
     ![Captura de pantalla con los detalles de Grupos de administración](./media/security-center-management-groups/management-group-details.PNG)
  
-4. Haga clic en **Control de acceso (IAM)** y, después, en **Agregar**.
-5. Seleccione el rol para asignar y el usuario y, a continuación, haga clic en **Guardar**.  
+1. Haga clic en **Control de acceso (IAM)** y después en **Asignaciones de roles**.
+
+1. Haga clic en **Agregar asignación de roles**.
+
+1. Seleccione el rol para asignar y el usuario y, a continuación, haga clic en **Guardar**.  
    
    ![Captura de pantalla de incorporación del rol de Lector de seguridad](./media/security-center-management-groups/asc-security-reader.png)
 

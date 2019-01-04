@@ -1,21 +1,22 @@
 ---
-title: Colaboración con otros colaboradores en aplicaciones de LUIS
-titleSuffix: Azure Cognitive Services
+title: Colaboración con otros usuarios
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: El propietario de una aplicación puede agregar colaboradores a la aplicación. Estos colaboradores pueden modificar el modelo, entrenar y publicar la aplicación.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b7d108bfc0c4283e7856b93daba3f4f92af4cc5b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d1db8974ce134b50340db500c9ea1b00126fe10a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042200"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086426"
 ---
 # <a name="how-to-manage-authors-and-collaborators"></a>Administración de creadores y colaboradores 
 
@@ -31,7 +32,7 @@ Una aplicación tiene un único creador, el propietario, pero puede tener muchos
 
 2. Seleccione **Agregar colaborador** en la barra de herramientas.
 
-    [![](./media/luis-how-to-collaborate/add-collaborator.png "Agregar un colaborador")](./media/luis-how-to-collaborate/add-collaborator.png#lightbox)
+    [![Agregar colaborador](./media/luis-how-to-collaborate/add-collaborator.png "Add collaborator")](./media/luis-how-to-collaborate/add-collaborator.png#lightbox)
 
 3. Escriba la dirección de correo electrónico que usa el colaborador para iniciar sesión en el portal de LUIS.
 

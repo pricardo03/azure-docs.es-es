@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: d86600dd000d3e9c71a38b632aa75e82239401dd
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 86b10d65ecaa52055244f3530f91c1cabbe219e0
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104586"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435555"
 ---
 # <a name="apache-phoenix-in-hdinsight"></a>Apache Phoenix en HDInsight
 
-[Apache Phoenix](http://phoenix.apache.org/) es una capa de base de datos relacional de código abierto y masivamente paralela que se basa en [HBase](hbase/apache-hbase-overview.md). Phoenix permite usar consultas de tipo SQL sobre HBase. Phoenix usa controladores JDBC subyacentes para permitir a los usuarios crear, eliminar y modificar índices, vistas, secuencias y tablas SQL, así como realizar operaciones upsert en filas de forma individual o masiva. Phoenix usa la compilación nativa de NoSQL en lugar de usar MapReduce para compilar consultas, lo que permite crear aplicaciones de baja latencia a partir de HBase. Phoenix agrega coprocesadores para admitir la ejecución de código proporcionado por clientes en el espacio de direcciones del servidor, ejecutando el código colocado con los datos. Este enfoque minimiza la transferencia de datos entre cliente y servidor.
+[Apache Phoenix](http://phoenix.apache.org/) es una capa de base de datos relacional de código abierto y masivamente paralela que se basa en [Apache HBase](hbase/apache-hbase-overview.md). Phoenix permite usar consultas de tipo SQL sobre HBase. Phoenix usa controladores JDBC subyacentes para permitir a los usuarios crear, eliminar y modificar índices, vistas, secuencias y tablas SQL, así como realizar operaciones upsert en filas de forma individual o masiva. Phoenix usa la compilación nativa de NoSQL en lugar de usar MapReduce para compilar consultas, lo que permite crear aplicaciones de baja latencia a partir de HBase. Phoenix agrega coprocesadores para admitir la ejecución de código proporcionado por clientes en el espacio de direcciones del servidor, ejecutando el código colocado con los datos. Este enfoque minimiza la transferencia de datos entre cliente y servidor.
 
-Apache Phoenix facilita las consultas de macrodatos a personas que no son desarrolladores, ya que pueden usar una sintaxis de tipo SQL en lugar de programación. Phoenix está altamente optimizado para HBase, a diferencia de otras herramientas como [Hive](hadoop/hdinsight-use-hive.md) y Spark SQL. La ventaja para los desarrolladores es que pueden escribir consultas de alto rendimiento con mucho menos código.
+Apache Phoenix facilita las consultas de macrodatos a personas que no son desarrolladores, ya que pueden usar una sintaxis de tipo SQL en lugar de programación. Phoenix está altamente optimizado para HBase, a diferencia de otras herramientas como [Hive](hadoop/hdinsight-use-hive.md) y Apache Spark SQL. La ventaja para los desarrolladores es que pueden escribir consultas de alto rendimiento con mucho menos código.
 <!-- [Spark SQL](spark/apache-spark-sql-with-hdinsight.md)  -->
 
 Cuando envía una consulta SQL, Phoenix compila la consulta para llamadas nativas de HBase y ejecuta el análisis (o plan) en paralelo para optimización. Gracias a esta capa de abstracción, el desarrollador no tiene que escribir trabajos MapReduce y puede centrarse, en su lugar, en la lógica de negocios y el flujo de trabajo de la aplicación en torno al almacenamiento de macrodatos de Phoenix.
@@ -122,7 +122,7 @@ CREATE TABLE Saltedweblogs (
     shippingamount DOUBLE NULL) SALT_BUCKETS=4;
 ```
 
-## <a name="enable-and-tune-phoenix-with-ambari"></a>Habilitar y ajustar Phoenix con Ambari
+## <a name="enable-and-tune-phoenix-with-apache-ambari"></a>Habilitar y ajustar Phoenix con Apache Ambari
 
 Un clúster HDInsight HBase incluye la [interfaz de usuario de Ambari](hdinsight-hadoop-manage-ambari.md) para realizar cambios de configuración.
 

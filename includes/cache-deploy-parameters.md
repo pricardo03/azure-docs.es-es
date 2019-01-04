@@ -4,15 +4,15 @@ ms.service: redis-cache
 ms.topic: include
 ms.date: 11/21/2018
 ms.author: wesmc
-ms.openlocfilehash: 1ddb81de479317a098f9de8aa5756cbaae59cb72
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: dd9700c9472e07daf294eca12b766e3dc4832955
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52331476"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53111648"
 ---
 ### <a name="cacheskuname"></a>cacheSKUName
-El nivel de precios del nuevo servicio Azure Redis Cache.
+El plan de tarifa de la nueva instancia de Azure Cache for Redis.
 
     "cacheSKUName": {
       "type": "string",
@@ -22,7 +22,7 @@ El nivel de precios del nuevo servicio Azure Redis Cache.
       ],
       "defaultValue": "Basic",
       "metadata": {
-        "description": "The pricing tier of the new Azure Redis Cache."
+        "description": "The pricing tier of the new Azure Cache for Redis."
       }
     },
 
@@ -45,7 +45,7 @@ La familia de la SKU.
 
 
 ### <a name="cacheskucapacity"></a>cacheSKUCapacity
-El tamaño de la nueva instancia de Azure Redis Cache. 
+El tamaño de la nueva instancia de Azure Cache for Redis. 
 
     "cacheSKUCapacity": {
       "type": "int",
@@ -60,10 +60,10 @@ El tamaño de la nueva instancia de Azure Redis Cache.
       ],
       "defaultValue": 0,
       "metadata": {
-        "description": "The size of the new Azure Redis Cache instance. "
+        "description": "The size of the new Azure Cache for Redis instance. "
       }
     }
 
 
-La plantilla define los valores permitidos para este parámetro (0, 1, 2, 3, 4, 5 o 6) y asigna un valor predeterminado (0) si no se especifica ningún valor. Los números corresponden a los siguientes tamaños de caché: 0 = 250 MB, 1 = 1 GB, 2 = 2,5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB
+La plantilla define los valores permitidos para este parámetro (0, 1, 2, 3, 4, 5 o 6) y asigna un valor predeterminado (0) si no se especifica ningún valor. Los números corresponden a los siguientes tamaños de caché: 0 = 250 MB, 1 = 1 GB, 2 = 2.5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB
 

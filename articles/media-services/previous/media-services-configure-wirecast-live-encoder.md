@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 6cc4c0b01511309766e48c3d671ee897e5d6f326
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: e0e41714f6979a9cd699df70498b9c89a44d5ee1
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669120"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138963"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Uso del codificador Wirecast para enviar una transmisión por secuencias en directo de velocidad de bits única
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ En este tutorial se muestra cómo administrar Azure Media Services (AMS) con la 
 * Cuando se usen codificadores por software, cierre todos los programas innecesarios.
 
 ## <a name="create-a-channel"></a>Crear un canal
-1. En la herramienta AMSE, navegue a la pestaña **Live** (Live) y haga clic con el botón derecho dentro del área de canales. Seleccione **Crear canal...** en el menú.
+1. En la herramienta AMSE, navegue a la pestaña **Live** (Live) y haga clic con el botón derecho dentro del área de canales. Seleccione **Crear canal...**  en el menú.
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
@@ -69,22 +69,22 @@ Mientras se inicia el canal puede [configurar el codificador](media-services-con
 >
 >
 
-## <a name="a-idconfigurewirecastrtmp-aconfigure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" /a>Configuración del codificador Telestream Wirecast
+## <a name="a-idconfigurewirecastrtmp-configure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" />Configuración del codificador Telestream Wirecast
 En este tutorial se usa la siguiente configuración de salida. En el resto de esta sección se describen los pasos de configuración con más detalle.
 
 **Vídeo**:
 
-* Codec (Códec): H.264
-* Profile (Perfil): High (Level 4.0) (Alto [Nivel 4.0])
-* Bitrate (Velocidad de bits): 5000 kbps
-* Keyframe (Fotograma clave): 2 seconds (60 seconds) (2 segundos [60 segundos])
-* Frame Rate (Velocidad de fotogramas): 30
+* Códec: H.264
+* Perfil: alto (nivel 4.0)
+* Velocidad de bits: 5000 Kbps
+* Fotograma clave: 2 segundos (60 segundos)
+* Velocidad de fotogramas: 30
 
 **Audio**:
 
-* Codec (Códec): AAC (LC)
-* Bitrate (Velocidad de bits): 192 kbps
-* Sample Rate (Frecuencia de muestreo): 44,1 kHz
+* Códec: AAC (LC)
+* Velocidad de bits: 192 Kbps
+* Velocidad de muestreo: 44,1 kHz
 
 ### <a name="configuration-steps"></a>Pasos de configuración
 1. Abra la aplicación de Telestream Wirecast en el equipo que está usando y configúrela para el streaming de RTMP.
@@ -103,16 +103,16 @@ En este tutorial se usa la siguiente configuración de salida. En el resto de es
 
     **Vídeo**
 
-   * Encoder (Codificador): MainConcept H.264
-   * Frames per Second (Fotogramas por segundo): 30
-   * Bit Rate (Velocidad de bits): 5000 kbps/sec (seg.) (se puede ajustar en función de las limitaciones de red)
-   * Profile (Perfil): Main (Principal)
-   * Key frame every (Fotograma clave cada): 60 frames (fotogramas)
+   * Codificador: MainConcept H.264
+   * Fotogramas por segundo: 30
+   * Velocidad de bits media: 5000 kbits/s (se puede ajustar en función de las limitaciones de red)
+   * Perfil: Principal
+   * Fotograma clave cada: 60 fotogramas
 
     **Audio**
 
-   * Target bit rate (Velocidad de bits de destino): 192 kbits/sec (seg)
-   * Sample Rate (Frecuencia de muestreo): 44,100 kHz
+   * Velocidad de bits de destino: 192 kbits/s
+   * Velocidad de muestreo: 44,100 kHz
 
      ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
 6. Presione **Save**(Guardar).

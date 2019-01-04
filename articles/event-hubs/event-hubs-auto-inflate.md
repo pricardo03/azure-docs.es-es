@@ -1,5 +1,5 @@
 ---
-title: Escalado vertical y automático de las unidades de procesamiento de Azure Event Hubs | Microsoft Docs
+title: 'Escalado vertical y automático de las unidades de procesamiento: Azure Event Hubs | Microsoft Docs'
 description: Habilite el inflado automático en un espacio de nombres para escalar verticalmente las unidades de procesamiento.
 services: event-hubs
 documentationcenter: na
@@ -10,19 +10,19 @@ ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 19525086b1bd41afcc730fb3860d7a01875e4832
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: d705993c7cd3816e89da21625dc5b003435b9128
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987008"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408171"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Escalado vertical y automático de las unidades de procesamiento de Azure Event Hubs
-
 Azure Event Hubs es una plataforma de streaming de datos muy escalable. Por lo tanto, el uso de Event Hubs suele aumentar después de empezar a utilizar el servicio. Para esta utilización, es necesario incrementar las [unidades de procesamiento](event-hubs-features.md#throughput-units) predeterminadas con el objetivo de escalar Event Hubs y controlar velocidades de transferencia más elevadas. La característica de **inflado automático** de Event Hubs escala verticalmente y de forma automática mediante el aumento del número de unidades de procesamiento para responder a las necesidades de utilización. Al aumentar las unidades de rendimiento, se evitan escenarios de limitación en los que nos encontramos con:
 
 * Velocidades de entrada de datos que superan las unidades de rendimiento establecidas.
@@ -47,15 +47,25 @@ Puede habilitar o deshabilitar aumentar el inflado automático en un espacio de 
 
 ### <a name="enable-auto-inflate-through-the-portal"></a>Habilitación del inflado automático mediante Azure Portal
 
-Puede habilitar la característica de inflado automático al crear un espacio de nombres de Event Hubs:
+
+#### <a name="enable-at-the-time-of-creation"></a>Habilitación en el momento de creación 
+Puede habilitar la característica de inflado automático **al crear un espacio de nombres de Event Hubs**:
  
-![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
+![Habilitación del inflado automático en el momento de creación de centro de eventos](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
 
 Con esta opción habilitada, puede empezar poco a poco con las unidades de procesamiento y escalarlas verticalmente a medida que sus necesidades de utilización sean más exigentes. El límite superior del inflado no afecta inmediatamente al precio, que depende del número de unidades de procesamiento utilizadas por hora.
 
-También puede habilitar el inflado automático mediante la opción **Escalar** del panel de configuración del portal:
+#### <a name="enable-auto-inflate-for-an-existing-event-hub"></a>Habilitación del inflado automático para un centro de eventos existente
+También puede habilitar la característica de inflado automático y modificar su configuración mediante las siguientes instrucciones: 
  
-![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
+1. En la página **Espacio de nombres de Event Hubs**, seleccione **Deshabilitado** en **Unidades de procesamiento de inflado automático**.  
+
+    ![Seleccione las unidades de procesamiento en la página Espacio de nombres de Event Hubs.](./media/event-hubs-auto-inflate/select-throughput-units.png)
+2. En la página **Configuración de escalado**, seleccione la casilla de verificación **Habilitar** (si no se ha habilitado la característica de escalabilidad automática).
+
+    ![Seleccione Habilitar.](./media/event-hubs-auto-inflate/scale-settings.png)
+3. Escriba el número **máximo** de unidades de rendimiento o use la barra de desplazamiento para establecer el valor. 
+4. (opcional) Actualice el número **mínimo** de unidades de procesamiento en la parte superior de esta página. 
 
 
 > [!NOTE]

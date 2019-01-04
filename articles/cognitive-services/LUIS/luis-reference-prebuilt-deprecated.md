@@ -1,28 +1,29 @@
 ---
-title: 'Referencia de entidades en desuso precompiladas de LUIS: Azure | Microsoft Docs'
+title: Entidades precompiladas en desuso
 titleSuffix: Azure
 description: Este artículo contiene información sobre la entidad precompilada en desuso en Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 5f722e9eae45f2df86b8c0831ffd33ad3edd8e5b
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 7b294b9c528d0b7a93a3e287b37124a26d0851dd
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334115"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138065"
 ---
-# <a name="deprecated-entities"></a>Entidades en desuso
+# <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Entidades precompiladas en desuso en una aplicación de LUIS
 Las siguientes entidades precompiladas están en desuso y no se pueden agregar a las nuevas aplicaciones de LUIS.
 
-* **Datetime**: las aplicaciones de LUIS existentes que usan **datetime** deberían migrarse a **datetimeV2**, a pesar de que la entidad datetime continúe trabajando en las aplicaciones pre-existentes que la utilizan.
-* **Geography**: las aplicaciones de LUIS existentes que usan **geography** se admiten hasta diciembre de 2018.
-* **Encyclopedia**: las aplicaciones de LUIS existentes que usan **encyclopedia** se admiten hasta diciembre de 2018.
+* **Datetime**: Las aplicaciones de LUIS existentes que usan **datetime** deberían migrarse a **datetimeV2**, a pesar de que la entidad datetime continúe funcionando en las aplicaciones pre-existentes que la utilizan.
+* **Geography**: Las aplicaciones de LUIS existentes que usan **geography** se admiten hasta diciembre de 2018.
+* **Encyclopedia**: Las aplicaciones de LUIS existentes que usan **Encyclopedia** se admiten hasta diciembre de 2018.
 
 ## <a name="geography-culture"></a>Referencia cultural Geography
 **Geography** sólo está disponible en la configuración regional `en-us`.
@@ -42,9 +43,9 @@ Entidad precompilada   |   Expresión de ejemplo   |   JSON
 **Encyclopedia** sólo está disponible en la configuración regional `en-US`.
 
 #### <a name="encyclopedia-subtypes"></a>Subtipos de Encyclopedia
-La entidad integrada Encyclopedia incluye más de 100 subtipos en la siguiente tabla. Además, las entidades encyclopedia a menudo se asignan a varios tipos. Por ejemplo, los campos Ronald Reagan de la consulta: 
+La entidad integrada Encyclopedia incluye más de 100 subtipos de la tabla siguiente: Además, las entidades Encyclopedia a menudo se corresponden con varios tipos. Por ejemplo, los campos Ronald Reagan de la consulta: 
 
-```JSON
+```json
 {
       "entity": "ronald reagan",
       "type": "builtin.encyclopedia.people.person"

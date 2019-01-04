@@ -6,43 +6,64 @@ author: vhorne
 manager: jpconnock
 ms.service: firewall
 ms.topic: article
-ms.date: 7/11/2018
+ms.date: 12/01/2018
 ms.author: victorh
-ms.openlocfilehash: d32e6e29c287d140c28206743e36dc025b26158b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 86fdbbacf3e8064afe0aaaaebea1d6ef6c25f9d4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991341"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865842"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Implementación de Azure Firewall mediante una plantilla
 
-Esta plantilla crea un firewall y un entorno de red de prueba. La red tiene una red virtual, con tres subredes: *AzureFirewallSubnet*, *ServersSubnet* y *JumpboxSubnet*. Las subredes ServersSubnet y JumpboxSubnet tienen un servidor de Windows Server de dos núcleos en ellas.
+La [plantilla para crear la configuración de un espacio aislado de Azure Firewall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox) crea un entorno de red de prueba con un firewall. La red tiene una red virtual (VNet) con tres subredes: *AzureFirewallSubnet*, *ServersSubnet* y *JumpboxSubnet*. Cada una de las subredes *ServersSubnet* y *JumpboxSubnet* tiene una única máquina virtual Windows Server de doble núcleo.
 
-El firewall está en AzureFirewallSubnet y se configura con una colección de reglas de aplicación con una única regla que permite el acceso a www.microsoft.com.
+El firewall está en la subred *AzureFirewallSubnet* y tiene una colección de reglas de aplicación con una única regla que permite el acceso a *www.microsoft.com*.
 
-Se crea una ruta definida por el usuario que señala el tráfico de red desde ServersSubnet a través del firewall, en donde se aplican las reglas de firewall.
+Una ruta definida por el usuario señala el tráfico de red desde la subred *ServersSubnet* a través del firewall, en donde se aplican las reglas de firewall.
+
+Para más información sobre Azure Firewall, vea [Implementación y configuración de Azure Firewall mediante Azure Portal](tutorial-firewall-deploy-portal.md).
+
+## <a name="use-the-template-to-deploy-azure-firewall"></a>Uso de la plantilla para implementar Azure Firewall
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="template-location"></a>Ubicación de la plantilla
+**Para instalar e implementar Azure Firewall con la plantilla**:
 
-La plantilla se encuentra en:
+1. Acceda a la plantilla en [https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox).
+   
+1. Lea la introducción y, cuando esté listo para implementar, seleccione **Implementar en Azure**.
+   
+1. Inicie sesión en Azure Portal si es necesario. 
 
-[https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox)
-
-Lea la introducción y, cuando esté listo para implementar, haga clic en **Implementar en Azure**.
+1. En el portal, en la página **Create a sandbox setup of AzureFirewall** (Crear una configuración de espacio aislado de Azure Firewall), escriba o seleccione los valores siguientes:
+   
+   - **Grupo de recursos**: seleccione **Crear nuevo**, escriba un nombre para el grupo de recursos y seleccione **Aceptar**. 
+   - **Nombre de la red virtual**: escriba un nombre para la red virtual nueva. 
+   - **Nombre de usuario administrador**: escriba un nombre de usuario para la cuenta de usuario de administrador.
+   - **Contraseña de administrador**: escriba una contraseña de administrador. 
+   
+1. Consulte los términos y condiciones y seleccione **Acepto los términos y condiciones indicados anteriormente**.
+   
+1. Seleccione **Comprar**.
+   
+   La creación de los recursos tardará unos minutos. 
+   
+1. Explore los recursos que se crearon con el firewall. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-En primer lugar, explore los recursos que se crearon con el firewall y, a continuación, cuando ya no sean necesarios, puede usar el comando [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para quitar el grupo de recursos, el firewall y todos los recursos relacionados.
+Cuando ya no los necesite, puede quitar el grupo de recursos, el firewall y todos los recursos relacionados mediante la ejecución del comando de PowerShell [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup). Para quitar un grupo de recursos llamado *MyResourceGroup*, ejecute: 
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzureRmResourceGroup -Name MyResourceGroup
 ```
+Si pretende continuar con el tutorial de supervisión de firewall, no quite aún el firewall ni el grupo de recursos. 
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 A continuación, puede supervisar los registros de Azure Firewall:
 
-- [Tutorial: Supervisión de los registros de Azure Firewall](./tutorial-diagnostics.md)
-
+> [!div class="nextstepaction"]
+> [Tutorial: Supervisión de los registros de Azure Firewall](./tutorial-diagnostics.md)

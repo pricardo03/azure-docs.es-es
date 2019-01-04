@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: c6ecb7d4c1e5b648373fcaa3f44c6294329d33c2
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 565c0ed877cf4500131f7ad3099f3c7d3f1a1220
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801172"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955044"
 ---
 # <a name="news-search-api-upgrade-guide"></a>Guía de actualización de News Search API
 
@@ -25,7 +25,7 @@ Esta guía de actualización identifica los cambios entre las versiones 5 y 7 de
 
 ### <a name="endpoints"></a>Puntos de conexión
 
-- El número de versión del punto de conexión ha cambiado de v5 a v7. Por ejemplo, https://api.cognitive.microsoft.com/bing/\*\*v7.0**/news/search.
+- El número de versión del punto de conexión ha cambiado de v5 a v7. Por ejemplo, https://api.cognitive.microsoft.com/bing/**v7.0**/news/search.
 
 ### <a name="error-response-objects-and-error-codes"></a>Objetos de la respuesta de error y códigos de error
 
@@ -34,7 +34,6 @@ Esta guía de actualización identifica los cambios entre las versiones 5 y 7 de
 - Se han agregado los campos siguientes al objeto `Error`.  
   - `subCode`&mdash;Divide el código de error en cubos discretos, si es posible.
   - `moreDetails`&mdash;Información adicional sobre el error descrito en el campo `message`.
-   
 
 - Se han reemplazado los códigos de error v5 por los posibles valores de `code` y `subCode` siguientes.
 
@@ -77,18 +76,18 @@ Bloqueado|InvalidRequest.Blocked
 
 ### <a name="query-parameters"></a>Parámetros de consulta
 
-- Productos agregados como un posible valor en el que puede establecer el parámetro de consulta [category](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category). Consulte [Categories By Markets](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#categories-by-market) (Categorías por mercados).  
-    
-- Se ha agregado el parámetro de consulta [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortby), que devuelve tendencias populares ordenadas por fecha con la más reciente primero.  
-  
+- Productos agregados como un posible valor en el que puede establecer el parámetro de consulta [category](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category). Consulte [Categories By Markets](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#categories-by-market) (Categorías por mercados).
+
+- Se ha agregado el parámetro de consulta [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortby), que devuelve tendencias populares ordenadas por fecha con la más reciente primero.
+
 - Se ha agregado el parámetro de consulta [Since](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#since) que devuelve tendencias populares que se encontraron en Bing en el mismo momento especificado por la marca de tiempo de época de Unix especificada o posteriormente.
 
 ### <a name="object-changes"></a>Cambios en objetos
 
-- Se ha agregado el campo `mentions` al objeto [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle). El campo `mentions` contiene una lista de entidades (personas o lugares) que se encontraron en el artículo.  
-  
-- Se ha agregado el campo `video` al objeto [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle). El campo `video` contiene un vídeo que está relacionado con el artículo de noticias. El vídeo es un \<iframe\> que se puede insertar o una miniatura de movimiento.   
-  
-- Se ha agregado el campo `sort` al objeto [News](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news). El campo `sort` muestra el criterio de ordenación de los artículos. Por ejemplo, los artículos se ordenan por relevancia (valor predeterminado) o fecha.  
-  
+- Se ha agregado el campo `mentions` al objeto [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle). El campo `mentions` contiene una lista de entidades (personas o lugares) que se encontraron en el artículo.
+
+- Se ha agregado el campo `video` al objeto [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle). El campo `video` contiene un vídeo que está relacionado con el artículo de noticias. El vídeo es un \<iframe\> que se puede insertar o una miniatura de movimiento.
+
+- Se ha agregado el campo `sort` al objeto [News](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news). El campo `sort` muestra el criterio de ordenación de los artículos. Por ejemplo, los artículos se ordenan por relevancia (valor predeterminado) o fecha.
+
 - Se ha agregado el objeto [SortValue](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortvalue) que define un criterio de ordenación. El campo `isSelected` indica si la respuesta utiliza el criterio de ordenación. Si es **true**, la respuesta utiliza el criterio de ordenación. Si `isSelected` es **false**, puede usar la dirección URL del campo `url` para solicitar un criterio de ordenación diferente.

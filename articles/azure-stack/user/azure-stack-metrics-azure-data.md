@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
-ms.openlocfilehash: b0cf2d7856a78bbe2aa531c6e872168e8e33b06a
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 45c06afd0d298c467d8f0a3a42b68bf1948c6ed3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44021818"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726753"
 ---
 # <a name="azure-monitor-on-azure-stack"></a>Azure Monitor en Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack*
 
 Este artículo contiene información general sobre el servicio Azure Monitor en Azure Stack. En él, se explica el funcionamiento de Azure Monitor y se proporciona información adicional sobre su uso en Azure Stack. 
 
@@ -125,7 +125,7 @@ En general, puede manipular el seguimiento, el enrutamiento y la recuperación d
  - [Portal de Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-use-portal)
  - [PowerShell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples)
  - [Interfaz de la línea de comandos (CLI) multiplataforma](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples)
- - [API de REST](https://docs.microsoft.com/rest/api/monitor)
+ - [API DE REST](https://docs.microsoft.com/rest/api/monitor)
  - [SDK de .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
 ## <a name="next-steps"></a>Pasos siguientes

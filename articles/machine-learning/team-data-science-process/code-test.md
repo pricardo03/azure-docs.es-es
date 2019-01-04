@@ -1,6 +1,6 @@
 ---
-title: 'Prueba de código de ciencia de datos en Azure con el conjunto de datos de predicción de ingresos de adultos UCI: proceso de ciencia de datos en equipo y Azure DevOps Services'
-description: Prueba de código de ciencia de datos con datos de predicción de ingresos de adultos UCI
+title: 'Prueba del código de ciencia de datos con Azure DevOps Services: Proceso de ciencia de datos en equipo'
+description: Prueba de código de ciencia de datos en Azure con el conjunto de datos de predicción de ingresos de adultos UCI con el proceso de ciencia de datos en equipo y Azure DevOps Services
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 05/19/2018
 ms.author: tdsp
-ms.custom: (previous author=weig, ms.author=weig)
-ms.openlocfilehash: d04f50bc3de34c28c10be7ba429f85a99096de47
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
+ms.openlocfilehash: d8c3bafaa42e68eb7f6b5212c055793a1f2b1137
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443957"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134546"
 ---
-# <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>Prueba de código de ciencia de datos con el conjunto de datos de predicción de ingresos de adultos UCI
+# <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Prueba del código de ciencia de datos en Azure con el proceso de ciencia de datos en equipo y Azure DevOps Services
 En este artículo se proporcionan instrucciones preliminares para probar el código en un flujo de trabajo de ciencia de datos. Estas pruebas ofrecen a los científicos de datos una manera sistemática y eficiente de comprobar la calidad y el resultado esperado de su código. Se utiliza el [proyecto de proceso de ciencia de datos en equipo (TDSP), que utiliza el conjunto de datos de ingresos de adultos UCI,](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) que publicamos con anterioridad para mostrar cómo se pueden realizar pruebas de código. 
 
 ## <a name="introduction-on-code-testing"></a>Introducción a las pruebas de código

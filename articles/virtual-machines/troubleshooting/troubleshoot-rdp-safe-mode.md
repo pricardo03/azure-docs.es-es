@@ -13,21 +13,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 3ff1db9ee7dc34ce529702d61b3ac5970bb5d9df
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0ef4aa988f4adc855051b213013636b4a04f1cca
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309880"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316988"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>No se puede usar RDP en una máquina virtual porque esta se inicia en modo seguro
 
 En este artículo se muestra cómo resolver un problema en el que no se puede conectar a Azure Windows Virtual Machines (máquinas virtuales) porque la máquina virtual está configurada para iniciarse en modo seguro.
 
-> [!NOTE] 
-> Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [el Administrador de recursos y el clásico](../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se explica el uso del modelo de implementación de Resource Manager, que es el que se recomienda usar para las nuevas implementaciones, en lugar del modelo de implementación clásica. 
+> [!NOTE]
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se explica el uso del modelo de implementación de Resource Manager, que es el que se recomienda usar para las nuevas implementaciones, en lugar del modelo de implementación clásica.
 
-## <a name="symptoms"></a>Síntomas 
+## <a name="symptoms"></a>Síntomas
 
 No puede realizar una conexión RDP u otras conexiones (como HTTP) a una máquina virtual en Azure porque está configurada para iniciarse en modo seguro. Al comprobar la captura de pantalla de los [Diagnósticos de arranque](../troubleshooting/boot-diagnostics.md) en Azure Portal, puede ver que la máquina virtual se inicia de manera normal, pero que la interfaz de red no está disponible:
 
@@ -38,7 +38,7 @@ No puede realizar una conexión RDP u otras conexiones (como HTTP) a una máquin
 El servicio RDP no está disponible en el modo seguro. Solo los servicios y programas esenciales del sistema se cargan cuando la máquina virtual se inicia en modo seguro. Esto se aplica a las dos versiones diferentes del modo seguro, que son "Mínimo de arranque seguro" y "Arranque seguro con conectividad".
 
 
-## <a name="solution"></a>Solución 
+## <a name="solution"></a>Solución
 
 Antes de seguir estos pasos, tome una instantánea del disco del sistema operativo de la máquina virtual afectada como copia de seguridad. Para obtener más información, consulte [Instantánea de un disco](../windows/snapshot-copy-managed-disk.md).
 
@@ -46,9 +46,9 @@ Para resolver este problema, use el control de serie para configurar la máquina
 
 ### <a name="use-serial-control"></a>Uso del control serie
 
-1. Conéctese a una [consola serie y abra la instancia de CMD](./serial-console-windows.md#open-cmd-or-powershell-in-serial-console
+1. Conéctese a una [consola serie y abra la instancia de CMD](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). Si la consola serie no está habilitada en la máquina virtual, vaya a la sección de [reparación de la máquina virtual sin conexión](#repair-the-vm-offline).
-2. Consulte los datos de configuración de arranque: 
+2. Consulte los datos de configuración de arranque:
 
         bcdedit /enum
 
@@ -65,7 +65,7 @@ Para resolver este problema, use el control de serie para configurar la máquina
 3. Elimine la marca **safemoade** marca para que la máquina virtual se inicie en modo normal:
 
         bcdedit /deletevalue {current} safeboot
-        
+
 4. Compruebe los datos de configuración de arranque para asegurarse de que la marca **safeboot** se quita:
 
         bcdedit /enum
@@ -77,7 +77,7 @@ Para resolver este problema, use el control de serie para configurar la máquina
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Conecte el disco del sistema operativo a una máquina virtual de recuperación.
 
 1. [Conecte el disco del sistema operativo a una máquina virtual de recuperación](../windows/troubleshoot-recovery-disks-portal.md).
-2. Inicie una conexión mediante el Escritorio remoto a la máquina virtual de recuperación. 
+2. Inicie una conexión mediante el Escritorio remoto a la máquina virtual de recuperación.
 3. Asegúrese de que el disco aparece marcado como **En línea** en la consola de Administración de discos. Anote la letra de unidad que se asigna al disco del sistema operativo conectado.
 
 #### <a name="enable-dump-log-and-serial-console-optional"></a>Habilitar el registro de volcado de memoria y la consola serie (opcional)
@@ -111,23 +111,24 @@ Para habilitar el registro de volcado de memoria y Serial Console, ejecute el si
     REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
 
     reg unload HKLM\BROKENSYSTEM
+    ```
 
-#### Configure the Windows to boot into normal mode
+#### <a name="configure-the-windows-to-boot-into-normal-mode"></a>Configure Windows para arrancar en modo normal
 
-1. Open an elevated command prompt session (**Run as administrator**).
-2. Check the boot configuration data. In the following commands, we assume that the drive letter that is assigned to the attached OS disk is F. Replace this drive letter with the appropriate value for your VM. 
+1. Abra una sesión de símbolo del sistema con privilegios elevados (**Ejecutar como administrador**).
+2. Consulte los datos de configuración de arranque. En los siguientes comandos, se supone que la letra de unidad que se asigna al disco del sistema operativo conectado es F. Reemplácela por el valor apropiado para su máquina virtual.
 
         bcdedit /store F:\boot\bcd /enum
-    Take note of the Identifier name of the partition that has the **\windows** folder. By default, the  Identifier name is "Default".  
+    Tome nota del nombre del identificador de la partición que tiene la carpeta **\windows**. De forma predeterminada, el nombre del identificador es "Default".
 
-    If the VM is configured to boot into Safe Mode, you will see an extra flag under the **Windows Boot Loader** section called **safeboot**. If you do not see the **safeboot** flag, this article does not apply to your scenario.
+    Si la máquina virtual está configurada para iniciarse en modo seguro, verá una marca adicional en la sección del **cargador de arranque de Windows** denominada **safeboot**. Si no ve la marca **safeboot**, este artículo no es aplicable a su escenario.
 
-    ![The image about boot Identifier](./media/troubleshoot-rdp-safe-mode/boot-id.png)
+    ![La imagen sobre el identificador de arranque](./media/troubleshoot-rdp-safe-mode/boot-id.png)
 
-3. Remove the **safeboot** flag, so the VM will boot into normal mode:
+3. Elimine la marca **safeboot** para que la máquina virtual se inicie en modo normal:
 
         bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
-4. Check the boot configuration data to make sure that the **safeboot** flag is removed:
+4. Compruebe los datos de configuración de arranque para asegurarse de que la marca **safeboot** se quita:
 
         bcdedit /store F:\boot\bcd /enum
-5. [Detach the OS disk and recreate the VM](../windows/troubleshoot-recovery-disks-portal.md). Then check whether the issue is resolved.
+5. [Desconecte el disco del sistema operativo y vuelva a crear la máquina virtual](../windows/troubleshoot-recovery-disks-portal.md). A continuación, compruebe si se ha resuelto el problema.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 77f4eeec1aa87f42c90d4e93f98f460a8b54b9a9
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 503e056a3fa87e48f61d26661110b9bb89456a51
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167418"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338529"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Alta disponibilidad de SAP HANA en máquinas virtuales de Azure en Red Hat Enterprise Linux
 
@@ -87,9 +87,9 @@ Para lograr una alta disponibilidad, SAP HANA se instala en dos máquinas virtua
 
 En la instalación de la replicación del sistema de SAP HANA se usa un nombre de host virtual dedicado y direcciones IP virtuales. En Azure, se requiere un equilibrador de carga para usar una dirección IP virtual. En la lista siguiente se muestra la configuración del equilibrador de carga:
 
-* Configuración de front-end: dirección IP 10.0.0.13 para hn1-db
-* Configuración de back-end: se conecta a interfaces de red principales de todas las máquinas virtuales que deben formar parte de la replicación del sistema de HANA.
-* Puerto de sondeo: puerto 62503
+* Configuración de front-end: Dirección IP 10.0.0.13 para hn1-db
+* Configuración de back-end: Se conecta a interfaces de red principales de todas las máquinas virtuales que deben formar parte de la Replicación del sistema de HANA.
+* Puerto de sondeo: Puerto 62503
 * Reglas de equilibrio de carga: 30313 TCP, 30315 TCP, 30317 TCP, 30340 TCP, 30341 TCP, 30342 TCP
 
 ## <a name="deploy-for-linux"></a>Implementación para Linux
@@ -103,13 +103,13 @@ Para implementar la plantilla, siga estos pasos:
 
 1. Abra la [plantilla de base de datos][template-multisid-db] en Azure Portal.
 1. Escriba los siguientes parámetros:
-    * **Identificador del sistema SAP**: escriba el identificador del sistema SAP que se va a instalar. El identificador se usa como prefijo de los recursos que se implementan.
-    * **Tipo de sistema operativo**: seleccione una de las distribuciones de Linux. En este ejemplo, seleccione **RHEL 7**.
-    * **Tipo de base de datos**: seleccione **HANA**.
-    * **Tamaño del sistema SAP**: escriba la cantidad de SAPS que va a proporcionar el nuevo sistema. Si no está seguro de cuántos SAPS necesita el sistema, consulte con el integrador de sistemas o el asociado tecnológico de SAP.
-    * **Disponibilidad del sistema**: seleccione **HA**.
-    * **Nombre de usuario administrador, contraseña de administrador y clave SSH**: se crea un usuario que puede usarse para iniciar sesión en la máquina.
-    * **Id. de subred**: si quiere implementar la máquina virtual en una red virtual existente en la que tiene una subred definida a la que se debe asignar la máquina virtual, asigne un nombre al identificador de esa subred específica. El identificador suele tener este aspecto: **/subscriptions/\<Id. de suscripción/resourceGroups/\<nombre del grupo de recursos>/providers/Microsoft.Network/virtualNetworks/\<nombre de red virtual>/subnets/\<nombre de subred>**. Deje el identificador en blanco si quiere crear una nueva red virtual
+    * **Identificador de sistema SAP**: Escriba el identificador del sistema SAP que se va a instalar. El identificador se usa como prefijo de los recursos que se implementan.
+    * **Tipo de SO**: Seleccione una de las distribuciones de Linux. En este ejemplo, seleccione **RHEL 7**.
+    * **Tipo de base de datos**: Seleccione **HANA**.
+    * **Tamaño del sistema SAP**: Escriba la cantidad de SAPS que va a proporcionar el nuevo sistema. Si no está seguro de cuántos SAPS necesita el sistema, consulte con el integrador de sistemas o el asociado tecnológico de SAP.
+    * **Disponibilidad del sistema**: Seleccione **Alta disponibilidad**.
+    * **Nombre de usuario administrador, contraseña del administrador o clave SSH**: Se crea un usuario nuevo que se puede usar para iniciar sesión en la máquina.
+    * **Identificador de subred**: Si quiere implementar la máquina virtual en una red virtual existente en la que tiene una subred definida a la que se debe asignar la máquina virtual, asigne un nombre al identificador de esa subred específica. El identificador suele tener este aspecto: **/subscriptions/\<Id. de suscripción/resourceGroups/\<nombre del grupo de recursos>/providers/Microsoft.Network/virtualNetworks/\<nombre de red virtual>/subnets/\<nombre de subred>**. Deje el identificador en blanco si quiere crear una nueva red virtual
 
 ### <a name="manual-deployment"></a>Implementación manual
 
@@ -120,9 +120,9 @@ Para implementar la plantilla, siga estos pasos:
 1. Cree un equilibrador de carga (interno).
    * Seleccione la red virtual que creó en el paso 2.
 1. Cree la máquina virtual 1.  
-   Use por lo menos Red Hat Enterprise Linux 7.4 para SAP HANA. Este ejemplo usa la imagen de Red Hat Enterprise Linux 7.4 para SAP HANA <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74forSAPHANA-ARM> Seleccione el conjunto de disponibilidad creado en el paso 3.
+   Use por lo menos Red Hat Enterprise Linux 7.4 para SAP HANA. Este ejemplo usa la imagen de Red Hat Enterprise Linux 7.4 para SAP HANA <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> Seleccione el conjunto de disponibilidad creado en el paso 3.
 1. Cree la máquina virtual 2.  
-   Use por lo menos Red Hat Enterprise Linux 7.4 para SAP HANA. Este ejemplo usa la imagen de Red Hat Enterprise Linux 7.4 para SAP HANA <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74forSAPHANA-ARM> Seleccione el conjunto de disponibilidad creado en el paso 3.
+   Use por lo menos Red Hat Enterprise Linux 7.4 para SAP HANA. Este ejemplo usa la imagen de Red Hat Enterprise Linux 7.4 para SAP HANA <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> Seleccione el conjunto de disponibilidad creado en el paso 3.
 1. Agregue discos de datos.
 1. Configure el equilibrador de carga. Primero, cree un grupo de direcciones IP de front-end:
 
@@ -303,30 +303,30 @@ En los pasos de esta sección se usan los siguientes prefijos:
    Para instalar la replicación del sistema de SAP HANA, siga los pasos en <https://access.redhat.com/articles/3004101>.
 
    * Ejecute el programa **hdblcm** del DVD de HANA. Escriba los siguientes valores en el símbolo del sistema:
-   * Elegir instalación: escriba **1**.
-   * Seleccionar componentes de instalación adicionales: escriba **1**.
-   * Escribir la ruta de instalación [/hana/shared]: seleccione Entrar.
-   * Escribir el nombre de host local [..]: seleccione Entrar.
-   * ¿Desea agregar hosts adicionales al sistema? (y/n) [n]: seleccione Entrar.
-   * Escribir el identificador del sistema de SAP HANA: escriba el SID de HANA, por ejemplo: **HN1**.
-   * Escribir el número de instancia [00]: escriba el número de instancia de HANA. Escribir **03** si usó la plantilla de Azure o ha seguido la sección de implementación manual de este artículo.
-   * Seleccionar el modo de base de datos/escriba el índice [1]: seleccione Entrar.
-   * Seleccionar uso del sistema/escribir el índice [4]: seleccione el valor de uso del sistema.
-   * Escribir ubicación de los volúmenes de datos [/hana/data/HN1]: seleccione Entrar.
-   * Escribir ubicación de los volúmenes de registro [/hana/log/HN1]: seleccione Entrar.
-   * ¿Restringir la asignación de memoria máxima? [n]: seleccione Entrar.
-   * Escribir nombre de host del certificado para el host "..." [...]: seleccione Entrar.
-   * Escribir contraseña de usuario del agente de host de SAP (sapadm): escriba la contraseña de usuario del agente de host.
-   * Confirmar contraseña de usuario del agente de host de SAP (sapadm): escriba de nuevo la contraseña de usuario del agente de host para confirmarla.
-   * Escribir contraseña de administrador del sistema (hdbadm): escriba la contraseña de administrador del sistema.
-   * Confirmar contraseña de administrador del sistema (hdbadm): escriba de nuevo la contraseña de administrador del sistema para confirmarla.
-   * Escribir directorio principal de administrador del sistema [/usr/sap/HN1/home]: seleccione Entrar.
-   * Escribir shell de inicio de sesión de administrador del sistema [/bin/sh]: seleccione Entrar.
-   * Escribir identificador de usuario de administrador del sistema [1001]: seleccione Entrar.
-   * Escribir identificador de grupo de usuarios (sapsys) [79]: seleccione Entrar.
-   * Escribir contraseña de usuario de base de datos (SYSTEM): escriba la contraseña del usuario de la base de datos.
-   * Confirmar contraseña de usuario de base de datos (SYSTEM): escriba de nuevo la contraseña del usuario de la base de datos para confirmarla.
-   * ¿Reiniciar el sistema tras el reinicio de la máquina? [n]: seleccione Entrar.
+   * Elija la instalación: Especifique **1**.
+   * Seleccione los componentes adicionales para la instalación: Especifique **1**.
+   * Escriba la ruta de acceso de instalación [/hana/shared]: Presione Entrar.
+   * Enter Local Host Name [..]: Presione Entrar.
+   * ¿Desea agregar hosts adicionales al sistema? (s/n) [n]: Presione Entrar.
+   * Escriba el identificador del sistema de SAP HANA: Escriba el SID de HANA, por ejemplo: **HN1**.
+   * Escriba el número de instancia [00]: Escriba el número de instancia de HANA. Escribir **03** si usó la plantilla de Azure o ha seguido la sección de implementación manual de este artículo.
+   * Seleccione Database Mode (Modo de base de datos) / escriba el índice [1]: Presione Entrar.
+   * Seleccione Uso del sistema / escriba el índice [4]: Seleccione el valor de uso del sistema.
+   * Escriba la ubicación de los volúmenes de datos [/hana/data/HN1]: Presione Entrar.
+   * Escriba la ubicación de los volúmenes de registros [/hana/log/HN1]: Presione Entrar.
+   * ¿Restringir la asignación de memoria máxima? [n]: Presione Entrar.
+   * Escriba el nombre del host del certificado para el host '...' [...]: Presione Entrar.
+   * Escriba la contraseña del usuario del agente de host de SAP (sapadm): Escriba la contraseña de usuario del agente de host.
+   * Confirme la contraseña del usuario del agente de host de SAP (sapadm): Escriba de nuevo la contraseña de usuario del agente de host para confirmarla.
+   * Escriba la contraseña del administrador del sistema (hdbadm): Escriba la contraseña de administrador del sistema.
+   * Confirme la contraseña del administrador del sistema (hdbadm): Escriba de nuevo la contraseña de administrador del sistema para confirmarla.
+   * Escriba el directorio principal del administrador de sistema [/usr/sap/HN1/home]: Presione Entrar.
+   * Escriba el shell de inicio de sesión del administrador de sistema [/bin/sh]: Presione Entrar.
+   * Escriba el identificador de usuario del administrador de sistema [1001]: Presione Entrar.
+   * Escriba el identificador del grupo de usuarios (sapsys) [79]: Presione Entrar.
+   * Escriba la contraseña del usuario (SYSTEM) de la base de datos: Escriba la contraseña de usuario de base de datos.
+   * Confirme la contraseña del usuario (SYSTEM) de la base de datos: Escriba de nuevo la contraseña de usuario de base de datos para confirmarla.
+   * ¿Reiniciar el sistema tras el reinicio de la máquina? [n]: Presione Entrar.
    * ¿Desea continuar? (s/n): valide el resumen. Escriba **s** para continuar.
 
 1. **[A]** Actualización del agente de host de SAP.

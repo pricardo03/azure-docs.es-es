@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: magattus
-ms.openlocfilehash: 0bb52943eac3e35b5012e3f54bfb841cf491ed18
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: af8e57f39b5b83b1d1be09c29d8b6eb5d49c7b6c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091818"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309293"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Descripción de la facturación de Azure CDN
 
@@ -40,7 +40,7 @@ Una región de facturación es un área geográfica que se usa para determinar q
 
 Para obtener información sobre las regiones de punto de presencia (POP), vea [Ubicaciones POP de Azure CDN por región](https://docs.microsoft.com/azure/cdn/cdn-pop-locations). Por ejemplo, una ubicación POP de México se encuentra en la región de Norteamérica y, por tanto, se incluye en la zona 1. 
 
-Para obtener información sobre los precios de Azure CDN, consulte [Precios de Content Delivery Network](https://azure.microsoft.com/is-is/pricing/details/cdn/).
+Para obtener información sobre los precios de Azure CDN, consulte [Precios de Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/).
 
 ## <a name="how-are-delivery-charges-calculated-by-region"></a>¿Cómo se calculan los gastos de entrega por región?
 La región de facturación de Azure CDN se basa en la ubicación del servidor de origen que entrega el contenido al usuario final. El destino (ubicación física) del cliente no se considera región de facturación.

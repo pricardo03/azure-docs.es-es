@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/22/2018
+ms.date: 12/13/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: b53f679f6f93dd5d4889fbe51f8b5caf62fc1a36
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8111d80d0888455fbdf3ccf37e723fe348a62bee
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236728"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435011"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Servicio Azure Import/Export: preguntas frecuentes 
 Estas son algunas de las preguntas que puede plantearse, junto con sus respuestas, al usar el servicio Azure Import/Export para transferir datos a Azure Storage. Las preguntas y respuestas se organizan en las categorías siguientes:
@@ -44,18 +44,18 @@ Sí. Para más información, consulte [Flujo de trabajo de copia de seguridad si
 
 ### <a name="can-i-purchase-drives-for-importexport-jobs-from-microsoft"></a>¿Puedo adquirir unidades de Microsoft para los trabajos de importación y exportación?
 
-No. Deberá enviar sus propias unidades para los trabajos de importación y exportación.
+ No. Deberá enviar sus propias unidades para los trabajos de importación y exportación.
 
 
 ## <a name="preparing-disks-for-importexport"></a>Preparación de discos para importación y exportación
 
 ### <a name="can-i-skip-the-drive-preparation-step-for-an-import-job-can-i-prepare-a-drive-without-copying"></a>¿Puedo omitir el paso de preparación de las unidades en un trabajo de importación? ¿Puedo preparar una unidad sin necesidad de copiar?
 
-No. Todas las unidades usadas para importar los datos se deben preparar con la herramienta WAImportExport de Azure. Use la herramienta para copiar también los datos en la unidad.
+ No. Todas las unidades usadas para importar los datos se deben preparar con la herramienta WAImportExport de Azure. Use la herramienta para copiar también los datos en la unidad.
 
 ### <a name="do-i-need-to-perform-any-disk-preparation-when-creating-an-export-job"></a>¿Es necesario realizar alguna preparación en el disco al crear un trabajo de exportación?
 
-No. Se recomiendan algunas comprobaciones previas. Para comprobar el número de discos necesarios, use el comando PreviewExport de la herramienta WAImportExport. Para más información, consulte [Vista previa de uso de disco para un trabajo de exportación](https://msdn.microsoft.com/library/azure/dn722414.aspx). El comando le ayuda a obtener una vista previa del uso del disco para los blobs que ha seleccionado, en función del tamaño de las unidades que se van a usar. Compruebe también que puede leer y escribir en la unidad de disco duro que se va a enviar para el trabajo de exportación.
+ No. Se recomiendan algunas comprobaciones previas. Para comprobar el número de discos necesarios, use el comando PreviewExport de la herramienta WAImportExport. Para más información, consulte [Vista previa de uso de disco para un trabajo de exportación](https://msdn.microsoft.com/library/azure/dn722414.aspx). El comando le ayuda a obtener una vista previa del uso del disco para los blobs que ha seleccionado, en función del tamaño de las unidades que se van a usar. Compruebe también que puede leer y escribir en la unidad de disco duro que se va a enviar para el trabajo de exportación.
 
 ## <a name="importexport-jobs"></a>Trabajos de importación y exportación
 
@@ -66,7 +66,10 @@ Sí. Puede cancelar un trabajo si el estado es **Creando** o **Enviando**. Super
 Puede ver el estado de los trabajos completados durante 90 días. Los trabajos completados se eliminarán transcurridos 90 días.
 
 ### <a name="if-i-want-to-import-or-export-more-than-10-drives-what-should-i-do"></a>Si deseo importar o exportar más de 10 unidades, ¿qué debo hacer?
-Un trabajo de importación o exportación solo puede hacer referencia a 10 unidades en un único trabajo. Para enviar más de 10 unidades de disco, debe crear varios trabajos. Las unidades asociadas al mismo trabajo se deben enviar juntas en el mismo paquete. Para más información e instrucciones cuando la capacidad de los datos abarca varios trabajos de importación de discos, póngase en contacto con Microsoft en bulkimport@microsoft.com.                                                              
+Un trabajo de importación o exportación solo puede hacer referencia a 10 unidades en un único trabajo. Para enviar más de 10 unidades de disco, debe crear varios trabajos. Las unidades asociadas al mismo trabajo se deben enviar juntas en el mismo paquete. Para más información e instrucciones cuando la capacidad de los datos abarca varios trabajos de importación de discos, póngase en contacto con Microsoft en bulkimport@microsoft.com. 
+
+### <a name="the-uploaded-blob-shows-status-as-lease-expired-what-should-i-do"></a>El blob cargado muestra el estado como concesión expirada. ¿Cuál debo hacer?
+Puede omitir el campo de concesión expirada. El servicio Import/Export toma la concesión del blob durante la carga para asegurarse de que ningún otro proceso puede actualizar el blob en paralelo. La concesión expirada implica que el servicio Import/Export ya no se está cargando en él y que el blob está disponible para su uso. 
 
 ## <a name="shipping-disks"></a>Envío de discos
 
@@ -104,7 +107,7 @@ El centro de datos de Azure le devolverá la unidad que no cumple con los requis
 
 ### <a name="does-the-service-format-the-drives-before-returning-them"></a>¿El servicio formatea las unidades antes de devolverlas?
 
-No. Todas las unidades están cifradas con BitLocker.
+ No. Todas las unidades están cifradas con BitLocker.
 
 ### <a name="how-can-i-access-data-that-is-imported-by-this-service"></a>¿Cómo puedo acceder a los datos importados por este servicio?
 
@@ -119,7 +122,7 @@ Al preparar una unidad de disco duro para un trabajo de importación, el destino
 Depende. Al preparar la unidad, puede especificar que los archivos de destino se sobrescriban u omitan mediante el campo del archivo CSV de conjunto de datos llamado Disposition:<rename|no-overwrite|overwrite>. De forma predeterminada, el servicio cambia el nombre de los nuevos archivos en lugar de sobrescribir los blobs o archivos existentes.
 
 ### <a name="is-the-waimportexport-tool-compatible-with-32-bit-operating-systems"></a>¿Es compatible la herramienta WAImportExport con sistemas operativos de 32 bits?
-No. La herramienta WAImportExport solo es compatible con sistemas operativos de Windows de 64 bits. Para obtener una lista completa de sistemas operativos admitidos, vaya a [Sistemas operativos compatibles](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements). 
+ No. La herramienta WAImportExport solo es compatible con sistemas operativos de Windows de 64 bits. Para obtener una lista completa de sistemas operativos admitidos, vaya a [Sistemas operativos compatibles](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements). 
 
 
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>¿Qué tamaño máximo de blobs en bloques y blobs en páginas admite Azure Import/Export?

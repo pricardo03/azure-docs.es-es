@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: ed0c387f9785336fbf18b3fd3c0cd9a7b09df633
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: efa367157a8fd896cdc9680bf2ab6ba6a9e3dbb0
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279934"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53430040"
 ---
 Transacciones clave (N.º máximo de transacciones permitidas en 10 segundos, por almacén y región<sup>1</sup>):
 
@@ -23,6 +23,20 @@ Transacciones clave (N.º máximo de transacciones permitidas en 10 segundos, po
 |ECC P-521|5|1000|10|2000|
 |ECC SECP256K1|5|1000|10|2000|
 |
+
+> [!NOTE]
+> Si observa la tabla siguiente, verá que para las claves respaldadas por software se permiten 2000 transacciones cada 10 segundos, y para las claves respaldadas por HSM, 1000 transacciones cada 10 segundos. La proporción de transacciones respaldadas por software para 3072 claves a 2048 claves es de 500/2000 o 0,4. Esto significa que si un cliente realiza 500 transacciones de 3072 claves en 10 segundos, alcanza su límite máximo y no puede realizar otras operaciones de clave. 
+   
+|Tipo de clave  | Clave de software |Clave HSM  |
+|---------|---------|---------|
+|2048 bits de RSA     |    2000     |   1000    |
+|3072 bits de RSA     |     500    |    250     |
+|4096 bits de RSA     |    125     |    250     |
+|ECC P-256     |    2000     |  1000     |
+|ECC P-384     |    2000     |  1000     |
+|ECC P-521     |    2000     |  1000     |
+|ECC SECP256K1     |    2000     |  1000     |
+
 
 Secretos, claves de cuentas de almacenamiento administradas y transacciones de almacén:
 | Tipo de transacciones | N.º máximo de transacciones permitidas en 10 segundos, por almacén y región<sup>1</sup> |

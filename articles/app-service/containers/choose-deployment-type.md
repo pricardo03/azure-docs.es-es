@@ -1,11 +1,11 @@
 ---
-title: 'Implementación de Azure App Service en Linux: ¿imagen personalizada, varios contenedores o imagen de plataforma integrada?  | Microsoft Docs'
+title: Implementación de una imagen personalizada, de varios contenedores o de una imagen integrada en Azure App Service | Microsoft Docs
 description: Cómo decidir entre la implementación de contenedores de Docker personalizada, varios contenedores y un marco de trabajo de la aplicación integrado para App Service en Linux
 keywords: azure app service, aplicación web, linux, oss
 services: app-service
 documentationCenter: ''
 authors: msangapu
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: ''
 ms.service: app-service
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: msangapu
-ms.openlocfilehash: c619ae164f8f8b6e94d9061c4346de58bd6cb795
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.custom: seodec18
+ms.openlocfilehash: d53fc8b3971a1003b4f5d9b9e52f86ee73829cc2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319445"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315828"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>¿Imagen personalizada, varios contenedores o imagen de plataforma integrada?
 
@@ -35,8 +36,8 @@ ms.locfileid: "49319445"
 Los factores principales a tener en cuenta son:
 
 - **Disponibilidad de Docker en el flujo de trabajo de desarrollo**: el desarrollo de una imagen personalizada requiere un conocimiento básico del flujo de desarrollo de Docker. La implementación de una imagen personalizada en una aplicación web requiere la publicación de la imagen personalizada en un host de repositorio, como Docker Hub. Si está familiarizado con Docker y puede agregar tareas de Docker al flujo de trabajo de compilación, o si ya publica su aplicación como una imagen de Docker, una imagen personalizada es casi seguro la mejor opción.
-- **Arquitectura de varias capas**: implementación de varios contenedores, como una capa de la aplicación web y una capa de API, para separar las funcionalidades mediante varios contenedores. 
-- **Rendimiento de la aplicación**: aumento del rendimiento de la aplicación de varios contenedores mediante una capa de caché como Redis. Para conseguir esto seleccione varios contenedores.
+- **Arquitectura de varias capas**: implementa varios contenedores, como una capa de la aplicación web y una capa de API, para separar las funcionalidades mediante varios contenedores. 
+- **Rendimiento de la aplicación**: aumenta el rendimiento de la aplicación de varios contenedores mediante una capa de caché como Redis. Para conseguir esto seleccione varios contenedores.
 - **Requisitos únicos de tiempo de ejecución**: las imágenes de plataforma integrada están diseñadas para satisfacer las necesidades de la mayoría de aplicaciones, pero están limitadas en cuanto a su capacidad de personalización. La aplicación puede tener dependencias únicas u otros requisitos de tiempo de ejecución que superan a aquellos de los que son capaces las imágenes integradas.
 - **Requisitos de compilación**: con la [implementación continua](../app-service-continuous-deployment.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), puede tener funcionando su aplicación en Azure directamente desde el código fuente. No se necesita ningún proceso de compilación o publicación externo. Sin embargo, hay un límite para la capacidad de personalización y la disponibilidad de las herramientas de compilación en el motor de implementación [Kudu](https://github.com/projectkudu/kudu/wiki). La aplicación puede sobrepasar las funcionalidades de Kudu a medida que sus dependencias o requisitos aumentan para la lógica de compilación personalizada.
 - **Requisitos de lectura y escritura en disco**: todas las aplicaciones web se asignan a un volumen de almacenamiento de contenido web. Este volumen, respaldado por Azure Storage, se monta en `/home` en el sistema de archivos de la aplicación. A diferencia de los archivos del sistema de archivos de contenedor, los archivos del volumen de contenido son accesibles en todas las instancias de escalado de una aplicación y las modificaciones se conservan entre reinicios de la aplicación. Sin embargo, la latencia de disco del volumen de contenido es más elevada y más variable que la latencia del sistema de archivos de contenedor local, y el acceso puede verse afectado por las actualizaciones de la plataforma, el tiempo de inactividad imprevisto y los problemas de conectividad de red. Las aplicaciones que requieren mayormente acceso de solo lectura a archivos de contenido pueden beneficiarse de la implementación de imágenes personalizadas, que coloca los archivos en el sistema de archivos de imagen en lugar de en el volumen de contenido.

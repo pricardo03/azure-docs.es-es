@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 6e9d44c4b64e41b04c40d0c511a638e539752da4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 213bf0cc063fa1f756a6baeacc47aadec0857a7c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435033"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270525"
 ---
 # <a name="configure-service-health-alerts-with-opsgenie"></a>Configuración de alertas de estado del servicio con OpsGenie
 
@@ -48,15 +48,15 @@ Este artículo muestra cómo configurar las alertas de estado del servicio de Az
 
 ## <a name="create-an-alert-using-opsgenie-in-the-azure-portal"></a>Creación de una alerta con OpsGenie en Azure Portal
 ### <a name="for-a-new-action-group"></a>Para un nuevo grupo de acciones:
-1. Siga los pasos del 1 al 8 en [Creación de una alerta basada en una notificación de mantenimiento del servicio para un nuevo grupo de acciones con Azure Portal](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
+1. Siga los pasos del 1 al 8 en [Creación de una alerta basada en una notificación de mantenimiento del servicio para un nuevo grupo de acciones con Azure Portal](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 1. Defina la lista de **acciones**:
 
-    a. **Tipo de acción**: *webhook*
+     a. **Tipo de acción:** *Webhook*
 
-    b. **Detalles**: la **dirección URL de integración** de OpsGenie guardada anteriormente.
+    b. **Detalles:** la **dirección URL de integración** de OpsGenie guardada anteriormente.
 
-    c. **Nombre**: el identificador, alias o nombre de webhook.
+    c. **Nombre:** el identificador, alias o nombre de webhook.
 
 1. Seleccione **Guardar** cuando termine para crear la alerta.
 
@@ -69,16 +69,16 @@ Este artículo muestra cómo configurar las alertas de estado del servicio de Az
 
 1. Defina la lista de **acciones**:
 
-    a. **Tipo de acción**: *webhook*
+     a. **Tipo de acción:** *Webhook*
 
-    b. **Detalles**: la **dirección URL de integración** de OpsGenie guardada anteriormente.
+    b. **Detalles:** la **dirección URL de integración** de OpsGenie guardada anteriormente.
 
-    c. **Nombre**: el identificador, alias o nombre de webhook.
+    c. **Nombre:** el identificador, alias o nombre de webhook.
 
 1. Cuando termine de actualizar el grupo de acciones, seleccione **Guardar**.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Prueba de la integración de webhook a través de una solicitud HTTP POST
-1. Cree la carga de estado del servicio que desee enviar. Puede encontrar una carga de webhook de estado del servicio de ejemplo en [Webhooks para alertas del registro de actividad de Azure](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Cree la carga de estado del servicio que desee enviar. Puede encontrar una carga de webhook de estado del servicio de ejemplo en [Webhooks para alertas del registro de actividad de Azure](../azure-monitor/platform/activity-log-alerts-webhook.md).
 
 1. Cree una solicitud HTTP POST de la siguiente manera:
 
@@ -95,6 +95,6 @@ Este artículo muestra cómo configurar las alertas de estado del servicio de Az
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga información acerca de cómo [configurar notificaciones de webhook para los sistemas de administración de problemas existentes](service-health-alert-webhook-guide.md).
-- Revise el [Esquema de webhook de alertas del registro de actividad](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md). 
+- Revise el [Esquema de webhook de alertas del registro de actividad](../azure-monitor/platform/activity-log-alerts-webhook.md). 
 - Más información acerca de las [Notificaciones del estado del servicio](../monitoring-and-diagnostics/monitoring-service-notifications.md).
-- Más información sobre los [grupos de acciones](../monitoring-and-diagnostics/monitoring-action-groups.md).
+- Más información sobre los [grupos de acciones](../azure-monitor/platform/action-groups.md).

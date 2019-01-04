@@ -1,6 +1,7 @@
 ---
-title: 'Cambio de tamaño y recorte de miniaturas de Bing: Bing Image Search API'
-description: Obtenga información sobre cómo cambiar el tamaño de las miniaturas que se incluyen en la respuesta de Bing Image Search API, así como recortarlas.
+title: 'Cambio de tamaño y recorte de miniaturas: Bing Image Search API'
+titleSuffix: Azure Cognitive Services
+description: Cambio de tamaño y recorte de las miniaturas que se incluyen en las respuestas de Bing Image Search API.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -10,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: de82cc5554af91294dda3826dfb394cc94dbf3d0
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.custom: seodec2018
+ms.openlocfilehash: 3bb360cd95dcbfb95464b2b259dcebfce7065256
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296234"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256398"
 ---
-# <a name="resizing-and-cropping-thumbnail-images"></a>Cambio de tamaño y recorte de imágenes miniatura
+# <a name="resize-and-crop-thumbnail-images"></a>Cambio de tamaño y recorte de miniaturas
 
 Cuando se procesa una consulta de búsqueda, Bing genera información sobre las miniaturas de todas las imágenes de la [respuesta](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#bing-image-search-response-format). Esta información puede utilizarse para mostrar todas las miniaturas devueltas o un subconjunto de ellas. Si solo se va a mostrar un subconjunto, proporcione al usuario una opción para que pueda consultar las imágenes restantes.
 

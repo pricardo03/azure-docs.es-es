@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: b59d503b8aadef9e8f9c2d7db71ff60aee3b6387
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 9d9e97d81e33487a5f23197912eba3802e83a32e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300717"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257383"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integración del centro de datos de Azure Stack: identidad
 Puede implementar Azure Stack mediante Azure Active Directory (Azure AD) o con los Servicios de federación de Active Directory (AD FS) como proveedores de identidades. Deberá escoger antes de implementar Azure Stack. La implementación mediante AD FS también se conoce como implementación de Azure Stack en modo desconectado.
@@ -131,7 +131,7 @@ Se requiere la siguiente información como entrada para los parámetros de autom
 
 |Parámetro|DESCRIPCIÓN|Ejemplo|
 |---------|---------|---------|
-|CustomAdfsName|Nombre del proveedor de notificaciones. <cr>Aparece de este modo en la página de aterrizaje de AD FS.|Contoso|
+|CustomAdfsName|Nombre del proveedor de notificaciones.<br>Aparece de este modo en la página de aterrizaje de AD FS.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|Vínculo de metadatos de federación|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 
@@ -215,7 +215,7 @@ Para este procedimiento, utilice un equipo que pueda comunicarse con el punto de
 
 Microsoft proporciona un script que configura la relación de confianza para usuario autenticado, incluidas las reglas de transformación de notificaciones. El uso del script es opcional, ya que se pueden ejecutar los comandos manualmente.
 
-Puede descargar el script de la aplicación auxiliar desde las [herramientas de Azure Stack](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) en Github.
+Puede descargar el script del asistente desde las [herramientas de Azure Stack](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) de GitHub.
 
 Si decide ejecutar manualmente los comandos, siga estos pasos:
 
@@ -278,7 +278,7 @@ Si decide ejecutar manualmente los comandos, siga estos pasos:
    > [!IMPORTANT]  
    > Debe usar el complemento MMC de AD FS para configurar las reglas de autorización de emisión cuando se usa AD FS de Windows Server 2012 o 2012 R2.
 
-4. Cuando se utiliza el explorador Internet Explorer o Microsoft Edge para tener acceso a Azure Stack, debe omitir los enlaces de token. En caso contrario, se producirá un error al intentar iniciar sesión. En la instancia de AD FS o en un miembro de la granja de servidores, ejecute el siguiente comando:
+4. Cuando se utiliza el explorador Internet Explorer o Edge para tener acceso a Azure Stack, debe omitir los enlaces de token. En caso contrario, se producirá un error al intentar iniciar sesión. En la instancia de AD FS o en un miembro de la granja de servidores, ejecute el siguiente comando:
 
    > [!note]  
    > Este paso no es aplicable cuando se usa AD FS con Windows Server 2012 o 2012 R2. No pasa nada si omite este comando y continúa con la integración.

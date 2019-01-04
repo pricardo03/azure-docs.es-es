@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 04708806b9e1ba224e7b438f11c68dca82d6320e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 60beecc0895fbfb5d3af7817e8b76e0819c89a99
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448825"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835393"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Tutorial: Integración de Azure Active Directory con ScaleX Enterprise
 
@@ -112,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_url1.png)
 
-    a. En el cuadro de texto **Identificador**, escriba el valor con el siguiente patrón: `https://platform.rescale.com/saml2/<company id>/`
+     a. En el cuadro de texto **Identificador**, escriba el valor con el siguiente patrón: `https://platform.rescale.com/saml2/<company id>/`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://platform.rescale.com/saml2/<company id>/acs/`.
 
@@ -123,13 +123,13 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     En el cuadro de texto **URL de inicio de sesión**, escriba el valor con el siguiente patrón: `https://platform.rescale.com/saml2/<company id>/sso/`
      
     > [!NOTE] 
-    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta o URL de inicio de sesión. Póngase en contacto con el [equipo de soporte de cliente de ScaleX Enterprise](http://info.rescale.com/contact_sales) para obtener estos valores. 
+    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta o URL de inicio de sesión. Póngase en contacto con el [equipo de soporte de cliente de ScaleX Enterprise](https://info.rescale.com/contact_sales) para obtener estos valores. 
 
 1. La aplicación ScaleX Enterprise espera las aserciones de SAML en un formato específico, que requiere que se modifiquen las asignaciones de atributos personalizados en la configuración de los atributos del token de SAML. Haga clic en **Ver y editar todos los demás atributos de usuario** para abrir la configuración de atributos personalizados.
 
     ![Configurar inicio de sesión único](./media/scalexenterprise-tutorial/scalex_attributes.png)
     
-    a. Haga clic con el botón derecho en el **nombre** del atributo y luego haga clic en Eliminar.
+     a. Haga clic con el botón derecho en el **nombre** del atributo y luego haga clic en Eliminar.
 
     ![Configurar inicio de sesión único](./media/scalexenterprise-tutorial/delete_attribute_name.png)
 
@@ -166,24 +166,24 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/scalexenterprise-tutorial/scalex_admin_save.png) 
     
-    a. Seleccione **"Create any user who can authenticate with SSO"** (Crear cualquier usuario que se pueda autenticar con SSO).
+     a. Seleccione **"Create any user who can authenticate with SSO"** (Crear cualquier usuario que se pueda autenticar con SSO).
 
     b. **Service Provider saml** (SAML del proveedor de servicios): pegue el valor ***urn:oasis:names:tc:SAML:2.0:nameid-format:persistent***.
 
     c. **Name of Identity Provider email field in ACS response** (Nombre de campo de correo electrónico del proveedor de identidades en respuestas de ACS): pegue el valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    d. **Identity Provider EntityDescriptor Entity ID** (Id. de entidad EntityDescriptor del proveedor de identidades): pegue el valor del **identificador de entidad en SAML** que ha copiado de Azure Portal.
+    d. **Identity Provider EntityDescriptor Entity ID** (Identificador de entidad de EntityDescriptor del proveedor de identidades): pegue el valor de **SAML Entity ID** (Id. de entidad de SAML) copiado de Azure Portal.
 
-    e. **Identity Provider SingleSignOnService URL** (Dirección URL del servicio de inicio de sesión único del proveedor de identidades): pegue la **dirección URL del servicio de inicio de sesión único de SAML** de Azure Portal.
+    e. **Identity Provider SingleSignOnService URL** (Dirección URL de SingleSignOnService del proveedor de identidades): pegue la **URL del servicio de inicio de sesión único de SAML** de Azure Portal.
 
-    f. **Identity Provider public X509 certificate** (Certificado X509 público del proveedor de identidades): abra el certificado X509 descargado de Azure Portal en el Bloc de notas y pegue el contenido en este cuadro. Asegúrese de que no haya saltos de línea en el medio del contenido del certificado.
+    f. **Identity Provider public X509 certificate** (Certificado X509 público del proveedor de identidades): abra el certificado X509 descargado de Azure en el Bloc de notas y pegue el contenido en este cuadro. Asegúrese de que no haya saltos de línea en el medio del contenido del certificado.
     
-    g. Active las casillas siguientes: **Enabled, Encrypt NameID y Sign AuthnRequests.** (Habilitado, Cifrar Id. de nombre y Firmar solicitudes de autenticación).
+    g. Active las siguientes casillas: **Enabled (Habilitado), Encrypt NameID (Cifrar NameID) y Sign AuthnRequests (Firmar AuthnRequests).**
 
     h. Haga clic en **Update SSO Settings** (Actualizar configuración de SSO) para guardar la configuración.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -209,7 +209,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/scalexenterprise-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 

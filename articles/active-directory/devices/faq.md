@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 3fd0dfb327e925ecb28a7ca12e03b79c873118dc
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a0cfd65aa2444956336e5363d20acab61a404c68
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309351"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309185"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory
 
-**P: He registrado el dispositivo hace poco. ¿Por qué no puedo ver el dispositivo en mi información del usuario de Azure Portal? O bien, ¿por qué está marcado el propietario del dispositivo como N/D para los dispositivos híbridos unidos a Azure AD?**
-**R:** Los dispositivos híbridos de Windows 10 que están unidos a Azure AD no aparecen en los dispositivos del usuario.
+**P: He registrado el dispositivo hace poco. ¿Por qué no puedo ver el dispositivo en mi información del usuario de Azure Portal? O bien, ¿por qué el propietario del dispositivo está marcado como N/D para los dispositivos unidos a Azure AD híbrido?**
+**R:** los dispositivos Windows 10 que están unidos a Azure AD híbrido no aparecen bajo los dispositivos del USUARIO.
 Debe usar la vista Todos los dispositivos de Azure Portal. También puede usar el cmdlet [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) de PowerShell.
 
 Los únicos que aparecen entre los dispositivos del USUARIO son los siguientes:
@@ -38,7 +38,7 @@ Los únicos que aparecen entre los dispositivos del USUARIO son los siguientes:
 
 **P: ¿Cómo puedo saber cuál es el estado de registro del dispositivo del cliente?**
 
-**R:** Puede usar Azure Portal, ir a Todos los dispositivos y buscar el dispositivo mediante el identificador de dispositivo. Compruebe el valor en la columna de tipo de unión. A veces, puede deberse a que el dispositivo se restableció o a que se volvió a crear su imagen. Por lo tanto, también es esencial comprobar el estado de registro del dispositivo:
+**R:** Puede usar Azure Portal, ir a Todos los dispositivos y buscar el dispositivo mediante el identificador de dispositivo. Compruebe el valor en la columna de tipo de unión. A veces, puede deberse a que el dispositivo se restableció o a que se restableció su imagen inicial. Por lo tanto, también es esencial comprobar el estado de registro del dispositivo:
 
 - En dispositivos Windows 10 y Windows Server 2016 o posteriores, ejecute dsregcmd.exe /status.
 - En las versiones anteriores del sistema operativo, ejecute "%programFiles%\Microsoft Workplace Join\autoworkplace.exe"
@@ -53,7 +53,7 @@ Los únicos que aparecen entre los dispositivos del USUARIO son los siguientes:
 
 **P: He realizado la eliminación en Azure Portal o mediante Windows PowerShell, pero el estado local en el dispositivo indica que todavía está registrado.**
 
-**R:** Se debe al diseño. El dispositivo no puede acceder a los recursos en la nube. 
+**R:** Esto es así por diseño. El dispositivo no puede acceder a los recursos en la nube. 
 
 Si desea volver a registrar el dispositivo, deberá realizar algunas acciones manualmente. 
 
@@ -96,7 +96,7 @@ En las versiones anteriores del sistema operativo Windows que están unidas a un
 
 ---
 
-# <a name="azure-ad-join-faq"></a>P+F de Unión a Azure AD
+## <a name="azure-ad-join-faq"></a>P+F de Unión a Azure AD
 
 **P: ¿Cómo se separa un dispositivo unido a Azure AD localmente en el dispositivo?**
 
@@ -123,12 +123,12 @@ Los usuarios eliminados o deshabilitados que no han iniciado sesión anteriormen
 
 **P: Mis usuarios no pueden buscar impresoras desde dispositivos unidos a Azure AD. ¿Cómo se puede habilitar la impresión desde dispositivos unidos a Azure AD?**
 
-**R:** Para implementar impresoras para dispositivos unidos a Azure AD, consulte el artículo sobre [la impresión en nube híbrida](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Necesitará un servidor de Windows Server local para implementar la impresión en nube híbrida. Actualmente, el servicio de impresión basado en la nube no está disponible. 
+**R:** Para implementar impresoras para dispositivos unidos a Azure AD, consulte el artículo sobre la [impresión en nube híbrida](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Necesitará un servidor de Windows Server local para implementar la impresión en nube híbrida. Actualmente, el servicio de impresión basado en la nube no está disponible. 
 
 ---
 
 **P: ¿Cómo me uno a un dispositivo remoto unido a Azure AD?**
-**R:** Consulte el artículo https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc para detalles.
+**R:** Consulte el artículo https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc para obtener más información.
 
 ---
 
@@ -144,7 +144,7 @@ Los usuarios eliminados o deshabilitados que no han iniciado sesión anteriormen
 
 ---
 
-**P: ¿Por qué me aparece el mensaje “El nombre de usuario o la contraseña no son correctos” para un dispositivo que ya he unido a Azure AD?**
+**P: ¿Por qué me aparece el mensaje "El nombre de usuario o la contraseña no son correctos" para un dispositivo que ya he unido a Azure AD?**
 
 **R:** Las razones comunes para este escenario son:
 
@@ -170,7 +170,7 @@ Los usuarios eliminados o deshabilitados que no han iniciado sesión anteriormen
 
 ---
 
-# <a name="hybrid-azure-ad-join-faq"></a>P+F de Unión a Azure AD híbrido
+## <a name="hybrid-azure-ad-join-faq"></a>P+F de Unión a Azure AD híbrido
 
 **P: ¿Dónde puedo encontrar información de solución de problemas para diagnosticar errores de Unión a Azure AD híbrido?**
 
@@ -183,7 +183,7 @@ Los usuarios eliminados o deshabilitados que no han iniciado sesión anteriormen
 
 ---
 
-# <a name="azure-ad-register-faq"></a>P+F de Registro de Azure AD
+## <a name="azure-ad-register-faq"></a>P+F de Registro de Azure AD
 
 **P: ¿Puedo registrar los dispositivos BYOD de Android o iOS?**
 
@@ -191,7 +191,7 @@ Los usuarios eliminados o deshabilitados que no han iniciado sesión anteriormen
 
 **P: ¿Cómo puedo registrar un dispositivo macOS?**
 
-**R:** Para registrar el dispositivo Mac OS:
+**R:** Para registrar el dispositivo macOS:
 
 1.  [Cree una directiva de cumplimiento](https://docs.microsoft.com/intune/compliance-policy-create-mac-os).
 2.  [Defina una directiva de acceso condicional para dispositivos de Mac OS](../active-directory-conditional-access-azure-portal.md). 

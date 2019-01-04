@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
-ms.openlocfilehash: 2dc965547511d27ed43a88c1f45b50593b30a937
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d8d6df221a8c520cea5e6e938447ffd881e7374c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347943"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322779"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Tutorial: Configuración de Zendesk para el aprovisionamiento automático de usuarios
 
@@ -77,6 +77,10 @@ Antes de configurar y habilitar el aprovisionamiento automático de usuarios, de
 
 ### <a name="important-tips-for-assigning-users-to-zendesk"></a>Sugerencias importantes para asignar usuarios a Zendesk
 
+*    Los roles de Zendesk se rellenan automática y dinámicamente en la interfaz de usuario de Azure Portal actualmente. Antes de asignar roles de Zendesk a los usuarios, asegúrese de que se ha completado una sincronización inicial con Zendesk para recuperar los roles más recientes en el inquilino de Zendesk.
+
+*    Se recomienda asignar un único usuario de Azure AD a Zendesk para probar la configuración inicial de aprovisionamiento automático de usuarios. Más tarde, se pueden asignar otros usuarios o grupos una vez realizadas las pruebas correctamente.
+  
 *   Se recomienda asignar un único usuario de Azure AD a Zendesk para probar la configuración de aprovisionamiento automático de usuarios. Más tarde, se pueden asignar otros usuarios o grupos.
 
 *   Al asignar un usuario a Zendesk, debe seleccionar un rol válido específico de la aplicación (si está disponible) en el cuadro de diálogo de asignación. Los usuarios con el rol de **Acceso predeterminado** quedan excluidos del aprovisionamiento.

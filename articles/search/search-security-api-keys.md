@@ -1,5 +1,5 @@
 ---
-title: Crear, administrar y proteger las claves de API de consulta para Azure Search | Microsoft Docs
+title: 'Creación, administración y protección de las claves de API de consulta y administración: Azure Search'
 description: Las claves de API controlan el acceso al punto de conexión de servicio. Las claves de administración conceden acceso de escritura. Las claves de consulta se pueden crear para el acceso de solo lectura.
 author: HeidiSteen
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: heidist
-ms.openlocfilehash: 2ec720f26cfbadb9963ff3991ad1795c9b30c136
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.custom: seodec2018
+ms.openlocfilehash: 6ba63fa776e92dd2f8035cfbbdb8cea2860d106f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284988"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316938"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Crear y administrar claves de API para un servicio de Azure Search
 
@@ -65,7 +66,7 @@ Si vuelve a generar claves primarias y secundarias al mismo tiempo, las aplicaci
 ## <a name="secure-api-keys"></a>Protección de las claves de API
 La seguridad de las claves se garantiza mediante la restricción del acceso a través del portal o de las interfaces de Resource Manager (PowerShell o interfaz de línea de comandos). Como se ha indicado, los administradores de suscripciones pueden ver y volver a generar todas las claves de API. Como medida de precaución, revise las asignaciones de roles para conocer quién tiene acceso a las claves de administración.
 
-+ En el panel de servicio, haga clic en **Control de acceso (IAM)** para ver las asignaciones de roles para su servicio.
++ En el panel de servicio, haga clic en **Control de acceso (IAM)** y, a continuación, en la pestaña **Asignaciones de roles** para ver las asignaciones de roles para su servicio.
 
 Los miembros de los roles siguientes pueden ver y regenerar las claves: Propietario, Colaborador, [Colaboradores de Search Service](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor)
 

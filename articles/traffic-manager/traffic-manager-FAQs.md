@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: kumud
-ms.openlocfilehash: d784bf3637c83c724c3616a1a42b66c4914b4ff7
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: f4c687ff0d02c78b88b24834f6c3acfc563ecbfc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987246"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963579"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) sobre Traffic Manager
 
@@ -60,7 +60,7 @@ Tal y como se explica en la sección sobre el [funcionamiento de Traffic Manager
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>¿Puedo usar Traffic Manager con un nombre de dominio desnudo?
 
-No. Los estándares DNS no permiten que los registros CNAME coexistan con otros registros DNS del mismo nombre. El vértice (o raíz) de una zona DNS siempre contiene dos registros DNS preexistentes; los registros SOA y NS autoritativos. Esto significa que no se puede crear un registro CNAME en el vértice de la zona sin infringir los estándares DNS.
+ No. Los estándares DNS no permiten que los registros CNAME coexistan con otros registros DNS del mismo nombre. El vértice (o raíz) de una zona DNS siempre contiene dos registros DNS preexistentes; los registros SOA y NS autoritativos. Esto significa que no se puede crear un registro CNAME en el vértice de la zona sin infringir los estándares DNS.
 
 Traffic Manager requiere un registro CNAME de DNS para asignar el nombre DNS del dominio personal. Por ejemplo, se asigna `www.contoso.com` para el nombre DNS del perfil de Traffic Manager `contoso.trafficmanager.net`. Además, este perfil devuelve un segundo registro CNAME de DNS para indicar a qué punto de conexión debe conectarse el cliente.
 
@@ -143,7 +143,7 @@ Los dispositivos de usuario final suelen utilizar una resolución DNS para reali
 ### <a name="how-can-i-specify-ip-addresses-when-using-subnet-routing"></a>¿Cómo se pueden especificar direcciones IP al usar el enrutamiento de subredes?
 Las direcciones IP para asociar a un punto de conexión se pueden especificar de dos maneras. En primer lugar, puede utilizar la notación octeto decimal de cuatro puntos con direcciones de inicio y final para especificar el intervalo (por ejemplo, 1.2.3.4-5.6.7.8 o 3.4.5.6-3.4.5.6). En segundo lugar, puede usar la notación CIDR para especificar el intervalo (por ejemplo, 1.2.3.0/24). Puede especificar varios intervalos y puede usar ambos tipos de notación en un conjunto de intervalos. Sin embargo, se aplican algunas restricciones.
 -   No puede haber superposición de intervalos de direcciones, ya que cada IP solo puede mapearse a un único punto de conexión.
--   La dirección de inicio no puede superar la dirección final.
+-   La dirección de inicio no puede superar la dirección final
 -   En el caso de la notación CIDR, la dirección IP antes de "/" debe ser la dirección de inicio de ese intervalo (por ejemplo, 1.2.3.0/24 es válido, pero 1.2.3.4.4/24 no es válido).
 
 ### <a name="how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing"></a>¿Cómo se puede especificar un punto de conexión de reserva al usar el enrutamiento de subredes?
@@ -444,7 +444,7 @@ Para obtener todos los detalles, consulte la [página de precios de Traffic Mana
 
 ### <a name="is-there-a-performance-impact-for-nested-profiles"></a>¿Se ve afectado el rendimiento por el uso de perfiles anidados?
 
-No. No hay ningún efecto sobre el rendimiento derivado del uso de perfiles anidados.
+ No. No hay ningún efecto sobre el rendimiento derivado del uso de perfiles anidados.
 
 Los servidores de nombres de Traffic Manager atravesarán la jerarquía de perfil internamente cuando se procese cada consulta de DNS. Una consulta de DNS realizada a un perfil primario puede recibir una respuesta de DNS con un punto de conexión de un perfil secundario. Se usará un único registro CNAME tanto si usa un solo perfil como si usa perfiles anidados. No hay necesidad de crear un registro CNAME para cada perfil de la jerarquía.
 

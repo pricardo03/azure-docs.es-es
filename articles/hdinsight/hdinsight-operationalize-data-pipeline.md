@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 9057d9f5d63598ea249e8f3193b84fd715018829
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 787da07c5b8d8610e264963f81d858fce98d304f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109978"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436167"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Uso de una canalización de análisis de datos
 
@@ -30,13 +30,13 @@ En el siguiente escenario, los datos de entrada son un archivo sin formato que c
 | 2017 | 1 | 3 | AS | 9.435449 | 5.482143 | 572289 |
 | 2017 | 1 | 3 | DL | 6.935409 | -2.1893024 | 1909696 |
 
-La canalización de ejemplo espera hasta que llegan los datos de un nuevo período vuelo y, a continuación, almacena la información detallada del vuelo en el almacenamiento de datos de Hive para el análisis a largo plazo. La canalización crea también un conjunto de datos mucho menor que resume solo los datos de vuelos diarios. Estos datos de resumen diario de vuelos se envían a una base de datos SQL para proporcionar informes, por ejemplo, para un sitio web.
+La canalización de ejemplo espera hasta que llegan los datos de un nuevo período vuelo y, a continuación, almacena la información detallada del vuelo en el almacenamiento de datos de Apache Hive para el análisis a largo plazo. La canalización crea también un conjunto de datos mucho menor que resume solo los datos de vuelos diarios. Estos datos de resumen diario de vuelos se envían a una base de datos SQL para proporcionar informes, por ejemplo, para un sitio web.
 
 El siguiente diagrama muestra la canalización de ejemplo.
 
 ![Canalización de datos de vuelo](./media/hdinsight-operationalize-data-pipeline/pipeline-overview.png)
 
-## <a name="oozie-solution-overview"></a>Introducción a la solución de Oozie
+## <a name="apache-oozie-solution-overview"></a>Introducción a la solución de Apache Oozie
 
 Esta canalización usa Apache Oozie en un clúster de Hadoop de HDInsight.
 
@@ -139,7 +139,7 @@ La base de datos de Azure SQL Database ya está lista.
 
 Para usar la consola web de Oozie para ver el estado de las instancias del coordinador y del flujo de trabajo, configure un túnel SSH al clúster de HDInsight. Para más información, consulte [Túnel SSH](hdinsight-linux-ambari-ssh-tunnel.md).
 
-> [!NOTE]
+> [!NOTE]  
 > También puede usar Chrome con la extensión [Foxy Proxy](https://getfoxyproxy.org/) para examinar los recursos web del clúster a través del túnel SSH. Configúrelo para enviar por proxy todas las solicitudes a través del host `localhost` en el puerto 9876 del túnel. Este enfoque es compatible con el subsistema de Windows para Linux, también conocido como Bash en Windows 10.
 
 1. Ejecute el siguiente comando para abrir un túnel SSH al clúster:
@@ -156,7 +156,7 @@ Para usar la consola web de Oozie para ver el estado de las instancias del coord
 
 ### <a name="configure-hive"></a>Configuración de Hive
 
-1. Descargue un archivo CSV de ejemplo que contiene los datos de los vuelos de un mes. Descargue el archivo ZIP `2017-01-FlightData.zip` desde el [repositorio de Github de HDInsight](https://github.com/hdinsight/hdinsight-dev-guide) y descomprima el archivo CSV `2017-01-FlightData.csv`. 
+1. Descargue un archivo CSV de ejemplo que contiene los datos de los vuelos de un mes. Descargue el archivo ZIP `2017-01-FlightData.zip` desde el [repositorio de GitHub de HDInsight](https://github.com/hdinsight/hdinsight-dev-guide) y descomprima el archivo CSV `2017-01-FlightData.csv`. 
 
 2. Copie este archivo CSV en la cuenta de Azure Storage conectada al clúster de HDInsight y colóquelo en la carpeta `/example/data/flights`.
 
@@ -430,7 +430,7 @@ La tabla siguiente resume cada una de las propiedades e indica dónde puede enco
 | month | El componente mes del día cuyos resúmenes de vuelos se calculan. Déjelo tal cual. |
 | day | El componente día del día cuyos resúmenes de vuelos se calculan. Déjelo tal cual. |
 
-> [!NOTE]
+> [!NOTE]  
 > Asegúrese de actualizar la copia del archivo `job.properties` con los valores específicos de su entorno antes de implementar y ejecutar el flujo de trabajo de Oozie.
 
 ### <a name="deploy-and-run-the-oozie-workflow"></a>Implementación y ejecución del flujo de trabajo de Oozie
@@ -545,7 +545,7 @@ Puede usar un coordinador para programar que este flujo de trabajo se ejecute di
 
 Como puede ver, la mayor parte del coordinador consiste simplemente en el paso de información de configuración a la instancia del flujo de trabajo. Sin embargo, hay algunos elementos importantes que destacar.
 
-* Punto 1: Los atributos `start` y `end` del elemento `coordinator-app` controlan el intervalo de tiempo en el que se ejecuta el coordinador.
+* Punto 1: los atributos `start` y `end` del elemento `coordinator-app` controlan el intervalo de tiempo en el que se ejecuta el coordinador.
 
     ```
     <coordinator-app ... start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" ...>
@@ -566,7 +566,7 @@ Como puede ver, la mayor parte del coordinador consiste simplemente en el paso d
 
     El elemento `done-flag` vacío indica que cuando Oozie comprueba la presencia de datos de entrada en el momento prefijado, Oozie determina si los datos están disponibles por la presencia de un directorio o archivo. En este caso es la presencia de un archivo csv. Si hay un archivo csv, Oozie da por supuesto que los datos están listos e inicia una instancia del flujo de trabajo para procesar el archivo. Si no hay ningún archivo csv, Oozie supone que los datos todavía no están preparados y esa ejecución del flujo de trabajo entra en estado de espera.
 
-* Punto 3: El elemento `data-in` especifica la marca de tiempo que se usará como hora nominal al reemplazar los valores de `uri-template` para el conjunto de datos asociado.
+* Punto 3: el elemento `data-in` especifica la marca de tiempo que se usará como hora nominal al reemplazar los valores de `uri-template` para el conjunto de datos asociado.
 
     ```
     <data-in name="event_input1" dataset="ds_input1">

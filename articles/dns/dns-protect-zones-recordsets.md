@@ -1,24 +1,18 @@
 ---
-title: Protección de registros y zonas DNS | Microsoft Docs
+title: Protección de registros y zonas de Azure DNS
 description: Cómo proteger conjuntos de registros y zonas DNS en DNS de Microsoft Azure.
 services: dns
-documentationcenter: na
 author: vhorne
-manager: jeconnoc
-ms.assetid: 190e69eb-e820-4fc8-8e9a-baaf0b3fb74a
 ms.service: dns
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/20/2016
+ms.date: 12/4/2018
 ms.author: victorh
-ms.openlocfilehash: ff20c16c89ca5bf27bfddc654119b428cc425d2d
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 137d8e1c1477d5b9c88cecc39316d62a79a4cab8
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173481"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873935"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Cómo proteger registros y zonas DNS
 
@@ -30,19 +24,19 @@ En este artículo se explica cómo DNS de Azure le permite proteger sus zonas y 
 
 El control de acceso basado en rol (RBAC) de Azure permite realizar una administración detallada del acceso de usuarios, grupos y recursos de Azure. Con RBAC, puede conceder de forma precisa el grado de acceso que los usuarios necesiten para realizar sus trabajos. Para más información sobre cómo RBAC ayuda a administrar el acceso, vea [Introducción a la administración de acceso en Azure Portal](../role-based-access-control/overview.md).
 
-### <a name="the-dns-zone-contributor-role"></a>Rol "DNS Zone Contributor" (Colaborador de zona DNS)
+### <a name="the-dns-zone-contributor-role"></a>Rol Colaborador de zona DNS
 
 Se trata de un rol integrado que ofrece Azure para administrar recursos DNS.  Al asignar permisos de colaborador de zona DNS a un usuario o grupo permite que ese grupo administre recursos DNS, pero no recursos de ningún otro tipo.
 
-Por ejemplo, supongamos que el grupo de recursos "myzones" contiene cinco zonas de Contoso Corporation. Cuando se conceden permisos "DNS Zone Contributor" (Colaborador de zona DNS) de administrador de DNS a ese grupo de recursos, se permite el control total sobre esas zonas DNS. También se evita la concesión de permisos innecesarios, por ejemplo el administrador de DNS no puede crear ni detener máquinas virtuales.
+Por ejemplo, supongamos que el grupo de recursos *myzones* contiene cinco zonas de Contoso Corporation. Cuando se conceden permisos de Colaborador de zona DNS de administrador de DNS a ese grupo de recursos, se permite el control total sobre esas zonas DNS. También se evita la concesión de permisos innecesarios, por ejemplo el administrador de DNS no puede crear ni detener máquinas virtuales.
 
-La manera más sencilla de asignar permisos RBAC es [a través de Azure Portal](../role-based-access-control/role-assignments-portal.md).  Abra la hoja "Control de acceso (IAM)" del grupo de recursos, haga clic en "Agregar" y luego seleccione el rol "DNS Zone Contributor" (Colaborador de zona DNS) y los usuarios o grupos a los que necesita concederle permisos.
+La manera más sencilla de asignar permisos RBAC es [a través de Azure Portal](../role-based-access-control/role-assignments-portal.md).  Abra **Control de acceso (IAM)** del grupo de recursos, seleccione **Agregar** y luego seleccione el rol **Colaborador de zona DNS** y los usuarios o grupos a los que necesita conceder permisos.
 
 ![RBAC de nivel de grupo de recursos a través de Azure Portal](./media/dns-protect-zones-recordsets/rbac1.png)
 
 Los permisos también se pueden [conceder mediante Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
-```powershell
+```azurepowershell
 # Grant 'DNS Zone Contributor' permissions to all zones in a resource group
 New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>"
 ```
@@ -58,15 +52,15 @@ azure role assignment create --signInName "<user email address>" --roleName "DNS
 
 Las reglas de RBAC de Azure pueden aplicarse a una suscripción, a un grupo de recursos o a un recurso individual. En el caso de DNS de Azure, ese recurso puede ser una zona DNS individual o incluso un conjunto de registros individual.
 
-Por ejemplo, supongamos que el grupo de recursos "myzones" contiene la zona "contoso.com" y una subzona "customers.contoso.com" en la que se crean registros CNAME para cada cuenta de cliente.  La cuenta que se use para administrar estos registros CNAME solo debe tener permisos para crear registros en la zona "customers.contoso.com", no debe tener acceso a otras zonas.
+Por ejemplo, supongamos que el grupo de recursos *myzones* contiene la zona *contoso.com* y una subzona *customers.contoso.com* en la que se crean registros CNAME para cada cuenta de cliente.  La cuenta que se use para administrar estos registros CNAME solo debe tener permisos para crear registros en la zona *customers.contoso.com*, no debe tener acceso a otras zonas.
 
-Los permisos RBAC de nivel de zona se pueden conceder a través de Azure Portal.  Abra la hoja "Control de acceso (IAM)" de la zona, haga clic en "Agregar" y luego seleccione el rol "DNS Zone Contributor" (Colaborador de zona DNS) y los usuarios o grupos a los que necesita concederle permisos.
+Los permisos RBAC de nivel de zona se pueden conceder a través de Azure Portal.  Abra **Control de acceso (IAM)** para la zona, seleccione **Agregar** y luego seleccione el rol **Colaborador de zona DNS** y los usuarios o grupos a los que necesita conceder permisos.
 
 ![RBAC de nivel de zona DNS a través de Azure Portal](./media/dns-protect-zones-recordsets/rbac2.png)
 
 Los permisos también se pueden [conceder mediante Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
-```powershell
+```azurepowershell
 # Grant 'DNS Zone Contributor' permissions to a specific zone
 New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -ResourceGroupName "<resource group name>" -ResourceName "<zone name>" -ResourceType Microsoft.Network/DNSZones
 ```
@@ -80,15 +74,15 @@ azure role assignment create --signInName <user email address> --roleName "DNS Z
 
 ### <a name="record-set-level-rbac"></a>RBAC de nivel de conjunto de registros
 
-Podemos ir más lejos. Tenga en cuenta que el administrador de correo de Contoso Corporation debe tener acceso a los registros MX y TXT que se encuentran en la cúspide de la zona "contoso.com".  No necesita acceder a ningún otro registro MX ni TXT ni a registros de ningún otro tipo.  DNS de Azure le permite asignar permisos en el nivel de conjunto de registros exactamente a los registros que el administrador de correo tenga que acceder.  Al administrador de correo se le concede exactamente el control que necesita, no puede realizar otros cambios.
+Podemos ir más lejos. Tenga en cuenta que el administrador de correo de Contoso Corporation debe tener acceso a los registros MX y TXT que se encuentran en el vértice de la zona contoso.com.  No necesita acceder a ningún otro registro MX ni TXT ni a registros de ningún otro tipo.  DNS de Azure le permite asignar permisos en el nivel de conjunto de registros exactamente a los registros que el administrador de correo tenga que acceder.  Al administrador de correo se le concede exactamente el control que necesita, no puede realizar otros cambios.
 
-Los permisos RBAC de nivel de conjunto de registros pueden configurarse a través de Azure Portal, mediante el botón "Usuarios" de la hoja del conjunto de registros:
+Los permisos RBAC de nivel de conjunto de registros pueden configurarse a través de Azure Portal, mediante el botón **Usuarios** de la página del conjunto de registros:
 
 ![RBAC de nivel de conjunto de registros a través de Azure Portal](./media/dns-protect-zones-recordsets/rbac3.png)
 
 Los permisos RBAC de nivel de conjunto de registros también se pueden [conceder mediante Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
-```powershell
+```azurepowershell
 # Grant permissions to a specific record set
 New-AzureRmRoleAssignment -SignInName "<user email address>" -RoleDefinitionName "DNS Zone Contributor" -Scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/dnszones/<zone name>/<record type>/<record name>"
 ```
@@ -102,9 +96,9 @@ azure role assignment create --signInName "<user email address>" --roleName "DNS
 
 ### <a name="custom-roles"></a>Roles personalizados
 
-El rol "DNS Zone Contributor" (Colaborador de zona DNS) integrado permite el control total sobre un recurso DNS. También es posible crear roles de Azure de cliente propios, para proporcionar un control incluso más detallado.
+El rol Colaborador de zona DNS integrado permite el control total sobre un recurso DNS. También es posible crear roles de Azure de cliente propios, para proporcionar un control incluso más detallado.
 
-Retomemos el ejemplo en el que se crea un registro CNAME en la zona "customers.contoso.com" para cada cuenta de cliente de Contoso Corporation.  La cuenta que se use para administrar estos registros CNAME solo debe tener permiso para administrar registros CNAME.  Es pues imposible modificar registros de otros tipos (como cambiar registros MX) o realizar operaciones de nivel de zona, como la eliminación de zonas.
+Retomemos el ejemplo en el que se crea un registro CNAME en la zona *customers.contoso.com* para cada cuenta de cliente de Contoso Corporation.  La cuenta que se use para administrar estos registros CNAME solo debe tener permiso para administrar registros CNAME.  Es pues imposible modificar registros de otros tipos (como cambiar registros MX) o realizar operaciones de nivel de zona, como la eliminación de zonas.
 
 En el ejemplo siguiente se muestra una definición de rol personalizado para administrar únicamente registros CNAME:
 
@@ -140,11 +134,11 @@ La propiedad Actions define los siguientes permisos específicos de DNS:
 Las acciones restantes se copian desde el [Rol de colaborador de zona DNS integrado](../role-based-access-control/built-in-roles.md#dns-zone-contributor).
 
 > [!NOTE]
-> El uso de un rol RBAC personalizado para evitar que se eliminen conjuntos de registros mientras se permite modificarlos no es un control eficaz. Evita que los conjuntos de registros se eliminen, pero no que se modifiquen.  Entre las modificaciones permitidas figuran la adición y eliminación de registros desde el conjunto de registros, incluida la eliminación de todos los registros para dejar un conjunto de registros "empty". Esto tiene el mismo efecto que eliminar el conjunto de registros desde un punto de vista de la resolución DNS.
+> El uso de un rol RBAC personalizado para evitar que se eliminen conjuntos de registros mientras se permite modificarlos no es un control eficaz. Evita que los conjuntos de registros se eliminen, pero no que se modifiquen.  Entre las modificaciones permitidas figuran la adición y eliminación de registros desde el conjunto de registros, incluida la eliminación de todos los registros para dejar un conjunto de registros empty. Esto tiene el mismo efecto que eliminar el conjunto de registros desde un punto de vista de la resolución DNS.
 
 Actualmente no pueden realizarse definiciones de roles personalizados a través de Azure Portal. Puede crearse un rol personalizado basado en esta definición de rol mediante Azure PowerShell:
 
-```powershell
+```azurepowershell
 # Create new role definition based on input file
 New-AzureRmRoleDefinition -InputFile <file path>
 ```
@@ -162,21 +156,21 @@ Para obtener más información sobre cómo crear, administrar y asignar roles pe
 
 ## <a name="resource-locks"></a>Bloqueos de recursos
 
-Además de RBAC, Azure Resource Manager admite otro tipo de control de seguridad, concretamente, la posibilidad de "bloquear" recursos. Mientras que las reglas de RBAC permiten controlar las acciones de usuarios y grupos específicos, los bloqueos de recursos se aplican a los recursos y son eficaces en todos los usuarios y roles. Para obtener más información, consulte [Bloqueo de recursos con el Administrador de recursos de Azure](../azure-resource-manager/resource-group-lock-resources.md).
+Además de RBAC, Azure Resource Manager admite otro tipo de control de seguridad, concretamente, la posibilidad de bloquear recursos. Mientras que las reglas de RBAC permiten controlar las acciones de usuarios y grupos específicos, los bloqueos de recursos se aplican a los recursos y son eficaces en todos los usuarios y roles. Para obtener más información, consulte [Bloqueo de recursos con el Administrador de recursos de Azure](../azure-resource-manager/resource-group-lock-resources.md).
 
-Hay dos tipos de bloqueo de recurso: **DoNotDelete** y **ReadOnly**. Pueden aplicarse a una zona DNS o a un conjunto de registros individual.  En las secciones siguientes se describen varios escenarios comunes y cómo mantenerlos con bloqueos de recursos.
+Existen dos tipos de bloqueos de recursos: **CanNotDelete** y **ReadOnly**. Pueden aplicarse a una zona DNS o a un conjunto de registros individual.  En las secciones siguientes se describen varios escenarios comunes y cómo mantenerlos con bloqueos de recursos.
 
 ### <a name="protecting-against-all-changes"></a>Protección contra todos los cambios
 
 Para evitar que se realicen cambios, aplique un bloqueo ReadOnly a la zona.  Esto impide que se creen otros conjuntos de registros y que se modifiquen o eliminen conjuntos de registros existentes.
 
-Pueden crearse bloqueos de recursos de nivel de zona a través de Azure Portal.  En la hoja de zona DNS, haga clic en "Bloqueos" y luego en "Agregar":
+Pueden crearse bloqueos de recursos de nivel de zona a través de Azure Portal.  En la página de la zona DNS, seleccione **Bloqueos** y después seleccione **+ Agregar**:
 
 ![Bloqueos de recursos de nivel de zona a través de Azure Portal](./media/dns-protect-zones-recordsets/locks1.png)
 
 También pueden crearse bloqueos de recursos de nivel de zona a través de Azure PowerShell:
 
-```powershell
+```azurepowershell
 # Lock a DNS zone
 New-AzureRmResourceLock -LockLevel <lock level> -LockName <lock name> -ResourceName <zone name> -ResourceType Microsoft.Network/DNSZones -ResourceGroupName <resource group name>
 ```
@@ -188,11 +182,11 @@ Actualmente no se admite la configuración de bloqueos de recursos de Azure a tr
 Para evitar que se modifique un conjunto de registros de DNS existente, aplique un bloqueo ReadOnly al conjunto de registros.
 
 > [!NOTE]
-> La aplicación de un bloqueo DoNotDelete a un conjunto de registros no es un control eficaz. Evita que el conjunto de registros se elimine, pero no que se modifique.  Entre las modificaciones permitidas figuran la adición y eliminación de registros desde el conjunto de registros, incluida la eliminación de todos los registros para dejar un conjunto de registros "empty". Esto tiene el mismo efecto que eliminar el conjunto de registros desde un punto de vista de la resolución DNS.
+> La aplicación de un bloqueo CanNotDelete a un conjunto de registros no es un control eficaz. Evita que el conjunto de registros se elimine, pero no que se modifique.  Entre las modificaciones permitidas figuran la adición y eliminación de registros desde el conjunto de registros, incluida la eliminación de todos los registros para dejar un conjunto de registros empty. Esto tiene el mismo efecto que eliminar el conjunto de registros desde un punto de vista de la resolución DNS.
 
 Actualmente, los bloqueos de recursos de nivel de conjunto de recursos solo pueden configurarse mediante Azure PowerShell.  No se admiten en Azure Portal ni en la CLI de Azure.
 
-```powershell
+```azurepowershell
 # Lock a DNS record set
 New-AzureRmResourceLock -LockLevel <lock level> -LockName "<lock name>" -ResourceName "<zone name>/<record set name>" -ResourceType "Microsoft.Network/DNSZones/<record type>" -ResourceGroupName "<resource group name>"
 ```
@@ -201,15 +195,15 @@ New-AzureRmResourceLock -LockLevel <lock level> -LockName "<lock name>" -Resourc
 
 Cuando se elimina una zona en DNS de Azure, se eliminan también todos los conjuntos de registros de la zona.  Esta operación no se puede deshacer.  La eliminación accidental de una zona crítica tiene la posibilidad de tener un significativo impacto de negocio.  Por consiguiente, es muy importante que se proteja contra la eliminación accidental de zonas.
 
-La aplicación de un bloqueo DoNotDelete a una zona impide que se elimine la zona.  Pero, como los recursos secundarios heredan los bloqueos, también impide que se eliminen los conjuntos de registros de la zona, lo que puede no ser deseable.  Además, tal como se describe en la nota anterior, tampoco resulta eficaz puesto que todavía se pueden quitar registros de los conjuntos de registros existentes.
+La aplicación de un bloqueo CanNotDelete a una zona impide que se elimine la zona.  Pero, como los recursos secundarios heredan los bloqueos, también impide que se eliminen los conjuntos de registros de la zona, lo que puede no ser deseable.  Además, tal como se describe en la nota anterior, tampoco resulta eficaz puesto que todavía se pueden quitar registros de los conjuntos de registros existentes.
 
-Como alternativa, considere la posibilidad de aplicar un bloqueo DoNotDelete a un conjunto de registros de la zona, como el conjunto de registros SOA.  Puesto que la zona no se puede eliminar sin eliminar también los conjuntos de registros, esto protege contra la eliminación de la zona, mientras sigue permitiendo que se modifiquen libremente los conjuntos de registros contenidos en la zona. Si intenta eliminar la zona, Azure Resource Manager detecta que esto también eliminaría el conjunto de registros SOA y bloquea la llamada porque la SOA está bloqueada.  No se elimina ningún conjunto de registros.
+Como alternativa, considere la posibilidad de aplicar un bloqueo CanNotDelete a un conjunto de registros de la zona, como el conjunto de registros SOA.  Puesto que la zona no se puede eliminar sin eliminar también los conjuntos de registros, esto protege contra la eliminación de la zona, mientras sigue permitiendo que se modifiquen libremente los conjuntos de registros contenidos en la zona. Si intenta eliminar la zona, Azure Resource Manager detecta que esto también eliminaría el conjunto de registros SOA y bloquea la llamada porque la SOA está bloqueada.  No se elimina ningún conjunto de registros.
 
-El comando de PowerShell siguiente crea un bloqueo DoNotDelete contra el registro SOA de la zona especificada:
+El comando de PowerShell siguiente crea un bloqueo CanNotDelete contra el registro SOA de la zona especificada:
 
-```powershell
-# Protect against zone delete with DoNotDelete lock on the record set
-New-AzureRmResourceLock -LockLevel DoNotDelete -LockName "<lock name>" -ResourceName "<zone name>/@" -ResourceType" Microsoft.Network/DNSZones/SOA" -ResourceGroupName "<resource group name>"
+```azurepowershell
+# Protect against zone delete with CanNotDelete lock on the record set
+New-AzureRmResourceLock -LockLevel CanNotDelete -LockName "<lock name>" -ResourceName "<zone name>/@" -ResourceType" Microsoft.Network/DNSZones/SOA" -ResourceGroupName "<resource group name>"
 ```
 
 Otra manera de evitar la eliminación accidental de zonas consiste en usar un rol personalizado para asegurarse de que las cuentas de operador y de servicio que se utilizan para administrar las zonas no dispongan de permisos de eliminación de zonas. Cuando tenga que eliminar una zona, puede aplicar una eliminación en dos pasos; de esta forma, se conceden permisos primero para eliminar la zona (en el ámbito de la zona, para evitar la eliminación de una zona incorrecta) y, a continuación, se elimina la zona.
@@ -222,4 +216,3 @@ Es posible utilizar ambos enfoques (el bloqueo de recursos y los roles personali
 
 * Para más información sobre cómo trabajar con RBAC, vea [Introducción a la administración de acceso en Azure Portal](../role-based-access-control/overview.md).
 * Para más información sobre cómo trabajar con bloqueos de recursos, vea [Bloqueo de recursos con Azure Resource Manager](../azure-resource-manager/resource-group-lock-resources.md).
-

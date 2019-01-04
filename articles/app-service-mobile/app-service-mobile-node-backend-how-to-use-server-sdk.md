@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: cbedb17bb7563620d0d9db81333d9a79301b4ee0
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: e435baf4a5e3382e3e77195e5315299e3963ff5c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42817515"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409265"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Uso del SDK de Node.js de Mobile Apps
 
@@ -152,7 +152,7 @@ Al crear un nuevo back-end de Mobile Apps de Node.js mediante el panel **Inicio 
 
 El siguiente procedimiento usa un repositorio de GIT para descargar el código del proyecto de inicio rápido:
 
-1. Si aún no lo ha hecho, instale Git. Los pasos requeridos para instalar Git varían según los sistemas operativos. Para obtener una guía sobre la instalación y las distribuciones específicas del sistema operativo, vea [Installing Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) (Instalación de Git).
+1. Si aún no lo ha hecho, instale Git. Los pasos requeridos para instalar Git varían según los sistemas operativos. Para obtener una guía sobre la instalación y las distribuciones específicas del sistema operativo, vea [Installing Git](https://git-scm.com/book/en/Getting-Started-Installing-Git) (Instalación de Git).
 1. Consulte [Preparación del repositorio](../app-service/app-service-deploy-local-git.md#prepare-your-repository) para habilitar el repositorio de GIT para el sitio de back-end. Anote el nombre de usuario y la contraseña de la implementación.
 1. En el panel para el back-end de Mobile Apps, tome nota del valor de **URL de clonación de Git**.
 1. Ejecute el comando `git clone` mediante el uso de la dirección URL de clonación de GIT. Escriba la contraseña cuando se le solicite, como en el ejemplo siguiente:
@@ -284,7 +284,7 @@ El SDK de Node.js de Mobile Apps usa el [paquete de mssql para Node.js] para est
 1. Descargue e instale [Microsoft SQL Server 2014 Express]. Asegúrese de instalar la edición SQL Server 2014 Express con Tools. A menos que necesite expresamente compatibilidad con 64 bits, la versión de 32 bits consumirá menos memoria cuando se ejecuta.
 1. Ejecute el Administrador de configuración de SQL Server 2014:
 
-   a. Expanda el nodo **Configuración de red de SQL Server** en el menú de árbol.
+    a. Expanda el nodo **Configuración de red de SQL Server** en el menú de árbol.
 
    b. Seleccione **Protocolos para SQLEXPRESS**.
 
@@ -404,7 +404,7 @@ El uso de Azure SQL Database como almacén de datos es idéntico en todos los ti
 1. En el cuadro **Grupo de recursos** , escriba el mismo nombre de la aplicación.
 1. Se seleccionará el plan de App Service predeterminado. Si desea cambiar su plan de App Service:
 
-   a. Seleccione **Plan de App Service** > **+Crear nuevo**.
+    a. Seleccione **Plan de App Service** > **+Crear nuevo**.
 
    b. Proporcione un nombre al plan de App Service nuevo y seleccione una ubicación adecuada.
 
@@ -963,11 +963,11 @@ Azure Portal le permite editar los archivos de script de back-end de Node.js en 
 [Inicio rápido de cliente de Xamarin.Forms]: app-service-mobile-xamarin-forms-get-started.md
 [Inicio rápido de cliente de Windows]: app-service-mobile-windows-store-dotnet-get-started.md
 [sincronización de datos sin conexión]: app-service-mobile-offline-data-sync.md
-[Configuración de la autenticación de Azure Active Directory]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
-[Configuración de la autenticación de Facebook]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
-[Configuración de la autenticación de Google]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
-[Configuración de la autenticación de Microsoft]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
-[Configuración de la autenticación de Twitter]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
+[Configuración de la autenticación de Azure Active Directory]: ../app-service/configure-authentication-provider-aad.md
+[Configuración de la autenticación de Facebook]: ../app-service/configure-authentication-provider-facebook.md
+[Configuración de la autenticación de Google]: ../app-service/configure-authentication-provider-google.md
+[Configuración de la autenticación de Microsoft]: ../app-service/configure-authentication-provider-microsoft.md
+[Configuración de la autenticación de Twitter]: ../app-service/configure-authentication-provider-twitter.md
 [Guía de implementación de Azure App Service]: ../app-service/app-service-deploy-local-git.md
 [Supervisión de Azure App Service]: ../app-service/web-sites-monitor.md
 [Habilitación del registro de diagnóstico para aplicaciones web en Azure App Service]: ../app-service/web-sites-enable-diagnostic-log.md
@@ -976,11 +976,11 @@ Azure Portal le permite editar los archivos de script de back-end de Node.js en 
 [Uso de módulos de Node]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
-[Express]: http://expressjs.com/
-[Swagger]: http://swagger.io/
+[Express]: https://expressjs.com/
+[Swagger]: https://swagger.io/
 
 [Azure Portal]: https://portal.azure.com/
-[OData]: http://www.odata.org
+[OData]: https://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [ejemplo "basicapp" en GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
 [ejemplo "todo" en GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
@@ -989,6 +989,6 @@ Azure Portal le permite editar los archivos de script de back-end de Node.js en 
 [QueryJS]: https://github.com/Azure/queryjs
 [Node.js Tools 1.1 para Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
 [paquete de mssql para Node.js]: https://www.npmjs.com/package/mssql
-[Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
-[ExpressJS middleware]: http://expressjs.com/guide/using-middleware.html
+[Microsoft SQL Server 2014 Express]: https://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
+[ExpressJS middleware]: https://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston

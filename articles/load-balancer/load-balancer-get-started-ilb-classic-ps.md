@@ -1,5 +1,6 @@
 ---
-title: 'Creación de un equilibrador de carga interno de Azure: PowerShell clásico | Microsoft Docs'
+title: 'Creación de un equilibrador de carga interno: clásico de PowerShell'
+titlesuffix: Azure Load Balancer
 description: Información sobre cómo crear un equilibrador de carga interno mediante PowerShell con el modelo de implementación clásica
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: genlin
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms:custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: genli
-ms.openlocfilehash: f8a24a12521d678cee0e255677881760828d1e1f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ef6aac0d97c38798f826304475779ea8059875c7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414716"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097988"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>Primeros pasos en la creación de un equilibrador de carga interno (clásico) mediante PowerShell
 
@@ -28,7 +30,7 @@ ms.locfileid: "50414716"
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!IMPORTANT]
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../azure-resource-manager/resource-manager-deployment-model.md).  Este artículo trata del modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager. Obtenga información sobre cómo [realizar estos pasos con el modelo de Resource Manager](load-balancer-get-started-ilb-arm-ps.md).
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos:  [Resource Manager y el clásico](../azure-resource-manager/resource-manager-deployment-model.md).  Este artículo trata del modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager. Obtenga información sobre cómo [realizar estos pasos con el modelo de Resource Manager](load-balancer-get-started-ilb-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -42,7 +44,7 @@ Para crear un conjunto con equilibrio de carga interno y los servidores que envi
 2. Agregue extremos correspondientes a las máquinas virtuales que van a recibir el tráfico entrante.
 3. Configura los servidores que van a enviar el tráfico cuya carga se va a equilibrar para que lo hagan a la dirección IP virtual (VIP) de la instancia de Equilibrio de carga interno.
 
-### <a name="step-1-create-an-internal-load-balancing-instance"></a>Paso 1: crear una instancia de Equilibrio de carga interno
+### <a name="step-1-create-an-internal-load-balancing-instance"></a>Paso 1: Creación de una instancia de Equilibrio de carga interno
 
 Para un servicio en la nube existente o un servicio en la nube implementado en una red virtual regional, puedes crear una instancia de Equilibrio de carga interno con los siguientes comandos de Windows PowerShell:
 
@@ -57,7 +59,7 @@ Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb �
 
 Tenga en cuenta que en este cmdlet [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx) de Windows PowerShell, se usa el conjunto de parámetros DefaultProbe. Para obtener más información sobre conjuntos de parámetros adicionales, consulte [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx).
 
-### <a name="step-2-add-endpoints-to-the-internal-load-balancing-instance"></a>Paso 2: agregar extremos a la instancia de Equilibrio de carga interno
+### <a name="step-2-add-endpoints-to-the-internal-load-balancing-instance"></a>Paso 2: Incorporación de puntos de conexión a la instancia de Equilibrio de carga interno
 
 Este es un ejemplo:
 
@@ -73,7 +75,7 @@ $ilb="ilbset"
 Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -Lbset $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 ```
 
-### <a name="step-3-configure-your-servers-to-send-their-traffic-to-the-new-internal-load-balancing-endpoint"></a>Paso 3: configurar los servidores para que envíen su tráfico al nuevo extremo Equilibrio de carga interno
+### <a name="step-3-configure-your-servers-to-send-their-traffic-to-the-new-internal-load-balancing-endpoint"></a>Paso 3: Configuración de los servidores para que envíen su tráfico al nuevo punto de conexión Equilibrio de carga interno
 
 Tiene que configurar los servidores en los que se va a realizar el equilibrio de carga del tráfico para que usen la nueva dirección IP (VIP) de la instancia de Equilibrio de carga interno. Esta es la dirección en la que se escuchará la instancia de Equilibrio de carga interno. En la mayoría de los casos, solo tienes que agregar o modificar un registro DNS de la dirección VIP de la instancia de Equilibrio de carga interno.
 

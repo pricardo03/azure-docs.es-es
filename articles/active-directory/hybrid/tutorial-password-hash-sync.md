@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de un bosque de AD único en Azure mediante la sincronización de hash de contraseñas (PHS) | Microsoft Docs'
+title: 'Tutorial:  Integración de un bosque de AD único en Azure mediante la sincronización de hash de contraseñas (PHS) | Microsoft Docs'
 description: Se muestra cómo configurar un entorno de identidad híbrida mediante la sincronización de hash de contraseñas.
 services: active-directory
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4e8a39e16bd67169aac8dd7328338197b604e93f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: a8dfe39dc3d32ca96d6252bac96a2e7abc09eee5
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426917"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164716"
 ---
-# <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Tutorial: Integración de un bosque de AD único mediante la sincronización de hash de contraseñas (PHS)
+# <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Tutorial:  Integración de un único bosque de AD mediante la sincronización de hash de contraseñas (PHS)
 
 ![Crear](media/tutorial-password-hash-sync/diagram.png)
 
@@ -81,7 +81,7 @@ Para terminar de crear la máquina virtual, deberá finalizar la instalación de
 5. Haga clic en **Instalar ahora**.
 6. Escriba la clave de licencia y haga clic en **Siguiente**.
 7. Marque **Acepto los términos de licencia y haga clic en **Siguiente**.
-8. Seleccione **Personalizada: instalar solo Windows (avanzado)**.
+8. Seleccione **Personalizada:  instalar solo Windows (avanzado)**
 9. Haga clic en **Siguiente**
 10. Una vez completada la instalación, reinicie la máquina virtual, inicie sesión y ejecute las actualizaciones de Windows para asegurarse de que la versión de la máquina virtual es la más actualizada.  Instale las actualizaciones más recientes.
 

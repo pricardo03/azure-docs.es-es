@@ -1,23 +1,24 @@
 ---
-title: Panel de aplicación para aplicaciones de Language Understanding
-titleSuffix: Azure Cognitive Services
+title: Panel de aplicaciones
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Obtenga información sobre el panel de la aplicación, una herramienta de informes visualizada que permite supervisar las aplicaciones de un solo vistazo.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 0daf25b3c7edc69ada57fb3ce2b8dbb7e50e5aed
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 6f6de278e802b83623413b0bf70e556d083818c8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335017"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140615"
 ---
-# <a name="application-dashboard"></a>Panel de la aplicación
+# <a name="model-and-usage-statistics-in-the-dashboard"></a>Estadísticas de uso y el modelo en el panel
 El panel de la aplicación permite supervisar la aplicación de un solo vistazo. El **Panel** se muestra cuando se abre una aplicación al hacer clic en el nombre de la aplicación en la página **My Apps** (Mis aplicaciones) y después en **Dashboard** (Panel) en el panel superior. 
 
 > [!CAUTION]
@@ -70,7 +71,7 @@ En **Intent Breakdown** (Desglose de las intenciones) se muestra un desglose de 
 
 Para controlar si el desglose se basa en las expresiones etiquetadas o las visitas del punto de conexión:
 
-1. Haga clic en el botón **Configuración adicional** ![botón de configuración adicional](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) para acceder a la lista como en la imagen siguiente:
+1. Haga clic en el botón **Configuración adicional** ![botón de configuración adicional para acceder a la lista](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) para acceder a la lista como en la imagen siguiente:
 
     ![Lista de desglose de la intención](./media/luis-how-to-use-dashboard/intent-breakdown-based-on.png)
 2. Seleccione un valor de la lista y, después, haga clic en la flecha Atrás. ![Flecha Atrás](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) para mostrar el gráfico.
@@ -82,7 +83,7 @@ En el panel se muestra un desglose de las entidades en función de las expresion
 
 Para controlar si el desglose se basa en las expresiones etiquetadas o las visitas del punto de conexión:
 
-1. Haga clic en el botón **Configuración adicional** ![botón de configuración adicional](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) para acceder a la lista como en la imagen siguiente:
+1. Haga clic en el botón **Configuración adicional** ![botón de configuración adicional para acceder a la lista](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) para acceder a la lista como en la imagen siguiente:
 
     ![Lista de desglose de la entidad](./media/luis-how-to-use-dashboard/entity-breakdown-based-on.png)
 2. Seleccione un valor de la lista y, después, haga clic en la flecha Atrás. ![Flecha Atrás](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) para mostrar el gráfico según corresponda.

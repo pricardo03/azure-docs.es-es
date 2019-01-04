@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Domain Services: directrices de redes | Microsoft Docs'
+title: 'Azure AD Domain Services: Directrices sobre redes | Microsoft Docs'
 description: Consideraciones de red de Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/01/2017
 ms.author: ergreenl
-ms.openlocfilehash: eb97e709e18daba3722dc43a869ef034dbe573cf
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: c13a4606219ebdb1d23a83a0bd3bdf14f1a3882e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157435"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970916"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Consideraciones de red de Azure AD Domain Services
 ## <a name="how-to-select-an-azure-virtual-network"></a>Selección de una instancia de Azure Virtual Network
@@ -37,9 +37,9 @@ Las siguientes directrices le ayudan a seleccionar una red virtual para usarla c
 * Consulte la página de [servicios de Azure por región](https://azure.microsoft.com/regions/#services/) para saber en qué regiones de Azure está disponible Azure AD Domain Services.
 
 ### <a name="requirements-for-the-virtual-network"></a>Requisitos de la red virtual
-* **Proximidad a las cargas de trabajo de Azure**: seleccione la red virtual que hospeda, o va a hospedar, las máquinas virtuales que necesitan acceso a Azure AD Domain Services. Si las cargas de trabajo se implementan en una red virtual diferente a la del dominio administrado, también puede conectar las redes virtuales.
+* **Proximidad a las cargas de trabajo Azure**: seleccione la red virtual que hospeda u hospedará las máquinas virtuales que necesitan acceso a Azure AD Domain Services. Si las cargas de trabajo se implementan en una red virtual diferente a la del dominio administrado, también puede conectar las redes virtuales.
 * **Servidores DNS personalizados o propios**: asegúrese de que no haya ningún servidor DNS personalizado configurado para la red virtual. Un ejemplo de un servidor DNS personalizado es una instancia de Windows Server DNS que se ejecuta en una máquina virtual de Windows Server que haya implementado en la red virtual. Azure AD Domain Services no se integra con ningún servidor DNS personalizado que esté implementado en la red virtual.
-* **Dominios existentes con el mismo nombre de dominio**: asegúrese de que no tiene un dominio existente con el mismo nombre de dominio disponible en esa red virtual. Por ejemplo, supongamos que tiene un dominio llamado 'contoso.com' ya disponible en la red virtual seleccionada. Posteriormente, intenta habilitar un dominio administrado de Azure AD Domain Services con el mismo nombre de dominio (es decir, "contoso.com") en esa red virtual. Al intentar habilitar Azure AD Domain Services, aparece un error, que se debe a los conflictos de nombre en el nombre de dominio de la red virtual. En esta situación, debe utilizar un nombre diferente para configurar el dominio administrado de los Servicios de dominio de Azure AD. Como alternativa, puede aprovisionar el dominio existente y luego proceder a habilitar los Servicios de dominio de Azure AD.
+* **Dominios existentes con el mismo nombre de dominio**: Asegúrese de que no tenga un dominio existente con el mismo nombre de dominio disponible en esa red virtual. Por ejemplo, supongamos que tiene un dominio llamado 'contoso.com' ya disponible en la red virtual seleccionada. Posteriormente, intenta habilitar un dominio administrado de Azure AD Domain Services con el mismo nombre de dominio (es decir, "contoso.com") en esa red virtual. Al intentar habilitar Azure AD Domain Services, aparece un error, que se debe a los conflictos de nombre en el nombre de dominio de la red virtual. En esta situación, debe utilizar un nombre diferente para configurar el dominio administrado de los Servicios de dominio de Azure AD. Como alternativa, puede aprovisionar el dominio existente y luego proceder a habilitar los Servicios de dominio de Azure AD.
 
 > [!WARNING]
 > Domain Services no se puede mover a otra red virtual después de haber habilitado el servicio.
@@ -102,7 +102,7 @@ En la tabla siguiente se muestra un NSG de ejemplo que se puede configurar para 
 
 Además, el NSG muestra también cómo bloquear el acceso LDAP seguro a través de Internet. Omita esta regla si no ha habilitado el acceso de LDAP seguro al dominio administrado a través de Internet. NSG contiene un conjunto de reglas que permiten el acceso LDAPS de entrada a través del puerto TCP 636 solo desde un conjunto especificado de direcciones IP. La regla NSG para permitir el acceso LDAPS a través de Internet desde direcciones IP especificadas tiene una prioridad mayor que la regla NSG DenyAll.
 
-![NSG de muestra para el acceso LDAPS seguro a través de Internet](.\media\active-directory-domain-services-alerts\default-nsg.png)
+![NSG de muestra para el acceso LDAPS seguro a través de Internet](./media/active-directory-domain-services-alerts/default-nsg.png)
 
 **Más información** - [Creación de un grupo de seguridad de red](../virtual-network/manage-network-security-group.md).
 
@@ -130,7 +130,7 @@ Una red virtual basada en Resource Manager se puede conectar a una instancia cl�
 
     [Más información: emparejamiento de red virtual](../virtual-network/virtual-network-peering-overview.md)
 
-* **Conexiones de red virtual a red virtual mediante conexiones VPN de sitio a sitio**: la conexión de una red virtual a otra (de red virtual a red virtual) es parecida a la conexión de una red virtual a la ubicación de un sitio local. Ambos tipos de conectividad usan una instancia de VPN Gateway para proporcionar un túnel seguro con IPsec/IKE.
+* **Conexiones de red virtual a red virtual mediante conexiones VPN de sitio a sitio**: La conexión de una red virtual a otra (de red virtual a red virtual) es parecida a la conexión de una red virtual a la ubicación de un sitio local. Ambos tipos de conectividad usan una puerta de enlace de VPN para proporcionar un túnel seguro con IPsec/IKE.
 
     ![Conectividad de Virtual Network mediante VPN Gateway](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
 

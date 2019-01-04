@@ -1,29 +1,23 @@
 ---
-title: Configuración de Network Performance Monitor para circuitos Azure ExpressRoute | Microsoft Docs
+title: 'Configuración de Network Performance Monitor para circuitos ExpressRoute: Azure | Microsoft Docs'
 description: Configure la supervisión de red basada en la nube (NPM) de circuitos Azure ExpressRoute. Aborda la supervisión a través de emparejamiento privado de ExpressRoute y emparejamiento de Microsoft.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 06/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: d334fdba48f248bb7989c2b549517413b1ef793c
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec18
+ms.openlocfilehash: e72c2ceaedd23f4e3ee2006930302321498eb736
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404348"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104737"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configuración de Network Performance Monitor para ExpressRoute
 
-Network Performance Monitor es una solución que supervisa la conectividad entre las implementaciones de nube de Azure y las ubicaciones de local (sucursales, etcétera) de supervisión de red en la nube. NPM forma parte de Log Analytics. NPM ofrece una extensión para ExpressRoute que le permite supervisar el rendimiento de la red a través de circuitos ExpressRoute configurados para usar el emparejamiento privado o emparejamiento de Microsoft. Cuando configura Network Performance Monitor para ExpressRoute, puede detectar problemas de red para identificar y eliminar. Este servicio también está disponible para Azure Government Cloud.
+Este artículo lo ayuda a configurar una extensión de Network Performance Monitor para supervisar ExpressRoute. Network Performance Monitor es una solución que supervisa la conectividad entre las implementaciones de nube de Azure y las ubicaciones de local (sucursales, etcétera) de supervisión de red en la nube. NPM forma parte de Log Analytics. NPM ofrece una extensión para ExpressRoute que le permite supervisar el rendimiento de la red a través de circuitos ExpressRoute configurados para usar el emparejamiento privado o emparejamiento de Microsoft. Cuando configura Network Performance Monitor para ExpressRoute, puede detectar problemas de red para identificar y eliminar. Este servicio también está disponible para Azure Government Cloud.
 
 Puede:
 
@@ -52,7 +46,7 @@ Se instalan agentes de supervisión en varios servidores, tanto en el entorno lo
 
 Si ya usa Network Performance Monitor para supervisar otros servicios u objetos y ya dispone de un área de trabajo en una de las regiones admitidas, puede omitir el paso 1 y 2 y empezar la configuración en el paso 3.
 
-## <a name="configure"></a>Paso 1: Creación de un área de trabajo
+## <a name="configure"></a>Paso 1: Crear un área de trabajo
 
 Cree un área de trabajo en la suscripción que tiene las redes virtuales vinculadas a los circuitos ExpressRoute.
 
@@ -62,7 +56,7 @@ Cree un área de trabajo en la suscripción que tiene las redes virtuales vincul
    >Puede crear una nueva área de trabajo o usar una existente. Si desea usar un área de trabajo existente, debe asegurarse de que se haya migrado el área de trabajo al nuevo lenguaje de consulta. [Más información...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
    >
 
-   ![portal](.\media\how-to-npm\3.png)<br><br>
+   ![portal](./media/how-to-npm/3.png)<br><br>
 2. En la parte inferior de la página **Network Performance Monitor** principal, haga clic en **Crear** para abrir la página **Network Performance Monitor - Crear nueva solución**. Haga clic en **Área de trabajo de Log Analytics - Seleccionar un área de trabajo** para abrir la página Áreas de trabajo. Haga clic en **+Crear área de trabajo nueva** para abrir la página Área de trabajo.
 3. En la página **Área de trabajo de Log Analytics**, seleccione **Crear nuevo** y configure las siguientes opciones:
 
@@ -76,11 +70,11 @@ Cree un área de trabajo en la suscripción que tiene las redes virtuales vincul
     >El circuito ExpressRoute puede estar en cualquier lugar del mundo. No tiene que estar en la misma región que el área de trabajo.
     >
   
-    ![área de trabajo](.\media\how-to-npm\4.png)<br><br>
+    ![área de trabajo](./media/how-to-npm/4.png)<br><br>
 4. Haga clic en **Aceptar** para guardar e implementar la plantilla de configuración. Una vez validada la plantilla, haga clic en **Crear** para implementar el área de trabajo.
 5. Una vez implementado el área de trabajo, vaya al recurso **NetworkMonitoring(name)** que ha creado. Valide la configuración y haga clic en **La solución necesita una configuración adicional**.
 
-   ![configuración adicional](.\media\how-to-npm\5.png)
+   ![configuración adicional](./media/how-to-npm/5.png)
 
 ## <a name="agents"></a>Paso 2: Instalación y configuración de agentes
 
@@ -90,7 +84,7 @@ Cree un área de trabajo en la suscripción que tiene las redes virtuales vincul
 2. Después, copie los valores de **Id. de área de trabajo** y **Clave principal** en el Bloc de notas.
 3. En la sección **Configuración de los agentes de Log Analytics para la supervisión mediante el protocolo TCP**, descargue el script de Powershell. El script de PowerShell le ayuda a abrir el puerto de firewall pertinente para las transacciones TCP.
 
-  ![Script de PowerShell](.\media\how-to-npm\7.png)
+  ![Script de PowerShell](./media/how-to-npm/7.png)
 
 ### <a name="installagent"></a>2.2: Instalación de un agente de supervisión en cada servidor de supervisión (en cada red virtual que quiera supervisar)
 
@@ -108,16 +102,16 @@ Le recomendamos que instale al menos dos agentes en cada lado de la conexión de
 
   * Si decide conectar el agente a **Azure Log Analytics**, pegue el **identificador del área de trabajo** y la **clave del área de trabajo** (clave principal) que copió en el Bloc de notas en la sección anterior. A continuación, haga clic en **Siguiente**.
 
-    ![Identificador y clave](.\media\how-to-npm\8.png)
+    ![Identificador y clave](./media/how-to-npm/8.png)
   * Si decide conectar el agente a **Operations Manager**, en la página **Configuración del grupo de administración**, escriba el **nombre del grupo de administración**, el **servidor de administración** y el **puerto del servidor de administración**. A continuación, haga clic en **Siguiente**.
 
-    ![Operations Manager](.\media\how-to-npm\9.png)
+    ![Operations Manager](./media/how-to-npm/9.png)
   * En la página **Cuenta de acción del agente**, seleccione la cuenta de **sistema local** o un **dominio o cuenta del equipo local**. A continuación, haga clic en **Siguiente**.
 
-    ![Cuenta](.\media\how-to-npm\10.png)
+    ![Cuenta](./media/how-to-npm/10.png)
 6. En la página **Preparado para instalar**, revise las opciones seleccionadas y haga clic en **Instalar**.
 7. En la página **La configuración finalizó correctamente**, haga clic en **Finalizar**.
-8. Una vez completado el proceso, Microsoft Monitoring Agent aparece en el Panel de control. Aquí puede revisar la configuración y verificar si el agente está conectado a Azure Log Analytics. Si está conectado, aparece un mensaje similar al siguiente en el agente: **Microsoft Monitoring Agent se conectó correctamente al servicio Microsoft Operations Management Suite**.
+8. Una vez completado el proceso, Microsoft Monitoring Agent aparece en el Panel de control. Aquí puede revisar la configuración y verificar si el agente está conectado a Azure Log Analytics. Cuando se conecta, el agente muestra un mensaje que indica: **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service** (Microsoft Monitoring Agent se ha conectado correctamente al servicio Microsoft Operations Management Suite).
 
 9. Repita este procedimiento con cada red virtual que quiera que se supervise.
 
@@ -132,7 +126,7 @@ Para configurar el proxy para Microsoft Monitoring Agent mediante el Panel de co
 3. Haga clic en la pestaña **Configuración de proxy**.
 4. Seleccione **Usar un servidor proxy** y escriba la dirección URL y el número de puerto, si uno es necesario. Si el servidor proxy requiere autenticación, escriba el nombre de usuario y la contraseña para acceder al servidor proxy.
 
-  ![proxy](.\media\how-to-npm\11.png)
+  ![proxy](./media/how-to-npm/11.png)
 
 ### <a name="verifyagent"></a>2.4: Comprobación de la conectividad del agente
 
@@ -143,7 +137,7 @@ Puede comprobar fácilmente si los agentes se están comunicando.
 3. Haga clic en la pestaña **Azure Log Analytics**.
 4. En la columna **Estado**, debería ver que el agente se conectó correctamente a Log Analytics.
 
-  ![status](.\media\how-to-npm\12.png)
+  ![status](./media/how-to-npm/12.png)
 
 ### <a name="firewall"></a>2.5: Apertura de los puertos de firewall en los servidores de agente de supervisión
 
@@ -160,7 +154,7 @@ El puerto 8084 se abre de forma predeterminada. Puede utilizar un puerto persona
 
 En los servidores de agente, abra una ventana de PowerShell con privilegios administrativos. Ejecute el script [EnableRules](https://aka.ms/npmpowershellscript) de PowerShell (que descargó anteriormente). No utilice ningún parámetro.
 
-![PowerShell_Script](.\media\how-to-npm\script.png)
+![PowerShell_Script](./media/how-to-npm/script.png)
 
 ## <a name="opennsg"></a>Paso 3: Configuración de las reglas del grupo de seguridad de red
 
@@ -176,13 +170,13 @@ Para más información, consulte [Grupos de seguridad de red](../virtual-network
 
 1. Navegue hasta el icono de información general de Network Performance Monitor, vaya a la página **Todos los recursos** y haga clic en el área de trabajo de NPM que se encuentra en la lista blanca.
 
-  ![área de trabajo de Network Performance Monitor](.\media\how-to-npm\npm.png)
+  ![área de trabajo de Network Performance Monitor](./media/how-to-npm/npm.png)
 2. Haga clic en el icono de introducción de **Network Performance Monitor** para que aparezca el panel. El panel contiene una página de ExpressRoute, que muestra que ExpressRoute está en un estado "no configurado". Haga clic en **Configuración de características** para abrir la página de configuración de Network Performance Monitor.
 
-  ![configuración de características](.\media\how-to-npm\npm2.png)
+  ![configuración de características](./media/how-to-npm/npm2.png)
 3. En la página de configuración, navegue a la pestaña "Emparejamientos de ExpressRoute", ubicada en el panel del lado izquierdo. A continuación, haga clic en **Detectar ahora**.
 
-  ![detectar](.\media\how-to-npm\13.png)
+  ![detectar](./media/how-to-npm/13.png)
 4. Cuando se completa la detección, verá una lista que contiene los siguientes elementos:
   * Todas las conexiones de emparejamiento de Microsoft en los circuitos ExpressRoute que están asociados con esta suscripción.
   * Todas las conexiones de emparejamiento privadas que se conectan a las redes virtuales asociadas con esta suscripción.
@@ -195,7 +189,7 @@ En esta sección, configurará los monitores. Siga los pasos para el tipo de emp
 
 Para el emparejamiento privado, cuando se complete la detección, verá las reglas para el **Nombre del circuito** y el **Nombre de red virtual** exclusivos. Inicialmente, estas reglas están deshabilitadas.
 
-![reglas](.\media\how-to-npm\14.png)
+![reglas](./media/how-to-npm/14.png)
 
 1. Marque la casilla **Supervisar este emparejamiento**.
 2. Seleccione la casilla **Habilitar el seguimiento de mantenimiento para este emparejamiento**.
@@ -211,10 +205,10 @@ Para el emparejamiento de Microsoft, haga clic en las conexiones de emparejamien
 1. Marque la casilla **Supervisar este emparejamiento**. 
 2. (Opcional) Puede cambiar el punto de conexión de servicio de Microsoft de destino. De manera predeterminada, NPM elige un punto de conexión de servicio de Microsoft como destino. NPM supervisa la conectividad de los servidores locales a este punto de conexión de destino a través de ExpressRoute. 
     * Para cambiar este punto de conexión de destino, haga clic en el vínculo **(editar)** en **Destino:** y seleccione otro punto de conexión de servicio de Microsoft de destino en la lista de direcciones URL.
-      ![editar destino](.\media\how-to-npm\edit_target.png)<br>
+      ![editar destino](./media/how-to-npm/edit_target.png)<br>
 
     * Puede usar una dirección URL o IP personalizada. Esta opción es especialmente pertinente si usa el emparejamiento de Microsoft para establecer una conexión con los servicios de PaaS de Azure, como Azure Storage, bases de datos SQL y sitios web que se ofrecen en direcciones IP públicas. Para ello, haga clic en el vínculo **(Usar la dirección IP o URL personalizada en su lugar)** en la parte inferior de la lista de direcciones URL, a continuación, escriba el punto de conexión público de su servicio de PaaS de Azure que está conectado a través del emparejamiento de Microsoft de ExpressRoute.
-    ![URL personalizada](.\media\how-to-npm\custom_url.png)<br>
+    ![URL personalizada](./media/how-to-npm/custom_url.png)<br>
 
     * Si usa esta configuración opcional, asegúrese de que solo el punto de conexión de servicio de Microsoft esté seleccionado aquí. El punto de conexión debe estar conectado a ExpressRoute, y los agentes locales deben poder acceder a él.
 3. Seleccione la casilla **Habilitar el seguimiento de mantenimiento para este emparejamiento**.
@@ -227,37 +221,37 @@ Para el emparejamiento de Microsoft, haga clic en las conexiones de emparejamien
 
 Cuando se vean los iconos de supervisión, los circuitos ExpressRoute y los recursos de conexión van a estar supervisados por Network Performance Monitor. Puede hacer clic en el icono Emparejamiento de Microsoft para explorar en profundidad el estado de las conexiones de Emparejamiento de Microsoft.
 
-![iconos de supervisión](.\media\how-to-npm\15.png)
+![iconos de supervisión](./media/how-to-npm/15.png)
 
 ### <a name="dashboard"></a>Página Network Performance Monitor
 
 La página Network Performance Monitor contiene una página de ExpressRoute que muestra una introducción del estado de emparejamientos y circuitos de ExpressRoute.
 
-![panel](.\media\how-to-npm\dashboard.png)
+![panel](./media/how-to-npm/dashboard.png)
 
 ### <a name="circuits"></a>Lista de circuitos
 
 Para ver una lista de todos los circuitos ExpressRoute supervisados, haga clic en el icono **Circuitos ExpressRoute**. Puede seleccionar un circuito y ver su estado de mantenimiento, gráficos de tendencias de pérdida de paquetes, uso de ancho de banda y latencia. Los gráficos son interactivos. Puede seleccionar un período de tiempo personalizado para trazar los gráficos. Puede arrastrar el mouse sobre un área del gráfico para acercar y ver los puntos de datos con precisión.
 
-![circuit_list](.\media\how-to-npm\circuits.png)
+![circuit_list](./media/how-to-npm/circuits.png)
 
 #### <a name="trend"></a>Tendencia de rendimiento, latencia y pérdida
 
 Los gráficos de ancho de banda, latencia y pérdida son interactivos. Puede acercar cualquier sección de estos gráficos con los controles de mouse. También puede ver los datos de ancho de banda, latencia y pérdida para otros intervalos; para ello, haga clic en **Fecha/hora**, que se encuentra debajo del botón Acciones en la parte superior izquierda.
 
-![tendencia](.\media\how-to-npm\16.png)
+![tendencia](./media/how-to-npm/16.png)
 
 ### <a name="peerings"></a>Lista de emparejamientos
 
 Para ver una lista de todas las conexiones a redes virtuales a través de emparejamientos privados, haga clic en el icono **Emparejamientos privados** en el panel. Aquí, puede seleccionar una conexión de red virtual y ver su estado de mantenimiento, gráficos de tendencias de pérdida de paquetes, uso de ancho de banda y latencia.
 
-![lista de circuitos](.\media\how-to-npm\peerings.png)
+![lista de circuitos](./media/how-to-npm/peerings.png)
 
 ### <a name="nodes"></a>Vista de nodos
 
 Para ver la lista de todos los vínculos entre los nodos locales y los puntos de conexión de servicio de Microsoft/VM de Azure para la conexión de emparejamiento de ExpressRoute seleccionada, haga clic en **Ver vínculos de nodo**. Puede ver el estado de mantenimiento de cada vínculo, así como la tendencia de pérdida y latencia asociada con ellos.
 
-![vista de nodos](.\media\how-to-npm\nodes.png)
+![vista de nodos](./media/how-to-npm/nodes.png)
 
 ### <a name="topology"></a>Topología de circuito
 
@@ -265,9 +259,9 @@ Para ver la topología de circuito, haga clic en el icono **Topología**. Esto l
 
 Para aumentar el nivel de visibilidad para incluir saltos locales, mueva el control deslizante debajo de **Filtros**. Si se mueve el control deslizante hacia la izquierda o derecha, se aumenta o disminuye el número de saltos en el gráfico de topología. La latencia por cada segmento está visible, lo que permite un aislamiento más rápido de los segmentos de latencia elevada en la red.
 
-![filters](.\media\how-to-npm\topology.png)
+![filters](./media/how-to-npm/topology.png)
 
 #### <a name="detailed-topology-view-of-a-circuit"></a>Vista de topología detallada de un circuito
 
 Esta vista muestra conexiones de red virtual.
-![topología detallada](.\media\how-to-npm\17.png)
+![topología detallada](./media/how-to-npm/17.png)

@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2354bf02b47c9fbc74dbc0dab07e30ca321279cf
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: f517754a8076fc18ed29f7db49f6ff9bfc6c7b3d
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43670066"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725767"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Introducción a las cuentas de usuario en Azure Active Directory B2C
 
@@ -25,11 +25,11 @@ Están disponibles los siguientes tipos de cuentas:
 
 - **Cuenta profesional**: una cuenta profesional puede tener acceso a los recursos en un inquilino y, con un rol de administrador, puede administrar inquilinos.
 - **Cuenta de invitado**: una cuenta de invitado solo puede ser una cuenta de Microsoft o un usuario de Azure Active Directory que se pueda utilizar para tener acceso a aplicaciones o administrar inquilinos. 
-- **Cuenta de consumidor**: una cuenta de consumidor se crea mediante una directiva de registro en una aplicación Azure AD B2C o el uso de Azure AD Graph API y la usan los usuarios de las aplicaciones registrados con Azure AD B2C. 
+- **Cuenta de consumidor**: una cuenta de consumidor se crea mediante un flujo de usuario de registro en una aplicación Azure AD B2C o el uso de Azure AD Graph API y la usan los usuarios de las aplicaciones registrados con Azure AD B2C. 
 
 ## <a name="work-account"></a>Cuenta profesional
 
-Una cuenta profesional se crea de la misma manera para todos los inquilinos basada en Azure AD. Para crear una cuenta profesional, puede usar la información de [Inicio rápido: incorporación de nuevos usuarios a Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md). Una nueva cuenta profesional se crea mediante la elección de **Nuevo usuario** en Azure Portal.
+Una cuenta profesional se crea de la misma manera para todos los inquilinos basada en Azure AD. Para crear una cuenta profesional, puede usar la información de [Inicio rápido: Incorporación de nuevos usuarios a Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md). Una nueva cuenta profesional se crea mediante la elección de **Nuevo usuario** en Azure Portal.
 
 Cuando se agrega una nueva cuenta profesional, es preciso tener en cuenta las siguientes opciones de configuración:
 
@@ -73,7 +73,7 @@ También puede usar [Microsoft Graph API](https://developer.microsoft.com/en-us/
 
 ## <a name="consumer-user"></a>Usuario consumidor
 
-El usuario consumidor puede iniciar sesión en aplicaciones protegidas por Azure AD B2C, pero no puede acceder a recursos de Azure como Azure Portal.  El usuario consumidor puede utilizar una cuenta local o cuentas federadas, como Facebook o Twitter. Una cuenta de consumidor se crea mediante el uso de una [directiva de registro o de inicio de sesión](../active-directory-b2c/active-directory-b2c-reference-policies.md).
+El usuario consumidor puede iniciar sesión en aplicaciones protegidas por Azure AD B2C, pero no puede acceder a recursos de Azure como Azure Portal.  El usuario consumidor puede utilizar una cuenta local o cuentas federadas, como Facebook o Twitter. Una cuenta de consumidor se crea mediante el uso de un [flujo de usuario de registro o de inicio de sesión](../active-directory-b2c/active-directory-b2c-reference-policies.md).
 
 Puede especificar los datos que se recopilan cuando se crea una cuenta de usuario consumidor mediante el uso de atributos personalizados de usuario. Para obtener más información, vea [Definición de atributos personalizados en Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-reference-custom-attr.md).
 

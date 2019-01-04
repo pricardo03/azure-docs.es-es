@@ -1,21 +1,22 @@
 ---
-title: Cómo los patrones aumentan la precisión de las predicciones
-titleSuffix: Azure Cognitive Services
-description: Los patrones están diseñados para mejorar la precisión cuando varias expresiones son muy parecidas. Un patrón permite lograr más precisión en una intención sin proporcionar muchas más expresiones.
+title: Ayuda a la predicción de los patrones
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Un patrón permite lograr más precisión en una intención sin proporcionar muchas más expresiones.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/10/2018
 ms.author: diberry
-ms.openlocfilehash: 09c869bf28b804d8fabe331c4a9c2d222accc1e5
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 46c9eb99d808874e0f49dee5fa4865a4867873f1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300377"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271528"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Los patrones mejoran la precisión de las predicciones
 Los patrones están diseñados para mejorar la precisión cuando varias expresiones son muy parecidas.  Un patrón permite lograr más precisión en una intención sin proporcionar muchas más expresiones. 
@@ -43,6 +44,8 @@ Los patrones emplean una combinación de tecnologías de predicción. Establecer
 ## <a name="patterns-do-not-improve-entity-detection"></a>Los patrones no mejoran la detección de entidades
 Aunque los patrones requieren entidades, no ayudan a detectar la entidad. La única finalidad de un patrón es ayudar a la predicción con intenciones y roles.  
 
+No espere ver una predicción de entidad mejorada si contrae varias expresiones en un patrón único. Para que las entidades simples se activen, tendrá que agregar expresiones o usar entidades de la lista, de lo contrario no se activará el patrón.
+
 ## <a name="patterns-use-entity-roles"></a>Los patrones usan roles de entidad
 Si dos o más entidades de un patrón están relacionadas por el contexto, los patrones usan los [roles](luis-concept-roles.md) de entidad para extraer información contextual sobre las entidades. Esto es equivalente a los elementos secundarios de entidades jerárquicas, pero **solo** está disponible en los patrones. 
 
@@ -50,7 +53,7 @@ Si dos o más entidades de un patrón están relacionadas por el contexto, los p
 Dadas suficientes expresiones de ejemplo, LUIS podría aumentar la confianza de la predicción sin patrones. Los patrones aumentan la puntuación de confianza sin tener que proporcionar tantas expresiones.  
 
 ## <a name="pattern-matching"></a>Coincidencia de patrones
-La coincidencia con un patrón se basa en primer lugar en la detección de entidades dentro del patrón, para posteriormente validar el resto de las palabras y el orden de las palabras del patrón. Para que un patrón coincida, se necesitan las entidades en el patrón. 
+La coincidencia con un patrón se basa en primer lugar en la detección de entidades dentro del patrón, para posteriormente validar el resto de las palabras y el orden de las palabras del patrón. Para que un patrón coincida, se necesitan las entidades en el patrón. El patrón se aplica a nivel de token, no a nivel de carácter. 
 
 ## <a name="pattern-syntax"></a>Sintaxis del patrón
 La sintaxis del patrón es una plantilla para una expresión. La plantilla debe contener las palabras y entidades que quiere que coincidan, así como las palabras y los signos de puntuación que quiere omitir. **No** es una expresión regular. 

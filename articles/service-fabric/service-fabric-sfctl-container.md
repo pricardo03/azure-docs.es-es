@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 27108d27ee27346e4cba44e6778faff56df70a36
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 455b2a70568566bff5b1ea4c185568a1758f7db3
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495135"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274911"
 ---
 # <a name="sfctl-container"></a>sfctl container
 Ejecute los comandos relacionados con el contenedor en un nodo de clúster.
@@ -28,22 +28,22 @@ Ejecute los comandos relacionados con el contenedor en un nodo de clúster.
 
 |Get-Help|DESCRIPCIÓN|
 | --- | --- |
-| invoke-api | Invoque API de REST de contenedor. |
-| logs | Recuperación de los registros de contenedores. |
+| invoke-api | Invoca la API de contenedor para el contenedor implementado en un nodo de Service Fabric para el paquete de código especificado. |
+| logs | Obtiene los registros de contenedor para el contenedor implementado en un nodo de Service Fabric para el paquete de código especificado. |
 
 ## <a name="sfctl-container-invoke-api"></a>sfctl container invoke-api
-Invoque API de REST de contenedor.
+Invoca la API de contenedor para el contenedor implementado en un nodo de Service Fabric para el paquete de código especificado.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --application-id           [obligatorio] | Identidad de aplicación. |
-| --code-package-instance-id [obligatorio] | Identificador de instancia de paquete de código, que se puede recuperar por "service code-package-list". |
-| --code-package-name        [obligatorio] | Nombre del paquete de código. |
+| --application-id           [obligatorio] | La identidad de la aplicación. <br><br> Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric\:/myapp/app1", la identidad de la aplicación sería "myapp\~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
+| --code-package-instance-id [obligatorio] | Identificador que de forma exclusiva identifica a una instancia de paquete de código implementada en un nodo de Service Fabric. <br><br> Se puede recuperar con "service code-package-list". |
+| --code-package-name        [obligatorio] | El nombre del paquete de código especificado en un manifiesto de servicio registrado como parte de un tipo de aplicación en un clúster de Service Fabric. |
 | --container-api-uri-path   [obligatorio] | Ruta acceso de URI de la API REST del contenedor, use "{id}" en lugar de identificador/nombre de contenedor. |
 | --node-name [Obligatorio] | El nombre del nodo. |
-| --service-manifest-name [Obligatorio] | Nombre de manifiesto de servicio. |
+| --service-manifest-name [Obligatorio] | El nombre de un manifiesto de servicio registrado como parte de un tipo de aplicación en un clúster de Service Fabric. |
 | --container-api-body | Cuerpo de la solicitud HTTP para la API REST del contenedor. |
 | --container-api-content-type | Tipo de contenido para la API REST del contenedor, el valor predeterminado es "application/json". |
 | --container-api-http-verb | Verbo HTTP para la API REST del contenedor, el valor predeterminado es GET. |
@@ -60,18 +60,18 @@ Invoque API de REST de contenedor.
 | --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
 ## <a name="sfctl-container-logs"></a>sfctl container logs
-Recuperación de los registros de contenedores.
+Obtiene los registros de contenedor para el contenedor implementado en un nodo de Service Fabric para el paquete de código especificado.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --application-id           [obligatorio] | Identidad de aplicación. |
+| --application-id           [obligatorio] | La identidad de la aplicación. <br><br> Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric\:/myapp/app1", la identidad de la aplicación sería "myapp\~app1" en 6.0+ y "myapp/app1" en las versiones anteriores. |
 | --code-package-instance-id [obligatorio] | Identificador de instancia de paquete de código, que se puede recuperar por "service code-package-list". |
-| --code-package-name        [obligatorio] | Nombre del paquete de código. |
+| --code-package-name        [obligatorio] | El nombre del paquete de código especificado en un manifiesto de servicio registrado como parte de un tipo de aplicación en un clúster de Service Fabric. |
 | --node-name [Obligatorio] | El nombre del nodo. |
-| --service-manifest-name [Obligatorio] | Nombre de manifiesto de servicio. |
-| --tail | Solo devuelve este número de líneas de registro desde el final de los registros. Especifique como valor un entero o todo para generar todas las líneas de registro en la salida. El valor predeterminado es "all". |
+| --service-manifest-name [Obligatorio] | El nombre de un manifiesto de servicio registrado como parte de un tipo de aplicación en un clúster de Service Fabric. |
+| --tail | Número de líneas para mostrar desde el final de los registros. El valor predeterminado es 100. "all" para mostrar los registros completos. |
 | --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: barclayn
-ms.openlocfilehash: a28bf1dc23d678c710d7bd6b13f067427e76ef41
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bb4ef826ed29187209b28c349445ca0eb5ffe9bb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238406"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864913"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Introducción a Azure Key Vault
 Este artículo sirve de ayuda para empezar a trabajar con Azure Key Vault mediante PowerShell y guía a través de las actividades siguientes:
@@ -111,7 +111,7 @@ New-AzureRmKeyVault -Name 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceG
 
 El resultado de este cmdlet muestra las propiedades del almacén de claves que creó. Las dos propiedades más importantes son:
 
-* **Nombre de almacén**: en este ejemplo es **ContosoKeyVault**. Utilizará este nombre para otros cmdlets de Key Vault.
+* **Nombre del almacén**: en este ejemplo es **ContosoKeyVault**. Utilizará este nombre para otros cmdlets de Key Vault.
 * **URI de almacén**: en el ejemplo, es https://contosokeyvault.vault.azure.net/. Las aplicaciones que utilizan el almacén a través de su API de REST deben usar este identificador URI.
 
 Su cuenta de Azure ahora está autorizada para realizar operaciones en este Almacén de claves. Hasta el momento, nadie más lo está.
@@ -193,7 +193,7 @@ Para mostrar el URI para este secreto, escriba:
 ```powershell
 $secret.Id
 ```
-Para ver su secreto, escriba: `Get-AzureKeyVaultSecret –VaultName 'ContosoKeyVault'` o también puede ver el secreto en el portal.
+Para ver el secreto, escriba: `Get-AzureKeyVaultSecret –VaultName 'ContosoKeyVault'` o también puede ver el secreto en el portal.
 
 ![secret](./media/key-vault-get-started/secret-value.png)
 
@@ -222,14 +222,14 @@ Para registrar la aplicación en Azure Active Directory:
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Haga clic en **Registros de aplicaciones** en la parte izquierda. Si no ve los registros de aplicaciones, haga clic en **Más servicios**.  
->[!NOTE]
-Debe seleccionar el mismo directorio que contiene la suscripción de Azure con la que creó la instancia de Key Vault. 
+    > [!NOTE]
+    > Debe seleccionar el mismo directorio que contiene la suscripción de Azure con la que creó la instancia de Key Vault. 
 3. Haga clic en **Nuevo registro de aplicaciones**.
 4. En la hoja **Crear**, proporcione un nombre para la aplicación y, después, seleccione **APLICACIÓN WEB Y/O API WEB** (valor predeterminado) y especifique la **DIRECCION URL DE INICIO DE SESIÓN** para su aplicación web. Si no dispone de esta información, puede inventársela para este paso (por ejemplo, podría especificar http://test1.contoso.com). No importa si los sitios existen. 
 
     ![Nuevo registro de aplicaciones](./media/key-vault-get-started/new-application-registration.png)
-    >[!WARNING]
-    Asegúrese de elegir **APLICACIÓN WEB Y/O API WEB**; si no lo hizo, no verá la opción **Claves** en la configuración.
+    > [!WARNING]
+    > Asegúrese de elegir **APLICACIÓN WEB Y/O API WEB**; si no lo hizo, no verá la opción **Claves** en la configuración.
 
 5. Haga clic en el botón **Crear**.
 6. Una vez que haya completado el registro de la aplicación, verá la lista de aplicaciones registradas. Busque la aplicación que ha registrado y haga clic en ella.

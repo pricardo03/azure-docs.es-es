@@ -5,9 +5,8 @@ keywords: inicio rápido, idioma r, lenguaje de programación r, tutorial de pro
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: eea61419e76f4363a286f796e6df28a4e90a9ed7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ddd9c1fd8b51c6ae43878cf50ee16737511c82e9
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317677"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278668"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Guía de inicio rápido sobre el lenguaje de programación R en Azure Machine Learning Studio
 
@@ -33,7 +32,7 @@ Este tutorial rápido le ayudará a comenzar a ampliar Azure Machine Learning me
 
 Microsoft Azure Machine Learning contiene muchos módulos versátiles de manipulación de datos y aprendizaje automático. El lenguaje R se conoce como la lingua franca del análisis de datos. Afortunadamente, la manipulación y el análisis de datos en Azure Machine Learning se pueden ampliar mediante R. Esta combinación une la escalabilidad y sencillez en la implementación de Azure Machine Learning con la flexibilidad y el análisis profundo de R.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ### <a name="forecasting-and-the-dataset"></a>Previsión y conjunto de datos
 La previsión es un método de análisis ampliamente utilizado y bastante útil. La previsión suele utilizarse para crear predicciones de ventas de productos estacionales, para determinar los niveles de inventario óptimos o para predecir las variables macroeconómicas. La previsión suele realizarse con modelos de serie temporal.
@@ -1211,7 +1210,7 @@ La ejecución de este código genera el resultado que se muestra en la ilustraci
 
 Según estos resultados, podemos ver que el hecho de agregar factores estacionales al modelo reduce significativamente el error RMS. No es sorprendente que el error RMS de los datos de entrenamiento sea menor que el del pronóstico.
 
-## <a id="appendixa"></a>APÉNDICE A: guía de RStudio
+## <a id="appendixa"></a>APÉNDICE A: Guía de RStudio
 RStudio cuenta con una documentación bastante extensa, por lo que en este apéndice me limitaré a proporcionar vínculos a secciones claves de la documentación de RStudio.
 
 1. Creación de proyectos
@@ -1228,7 +1227,7 @@ RStudio cuenta con una documentación bastante extensa, por lo que en este apén
    
    Las características de solución de problemas de punto de interrupción se documentan en https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting.
 
-## <a id="appendixb"></a>APÉNDICE B: lectura adicional
+## <a id="appendixb"></a>APÉNDICE B: Lecturas adicionales
 Este tutorial de programación R cubre los aspectos básicos de lo que debe usar el lenguaje R con Azure Machine Learning Studio. Si no está familiarizado con el código R, encontrará dos introducciones disponibles en CRAN:
 
 * R for Beginners (R para principiantes) por Emmanuel Paradis es un buen lugar para comenzar en http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.  

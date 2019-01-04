@@ -15,20 +15,20 @@ ms.workload: na
 ms.date: 03/01/2018
 ms.author: cwatson
 ROBOTS: NOINDEX
-ms.openlocfilehash: c8d78d51425ea5a5fc2f3b326710b3c2ad5a6a06
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 0e4c7ca6776e2016bf0d34d856c4c2332a0bece0
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581857"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250457"
 ---
 # <a name="why-is-my-azure-for-students-subscription-disabled-and-how-do-i-reactivate-it"></a>¿Por qué está deshabilitada mi suscripción a Azure for Students y cómo reactivarla?
 
-Es posible que la suscripción a Azure for Students se haya deshabilitado porque se usó todo el crédito, porque el crédito expiró o porque canceló la suscripción accidentalmente. Vea qué problema le afecta y sepa cómo puede reactivar la suscripción.
+Es posible que la suscripción a Azure for Students se haya deshabilitado porque se usó todo el crédito, porque el crédito expiró o porque canceló la suscripción por accidente. Vea qué problema le afecta y sepa cómo puede reactivar la suscripción.
 
-## <a name="you-have-used-all-of-your-credit"></a>Se usó todo el crédito
+## <a name="youve-used-all-of-your-credit"></a>Usó todo el crédito
 
-La cuenta de Azure for Students le ofrece 100 USD de crédito y una cantidad limitada de servicios gratuitos durante 12 meses. Cualquier uso que supere las cantidades y los servicios gratis se deducirá del crédito. Cuando el crédito se agota, Azure deshabilita los servicios y la suscripción. Para seguir usando los servicios de Azure, debe actualizar la suscripción a una suscripción de pago por uso. Para ello, póngase en contacto con el [soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) y proporcione la información de su tarjeta de crédito. Después de actualizar, la suscripción seguirá teniendo acceso a servicios gratuitos durante 12 meses a contar de la fecha de suscripción. Solo se le cobrará el uso que supere las cantidades y servicios gratuitos.
+La cuenta de Azure for Students le ofrece 100 USD de crédito y una cantidad limitada de servicios gratuitos durante 12 meses. Cualquier uso que supere las cantidades y los servicios gratis se deducirá del crédito. Cuando el crédito se agota, Azure deshabilita los servicios y la suscripción. Para continuar usando los servicios de Azure, debe ponerse en contacto con [Soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para actualizar la suscripción a una suscripción de pago por uso. Después de actualizar, la suscripción seguirá teniendo acceso a servicios gratuitos durante 12 meses a contar de la fecha de suscripción. Solo se le cobrará el uso que supere las cantidades y servicios gratuitos.
 
 Puede comprobar el crédito que le queda en el [portal de Patrocinio de Microsoft Azure](https://www.microsoftazuresponsorships.com/balance).
 
@@ -43,19 +43,17 @@ Puede comprobar el crédito que le queda en el [portal de Patrocinio de Microsof
 
 La tabla contiene las columnas siguientes:
 
-* **Nombre de servicio:** el servicio que consume el crédito de Azure.
-* **Recurso de servicio:** unidad de medida del servicio que se consume.
-* **Gasto:** importe del crédito en USD($) gastado en el servicio.
-
+* **Nombre del servicio:** El servicio que consume el crédito de Azure.
+* **Recurso de servicio:** Unidad de medida del servicio que se consume.
+* **Gasto:** Importe del crédito en USD($) gastado en el servicio.
 
 ## <a name="your-credit-has-expired"></a>El crédito expiró
 
-El crédito de Azure for Students expira luego de 12 meses. Una vez que el crédito expira, Azure deshabilita la suscripción. Para seguir usando los servicios de Azure, debe actualizar la suscripción a una suscripción de pago por uso. Para ello, póngase en contacto con el [soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) y proporcione la información de su tarjeta de crédito. Después de la actualización, Azure cobra tarifas de pago por uso por cualquier servicio que use.
+El crédito de Azure for Students expira luego de 12 meses. Una vez que el crédito expira, Azure deshabilita la suscripción. Para continuar usando los servicios de Azure, debe ponerse en contacto con [Soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para actualizar la suscripción a una suscripción de pago por uso. Después de la actualización, Azure cobra tarifas de pago por uso por cualquier servicio que use.
 
+## <a name="youve-accidentally-canceled-your-subscription"></a>Canceló la suscripción por accidente
 
-## <a name="you-have-accidentally-canceled-your-subscription"></a>Canceló la suscripción accidentalmente
-
-Si canceló accidentalmente la suscripción a Azure for Students, puede ponerse en contacto con el [soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para reactivarla. Una vez que la reactive, seguirá teniendo acceso a servicios gratuitos y al crédito restante durante 12 meses a contar de la fecha de suscripción.
+Si por accidente canceló la suscripción a Azure for Students, puede ponerse en contacto con [Soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para reactivarla. Una vez que la reactive, seguirá teniendo acceso a servicios gratuitos y al crédito restante durante 12 meses a contar de la fecha de suscripción.
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 

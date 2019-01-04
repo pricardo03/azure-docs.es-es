@@ -1,5 +1,5 @@
 ---
-title: Habilitación del acceso a la aplicación de contenedores de Azure DC/OS
+title: (EN DESUSO) Habilitación del acceso a la aplicación de contenedores de Azure DC/OS
 description: Cómo permitir el acceso público a contenedores DC/OS de Azure Container Service.
 services: container-service
 author: sauryadas
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: aedc97335a0b9ad00cf653477b62bf530b556900
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 3e4ba15fa1925ca40ad7760acbd14331fbdd1343
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26332286"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996594"
 ---
-# <a name="enable-public-access-to-an-azure-container-service-application"></a>Permitir el acceso público a una aplicación de Azure Container Service
+# <a name="deprecated-enable-public-access-to-an-azure-container-service-application"></a>(EN DESUSO) Permitir el acceso público a una aplicación de Azure Container Service
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Cualquier contenedor de DC/OS del [grupo de agentes público](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) de ACS se expone automáticamente a Internet. De forma predeterminada, los puertos **80**, **443** y **8080** están abiertos y se puede tener acceso a cualquier contenedor (público) que escucha en esos puertos. En este artículo se explica cómo abrir más puertos para las aplicaciones de Azure Container Service.
 
@@ -33,9 +35,9 @@ En primer lugar, es necesario abrir el puerto que desee.
     ![Sondeos del equilibrador de carga de Azure Container Service](./media/container-service-enable-public-access/add-probe.png)
 5. Rellene el formulario de sondeo y haga clic en **Aceptar**.
    
-   | Campo | Description |
+   | Campo | DESCRIPCIÓN |
    | --- | --- |
-   | Nombre |Un nombre descriptivo del sondeo. |
+   | NOMBRE |Un nombre descriptivo del sondeo. |
    | Port |El puerto del contenedor que se va a probar. |
    | Ruta de acceso |(Cuando está en modo HTTP) La ruta de acceso relativa del sitio de web para sondear. HTTPS no es compatible. |
    | Intervalo |La cantidad de tiempo entre los intentos de sonde, en segundos. |
@@ -45,9 +47,9 @@ En primer lugar, es necesario abrir el puerto que desee.
     ![Reglas del equilibrador de carga de Azure Container Service](./media/container-service-enable-public-access/add-balancer-rule.png)
 7. Rellene el formulario del equilibrador de carga y haga clic en **Aceptar**.
    
-   | Campo | Description |
+   | Campo | DESCRIPCIÓN |
    | --- | --- |
-   | Nombre |Un nombre descriptivo del equilibrador de carga. |
+   | NOMBRE |Un nombre descriptivo del equilibrador de carga. |
    | Port |El puerto de entrada público. |
    | Puerto back-end |El puerto público interno del contenedor al que enrutar el tráfico. |
    | Grupo back-end |Los contenedores de este grupo serán el destino de este equilibrador de carga. |
@@ -68,15 +70,15 @@ A continuación, es necesario agregar una regla de seguridad que enruta el tráf
     ![Reglas de grupos de seguridad de red de Azure Container Service](./media/container-service-enable-public-access/add-firewall-rule.png)
 5. Rellene la regla de firewall para permitir el puerto público y haga clic en **Aceptar**.
    
-   | Campo | Description |
+   | Campo | DESCRIPCIÓN |
    | --- | --- |
-   | Nombre |Un nombre descriptivo de la regla de firewall. |
+   | NOMBRE |Un nombre descriptivo de la regla de firewall. |
    | Prioridad |Clasificación de prioridad de la regla. Cuanto menor sea el número de prioridad, mayor será la prioridad de la regla. |
    | Origen |Restringir el intervalo de direcciones IP de entrada que esta regla admitirá o denegará. Utilizar **Cualquiera** para no especificar una restricción. |
    | Servicio |Seleccionar un conjunto de servicios predefinidos a los que vaya destinada esta regla de seguridad. De lo contrario, utilizar **Personalizado** para crear uno propio. |
-   | Protocol |Restringir el tráfico basado en **TCP** o **UDP**. Utilizar **Cualquiera** para no especificar una restricción. |
+   | Protocolo |Restringir el tráfico basado en **TCP** o **UDP**. Utilizar **Cualquiera** para no especificar una restricción. |
    | Intervalo de puertos |Cuando **Servicio** es **Personalizado**, especifica el intervalo de puertos al que afecta esta regla. Puede usar un único puerto, como **80** o un intervalo como **1024-1500**. |
-   | Acción |Permitir o denegar el tráfico que cumple los criterios. |
+   | . |Permitir o denegar el tráfico que cumple los criterios. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga información sobre la diferencia entre [agentes de DC/OS públicos y privados](container-service-dcos-agents.md).

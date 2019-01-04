@@ -1,25 +1,19 @@
 ---
-title: Configuración de BFD a través de ExpressRoute | Microsoft Docs
-description: Este documento proporciona instrucciones sobre cómo configurar BFD a través del emparejamiento privado de un circuito ExpressRoute.
-documentationcenter: na
+title: 'Configuración de BFD a través de: Azure | Microsoft Docs'
+description: En este artículo se proporcionan instrucciones sobre cómo configurar BFD (detección de reenvío bidireccional) sobre el emparejamiento privado de un circuito ExpressRoute.
 services: expressroute
 author: rambk
-manager: tracsman
-editor: ''
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 8/17/2018
 ms.author: rambala
-ms.openlocfilehash: 6d941bf810a45e8808f83c4df701a856f664c7ef
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.custom: seodec18
+ms.openlocfilehash: 14f65851e50ed25024524f6d988ba2b2f2b3aeba
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51631666"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083791"
 ---
 # <a name="configure-bfd-over-expressroute"></a>Configuración de BFD a través de ExpressRoute
 
@@ -27,7 +21,7 @@ ExpressRoute admite la detección de reenvío bidireccional (BFD) a través del 
 
 ## <a name="need-for-bfd"></a>Necesidad de BFD
 
-El siguiente diagrama muestra la ventaja de habilitar BFD a través del circuito de ExpressRoute: [ ![1]][1]
+El siguiente diagrama muestra la ventaja de habilitar BFD a través del circuito de ExpressRoute: [![1]][1]
 
 Puede habilitar el circuito de ExpressRoute mediante conexiones de nivel 2 o de nivel 3 administradas. En cualquier caso, si hay uno o varios dispositivos de nivel 2 en la ruta de acceso de conexión de ExpressRoute, la responsabilidad de detectar los errores de vínculo en la ruta de acceso es del BGP superpuesto.
 

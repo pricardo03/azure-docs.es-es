@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 608dd6067e5c9d31f720b97453615a3e8ead0a85
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 956482a30d383df558eee775b9d89c211bc53e61
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038627"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101422"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de la versión de Explorador de Microsoft Azure Storage
 
@@ -165,9 +165,9 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 * Aunque Azure Stack actualmente no admite recursos compartidos de archivos, todavía aparece un nodo de recurso compartido de archivos en la cuenta de almacenamiento de Azure Stack conectada.
 * El shell de Electron que usa el Explorador de Storage tiene problemas con la aceleración de hardware de GPU (unidad de procesamiento gráfico). Si el Explorador de Storage muestra una ventana principal en blanco (vacía), puede intentar iniciar el Explorador de Storage desde la línea de comandos y deshabilitar la aceleración de GPU al agregar el conmutador `--disable-gpu`:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Para los usuarios de Linux, debe instalar [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Si es usuario de Ubuntu 14.04, deberá asegurarse de que GCC está actualizado. Para ello, se pueden ejecutar los siguientes comandos y, luego, es necesario reiniciar la máquina:
@@ -221,9 +221,9 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 * Aunque Azure Stack actualmente no admite recursos compartidos de archivos, todavía aparece un nodo de recurso compartido de archivos en la cuenta de almacenamiento de Azure Stack conectada.
 * El shell de Electron que usa el Explorador de Storage tiene problemas con la aceleración de hardware de GPU (unidad de procesamiento gráfico). Si el Explorador de Storage muestra una ventana principal en blanco (vacía), puede intentar iniciar el Explorador de Storage desde la línea de comandos y deshabilitar la aceleración de GPU al agregar el conmutador `--disable-gpu`:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Para los usuarios de Linux, debe instalar [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Si es usuario de Ubuntu 14.04, deberá asegurarse de que GCC está actualizado. Para ello, se pueden ejecutar los siguientes comandos y, luego, es necesario reiniciar la máquina:
@@ -276,9 +276,9 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 * Aunque Azure Stack actualmente no admite recursos compartidos de archivos, todavía aparece un nodo de recurso compartido de archivos en la cuenta de almacenamiento de Azure Stack conectada.
 * El shell de Electron que usa el Explorador de Storage tiene problemas con la aceleración de hardware de GPU (unidad de procesamiento gráfico). Si el Explorador de Storage muestra una ventana principal en blanco (vacía), puede intentar iniciar el Explorador de Storage desde la línea de comandos y deshabilitar la aceleración de GPU al agregar el conmutador `--disable-gpu`:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Para los usuarios de Linux, debe instalar [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Si es usuario de Ubuntu 14.04, deberá asegurarse de que GCC está actualizado. Para ello, se pueden ejecutar los siguientes comandos y, luego, es necesario reiniciar la máquina:
@@ -336,9 +336,9 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 * Aunque Azure Stack actualmente no admite recursos compartidos de archivos, todavía aparece un nodo de recurso compartido de archivos en la cuenta de almacenamiento de Azure Stack conectada.
 * El shell de Electron que usa el Explorador de Storage tiene problemas con la aceleración de hardware de GPU (unidad de procesamiento gráfico). Si el Explorador de Storage muestra una ventana principal en blanco (vacía), puede intentar iniciar el Explorador de Storage desde la línea de comandos y deshabilitar la aceleración de GPU al agregar el conmutador `--disable-gpu`:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Para los usuarios de Linux, debe instalar [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Si es usuario de Ubuntu 14.04, deberá asegurarse de que GCC está actualizado. Para ello, se pueden ejecutar los siguientes comandos y, luego, es necesario reiniciar la máquina:
@@ -393,9 +393,9 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
    * Eliminación temporal
 * El shell de Electron que usa el Explorador de Storage tiene problemas con la aceleración de hardware de GPU (unidad de procesamiento gráfico). Si el Explorador de Storage muestra una ventana principal en blanco (vacía), puede intentar iniciar el Explorador de Storage desde la línea de comandos y deshabilitar la aceleración de GPU al agregar el conmutador `--disable-gpu`:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Para los usuarios de Linux, debe instalar [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Si es usuario de Ubuntu 14.04, deberá asegurarse de que GCC está actualizado. Para ello, se pueden ejecutar los siguientes comandos y, luego, es necesario reiniciar la máquina:
@@ -450,9 +450,9 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 * Aunque Azure Stack actualmente no admite recursos compartidos de archivos, todavía aparece un nodo de recurso compartido de archivos en la cuenta de almacenamiento de Azure Stack conectada.
 * El shell de Electron que usa el Explorador de Storage tiene problemas con la aceleración de hardware de GPU (unidad de procesamiento gráfico). Si el Explorador de Storage muestra una ventana principal en blanco (vacía), puede intentar iniciar el Explorador de Storage desde la línea de comandos y deshabilitar la aceleración de GPU al agregar el conmutador `--disable-gpu`:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Para los usuarios de Linux, debe instalar [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Si es usuario de Ubuntu 14.04, deberá asegurarse de que GCC está actualizado. Para ello, se pueden ejecutar los siguientes comandos y, luego, es necesario reiniciar la máquina:
@@ -504,9 +504,9 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 * Aunque Azure Stack actualmente no admite recursos compartidos de archivos, todavía aparece un nodo de recurso compartido de archivos en la cuenta de almacenamiento de Azure Stack conectada.
 * El shell de Electron que usa el Explorador de Storage tiene problemas con la aceleración de hardware de GPU (unidad de procesamiento gráfico). Si el Explorador de Storage muestra una ventana principal en blanco (vacía), puede intentar iniciar el Explorador de Storage desde la línea de comandos y deshabilitar la aceleración de GPU al agregar el conmutador `--disable-gpu`:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Para los usuarios de Linux, debe instalar [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Si es usuario de Ubuntu 14.04, deberá asegurarse de que GCC está actualizado. Para ello, se pueden ejecutar los siguientes comandos y, luego, es necesario reiniciar la máquina:
@@ -570,9 +570,9 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 * Aunque Azure Stack actualmente no admite recursos compartidos de archivos, todavía aparece un nodo de recurso compartido de archivos en la cuenta de almacenamiento de Azure Stack conectada.
 * El shell de Electron que usa el Explorador de Storage tiene problemas con la aceleración de hardware de GPU (unidad de procesamiento gráfico). Si el Explorador de Storage muestra una ventana principal en blanco (vacía), puede intentar iniciar el Explorador de Storage desde la línea de comandos y deshabilitar la aceleración de GPU al agregar el conmutador `--disable-gpu`:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Para los usuarios de Linux, debe instalar [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Si es usuario de Ubuntu 14.04, deberá asegurarse de que GCC está actualizado. Para ello, se pueden ejecutar los siguientes comandos y, luego, es necesario reiniciar la máquina:
@@ -607,9 +607,9 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 * Aunque Azure Stack actualmente no admite recursos compartidos de archivos, todavía aparece un nodo de recurso compartido de archivos en la cuenta de almacenamiento de Azure Stack conectada.
 * El shell de Electron que usa el Explorador de Storage tiene problemas con la aceleración de hardware de GPU (unidad de procesamiento gráfico). Si el Explorador de Storage muestra una ventana principal en blanco (vacía), puede intentar iniciar el Explorador de Storage desde la línea de comandos y deshabilitar la aceleración de GPU al agregar el conmutador `--disable-gpu`:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Si es usuario de Ubuntu 14.04, deberá asegurarse de que GCC está actualizado. Para ello, se pueden ejecutar los siguientes comandos y, luego, es necesario reiniciar la máquina:
 
@@ -656,9 +656,9 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 * Aunque Azure Stack actualmente no admite recursos compartidos de archivos, todavía aparece un nodo de recurso compartido de archivos en la cuenta de almacenamiento de Azure Stack conectada.
 * El shell de Electron que usa el Explorador de Storage tiene problemas con la aceleración de hardware de GPU (unidad de procesamiento gráfico). Si el Explorador de Storage muestra una ventana principal en blanco (vacía), puede intentar iniciar el Explorador de Storage desde la línea de comandos y deshabilitar la aceleración de GPU al agregar el conmutador `--disable-gpu`:
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * Si es usuario de Ubuntu 14.04, deberá asegurarse de que GCC está actualizado. Para ello, se pueden ejecutar los siguientes comandos y, luego, es necesario reiniciar la máquina:
 
@@ -702,9 +702,11 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 * Al cambiar de nombre los blobs (individualmente o dentro de un contenedor de blobs cuyo nombre ha cambiado), no se conservan las instantáneas. Todas las otras propiedades y metadatos de blobs, archivos y entidades se conservan al cambiar de nombre.
 * Aunque Azure Stack actualmente no admite recursos compartidos de archivos, todavía aparece un nodo de recurso compartido de archivos en la cuenta de almacenamiento de Azure Stack conectada.
 * El shell de Electron que usa el Explorador de Storage tiene problemas con la aceleración de hardware de GPU (unidad de procesamiento gráfico). Si el Explorador de Storage muestra una ventana principal en blanco (vacía), puede intentar iniciar el Explorador de Storage desde la línea de comandos y deshabilitar la aceleración de GPU al agregar el conmutador `--disable-gpu`:
-```
-./StorageExplorer --disable-gpu
-```
+
+    ```
+    ./StorageExplorer --disable-gpu
+    ```
+
 * Si es usuario de Ubuntu 14.04, deberá asegurarse de que GCC está actualizado. Para ello, se pueden ejecutar los siguientes comandos y, luego, es necesario reiniciar la máquina:
 
     ```
@@ -764,9 +766,11 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 * Al cambiar de nombre los blobs (individualmente o dentro de un contenedor de blobs cuyo nombre ha cambiado), no se conservan las instantáneas. Todas las otras propiedades y metadatos de blobs, archivos y entidades se conservan al cambiar de nombre.
 * Aunque Azure Stack actualmente no admite recursos compartidos de archivos, todavía aparece un nodo de recurso compartido de archivos en la cuenta de almacenamiento de Azure Stack conectada.
 * El shell de Electron que usa el Explorador de Storage tiene problemas con la aceleración de hardware de GPU (unidad de procesamiento gráfico). Si el Explorador de Storage muestra una ventana principal en blanco (vacía), puede intentar iniciar el Explorador de Storage desde la línea de comandos y deshabilitar la aceleración de GPU al agregar el conmutador `--disable-gpu`:
-```
-./StorageExplorer --disable-gpu
-```
+
+    ```
+    ./StorageExplorer --disable-gpu
+    ```
+
 * Si es usuario de Ubuntu 14.04, deberá asegurarse de que GCC está actualizado. Para ello, se pueden ejecutar los siguientes comandos y, luego, es necesario reiniciar la máquina:
 
     ```
@@ -818,9 +822,11 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 * Al cambiar de nombre los blobs (individualmente o dentro de un contenedor de blobs cuyo nombre ha cambiado), no se conservan las instantáneas. Todas las otras propiedades y metadatos de blobs, archivos y entidades se conservan al cambiar de nombre.
 * Aunque Azure Stack actualmente no admite recursos compartidos de archivos, todavía aparece un nodo de recurso compartido de archivos en la cuenta de almacenamiento de Azure Stack conectada.
 * El shell de Electron que usa el Explorador de Storage tiene problemas con la aceleración de hardware de GPU (unidad de procesamiento gráfico). Si el Explorador de Storage muestra una ventana principal en blanco (vacía), puede intentar iniciar el Explorador de Storage desde la línea de comandos y deshabilitar la aceleración de GPU al agregar el conmutador `--disable-gpu`:
-```
-./StorageExplorer --disable-gpu
-```
+
+    ```
+    ./StorageExplorer --disable-gpu
+    ```
+
 * Si es usuario de Ubuntu 14.04, deberá asegurarse de que GCC está actualizado. Para ello, se pueden ejecutar los siguientes comandos y, luego, es necesario reiniciar la máquina:
 
     ```
@@ -913,12 +919,12 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 
 #### <a name="fixes"></a>Correcciones
 
-* Problema corregido: Había una alta probabilidad de que, al cargar un archivo, se produjese un error de memoria agotada.
+* Problema corregido: había una alta probabilidad de que, al cargar un archivo, se produjese un error de memoria agotada.
 * Problema corregido: ahora puede iniciar sesión con una tarjeta inteligente o un PIN.
-* Problema corregido: Abrir en Portal ahora funciona con Azure China, Azure Germany, Azure US Government y Azure Stack.
-* Problema corregido: Al cargar una carpeta en un contenedor de blobs, a veces se produce un error de “operación ilegal”.
-* Problema corregido: Seleccionar todo se deshabilita durante la administración de instantáneas.
-* Problema corregido: Los metadatos del blob base puede que se sobrescriban después de ver las propiedades de las instantáneas.
+* Problema corregido: abrir en Portal ahora funciona con Azure China, Azure Germany, Azure US Government y Azure Stack.
+* Problema corregido: al cargar una carpeta en un contenedor de blobs, a veces se produce un error de "operación ilegal".
+* Problema corregido: seleccionar todo se deshabilita durante la administración de instantáneas.
+* Problema corregido: los metadatos del blob base puede que se sobrescriban después de ver las propiedades de las instantáneas.
 
 #### <a name="known-issues"></a>Problemas conocidos
 
@@ -1027,13 +1033,13 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 
 #### <a name="fixes"></a>Correcciones
 
-* Problema corregido: El Explorador de Storage es ahora una aplicación de confianza en Mac.
+* Problema corregido: el Explorador de Storage es ahora una aplicación de confianza en Mac.
 * Problema corregido: Ubuntu 14.04 se admite de nuevo.
-* Problema corregido: En ocasiones, la interfaz de usuario para agregar una cuenta parpadea al cargar las suscripciones.
-* Problema corregido: En ocasiones, no todos los recursos de almacenamiento se muestran en el panel de navegación izquierdo.
-* Problema corregido: El panel de acciones a veces muestra acciones vacías.
-* Problema corregido: Ahora se conserva el tamaño de la ventana de la última sesión que se cerró.
-* Problema corregido: Se pueden abrir varias pestañas para el mismo recurso mediante el menú contextual.
+* Problema corregido: en ocasiones, la interfaz de usuario para agregar una cuenta parpadea al cargar las suscripciones.
+* Problema corregido: en ocasiones, no todos los recursos de almacenamiento se muestran en el panel de navegación izquierdo.
+* Problema corregido: el panel de acciones a veces muestra acciones vacías.
+* Problema corregido: ahora se conserva el tamaño de la ventana de la última sesión que se cerró.
+* Problema corregido: se pueden abrir varias pestañas para el mismo recurso mediante el menú contextual.
 
 #### <a name="known-issues"></a>Problemas conocidos
 
@@ -1063,14 +1069,14 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 
 #### <a name="fixes"></a>Correcciones
 
-* Problema corregido: Problemas de inmovilización de pantalla
+* Problema corregido: problemas de inmovilización de pantalla
 * Problema corregido: Mayor seguridad
-* Problema corregido: A veces, podrían aparecer cuentas conectadas duplicadas.
-* Problema corregido: Un blob con un tipo de contenido sin definir podría generar una excepción.
-* Problema corregido: No se podía abrir el Panel de consulta en una tabla vacía.
-* Problema corregido: Varios errores en la búsqueda.
-* Problema corregido: Aumento del número de recursos que se cargan de 50 a 100 al hacer clic en “Cargar más”.
-* Problema corregido: En la primera ejecución, si ha iniciado sesión con una cuenta, ahora se seleccionan todas las suscripciones para esa cuenta de manera predeterminada.
+* Problema corregido: a veces, podrían aparecer cuentas conectadas duplicadas.
+* Problema corregido: un blob con un tipo de contenido sin definir podría generar una excepción.
+* Problema corregido: no se podía abrir el Panel de consulta en una tabla vacía.
+* Problema corregido: varios errores en la búsqueda.
+* Problema corregido: aumento del número de recursos que se cargan de 50 a 100 al hacer clic en "Cargar más".
+* Problema corregido: en la primera ejecución, si ha iniciado sesión con una cuenta, ahora se seleccionan todas las suscripciones para esa cuenta de manera predeterminada.
 
 #### <a name="known-issues"></a>Problemas conocidos
 
@@ -1091,8 +1097,8 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 #### <a name="fixes"></a>Correcciones
 
 * Problema corregido: A veces, la condición de carrera durante las búsquedas provocaba que los nodos no se pudiesen expandir.
-* Problema corregido: “Usar HTTP” no funciona al conectarse a cuentas de almacenamiento con un nombre de cuenta y una clave.
-* Problema corregido: Las claves SAS (especialmente las generadas en el Portal) devuelven un error de “barra oblicua final”.
+* Problema corregido: "Usar HTTP" no funciona al conectarse a cuentas de almacenamiento con un nombre de cuenta y una clave.
+* Problema corregido: las claves SAS (especialmente las generadas en el Portal) devuelven un error de "barra oblicua final".
 * Problema corregido: Problemas al importar tablas.
     * A veces se revertían la clave de fila y la clave de partición
     * No se puede leer las claves de partición “null”.
@@ -1138,7 +1144,7 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 
 #### <a name="fixes"></a>Correcciones
 
-* Problema corregido: Las cuentas de Microsoft requieren que vuelva a autenticarse en períodos de 8 a 12 horas.
+* Problema corregido: las cuentas de Microsoft requieren que vuelva a autenticarse en períodos de 8 a 12 horas.
 
 #### <a name="known-issues"></a>Problemas conocidos
 
@@ -1194,7 +1200,7 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 
 * Problema corregido: Al cargar o descargar blobs grandes, se puede producir una carga o descarga incompleta.
 * Problema corregido: Al editar, agregar o importar una entidad con un valor de cadena numérico (“1”) se convertirá en doble.
-* Problema corregido: No se puede expandir el nodo de tabla en el entorno de desarrollo local.
+* Problema corregido: no se puede expandir el nodo de tabla en el entorno de desarrollo local.
 
 #### <a name="known-issues"></a>Problemas conocidos
 
@@ -1214,7 +1220,7 @@ Por último, la compatibilidad para usar AzCopy con recursos compartidos de arch
 
 #### <a name="known-issues"></a>Problemas conocidos
 
-* Tablas: Al agregar, editar o importar una entidad con una propiedad con un valor numérico ambiguo, como “1” o “1.0” y cuando el usuario intenta enviarla como `Edm.String`, el valor volverá a través de la API del cliente como un Edm.Double.
+* Tablas: al agregar, editar o importar una entidad con una propiedad con un valor numérico ambiguo, como “1” o “1.0” y cuando el usuario intenta enviarla como `Edm.String`, el valor volverá a través de la API del cliente como un Edm.Double.
 
 31/03/2016
 

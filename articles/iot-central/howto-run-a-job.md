@@ -8,12 +8,12 @@ ms.author: sahubbar
 ms.date: 09/15/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 35db7bf87c7b72fc31d820c9058b1df8415bd553
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: ac5accc72369d811c0d36c4ef64cd8d523a061f3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031312"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724509"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Crear y ejecutar un trabajo en la aplicación de Azure IoT Central
 
@@ -56,8 +56,13 @@ En esta sección se muestra cómo crear y ejecutar un trabajo. Cada paso se pasa
 
 Si desea detener un trabajo que se está ejecutando, haga clic en el nombre del trabajo en ejecución que desea detener. Elija el botón **Detener** en el panel. Podrá ver que el estado del trabajo ha cambiado para reflejar que el trabajo se ha detenido.
 
-> [!NOTE]
-> Una vez que se ha detenido un trabajo no se puede reiniciar. Debe crear otro trabajo con los dispositivos y operaciones deseados.
+   ![Detención de trabajo](./media/howto-run-a-job/stopjob.png)
+
+### <a name="run-a-stopped-job"></a>Ejecución de un trabajo detenido
+
+Si desea ejecutar un trabajo que se está detenido, haga clic en el nombre del trabajo en ejecución que desea ejecutar. Elija el botón **Ejecutar** en el panel. Verá que el estado del trabajo ha cambiado para reflejar que se ha ejecutado de nuevo.
+
+   ![Trabajo reanudado](./media/howto-run-a-job/resumejob.png)
 
 ## <a name="view-the-job-status"></a>Ver el estado del trabajo
 

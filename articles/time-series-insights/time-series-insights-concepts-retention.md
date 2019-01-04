@@ -1,5 +1,5 @@
 ---
-title: Descripción de la retención de datos en el entorno de Azure Time Series Insights | Microsoft Docs
+title: 'Retención de datos de Azure Time Series Insights: descripción de la retención de datos del entorno de Azure Time Series Insights | Microsoft Docs'
 description: En este artículo se describen dos parámetros de configuración que controlan la retención de datos en el entorno Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,13 @@ ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/09/2018
-ms.openlocfilehash: e265a66b841530d1133d760ebdcdf56046d1aee1
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: seodec18
+ms.openlocfilehash: c46e385caaa343fe9ba64e1aa4516f1335039cd3
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364143"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272157"
 ---
 # <a name="understand-data-retention-in-time-series-insights"></a>Descripción de la retención de datos en Time Series Insights
 
@@ -47,7 +48,7 @@ Compare el comportamiento de retención de datos:
 - Los datos introducidos hace más tiempo se purgan primero (enfoque FIFO [PEPS]).
 
 ### <a name="example-1"></a>Ejemplo 1:
-Piense por ejemplo en un entorno que tenga el comportamiento de **continuar entrada y purgar datos antiguos**: en este ejemplo, el **tiempo de retención de datos** está configurado en 400 días. La **capacidad** es una unidad S1, que contiene 30 GB de capacidad total.   Supongamos que los datos entrantes acumulan 500 MB cada día por término medio. Este entorno solo puede retener datos de 60 días dada la tasa de datos entrantes, ya que la capacidad máxima se alcanza a los 60 días. Los datos entrantes se acumulan de este modo: 500 MB cada día x 60 días = 30 GB. 
+Piense ahora en un entorno de ejemplo con un comportamiento de retención en el modo de **continuar entrada y purgar datos antiguos**: En este ejemplo, el **tiempo de retención de datos** está configurado en un valor de 400 días. La **capacidad** es una unidad S1, que contiene 30 GB de capacidad total.   Supongamos que los datos entrantes acumulan 500 MB cada día por término medio. Este entorno solo puede retener datos de 60 días dada la tasa de datos entrantes, ya que la capacidad máxima se alcanza a los 60 días. Los datos entrantes se acumulan de este modo: 500 MB cada día x 60 días = 30 GB. 
 
 En este ejemplo, al día 61º, el entorno muestra los datos más actuales, pero purga los más antiguos (los que tengan más de 60 días). La purga genera espacio para el flujo entrante de nuevos datos, de manera que puedan seguir explorándose nuevos datos. 
 

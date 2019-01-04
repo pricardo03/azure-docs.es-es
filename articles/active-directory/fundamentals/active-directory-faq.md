@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory: P+F | Microsoft Docs'
-description: Conozca las preguntas y respuestas frecuentes de Azure y Azure Active Directory, la administración de contraseñas y el acceso a las aplicaciones.
+title: 'Preguntas más frecuentes: Azure Active Directory | Microsoft Docs'
+description: Preguntas y respuestas frecuentes sobre Azure y Azure Active Directory, administración de contraseñas y acceso a las aplicaciones.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,14 +11,15 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: lizross
-ms.openlocfilehash: b004968fc53e368497632cb18d6bb7a254d347e6
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: a3571ff24c36b7f2129f60348414d4d178ef30d1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621758"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084101"
 ---
-# <a name="azure-active-directory-faq"></a>P+F de Azure Active Directory
+# <a name="frequently-asked-questions-about-azure-active-directory"></a>Preguntas más frecuentes sobre Azure Active Directory
 Azure Active Directory (Azure AD) es una completa solución de identidad como servicio (IDaaS) que abarca todos los aspectos de la identidad, la administración de acceso y la seguridad.
 
 Para más información, consulte [¿Qué es Azure Active Directory?](active-directory-whatis.md)
@@ -34,7 +35,7 @@ Para más información, consulte:
 * [Asociación de las suscripciones de Azure con Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 
 - - -
-**P: ¿Cuál es la relación entre AD de Azure, Office 365 y Azure?**
+**P: ¿Cuál es la relación entre Azure AD, Office 365 y Azure?**
 
 **R:** Azure AD ofrece funcionalidades de acceso e identidad comunes a todos los servicios web. Tanto si usa Office 365 como Microsoft Azure, Intune u otros servicios, ya está utilizando Azure AD para habilitar el inicio de sesión y la administración del acceso de todos estos servicios.
 
@@ -44,9 +45,9 @@ Los servicios de pago de Azure AD, como Enterprise Mobility + Security, compleme
 
 - - -
 
-**P: ¿Cuáles son las diferencias entre el propietario y el administrador global?**
+**P:  ¿Cuáles son las diferencias entre el propietario y el administrador global?**
 
-**A:** De forma predeterminada, a la persona que se suscribe a una suscripción a Azure se le asigna el rol de propietario para los recursos de Azure. Un propietario puede usar una cuenta de Microsoft o una cuenta profesional o educativa del directorio al que está asociada la suscripción a Azure.  Este rol tiene autorización para administrar servicios en Azure Portal.
+**R:** De forma predeterminada, a la persona que se suscribe a una suscripción a Azure se le asigna el rol de propietario para los recursos de Azure. Un propietario puede usar una cuenta de Microsoft o una cuenta profesional o educativa del directorio al que está asociada la suscripción a Azure.  Este rol tiene autorización para administrar servicios en Azure Portal.
 
 Si otros usuarios necesitan iniciar sesión y acceder a los servicios con la misma suscripción, puede asignarles el [rol integrado](../../role-based-access-control/built-in-roles.md) adecuado. Para obtener información adicional, consulte [Administración del acceso mediante RBAC y Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
@@ -57,7 +58,7 @@ Además, los servicios de pago de Azure AD, como Enterprise Mobility + Security,
 - - -
 **P: ¿Existe un informe que muestra cuándo expirarán mis licencias de usuario de Azure AD?**
 
-**R:** No.  No está disponible actualmente.
+**R:**  No.  No está disponible actualmente.
 
 - - -
 
@@ -117,7 +118,7 @@ Para más información, consulte [Introducción a la administración de contrase
 
 Para ver más respuestas a preguntas relativas a las contraseñas, consulte [Preguntas más frecuentes sobre la administración de contraseñas](../authentication/active-directory-passwords-faq.md).
 - - -
-**P: ¿Qué hago si no recuerdo mi contraseña de Office 365 o Azure AD cuando intento cambiarla?**
+**P:  ¿Qué hago si no recuerdo mi contraseña de Office 365 o Azure AD cuando intento cambiarla?**
 
 **R:** En este tipo de situaciones, dispone de un par de opciones.  Use el restablecimiento de la contraseña de autoservicio (SSPR), si está disponible.  El funcionamiento de SSPR dependerá de cómo esté configurado.  Para más información, consulte la sección [¿Cómo funciona el portal de restablecimiento de contraseñas?](../authentication/howto-sspr-deployment.md)
 
@@ -135,7 +136,7 @@ Para las cuentas de Azure AD, los administradores pueden restablecer las contras
 
 Usamos una estrategia más sofisticada para bloquear cuentas, que  se basa en la dirección IP de la solicitud y las contraseñas escritas. El tiempo que dure el bloqueo también aumenta en función de la probabilidad de que sea un ataque.  
 
-**P: Algunas contraseñas (comunes) se rechazan con mensajes del tipo "esta contraseña se ha usado demasiadas veces". ¿Se refiere esto a las contraseñas usadas en la instancia de Active Directory actual?**
+**P:  Algunas contraseñas (comunes) se rechazan con mensajes del tipo "esta contraseña se ha usado demasiadas veces". ¿Se refiere esto a las contraseñas usadas en la instancia de Active Directory actual?**
 
 Se refiere a las contraseñas que son comunes a nivel global, como las variantes de "Contraseña" y "123456".
 
@@ -187,7 +188,7 @@ Para más información, consulte:
 - - -
 **P: ¿Puedo agregar aplicaciones que ejecuto de manera local?**
 
-**R:** El proxy de aplicación de Azure AD proporciona un acceso fácil y seguro a las aplicaciones web locales que elija. Puede acceder a estas aplicaciones como si se trataran de sus aplicaciones de software como servicio (SaaS) en Azure AD. No se necesita una VPN ni cambiar la infraestructura de red.  
+**R:** Azure Active Directory Application Proxy proporciona un acceso fácil y seguro a las aplicaciones web locales que elija. Puede acceder a estas aplicaciones como si se trataran de sus aplicaciones de software como servicio (SaaS) en Azure AD. No se necesita una VPN ni cambiar la infraestructura de red.  
 
 Para más información, consulte [Provisión de acceso remoto seguro a aplicaciones locales](../manage-apps/application-proxy.md).
 
@@ -206,6 +207,6 @@ Para más información, consulte [Protección del acceso a Office 365 y otras ap
 Para más información, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../manage-apps/user-provisioning.md)
 
 - - -
-**P: ¿Puedo configurar una conexión LDAP segura con Azure Active Directory?**
+**P:  ¿Puedo configurar una conexión LDAP segura con Azure Active Directory?**
 
-**R**: No. Azure AD no admite el protocolo LDAP. Sin embargo, pude configurar un LDAP seguro con Azure AD Domain Services.
+**R:**   No. Azure AD no admite el protocolo LDAP. Sin embargo, pude configurar un LDAP seguro con Azure AD Domain Services.

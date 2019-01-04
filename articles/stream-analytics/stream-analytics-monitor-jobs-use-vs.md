@@ -4,17 +4,17 @@ description: En este artículo se describe cómo usar Visual Studio para supervi
 services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/10/2018
-ms.openlocfilehash: 9cc65fc5119bedc816f825b7aae6120f4bca3b12
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: e673d4f1c2d58a61c541cca4f8448dffc003f9fa
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246853"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101026"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-visual-studio"></a>Supervisión y administración de trabajos de Stream Analytics con Visual Studio
 
@@ -31,14 +31,14 @@ En **Resumen de trabajos** y **Job Metrics** (Métrica de trabajos) se proporcio
 
 Puede contraer la pestaña **Resumen de trabajos** y hacer clic en la pestaña **Job Metrics** (Métrica de trabajos) para ver un gráfico con métricas importantes. Marque o desmarque tipos de métricas para agregarlas o quitarlas del gráfico.
 
-![Métricas de Stream Analytics](./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-vs-metrics.png)
+![Métricas de Stream Analytics en Visual Studio](./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-vs-metrics.png)
 
 
 ## <a name="error-monitoring"></a>Supervisión de errores
 
 También puede hacer clic en la pestaña **Errores** para supervisar los errores.
 
-![Errores de Stream Analytics](./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-vs-errors.png)
+![Errores de Stream Analytics en Visual Studio](./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-vs-errors.png)
 
 
 ## <a name="get-support"></a>Obtención de soporte técnico

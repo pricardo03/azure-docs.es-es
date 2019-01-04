@@ -14,14 +14,14 @@ ms.workload: na
 ms.date: 10/24/2018
 ms.author: celested
 ms.reviewer: tomfitz
-ms.openlocfilehash: b60be3db14a756407e62540bb89f3b0924597067
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 87e197821be7c7c72ca1704d6b0123d76d41b30f
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959947"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721092"
 ---
-# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos
+# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Control de Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos
 
 Cuando haya código que deba tener acceso a ciertos recursos o modificarlos, puede crear una identidad para la aplicación. Esta identidad se conoce como una entidad de servicio. Entonces puede asignar los permisos necesarios a la entidad de servicio. En este artículo se muestra cómo usar el portal para crear la entidad de servicio. Se centra en una aplicación de un único inquilino donde la aplicación está diseñada para ejecutarse en una sola organización. Normalmente, utiliza aplicaciones de inquilino único para aplicaciones de línea de negocio que se ejecutan dentro de su organización.
 
@@ -65,9 +65,9 @@ Puede establecer el ámbito en el nivel de suscripción, grupo de recursos o rec
    Si no ve la suscripción que busca, seleccione el **filtro de suscripciones globales**. Asegúrese de que la suscripción que desea está seleccionada para el portal. 
 
 1. Seleccione **Access Control (IAM)**.
-1. Seleccione **Agregar**.
+1. Seleccione **Agregar asignación de roles**.
 
-   ![Seleccione Agregar](./media/howto-create-service-principal-portal/select-add.png)
+   ![Seleccione Agregar asignación de roles.](./media/howto-create-service-principal-portal/select-add.png)
 
 1. Seleccione el rol que quiere asignar a la aplicación. Para permitir que la aplicación pueda ejecutar acciones como **reiniciar**, **iniciar** y **detener** instancias, debe seleccionar el rol **Colaborador**. De manera predeterminada, las aplicaciones de Azure AD no se muestran en las opciones disponibles. Para encontrar la aplicación, busque el nombre y selecciónelo.
 

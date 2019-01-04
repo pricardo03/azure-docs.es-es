@@ -9,12 +9,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 35768aed3509d6ec5b73c64c7a8a6b132957ace1
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 50c5838f576b6fd6775373f2dbe3c46d751545c1
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632737"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437595"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Uso de Enterprise Security Package en HDInsight
 
@@ -62,5 +62,5 @@ El uso de Active Directory local o de Active Directory solo en máquinas virtual
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Configuración de clústeres de HDInsight con Enterprise Security Package](apache-domain-joined-configure-using-azure-adds.md)
-* [Configuración de directivas de Hive en clústeres de HDInsight con Enterprise Security Package](apache-domain-joined-run-hive.md)
+* [Configuración de directivas de Apache Hive en clústeres de HDInsight con Enterprise Security Package](apache-domain-joined-run-hive.md)
 * [Administración de clústeres de HDInsight con Enterprise Security Package](apache-domain-joined-manage.md) 

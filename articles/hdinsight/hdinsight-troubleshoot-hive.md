@@ -8,14 +8,14 @@ author: dharmeshkakadia
 ms.author: dharmeshkakadia
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: 832fab6c4f183ddad512c5e6e4309d70938a316b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 150f920fb1371eb64181ff69fdad054f989c0845
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600030"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407027"
 ---
-# <a name="troubleshoot-hive-by-using-azure-hdinsight"></a>Solución de problemas de Hive mediante Azure HDInsight
+# <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Solución de problemas de Apache Hive mediante Azure HDInsight
 
 Obtenga información sobre las principales preguntas y sus soluciones al trabajar con cargas útiles de Apache Hive en Apache Ambari.
 
@@ -104,7 +104,7 @@ El código de los pasos de resolución asume que las rutas de acceso de datos en
 - [Propiedades de configuración de Hive](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
 
 
-## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>¿Cómo se analizan datos de Tez DAG en una ruta crítica de clúster?
+## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path">¿Cómo se analizan datos de Apache Tez DAG en una ruta crítica de clúster?</a>
 
 
 ### <a name="resolution-steps"></a>Pasos de la solución
@@ -126,17 +126,17 @@ El código de los pasos de resolución asume que las rutas de acceso de datos en
   Debe proporcionar un programa de ejemplo como el primer argumento.
 
   Los nombres de programa válidos incluyen:
-    - **ContainerReuseAnalyzer**: imprima los detalles de la reutilización del contenedor en un DAG.
-    - **CriticalPath**: busque la ruta crítica de un DAG.
-    - **LocalityAnalyzer**: imprima los detalles de localidad en un DAG.
-    - **ShuffleTimeAnalyzer**: analice los detalles de tiempo de orden aleatorio en un DAG.
-    - **SkewAnalyzer**: analice los detalles de sesgo en un DAG.
-    - **SlowNodeAnalyzer**: imprima los detalles del nodo en un DAG.
-    - **SlowTaskIdentifier**: imprima los detalles de una tarea lenta en un DAG.
-    - **SlowestVertexAnalyzer**: imprima los detalles de los vértices más lentos en un DAG.
-    - **SpillAnalyzer**: imprima los detalles de desbordamiento en un DAG.
-    - **TaskConcurrencyAnalyzer**: imprima los detalles de la simultaneidad de tareas en un DAG.
-    - **VertexLevelCriticalPathAnalyzer**: busque la ruta crítica en el nivel de vértices en un DAG.
+    - **ContainerReuseAnalyzer**: imprima los detalles de la reutilización del contenedor en un DAG
+    - **CriticalPath**: busque la ruta crítica de un DAG
+    - **LocalityAnalyzer**: imprima los detalles de localidad en un DAG
+    - **ShuffleTimeAnalyzer**: analice los detalles de tiempo de orden aleatorio en un DAG
+    - **SkewAnalyzer**: analice los detalles de distorsión en un DAG
+    - **SlowNodeAnalyzer**: imprima los detalles del nodo en un DAG
+    - **SlowTaskIdentifier**: imprima los detalles de la tarea lenta en un DAG
+    - **SlowestVertexAnalyzer**: imprima los detalles del vértice más lento en un DAG
+    - **SpillAnalyzer**: imprima los detalles de desbordamiento en un DAG
+    - **TaskConcurrencyAnalyzer**: imprima los detalles de la simultaneidad de tareas en un DAG
+    - **VertexLevelCriticalPathAnalyzer**: busque la ruta crítica a nivel de vértice en un DAG
 
 
 ### <a name="additional-reading"></a>Lecturas adicionales

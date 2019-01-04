@@ -1,5 +1,5 @@
 ---
-title: Escala distribuida geográficamente con entornos de App Service
+title: 'Escalado distribuido geográficamente con instancias de App Service Environment: Azure'
 description: Aprenda a escalar aplicaciones horizontalmente con distribución geográfica con el Administrador de tráfico y los entornos de App Service.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
-ms.openlocfilehash: bc85139dfa3589baf6505fac2269f8755dcaddc8
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.custom: seodec18
+ms.openlocfilehash: aa9eb0b624df29f6fb86402c06436ed7349fa662
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213255"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273874"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Escala distribuida geográficamente con entornos de App Service
 ## <a name="overview"></a>Información general
@@ -42,18 +43,18 @@ El resto de este tema lo guía por los pasos necesarios para configurar una topo
 ## <a name="planning-the-topology"></a>Planeación de la topología
 Antes de crear la superficie de una aplicación distribuida, resulta útil tener algunos datos con antelación.
 
-* **Dominio personalizado de la aplicación:** ¿cuál es el nombre del dominio personalizado que los clientes van a usar para acceder a la aplicación?  Para la aplicación de ejemplo, el nombre de dominio personalizado es *www.scalableasedemo.com*
-* **Dominio del Administrador de tráfico:** se debe elegir un nombre de dominio al crear un [perfil de Traffic Manager de Azure][AzureTrafficManagerProfile].  Este nombre se combinará con el sufijo *trafficmanager.net* para registrar una entrada de dominio que es administrada por el Administrador de tráfico.  Para la aplicación de ejemplo, el nombre elegido es *scalable-ase-demo*.  Como resultado, el nombre de dominio completo administrado por el Administrador de tráfico es *scalable-ase-demo.trafficmanager.net*.
-* **Estrategia para escalar la superficie de la aplicación**: ¿se va a distribuir la superficie de la aplicación entre varias instancias de App Service Environment de una sola región?  ¿Varias regiones?  ¿Una combinación de ambos enfoques?  La decisión debería basarse en las expectativas de dónde se vaya a originar el tráfico del cliente, así como también en la medida en que el resto de la infraestructura de back-end de apoyo de una aplicación pueda escalarse.  Por ejemplo, con una aplicación totalmente sin estado, se puede escalar una aplicación de forma masiva mediante una combinación de varias instancias de App Service Environment por región de Azure, multiplicados por más instancias de App Service Environment implementadas en varias regiones de Azure.  Con más de 15 regiones de Azure públicas entre las que elegir, los clientes pueden realmente crear una superficie de aplicación de gran escala en todo el mundo.  Para la aplicación de ejemplo usada en este artículo, se crearon tres entornos de App Service en una sola región de Azure (Centro y Sur de EE. UU.).
-* **Convención de nomenclatura para las instancias de App Service Environment:** cada instancia de App Service Environment requiere un nombre único.  Si existen más de uno o dos entornos de App Service, resulta útil disponer de una convención de nomenclatura para ayudar a identificar cada uno de ellos.  Para la aplicación de ejemplo, se usó una convención de nomenclatura sencilla.  Los nombres de las tres instancias de App Service Environment son *fe1ase*, *fe2ase* y *fe3ase*.
-* **Convención de nomenclatura para las aplicaciones:** como se van a  implementar varias instancias de la aplicación, se necesita un nombre para cada instancia de la aplicación implementada.  Una característica poco conocida pero muy cómoda de los entornos de App Service es que se puede usar el mismo nombre de aplicación en varios entornos de App Service.  Dado que cada entorno de App Service tiene un sufijo de dominio único, los desarrolladores pueden reutilizar el mismo nombre de aplicación en cada entorno.  Por ejemplo, un desarrollador podría asignar los siguientes nombres a las aplicaciones:*myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net, etc*.  No obstante, para la aplicación de ejemplo, cada instancia tiene un nombre único.  Los nombres de las instancias de aplicación usados son *webfrontend1*, *webfrontend2* y *webfrontend3*.
+* **Dominio personalizado para la aplicación:**  ¿cuál es el nombre de dominio personalizado que los clientes usarán para acceder a la aplicación?  Para la aplicación de ejemplo, el nombre de dominio personalizado es *www.scalableasedemo.com*
+* **Dominio de Traffic Manager:**  se tiene que elegir un nombre de dominio al crear un [perfil de Azure Traffic Manager][AzureTrafficManagerProfile].  Este nombre se combinará con el sufijo *trafficmanager.net* para registrar una entrada de dominio que es administrada por el Administrador de tráfico.  Para la aplicación de ejemplo, el nombre elegido es *scalable-ase-demo*.  Como resultado, el nombre de dominio completo administrado por el Administrador de tráfico es *scalable-ase-demo.trafficmanager.net*.
+* **Estrategia para escalar la superficie de la aplicación:**  ¿se va a distribuir el entorno de la aplicación entre varias instancias de App Service Environment de una sola región?  ¿Varias regiones?  ¿Una combinación de ambos enfoques?  La decisión debería basarse en las expectativas de dónde se vaya a originar el tráfico del cliente, así como también en la medida en que el resto de la infraestructura de back-end de apoyo de una aplicación pueda escalarse.  Por ejemplo, con una aplicación totalmente sin estado, se puede escalar una aplicación de forma masiva mediante una combinación de varias instancias de App Service Environment por región de Azure, multiplicados por más instancias de App Service Environment implementadas en varias regiones de Azure.  Con más de 15 regiones de Azure públicas entre las que elegir, los clientes pueden realmente crear una superficie de aplicación de gran escala en todo el mundo.  Para la aplicación de ejemplo usada en este artículo, se crearon tres entornos de App Service en una sola región de Azure (Centro y Sur de EE. UU.).
+* **Convención de nomenclatura para las instancias de App Service Environment:**  cada instancia de App Service Environment requiere un nombre único.  Si existen más de uno o dos entornos de App Service, resulta útil disponer de una convención de nomenclatura para ayudar a identificar cada uno de ellos.  Para la aplicación de ejemplo, se usó una convención de nomenclatura sencilla.  Los nombres de las tres instancias de App Service Environment son *fe1ase*, *fe2ase* y *fe3ase*.
+* **Convención de nomenclatura para las aplicaciones:**  dado que se van a implementar varias instancias de la aplicación, se necesita un nombre para cada instancia de la aplicación implementada.  Una característica poco conocida pero muy cómoda de los entornos de App Service es que se puede usar el mismo nombre de aplicación en varios entornos de App Service.  Dado que cada entorno de App Service tiene un sufijo de dominio único, los desarrolladores pueden reutilizar el mismo nombre de aplicación en cada entorno.  Por ejemplo, un desarrollador podría asignar los siguientes nombres a las aplicaciones:*myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net, etc*.  No obstante, para la aplicación de ejemplo, cada instancia tiene un nombre único.  Los nombres de las instancias de aplicación usados son *webfrontend1*, *webfrontend2* y *webfrontend3*.
 
 ## <a name="setting-up-the-traffic-manager-profile"></a>Configuración de un perfil del Administrador de tráfico
 Una vez que se implementan varias instancias de una aplicación en varias instancias de App Service Environment, las instancias de aplicación individuales se pueden registrar en Traffic Manager.  Para la aplicación de ejemplo, se necesita un perfil del Administrador de tráfico para *scalable-ase-demo.trafficmanager.net* que pueda enrutar a los clientes a cualquiera de las siguientes instancias de la aplicación implementadas:
 
-* **webfrontend1.fe1ase.p.azurewebsites.net:** una instancia de la aplicación de ejemplo que se implementa en la primera instancia de App Service Environment.
-* **webfrontend2.fe2ase.p.azurewebsites.net:** una instancia de la aplicación de ejemplo que se implementa en la segunda instancia de App Service Environment.
-* **webfrontend3.fe3ase.p.azurewebsites.net:** una instancia de la aplicación de ejemplo que se implementa en la tercera instancia de App Service Environment.
+* **webfrontend1.fe1ase.p.azurewebsites.net:**  una instancia de la aplicación de ejemplo implementada en la primera instancia de App Service Environment.
+* **webfrontend2.fe2ase.p.azurewebsites.net:**  una instancia de la aplicación de ejemplo implementada en la segunda instancia de App Service Environment.
+* **webfrontend3.fe3ase.p.azurewebsites.net:**  una instancia de la aplicación de ejemplo implementada en la tercera instancia de App Service Environment.
 
 La forma más sencilla de registrar varios puntos de conexión de Azure App Service, todos los cuales se ejecutan en la **misma** región de Azure, es usando la [compatibilidad de Azure Resource Manager con Traffic Manager de Azure][ARMTrafficManager].  
 

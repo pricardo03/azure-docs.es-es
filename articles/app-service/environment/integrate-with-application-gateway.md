@@ -1,5 +1,5 @@
 ---
-title: Integración de ILB App Service Environment con Azure Application Gateway
+title: Integración de ILB App Service Environment con Application Gateway - Azure
 description: Tutorial sobre la integración de una aplicación de ILB App Service Environment con Azure Application Gateway
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2018
 ms.author: ccompy
-ms.openlocfilehash: 749b554b8cf99ce849e0e3ab7b3a9478d8705e54
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.custom: seodec18
+ms.openlocfilehash: ea46b5e57e4e508a3311de8633ae61d346b574eb
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423001"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273823"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integración de ILB App Service Environment con Azure Application Gateway #
 
@@ -64,9 +65,9 @@ Tampoco se puede colocar la puerta de enlace en la subred que usa la instancia d
 
 1. En Azure Portal, vaya a **Nuevo** > **Red** > **Application Gateway**.
 
-1. En la zona **Básico**:
+2. En la zona **Básico**:
 
-   a. Como **Nombre**, escriba el de Azure Application Gateway.
+    a. Como **Nombre**, escriba el de Azure Application Gateway.
 
    b. Como **Nivel**, seleccione **WAF**.
 
@@ -78,9 +79,9 @@ Tampoco se puede colocar la puerta de enlace en la subred que usa la instancia d
 
    ![Conceptos básicos nuevos de la creación de instancias de Application Gateway][2]
 
-1. En el área **Configuración**:
+3. En el área **Configuración**:
 
-   a. Como **Red virtual**, seleccione la de App Service Environment.
+    a. Como **Red virtual**, seleccione la de App Service Environment.
 
    b. Como **Subred**, seleccione donde debe implementarse la instancia de Azure Application Gateway. No utilice GatewaySubnet, ya que esto impediría la creación de puertas de enlace de VPN.
 
@@ -94,25 +95,25 @@ Tampoco se puede colocar la puerta de enlace en la subred que usa la instancia d
 
    ![Nueva configuración de la creación de Application Gateway][3]
     
-1. En la sección **Resumen**, revise la configuración y seleccione **Aceptar**. La instancia de Application Gateway puede tardar algo más de 30 minutos en instalarse.  
+4. En la sección **Resumen**, revise la configuración y seleccione **Aceptar**. La instancia de Application Gateway puede tardar algo más de 30 minutos en instalarse.  
 
-1. Una vez instalada, vaya a su portal. Seleccione **Grupo back-end**. Agregue la dirección del equilibrador de carga interno que usa la instancia de ILB App Service Environment.
+5. Una vez instalada, vaya a su portal. Seleccione **Grupo back-end**. Agregue la dirección del equilibrador de carga interno que usa la instancia de ILB App Service Environment.
 
    ![Configuración del grupo back-end][4]
 
-1. Una vez completado el proceso de configuración del grupo de back-end, seleccione **Sondeos de estado**. Cree un sondeo de estado para el nombre de dominio que desea usar con la aplicación. 
+6. Una vez completado el proceso de configuración del grupo de back-end, seleccione **Sondeos de estado**. Cree un sondeo de estado para el nombre de dominio que desea usar con la aplicación. 
 
    ![Configuración de sondeos de mantenimiento][5]
     
-1. Una vez completado el proceso de configuración de los sondeos de estado, seleccione **Configuración HTTP**. Edite la configuración existente, seleccione **Usar sondeo personalizado** y elija el que ha configurado.
+7. Una vez completado el proceso de configuración de los sondeos de estado, seleccione **Configuración HTTP**. Edite la configuración existente, seleccione **Usar sondeo personalizado** y elija el que ha configurado.
 
    ![Configuración de HTTP][6]
     
-1. Vaya a la sección **Información general** de la instancia de Application Gateway y copie la dirección IP pública que esta usa. Establezca esa dirección IP como registro A del nombre de dominio de la aplicación, o utilice el nombre DNS para esa dirección en un registro CNAME. Es más fácil seleccionar la dirección IP pública y copiarla desde la interfaz de usuario de dirección IP pública que desde el vínculo de la sección **Información general** de Application Gateway. 
+8. Vaya a la sección **Información general** de la instancia de Application Gateway y copie la dirección IP pública que esta usa. Establezca esa dirección IP como registro A del nombre de dominio de la aplicación, o utilice el nombre DNS para esa dirección en un registro CNAME. Es más fácil seleccionar la dirección IP pública y copiarla desde la interfaz de usuario de dirección IP pública que desde el vínculo de la sección **Información general** de Application Gateway. 
 
    ![Portal de Application Gateway][7]
 
-1. Establezca el nombre de dominio personalizado para la aplicación de la instancia de ILB App Service Environment. Vaya a la aplicación en el portal y, en **Configuración**, seleccione **Dominios personalizados**.
+9. Establezca el nombre de dominio personalizado para la aplicación de la instancia de ILB App Service Environment. Vaya a la aplicación en el portal y, en **Configuración**, seleccione **Dominios personalizados**.
 
    ![Establecer el nombre de dominio personalizado en la aplicación][8]
 
@@ -133,6 +134,6 @@ Después de completar la instalación y de haber permitido un breve período de 
 [9]: ./media/integrate-with-application-gateway/appgw-iplist.png
 
 <!--LINKS-->
-[appgw]: http://docs.microsoft.com/azure/application-gateway/application-gateway-introduction
+[appgw]: https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction
 [custom-domain]: ../app-service-web-tutorial-custom-domain.md
 [ilbase]: ./create-ilb-ase.md

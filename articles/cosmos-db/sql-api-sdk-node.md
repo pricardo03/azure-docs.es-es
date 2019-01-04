@@ -1,9 +1,8 @@
 ---
-title: API, SDK y recursos de Node.js para SQL de Azure Cosmos DB | Microsoft Docs
+title: 'Azure Cosmos DB: API de SQL para Node.js, SDK y recursos'
 description: Obtenga toda la información sobre la API y el SDK de Node.js para SQL incluidas la fechas de lanzamiento, fechas de retirada y cambios realizados entre las versiones del SDK de Node.js para Azure Cosmos DB.
 services: cosmos-db
 author: deborahc
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: nodejs
@@ -11,14 +10,14 @@ ms.topic: reference
 ms.date: 09/24/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b5ba00376e40b92a217bddd5b27c53dbe30c3cf3
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 08e928143e8e54797869a06f4f7b99fd89cdcacc
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687510"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343996"
 ---
-# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Node.js para la API de SQL de Azure Cosmos DB: notas de la versión y recursos
+# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Azure Cosmos DB para .NET para SQL API: Notas de la versión y recursos
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Fuente de cambios de .NET](sql-api-sdk-dotnet-changefeed.md)
@@ -29,7 +28,7 @@ ms.locfileid: "51687510"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Proveedor de recursos de REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor: .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor: Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -153,10 +152,10 @@ ms.locfileid: "51687510"
 * Solucionado el error RangePartitionResolver.resolveForRead por el que no se devolvían vínculos debido a una mala concatenación de resultados.
 
 ### <a name="1.5.5"/>1.5.5</a>
-* Valor hashPartitionResolver resolveForRead() fijo: cuando ninguna clave de partición proporcionada lanzó una excepción, en lugar de devolver una lista de todos los vínculos registrados.
+* Valor hashParitionResolver resolveForRead() corregido: cuando ninguna clave de partición proporcionada ha lanzado una excepción, en lugar de devolver una lista de todos los vínculos registrados.
 
 ### <a name="1.5.4"/>1.5.4</a>
-* Corrige el problema [100](https://github.com/Azure/azure-documentdb-node/issues/100): agente específico de HTTPS (evitar la modificación del agente global para fines de Azure Cosmos DB). Use un agente dedicado para todas las solicitudes de lib.
+* Corrige el problema [100](https://github.com/Azure/azure-documentdb-node/issues/100) -agente específico de HTTPS: evite la modificación del agente global para fines de Azure Cosmos DB. Use un agente dedicado para todas las solicitudes de lib.
 
 ### <a name="1.5.3"/>1.5.3</a>
 * Corrige el problema [81](https://github.com/Azure/azure-documentdb-node/issues/81) : controla correctamente guiones en identificadores de medios.

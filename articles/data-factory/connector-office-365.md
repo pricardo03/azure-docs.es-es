@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 82fb2241b5988bae9587807c03e7bec50e7c1677
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: f76c1676e21e1abdc3f23e2e2c4a7f6f721fefdb
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955393"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386577"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Copiar datos de Office 365 en Azure con Azure Data Factory (versión preliminar) 
 
@@ -34,7 +34,7 @@ Por ahora, en una única actividad de copia, solo puede **copiar datos de Office
 >- La suscripción de Azure que contiene la factoría de datos y el almacén de datos del receptor debe estar en el mismo inquilino de Azure Active Directory (Azure AD) que Office 365.
 >- Asegúrese de que la región de Azure Integration Runtime utilizada para la actividad de copia y el destino están en la misma región donde se encuentra el buzón de los usuarios del inquilino de Office 365. Haga clic [aquí](concepts-integration-runtime.md#integration-runtime-location) para obtener información sobre cómo se determina la ubicación de Azure IR. Consulte la [tabla aquí](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Capabilities#data-regions) para obtener la lista de las regiones admitidas de Office y las regiones de Azure correspondientes.
 >-  Si va a cargar los datos de Office 365 en **Azure Blob Storage** como destino, asegúrese de que utiliza la **[autenticación de entidad de servicio](connector-azure-blob-storage.md#service-principal-authentication)** al definir el servicio vinculado a Azure Blob Storage y de que no usa las autenticaciones [clave de cuenta](connector-azure-blob-storage.md#account-key-authentication), [firma de acceso compartido](connector-azure-blob-storage.md#shared-access-signature-authentication) o [identidades administradas para los recursos de Azure](connector-azure-blob-storage.md#managed-identity).
->-  Si va a cargar los datos de Office 365 en **Azure Data Lake Storage Gen1** como destino, asegúrese de que utiliza la [**autenticación de entidad de servicio**](connector-azure-data-lake-store.md#using-service-principal-authentication) al definir el servicio vinculado a Azure Data Lake Storage Gen1 y de que no usa las [identidades administradas para la autenticación de los recursos de Azure](connector-azure-data-lake-store.md#managed-identity).
+>-  Si va a cargar los datos de Office 365 en **Azure Data Lake Storage Gen1** como destino, asegúrese de que utiliza la [**autenticación de entidad de servicio**](connector-azure-data-lake-store.md#use-service-principal-authentication) al definir el servicio vinculado a Azure Data Lake Storage Gen1 y de que no usa las [identidades administradas para la autenticación de los recursos de Azure](connector-azure-data-lake-store.md#managed-identity).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -119,7 +119,7 @@ Para copiar datos de Office 365, se admiten las siguientes propiedades:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos se debe establecer en: **Office365Table** | SÍ |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **Office365Table** | SÍ |
 | tableName | Nombre del conjunto de datos para extraer de Office 365. Haga clic [aquí](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#datasets) para obtener la lista de conjuntos de datos de Office 365 disponibles para la extracción. | SÍ |
 | predicate | Una expresión de predicado que se puede usar para filtrar las filas específicas para extraer de Office 365.  Haga clic [aquí](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#filters) para averiguar qué columnas se pueden usar para el filtrado de predicados de cada tabla y el formato de expresión de filtro. | Sin <br>(Si no se proporciona ningún predicado, el valor predeterminado es extraer datos durante los treinta últimos días). |
 

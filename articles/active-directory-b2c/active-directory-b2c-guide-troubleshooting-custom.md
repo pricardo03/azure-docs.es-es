@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 32692cbe7959650d5181c9e9dfcd7dd5ee55a46e
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 8bb95ae776c329e67e9f9936213a9f4c2a0c8f62
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024603"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842601"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Solución de problemas de directivas personalizadas de Azure AD B2C y el marco de experiencia de identidad
 
@@ -57,10 +57,10 @@ Fragmento de código de error: `Reason: User is currently logged as a user of 'y
 
 * Use `Run Now` y `https://jwt.io` para probar sus directivas con independencia de su aplicación web o móvil. Este sitio web actúa como una aplicación de usuario de confianza. Muestra el contenido del JSON Web Token (JWT) que genera la directiva de Azure AD B2C. Para crear una aplicación de prueba en el marco de experiencia de identidad, use los valores siguientes:
     * Nombre: TestApp
-    * Aplicación web/API web: No
-    * Cliente nativo: No
+    * Aplicación web/API web: Sin 
+    * Cliente nativo: Sin 
 
-* Use [Fiddler](http://www.telerik.com/fiddler) para realizar un seguimiento del intercambio de mensajes entre su explorador cliente y Azure AD B2C. Puede ayudarle a detectar un error en el recorrido del usuario en los pasos de la orquestación.
+* Use [Fiddler](https://www.telerik.com/fiddler) para realizar un seguimiento del intercambio de mensajes entre su explorador cliente y Azure AD B2C. Puede ayudarle a detectar un error en el recorrido del usuario en los pasos de la orquestación.
 
 * Use **Application Insights** en **modo de desarrollo** para realizar un seguimiento de la actividad de su recorrido del usuario en el marco de experiencia de identidad. En el **modo de desarrollo**, es posible observar el intercambio de notificaciones entre el maco de experiencia de identidad y los diversos proveedores de notificaciones definidos por perfiles técnicos, como proveedores de identidades, servicios de basados en API, el directorio de usuario de Azure AD B2C y otros servicios como Azure Multi-Factor-Authentication.  
 

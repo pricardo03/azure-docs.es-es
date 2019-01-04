@@ -1,6 +1,6 @@
 ---
-title: Incorporación o eliminación de los miembros de un grupo mediante Azure Active Directory | Microsoft Docs
-description: Obtenga información sobre cómo agregar o quitar usuarios y dispositivos de un grupo mediante Azure Active Directory.
+title: 'Incorporación o eliminación de los miembros de un grupo: Azure Active Directory | Microsoft Docs'
+description: Obtenga información sobre cómo agregar o quitar miembros de un grupo con Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,16 +10,16 @@ ms.component: fundamentals
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: lizross
-ms.custom: it-pro
+ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: 7c1a83d83dcbf247550c66602a6f53d4ef0d7930
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 42b80b53ca7c860143f1de1005a609b3e921e650
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733371"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076170"
 ---
-# <a name="how-to-add-or-remove-group-members-using-azure-active-directory"></a>Incorporación o eliminación de los miembros de un grupo mediante Azure Active Directory
+# <a name="add-or-remove-group-members-using-azure-active-directory"></a>Incorporación o eliminación de los miembros de un grupo mediante Azure Active Directory
 Con Azure Active Directory, puede seguir agregando y quitando miembros del grupo.
 
 ## <a name="to-add-group-members"></a>Para agregar miembros al grupo
@@ -56,10 +56,10 @@ Con Azure Active Directory, puede seguir agregando y quitando miembros del grupo
 
 - [Visualización de grupos y miembros](active-directory-groups-view-azure-portal.md)
 
-- [Edición de la configuración de un grupo](active-directory-groups-settings-azure-portal.md)
+- [Editar la configuración del grupo](active-directory-groups-settings-azure-portal.md)
 
-- [Administración del acceso a los recursos](active-directory-manage-groups.md)
+- [Administrar el acceso a los recursos mediante grupos](active-directory-manage-groups.md)
 
 - [Administrar reglas dinámicas de los usuarios de un grupo](../users-groups-roles/groups-create-rule.md)
 
-- [Asociación o adición de una suscripción de Azure a Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+- [Asociar o agregar una suscripción de Azure a Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 93c3bd3f902f08c8f019744b3f30745c1fd9fa01
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 15526cc829d556457a7069df613bb6a8d2a2b23b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442430"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847667"
 ---
 # <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C: Protección de una API web mediante Node.js
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
@@ -47,7 +47,7 @@ A continuación, debe crear una aplicación en su directorio de B2C, que ofrece 
 * Copiar el **identificador de aplicación** asignado a la aplicación. Estos datos se necesitarán más adelante.
 
 ## <a name="create-your-policies"></a>Crear sus directivas
-En Azure AD B2C, cada experiencia del usuario se define mediante una [directiva](active-directory-b2c-reference-policies.md). Esta aplicación contiene dos experiencias de identidad: registrarse e iniciar sesión. Debe crear una directiva de cada tipo, como se describe en el [artículo de referencia de las directivas](active-directory-b2c-reference-policies.md#create-a-sign-up-policy).  Cuando cree las tres directivas, asegúrese de:
+En Azure AD B2C, cada experiencia del usuario se define mediante una [directiva](active-directory-b2c-reference-policies.md). Esta aplicación contiene dos experiencias de identidad: registrarse e iniciar sesión. Debe crear una directiva de cada tipo, como se describe en el [artículo de referencia de las directivas](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow).  Cuando cree las tres directivas, asegúrese de:
 
 * Elegir el **nombre para mostrar** y los restantes atributos de registro en la directiva de registro.
 * Elija las notificaciones de aplicación de **nombre para mostrar** e **id. de objeto** de cada directiva.  Puede elegir también otras notificaciones.
@@ -71,12 +71,12 @@ La aplicación completada también estará [disponible como archivo .zip](https:
 ## <a name="download-nodejs-for-your-platform"></a>Descarga de Node.js para su plataforma
 Para usar correctamente este ejemplo, se necesita una instalación en funcionamiento de Node.js.
 
-Instale Node.js desde [nodejs.org](http://nodejs.org).
+Instale Node.js desde [nodejs.org](https://nodejs.org).
 
 ## <a name="install-mongodb-for-your-platform"></a>Instalación de MongoDB en la plataforma
 Para usar correctamente este ejemplo, se necesita una instalación en funcionamiento de MongoDB. MongoDB se usa para que la API de REST sea persistente en las instancias del servidor.
 
-Instale MongoDB desde [mongodb.org](http://www.mongodb.org).
+Instale MongoDB desde [mongodb.org](https://www.mongodb.org).
 
 > [!NOTE]
 > En este tutorial se asume que usa la instalación predeterminada y los puntos de conexión de servidor de MongoDB, que en el momento de escribir este artículo es: `mongodb://localhost`.
@@ -341,7 +341,7 @@ Este modelo de esquema es muy sencillo. Se puede expandir según sea necesario.
 
 `Text`: la propia tarea. Este objeto es de tipo **cadena**.
 
-`date`: la fecha en que vence la tarea. Este objeto es de tipo **datetime**.
+`date`: La fecha en que vence la tarea. Este objeto es de tipo **datetime**.
 
 `completed`: si la tarea está completa. Este objeto es de tipo **booleano**.
 

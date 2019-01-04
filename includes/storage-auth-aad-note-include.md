@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/09/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: fbc5ca4d433be65d43ae535703cc7f765dda0a1e
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 0182df40a4e7815560a85e60fe9062ccd8001c18
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292710"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52978848"
 ---
 > [!NOTE]
 > - La versión preliminar de la autenticación de Azure AD para blobs y colas solo está destinada al uso que no sea de producción. En este momento no hay contratos de nivel de servicio de producción disponibles. Si la autenticación de Azure AD no se admite todavía para su escenario, siga usando la autorización con clave compartida o tokens de SAS en las aplicaciones.
@@ -24,9 +24,6 @@ ms.locfileid: "52292710"
 >
 > - Azure Portal ahora permite utilizar credenciales de Azure AD para leer y escribir datos de blobs y colas en la versión preliminar.
 > 
-> - [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) actualmente usa la clave de la cuenta de almacenamiento para acceder a los datos de blobs y colas.
+> - [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) actualmente usa la clave de la cuenta de almacenamiento para acceder a los datos de blobs y colas. Se admite el acceso OAuth para blobs.
 >
 > - Azure Files solo admite autenticación con Azure AD a través de SMB para máquinas virtuales unidas a dominios (versión preliminar). Para aprender a usar Azure AD a través de SMB de Azure Files, consulte [Introducción a la autenticación de Azure Active Directory a través de SMB para Azure Files (versión preliminar)](../articles/storage/files/storage-files-active-directory-overview.md).
-
-
-

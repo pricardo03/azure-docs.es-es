@@ -2,19 +2,19 @@
 title: Planificación de la capacidad del clúster en Azure HDInsight
 description: Se describe cómo especificar la capacidad y el rendimiento de un clúster de HDInsight.
 services: hdinsight
-author: maxluk
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/22/2017
-ms.author: maxluk
-ms.openlocfilehash: 853bf9cfce458e6f112101b1382dd5bfd5df202d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.date: 12/04/2018
+ms.author: hrasheed
+ms.openlocfilehash: c8ca936220bf1f4d7f38858c0e09e332cd474077
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499107"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193865"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planeamiento de la capacidad de los clústeres de HDInsight
 
@@ -32,7 +32,7 @@ Las preguntas claves para planear la capacidad son:
 
 La región de Azure determina dónde se aprovisiona físicamente el clúster. Para minimizar la latencia de lecturas y escrituras, el clúster debe estar cerca de los datos.
 
-HDInsight está disponible en muchas regiones de Azure. Para buscar la región más cercana, vea la entrada *HDInsight Linux* de *Datos y análisis* en [Productos disponibles por región](https://azure.microsoft.com/regions/services/).
+HDInsight está disponible en muchas regiones de Azure. Para buscar la región más cercana, vea la entrada *HDInsight* de *Análisis* en [Productos disponibles por región](https://azure.microsoft.com/regions/services/).
 
 ## <a name="choose-storage-location-and-size"></a>Elección del tamaño y la ubicación de almacenamiento
 
@@ -97,17 +97,37 @@ Se le cobra en función de la duración del clúster. Si solo necesita que el cl
 
 A veces, los errores pueden producirse debido a la ejecución en paralelo de varios componentes de asignación y reducción en un clúster de varios nodos. Para facilitar el aislamiento del problema, intente realizar pruebas distribuidas mediante la ejecución de varios trabajos simultáneos en un clúster de un solo nodo y luego expanda este enfoque para ejecutar varios trabajos simultáneamente en clústeres que contienen más de un nodo. Para crear un clúster de HDInsight de un solo nodo en Azure, use la opción *avanzada*.
 
-También puede instalar un entorno de desarrollo de un solo nodo en el equipo local y probar ahí la solución. Hortonworks proporciona un entorno de desarrollo local de un solo nodo para soluciones basadas en Hadoop que resulta útil para el desarrollo inicial, la prueba de concepto y las pruebas. Para más información, vea [Hortonworks Sandbox](http://hortonworks.com/products/hortonworks-sandbox/).
+También puede instalar un entorno de desarrollo de un solo nodo en el equipo local y probar ahí la solución. Hortonworks proporciona un entorno de desarrollo local de un solo nodo para soluciones basadas en Hadoop que resulta útil para el desarrollo inicial, la prueba de concepto y las pruebas. Para más información, vea [Hortonworks Sandbox](https://hortonworks.com/products/hortonworks-sandbox/).
 
 Para identificar el problema en un clúster local de un solo nodo, puede volver a ejecutar los trabajos con errores y ajustar los datos de entrada, o bien usar conjuntos de datos más pequeños. La forma de ejecutar tales trabajos depende de la plataforma y del tipo de aplicación.
 
 ## <a name="quotas"></a>Cuotas
 
-Después de determinar el tamaño, la escala y el tipo de la máquina virtual del clúster de destino, compruebe los límites de capacidad de cuota actual de la suscripción. Cuando alcance un límite de cuota, puede que no sea capaz de implementar clústeres nuevos o de escalar horizontalmente los clústeres con la adición de más nodos de trabajo. El límite de cuota que suele alcanzarse con mayor frecuencia se corresponde con la cuota de núcleos de CPU que existe a nivel de suscripción, región y serie de máquina virtual. Por ejemplo, la suscripción puede tener un límite total de doscientos núcleos, con un límite de treinta núcleos en su región y un límite de treinta núcleos en las instancias de máquina virtual. Puede [ponerse en contacto con el servicio de soporte técnico para solicitar un aumento de la cuota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+Después de determinar el tamaño, la escala y el tipo de la máquina virtual del clúster de destino, compruebe los límites de capacidad de cuota actual de la suscripción. Cuando alcance un límite de cuota, puede que no sea capaz de implementar clústeres nuevos o de escalar horizontalmente los clústeres con la adición de más nodos de trabajo. El límite de cuota única es la cuota de núcleos de CPU que existe en el nivel de región para cada suscripción. Por ejemplo, la suscripción puede tener el límite de 30 núcleos en la región Este de EE. UU. Si fuera necesario solicitar un aumento de la cuota, siga estos pasos:
+
+1. Vaya a Azure Portal.
+1. Haga clic en **Ayuda y soporte técnico** en la parte inferior izquierda de la página.
+1. Haga clic en **Nueva solicitud de soporte técnico**.
+1. En la página **Nueva solicitud de soporte técnico**, en la pestaña **Fundamentos**, seleccione las opciones siguientes:
+    - **Tipo de problema**: **Límites de servicio y suscripción (cuotas)**
+    - **Suscripción**: la suscripción que desea modificar.
+    - **Tipo de cuota**: **HDInsight**
+    
+    ![Creación de una solicitud de soporte técnico para aumentar la cuota de núcleos de HDInsight](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
+
+1. Haga clic en **Next**.
+1. En la página **Detalles**, escriba la descripción del problema y seleccione su gravedad y el método de contacto preferido.
+1. Haga clic en **Siguiente: Review + create** (Revisar y crear).
+1. En la pestaña **Review + create** (Revisar y crear), haga clic en **Create** (Crear).
+
+> [!Note]
+> Si necesita aumentar la cuota de núcleos de HDInsight en una región privada, [envíe una solicitud de lista de permitidos](https://aka.ms/canaryintwhitelist).
+
+Puede [ponerse en contacto con el servicio de soporte técnico para solicitar un aumento de la cuota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
 Sin embargo, hay algunos límites de cuota fijos; por ejemplo, una única suscripción de Azure puede tener como máximo diez mil núcleos. Para obtener información detallada sobre estos límites, vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits#limits-and-the-azure-resource-manager).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Configuración de clústeres en HDInsight con Apache Hadoop, Spark, Kafka, etc.](hdinsight-hadoop-provision-linux-clusters.md): obtenga información sobre cómo instalar y configurar clústeres en HDInsight con Apache Hadoop, Spark, Kafka, Hive interactivo, HBase, ML Services o Storm.
+* [Configuración de clústeres en HDInsight con Hadoop, Spark, Kafka, etc.](hdinsight-hadoop-provision-linux-clusters.md): Aprenda a instalar y configurar clústeres en HDInsight con Apache Hadoop, Spark, Kafka, Interactive Hive, HBase, ML Services o Storm.
 * [Supervisión del rendimiento del clúster](hdinsight-key-scenarios-to-monitor.md): obtenga información sobre los escenarios claves para supervisar el clúster de HDInsight que podría afectar a la capacidad del clúster.

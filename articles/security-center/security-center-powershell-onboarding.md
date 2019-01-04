@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: 650c767d6f8ef495bb19886980b6d45bfe53b32a
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ecfab15860ffc690d341069b626e5d7579c00da4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311184"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340375"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatización de la incorporación de Azure Security Center mediante PowerShell
 
@@ -40,7 +40,7 @@ En este ejemplo, se habilitará Security Center en una suscripción con el ident
 
 5. Establezca el [CISO de la organización como contacto de seguridad de las alertas y eventos destacados de ASC](security-center-provide-security-contact-details.md).
 
-6. Asigne [directivas de seguridad predeterminadas](security-center-azure-policy.md) de Security Center.
+6. Asigne [directivas de seguridad predeterminadas](tutorial-security-policy.md) de Security Center.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -92,7 +92,7 @@ Estos pasos deben realizarse antes de ejecutar los cmdlets de Security Center:
 6.  Asigne la iniciativa de directiva predeterminada de Security Center:
 
         Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
-        $Policy = Get-AzureRmPolicySetDefinition -Name ' [Preview]: Enable Monitoring in Azure Security Center'
+        $Policy = Get-AzureRmPolicySetDefinition | where {$_.Properties.displayName -EQ '[Preview]: Enable Monitoring in Azure Security Center'}
         New-AzureRmPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'
 
 Ahora se ha incorporado correctamente Azure Security Center con PowerShell.
@@ -111,6 +111,6 @@ Para más información sobre cómo puede usar PowerShell para automatizar la inc
 
 Para más información sobre Security Center, consulte el siguiente artículo:
 
-* [Establecimiento de directivas de seguridad en Azure Security Center](security-center-azure-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
+* [Establecimiento de directivas de seguridad en Azure Security Center](tutorial-security-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md) : obtenga información sobre cómo administrar y responder a alertas de seguridad.
 * [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) : encuentre las preguntas más frecuentes sobre el uso del servicio.

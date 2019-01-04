@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: f0f43826c50679cb3de88aef466795cbb9e9e76f
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: e02492b3e80f71b4ae92066e5e4a2baf26818621
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139499"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316172"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Información general sobre el acelerador de la solución de supervisión remota
 
@@ -24,6 +24,11 @@ Este artículo le guiará a través de algunos de los elementos clave de la solu
 * Solucionar problemas de la solución.
 * Planear cómo personalizar la solución para satisfacer sus propios requisitos específicos.
 * Diseñar una solución de IoT propia que utilice servicios de Azure.
+
+El código del acelerador de soluciones de Supervisión remota está disponible en GitHub:
+
+* [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
+* [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
 
 ## <a name="logical-architecture"></a>Arquitectura lógica
 
@@ -36,7 +41,7 @@ El siguiente diagrama muestra los componentes lógicos del acelerador de la solu
 La arquitectura en la nube ha evolucionado desde el lanzamiento de Microsoft de los primeros aceleradores de soluciones. Los [microservicios](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) han surgido como un procedimiento probado para alcanzar el escalado y la flexibilidad, sin sacrificar la velocidad de desarrollo. Este modelo de arquitectura se usa internamente en varios servicios de Microsoft con grandes resultados con respecto a la escalabilidad y la confiabilidad. Los aceleradores de soluciones actualizados ponen estos conocimientos en práctica para que también pueda beneficiarse de ellos.
 
 > [!TIP]
-> Para más información sobre las arquitecturas de microservicios, consulte [.NET Application Architecture](https://www.microsoft.com/net/learn/architecture) (Arquitectura de la aplicación .NET) y [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Microservicios: una revolución de aplicaciones con la tecnología de la nube).
+> Para obtener más información acerca de las arquitecturas de microservicios, consulte [arquitectura de aplicaciones .NET](https://www.microsoft.com/net/learn/architecture) y [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Microservicios: Una revolución en las aplicaciones con la tecnología de la nube).
 
 ## <a name="device-connectivity"></a>Conectividad de dispositivos
 

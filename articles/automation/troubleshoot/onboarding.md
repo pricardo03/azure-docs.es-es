@@ -8,12 +8,12 @@ ms.date: 06/19/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: c11013c926e77447a69ce0dfe697fdda1ecc2b8c
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 52ff52ffb558278507bb24e1b1e2054c251b2512
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284853"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879650"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Solución de problemas de errores al incorporar soluciones
 
@@ -21,7 +21,7 @@ Al incorporar soluciones como Update Management, Change Tracking o Inventory, pu
 
 ## <a name="general-errors"></a>Errores generales
 
-### <a name="computer-grou-query-format-error"></a>Escenario: ComputerGroupQueryFormatError
+### <a name="computer-group-query-format-error"></a>Escenario: ComputerGroupQueryFormatError
 
 #### <a name="issue"></a>Problema
 
@@ -55,7 +55,7 @@ Para implementar correctamente la solución, debe considerar modificar la direct
   * Cambiar el destino de la directiva por un recurso concreto (por ejemplo, por una cuenta de Automation específica).
   * Revisar el conjunto de recursos para los que se configuró en la directiva denegar el acceso.
 
-Compruebe las notificaciones en la esquina superior derecha de Azure Portal o desplácese hasta el grupo de recursos que contiene la cuenta de Automation y seleccione **Implementaciones** en **Configuración** para ver la implementación con errores. Para más información acerca de Azure Policy, visite: [Introducción a Azure Policy](../../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
+Compruebe las notificaciones en la esquina superior derecha de Azure Portal o desplácese hasta el grupo de recursos que contiene la cuenta de Automation y seleccione **Implementaciones** en **Configuración** para ver la implementación con errores. Para obtener más información sobre Azure Policy, visite: [Introducción a Azure Policy](../../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
 
 ## <a name="mma-extension-failures"></a>Errores de extensión MMA
 

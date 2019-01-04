@@ -8,24 +8,23 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: d8bb7a975bd5bab8698d20e5d21514b79945eac6
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 4a7b5cd925bd4b66e25754c30de5cbaf866dab0b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564925"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970636"
 ---
 # <a name="application-insights-cohorts"></a>Cohortes de Application Insights
 
 Una cohorte es un conjuntos de usuarios, sesiones, eventos u operaciones que tienen algo en común. En Azure Application Insights las cohortes se definen mediante una consulta de análisis. En los casos en que tiene que analizar un conjunto específico de usuarios o eventos de forma repetida, las cohortes pueden proporcionarle una mayor flexibilidad para expresar exactamente el conjunto que le interesa.
 
-![Panel de cohortes](.\media\app-insights-usage-cohorts\001.png)
+![Panel de cohortes](./media/app-insights-usage-cohorts/001.png)
 
 ## <a name="cohorts-versus-basic-filters"></a>Cohortes frente a filtros básicos
 
@@ -36,7 +35,7 @@ Puede definir una cohorte de usuarios en la que todos hayan probado una nueva ca
 > [!NOTE]
 > Una vez creadas, las cohortes están disponibles en las herramientas Usuarios, Sesiones, Eventos y Flujos de usuario.
 
-## <a name="example-engaged-users"></a>Ejemplo: usuarios dedicados
+## <a name="example-engaged-users"></a>Ejemplo: Usuarios dedicados
 
 El equipo define como usuario dedicado a cualquier persona que use la aplicación cinco o más veces en un mes determinado. En esta sección, definirá una cohorte de estos usuarios dedicados.
 
@@ -53,14 +52,14 @@ El equipo define como usuario dedicado a cualquier persona que use la aplicació
 
 4. Cambie **UsedAtleastCustom** a **5+ días** y deje **Período** con el valor predeterminado de 28 días.
 
-    ![Usuarios dedicados](.\media\app-insights-usage-cohorts\003.png)
+    ![Usuarios dedicados](./media/app-insights-usage-cohorts/003.png)
 
     Esta cohorte representa todos los identificadores de usuarios que se enviaron con cualquier vista de página o evento personalizado en 5 días distintos en los últimos 28 días.
 
 5. Seleccione **Guardar**.
 
    > [!TIP]
-   >  Asigne un nombre a la cohorte, como "Usuarios dedicados (5 + días)". Guárdela en "Mis informes" o "Informes compartidos" en función de si desea que otras personas con acceso a este recurso de Application Insights vean esta cohorte.
+   > Asigne un nombre a la cohorte, como "Usuarios dedicados (5 + días)". Guárdela en "Mis informes" o "Informes compartidos" en función de si desea que otras personas con acceso a este recurso de Application Insights vean esta cohorte.
 
 6. Seleccione **Back to Gallery** (Volver a la galería).
 
@@ -70,15 +69,16 @@ Abra la herramienta Users (Usuarios). En la lista desplegable **Show** (Mostrar)
 
 La herramienta de usuarios se filtra ahora con esta cohorte de usuarios:
 
-![Panel de usuarios filtrados para una determinada cohorte](.\media\app-insights-usage-cohorts\004.png)
+![Panel de usuarios filtrados para una determinada cohorte](./media/app-insights-usage-cohorts/004.png)
 
 Hay varios aspectos importantes que se deben tener en cuenta:
+
 * No puede crear este conjunto a través de los filtros normales. La lógica de fecha es más avanzada.
 * Puede filtrar aún más esta cohorte con los filtros normales de la herramienta de usuarios. De ese modo, si bien la cohorte se define en ventanas de 28 días, aún se puede ajustar el intervalo de tiempo en la herramienta de usuario para que sea 30, 60 o 90 días.
 
 Estos filtros admiten preguntas más sofisticadas que son imposibles de expresas mediante el generador de consultas. Por ejemplo, _las personas que estaban dedicadas en los últimos 28 días. ¿Cómo se han comportado esas mismas personas durante los últimos 60 días?_
 
-## <a name="example-events-cohort"></a>Ejemplo: cohortes de eventos
+## <a name="example-events-cohort"></a>Ejemplo: Cohorte de eventos
 
 También puede hacer cohortes de eventos. En esta sección, definirá una cohorte de los eventos y las vistas de página. Luego verá cómo usarlos desde las otras herramientas. Esta cohorte puede definir un conjunto de eventos que su equipo considere de _uso activo_ o un conjunto relacionado con una nueva característica específica.
 
@@ -88,7 +88,7 @@ También puede hacer cohortes de eventos. En esta sección, definirá una cohort
 
 3. Seleccione **Events Picker** (Selector de eventos).
 
-    ![Captura de pantalla del selector de eventos](.\media\app-insights-usage-cohorts\006.png)
+    ![Captura de pantalla del selector de eventos](./media/app-insights-usage-cohorts/006.png)
 
 4. En la lista desplegable **Actividades**, seleccione los eventos que quiere incluir en la cohorte.
 
@@ -98,11 +98,11 @@ También puede hacer cohortes de eventos. En esta sección, definirá una cohort
 
 Las dos cohortes anteriores se han definido mediante listas desplegables. Pero también se pueden definir las cohortes con consultas de análisis para una flexibilidad total. Para ver cómo hacerlo, cree una cohorte de usuarios del Reino Unido.
 
-![Imagen animada con recorrido a través del uso de la herramienta de cohortes](.\media\app-insights-usage-cohorts\cohorts0001.gif)
+![Imagen animada con recorrido a través del uso de la herramienta de cohortes](./media/app-insights-usage-cohorts/cohorts0001.gif)
 
 1. Abra la herramienta Cohortes, seleccione la pestaña **Galería de plantillas** y seleccione **Cohortes de usuarios en blanco**.
 
-    ![Cohortes de usuarios en blanco](.\media\app-insights-usage-cohorts\001.png)
+    ![Cohortes de usuarios en blanco](./media/app-insights-usage-cohorts/001.png)
 
     Hay tres opciones:
     * Una sección de texto Markdown donde se describe la cohorte en más detalle para otros usuarios del equipo.
@@ -137,7 +137,8 @@ Las cohortes y los filtros son diferentes. Suponga que tiene una cohorte de usua
 * La versión de filtros solo muestra los eventos del Reino Unido. Pero si se divide según el país o región, solo verá el Reino Unido.
 
 ## <a name="learn-more"></a>Más información
-- [Lenguaje de consulta de Analytics](https://go.microsoft.com/fwlink/?linkid=856587)
-- [Usuarios, sesiones, eventos](app-insights-usage-segmentation.md)
-- [Flujos de usuario](app-insights-usage-flows.md)
-- [Información general del uso](app-insights-usage-overview.md)
+
+* [Lenguaje de consulta de Analytics](https://go.microsoft.com/fwlink/?linkid=856587)
+* [Usuarios, sesiones, eventos](app-insights-usage-segmentation.md)
+* [Flujos de usuario](app-insights-usage-flows.md)
+* [Información general del uso](app-insights-usage-overview.md)

@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: c26421f848cf25e391589fa791f801e30fd14797
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 77b64f09b7fd1429eb23c4407c729dfc0aafdf2b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50208908"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842363"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configuración de la recuperación ante desastres de VMware en Azure en un entorno multiinquilino con el programa Proveedor de soluciones en la nube (CSP)
 
@@ -39,7 +39,7 @@ Para configurar la replicación de VMware debe hacer lo siguiente:
 
     ![La página Información de la cuenta](./media/vmware-azure-multi-tenant-csp-disaster-recovery/customer-add-filled.png)
 
-5. A continuación, haga clic en **Siguiente: suscripciones**.
+5. A continuación, haga clic en **Siguiente: Suscripciones**.
 6. En la página de selección de suscripciones, seleccione la casilla **Microsoft Azure**. Puede agregar otras suscripciones ahora o en cualquier otro momento.
 7. En la página **Revisar**, confirme los detalles del inquilino y, a continuación, haga clic en **Enviar**.
 8. Después de haber creado la cuenta del inquilino, aparece una página de confirmación que muestra los detalles de la cuenta predeterminada y la contraseña de esa suscripción. Guarde la información y cambie la contraseña más adelante si es necesario mediante la página de inicio de sesión de Azure Portal.
@@ -72,9 +72,13 @@ Ahora puede realizar todas las operaciones de Site Recovery para el inquilino me
 
       ![Página de suscripción de CSP del inquilino](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
 
-      b) Ahora cree un nuevo usuario; para ello, escriba los datos pertinentes y seleccione los permisos, o bien cargue la lista de usuarios en un archivo CSV.
+    b) Ahora cree un nuevo usuario; para ello, escriba los datos pertinentes y seleccione los permisos, o bien cargue la lista de usuarios en un archivo CSV.
+    
     c) Después de crear un usuario, vuelva Azure Portal. En la página **Suscripción**, seleccione la correspondiente.
-    d) Seleccione **Control de acceso (IAM)** y haga clic en **Agregar** para agregar un usuario con el nivel de acceso pertinente. Los usuarios que se crearon mediante el portal de CSP se muestran automáticamente en la página que se abre al hacer clic en un nivel de acceso.
+
+    Seleccione **Control de acceso (IAM)** y después **Asignaciones de roles**.
+
+    (e) Haga clic en **Agregar asignación de roles** para agregar un usuario con el nivel de acceso pertinente. Los usuarios que se crearon mediante el portal de CSP se muestran en la pestaña Asignaciones de roles.
 
       ![Adición de un usuario](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
 
@@ -87,7 +91,7 @@ Existen tres modelos principales multiinquilino:
 
 * **Proveedor de servicios de hospedaje compartido (HSP)**: el asociado posee la infraestructura física y usa los recursos compartidos (vCenter, centros de datos, almacenamiento físico, etc.) para hospedar máquinas virtuales multiinquilino en la misma infraestructura. El asociado puede proporcionar administración de recuperación ante desastres como servicio administrado, o bien el inquilino puede ser propietario de la recuperación ante desastres como solución de autoservicio.
 
-* **Proveedor de servicios de hospedaje dedicados**: el asociado posee la infraestructura física, pero usa recursos dedicados (varios vCenters, almacenes de datos físicos, etc.) para hospedar las máquinas virtuales de cada inquilino en infraestructuras diferentes. El asociado puede proporcionar administración de recuperación ante desastres como servicio administrado, o bien el inquilino puede poseerla como solución de autoservicio.
+* **Proveedor de servicios de hospedaje dedicado**: el asociado posee la infraestructura física, pero usa recursos dedicados (varios vCenters, almacenes de datos físicos, etc.) para hospedar las máquinas virtuales de cada inquilino en infraestructuras diferentes. El asociado puede proporcionar administración de recuperación ante desastres como servicio administrado, o bien el inquilino puede poseerla como solución de autoservicio.
 
 * **Proveedor de servicios administrados (MSP)**: aquí el cliente posee la infraestructura física que hospeda las máquinas virtuales y el asociado proporciona la habilitación y la administración de la recuperación ante desastres.
 

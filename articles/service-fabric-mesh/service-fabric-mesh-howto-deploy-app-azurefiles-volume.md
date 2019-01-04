@@ -1,6 +1,6 @@
 ---
-title: Almacenamiento del estado en una aplicación Azure Service Fabric Mesh mediante el montaje de un volumen basado en Azure Files dentro del contenedor | Microsoft Docs
-description: Aprenda a almacenar el estado en una aplicación Azure Service Fabric Mesh montando un volumen basado en Azure Files en el contenedor mediante la CLI de Azure.
+title: Uso de un volumen basado en Azure Files en una aplicación Service Fabric Mesh | Microsoft Docs
+description: Aprenda a almacenar el estado en una aplicación Azure Service Fabric Mesh montando un volumen basado en Azure Files en un servicio mediante la CLI de Azure.
 services: service-fabric-mesh
 documentationcenter: .net
 author: rwike77
@@ -12,86 +12,236 @@ ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2018
+ms.date: 11/21/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cb5b421c1bcfe888d65335f3ab7f67bed80eec34
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 9bce2d0e6d01813fd376b2505838defc9c772d70
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614266"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52891102"
 ---
-# <a name="store-state-in-an-azure-service-fabric-mesh-application-by-mounting-an-azure-files-based-volume-inside-the-container"></a>Almacenamiento del estado en una aplicación Azure Service Fabric Mesh mediante el montaje de un volumen basado en Azure Files dentro del contenedor
+# <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Montaje de un volumen basado en Azure Files en una aplicación Service Fabric Mesh 
 
-En este artículo se muestra cómo almacenar el estado en Azure Files mediante el montaje de un volumen dentro del contenedor de una aplicación de Service Fabric Mesh. En este ejemplo, la aplicación Counter tiene un servicio de ASP.NET Core con una página web que muestra el valor del contador en un explorador. 
+En este artículo se describe cómo montar un volumen basado en Azure Files en un servicio de una aplicación Service Fabric Mesh.  El controlador de volumen de Azure Files es un controlador de volumen de Docker que se utiliza para montar un recurso compartido de Azure Files en un contenedor, que se utiliza para conservar el estado del servicio. Los volúmenes proporcionan almacenamiento de archivos de propósito general y permiten leer y escribir archivos mediante las API de archivos de E/S de disco normal.  Para obtener más información sobre los volúmenes y las opciones para almacenar datos de la aplicación, lea el artículo sobre cómo [almacenar el estado](service-fabric-mesh-storing-state.md).
 
-`counterService` lee regularmente un valor de contador de un archivo, lo incrementa y lo vuelve a escribir en el archivo. El archivo se almacena en una carpeta que está montada en el volumen del cual el recurso compartido de Azure Files hizo una copia de seguridad.
+Para montar un volumen en un servicio, cree un recurso de volumen en la aplicación Service Fabric Mesh y, a continuación, haga referencia a ese volumen en el servicio.  La declaración del recurso de volumen y la referencia a él en el recurso del servicio se pueden realizar en [archivos de recursos basados en YAML](#declare-a-volume-resource-and-update-the-service-resource-yaml) o en la [plantilla de implementación basada en JSON](#declare-a-volume-resource-and-update-the-service-resource-json). Antes de montar el volumen, primero cree una cuenta de almacenamiento de Azure y un [recurso compartido de archivos en Azure Files](/azure/storage/files/storage-how-to-create-file-share).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Puede usar Azure Cloud Shell o una instalación local de la CLI de Azure para completar esta tarea. Para usar la CLI de Azure con este artículo, asegúrese de que `az --version` devuelve al menos `azure-cli (2.0.43)`.  Instale (o actualice) el módulo de extensión de la CLI de Azure Service Fabric Mesh siguiendo estas [instrucciones](service-fabric-mesh-howto-setup-cli.md).
+Puede usar Azure Cloud Shell o una instalación local de la CLI de Azure para completar este artículo. 
 
-## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+Para usar la CLI de Azure localmente con este artículo, asegúrese de que `az --version` devuelve al menos `azure-cli (2.0.43)`.  Instale (o actualice) el módulo de extensión de la CLI de Azure Service Fabric Mesh siguiendo estas [instrucciones](service-fabric-mesh-howto-setup-cli.md).
 
-Inicie sesión en Azure y configure la suscripción.
+Para iniciar sesión en Azure y configurar la suscripción:
 
-```azurecli-interactive
+```azurecli
 az login
 az account set --subscription "<subscriptionID>"
 ```
 
-## <a name="create-a-file-share"></a>Creación de un recurso compartido de archivos
-
-Cree un recurso compartido de archivos de Azure; para ello, siga estas [instrucciones](/azure/storage/files/storage-how-to-create-file-share). En las instrucciones siguientes el nombre de la cuenta de almacenamiento, la clave de la cuenta de almacenamiento y el nombre del recurso compartido de archivos se denominan `<storageAccountName>`, `<storageAccountKey>` y `<fileShareName>` respectivamente. Estos valores están disponibles en Azure Portal:
-* <storageAccountName> -En **Cuentas de almacenamiento**, es el nombre de la cuenta de almacenamiento que usó al crear el recurso compartido de archivos.
-* <storageAccountKey> -Seleccione la cuenta de almacenamiento en **Cuentas de almacenamiento** y después seleccione **Claves de acceso** y utilice el valor de **key1**.
-* <fileShareName> - Seleccione la cuenta de almacenamiento en **Cuentas de almacenamiento** y después seleccione **Archivos**. El nombre que se usa es el del recurso compartido de archivo que acaba de crear.
-
-## <a name="create-a-resource-group"></a>Crear un grupo de recursos
-
-Cree un grupo de recursos en el que implementar la aplicación. El siguiente comando crea un grupo de recursos denominado `myResourceGroup` en una ubicación en la parte oriental de Estados Unidos.
+## <a name="create-a-storage-account-and-file-share-optional"></a>Creación de una cuenta de almacenamiento y un recurso compartido de archivos (opcional)
+El montaje de un volumen de Azure Files requiere una cuenta de almacenamiento y un recurso compartido de archivos.  Puede usar una cuenta de almacenamiento de Azure y un recurso compartido de archivos existentes o bien crear recursos:
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus 
+az group create --name myResourceGroup --location eastus
+
+az storage account create --name myStorageAccount --resource-group myResourceGroup --location eastus --sku Standard_LRS --kind StorageV2
+
+$current_env_conn_string=$(az storage account show-connection-string -n myStorageAccount -g myResourceGroup --query 'connectionString' -o tsv)
+
+az storage share create --name myshare --quota 2048 --connection-string $current_env_conn_string
 ```
 
-## <a name="deploy-the-template"></a>Implementación de la plantilla
+## <a name="get-the-storage-account-name-and-key-and-the-file-share-name"></a>Obtener el nombre y la clave de la cuenta de almacenamiento y el nombre del recurso compartido de archivos
+En las secciones siguientes el nombre de la cuenta de almacenamiento, la clave de la cuenta de almacenamiento y el nombre del recurso compartido de archivos se denominan `<storageAccountName>`, `<storageAccountKey>` y `<fileShareName>`. 
 
-Cree la aplicación y los recursos relacionados mediante el siguiente comando, y especifique los valores de `storageAccountName`, `storageAccountKey` y `fileShareName` del [Creación de un recurso compartido de archivos](#create-a-file-share) anterior.
-
-El parámetro `storageAccountKey` de la plantilla es una cadena segura. No se mostrará en el estado de implementación y los comandos `az mesh service show`. Asegúrese de que está especificado correctamente en el siguiente comando.
-
-El siguiente comando implementa una aplicación Linux mediante la [plantilla counter.azurefilesvolume.linux.json](https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.linux.json). Para implementar una aplicación Windows, use la [plantilla counter.azurefilesvolume.windows.json](https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.windows.json). Tenga en cuenta que las imágenes de contenedor más grandes pueden tardar más en implementarse.
-
+Enumere las cuentas de almacenamiento y obtenga el nombre de la cuenta de almacenamiento con el recurso compartido de archivos que desea utilizar:
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.linux.json  --parameters "{\"location\": {\"value\": \"eastus\"}, \"fileShareName\": {\"value\": \"<fileShareName>\"}, \"storageAccountName\": {\"value\": \"<storageAccountName>\"}, \"storageAccountKey\": {\"value\": \"<storageAccountKey>\"}}"
+az storage account list
 ```
 
-Pasados unos minutos, el comando debe devolver `counterApp has been deployed successfully on counterAppNetwork with public ip address <IP Address>`
-
-## <a name="open-the-application"></a>Abrir la aplicación
-
-El comando de implementación devolverá la dirección IP pública del punto de conexión de servicio. Una vez que la aplicación se ha implementado correctamente, obtenga la dirección IP pública del punto de conexión de servicio y ábrala desde un navegador. Mostrará una página web con el valor del contador que se actualiza cada segundo.
-
-El nombre del recurso de red de esta aplicación es `counterAppNetwork`. Para información acerca de la aplicación, como su descripción, ubicación, grupo de recursos, etc. use el comando siguiente:
-
+Obtenga el nombre del recurso compartido de archivos:
 ```azurecli-interactive
-az mesh network show --resource-group myResourceGroup --name counterAppNetwork
+az storage share list --account-name <storageAccountName>
 ```
 
-## <a name="verify-that-the-application-is-able-to-use-the-volume"></a>Comprobar que la aplicación es capaz de usar el volumen
-
-La aplicación crea un archivo denominado `counter.txt` en el recurso compartido del archivo dentro de la carpeta `counter/counterService`. El contenido de este archivo es el valor del contador que se muestra en la página web.
-
-El archivo se puede descargar con cualquier herramienta que permita navegar por un recurso compartido de los archivos de Azure Files como el [Explorador de Microsoft Azure Storage](https://azure.microsoft.com/features/storage-explorer/).
-
-## <a name="delete-the-resources"></a>Eliminación de los recursos
-
-Elimine periódicamente los recursos que no use en Azure. Para eliminar los recursos relacionados con este ejemplo, elimine el grupo de recursos en el que se implementaron (con lo que se elimina todo el contenido asociado con él) con el siguiente comando:
-
+Obtenga la clave de la cuenta de almacenamiento ("key1"):
 ```azurecli-interactive
-az group delete --resource-group myResourceGroup
+az storage account keys list --account-name <storageAccountName> --query "[?keyName=='key1'].value"
+```
+
+También puede encontrar estos valores en [Azure Portal](https://portal.azure.com):
+* `<storageAccountName>`: en **Cuentas de almacenamiento**, el nombre de la cuenta de almacenamiento utilizada para crear el recurso compartido de archivos.
+* `<storageAccountKey>` -Seleccione la cuenta de almacenamiento en **Cuentas de almacenamiento** y después seleccione **Claves de acceso** y utilice el valor de **key1**.
+* `<fileShareName>` - Seleccione la cuenta de almacenamiento en **Cuentas de almacenamiento** y después seleccione **Archivos**. El nombre que se usa es el del recurso compartido de archivos que ha creado.
+
+## <a name="declare-a-volume-resource-and-update-the-service-resource-json"></a>Declaración de un recurso de volumen y actualización del recurso de servicio (JSON)
+
+Agregue parámetros para los valores `<fileShareName>`, `<storageAccountName>` y `<storageAccountKey>` que puede encontrar en un paso anterior. 
+
+Cree un recurso de volumen como un elemento del mismo nivel del recurso de aplicación. Especifique un nombre y el proveedor ("SFAzureFile" para usar el volumen basado en Azure Files). En `azureFileParameters`, especifique los parámetros para los valores `<fileShareName>`, `<storageAccountName>` y `<storageAccountKey>` que puede encontrar en un paso anterior.
+
+Para montar el volumen en el servicio, agregue `volumeRefs` al elemento del servicio `codePackages`.  `name` es el identificador de recurso para el volumen o un parámetro de plantilla de implementación para el recurso de volumen, y el nombre del volumen se declara en el archivo de recursos volume.yaml.  `destinationPath` es el directorio local en el que se montará el volumen.
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "defaultValue": "EastUS",
+      "type": "String",
+      "metadata": {
+        "description": "Location of the resources."
+      }
+    },
+    "fileShareName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Azure Files file share that provides the volume for the container."
+      }
+    },
+    "storageAccountName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Azure storage account that contains the file share."
+      }
+    },
+    "storageAccountKey": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Access key for the Azure storage account that contains the file share."
+      }
+    },
+    "stateFolderName": {
+      "type": "string",
+      "defaultValue": "TestVolumeData",
+      "metadata": {
+        "description": "Folder in which to store the state. Provide a empty value to create a unique folder for each container to store the state. A non-empty value will retain the state across deployments, however if more than one applications are using the same folder, the counter may update more frequently."
+      }
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2018-09-01-preview",
+      "name": "VolumeTest",
+      "type": "Microsoft.ServiceFabricMesh/applications",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "Microsoft.ServiceFabricMesh/networks/VolumeTestNetwork",
+        "Microsoft.ServiceFabricMesh/volumes/testVolume"
+      ],
+      "properties": {
+        "services": [
+          {
+            "name": "VolumeTestService",
+            "properties": {
+              "description": "VolumeTestService description.",
+              "osType": "Windows",
+              "codePackages": [
+                {
+                  "name": "VolumeTestService",
+                  "image": "volumetestservice:dev",
+                  "volumeRefs": [
+                    {
+                      "name": "[resourceId('Microsoft.ServiceFabricMesh/volumes', 'testVolume')]",
+                      "destinationPath": "C:\\app\\data"
+                    }
+                  ],
+                  "environmentVariables": [
+                    {
+                      "name": "ASPNETCORE_URLS",
+                      "value": "http://+:20003"
+                    },
+                    {
+                      "name": "STATE_FOLDER_NAME",
+                      "value": "[parameters('stateFolderName')]"
+                    }
+                  ],
+                  ...
+                }
+              ],
+              ...
+            }
+          }
+        ],
+        "description": "VolumeTest description."
+      }
+    },
+    {
+      "apiVersion": "2018-09-01-preview",
+      "name": "testVolume",
+      "type": "Microsoft.ServiceFabricMesh/volumes",
+      "location": "[parameters('location')]",
+      "dependsOn": [],
+      "properties": {
+        "description": "Azure Files storage volume for the test application.",
+        "provider": "SFAzureFile",
+        "azureFileParameters": {
+          "shareName": "[parameters('fileShareName')]",
+          "accountName": "[parameters('storageAccountName')]",
+          "accountKey": "[parameters('storageAccountKey')]"
+        }
+      }
+    }
+    ...
+  ]
+}
+```
+
+## <a name="declare-a-volume-resource-and-update-the-service-resource-yaml"></a>Declaración de un recurso de volumen y actualización del recurso de servicio (YAML)
+
+Agregue un nuevo archivo *volume.yaml* en el directorio *Recursos de aplicación* de la aplicación.  Especifique un nombre y el proveedor ("SFAzureFile" para usar el volumen basado en Azure Files). `<fileShareName>`, `<storageAccountName>` y `<storageAccountKey>` son los valores que puede encontrar en un paso anterior.
+
+```yaml
+volume:
+  schemaVersion: 1.0.0-preview2
+  name: testVolume
+  properties:
+    description: Azure Files storage volume for counter App.
+    provider: SFAzureFile
+    azureFileParameters: 
+        shareName: <fileShareName>
+        accountName: <storageAccountName>
+        accountKey: <storageAccountKey>
+```
+
+Actualice el archivo *service.yaml* en el directorio *Recursos de servicio* para montar el volumen en el servicio.  Agregue el elemento `volumeRefs` al elemento `codePackages`.  `name` es el identificador de recurso para el volumen o un parámetro de plantilla de implementación para el recurso de volumen, y el nombre del volumen se declara en el archivo de recursos volume.yaml.  `destinationPath` es el directorio local en el que se montará el volumen.
+
+```yaml
+## Service definition ##
+application:
+  schemaVersion: 1.0.0-preview2
+  name: VolumeTest
+  properties:
+    services:
+      - name: VolumeTestService
+        properties:
+          description: VolumeTestService description.
+          osType: Windows
+          codePackages:
+            - name: VolumeTestService
+              image: volumetestservice:dev
+              volumeRefs:
+                - name: "[resourceId('Microsoft.ServiceFabricMesh/volumes', 'testVolume')]"
+                  destinationPath: C:\app\data
+              endpoints:
+                - name: VolumeTestServiceListener
+                  port: 20003
+              environmentVariables:
+                - name: ASPNETCORE_URLS
+                  value: http://+:20003
+                - name: STATE_FOLDER_NAME
+                  value: TestVolumeData
+              resources:
+                requests:
+                  cpu: 0.5
+                  memoryInGB: 1
+          replicaCount: 1
+          networkRefs:
+            - name: VolumeTestNetwork
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

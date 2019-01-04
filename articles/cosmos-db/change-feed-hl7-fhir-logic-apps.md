@@ -1,21 +1,19 @@
 ---
-title: 'Fuente de cambios para recursos de HL7 FHIR: Azure Cosmos DB | Microsoft Docs'
+title: 'Fuente de cambios para recursos de HL7 FHIR: Azure Cosmos DB'
 description: Aprenda a configurar notificaciones de cambio para los registros de asistencia sanitaria de paciente de HL7 FHIR con Azure Logic Apps, Azure Cosmos DB y Service Bus.
 keywords: hl7 fhir
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: sngun
-ms.openlocfilehash: aab6e5247830ee444bcab0b15bda34e4464aaad1
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 5cc6bdfa9c16a6dfbdd0f6c87873a90b2a203169
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565486"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089231"
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Notificación a los pacientes de cambios en los registros de asistencia sanitaria de HL7 FHIR con Logic Apps y Azure Cosmos DB
 
@@ -25,7 +23,7 @@ Este artículo le guía a través de la solución de notificación de fuente de 
 
 ## <a name="project-requirements"></a>Requisitos de proyecto
 - Los proveedores envían documentos de arquitectura de documento clínico consolidado (C-CDA) HL7 en formato XML. Los documentos C-CDA comprenden prácticamente todos los tipos de documentos clínicos, incluidos entre otros historiales de familia y registros de inmunización, así como documentos administrativos, de flujo de trabajo y financieros. 
-- Los documentos C-CDA se convierten en [Recursos HL7 FHIR](http://hl7.org/fhir/2017Jan/resourcelist.html) en formato JSON.
+- Los documentos C-CDA se convierten en [Recursos HL7 FHIR](https://hl7.org/fhir/2017Jan/resourcelist.html) en formato JSON.
 - Los documentos de recursos FHIR modificados se envían por correo electrónico en formato JSON.
 
 ## <a name="solution-workflow"></a>Flujo de trabajo de la solución 
@@ -90,12 +88,12 @@ Usamos la clase [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/l
 - DatabaseId
 - CollectionId
 - Nombre de tipo de recurso de HL7 FHIR
-- Un valor booleano: Iniciar desde el principio
-- Int: Número de documentos procesados
+- Un valor booleano: iniciar desde el principio
+- Int: número de documentos procesados
 
 **Outputs**
-- Correcto: Código de estado: 200, Respuesta: lista de documentos (matriz JSON)
-- Error: Código de estado: 404, Respuesta: "No se han encontrado documentos del tipo de recurso '*nombre de recurso '*"
+- Correcto: Código de estado: 200, Respuesta: Lista de documentos (matriz JSON)
+- Error: Código de estado: 404, Respuesta: "No se encontraron documentos para el tipo de recurso '*nombre del recurso'*"
 
 <a id="api-app-source"></a>
 

@@ -1,5 +1,5 @@
 ---
-title: Regiones del servicio Voz
+title: 'Regiones: servicios de Voz'
 titlesuffix: Azure Cognitive Services
 description: Referencia de las regiones del servicio Voz.
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 12/06/2018
 ms.author: mahilleb
-ms.openlocfilehash: 8d36036332e939075ffac8763bec9c23d8e4a3f7
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.custom: seodec18
+ms.openlocfilehash: d41213d72d40555d8dc5aeab76040fc556dae774
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712898"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091652"
 ---
 # <a name="speech-service-supported-regions"></a>Regiones admitidas del servicio Voz
 
@@ -45,7 +46,7 @@ El SDK de Voz está disponible en estas regiones para el **reconocimiento de voz
 
 ### <a name="intent-recognition"></a>Reconocimiento de la intención
 
-**Reconocimiento de la intención** para el SDK de Voz comparte las regiones admitidas con LUIS. Para obtener una lista completa de las regiones disponibles, consulte [Publicación de región y puntos de conexión: LUIS](https://docs.microsoft.comazure/cognitive-services/luis/luis-reference-regions).
+**Reconocimiento de la intención** para el SDK de Voz comparte las regiones admitidas con LUIS. Para obtener una lista completa de las regiones disponibles, consulte [Publicación de región y puntos de conexión: LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions).
 
 Las regiones disponibles para el **reconocimiento de la intención** mediante el SDK de Voz se enumeran en la [página de la región del servicio Language Understanding](/azure/cognitive-services/luis/luis-reference-regions).
 

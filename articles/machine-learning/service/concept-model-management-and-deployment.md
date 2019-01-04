@@ -1,26 +1,28 @@
 ---
-title: Administración e implementación de modelos en Azure Machine Learning Services
+title: Administración, registro, implementación y supervisión de modelos de ML
+titleSuffix: Azure Machine Learning service
 description: Aprenda a usar Azure Machine Learning Services para implementar, administrar y supervisar sus propios modelos para mejorarlos de forma continua. Puede implementar los modelos que haya entrenado con Azure Machine Learning Services, en la máquina local o que procedan de otros orígenes.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-author: hjerez
-ms.author: hjerez
+author: chris-lauren
+ms.author: clauren
 ms.date: 09/24/2018
-ms.openlocfilehash: b09ef259d73744612c41adc4fc40ea0235da9bcb
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.custom: seodec18
+ms.openlocfilehash: 25f149ad4df43a7e5b443d6abd72be91072cb47f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885074"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250217"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Administración, implementación y supervisión de modelos Azure Machine Learning Services
 
 En este artículo aprenderá a usar Azure Machine Learning Services para implementar, administrar y supervisar sus propios modelos para mejorarlos continuamente. Puede implementar los modelos que haya entrenado con Azure Machine Learning, en la máquina local o que procedan de otros orígenes. 
 
-El siguiente diagrama ilustra el flujo de trabajo de implementación completo: [ ![flujo de trabajo de implementación para Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
+En el siguiente diagrama se ilustra el flujo de trabajo de implementación completo: [ ![Flujo de trabajo de implementación de Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
 El flujo de trabajo de implementación incluye los siguientes pasos:
 1. **Registrar el modelo** en un registro hospedado en el área de trabajo de Azure Machine Learning Services
@@ -33,14 +35,14 @@ Cada paso puede realizarse de forma independiente o como parte de un comando de 
 [ !["Integración continua/implementación continua (CI/CD) de Azure Machine Learning"](media/concept-model-management-and-deployment/model-ci-cd.png) ](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
 
-## <a name="step-1-register-model"></a>Paso 1: registro del modelo
+## <a name="step-1-register-model"></a>Paso 1: Registro del modelo
 
 El registro de modelo realiza un seguimiento de todos los modelos del área de trabajo de Azure Machine Learning Services.
 Los modelos se identifican por el nombre y la versión. Cada vez que registra un modelo con el mismo nombre que uno existente, el registro incrementa la versión. También puede proporciona etiquetas de metadatos adicionales durante el registro para usarlas al buscar modelos.
 
 No se pueden eliminar los modelos que una imagen esté utilizando.
 
-## <a name="step-2-register-image"></a>Paso 2: registro de la imagen
+## <a name="step-2-register-image"></a>Paso 2: Registro de la imagen
 
 Las imágenes permiten implementar el modelo de confianza, así como los componentes necesarios para usarlo. Una imagen contiene los siguientes elementos:
 
@@ -56,7 +58,7 @@ Azure Machine Learning admite las plataformas más populares, pero en general va
 Al crearse el área de trabajo, también se crearon otros recursos de Azure que esta usa.
 Todos los objetos utilizados para crear la imagen se almacenan en la cuenta de almacenamiento de Azure del área de trabajo. La imagen se crea y se almacena en Azure Container Registry. Puede proporcionar etiquetas de metadatos adicionales al crear la imagen, que también almacena el registro de imagen y se pueden consultar para buscar la imagen.
 
-## <a name="step-3-deploy-image"></a>Paso 3: implementación de la imagen
+## <a name="step-3-deploy-image"></a>Paso 3: Implementación de la imagen
 
 Puede implementar imágenes registradas en la nube o en dispositivos perimetrales. En el proceso de implementación se crean todos los recursos necesarios para supervisar, equilibrar la carga y realizar el automático del modelo. El acceso a los servicios implementados se puede proteger con autenticación basada en certificados si se proporcionan los recursos de seguridad durante la implementación. También puede actualizar una implementación existente para usar una imagen más reciente.
 
@@ -73,7 +75,7 @@ Puede implementar sus imágenes en los siguientes [destinos de implementación](
 
 Al implementarse el servicio, la solicitud de inferencia equilibra la carga automáticamente y el clúster se escala para dar respuesta a cualquier aumento de demanda. Los [datos de telemetría sobre el servicio](how-to-enable-app-insights.md) se pueden capturar en el servicio Azure Application Insights asociado al área de trabajo.
 
-## <a name="step-4-monitor-models-and-collect-data"></a>Paso 4: supervisión de los modelos y recopilación de datos
+## <a name="step-4-monitor-models-and-collect-data"></a>Paso 4: Supervisión de los modelos y recopilación de datos
 
 Hay un SDK para la captura de datos y el registro del modelo disponible para supervisar la entrada, la salida y otros datos pertinentes del modelo. Los datos se almacenan como un blob en la cuenta de almacenamiento de Azure para el área de trabajo.
 

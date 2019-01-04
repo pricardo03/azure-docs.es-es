@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 6588d65a4f19c06e3ee4990aba226dbd11119c91
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a86902d772226be136778d200a37c451b7b7e9a5
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016257"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407259"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Streaming a escala en HDInsight
 
 Las soluciones de macrodatos en tiempo real actúan sobre los datos que se mueven. Normalmente, estos datos son especialmente útiles en el momento de su llegada. Si el flujo de datos entrante pasa a ser mayor de lo que pueda controlarse en ese momento, es posible que tenga que limitar los recursos. Como alternativa, un clúster de HDInsight puede escalarse para hacer frente a la solución de streaming agregando nodos a petición.
 
-En una aplicación de streaming, uno o varios orígenes de datos generan eventos (a veces, millones por segundo) que deben ser ingeridos rápidamente sin quitar ninguna información útil. Los eventos de entrada se tratan con el *almacenamiento en búfer de los flujos de datos*, también denominado *puesta en cola de eventos*, por un servicio como [Kafka](kafka/apache-kafka-introduction.md) o [Event Hubs](https://azure.microsoft.com/services/event-hubs/). Después de recopilar los eventos, puede analizar los datos mediante un sistema de análisis en tiempo real en el nivel de *procesamiento de flujos de datos*, como [Storm](storm/apache-storm-overview.md) o [Spark Streaming](spark/apache-spark-streaming-overview.md). Los datos procesados se pueden almacenar en sistemas de almacenamiento a largo plazo, como [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) y se muestran en tiempo real en un panel de inteligencia empresarial, como [Power BI](https://powerbi.microsoft.com), Tableau o una página web personalizada.
+En una aplicación de streaming, uno o varios orígenes de datos generan eventos (a veces, millones por segundo) que deben ser ingeridos rápidamente sin quitar ninguna información útil. Los eventos de entrada se tratan con el *almacenamiento en búfer de los flujos de datos*, también denominado *puesta en cola de eventos*, por un servicio como [Apache Kafka](kafka/apache-kafka-introduction.md) o [Event Hubs](https://azure.microsoft.com/services/event-hubs/). Después de recopilar los eventos, puede analizar los datos mediante un sistema de análisis en tiempo real en el nivel de *procesamiento de flujos de datos*, como [Apache Storm](storm/apache-storm-overview.md) o [Apache Spark Streaming](spark/apache-spark-streaming-overview.md). Los datos procesados se pueden almacenar en sistemas de almacenamiento a largo plazo, como [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) y se muestran en tiempo real en un panel de inteligencia empresarial, como [Power BI](https://powerbi.microsoft.com), Tableau o una página web personalizada.
 
 ![Patrones de streaming de HDInsight](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
 
@@ -39,7 +39,7 @@ Para más información, vea [¿Qué es Apache Storm en Azure HDInsight?](storm/a
 
 Spark Streaming es una extensión para Spark que permite reutilizar el mismo código que se usa para el procesamiento por lotes. Puede combinar tanto consultas interactivas como por lotes en la misma aplicación. A diferencia de Storm, Spark Streaming proporciona una semántica de procesamiento de una sola vez con información de estado. Cuando se utiliza en combinación con la [API Direct de Kafka](http://spark.apache.org/docs/latest/streaming-kafka-integration.html), que garantiza que todos los datos de Kafka son recibidos por Spark Streaming exactamente una vez, es posible tener la garantía de que llegan solo una vez de un extremo a otro. Uno de los puntos fuertes de Spark Streaming es su funcionalidad de tolerancia a errores, que permite recuperar los nodos rápidamente cuando se utilizan varios dentro del clúster.
 
-Para más información, consulte [¿Qué es Spark Streaming?](hdinsight-spark-streaming-overview.md).
+Para más información, consulte [¿Qué es Apache Spark Streaming?](hdinsight-spark-streaming-overview.md).
 
 ## <a name="scaling-a-cluster"></a>Escala de un clúster
 
@@ -65,5 +65,5 @@ Estos tres parámetros se pueden configurar en el nivel de clúster para todas l
 
 * [Introducción a Apache Storm en HDInsight](storm/apache-storm-tutorial-get-started-linux.md)
 * [Topologías de ejemplo para Apache Storm en HDInsight](storm/apache-storm-example-topology.md)
-* [Introducción a Spark en HDInsight](spark/apache-spark-overview.md)
+* [Introducción a Apache Spark en HDInsight](spark/apache-spark-overview.md)
 * [Introducción a Apache Kafka en HDInsight](kafka/apache-kafka-get-started.md)

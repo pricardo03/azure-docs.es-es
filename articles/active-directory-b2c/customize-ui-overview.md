@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cec9e5bfea16e5ba11f8cd7324acf15188fb907a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 94f7239bdcdc5ddc91f3ed8b49b59378309711e8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669362"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844964"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Acerca de la personalización de la interfaz de usuario en Azure Active Directory B2C
 
@@ -23,20 +23,20 @@ La capacidad para marcar y personalizar la interfaz de usuario (UI) que Azure Ac
 
 Dependiendo de sus necesidades en lo que a estas experiencias se refiere, puede personalizar la interfaz de usuario de su aplicación de diferentes maneras. Por ejemplo: 
 
-- Si está usando [directivas integradas](active-directory-b2c-reference-policies.md) para proporcionar las opciones de registro o de inicio de sesión, de restablecimiento de contraseña o de edición de perfiles en su aplicación, use [Azure Portal para personalizar la interfaz de usuario](tutorial-customize-ui.md).
+- si usa [flujos de usuario](active-directory-b2c-reference-policies.md) para proporcionar experiencias de registro o inicio de sesión, restablecimiento de contraseña o edición de perfiles en su aplicación, utilice [Azure Portal para personalizar la interfaz de usuario](tutorial-customize-ui.md).
 - Si solo proporciona la opción de inicio de sesión junto con la página de restablecimiento de contraseña y los correos electrónicos de comprobación, use los mismos pasos de personalización que se deben usar en una [página de inicio de sesión de Azure AD](../active-directory/fundamentals/customize-branding.md).
 - Si los clientes intentan editar su perfil antes de iniciar sesión, se les redirige a una página que usted mismo puede personalizar siguiendo los mismos pasos que se usan para personalizar la página de inicio de sesión de Azure AD.
 - Si está usando [directivas personalizadas](active-directory-b2c-overview-custom.md) para proporcionar en la aplicación las opciones de registro o inicio de sesión, de restablecimiento de contraseña o de edición de perfiles, use los [archivos de directiva para personalizar la interfaz de usuario](active-directory-b2c-ui-customization-custom.md).
 - Si necesita proporcionar contenido dinámico en función de la decisión de un cliente, use [directivas personalizadas que puedan cambiar el contenido de la página](active-directory-b2c-ui-customization-custom-dynamic.md) según el parámetro que se envíe en una cadena de consulta. Por ejemplo, puede cambiar la imagen de fondo en la página de inicio de sesión o de registro de Azure AD B2C en función de un parámetro que se pasa desde la aplicación web o el dispositivo móvil.
 
-Azure AD B2C ejecuta código en el explorador del consumidor y usa un enfoque moderno denominado [Uso compartido de recursos entre orígenes (CORS)](http://www.w3.org/TR/cors/). En tiempo de ejecución, el contenido se carga desde una dirección URL especificada en una directiva. Puede especificar diferentes direcciones URL para distintas páginas. Cuando el contenido se carga desde la dirección URL se combina con un fragmento HTML insertado en Azure AD B2C y, a continuación, se muestra la página al cliente.
+Azure AD B2C ejecuta código en el explorador del consumidor y usa un enfoque moderno denominado [Uso compartido de recursos entre orígenes (CORS)](https://www.w3.org/TR/cors/). En tiempo de ejecución, el contenido se carga desde una dirección URL especificada en un flujo de usuario o directiva. Puede especificar diferentes direcciones URL para distintas páginas. Cuando el contenido se carga desde la dirección URL se combina con un fragmento HTML insertado en Azure AD B2C y, a continuación, se muestra la página al cliente.
 
 Antes de comenzar, repase las siguientes advertencias:
 
 - Azure AD B2C combina contenido HTML en las páginas. No copie ni intente cambiar el contenido predeterminado que proporciona Azure AD B2C. Es preferible compilar su propio contenido de HTML desde cero y usar el contenido predeterminado como referencia.
 - Por motivos de seguridad, no puede incluir JavaScript en el contenido.
 - Estas son las versiones de explorador admitidas: 
-    - Internet Explorer 11, 10 y Microsoft Edge.
+    - Internet Explorer 11, 10 y Edge.
     - Compatibilidad limitada con Internet Explorer 9 y 8.
     - Google Chrome 42.0 y versiones posteriores
     - Mozilla Firefox 38.0 y versiones posteriores
@@ -118,6 +118,6 @@ Para obtener ejemplos de personalización, descargue y revise estos [archivos de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si usa directivas integradas, puede empezar a personalizar la interfaz de usuario con el tutorial: [Customize the user interface of your applications in Azure Active Directory B2C](tutorial-customize-ui.md) (Personalizar la interfaz de usuario de las aplicaciones en Azure Active Directory B2C).
-- Si usa directivas personalizadas, puede empezar a personalizar la interfaz de usuario con el artículo: [Customize the user interface of your application using a custom policy in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md) (Personalizar la interfaz de usuario de la aplicación con una directiva personalizada en Azure Active Directory B2C).
+- Si usa flujos de usuario, puede empezar a personalizar la interfaz de usuario con el tutorial: [Personalización de la interfaz de usuario de la aplicación en Azure Active Directory B2C](tutorial-customize-ui.md).
+- Si va a usar directivas personalizadas, puede empezar a personalizar la interfaz de usuario con el artículo: [Personalización de la interfaz de usuario de la aplicación mediante una directiva personalizada en Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
 

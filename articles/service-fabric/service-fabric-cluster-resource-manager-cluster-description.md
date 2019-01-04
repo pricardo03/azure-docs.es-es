@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 13ee238580d645f3e727090bc0e0275b36bdb225
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 64f02b1165d014a0eaa89dae64a7d9aa283cac32
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208818"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834594"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Descripción de un clúster de Service Fabric
 Service Fabric Cluster Resource Manager proporciona varios mecanismos para describir un clúster. Durante el tiempo de ejecución, Cluster Resource Manager usa esta información para garantizar la alta disponibilidad de los servicios que se ejecutan en el clúster. Al aplicar estas reglas importantes, también trata de optimizar el consumo de recursos del clúster.
@@ -54,7 +54,7 @@ Durante el tiempo de ejecución, la utilidad Cluster Resource Manager de Service
 
 La utilidad Cluster Resource Manager de Service Fabric no tiene en cuenta cuántos niveles hay en la jerarquía de dominios de error. Sin embargo, sí que trata de asegurarse de que la pérdida de cualquier parte de la jerarquía no afecte a los servicios que se ejecutan en ella. 
 
-Es mejor si hay el mismo número de nodos en cada nivel de profundidad de la jerarquía de dominios de error. Si el "árbol" de dominios de error no está equilibrado en el clúster, Cluster Resource Manager tendrá más complicado determinar la mejor asignación de servicios. Los diseños de dominios de error desequilibrados provocan que la pérdida de algunos dominios afecte más a la disponibilidad de los servicios que otros dominios. Como resultado, Cluster Resource Manager se debate entre sus dos objetivos: usar las máquinas de ese dominio "pesado" colocando servicios en ellos, y colocando servicios en otros dominios de forma que la pérdida de un dominio no cause problemas. 
+Es mejor si hay el mismo número de nodos en cada nivel de profundidad de la jerarquía de dominios de error. Si el "árbol" de dominios de error no está equilibrado en el clúster, Cluster Resource Manager tendrá más complicado determinar la mejor asignación de servicios. Los diseños de dominios de error desequilibrados provocan que la pérdida de algunos dominios afecte más a la disponibilidad de los servicios que otros dominios. Como resultado, Cluster Resource Manager se debate entre dos objetivos: usar las máquinas de ese dominio "pesado" mediante la colocación de servicios en ellas; y colocar servicios en otros dominios de forma que la pérdida de un dominio no cause problemas. 
 
 ¿Qué aspecto tienen los dominios desequilibrados? En el diagrama siguiente, se muestran dos diseños de clúster diferentes. En el primero, los nodos se distribuyen uniformemente entre los dominios de error. En el segundo ejemplo, un dominio de error tiene muchos más nodos que los demás dominios de error. 
 
@@ -97,7 +97,7 @@ El modelo más habitual es la matriz FD/UD, en la que los FD (dominios de error)
 
 ## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>Restricciones de dominio de error y de actualización y el comportamiento resultante
 ### <a name="default-approach"></a>*Enfoque predeterminado*
-De forma predeterminada, el administrador de recursos del clúster mantiene los servicios equilibrados en los dominios de error y actualización. Esto se modela como una [restricción](service-fabric-cluster-resource-manager-management-integration.md). Las restricciones de dominio de error y de actualización se definen de esta forma: "para una partición de servicio específica, nunca tiene que haber una diferencia mayor que uno en el número de objetos de servicio (instancias de servicio sin estado o réplicas de servicios con estado) entre dos dominios en el mismo nivel de jerarquía". Digamos que esta restricción proporciona una garantía de "diferencia máxima". La restricción de dominio de error y actualización impide ciertos movimientos o disposiciones que infringen la regla indicada anteriormente. 
+De forma predeterminada, el administrador de recursos del clúster mantiene los servicios equilibrados en los dominios de error y actualización. Esto se modela como una [restricción](service-fabric-cluster-resource-manager-management-integration.md). Los estados de restricción de dominios de error y actualización: "en una partición de servicio específica, nunca debería haber una diferencia mayor que uno en el número de objetos de servicio (instancias de servicio sin estado o réplicas de servicios con estado) entre dos dominios cualesquiera en el mismo nivel de jerarquía". Digamos que esta restricción proporciona una garantía de "diferencia máxima". La restricción de dominio de error y actualización impide ciertos movimientos o disposiciones que infringen la regla indicada anteriormente. 
 
 Veamos un ejemplo. Supongamos que tenemos un clúster con 6 nodos, configurado con 5 dominios de error y 5 dominios de actualización.
 
@@ -176,10 +176,10 @@ Por otro lado, este enfoque puede ser demasiado estricto y no permite que el cl�
 
 ### <a name="alternative-approach"></a>*Enfoque alternativo*
 
-El administrador de recursos de clúster es compatible con otra versión de la restricción de dominio de error y de actualización que permite la ubicación y, al mismo tiempo, garantiza un nivel mínimo de seguridad. Se puede establecer la restricción de dominio de error y de actualización alternativa de la siguiente manera: "Para la partición de un servicio determinado, la distribución de réplica entre dominios debe garantizar que la partición no sufra una pérdida de cuórum". Digamos que esta restricción proporciona una garantía de "seguridad de cuórum". 
+El administrador de recursos de clúster es compatible con otra versión de la restricción de dominio de error y de actualización que permite la ubicación y, al mismo tiempo, garantiza un nivel mínimo de seguridad. La restricción alternativa de dominios de error y actualización puede declararse de la manera siguiente: "en una partición de servicio específica, la distribución de réplicas entre dominios debe garantizar que la partición no sufra una pérdida de cuórum". Digamos que esta restricción proporciona una garantía de "seguridad de cuórum". 
 
 > [!NOTE]
->Para un servicio con estado, definimos *pérdida de cuórum* en una situación en que la mayoría de las réplicas de la partición están inactivas al mismo tiempo. Por ejemplo, si el valor de TargetReplicaSetSize es cinco, un conjunto de tres réplicas cualesquiera representará el cuórum. De forma similar, si el valor de TargetReplicaSetSize es 6, se necesitarán cuatro réplicas para el cuórum. En ambos casos, no pueden estar inactivas más de dos réplicas al mismo tiempo si quiere que la partición continúe funcionando con normalidad. Para un servicio sin estado, no hay nada parecido a *pérdida de cuórum*, ya que los servicios sin estado continúan funcionando con normalidad incluso si una mayoría de instancias dejan de funcionar al mismo tiempo. Por lo tanto, nos centraremos en los servicios con estado en el resto del texto.
+>Para un servicio con estado, definimos *pérdida de cuórum* en una situación en que la mayoría de las réplicas de la partición están inactivas al mismo tiempo. Por ejemplo, si el valor de TargetReplicaSetSize es cinco, un conjunto de tres réplicas cualesquiera representará el cuórum. De forma similar, si el valor de TargetReplicaSetSize es 6, se necesitarán cuatro réplicas para el cuórum. En ambos casos, no pueden estar inactivas más de dos réplicas al mismo tiempo si quiere que la partición continúe funcionando con normalidad. En un servicio sin estado, no hay nada parecido a *pérdida de cuórum*, ya que los servicios sin estado continúan funcionando con normalidad incluso si una mayoría de instancias dejan de funcionar al mismo tiempo. Por lo tanto, nos centraremos en los servicios con estado en el resto del texto.
 >
 
 Volvamos al ejemplo anterior Con la versión de "seguridad de cuórum" de la restricción, los tres diseños serían válidos. Esto se debe a que, aunque hubiera un error de FD0 en el segundo diseño o UD1 en el tercer diseño, la partición seguiría teniendo cuórum (la mayoría de sus réplicas continuarían funcionando). Con esta versión de la restricción, N6 podría utilizarse casi siempre.
@@ -192,7 +192,7 @@ Dado que ambos enfoques tienen ventajas y desventajas, hemos presentado un enfoq
 > [!NOTE]
 >Este será el comportamiento predeterminado a partir de la versión 6.2. de Service Fabric. 
 >
-El enfoque adaptable utiliza la lógica de "diferencia máxima" de forma predeterminada y activa la lógica de "seguridad de cuórum" solo si es necesario. Cluster Resource Manager automáticamente averigua cuál es la estrategia necesaria examinando cómo se configuran los servicios y el clúster. Para un servicio determinado: *si TargetReplicaSetSize es divisible por el número de dominios de error y el número de dominios de actualización, **y** el número de nodos es menor o igual a (número de dominios de error) \* (número de dominios de actualización), Cluster Resource Manager deberá usar la lógica "basada en cuórum" para ese servicio.* Tenga en cuenta que Cluster Resource Manager usará este enfoque para los servicios sin estado y con estado, a pesar de que la pérdida de cuórum no es aplicable a los servicios sin estado.
+El enfoque adaptable utiliza la lógica de "diferencia máxima" de forma predeterminada y activa la lógica de "seguridad de cuórum" solo si es necesario. Cluster Resource Manager automáticamente averigua cuál es la estrategia necesaria examinando cómo se configuran los servicios y el clúster. En un servicio determinado: *si TargetReplicaSetSize es divisible por el número de dominios de error y el número de dominios de actualización, **y** el número de nodos es menor o igual a (número de dominios de error) * (número de dominios de actualización), Cluster Resource Manager deberá usar la lógica "basada en cuórum" para ese servicio.* Tenga en cuenta que Cluster Resource Manager usará este enfoque para los servicios sin estado y con estado, a pesar de que la pérdida de cuórum no es aplicable a los servicios sin estado.
 
 Volvamos al ejemplo anterior y supongamos que un clúster tiene ahora 8 nodos (el clúster todavía está configurado con cinco dominios de error y cinco dominios de actualización y el valor de TargetReplicaSetSize de un servicio hospedado en ese clúster continúa siendo cinco). 
 

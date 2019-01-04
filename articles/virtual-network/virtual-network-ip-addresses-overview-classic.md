@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
-ms.openlocfilehash: 6a63099bf2a8bc818c88ccec1d5f44bb9ffc32de
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 81699764952e50cb18c1f299c9c4f7c524b0a332
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798213"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011711"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Tipos de direcciones IP y métodos de asignación (clásico) en Azure
 Puede asignar direcciones IP a los recursos de Azure para que se comuniquen con otros recursos de Azure, la red local e Internet. Hay dos tipos de direcciones IP que puede usar en Azure: públicas y privadas.
@@ -30,10 +30,10 @@ Las direcciones IP públicas se usan para la comunicación con Internet, incluid
 Las direcciones IP privadas se utilizan para la comunicación dentro de una red virtual (VNet) de Azure, un servicio en la nube y la red local cuando se usa una puerta de enlace de VPN o un circuito ExpressRoute para ampliar la red a Azure.
 
 > [!IMPORTANT]
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../resource-manager-deployment-model.md).  Este artículo trata del modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen Resource Manager. Para más información sobre las direcciones IP en Resource Manager, vea el artículo [Direcciones IP en Azure](virtual-network-ip-addresses-overview-arm.md).
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos:  [Resource Manager y el clásico](../resource-manager-deployment-model.md).  Este artículo trata del modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen Resource Manager. Para más información sobre las direcciones IP en Resource Manager, vea el artículo [Direcciones IP en Azure](virtual-network-ip-addresses-overview-arm.md).
 
 ## <a name="public-ip-addresses"></a>Direcciones IP públicas
-Las direcciones IP públicas permiten que los recursos de Azure se comuniquen con Internet y servicios de acceso público de Azure como [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [SQL Database](../sql-database/sql-database-technical-overview.md) y [Azure Storage](../storage/common/storage-introduction.md).
+Las direcciones IP públicas permiten que los recursos de Azure se comuniquen con Internet y servicios de acceso público de Azure como [Azure Cache for Redis](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [SQL Database](../sql-database/sql-database-technical-overview.md) y [Azure Storage](../storage/common/storage-introduction.md).
 
 Una dirección IP pública se asocia a los siguientes tipos de recursos:
 
@@ -92,10 +92,10 @@ En la siguiente tabla, se muestra cada tipo de recurso con los métodos de asign
 
 | Recurso | Dinámica | estática | Varias direcciones IP |
 | --- | --- | --- | --- |
-| servicio en la nube |Sí |Sí |Sí |
-| Instancia del rol PaaS o VM IaaS |Sí |Sin  |Sin  |
-| puerta de enlace de VPN |Sí |Sin  |Sin  |
-| puerta de enlace de aplicaciones |Sí |Sin  |Sin  |
+| servicio en la nube |SÍ |Sí |SÍ |
+| Instancia del rol PaaS o VM IaaS |SÍ |No |Sin  |
+| puerta de enlace de VPN |SÍ |No |Sin  |
+| puerta de enlace de aplicaciones |SÍ |No |Sin  |
 
 ## <a name="private-ip-addresses"></a>Direcciones IP privadas
 Las direcciones IP privadas permiten que los recursos de Azure se comuniquen con otros recursos en un servicio en la nube o en una [red virtual](virtual-networks-overview.md), o en la red local a través de una puerta de enlace de VPN o un circuito ExpressRoute, sin usar una dirección IP accesible desde Internet.
@@ -142,10 +142,10 @@ En la siguiente tabla, se muestra cada tipo de recurso con los métodos de asign
 
 | Recurso | Dinámica | estática | Varias direcciones IP |
 | --- | --- | --- | --- |
-| Máquina virtual (en una VNet o servicio en la nube *independiente*) |Sí |Sí |Sí |
-| Instancia de rol PaaS (en una VNet o servicio en la nube *independiente*) |Sí |Sin  |Sin  |
-| Front-end de equilibrador de carga interno |Sí |Sí |Sí |
-| Front-end de Puerta de enlace de aplicaciones |Sí |Sí |Sí |
+| Máquina virtual (en una VNet o servicio en la nube *independiente*) |SÍ |Sí |SÍ |
+| Instancia de rol PaaS (en una VNet o servicio en la nube *independiente*) |SÍ |No |Sin  |
+| Front-end de equilibrador de carga interno |SÍ |Sí |SÍ |
+| Front-end de Puerta de enlace de aplicaciones |SÍ |Sí |SÍ |
 
 ## <a name="limits"></a>límites
 La tabla siguiente muestra los límites impuestos al direccionamiento IP en Azure por suscripción. Puede [ponerse en contacto con el servicio de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar los límites predeterminados hasta alcanzar los límites máximos, según las necesidades empresariales.

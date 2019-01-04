@@ -1,12 +1,11 @@
 ---
 title: Repetición del entrenamiento de los modelos de Machine Learning mediante programación en Azure | Microsoft Docs
-description: Obtenga información acerca de cómo volver a entrenar un modelo y actualizar el servicio web mediante programación para utilizar el modelo recién entrenado en Azure Machine Learning.
+description: Obtenga información sobre cómo repetir el entrenamiento mediante programación de un modelo con C# y el servicio de ejecución de lotes de Machine Learning.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: b38143fe6f1f1cf3e65a2989e1b0a71c28530b2a
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 7a1381ce43056607486a27710cd6ee6181b9a5c1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313392"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257400"
 ---
-# <a name="retrain-machine-learning-studio-models-programmatically"></a>Repetición del entrenamiento de modelos de Machine Learning Studio mediante programación
+# <a name="retrain-azure-machine-learning-studio-models-programmatically"></a>Repetición del entrenamiento de modelos de Azure Machine Learning Studio mediante programación
 En este tutorial, aprenderá a repetir el entrenamiento de un servicio web de Azure Machine Learning Studio mediante programación utilizando C# y el servicio de ejecución por lotes de Machine Learning.
 
 Cuando haya reentrenado el modelo, los tutoriales siguientes le mostrarán cómo actualizarlo en el servicio web predictivo:
@@ -36,7 +35,7 @@ Para obtener información general sobre el proceso de reentrenamiento, consulte 
 Si desea comenzar por el servicio web existente basado en el nuevo Azure Resource Manager, consulte [Retrain an existing Predictive Web service](retrain-existing-resource-manager-based-web-service.md) (Reentrenamiento de un servicio web predictivo existente).
 
 ## <a name="create-a-training-experiment"></a>Crear un experimento de entrenamiento
-En este ejemplo, usará "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" (Ejemplo 5: Entrenar, probar, evaluar para clasificación binaria: Conjunto de datos para adultos) de entre los ejemplos Microsoft Azure Machine Learning. 
+Para este ejemplo, se utilizará "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" (Ejemplo 5: Entrenar, probar, evaluar para clasificación binaria: conjunto de datos de adultos) de los ejemplos de Microsoft Azure Machine Learning. 
 
 Para crear el experimento:
 
@@ -93,7 +92,7 @@ En este ejemplo, se utiliza C# para crear la aplicación de reentrenamiento. Tam
 
 Para llamar a las API de reentrenamiento:
 
-1. Cree una nueva aplicación de consola de C# en Visual Studio: **Nuevo** > **Proyecto** > **Visual C#** > **Escritorio clásico de Windows** > **Aplicación de consola (.NET Framework)**.
+1. Cree una aplicación de consola en C# mediante Visual Studio: **Nuevo** > **Proyecto** > **Visual C#** > **Escritorio clásico de Windows** > **Aplicación de consola (.NET Framework)**.
 2. Inicie sesión en el portal de servicio web Machine Learning.
 3. Si está trabajando con un servicio web clásico, haga clic en **Classic Web Services**(Servicios web clásicos).
    1. Haga clic en el servicio web con el que está trabajando.
@@ -159,7 +158,7 @@ Consulte el ejemplo siguiente:
 
 ![Salida de reentrenamiento][6]
 
-Diagrama 4: Salida de entrenamiento.
+Diagrama 4: Salida de reentrenamiento.
 
 ## <a name="evaluate-the-retraining-results"></a>Evaluación de los resultados de reentrenamiento
 Al ejecutar la aplicación, la salida incluye la dirección URL y el token SAS necesarios para tener acceso a los resultados de evaluación.

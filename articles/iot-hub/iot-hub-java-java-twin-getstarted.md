@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: dobett
-ms.openlocfilehash: b2adb2e69475b79324cad2d11a420cbefdf8b059
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: a938e5d872d2c1602f7ce898f0d14e3e04feb759
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514492"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312575"
 ---
 # <a name="get-started-with-device-twins-java"></a>Introducción a los dispositivos gemelos (Java)
 
@@ -228,7 +228,7 @@ En esta sección, creará una aplicación de consola de Java que establece un va
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.3.32</version>
+      <version>1.14.2</version>
     </dependency>
     ```
 
@@ -278,6 +278,17 @@ En esta sección, creará una aplicación de consola de Java que establece un va
 
     Esta aplicación de ejemplo usa la variable **protocol** al crear una instancia de un objeto **DeviceClient**. 
 
+1. Agregue el método siguiente a la clase **App** para imprimir información sobre las actualizaciones de dispositivos gemelos:
+
+    ```java
+    protected static class DeviceTwinStatusCallBack implements IotHubEventCallback {
+        @Override
+        public void execute(IotHubStatusCode status, Object context) {
+          System.out.println("IoT Hub responded to device twin operation with status " + status.name());
+        }
+      }
+    ```
+
 9. Agregue el siguiente código al final del método **main**:
     * Cree un cliente de dispositivo para comunicarse con IoT Hub.
     * Cree un objeto **Device** para almacenar las propiedades del dispositivo gemelo.
@@ -310,7 +321,7 @@ En esta sección, creará una aplicación de consola de Java que establece un va
     catch (Exception e) {
       System.out.println("On exception, shutting down \n" + " Cause: " + e.getCause() + " \n" + e.getMessage());
       dataCollector.clean();
-      client.close();
+      client.closeNow();
       System.out.println("Shutting down...");
     }
     ```
@@ -327,7 +338,13 @@ En esta sección, creará una aplicación de consola de Java que establece un va
     client.close();
     ```
 
-12. Guarde y cierre el archivo `simulated-device\src\main\java\com\mycompany\app\App.java`.
+1. Modifique la firma del método **main** para incluir las excepciones de la siguiente manera:
+
+    ```java
+    public static void main(String[] args) throws URISyntaxException, IOException
+    ```
+
+1. Guarde y cierre el archivo `simulated-device\src\main\java\com\mycompany\app\App.java`.
 
 13. Compile la aplicación **simulated-device** y corrija los errores. En el símbolo del sistema, vaya a la carpeta `simulated-device` y ejecute el comando siguiente:
 

@@ -1,22 +1,22 @@
 ---
 title: Guía de programación de Azure Event Hubs | Microsoft Docs
-description: Escriba código para Azure Event Hubs mediante el SDK de .NET de Azure.
+description: En este artículo se proporciona información sobre cómo escribir código para Azure Event Hubs con el SDK de Azure .NET.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
 ms.service: event-hubs
+ms.custom: seodec18
 ms.topic: article
-ms.date: 08/12/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: bfb2db8a4a0091e26cc2b893e615ba831da30ac7
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 3aa5a1c640cc46d677a66f5179f9f07a81e62b15
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746331"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138082"
 ---
-# <a name="event-hubs-programming-guide"></a>Guía de programación de Event Hubs
-
+# <a name="programming-guide-for-azure-event-hubs"></a>Guía de programación de Azure Event Hubs
 En este artículo se describen algunos escenarios comunes para escribir código mediante Azure Event Hubs. En él se presupone un conocimiento previo de Event Hubs. Para obtener una visión general conceptual de Event Hubs, consulte la [Información general de Azure Event Hubs](event-hubs-what-is-event-hubs.md).
 
 ## <a name="event-publishers"></a>Publicadores de eventos
@@ -33,7 +33,7 @@ Las clases .NET que admiten Event Hubs se proporcionan en el paquete NuGet [Micr
 Install-Package Microsoft.Azure.EventHubs
 ```
 
-## <a name="create-an-event-hub"></a>Crear un centro de eventos
+## <a name="create-an-event-hub"></a>Creación de un centro de eventos
 
 Puede usar Azure Portal, Azure PowerShell o la CLI de Azure para crear centros de eventos. Para más información, consulte [Creación de un espacio de nombres de Event Hubs y un centro de eventos con Azure Portal](event-hubs-create.md).
 
@@ -55,7 +55,7 @@ eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuild
 
 ## <a name="send-events-to-an-event-hub"></a>Envío eventos a un centro de eventos
 
-Para enviar eventos a un centro de eventos, cree una instancia [EventHubClient][] y envíela de forma asincrónica mediante el método [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync). Este método toma un único parámetro de instancia [EventData][] y lo envía de forma sincrónica a un centro de eventos.
+Para enviar eventos a un centro de eventos, cree una instancia [EventHubClient][] y envíela de forma asincrónica mediante el método [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync). Este método toma un único parámetro de instancia [EventData][] y lo envía de forma asincrónica a un centro de eventos.
 
 ## <a name="event-serialization"></a>Serialización de eventos
 
@@ -76,7 +76,7 @@ Al enviar datos de eventos, puede especificar un valor con hash para generar una
 
 ### <a name="availability-considerations"></a>Consideraciones sobre disponibilidad
 
-El uso de una clave de partición es opcional y debe considerar detenidamente si desea o no utilizar uno. En muchos casos, el uso de una clave de partición es una buena elección si el orden de los eventos es importante. Cuando se usa una clave de partición, estas particiones requieren la disponibilidad en un solo nodo y las interrupciones pueden producirse a lo largo del tiempo; por ejemplo, cuando los nodos de ejecución se reinician y revisan. Por lo tanto, si establece un identificador de partición y esa partición deja de estar disponible por alguna razón, un intento de acceder a los datos de esa partición provocará un error. Si la alta disponibilidad es más importante, no especifique una clave de partición; en ese caso, los eventos se envían a las particiones que usan el modelo round robin descrito anteriormente. En este escenario, se realiza una selección explícita entre disponibilidad (ningún identificador de partición) y coherencia (anclar eventos a un identificador de partición).
+El uso de una clave de partición es opcional y debe considerar detenidamente si desea o no utilizar uno. Si no especifica una clave de partición cuando se publica un evento, se usa una asignación de tipo round robin. En muchos casos, el uso de una clave de partición es una buena elección si el orden de los eventos es importante. Cuando se usa una clave de partición, estas particiones requieren la disponibilidad en un solo nodo y las interrupciones pueden producirse a lo largo del tiempo; por ejemplo, cuando los nodos de ejecución se reinician y revisan. Por lo tanto, si establece un identificador de partición y esa partición deja de estar disponible por alguna razón, un intento de acceder a los datos de esa partición provocará un error. Si la alta disponibilidad es más importante, no especifique una clave de partición; en ese caso, los eventos se envían a las particiones que usan el modelo round robin descrito anteriormente. En este escenario, se realiza una selección explícita entre disponibilidad (ningún identificador de partición) y coherencia (anclar eventos a un identificador de partición).
 
 Otra consideración es el control de retrasos en el procesamiento de eventos. En algunos casos podría ser mejor quitar datos y reintentarlo que intentar seguir con el procesamiento, lo que puede provocar más retrasos de procesamiento descendente. Por ejemplo, con un tablero de cotizaciones es preferible esperar a tener todos los datos actualizados, pero en un escenario de chat en directo o VOIP sería preferible disponer de los datos rápidamente, aunque no estén completos.
 

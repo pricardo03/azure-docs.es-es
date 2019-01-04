@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: tulasim
-ms.openlocfilehash: ee88c8dca1521f4cdc2e3ea141d5c1d497061bb4
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 71b0739bacd8df586267b61a9135f448aa76479d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422361"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082244"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Orígenes de datos para el contenido de QnA Maker
 
@@ -36,7 +36,7 @@ Solo son válidas las direcciones URL públicas para todos los orígenes de dato
 
 ## <a name="faq-urls"></a>Preguntas más frecuentes sobre las direcciones URL
 
-QnA Maker puede admitir páginas web de preguntas más frecuentes de tres formas diferentes: preguntas más frecuentes sin formato, páginas de preguntas más frecuentes con vínculos, páginas de preguntas más frecuentes con una página principal de temas.
+QnA Maker puede admitir páginas web de preguntas más frecuentes de 3 formas diferentes: Páginas de preguntas más frecuentes sin formato, páginas de preguntas más frecuentes con vínculos, páginas de preguntas más frecuentes con una página principal de temas.
 
 ### <a name="plain-faq-pages"></a>Páginas de preguntas más frecuentes sin formato
 
@@ -44,7 +44,7 @@ Este es el tipo más común de página de preguntas más frecuentes, en la que l
 
 Aquí tiene un ejemplo de una página de preguntas más frecuentes sin formato:
 
-![Páginas de preguntas más frecuentes sin formato](../media/qnamaker-concepts-datasources/plain-faq.png) 
+![Ejemplo de página de preguntas más frecuentes sin formato para una base de conocimiento](../media/qnamaker-concepts-datasources/plain-faq.png) 
 
  
 ### <a name="faq-pages-with-links"></a>Páginas de preguntas más frecuentes con vínculos 
@@ -53,7 +53,7 @@ En este tipo de página de preguntas más frecuentes, las preguntas se agregan j
 
 A continuación se muestra un ejemplo de una página de preguntas más frecuentes con vínculos en las secciones que se encuentran en la misma página:
 
- ![Página de preguntas más frecuentes con vínculos de sección](../media/qnamaker-concepts-datasources/sectionlink-faq.png) 
+ ![Ejemplo de página de preguntas más frecuentes con sección de vínculos para una base de conocimiento](../media/qnamaker-concepts-datasources/sectionlink-faq.png) 
 
 
 ### <a name="faq-pages-with-a-topics-homepage"></a>Páginas de preguntas más frecuentes con una página principal de temas
@@ -62,7 +62,7 @@ Este tipo de preguntas más frecuentes tiene una página principal con los temas
 
 A continuación se muestra un ejemplo de una página de preguntas más frecuentes en la cual una página principal de temas tiene vínculos a secciones de preguntas más frecuentes en páginas distintas. 
 
- ![Página de preguntas más frecuentes con vínculo profundo](../media/qnamaker-concepts-datasources/topics-faq.png) 
+ ![Ejemplo de página de preguntas más frecuentes con vínculos profundos para una base de conocimiento](../media/qnamaker-concepts-datasources/topics-faq.png) 
 
 
 ## <a name="pdf-doc-files"></a>Archivos PDF/DOC
@@ -77,14 +77,14 @@ Un manual suele ser material de orientación que acompaña a un producto. Ayuda 
 
 A continuación se muestra un ejemplo de un manual con una página de índice y contenido jerárquico
 
- ![Ejemplo de manual de producto](../media/qnamaker-concepts-datasources/product-manual.png) 
+ ![Ejemplo de manual del producto para una base de conocimiento](../media/qnamaker-concepts-datasources/product-manual.png) 
 
 > [!NOTE]
 > La extracción funciona mejor en manuales que tienen una tabla de contenido o una página de índice y una estructura clara con títulos jerárquicos.
 
 ### <a name="brochures-guidelines-papers-and-other-files"></a>Folletos, instrucciones, documentos y otros archivos
 
-También se pueden procesar muchos otros tipos de documentos para generar pares de preguntas y respuestas, siempre que tengan una estructura y un diseño claros. Entre ellos se incluyen: folletos, instrucciones, informes, documentos técnicos, documentos científicos, directivas, libros, etc. Consulte un ejemplo [aquí](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx).
+También se pueden procesar muchos otros tipos de documentos para generar pares de preguntas y respuestas, siempre que tengan una estructura y un diseño claros. Entre ellas se incluyen las siguientes: folletos, instrucciones, informes, documentos técnicos, documentos científicos, directivas, libros, etc. Consulte un ejemplo [aquí](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx).
 
 A continuación se muestra un ejemplo de documento semiestructurado, sin un índice:
 
@@ -106,7 +106,7 @@ Answer2
 
 A continuación se muestra un ejemplo de un documento de Word de preguntas y respuestas estructurado:
 
- ![Documento de preguntas y respuestas estructurado](../media/qnamaker-concepts-datasources/structured-qna-doc.png) 
+ ![Ejemplo de documento de QnA estructurado para una base de conocimiento](../media/qnamaker-concepts-datasources/structured-qna-doc.png) 
 
 ## <a name="structured-txt-tsv-and-xls-files"></a>Archivos *TXT*, *TSV* y *XLS* estructurados
 
@@ -121,7 +121,7 @@ Se ignoran las columnas adicionales del archivo de origen.
 
 A continuación se muestra un ejemplo de archivo *.xls* de preguntas y respuestas estructurado, con contenido HTML:
 
- ![Excel de preguntas y respuestas estructurado](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
+ ![Ejemplo de libro Excel de QnA estructurado para una base de conocimiento](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
 
 ## <a name="structured-data-format-through-import"></a>Formato de datos estructurado mediante importación
 

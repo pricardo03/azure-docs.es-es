@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Conversión de texto a voz (.NET Core) - Servicio Voz'
+title: 'Inicio rápido: Conversión de texto a voz (.NET Core): servicios de Voz'
 titleSuffix: Azure Cognitive Services
 description: En este tutorial, obtendrá información sobre cómo convertir texto a voz con la API REST Texto a voz. El texto de ejemplo incluido en esta guía se estructura como lenguaje de marcado de síntesis de voz (SSML). Esto le permite elegir la voz y el idioma de la respuesta de voz.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: erhopf
-ms.openlocfilehash: 4f424e73fbe1f05155e7f051d90dd72d57405adf
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 3a0304a69cdff15cddf325be8abe336a42ea4fc1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52641574"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089877"
 ---
 # <a name="quickstart-convert-text-to-speech-using-net-core"></a>Inicio rápido: Conversión de texto a voz con .NET Core
 
@@ -193,7 +193,6 @@ using (var client = new HttpClient())
         // Update your resource name
         request.Headers.Add("User-Agent", "YOUR_RESOURCE_NAME");
         request.Headers.Add("X-Microsoft-OutputFormat", "riff-24khz-16bit-mono-pcm");
-        request.Headers.Add("Connection", "Keep-Alive");
         // Create a request
         Console.WriteLine("Calling the TTS service. Please wait... \n");
         using (var response = await client.SendAsync(request).ConfigureAwait(false))
@@ -237,4 +236,5 @@ Si ha codificado de forma rígida la clave de suscripción en el programa, aseg�
 
 ## <a name="see-also"></a>Otras referencias
 
-* [Tutorial: Reconocimiento de las intenciones de voz](how-to-recognize-intents-from-speech-csharp.md)
+* [Crear fuentes de voz personalizada](how-to-customize-voice-font.md)
+* [Grabación de muestras de voz para crear una voz personalizada](record-custom-voice-samples.md)

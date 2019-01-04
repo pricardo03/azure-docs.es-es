@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4bfb7dc2b65dc479189ac7920509e1fd8a23ce4f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 4dba6aff2002c1f17055cd647be94c4d8f644ad7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961355"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992205"
 ---
 # <a name="administer-your-iot-central-application"></a>Administración de la aplicación de IoT Central
 
@@ -35,7 +35,7 @@ Para tener acceso a la sección **Administración** y poder usarla, debe dispone
 ### <a name="change-application-name-and-url"></a>Cambio del nombre y la dirección URL de la aplicación
 En la página **Configuración de la aplicación** puede cambiar el nombre y la dirección URL de la aplicación, después, seleccione **Guardar**.
 
-![Página Configuración de la aplicación](media\howto-administer\image0-a.png)
+![Página Configuración de la aplicación](media/howto-administer/image0-a.png)
 
 > [!Note]
 > Si cambia la dirección URL, la dirección URL anterior la puede tomar otro cliente de Azure IoT Central. En ese caso, usted ya no podrá usarla. Cuando cambie la dirección URL, la dirección antigua ya no funcionará y tendrá que notificar a los usuarios la nueva URL que deben usar.
@@ -48,18 +48,21 @@ Puede crear una copia de cualquier aplicación, menos las instancias de disposit
 
 Haga clic en el botón **Copiar**. En el cuadro de diálogo, escriba los detalles de la nueva aplicación de pago por uso. Después, haga clic en el botón **Copiar** para confirmar que quiere continuar. Más información sobre los campos de este formulario en la guía de inicio rápido sobre la [creación de una aplicación](quick-deploy-iot-central.md).
 
-![Página Configuración de la aplicación](media\howto-administer\appCopy2.png)
+![Página Configuración de la aplicación](media/howto-administer/appCopy2.png)
 
 Una vez finalizada correctamente la operación de copia de la aplicación, puede ir a la nueva aplicación que ha creado al copiar la aplicación mediante el vínculo que aparece.
 
-![Página Configuración de la aplicación](media\howto-administer\appCopy3.png)
+![Página Configuración de la aplicación](media/howto-administer/appCopy3.png)
 
 > [!Note]
 > Al copiar una aplicación, también se copia la definición de las reglas y las acciones. Aun así, puesto que los usuarios que tienen acceso a la aplicación original no se copian en la aplicación copiada, tendrá que agregar manualmente los usuarios a las acciones del tipo correo electrónico, para las que los usuarios son un requisito previo. En general, es una buena idea comprobar las reglas y las acciones para garantizar que están actualizadas en la nueva aplicación.
 
 ### <a name="delete-an-application"></a>Eliminar una aplicación
 
-Use el botón **Eliminar** para quitar permanentemente la aplicación de IoT Central. Al hacerlo se eliminan todos los datos asociados con la aplicación. Para eliminar una aplicación, también debe tener permisos para eliminar recursos en la suscripción de Azure que haya elegido al crear la aplicación. Para obtener más información, vea el artículo sobre el [uso del control de acceso basado en rol para administrar el acceso a los recursos de la suscripción de Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+> [!Note]
+> Para eliminar una aplicación, también debe tener permisos para eliminar recursos en la suscripción de Azure que haya elegido al crear la aplicación. Para obtener más información, vea el artículo sobre el [uso del control de acceso basado en rol para administrar el acceso a los recursos de la suscripción de Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+
+Use el botón **Eliminar** para quitar permanentemente la aplicación de IoT Central. Al hacerlo se eliminan todos los datos asociados con la aplicación.
 
 ## <a name="manage-users"></a>Administrar usuarios
 
@@ -67,17 +70,17 @@ Use el botón **Eliminar** para quitar permanentemente la aplicación de IoT Cen
 
 Cada usuario debe tener una cuenta de usuario antes de poder iniciar sesión y acceder a la aplicación Azure IoT Central. Se admiten las cuentas de Microsoft (MSA) y las de Azure Active Directory (Azure AD) en Azure IoT Central. Actualmente no se admiten los grupos de Azure Active Directory en Azure IoT Central.
 
-Para más información, vea la [ayuda para cuentas de Microsoft](https://support.microsoft.com/products/microsoft-account?category=manage-account) e [Inicio rápido: Agregar un nuevo usuario a Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
+Para más información, consulte la [ayuda de la cuenta de Microsoft](https://support.microsoft.com/products/microsoft-account?category=manage-account) y la [Guía de inicio rápido: Adición de nuevos usuarios a Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
 
 1. Para agregar un usuario a una aplicación de IoT Central, vaya a la página **Usuarios** de la sección **Administración**.
 
-    ![Lista de usuarios](media\howto-administer\image1.png)
+    ![Lista de usuarios](media/howto-administer/image1.png)
 
 1. Para agregar un usuario, en la página **Usuarios**, seleccione **+ Agregar usuario**.
 
 1. Seleccione un rol para el usuario en el menú desplegable **Rol**. Más información sobre los roles en la sección [Administración de roles](#manage-roles) de este artículo.
 
-    ![Selección de roles](media\howto-administer\image3.png)
+    ![Selección de roles](media/howto-administer/image3.png)
 
     > [!NOTE]
     >  Para agregar usuarios de forma masiva, indique los identificadores de usuario de todos los usuarios que quiera agregar, separados por punto y coma. Seleccione un rol en el menú desplegable **Rol**. Después, seleccione **Guardar**.
@@ -120,7 +123,7 @@ Puede convertir la aplicación de prueba en una de pago por uso. Estas son las d
 - Las aplicaciones de **versión de evaluación** son gratuitas durante siete días y luego caducan. Se pueden convertir a pago por uso en cualquier momento antes.
 - Las aplicaciones de **pago por uso** se cobran por dispositivo y los cinco primeros dispositivos son gratuitos.
 
-Más información sobre los precios en la [página Precios de IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
+Obtenga más información sobre los precios en la [página de precios de Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
     
 Para completar el proceso de autoservicio, siga estos pasos:
 

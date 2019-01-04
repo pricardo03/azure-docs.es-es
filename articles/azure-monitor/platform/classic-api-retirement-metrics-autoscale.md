@@ -7,13 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: robb
-ms.component: ''
-ms.openlocfilehash: 450eac3613df18997c5b0f9189555555da20cfcf
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: ce54b63aa7831ed40a8592d536c43fc83fdc5567
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585490"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433100"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Retirada de Azure Monitor de las API del modelo de implementación clásica para métricas y escalabilidad automática
 
@@ -25,7 +24,7 @@ Se han admitido las mismas operaciones a través de un conjunto de API basadas e
 
 Si va a administrar la escalabilidad automática mediante Azure Portal, el [nuevo SDK de Azure Monitor](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/), PowerShell, la CLI o mediante plantillas de Resource Manager, no se requiere ninguna acción.  
 
-Si va a usar métricas a través de Azure Portal o a través de diversos [servicios de supervisión de asociados](../../monitoring-and-diagnostics/monitoring-partners.md), no se requiere ninguna acción. Microsoft está trabajando con asociados de supervisión para migrar a las nuevas API.
+Si va a usar métricas a través de Azure Portal o a través de diversos [servicios de supervisión de asociados](../../azure-monitor/platform/partners.md), no se requiere ninguna acción. Microsoft está trabajando con asociados de supervisión para migrar a las nuevas API.
 
 ## <a name="who-is-affected"></a>A quién afecta
 
@@ -76,9 +75,9 @@ No habrá ningún efecto directo en los servicios de Azure ni en sus cargas de t
 
 Todas las llamadas a las API clásicas que se enumeraron anteriormente devolverán mensajes de error parecidos a estos:
 
-En el caso de la escalabilidad automática: *Esta API está en desuso. Use Azure Portal, el SDK de Azure Monitor, PowerShell, la CLI o las plantillas de Resource Manager para administrar la configuración de la escalabilidad automática*.  
+Para el escalado automático: *Esta API está en desuso. Use Azure Portal, el SDK de Azure Monitor, PowerShell, la CLI o las plantillas de Resource Manager para administrar la configuración de la escalabilidad automática*.  
 
-En el caso de las métricas: *Esta API está en desuso. Use Azure Portal, el SDK de Azure Monitor, PowerShell o la CLI para consultar las métricas*.
+Para las métricas: *Esta API está en desuso. Use Azure Portal, el SDK de Azure Monitor, PowerShell o la CLI para consultar las métricas*.
 
 ## <a name="email-notifications"></a>Notificaciones por correo electrónico
 

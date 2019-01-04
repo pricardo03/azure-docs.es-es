@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/16/2018
 ms.author: cwatson
-ms.openlocfilehash: 80721fc82a54c62c982298cb8eabb999caaf1dfb
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: fe3cb2d15602407b54ff47763d409c2e77614f0a
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583115"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311140"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Procedimiento para descargar las datos de uso diario y de factura de Azure
 
@@ -122,7 +122,7 @@ Para más información sobre el uso diario, consulte [Comprender la factura de M
 
 Para ver y descargar los datos de uso como cliente de EA, debe ser administrador de Enterprise, o bien Propietario de la cuenta o Administrador de departamento con la directiva para ver los cargos habilitada.
 
-1. Inicie sesión en el [Azure Portal]( http://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 1. Busque en **Administración de costos + facturación**.
 
     ![Captura de pantalla que muestra la búsqueda en Azure Portal](./media/billing-download-azure-invoice-daily-usage-date/portal-cm-billing-search.png)

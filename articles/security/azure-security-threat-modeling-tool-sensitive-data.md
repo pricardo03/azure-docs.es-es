@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7f1bb400650a223a9f0b4249c33f7c480a1bc009
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7f90fccd062826493b7add1a90406fa9244e00b2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262376"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002044"
 ---
-# <a name="security-frame-sensitive-data--mitigations"></a>Marco de seguridad: Información confidencial | Mitigaciones 
+# <a name="security-frame-sensitive-data--mitigations"></a>Marco de seguridad: información confidencial | Mitigaciones 
 | Producto o servicio | Artículo |
 | --------------- | ------- |
 | **Límite de confianza de la máquina** | <ul><li>[Asegúrese de que los archivos binarios estén ofuscados si contienen información confidencial](#binaries-info)</li><li>[Considere la posibilidad de usar el sistema de cifrado de archivos (EFS) para proteger información confidencial específica del usuario](#efs-user)</li><li>[Asegúrese de que se cifre la información confidencial almacenada por la aplicación en el sistema de archivos](#filesystem)</li></ul> | 
@@ -130,7 +130,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
-| **Referencias**              | [How To: Encrypt Configuration Sections in ASP.NET 2.0 Using DPAPI](https://msdn.microsoft.com/library/ff647398.aspx) (Procedimiento para cifrar secciones de configuración en ASP.NET 2.0 mediante DPAPI), [Especificar un proveedor de configuración protegida](https://msdn.microsoft.com/library/68ze1hb2.aspx), [Using Azure Key Vault to protect application secrets](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) (Uso de Azure Key Vault para proteger los secretos de la aplicación) |
+| **Referencias**              | [How To: Encrypt Configuration Sections in ASP.NET 2.0 Using DPAPI](https://msdn.microsoft.com/library/ff647398.aspx) (Procedimiento para cifrar secciones de configuración en ASP.NET 2.0 mediante DPAPI), [Especificar un proveedor de configuración protegida](https://msdn.microsoft.com/library/68ze1hb2.aspx), [Uso de Azure Key Vault para proteger los secretos de la aplicación](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
 | **Pasos** | Los archivos de configuración tales como web.config y appsettings.json se suelen usar para almacenar información confidencial, como nombres de usuario, contraseñas, cadenas de conexión a la base de datos y claves de cifrado. Si no protege esta información, la aplicación es vulnerable a atacantes o usuarios malintencionados que obtienen información confidencial, como nombres de usuario y contraseñas de cuentas, nombres de bases de datos y nombres de servidores. Según el tipo de implementación (Azure o local), cifre las secciones confidenciales de los archivos de configuración mediante DPAPI o servicios como Azure Key Vault. |
 
 ## <a id="autocomplete-input"></a>Deshabilite explícitamente el atributo HTML autocomplete en formularios y entradas confidenciales
@@ -193,7 +193,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | Versión de SQL: todas |
-| **Referencias**              | [Cifrar datos confidenciales en SQL Server](https://technet.microsoft.com/library/ff848751(v=sql.105).aspx), [Cifrar una columna de datos en SQL Server](https://msdn.microsoft.com/library/ms179331), [Cifrado mediante certificados](https://msdn.microsoft.com/library/ms188061) |
+| **Referencias**              | [Cifrar datos confidenciales en SQL server](https://technet.microsoft.com/library/ff848751(v=sql.105).aspx), [Cifrar una columna de datos](https://msdn.microsoft.com/library/ms179331), [Cifrar por certificado](https://msdn.microsoft.com/library/ms188061) |
 | **Pasos** | La información confidencial, como los números de tarjeta de crédito, debe estar cifrada en la base de datos. Los datos se pueden cifrar con cifrado de nivel de columna o con una función de aplicación mediante las funciones de cifrado. |
 
 ## <a id="tde-enabled"></a>Asegúrese de que el cifrado de base de datos (TDE) esté habilitado
@@ -429,7 +429,7 @@ Establezca clientCredentialType en Certificate o Windows.
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico, .NET Framework 3 |
 | **Atributos**              | Modo de seguridad: Transport, modo de seguridad: Message |
-| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_security_not_enabled), [Fundamentals of WCF Security CoDe Magazine](http://www.codemag.com/article/0611051) (Fundamentos de la seguridad de WCF en CoDe Magazine) |
+| **Referencias**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [Fundamentals of WCF Security CoDe Magazine](http://www.codemag.com/article/0611051) (Fundamentos de la seguridad de WCF en CoDe Magazine) |
 | **Pasos** | No se ha definido la seguridad de transporte ni de mensajes. Las aplicaciones que transmiten mensajes sin seguridad de transporte ni de mensajes no pueden garantizar la integridad ni la confidencialidad de los mensajes. Cuando un enlace de seguridad de WCF se establece en None, se deshabilitan la seguridad de mensajes y la de transporte. |
 
 ### <a name="example"></a>Ejemplo

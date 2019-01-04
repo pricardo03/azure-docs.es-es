@@ -1,5 +1,5 @@
 ---
-title: Seguridad y privacidad de datos en Azure Search | Microsoft Docs
+title: 'Seguridad y privacidad de los datos: Azure Search'
 description: Azure Search es compatible con SOC 2, HIPAA y otras certificaciones. Conexión y cifrado de datos, autenticación y acceso a identidades mediante identificadores de seguridad de usuarios y grupos en los filtros de Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: heidist
-ms.openlocfilehash: 4b1307aa00fae26d7425c9a95ed673b11ba2e9b4
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.custom: seodec2018
+ms.openlocfilehash: 55558f1483a576e7ac3b9ce027588eceabd5db70
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092638"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311718"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Seguridad y privacidad de datos en Azure Search
 
@@ -21,7 +22,7 @@ Los controles de acceso y las características de seguridad integrales se integr
 
 La arquitectura de seguridad de Azure Search abarca seguridad física, transmisiones cifradas, almacenamiento cifrado y cumplimiento de normas en toda la plataforma. Azure Search solo acepta solicitudes autenticadas en sus operaciones. De modo opcional, puede agregar controles de acceso por usuario en el contenido mediante filtros de seguridad. En este artículo se trata la seguridad en cada capa, pero se centra principalmente en cómo se protegen los datos y las operaciones en Azure Search.
 
-## <a name="standards-compliance-iso-27001-soc-2-hipaa"></a>Cumplimiento de normas: ISO 27001, SOC 2, HIPAA
+## <a name="standards-compliance-iso-27001-soc-2-hipaa"></a>Cumplimiento de estándares: ISO 27001, SOC 2, HIPAA
 
 Azure Search está certificada por los siguientes estándares, tal como se [anunció en junio de 2018](https://azure.microsoft.com/blog/azure-search-is-now-certified-for-several-levels-of-compliance/):
 

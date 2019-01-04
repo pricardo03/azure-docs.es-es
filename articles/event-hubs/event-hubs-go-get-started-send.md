@@ -1,20 +1,21 @@
 ---
-title: Envío de eventos a Azure Event Hubs mediante Go | Microsoft Docs
-description: Introducción al envío de eventos a Event Hubs mediante Go
+title: 'Envío de eventos mediante Go: Azure Event Hubs | Microsoft Docs'
+description: En este artículo se ofrece un tutorial para crear una aplicación de Go que envía eventos de Azure Event Hubs.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 10/18/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: f5e30a103b09613caee8e9912a89a5bc2d390f65
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 44cbea8cc40f83ed5fdd2863da0cb0a01e8dc2b8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458095"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091067"
 ---
 # <a name="send-events-to-event-hubs-using-go"></a>Envío de eventos a Event Hubs mediante Go
 
@@ -30,10 +31,11 @@ Este tutorial describe cómo enviar eventos a un centro de eventos desde una apl
 Para completar este tutorial, debe cumplir los siguientes requisitos previos:
 
 * Go instalado de forma local. Siga [estas instrucciones](https://golang.org/doc/install) si es necesario.
-* Un centro de eventos y un espacio de nombres de Event Hubs existentes. Puede crear estas entidades siguiendo las instrucciones de [este artículo](event-hubs-create.md).
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Creación de un espacio de nombres de Event Hubs y un centro de eventos
-El primer paso consiste en usar [Azure Portal](https://portal.azure.com) para crear un espacio de nombres de tipo Event Hubs y obtener las credenciales de administración que la aplicación necesita para comunicarse con el centro de eventos. Para crear un espacio de nombres y un centro de eventos, siga el procedimiento de [este artículo](event-hubs-create.md) y después continúe con los pasos siguientes de este tutorial.
+El primer paso consiste en usar [Azure Portal](https://portal.azure.com) para crear un espacio de nombres de tipo Event Hubs y obtener las credenciales de administración que la aplicación necesita para comunicarse con el centro de eventos. Para crear un espacio de nombres y un centro de eventos, siga el procedimiento que se indica en [este artículo](event-hubs-create.md).
+
+Ahora, continúe con los pasos siguientes en este tutorial.
 
 ## <a name="install-go-package"></a>Instalación del paquete Go
 

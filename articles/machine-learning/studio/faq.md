@@ -5,7 +5,7 @@ keywords: introducción de aprendizaje automático, modelo predictivo, qué es e
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/02/2017
-ms.openlocfilehash: c9c80da55737d0093813b84e33d3d90c5d7d4603
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 23de87bb566764540f1a7bf152d72bfdc0e3719f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309147"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091307"
 ---
-# <a name="azure-machine-learning-studio-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Preguntas más frecuentes sobre Azure Machine Learning Studio: facturación, funcionalidades, limitaciones y soporte técnico
+# <a name="azure-machine-learning-studio-faq-billing-capabilities-limitations-and-support"></a>Preguntas más frecuentes sobre Azure Machine Learning Studio: facturación, funcionalidades, limitaciones y soporte técnico
 Estas son algunas de las preguntas más frecuentes (P+F) y las respuestas correspondientes sobre Azure Machine Learning, un servicio en la nube para el desarrollo de modelos predictivos y la aplicación de soluciones mediante servicios web. Estas preguntas más frecuentes incluyen cuestiones sobre cómo usar el servicio; por ejemplo, el modelo de facturación, las funcionalidades, las limitaciones y el soporte técnico.
 
 **¿Tiene una pregunta que no se encuentra aquí?**
@@ -32,7 +32,7 @@ Azure Machine Learning cuenta con un foro en MSDN, donde los miembros de la comu
 ## <a name="general-questions"></a>Preguntas generales
 **¿Qué es Machine Learning Studio?**
 
-Machine Learning Studio es un entorno de trabajo al que se puede acceder mediante un explorador web. Machine Learning Studio hospeda una gran paleta de módulos en una interfaz de composición visual que ayuda a crear un flujo de trabajo completo de ciencia de los datos en forma de experimento.
+Machine Learning Studio es un entorno de lienzo con la funcionalidad de arrastrar y colocar al que se accede mediante un explorador web. Machine Learning Studio hospeda una gran paleta de módulos en una interfaz de composición visual que ayuda a crear un flujo de trabajo completo de ciencia de los datos en forma de experimento.
 
 Para más información sobre Machine Learning Studio, consulte [¿Qué es Machine Learning Studio?](what-is-ml-studio.md)
 
@@ -55,7 +55,7 @@ Los servicios web Machine Learning proporcionan una interfaz entre una aplicaci�
 
 Azure Machine Learning tiene dos tipos de servicios web:
 
-* Servicio de solicitud y respuesta (RRS): servicio de baja latencia y muy escalable que proporciona una interfaz con los modelos sin estado creados e implementados mediante Machine Learning Studio.
+* Servicio de solicitud-respuesta (RRS): servicio de baja latencia y muy escalable que proporciona una interfaz con los modelos sin estado creados e implementados mediante Machine Learning Studio.
 * Servicio de ejecución por lotes (BES): servicio asincrónico que puntúa un lote de registros de datos.
 
 Hay varias maneras de usar la API de REST y acceder al servicio web. Por ejemplo, puede escribir una aplicación en C#, R o Python con el código de ejemplo que se genera automáticamente cuando se implementa el servicio web.
@@ -312,7 +312,7 @@ Azure Machine Learning cuenta también con un foro de la comunidad en MSDN, dond
 ## <a name="billing-questions"></a>Preguntas sobre facturación
 **¿Cómo funciona la facturación de Machine Learning?**
 
-Azure Machine Learning tiene dos componentes: Machine Learning Studio y servicios web Machine Learning.
+Azure Machine Learning tiene dos componentes: Machine Learning Studio y servicios web de Machine Learning.
 
 Puede usar el nivel de facturación gratuito mientras prueba Machine Learning Studio. El nivel Gratis también le permite implementar un servicio web clásico que tiene una capacidad limitada.
 
@@ -438,7 +438,7 @@ Los nuevos planes de facturación están disponibles en las tres regiones de pro
 
 Sí. Los precios del plan varían según la región. Cuando un servicio web se implementa en otra región, es preciso asignarlo a un plan específico de dicha región. Para más información, consulte [Productos disponibles por región]( https://azure.microsoft.com/regions/services/).
 
-### <a name="new-web-services-overages"></a>Nuevos servicios web: uso por encima del límite
+### <a name="new-web-services-overages"></a>Nuevos servicios web: Uso por encima del límite
 **¿Cómo puedo comprobar si he superado el uso del servicio web?**
 
 Puede consultar el uso de todos los planes en la página Planes del portal de servicios web de Azure Machine Learning. Inicie sesión en el portal y haga clic en la opción del menú **Planes**.
@@ -484,7 +484,7 @@ El servicio API de Azure Machine Learning se factura dependiendo de si es un ser
 Los siguientes gastos se agregan por área de trabajo para una suscripción.
 
 * Suscripción a un área de trabajo de Machine Learning: esta suscripción es una cuota mensual que proporciona acceso a un área de trabajo de Machine Learning Studio. La suscripción es necesaria para ejecutar experimentos en Studio y para usar las API de producción.
-* Horas de experimentación de Studio: este medidor suma todos los gastos de proceso acumulados por la ejecución de experimentos en Machine Learning Studio y de llamadas de API en el entorno de ensayo.
+* Horas de experimentación de Estudio de aprendizaje automático: este medidor suma todos los gastos de proceso acumulados por la ejecución de experimentos en Machine Learning Studio y de llamadas de API en el entorno de ensayo.
 * Acceda a los datos mediante la conexión a un servidor local que ejecuta SQL Server en sus modelos para entrenarlos y puntuarlos.
 * En los servicios web clásicos:
   * Horas de proceso de API de producción: este medidor incluye los gastos de proceso acumulados por los servicios web que se ejecutan en producción.

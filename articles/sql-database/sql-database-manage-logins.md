@@ -4,7 +4,7 @@ description: Obtenga información acerca de la administración de seguridad de S
 keywords: seguridad de la Base de datos SQL, administración de seguridad de la base de datos, seguridad de inicio de sesión, seguridad de la base de datos, acceso a la base de datos
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/07/2018
-ms.openlocfilehash: f2627aab2598a706e717e8e1d18fd2f8c944835c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/29/2018
+ms.openlocfilehash: c234ac95d0e02857fe87afe3a734d77f00954477
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161478"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864951"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Control y concesión de acceso de la base de datos a SQL Database y SQL Data Warehouse
 
@@ -28,7 +28,7 @@ Después de la configuración de las reglas de firewall, puede conectarse a Azur
 >  Este tema se aplica al servidor de Azure SQL, y a las bases de datos de SQL Database y SQL Data Warehouse que se crean en el servidor de Azure SQL. Para simplificar, SQL Database se utiliza cuando se hace referencia tanto a SQL Database como a SQL Data Warehouse. 
 
 > [!TIP]
-> Para ver un tutorial, consulte [Protección de Azure SQL Database](sql-database-security-tutorial.md).
+> Para ver un tutorial, consulte [Protección de Azure SQL Database](sql-database-security-tutorial.md). Este tutorial no se aplica a la **Instancia administradas de Azure SQL Database**.
 
 ## <a name="unrestricted-administrative-accounts"></a>Cuentas administrativas sin restricciones
 Hay dos cuentas administrativas (**administrador del servidor** y **administrador de Active Directory**) que actúan como administradores. Para identificar estas cuentas de administrador para SQL Server, abra Azure Portal y vaya a las propiedades de SQL Server.
@@ -68,13 +68,17 @@ Para ver un tutorial en el que se explica cómo crear un servidor, una base de d
 
 
 ## <a name="additional-server-level-administrative-roles"></a>Roles administrativos de nivel de servidor adicionales
+
+>[!IMPORTANT]
+>En esta sección no es aplicable a la **Instancia administrada de Azure SQL Database**, ya que estos roles son específicos de **Azure SQL Database**.
+
 Además de los roles administrativos de nivel de servidor que se han descrito anteriormente, SQL Database proporciona dos roles administrativos restringidos en la base de datos maestra a la que se pueden agregar cuentas de usuario que otorgan permisos para crear bases de datos o administrar inicios de sesión.
 
 ### <a name="database-creators"></a>Creadores de bases de datos
 Uno de estos roles administrativos es **dbmanager**. Los miembros de este rol pueden crear bases de datos nuevas. Para usar este rol, cree un usuario en la base de datos `master` y, después, agréguelo al rol de base de datos **dbmanager**. Para crear una base de datos, el usuario debe haber iniciado sesión con SQL Server en la base de datos maestra, o bien ser un usuario de base de datos independiente basado en un usuario de Azure Active Directory.
 
 1. Con una cuenta de administrador, conéctese a la base de datos maestra.
-2. Paso opcional: crear un inicio de sesión de autenticación de SQL Server mediante la instrucción [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) . Instrucción de ejemplo:
+2. Paso opcional: crear un inicio de sesión de autenticación de SQL Server mediante la instrucción [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx). Instrucción de ejemplo:
    
    ```sql
    CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
@@ -180,7 +184,7 @@ Al administrar los inicios de sesión y los usuarios en SQL Database, tenga en c
 * Cuando se ejecuta la instrucción `CREATE USER` con la opción `FOR/FROM LOGIN`, debe ser la única instrucción de un lote de Transact-SQL.
 * Cuando se ejecuta la instrucción `ALTER USER` con la opción `WITH LOGIN`, debe ser la única instrucción de un lote de Transact-SQL.
 * Para `CREATE/ALTER/DROP` un usuario requiere el permiso `ALTER ANY USER` de la base de datos.
-* Cuando el propietario de un rol de base de datos intenta agregar otro usuario de base de datos a ese rol o bien quitarlo, puede producirse el siguiente error: **El usuario o el rol “Nombre” no existe en la base de datos.** Este error se produce porque el usuario no es visible para el propietario. Para resolver este problema, conceda al propietario del rol el permiso `VIEW DEFINITION` del usuario. 
+* Cuando el propietario de un rol de base de datos intenta agregar otro usuario de base de datos a ese rol o bien quitarlo, puede producirse el siguiente error: **El usuario o el rol “Nombre” no existe en la base de datos.**  Este error se produce porque el usuario no es visible para el propietario. Para resolver este problema, conceda al propietario del rol el permiso `VIEW DEFINITION` del usuario. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

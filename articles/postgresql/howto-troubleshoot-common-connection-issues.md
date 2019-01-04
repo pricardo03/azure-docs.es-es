@@ -3,19 +3,19 @@ title: Solución de problemas de conexión a Azure Database for PostgreSQL | Mic
 description: Obtenga información sobre la solución de problemas de conexión a Azure Database for PostgreSQL.
 keywords: postgresql connection,connection string,connectivity issues,transient error,connection error
 services: postgresql
-author: janeng
+author: jan-eng
 ms.author: janeng
 manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 11/09/2018
-ms.openlocfilehash: fea4c376f73afe2ef36948c59e95a2b679dbd7e8
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 67383db4bd1d57d194e10de2dc1964532b3619a4
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285487"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53160818"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql"></a>Solución de problemas de conexión a Azure Database for PostgreSQL
 
@@ -49,9 +49,9 @@ Los errores transitorios se producen cuando se realiza el mantenimiento, el sist
 
 Si la aplicación no se puede conectar a Azure Database for PostgreSQL de forma persistente, normalmente indica un problema con uno de los siguientes elementos:
 
-* Configuración del firewall: el servidor o cliente de Azure Database for PostgreSQL bloquea las conexiones.
-* Reconfiguración de la red en el lado cliente: se ha añadido un nuevo servidor de proxy o dirección IP.
-* Error de usuario: por ejemplo, escribió incorrectamente los parámetros de conexión, como el nombre del servidor en la cadena de conexión o falta un sufijo *@servername* en el nombre de usuario.
+* Configuración del firewall de servidor: Asegúrese de que el firewall del servidor de Azure Database for PostgreSQL esté configurado para permitir conexiones desde el cliente, incluidas puertas de enlace y servidores proxy.
+* Configuración del firewall del cliente: El firewall en el cliente debe permitir las conexiones con el servidor de base de datos. Las direcciones IP y los puertos del servidor se deben permitir, así como los nombres de aplicación como PostgreSQL en algunos firewalls.
+* Error del usuario: Es posible que haya escrito incorrectamente los parámetros de conexión, como el nombre del servidor en la cadena de conexión o un sufijo *@servername* que falte en el nombre de usuario.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Pasos para resolver los problemas de conectividad persistentes
 

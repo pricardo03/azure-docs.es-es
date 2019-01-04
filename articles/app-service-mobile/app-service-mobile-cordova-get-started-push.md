@@ -14,12 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: cb36c6fea20f5976f159780f3482d9aae669f951
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 40a7552ffd0bfcab173d2e35c52313a94ec3d0bb
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42817963"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960335"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Agregar notificaciones push a su aplicación de Apache Cordova
 
@@ -240,7 +240,7 @@ Las bibliotecas requeridas actuales se enumeran en la [documentación de instala
 
 Ahora puede probar las notificaciones push mediante la ejecución de la aplicación y la inserción de elementos en la tabla TodoItem. Puede hacerlo desde el mismo dispositivo o desde otro dispositivo, siempre que use el mismo back-end. Pruebe la aplicación Cordova en la plataforma Android de una de las siguientes maneras:
 
-* *En un dispositivo físico:* conecte el dispositivo Android al equipo de desarrollo con un cable USB.  En lugar de **Emulador de Android de Google**, seleccione **Dispositivo**. Visual Studio implementa la aplicación en el dispositivo y luego la ejecuta. Luego podrá interactuar con la aplicación en el dispositivo.
+* *En un dispositivo físico:*  conecte el dispositivo Android al equipo de desarrollo con un cable USB.  En lugar de **Emulador de Android de Google**, seleccione **Dispositivo**. Visual Studio implementa la aplicación en el dispositivo y luego la ejecuta. Luego podrá interactuar con la aplicación en el dispositivo.
 
   Las aplicaciones de pantalla compartida, como [Mobizen][20] pueden ayudarle a desarrollar una aplicación Android. Mobizen proyecta la pantalla de Android en un explorador web de su equipo.
 
@@ -279,7 +279,7 @@ Antes de registrar la aplicación para las notificaciones push, abra config.xml 
 
 ```xml
 <widget defaultlocale="en-US" id="io.cordova.myapp7777777"
-    version="1.0.0" windows-packageVersion="1.1.0.0" xmlns="http://www.w3.org/ns/widgets"
+    version="1.0.0" windows-packageVersion="1.1.0.0" xmlns="https://www.w3.org/ns/widgets"
     xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps">
 ```
 
@@ -393,17 +393,17 @@ Aprenda a usar los siguientes SDK:
 
 <!-- URLs -->
 [1]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[2]: http://www.visualstudio.com/
+[2]: https://www.visualstudio.com/
 [3]: https://azure.microsoft.com/pricing/free-trial/
 [4]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [5]: app-service-mobile-cordova-get-started.md
-[6]: http://go.microsoft.com/fwlink/p/?LinkId=268302
+[6]: https://go.microsoft.com/fwlink/p/?LinkId=268302
 [7]: https://developer.apple.com/programs/
 [8]: https://developer.microsoft.com/en-us/store/register
 [9]: https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-3-Create-azure-notification-hub
 [10]: https://www.npmjs.com/
 [11]: https://taco.visualstudio.com/en-us/docs/run-app-apache/#HAXM
-[12]: http://taco.visualstudio.com/en-us/docs/ios-guide/
+[12]: https://taco.visualstudio.com/en-us/docs/ios-guide/
 [13]: https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-6-Set-up-wns-for-push
 [14]: app-service-mobile-cordova-get-started-users.md
 [15]: app-service-mobile-cordova-how-to-use-client-library.md
@@ -412,4 +412,4 @@ Aprenda a usar los siguientes SDK:
 [18]: https://console.developers.google.com/home/dashboard
 [19]: https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md
 [20]: https://www.mobizen.com/
-[21]: http://taco.visualstudio.com/en-us/docs/build_ios_cloud/
+[21]: https://taco.visualstudio.com/en-us/docs/build_ios_cloud/

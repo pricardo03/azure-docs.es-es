@@ -5,16 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2018
+ms.date: 12/12/2018
 ms.author: raynew
-ms.openlocfilehash: bc671a598d975fb732b668d579561a253f04ded3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 50f9027301e4a04cd5624deee084429c803e04f4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317728"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342721"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de compatibilidad para replicar desde una región de Azure a otra
 
@@ -41,9 +40,9 @@ En este artículo se resumen las configuraciones y los componentes admitidos cua
 **Migración de máquinas virtuales entre regiones dentro de los clústeres geográficos admitidos (dentro y entre suscripciones)** | Se admite en el mismo inquilino de Azure Active Directory.
 **Migrar máquinas virtuales dentro de la misma región** | No compatible.
 
-# <a name="region-support"></a>Regiones admitidas
+## <a name="region-support"></a>Regiones admitidas
 
-Puede replicar y recuperar máquinas virtuales entre dos regiones cualesquiera dentro del mismo clúster geográfico.
+Puede replicar y recuperar máquinas virtuales entre dos regiones cualesquiera dentro del mismo clúster geográfico. Los clústeres geográficos se definen teniendo presente la latencia y la soberanía de datos.
 
 **Clúster geográfico** | **Regiones de Azure**
 -- | --
@@ -53,21 +52,21 @@ Asia | India del Sur, centro de la India, Sudeste Asiático, Asia Oriental, Jap�
 Australia   | Este de Australia, Sudeste de Australia, Centro de Australia, Centro de Australia 2
 Azure Government    | Virginia Gob. EE. UU., Iowa Gob. EE. UU., US Gov de Arizona, US Gov de Texas, US DOD este, US DOD central
 Alemania | Centro de Alemania y Noreste de Alemania
-China | China (Este) y China (Norte)
+China | Este de China, Norte de China, Norte de China 2 y Este de China 2
 
 >[!NOTE]
 >
-> En la región Sur de Brasil, puede replicar y conmutar por error a las siguientes regiones: Centro-sur de EE. UU., Centro-oeste de EE. UU., Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU., Oeste de EE. UU. 2 y Centro-norte de EE. UU.
+> Para la región Sur de Brasil, puede replicar y conmutar por error en una de las siguientes regiones: Centro-sur de EE. UU., Centro-oeste de EE. UU., Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU., Oeste de EE. UU. 2 y Centro-norte de EE. UU.</br>
+> Debe tenerse en cuenta que Site Recovery solo ha habilitado el Sur de Brasil para su uso como región de origen desde donde se pueden proteger las VM. Ninguna de las regiones de Azure, como Centro-sur de EE. UU., puede usarse como región de recuperación ante desastres de destino. Se debe a que se recomienda que la latencia observada debido a la distancia geográfica seleccione una región americana que no sea el Sur de Brasil.  
 
 ## <a name="cache-storage"></a>Almacenamiento en caché
 
 Esta tabla resume la compatibilidad con la cuenta de almacenamiento de la memoria caché que usa Site Recovery durante la replicación.
 
-**Configuración** | **Detalles**
---- | ---
+**Configuración** | **Soporte técnico** | **Detalles**
+--- | --- | ---
 Cuentas de almacenamiento de uso general V2 (capas de acceso frecuente y esporádico) | No compatible. | Existe la limitación para el almacenamiento en caché ya que los costos de las transacciones para V2 son significativamente más altos que los de las cuentas de almacenamiento V1.
-Firewalls de Azure Storage para redes virtuales  | Sin  | No se permite el acceso a determinadas redes virtuales de Azure en cuentas de almacenamiento en caché usadas para almacenar datos replicados.
-
+Firewalls de Azure Storage para redes virtuales  | Compatible | Si usa una cuenta de almacenamiento en caché o de destino con firewall habilitado, asegúrese de seleccionar ["Permitir servicios de Microsoft de confianza"](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 
 ## <a name="replicated-machine-operating-systems"></a>Sistemas operativos de máquinas replicadas
@@ -128,16 +127,16 @@ Debian 8 | 9.17, 9.18 | 3.16.0-4-amd64 a 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 a 4
 
 **Versión** | **Versión de Mobility service** | **Versión de kernel** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.20 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default a 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default a 4.4.140-94.69-default |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.20 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default a 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default a 4.4.162-94.69-default |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.19 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default a 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default a 4.4.140-94.42-default |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.18 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default a 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default a 4.4.138-94.39-default |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.17 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.88-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default</br></br>SP3 4.4.73-5-default a 4.4.126-94.22-default |
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Máquinas replicadas: Sistema de archivos o almacenamiento de invitado de Linux
 
-* Sistemas de archivos: ext3, ext4, ReiserFS (solo Suse Linux Enterprise Server), XFS
+* Sistemas de archivos: ext3, ext4, ReiserFS (solo Suse Linux Enterprise Server), XFS, BTRFS
 * Administrador de volúmenes: LVM2
-* Software de múltiples rutas: asignador de dispositivos
+* Software de múltiples rutas: Mapeador de dispositivo
 
 
 ## <a name="replicated-machines---compute-settings"></a>Máquinas replicadas: Configuración de proceso
@@ -146,7 +145,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.17 | SP1 3.12.49-11-default 
 --- | --- | ---
 Tamaño | Cualquier tamaño de máquina virtual de Azure con al menos 2 núcleos de CPU y 1 GB de RAM | Compruebe los [tamaños de máquina virtual de Azure](../virtual-machines/windows/sizes.md).
 Conjuntos de disponibilidad | Compatible | Si habilita la replicación de una máquina virtual de Azure con las opciones predeterminadas, se creará automáticamente un conjunto de disponibilidad en función de la configuración de la región de origen. Puede modificar estos valores.
-Zonas de disponibilidad | No compatible | Actualmente no se pueden replicar las máquinas virtuales implementadas en las zonas de disponibilidad.
+Zonas de disponibilidad | Compatible |  
 Ventaja de uso híbrido (HUB) | Compatible | Si la máquina virtual de origen tiene habilitada una licencia HUB, en la conmutación por error de prueba o la máquina virtual de conmutación por error también se usa la licencia HUB.
 VM Scale Sets | No compatible |
 Imágenes de la galería de Azure (publicadas por Microsoft) | Compatible | Se admiten si la máquina virtual se ejecuta en un sistema operativo compatible.
@@ -180,6 +179,7 @@ Disco de datos: cuenta de almacenamiento Estándar | Compatible |
 Disco de datos: cuenta de almacenamiento Premium | Compatible | Si una máquina virtual tiene discos repartidos entre cuentas de almacenamiento Estándar y Premium, puede seleccionar una cuenta de almacenamiento de destino diferente para cada disco a fin de garantizar que tenga la misma configuración de almacenamiento en la región de destino.
 Disco administrado: estándar | Se admite en regiones de Azure en las que se pueda usar Azure Site Recovery. |  
 Disk administrado: premium | Se admite en regiones de Azure en las que se pueda usar Azure Site Recovery. |
+SSD estándar | No compatible |
 Redundancia | Se admiten LRS y GRS.<br/><br/> No se admite ZRS.
 Almacenamiento esporádico y almacenamiento frecuente | No compatible | Los discos de máquina virtual no admiten el almacenamiento esporádico ni el frecuente
 Espacios de almacenamiento | Compatible |         
@@ -195,12 +195,24 @@ GRS | Compatible |
 RA-GRS | Compatible |
 ZRS | No compatible |  
 Almacenamiento en frío y en caliente | No compatible | Los discos de máquina virtual no admiten el almacenamiento temporal y permanente.
-Firewalls de Azure Storage para redes virtuales  | SÍ | Si está restringiendo el acceso de red virtual a las cuentas de almacenamiento, asegúrese de que los servicios de Microsoft de confianza pueden acceder a la cuenta de almacenamiento.
+Firewalls de Azure Storage para redes virtuales  | Compatible | Si está restringiendo el acceso de red virtual a las cuentas de almacenamiento, asegúrese de ["Permitir servicios de Microsoft de confianza"](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 Cuentas de almacenamiento de uso general V2 (capas de acceso frecuente y esporádico) | Sin  | Los costos de transacción aumentan considerablemente en comparación con las cuentas de almacenamiento de uso general V1
 
 >[!IMPORTANT]
 > Asegúrese de tener en cuenta los objetivos de escalabilidad y rendimiento del disco de la máquina virtual para máquinas virtuales [Linux](../virtual-machines/linux/disk-scalability-targets.md) o [Windows](../virtual-machines/windows/disk-scalability-targets.md) para evitar cualquier problema de rendimiento. Si sigue la configuración predeterminada, Site Recovery creará las cuentas de almacenamiento y discos necesarios en función de la configuración de origen. Si personaliza y selecciona su propia configuración, asegúrese de seguir los objetivos de escalabilidad y rendimiento del disco para las máquinas virtuales de origen.
 
+## <a name="azure-site-recovery-limits-to-replicate-data-change-rates"></a>Límites de Azure Site Recovery para replicar frecuencias de cambio de datos
+En la tabla siguiente se proporcionan los límites de Azure Site Recovery. Estos límites se basan en nuestras pruebas, pero no pueden cubrir todas las combinaciones de E/S posibles de la aplicación. Los resultados reales pueden variar en función de la combinación de E/S de la aplicación. También debemos mencionar que hay dos límites que tener en cuenta: renovación de datos por disco y por máquina virtual.
+Por ejemplo, si miramos el disco Premium P20 de la siguiente tabla, Site Recovery puede controlar la renovación de 5 MB/s por disco con un máximo de cinco de estos discos por VM, debido al límite de renovación total de 25 MB/s por VM.
+
+**Destino de almacenamiento de la replicación** | **Tamaño medio de E/S de disco de origen** |**Actividad de datos media de disco de origen** | **Actividad de datos de disco de origen total por día**
+---|---|---|---
+Standard Storage | 8 KB | 2 MB/s | 168 GB por disco
+Disco Premium P10 o P15 | 8 KB  | 2 MB/s | 168 GB por disco
+Disco Premium P10 o P15 | 16 KB | 4 MB/s |  336 GB por disco
+Disco Premium P10 o P15 | 32 KB, o más | 8 MB/s | 672 GB por disco
+Disco Premium P20, P30, P40 o P50 | 8 KB    | 5 MB/s | 421 GB por disco
+Disco Premium P20, P30, P40 o P50 | 16 KB, o más |10 MB/s | 842 GB por disco
 ## <a name="replicated-machines---networking"></a>Máquinas replicadas: redes
 **Configuración** | **Soporte técnico** | **Detalles**
 --- | --- | ---

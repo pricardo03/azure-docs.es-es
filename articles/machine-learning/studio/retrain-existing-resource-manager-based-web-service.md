@@ -1,12 +1,11 @@
 ---
-title: Repetición del entrenamiento de un servicio web predictivo existente en Azure Machine Learning Studio | Microsoft Docs
+title: Repetición del entrenamiento de un servicio web de Studio predictivo existente en Azure Machine Learning Studio | Microsoft Docs
 description: Aprenda a entrenar de nuevo un modelo y a actualizar el servicio web para que utilice este modelo en Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: cc4c26a2-5672-4255-a767-cfd971e46775
 ms.service: machine-learning
@@ -16,14 +15,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
-ms.openlocfilehash: 8da3c5d5c79ce52f1f5176a8b3317ce2a0e0bc5f
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: d24cfd8dce42ee920c87fa2c3593a860468a6160
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311303"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250559"
 ---
-# <a name="retrain-an-existing-predictive-web-service"></a>Reciclaje de un servicio web predictivo existente
+# <a name="retrain-an-existing-predictive-azure-machine-learning-studio-web-service"></a>Repetición del entrenamiento de un servicio web predictivo existente en Azure Machine Learning Studio
+
 En este documento se describe el proceso de reciclaje para el escenario siguiente:
 
 * Dispone de un experimento de entrenamiento y un experimento predictivo que se ha implementado como un servicio web de operaciones.
@@ -66,7 +66,7 @@ En este ejemplo, se utiliza C# para crear la aplicación de reciclado. También 
 
 Para llamar a las API de reciclado:
 
-1. Cree una nueva aplicación de consola de C# en Visual Studio: **Nuevo** > **Proyecto** > **Visual C#** > **Escritorio clásico de Windows** > **Aplicación de consola (.NET Framework)**.
+1. Cree una aplicación de consola en C# mediante Visual Studio: **Nuevo** > **Proyecto** > **Visual C#** > **Escritorio clásico de Windows** > **Aplicación de consola (.NET Framework)**.
 2. Inicie sesión en el portal de servicio web Machine Learning.
 3. Haga clic en el servicio web con el que está trabajando.
 4. Haga clic en **Consume**(Consumo).

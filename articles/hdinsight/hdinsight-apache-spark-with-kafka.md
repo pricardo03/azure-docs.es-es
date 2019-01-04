@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 110357a7a84aa8cc6bd7dcb5bbef9ca02879a9cb
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: c0687ec94af60d3683d3f129eff2bad8fb97d786
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52494281"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165814"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Ejemplo de streaming de Apache Spark (DStream) con Apache Kafka en HDInsight
 
@@ -55,19 +55,19 @@ Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka y 
    
     ![Implementación personalizada de HDInsight](./media/hdinsight-apache-spark-with-kafka/parameters.png)
    
-    * **Grupo de recursos**: cree un nuevo grupo de recursos o seleccione uno existente. Este grupo contiene el clúster de HDInsight.
+    * **Grupo de recursos**: cree un grupo o seleccione uno existente. Este grupo contiene el clúster de HDInsight.
 
     * **Ubicación**: seleccione una ubicación geográfica próxima a usted.
 
     * **Base Cluster Name** (Nombre base del clúster): este valor se utiliza como nombre base en los clústeres Spark y Kafka. Por ejemplo, si especifica **hdistreaming**, creará un clúster Spark denominado __spark-hdistreaming__ y un clúster Kafka denominado **kafka-hdistreaming**.
 
-    * **Nombre de usuario de inicio de sesión del clúster**: nombre de usuario del administrador de los clústeres Spark y Kafka.
+    * **Cluster Login User Name** (Nombre de usuario de inicio de sesión del clúster): nombre de usuario del administrador de los clústeres Spark y Kafka.
 
-    * **Contraseña de inicio de sesión de clúster**: contraseña del usuario administrador para los clústeres Spark y Kafka.
+    * **Contraseña de inicio de sesión del clúster**: contraseña de usuario del administrador de los clústeres Spark y Kafka.
 
-    * **Nombre de usuario SSH**: usuario de SSH que se va a crear para los clústeres Spark y Kafka.
+    * **SSH User Name** (Nombre de usuario de SSH): usuario de SSH que se va a crear para los clústeres Spark y Kafka.
 
-    * **Contraseña SSH**: contraseña del usuario de SSH para los clústeres Spark y Kafka.
+    * **SSH Password** (Contraseña de SSH): contraseña del usuario de SSH para los clústeres Spark y Kafka.
 
 3. Consulte los **Términos y condiciones** y seleccione **Acepto los términos y condiciones indicados anteriormente**.
 

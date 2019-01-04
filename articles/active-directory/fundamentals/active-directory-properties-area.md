@@ -1,6 +1,6 @@
 ---
-title: Incorporación de información de privacidad de una organización en Azure Active Directory | Microsoft Docs
-description: Cómo agregar información de privacidad de una organización en el área de propiedades de Azure Active Directory (Azure AD).
+title: 'Incorporación de información de privacidad de una organización: Azure Active Directory | Microsoft Docs'
+description: Instrucciones sobre cómo agrear información de privacidad de su organización en el área de propiedades de Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: lizross
 ms.reviewer: bpham
-ms.custom: it-pro
-ms.openlocfilehash: f32eeee8f02cee32eb05e14aa98387a20cb2e626
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 50fcafbdef4fc09532d03ae145183dd45c381c73
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48903984"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083842"
 ---
-# <a name="how-to-add-your-privacy-info-using-azure-active-directory"></a>Procedimiento: Agregar información de privacidad con Azure Active Directory
+# <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Incorporación de información de privacidad de su organización con Azure Active Directory
 Este artículo explica cómo un administrador de inquilinos puede agregar información relacionada con la privacidad al inquilino de Azure Active Directory (Azure AD) de una organización, a través de Azure Portal.
 
 Se recomienda agregar su contacto de privacidad global y la declaración de privacidad de su organización, de modo que los empleados internos e invitados externos puedan revisar las directivas. Dado que las declaraciones de privacidad se crean de forma única y específica para cada negocio, es recomendable ponerse en contacto con un abogado para obtener ayuda.

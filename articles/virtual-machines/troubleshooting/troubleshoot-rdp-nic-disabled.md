@@ -13,25 +13,25 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: f9e4731146409f51d16a8c92c01d07a8ff11a7ea
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 742026a8ff35f318f58674ebc2fb5c03e45161a8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314531"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133339"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>No se puede establecer el escritorio remoto en una VM porque la interfaz de red está deshabilitada
 
 En este artículo se muestra cómo resolver un problema en el que no se puede establecer la conexión del escritorio remoto en Azure Windows Virtual Machines (VM) si la interfaz de red está deshabilitada.
 
-> [!NOTE] 
-> Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [el Administrador de recursos y el clásico](../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se explica el uso del modelo de implementación de Resource Manager, que es el que se recomienda usar para las nuevas implementaciones, en lugar del modelo de implementación clásica. 
+> [!NOTE]
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se explica el uso del modelo de implementación de Resource Manager, que es el que se recomienda usar para las nuevas implementaciones, en lugar del modelo de implementación clásica.
 
-## <a name="symptoms"></a>Síntomas 
+## <a name="symptoms"></a>Síntomas
 
 No puede establecer ninguna conexión RDP ni ningún otro tipo de conexión con ningún otro puerto en una VM en Azure porque la interfaz de red de la VM está deshabilitada.
 
-## <a name="solution"></a>Solución 
+## <a name="solution"></a>Solución
 
 Antes de seguir estos pasos, tome una instantánea del disco del sistema operativo de la máquina virtual afectada como copia de seguridad. Para obtener más información, consulte [Instantánea de un disco](../windows/snapshot-copy-managed-disk.md).
 
@@ -39,13 +39,13 @@ Para habilitar la interfaz para la VM, use el control de serie o [restablezca la
 
 ### <a name="use-serial-control"></a>Uso del control serie
 
-1. Conéctese a una [consola serie y abra la instancia de CMD](./serial-console-windows.md#open-cmd-or-powershell-in-serial-console
+1. Conéctese a una [consola serie y abra la instancia de CMD](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). Si la consola serie no está habilitada en la VM, consulte el artículo sobre cómo [restablecer la interfaz de red](#reset-network-interface).
 2. Compruebe el estado de la interfaz de red:
 
         netsh interface show interface
 
-    Anótese el nombre de la interfaz de red deshabilitada. 
+    Anótese el nombre de la interfaz de red deshabilitada.
 
 3. Habilite la interfaz de red:
 
@@ -54,16 +54,16 @@ Para habilitar la interfaz para la VM, use el control de serie o [restablezca la
     Por ejemplo, si la interfaz de red se llama "Ethernet 2", ejecute el siguiente comando:
 
         netsh interface set interface name=""Ethernet 2" admin=enabled
-    
+
 
 4.  Vuelva a comprobar el estado de la interfaz de red para asegurarse de que está habilitada.
 
         netsh interface show interface
 
     No tiene que reiniciar la VM en este momento. La máquina virtual volverá a ser accesible.
-        
+
 5.  Conéctese a la máquina virtual y compruebe si el problema se resuelve.
 
 ## <a name="reset-network-interface"></a>Restablecimiento de la interfaz de red
 
-Para restablecer la interfaz de red, cambie la dirección IP a otra dirección IP que esté disponible en la subred. Para ello, use Azure Portal o Azure PowerShell. Para obtener más información, consulte el artículo sobre cómo [restablecer la interfaz de red](reset-network-interface.md). 
+Para restablecer la interfaz de red, cambie la dirección IP a otra dirección IP que esté disponible en la subred. Para ello, use Azure Portal o Azure PowerShell. Para obtener más información, consulte el artículo sobre cómo [restablecer la interfaz de red](reset-network-interface.md).

@@ -1,21 +1,22 @@
 ---
-title: 'Tutorial: Bot de preguntas y respuestas con Azure Bot Service en QnA Maker'
+title: 'Bot de preguntas y respuestas con Azure Bot Service: QnA Maker'
 titleSuffix: Azure Cognitive Services
 description: Este tutorial le guía a través de la creación de un bot de preguntas y respuestas con Azure Bot Service v3 en Azure Portal.
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: qna-maker`
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: tulasim
-ms.openlocfilehash: 19c56cf05e307deca52808b0eeba65b8949ffc0b
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f5587e14a0250e7312f1c95598b481bd052931c3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212750"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094838"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>Tutorial: Creación de un bot de preguntas y respuestas con Azure Bot Service v3
 
@@ -60,13 +61,13 @@ Para poder realizar este tutorial, debe tener una base de conocimiento publicada
 
 5. Seleccione la plantilla **Preguntas y respuestas** para el campo de plantilla de bot y, a continuación, guarde la configuración de la plantilla con **Seleccionar**.
 
-    ![Selección del servicio de bot](../media/qnamaker-tutorials-create-bot/bot-v3-template.png)
+    ![guardar la selección de plantilla de Bot Service](../media/qnamaker-tutorials-create-bot/bot-v3-template.png)
 
 6. Revise la configuración y seleccione **Crear**. Esta acción crea el servicio de bot con Azure y lo implementa en esta plataforma.
 
-    ![Selección del servicio de bot](../media/qnamaker-tutorials-create-bot/bot-blade-settings-v3.png)
+    ![crear bot](../media/qnamaker-tutorials-create-bot/bot-blade-settings-v3.png)
 
-7. Confirme que se ha implementado el servicio de bot.
+7. Confirme que se ha implementado el servicio de bots.
 
     - Haga clic en **Notificaciones** (el icono de la campana que se encuentra en el borde superior de Azure Portal). La notificación cambiará de **Implementación iniciada** a **Implementación correcta**.
     - Después de que la notificación cambie a **Implementación correcta**, seleccione **Ir al recurso** en esa notificación.

@@ -9,40 +9,35 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 611cd0878e88d2e1c0a988f73b57e391c5a8551d
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 6572a9b72554691441cb258a87a5db4ba7845087
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975914"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077127"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migración del área de trabajo y los proyectos de Microsoft Translator Hub a Custom Translator
 
-Puede migrar el área de trabajo y los proyectos de [Microsoft Translator Hub](https://hub.microsofttranslator.com/) a Custom Translator. La migración comienza en Microsoft Translator Hub.
+Puede migrar fácilmente el área de trabajo y los proyectos de [Microsoft Translator Hub](https://hub.microsofttranslator.com/) a Traductor personalizado. La migración se inicia desde Microsoft Hub al seleccionar un área de trabajo o proyecto; a continuación, se selecciona un área de trabajo en Traductor personalizado y, a continuación, se seleccionan los entrenamientos que desea transferir.  Después de iniciar la migración, se transferirán la opciones de configuración de entrenamiento seleccionadas con todos los documentos pertinentes.  Se entrenan los modelos implementados y se pueden implementar automáticamente tras la finalización.
 
-
-Durante el proceso se migran estos elementos:
-
-1.  Las definiciones de proyectos.
-
-2.  La definición del aprendizaje se utilizará para crear una nueva definición del modelo en Custom Translator.
-
-3.  Los archivos paralelos y monolingües que se emplearon en el aprendizaje se migrarán todos como nuevos documentos en Custom Translator.
-
-4.  La prueba del sistema generada automáticamente y los datos de optimización se exportarán y crearán como nuevos documentos en Custom Translator.
-
-Para todos los aprendizajes implementados, Custom Translator entrenará el modelo sin costo alguno. Tiene la opción de implementarlos de forma manual.
+Estas acciones se realizan durante la migración:
+* Se transfieren los nombres de todos los documentos y las definiciones del proyecto con el prefijo "hub_" antes del nombre.  La prueba generada automáticamente y los datos de optimización se llamarán hub_systemtune_<modelid> o hub_systemtest_<modelid>.  
+* Los entrenamientos que estaban en estado implementado en el momento de la migración se entrenarán automáticamente con los documentos de entrenamiento del centro.  Este entrenamiento no se cargará en la suscripción.  Si se ha seleccionado implementación automática para la migración, el modelo entrenado se implementará tras la finalización. Se aplicarán cargos de hospedaje normales.  
+* Los entrenamientos migrados que no estaban en estado implementado se colocan en estado de borrador migrado.   En este estado, tendrá la opción de entrenar un modelo con la definición migrada, pero se aplicarán cargos de entrenamiento normales.
+* En cualquier momento, la puntuación BLEU migrada desde el entrenamiento del centro se puede encontrar en la página TrainingDetails del modelo en el encabezado "Puntuación BLEU del centro de MT".
 
 >[!Note]
 >Para que un entrenamiento se realice correctamente, Custom Translator necesita un mínimo de 10 000 frases extraídas. Si dispone de un número de frases extraídas inferior al [mínimo sugerido](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences), Custom Translator no podrá realizar un aprendizaje.
 
-Todos los aprendizajes correctos, que no están implementados, se migrarán como borrador en Custom Translator.
+## <a name="enable-account-migration"></a>Habilitación de la migración de cuentas 
 
-## <a name="find-custom-translator-workspace-id"></a>Búsqueda del identificador de área de trabajo de Custom Translator
+Para usar la herramienta de migración, debe tener habilitada la migración de cuentas del centro.  Para ello, envíe un correo electrónico a [custommt@microsoft.com](mailto:custommt@microsoft.com) con una lista de todas las cuentas de liveid que le gustaría habilitar. Estas cuentas deben ser las direcciones de correo electrónico con las que se inicia sesión.
 
-Para migrar un área de trabajo de [Microsoft Translator Hub](https://hub.microsofttranslator.com/) necesita el identificador del área de trabajo de destino en Custom Translator. El área de trabajo de destino en Custom Translator es el lugar al que se migrarán todas las áreas de trabajo y proyectos de Microsoft Translator Hub.
+## <a name="find-custom-translator-workspace-id"></a>Búsqueda del identificador de área de trabajo de Traductor personalizado
 
-Puede encontrar el identificador del área de trabajo de destino en la página de configuración de Custom Translator: 
+Para migrar un área de trabajo de [Microsoft Translator Hub](https://hub.microsofttranslator.com/) necesita el identificador del área de trabajo de destino en Traductor personalizado. El área de trabajo de destino en Custom Translator es el lugar al que se migrarán todas las áreas de trabajo y proyectos de Microsoft Translator Hub.
+
+Puede encontrar el identificador del área de trabajo de destino en la página de configuración de Traductor personalizado: 
 
 1.  Vaya a la página "Configuración" en el portal de Custom Translator.
 
@@ -52,33 +47,7 @@ Puede encontrar el identificador del área de trabajo de destino en la página d
 
 3. Conserve el identificador del área de trabajo de destino para consultarlo durante el proceso de migración.
 
-## <a name="migrate-workspace"></a>Migración del área de trabajo
-
-Cuando migra el área de trabajo completa de Microsoft Translator Hub a Custom Translator, se migran los proyectos, documentos y aprendizajes. Antes de la migración, debe decidir si desea migrar solo los aprendizajes implementados o si desea migrar todos los aprendizajes correctos.
-
-Para migrar un área de trabajo:
-
-1.  Inicie sesión en Microsoft Translator Hub.
-
-2.  Vaya a la página Configuración.
-
-3.  En la página "Configuración", haga clic en "Migrate Workspace data to Custom Translator" (Migración de datos de área de trabajo a Custom Translator).
-
-    ![Migración desde Microsoft Translator Hub](media/how-to/how-to-migrate-workspace-from-hub.png)
-
-4.  En la siguiente página, seleccione cualquiera de estas dos opciones:
-
-     a.  Solo los aprendizajes implementados: si selecciona esta opción se migrarán solo los sistemas implementados y los documentos relacionados.
-
-    b.  Todos los aprendizajes correctos: si selecciona esta opción se migrarán todos los aprendizajes correctos y los documentos relacionados.
-
-    c.  Escriba el identificador del área de trabajo de destino en Custom Translator.
-
-    ![Migración desde Microsoft Translator Hub](media/how-to/how-to-migrate-from-hub-screen.png)
-
-5.  Haga clic en Enviar solicitud.
-
-## <a name="migrate-project"></a>Migración de un proyecto
+## <a name="migrate-a-project"></a>Migración de un proyecto
 
 Si desea migrar los proyectos de forma selectiva, Microsoft Translator Hub le ofrece esa posibilidad.
 
@@ -92,17 +61,41 @@ Para migrar un proyecto:
 
     ![Migración desde Microsoft Translator Hub](media/how-to/how-to-migrate-from-hub.png)
 
+4.  Al presionar el vínculo de migración, aparecerá un formulario que le permite:
+   * Especificar el área de trabajo que desea transferir a Traductor personalizado
+   * Indicar si desea transferir todos los entrenamientos con entrenamientos correctos o solo los entrenamientos implementados. De forma predeterminada, se transferirán todos los entrenamientos correctos.
+   * Indicar si desea que los entrenamientos se implementen automáticamente cuando se complete el entrenamiento. De forma predeterminada, el entrenamiento no se implementará automáticamente cuando se complete.
+
+
+5.  Haga clic en "Enviar solicitud".
+
+## <a name="migrate-a-workspace"></a>Migración de un área de trabajo
+
+Además de migrar un único proyecto, también puede migrar todos los proyectos con entrenamientos correctos de un área de trabajo.  Esto hará que cada proyecto del área de trabajo se evalúe como si se hubiera presionado el vínculo de migración.  Esta característica es adecuada para los usuarios con muchos proyectos que desean migrar todos a Traductor personalizado con la misma configuración.  La migración de un área de trabajo se puede iniciar en la página de configuración de Translator Hub.
+
+Para migrar un área de trabajo:
+
+1.  Inicie sesión en Microsoft Translator Hub.
+
+2.  Vaya a la página Configuración.
+
+3.  En la página "Configuración", haga clic en "Migrate Workspace data to Custom Translator" (Migración de datos de área de trabajo a Custom Translator).
+
+    ![Migración desde Microsoft Translator Hub](media/how-to/how-to-migrate-workspace-from-hub.png)
+
 4.  En la siguiente página, seleccione cualquiera de estas dos opciones:
 
-     a.  Solo los aprendizajes implementados: si selecciona esta opción se migrarán solo los sistemas implementados y los documentos relacionados. 
+     a.  Solo los entrenamientos implementados: si selecciona esta opción se migrarán solo los sistemas implementados y los documentos relacionados.
 
-    b.  Todos los aprendizajes correctos: si selecciona esta opción se migrarán todos los aprendizajes correctos y los documentos relacionados.
+    b.  Todos los entrenamientos correctos: si selecciona esta opción se migrarán todos los entrenamientos y los documentos relacionados.
 
     c.  Escriba el identificador del área de trabajo de destino en Custom Translator.
 
     ![Migración desde Microsoft Translator Hub](media/how-to/how-to-migrate-from-hub-screen.png)
 
-5.  Haga clic en "Enviar solicitud".
+5.  Haga clic en Enviar solicitud.
+
+
 
 ## <a name="migration-history"></a>Historial de migraciones
 
@@ -118,13 +111,13 @@ Para ver el historial de migraciones realice estos pasos:
 
 La página Historial de migraciones muestra la siguiente información como resumen para cualquier migración que solicite.
 
-1.  Migrada por: nombre y correo electrónico del usuario que envió esta solicitud de migración
+1.  Migrado por: nombre y correo electrónico del usuario que envió esta solicitud de migración
 
-2.  Fecha de migración: marca de fecha y hora de la migración
+2.  Migrado el: marca de fecha y hora de la migración
 
 3.  Proyectos: número de proyectos para los que se solicitó la migración en comparación con el número de proyectos que se migraron correctamente.
 
-4.  Aprendizajes: número de aprendizajes para los que se solicitó la migración en comparación con el número de aprendizajes que se migraron correctamente.
+4.  Entrenamientos: número de entrenamientos para los que se solicitó la migración en comparación con el número de entrenamientos que se migraron correctamente.
 
 5.  Documentos: número de documentos para los que se solicitó la migración en comparación con el número de documentos que se migraron correctamente.
 
@@ -132,8 +125,13 @@ La página Historial de migraciones muestra la siguiente información como resum
 
 Si desea obtener un informe de migración más detallado sobre los proyectos, aprendizajes y documentos, puede exportar los detalles en un archivo .csv.
 
->[!Note]
->Solo se admite la migración para los pares de idiomas que existen para NMT. Compruebe la lista de los [idiomas de NMT admitidos actualmente](https://www.microsoft.com/translator/business/languages/). Para los pares de idiomas en los que hay un idioma que no existe para NMT, los datos se moverán desde Microsoft Translator Hub a Custom Translator, pero los aprendizajes no se realizarán en esos pares de idiomas.
+## <a name="implementation-notes"></a>Notas de implementación
+* La migración de un proyecto del centro a Traductor personalizado no tendrá ningún impacto en los entrenamientos o proyectos del centro. No se eliminan documentos ni proyectos del centro durante una migración y no se anula la implementación de modelos.
+* Solo se permite migrar una vez por proyecto.  Si necesita repetir una migración de un proyecto, póngase en contacto con nosotros.
+* Actualmente, Traductor personalizado admite 36 idiomas para traducir desde y hacia el inglés y estamos trabajando para agregar idiomas adicionales.  El centro no requiere modelos de referencia y, por tanto, admite varios miles de lenguajes.  Puede migrar un par de idiomas no admitidos, pero solo se realizará la migración de los documentos y las definiciones del proyecto.  No se podrá entrenar el modelo nuevo.  Además, estos documentos y proyectos se mostrarán como inactivos para indicar que no se pueden utilizar en este momento. Si se agrega compatibilidad para estos proyectos y/o documentos, estarán activos y se podrán entrenar.
+* Traductor personalizado no admite actualmente datos de entrenamiento monolingüe.  Como con los pares de idiomas no admitidos, puede migrar documentos monolingües, pero se mostrarán como inactivos hasta que se admitan datos monolingües.  
+* Traductor personalizado requiere oraciones 10 000 frases en paralelo para el entrenamiento.  Microsoft Hub podría entrenar sobre un conjunto más pequeño de datos.  Si se migra un entrenamiento que no cumple este requisito, será entrenado.
+
 
 ## <a name="custom-translator-versus-hub"></a>Custom Translator frente a Hub
 
@@ -141,7 +139,7 @@ En la siguiente tabla se comparan las características de Microsoft Translator H
 
 |   | Hub | Custom Translator |
 |:-----|:----:|:----:|
-|Estado de la característica de personalización   | Disponibilidad general  | Vista previa |
+|Estado de la característica de personalización   | Disponibilidad general  | Disponibilidad general |
 | Versión de Text API  | V2    | V3  |
 | Personalización de SMT | SÍ   | Sin  |
 | Personalización de NMT | Sin     | SÍ |

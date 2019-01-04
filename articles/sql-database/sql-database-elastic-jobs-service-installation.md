@@ -3,7 +3,7 @@ title: Instalación de trabajos de base de datos elástica | Microsoft Docs
 description: Pasos de instalación de la característica de trabajo elástico.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: c2fb3ae20ea2b6ba71408a734c1e0c82cbeb699c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cc322f44760ddf0a7cd28751c895a7c4938dbbc0
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233582"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867247"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Información general sobre la instalación de trabajos de Elastic Database
 
@@ -51,7 +51,7 @@ Si ya instaló los **trabajos de Elastic Database** a través del Portal a parti
         PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobsCmdlets.ps1
 
 ## <a name="install-the-elastic-database-jobs-components-using-powershell"></a>Instalación de componentes de trabajos de Elastic Database mediante PowerShell
-1. Inicie una ventana de comandos de Microsoft Azure PowerShell y navegue hasta el subdirectorio \tools en la carpeta Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x: escriba cd \tools
+1. Inicie una ventana de comandos de Microsoft Azure PowerShell y navegue hasta el subdirectorio \tools en la carpeta Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x: escriba cd \tools.
    
         PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
 
@@ -156,7 +156,7 @@ Para actualizar el tamaño de máquina virtual de una instalación, ejecute el s
 ## <a name="install-the-elastic-database-jobs-components-using-the-portal"></a>Instalación de componentes de trabajos de Elastic Database mediante el Portal
 Una vez creado el [grupo elástico](sql-database-elastic-pool-manage-portal.md), puede instalar componentes de los **trabajos de Elastic Database** para habilitar la ejecución de tareas administrativas en cada base de datos del grupo. A diferencia de lo que sucede cuando se usan las API de PowerShell de **Trabajos de Elastic Database** , la interfaz del portal está actualmente restringida exclusivamente a la ejecución en un grupo existente.
 
-**Tiempo estimado para completar el tutorial:** 10 minutos.
+**Tiempo estimado para completarla:** 10 minutos.
 
 1. En la vista del panel del grupo de bases de datos elásticas de [Azure Portal](https://portal.azure.com/#), haga clic en **Crear trabajo**.
 2. Si va a crear un trabajo por primera vez, deberá instalar los **trabajos de Elastic Database** haciendo clic en **TÉRMINOS DE VISTA PREVIA**.

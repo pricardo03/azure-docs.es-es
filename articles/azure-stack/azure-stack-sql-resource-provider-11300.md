@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: d2dda25c63a6e4a73205b9e4a830a211d025b3ed
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.reviewer: georgel
+ms.openlocfilehash: 7bcec2d17f61345986c1676d13011946a0036666
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51688282"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164735"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>Notas de la versión del proveedor de recursos SQL 1.1.30.0
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Estas notas de la versión describen las mejoras y los problemas conocidos de la versión del proveedor de recursos SQL 1.1.30.0.
 
@@ -58,15 +58,29 @@ Esta versión del proveedor de recursos SQL de Azure Stack incluye las siguiente
 
 - **Las SKU de SQL pueden tardar hasta una hora en estar visibles en el portal**. Las SKU recién creadas pueden tardar hasta una hora en estar visible para su uso al crear nuevas bases de datos SQL. 
 
-    **Solución alternativa**: ninguna.
+    **Solución alternativa**: Ninguno.
 
 - **Inicios de sesión SQL reutilizados**. Al intentar crear un nuevo inicio de sesión SQL con el mismo nombre de usuario que un inicio de sesión existente en la misma suscripción, se reutilizará el mismo inicio de sesión y la contraseña existente. 
 
-    **Solución alternativa**: utilizar diferentes nombres de usuario al crear nuevos inicios de sesión en la misma suscripción o crear inicios de sesión con el mismo nombre de usuario en diferentes suscripciones.
+    **Solución alternativa**: use diferentes nombres de usuario al crear nuevos inicios de sesión en la misma suscripción o crear inicios de sesión con el mismo nombre de usuario en diferentes suscripciones.
 
 - **Los inicios de sesión SQL compartidos causan incoherencia de datos**. Si se comparte un inicio de sesión SQL para varias bases de datos SQL en la misma suscripción, cambiar la contraseña de inicio de sesión provocará una incoherencia de datos.
 
-    **Solución alternativa**: usar siempre inicios de sesión diferentes para distintas bases de datos en la misma suscripción.
+    **Solución alternativa**: use siempre inicios de sesión diferentes para distintas bases de datos en la misma suscripción.
+
+- **Requisito de compatibilidad con TLS 1.2**. Si intenta implementar o actualizar el proveedor de recursos de SQL desde un equipo donde TLS 1.2 no esté habilitada, se puede producir un error en la operación. Ejecute el siguiente comando de PowerShell en el equipo que se usa para implementar o actualizar el proveedor de recursos a fin de comprobar que TLS 1.2 se devuelve como compatible:
+
+  ```powershell
+  [System.Net.ServicePointManager]::SecurityProtocol
+  ```
+
+  Si **Tls12** no se incluye en la salida del comando, TLS 1.2 no está habilitado en el equipo.
+
+    **Solución alternativa**: Ejecute el siguiente comando de PowerShell para habilitar TLS 1.2 y, a continuación, inicie la implementación del proveedor de recursos o actualice el script desde la misma sesión de PowerShell:
+
+    ```powershell
+    [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
+    ```
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Problemas conocidos para los administradores en la nube que trabajan con Azure Stack
 Consulte la documentación de las [notas de la versión de Azure Stack](azure-stack-servicing-policy.md).

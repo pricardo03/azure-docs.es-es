@@ -1,21 +1,20 @@
 ---
-title: Recursos, API y SDK para los procesadores de fuente de cambios .NET para Azure Cosmos DB | Microsoft Docs
+title: Recursos, API y SDK para los procesadores de fuente de cambios .NET para Azure Cosmos DB
 description: Aprenda todo lo necesario sobre el SDK y la API para los procesadores de fuente de cambios como, por ejemplo, fechas de lanzamiento, fechas de retirada y cambios realizados de una versión a otra del SDK para los procesadores de fuente de cambios de .NET.
 services: cosmos-db
 author: ealsur
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: 327873d228fe92a9da495f802c97eb73612caef9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7b6fefd575901648a99bb3a67a05e705622bb74a
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632490"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407871"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK para los procesadores de fuente de cambios de .NET: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -28,7 +27,7 @@ ms.locfileid: "52632490"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Proveedor de recursos de REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor: .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor: Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -42,6 +41,10 @@ ms.locfileid: "52632490"
 ## <a name="release-notes"></a>Notas de la versión
 
 ### <a name="v2-builds"></a>compilaciones v2
+
+### <a name="a-name225225"></a><a name="2.2.5"/>2.2.5
+* Se agregó compatibilidad para controlar la división en colecciones que usan el rendimiento de la base de datos compartida.
+  * Esta versión corrige un problema que se puede producir durante la división en colecciones que usan el rendimiento de la base de datos compartida al dividir el resultado en particiones reequilibrando únicamente con un intervalo clave de partición secundario creado, en lugar de dos. Cuando esto sucede, el procesador de fuente de cambios puede quedarse atascado al eliminar la concesión para el intervalo de claves de partición antiguo y no crear concesiones nuevas. Este problema se ha corregido en esta versión.
 
 ### <a name="a-name224224"></a><a name="2.2.4"/>2.2.4
 * Se ha agregado la nueva propiedad ChangeFeedProcessorOptions.StartContinuation que admite el inicio de la fuente de cambios desde el token de continuación de la solicitud. Solo se utiliza cuando la colección de concesiones está vacía o una concesión no tiene ContinuationToken. En las concesiones de la colección de concesiones que tengan ContinuationToken establecido, se usa ContinuationToken y se omite ChangeFeedProcessorOptions.StartContinuation.
@@ -155,6 +158,10 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [2.2.5](#2.2.5) |13 de diciembre de 2018 |--- |
+| [2.2.4](#2.2.4) |29 de noviembre de 2018 |--- |
+| [2.2.3](#2.2.3) |19 de noviembre de 2018 |--- |
+| [2.2.2](#2.2.2) |31 de octubre de 2018 |--- |
 | [2.2.1](#2.2.1) |24 de octubre de 2018 |--- |
 | [1.3.3](#1.3.3) |8 de mayo de 2018 |--- |
 | [1.3.2](#1.3.2) |18 de abril de 2018 |--- |

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: c1fd0f462a3eb960e27b002f4f7c940a6bf978c8
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 48b0085e52c1752c0b5ecc89ce229a5a82f74345
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620581"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310443"
 ---
 # <a name="api-management-caching-policies"></a>Directivas de almacenamiento en caché de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -80,7 +80,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 ```  
   
 #### <a name="example-using-policy-expressions"></a>Ejemplo de uso de expresiones de directiva  
- En este ejemplo se muestra cómo configurar la duración del almacenamiento en caché de respuesta de API Management para que coincida con el almacenamiento en caché de respuesta del servicio de back-end especificado por la directiva `Cache-Control` del servicio de back-end. Para ver una demostración de la configuración y el uso de esta directiva, consulte [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Episodio 177 de Cloud Cover: más características de API Management con Vlad Vinogradsky) y avance al minuto 25:25.  
+ En este ejemplo se muestra cómo configurar la duración del almacenamiento en caché de respuesta de API Management para que coincida con el almacenamiento en caché de respuesta del servicio de back-end especificado por la directiva `Cache-Control` del servicio de back-end. Para ver una demostración de la configuración y el uso de esta directiva, consulte el [Episodio 177 de Cloud Cover: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Más características de API Management con Vlad Vinogradsky) y avance hasta el minuto 25:25.  
   
 ```xml  
 <!-- The following cache policy snippets demonstrate how to control API Management response cache duration with Cache-Control headers sent by the backend service. -->  
@@ -100,7 +100,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
  />  
 ```  
   
- Para más información, consulte [Expresiones de directiva](api-management-policy-expressions.md) y [Variable de contexto](api-management-policy-expressions.md#ContextVariables).  
+ Para obtener más información, consulte [Policy expressions](api-management-policy-expressions.md) (Expresiones de política) y [Context variable](api-management-policy-expressions.md#ContextVariables) (Variable de contexto).  
   
 ### <a name="elements"></a>Elementos  
   
@@ -115,17 +115,17 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 | NOMBRE                           | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                                                                 | Obligatorio | Valor predeterminado           |
 |--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | allow-private-response-caching | Cuando se establece en `true`, permite el almacenamiento en caché de las solicitudes que contienen un encabezado de autorización.                                                                                                                                                                                                                                                                        | Sin        | false             |
-| cache-preference               | Elija entre los siguientes valores del atributo:<br />- `internal` para usar la caché de API Management integrada,<br />- `external` para usar la caché externa tal como se describe en [Use an external Redis cache in Azure API Management](api-management-howto-cache-external.md) (Uso de una Redis Cache externa en Azure API Management),<br />- `prefer-external` para usar la caché externa si está configurada o, en caso contrario, la caché interna. | Sin        | `prefer-external` |
+| cache-preference               | Elija entre los siguientes valores del atributo:<br />- `internal` para usar la caché de API Management integrada,<br />- `external` para usar la caché externa tal como se describe en [Uso de una memoria caché de Redis externa en Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` para usar la caché externa si está configurada o, en caso contrario, la caché interna. | Sin        | `prefer-external` |
 | downstream-caching-type        | Este atributo debe establecerse en uno de los siguientes valores.<br /><br /> -   none: no se permite el almacenamiento en caché de bajada.<br />-   private: se permite el almacenamiento en caché de bajada privado.<br />-   public: se permite el almacenamiento en caché de bajada privado y compartido.                                                                                                          | Sin        | None              |
 | must-revalidate                | Cuando el almacenamiento en caché de bajada está habilitado, este atributo activa o desactiva la directiva de control de caché `must-revalidate` en las respuestas de puerta de enlace.                                                                                                                                                                                                                      | Sin        | true              |
-| vary-by-developer              | Se establece en `true` para almacenar en caché las respuestas por clave de desarrollador.                                                                                                                                                                                                                                                                                                         | SÍ      |                   |
-| vary-by-developer-groups       | Se establece en `true` para almacenar en caché las respuestas por rol de usuario.                                                                                                                                                                                                                                                                                                             | SÍ      |                   |  
+| vary-by-developer              | Se establece en `true` para almacenar en caché las respuestas por [clave de suscripción](https://docs.microsoft.com/azure/api-management/api-management-subscriptions#what-is-subscriptions).                                                                                                                                                                                                                                                                                                         | SÍ      |                   |
+| vary-by-developer-groups       | Se establece en `true` para almacenar en caché las respuestas por [grupo de usuarios](https://docs.microsoft.com/azure/api-management/api-management-howto-create-groups).                                                                                                                                                                                                                                                                                                             | SÍ      |                   |  
 
 ### <a name="usage"></a>Uso  
  Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.  
   
 -   **Secciones de la directiva:** inbound (entrada)  
--   **Ámbitos de directiva:** API, operation, product  
+-   **Ámbitos de la directiva:** API, operation, product  
   
 ##  <a name="StoreToCache"></a> Store to cache (Almacenar en la caché)  
  La directiva `cache-store` almacena en caché las respuestas según la configuración de caché especificada. Esta directiva se puede aplicar en aquellos casos en los que el contenido de respuesta permanezca estático durante un período de tiempo. El almacenamiento en caché de respuesta reduce el ancho de banda y los requisitos de procesamiento impuestos sobre el servidor web de back-end y disminuye la latencia percibida por los consumidores de API.  
@@ -159,7 +159,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 ```  
   
 #### <a name="example-using-policy-expressions"></a>Ejemplo de uso de expresiones de directiva  
- En este ejemplo se muestra cómo configurar la duración del almacenamiento en caché de respuesta de API Management para que coincida con el almacenamiento en caché de respuesta del servicio de back-end especificado por la directiva `Cache-Control` del servicio de back-end. Para ver una demostración de la configuración y el uso de esta directiva, consulte [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Episodio 177 de Cloud Cover: más características de API Management con Vlad Vinogradsky) y avance al minuto 25:25.  
+ En este ejemplo se muestra cómo configurar la duración del almacenamiento en caché de respuesta de API Management para que coincida con el almacenamiento en caché de respuesta del servicio de back-end especificado por la directiva `Cache-Control` del servicio de back-end. Para ver una demostración de la configuración y el uso de esta directiva, consulte el [Episodio 177 de Cloud Cover: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Más características de API Management con Vlad Vinogradsky) y avance hasta el minuto 25:25.  
   
 ```xml  
 <!-- The following cache policy snippets demonstrate how to control API Management response cache duration with Cache-Control headers sent by the backend service. -->  
@@ -179,7 +179,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
  />  
 ```  
   
- Para más información, consulte [Expresiones de directiva](api-management-policy-expressions.md) y [Variable de contexto](api-management-policy-expressions.md#ContextVariables).  
+ Para obtener más información, consulte [Policy expressions](api-management-policy-expressions.md) (Expresiones de política) y [Context variable](api-management-policy-expressions.md#ContextVariables) (Variable de contexto).  
   
 ### <a name="elements"></a>Elementos  
   
@@ -197,7 +197,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
  Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de las directivas.  
   
 -   **Secciones de la directiva:** outbound    
--   **Ámbitos de directiva:** API, operation, product  
+-   **Ámbitos de la directiva:** API, operation, product  
   
 ##  <a name="GetFromCacheByKey"></a> Get value from cache (Obtener valor de la caché)  
  Use la directiva `cache-lookup-value` para realizar la búsqueda en la caché por clave y devolver un valor almacenado en caché. La clave puede tener un valor de cadena arbitrario y normalmente se proporciona mediante una expresión de directiva.  
@@ -234,7 +234,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 | NOMBRE             | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                                                                 | Obligatorio | Valor predeterminado           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
-| cache-preference | Elija entre los siguientes valores del atributo:<br />- `internal` para usar la caché de API Management integrada,<br />- `external` para usar la caché externa tal como se describe en [Use an external Redis cache in Azure API Management](api-management-howto-cache-external.md) (Uso de una Redis Cache externa en Azure API Management),<br />- `prefer-external` para usar la caché externa si está configurada o, en caso contrario, la caché interna. | Sin        | `prefer-external` |
+| cache-preference | Elija entre los siguientes valores del atributo:<br />- `internal` para usar la caché de API Management integrada,<br />- `external` para usar la caché externa tal como se describe en [Uso de una memoria caché de Redis externa en Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` para usar la caché externa si está configurada o, en caso contrario, la caché interna. | Sin        | `prefer-external` |
 | default-value    | Un valor que se asignará a la variable si la búsqueda de la clave de caché da lugar a un error. Si no se especifica este atributo, se asigna `null`.                                                                                                                                                                                                           | Sin        | `null`            |
 | key              | Valor de clave de caché para usar en la búsqueda.                                                                                                                                                                                                                                                                                                                       | SÍ      | N/D               |
 | variable-name    | Nombre de la [variable de contexto](api-management-policy-expressions.md#ContextVariables) a la que se asignará el valor buscado si la búsqueda tiene éxito. Si se produce un error de búsqueda, se asignará a la variable el valor del atributo `default-value` o `null`, si se omite el atributo `default-value`.                                       | SÍ      | N/D               |  
@@ -277,7 +277,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 | NOMBRE             | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                                                                 | Obligatorio | Valor predeterminado           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
-| cache-preference | Elija entre los siguientes valores del atributo:<br />- `internal` para usar la caché de API Management integrada,<br />- `external` para usar la caché externa tal como se describe en [Use an external Redis cache in Azure API Management](api-management-howto-cache-external.md) (Uso de una Redis Cache externa en Azure API Management),<br />- `prefer-external` para usar la caché externa si está configurada o, en caso contrario, la caché interna. | Sin        | `prefer-external` |
+| cache-preference | Elija entre los siguientes valores del atributo:<br />- `internal` para usar la caché de API Management integrada,<br />- `external` para usar la caché externa tal como se describe en [Uso de una memoria caché de Redis externa en Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` para usar la caché externa si está configurada o, en caso contrario, la caché interna. | Sin        | `prefer-external` |
 | duration         | El valor se almacenará en la caché según el valor de duración proporcionado, especificado en segundos.                                                                                                                                                                                                                                                                                 | SÍ      | N/D               |
 | key              | La clave de caché con la que se almacenará el valor.                                                                                                                                                                                                                                                                                                                   | SÍ      | N/D               |
 | value            | El valor que se almacenará en la caché.                                                                                                                                                                                                                                                                                                                                     | SÍ      | N/D               |
@@ -317,7 +317,7 @@ La directiva `cache-remove-value` elimina un elemento almacenado en caché ident
   
 | NOMBRE             | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                                                                 | Obligatorio | Valor predeterminado           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
-| cache-preference | Elija entre los siguientes valores del atributo:<br />- `internal` para usar la caché de API Management integrada,<br />- `external` para usar la caché externa tal como se describe en [Use an external Redis cache in Azure API Management](api-management-howto-cache-external.md) (Uso de una Redis Cache externa en Azure API Management),<br />- `prefer-external` para usar la caché externa si está configurada o, en caso contrario, la caché interna. | Sin        | `prefer-external` |
+| cache-preference | Elija entre los siguientes valores del atributo:<br />- `internal` para usar la caché de API Management integrada,<br />- `external` para usar la caché externa tal como se describe en [Uso de una memoria caché de Redis externa en Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` para usar la caché externa si está configurada o, en caso contrario, la caché interna. | Sin        | `prefer-external` |
 | key              | La clave del valor anteriormente almacenado en caché que se quitará de la memoria caché.                                                                                                                                                                                                                                                                                        | SÍ      | N/D               |
   
 #### <a name="usage"></a>Uso  

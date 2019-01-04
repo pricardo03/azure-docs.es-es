@@ -1,5 +1,5 @@
 ---
-title: Aptitudes de Cognitive Search en desuso (Azure Search) | Microsoft Docs
+title: 'Aptitudes cognitivas en desuso: Azure Search'
 description: Esta página contiene una lista de aptitudes de Cognitive Search que se consideran en desuso y no se admitirán en un futuro próximo.
 services: search
 manager: pablocas
@@ -10,21 +10,22 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: luisca
-ms.openlocfilehash: 6bd364ea9923b1c8cdd7c96fc29cb91dff88ec95
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec2018
+ms.openlocfilehash: 85f02acf05e89db3e22dd24ecd0e100a9ec4af6f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447676"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311735"
 ---
-#    <a name="deprecated-cognitive-seach-skills"></a>Aptitudes en desuso de Cognitive Search
+#    <a name="deprecated-cognitive-search-skills"></a>Aptitudes de Cognitive Search en desuso
 
 En este documento se describen las aptitudes cognitivas que se consideran en desuso. Use la siguiente guía para el contenido:
 
 * Nombre de aptitud: el nombre de la aptitud que quedará en desuso; se asigna al atributo @odata.type.
-* Última versión de API disponible: la última versión de la API pública de Azure Search a través de la cual se pueden crear o actualizar conjuntos de habilidades que contienen la correspondiente aptitud en desuso.
+* Última versión de API disponible: la última versión de la API pública de Azure Search a través de la cual se pueden crear o actualizar conjuntos de aptitudes que contienen la correspondiente aptitud en desuso.
 * Finalización del soporte técnico: el último día después del cual se considera en desuso la aptitud correspondiente. Los conjuntos de habilidades creados anteriormente todavía funcionan, pero se recomienda a los usuarios realizar la migración desde una aptitud en desuso.
-* Recomendaciones: Ruta de migración hacia delante para usar una aptitud admitida. Se aconseja a los usuarios seguir las recomendaciones para continuar recibiendo soporte técnico.
+* Recomendaciones: ruta de migración hacia delante para usar una aptitud admitida. Se aconseja a los usuarios seguir las recomendaciones para continuar recibiendo soporte técnico.
 
 ## <a name="microsoftskillstextnamedentityrecognitionskill"></a>Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
@@ -150,4 +151,4 @@ _Nota_: Actualmente, no se admite la puntuación de confianza como concepto. Se 
 
 + [Aptitudes predefinidas](cognitive-search-predefined-skills.md)
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
-+ [Aptitud de reconocimiento de entidades con nombre](cognitive-search-skill-entity-recognition.md)
++ [Aptitud cognitiva Reconocimiento de entidades con nombre](cognitive-search-skill-entity-recognition.md)

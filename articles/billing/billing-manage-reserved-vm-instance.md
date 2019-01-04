@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: cwatson
-ms.openlocfilehash: 6a070d9ebd46d117041276436107abcc958d58d4
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 670aafeb8eb107fc5970b70bfa85d7469c343483
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583744"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722860"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Administración de reservas para los recursos de Azure
 
@@ -54,7 +54,7 @@ Para delegar la administración de acceso en una reserva:
 2. Seleccione **Todos los servicios** > **Reservations** para enumerar las reservas a las que tiene acceso.
 3. Seleccione la reserva cuyo acceso quiere delegar a otros usuarios.
 4. Seleccione **Access Control (IAM)**.
-5. Seleccione **Agregar** > **Rol** > **Propietario**. U otro rol si quiere conceder acceso limitado.
+5. Seleccione **Agregar asignación de roles** > **Rol** > **Propietario**. U otro rol si quiere conceder acceso limitado.
 6. Escriba la dirección de correo electrónico del usuario al que desea agregar como propietario.
 7. Seleccione el usuario y, después, **Guardar**.
 

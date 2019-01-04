@@ -5,9 +5,8 @@ metakeywords: ''
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: d7ff9e157f776ebf683846652fe4788fc35e19af
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c449e86e1ba33425212313103715b8fe48278496
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311065"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276686"
 ---
 # <a name="using-linear-regression-in-azure-machine-learning-studio"></a>Uso de la regresión lineal en Azure Machine Learning Studio
 > *Kate Baroni* y *Ben Boatman* son arquitectos de soluciones para empresas del Centro de Excelencia de Perspectivas sobre los datos de Microsoft. En este artículo, se describe su experiencia al migrar un conjunto existente de análisis de regresión a una solución basada en la nube mediante Machine Learning (ML) de Azure. 
@@ -31,7 +30,7 @@ ms.locfileid: "52311065"
 
 &nbsp; 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="goal"></a>Objetivo
 Nuestro proyecto se inició con dos objetivos en mente: 
@@ -73,8 +72,8 @@ Al principio, el modelo de Excel superaba claramente al de Machine Learning Stud
 Cuando ejecutamos el proceso y los resultados para los desarrolladores y científicos de datos del equipo de Machine Learning, rápidamente nos proporcionaron algunas sugerencias útiles. 
 
 * Cuando se usa el módulo [Regresión lineal][linear-regression] en Machine Learning Studio, se proporcionan dos métodos:
-  * Descenso de gradiente en línea: pueden resultar más adecuado para los problemas a mayor escala.
-  * Ordinaria de mínimos cuadrados: este es el método en el que se suele pensar cuando se habla de la regresión lineal. Para los conjuntos de datos más pequeños, la regresión ordinaria de mínimos cuadrados puede ser una opción más adecuada.
+  * Descenso de gradiente en línea: puede ser más adecuado para problemas a mayor escala.
+  * Ordinaria de mínimos cuadrados: este es el método en el que se suele pensar cuando se habla de regresión lineal. Para los conjuntos de datos más pequeños, la regresión ordinaria de mínimos cuadrados puede ser una opción más adecuada.
 * Considere la posibilidad de ajustar el parámetro Peso de regularización L2 para mejorar el rendimiento. Está establecido en 0,001 de forma predeterminada, pero para nuestro pequeño conjunto de datos, lo establecimos en 0,005 para mejorar el rendimiento. 
 
 ### <a name="mystery-solved"></a>¡Misterio resuelto!
@@ -86,8 +85,8 @@ Al aplicar las recomendaciones, logramos el mismo rendimiento de línea de base 
 | Objetivo del aprendizaje |Excel -> Análisis de datos -> Regresión |Regresión lineal |Regresión lineal |
 | Opciones del objetivo del aprendizaje |N/D |Valores predeterminados |ordinaria de mínimos cuadrados<br />L2 = 0,005 |
 | Conjunto de datos |26 filas, 3 características, 1 etiqueta. Todas numéricas. |same |same |
-| División: aprendizaje |Excel entrenado en las primeras 18 filas; probado en las últimas 8 filas. |same |same |
-| División: prueba |Fórmula de regresión de Excel aplicada a las últimas 8 filas. |same |same |
+| División: Train |Excel entrenado en las primeras 18 filas; probado en las últimas 8 filas. |same |same |
+| División: Prueba |Fórmula de regresión de Excel aplicada a las últimas 8 filas. |same |same |
 | **Rendimiento** | | | |
 | R cuadrado ajustado |0,96 |N/D | |
 | Coeficiente de determinación |N/D |0,78 |0,952049 |
@@ -145,7 +144,7 @@ A continuación, encontrará algunos recursos que le ayudarán a trabajar con la
 
 * Regresión en Excel. Si nunca ha probado Regresión en Excel, este tutorial le enseñará a usarla fácilmente: [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
 * Regresión frente a previsión. Tyler Chessman escribió un artículo de blog que explica cómo realizar una serie de previsiones de tiempo en Excel. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
-* Regresión lineal ordinaria con mínimos cuadrados: errores, problemas y riesgos. Para obtener una introducción y una explicación de Regresión, consulte: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
+* Regresión lineal (ordinaria de mínimos cuadrados): errores, problemas y riesgos. Para obtener una introducción y una explicación de Regresión, consulte: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 [1]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
 [2]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png

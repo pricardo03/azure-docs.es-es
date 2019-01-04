@@ -7,19 +7,19 @@ editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: ac05a2dcee3adaa93d31e28e5597a788c0159ddd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 12/03/2018
+ms.openlocfilehash: 4fb774341b19034d3905341a99be2114a0d1e18b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955442"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835716"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitaciones de Azure Database for MariaDB
-El servicio Azure Database for MariaDB se encuentra en versión preliminar pública. En las siguientes secciones se describen la capacidad, la compatibilidad del motor de almacenamiento, la compatibilidad de los privilegios, la compatibilidad de las instrucciones de manipulación de datos y los límites funcionales del servicio de base de datos.
+En las siguientes secciones se describen la capacidad, la compatibilidad del motor de almacenamiento, la compatibilidad de los privilegios, la compatibilidad de las instrucciones de manipulación de datos y los límites funcionales del servicio de base de datos.
 
 ## <a name="maximum-connections"></a>Número máximo de conexiones
-El número máximo de conexiones por plan de tarifa y núcleos virtuales durante la versión preliminar es este:
+El número máximo de conexiones por plan de tarifa y núcleos virtuales es el siguiente:
 
 |**Plan de tarifa**|**Núcleos virtuales**| **Conexiones máximas**|
 |---|---|---|
@@ -36,7 +36,7 @@ El número máximo de conexiones por plan de tarifa y núcleos virtuales durante
 |Memoria optimizada| 16| 5000|
 
 Si las conexiones superan el límite, puede que reciba el error siguiente:
-> ERROR 1040 (08004): Too many connections
+> ERROR 1040 (08004): Demasiadas conexiones
 
 ## <a name="storage-engine-support"></a>Compatibilidad del motor de almacenamiento
 

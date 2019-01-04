@@ -1,5 +1,5 @@
 ---
-title: Referencias de Key Vault en App Service y Azure Functions | Microsoft Docs
+title: 'Referencias de Key Vault: Azure App Service | Microsoft Docs'
 description: Guía de configuración y referencia conceptual para referencias de Azure Key Vault en Azure App Service y Azure Functions
 services: app-service
 author: mattchenderson
@@ -11,12 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: 6f7a05638e9893c989276c61355a301e4a67a6ed
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: 8add470048d3ead3f75ff85dd6f489d798af5e29
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447717"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253449"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Uso de referencias de Key Vault para App Service y Azure Functions (versión preliminar)
 

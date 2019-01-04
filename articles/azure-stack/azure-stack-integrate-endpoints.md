@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 12/06/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: e6f7d255fbfbcd740d9f3a7c2743f57cecea1abf
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 1800ab19e2d99eb639ef4064e64d7bc475aa0c36
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298762"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014878"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Integración del centro de datos de Azure Stack: publicar puntos de conexión
 
@@ -79,10 +79,14 @@ Azure Stack solo admite servidores proxy transparentes. En una implementación e
 |NTP|(Se proporciona la dirección IP del servidor NTP para la implementación)|UDP|123|
 |DNS|(Se proporciona la dirección IP del servidor DNS para la implementación)|TCP<br>UDP|53|
 |CRL|(La dirección URL en los puntos de distribución de CRL en el certificado)|HTTP|80|
+|Copia de seguridad de infraestructura|(Dirección IP o FQDN del servidor de archivos de destino externo)|SMB|445|
 |     |     |     |     |
 
 > [!Note]  
 > Las direcciones URL de salida tienen equilibrio de carga mediante Azure Traffic Manager para proporcionar la mejor conectividad posible basada en la ubicación geográfica. Con URL con equilibrio de carga, Microsoft puede actualizar y cambiar los puntos de conexión de back-end sin que ello afecte a los usuarios. Microsoft no comparte la lista de direcciones IP para las URL con equilibrio de carga. Debe usar un dispositivo que admita el filtrado por dirección URL, en lugar de por dirección IP.
+
+> [!Note]  
+> En la revisión 1809, el servicio Copia de seguridad de infraestructura se comunica con el servidor de archivos externos desde la red VIP pública. Antes de la revisión 1809, el servicio se comunicaba mediante la red de la infraestructura pública. Si el entorno no permite acceder a los recursos de la infraestructura desde la red VIP pública, se aplicará la versión más reciente de la [revisión 1809](azure-stack-update-1809.md#post-update-steps) para Azure Stack. Esta revisión trasladará el servicio Copia de seguridad de infraestructura de nuevo a la red de infraestructura pública. En la actualización 1811, si se aplica la revisión 1809, el servicio Copia de seguridad de infraestructura se mantiene en la red de infraestructura pública. Si no se aplica la revisión, la actualización trasladará el servicio de nuevo a la red de infraestructura pública.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

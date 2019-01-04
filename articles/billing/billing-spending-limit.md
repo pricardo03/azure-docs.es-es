@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
-ms.openlocfilehash: a564e72cc695830edfa5092eddc1f4f9b80ba519
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: b4f38d80bfddc342d83a3552efe5d4a60cf6350f
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583541"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680130"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Comprender el límite de gasto de Azure y cómo quitarlo
 
@@ -29,7 +29,7 @@ El límite de gasto de Azure existe para evitar gastos por encima de la cantidad
 
 Cuando el uso dé lugar a cobros que superen las cantidades mensuales de la oferta incluidas con su suscripción, los servicios que implementó se deshabilitan durante el resto de ese período de facturación. 
 
-Por ejemplo, cuando gasta todo el crédito incluido con su suscripción, los servicios Cloud Services que implementó se quitan de la producción y las máquinas virtuales de Azure se detienen y se desasignan. Los datos de sus cuentas de almacenamiento y bases de datos están accesibles únicamente en modo de solo lectura.
+Por ejemplo, cuando gasta todo el crédito incluido con su suscripción, los servicios Cloud Services que implementó se quitan de la producción y las máquinas virtuales de Azure se detienen y se desasignan. Los datos de sus cuentas de almacenamiento están accesibles únicamente en modo de solo lectura.
 
 Al principio del siguiente período de facturación, si su oferta de suscripción incluyera créditos durante varios meses, se volvería a habilitar su suscripción de forma automática. Después, puede volver a implementar los servicios Cloud Services y tener acceso total a las cuentas de almacenamiento y bases de datos.
 
@@ -46,7 +46,7 @@ Puede quitar el límite de gasto en cualquier momento siempre que haya un métod
 Para quitar el límite de gasto, siga estos pasos:
 
 1. Inicie sesión en el [Centro de cuentas](https://account.windowsazure.com/Subscriptions).
-1. Seleccione una suscripción. Si la suscripción está deshabilitada porque se ha alcanzado el límite de gasto, haga clic en esta notificación: "La suscripción alcanzó un límite de gasto y se deshabilitó para evitar cargos". De lo contrario, haga clic en **Quitar límite de gasto** en el área **ESTADO DE LA SUSCRIPCIÓN**.
+1. Seleccione una suscripción. Si la suscripción se ha deshabilitado porque se alcanzó el límite de gasto, haga clic en esta notificación: "La suscripción alcanzó el límite de gasto y se deshabilitó para evitar que se realicen más cargos". De lo contrario, haga clic en **Quitar límite de gasto** en el área **ESTADO DE LA SUSCRIPCIÓN**.
 1. Seleccione una opción que sea apropiada para usted.
 
 ![Selección de una opción para quitar el límite de gasto](./media/billing-spending-limit/remove-spending-limit.PNG)

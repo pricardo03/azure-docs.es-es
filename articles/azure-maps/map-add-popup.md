@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: f56e15e12bc176e6b6837e144494599ea4fb5403
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: a6c8a8aa954379036ce566a205b8cb4e97952727
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282539"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887854"
 ---
 # <a name="add-a-popup-to-the-map"></a>Adición de un elemento emergente al mapa
 
@@ -37,20 +37,32 @@ El cuarto bloque de código crea un [objeto Popup](https://docs.microsoft.com/ja
 
 El último bloque de código crea una función que desencadena el agente de escucha de eventos `mouseover`. Establece las propiedades de la ventana emergente y el contenido, y agrega el objeto del elemento emergente al mapa.
 
+## <a name="reusing-a-popup-with-multiple-points"></a>Reutilizar un elemento emergente con varios puntos
+
+Cuando tiene una gran cantidad de puntos y solo desea mostrar un elemento emergente a la vez, lo mejor es crear un elemento emergente y reutilizarlo, en lugar de crear un elemento emergente para cada característica de punto. Al hacerlo, el número de elementos DOM creados por la aplicación se reduce tanto que puede proporcionar un mejor rendimiento. En este ejemplo se crean tres características de punto. Si hace clic en cualquiera de ellas, se mostrará un menú emergente con el contenido de esa característica de punto.
+
+<br/>
+
+<iframe height='500' scrolling='no' title='Reutilizar un elemento emergente con varias marcas' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen sobre <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>reutilización de elementos emergentes con varias marcas</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Más información sobre las clases y los métodos utilizados en este artículo:
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
+> [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popupoptions?view=azure-iot-typescript-latest)
 
 Consulte los siguientes artículos para obtener ejemplos de código completo:
 
 > [!div class="nextstepaction"]
-> [Adición de una forma](./map-add-shape.md)
+> [Adición de una capa de símbolo](./map-add-pin.md)
 
 > [!div class="nextstepaction"]
-> [Adición de código HTML personalizado](./map-add-custom-html.md)
+> [Adición de un marcador HTML](./map-add-custom-html.md)
+
+> [!div class="nextstepaction"]
+> [Adición de una forma](./map-add-shape.md)

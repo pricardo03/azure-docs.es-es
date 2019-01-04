@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 4b008cc119951e50567218e332818585fb017e5a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c20f61788086806d3eebb62d35b7ac9fbcbd6fb9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229414"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846936"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurar la recuperación ante desastres en Azure para máquinas virtuales de Hyper-V mediante PowerShell y Azure Resource Manager
 
@@ -43,11 +43,11 @@ Además, en el ejemplo específico que se describe en este artículo verá que n
 * Un host de Hyper-V que ejecute Windows Server 2012 R2 o Microsoft Hyper-V Server 2012 R2 que contenga una o varias máquinas virtuales. Los servidores de Hyper-V deben estar conectados a Internet, directamente o a través de un proxy.
 * Las máquinas virtuales que quiera replicar deben cumplir con [estos requisitos previos](hyper-v-azure-support-matrix.md#replicated-vms).
 
-## <a name="step-1-sign-in-to-your-azure-account"></a>Paso 1: Inicio de sesión en la cuenta de Azure
+## <a name="step-1-sign-in-to-your-azure-account"></a>Paso 1: Inicio de sesión en la cuenta de Azure.
 
 1. Abra una consola de PowerShell y ejecute este comando para iniciar sesión en la cuenta de Azure. El cmdlet abrirá una página web que le solicitará las credenciales de la cuenta: **Connect-AzureRmAccount**.
     - Como alternativa, puede incluir sus credenciales de cuenta como un parámetro en el cmdlet **Connect-AzureRmAccount** mediante el parámetro **-Credential**.
-    - Si usted es un asociado CSP que trabaja en nombre de un inquilino, especifique el cliente como inquilino usando su TenantID o su nombre de dominio principal de inquilino. Por ejemplo: **Connect-AzureRmAccount -Tenant "fabrikam.com"**.
+    - Si usted es un asociado CSP que trabaja en nombre de un inquilino, especifique el cliente como inquilino usando su TenantID o su nombre de dominio principal de inquilino. Por ejemplo:  **Connect-AzureRmAccount -Tenant "fabrikam.com"**
 2. Ya que una cuenta puede tener varias suscripciones, le recomendamos que asocie la suscripción que quiera usar a esa cuenta:
 
     `Select-AzureRmSubscription -SubscriptionName $SubscriptionName`
@@ -64,7 +64,7 @@ Además, en el ejemplo específico que se describe en este artículo verá que n
 
     `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices` `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`.
 
-## <a name="step-2-set-up-the-vault"></a>Paso 2: configurar el almacén
+## <a name="step-2-set-up-the-vault"></a>Paso 2: configuración del almacén
 
 1. Cree un grupo de recursos de Azure Resource Manager en el que pueda crear el almacén, o bien use un grupo de recursos existente. Cree un nuevo grupo de recursos tal y como se indica a continuación. La variable $ResourceGroupName contiene el nombre del grupo de recursos que quiere crear y la variable $Geo contiene la región de Azure en la que se va a crear el grupo de recursos (por ejemplo: "Sur de Brasil").
 
@@ -78,13 +78,13 @@ Además, en el ejemplo específico que se describe en este artículo verá que n
     Puede recuperar una lista de los almacenes existentes mediante el cmdlet **AzureRmRecoveryServicesVault Get**.
 
 
-## <a name="step-3-set-the-recovery-services-vault-context"></a>Paso 3: Configuración del contexto de almacén de Recovery Services
+## <a name="step-3-set-the-recovery-services-vault-context"></a>Paso 3: configuración del contexto de almacén de Recovery Services
 
 Establezca el contexto de almacén de la manera siguiente:
 
 `Set-AsrVaultSettings -Vault $vault`
 
-## <a name="step-4-create-a-hyper-v-site"></a>Paso 4: crear un sitio de Hyper-V
+## <a name="step-4-create-a-hyper-v-site"></a>Paso 4: creación de un sitio Hyper-V
 
 1. Cree un nuevo sitio de Hyper-V como sigue:
 
@@ -102,7 +102,7 @@ Establezca el contexto de almacén de la manera siguiente:
 
 5. Copie la clave descargada en el host de Hyper-V. Necesita la clave para registrar el host de Hyper-V en el sitio
 
-## <a name="step-5-install-the-provider-and-agent"></a>Paso 5: instalar el proveedor y el agente
+## <a name="step-5-install-the-provider-and-agent"></a>Paso 5: Instalación del proveedor y el agente
 
 1. Descargue el instalador de la última versión del proveedor de [Microsoft](https://aka.ms/downloaddra).
 2. Ejecute el instalador en el host de Hyper-V.
@@ -112,7 +112,7 @@ Establezca el contexto de almacén de la manera siguiente:
 
         $server =  Get-AsrFabric -Name $siteName | Get-AsrServicesProvider -FriendlyName $server-friendlyname
 
-## <a name="step-6-create-a-replication-policy"></a>Paso 6: crear una directiva de replicación
+## <a name="step-6-create-a-replication-policy"></a>Paso 6: Creación de una directiva de replicación
 
 Antes de comenzar, recuerde que la cuenta de almacenamiento especificada debe estar en la misma región de Azure que el almacén y que debe tener habilitada la replicación geográfica.
 
@@ -136,7 +136,7 @@ Antes de comenzar, recuerde que la cuenta de almacenamiento especificada debe es
 
 4. Espere a que finalice el trabajo de asociación.
 
-## <a name="step-7-enable-vm-protection"></a>Paso 7: habilitar la protección de máquina virtual
+## <a name="step-7-enable-vm-protection"></a>Paso 7: habilitación de la protección de máquina virtual
 
 1. Recupere el elemento protegible correspondiente a la máquina virtual que quiere proteger, tal y como se indica a continuación:
 

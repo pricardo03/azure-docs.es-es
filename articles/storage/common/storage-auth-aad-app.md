@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 03dd056363cd99f5354dc10ed5ae328eb39c3ec2
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: b817723120f07de9159e47c1259a68eb95b9c2e3
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291069"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140785"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>Autenticación con Azure Active Directory desde una aplicación para acceder a blobs y colas (versión preliminar)
 
@@ -66,7 +66,7 @@ La ventana **Permisos necesarios** muestra ahora que la aplicación de Azure AD 
 
 ![Captura de pantalla que muestra que permisos de aplicación registrada](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
-## <a name="net-code-example-create-a-block-blob"></a>Ejemplo de código .NET: creación de un blob en bloques
+## <a name="net-code-example-create-a-block-blob"></a>Ejemplo de código .NET: Creación de un blob en bloques
 
 El ejemplo de código muestra cómo obtener un token de acceso de Azure AD. El token de acceso se utiliza para autenticar el usuario especificado y, a continuación, autorizar una solicitud para crear un blob en bloques. Para que este ejemplo funcione, siga primero los pasos descritos en las secciones anteriores.
 
@@ -79,11 +79,11 @@ El ejemplo de código muestra cómo obtener un token de acceso de Azure AD. El t
 
 Para autenticar una entidad de seguridad con Azure AD, tiene que incluir algunos valores conocidos en el código.
 
-#### <a name="azure-ad-oauth-endpoint"></a>Punto de conexión de Azure AD para OAuth
+#### <a name="azure-ad-authority"></a>Autoridad de Azure AD
 
-La base del punto de conexión de la autoridad de Azure AD para OAuth 2.0 es la siguiente, donde *tenant-id* es el identificador de inquilino de Active Directory (o identificador de directorio):
+Para la nube pública de Microsoft, la autoridad base de Azure AD es la siguiente, donde *tenant-id* es el identificador de inquilino de Active Directory (o identificador de directorio):
 
-`https://login.microsoftonline.com/<tenant-id>/oauth2/token`
+`https://login.microsoftonline.com/<tenant-id>/`
 
 El identificador de inquilino identifica el inquilino de Azure AD que se usará para la autenticación. Para recuperar el identificador de inquilino, siga los pasos descritos en **Obtención del identificador de inquilino para Azure Active Directory**.
 
@@ -138,11 +138,11 @@ A continuación, agregue un método que solicita un token de Azure AD. Para soli
 static string GetUserOAuthToken()
 {
     const string ResourceId = "https://storage.azure.com/";
-    const string AuthEndpoint = "https://login.microsoftonline.com/{0}/oauth2/token";
+    const string AuthInstance = "https://login.microsoftonline.com/{0}/";
     const string TenantId = "<tenant-id>"; // Tenant or directory ID
 
     // Construct the authority string from the Azure AD OAuth endpoint and the tenant ID. 
-    string authority = string.Format(CultureInfo.InvariantCulture, AuthEndpoint, TenantId);
+    string authority = string.Format(CultureInfo.InvariantCulture, AuthInstance, TenantId);
     AuthenticationContext authContext = new AuthenticationContext(authority);
 
     // Acquire an access token from Azure AD. 

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bc724f57a25e2ca12d334192d2171899345e72de
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: be0dd7147e3864befa90434ade86b4032cd45cc3
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247388"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013192"
 ---
-# <a name="security-frame-communication-security--mitigations"></a>Marco de seguridad: Seguridad en las comunicaciones | Mitigaciones 
+# <a name="security-frame-communication-security--mitigations"></a>Marco de seguridad: seguridad en las comunicaciones | Mitigaciones 
 | Producto o servicio | Artículo |
 | --------------- | ------- |
 | **Centro de eventos de Azure** | <ul><li>[Protección de las comunicaciones con el centro de eventos mediante SSL/TLS](#comm-ssltls)</li></ul> |
@@ -34,7 +34,7 @@ ms.locfileid: "51247388"
 | **Cliente para dispositivos móviles** | <ul><li>[Implementación de asignación de certificados](#cert-pinning)</li></ul> |
 | **WCF** | <ul><li>[Habilitación de HTTPS: canal de transporte seguro](#https-transport)</li><li>[WCF: establecimiento del nivel de protección de seguridad de mensajes en EncryptAndSign](#message-protection)</li><li>[WCF: uso de una cuenta con privilegios mínimos para ejecutar el servicio WCF](#least-account-wcf)</li></ul> |
 | **API web** | <ul><li>[Direccionamiento forzoso de todo el tráfico a API web a través de una conexión HTTPS](#webapi-https)</li></ul> |
-| **Azure Redis Cache** | <ul><li>[Comprobación de que la comunicación a Azure Redis Cache se realiza a través de SSL](#redis-ssl)</li></ul> |
+| **Azure Cache for Redis** | <ul><li>[Comprobación de que la comunicación a Azure Cache for Redis se realiza a través de SSL](#redis-ssl)</li></ul> |
 | **Puerta de enlace de campo de IoT** | <ul><li>[Protección de la comunicación entre el dispositivo y la puerta de enlace de campo](#device-field)</li></ul> |
 | **Puerta de enlace de nube de IoT** | <ul><li>[Protección de la comunicación entre el dispositivo y la puerta de enlace de nube mediante SSL/TLS](#device-cloud)</li></ul> |
 
@@ -146,7 +146,7 @@ Esta regla funciona devolviendo un código de estado HTTP de 301 (redirección p
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Hoja de referencia rápida de seguridad de transporte estricto HTTP del Proyecto de seguridad de aplicación web abierta](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) |
-| **Pasos** | <p>La seguridad de transporto estricta HTTP (HSTS) es una mejora de seguridad opcional que se especifica con una aplicación web mediante el uso de un encabezado de respuesta especial. Una vez que un explorador compatible recibe este encabezado, ese explorador impedirá que se envíen comunicaciones a través de HTTP al dominio especificado y, en su lugar, enviará todas las comunicaciones a través de HTTPS. También evita que aparezcan en los exploradores elementos click-through HTTPS.</p><p>Para implementar HSTS, se debe configurar el siguiente encabezado de respuesta para un sitio web a nivel global, ya sea en el código o en la configuración. Strict-Transport-Security: max-age=300; includeSubDomains. HSTS resuelve las amenazas siguientes:</p><ul><li>Un usuario guarda en sus marcadores la dirección http://example.com o la introduce manualmente y sufre un ataque de tipo "Man in the middle": HSTS redirige automáticamente las solicitudes HTTP a HTTPS para el dominio de destino.</li><li>Una aplicación web diseñada para ser exclusivamente HTTPS contiene accidentalmente vínculos HTTP o sirve contenido a través de HTTP: HSTS redirige automáticamente las solicitudes HTTP a HTTPS para el dominio de destino.</li><li>Un ataque de tipo "Man in the middle" intenta interceptar el tráfico de un usuario mediante un certificado no válido y espera que este usuario acepte dicho certificado: HSTS no permite que un usuario omita el mensaje de certificado no válido.</li></ul>|
+| **Pasos** | <p>La seguridad de transporto estricta HTTP (HSTS) es una mejora de seguridad opcional que se especifica con una aplicación web mediante el uso de un encabezado de respuesta especial. Una vez que un explorador compatible recibe este encabezado, ese explorador impedirá que se envíen comunicaciones a través de HTTP al dominio especificado y, en su lugar, enviará todas las comunicaciones a través de HTTPS. También evita que aparezcan en los exploradores elementos click-through HTTPS.</p><p>Para implementar HSTS, se debe configurar el siguiente encabezado de respuesta para un sitio web a nivel global, ya sea en el código o en la configuración. Strict-Transport-Security: max-age=300; includeSubDomains. HSTS resuelve las amenazas siguientes:</p><ul><li>Marcadores de usuario o manuales tipos http://example.com y están sujetos a un atacante de tipo "Man in the middle": HSTS redirige automáticamente las solicitudes HTTP a HTTPS para el dominio de destino</li><li>Una aplicación web diseñada para ser exclusivamente HTTPS contiene accidentalmente vínculos HTTP o sirve contenido a través de HTTP: HSTS redirige automáticamente las solicitudes HTTP a HTTPS para el dominio de destino</li><li>Un ataque de tipo "Man in the middle" intenta interceptar el tráfico de un usuario mediante un certificado no válido y espera que este usuario acepte dicho certificado: HSTS no permite que un usuario omita el mensaje de certificado no válido.</li></ul>|
 
 ## <a id="sqlserver-validation"></a>Comprobación de cifrado de la conexión de SQL Server y validación de certificados
 
@@ -313,7 +313,7 @@ public interface IService
 ```
 
 ### <a name="example"></a>Ejemplo
-Ejemplo de contrato de operación de `ProtectionLevel.Sign` (para control detallado): el siguiente es un ejemplo del uso de `ProtectionLevel.Sign` en el nivel de contrato de operación:
+Ejemplo de contrato de operación de `ProtectionLevel.Sign` (para un control pormenorizado): El siguiente es un ejemplo del uso de `ProtectionLevel.Sign` en el nivel OperationContract:
 
 ```
 [OperationContract(ProtectionLevel=ProtectionLevel.Sign] 
@@ -372,16 +372,16 @@ public class ValuesController : ApiController
 }
 ```
  
-## <a id="redis-ssl"></a>Comprobación de que la comunicación a Azure Redis Cache se realiza a través de SSL
+## <a id="redis-ssl"></a>Comprobación de que la comunicación a Azure Cache for Redis se realiza a través de SSL
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
-| **Componente**               | Azure Redis Cache | 
+| **Componente**               | Azure Cache for Redis | 
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Soporte técnico de Azure Redis SSL](https://azure.microsoft.com/documentation/articles/cache-faq/#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis) |
-| **Pasos** | El servidor de Redis no admite SSL desde el principio, pero lo hace Azure Redis Cache. Si se conecta a Azure Redis Cache y el cliente admite SSL, como StackExchange.Redis, deberá utilizar SSL. De forma predeterminada, el puerto no SSL está deshabilitado para las instancias nuevas de Azure Redis Cache. Asegúrese de que no se modifiquen los valores predeterminados seguros a menos que exista una dependencia de compatibilidad con SSL para los clientes de Redis. |
+| **Pasos** | El servidor de Redis no admite SSL desde el principio, pero lo hace Azure Cache for Redis. Si se conecta a Azure Cache for Redis y el cliente admite SSL, como StackExchange.Redis, deberá utilizar SSL. De forma predeterminada, el puerto no SSL está deshabilitado para instancias nuevas de Azure Cache for Redis. Asegúrese de que no se modifiquen los valores predeterminados seguros a menos que exista una dependencia de compatibilidad con SSL para los clientes de Redis. |
 
 Tenga en cuenta que Redis está diseñado para que puedan acceder clientes de confianza dentro de entornos de confianza. Por ello, normalmente no es recomendable exponer la instancia de Redis directamente a Internet o, en general, a un entorno desde el que clientes que no sean de confianza puedan acceder directamente el puerto TCP de Redis o a un socket de UNIX. 
 

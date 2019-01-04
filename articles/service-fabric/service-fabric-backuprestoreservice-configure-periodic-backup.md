@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: eeaa0e9a940f16c2416418959c98cd17e4816afc
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 1a9034d7cbc276f35c5f01b06f6973553222d1c4
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387640"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722384"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Información sobre la configuración de la copia de seguridad periódica en Azure Service Fabric
 
@@ -67,7 +67,7 @@ Una directiva de copia de seguridad consta de las siguientes configuraciones:
             }
             ```
 
-        2. **Programación de copia de seguridad basada en tiempo _semanal_**: este tipo de programación debe usarse si es necesario realizar copias de seguridad de datos a horas específicos del día. Para especificarla, establezca `ScheduleFrequencyType` en _Cada semana_; establezca `RunDays` en la lista de días de la semana en las que se debe desencadenar la copia de seguridad y establezca `RunTimes` en la lista de horas del día deseadas con el formato ISO8601, se omitirá la fecha especificada junto con la hora. Lista de días de la semana en las que se debe desencadenar la copia de seguridad periódica. En el ejemplo siguiente se ilustra la configuración para desencadenar la copia de seguridad diaria a las _9:00 AM_ y _6:00 P.M._ de lunes a viernes.
+        2. **Programación de copia de seguridad basada en tiempo _semanal_**: este tipo de programación debe usarse si es necesario realizar copias de seguridad de datos a horas específicas del día. Para especificarla, establezca `ScheduleFrequencyType` en _Cada semana_; establezca `RunDays` en la lista de días de la semana en las que se debe desencadenar la copia de seguridad y establezca `RunTimes` en la lista de horas del día deseadas con el formato ISO8601, se omitirá la fecha especificada junto con la hora. Lista de días de la semana en las que se debe desencadenar la copia de seguridad periódica. En el ejemplo siguiente se ilustra la configuración para desencadenar la copia de seguridad diaria a las _9:00 AM_ y _6:00 P.M._ de lunes a viernes.
 
             ```json
             {
@@ -88,7 +88,7 @@ Una directiva de copia de seguridad consta de las siguientes configuraciones:
             ```
 
 * **Almacenamiento de copia de seguridad**: especifica la ubicación en la que se deben cargar las copias de seguridad. El almacenamiento puede ser el almacén de blobs de Azure o un recurso compartido de archivos.
-    1. **Almacén de blobs de Azure**: este tipo de almacenamiento debe seleccionarse cuando se deben almacenar copias de seguridad generadas en Azure. Tanto los clústeres _independientes_ como los clústeres _basados en Azure_ pueden usar este tipo de almacenamiento. La descripción de este tipo de almacenamiento requiere la cadena de conexión y el nombre del contenedor donde se deben cargar las copias de seguridad. Si el contenedor con el nombre especificado no está disponible, se crea durante la carga de una copia de seguridad.
+    1. **Azure Blob Storage**: este tipo de almacenamiento debe seleccionarse cuando se deben almacenar copias de seguridad generadas en Azure. Tanto los clústeres _independientes_ como los clústeres _basados en Azure_ pueden usar este tipo de almacenamiento. La descripción de este tipo de almacenamiento requiere la cadena de conexión y el nombre del contenedor donde se deben cargar las copias de seguridad. Si el contenedor con el nombre especificado no está disponible, se crea durante la carga de una copia de seguridad.
         ```json
         {
             "StorageKind": "AzureBlobStore",
@@ -110,6 +110,7 @@ Una directiva de copia de seguridad consta de las siguientes configuraciones:
             ```
 
         2. _Protección del recurso compartido de archivos mediante nombre de usuario y contraseña_, donde se proporciona el acceso al recurso compartido de archivos a usuarios específicos. La especificación del almacenamiento de recurso compartido de archivos también proporciona la capacidad de especificar un nombre de usuario y contraseña secundarios para ofrecer credenciales de reserva en caso de que se produzca un error de autenticación con el nombre de usuario y contraseña principales. En este caso, establezca los siguientes campos para configurar el almacenamiento de copia de seguridad basado en _recurso compartido de archivos_.
+
             ```json
             {
                 "StorageKind": "FileShare",
@@ -125,6 +126,17 @@ Una directiva de copia de seguridad consta de las siguientes configuraciones:
 > [!NOTE]
 > Asegúrese de que la confiabilidad del almacenamiento cumpla o supere los requisitos de confiabilidad de los datos de copia de seguridad.
 >
+
+* **Directiva de retención**: especifica la directiva para conservar copias de seguridad en el almacenamiento configurado. Solo se admite la directiva de retención básica.
+    1. **Directiva de retención básica**: esta directiva de retención permite garantizar un uso óptimo del almacenamiento eliminando los archivos de copia de seguridad que ya no son necesarios. `RetentionDuration` puede especificarse para establecer el intervalo de tiempo durante el que se deben conservar las copias de seguridad en el almacenamiento. `MinimumNumberOfBackups` es un parámetro opcional que se puede especificar para asegurarse de que el número especificado de copias de seguridad se conserva siempre con independencia de `RetentionDuration`. En el ejemplo siguiente se muestra la configuración para conservar las copias de seguridad durante _10_ días y no permite que el número de copias de seguridad sea inferior a _20_.
+
+        ```json
+        {
+            "RetentionPolicyType": "Basic",
+            "RetentionDuration" : "P10D",
+            "MinimumNumberOfBackups": 20
+        }
+        ```
 
 ## <a name="enable-periodic-backup"></a>Habilitación de la copia de seguridad periódica
 Después de definir la directiva de copia de seguridad para satisfacer los requisitos de copia de seguridad de datos, la directiva de copia de seguridad debe asociarse correctamente con una _aplicación_, _servicio_ o _partición_.
@@ -178,6 +190,13 @@ Cuando no es necesario realizar copias de seguridad, se pueden deshabilitar las 
 * Cuando se deshabilita la directiva de copia de seguridad para un _servicio_, se detienen todas las copias de seguridad de datos periódicas en ejecución como resultado de la propagación de la directiva de copia de seguridad a las particiones del _servicio_.
 
 * Cuando se deshabilita la directiva de copia de seguridad para una _partición_, se detienen todas las copias de seguridad de datos periódicas en ejecución debido a la directiva de copia de seguridad de la partición.
+
+* Al deshabilitar la copia de seguridad de una entidad (aplicación, servicio o partición), `CleanBackup` se puede establecer en _verdadero_ para eliminar todas las copias de seguridad del almacenamiento configurado.
+    ```json
+    {
+        "CleanBackup": true 
+    }
+    ```
 
 ## <a name="suspend--resume-backup"></a>Suspender y reanudar la copia de seguridad
 Determinadas situaciones pueden requerir la suspensión temporal de la copia de seguridad de datos periódica. En esta situación, en función de los requisitos, se puede usar la API para suspender la copia de seguridad en una _aplicación_, _servicio_ o _partición_. La suspensión de la copia de seguridad periódica es transitiva a través del subárbol de la jerarquía de la aplicación desde el punto en el que se aplica. 

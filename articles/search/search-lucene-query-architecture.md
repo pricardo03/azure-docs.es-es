@@ -1,5 +1,5 @@
 ---
-title: Arquitectura del motor de búsqueda de texto completo en Azure Search | Microsoft Docs
+title: Arquitectura (Lucene) del motor de búsqueda de texto completo en Azure Search
 description: Explicación de conceptos de recuperación de documentos y procesamiento de consultas de Lucene para la búsqueda de texto completo, como se establece en Azure Search.
 manager: jlembicz
 author: yahnoosh
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: 55d361e90dbc5fe48bc118088a6f859d096048ff
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.custom: seodec2018
+ms.openlocfilehash: 8ca9fe72e4bd5272a5303b3bacd8c0960504789d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036877"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315819"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Cómo funciona la búsqueda de texto completo en Azure Search
 
@@ -73,7 +74,7 @@ Para esta solicitud, el motor de búsqueda realiza lo siguiente:
 La mayor parte de este artículo es sobre el procesamiento de la *consulta de búsqueda*: `"Spacious, air-condition* +\"Ocean view\""`. El filtrado y la ordenación están fuera del ámbito. Para más información, consulte la [Documentación de referencia de API de búsqueda](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 <a name="stage1"></a>
-## <a name="stage-1-query-parsing"></a>Fase 1: Consulta de análisis 
+## <a name="stage-1-query-parsing"></a>Fase 1 Consulta de análisis 
 
 Como se mencionó anteriormente, la cadena de consulta es la primera línea de la solicitud: 
 

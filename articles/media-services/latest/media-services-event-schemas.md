@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: juliako
-ms.openlocfilehash: 8124b399b859f812ec3bf9f7ea64b6643446a1b5
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 9de0d8bc389218d3102633b09073b3af323d2ceb
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249335"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012001"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Esquemas de Azure Event Grid para eventos de Media Services
 
@@ -28,7 +28,7 @@ Para obtener una lista de scripts de ejemplo y los tutoriales, consulte [Orígen
 
 ### <a name="job-related-event-types"></a>Tipos de eventos relacionados con el trabajo
 
-Media Services emite los tipos de eventos relacionados con el **trabajo** que se describen a continuación. Existen dos categorías para los eventos relacionados con el **trabajo**: "Supervisión de cambios de estado de trabajo" y "Supervisión de cambios de estado de salida de trabajo". 
+Media Services emite los tipos de eventos relacionados con el **trabajo** que se describen a continuación. Existen dos categorías para los eventos relacionados con el **trabajo**: "supervisión de cambios de estado de trabajo" y "supervisión de cambios de estado de salida de trabajo". 
 
 Para registrarse para todos los eventos, puede suscribirse al evento JobStateChange. O bien, puede suscribirse solo a eventos específicos (por ejemplo, estados finales como JobErrored, JobFinished y JobCanceled). 
 
@@ -112,9 +112,12 @@ El objeto data tiene las siguientes propiedades:
 | Propiedad | Escriba | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
 | previousState | string | El estado del trabajo antes del evento. |
-| state | string | El nuevo estado del trabajo que se notifica en este evento. Por ejemplo, "En cola: el trabajo está a la espera de recursos" o "Programado: el trabajo está listo para empezar".|
+| state | string | El nuevo estado del trabajo que se notifica en este evento. Por ejemplo, "Programado: el trabajo está listo para comenzar" o "Finalizado: el trabajo ha finalizado".|
 
-Donde el estado del trabajo puede ser uno de estos valores: *Queued* (En cola), *Scheduled* (Programado), *Processing* (En proceso), *Finished* (Finalizado), *Error*, *Canceled* (Cancelado), *Canceling* (Cancelándose).
+Donde el estado del trabajo puede ser uno de los valores siguientes: *Queued*, *Scheduled*, *Processing*, *Finished*, *Error*, *Canceled*, *Canceling*.
+
+> [!NOTE]
+> *Queued* solo estará presente en la propiedad **previousState** pero no en la propiedad **state**.
 
 ### <a name="jobscheduled-jobprocessing-jobcanceling"></a>JobScheduled, JobProcessing, JobCanceling
 

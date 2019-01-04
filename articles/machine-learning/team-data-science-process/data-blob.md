@@ -1,6 +1,6 @@
 ---
-title: Proceso de datos del blob de Azure con análisis avanzado | Microsoft Docs
-description: Proceso de datos en Almacenamiento de blobs de Azure.
+title: 'Proceso de datos del blob de Azure con análisis avanzado: Proceso de ciencia de datos en equipos'
+description: Explore los datos y genere características a partir de los datos almacenados en el Almacenamiento de blobs de Azure con análisis avanzado.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: ef5a3decec3ddd87bb73d513981bdfe081fadf74
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 36e3512caa8922f8bc1a65f13ea41d6873b51e5e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442393"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140554"
 ---
 # <a name="heading"></a>Proceso de datos del blob de Azure con análisis avanzado
 En este documento se trata la exploración de datos y generación de características a partir de los datos almacenados en Almacenamiento de blobs de Azure. 
@@ -130,7 +130,7 @@ Para generar características discretizadas, se procede de la siguiente manera:
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
 ## <a name="sql-featuregen"></a>Reescritura de datos en un blob de Azure y consumo en Azure Machine Learning
-Cuando haya explorado los datos y creado las características necesarias, puede cargar los datos (muestreados o con características) en un blob de Azure y consumirlos en Azure Machine Learning, mediante los siguientes pasos. Tenga en cuenta que también se pueden crear características adicionales en Azure Machine Learning Studio 
+Cuando haya explorado los datos y creado las características necesarias, puede cargar los datos (muestreados o con características) en un blob de Azure y consumirlos en Azure Machine Learning, mediante los siguientes pasos. Tenga en cuenta que también se pueden crear características adicionales en Azure Machine Learning Studio. 
 
 1. Escriba la trama de datos en el archivo local
    

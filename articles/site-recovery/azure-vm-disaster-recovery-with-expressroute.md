@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: af57dc50dd156a3398c2c685e436d22ba3daea95
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 5a16b81abb9cc95f46bd61f6c0232a28f3cda0ff
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567781"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875406"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integración de Azure ExpressRoute con la recuperación ante desastres en máquinas virtuales de Azure
 
@@ -37,7 +37,7 @@ ExpressRoute permite ampliar las redes locales a la nube de Microsoft Azure a tr
 Antes de comenzar, asegúrese de que comprende los siguientes conceptos:
 
 - Los [circuitos ExpressRoute](../expressroute/expressroute-circuit-peerings.md)
-- Los [dominios de enrutamiento](../expressroute/expressroute-circuit-peerings.md#expressroute-routing-domains) de ExpressRoute
+- Los [dominios de enrutamiento](../expressroute/expressroute-circuit-peerings.md#routingdomains) de ExpressRoute
 - [Ubicaciones](../expressroute/expressroute-locations.md) de ExpressRoute.
 - [Arquitectura de replicación](azure-to-azure-architecture.md) de máquinas virtuales de Azure
 - Cómo [configurar la replicación](azure-to-azure-tutorial-enable-replication.md) en máquinas virtuales de Azure.
@@ -136,7 +136,7 @@ En nuestro ejemplo, al habilitar la replicación en máquinas virtuales de Azure
 
 ## <a name="fail-over-azure-vms-when-using-expressroute"></a>Conmutación por error de máquinas virtuales de Azure cuando se usa ExpressRoute
 
-Después de conmutar por error las máquinas virtuales de Azure a la región de Azure de destino con Site Recovery, puede acceder a ellas mediante el [emparejamiento privado](../expressroute/expressroute-circuit-peerings.md#azure-private-peering) de ExpressRoute.
+Después de conmutar por error las máquinas virtuales de Azure a la región de Azure de destino con Site Recovery, puede acceder a ellas mediante el [emparejamiento privado](../expressroute/expressroute-circuit-peerings.md#privatepeering) de ExpressRoute.
 
 - Deberá conectar ExpressRoute a la red virtual de destino con una nueva conexión. La conexión de ExpressRoute existente no se transfiere automáticamente.
 - La manera en que se configure la conexión de ExpressRoute a la red virtual de destino depende de la topología de ExpressRoute.
@@ -193,7 +193,7 @@ Para automatizar la recuperación en este ejemplo, debe hacer lo siguiente:
 1. Siga los pasos para [configurar la replicación](#azure-vm-replication-steps).
 2. [Conmute por error las máquinas virtuales de Azure](azure-to-azure-tutorial-failover-failback.md) con estos pasos adicionales durante o después de la conmutación por error.
 
-    a. Cree la puerta de enlace de Azure ExpressRoute en la red virtual de concentrador de la región de destino. Esto es necesario para conectar la red virtual de concentrador de destino al circuito ExpressRoute.
+     a. Cree la puerta de enlace de Azure ExpressRoute en la red virtual de concentrador de la región de destino. Esto es necesario para conectar la red virtual de concentrador de destino al circuito ExpressRoute.
 
     b. Cree la conexión desde la red virtual de concentrador de destino hasta el circuito ExpressRoute de destino.
 

@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7671a0a99e12463fcce5ff33fbcba7e8677dde05
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 91102b9fe57b2291ce1d1678b71b3a8b0b834864
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006201"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721976"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Tipos de aplicaciones que se pueden usar en Active Directory B2C
 
@@ -26,7 +26,7 @@ Toda aplicación que utilice Azure AD B2C debe estar registrada en su [inquilino
 * Un **identificador de la aplicación** que identifica la aplicación de forma única.
 * Un **URI de redirección** que puede usarse para devolver las respuestas a la aplicación.
 
-En cada solicitud que se envía a Azure AD B2C se especifica una **directiva**. Una directiva controla el comportamiento de Azure AD. También puede utilizar estos puntos de conexión para crear un conjunto de experiencias de usuario muy personalizable. Algunas directivas comunes son las de registro, las de inicio de sesión y las de edición de perfiles. Si no está familiarizado con las directivas, debe leer acerca del [marco de directiva extensible](active-directory-b2c-reference-policies.md) de Azure AD B2C antes de continuar.
+Cada solicitud que se envía a Azure AD B2C especifica un **flujo de usuario**, que es una directiva que controla el comportamiento de Azure AD. También puede utilizar estos puntos de conexión para crear un conjunto de experiencias de usuario muy personalizable. Ofrecemos un conjunto de flujos de usuario que lo ayudarán a configurar directivas comunes, incluidas las de registro, de inicio de sesión y de edición de perfiles. También se pueden crear directivas personalizadas. Si no está familiarizado con las directivas, debe leer acerca del [marco de directiva extensible](active-directory-b2c-reference-policies.md) de Azure AD B2C antes de continuar.
 
 La interacción de cada aplicación sigue un patrón de nivel alto similar:
 
@@ -166,7 +166,7 @@ Puede agregar las dos últimas porque son subdominios de la primera URL de respu
 Al crear aplicaciones móviles o nativas, definirá un **URI de redirección** en lugar de una **dirección URL de reproducción**. Hay dos aspectos importantes que se deben tener en cuenta al elegir un URI de redirección:
 
 - **Único**: el esquema del identificador URI de redirección debe ser único para todas las aplicaciones. En el ejemplo `com.onmicrosoft.contoso.appname://redirect/path`, `com.onmicrosoft.contoso.appname` es el esquema. Se debe seguir este patrón. Si dos aplicaciones comparten el mismo esquema, el usuario verá un cuadro de diálogo de **elección de aplicación**. Si el usuario realiza una elección incorrecta, no será posible iniciar sesión.
-- **Completo**: el URI de redirección debe tener un esquema y una ruta de acceso. La ruta de acceso debe contener al menos una barra diagonal después del dominio. Por ejemplo, `//contoso/` sirve y `//contoso` produce un error. Asegúrese de que no haya ningún carácter especial, como el carácter de subrayado, en el URI de redirección.
+- **Completo**: el identificador URI de redirección debe tener un esquema y una ruta de acceso. La ruta de acceso debe contener al menos una barra diagonal después del dominio. Por ejemplo, `//contoso/` sirve y `//contoso` produce un error. Asegúrese de que no haya ningún carácter especial, como el carácter de subrayado, en el URI de redirección.
 
 ### <a name="faulted-apps"></a>Aplicaciones con errores
 

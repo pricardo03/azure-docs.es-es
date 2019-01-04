@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: dd07ed66b630f541ed3e2001dffdebed150bb71a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 120b97f69c8fad2daf3090441e8d0326e80115c3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443039"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338590"
 ---
 # <a name="traffic-analytics"></a>Análisis del tráfico
 
@@ -39,21 +39,21 @@ Las redes virtuales de Azure tienen registros de flujos de grupos de seguridad d
 
 ## <a name="key-components"></a>Componentes claves
 
-- **Grupo de seguridad de red (NSG)**: contiene una lista de reglas de seguridad que permiten o deniegan el tráfico de red a recursos conectados a Azure Virtual Network. Los grupos de seguridad de red se pueden asociar a subredes, máquinas virtuales individuales (clásicas) o interfaces de red (NIC) individuales conectadas a máquinas virtuales (Resource Manager). Para más información, consulte [Introducción a los grupos de seguridad de red](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- Los **registros de flujo del grupo de seguridad de red (NSG)** le permiten visualizar información sobre el tráfico IP de entrada y salida mediante un grupo de seguridad de red. Estos registros de flujo se escriben en formato JSON y muestran los flujos de entrada y salida en función de cada regla, la NIC a la que se aplica el flujo, información de cinco tuplas sobre el flujo (dirección IP de origen o destino, puerto de origen o destino y protocolo), y si se permitió o denegó el tráfico. Para más información acerca de los registros de flujos de un grupo de seguridad de red, consulte [Introducción a los registros de flujo de grupos de seguridad de red](network-watcher-nsg-flow-logging-overview.md).
-- **Log Analytics**: servicio de Azure que recopila datos de supervisión y almacena los datos en un repositorio central. Estos datos pueden incluir eventos, datos de rendimiento o datos personalizados proporcionados mediante la API de Azure. Una vez recopilados, los datos están disponibles para las alertas, el análisis y la exportación. Las aplicaciones de supervisión, como Network Performance Monitor y Análisis de tráfico, se crean usando Log Analytics como base. Para más información, consulte [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Área de trabajo de Log Analytics**: una instancia de Log Analytics en la que se almacenan los datos que pertenecen a una cuenta de Azure. Para más información acerca de las áreas de trabajo de Log Analytics, consulte [Creación de un área de trabajo de Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Network Watcher** es un servicio regional que permite supervisar y diagnosticar problemas en un nivel de escenario de red en Azure. Puede activar y desactivar los registros de flujo del grupo de seguridad de red con Network Watcher. Para más información, consulte [Network Watcher](network-watcher-monitoring-overview.md).
+- **Grupo de seguridad de red (NSG)**: contiene una lista de reglas de seguridad que permiten o deniegan el tráfico de red a los recursos conectados a Azure Virtual Network. Los grupos de seguridad de red se pueden asociar a subredes, máquinas virtuales individuales (clásicas) o interfaces de red (NIC) individuales conectadas a máquinas virtuales (Resource Manager). Para más información, consulte [Introducción a los grupos de seguridad de red](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Registros de flujo de los grupos de seguridad de red (NSG)**: Le permiten ver información acerca del tráfico IP de entrada y salida que pasa por un grupo de seguridad de red. Estos registros de flujo se escriben en formato JSON y muestran los flujos de entrada y salida en función de cada regla, la NIC a la que se aplica el flujo, información de cinco tuplas sobre el flujo (dirección IP de origen o destino, puerto de origen o destino y protocolo), y si se permitió o denegó el tráfico. Para más información acerca de los registros de flujos de un grupo de seguridad de red, consulte [Introducción a los registros de flujo de grupos de seguridad de red](network-watcher-nsg-flow-logging-overview.md).
+- **Log Analytics**: servicio de Azure que recopila datos de supervisión y los almacena los datos en un repositorio central. Estos datos pueden incluir eventos, datos de rendimiento o datos personalizados proporcionados mediante la API de Azure. Una vez recopilados, los datos están disponibles para las alertas, el análisis y la exportación. Las aplicaciones de supervisión, como Network Performance Monitor y Análisis de tráfico, se crean usando Log Analytics como base. Para más información, consulte [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Área de trabajo de Log Analytics**: instancia de Log Analytics en la que se almacenan los datos pertenecientes a una cuenta de Azure. Para más información acerca de las áreas de trabajo de Log Analytics, consulte [Creación de un área de trabajo de Log Analytics](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Network Watcher**: servicio regional que permite supervisar y diagnosticar problemas en un nivel de escenario de red en Azure. Puede activar y desactivar los registros de flujo del grupo de seguridad de red con Network Watcher. Para más información, consulte [Network Watcher](network-watcher-monitoring-overview.md).
 
 ## <a name="how-traffic-analytics-works"></a>Funcionamiento de Análisis de tráfico
 
-Análisis de tráfico examina los registros de flujo sin formato del grupo de seguridad de red y captura los registros reducidos agregando los flujos habituales en la misma dirección IP de origen, IP de destino, puerto de destino y protocolo. Por ejemplo, el Host 1 (dirección IP: 10.10.10.10) en comunicación con el Host 2 (dirección IP: 10.10.20.10), 100 veces durante un período de 1 hora mediante un puerto (por ejemplo, 80) y un protocolo (por ejemplo, http). El registro reducido tiene una entrada que indica que el Host 1 y el Host 2 se comunicaron 100 veces durante un período de 1 hora mediante el puerto *80* y el protocolo *HTTP*, en lugar de incluir 100 entradas. Los registros reducidos se mejoran con información sobre geografía, seguridad y topología y, a continuación, se almacenan en un área de trabajo de Log Analytics. La siguiente imagen muestra el flujo de datos:
+Análisis de tráfico examina los registros de flujo sin formato del grupo de seguridad de red y captura los registros reducidos agregando los flujos habituales en la misma dirección IP de origen, IP de destino, puerto de destino y protocolo. Por ejemplo, Host 1 (dirección IP: 10.10.10.10) se comunica con Host 2 (dirección IP: 10.10.20.10), cien veces durante un período de una hora mediante un puerto (por ejemplo, 80) y un protocolo (por ejemplo, http). El registro reducido tiene una entrada que indica que el Host 1 y el Host 2 se comunicaron 100 veces durante un período de 1 hora mediante el puerto *80* y el protocolo *HTTP*, en lugar de incluir 100 entradas. Los registros reducidos se mejoran con información sobre geografía, seguridad y topología y, a continuación, se almacenan en un área de trabajo de Log Analytics. La siguiente imagen muestra el flujo de datos:
 
 ![Flujo de datos del procesamiento de registros de flujo del grupo de seguridad de red](./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
-Puede usar Análisis de tráfico para NSG en cualquiera de las siguientes regiones admitidas:
+Puede usar Análisis de tráfico para los NSG en cualquiera de las siguientes regiones admitidas:
 
 * Centro de Canadá
 * Centro occidental de EE.UU.
@@ -291,9 +291,12 @@ Algunas de las informaciones detalladas que puede obtener una vez que Análisis 
     ![Panel que muestra la distribución de redes virtuales](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - La topología de red virtual muestra la cinta de opciones superior para la selección de parámetros como las conexiones entre redes virtuales activas o inactivas, o las conexiones externas, los flujos activos y los flujos malintencionados de la red virtual.
+- La topología de red virtual se puede filtrar por suscripciones, áreas de trabajo, grupos de recursos y el intervalo de tiempo. Los filtros adicionales que le ayudarán a conocer el flujo son: Tipo de flujo (entre redes virtuales, dentro de la red virtual, etc), Dirección de flujo (entrante, saliente), Estado de flujo (permitido, bloqueado), Redes virtuales (destino y conectado), Tipo de conexión (emparejamiento o puerta de enlace: P2S y S2S) y Grupo de seguridad de red. Utilice estos filtros para centrarse en las redes virtuales que desea examinar con detalle.
 - La topología de red virtual muestra la distribución del tráfico hacia una red virtual en relación con los flujos (Permitidos, bloqueados, entrantes, salientes, inofensivos o malintencionados), los protocolos de aplicación y los grupos de seguridad de red, por ejemplo:
 
     ![Topología de red virtual que muestra la distribución del tráfico y los detalles del flujo](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)
+    
+    ![Topología de red virtual que muestra los filtros de nivel superior y otros](./media/traffic-analytics/virtual-network-filters.png)
 
     ![Detalles de flujos para la distribución del tráfico de red virtual en búsqueda de registros](./media/traffic-analytics/flow-details-for-virtual-network-traffic-distribution-in-log-search.png)
 

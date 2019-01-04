@@ -1,5 +1,5 @@
 ---
-title: Restablecimiento de los emparejamientos de Azure ExpressRoute | Microsoft Docs
+title: 'Restablecimiento de emparejamiento de circuitos en ExpressRoute:  Azure | Microsoft Docs'
 description: Cómo deshabilitar y habilitar los emparejamientos de un circuito de ExpressRoute.
 services: expressroute
 author: charwen
@@ -7,14 +7,15 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: charwen
-ms.openlocfilehash: 1bb2bb61ccd06d5774b811203e86d609a01250a4
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec18
+ms.openlocfilehash: ad050e11c98139af00ad752f8960d55a58ca2f34
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415821"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132598"
 ---
-# <a name="reset-expressroute-peerings"></a>Restablecimiento de emparejamientos de ExpressRoute
+# <a name="reset-expressroute-circuit-peerings"></a>Restablecimiento de emparejamientos de circuitos ExpressRoute
 
 En este artículo se describe cómo deshabilitar y habilitar los emparejamientos de un circuito de ExpressRoute mediante PowerShell. Cuando se deshabilita un emparejamiento, la sesión de BGP en la conexión principal y en la conexión secundaria del circuito de ExpressRoute se cerrará. Perderá la conectividad mediante este emparejamiento a Microsoft. Cuando habilita un emparejamiento, la sesión de BGP en la conexión principal y en la conexión secundaria del circuito de ExpressRoute se desactivará. Volverá a establecer la conectividad mediante este emparejamiento a Microsoft. Puede habilitar y deshabilitar el emparejamiento de Microsoft y el emparejamiento privado de Azure en un circuito de ExpressRoute de forma independiente. La primera vez que configure los emparejamientos en el circuito de ExpressRoute, los emparejamientos se habilitan de forma predeterminada.
 

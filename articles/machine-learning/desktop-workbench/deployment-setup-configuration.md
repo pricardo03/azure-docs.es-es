@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
 ms.topic: article
-ms.date: 12/6/2017
+ms.date: 12/06/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 84068376f35bc4df6672cffcc0ac3438b12edbb5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2d912f559af98045aaef8fe6fcaa1d83ab5f96bd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979682"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269369"
 ---
 # <a name="model-management-setup"></a>Instalación de Administración de modelos
 
@@ -68,7 +68,7 @@ pip install -r https://aka.ms/az-ml-o16n-cli-requirements-file
 ```
 
 ### <a name="configuring-docker-on-linux"></a>Configuración de Docker en Linux
-Para configurar Docker en Linux para su uso por los usuarios no raíz, siga las instrucciones que encontrará aquí: [Post-installation steps for Linux](https://docs.docker.com/engine/installation/linux/linux-postinstall/) (Pasos posteriores a la instalación para Linux)
+Para configurar Docker en Linux para que lo usen los usuarios que no son raíz, siga las instrucciones que encontrará aquí: [Post-installation steps for Linux](https://docs.docker.com/engine/installation/linux/linux-postinstall/) (Pasos posteriores a la instalación de Linux)
 
 >[!NOTE]
 > En una DSVM Linux, puede ejecutar el script siguiente para configurar Docker correctamente. **No olvide cerrar la sesión y volver a iniciar sesión después de ejecutar el script.**

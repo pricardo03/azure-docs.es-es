@@ -8,13 +8,13 @@ keywords: copia de seguridad y recuperación ante desastres; servicio de copia d
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/6/2018
-ms.author: saurse;trinadhk
-ms.openlocfilehash: cf27848b6ca63f06c7d452ac67908cb85dbafd47
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: trinadhk
+ms.openlocfilehash: 5262c99fae965201d4f9519495163d0e16836a7a
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239853"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726549"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Preguntas sobre Azure Backup Agent
 Este artículo contiene las respuestas a preguntas comunes que le ayudan a comprender rápidamente los componentes de Azure Backup Agent. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. También se pueden publicar preguntas sobre el servicio Azure Backup en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -44,10 +44,10 @@ Se admiten los siguientes tipos:
 * Dispersos
 * Comprimidos + dispersos
 * Vínculos físicos: no compatibles, se omiten
-* Puntos de repetición: no compatibles, se omiten
+* Punto de repetición de análisis: no compatibles, se omiten
 * Cifrados + dispersos: no compatibles, se omiten
-* Secuencias comprimidas: no compatibles, se omiten
-* Secuencias dispersas: no compatibles, se omiten
+* Flujo comprimido: no compatibles, se omiten
+* Flujo disperso: no compatibles, se omiten
 
 ### <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-already-backed-by-the-azure-backup-service-using-the-vm-extension-br"></a>¿Se puede instalar el agente de Azure Backup en una máquina virtual de Azure de la que el servicio Azure Backup ya ha realizado una copia de seguridad mediante la extensión de máquina virtual? <br/>
 Totalmente. Azure Backup proporciona copia de seguridad de nivel de máquina virtual para Azure Virtual Machines que usen la extensión de máquina virtual. Para proteger los archivos y carpetas del SO invitado de Windows, instale en él el agente de Azure Backup.

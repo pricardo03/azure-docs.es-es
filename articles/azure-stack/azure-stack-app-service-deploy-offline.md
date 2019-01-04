@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 54ceadc8173526e8638e70c8c859109eea157fa7
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 79d78faa53962ea72178281d75cef3c2f61320b1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614045"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971511"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Incorporación de un proveedor de recursos de App Service a un entorno de Azure Stack desconectado protegido por AD FS
 
@@ -200,16 +200,16 @@ Para implementar App Service en un entorno desconectado, primero debe crear un p
 2. En la información general, debajo del estado, compruebe que en **Estado** se muestra el mensaje **Todos los roles están listos**.
 
     ![Administración de App Service](media/azure-stack-app-service-deploy/image12.png)
-    
+
 > [!NOTE]
 > Si decide implementar en una red virtual existente y usar una dirección IP interna para conectarse al servidor de archivos, debe agregar una regla de seguridad de salida, que habilita el tráfico SMB entre la subred de trabajo y el servidor de archivos.  Para ello, vaya a WorkersNsg en el Portal de administración y agregue una regla de seguridad de salida con las siguientes propiedades:
 > * Origen: Cualquiera
 > * Intervalo de puertos de origen: *
 > * Destino: Direcciones IP
-> * Intervalo de direcciones IP de destino: intervalo de direcciones IP para el servidor de archivos
+> * Intervalo de direcciones IP de destino: Intervalo de direcciones IP del servidor de archivos
 > * Intervalo de puertos de destino: 445
 > * Protocolo: TCP
-> * Acción: Permitir
+> * Acción: PERMITIR
 > * Prioridad: 700
 > * Nombre: Outbound_Allow_SMB445
 >
@@ -221,9 +221,9 @@ Después de implementar y registrar el proveedor de recursos de App Service, pru
 > [!NOTE]
 > Debe crear una oferta que tenga el espacio de nombres Microsoft.Web dentro del plan. A continuación, debe tener una suscripción de inquilino que suscriba esta oferta. Para más información, consulte [Create offer](azure-stack-create-offer.md) (Creación de una oferta) y [Create plan](azure-stack-create-plan.md) (Creación de un plan).
 >
-Se *debe* tener una suscripción de inquilino para crear aplicaciones que usen App Service en Azure Stack. Las únicas funcionalidades que un administrador del servicio puede completar en el portal de administración están relacionadas con la administración del proveedor de recursos de App Service. Entre estas funcionalidades se incluyen la adición de capacidad, la configuración de orígenes de implementación y la adición de niveles de trabajo y SKU.
+> Se *debe* tener una suscripción de inquilino para crear aplicaciones que usen App Service en Azure Stack. Las únicas funcionalidades que un administrador del servicio puede completar en el portal de administración están relacionadas con la administración del proveedor de recursos de App Service. Entre estas funcionalidades se incluyen la adición de capacidad, la configuración de orígenes de implementación y la adición de niveles de trabajo y SKU.
 >
-A partir de la tercera versión preliminar técnica, para crear aplicaciones web, de API y Azure Functions, se debe usar el portal de inquilino y tener una suscripción de inquilino.
+> A partir de la tercera versión preliminar técnica, para crear aplicaciones web, de API y Azure Functions, se debe usar el portal de inquilino y tener una suscripción de inquilino.
 
 1. En el portal de inquilinos de Azure Stack, haga clic en **+ Crear un recurso** > **Web y móvil** > **Aplicación web**.
 

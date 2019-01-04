@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: sethm
-ms.openlocfilehash: ee6e4397345b4cb169e7e22d951d4c4fdff5b7b7
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 632cf506477bdc6f35c66a473963168f81e22351
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078722"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971902"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>Notas de la versión de App Service en la actualización 1 de Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Estas notas de la versión describen las mejoras y correcciones de la actualización 1 de Azure App Service en Azure Stack y todos los problemas conocidos. Los problemas conocidos se dividen en aquellos que están relacionados directamente con el proceso de actualización y aquellos que están relacionados con la compilación (posteriores a la instalación).
 
@@ -145,7 +145,7 @@ El intercambio de espacios del sitio se ha interrumpido en esta versión. Para r
 
       # Commit the changes back to NSG
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
-      ```
+    ```
 
 2. Vaya a **CN0-VM** en Virtual Machines en el portal del administrador de Azure Stack y haga clic en **Connect** (Conectar) para abrir una sesión de Escritorio remoto con la instancia de controlador. Use las credenciales especificadas durante la implementación de App Service.
 3. Inicie **PowerShell como administrador** y ejecute el siguiente script:
@@ -197,18 +197,20 @@ El intercambio de espacios del sitio se ha interrumpido en esta versión. Para r
         # Commit the changes back to NSG
         Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
-- Los trabajos no pueden llegar al servidor de archivos cuando App Service está implementada en una red virtual existente y el servidor de archivos solo está disponible en la red privada.
- 
+
+6. Los trabajos no pueden llegar al servidor de archivos cuando App Service está implementada en una red virtual existente y el servidor de archivos solo está disponible en la red privada.
+
 Si decide realizar una implementación en una red virtual existente y en una dirección IP interna para conectarse al servidor de archivos, debe agregar una regla de seguridad de salida. De ese modo, permite que exista tráfico SMB entre la subred del rol de trabajo y el servidor de archivos. Para ello, vaya a WorkersNsg en el Portal de administración y agregue una regla de seguridad de salida con las siguientes propiedades:
- * Origen: Cualquiera
- * Intervalo de puertos de origen: *
- * Destino: Direcciones IP
- * Intervalo de direcciones IP de destino: intervalo de direcciones IP del servidor de archivos
- * Intervalo de puertos de destino: 445
- * Protocolo: TCP
- * Acción: Permitir
- * Prioridad: 700
- * Nombre: Outbound_Allow_SMB445
+
+- Origen: Cualquiera
+- Intervalo de puertos de origen: *
+- Destino: Direcciones IP
+- Intervalo de direcciones IP de destino: Intervalo de direcciones IP del servidor de archivos
+- Intervalo de puertos de destino: 445
+- Protocolo: TCP
+- Acción: PERMITIR
+- Prioridad: 700
+- Nombre: Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Problemas conocidos para los administradores en la nube que trabajan con Azure App Service en Azure Stack
 

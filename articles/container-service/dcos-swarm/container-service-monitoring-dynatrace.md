@@ -1,5 +1,5 @@
 ---
-title: 'Supervisión de un clúster de Azure DC/OS: Dynatrace'
+title: '(EN DESUSO) Supervisión de un clúster de Azure DC/OS: Dynatrace'
 description: Supervisión de un clúster de Azure Container Service DC/OS con Dynatrace. Implemente Dynatrace OneAgent mediante el panel DC/OS.
 services: container-service
 author: MartinGoodwell
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 12/13/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 3d1bfc3bb61781d487c40831edd5da6fcb5a7df9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8f34a00d9256c288a2842e905c06d5336522eece
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162048"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001998"
 ---
-# <a name="monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>Supervisión de un clúster DC/OS de Azure Container Service con Dynatrace SaaS/Managed
+# <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>(EN DESUSO) Supervisión de un clúster DC/OS de Azure Container Service con Dynatrace SaaS/Managed
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 En este artículo, le mostramos cómo implementar [Dynatrace](https://www.dynatrace.com/) OneAgent para supervisar todos los nodos de agente en el clúster de Azure Container Service. Necesita una cuenta con Dynatrace SaaS/Managed para esta configuración. 
 
@@ -27,7 +29,7 @@ La figura siguiente muestra la interfaz de usuario de Dynatrace:
 
 ![Interfaz de usuario de Dynatrace](./media/container-service-monitoring-dynatrace/dynatrace.png)
 
-## <a name="prerequisites"></a>requisitos previos 
+## <a name="prerequisites"></a>Requisitos previos 
 [Implemente](container-service-deployment.md) y [conecte](./../container-service-connect.md) un clúster configurado por Azure Container Service. Explore la [interfaz de usuario de Marathon](container-service-mesos-marathon-ui.md). Vaya a [https://www.dynatrace.com/trial/](https://www.dynatrace.com/trial/) para configurar una cuenta de Dynatrace SaaS.  
 
 ## <a name="configure-a-dynatrace-deployment-with-marathon"></a>Configuración de una implementación de Dynatrace con Marathon

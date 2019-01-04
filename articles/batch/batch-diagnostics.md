@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 04/05/2018
+ms.date: 12/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 61db5e9eedc57ef6316cb760499362ed856e38c6
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 8efa8088bca3eb6221c49ec5f14334342149795d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822762"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438445"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas, alertas y registros de Batch para evaluación de diagnóstico y supervisión
 
  
-En este artículo se explica cómo supervisar una cuenta de Batch con las características de [Azure Monitor](../azure-monitor/overview.md). Azure Monitor recopila [métricas](../azure-monitor/platform/data-collection.md#metrics) y [registros de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) de recursos en la cuenta de Batch. Recopile y consuma estos datos de diversas maneras para supervisar la cuenta de Batch y diagnosticar problemas. También puede configurar [alertas de métricas](../monitoring-and-diagnostics/monitoring-overview-alerts.md) para recibir notificaciones cuando una métrica alcance un valor especificado. 
+En este artículo se explica cómo supervisar una cuenta de Batch con las características de [Azure Monitor](../azure-monitor/overview.md). Azure Monitor recopila [métricas](../azure-monitor/platform/data-collection.md#metrics) y [registros de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) de recursos en la cuenta de Batch. Recopile y consuma estos datos de diversas maneras para supervisar la cuenta de Batch y diagnosticar problemas. También puede configurar [alertas de métricas](../azure-monitor/platform/alerts-overview.md) para recibir notificaciones cuando una métrica alcance un valor especificado. 
 
 ## <a name="batch-metrics"></a>Métricas de Batch
 
-Las métricas son datos de telemetría de Azure (también denominados contadores de rendimiento) que emiten los recursos de Azure y que consume el servicio Azure Monitor. Ejemplos de métricas en una cuenta de Batch son: eventos de creación de grupos, recuento de nodos de prioridad baja y eventos de finalización de tareas. 
+Las métricas son datos de telemetría de Azure (también denominados contadores de rendimiento) que emiten los recursos de Azure y que consume el servicio Azure Monitor. Las métricas de ejemplo en una cuenta de Batch incluyen: Eventos de creación de grupo, Recuento de nodos de baja prioridad y Eventos de tarea completada. 
 
-Consulte la [lista de métricas admitidas de Batch](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftbatchbatchaccounts).
+Consulte la [lista de métricas admitidas de Batch](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts).
 
 Las métricas se caracterizan por:
 
@@ -53,11 +53,17 @@ Para ver todas las métricas de la cuenta de Batch, siga estos pasos:
 
 Para recuperar las métricas mediante programación, use las API de Azure Monitor. Para ver ejemplos, consulte [Retrieve Azure Monitor metrics with .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) (Recuperación de métricas de Azure Monitor con .NET).
 
+## <a name="batch-metric-reliability"></a>Confiabilidad de métricas de Batch
+
+Las métricas están diseñadas para usarse para el análisis de tendencias y datos. La entrega de la métrica no está garantizada y está sujeta a la entrega desordenada, la pérdida de datos y/o la duplicación. No se recomienda el uso de eventos únicos para funciones de alerta o de desencadenador. Vea la sección [Alertas de métricas de Batch](#batch-metric-alerts) para obtener más información sobre cómo establecer umbrales para las alertas.
+
+Es posible que todavía se estén agregando las métricas emitidas en los últimos tres minutos. Durante este período de tiempo, es posible que los valores de la métrica se informen muy por debajo de los reales.
+
 ## <a name="batch-metric-alerts"></a>Alertas de métricas de Batch
 
-Opcionalmente, configure *alertas de métricas* en tiempo real que se desencadenen cuando el valor de una métrica especificada supere un umbral asignado. La alerta genera una [notificación](../monitoring-and-diagnostics/insights-alerts-portal.md) que se elige cuando la alerta está "Activada" (si se sobrepasa el umbral y se cumple la condición de alerta), así como cuando queda en estado "Resuelto" (cuando se vuelve a sobrepasa el umbral y ya no se cumple la condición). 
+Opcionalmente, configure *alertas de métricas* en tiempo real que se desencadenen cuando el valor de una métrica especificada supere un umbral asignado. La alerta genera una [notificación](../monitoring-and-diagnostics/insights-alerts-portal.md) que se elige cuando la alerta está "Activada" (si se sobrepasa el umbral y se cumple la condición de alerta), así como cuando queda en estado "Resuelto" (cuando se vuelve a sobrepasa el umbral y ya no se cumple la condición). No se recomienda generar alertas basadas en puntos de datos únicos, ya que las métricas están sujetas a la entrega desordenada, la pérdida de datos y/o la duplicación. Las alertas deben usar los umbrales para tener en cuenta estas incoherencias.
 
-Por ejemplo, podría configurar una alerta de métrica cuando el recuento de núcleos de baja prioridad caiga hasta cierto punto, y así poder ajustar la composición de los grupos.
+Por ejemplo, podría configurar una alerta de métrica cuando el recuento de núcleos de baja prioridad caiga hasta cierto punto, y así poder ajustar la composición de los grupos. Se recomienda establecer un período de 10 o más minutos en el que se activen alertas si el recuento promedio de núcleos de prioridad baja cae por debajo del valor de umbral para todo el período. No se recomienda generar alertas en un período de 1 a 5 minutos, ya que es posible que las métricas todavía se estén agregando.
 
 Para configurar una alerta de métrica en el portal:
 
@@ -65,7 +71,7 @@ Para configurar una alerta de métrica en el portal:
 2. En **Supervisión**, haga clic en **Reglas de alerta** > **Agregar alerta de métrica**.
 3. Seleccione una métrica, una condición de alerta (por ejemplo, cuando una métrica supere un valor determinado durante un período) y una o más notificaciones.
 
-También puede configurar una alerta casi en tiempo real mediante la [API REST](https://docs.microsoft.com/rest/api/monitor/). Para más información, consulte [Introducción a las alertas](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+También puede configurar una alerta casi en tiempo real mediante la [API REST](https://docs.microsoft.com/rest/api/monitor/). Para más información, consulte [Introducción a las alertas](../azure-monitor/platform/alerts-overview.md)
 
 ## <a name="batch-diagnostics"></a>Diagnóstico de Batch
 
@@ -103,7 +109,7 @@ Otros destinos opcionales de los registros de diagnóstico:
 
     ![Diagnóstico de Batch](media/batch-diagnostics/diagnostics-portal.png)
 
-Otras opciones para habilitar la recopilación de registros son: usar Azure Monitor en el portal para configurar el diagnóstico, usar una [plantilla de Resource Manager](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md) o usar Azure PowerShell o la CLI de Azure. Consulte [Recopilación y uso de los datos de registro provenientes de los recursos de Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs).
+Otras opciones para habilitar la recopilación de registros son: usar Azure Monitor en el portal para configurar el diagnóstico, usar una [plantilla de Resource Manager](../azure-monitor/platform/diagnostic-logs-stream-template.md) o usar Azure PowerShell o la CLI de Azure. Consulte [Recopilación y uso de los datos de registro provenientes de los recursos de Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs).
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Acceso a los registros de diagnóstico en el almacenamiento
@@ -127,7 +133,7 @@ BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 Cada archivo de blob PT1H.json contiene eventos con formato JSON que se producen dentro de la hora especificada en la dirección URL del blob (por ejemplo, h=12). Durante la hora en cuestión, los eventos se anexan al archivo PT1H.json a medida que se producen. El valor de los minutos (m=00) siempre es 00, ya que los eventos de los registros de diagnóstico se dividen en blobs individuales por hora. (Todas las horas se muestran en UTC).
 
 
-Para más información sobre el esquema de registros de diagnóstico en la cuenta de almacenamiento, consulte [Archivo de registros de diagnóstico de Azure](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
+Para más información sobre el esquema de registros de diagnóstico en la cuenta de almacenamiento, consulte [Archivo de registros de diagnóstico de Azure](../azure-monitor/platform/archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
 
 Para acceder a los registros de la cuenta de almacenamiento mediante programación, use las API de Storage. 
 

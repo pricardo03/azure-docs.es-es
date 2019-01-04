@@ -1,5 +1,5 @@
 ---
-title: Uso compartido de vistas personalizadas de Azure Time Series Insights con direcciones URL con parámetros | Microsoft Docs
+title: 'Direcciones URL de Azure Time Series Insights: uso compartido de vistas personalizadas de Azure Time Series Insights con direcciones URL con parámetros | Microsoft Docs'
 description: En este artículo se describe cómo desarrollar direcciones URL con parámetros en Azure Time Series Insights, de forma que una vista de cliente pueda compartirse fácilmente.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,13 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: dbd717d79230c5dc2fc823484376267e7b7b8ab1
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: 5b43ba4c3f88c678b160e8aec442fa92b4822a3d
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628807"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274367"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Uso compartido de una vista personalizada mediante una dirección URL con parámetros
 
@@ -70,7 +71,7 @@ El parámetro `timeSeriesDefinitions=<collection of term objects>` especifica lo
   - El nombre de columna de *medida*.
 - "predicate":"<string>"
   - La cláusula *where* para el filtrado en el lado del servidor.
--  "useSum":"true"
+- "useSum":"true"
   - Se trata de un parámetro opcional que especifica el uso de sum para la medida.  Tenga en cuenta que si "Eventos" es la medida seleccionada, se selecciona de forma predeterminada el recuento.  Si "Eventos" no se selecciona, se selecciona la media de forma predeterminada.  
 
 El parámetro multiChartStack = <true/false>' permite el apilamiento en el gráfico, mientras que el parámetro 'multiChartSameScale = <true/false>' permite la misma escala del eje Y en los términos de un parámetro opcional.  

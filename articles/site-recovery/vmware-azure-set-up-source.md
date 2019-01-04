@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 5f7d3bb51b2d1c05083645ccc5bca4f668d4a661
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 7d81b7f0d84eb8751e4e95a31be58ed49a96bb2d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160535"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835011"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Configuración del entorno de origen para la replicación de VMware en Azure
 
@@ -69,7 +69,7 @@ Para que la replicación se realice sin problema alguno y para evitar problemas 
  - C:\ProgramData\ASRSetupLogs
  - C:\ProgramData\LogUploadServiceLogs
  - C:\inetpub
- - El directorio de instalación del servidor de ASR. Por ejemplo: E:\Archivos de programa (x86)\Microsoft Azure Site Recovery
+ - El directorio de instalación del servidor de ASR. Por ejemplo:  E:\Program Files (x86)\Microsoft Azure Site Recovery
 
 ### <a name="if-antivirus-software-is-active-on-scale-out-process-servermaster-target"></a>Si el software antivirus está activo en el servidor de procesos o destino maestro de la escalabilidad horizontal
 
@@ -81,7 +81,7 @@ Excluya las siguientes carpetas del software antivirus
 4. C:\ProgramData\ASRSetupLogs
 5. C:\ProgramData\LogUploadServiceLogs
 6. C:\ProgramData\Microsoft Azure Site Recovery
-7. Directorio de instalación del servidor de procesos con equilibrio de carga de ASR. Por ejemplo: C:\Archivos de programa (x86) \Microsoft Azure Site Recovery
+7. directorio de instalación del servidor de procesos con equilibrio de carga de ASR. Ejemplo: C:\Program Files (x86)\Microsoft Azure Site Recovery
 
 ## <a name="common-issues"></a>Problemas comunes
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]

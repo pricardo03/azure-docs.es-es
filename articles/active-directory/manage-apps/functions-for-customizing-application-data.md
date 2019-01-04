@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: 7a7f959f54281dcce5b8d1349f5d6607f0e5da30
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 058cadec0776e05daf9fddbf715020953478ff58
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345800"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105162"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escritura de expresiones para la asignación de atributos en Azure Active Directory
 Al configurar el aprovisionamiento para una aplicación SaaS, uno de los tipos de asignaciones de atributos que puede especificar es una asignación de expresiones. En estos casos, debe escribir una expresión similar a un script que permite transformar los datos de los usuarios en formatos más aceptables para la aplicación SaaS.
@@ -32,9 +32,9 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 * Puede transformar tres tipos diferentes de argumentos en funciones:
   
   1. Atributos, que deben ir entre corchetes. Por ejemplo: [NombreAtributo]
-  2. Constantes de cadena, que deben ir entre comillas. Por ejemplo: "Estados Unidos"
-  3. Otras funciones. Por ejemplo: FunciónUna(<<argument1>>, FunciónDos(<<argument2>>))
-* Para las constantes de cadena, si necesita una barra diagonal inversa (\) o comillas dobles (") en la cadena, se deben convertirse con el símbolo de barra diagonal inversa (\). Por ejemplo: "Company name: \"Contoso\""
+  2. Constantes de cadena, que deben ir entre comillas. Por ejemplo:  "Estados Unidos"
+  3. Otras funciones. Por ejemplo:  FunctionOne(<<argument1>>, FunctionTwo(<<argument2>>))
+* Para las constantes de cadena, si necesita una barra diagonal inversa (\) o comillas dobles (") en la cadena, se deben convertirse con el símbolo de barra diagonal inversa (\). Por ejemplo:  "Nombre de la empresa: \"Contoso\""
 
 ## <a name="list-of-functions"></a>Lista de funciones
 [Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
@@ -63,7 +63,7 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 | NOMBRE | Obligatorio/Repetición | Escriba | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |string |Normalmente el nombre del atributo del objeto de origen. |
-| **inputFormat** |Obligatorio |string |Formato esperado del valor de origen. Para conocer los formatos admitidos, consulte [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **inputFormat** |Obligatorio |string |Formato esperado del valor de origen. Para conocer los formatos admitidos, consulte [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** |Obligatorio |string |Formato de la fecha de salida. |
 
 - - -
@@ -79,7 +79,7 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 | NOMBRE | Obligatorio/Repetición | Escriba | Notas |
 | --- | --- | --- | --- |
 | **separator** |Obligatorio |string |Cadena utilizada para separar los valores de origen cuando se concatenan en una sola cadena. Puede ser "" si no es necesario ningún separador. |
-| **origen1  … origenN ** |Obligatorio, número variable de veces |string |Valores de cadena que se van a agrupar. |
+| **source1  … sourceN** |Obligatorio, número variable de veces |string |Valores de cadena que se van a agrupar. |
 
 - - -
 ### <a name="mid"></a>Mid
@@ -141,6 +141,7 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
   * Si **source** no tiene un valor, usa **regexPattern** y **regexGroupName** para extraer un valor de sustitución de la propiedad con **replacementPropertyName**. El valor de reemplazo se devuelve como resultado
 
 **Parámetros:**<br> 
+
 | NOMBRE | Obligatorio/Repetición | Escriba | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |string |Normalmente el nombre del atributo del objeto de origen. |
@@ -166,7 +167,7 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 | NOMBRE | Obligatorio/Repetición | Escriba | Notas |
 | --- | --- | --- | --- |
-| **uniqueValueRule1  … uniqueValueRuleN ** |Al menos se requieren dos, sin límite superior |string | Lista de reglas de generación de valor único para evaluar |
+| **uniqueValueRule1  … uniqueValueRuleN** |Al menos se requieren dos, sin límite superior |string | Lista de reglas de generación de valor único para evaluar |
 
 
 - - -
@@ -240,9 +241,9 @@ Debe generar un alias de usuario con las tres primeras letras del nombre del usu
 
 **Entrada/salida de ejemplo:** <br>
 
-* **ENTRADA** (givenName): "John"
-* **ENTRADA** (surname): "Doe"
-* **SALIDA**: "JohDoe"
+* **INPUT** (givenName): "John"
+* **INPUT** (surname): "Doe"
+* **OUTPUT**:  "JohnDoe"
 
 ### <a name="remove-diacritics-from-a-string"></a>Quitar los signos diacríticos de una cadena
 Necesita reemplazar caracteres que contienen acentos por otros equivalentes que no los contienen.
@@ -252,8 +253,8 @@ NormalizeDiacritics([givenName])
 
 **Entrada/salida de ejemplo:** <br>
 
-* **ENTRADA** (givenName): "Zoë"
-* **SALIDA**: "Zoe"
+* **INPUT** (givenName): "Zoë"
+* **OUTPUT**:  "Zoe"
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Fecha de resultado como una cadena en un formato determinado
 
@@ -266,8 +267,8 @@ Desea enviar las fechas a una aplicación SaaS con un formato determinado. <br>
 
 **Entrada/salida de ejemplo:**
 
-* **ENTRADA** (extensionAttribute1): "20150123105347.1Z"
-* **SALIDA**: "2015-01-23"
+* **INPUT** (extensionAttribute1): "20150123105347.1Z"
+* **OUTPUT**:  "2015-01-23"
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Reemplazar un valor basado en un conjunto predefinido de opciones
 
@@ -280,8 +281,8 @@ Debe definir la zona horaria del usuario según el código de estado almacenado 
 
 **Entrada/salida de ejemplo:**
 
-* **ENTRADA** (state): "QLD"
-* **SALIDA**: "Australia/Brisbane"
+* **INPUT** (state): "QLD"
+* **OUTPUT**: "Australia/Brisbane"
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Generación de un valor único para el atributo userPrincipalName (UPN)
 

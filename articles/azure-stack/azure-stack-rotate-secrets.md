@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 8d84801aacfc60bb11aac4c9046a433378a59b79
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2b1dc0ad28a6608e3a46087d31a3d077e9291a3d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314480"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841683"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Cambio de secretos en Azure Stack
 
@@ -44,7 +44,7 @@ Certificados de servicio de infraestructura para servicios de uso externo que pr
 
    <sup>*</sup> Solo es aplicable si el proveedor de identidades del entorno son los Servicios de federación de Active Directory (AD FS).
 
-> [!NOTE]
+> [!NOTE]  
 > Todas las demás claves y cadenas seguras, incluyendo BMC, las contraseñas de cambio y las contraseñas de cuentas de usuario y administrador aún las actualiza manualmente el administrador. 
 
 Para mantener la integridad de la infraestructura de Azure Stack, los operadores necesitan la capacidad de poder cambiar periódicamente los secretos de la infraestructura con una frecuencia que sea coherente con los requisitos de seguridad de su organización.
@@ -65,7 +65,7 @@ Azure Stack admite el cambio de secretos con certificados externos desde una nue
 |De pública<sup>*</sup>|A autofirmado|No compatible||
 |De pública<sup>*</sup>|A pública<sup>*</sup>|Compatible|1803 y posterior|
 
-<sup>*</sup> Aquí, las entidades de certificación públicas son aquellas que forman parte del programa de raíz de confianza de Windows. Puede encontrar la lista completa de [participantes del programa de certificados de raíz de confianza de Microsoft (al 27 de junio de 2017)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+<sup>*</sup> Aquí, las entidades de certificación públicas son aquellas que forman parte del programa de raíz de confianza de Windows. Puede ver la lista completa en el artículo [Microsoft Trusted Root Certificate Program: Participants (as of June 27, 2017)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca) [Programa de certificados raíz de confianza de Microsoft: participantes (a partir del 27 de junio de 2017)].
 
 ## <a name="alert-remediation"></a>Corrección de alertas
 
@@ -199,7 +199,7 @@ El controlador de administración de placa base (BMC) supervisa el estado físic
 
 1. Actualice el BMC en los servidores físicos de Azure Stack siguiendo las instrucciones del OEM. La contraseña para cada BMC de su entorno debe ser la misma.
 2. Abra un punto de conexión con privilegios en sesiones de Azure Stack. Para obtener instrucciones, consulte [Uso del punto de conexión con privilegios en Azure Stack](azure-stack-privileged-endpoint.md).
-3. Después que el símbolo del sistema de PowerShell cambia a **[dirección IP o nombre de máquina virtual de ERCS]: PS>** o a **[azs-ercs01]: PS>**, según el entorno, ejecute `Set-BmcPassword` mediante la ejecución de `invoke-command`. Pase la variable de sesión del punto de conexión con privilegios como parámetro. Por ejemplo: 
+3. Cuando el símbolo del sistema de PowerShell cambie a **[IP address or ERCS VM name]: PS >** o a **[azs-ercs01]: PS >**, en función del entorno, ejecute `Set-BmcPassword` mediante `invoke-command`. Pase la variable de sesión del punto de conexión con privilegios como parámetro. Por ejemplo: 
 
     ```powershell
     # Interactive Version

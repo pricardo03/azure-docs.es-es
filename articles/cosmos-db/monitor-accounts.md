@@ -1,22 +1,22 @@
 ---
-title: Supervisión de las solicitudes y el almacenamiento de Azure Cosmos DB | Microsoft Docs
+title: Supervisión de las métricas de rendimiento y almacenamiento en Azure Cosmos DB
 description: Obtenga información sobre cómo supervisar la cuenta de Azure Cosmos DB para aplicar métricas de rendimiento, como solicitudes y errores de servidor, y métricas de uso, como consumo de almacenamiento.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/19/2017
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: 1f4bf4ba660e83be9879c56d04b27c932d563e17
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.custom: seodec18
+ms.openlocfilehash: fe527e6e9933d25d7f1a16561ce4822d7b9a33ab
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354077"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135889"
 ---
-# <a name="monitor-azure-cosmos-db"></a>Supervisión de Azure Cosmos DB
+# <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>Supervisión de las métricas de rendimiento y almacenamiento en Azure Cosmos DB
+
 Puede supervisar las cuentas de Azure Cosmos DB en [Azure Portal](https://portal.azure.com/). Para cada cuenta de Azure Cosmos DB, está disponible un conjunto completo de métricas para supervisar el rendimiento, almacenamiento, disponibilidad, latencia y coherencia.
 
 Las métricas pueden revisarse en la página Cuenta, en la nueva página Métricas o en Azure Monitor.

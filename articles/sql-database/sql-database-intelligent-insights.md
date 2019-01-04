@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e8608782c71f8afc2ae32b16077cb26b5dcc6849
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 573e0dd1bae584b12cfd3859fe63d7ca20bb7b52
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976195"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278141"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights con inteligencia artificial para supervisar y solucionar problemas de rendimiento de base de datos
 
@@ -87,7 +87,7 @@ La solución Azure SQL Analytics proporciona funcionalidades de interfaz gráfic
 > Introducción rápida: la manera más fácil de ponerse en marcha con Intelligent Insights es usarlo junto con Azure SQL Analytics, que proporcionará una interfaz gráfica de usuario para los problemas de rendimiento de bases de datos. Agregue la solución Azure SQL Analytics desde el Marketplace, cree un área de trabajo dentro de esta solución y, a continuación, para cada base de datos en la que desee habilitar Intelligent Insights, configure el streaming del registro de "SQLInsights" en la hoja Configuración de diagnóstico de una base de datos del área de trabajo de Azure SQL Analytics.
 >
 
-Como requisito previo, debe agregar Azure SQL Analytics al panel de Azure Portal desde el Marketplace y crear un área de trabajo (consulte [Configuración de Azure SQL Analytics](../log-analytics/log-analytics-azure-sql.md#configuration)).
+Como requisito previo, debe agregar Azure SQL Analytics al panel de Azure Portal desde el Marketplace y crear un área de trabajo (consulte [Configuración de Azure SQL Analytics](../azure-monitor/insights/azure-sql.md#configuration)).
 
 Para usar Intelligent Insights con Azure SQL Analytics, configure los datos de registro de Intelligent Insights que transmitirá al área de trabajo de Azure SQL Analytics creada en el paso anterior (consulte [Métricas y registros de diagnóstico de Azure SQL Database](sql-database-metrics-diag-logging.md)).
 
@@ -179,5 +179,5 @@ En caso de que alguna de las excepciones críticas supervisadas supere los umbra
 
 - Aprenda a [solucionar problemas de rendimiento de SQL Database con Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Use el [Registro de diagnóstico de rendimiento de SQL Database de Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
-- Aprenda a [supervisar SQL Database mediante SQL Analytics](../log-analytics/log-analytics-azure-sql.md).
+- Aprenda a [supervisar SQL Database mediante SQL Analytics](../azure-monitor/insights/azure-sql.md).
 - Aprenda a [recopilar y usar los datos de registro provenientes de los recursos de Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).

@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/11/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 023df222ee2e9ca6af1398dd70767938e61c90b7
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: ea81cb52b8492e429903de15a9ff0156c91abae2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824119"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309593"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Uso del servicio Azure Import/Export para importar datos de Azure Blob Storage
 
@@ -30,7 +30,7 @@ Antes de crear un trabajo de importación para transferir datos a Azure Blob Sto
 - Tener un número suficiente de discos de los [tipos admitidos](storage-import-export-requirements.md#supported-disks). 
 - Tener un sistema de Windows que ejecute una [versión admitida del sistema operativo](storage-import-export-requirements.md#supported-operating-systems). 
 - Habilitar BitLocker en el sistema de Windows. Consulte [Cómo habilitar BitLocker](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
-- [Descargar la versión 1 de WAImportExport](https://www.microsoft.com/en-us/download/details.aspx?id=42659) en el sistema de Windows. Descomprima en la carpeta predeterminada `waimportexportv1`. Por ejemplo, `C:\WaImportExportV1`.
+- [Descargar la versión 1 de WAImportExport](https://aka.ms/waiev1) en el sistema de Windows. Descomprima en la carpeta predeterminada `waimportexportv1`. Por ejemplo, `C:\WaImportExportV1`.
 - Tener una cuenta de FedEx o DHL.  
     - La cuenta debe ser válida, debe tener saldo positivo y debe tener capacidades de devolución de envíos.
     - Generar un número de seguimiento del trabajo de exportación.
@@ -79,7 +79,7 @@ Realice los pasos siguientes para preparar las unidades de disco.
     > [!IMPORTANT]
     > - Junto con el archivo de diario, se crea también un archivo `<Journal file name>_DriveInfo_<Drive serial ID>.xml` en la misma carpeta en la que reside la herramienta. Si al crear un trabajo el archivo de diario es demasiado grande se utiliza el archivo .xml en su lugar. 
 
-## <a name="step-2-create-an-import-job"></a>Paso 2: Creación de un trabajo de importación
+## <a name="step-2-create-an-import-job"></a>Paso 2: Crear un trabajo de importación
 
 Siga estos pasos para crear un trabajo de importación en Azure Portal.
 
@@ -138,7 +138,7 @@ Siga estos pasos para crear un trabajo de importación en Azure Portal.
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
-## <a name="step-5-verify-data-upload-to-azure"></a>Paso 5: Verificación de la carga de datos en Azure
+## <a name="step-5-verify-data-upload-to-azure"></a>Paso 5: Comprobación de la carga de datos en Azure
 
 Siga el trabajo hasta su finalización. Una vez que se haya finalizado el trabajo, compruebe que los datos se han cargado en Azure. Elimine los datos de forma local después de comprobar que la carga fue correcta.
 

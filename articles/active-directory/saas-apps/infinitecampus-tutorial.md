@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 837d18a04a0cd22f29a5cbcb8b06b7e3f5fae255
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 9f4adbacf2749e8c8ff2da8f331a007e8dcaaea3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632813"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099960"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Tutorial: Integración de Azure Active Directory con Infinite Campus
 
@@ -111,11 +111,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](common/editconfigure.png)
 
-5. En la sección **Configuración básica de SAML**, si tiene el **archivo de metadatos del proveedor de servicios** (paso **11.b**), lleve a cabo los siguientes pasos:
+5. En la sección **Configuración básica de SAML**, si tiene el **archivo de metadatos del proveedor de servicios** (pasar al paso **11.b**), lleve a cabo los siguientes pasos:
 
      a. Haga clic en **Cargar el archivo de metadatos**.
 
-    ![imagen](common/b9_saml.png)
+        ![image](common/b9_saml.png)
 
     b. Haga clic en el **logotipo de la carpeta** para seleccionar el archivo de metadatos y luego en **Cargar**.
 
@@ -128,9 +128,9 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     d. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón (el dominio variará con el modelo de hospedaje): `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
     > [!NOTE]
-    > Obtendrá el **archivo de metadatos del proveedor de servicios** en la página de configuración del proveedor de servicios de inicio de sesión único de Infinite Campus que se explica más adelante en el tutorial.
+    > Obtendrá el **archivo de metadatos del proveedor de servicios** en la página de configuración del proveedor de servicios de inicio de sesión único de Infinite Campus que se explica más adelante en el tutorial. Si está empezando a usar una nueva configuración de proveedor de servicios de SAML en Infinite Campus, vaya al **paso 11** para completar la exportación del archivo de metadatos del proveedor de servicios.
 
-6. Si no dispone del **archivo de metadatos del proveedor de servicios**, lleve a cabo los pasos siguientes:
+6. Si no dispone del **archivo de metadatos del proveedor de servicios**, lleve a cabo los pasos siguientes (tenga en cuenta que el dominio variará en función del modelo de hospedaje):
 
      a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`.
 
@@ -169,10 +169,10 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     ![Inicio de sesión único](./media/infinitecampus-tutorial/tutorial_infinitecampus_sso.png)
 
      a. Seleccione **Enable SAML v2 Single Sign On**(Habilitar inicio de sesión único de SAML v2).
+    
+    b. En la sección **Select an option to retrieve Identity Provider (IDP) server data** (Seleccionar una opción para recuperar los datos del servidor del proveedor de identidades), seleccione **Metadata URL** (Dirección URL de metadatos), pegue el valor de **App Federation Metadata Url** (Dirección URL de metadatos de federación de aplicaciones) en el cuadro y después haga clic en **Sync** (Sincronizar).
 
-    b. Haga clic en el vínculo **Service Provider Metadata** (Metadatos del proveedor de servicios) para guardar el **archivo de metadatos del proveedor de servicios** en el equipo y cárguelo en la sección **Configuración básica de SAML** para rellenar de forma automática los valores **Identificador** y **Dirección URL de respuesta** en Azure Portal (consulte el paso 5).
-
-    c. En la sección **Select an option to retrieve Identity Provider (IDP) server data** (Seleccionar una opción para recuperar los datos del servidor del proveedor de identidades), seleccione **Metadata URL** (Dirección URL de metadatos), pegue el valor de **App Federation Metadata Url** (Dirección URL de metadatos de federación de aplicaciones) en el cuadro de texto y después haga clic en **Sync** (Sincronizar).
+    c. Haga clic en el vínculo **Service Provider Metadata** (Metadatos del proveedor de servicios) para guardar el **archivo de metadatos del proveedor de servicios** en el equipo y cárguelo en la sección **Configuración básica de SAML** para rellenar de forma automática los valores **Identificador** y **Dirección URL de respuesta** en Azure Portal (consulte el paso 4 para cargar y rellenar automáticamente valores, o el paso 5 para introducirlos manualmente).
 
     d. Después de hacer clic en **Sync** (Sincronizar), los valores se rellenan automáticamente en la página **SSO Service Provider Configuration** (Configuración del proveedor de servicios de SSO).
 

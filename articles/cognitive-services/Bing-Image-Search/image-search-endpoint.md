@@ -1,5 +1,5 @@
 ---
-title: 'Puntos de conexión de Image Search: Bing Image Search API'
+title: Puntos de conexión para Bing Image Search API
 titleSuffix: Azure Cognitive Services
 description: Lista de puntos de conexión disponibles para Bing Image Search API.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: v-gedod
-ms.openlocfilehash: ca38943908bf3eee04c40cf4decf81fd20b08a1f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cb6213bbb27fc1a7086ccecafa7ae7b12040ac0a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295927"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250627"
 ---
-# <a name="image-search-endpoints"></a>Puntos de conexión de Image Search
+# <a name="endpoints-for-the-bing-image-search-api"></a>Puntos de conexión para Bing Image Search API
 
 **Image Search API** incluye tres puntos de conexión.  El punto de conexión 1 devuelve imágenes de la web en función de una consulta. El punto de conexión 2 devuelve [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse).  El punto de conexión 3 devuelve imágenes populares.
 ## <a name="endpoints"></a>Puntos de conexión
@@ -49,7 +49,7 @@ Para más información sobre encabezados, parámetros, códigos de mercado, obje
 La respuesta a una solicitud de búsqueda de imágenes incluye los resultados como objetos JSON. Para obtener ejemplos de análisis de los resultados, consulte el [tutorial](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app) y el [código fuente](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app-source).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Las API de **Bing** admiten acciones de búsqueda que devuelven resultados según su tipo. Todos los puntos de conexión de búsqueda devuelven resultados como objetos de respuesta JSON.  Todos los puntos de conexión admiten consultas que devuelven un idioma o una ubicación en concreto por longitud, latitud y radio de búsqueda.
+Las API de **Bing** admiten acciones de búsqueda que devuelven resultados según su tipo. Todos los puntos de conexión de búsqueda devuelven resultados como objetos de respuesta JSON.  Todos los puntos de conexión admiten consultas que devuelven un idioma o una ubicación en concreto por longitud, latitud y radio de búsqueda.
 
 Para una información completa acerca de los parámetros admitidos por cada punto de conexión, consulte las páginas de referencia de cada tipo.
 Para obtener ejemplos de solicitudes básicas mediante Image Search API, consulte los [inicios rápidos de Image Search](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/search-the-web).

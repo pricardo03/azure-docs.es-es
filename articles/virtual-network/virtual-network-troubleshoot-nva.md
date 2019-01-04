@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 2a0f6b75c540f319848805e8a9bda7b166d5d709
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 13cec39278577a818ef43f1215fd2e6653f15ed2
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138666"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52678447"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Problemas de aplicaciones virtuales de red en Azure
 
 Es posible que experimente problemas y errores de conectividad de máquina virtual o de VPN al utilizar la aplicación virtual de red (NVA) de terceros en Microsoft Azure. En este artículo se proporcionan los pasos básicos para ayudarle a validar los requisitos básicos de la plataforma Azure para las configuraciones de aplicación virtual de red.
 
-El soporte técnico para las aplicaciones virtuales de red de terceros y su integración con la plataforma Azure lo proporciona el proveedor de la aplicación virtual de red. Si tiene un problema de conectividad o de enrutamiento que implica una aplicación virtual de red, debería [ponerse en contacto directamente con el proveedor de la aplicación virtual de red](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+El soporte técnico para las aplicaciones virtuales de red de terceros y su integración con la plataforma Azure lo proporciona el proveedor de la aplicación virtual de red. 
+
+> [!NOTE]
+> Si tiene un problema de conectividad o de enrutamiento que implica una aplicación virtual de red, debería [ponerse en contacto directamente con el proveedor de la aplicación virtual de red](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -37,6 +40,7 @@ El soporte técnico para las aplicaciones virtuales de red de terceros y su inte
 - Rutas definidas por el usuario (UDR) en subredes de red virtual que dirigen el tráfico de la aplicación virtual de red
 - Tablas de enrutamiento y las reglas en la aplicación virtual de red (por ejemplo, de NIC1 a NIC2)
 - Seguimiento de las NIC de la aplicación virtual de red para comprobar la recepción y el envío del tráfico de red
+- Al usar una SKU estándar y la dirección IP pública, debe haber un NSG creado y una regla explícita para permitir que el tráfico se enrute a la NVA.
 
 ## <a name="basic-troubleshooting-steps"></a>Pasos básicos para solucionar problemas
 
@@ -73,6 +77,8 @@ Uso de PowerShell
           Execute: $nic2 #and check for an expected output:
           EnableIPForwarding   : True
           NetworkSecurityGroup : null
+
+**Comprobación de NSG al usar la dirección IP pública de una SKU estándar** Al usar una SKU estándar y una dirección IP pública, debe haber un NSG creado y una regla explícita para permitir el tráfico a la NVA.
 
 **Comprobación de si se puede enrutar el tráfico a la aplicación virtual de red**
 

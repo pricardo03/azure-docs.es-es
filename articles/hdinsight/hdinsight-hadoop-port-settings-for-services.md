@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: e6204933d6b9a4a6b296a141520fc8887c9181f1
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 22e15f58f3d4e7f4db3ac3bd519dbb286a36ef95
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279729"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384146"
 ---
-# <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Puertos utilizados por los servicios Hadoop en HDInsight
+# <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Puertos utilizados por los servicios Apache Hadoop en HDInsight
 
-En este documento se proporciona una lista de puertos que se usan con los servicios de Hadoop que se ejecutan en clústeres de HDInsight basados en Linux. También se proporciona información sobre los puertos utilizados para conectarse al clúster mediante SSH.
+En este documento se proporciona una lista de puertos que se usan con los servicios de Apache Hadoop que se ejecutan en clústeres de HDInsight basados en Linux. También se proporciona información sobre los puertos utilizados para conectarse al clúster mediante SSH.
 
 ## <a name="public-ports-vs-non-public-ports"></a>Puertos públicos frente a puertos no públicos
 
@@ -26,7 +26,7 @@ Los clústeres de HDInsight basados en Linux solo exponen tres puertos públicam
 
 Internamente, HDInsight se implementa mediante varias Azure Virtual Machines (los nodos del clúster) que se ejecutan en una instancia de Azure Virtual Network. Desde dentro de la red virtual, puede acceder a los puertos no expuestos a través de Internet. Por ejemplo, si se conecta a uno de los nodos principales con SSH, desde él puede acceder directamente a los servicios que se ejecutan en los nodos del clúster.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Si no especifica una instancia de Azure Virtual Network como una opción de configuración de HDInsight, automáticamente se crea una. Sin embargo, no puede unir otras máquinas (por ejemplo, otras Azure Virtual Machines o su equipo de desarrollo de cliente) a esta red virtual.
 
 
@@ -41,20 +41,20 @@ Todos los nodos de un clúster de HDInsight se encuentran en una instancia de Az
 | sshd |22 |SSH |Conecta los clientes a sshd en el nodo primario principal. Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | sshd |22 |SSH |Conecta los clientes a sshd en el nodo perimetral. Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | sshd |23 |SSH |Conecta los clientes a sshd en el nodo primario secundario. Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
-| Ambari |443 |HTTPS |Interfaz de usuario web de Ambari. Consulte [Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md) |
-| Ambari |443 |HTTPS |API de REST de Ambari. Consulte [Administración de clústeres de HDInsight con la API de REST de Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) |
-| WebHCat |443 |HTTPS |API de REST de HCatalog. Consulte [Uso de Hive con Curl](hadoop/apache-hadoop-use-pig-curl.md), [Uso de Pig con Curl](hadoop/apache-hadoop-use-pig-curl.md) y [Uso de MapReduce con Curl](hadoop/apache-hadoop-use-mapreduce-curl.md). |
+| Ambari |443 |HTTPS |Interfaz de usuario web de Ambari. Consulte [Administración de clústeres de HDInsight con la interfaz de usuario web de Apache Ambari](hdinsight-hadoop-manage-ambari.md) |
+| Ambari |443 |HTTPS |API de REST de Ambari. Consulte [Administración de clústeres de HDInsight con la API REST de Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) |
+| WebHCat |443 |HTTPS |API de REST de HCatalog. Consulte [Uso de Apache Hive con Curl](hadoop/apache-hadoop-use-pig-curl.md), [Uso de Apache Pig con Curl](hadoop/apache-hadoop-use-pig-curl.md) y [Uso de MapReduce con Curl](hadoop/apache-hadoop-use-mapreduce-curl.md). |
 | HiveServer2 |443 |ODBC |Conecta a Hive mediante ODBC. Consulte [Conexión de Excel en HDInsight con el controlador ODBC de Microsoft](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md). |
-| HiveServer2 |443 |JDBC |Conecta a Hive mediante JDBC. Consulte [Conexión a Hive en HDInsight de Azure con el controlador JDBC de Hive](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
+| HiveServer2 |443 |JDBC |Conecta a Apache Hive mediante JDBC. Consulte [Conexión a Apache Hive en HDInsight de Azure con el controlador JDBC de Hive](hadoop/apache-hadoop-connect-hive-jdbc-driver.md). |
 
 Las siguientes opciones están disponibles para determinados tipos de clúster:
 
 | Servicio | Port | Protocolo | Tipo de clúster | DESCRIPCIÓN |
 | --- | --- | --- | --- | --- |
-| Stargate |443 |HTTPS |HBase |API de REST de HBase. Consulte [Introducción al uso de HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
-| Livy |443 |HTTPS |Spark |API de REST de Spark. Consulte [Envío de trabajos de Spark remotamente a un clúster de Apache Spark en HDInsight Linux mediante Livy](spark/apache-spark-livy-rest-interface.md) |
-| Servidor Thrift de Spark |443 |HTTPS |Spark |El servidor Thrift de Spark que se usa para enviar consultas de Hive. Consulte [Beeline con Hive en HDInsight](hadoop/apache-hadoop-use-hive-beeline.md) |
-| Storm |443 |HTTPS |Storm |La interfaz de usuario web de Storm. Consulte [Implementación y administración de topologías de Apache Storm en HDInsight basado en Linux](storm/apache-storm-deploy-monitor-topology-linux.md) |
+| Stargate |443 |HTTPS |HBase |API de REST de HBase. Consulte [Introducción a Apache HBase](hbase/apache-hbase-tutorial-get-started-linux.md). |
+| Livy |443 |HTTPS |Spark |API de REST de Spark. Consulte [Envío de trabajos remotos de Apache Spark mediante Apache Livy](spark/apache-spark-livy-rest-interface.md). |
+| Servidor Thrift de Spark |443 |HTTPS |Spark |El servidor Thrift de Spark que se usa para enviar consultas de Hive. Consulte [Beeline con Apache Hive en HDInsight](hadoop/apache-hadoop-use-hive-beeline.md). |
+| Storm |443 |HTTPS |Storm |La interfaz de usuario web de Storm. Consulte [Implementación y administración de topologías de Apache Storm en HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md). |
 
 ### <a name="authentication"></a>Autenticación
 
@@ -67,10 +67,10 @@ Todos los servicios expuestos públicamente en Internet se deben autenticar:
 
 ## <a name="non-public-ports"></a>Puertos no públicos
 
-> [!NOTE]
+> [!NOTE]  
 > Algunos servicios solo están disponibles en determinados tipos de clúster. Por ejemplo, HBase solo está disponible en los tipos de clúster de HBase.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Algunos servicios solo se ejecutan en un nodo principal cada vez. Si intenta conectarse al servicio en el nodo principal primario y recibe un error, vuelva a intentarlo con el nodo principal secundario.
 
 ### <a name="ambari"></a>Ambari

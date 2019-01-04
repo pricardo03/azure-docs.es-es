@@ -1,5 +1,5 @@
 ---
-title: Habilidad de búsqueda cognitiva Conformador (Azure Search) | Microsoft Docs
+title: 'Aptitud de búsqueda cognitiva Conformador: Azure Search'
 description: Extraiga metadatos e información estructurada a partir de datos no estructurados y confórmelos como un tipo complejo en una canalización de enriquecimiento de Azure Search.
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 286e1f9d6f6ae09d98aa87b447df7a7524642a1f
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: 627c53f7339dbc35d822a0bf6038ca0f1ea5e653
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729010"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313843"
 ---
 #   <a name="shaper-cognitive-skill"></a>Habilidad cognitiva Conformador
 
@@ -26,9 +27,6 @@ La habilidad Conformador básicamente permite crear una estructura, definir el n
 De forma predeterminada, esta técnica admite objetos de un nivel de profundidad. Para objetos más complejos, puede encadenar varios pasos de Conformador.
 
 En la respuesta, el nombre de la salida es siempre "salida". Internamente, la canalización puede asignar otro nombre, por ejemplo, "analyzedText" en los ejemplos siguientes a "salida", pero la propia habilidad Conformador devuelve "salida" en la respuesta. Esto podría ser importante si está depurando documentos enriquecidos y observa la discrepancia de nombre, o si compila una habilidad personalizada y estructura la respuesta por sí mismo.
-
-> [!NOTE]
-> Cognitive Search está disponible en la versión preliminar pública. La ejecución del conjunto de habilidades y la extracción y normalización de imágenes se ofrecen actualmente de forma gratuita. Más adelante, se anunciarán los precios de estas funcionalidades. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill

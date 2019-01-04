@@ -1,12 +1,11 @@
 ---
-title: Implementación y consumo de servicios web de aprendizaje automático en Azure Machine Learning Studio | Microsoft Docs
+title: Implementación y consumo - Azure Machine Learning Studio | Microsoft Docs
 description: Puede usar Azure Machine Learning para implementar flujos de trabajo y modelos de aprendizaje automático como servicios web. Estos servicios web pueden usarse después para llamar a los modelos de aprendizaje automático de las aplicaciones en Internet para que realicen predicciones en tiempo real o en un modo por lotes.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 47635376-d1f4-4ea4-a6af-bd1f99f69a69
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: a192bb50fe6931130492fad037f83e301e401762
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ed57f80a210cdb9c7ff8e77da2269d8494892fcc
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315552"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268434"
 ---
-# <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Servicios web Azure Machine Learning: Implementación y consumo
+# <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Servicios web de Azure Machine Learning Studio: Implementación y consumo
 Puede usar Azure Machine Learning para implementar flujos de trabajo y modelos de aprendizaje automático como servicios web. Estos servicios web pueden usarse después para llamar a los modelos de aprendizaje automático de las aplicaciones en Internet para que realicen predicciones en tiempo real o en un modo por lotes. Como estos servicios web son RESTFul, se los puede llamar desde diversos lenguajes de programación y plataformas como .NET y Java, y aplicaciones como Excel.
 
 Las siguientes secciones proporcionan vínculos a tutoriales, código y documentación para ayudarle a empezar.
@@ -40,7 +39,7 @@ Los vínculos siguientes proporcionan información general sobre cómo implement
 * Para obtener información detallada acerca de cómo crear e implementar un servicio web, consulte [Paso 1 del tutorial: Creación de un área de trabajo de Machine Learning](walkthrough-1-create-ml-workspace.md).
 * Para obtener ejemplos específicos de la implementación de un servicio web, consulte:
 
-  * [Paso 5 del tutorial: Implementar el servicio web de Azure Machine Learning](walkthrough-5-publish-web-service.md)
+  * [Paso 5 del tutorial: Implementar un servicio web de Azure Machine Learning](walkthrough-5-publish-web-service.md)
   * [Procedimiento para implementar un servicio web en varias regiones](how-to-deploy-to-multiple-regions.md)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Con API de proveedor de recursos de servicios web (API de Azure Resource Manager)
@@ -90,7 +89,7 @@ Puede probar el servicio web en el portal de Servicios web Azure Machine Learnin
 
 * [Implementación de servicios web nuevos](publish-a-machine-learning-web-service.md)
 * [Implementar un servicio web de Azure Machine Learning](publish-a-machine-learning-web-service.md)
-* [Paso 5 del tutorial: Implementar el servicio web de Azure Machine Learning](walkthrough-5-publish-web-service.md)
+* [Paso 5 del tutorial: Implementar un servicio web de Azure Machine Learning](walkthrough-5-publish-web-service.md)
 
 ### <a name="from-excel"></a>Desde Excel
 Puede descargar una plantilla de Excel para consumir el servicio web:

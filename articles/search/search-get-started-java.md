@@ -1,5 +1,5 @@
 ---
-title: Introducción a Azure Search en Java | Microsoft Docs
+title: 'Introducción a Azure Search en Java: Azure Search'
 description: Cómo crear una aplicación de búsqueda hospedada en la nube en Azure con Java como lenguaje de programación.
 services: search
 author: jj09
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
-ms.openlocfilehash: d1ca905d415eb8ab49c449a69707c56d5c717081
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec2018
+ms.openlocfilehash: d74c9c30932bd2db9059738c8dfbc21e4b1b046a
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419306"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316978"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Introducción a Azure Search en Java
 > [!div class="op_single_selector"]
@@ -51,7 +52,7 @@ La lista siguiente describe los archivos que son relevantes para este ejemplo.
 * SearchServiceHelper.java: clase auxiliar que proporciona métodos estáticos
 * Document.java: proporciona el modelo de datos
 * config.properties: establece la dirección URL del servicio de búsqueda y la clave de API
-* Pom.xml: una dependencia de Maven
+* pom.xml: una dependencia de Maven
 
 <a id="sub-2"></a>
 

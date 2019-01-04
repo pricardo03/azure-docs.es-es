@@ -1,21 +1,22 @@
 ---
-title: 'Documentación de la API del SDK del servicio Voz: tutoriales y referencia de API'
+title: 'Desarrollo de aplicaciones con el SDK de Voz: servicios de Voz'
 titleSuffix: Azure Cognitive Services
-description: Obtenga información acerca de cómo crear y desarrollar aplicaciones con el SDK del servicio Voz
+description: Obtenga información sobre cómo crear aplicaciones con el SDK de Voz.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 7510b1501051b79f6bdaf33ec57647a7982fafda
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 4999639356fd440b6358983f1e4859fb3c505fc7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469425"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106505"
 ---
 # <a name="ship-an-application"></a>Distribuir una aplicación
 
@@ -23,7 +24,7 @@ Respete la [licencia de Speech SDK](https://aka.ms/csspeech/license201809), así
 
 En función de la plataforma, existen otras dependencias para ejecutar la aplicación.
 
-## <a name="windows"></a>Windows
+## <a name="windows"></a> Windows
 
 El SDK de Voz de Cognitive Services se ha probado en Windows 10 y en Windows Server 2016.
 

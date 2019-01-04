@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: 209152b157ef2cfae872490bcff4f2a7100c3a4d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: e65f85d8349c4c8c69a50e93b093c04250e73a4e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339345"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961472"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>Administración del uso y la facturación para Azure Stack como un proveedor de servicios en la nube 
 
-*Se aplica a: sistemas integrados de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack*
 
 Este artículo le guía por el registro de Azure Stack como proveedor en la nube (CSP) y la adición de clientes.
 
@@ -33,7 +33,7 @@ El siguiente diagrama muestra los pasos que necesita para elegir su cuenta de se
 
 **Pasos para agregar seguimiento de uso como un CSP**
 
-[ ![Proceso para habilitar el uso y administración como Proveedor de servicios en la nube](media\azure-stack-add-manage-billing-as-a-csp\process-add-useage-as-a-csp.png "Proceso para habilitar el uso y administración como Proveedor de servicios en la nube")](media\azure-stack-add-manage-billing-as-a-csp\process-add-useage-as-a-csp.png#lightbox)
+[ ![Proceso para habilitar el uso y administración como Proveedor de servicios en la nube](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png "Proceso para habilitar el uso y administración como Proveedor de servicios en la nube")](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png#lightbox)
 
 ## <a name="create-a-csp-or-apss-subscription"></a>Creación de una suscripción de CSP o APSS
 

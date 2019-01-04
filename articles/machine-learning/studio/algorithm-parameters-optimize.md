@@ -1,12 +1,11 @@
 ---
-title: Optimizar algoritmos de Azure Machine Learning Studio | Microsoft Docs
+title: 'Optimizar algoritmos: Azure Machine Learning Studio | Microsoft Docs'
 description: Aquí se explica cómo elegir el parámetro óptimo establecido para un algoritmo de Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 6717e30e-b8d8-4cc1-ad0b-1d4727928d32
 ms.service: machine-learning
@@ -16,34 +15,34 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: f4b7ba04f643fc823ca627e279faea31dee9d2a4
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 57561c9841297b7ea2991bda1e94065a854597cd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314722"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269420"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>Elegir parámetros para optimizar los algoritmos de Azure Machine Learning Studio
 
 En este tema se describe cómo elegir el hiperparámetro adecuado establecido para un algoritmo en Azure Machine Learning. La mayoría de los algoritmos de aprendizaje automático tienen parámetros para configurar. Cuando entrena un modelo, tiene que especificar valores para esos parámetros. La eficacia del modelo entrenado depende de los parámetros del modelo que elija. El proceso de encontrar el conjunto óptimo de parámetros se conoce como *selección del modelo*.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 Existen varias maneras de realizar la selección del modelo. En Machine Learning, la validación cruzada es uno de los métodos más usados para la selección del modelo, y es el mecanismo de selección de modelo predeterminado en Azure Machine Learning. Como R y Python son compatibles con Azure Machine Learning, siempre puede implementar sus propios mecanismos de selección de modelo mediante R o Python.
 
 Hay cuatro pasos en el proceso de encontrar el mejor conjunto de parámetros:
 
-1. **Definir el espacio de parámetro**: para el algoritmo, primero decida los valores de parámetro exactos que quiere tener en cuenta.
-2. **Definir la configuración de validación cruzada**: para el conjunto de datos, decida cómo elegir los plegamientos de validación cruzada.
-3. **Definir la métrica**: decida qué métrica se va a usar para determinar el mejor conjunto de parámetros, por ejemplo, la precisión, el error cuadrático medio raíz, la precisión, la recuperación o la puntuación f.
-4. **Formar, evaluar y comparar**: para cada combinación única de los valores de parámetro, se lleva a cabo la validación cruzada y se basa en la métrica de error que defina. Después de la evaluación y la comparación, puede elegir el modelo de máximo rendimiento.
+1. **Definir el espacio de parámetros**: Para el algoritmo, primero decida los valores de parámetro exactos que quiere tener en cuenta.
+2. **Definir la configuración de validación cruzada**: Decida cómo elegir los plegamientos de validación cruzada.
+3. **Definir la métrica**: Decida qué métrica se va a usar para determinar el mejor conjunto de parámetros; por ejemplo, la precisión, el error cuadrático medio, la precisión, la recuperación o la puntuación f.
+4. **Formar, evaluar y comparar**: Para cada combinación única de los valores de parámetro, se lleva a cabo la validación cruzada y se basa en la métrica de error que defina. Después de la evaluación y la comparación, puede elegir el modelo de máximo rendimiento.
 
 En la imagen siguiente se muestra cómo se puede lograr esto en Azure Machine Learning.
 
 ![Encontrar el mejor conjunto de parámetros](./media/algorithm-parameters-optimize/fig1.png)
 
 ## <a name="define-the-parameter-space"></a>Definir el espacio de parámetros
-Puede definir el conjunto de parámetros en el paso de inicialización del modelo. El panel de parámetros de todos los algoritmos de Machine Learning tiene dos modos de aprendizaje: de *único parámetro* y de *intervalo de parámetros*. Elija el modo del intervalo de parámetros. En el modo del intervalo de parámetros, puede escribir varios valores para cada parámetro. Puede escribir valores separados por comas en el cuadro de texto.
+Puede definir el conjunto de parámetros en el paso de inicialización del modelo. El panel de parámetros de todos los algoritmos de aprendizaje automático tiene dos modos de aprendizaje: *Parámetro único*  y *Rango de parámetros*. Elija el modo del intervalo de parámetros. En el modo del intervalo de parámetros, puede escribir varios valores para cada parámetro. Puede escribir valores separados por comas en el cuadro de texto.
 
 ![Árbol de decisión ampliado de dos clases, único parámetro](./media/algorithm-parameters-optimize/fig2.png)
 

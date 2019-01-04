@@ -1,21 +1,22 @@
 ---
-title: Acerca de la traducción de voz
+title: 'Acerca de la traducción de voz: servicios de Voz'
 titlesuffix: Azure Cognitive Services
-description: Información general sobre las funcionalidades de Translator Speech
+description: Speech Service API le permite agregar a sus aplicaciones, herramientas y dispositivos una traducción de voz de varios idiomas de un extremo a otro en tiempo real. La misma API puede usarse para la traducción de voz a voz y de voz a texto.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: af363a45ab113d89c7aad7a38c6e10d335bc6035
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 9d94105377597ca8e79cc43ed0903371e185d510
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469153"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086715"
 ---
 # <a name="about-the-speech-translation-api"></a>Introducción a Translator Speech API
 

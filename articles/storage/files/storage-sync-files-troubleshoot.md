@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 507bbc9013d8b02084b639f8d9fac0c7d97503f4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0f6075bcbaae14fc60df6f33f4e65cd4abcec731
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014285"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409469"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solución de problemas de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -40,7 +40,7 @@ Si la instalación produce error, revise el archivo installer.log para determina
 <a id="agent-installation-on-DC"></a>**Se produce un error al instalar el agente en el controlador de dominio de Active Directory**  
 Si intenta instalar el agente de sincronización en un controlador de dominio de Active Directory donde el propietario del rol PDC está en un sistema operativo Windows Server 2008 R2 o inferior, puede tener un problema por el que el agente de sincronización no se pueda instalar.
 
-Para resolverlo, transfiera el rol PDC a otro controlador de dominio que ejecute Windows Server 2012R2 o una versión más reciente y, luego, instale el agente de sincronización.
+Para resolverlo, transfiera el rol PDC a otro controlador de dominio que ejecute Windows Server 2012 R2 o una versión más reciente y, luego, instale el agente de sincronización.
 
 <a id="server-registration-missing"></a>**El servidor no aparece en los servidores registrados de Azure Portal**  
 Si un servidor no aparece en los **servidores registrados** de un servicio de sincronización de almacenamiento:
@@ -48,7 +48,7 @@ Si un servidor no aparece en los **servidores registrados** de un servicio de si
 2. Abra el Explorador de archivos y, a continuación, vaya al directorio de instalación del agente de sincronización de almacenamiento (la ubicación predeterminada es C:\Program Files\Azure\StorageSyncAgent). 
 3. Ejecute ServerRegistration.exe y complete el asistente para registrar el servidor en un servicio de sincronización de almacenamiento.
 
-<a id="server-already-registered"></a>**El registro de servidor muestra un mensaje durante la instalación del agente de Azure File Sync que indica que el servidor ya está registrado** 
+<a id="server-already-registered"></a>**El registro de servidor muestra un mensaje durante la instalación del agente de Azure File Sync: "El servidor ya está registrado"** 
 
 ![Captura de pantalla del cuadro de diálogo Registro de servidor con el mensaje que indica que el servidor ya está registrado](media/storage-sync-files-troubleshoot/server-registration-1.png)
 
@@ -68,7 +68,7 @@ Reset-StorageSyncServer
 Este problema se produce cuando la directiva **Seguridad mejorada de Internet Explorer** está habilitada durante el registro de servidor. Para más información sobre cómo deshabilitar de manera apropiada la directiva **Seguridad mejorada de Internet Explorer**, consulte la sección [Preparación de los servidores de Windows Server para su uso con Azure File Sync](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) del artículo [Cómo implementar Azure File Sync](storage-sync-files-deployment-guide.md).
 
 ## <a name="sync-group-management"></a>Administración de grupos de sincronización
-<a id="cloud-endpoint-using-share"></a>**Se produce un error al crear el punto de conexión de nube con el mensaje: "The specified Azure FileShare is already in use by a different CloudEndpoint"** (El recurso compartido de archivos de Azure especificado ya está siendo usado por un punto de conexión de nube diferente)  
+<a id="cloud-endpoint-using-share"></a>**Falla la creación de puntos de conexión de nube, con este error: "El recurso compartido de archivos de Azure especificado ya está siendo usado por un punto de conexión de nube diferente"**  
 Este error se produce si el recurso compartido de archivos de Azure ya está siendo utilizado por otro punto de conexión de nube. 
 
 Si ve este mensaje y el recurso compartido de archivos de Azure no está siendo utilizado actualmente por un punto de conexión de nube, complete los siguientes pasos para borrar los metadatos de Azure File Sync en el recurso compartido de archivos de Azure:
@@ -80,14 +80,14 @@ Si ve este mensaje y el recurso compartido de archivos de Azure no está siendo 
 2. Haga clic con el botón derecho en el recurso compartido de archivos de Azure y seleccione **Editar metadatos**.
 3. Haga clic con el botón derecho en **SyncService** y, a continuación, seleccione **Eliminar**.
 
-<a id="cloud-endpoint-authfailed"></a>**Se produce el error "AuthorizationFailed" al crear el punto de conexión de nube**  
+<a id="cloud-endpoint-authfailed"></a>**Falla la creación de puntos de conexión de nube, con este error: "AuthorizationFailed"**  
 Este problema se produce si la cuenta de usuario no tiene derechos suficientes para crear un punto de conexión de nube. 
 
 Para crear un punto de conexión de nube, la cuenta de usuario debe tener los siguientes permisos de autorización de Microsoft:  
-* Lectura: obtener definición de roles
-* Escritura: crear o actualizar una definición de rol personalizada
-* Lectura: obtener asignación de roles
-* Escritura: crear asignación de roles
+* Lectura: Obtener definición de rol
+* Escritura: Creación o actualización de definiciones de roles personalizadas
+* Lectura: Obtener asignación de rol
+* Escritura: Creación de asignaciones de roles
 
 Los siguientes roles integrados tienen los permisos necesarios de autorización de Microsoft:  
 * Propietario
@@ -96,15 +96,16 @@ Los siguientes roles integrados tienen los permisos necesarios de autorización 
 Para determinar si su rol de la cuenta de usuario tiene los permisos necesarios:  
 1. En Azure Portal, seleccione **Grupos de recursos**.
 2. Seleccione el grupo de recursos donde se encuentra la cuenta de almacenamiento y seleccione en **Control de acceso (IAM)**.
-3. Seleccione el **rol** (por ejemplo, propietario o colaborador) para su cuenta de usuario.
-4. En la lista **Proveedor de recursos**, seleccione **Autorización de Microsoft**. 
+3. Seleccione la pestaña **Asignaciones de roles**.
+4. Seleccione el **rol** (por ejemplo, propietario o colaborador) para su cuenta de usuario.
+5. En la lista **Proveedor de recursos**, seleccione **Autorización de Microsoft**. 
     * **Asignación de roles** debe tener permisos de **lectura** y **escritura**.
     * **Definición de roles** debe tener permisos de **lectura** y **escritura**.
 
-<a id="server-endpoint-createjobfailed"></a>**Error de creación del punto de conexión de servidor: "MgmtServerJobFailed" (código de Error: -2134375898)**  
+<a id="server-endpoint-createjobfailed"></a>**Falla la creación de puntos de conexión de servidor, con este error: "MgmtServerJobFailed" (código de error: -2134375898)**  
 Este problema se produce si la ruta de acceso del punto de conexión de servidor se encuentra en el volumen del sistema y los niveles de la nube están habilitados. Los niveles de nube no se admiten en el volumen del sistema. Para crear un punto de conexión de servidor en el volumen del sistema, deshabilite los niveles de la nube al crear el punto de conexión de servidor.
 
-<a id="server-endpoint-deletejobexpired"></a>**Error del punto de conexión de servidor: "MgmtServerJobExpired"**                
+<a id="server-endpoint-deletejobexpired"></a>**Falla la eliminación de puntos de conexión de servidor, con este error: "MgmtServerJobExpired"**                
 Este problema se produce si el servidor está sin conexión o no tiene conectividad de red. Si el servidor ya no está disponible, anule el registro del servidor en el portal, lo que eliminará los puntos de conexión de servidor. Para eliminar los puntos de conexión de servidor, siga los pasos que se describen en [Anular el registro de un servidor de Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
 <a id="server-endpoint-provisioningfailed"></a>**No se puede abrir la página de propiedades de puntos de conexión del servidor o actualizar la directiva de niveles en la nube**  
@@ -131,7 +132,7 @@ Este problema puede producirse si no se está ejecutando el proceso del monitor 
 
 Para resolver este problema, siga estos pasos:
 
-1. Abra el administrador de tareas en el servidor y compruebe que se está ejecutando el proceso del monitor de sincronización de almacenamiento (AzureStorageSyncMonitor.exe). Si no se está ejecutando el proceso, primero pruebe a reiniciar el servidor. Si no se resuelve el problema al reiniciar el servidor, actualice el agente de Azure File Sync a la versión [3.3.0.0]( https://support.microsoft.com/help/4457484/update-rollup-for-azure-file-sync-agent-september-2018), en caso de que no esté instalada.
+1. Abra el administrador de tareas en el servidor y compruebe que se está ejecutando el proceso del monitor de sincronización de almacenamiento (AzureStorageSyncMonitor.exe). Si no se está ejecutando el proceso, primero pruebe a reiniciar el servidor. Si no se resuelve el problema al reiniciar el servidor, actualice a la [versión del agente](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes) de Azure File Sync más reciente.
 2. Compruebe que la configuración del firewall y del proxy está configurada correctamente:
     - Si el servidor está detrás de un firewall, compruebe que se permite el puerto 443 de salida. Si el firewall restringe el tráfico a dominios concretos, confirme que se puede acceder a los dominios enumerados en la [documentación](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) del firewall.
     - Si el servidor está detrás de un proxy, configure los valores del proxy aplicables a toda la máquina o específicos de la aplicación mediante los pasos que se describen en la [documentación](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy) del proxy.
@@ -467,20 +468,17 @@ Al establecer este valor de registro, el agente Azure File Sync aceptará cualqu
 | **Cadena de error** | ECS_E_SERVER_CREDENTIAL_NEEDED |
 | **Se requiere una corrección** | SÍ |
 
-Este error suele producirse porque la hora del servidor es incorrecta o porque el certificado utilizado para la autenticación ha caducado. Si la hora del servidor es correcta, realice los pasos siguientes para eliminar el certificado expirado (si ha expirado) y restablecer el estado de registro del servidor:
+Este error suele producirse porque la hora del servidor es incorrecta o porque el certificado utilizado para la autenticación ha caducado. Si la hora del servidor es correcta, realice los siguientes pasos para renovar el certificado expirado:
 
 1. Abra el complemento MMC de certificados, seleccione la cuenta de equipo y vaya a Certificados (equipo local)\Personal\Certificates.
-2. Elimine el certificado de autenticación del cliente si ha expirado y cierre el complemento MMC de certificados.
-3. Abra Regedit y elimine la clave ServerSetting en el Registro: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync\ServerSetting
-4. En Azure Portal, vaya a la sección Servidores registrados del servicio de sincronización de almacenamiento. Haga clic con el botón derecho en el servidor que tiene el certificado expirado y haga clic en "Cancelar registro de servidor".
-5. Ejecute los comandos de PowerShell siguientes en el servidor:
+2. Compruebe si ha expirado el certificado de autenticación del cliente. Si ha expirado el certificado, cierre el complemento MMC Certificados y continúe con los pasos restantes. 
+3. Compruebe si se ha instalado la versión 4.0.1.0 o posterior de Azure File Sync.
+4. Ejecute los comandos de PowerShell siguientes en el servidor:
 
     ```PowerShell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-    Reset-StorageSyncServer
+    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+    Reset-AzureRmStorageSyncServerCertificate -SubscriptionId <guid> -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
-
-6. Vuelva a registrar el servidor mediante la ejecución de ServerRegistration.exe (la ubicación predeterminada es C:\Program Files\Azure\StorageSyncAgent).
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**El volumen donde se encuentra el punto de conexión de servidor tiene poco espacio en disco.**  
 | | |
@@ -705,8 +703,9 @@ if ($fileShare -eq $null) {
 
 <a id="troubleshoot-rbac"></a>**Asegúrese de que Azure File Sync tiene acceso a la cuenta de almacenamiento.**  
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
-1. Haga clic en **Control de acceso (IAM)** en la tabla de contenido de la izquierda para ir a la lista de usuarios y aplicaciones (*entidades de servicio*) que tienen acceso a la cuenta de almacenamiento.
-2. Compruebe que **Hybrid File Sync Service** aparece en la lista con el rol **Lector y acceso a los datos**. 
+1. Haga clic en **Control de acceso (IAM)** en la tabla de contenido de la izquierda.
+1. Haga clic en la pestaña **Asignaciones de roles** de la lista de los usuarios y las aplicaciones (*entidades de servicio*) que tienen acceso a su cuenta de almacenamiento.
+1. Compruebe que **Hybrid File Sync Service** aparece en la lista con el rol **Lector y acceso a los datos**. 
 
     ![Captura de pantalla de la entidad de servicio de Hybrid File Sync Service en la pestaña de control de acceso de la cuenta de almacenamiento](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 

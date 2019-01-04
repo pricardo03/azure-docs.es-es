@@ -1,6 +1,6 @@
 ---
-title: Registros de IIS en Azure Log Analytics | Microsoft Docs
-description: Internet Information Services (IIS) almacena la actividad de usuario en archivos de registro que Log Analytics puede recopilar.  En este artículo se describe cómo configurar la recopilación de registros de IIS y detalles de los registros que crean en el área de trabajo de Log Analytics.
+title: Registros de IIS en Azure Monitor | Microsoft Docs
+description: Internet Information Services (IIS) almacena la actividad de usuario en archivos de registro que Azure Monitor puede recopilar.  En este artículo se describe cómo configurar la recopilación de registros de IIS y detalles de los registros que crean en Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -8,36 +8,33 @@ manager: carmonm
 editor: tysonn
 ms.assetid: cec5ff0a-01f5-4262-b2e8-e3db7b7467d2
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/12/2018
+ms.date: 11/28/2018
 ms.author: bwren
-ms.comopnent: ''
-ms.openlocfilehash: e33c30f9de56c4c5dd5f898a6a5136bbcef36c18
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: cd28eef249ae6b07b9e3f74b80c32a4b53370215
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336583"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436746"
 ---
-# <a name="iis-logs-in-log-analytics"></a>Registros de IIS en Log Analytics
-Internet Information Services (IIS) almacena la actividad de usuario en archivos de registro que Log Analytics puede recopilar.  
+# <a name="collect-iis-logs-in-azure-monitor"></a>Recopilación de registros de IIS en Azure Monitor
+Internet Information Services (IIS) almacena la actividad de usuario en archivos de registro que Azure Monitor puede recopilar y almacenar como [datos de registro](data-collection.md).
 
 ![Registros IIS](media/data-sources-iis-logs/overview.png)
 
 ## <a name="configuring-iis-logs"></a>Configuración de registros de IIS
-Log Analytics recopila entradas de archivos de registro creados por IIS, por lo que debe [configurar IIS para el registro](https://technet.microsoft.com/library/hh831775.aspx).
+Azure Monitor recopila entradas de archivos de registro creados por IIS, por lo que debe [configurar IIS para el registro](https://technet.microsoft.com/library/hh831775.aspx).
 
-Log Analytics solo admite archivos de registro de IIS almacenados en el formato W3C y no admite campos personalizados ni Advanced Logging de IIS.  
-Log Analytics no recopila registros en formato nativo de IIS ni NCSA.
+Azure Monitor solo admite archivos de registro de IIS almacenados en el formato W3C y no admite campos personalizados ni Advanced Logging de IIS. No recopila registros en formato nativo IIS o NCSA.
 
-Configure los registros de IIS en Log Analytics en el [menú Datos en Configuración de Log Analytics](agent-data-sources.md#configuring-data-sources).  No se requiere otra configuración que seleccionar **Collect W3C format IIS log files**(Recopilar archivos de registro de IIS en formato W3C).
+Configure los registros de IIS en Azure Monitor e el [menú Configuración avanzada](agent-data-sources.md#configuring-data-sources).  No se requiere otra configuración que seleccionar **Collect W3C format IIS log files**(Recopilar archivos de registro de IIS en formato W3C).
 
 
 ## <a name="data-collection"></a>Colección de datos
-Log Analytics recopila las entradas de registro IIS de todos los agentes cada vez que se cierra el registro y se crea uno nuevo. Esta frecuencia se controla mediante la opción **Log File Rollover Schedule** (Programación de sustitución incremental de archivos de registro) para el sitio IIS, que es una vez al día de forma predeterminada. Por ejemplo, si la configuración es **Cada hora**, Log Analytics recopilará el registro cada hora.  Por ejemplo, si la configuración es **Cada día**, Log Analytics recopilará el registro cada 24 horas.
+Azure Monitor recopila las entradas de registro IIS de todos los agentes cada vez que se cierra el registro y se crea uno nuevo. Esta frecuencia se controla mediante la opción **Log File Rollover Schedule** (Programación de sustitución incremental de archivos de registro) para el sitio IIS, que es una vez al día de forma predeterminada. Por ejemplo, si la configuración es **Cada hora**, Azure Monitor recopilará el registro cada hora.  Si la configuración es **Cada día**, Azure Monitor recopilará el registro cada 24 horas.
 
 
 ## <a name="iis-log-record-properties"></a>Propiedades de registro de IIS
@@ -67,7 +64,7 @@ Los registros de IIS son del tipo **W3CIISLog** y tienen las propiedades que apa
 | TimeGenerated |Fecha y hora en que se registró la entrada. |
 | TimeTaken |Duración del procesamiento de la solicitud, en milisegundos. |
 
-## <a name="log-searches-with-iis-logs"></a>Búsquedas de registros con registros de IIS
+## <a name="log-queries-with-iis-logs"></a>Consultas de registros con registros de IIS
 La tabla siguiente proporciona ejemplos distintos de consultas de registro que recuperan registros de IIS.
 
 | Consultar | Descripción |
@@ -79,6 +76,5 @@ La tabla siguiente proporciona ejemplos distintos de consultas de registro que r
 | W3CIISLog &#124; summarize sum(csBytes) by Computer &#124; take 500000 |Total de bytes recibidos por cada equipo de IIS |
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Configure Log Analytics para recopilar otros [orígenes de datos](agent-data-sources.md) para su análisis.
-* Obtenga información acerca de las [búsquedas de registros](../../log-analytics/log-analytics-queries.md) para analizar los datos recopilados de soluciones y orígenes de datos.
-* Configure alertas en Log Analytics para recibir notificaciones de manera nativa con respecto a condiciones importantes encontradas en los registros de IIS.
+* Configure Azure Monitor para recopilar otros [orígenes de datos](agent-data-sources.md) para su análisis.
+* Obtenga información acerca de las [consultas de registros](../../log-analytics/log-analytics-queries.md) para analizar los datos recopilados de soluciones y orígenes de datos.

@@ -1,6 +1,6 @@
 ---
-title: Tareas del responsable de proyecto del proceso de ciencia de datos en equipo para Azure | Microsoft Docs
-description: Un esquema de las tareas de un responsable de proyecto en un proyecto en equipo de ciencia de datos.
+title: Tareas para el líder del proyecto en el proceso de ciencia de datos en equipo
+description: Un esquema de las tareas que se espera que el líder de un proyecto complete en un proyecto de equipo de ciencia de datos.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 0b5129c4642a0c4381591f751bc4d5a51990b256
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 39e8c5b8dab33ba95b34c4edb9d0a994bc8ec6dc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442904"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135171"
 ---
-# <a name="project-lead-tasks"></a>Tareas del responsable de proyecto
+# <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>Tareas para el líder del proyecto en el proceso de ciencia de datos en equipo
 
 Este tutorial describe las tareas que el responsable de proyecto debe completar para su equipo de proyecto. El objetivo es establecer el entorno de colaboración de equipo que se estandariza en el [proceso de ciencia de datos en equipo](overview.md) (TDSP). El proceso de ciencia de datos en equipo es una plataforma desarrollada por Microsoft que proporciona una secuencia estructurada de actividades para ejecutar de forma eficaz soluciones de análisis predictivos y basadas en la nube. Puede encontrar un esquema de los roles personales y sus tareas asociadas que se controlan en un equipo de ciencia de datos que se estandariza en este proceso en [Roles y tareas del Proceso de ciencia de datos en equipo](roles-tasks.md).
 
@@ -27,7 +27,8 @@ Un **responsable de proyecto** administra las actividades diarias de los cientí
 
 En este tema se tratan las tareas 1,2 y 6 de este flujo de trabajo para los responsables de proyecto.
 
->[AZURE.NOTE] En las instrucciones siguientes se detallan los pasos necesarios para configurar un entorno de equipo de proceso de ciencia de datos en equipo (TDSP) para un proyecto mediante Azure DevOps. Se especifica cómo llevar a cabo estas tareas con Azure DevOps ya que es así cómo se implementa el proceso de ciencia de datos en equipo (TDSP) en Microsoft. Si se usa otra plataforma de hospedaje de código para el grupo, las tareas que debe realizar el responsable de equipo seguirán siendo las mismas. Pero la forma de completar estas tareas va a ser diferente.
+> [!NOTE]
+> En las instrucciones siguientes se detallan los pasos necesarios para configurar un entorno de equipo de proceso de ciencia de datos en equipo (TDSP) para un proyecto mediante Azure DevOps. Se especifica cómo llevar a cabo estas tareas con Azure DevOps ya que es así cómo se implementa el proceso de ciencia de datos en equipo (TDSP) en Microsoft. Si se usa otra plataforma de hospedaje de código para el grupo, las tareas que debe realizar el responsable de equipo seguirán siendo las mismas. Pero la forma de completar estas tareas va a ser diferente.
 
 
 ## <a name="repositories-and-directories"></a>Repositorios y directorios
@@ -83,15 +84,15 @@ Para resumir aquí, se deben cumplir los siguientes requisitos antes de comenzar
 
 ## <a name="2-seed-the-dsproject1-project-repository"></a>2. Propagación del repositorio del proyecto DSProject1
 
-La tarea aquí es propagar el repositorio del proyecto **DSProject1** (R5) desde el repositorio de plantillas de proyecto (R3). El procedimiento de propagación usa los directorios D3 y D5 de instancia de DSVM como sitios de almacenamiento provisional intermedios. En resumen, es la ruta de acceso de propagación: R3 -> D3 -> D5 -> R5.
+La tarea aquí es propagar el repositorio del proyecto **DSProject1** (R5) desde el repositorio de plantillas de proyecto (R3). El procedimiento de propagación usa los directorios D3 y D5 de instancia de DSVM como sitios de almacenamiento provisional intermedios. En resumen, la ruta de acceso de propagación es: R3 -> D3 -> D5 -> R5.
 
 Si necesita personalizar el repositorios del proyecto **DSProject1** para satisfacer algunas necesidades específicas, lo hará en el penúltimo paso del procedimiento siguiente. Este es un resumen de los pasos que se usan para propagar el contenido del repositorio del proyecto **DSProject1**. Los pasos individuales corresponden a las subsecciones del procedimiento de propagación:
 
 - Clone el repositorio de plantillas de proyecto en el directorio local: equipo R3 - clonado en -> D3 local.
 - Clone el repositorio de DSProject1 en un directorio local: R5 de equipo - clonado a -> D5 local.
-- Copie el contenido de la plantilla de proyecto clonado en el clon local del repositorio DSProject1: D3 - contenido copiado en -> D5.
+- Copie el contenido de la plantilla de proyecto clonado en el clon local del repositorio DSProject1:  D3 - contenido copiado en -> D5.
 - (Opcional) Personalización de D5 local
-- Inserte el contenido de DSProject1 local en los repositorios de equipo: D5 - el contenido se agrega a -> R5 de equipo.
+- Inserción de contenido de DSProject1 local en los repositorios de equipo: D5 - contenido agregado en -> R5 de equipo.
 
 
 ### <a name="clone-your-project-template-repository-r3-to-a-directory-d3-on-your-local-machine"></a>Clone el repositorio de plantillas de proyecto (R3) en un directorio (D3) en la máquina local.
@@ -195,7 +196,8 @@ Ahora tiene que insertar contenido de **_DSProject1_** al repositorio _R5_ en el
     
 - Confirme el cambio y la inserción. 
 
->[AZURE.NOTE] Si se trata de la primera vez que confirma un repositorio Git, debe configurar los parámetros globales *user.name* y *user.email* para poder ejecutar el comando `git commit`. Ejecute los dos comandos siguientes:
+> [!NOTE]
+> Si se trata de la primera vez que confirma un repositorio Git, debe configurar los parámetros globales *user.name* y *user.email* para poder ejecutar el comando `git commit`. Ejecute los dos comandos siguientes:
         
     git config --global user.name <your name>
     git config --global user.email <your email address>

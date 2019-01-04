@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 2eb736891b12c07441bc8828ca07dd0b9fa13d98
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: e8d880534a39651024b60ef10a9fbadb9e109a4e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458129"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138252"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referencia de configuración de aplicación para Azure Functions
 
@@ -82,7 +82,7 @@ Ruta de acceso al directorio raíz donde se encuentran las carpetas de función 
 
 ## <a name="azurewebjobssecretstoragetype"></a>AzureWebJobsSecretStorageType
 
-Especifica el repositorio o el proveedor que se utilizará para el almacenamiento de claves. Actualmente, los repositorios admitidos son almacenamiento de blobs ("Blob") y sistema de archivos local ("Files"). El valor predeterminado es blob en la versión 1 y sistema de archivos en la versión 2. Tenga en cuenta que la versión 1 del sistema de archivos solo funcionará en funciones que se ejecutan en un plan de App Service.
+Especifica el repositorio o el proveedor que se utilizará para el almacenamiento de claves. Actualmente, los repositorios admitidos son almacenamiento de blobs ("Blob") y sistema de archivos local ("Files"). El valor predeterminado es blob en la versión 2 y sistema de archivos en la versión 1.
 
 |Clave|Valor de ejemplo|
 |---|------------|
@@ -172,6 +172,48 @@ Permite que la aplicación de función se ejecute desde un archivo de paquete mo
 |WEBSITE\_RUN\_FROM\_PACKAGE|1|
 
 Los valores válidos son una dirección URL que se resuelve en la ubicación de un archivo de paquete de implementación o `1`. Cuando se establece en `1`, el paquete debe estar en la carpeta `d:\home\data\SitePackages`. Cuando se usa la implementación de ZIP con esta configuración, el paquete se carga automáticamente en esta ubicación. En la versión preliminar, este ajuste se denomina `WEBSITE_RUN_FROM_ZIP`. Para más información, vea [Run your functions from a package file](run-functions-from-deployment-package.md) (Ejecución de Azure Functions desde un archivo de paquete).
+
+## <a name="azurefunctionproxydisablelocalcall"></a>AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
+
+De forma predeterminada, las proxies de Functions usarán accesos directos para enviar llamadas de API desde servidores proxy directamente a funciones en la misma instancia de Function App, en lugar de crear una nueva solicitud HTTP. Esta configuración le permite deshabilitar este comportamiento.
+
+|Clave|Valor|DESCRIPCIÓN|
+|-|-|-|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Las llamadas con una dirección URL de back-end que señala a una función de la Function local ya no se enviarán directamente a la función y, en su lugar, se dirigirán al front-end HTTP para la instancia de Function App.|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Este es el valor predeterminado. Las llamadas con una dirección URL de back-end que señale a una instancia de Function App local se reenviarán directamente a esa función.|
+
+
+## <a name="azurefunctionproxybackendurldecodeslashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
+
+Esta opción de configuración controla si se descodifica %2F como barras diagonales en los parámetros de ruta cuando se insertan en la URL del back-end. 
+
+|Clave|Valor|DESCRIPCIÓN|
+|-|-|-|
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|Los parámetros de ruta con barras diagonales codificadas los descodificarán. `example.com/api%2ftest` se convertirá en `example.com/api/test`|
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|Este es el comportamiento predeterminado. Todos los parámetros de ruta se pasarán sin cambios|
+
+### <a name="example"></a>Ejemplo
+
+Este es un ejemplo de proxies.json en una aplicación de función en la dirección URL myfunction.com
+
+```JSON
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "root": {
+            "matchCondition": {
+                "route": "/{*all}"
+            },
+            "backendUri": "example.com/{all}"
+        }
+    }
+}
+```
+|Descodificación de URL|Entrada|Salida|
+|-|-|-|
+|true|myfunction.com/test%2fapi|example.com/test/api
+|false|myfunction.com/test%2fapi|example.com/test%2fapi|
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

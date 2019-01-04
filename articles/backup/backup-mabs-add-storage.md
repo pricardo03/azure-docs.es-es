@@ -2,22 +2,22 @@
 title: Uso de Modern Backup Storage con Azure Backup Server
 description: Obtenga información sobre las nuevas características de Azure Backup Server. En este artículo se describe cómo actualizar la instalación de la instancia de Backup Server.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: markgal; adigan; kasinh
-ms.openlocfilehash: da9b3d22dce3f92ff6d1a588d283d47f22fca736
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.author: adigan
+ms.openlocfilehash: cc76b15c3cb108b5181e22330954dfee789b01ba
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612974"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251120"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Adición de almacenamiento a Azure Backup Server
 
-Azure Backup Server V2 y versiones posteriores incluye Modern Backup Storage de System Center 2016 Data Protection Manager. Modern Backup Storage proporciona ahorros de almacenamiento de hasta el 50 por ciento, copias de seguridad que son tres veces más rápidas y un almacenamiento más eficaz. También ofrece almacenamiento con reconocimiento de la carga de trabajo.
+Azure Backup Server v2 (y versiones posteriores) es compatible con Modern Backup Storage, que proporciona ahorros de almacenamiento de hasta el 50 por ciento, copias de seguridad que son tres veces más rápidas y un almacenamiento más eficaz. También ofrece almacenamiento con reconocimiento de la carga de trabajo.
 
 > [!NOTE]
 > Para utilizar Modern Backup Storage, debe ejecutar Backup Server V2 o V3 en Windows Server 2016 o V3 en Windows Server 2019.
@@ -75,7 +75,7 @@ Con el almacenamiento con reconocimiento de la carga de trabajo, puede seleccion
 
 ### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
-Puede configurar el almacenamiento con reconocimiento de la carga de trabajo mediante el cmdlet de PowerShell Update-DPMDiskStorage, que actualiza las propiedades de un volumen en el bloque de almacenamiento en un servidor de Data Protection Manager.
+Puede configurar el almacenamiento con reconocimiento de la carga de trabajo mediante el cmdlet de PowerShell Update-DPMDiskStorage, que actualiza las propiedades de un volumen en el bloque de almacenamiento en un servidor de Azure Backup Server. 
 
 Sintaxis:
 

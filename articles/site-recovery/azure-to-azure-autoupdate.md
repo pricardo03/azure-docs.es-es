@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 06a7e23eb16cf6296a8997273ea8d554851600c3
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 275dd48e08aa74d84b0e1b91d5df9599ce524489
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456497"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957698"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Actualización automática de Mobility Service en Azure para la replicación de Azure
 
@@ -33,7 +33,7 @@ Una vez que permite que Site Recovery administre las actualizaciones, se impleme
 > [!NOTE]
 > La facturación de trabajos usados por cuenta de Automation se basa en el número de minutos de tiempo de ejecución de trabajo que se usan al mes y, de forma predeterminada, se incluyen 500 minutos como unidades gratuitas para una cuenta de Automation. La ejecución del trabajo oscila diariamente de **unos segundos a aproximadamente un minuto** y se **cubrirá en los créditos gratuitos**.
 
-UNIDADES GRATUITAS INCLUIDAS (AL MES)**   PRECIO Tiempo de ejecución de trabajo    500 minutos ₹0,14/minuto
+UNIDADES GRATUITAS INCLUIDAS (AL MES)**   PRECIO Tiempo de ejecución de trabajo    500 minutos 0,14/minuto
 
 ## <a name="enable-automatic-updates"></a>Habilitar las actualizaciones automáticas
 
@@ -66,11 +66,11 @@ Cuando habilite la replicación de una máquina virtual, ya sea comenzando [desd
 
 1. Si hay nuevas actualizaciones disponibles para el servicio de movilidad instalado en las máquinas virtuales de Azure, verá una notificación que dice "Hay una nueva actualización del agente de replicación de Site Recovery disponible. Haga clic para instalar".
 
-     ![Ventana Elementos replicados](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
+     ![Ventana Elementos replicados](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 3. Seleccione la notificación para abrir la página de selección de la máquina virtual.
 4. Seleccione las máquinas virtuales en las que quiere actualizar Mobility Service y seleccione **Aceptar**.
 
-     ![Lista de máquinas virtuales de elementos replicados](.\media\vmware-azure-install-mobility-service\update-okpng.png)
+     ![Lista de máquinas virtuales de elementos replicados](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
 Se iniciar el trabajo de actualización de Mobility Service para cada una de las máquinas virtuales seleccionadas.
 
@@ -81,7 +81,7 @@ Si hay un problema con las actualizaciones automáticas, se le enviará una noti
 
 En caso de que haya intentado habilitar las actualizaciones automáticas y no le haya sido posible, consulte a continuación la solución de problemas.
 
-**Error**: no tiene permisos para crear una cuenta de ejecución de Azure (entidad de servicio) y conceder el rol Colaborador a la entidad de servicio. 
+**Error**: No tiene permisos para crear una cuenta de ejecución de Azure (entidad de servicio) ni para conceder el rol Colaborador a la entidad de servicio. 
 - Acción recomendada: asegúrese de que la cuenta en la que ha iniciado sesión está asignada al rol "Colaborador" y vuelva a intentar la operación. Consulte [este](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) documento para obtener más información sobre cómo asignar los permisos adecuados.
  
 Una vez que las actualizaciones automáticas están activadas, el servicio Site Recovery puede solucionar la mayoría de problemas; para ello, debe hacer clic en el botón "**Reparar**".

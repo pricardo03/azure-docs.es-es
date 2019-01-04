@@ -1,5 +1,5 @@
 ---
-title: Etiquetar entidades automáticamente con una entidad de lista mediante Nodejs | Microsoft Docs
+title: Entidades de coincidencia de texto extracto
 description: Información sobre cómo agregar una entidad de lista para ayudar a LUIS a etiquetar variaciones de una palabra o frase.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: diberry
-ms.openlocfilehash: 42fde2b24f851129e24257bbfe6d65a96e235485
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: be2c7aea356f6d7b73438499b7e4d680ed4bad7c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036786"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259246"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Use una entidad de lista para aumentar la detección de entidades 
 En este tutorial se muestra el uso de una [entidad de lista](luis-concept-entity-types.md) para aumentar la detección de entidades. No es necesario etiquetar las entidades de lista ya que son una coincidencia exacta de términos.  
@@ -37,7 +37,7 @@ En este tutorial, aprenderá a:
 > [!Tip]
 > Si aún no tiene una suscripción, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/).
 
-Todo el código de este tutorial está disponible en el [repositorio de GitHub LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-list-entity). 
+Todo el código de este tutorial está disponible en el [repositorio LUIS-Samples de GitHub](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-list-entity). 
 
 ## <a name="use-homeautomation-app"></a>Usar la aplicación HomeAutomation
 La aplicación HomeAutomation le ofrece el control de dispositivos como luces, sistemas de entretenimiento y del entorno, como la calefacción y la refrigeración. Estos sistemas tienen nombres diferentes que pueden incluir nombres de fabricantes, alias, acrónimos y jerga. 
@@ -81,15 +81,16 @@ Cree un archivo Node.js y copie el siguiente código en él. Cambie los valores 
 
 Utilice el siguiente comando para instalar las dependencias NPM y ejecute el código para crear la entidad de lista:
 
-```Javascript
+```console
 npm install && node add-entity-list.js
 ```
 
 El resultado de la ejecución es el identificador de la entidad de lista:
 
-```Javascript
+```console
 026e92b3-4834-484f-8608-6114a83b03a6
 ```
+
 ## <a name="train-the-model"></a>Entrenamiento del modelo
 Entrene LUIS para que la nueva lista afecte a los resultados de la consulta. El entrenamiento es un proceso de dos partes, el propio entrenamiento y, a continuación, la comprobación del estado si ha finalizado el entrenamiento. El entrenamiento de una aplicación con muchos modelos puede tardar. El siguiente código entrena la aplicación y luego espera hasta que el entrenamiento es correcto. El código usa una estrategia de espera y reintento para evitar el error 429 "Demasiadas solicitudes". 
 
@@ -99,13 +100,13 @@ Cree un archivo Node.js y copie el siguiente código en él. Cambie los valores 
 
 Use el comando siguiente para ejecutar el código para entrenar la aplicación:
 
-```Javascript
+```console
 node train.js
 ```
 
 La salida de la ejecución es el estado de cada iteración del entrenamiento en los modelos LUIS. La siguiente ejecución solo ha requerido una comprobación del entrenamiento:
 
-```Javascript
+```console
 1 trained = true
 [ { modelId: '2c549f95-867a-4189-9c35-44b95c78b70f',
     details: { statusId: 2, status: 'UpToDate', exampleCount: 45 } },
@@ -130,13 +131,13 @@ Cree un archivo Node.js y copie el siguiente código en él. Cambie los valores 
 
 Use el comando siguiente para ejecutar el código para consultar la aplicación:
 
-```Javascript
+```console
 node publish.js
 ```
 
 La salida siguiente incluye la dirección URL del punto de conexión para las consultas. Los resultados JSON reales incluirán el appID real. 
 
-```JSON
+```json
 { 
   versionId: null,
   isStaging: false,
@@ -157,13 +158,13 @@ Cree un archivo Node.js y copie el siguiente código en él. Cambie los valores 
 
 Use el comando siguiente para ejecutar el código y consultar la aplicación:
 
-```Javascript
+```console
 node train.js
 ```
 
 La salida es los resultados de la consulta. Dado que el código agregó el par nombre/valor **verbose** a la cadena de consulta, la salida incluye todas las intenciones y sus puntuaciones:
 
-```JSON
+```json
 {
   "query": "turn up the heat",
   "topScoringIntent": {

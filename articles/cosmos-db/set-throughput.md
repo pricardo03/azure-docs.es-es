@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: a97032344b904442ed3606c6297251578c3b4ff7
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e866b205fb5cdd65dc690101503613714271e36c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263900"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075359"
 ---
 # <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>Aprovisionamiento del rendimiento en contenedores y bases de datos de Azure Cosmos
 
@@ -19,7 +19,7 @@ Una base de datos de Azure Cosmos es una unidad de administración de un conjunt
 
 Azure Cosmos DB le permite configurar el rendimiento en dos granularidades: **contenedores de Azure Cosmos** y **bases de datos de Azure Cosmos**.
 
-# <a name="setting-throughput-on-a-azure-cosmos-container"></a>Configuración del rendimiento en un contenedor de Azure Cosmos  
+## <a name="setting-throughput-on-a-container"></a>Configuración del rendimiento en un contenedor  
 
 El rendimiento aprovisionado en un contenedor de Azure Cosmos se reserva exclusivamente para el contenedor. El contenedor recibe el rendimiento aprovisionado todo el tiempo. El rendimiento aprovisionado en un contenedor está respaldado financieramente por los contratos de nivel de servicio. Para configurar el rendimiento en un contenedor, consulte [Aprovisionamiento del rendimiento de un contenedor de Azure Cosmos DB](how-to-provision-container-throughput.md).
 
@@ -31,7 +31,7 @@ El rendimiento aprovisionado en un contenedor de Azure Cosmos se distribuye unif
 
 ![Partición de recursos](./media/set-throughput/resource-partition.png)
 
-# <a name="setting-throughput-on-a-azure-cosmos-database"></a>Configuración del rendimiento en una base de datos de Azure Cosmos
+## <a name="setting-throughput-on-a-database"></a>Configuración del rendimiento en una base de datos
 
 Al aprovisionar el rendimiento en una base de datos de Azure Cosmos, este se comparte entre todos los contenedores de la base de datos, a menos que haya especificado un rendimiento aprovisionado en determinados contenedores. Compartir el rendimiento de la base de datos entre sus contenedores equivale a hospedar una base de datos en un clúster de máquinas. Dado que todos los contenedores de una base de datos comparten los recursos disponibles en una máquina, no obtendrá un rendimiento predecible en ningún contenedor específico. Para configurar el rendimiento en una base de datos, consulte [Aprovisionamiento del rendimiento de una base de datos en Azure Cosmos DB](how-to-provision-database-throughput.md).
 
@@ -53,7 +53,7 @@ Varias particiones lógicas que comparten el rendimiento aprovisionado en una ba
 
 ![Partición de recursos](./media/set-throughput/resource-partition2.png)
 
-## <a name="setting-throughput-on-a-azure-cosmos-database-and-a-container"></a>Configuración del rendimiento en un contenedor y una base de datos de Azure Cosmos
+## <a name="setting-throughput-on-a-database-and-a-container"></a>Configuración del rendimiento en un contenedor y una base de datos
 
 Puede combinar los dos modelos, ya que se permite el aprovisionamiento del rendimiento tanto en la base de datos como en el contenedor. En el ejemplo siguiente se muestra cómo aprovisionar el rendimiento en un contenedor y una base de datos de Azure Cosmos:
 
@@ -67,7 +67,7 @@ Puede combinar los dos modelos, ya que se permite el aprovisionamiento del rendi
 
 |**Cuota**  |**Rendimiento aprovisionado en una base de datos**  |**Rendimiento aprovisionado en un contenedor**|
 |---------|---------|---------|
-|Número mínimo de RU |400 |400|
+|Número mínimo de RU |400 (después de los cuatro primeros contenedores, cada contenedor adicional requiere un mínimo de 100 RU/s). |400|
 |Número mínimo de RU por contenedor|100|400|
 |Número mínimo de RU necesarias para consumir 1 GB de almacenamiento|40|40|
 |Número máximo de RU|Ilimitado (en la base de datos)|Ilimitado (en el contenedor)|
@@ -79,6 +79,6 @@ Puede combinar los dos modelos, ya que se permite el aprovisionamiento del rendi
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Más información sobre las [particiones lógicas](partition-data.md)
-* Más información sobre el [aprovisionamiento del rendimiento de un contenedor de Azure Cosmos DB](how-to-provision-container-throughput.md)
-* Más información sobre el [aprovisionamiento del rendimiento de una base de datos de Azure Cosmos DB](how-to-provision-database-throughput.md)
+* Obtenga más información sobre el [aprovisionamiento del rendimiento de un contenedor de Azure Cosmos](how-to-provision-container-throughput.md)
+* Obtenga más información sobre el [aprovisionamiento del rendimiento de una base de datos de Azure Cosmos](how-to-provision-database-throughput.md)
 

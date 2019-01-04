@@ -1,21 +1,21 @@
 ---
-title: Uso de Apache Kafka MirrorMaker con Azure Event Hubs para ecosistemas de Kafka | Microsoft Docs
-description: Uso de Kafka MirrorMaker para crear el reflejo de un clúster de Kafka en Event Hubs.
+title: Uso de Apache Kafka MirrorMaker en Azure Event Hubs | Microsoft Docs
+description: En este artículo se proporciona información acerca de cómo usar Kafka MirrorMaker para crear el reflejo de un clúster de Kafka en Azure Event Hubs.
 services: event-hubs
 documentationcenter: .net
 author: basilhariri
 manager: timlt
 ms.service: event-hubs
 ms.topic: mirror-maker
-ms.custom: mvc
-ms.date: 08/07/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: b79d62175c29dfc1671f0cb59c36f4bd2a8857e1
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 83f51d2980e5cb5bc2e2a415bb3ee96778667ed7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282834"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095042"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Uso de Apache Kafka MirrorMaker con Event Hubs para Apache Kafka
 
@@ -29,7 +29,7 @@ En este ejemplo, se muestra cómo reflejar un agente de Kafka en un centro de ev
 
 En este tutorial, aprenderá a:
 > [!div class="checklist"]
-> * Crear un espacio de nombres de Event Hubs
+> * Creación de un espacio de nombres de Event Hubs
 > * Clonación del proyecto de ejemplo
 > * Configuración de un clúster de Kafka
 > * Configurar de Kafka MirrorMaker
@@ -54,7 +54,7 @@ Para completar este tutorial, asegúrese de disponer de los siguientes elementos
 * [Git](https://www.git-scm.com/downloads)
     * En Ubuntu, puede ejecutar `sudo apt-get install git` para instalar Git.
 
-## <a name="create-an-event-hubs-namespace"></a>Crear un espacio de nombres de Event Hubs
+## <a name="create-an-event-hubs-namespace"></a>Creación de un espacio de nombres de Event Hubs
 
 Se requiere un espacio de nombres de Event Hubs para enviar y recibir de cualquier servicio de Event Hubs. Consulte [Creación de un espacio de nombres de Event Hubs y un centro de eventos con Azure Portal](event-hubs-create.md) para obtener instrucciones sobre cómo obtener un punto de conexión de Kafka para Event Hubs. Asegúrese de copiar la cadena de conexión de Event Hubs para su uso posterior.
 
@@ -124,7 +124,7 @@ Con MirrorMaker en ejecución, los eventos que se envían al clúster de Kafka d
 
 En este tutorial, aprenderá a:
 > [!div class="checklist"]
-> * Crear un espacio de nombres de Event Hubs
+> * Creación de un espacio de nombres de Event Hubs
 > * Clonación del proyecto de ejemplo
 > * Configuración de un clúster de Kafka
 > * Configurar de Kafka MirrorMaker

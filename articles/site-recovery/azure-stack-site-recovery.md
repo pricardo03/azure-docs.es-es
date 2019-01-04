@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 9da64ebe675f9d481c7474a81fec294d50e49ce7
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8285632d8dea76763c65dd06e8be2d7494a47188
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215215"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52839000"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicación de máquinas virtuales de Azure Stack en Azure
 
@@ -30,12 +30,12 @@ Site Recovery contribuye a su estrategia de continuidad empresarial y recuperaci
 En este artículo, aprenderá a:
 
 > [!div class="checklist"]
-> * **Paso 1: Preparar las máquinas virtuales de Azure Stack para la replicación**. Compruebe que las máquinas virtuales cumplen los requisitos de Site Recovery y prepare la instalación del servicio Site Recovery Mobility. Este servicio se instala en cada máquina virtual que quiere replicar.
-> * **Paso 2: Configurar un almacén de Recovery Services**. Configure un almacén de Site Recovery y especifique lo que quiere replicar. Las acciones y los componentes de Site Recovery se configuran y administran en el almacén.
-> * **Paso 3: Configurar el entorno de replicación de origen**. Configure un servidor de configuración de Site Recovery. El servidor de configuración es una única máquina virtual de Azure Stack que ejecuta todos los componentes que Site Recovery necesita. Después de configurar el servidor de configuración, se registra en el almacén.
-> * **Paso 4: Configurar el entorno de replicación de destino**. Seleccione su cuenta de Azure, la cuenta de Azure Storage y la red que quiere usar. Durante la replicación, los datos de máquina virtual se copian en Azure Storage. Después de la conmutación por error, las máquinas virtuales de Azure se unen a la red especificada.
-> * **Paso 5: Habilitar la replicación**. Configure las opciones de replicación y habilite la replicación de las máquinas virtuales. Mobility Service se instalará en una máquina virtual cuando se habilite la replicación. Site Recovery realiza una replicación inicial de la máquina virtual y, a continuación, comienza la replicación en curso.
-> * **Paso 6: Ejecutar un simulacro de recuperación ante desastres**: después de que la replicación esté en funcionamiento, compruebe que la conmutación por error funcionará según lo esperado mediante la ejecución de un simulacro. Para iniciar el simulacro, ejecute una conmutación por error de prueba en Site Recovery. La conmutación por error de prueba no afecta al entorno de producción.
+> * **Paso 1: Preparación de las máquinas virtuales de Azure Stack para la replicación**. Compruebe que las máquinas virtuales cumplen los requisitos de Site Recovery y prepare la instalación del servicio Site Recovery Mobility. Este servicio se instala en cada máquina virtual que quiere replicar.
+> * **Paso 2: Configuración de un almacén de Recovery Services**. Configure un almacén de Site Recovery y especifique lo que quiere replicar. Las acciones y los componentes de Site Recovery se configuran y administran en el almacén.
+> * **Paso 3: Configuración del entorno de replicación de origen**. Configure un servidor de configuración de Site Recovery. El servidor de configuración es una única máquina virtual de Azure Stack que ejecuta todos los componentes que Site Recovery necesita. Después de configurar el servidor de configuración, se registra en el almacén.
+> * **Paso 4: Configuración del entorno de replicación de destino**. Seleccione su cuenta de Azure, la cuenta de Azure Storage y la red que quiere usar. Durante la replicación, los datos de máquina virtual se copian en Azure Storage. Después de la conmutación por error, las máquinas virtuales de Azure se unen a la red especificada.
+> * **Paso 5: Habilitación de la replicación**. Configure las opciones de replicación y habilite la replicación de las máquinas virtuales. Mobility Service se instalará en una máquina virtual cuando se habilite la replicación. Site Recovery realiza una replicación inicial de la máquina virtual y, a continuación, comienza la replicación en curso.
+> * **Paso 6: Ejecución de un simulacro de recuperación ante desastres**: después de que la replicación esté en funcionamiento, compruebe que la conmutación por error funcionará según lo esperado; para ello, realice un simulacro. Para iniciar el simulacro, ejecute una conmutación por error de prueba en Site Recovery. La conmutación por error de prueba no afecta al entorno de producción.
 
 Con estos pasos completados, puede ejecutar una conmutación por error completa a Azure como y cuando necesite.
 
@@ -45,7 +45,7 @@ Con estos pasos completados, puede ejecutar una conmutación por error completa 
 
 **Ubicación** | **Componente** |**Detalles**
 --- | --- | ---
-**Servidor de configuración** | Se ejecuta en una única máquina virtual de Azure Stack. | En cada suscripción se configura una máquina virtual de configuración. Esta máquina virtual ejecuta los siguientes componentes de Site Recovery:<br/><br/> - Servidor de configuración: coordina las comunicaciones entre el entorno local y Azure, además de administrar la replicación de datos. - Servidor de procesos: actúa como puerta de enlace de replicación. Recibe los datos de la replicación, los optimiza mediante el almacenamiento en caché, compresión y cifrado, y los envía a Azure Storage.<br/><br/> Si las máquinas virtuales que va a replicar superan los límites indicados a continuación, puede configurar un servidor de procesos independiente. [Más información](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-process-server-scale).
+**Servidor de configuración** | Se ejecuta en una única máquina virtual de Azure Stack. | En cada suscripción se configura una máquina virtual de configuración. Esta máquina virtual ejecuta los siguientes componentes de Site Recovery:<br/><br/> - Servidor de configuración: coordina las comunicaciones entre el entorno local y Azure, además de administrar la replicación de datos. - Servidor de procesos: Actúa como puerta de enlace de replicación. Recibe los datos de la replicación, los optimiza mediante el almacenamiento en caché, compresión y cifrado, y los envía a Azure Storage.<br/><br/> Si las máquinas virtuales que va a replicar superan los límites indicados a continuación, puede configurar un servidor de procesos independiente. [Más información](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-process-server-scale).
 **Servicio de movilidad** | Se instala en cada máquina virtual que quiere replicar. | En los pasos de este artículo, se prepara una cuenta para que Mobility Service se instale automáticamente en una máquina virtual cuando se habilite la replicación. Si no quiere instalar automáticamente el servicio, hay una serie de otros métodos que puede usar. [Más información](https://docs.microsoft.com/azure/site-recovery/vmware-azure-install-mobility-service).
 **Las tablas de Azure** | En Azure, necesita un almacén de Recovery Services, una cuenta de almacenamiento y una red virtual. |  Los datos replicados se almacenan en la cuenta de almacenamiento. Las máquinas virtuales de Azure se agregan a la red de Azure cuando se produce una conmutación por error. 
 
@@ -78,7 +78,7 @@ Esto es lo que va a necesitar para configurar este escenario.
 
 
  
-## <a name="step-1-prepare-azure-stack-vms"></a>Paso 1: Preparar las máquinas virtuales de Azure Stack
+## <a name="step-1-prepare-azure-stack-vms"></a>Paso 1: Preparación de las máquinas virtuales de Azure Stack
 
 ### <a name="verify-the-operating-system"></a>Comprobar el sistema operativo
 
@@ -104,7 +104,7 @@ Todas las máquinas virtuales que desee replicar deben tener instalado Mobility 
     - Si no utiliza una cuenta de dominio, deberá deshabilitar el control de acceso de usuario remoto en la máquina virtual:
         - En el Registro, cree el valor DWORD **LocalAccountTokenFilterPolicy** en HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System.
         - Establezca el valor en 1.
-        - Para ello, en el símbolo del sistema, escriba lo siguiente: **REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1**.
+        - Para ello, en el símbolo del sistema,escriba el siguiente comando: **REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1**.
 - En el Firewall de Windows de la máquina virtual que quiere replicar, permita compartir archivos e impresoras y WMI.
     - Para ello, ejecute **wf.msc** para abrir la consola de Firewall de Windows. Haga clic con el botón derecho en **Reglas de entrada** > **Nueva regla**. Seleccione **Predefinido** y elija **Compartir archivos e impresoras** en la lista. Complete el asistente, seleccione Permitir la conexión > **Finalizar**.
     - Para los equipos del dominio, puede usar un GPO para hacerlo.
@@ -140,7 +140,7 @@ Para cada equipo que quiera replicar, busque la dirección IP:
     ![Dirección IP privada](./media/azure-stack-site-recovery/private-ip.png)
 
 
-## <a name="step-2-create-a-vault-and-select-a-replication-goal"></a>Paso 2: Crear un almacén y seleccionar un objetivo de replicación
+## <a name="step-2-create-a-vault-and-select-a-replication-goal"></a>Paso 2: Creación de un almacén y selección de un objetivo de replicación
 
 1. En Azure Portal, seleccione **Crear un recurso** > **Supervisión y administración** > **Backup y Site Recovery**.
 2. En **Nombre**, escriba un nombre descriptivo para identificar el almacén. 
@@ -162,7 +162,7 @@ Para cada equipo que quiera replicar, busque la dirección IP:
 
     ![Objetivo de protección](./media/azure-stack-site-recovery/protection-goal.png)
 
-## <a name="step-3-set-up-the-source-environment"></a>Paso 3: Configurar del entorno de origen
+## <a name="step-3-set-up-the-source-environment"></a>Paso 3: Configuración del entorno de origen
 
 Configure el equipo del servidor de configuración, regístrelo en el almacén y detecte las máquinas que quiere replicar.
 
@@ -202,7 +202,7 @@ Seleccione y compruebe los recursos de destino.
 3. Site Recovery comprueba que tiene una o más redes y cuentas de Azure Storage compatibles. Si no las encuentra, deberá crear al menos una cuenta de almacenamiento y red virtual, con el fin de completar el asistente.
 
 
-## <a name="step-5-enable-replication"></a>Paso 5: Habilitamiento de la replicación
+## <a name="step-5-enable-replication"></a>Paso 5: Habilitar replicación
 
 ### <a name="create-a-replication-policy"></a>Creación de una directiva de replicación
 
@@ -227,7 +227,7 @@ Puede omitir este paso ahora. En la lista desplegable **Planeamiento de implemen
 
 ### <a name="enable-replication"></a>Habilitar replicación
 
-Asegúrese de que ha completado todas las tareas del [Paso 1: Preparar la máquina](#step-1-prepare-azure-stack-vms). A continuación, habilite la replicación como sigue:
+Asegúrese de que ha completado todas las tareas del [Paso 1: Preparación de la máquina](#step-1-prepare-azure-stack-vms). A continuación, habilite la replicación como sigue:
 
 1. Seleccione **Replicar la aplicación** > **Origen**.
 2. En **Origen**, seleccione el servidor de configuración.
@@ -255,7 +255,7 @@ Asegúrese de que ha completado todas las tareas del [Paso 1: Preparar la máqui
 > Para supervisar las máquinas virtuales que agregue, compruebe la última hora de detección de máquinas virtuales en **Servidores de configuración** > **Último contacto a las**. Para agregar máquinas virtuales sin esperar a la detección programada, resalte el servidor de configuración (no haga clic en él) y haga clic en **Actualizar**.
 
 
-## <a name="step-6-run-a-disaster-recovery-drill"></a>Paso 6: Ejecutar un simulacro de recuperación ante desastres
+## <a name="step-6-run-a-disaster-recovery-drill"></a>Paso 6: Ejecución de un simulacro de recuperación ante desastres
 
 Ejecute una conmutación por error de prueba en Azure para asegurarse de que todo funciona según lo esperado. Esta conmutación por error no afectará a su entorno de producción.
 
@@ -314,7 +314,7 @@ A continuación, ejecute una conmutación por error de prueba de la manera sigui
 7. Después de comprobar la máquina virtual, haga clic en **Confirmar** para finalizar la conmutación por error. Esta acción elimina todos los puntos de recuperación disponibles.
 
 > [!WARNING]
-> No cancele una conmutación por error en curso: antes de iniciar la conmutación por error, se detiene la replicación de la máquina virtual. Si se cancela una conmutación por error en curso, la conmutación por error se detiene, pero no se replica la máquina virtual de nuevo.
+> No cancele una conmutación por error en curso: Antes de iniciar la conmutación por error, se detiene la replicación de la máquina virtual. Si se cancela una conmutación por error en curso, la conmutación por error se detiene, pero no se replica la máquina virtual de nuevo.
 
 
 ### <a name="fail-back-to-azure-stack"></a>Conmutar por recuperación en Azure Stack

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: e0a47da168ae9371979290b3febc9d767e8755d7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 164ec0898e2f7ad461ab63ce0fcaf47a87998797
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428018"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997842"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Copias de seguridad y restauración para SQL Server en Azure Virtual Machines
 
@@ -40,7 +40,7 @@ En la tabla siguiente se proporciona información sobre varias opciones de copia
 
 En las siguientes secciones se describe cada opción con más detalle. La sección final de este artículo proporciona un resumen en forma de una matriz de características.
 
-## <a id="autoamted"></a> Copia de seguridad automatizada
+## <a id="automated"></a> Copia de seguridad automatizada
 
 Copia de seguridad automatizada proporciona un servicio de copia de seguridad automático para las ediciones de SQL Server Standard y Enterprise que se ejecutan en una VM de Windows en Azure. Este servicio se proporciona por la [extensión del agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md), que se instala automáticamente en las imágenes de máquina virtual de Windows de SQL Server en Azure Portal.
 
@@ -67,8 +67,8 @@ Para obtener más información sobre cómo configurar Copia de seguridad automat
 - **Escala**: proteja muchas máquinas virtuales de SQL y miles de bases de datos.
 - **Pago por uso**: esta funcionalidad es un servicio independiente proporcionado por Azure Backup, pero al igual que en todos los servicios de Azure, solo paga por lo que usa.
 - **Supervisión y administración central**: administre centralmente todas las copias de seguridad, incluidas otras cargas de trabajo que admite Azure Backup, desde un único panel en Azure.
-- **Copia de seguridad y retención administradas mediante directiva**: cree directivas de copia de seguridad estándar para copias de seguridad periódicas. Establezca directivas de retención para mantener copias de seguridad durante años.
-- **Compatibilidad con SQL Always On**: detecte y proteja la configuración de SQL Server Always On y respete la preferencia de copia de seguridad del grupo de disponibilidad.
+- **Retención y copia de seguridad basadas en directivas**: cree directivas de copia de seguridad estándar para copias de seguridad periódicas. Establezca directivas de retención para mantener copias de seguridad durante años.
+- **Compatibilidad con SQL AlwaysOn**: detecte y proteja la configuración de SQL Server Always On y respete la preferencia de copia de seguridad del grupo de disponibilidad.
 - **Objetivo de punto de recuperación (RPO) de 15 minutos**: configure copias de seguridad del registro de transacciones de SQL con una frecuencia de hasta 15 minutos.
 - **Restauración a un momento dado**: use el portal para recuperar las bases de datos a un momento concreto en el tiempo sin tener que restaurar manualmente varias copias de seguridad completas, diferenciales y registros.
 - **Alertas de errores por correo electrónico consolidadas**: configure notificaciones por correo electrónico consolidadas para cualquier error.
@@ -109,9 +109,9 @@ A partir de SQL Server 2012 SP1 CU2, puede realizar copias y restaurar directame
 
 Para obtener más información, consulte uno de los siguientes artículos según la versión de SQL Server:
 
-- **SQL Server 2016/2017**: [SQL Server Backup to URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service) (Copia de seguridad en dirección URL de SQL Server)
-- **SQL Server 2014**: [SQL Server 2014 Backup to URL](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx) (Copia de seguridad en dirección URL de SQL Server 2014)
-- **SQL Server 2012**: [SQL Server 2012 Backup to URL](https://msdn.microsoft.com/library/jj919148%28v=sql.110%29.aspx) (Copia de seguridad en dirección URL de SQL Server 2012)
+- **SQL Server 2016/2017**: [Copia de seguridad en dirección URL de SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
+- **SQL Server 2014**: [Copia de seguridad en dirección URL de SQL Server 2014](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx)
+- **SQL Server 2012**: [Copia de seguridad en dirección URL de SQL Server 2012](https://msdn.microsoft.com/library/jj919148%28v=sql.110%29.aspx)
 
 ### <a name="managed-backup"></a>Copia de seguridad administrada
 

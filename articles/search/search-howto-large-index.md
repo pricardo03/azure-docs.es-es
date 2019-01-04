@@ -1,5 +1,5 @@
 ---
-title: Recompilación de un índice de Azure Search o actualización del contenido de búsqueda | Microsoft Docs
+title: 'Indexación del escalado horizontal con indexadores integrados: Azure Search'
 description: Agregue elementos nuevos, actualice elementos o documentos existentes o elimine documentos obsoletos en una indexación de recompilación completa o incremental parcial para actualizar un índice de Azure Search.
 services: search
 author: HeidiSteen
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 0b346756349c483dea32ec31827a653bd9b777cf
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.custom: seodec2018
+ms.openlocfilehash: 5f268de43f4f860458c062cb80e5bea0134b4407
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705946"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316696"
 ---
 # <a name="how-to-scale-out-indexing-in-azure-search"></a>Cómo escalar la indexación horizontalmente en Azure Search
 

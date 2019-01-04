@@ -2,18 +2,17 @@
 title: Trabajo con la biblioteca de procesadores de fuente de cambios en Azure Cosmos DB
 description: Uso de la biblioteca de procesadores de fuente de cambios de Azure Cosmos DB.
 author: rafats
-manager: kfile
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: rafats
-ms.openlocfilehash: 9d427a8001112e4994597b86579d85156f94a870
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: eee80563a838e6d453278735abf96fa5a6996f19
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628904"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835517"
 ---
 # <a name="using-the-azure-cosmos-db-change-feed-processor-library"></a>Uso de la biblioteca de procesadores de fuente de cambios de Azure Cosmos DB
 
@@ -33,17 +32,17 @@ Si tiene dos funciones de Azure sin servidor que supervisan el mismo contenedor 
 
 Hay cuatro componentes principales de la implementación de la biblioteca de procesadores de fuente de cambios: 
 
-1. **El contenedor supervisado:** El contenedor supervisado tiene los datos a partir de los cuales se genera la fuente de cambios. Todas las inserciones y cambios realizados en el contenedor supervisado se reflejan en la fuente de cambios del contenedor.
+1. **El contenedor supervisado:** el contenedor supervisado tiene los datos a partir de los cuales se genera la fuente de cambios. Todas las inserciones y cambios realizados en el contenedor supervisado se reflejan en la fuente de cambios del contenedor.
 
-1. **El contenedor de concesión:** El contenedor de concesión coordina el procesamiento de la fuente de cambios entre varios trabajadores. Se usa un contenedor independiente para almacenar las concesiones con una concesión por partición. Resulta ventajoso almacenar este contenedor de concesión en una cuenta diferente con la región de escritura más cerca de donde se está ejecutando el procesador de fuente de cambios. Un objeto de concesión contiene los siguientes atributos:
+1. **El contenedor de concesión**: el contenedor de concesión coordina el procesamiento de la fuente de cambios entre varios trabajadores. Se usa un contenedor independiente para almacenar las concesiones con una concesión por partición. Resulta ventajoso almacenar este contenedor de concesión en una cuenta diferente con la región de escritura más cerca de donde se está ejecutando el procesador de fuente de cambios. Un objeto de concesión contiene los siguientes atributos:
 
-   * Propietario: Especifica el host que posee la concesión.
+   * Propietario: especifica el host que posee la concesión.
 
-   * Continuación: Especifica la posición (token de continuación) en la fuente de cambios para una partición determinada.
+   * Continuación: especifica la posición (token de continuación) en la fuente de cambios para una partición determinada.
 
-   * Marca de tiempo: Última vez que se actualizó la concesión; la marca de tiempo se puede usar para comprobar si la concesión se considera expirada.
+   * Marca de tiempo: última vez que se actualizó la concesión; la marca de tiempo se puede usar para comprobar si la concesión se considera expirada.
 
-1. **Host de procesador:** Cada host determina cuántas particiones se van a procesar según la cantidad de otras instancias de host que tienen concesiones activas.
+1. **El host del procesador:** cada host determina cuántas particiones se van a procesar según la cantidad de otras instancias de host que tienen concesiones activas.
 
    * Cuando se inicia un host, adquiere concesiones para equilibrar la carga de trabajo en todos los hosts. Un host renueva periódicamente concesiones, por lo que las concesiones permanecen activas.
 
@@ -53,7 +52,7 @@ Hay cuatro componentes principales de la implementación de la biblioteca de pro
 
    Actualmente, el número de hosts no puede ser mayor que el número de particiones (concesiones).
 
-1. **Consumidores:** Los consumidores, o trabajadores, son subprocesos que realizan el procesamiento de fuentes de cambios iniciado por cada host. Cada host de procesador puede tener varios consumidores. Cada consumidor lee la fuente de cambios de la partición a la que se ha asignado y notifica a su host los cambios y las concesiones expiradas.
+1. **Los consumidores:** los consumidores, o trabajadores, son subprocesos que realizan el procesamiento de fuentes de cambios iniciado por cada host. Cada host de procesador puede tener varios consumidores. Cada consumidor lee la fuente de cambios de la partición a la que se ha asignado y notifica a su host los cambios y las concesiones expiradas.
 
 Para comprender mejor cómo funcionan estos cuatro elementos del procesador de fuente de cambios juntos, echemos un vistazo a un ejemplo en el diagrama siguiente. La colección supervisada almacena documentos y usa "City" como clave de partición. Vemos que la partición azul contiene documentos con el campo "City" de "A-E", etc. Hay dos hosts, cada uno con dos consumidores, que leen las cuatro particiones en paralelo. Las flechas muestran a los consumidores leyendo un punto específico de la fuente de cambios. En la primera partición, el azul más oscuro representa los cambios no leídos, mientras que el azul claro representa los cambios ya leídos de la fuente de cambios. Los hosts utilizan la colección de concesión para almacenar un valor de "continuación" para realizar un seguimiento de la posición de lectura actual para cada consumidor.
 
@@ -71,7 +70,7 @@ Se le cobrarán las RU consumidas, puesto que la entrada y la salida de datos de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora puede obtener más información acerca de las fuentes de cambios en los siguientes artículos:
+Ahora, puede obtener más información acerca de las fuentes de cambios en los siguientes artículos:
 
 * [Introducción a la fuente de cambios](change-feed.md)
 * [Maneras de leer la fuente de cambios](read-change-feed.md)

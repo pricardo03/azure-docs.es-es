@@ -13,14 +13,14 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/31/2018
-ms.openlocfilehash: 71a23e982f1e4ae5609d4f9a160cd1861e043ea1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 00fe4e109df2ac8954e657a1a567842ec5eb7d37
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251822"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317464"
 ---
-# <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Códigos de error para las aplicaciones cliente de SQL Database: errores de conexión de bases de datos y otros problemas
+# <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Códigos de error de SQL para aplicaciones cliente de SQL Database: Errores de conexión de base de datos y otros problemas
 
 En este artículo se enumeran los códigos de error de SQL de la aplicación cliente de SQL Database, incluidos los errores de conexión de base de datos, los errores transitorios, los errores de regulación de recursos, los problemas de copia de la base de datos, el grupo elástico y otros errores. La mayoría de las categorías son específicas de Azure SQL Database y no se aplican a Microsoft SQL Server. Consulte también los [mensajes de error del sistema](https://technet.microsoft.com/library/cc645603(v=sql.105).aspx).
 
@@ -37,7 +37,7 @@ Los errores transitorios suelen manifestarse como uno de los siguientes mensajes
 * La base de datos &lt;db_name&gt; del servidor &lt;Azure_instance&gt; no está disponible actualmente. Vuelva a intentar la conexión más tarde. Si el problema continúa, póngase en contacto con el servicio de asistencia al cliente y proporcióneles el identificador de seguimiento de sesión de &lt;session_id&gt;.
 * La base de datos &lt;db_name&gt; del servidor &lt;Azure_instance&gt; no está disponible actualmente. Vuelva a intentar la conexión más tarde. Si el problema continúa, póngase en contacto con el servicio de asistencia al cliente y proporcióneles el identificador de seguimiento de sesión de &lt;session_id&gt;. (Microsoft SQL Server, error: 40613)
 * El host remoto cerró a la fuerza una conexión ya existente.
-* System.Data.Entity.Core.EntityCommandExecutionException: Se produjo un error al ejecutar la definición del comando. Vea la excepción interna para obtener detalles. ---> System.Data.SqlClient.SqlException: Error en el nivel del transporte al recibir los resultados del servidor. (proveedor: proveedor de sesión, error: 19: La conexión física es inservible)
+* System.Data.Entity.Core.EntityCommandExecutionException: Se ha producido un error al ejecutar la definición del comando. Vea la excepción interna para obtener detalles. ---> System.Data.SqlClient.SqlException: Error en el nivel del transporte al recibir los resultados del servidor. (proveedor: proveedor de sesión, error: 19: la conexión física no es utilizable)
 * Error al tratar de conectarse a una base de datos secundaria porque la base de datos está en proceso de reconfiguración y ocupada aplicando nuevas páginas en mitad de una transacción activa en la base de datos principal. 
 
 Para obtener ejemplos de lógica de reintento, vea:
@@ -90,12 +90,12 @@ La causa de los siguientes errores es un uso excesivo de recursos mientras se tr
 
 Temas relacionados:
 
-* Encontrará información más detallada aquí: [Límites de recursos de Azure SQL Database](sql-database-service-tiers-dtu.md).
+* Hay información más detallada disponible aquí: [Límites de recursos de Azure SQL Database](sql-database-service-tiers-dtu.md).
 
 | Código de error | Gravedad | DESCRIPCIÓN |
 | ---:| ---:|:--- |
-| 10928 |20 |Id. de recurso: %d. El límite %s para la base de datos es %d y se ha alcanzado. Para más información, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](https://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>El identificador de recurso indica el recurso que ha alcanzado el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, Identificador de recurso = 2.<br/><br/>Para más información sobre este error y cómo solucionarlo, consulte:<br/>• [Límites de recursos de SQL Database](sql-database-service-tiers-dtu.md). |
-| 10929 |20 |Id. de recurso: %d. La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Para más información, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](https://go.microsoft.com/fwlink/?LinkId=267637). De lo contrario, inténtelo de nuevo más tarde.<br/><br/>El identificador de recurso indica el recurso que ha alcanzado el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, Identificador de recurso = 2.<br/><br/>Para más información sobre este error y cómo solucionarlo, consulte:<br/>• [Límites de recursos de SQL Database](sql-database-service-tiers-dtu.md). |
+| 10928 |20 |Id. de recurso: %d. El límite %s para la base de datos es %d y se ha alcanzado. Para más información, consulte [Límites de recursos de SQL Database para bases de datos individuales y agrupadas](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).<br/><br/>El identificador de recurso indica el recurso que ha alcanzado el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, Identificador de recurso = 2.<br/><br/>Para más información sobre este error y cómo solucionarlo, consulte:<br/>• [Límites de recursos de SQL Database](sql-database-service-tiers-dtu.md). |
+| 10929 |20 |Id. de recurso: %d. La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Para más información, consulte [Límites de recursos de SQL Database para bases de datos individuales y agrupadas](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server). De lo contrario, inténtelo de nuevo más tarde.<br/><br/>El identificador de recurso indica el recurso que ha alcanzado el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, Identificador de recurso = 2.<br/><br/>Para más información sobre este error y cómo solucionarlo, consulte:<br/>• [Límites de recursos de SQL Database](sql-database-service-tiers-dtu.md). |
 | 40544 |20 |La base de datos ha alcanzado su cuota de tamaño. Cree particiones o elimine datos, quite índices o consulte la documentación para obtener soluciones posibles. |
 | 40549 |16 |La sesión terminó porque tiene una transacción de larga duración. Intente reducir la transacción. |
 | 40550 |16 |La sesión ha terminado porque ha adquirido demasiados bloqueos. Intente leer o modificar menos filas en una sola transacción. |
@@ -109,7 +109,7 @@ Los errores siguientes están relacionados con la creación y el uso de grupos e
 | Código de error | Gravedad | DESCRIPCIÓN | Acción correctiva |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |El grupo elástico ha alcanzado su límite de almacenamiento. El uso del almacenamiento del grupo elástico no puede superar (%d) MB. Se ha intentado escribir datos en una base de datos cuando se ha alcanzado el límite de almacenamiento del grupo elástico. |Considere la posibilidad de incrementar el número de DTU y de agregar almacenamiento al grupo elástico si es posible para aumentar su límite de almacenamiento, reducir el almacenamiento usado por las bases de datos individuales del grupo elástico o quitar bases de datos de este. |
-| 10929 | 16 |La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Consulte [http://go.microsoft.com/fwlink/?LinkId=267637](https://go.microsoft.com/fwlink/?LinkId=267637) para obtener ayuda. De lo contrario, inténtelo de nuevo más tarde. Número mínimo de DTU o de núcleos virtuales por base de datos; número máximo de DTU o de núcleos virtuales por base de datos. El número total de trabajadores simultáneos (solicitudes) de todas las bases de datos del grupo elástico intentó superar el límite del grupo. |Considere la posibilidad de incrementar el número de DTU o de núcleos virtuales del grupo elástico si es posible para aumentar el límite de trabajadores, o bien quite bases de datos del grupo elástico. |
+| 10929 | 16 |La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Consulte [Límites de recursos de SQL Database para bases de datos individuales y agrupadas](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server) para obtener ayuda. De lo contrario, inténtelo de nuevo más tarde. Número mínimo de DTU o de núcleos virtuales por base de datos; número máximo de DTU o de núcleos virtuales por base de datos. El número total de trabajadores simultáneos (solicitudes) de todas las bases de datos del grupo elástico intentó superar el límite del grupo. |Considere la posibilidad de incrementar el número de DTU o de núcleos virtuales del grupo elástico si es posible para aumentar el límite de trabajadores, o bien quite bases de datos del grupo elástico. |
 | 40844 | 16 |La base de datos '%ls' del servidor '%ls' es una base de datos de la versión '%ls' de un grupo elástico y no puede tener una relación de copia continua.  |N/D |
 | 40857 | 16 |Grupo elástico no encontrado para el servidor: '%ls', nombre del grupo elástico: '%ls'. El grupo elástico especificado no existe en el servidor especificado. | Especifique un nombre de grupo elástico válido. |
 | 40858 | 16 |El grupo elástico '%ls' ya existe en el servidor: '%ls'. El grupo elástico especificado ya existe en el servidor lógico especificado. | Proporcione un nuevo nombre de grupo elástico. |

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: jgao
 ms.custom: include file
-ms.openlocfilehash: 936c9198eebfa229db6ac34426e435c9e6ed96e8
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 46618b76f43247199e85c2023a5391c5566f3394
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50254545"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52978729"
 ---
 ## <a name="quickstarts-and-tutorials"></a>Guías de inicio rápido y tutoriales
 
@@ -45,6 +45,7 @@ Use las siguientes guías de inicio rápido y tutoriales para aprender a desarro
     |[Creación de plantillas vinculadas](../articles/azure-resource-manager/resource-manager-tutorial-create-linked-templates.md)|Modularice las plantillas y llame a otras plantillas desde una plantilla. En el tutorial, va a crear una red virtual, una máquina virtual y los recursos dependientes.  La cuenta de almacenamiento dependiente se define en una plantilla vinculada. |
     |[Implementación de extensiones de máquina virtual](../articles/azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)|Realice las tareas posteriores a la implementación mediante el uso de extensiones. En el tutorial, se implementa una extensión de script de cliente para instalar el servidor web en la máquina virtual. |
     |[Implementación de extensiones de SQL](../articles/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac.md)|Realice las tareas posteriores a la implementación mediante el uso de extensiones. En el tutorial, se implementa una extensión de script de cliente para instalar el servidor web en la máquina virtual. |
+    |[Protección de artefactos](../articles/azure-resource-manager/resource-manager-tutorial-secure-artifacts.md)|Proteja los artefactos necesarios para completar las implementaciones. En el tutorial, obtendrá información sobre cómo proteger el artefacto que se usa en el tutorial de implementación de extensiones SQL. |
     |[Uso de procedimientos de implementación seguros](../articles/azure-resource-manager/deployment-manager-tutorial.md)|Use Azure Deployment Manager. |
 
 Estos tutoriales se pueden usar individualmente o como una serie para obtener información sobre los conceptos principales de desarrollo de la plantilla de Resource Manager.

@@ -1,19 +1,20 @@
 ---
-title: Patrones de la ruta de acceso de fecha y hora personalizados para la salida de Blob Storage de Azure Stream Analytics (versión preliminar)
-description: ''
+title: Patrones de ruta de acceso de DateTime para la salida de Blob Storage de Azure Stream Analytics (versión preliminar)
+description: En este artículo se describe la característica de patrones de rutas de acceso de DateTime personalizada para la salida de Blob Storage desde trabajos de Azure Stream Analytics.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: da29c6bd8ddc1e2f62a78fb683df5e1784141722
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: ba386539c3f3c6740b843575bbccd4b028b8a5a7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452571"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090797"
 ---
 # <a name="custom-datetime-path-patterns-for-azure-stream-analytics-blob-storage-output-preview"></a>Patrones de la ruta de acceso de fecha y hora personalizados para la salida de Blob Storage de Azure Stream Analytics (versión preliminar)
 
@@ -61,7 +62,7 @@ Por ejemplo, `year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}/hour={d
 
 La salida personalizada elimina la necesidad de tener que alterar las tablas y agregar particiones manualmente a los datos de puertos que estén entre Azure Stream Analytics y Hive. En su lugar, muchas carpetas se pueden agregar automáticamente mediante:
 
-```
+```SQL
 MSCK REPAIR TABLE while hive.exec.dynamic.partition true
 ```
 
@@ -75,9 +76,9 @@ Cree un receptor de salida de blob con la siguiente configuración:
 
 El patrón de la ruta de acceso completo es el siguiente:
 
-```
-year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}
-```
+
+`year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}`
+
 
 Cuando inicie el trabajo, se creará una estructura de carpetas basada en el patrón de la ruta de acceso en el contenedor de blobs. Puede explorar en profundidad hasta llegar al nivel del día.
 

@@ -3,7 +3,7 @@ title: Creación y administración de trabajos de Azure SQL Elastic Database med
 description: Ejecute scripts en muchas bases de datos con el agente de trabajo de Elastic Database mediante Transact-SQL (T-SQL).
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: ''
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 49fe1fc79ac94b798cb257b961c36a6258fb00d9
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 3c40c6721651864b9e0d64d4eeda415bfd3e181a
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056794"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164524"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Use Transact-SQL (T-SQL) para crear y administrar trabajos de Elastic Database
 
@@ -210,9 +210,9 @@ EXEC jobs.sp_add_jobstep
 @credential_name='myjobcred',
 @target_group_name='PoolGroup',
 @output_type='SqlDatabase',
-@output_credential_name=’myjobcred’,
-@output_server_name=’server1.database.windows.net',
-@output_database_name=’<resultsdb>',
+@output_credential_name='myjobcred',
+@output_server_name='server1.database.windows.net',
+@output_database_name='<resultsdb>',
 @output_table_name='<resutlstable>'
 Create a job to monitor pool performance
 --Connect to the job database specified when creating the job agent
@@ -257,8 +257,8 @@ SELECT elastic_pool_name , end_time, elastic_pool_dtu_limit, avg_cpu_percent, av
 @target_group_name='MasterGroup',
 @output_type='SqlDatabase',
 @output_credential_name='myjobcred',
-@output_server_name=’server1.database.windows.net',
-@output_database_name=’resultsdb',
+@output_server_name='server1.database.windows.net',
+@output_database_name='resultsdb',
 @output_table_name='resutlstable'
 ```
 
@@ -330,7 +330,7 @@ Conéctese a la [*base de datos de trabajo*](elastic-jobs-overview.md#job-databa
 ```sql
 --Connect to the job database specified when creating the job agent
 
---View top-level execution status for the job named ‘ResultsPoolJob’
+--View top-level execution status for the job named 'ResultsPoolJob'
 SELECT * FROM jobs.job_executions 
 WHERE job_name = 'ResultsPoolsJob' and step_id IS NULL
 ORDER BY start_time DESC
@@ -339,7 +339,7 @@ ORDER BY start_time DESC
 SELECT * FROM jobs.job_executions WHERE step_id IS NULL
 ORDER BY start_time DESC
 
---View all execution statuses for job named ‘ResultsPoolsJob’
+--View all execution statuses for job named 'ResultsPoolsJob'
 SELECT * FROM jobs.job_executions 
 WHERE job_name = 'ResultsPoolsJob' 
 ORDER BY start_time DESC
@@ -644,10 +644,10 @@ Si se especifica, el valor debe ser Inline.
 [ **@command =** ] 'command'  
 El comando debe ser un script T-SQL válido, que se ejecutará a continuación en este paso de trabajo. command es nvarchar(max), con un valor predeterminado de NULL.
 
-[ **@credential_name =** ] ‘credential_name’  
+[ **@credential_name =** ] 'credential_name'  
 Nombre de la credencial de ámbito de base de datos almacenada en esta base de datos de control de trabajos, que se usa para conectarse a cada una de las bases de datos de destino en del grupo de destino cuando se ejecuta este paso. credential_name es nvarchar(128).
 
-[ **@target_group_name =** ] ‘target-group_name'  
+[ **@target_group_name =** ] 'target-group_name'  
 Nombre del grupo de destino que contiene las bases de datos de destino donde se ejecutará el paso de trabajo. target_group_name is nvarchar(128).
 
 [ **@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
@@ -774,10 +774,10 @@ Si se especifica, el valor debe ser Inline.
 [ **@command =** ] 'command'  
 Los valores de command deben ser un script T-SQL válido, que se ejecutará en este paso de trabajo. command es nvarchar(max), con un valor predeterminado de NULL.
 
-[ **@credential_name =** ] ‘credential_name’  
+[ **@credential_name =** ] 'credential_name'  
 Nombre de la credencial de ámbito de base de datos almacenada en esta base de datos de control de trabajos, que se usa para conectarse a cada una de las bases de datos de destino en del grupo de destino cuando se ejecuta este paso. credential_name es nvarchar(128).
 
-[ **@target_group_name =** ] ‘target-group_name'  
+[ **@target_group_name =** ] 'target-group_name'  
 Nombre del grupo de destino que contiene las bases de datos de destino donde se ejecutará el paso de trabajo. target_group_name is nvarchar(128).
 
 [ **@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
@@ -1011,14 +1011,14 @@ Agrega una base de datos o un grupo de bases de datos a un grupo de destino.
 
 ```sql
 [jobs].sp_add_target_group_member [ @target_group_name = ] 'target_group_name'
-         [ @membership_type = ] ‘membership_type’ ]   
-        [ , [ @target_type = ] ‘target_type’ ]   
-        [ , [ @refresh_credential_name = ] ‘refresh_credential_name’ ]   
-        [ , [ @server_name = ] ‘server_name’ ]   
-        [ , [ @database_name = ] ‘database_name’ ]   
-        [ , [ @elastic_pool_name = ] ‘elastic_pool_name’ ]   
-        [ , [ @shard_map_name = ] ‘shard_map_name’ ]   
-        [ , [ @target_id = ] ‘target_id’ OUTPUT ]
+         [ @membership_type = ] 'membership_type' ]   
+        [ , [ @target_type = ] 'target_type' ]   
+        [ , [ @refresh_credential_name = ] 'refresh_credential_name' ]   
+        [ , [ @server_name = ] 'server_name' ]   
+        [ , [ @database_name = ] 'database_name' ]   
+        [ , [ @elastic_pool_name = ] 'elastic_pool_name' ]   
+        [ , [ @shard_map_name = ] 'shard_map_name' ]   
+        [ , [ @target_id = ] 'target_id' OUTPUT ]
 ```
 
 #### <a name="arguments"></a>Argumentos
@@ -1101,7 +1101,7 @@ Quita un miembro de un grupo de destino.
 
 ```sql
 [jobs].sp_delete_target_group_member [ @target_group_name = ] 'target_group_name'
-        [ , [ @target_id = ] ‘target_id’]
+        [ , [ @target_id = ] 'target_id']
 ```
 
 
@@ -1219,7 +1219,7 @@ Muestra el historial de ejecuciones de trabajos.
 |**job_version**    |int    |Versión del trabajo (se actualiza automáticamente cada vez que se modifica el trabajo).
 |**step_id**    |int|   Identificador único (de este trabajo) para el paso. NULL indica que se trata de la ejecución del trabajo principal.
 |**is_active**| bit |Indica si la información está activa o inactiva. 1 indica trabajos activos y 0, trabajos inactivos.
-|**lifecycle**| nvarchar(50)|Valor que indica el estado del trabajo: 'Created', 'In Progress', 'Failed', 'Succeeded', 'Skipped', 'SucceededWithSkipped'.|
+|**lifecycle**| nvarchar(50)|Valor que indica el estado del trabajo: "Created", "In Progress", "Failed", "Succeeded", "Skipped", "SucceededWithSkipped".|
 |**create_time**|   datetime2(7)|   Fecha y hora en que se creó el trabajo.
 |**start_time** |datetime2(7)|  Fecha y hora en que el trabajo inició la ejecución. NULL si todavía no se ejecutó el trabajo.
 |**end_time**|  datetime2(7)    |Fecha y hora en que el trabajo finalizó la ejecución. NULL si todavía no se ejecutó el trabajo o no se completó la ejecución.

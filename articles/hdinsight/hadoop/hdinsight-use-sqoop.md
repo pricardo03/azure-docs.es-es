@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 1571480540baedd5910c4153caf23e0687d48922
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: e448b367e574b044762fb1ee7eaa30e1bb3e1f8b
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684994"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011749"
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Uso de Sqoop con Hadoop en HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -75,15 +75,15 @@ Si prefiere usar Azure PowerShell para crear el clúster y SQL Database; consult
    
 2. Especifique las siguientes propiedades:
 
-    - **Suscripción**: escriba su suscripción de Azure.
-    - **Grupo de recursos**: cree un nuevo grupo de recursos de Azure o seleccione uno existente.  Un grupo de recursos tiene fines administrativos.  Es un contenedor de objetos.
-    - **Ubicación**: seleccione una región.
-    - **Nombre del clúster**: escriba el nombre del clúster de Hadoop.
-    - **Nombre de inicio de sesión y contraseña de clúster**: el nombre de inicio de sesión predeterminado es admin.
+    - **Suscripción**: Especifique la suscripción a Azure.
+    - **Grupos de recursos**: cree un grupo de recursos de Azure o seleccione uno existente.  Un grupo de recursos tiene fines administrativos.  Es un contenedor de objetos.
+    - **Ubicación**: Seleccione una región.
+    - **ClusterName**: Escriba el nombre del clúster de Hadoop.
+    - **Nombre de inicio de sesión y contraseña del clúster**: El nombre de inicio de sesión predeterminado es admin.
     - **Nombre de usuario y contraseña de SSH**.
     - **Nombre y contraseña de inicio de sesión en el servidor de la base de datos SQL**.
-    - **_artifacts Location** (Ubicación de _artefactos): use el valor predeterminado a no ser que quiera usar su propio archivo backpac en una ubicación diferente.
-    - **_artifacts Location Sas Token** (Token Sas de ubicación de _artefactos): deje este valor en blanco.
+    - **_artifacts Location**: (Ubicación de _artefactos): use el valor predeterminado a no ser que quiera usar su propio archivo backpac en una ubicación diferente.
+    - **_artifacts Location Sas Token** (Token de Sas de ubicación de _artefactos): Deje este parámetro en blanco.
     - **Bacpac File Name** (Nombre de archivo bacpac): use el valor predeterminado a no ser que quiera usar su propio archivo backpac.
      
         Los siguientes valores están codificados de forma rígida en la sección de variables:
@@ -99,7 +99,7 @@ Si prefiere usar Azure PowerShell para crear el clúster y SQL Database; consult
 
 Si opta por usar la base de datos SQL de Azure existente o Microsoft SQL Server
 
-* **Base de datos SQL de Azure**: debe configurar una regla de firewall para que el servidor de base de datos SQL de Azure permita el acceso desde la estación de trabajo. Para obtener instrucciones sobre cómo crear una base de datos SQL de Azure y configurar el firewall, consulte [Introducción al uso de Azure SQL Database][sqldatabase-get-started]. 
+* **Azure SQL Database**: debe configurar una regla de firewall para que el servidor de Azure SQL Database permita el acceso desde la estación de trabajo. Para obtener instrucciones sobre cómo crear una base de datos SQL de Azure y configurar el firewall, consulte [Introducción al uso de Azure SQL Database][sqldatabase-get-started]. 
   
   > [!NOTE]
   > De forma predeterminada, una base de datos SQL de Azure permite realizar conexiones desde servicios de Azure, como HDInsight de Azure. Si la configuración del firewall está deshabilitada, debe habilitarla en Azure Portal. Para obtener instrucciones sobre la creación de una base de datos de Azure SQL Database y la configuración de las reglas de firewall, consulte [Creación y configuración de SQL Database][sqldatabase-create-configure].
@@ -215,7 +215,7 @@ El ejemplo de PowerShell lleva a cabo los siguientes pasos:
    > Aparte de la información de la cadena de conexión, los pasos indicados en esta sección deben funcionar para una base de datos SQL de Azure o para SQL Server. Estos pasos se probaron con la siguiente configuración:
    > 
    > * **Configuración de punto a sitio de la red virtual de Azure**: red virtual que conecta el clúster de HDInsight a SQL Server en un centro privado de datos. Para obtener más información, consulte [Configuración de una VPN de punto a sitio en el Portal de administración](../../vpn-gateway/vpn-gateway-point-to-site-create.md) .
-   > * **Azure HDInsight:** consulte [Creación de clústeres de Hadoop basados en Windows en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) para obtener más información sobre cómo crear un clúster en una red virtual.
+   > * **Azure HDInsight**: consulte [Creación de clústeres de Hadoop basados en Windows en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) para obtener más información sobre cómo crear un clúster en una red virtual.
    > * **SQL Server 2014**: configurado para permitir la autenticación y la ejecución del paquete de configuración de clientes VPN para conectarse de forma segura a la red virtual.
    > 
    > 
@@ -638,8 +638,8 @@ Get-AzureRmHDInsightJobOutput `
 [sqldatabase-get-started]: ../../sql-database/sql-database-get-started.md
 [sqldatabase-create-configure]: ../../sql-database/sql-database-get-started.md
 
-[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: /powershell/azureps-cmdlets-docs
-[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
+[powershell-script]: https://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

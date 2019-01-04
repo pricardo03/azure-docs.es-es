@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a76486eaf2f9df8eb47b8bb73f1577324152a80f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 65747da92a3cad770cd9d474d27645782f7306b9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623305"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998734"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Solución de errores de los paquetes de contenido de los registros de actividad de Azure Active Directory 
 
@@ -34,12 +34,13 @@ Cuando se trabaja con el paquete de contenido de Power BI para Azure Active Dire
 
 - [Error al actualizar](troubleshoot-content-pack.md#refresh-failed) 
 - [Error al actualizar las credenciales del origen de datos ](troubleshoot-content-pack.md#failed-to-update-data-source-credentials) 
-- [La importación de datos tarda demasiado](troubleshoot-content-pack.md#importing-of-data-is-taking-too-long)  
+- [La importación de datos tarda demasiado](troubleshoot-content-pack.md#importing-of-data-is-taking-too-long) 
+
 Este artículo proporciona información sobre las posibles causas y cómo corregir estos errores.
  
 ## <a name="refresh-failed"></a>Error al actualizar 
  
-**¿Cómo aparece este error**: correo electrónico desde Power BI o estado de error en el historial de actualización. 
+**¿Cómo aparece este error?**: correo electrónico desde Power BI o estado de error en el historial de actualización. 
 
 
 | Causa | Solución |
@@ -50,7 +51,7 @@ Este artículo proporciona información sobre las posibles causas y cómo correg
  
 ## <a name="failed-to-update-data-source-credentials"></a>Error al actualizar las credenciales del origen de datos 
  
-**¿Cómo aparece este error**: en Power BI, cuando se conecta al paquete de contenido de registros de actividad de Azure AD. 
+**¿Cómo aparece este error?**: en Power BI, cuando se conecta al paquete de contenido de registros de actividad de Azure AD. 
 
 | Causa | Solución |
 | ---   | ---        |

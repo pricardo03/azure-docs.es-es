@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/06/2018
 ms.author: patricka
 ms.reviewer: ''
-ms.openlocfilehash: ef9c096989eeb37159d0deb705e7870afe2eff8b
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 70641084d2213b50803800a64000611d139facec
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975403"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075784"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Administrar el acceso a recursos con el control de acceso basado en rol de Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Azure Stack admite el control de acceso basado en rol (RBAC), que es el mismo [modelo de seguridad para la administración de acceso](https://docs.microsoft.com/azure/role-based-access-control/overview) que usa Microsoft Azure. Puede usar RBAC para administrar el acceso de usuarios, grupos o aplicaciones a las suscripciones, los recursos y los servicios.
 
@@ -91,9 +91,9 @@ Los siguientes pasos describen cómo configurar permisos para un usuario.
 1. Inicie sesión con una cuenta que tenga permisos de propietario en el recurso que desea administrar.
 2. En el panel de la izquierda, seleccione **Grupos de recursos**.
 3. Elija el nombre del grupo de recursos en el que quiera establecer los permisos.
-4. En el panel de navegación del grupo de recursos, elija **Control de acceso (IAM)**. En la vista **Control de acceso**, se muestran los elementos que tienen acceso al grupo de recursos. Puede filtrar estos resultados y usar una barra de menús para agregar o quitar permisos.
-5. En la barra de menús **Control de acceso**, elija **+ Agregar**.
-6. En **Agregar permisos**:
+4. En el panel de navegación del grupo de recursos, elija **Control de acceso (IAM)**. En la vista **Asignaciones de roles**, se muestran los elementos que tienen acceso al grupo de recursos. Puede filtrar y agrupar los resultados.
+5. En la barra de menús **Control de acceso**, seleccione **Agregar asignación de roles**.
+6. En el panel **Agregar asignación de roles**:
 
    * Elija el rol que quiera asignar de la lista desplegable **Rol**.
    * Elija el recurso que quiera asignar de la lista desplegable **Asignar acceso a**.

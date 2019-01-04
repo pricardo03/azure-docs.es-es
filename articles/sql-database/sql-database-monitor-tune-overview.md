@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/23/2018
-ms.openlocfilehash: 0d728d81a29c5520938c8553c026727c0f94cc43
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.date: 12/10/2018
+ms.openlocfilehash: 9e8b9b24707577aba5df754984953ef2f59b9ff9
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957010"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272871"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Optimización de la supervisión y el rendimiento
 
@@ -85,7 +85,91 @@ Si resulta que tiene un problema de rendimiento relacionado con la ejecución, s
 > [!IMPORTANT]
 > Para obtener un conjunto de consultas de T-SQL que usan estas DMV para solucionar problemas de uso de la CPU, consulte [Identify CPU performance issues](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues) (Identificar problemas de rendimiento de la CPU).
 
+### <a name="troubleshoot-queries-with-parameter-sensitive-query-execution-plan-issues"></a>Solucionar los problemas de las consultas en el plan de ejecución de consultas que distingue entre parámetros
+
+El problema del plan que distingue entre parámetros (PSP) se refiere a un escenario donde el optimizador de consultas genera un plan de ejecución de consultas que es óptimo solo para un valor de parámetro específico (o un conjunto de valores) y el plan almacenado en caché no es óptimo para los valores de parámetros que se usan en ejecuciones consecutivas. Los planes no óptimos pueden crear problemas de rendimiento en las consultas y resultar en una degradación general del rendimiento de la carga de trabajo.
+
+Existen varias soluciones alternativas que se pueden usar para mitigar los problemas, aunque cada una cuenta con sus ventajas y desventajas correspondientes:
+
+- Use la sugerencia de consulta [RECOMPILE](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) en cada ejecución de consulta. Esta solución alternativa tiene en cuenta el tiempo de compilación y el aumento del uso de la CPU para obtener mejor calidad en el plan. Si usa la opción `RECOMPILE`, verá que a menudo no es posible llevarla a cabo en cargas de trabajo que requieren un alto rendimiento.
+- Use la sugerencia de consulta [OPTION (OPTIMIZE FOR…)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) para anular el valor del parámetro real con un valor de parámetro típico que cree un plan lo suficientemente bueno para la mayoría de las posibilidades que ofrece el valor de parámetro.   Esta opción requiere tener una buena comprensión de los valores óptimos de los parámetros y de las características del plan asociado.
+- Use la sugerencia de consulta [OPTION (OPTIMIZE FOR UNKNOWN)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) para invalidar el valor del parámetro real y así poder usar la media del vector de densidad. Otra forma de hacerlo es capturar los valores de los parámetros entrantes en variables locales y luego usar esas variables locales en los predicados en lugar de usar los parámetros en sí. La densidad media debe ser lo *suficientemente buena* para que funcione esta corrección en particular.
+- Desactive el examen de parámetros por completo mediante la sugerencia de consulta [DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query).
+- Use la sugerencia de consulta [KEEPFIXEDPLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) para evitar volver a compilar el contenido mientras esté en la caché. Esta solución asume que el plan común que ya está en la caché es lo *suficientemente bueno*. También puede deshabilitar las actualizaciones automáticas de las estadísticas para reducir la posibilidad de que el plan sea expulsado y se compile uno nuevo.
+- Para forzar el plan, use de forma explícita la sugerencia de consulta [USE PLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query); para especificarlo explícitamente, configure un plan específico con el Almacén de consultas o habilitando el [ajuste automático](sql-database-automatic-tuning.md).
+- Reemplace el procedimiento único con un conjunto anidado de procedimientos que se pueden usar según la lógica condicional y los valores de los parámetros asociados.
+- Cree alternativas de ejecución de cadenas dinámicas en una definición de procedimiento estático.
+
+Para obtener información adicional sobre cómo resolver este tipo de problemas, consulte:
+
+- La entrada de blog [smell a parameter](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/) (examinar un parámetro).
+- La entrada de blog [parameter sniffing problem and workarounds](https://blogs.msdn.microsoft.com/turgays/2013/09/10/parameter-sniffing-problem-and-possible-workarounds/) (problemas al examinar parámetros y soluciones alternativas).
+- La entrada de blog [elephant and mouse parameter sniffing](ttps://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/) (examen de parámetros: el elefante y el ratón).
+- La entrada de blog [dynamic sql versus plan quality for parameterized queries](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) (dynamic sql y la calidad del plan para consultas parametrizadas).
+
+### <a name="troubleshooting-compile-activity-due-to-improper-parameterization"></a>Solución de problemas de la actividad de compilación debido a una parametrización incorrecta
+
+Cuando una consulta tiene elementos literales, el motor de base de datos parametriza automáticamente la instrucción, aunque un usuario puede parametrizarla explícitamente para reducir el número de compilaciones. Un alto número de compilaciones de una consulta que usa el mismo patrón pero diferentes valores literales puede resultar en un uso elevado de la CPU. De manera similar, si solo parametriza parcialmente una consulta que sigue teniendo elementos literales, el motor de base de datos no la parametriza más.  A continuación se muestra un ejemplo de una consulta parcialmente parametrizada:
+
+```sql
+select * from t1 join t2 on t1.c1=t2.c1
+where t1.c1=@p1 and t2.c2='961C3970-0E54-4E8E-82B6-5545BE897F8F'
+```
+
+En el ejemplo anterior, `t1.c1` toma `@p1`, pero `t2.c2` continúa tomando GUID como elemento literal. En este caso, si cambia el valor de `c2`, la consulta se tratará como una consulta diferente y se producirá una nueva compilación. Para reducir las compilaciones del ejemplo anterior, la solución también pasa por parametrizar el GUID.
+
+La siguiente consulta muestra el recuento de consultas en función del hash de consulta para determinar si una consulta está correctamente parametrizada o no:
+
+```sql
+   SELECT  TOP 10  
+      q.query_hash
+      , count (distinct p.query_id ) AS number_of_distinct_query_ids
+      , min(qt.query_sql_text) AS sampled_query_text
+   FROM sys.query_store_query_text AS qt
+      JOIN sys.query_store_query AS q
+         ON qt.query_text_id = q.query_text_id
+      JOIN sys.query_store_plan AS p 
+         ON q.query_id = p.query_id
+      JOIN sys.query_store_runtime_stats AS rs 
+         ON rs.plan_id = p.plan_id
+      JOIN sys.query_store_runtime_stats_interval AS rsi
+         ON rsi.runtime_stats_interval_id = rs.runtime_stats_interval_id
+   WHERE
+      rsi.start_time >= DATEADD(hour, -2, GETUTCDATE())
+      AND query_parameterization_type_desc IN ('User', 'None')
+   GROUP BY q.query_hash
+   ORDER BY count (distinct p.query_id) DESC
+```
+
+### <a name="resolve-problem-queries-or-provide-more-resources"></a>Resolver consultas de problemas o proporcionar más recursos
+
 Una vez identificado el problema, puede ajustar las consultas del problema o actualizar el tamaño de proceso o el nivel de servicio para aumentar la capacidad de Azure SQL Database a fin de asimilar los requisitos de la CPU. Para obtener más información sobre el escalado de recursos de bases de datos únicas, consulte [Escalar recursos de base de datos única en Azure SQL Database](sql-database-single-database-scale.md) y, para el escalado de recursos de grupos elásticos, consulte [Escalar recursos de grupos elásticos en Azure SQL Database](sql-database-elastic-pool-scale.md). Para obtener información sobre cómo escalar una instancia administrada, consulte [Instance-level resource limits](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits) (Límites de recursos a nivel de instancia).
+
+### <a name="determine-if-running-issues-due-to-increase-workload-volume"></a>Determinar si los problemas de ejecución se deben al aumento del volumen de la carga de trabajo
+
+Un aumento en el tráfico de aplicaciones y la carga de trabajo puede explicar el aumento del uso de la CPU, pero debe tener cuidado a la hora de diagnosticar correctamente este problema. En un caso donde exista un uso elevado de la CPU, responda a estas preguntas para determinar si realmente ese aumento de uso de la CPU se debe a cambios en el volumen de trabajo:
+
+1. ¿Son las consultas de la aplicación la causa del problema del uso elevado de la CPU?
+2. Para las principales consultas que consumen CPU (que se puedan identificar):
+
+   - Determine si había varios planes de ejecución asociados a la misma consulta. Si es así, determine por qué.
+   - En cuanto a las consultas con el mismo plan de ejecución, determine si los tiempos de ejecución fueron consistentes y si el recuento de ejecución aumentó. Si es así, es probable que haya problemas de rendimiento debido al aumento de la carga de trabajo.
+
+Para resumir, si el plan de ejecución de la consulta no se ejecutó de manera diferente pero el uso de la CPU aumentó junto con el recuento de ejecuciones, es probable que exista un problema de rendimiento relacionado con el aumento de la carga de trabajo.
+
+No siempre es fácil concluir que hay un cambio en el volumen de trabajo que está provocando un problema en la CPU.   Factores que deben tenerse en cuenta: 
+
+- **El uso de recursos ha cambiado**
+
+  Por ejemplo, considere un escenario donde el uso de la CPU aumentó al 80 % por un período prolongado de tiempo.  El uso de la CPU por sí solo no significa que el volumen de la carga de trabajo haya cambiado.  Las regresiones del plan de ejecución de consultas y los cambios en la distribución de datos también pueden contribuir a un mayor uso de los recursos, incluso si la aplicación está ejecutando la misma carga de trabajo.
+
+- **Apareció una nueva consulta**
+
+   Una aplicación puede agregar un nuevo conjunto de consultas en diferentes momentos.
+
+- **El número de solicitudes aumentó o disminuyó**
+
+   Este escenario es la medida más obvia de la carga de trabajo. El número de consultas no siempre coincide con un mayor uso de los recursos. Sin embargo, esta métrica sigue siendo una señal significativa, suponiendo que otros factores no hayan cambiado.
 
 ## <a name="waiting-related-performance-issues"></a>Problemas de rendimiento relacionados con la espera
 
@@ -94,6 +178,13 @@ Una vez que esté seguro de que no se enfrenta a un problema de rendimiento rela
 - El [Almacén de consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) proporciona las estadísticas de espera por consulta con el tiempo. En el Almacén de consultas, los tipos de espera se combinan en categorías de espera. La asignación de categorías de espera a tipos de espera está disponible en [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql?view=sql-server-2017#wait-categories-mapping-table).
 - [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) devuelve información acerca de todas las esperas encontradas por los subprocesos ejecutados durante la operación. Puede usar esta vista agregada para diagnosticar problemas de rendimiento con Azure SQL Database y también con consultas y lotes específicos.
 - [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) devuelve información acerca de la cola de espera de las tareas que están esperando en algún recurso.
+
+En escenarios donde existe un uso elevado de la CPU, el Almacén de consultas y las estadísticas de espera no siempre reflejan el uso de la CPU por estos dos motivos:
+
+- Es posible que las consultas que consumen mucha CPU aún se estén ejecutando y que las consultas no hayan finalizado.
+- Las consultas que consumen mucha CPU se estaban ejecutando cuando se produjo una conmutación por error.
+
+Las vistas de administración dinámica del Almacén de consultas y de seguimiento de estadísticas solo muestran los resultados de las consultas completadas con éxito y el tiempo de espera, pero no muestran los datos de las instrucciones que se están ejecutando actualmente (hasta que se completan).  La vista de administración dinámica [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) le permite realizar un seguimiento de las consultas en ejecución y del tiempo de trabajo asociado.
 
 Como se muestra en el gráfico anterior, las esperas más comunes son:
 

@@ -3,22 +3,21 @@ title: Introducción a Azure Advisor | Microsoft Docs
 description: Introducción a Azure Advisor.
 services: advisor
 documentationcenter: NA
-author: manbeenkohli
+author: kasparks
 manager: ''
 ms.assetid: ''
 ms.service: advisor
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
-ms.author: makohli
-ms.openlocfilehash: f6b6900425f86cf720e63cda8621ff438f0f9dea
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.author: kasparks
+ms.openlocfilehash: 6e66fed21223701cd6c61bd1e903b4e7d7fbe0d0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42146538"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850100"
 ---
 # <a name="get-started-with-azure-advisor"></a>Introducción a Azure Advisor
 
@@ -35,7 +34,7 @@ Obtenga información acerca de cómo acceder a Advisor mediante Azure Portal y o
 
 4. El panel de Advisor mostrará un resumen de las recomendaciones para todas las suscripciones seleccionadas.  Puede elegir las suscripciones que desee que muestren las recomendaciones para usar el menú desplegable del filtro de suscripción.
 
-5. Para obtener recomendaciones para una categoría específica, haga clic en una de las pestañas **High Availability** (Alta disponibilidad), **Security** (Seguridad), **Performance** (Rendimiento) o **Cost** (Costo). 
+5. Para obtener recomendaciones para una categoría específica, haga clic en una de las pestañas: **Alta disponibilidad**, **Seguridad**, **Rendimiento** o **Costo**. 
 
   ![Panel de Azure Advisor](./media/advisor-overview/advisor-dashboard.png)
 

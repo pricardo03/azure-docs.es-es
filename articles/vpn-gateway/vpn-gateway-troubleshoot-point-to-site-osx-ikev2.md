@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: alzam
-ms.openlocfilehash: c370808d06f31f9d79c99ca0f20f613d9e335d60
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 0c058cb6547d67469d3138dc331b6181c07e6e65
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339059"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087531"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Solución de problemas de conexiones VPN de punto a sitio desde clientes de VPN de Mac OS X
 
@@ -36,13 +36,13 @@ Este artículo le ayuda a solucionar problemas de conectividad de punto a sitio 
 ## <a name="VPNClient"></a> Solución de problemas de autenticación basada en certificados
 1. Compruebe la configuración del cliente de VPN. Vaya a la **Configuración de red** presionando Comando + Mayús y, a continuación, escriba "VPN" para comprobar la configuración del cliente de VPN. En la lista, haga clic en la entrada VPN que debe investigarse.
 
-  ![Autenticación basada en certificados IKEv2](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2cert1.jpg)
+   ![Autenticación basada en certificados IKEv2](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2cert1.jpg)
 2. Compruebe que la **dirección del servidor** es el FQDN completo e incluye cloudapp.net.
 3. El **id. remoto** debe ser el mismo que la dirección del servidor (FQDN de puerta de enlace).
 4. El **id. local** debe ser el mismo que el **asunto** del certificado de cliente.
 5. Haga clic en **Configuración de autenticación** para abrir la página Configuración de autenticación.
 
-  ![Configuración de autenticación](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth2.jpg)
+   ![Configuración de autenticación](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth2.jpg)
 6. Compruebe que la opción **Certificado** está seleccionada en la lista desplegable.
 7. Haga clic en el botón **Seleccionar** y compruebe que se ha seleccionado el certificado correcto. Haga clic en **Aceptar** para guardar los cambios.
 
@@ -50,23 +50,23 @@ Este artículo le ayuda a solucionar problemas de conectividad de punto a sitio 
 
 1. Compruebe la configuración del cliente de VPN. Vaya a la **Configuración de red** presionando Comando + Mayús y, a continuación, escriba "VPN" para comprobar la configuración del cliente de VPN. En la lista, haga clic en la entrada VPN que debe investigarse.
 
-  ![Contraseña del nombre de usuario de IKEv2](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2user3.jpg)
+   ![Contraseña del nombre de usuario de IKEv2](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2user3.jpg)
 2. Compruebe que la **dirección del servidor** es el FQDN completo e incluye cloudapp.net.
 3. El **id. remoto** debe ser el mismo que la dirección del servidor (FQDN de puerta de enlace).
 4. El **id. local** puede estar en blanco.
 5. Haga clic en el botón **Configuración de autenticación** y compruebe que se ha seleccionado "Nombre de usuario" en la lista desplegable.
 
-  ![Configuración de autenticación](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.jpg)
+   ![Configuración de autenticación](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.jpg)
 6. Compruebe que se han introducido las credenciales correctas.
 
 ## <a name="additional"></a>Pasos adicionales
 
 Si ha llevado a cabo los pasos anteriores y todo está configurado correctamente, descargue [Wireshark](https://www.wireshark.org/#download) y realice una captura de paquetes.
 
-1. Filtre por *isakmp* y examine los paquetes **IKE_SA**. Podrá consultar los detalles de la propuesta de asociación de seguridad en **Payload: Security Association** (Carga: asociación de seguridad). 
+1. Filtre por *isakmp* y examine los paquetes **IKE_SA**. Podrá consultar los detalles de la propuesta de asociación de seguridad en **Payload: Security Association**. 
 2. Compruebe que el cliente y el servidor disponen de un conjunto común.
 
-  ![paquete](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 
+   ![paquete](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 
   
 3. Si no hay ninguna respuesta del servidor en los seguimientos de red, compruebe que ha habilitado el protocolo IKEv2 en la página de configuración de la puerta de enlace de Azure en el sitio web de Azure Portal.
 

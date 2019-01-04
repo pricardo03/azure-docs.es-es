@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 9fb28d618a9375dec19e75d04ef0a6bc5de334b6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4e4d01371733a2292c69174e4cb135e995e5e935
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242643"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189105"
 ---
 # <a name="create-content-keys-with-rest"></a>Creación de claves de contenido con REST
 > [!div class="op_single_selector"]
@@ -71,9 +71,9 @@ A continuación, se muestran los pasos generales para generar claves de contenid
 
 En este artículo no se muestra cómo generar una clave AES, cifrar la clave y calcular la suma de comprobación. 
 
->[!NOTE]
-
->Al obtener acceso a las entidades de Media Services, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Media Services](media-services-rest-how-to-use.md).
+> [!NOTE]
+> 
+> Al obtener acceso a las entidades de Media Services, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Media Services](media-services-rest-how-to-use.md).
 
 ## <a name="connect-to-media-services"></a>Conexión con Media Services
 

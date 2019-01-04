@@ -1,12 +1,11 @@
 ---
-title: Introducción a Azure Load Balancer Estándar | Microsoft Docs
+title: ¿Qué es Azure Standard Load Balancer?
+titlesuffix: Azure Load Balancer
 description: Introducción a las características de Azure Load Balancer Estándar
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: ''
-ms.assetid: ''
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: 17b4bc68b2dc996134626b1822cfd17f0a9a7572
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: feaa0058aed566b40d3f2da548da1d961d5c82f3
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161648"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438768"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Introducción a Azure Load Balancer Estándar
 
@@ -58,7 +57,7 @@ Consulte los [límites de servicio de Load Balancer](https://aka.ms/lblimits), l
 
 ### <a name="backend"></a>Grupo de back-end
 
-Los grupos de back-end de Load Balancer Estándar se expanden a cualquier recurso de máquina virtual en una red virtual.  Puede contener hasta 1000 instancias de back-end.  Una instancia de back-end es una configuración de IP, que es una propiedad de un recurso de NIC.
+Los grupos de back-end de Standard Load Balancer se expanden a cualquier recurso de máquina virtual en una red virtual.  Puede contener hasta 1000 instancias de back-end.  Una instancia de back-end es una configuración de IP, que es una propiedad de un recurso de NIC.
 
 El grupo de back-end puede contener máquinas virtuales independientes, conjuntos de disponibilidad o conjuntos de escalado de máquinas virtuales.  También puede combinar recursos en el grupo back-end. Puede combinar hasta 150 recursos en el grupo back-end por recurso de Load Balancer.
 
@@ -103,9 +102,9 @@ Consulte la [explicación detallada de los diagnóstico de Load Balancer Estánd
 
 Load Balancer Estándar admite un nuevo tipo de regla.  
 
-Puede configurar reglas de equilibrio de carga para que su aplicación sea escalable y de gran confiabilidad. Cuando se usa una regla de equilibrio de carga para puertos HA, Load Balancer Estándar ofrece equilibrio de carga por flujo en cada puerto efímero de la dirección IP de front-end de un equilibrador de carga estándar interno.  La característica es útil para otros escenarios donde no es práctico o no deseable especificar los puertos individuales.
+Puede configurar reglas de equilibrio de carga para que la aplicación sea escalable y de gran confiabilidad. Cuando se usa una regla de equilibrio de carga para puertos de alta disponibilidad, Standard Load Balancer ofrece equilibrio de carga por flujo en cada puerto efímero de la dirección IP de front-end de Standard Load Balancer.  La característica es útil para otros escenarios donde no es práctico o no deseable especificar los puertos individuales.
 
-Una regla de equilibrio de carga para puertos HA permite crear escenarios activo-pasivo o activo-activo n+1 para dispositivos de red virtual y aplicaciones que requieran grandes intervalos de puertos de entrada.  Se puede usar un sondeo de mantenimiento para determinar qué back-ends deberían recibir nuevos flujos.  Puede usar un grupo de seguridad de red para emular un escenario de intervalo de puertos.
+Una regla de equilibrio de carga para puertos de alta disponibilidad permite crear escenarios activo-pasivo o activo-activo n+1 para dispositivos de red virtual y aplicaciones que requieran grandes intervalos de puertos de entrada.  Se puede usar un sondeo de mantenimiento para determinar qué back-ends deberían recibir nuevos flujos.  Puede usar un grupo de seguridad de red para emular un escenario de intervalo de puertos.
 
 >[!IMPORTANT]
 > Si va a usar un dispositivo virtual de red, póngase en contacto con su proveedor para consultar si su producto se ha probado con puertos HA, y siga sus instrucciones específicas para la implementación. 
@@ -120,7 +119,7 @@ Para aprender más sobre los NSG y cómo aplicarlos en su caso, vea [Grupos de s
 
 ### <a name="outbound"></a> Conexiones de salida
 
-Load Balancer admite escenarios de entrada y salida.  Load Balancer Estándar es muy diferente de Load Balancer Básico en relación a las conexiones de salida.
+Load Balancer admite escenarios de entrada y salida.  Standard Load Balancer es muy diferente de Basic Load Balancer en relación a las conexiones de salida.
 
 La traducción de direcciones de red de origen (SNAT) se utiliza para asignar las direcciones IP privadas internas de la red virtual a direcciones IP públicas en los front-ends de Load Balancer.
 
@@ -138,7 +137,7 @@ Estos son los principios claves que hay que recordar cuando se trabaja con Load 
 Si desea más puertos SNAT porque espera tener o ya tiene una gran demanda de conexiones de salida, puede agregar más puertos SNAT. Para ello, configure más front-ends, reglas y grupos de back-end en los mismos recursos de máquina virtual.
 
 #### <a name="control-which-frontend-is-used-for-outbound"></a>Controlar qué front-end se usa para la salida
-Si desea restringir las conexiones de salida para que se originen únicamente desde una dirección IP de front-end específica, puede deshabilitar la SNAT de salida en la regla que expresa la asignación de salida.
+Si quiere restringir las conexiones de salida para que se originen únicamente desde una dirección IP de front-end específica, puede deshabilitar la SNAT de salida en la regla que expresa la asignación de salida.
 
 #### <a name="control-outbound-connectivity"></a>Control de la conectividad de salida
 Load Balancer Estándar existe en el contexto de la red virtual.  Una red virtual es una red privada aislada.  A menos que exista una asociación con una dirección IP pública, no se permite la conectividad pública.  Puede acceder a los [puntos de conexión de servicio de la red virtual](../virtual-network/virtual-network-service-endpoints-overview.md) porque están dentro de la red virtual y son locales a ella.  Si desea establecer la conectividad de salida a un destino fuera de la red virtual, tiene dos opciones:
@@ -154,7 +153,7 @@ La conectividad de salida de un recurso de máquina virtual no se asocia a las S
 Consulte la [explicación detallada sobre las conexiones de salida](load-balancer-outbound-connections.md).
 
 ### <a name="multife"></a>Varios servidores front-end
-Load Balancer admite varias reglas con varios front-ends.  Load Balancer Estándar incluye también los escenarios de salida.  Los escenarios de salida son básicamente lo contrario de una regla de equilibrio de carga de entrada.  La regla de equilibrio de carga de entrada también crea a una asociación para las conexiones de salida. Load Balancer Estándar usa todos los front-ends asociados a un recurso de máquina virtual mediante una regla de equilibrio de carga.  Además, un parámetro en la red de equilibrio de carga permite suprimir una red de equilibrio de carga para la conectividad de salida, lo que permite elegir front-ends específicos o, incluso, ninguno.
+Load Balancer admite varias reglas con varios front-ends.  Load Balancer Estándar incluye también los escenarios de salida.  Los escenarios de salida son básicamente lo contrario de una regla de equilibrio de carga de entrada.  La regla de equilibrio de carga de entrada también crea a una asociación para las conexiones de salida. Standard Load Balancer usa todos los front-ends asociados a un recurso de máquina virtual mediante una regla de equilibrio de carga.  Además, un parámetro en la red de equilibrio de carga permite suprimir una red de equilibrio de carga para la conectividad de salida, lo que permite elegir front-ends específicos o, incluso, ninguno.
 
 Para la comparación, Load Balancer Básico selecciona un único front-end de forma aleatoria y no se puede controlar cuál se selecciona.
 
@@ -162,7 +161,7 @@ Consulte la [explicación detallada sobre las conexiones de salida](load-balance
 
 ### <a name="operations"></a> Operaciones de administración.
 
-Los recursos de Load Balancer Estándar existen en una plataforma de infraestructura completamente nueva.  Esto permite operaciones de administración significativamente más rápidas para las SKU Estándar y tiempos de finalización normalmente inferiores a 30 segundos por recurso de SKU Estándar.  Tenga en cuenta que cuando los grupos de back-end aumentan de tamaño, el tiempo requerido para los cambios en el grupo de back-end también aumenta.
+Los recursos de Load Balancer Estándar existen en una plataforma de infraestructura completamente nueva.  Esto permite operaciones de administración más rápidas para las SKU Estándar y tiempos de finalización normalmente inferiores a 30 segundos por recurso de SKU Estándar.  Cuando los grupos de back-end aumentan de tamaño, el tiempo requerido para los cambios en el grupo de back-end también aumenta.
 
 Puede modificar los recursos de Load Balancer Estándar y mover una dirección IP pública estándar de una máquina virtual a otra mucho más rápidamente.
 
@@ -211,7 +210,7 @@ Load Balancer Estándar está disponible con un SLA del 99,99 %.  Consulte el [S
 
 ## <a name="pricing"></a>Precios
 
-Load Balancer Estándar es un producto que se carga según el número de reglas de equilibrio de carga configuradas y de todos los datos de entrada y salida procesados. Para más información sobre los precios de Load Balancer Estándar, visite la página [Precios de Load Balancer](https://aka.ms/lbpricing).
+Standard Load Balancer es un producto que se factura según el número de reglas de equilibrio de carga configuradas y de todos los datos de entrada y salida procesados. Para más información sobre los precios de Load Balancer Estándar, visite la página [Precios de Load Balancer](https://aka.ms/lbpricing).
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -222,7 +221,7 @@ Load Balancer Estándar es un producto que se carga según el número de reglas 
 - [Mover las operaciones de suscripción](../azure-resource-manager/resource-group-move-resources.md) no se admite para los recursos estándar PIP y LB de SKU.
 - Solo se puede acceder a los roles de trabajo web sin una red virtual y otros servicios de plataforma de Microsoft si se usa un equilibrador de carga estándar debido a un efecto secundario del funcionamiento de los servicios previos a la red virtual y otros servicios de plataforma. No debe depender de esto, porque el servicio mismo o la plataforma subyacente puede cambiar sin previo aviso. Siempre debe pensar que necesita crear [conectividad de salida](load-balancer-outbound-connections.md) de manera explícita si lo desea al usar solo un equilibrador de carga estándar interno.
 - Load Balancer es un producto TCP o UDP de equilibrio de carga y enrutamiento de puerto para estos protocolos IP específicos.  Las reglas de equilibrio de carga y las reglas de traducción de direcciones de red de entrada son compatibles con TCP y UDP y no con otros protocolos IP, como ICMP. Load Balancer no termina la carga ni responde a ella, ni interactúa con la carga de los flujos UDP o TCP. No es un servidor proxy. La validación correcta de la conectividad con un front-end debe realizarse en banda con el mismo protocolo de equilibrado de carga o la misma regla de traducción de direcciones de red de entrada (TCP o UDP) _y_, para ver una respuesta desde el front-end, al menos una de las máquinas virtuales debe generar una respuesta para un cliente.  Si no se recibe una respuesta en banda desde el front-end de Load Balancer, significa que ninguna máquina virtual puede responder.  No es posible interactuar con el front-end de Load Balancer sin una máquina virtual que pueda responder.  Esto también se aplica a las conexiones salientes donde el [enmascaramiento del puerto SNAT](load-balancer-outbound-connections.md#snat) es solo es compatible con TCP y UDP; los demás protocolos IP (como ICMP) también producirán errores.  Asigne una dirección IP pública en el nivel de instancia para la mitigación.
-- A diferencia de los equilibradores de carga públicos que proporcionan [conexiones de salida](load-balancer-outbound-connections.md) al realizar la transición de direcciones IP privadas dentro de la red virtual a direcciones IP públicas, los internos no traducen las conexiones de salida originales al front-end de un equilibrador de carga interno, ya que ambos se encuentran en el espacio de direcciones IP privadas.  Esto evita la posibilidad de agotamiento de SNAT dentro de único espacio de direcciones IP internas donde no se necesita traducción.  El inconveniente es que si un flujo de salida de una máquina virtual del grupo de servidores back-end intenta un flujo al front-end del equilibrador de carga interno donde reside el grupo _y_ se asigna a sí mismo, los lados del flujo no coinciden y se produce un error en el flujo.  Si el flujo no se asignó a la misma máquina virtual en el grupo de servidores back-end que creó el flujo para el front-end, se realizará correctamente.   Cuando se asigna el flujo a sí mismo, el flujo de salida parece que se origina en la máquina virtual del front-end y el flujo de entrada correspondiente, en la propia máquina virtual. Desde el punto de vista de los sistemas operativos invitados, las partes de entrada y salidas del mismo flujo no coinciden en la máquina virtual. La pila TCP no reconocerá estas mitades como parte del mismo flujo, ya que el origen y el destino no coinciden.  Cuando el flujo se asigna a cualquier otra máquina virtual del grupo de servidores back-end, sus mitades coinciden y la máquina virtual responde correctamente al flujo.  El inconveniente de este escenario es la producción de tiempos de espera de conexión intermitentes. Hay varias soluciones comunes para lograr este escenario de forma confiable (flujos que se originan desde un grupo de servidores back-end hasta el respectivo front-end del equilibrador de carga interno de los grupos de servidores back-end), por ejemplo la inserción de un proxy de terceros detrás del equilibrador de carga interno o el [uso de reglas de estilo DSR](load-balancer-multivip-overview.md).  Aunque podría utilizar un equilibrador de carga público para la mitigación, el escenario resultante es propenso al [agotamiento de SNAT](load-balancer-outbound-connections.md#snat) y debe evitarse, a menos que se administre con cuidado.
+- A diferencia de los equilibradores de carga públicos que proporcionan [conexiones de salida](load-balancer-outbound-connections.md) al realizar la transición de direcciones IP privadas dentro de la red virtual a direcciones IP públicas, los internos no traducen las conexiones de salida originales al front-end de un equilibrador de carga interno, ya que ambos se encuentran en el espacio de direcciones IP privadas.  Esto evita la posibilidad de agotamiento de SNAT dentro de único espacio de direcciones IP internas donde no se necesita traducción.  El inconveniente es que si un flujo de salida de una máquina virtual del grupo de servidores back-end intenta un flujo al front-end del equilibrador de carga interno donde reside el grupo _y_ se asigna a sí mismo, los lados del flujo no coinciden y se produce un error en el flujo.  Si el flujo no se asignó a la misma máquina virtual en el grupo de servidores back-end que creó el flujo para el front-end, se realizará correctamente.   Cuando se asigna el flujo a sí mismo, el flujo de salida parece que se origina en la máquina virtual del front-end y el flujo de entrada correspondiente, en la propia máquina virtual. Desde el punto de vista de los sistemas operativos invitados, las partes de entrada y salidas del mismo flujo no coinciden en la máquina virtual. La pila TCP no reconocerá estas mitades como parte del mismo flujo, ya que el origen y el destino no coinciden.  Cuando el flujo se asigna a cualquier otra máquina virtual del grupo de servidores back-end, sus mitades coinciden y la máquina virtual responde correctamente al flujo.  El inconveniente de este escenario es la producción de tiempos de espera de conexión intermitentes. Hay varias soluciones alternativas comunes para lograr este escenario de forma confiable (flujos que se originan desde un grupo de servidores back-end hasta el respectivo front-end de Load Balancer interno de los grupos de servidores back-end), por ejemplo la inserción de un proxy de terceros detrás de la instancia de Load Balancer interna o el [uso de reglas de estilo DSR](load-balancer-multivip-overview.md).  Aunque podría utilizar un equilibrador de carga público para la mitigación, el escenario resultante es propenso al [agotamiento de SNAT](load-balancer-outbound-connections.md#snat) y debe evitarse, a menos que se administre con cuidado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -230,7 +229,7 @@ Load Balancer Estándar es un producto que se carga según el número de reglas 
 - Más información sobre [sondeos de mantenimiento](load-balancer-custom-probe-overview.md).
 - Aprenda más sobre [zonas de disponibilidad](../availability-zones/az-overview.md).
 - Más información acerca de los [diagnósticos de Load Balancer Estándar](load-balancer-standard-diagnostics.md).
-- Más información acerca de las [métricas multidimensionales admitidas](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) para diagnósticos en [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
+- Más información acerca de las [métricas multidimensionales admitidas](../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers) para diagnósticos en [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
 - Más información acerca de cómo usar [Load Balancer para conexiones salientes](load-balancer-outbound-connections.md).
 - Obtenga información sobre las [reglas de salida](load-balancer-outbound-rules-overview.md).
 - Obtenga información sobre el [restablecimiento de TCP en estado inactivo](load-balancer-tcp-reset.md).

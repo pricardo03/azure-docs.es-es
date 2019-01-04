@@ -1,6 +1,6 @@
 ---
-title: Aptitud de Cognitive Search de OCR (Azure Search) | Microsoft Docs
-description: Extraer el texto de los archivos de imagen en una canalización de enriquecimiento de Azure Search.
+title: 'Aptitud de búsqueda cognitiva de OCR: Azure Search'
+description: Extraiga texto a partir de archivos de imagen mediante el reconocimiento óptico de caracteres (OCR) en una canalización de enriquecimiento de Azure Search.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -11,12 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 97d594a232c3576d0a0163b2d6847f06328bcd7b
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.custom: seodec2018
+ms.openlocfilehash: 097fd93955a4ca3fd96ae6452fa3b503b029ffc3
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167518"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313231"
 ---
 # <a name="ocr-cognitive-skill"></a>Aptitud cognitiva de OCR
 
@@ -29,7 +30,12 @@ La aptitud de **OCR** extrae texto de los archivos de imagen. Entre otros, estos
 + .GIF
 
 > [!NOTE]
-> Cognitive Search está disponible en la versión preliminar pública. La ejecución del conjunto de habilidades y la extracción y normalización de imágenes se ofrecen actualmente de forma gratuita. Más adelante, se anunciarán los precios de estas funcionalidades. 
+> A partir del 21 de diciembre de 2018, podrá asociar un recurso de Cognitive Services con un conjunto de aptitudes de Azure Search. Esto nos permitirá empezar a cobrar por la ejecución del conjunto de aptitudes. En esta fecha, también empezaremos a cobrar por la extracción de imágenes como parte de la fase de descifrado de documentos. La extracción de texto de documentos continuará ofreciéndose sin costo adicional.
+>
+> La ejecución de aptitudes integradas se cobrará a los [precios de pago por uso existentes de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). La extracción de imágenes se cobrará al precio de la versión preliminar, tal y como se describe en la [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). [Más información](cognitive-search-attach-cognitive-services.md).
+>
+>  La habilidad de reconocimiento óptico de caracteres para la siguiente funcionalidad de Cognitive Services: Cuando textExtractionAlgorithm está establecido en "escrito a mano", se usa la funcionalidad ["RecognizeText"](../cognitive-services/computer-vision/quickstarts-sdk/csharp-hand-text-sdk.md).
+>  Cuando textExtractionAlgorithm está establecido en "impreso", se usa la funcionalidad ["OCR"](../cognitive-services/computer-vision/concept-extracting-text-ocr.md) para todos los idiomas excepto el inglés. Para el inglés, se usa la nueva funcionalidad ["Reconocer texto"](../cognitive-services/computer-vision/concept-recognizing-text.md) para texto impreso.
 
 ## <a name="skill-parameters"></a>Parámetros de la aptitud
 
@@ -126,7 +132,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 }
 ```
 
-## <a name="sample-merging-text-extracted-from-embedded-images-with-the-content-of-the-document"></a>Ejemplo: combinar el texto extraído de imágenes insertadas con el contenido del documento.
+## <a name="sample-merging-text-extracted-from-embedded-images-with-the-content-of-the-document"></a>Sample: combinar el texto extraído de imágenes insertadas con el contenido del documento.
 
 Un caso de uso común a la hora de combinar texto, es la capacidad de combinar la representación textual de imágenes (el texto de una aptitud de OCR o la leyenda de una imagen) en el campo de contenido de un documento. 
 

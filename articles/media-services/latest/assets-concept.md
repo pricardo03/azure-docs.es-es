@@ -9,14 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: e7abdb568b11870fb467ee6d3759881ca337d3cc
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.custom: seodec18
+ms.openlocfilehash: f9a6f0963ce8f45da567bb4f6326e9fcc8f435ef
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085846"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140139"
 ---
 # <a name="assets"></a>Recursos
 
@@ -75,11 +76,11 @@ En la tabla siguiente se muestra cómo pueden aplicarse estas opciones a las pro
 |NOMBRE|Filtrar|Orden|
 |---|---|---|
 |id|||
-|Nombre|Es compatible con: Eq, Gt, Lt|Es compatible con: Ascendente y descendente|
-|properties.alternateId |Es compatible con: Eq||
-|properties.assetId |Es compatible con: Eq||
+|Nombre|Admite: Eq, Gt, Lt|Es compatible con: Ascendente y descendente|
+|properties.alternateId |Admite: Eq||
+|properties.assetId |Admite: Eq||
 |properties.container |||
-|properties.created|Es compatible con: Eq, Gt, Lt| Es compatible con: Ascendente y descendente|
+|properties.created|Admite: Eq, Gt, Lt| Admite: Ascendente y descendente|
 |properties.description |||
 |properties.lastModified |||
 |properties.storageAccountName |||

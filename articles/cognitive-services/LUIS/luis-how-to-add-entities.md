@@ -1,21 +1,22 @@
 ---
-title: Adición de entidades en aplicaciones de LUIS
-titleSuffix: Azure Cognitive Services
+title: agregar entidades
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Agregue entidades (datos clave del dominio de la aplicación) a las aplicaciones de Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 5beb952c2330d44ffe090fc422afa6da67376b0d
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: f95d7851241dfd5b077c215e2df893c6ba8ef36c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288057"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139493"
 ---
 # <a name="create-entities-without-utterances"></a>Creación de entidades sin expresiones
 
@@ -156,13 +157,13 @@ Para una aplicación de recursos humanos, puede tener una lista de todos los dep
 
 1. Si quiere más elementos normalizados para la lista, seleccione **Recommend** (Recomendar) para ver las opciones del [diccionario de semántica](luis-glossary.md#semantic-dictionary).
 
-    ![Captura de pantalla de la incorporación del rol de origen a la entidad de ubicación](./media/add-entities/hr-list-2.png)
+    ![Captura de pantalla de la selección de características recomendadas para ver las opciones](./media/add-entities/hr-list-2.png)
 
 
 1. Seleccione un elemento en la lista recomendada para agregarlo como un valor normalizado o seleccione **Add all** (Agregar todo) para agregar todos los elementos. 
     Puede importar los valores en una entidad de lista existente con el formato JSON siguiente:
 
-    ```
+    ```JSON
     [
         {
             "canonicalForm": "Blue",

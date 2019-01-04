@@ -1,5 +1,5 @@
 ---
-title: Tipos y composición de consultas en Azure Search | Microsoft Docs
+title: Tipos de consultas y composición en Azure Search
 description: Conceptos básicos para la creación de una consulta de búsqueda en Azure Search, utilizando parámetros para filtrar, seleccionar y ordenar resultados.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.openlocfilehash: a1dad30148da9f6b322c75fd40dc01098c4d6b63
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.custom: seodec2018
+ms.openlocfilehash: 03ec588b1627b82a01021a9b71958e9d66aab0ce
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42143857"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315594"
 ---
 # <a name="query-types-and-composition-in-azure-search"></a>Tipos y composición de consultas en Azure Search
 

@@ -7,34 +7,33 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/10/2018
 ms.author: juliako
-ms.openlocfilehash: 2261b8fa496beaf2a14c9b949047b6a5cbc6ea32
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: f29adb500401c9f5d6e177a0740ce54719c36a34
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292034"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253211"
 ---
 # <a name="upload-and-index-your-videos"></a>Carga e indexación de los vídeos  
 
-En este artículo se muestra cómo cargar un vídeo con Azure Video Indexer. La API de Video Indexer proporciona dos opciones de carga: 
+Al cargar vídeos con Video Indexer API, tiene dos opciones de carga: 
 
 * cargar el vídeo desde una dirección URL (opción preferida);
 * enviar el archivo de vídeo como una matriz de bytes en el cuerpo de la solicitud.
 * Para usar el recurso de Azure Media Services existente, proporcione el [identificador del recurso](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (solo se admite en cuentas de pago).
 
-En el artículo se muestra cómo usar la API [Cargar vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) para cargar e indexar los vídeos según una dirección URL. En el ejemplo de código del artículo se incluye el código con comentarios que muestra cómo cargar la matriz de bytes.  
+En el artículo se muestra cómo usar la API [Cargar vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) para cargar e indexar los vídeos según una dirección URL. En el ejemplo de código del artículo se incluye el código con comentarios que muestra cómo cargar la matriz de bytes. <br/>En el artículo también se explican algunos de los parámetros que puede establecer en la API para cambiar el proceso y la salida de la API.
 
-En el artículo también se explican algunos de los parámetros que puede establecer en la API para cambiar el proceso y la salida de la API.
-
-> [!Note]
-> Al crear una cuenta de Video Indexer, puede elegir una cuenta de evaluación gratuita (donde obtendrá un número determinado de minutos gratuitos de indexación) o una opción de pago (donde no está limitado por la cuota). <br/>Con la versión de evaluación gratuita, Video Indexer proporciona hasta 600 horas de indexación gratuita a los usuarios de sitios web y hasta 2400 horas de indexación gratuita a los usuarios de API. Con la opción de pago, se crea una cuenta de Video Indexer que está [conectada a su suscripción de Azure y a una cuenta de Azure Media Services](connect-to-azure.md). Se paga por minutos de indexación y por los cargos relacionados con la cuenta de Media Services. 
+Una vez cargado el vídeo, Video Indexer codifica opcionalmente el vídeo (lo cual se explica en este artículo). Al crear una cuenta de Video Indexer, puede elegir una cuenta de evaluación gratuita (donde obtendrá un número determinado de minutos gratuitos de indexación) o una opción de pago (donde no está limitado por la cuota). Con la versión de evaluación gratuita, Video Indexer proporciona hasta 600 horas de indexación gratuita a los usuarios de sitios web y hasta 2400 horas de indexación gratuita a los usuarios de API. Con la opción de pago, se crea una cuenta de Video Indexer que está [conectada a su suscripción de Azure y a una cuenta de Azure Media Services](connect-to-azure.md). Se paga por minutos de indexación y por los cargos relacionados con la cuenta de Media Services. 
 
 ## <a name="uploading-considerations"></a>Consideraciones de la carga
     
 - Al cargar el vídeo según la dirección URL (opción preferida) el punto de conexión debe estar protegido con TLS 1.2 (o una versión posterior).
-- La opción de matriz de bytes está limitada a 2 GB y el tiempo de espera se agota después de 30 minutos.
+- El tamaño de carga con la opción de dirección URL se limita a 10 GB
+- El tamaño de carga con la opción de matriz de bytes se limita a 2 GB 
+- La opción de matriz de bytes agota el tiempo de espera a los 30 minutos
 - La dirección URL que se proporciona en el parámetro `videoURL` debe estar codificada.
 
 > [!Tip]
@@ -91,7 +90,7 @@ El precio depende de la opción de indexación seleccionada.
 
 ### <a name="priority"></a>prioridad
 
-Video Indexer indexa los vídeos según su prioridad. Use el parámetro **priority** para especificar la prioridad del índice. Los valores siguientes son válidos: **Low** (Baja), **Normal** (predeterminada) y **High** (Alta).
+Video Indexer indexa los vídeos según su prioridad. Use el parámetro **priority** para especificar la prioridad del índice. Los siguientes valores son válidos: **Low**, **Normal** (valor predeterminado) y **High**.
 
 El parámetro **priority** solo se admite en cuentas de pago.
 

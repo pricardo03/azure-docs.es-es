@@ -9,14 +9,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 202a68d219bec3a70e50afa68228cbc6bf453518
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6cedc269e279a9154e63bae241f02e766e06ec96
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011670"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383908"
 ---
-# <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Instalar Giraph en clústeres de Hadoop de HDInsight y usar Giraph para procesar gráficos a gran escala
+# <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Instalar Apache Giraph en clústeres de Hadoop de HDInsight y usar Giraph para procesar gráficos a gran escala
 
 Aprenda a instalar Apache Giraph en un clúster de HDInsight. La característica de acción de script de HDInsight le permite personalizar el clúster mediante la ejecución de un script de Bash. Se pueden usar scripts para personalizar los clústeres durante y después de la creación del clúster.
 
@@ -33,7 +33,7 @@ Aprenda a instalar Apache Giraph en un clúster de HDInsight. La característica
 
 * Calcular la posición de las páginas web.
 
-> [!WARNING]
+> [!WARNING]  
 > Los componentes proporcionados con el clúster de HDInsight son totalmente compatibles. Además, el soporte técnico de Microsoft le ayuda a aislar y resolver problemas relacionados con estos componentes.
 >
 > Los componentes personalizados, como Giraph, reciben soporte técnico comercialmente razonable para ayudarlo a solucionar el problema. El soporte técnico de Microsoft podría solucionar este problema. Si no es así, debe consultar las comunidades de código abierto donde grandes expertos en esa tecnología. Por ejemplo, hay diversos sitios de la comunidad que se pueden usar, como el [foro de MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Los proyectos de Apache también tienen sitios de proyecto en [http://apache.org](http://apache.org), por ejemplo: [Hadoop](http://hadoop.apache.org/).
@@ -68,15 +68,15 @@ Esta sección proporciona instrucciones sobre cómo usar el script de ejemplo al
 
 2. En la sección **Configuración opcional**, seleccione **Acciones de script** y proporcione la información siguiente:
 
-   * **NOMBRE**: escriba un nombre sencillo para la acción de script.
+   * **NOMBRE**: escriba un nombre descriptivo para la acción de script.
 
    * **URI DE SCRIPT**: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
    * **PRINCIPAL**: active esta entrada.
 
-   * **TRABAJO**: deje esta opción desactivada.
+   * **TRABAJO**: deje esta entrada desactivada.
 
-   * **ZOOKEEPER**: deje esta opción desactivada.
+   * **ZOOKEEPER**: deje esta entrada desactivada.
 
    * **PARÁMETROS**: deje este campo en blanco.
 
@@ -172,4 +172,4 @@ Después de que se ha creado el clúster, use estos pasos para ejecutar el ejemp
 
 * [Instalación y uso de Hue en clústeres de HDInsight](hdinsight-hadoop-hue-linux.md).
 
-* [Instalación de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install-linux.md).
+* [Instalación de Apache Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install-linux.md).

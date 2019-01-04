@@ -1,23 +1,24 @@
 ---
-title: Revisión de las expresiones de punto de conexión para Language Understanding (LUIS)
-titleSuffix: Azure Cognitive Services
+title: Revisión de expresiones del usuario
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: La característica innovadora de LUIS es el concepto de aprendizaje activo. Una vez que LUIS tiene consultas de punto de conexión, el aprendizaje activo mejora la calidad de los resultados mediante la selección de expresiones de las que no está seguro. Si etiqueta estas expresiones, las entrena y las publica, LUIS las identifica con más precisión.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: a5e0dabe251d14389923df3efe41f6ba80f41bdd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7175463001eac118d2939d3479e61a01b80ba86b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030802"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106556"
 ---
-# <a name="review-endpoint-utterances"></a>Revisar las expresiones de punto de conexión
+# <a name="how-to-review-endpoint-utterances-in-luis-portal"></a>Cómo revisar las expresiones del punto de conexión en el portal de LUIS
 
 La característica innovadora de LUIS es el [concepto](luis-concept-review-endpoint-utterances.md) de aprendizaje activo. Una vez que LUIS tiene consultas de punto de conexión, usa el aprendizaje activo para mejorar la calidad de los resultados. En el proceso de aprendizaje activo, LUIS examina la expresiones de punto de conexión y selecciona aquellas de las que no está seguro. Si etiqueta estas expresiones, las entrena y las publica, LUIS las identifica con más precisión. 
 

@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: ec17f6923fc1c928f24fcb762daedbaea5b688ac
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: cca5fe492032c74a9922780f197065e9c2b40ad3
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035108"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966141"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Procedimientos recomendados del servicio Infrastructure Backup
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Puede seguir procedimientos recomendados al implementar y administrar Azure Stack en su centro de datos para ayudar a mitigar la pérdida de datos si se produce un error grave.
 
@@ -46,7 +46,7 @@ La clave de cifrado se utiliza para cifrar los datos de copia de seguridad que s
 
 La clave debe almacenarse en una ubicación segura (por ejemplo, un secreto de Azure Key Vault público). Esta clave se debe utilizar durante la reimplementación de Azure Stack. 
 
-![Almacenamiento de la clave en una ubicación segura.](media\azure-stack-backup\azure-stack-backup-encryption2.png)
+![Almacenamiento de la clave en una ubicación segura.](media/azure-stack-backup/azure-stack-backup-encryption2.png)
 
 ## <a name="operational-best-practices"></a>Procedimientos recomendados operativos
 

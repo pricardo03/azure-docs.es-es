@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: ergreenl
-ms.openlocfilehash: 12611c9a4016b634cb865bbf609b1c7a6961abb7
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: b73739ca6d392af191d1a51eca2d646a8a5cd4c4
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155072"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955079"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Resolver errores de directorios que no coinciden en dominios administrados existentes de Azure AD Domain Services
 Ya dispone de un dominio administrado con Azure AD Domain Services. Cuando navega a Azure Portal y ve el dominio administrado, aparece el siguiente mensaje de error:
 
-![Error de directorio que no coincide](.\media\getting-started\mismatched-tenant-error.png)
+![Error de directorio que no coincide](./media/getting-started/mismatched-tenant-error.png)
 
 Este dominio administrado no se puede administrar mientras no se resuelva el error.
 
@@ -41,7 +41,7 @@ En resumen, no puede habilitar un dominio administrado para un inquilino de Azur
 
 ![Configuración de inquilino válida](./media/getting-started/valid-tenant-config.png)
 
-**Configuración de inquilino que no coincide**: en este escenario de implementación, el dominio administrado de Contoso está habilitado para el inquilino de Azure AD de Contoso, pero el dominio administrado se expone en una red virtual que pertenece a una suscripción de Azure propiedad del inquilino de Azure AD de Fabrikam. Por lo tanto, el dominio administrado y la red virtual pertenecen a dos inquilinos de Azure AD diferentes. Esta configuración es una configuración de inquilino que no coincide y no se admite. La red virtual debe moverse al mismo inquilino de Azure AD (es decir, Contoso) que el dominio administrado. Vea la sección [Resolución](#resolution) para obtener más información.
+**Configuración de inquilino que no coincide**: en este escenario de implementación, el dominio administrado de Contoso está habilitado para el inquilino de Azure AD de Contoso. pero el dominio administrado se expone en una red virtual que pertenece a una suscripción de Azure propiedad del inquilino de Azure AD de Fabrikam. Por lo tanto, el dominio administrado y la red virtual pertenecen a dos inquilinos de Azure AD diferentes. Esta configuración es una configuración de inquilino que no coincide y no se admite. La red virtual debe moverse al mismo inquilino de Azure AD (es decir, Contoso) que el dominio administrado. Vea la sección [Resolución](#resolution) para obtener más información.
 
 ![Configuración de inquilino que no coincide](./media/getting-started/mismatched-tenant-config.png)
 

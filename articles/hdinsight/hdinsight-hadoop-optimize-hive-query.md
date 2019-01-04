@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: ebbb12a6454a093ad0ac3b3cc30eb489eeef21ec
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 57e23c55342ee397ecb8590dd6da639ba766f351
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687221"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385438"
 ---
-# <a name="optimize-hive-queries-in-azure-hdinsight"></a>Optimización de las consultas de Hive en Azure HDInsight
+# <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimización de las consultas de Azure Hive en Azure HDInsight
 
 En Azure HDInsight, hay varios tipos de clúster y tecnologías que pueden ejecutar consultas de Apache Hive. Al crear el clúster de HDInsight, elija el tipo de clúster adecuado para ayudar a optimizar el rendimiento de sus necesidades de carga de trabajo. 
 
@@ -38,9 +38,9 @@ El aumento del número de nodos de trabajo de un clúster de HDInsight permite q
 
 Para más información sobre la escalabilidad de HDInsight, vea [Escalabilidad de clústeres de HDInsight](hdinsight-scaling-best-practices.md).
 
-## <a name="use-tez-instead-of-map-reduce"></a>Usar Tez en lugar de MapReduce
+## <a name="use-apache-tez-instead-of-map-reduce"></a>Uso de Apache Tez en lugar de MapReduce
 
-[Apache Tez](http://hortonworks.com/hadoop/tez/) es un motor de ejecución alternativo al motor de MapReduce. Los clústeres de HDInsight basados en Linux tienen Tez habilitada de forma predeterminada.
+[Apache Tez](https://hortonworks.com/hadoop/tez/) es un motor de ejecución alternativo al motor de MapReduce. Los clústeres de HDInsight basados en Linux tienen Tez habilitada de forma predeterminada.
 
 ![tez_1][image-hdi-optimize-hive-tez_1]
 
@@ -52,7 +52,7 @@ Tez es más rápido porque:
 * **Reutiliza contenedores**. Siempre que es posible, Tez puede reutilizar contenedores para asegurarse de que se reduce la latencia debido al reinicio de contenedores.
 * **Técnicas de optimización continua**. Tradicionalmente, la optimización se realizó durante la fase de compilación. Sin embargo, hay más información disponible acerca de las entradas que permiten una mejor optimización en tiempo de ejecución. Tez usa las técnicas de optimización continua que le permiten optimizar más el plan en la fase de tiempo de ejecución.
 
-Para obtener más detalles sobre estos conceptos, consulte [Apache TEZ](http://hortonworks.com/hadoop/tez/).
+Para obtener más detalles sobre estos conceptos, consulte [Apache TEZ](https://hortonworks.com/hadoop/tez/).
 
 Puede realizar cualquier consulta de Hive habilitada con Tez anteponiendo a la consulta el siguiente comando set:
 
@@ -124,16 +124,16 @@ Para obtener más información, consulte [Partitioned Tables](https://cwiki.apac
 ## <a name="use-the-orcfile-format"></a>Usar el formato ORCFile
 Hive admite diferentes formatos de archivo. Por ejemplo: 
 
-* **Texto**: formato de archivo predeterminado y funciona con la mayoría de escenarios
-* **Avro**: funciona bien para escenarios de interoperabilidad
-* **ORC/Parquet**: idóneo para el rendimiento
+* **Texto**: el formato de archivo predeterminado y funciona con la mayoría de escenarios.
+* **Avro**: funciona bien en escenarios de interoperabilidad.
+* **ORC/Parquet**: idóneo para el rendimiento.
 
 El formato ORC (Optimized Row Columnar) es una manera muy eficaz de almacenar datos de Hive. En comparación con otros formatos, ORC tiene las siguientes ventajas:
 
-* compatibilidad con tipos complejos incluidos DateTime y tipos complejos y semiestructurados
-* hasta un 70 % de compresión
-* indiza cada 10 000 filas, lo que permite omitir filas
-* un gran descenso en la ejecución del tiempo de ejecución
+* compatibilidad con tipos complejos, entre los que se incluye DateTime, y tipos complejos y semiestructurados.
+* hasta un 70 % de compresión.
+* realiza una indexación cada 10 000 filas, lo que permite omitir filas.
+* una reducción importante en el tiempo de ejecución.
 
 Para habilitar el formato ORC, debe crear primero una tabla con la cláusula *Almacenados como ORC*:
 
@@ -171,7 +171,7 @@ A continuación, inserte datos en la tabla ORC desde la tabla de almacenamiento 
     FROM lineitem;
    ```
    
-Puede leer más sobre el formato ORC en el [manual del lenguaje Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
+Puede leer más sobre el formato ORC en el [manual del lenguaje Apache Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
 
 ## <a name="vectorization"></a>Vectorización
 
@@ -196,10 +196,10 @@ Hay más métodos de optimización que puede considerar, por ejemplo:
 En este artículo, ha aprendido varios métodos comunes de optimización de consultas de Hive. Para obtener más información, consulte los artículos siguientes:
 
 * [Uso de Apache Hive en HDInsight](hadoop/hdinsight-use-hive.md)
-* [Análisis de datos de retraso de vuelos con Hive en HDInsight](hdinsight-analyze-flight-delay-data.md)
-* [Análisis de datos de Twitter con Hive en HDInsight](hdinsight-analyze-twitter-data.md)
-* [Análisis de datos de sensor mediante la consola de consultas de Hive en Hadoop con HDInsight](hadoop/apache-hive-analyze-sensor-data.md)
-* [Uso de Hive con HDInsight para analizar registros de sitios web](hadoop/apache-hive-analyze-website-log.md)
+* [Análisis de datos de retraso de vuelos con Apache Hive en HDInsight](hdinsight-analyze-flight-delay-data.md)
+* [Análisis de datos de Twitter con Apache Hive en HDInsight](hdinsight-analyze-twitter-data.md)
+* [Análisis de datos de sensor mediante la consola de consultas de Apache Hive en Apache Hadoop con HDInsight](hadoop/apache-hive-analyze-sensor-data.md)
+* [Uso de Apache Hive con HDInsight para analizar registros de sitios web](hadoop/apache-hive-analyze-website-log.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png

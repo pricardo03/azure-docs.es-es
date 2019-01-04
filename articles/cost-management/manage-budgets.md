@@ -1,23 +1,23 @@
 ---
 title: Administración de presupuestos de Cloudyn en Azure | Microsoft Docs
-description: Este artículo le ayuda a crear y administrar presupuestos en Cloudyn.
+description: Este artículo le ayuda a crear presupuestos e iniciar su administración en Cloudyn rápidamente.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 9/18/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: 92236547e2100ab57f4ec6b4953f6c61ec87892d
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 44062670283a15f678da45e13a831e73a7738c39
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275511"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075495"
 ---
-# <a name="manage-budgets"></a>Administración de presupuestos
+# <a name="manage-azure-budgets-with-cloudyn"></a>Administración de presupuestos de Azure con Cloudyn
 
 La configuración de presupuestos y de alertas basadas en presupuestos ayuda a mejorar el gobierno de la nube y la responsabilidad. Este artículo le ayuda a crear presupuestos e iniciar su administración en Cloudyn rápidamente.
 
@@ -40,7 +40,7 @@ Para crear un presupuesto y asignarlo a una entidad:
 3. En el año del presupuesto, seleccione el año en el que desea crear el presupuesto.
 4. Para cada mes, establezca un valor de presupuesto. Cuando haya terminado, haga clic en **Guardar**.
 En este ejemplo, el presupuesto mensual para junio de 2018 está establecido en 135.000 $. El presupuesto total para el año es de 1.615.000,00 $.
-![Creación de un presupuesto](./media/manage-budgets/set-budget.png)
+![Página para la creación de un presupuesto cuando se establece un presupuesto para cada mes](./media/manage-budgets/set-budget.png)
 
 
 Para importar un archivo para el presupuesto anual:
@@ -64,11 +64,11 @@ En este ejemplo, se supone que la fecha actual es el 22 de junio. El costo para 
 
 Otra forma de ver el informe es mirar el costo acumulado frente al presupuesto. Para ver los costos acumulados, en **Show/Hide Fields** (Mostrar/Ocultar campos), seleccione **Accumulated Cost** (Costo acumulado) y **Total Budget** (Presupuesto total). Este es un ejemplo que muestra el costo acumulado desde el inicio del año.
 
-![Presupuesto acumulado](./media/manage-budgets/accumulated-budget.png)
+![Se muestra un ejemplo de costo acumulado y presupuesto total en el informe de comparación entre el costo y el presupuesto a lo largo del tiempo](./media/manage-budgets/accumulated-budget.png)
 
 En algún momento del futuro, es posible que su costo acumulado supere el presupuesto. Puede verlo con mayor claridad si cambia la vista de gráfico al tipo de _líneas_.
 
-![Presupuesto que se muestra en el gráfico de líneas](./media/manage-budgets/budget-line.png)
+![El presupuesto se muestra en un gráfico de líneas en el informe Costo por meses](./media/manage-budgets/budget-line.png)
 
 ## <a name="create-budget-alerts-for-a-filter"></a>Creación de alertas de presupuesto para un filtro
 
@@ -81,7 +81,7 @@ Veamos un ejemplo.
 
 En el informe de costo frente a presupuesto a lo largo del tiempo, haga clic en **Acciones** y, a continuación, seleccione **Schedule report** (Programar informe). En la pestaña de umbral, seleccione una métrica de umbral. Por ejemplo, **Cost percentage vs budget** (Porcentaje de costo frente a presupuesto). Seleccione un tipo de alerta y escriba un valor de porcentaje del presupuesto. Si desea que se le notifique solo una vez, seleccione **Number of consecutive alerts** (Número de alertas consecutivas) y luego el tipo _1_. Haga clic en **Save**(Guardar).
 
-![Alerta de presupuesto](./media/manage-budgets/budget-alert.png)
+![Creación de una alerta de presupuesto en el cuadro Guardar o programar este informe](./media/manage-budgets/budget-alert.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

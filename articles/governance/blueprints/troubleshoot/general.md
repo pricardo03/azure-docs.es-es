@@ -1,19 +1,20 @@
 ---
-title: Solución de problemas de errores con instancias de Azure Blueprint
+title: Solución de errores comunes
 description: Aprenda a solucionar problemas de creación y asignación de planos técnicos.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 10/25/2018
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: b910f90e70af4ce6d4243c06bfe5bd03d25d74d6
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 40668fed2fcc2a04e39fa3a4d7e8e8923c75ae05
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092941"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315537"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Solución de problemas de errores con instancias de Azure Blueprint
 
@@ -35,7 +36,7 @@ Es habitual que el error se deba a un artefacto y no al plano técnico en su con
 
 ## <a name="general-errors"></a>Errores generales
 
-### <a name="policy-violation"></a>Escenario: infracción de directivas
+### <a name="policy-violation"></a>Escenario: Infracción de la directiva
 
 #### <a name="issue"></a>Problema
 

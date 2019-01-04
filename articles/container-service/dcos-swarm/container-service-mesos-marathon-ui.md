@@ -1,5 +1,5 @@
 ---
-title: Administración de un clúster DC/OS de Azure con la interfaz de usuario de Marathon
+title: (EN DESUSO) Administración de un clúster DC/OS de Azure con la interfaz de usuario de Marathon
 description: Implemente contenedores en un clúster del servicio Contenedor de Azure mediante la interfaz de usuario web de Marathon.
 services: container-service
 author: iainfoulds
@@ -9,21 +9,23 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a22bddf48f97d961d481e2aedb42f7d645f3e678
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 41b6ce24e7c2e8565d7c2f17c32b8b6e1f38ea4f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903088"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992479"
 ---
-# <a name="manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>Administrar un clúster DC/OS de Azure Container Service a través de la interfaz de usuario web de Marathon
+# <a name="deprecated-manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>(EN DESUSO) Administrar un clúster DC/OS de Azure Container Service mediante la interfaz de usuario web de Marathon
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 DC/OS proporciona un entorno para implementar y escalar cargas de trabajo agrupadas, al tiempo que reduce el hardware subyacente. Por encima de DC/OS hay un marco que administra la programación y ejecución de cargas de trabajo de proceso.
 
 Si bien hay plataformas disponibles para muchas cargas de trabajo populares, este documento presenta una introducción a la implementación de contenedores con Marathon. 
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de trabajar con estos ejemplos, necesita un clúster de DC/OS configurado en el servicio Contenedor de Azure. También debe tener conectividad remota con este clúster. Para más información sobre estos aspectos, consulte los siguientes artículos:
 
 * [Implementación de un clúster del servicio Contenedor de Azure](container-service-deployment.md)

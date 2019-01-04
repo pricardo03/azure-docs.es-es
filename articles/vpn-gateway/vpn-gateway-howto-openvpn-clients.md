@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 7d76827a4e4ba4ccb7a146c5f8282000d143eb35
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 4de4a5a659f38577c1261b169a43df560bf05495
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624444"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971273"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>Configuración de los clientes OpenVPN de Azure VPN Gateway (versión preliminar)
 
@@ -67,7 +67,7 @@ Compruebe que ha completado los pasos para configurar OpenVPN para VPN Gateway. 
 2. Descargue el perfil de VPN para la puerta de enlace. Esto puede hacerse desde la pestaña de configuración de punto a sitio de Azure Portal o mediante "New-AzureRmVpnClientConfiguration"en PowerShell.
 3. Descomprima el perfil. Abra el archivo de configuración vpnconfig.ovpn desde la carpeta OpenVPN en el Bloc de notas.
 4. Rellene la sección de certificado cliente de P2S con la clave pública del certificado cliente de P2S en Base64. En un certificado con formato PEM, puede abrir el archivo .cer y copiar la clave de base64 entre los encabezados del certificado. Consulte [Exportación de la clave pública](vpn-gateway-certificates-point-to-site.md#cer) para obtener más información acerca de cómo exportar un certificado para obtener la clave pública codificada.
-5. Rellene la sección de la clave privada con la clave privada del certificado cliente de P2S en base64. Consulte [Exportación de la clave](https://www.geotrust.eu/en/support/manuals/microsoft/all+windows+servers/export+private+key+or+certificate/) para obtener más información sobre cómo extraer la clave privada.
+5. Rellene la sección de la clave privada con la clave privada del certificado cliente de P2S en Base64. Consulte [Exportación de la clave privada](https://openvpn.net/community-resources/how-to/#pki) para obtener más información sobre cómo extraer la clave privada.
 6. No cambie los demás campos. Use el relleno de la configuración de entrada del cliente para conectarse a la VPN.
 7. Haga doble clic en el archivo de perfil para crear el perfil en Tunnelblik.
 8. Inicie Tunnelblik desde la carpeta de aplicaciones.

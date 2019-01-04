@@ -9,21 +9,31 @@ ms.component: custom-vision
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: anroth
-ms.openlocfilehash: 8b4ba1601a7c5a9f523f7f8145a032861aac5d8c
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a4b6b1d267e9c86a03644129ee639b74ed214d88
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901335"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408364"
 ---
 # <a name="custom-vision-service-release-notes"></a>Notas de la versión de Custom Vision Service
+
+
+## <a name="december-12-2018"></a>12 de diciembre de 2018
+- Admite la exportación de modelos de detección de objetos (se ha introducido el dominio compacto de detección de objetos).
+- Se han corregido varios problemas de accesibilidad para mejorar el lector de pantalla y el soporte para navegación del teclado. 
+- Actualizaciones de la experiencia de usuario en el visor de imágenes y se ha mejorado el etiquetado de la detección de objetos, con el fin de agilizar el etiquetado.  
+- Actualización del modelo base del dominio de detección de objetos para mejorar la calidad de la detección de objetos. 
+- Correcciones de errores.
+
+## <a name="november-6-2018"></a>6 de noviembre de 2018
+- Se ha agregado compatibilidad con el dominio de logotipo en la detección de objetos.
 
 ## <a name="october-9-2018"></a>9 de octubre de 2018
 - Detección de objetos entra en la versión preliminar de pago. Ahora puede crear proyectos de detección de objetos con un recurso de Azure.
 - La característica "Mover a Azure" se ha agregado al sitio web, para que resulte más fácil actualizar un proyecto de prueba limitado para vincular a un proyecto de recursos vinculados de Azure (F0 o S0). Puede encontrarlo en la página Configuración del producto.  
 - Se ha agregado exportación a ONNX 1.2, para admitir la versión Actualización de octubre de 2018 de Windows de Windows ML.
 Correcciones de errores, incluidas para la exportación ONNX con caracteres especiales. 
-
 
 ## <a name="august-14-2018"></a>14 de agosto de 2018
 - Se agregó un widget de "Introducción" al sitio customvision.ai para orientar a los usuarios a lo largo del aprendizaje del proyecto. 

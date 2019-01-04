@@ -9,17 +9,16 @@ ms.assetid: 6acd41b9-fbf0-45b8-b83b-117e19062dd2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: 099e597982172bcea39fedd0fd1445f466eb2bc1
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: b9428e4451ebef921907809b1250238bf084706d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960827"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864968"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Detección inteligente: anomalías de rendimiento
 
@@ -70,7 +69,7 @@ Los mensajes de correo electrónico de las anomalías de rendimiento de Detecci�
 ## <a name="faq"></a>Preguntas más frecuentes
 
 * *¿El personal de Microsoft mira mis datos?*
-  * No. El servicio es completamente automático. Solo obtendrá las notificaciones. Sus datos son [privados](app-insights-data-retention-privacy.md).
+  *  No. El servicio es completamente automático. Solo obtendrá las notificaciones. Sus datos son [privados](app-insights-data-retention-privacy.md).
 * *¿Analiza todos los datos recopilados por Application Insights?*
   * No en este momento. Actualmente, analizamos el tiempo de respuesta de la solicitud, el tiempo de respuesta de dependencia y el tiempo de carga de la página. En un futuro analizaremos más métricas.
 
@@ -86,7 +85,7 @@ Los mensajes de correo electrónico de las anomalías de rendimiento de Detecci�
 
   * Ejecutamos el análisis diariamente en la telemetría del día anterior (día completo en la zona horaria UTC).
 * *¿Sustituye esto a las [alertas de métricas](app-insights-alerts.md)?*
-  * No.  No nos comprometemos a detectar cada comportamiento que el usuario podría anómalo.
+  *  No.  No nos comprometemos a detectar cada comportamiento que el usuario podría anómalo.
 
 
 * *Si no tomo ninguna medida como respuesta a una notificación, ¿recibiré un aviso?*
@@ -117,8 +116,8 @@ Abra la hoja de métricas del navegador. La visualización segmentada del tiempo
 ### <a name="improve-slow-pages"></a>Mejora de páginas lentas
 Hay un sitio web completo de consejos sobre cómo mejorar las respuestas del servidor y los tiempos de carga de página, por lo que no intentaremos repetirlo aquí todo otra vez. Estas son algunas sugerencias que probablemente ya conozca, pero que pueden ayudarle a pensar en soluciones:
 
-* Lentitud debida a archivos de gran tamaño: cargar los scripts y otras partes de forma asincrónica. Use la agrupación de scripts. Divida la página principal en widgets que cargan sus datos por separado. No envíe simples HTML antiguos para tablas de gran tamaño: use un script para solicitar los datos como JSON u otro formato compacto y luego rellene la tabla en su lugar. Existen excelentes marcos para ayudarle con todo esto. (Lo que también implican grandes scripts, por supuesto.)
-* Dependencias de un servidor lento: tenga en cuenta las ubicaciones geográficas de los componentes. Por ejemplo, si usa Azure, asegúrese de que el servidor web y la base de datos se encuentran en la misma región. ¿Es posible que consultas las consultas recuperen más información de la que necesitan? ¿Podría ayudar el almacenamiento en caché o el procesamiento por lotes?
+* Ralentización de la carga debido a archivos grandes: cargue los scripts y otras partes de forma asincrónica. Use la agrupación de scripts. Divida la página principal en widgets que cargan sus datos por separado. No envíe simples HTML antiguos para tablas de gran tamaño: use un script para solicitar los datos como JSON u otro formato compacto y luego rellene la tabla en su lugar. Existen excelentes marcos para ayudarle con todo esto. (Lo que también implican grandes scripts, por supuesto.)
+* Ralentización de las dependencias de servidor: tenga en cuenta las ubicaciones geográficas de los componentes. Por ejemplo, si usa Azure, asegúrese de que el servidor web y la base de datos se encuentran en la misma región. ¿Es posible que consultas las consultas recuperen más información de la que necesitan? ¿Podría ayudar el almacenamiento en caché o el procesamiento por lotes?
 * Problemas de capacidad: eche una ojeada a las métricas de servidor de tiempos de respuesta y recuentos de solicitudes. Si los tiempos de respuesta presentan picos desproporcionados en recuentos de solicitud, es probable que se está tirando en exceso de los servidores.
 
 
@@ -185,7 +184,7 @@ Estas herramientas de diagnóstico lo ayudarán a inspeccionar los datos de tele
 
 * [Generador de perfiles](app-insights-profiler.md) 
 * [Depurador de instantáneas](app-insights-snapshot-debugger.md)
-* [Analytics](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Analytics](../azure-monitor/log-query/get-started-portal.md)
 * [Diagnóstico de análisis inteligente](app-insights-analytics.md)
 
 Las detecciones inteligentes son completamente automáticas. Pero ¿quizás le gustaría configurar algunas alertas más?

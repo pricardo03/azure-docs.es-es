@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: hascipio
-ms.openlocfilehash: 26f856059b381be91b9cdd1f98a11dc90813c0c5
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: bf41953300c3042853118c815dbf64e4474106fa
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715879"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194120"
 ---
 # <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>Probar su oferta de VM para Azure Marketplace en un entorno de ensayo
 En la etapa de ensayo, se implementa la SKU en un “espacio aislado” privado, donde puede probar y validar su funcionalidad antes de implementarla en Marketplace. La SKU aparece en un entorno de ensayo tal y como lo haría para un cliente que la ha implementado. Su imagen de VM debe estar certificada para trasladarse a un entorno de ensayo.
 
-## <a name="step-1-push-your-offer-to-staging"></a>Paso 1: trasladar su oferta a un entorno de ensayo
+## <a name="step-1-push-your-offer-to-staging"></a>Paso 1: Trasladar su oferta a un entorno de ensayo
 1. En la pestaña **Publicar**, haga clic en **Push to Staging** (Pasar a ensayo).
    
     ![dibujo](media/marketplace-publishing-vm-image-test-in-staging/vm-image-push-to-staging.png)
@@ -35,12 +35,12 @@ En la etapa de ensayo, se implementa la SKU en un “espacio aislado” privado,
    > En el caso de las plantillas de soluciones y máquinas virtuales, **no** agregue a la lista blanca suscripciones de tipo CSP, DreamSpark o Azure bajo licencia Open.
    > 
    > 
+   >
+   > En el caso de las máquinas virtuales, al hacer clic en el botón **PUSH TO STAGING**(INSERTAR EN ENTORNO DE ENSAYO) para enviar la oferta a producción, los siguientes pasos se realizan automáticamente. Podrá ver el progreso de cada paso en la pestaña Publicar en el Portal de publicación. Debe comprobar esta página de forma periódica (hasta que el estado muestre que está en el entorno provisional) para consultar cualquier información de error que tenga que solucionar.
 
-    > En el caso de las máquinas virtuales, al hacer clic en el botón **PUSH TO STAGING**(INSERTAR EN ENTORNO DE ENSAYO) para enviar la oferta a producción, los siguientes pasos se realizan automáticamente. Podrá ver el progreso de cada paso en la pestaña Publicar en el Portal de publicación. Debe comprobar esta página de forma periódica (hasta que el estado muestre que está en el entorno provisional) para consultar cualquier información de error que tenga que solucionar.
-
-    > - En primer lugar, la solicitud de ensayo pasa al equipo de certificación que valida el VHD. Sin embargo, si la solicitud tiene solo incluye un cambio de marketing, se omite el paso de certificación.
-    > - Cuando se complete la certificación, se inicia la replicación de la oferta en todos los centros de datos de Azure. Normalmente, el proceso de replicación de la oferta tarda en completarse entre 24 y 48 horas, aunque puede extenderse hasta una semana en función del tamaño del VHD. Sin embargo, si la solicitud tiene solo incluye un cambio de marketing, la replicación se realiza más rápidamente.
-    > - Cuando se complete la replicación, la oferta se mostrará en el [Portal de Azure](http:/portal.azure.com). En este momento, el estado muestra que la oferta está en el entorno de ensayo en el Portal de publicación. Una oferta de ensayo está visible en el [Portal de Azure](http:/portal.azure.com) solo con los identificadores de correo electrónico asociados con la suscripción con la que se envío la oferta al entorno de ensayo.
+   > - En primer lugar, la solicitud de ensayo pasa al equipo de certificación que valida el VHD. Sin embargo, si la solicitud tiene solo incluye un cambio de marketing, se omite el paso de certificación.
+   > - Cuando se complete la certificación, se inicia la replicación de la oferta en todos los centros de datos de Azure. Normalmente, el proceso de replicación de la oferta tarda en completarse entre 24 y 48 horas, aunque puede extenderse hasta una semana en función del tamaño del VHD. Sin embargo, si la solicitud tiene solo incluye un cambio de marketing, la replicación se realiza más rápidamente.
+   > - Cuando se complete la replicación, la oferta se mostrará en el [Portal de Azure](http:/portal.azure.com). En este momento, el estado muestra que la oferta está en el entorno de ensayo en el Portal de publicación. Una oferta de ensayo está visible en el [Portal de Azure](http:/portal.azure.com) solo con los identificadores de correo electrónico asociados con la suscripción con la que se envío la oferta al entorno de ensayo.
 
 1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com) mediante una de las suscripciones de Azure anteriores que se enumeran en el paso anterior.
 2. Busque su oferta y valide los puntos de su imagen de VM:
@@ -61,5 +61,5 @@ En la etapa de ensayo, se implementa la SKU en un “espacio aislado” privado,
 Ahora que el estado de su oferta es "de ensayo" y que ha probado su funcionalidad y contenido de marketing, puede continuar con la fase de publicación final, el **Paso 4**: [Implementación de su oferta en Marketplace](marketplace-publishing-push-to-production.md).
 
 ## <a name="see-also"></a>Otras referencias
-* [Introducción: cómo publicar una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Introducción: Publicación de una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
 

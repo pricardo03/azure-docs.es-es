@@ -1,12 +1,11 @@
 ---
-title: Preguntas frecuentes sobre las competiciones de Cortana Intelligence | Microsoft Docs
+title: Preguntas más frecuentes sobre las competiciones de Cortana Intelligence - Azure Machine Learning Studio | Microsoft Docs
 description: Preguntas frecuentes sobre las competiciones de Microsoft Cortana Intelligence.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=haining, author=hning86)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: mwinkle
 editor: cgronlun
 ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 8782af26056f8341ee68ed87f003bc585e0c4e69
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: fe4da412aa779e9861446f8dcbb8a807c282c7c6
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265117"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268910"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Preguntas frecuentes sobre las competiciones de Microsoft Cortana Intelligence
 **¿En qué consisten las competiciones de Cortana Intelligence?**
@@ -70,7 +69,7 @@ La plataforma de competición no admite actualmente la participación de equipos
 
 La participación en las competiciones es gratuita. Sin embargo, necesita tener acceso a un área de trabajo de Azure Machine Learning para participar. Puede crear una gratuita sin necesidad de usar una tarjeta de crédito iniciando sesión con una cuenta de Microsoft válida o una cuenta de Office 365. Si ya es un cliente de Azure o de Cortana Intelligence Suite, puede crear y usar un área de trabajo estándar con la misma suscripción de Azure. Si desea adquirir una suscripción de Azure, vaya a la página [Precios de Azure](https://azure.microsoft.com/pricing). Tenga en cuenta que se aplicarán las tasas estándar si se usa un área de trabajo estándar para construir experimentos. Para más información, vea la [información sobre precios de Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/). 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 **¿Qué son las puntuaciones públicas y privadas?**
 

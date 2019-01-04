@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: conexión de una máquina virtual con Windows Server a un dominio administrado | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Unir una máquina virtual Windows Server a un dominio administrado | Microsoft Docs'
 description: Unión de una máquina virtual de Windows Server a Azure AD DS
 services: active-directory-ds
 documentationcenter: ''
@@ -15,22 +15,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: 753818526ad637db0baa13c92e92d2725b19dbf8
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 748345bf89e7f746b8ef388ad5cabc987a07d1f8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158347"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957681"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Unión de una máquina virtual de Windows Server a un dominio administrado
 Este artículo muestra cómo implementar una máquina virtual de Windows Server mediante Azure Portal. A continuación, muestra cómo unir la máquina virtual a un dominio administrado de Azure Active Directory Domain Services (Azure AD DS).
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
-## <a name="step-1-create-a-windows-server-virtual-machine"></a>Paso 1: Creación de una máquina virtual de Windows Server
+## <a name="step-1-create-a-windows-server-virtual-machine"></a>Paso 1: Creación de una máquina virtual con Windows Server
 Para crear una máquina virtual de Windows que esté unida a la red virtual en la que ha habilitado Azure AD DS, haga lo siguiente:
 
-1. Inicie sesión en el [Azure Portal](http://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En la parte superior del panel izquierdo, seleccione **Nuevo**.
 3. Seleccione **Compute** y, después, seleccione **Windows Server 2016 Datacenter**.
 

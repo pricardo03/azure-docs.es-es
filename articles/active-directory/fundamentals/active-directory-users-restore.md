@@ -1,6 +1,6 @@
 ---
-title: Restauración o eliminación permanente de un usuario recién eliminado en Azure Active Directory | Microsoft Docs
-description: Obtenga información sobre cómo ver a los usuarios que se pueden restaurar, restaurar un usuario eliminado o eliminar permanentemente un usuario en Azure Active Directory.
+title: 'Restauración o eliminación permanente de un usuario recién eliminado: Azure Active Directory | Microsoft Docs'
+description: Visualización de los usuarios que se pueden restaurar, restauración de un usuario eliminado o eliminación permanente de un usuario en Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: 88d3c672cd072cd4b252f7ce4ede3a4c7b13a7db
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 5f747d90368b636cb2ab8cf0e20ef5e676f99af6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736179"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080510"
 ---
-# <a name="how-to-restore-or-permanently-remove-a-recently-deleted-user-with-azure-active-directory"></a>Restauración o eliminación permanente de un usuario recién eliminado en Azure Active Directory
+# <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Restauración o eliminación de un usuario recientemente eliminado mediante Azure Active Directory
 Después de eliminar a un usuario, la cuenta permanece en estado de suspensión durante 30 días. Durante ese período de 30 días, la cuenta de usuario se puede restaurar, junto con todas sus propiedades. Después de que pase esa ventana de 30 días, el usuario se elimina automáticamente y de forma permanente.
 
 Puede ver a los usuarios que se pueden restaurar, restaurar un usuario eliminado o eliminar permanentemente a un usuario con Azure Active Directory (Azure AD) en Azure Portal.
@@ -81,7 +81,7 @@ Después de restaurar o eliminar a los usuarios, puede realizar los siguientes p
 
 - [Asignación de roles a usuarios](active-directory-users-assign-role-azure-portal.md)
 
-- [Adiciones o cambios a la información del perfil](active-directory-users-profile-azure-portal.md)
+- [Add or change profile information](active-directory-users-profile-azure-portal.md) (Incorporación o modificación de la información del perfil)
 
 - [Adición de usuarios invitados de otro directorio](../b2b/what-is-b2b.md) 
 

@@ -1,6 +1,7 @@
 ---
-title: ¿Cómo funciona el servicio Azure Machine Learning?
-description: Obtenga información sobre la arquitectura, la terminología y los conceptos que conforman el servicio de Azure Machine Learning. También podrá informarse sobre el flujo de trabajo general de utilizar el servicio y sobre los servicios de Azure que utiliza el servicio de Azure Machine Learning.
+title: 'Machine Learning en la nube: términos y arquitectura'
+titleSuffix: Azure Machine Learning service
+description: Obtenga información sobre la arquitectura, la terminología y los conceptos que conforman el servicio Azure Machine Learning. También podrá informarse sobre el flujo de trabajo general de utilizar el servicio y sobre los servicios de Azure que utiliza el servicio Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,13 +9,14 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: larryfr
-ms.date: 10/24/2018
-ms.openlocfilehash: 0acf41cc0a2673ba665d1815b493df928fa4507d
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 3966d4b27f0e3d42f47d84fb5c9f5c8519a27b6c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706813"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184736"
 ---
 # <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Cómo funciona el servicio Azure Machine Learning: arquitectura y conceptos
 
@@ -28,16 +30,14 @@ Normalmente, el flujo de trabajo sigue estos pasos:
 1. Se crea y configura un __destino de proceso__.
 1. __Se envían los scripts__ al destino de proceso configurado para ejecutarse en ese entorno. Durante el entrenamiento, el destino de proceso almacena los registros de ejecución en un __almacén de datos__. Allí los registros se guardan en un __experimento__.
 1. __Se consulta el experimento__ para las métricas registradas en ejecuciones actuales y anteriores. Si las métricas no ofrecen el resultado deseado, se vuelve en bucle al paso 1 y se repiten los scripts.
-1. Cuando se encuentra una ejecución satisfactoria, se registra el modelo guardado en el __registro del modelo__.
+1. Cuando se encuentra una ejecución satisfactoria, se registra el modelo guardado en el __registro de modelos__.
 1. Se desarrolla un script de puntuación.
 1. __Se crea una imagen__ y se registra en el __registro de la imagen__. 
 1. __Se implementa la imagen__ como un __servicio web__ en Azure.
 
 
-[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
-
 > [!NOTE]
-> Aunque en este documento se definen los términos y conceptos utilizados por Azure Machine Learning, no se definen los términos y conceptos de la plataforma de Azure. Para obtener más información sobre la terminología de la plataforma de Azure, consulte el [glosario de Microsoft Azure](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
+> Aunque en este documento se definen los términos y conceptos utilizados por Azure Machine Learning, no se definen los términos y conceptos de la plataforma Azure. Para obtener más información sobre la terminología de la plataforma Azure, consulte el [glosario de Microsoft Azure](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
 
 ## <a name="workspace"></a>Área de trabajo
 
@@ -65,7 +65,7 @@ Al crear una nueva área de trabajo, se crean automáticamente varios recursos d
 
 El diagrama siguiente es una taxonomía del área de trabajo:
 
-[![Taxonomía del área de trabajo](./media/concept-azure-machine-learning-architecture/taxonomy.png)](./media/concept-azure-machine-learning-architecture/taxonomy.png#lightbox)
+[![Taxonomía del área de trabajo](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## <a name="model"></a>Modelo
 
@@ -73,9 +73,9 @@ En su forma más simple, un modelo es un fragmento de código que toma una entra
 
 Un modelo se genera mediante una ejecución en Azure Machine Learning. También puede usar un modelo entrenado fuera de Azure Machine Learning. Un modelo se puede registrar en un área de trabajo de Azure Machine Learning Services.
 
-Azure Machine Learning Services es independiente del marco de trabajo. Puede usar cualquier marco de aprendizaje automático popular al crear un modelo, como scikit-learn, xgboost, PyTorch, TensorFlow, Chainer y CNTK.
+Azure Machine Learning Services es independiente del marco de trabajo. Puede usar cualquier plataforma de aprendizaje automático popular al crear un modelo, como scikit-learn, xgboost, PyTorch, TensorFlow, Chainer y CNTK.
 
-Para obtener un ejemplo de entrenamiento de un modelo, vea el documento [Guía de inicio rápido: Uso de Azure Portal para empezar a trabajar con Azure Machine Learning](quickstart-get-started.md).
+Para obtener un ejemplo de entrenamiento de un modelo, consulte el documento [Inicio rápido: Creación de un área de trabajo de Azure Machine Learning Service](quickstart-get-started.md).
 
 ### <a name="model-registry"></a>Registro de modelos
 
@@ -85,9 +85,9 @@ Los modelos se identifican por el nombre y la versión. Cada vez que registra un
 
 Puede proporcionar etiquetas de metadatos adicionales al registrar el modelo y, después, utilizar estas etiquetas al buscar modelos.
 
-No puede eliminar los modelos una imagen esté utilizando.
+No puede eliminar los modelos que una imagen esté utilizando.
 
-Para obtener un ejemplo de registro de un modelo, vea el documento [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md) (Entrenamiento de un modelo de clasificación de imágenes con Azure Machine Learning).
+Para obtener un ejemplo de registro de un modelo, vea el documento [Entrenamiento de un modelo de clasificación de imágenes con el servicio Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 ## <a name="image"></a>Imagen
 
@@ -100,9 +100,9 @@ Las imágenes ofrecen una forma fiable de implementar un modelo, junto con todos
 Hay dos tipos de imágenes que Azure Machine Learning puede crear:
 
 * Imagen de FPGA: se utiliza al realizar una implementación en una matriz de puerta programable por campo en la nube de Azure.
-* Imagen de Docker: se usa al implementar para calcular los destinos que no son FPGA. Por ejemplo, Azure Container Instances y Azure Kubernetes Service.
+* Imagen de Docker: se usa al implementar en destinos de proceso que no son FPGA. Por ejemplo, Azure Container Instances y Azure Kubernetes Service.
 
-Para obtener un ejemplo de creación de una imagen, consulte el documento [Deploy an image classification model in Azure Container Instance](tutorial-deploy-models-with-aml.md) (Implementación de un modelo de clasificación de imágenes en Azure Container Instance).
+Para obtener un ejemplo de creación de una imagen, consulte el documento [Implementación de un modelo de clasificación de imágenes en Azure Container Instances (ACI)](tutorial-deploy-models-with-aml.md).
 
 ### <a name="image-registry"></a>Registro de imágenes
 
@@ -121,7 +121,7 @@ Azure le ayuda a supervisar la implementación del servicio web mediante la reco
 
 Si ha habilitado el ajuste automático, Azure ajustará automáticamente su implementación.
 
-Para obtener un ejemplo de implementación de un modelo como servicio web, consulte el documento [Deploy an image classification model in Azure Container Instance](tutorial-deploy-models-with-aml.md) (Implementación de un modelo de clasificación de imágenes en Azure Container Instance).
+Para obtener un ejemplo de implementación de un modelo como servicio web, consulte el documento [Implementación de un modelo de clasificación de imágenes en Azure Container Instances (ACI)](tutorial-deploy-models-with-aml.md).
 
 ### <a name="iot-module"></a>Módulo de IoT
 
@@ -148,13 +148,13 @@ Una ejecución es un registro que contiene la información siguiente:
 
 Una ejecución se produce cuando se envía un script para entrenar un modelo. Una ejecución puede tener cualquier número de ejecuciones secundarias. De este modo, la ejecución de nivel superior puede tener dos ejecuciones secundarias, cada una de las cuales puede tener sus propias ejecuciones secundarias.
 
-Para obtener un ejemplo de ejecuciones de visualización mediante el entrenamiento de un modelo, vea el documento [Guía de inicio rápido: Introducción al servicio Azure Machine Learning](quickstart-get-started.md).
+Para obtener un ejemplo de vistas de ejecución producidas al entrenar un modelo, consulte el documento [Inicio rápido: Introducción a Azure Machine Learning Service](quickstart-get-started.md).
 
 ## <a name="experiment"></a>Experimento
 
 Un experimento es una agrupación de varias ejecuciones de un script determinado. Siempre pertenece a un área de trabajo. Cuando envíe una ejecución, proporcione un nombre de experimento. La información de la ejecución se almacena en ese experimento. Si envía una ejecución y especifica un nombre de experimento que no existe, se crea automáticamente un experimento nuevo con ese nombre.
 
-Para obtener un ejemplo del uso de un experimento, vea el documento [Guía de inicio rápido: Introducción al servicio Azure Machine Learning](quickstart-get-started.md).
+Para obtener un ejemplo del uso de un experimento, consulte el documento [Inicio rápido: Introducción a Azure Machine Learning Service](quickstart-get-started.md).
 
 ## <a name="pipeline"></a>Canalización
 
@@ -169,23 +169,27 @@ Un destino de proceso es el recurso de proceso que se usa para ejecutar el scrip
 | Destino de proceso | Cursos | Implementación |
 | ---- |:----:|:----:|
 | Equipo local | ✓ | &nbsp; |
+| Proceso de Azure Machine Learning | ✓ | &nbsp; |
 | Una única máquina virtual Linux en Azure</br>(como Data Science Virtual Machine) | ✓ | &nbsp; |
-| Clúster de Azure Batch AI | ✓ | &nbsp; |
 | Azure Databricks | ✓ | &nbsp; | &nbsp; |
 | Análisis con Azure Data Lake | ✓ | &nbsp; |
 | Apache Spark para HDInsight | ✓ | &nbsp; |
-| Azure Container Instances | ✓ | ✓ |
+| Azure Container Instances | &nbsp; | ✓ |
 | Azure Kubernetes Service | &nbsp; | ✓ |
 | Azure IoT Edge | &nbsp; | ✓ |
 | Project Brainwave</br>(matriz de puertas programables por campo) | &nbsp; | ✓ |
 
 Los destinos de proceso están asociados a un área de trabajo. Los usuarios del área de trabajo comparten los destinos de proceso que no sean el equipo local.
 
-La mayoría de destinos de proceso se pueden crear directamente a través del área de trabajo mediante Azure Portal, el SDK de Azure Machine Learning o la CLI de Azure. Si dispone de los destinos de proceso creados por otro proceso (por ejemplo, Azure Portal o la CLI de Azure), puede agregarlos (asociarlos) al área de trabajo. Algunos procesos de destino deben crearse fuera del área de trabajo y adjuntarse posteriormente.
+### <a name="managed-and-unmanaged-compute-targets"></a>Destinos de proceso administrados y no administrados
 
-Para obtener información sobre cómo seleccionar un destino de proceso para el aprendizaje, consulte el documento [Select and use a compute target to train your model](how-to-set-up-training-targets.md) (Selección y uso un destino de proceso para entrenar el modelo).
+Azure Machine Learning Service crea y administra destinos de proceso **administrados**. Estos destinos de proceso están optimizados para cargas de trabajo de Machine Learning. __Proceso de Azure Machine Learning__ es el único destino de proceso administrado en este momento (4 de diciembre de 2018). En el futuro pueden agregarse destinos de proceso administrados adicionales. Se pueden crear instancias de Proceso de ML directamente en el área de trabajo mediante Azure Portal, el SDK de Azure Machine Learning o la CLI de Azure. Todos los demás destinos de proceso deben crearse fuera del área de trabajo y adjuntarse posteriormente.
 
-Para obtener información sobre cómo seleccionar un destino de proceso para la implementación, consulte el documento [Deploy models with the Azure Machine Learning service](how-to-deploy-and-where.md) (Implementación de modelos con el servicio de Azure Machine Learning).
+Azure Machine Learning Service no administra destinos de proceso **no administrados**. Es posible que tenga que crearlos fuera de Azure Machine Learning y, después, conectarlos al área de trabajo antes de usarlos. Estos destinos de proceso pueden requerir pasos adicionales para mantener o mejorar el rendimiento para cargas de trabajo de Machine Learning.
+
+Para obtener información sobre cómo seleccionar un destino de proceso para el aprendizaje, consulte el documento [Selección y uso de un destino de proceso para entrenar el modelo](how-to-set-up-training-targets.md).
+
+Para obtener información sobre cómo seleccionar un destino de proceso para la implementación, consulte el documento [Implementación de modelos con el servicio Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="run-configuration"></a>Configuración de ejecución
 
@@ -193,7 +197,7 @@ Una configuración de ejecución es un conjunto de instrucciones que define cóm
 
 Una configuración de ejecución puede conservarse en un archivo dentro del directorio que contiene el script de aprendizaje o crearse como un objeto en memoria y usarse para enviar una ejecución.
 
-Para ver configuraciones de ejecución de ejemplo, vea el documento [Select and use a compute target to train your model](how-to-set-up-training-targets.md) (Selección y uso de un destino de proceso para entrenar el modelo).
+Para ver configuraciones de ejecución de ejemplo, vea el documento [Selección y uso de un destino de proceso para entrenar el modelo](how-to-set-up-training-targets.md).
 
 ## <a name="training-script"></a>Script de entrenamiento
 
@@ -223,5 +227,5 @@ Las actividades pueden proporcionar notificaciones a través del SDK o la interf
 Consulte los vínculos siguientes para empezar a usar Azure Machine Learning:
 
 * [¿Qué es el servicio Azure Machine Learning?](overview-what-is-azure-ml.md)
-* [Guía de inicio rápido: Creación de un área de trabajo con Python](quickstart-get-started.md)
+* [Inicio rápido: Creación de un área de trabajo con Python](quickstart-get-started.md)
 * [Tutorial: Entrenamiento de un modelo](tutorial-train-models-with-aml.md)

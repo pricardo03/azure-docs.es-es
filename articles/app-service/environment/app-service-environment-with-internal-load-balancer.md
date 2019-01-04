@@ -1,5 +1,5 @@
 ---
-title: Creación y uso de un equilibrador de carga interno con App Service Environment | Microsoft Docs
+title: 'Creación y uso de un equilibrador de carga interno con un entorno de App Service: Azure | Microsoft Docs'
 description: Creación y uso de ASE con un ILB
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: f7c94b790c6aa7c75c62fd05671f016b7185b2a2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: seodec18
+ms.openlocfilehash: 88f100bc780d8df0202cfcce9b390085a71fc905
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29388822"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310477"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Uso de un equilibrador de carga interno con un entorno de App Service
 
@@ -100,8 +101,8 @@ Si desea probar el flujo con sus propios certificados y probar el acceso HTTP y 
 4. Cree una aplicación web en el ASE recién creado. 
 5. Si no dispone de ninguna en esa red virtual, cree una máquina virtual (no en la misma subred que el ASE, ya que se producirían errores).
 6. Establezca el DNS del subdominio. Puede utilizar un carácter comodín con el subdominio en el DNS o, si quiere realizar algunas pruebas sencillas, editar el archivo de hosts de la máquina virtual para establecer el nombre de la aplicación web en la dirección IP virtual. Si el nombre de subdominio del ASE es .ilbase.com, el de la aplicación web es mytestapp y la dirección, en consecuencia, es mytestapp.ilbase.com, establezca dicha dirección en el archivo de hosts. (en Windows, el archivo hosts se encuentra en _C:\Windows\System32\drivers\etc\)
-7. Utilice un explorador en esa máquina virtual y vaya a http://mytestapp.ilbase.com (o a la dirección que corresponda según el nombre de su aplicación web en el subdominio).
-8. Utilice un explorador en esa máquina virtual y vaya a https://mytestapp.ilbase.com. Si utiliza un certificado autofirmado, acepte el aviso de seguridad. 
+7. Utilice un explorador en esa VM y vaya a https://mytestapp.ilbase.com (o a la dirección que corresponda según el nombre de la aplicación web en el subdominio).
+8. Use un explorador en esa máquina virtual y vaya a https://mytestapp.ilbase.com. Si utiliza un certificado autofirmado, acepte el aviso de seguridad. 
 
 La dirección IP del ILB aparece en las Propiedades como la dirección IP virtual.
 
@@ -147,8 +148,8 @@ Para empezar a trabajar con entornos de App Service, consulte [Introducción al 
 [HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [ControlInbound]: app-service-app-service-environment-control-inbound-traffic.md
 [virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
-[AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
+[AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ASEAutoscale]: app-service-environment-auto-scale.md
 [ExpressRoute]: app-service-app-service-environment-network-configuration-expressroute.md
-[vnetnsgs]: http://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
+[vnetnsgs]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [ASEConfig]: app-service-web-configure-an-app-service-environment.md

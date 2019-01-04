@@ -1,13 +1,12 @@
 ---
-title: '¿Están sus datos preparados para la ciencia de datos? Evaluación de datos: Azure Machine Learning Studio | Microsoft Docs'
+title: 'Evaluación de datos: Azure Machine Learning Studio | Microsoft Docs'
 description: Cuatro criterios que sus datos deben cumplir para estar listos para la ciencia de datos. Este vídeo presenta ejemplos concretos para facilitar la evaluación de datos básicos.
 keywords: datos pertinentes, evaluar los datos, preparar datos, criterios de datos, datos preparados
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 editor: cjgronlund
 ms.assetid: d502062c-da70-4b21-9054-0bfd9902612e
 ms.service: machine-learning
@@ -17,15 +16,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 5e7949edb13bfec72fa7d80d86d2e77214ceaa37
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2a9101ed510c617df81f422aea92ca1ef2b28cd8
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316215"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261235"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>¿Están sus datos preparados para la ciencia de datos?
-## <a name="video-2-data-science-for-beginners-series"></a>Vídeo 2: serie Ciencia de datos para principiantes
+## <a name="video-2-data-science-for-beginners-series"></a>Vídeo 2: Ciencia de datos para principiantes
 Aprenda cómo evaluar los datos para asegurarse de que cumplen los criterios básicos para la ciencia de datos.
 
 Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de vídeos](#other-videos-in-this-series)

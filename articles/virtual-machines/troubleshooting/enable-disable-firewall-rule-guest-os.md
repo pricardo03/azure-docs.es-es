@@ -135,7 +135,7 @@ Antes de seguir estos pasos, tome una instantánea del disco del sistema de la m
 
 5.  En la máquina virtual donde está solucionando el problema, inicie el editor del Registro (regedit.exe).
 
-6.  Seleccione la clave **HKEY_LOCAL_MACHINE**  y, a continuación, seleccione  **Archivo ** > **Cargar subárbol**  en el menú.
+6.  Seleccione la clave **HKEY_LOCAL_MACHINE**  y, a continuación, seleccione  **Archivo** > **Cargar subárbol**  en el menú.
 
     ![Regedit](./media/enable-or-disable-firewall-rule-guest-os/load-registry-hive.png)
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: cc070f7c4cb201e68c93b0b1337982325df74663
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 9e14f923b1e25f5fbc522cd39763ac53ddf37617
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051268"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872261"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Tutorial: Integración de Azure Active Directory con Sansan
 
@@ -114,7 +114,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: 
     
-    | Environment | URL |
+    | Entorno | URL |
     |:--- |:--- |
     | Web de PC |`https://ap.sansan.com/v/saml2/<company name>/acs` |
     | Aplicación nativa móvil |`https://internal.api.sansan.com/saml2/<company name>/acs` |
@@ -137,7 +137,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar el objeto de inicio de sesión único](./media/sansan-tutorial/tutorial_sansan_objid.png)  
 
-    a. Vaya a la página **Propiedades** de la aplicación **Sansan**, copie el **Identificador del objeto** con el botón **Copiar** y péguelo en el Bloc de notas.
+     a. Vaya a la página **Propiedades** de la aplicación **Sansan**, copie el **Identificador del objeto** con el botón **Copiar** y péguelo en el Bloc de notas.
 
     b. El **Identificador del objeto** que ha copiado de Azure Portal se usará como **ServicePrincipalObjectId** en el script de PowerShell que se usará más adelante en el tutorial. 
 
@@ -224,7 +224,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/sansan-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 

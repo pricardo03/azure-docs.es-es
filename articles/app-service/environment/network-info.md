@@ -1,5 +1,5 @@
 ---
-title: Consideraciones de red con una instancia de Azure App Service Environment
+title: 'Consideraciones de red con una instancia de App Service Environment: Azure'
 description: Explica el tráfico de red de ASE y cómo establecer los NSG y las UDR con el ASE
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: 535f70658593ff5a9ae1642ae7a97646e3fefb63
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.custom: seodec18
+ms.openlocfilehash: d9a0ab84e133863092f68cc949c2b7933bc5da31
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288261"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271018"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Consideraciones de red para una instancia de App Service Environment #
 
@@ -26,8 +27,8 @@ ms.locfileid: "51288261"
 
  [Azure App Service Environment][Intro] es una implementación de Azure App Service en una subred de Azure Virtual Network (VNet). Hay dos tipos de implementación de una instancia de App Service Environment (ASE):
 
-- **ASE externo**: expone las aplicaciones hospedadas en ASE en una dirección IP accesible a través de Internet. Para más información, consulte [Creación de una instancia externa de App Service Environment][MakeExternalASE].
-- **ASE de ILB**: expone las aplicaciones hospedadas en ASE en una dirección IP dentro de su instancia de VNet. El punto de conexión interno es un equilibrador de carga interno (ILB), y esta es la razón por la que se denomina ASE de ILB. Para más información, consulte [Creación y uso de un ASE de ILB][MakeILBASE].
+- **ASE externo**: Expone las aplicaciones hospedadas en ASE en una dirección IP accesible a través de Internet. Para más información, consulte [Creación de una instancia externa de App Service Environment][MakeExternalASE].
+- **ASE de ILB**: Expone las aplicaciones hospedadas en ASE en una dirección IP dentro de su red virtual. El punto de conexión interno es un equilibrador de carga interno (ILB), y esta es la razón por la que se denomina ASE de ILB. Para más información, consulte [Creación y uso de un ASE de ILB][MakeILBASE].
 
 Hay dos versiones de App Service Environment: ASEv1 y ASEv2. Para información sobre ASEv1, consulte [Introducción a App Service Environment v1][ASEv1Intro]. Una instancia de ASEv1 se puede implementar en una red virtual clásica o en una de Resource Manager. En el caso de ASEv2, la implementación solo se puede realizar en una red virtual de Resource Manager.
 
@@ -74,9 +75,9 @@ Las dependencias de acceso de entrada de ASE son:
 | Uso | De | Para |
 |-----|------|----|
 | Administración | Direcciones de administración de App Service | Subred de ASE: 454, 455 |
-|  Comunicación interna ASE | Subred de ASE: todos los puertos | Subred de ASE: todos los puertos
-|  Permitir entrada de Azure Load Balancer | Azure Load Balancer | Subred de ASE: todos los puertos
-|  Direcciones IP asignadas a las aplicaciones | Direcciones asignadas a las aplicaciones | Subred de ASE: todos los puertos
+|  Comunicación interna ASE | Subred de ASE: Todos los puertos | Subred de ASE: Todos los puertos
+|  Permitir entrada de Azure Load Balancer | Azure Load Balancer | Subred de ASE: Todos los puertos
+|  Direcciones IP asignadas a las aplicaciones | Direcciones asignadas a las aplicaciones | Subred de ASE: Todos los puertos
 
 El tráfico de administración entrante proporciona el comando y control del ASE además de supervisión del sistema. Las direcciones de origen para este tráfico se incluyen en el documento [Direcciones de administración de App Service Environment][ASEManagement]. La configuración de seguridad de red tiene que permitir el acceso desde todas las direcciones IP en los puertos 454 y 455. Si se bloquea el acceso desde esas direcciones, ASE se volverá incorrecto y se suspenderá.
 
@@ -130,16 +131,16 @@ Si su ASE ILB es el nombre de dominio *contoso.net* y el nombre de la aplicació
 
 ## <a name="functions-and-web-jobs"></a>Trabajos web y de funciones ##
 
-Tanto los trabajos de funciones como los trabajos web dependen del sitio de SCM, pero se pueden usar en el portal, incluso si las aplicaciones se encuentran en un ASE de ILB, siempre y cuando el explorador pueda llegar al sitio de SCM.  Si usa un certificado autofirmado con su ASE de ILB, debe habilitar el explorador para que confíe en ese certificado.  En el caso de IE y Microsoft Edge, esto significa que el certificado debe estar en el almacén de confianza del equipo.  Si usa Chrome, esto significa que aceptó el certificado en el explorador anteriormente al pulsar directamente en el sitio de SCM.  La mejor solución es usar un certificado comercial que se encuentre en la cadena de confianza del explorador.  
+Tanto los trabajos de funciones como los trabajos web dependen del sitio de SCM, pero se pueden usar en el portal, incluso si las aplicaciones se encuentran en un ASE de ILB, siempre y cuando el explorador pueda llegar al sitio de SCM.  Si usa un certificado autofirmado con su ASE de ILB, debe habilitar el explorador para que confíe en ese certificado.  En el caso de IE y Edge, esto significa que el certificado debe estar en el almacén de confianza del equipo.  Si usa Chrome, esto significa que aceptó el certificado en el explorador anteriormente al pulsar directamente en el sitio de SCM.  La mejor solución es usar un certificado comercial que se encuentre en la cadena de confianza del explorador.  
 
 ## <a name="ase-ip-addresses"></a>Direcciones IP de ASE ##
 
 Un ASE tiene algunas direcciones IP que es necesario tener en cuenta. Son las siguientes:
 
-- **Dirección IP pública de entrada**: se usa para el tráfico de la aplicación en un ASE externo y para el tráfico de administración tanto en un ASE externo como en un ASE de ILB.
-- **Dirección IP pública de salida**: se usa como dirección IP "desde" para las conexiones de salida desde el ASE que dejan la red virtual y que no se enrutan hacia una VPN.
-- **Dirección IP del ILB:**: si usa una ASE de ILB.
-- **Direcciones SSL basadas en IP asignadas a la aplicación**: solo son posibles con un ASE externo y cuando hay configurada una SSL basada en IP.
+- **Dirección IP pública de entrada**: Se usa para el tráfico de la aplicación en una instancia de ASE externa y para el tráfico de administración tanto en una instancia de ASE externa como en una instancia de ASE de ILB.
+- **Dirección IP pública de salida**: Se usa como dirección IP "desde" para las conexiones de salida desde la instancia de ASE que dejan la red virtual y que no se enrutan hacia una VPN.
+- **Dirección IP del ILB**: Si usa una instancia de ASE de ILB.
+- **Direcciones SSL basadas en IP asignadas a la aplicación**: Solo son posibles con una instancia de ASE externa y cuando hay configurada una SSL basada en IP.
 
 Todas estas direcciones IP son fácilmente visibles en un ASEv2 en Azure Portal desde la interfaz de usuario de ASE. Si tiene un ASE de ILB, aparece la dirección IP para el ILB.
 
@@ -234,10 +235,10 @@ Cuando los puntos de conexión de servicio se habilitan en una subred con una in
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
-[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [ASEManagement]: ./management-addresses.md

@@ -1,21 +1,21 @@
 ---
 title: Visualización de las métricas clave con los paneles de Cloudyn en Azure | Microsoft Docs
-description: En este artículo se describe cómo ver las métricas clave desde los paneles de Cloudyn.
+description: Este artículo describe cómo ver las métricas principales desde los paneles de Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: e053f2387df5d9a2855ce3242d4d7121452a73d8
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: f232ee89993998eb25ecce73e9c2ac8e08f3198b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275945"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094122"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Vista de las métricas clave de costos con paneles
 
@@ -43,7 +43,7 @@ Para comenzar a trabajar rápidamente con un panel personalizado, puede duplicar
 Para crear un panel personalizado:
 
 1. En la página principal, haga clic en **Add New +** (Agregar nuevo +). Se abrirá la página My Dashboard (Mi panel).  
-    ![Mi panel](./media/dashboards/my-dashboard.png)
+    ![Página Mi panel en la que se agregan nuevos informes](./media/dashboards/my-dashboard.png)
 2. Haga clic en **Add New Report** (Agregar nuevo informe). Se muestra el cuadro Add Report (Agregar informe).
 3. Seleccione el informe que desea agregar al widget del panel. El widget se agrega al panel.
 4. Repita los pasos anteriores hasta que se complete el panel.
@@ -63,7 +63,7 @@ Puede compartir un panel personalizado con otros usuarios como _Public_ (Públic
 Para compartir un panel personalizado en Public:
 
 1. En un panel, haga clic en **Dashboard Settings** (Configuración del panel). Se muestra el cuadro Dashboard Settings.  
-    ![opciones del panel](./media/dashboards/dashboard-options.png)
+    ![configuración del panel para un panel personalizado](./media/dashboards/dashboard-options.png)
 2. En el cuadro Dashboard Settings, haga clic en el símbolo de flecha y, a continuación, haga clic en **Public**. Aparece el cuadro de diálogo de confirmación Public Dashboard (Panel público).
 3. Haga clic en **Yes** (Sí). El panel ahora está disponible para otros usuarios.
 
@@ -116,13 +116,13 @@ Puede establecer cualquier panel como predeterminado. Si lo establece como prede
 -O bien-
 
 1. Haga clic en **Dashboard Settings** (Configuración del panel) para ver la lista de paneles disponibles, y seleccione el panel que desea establecer como predeterminado.  
-    ![opciones del panel](./media/dashboards/dashboard-options.png)
+    ![opciones del panel para un panel predeterminado](./media/dashboards/dashboard-options.png)
 2. Haga clic en **Default** (Predeterminado) en la línea del panel. Aparece el cuadro de confirmación Default Dashboard (Panel predeterminado).
 3. Haga clic en **Sí**. El panel se establece como predeterminado.
 
 ## <a name="management-dashboard"></a>Panel de administración
 El panel Management (Administración) (o panel MSP para los usuarios de MSP) incluye aspectos destacados de los tipos de informe principales.  
-![Panel de administración](./media/dashboards/management-dash.png)
+![Panel de administración que muestra los distintos informes](./media/dashboards/management-dash.png)
 
 ### <a name="cost-entity-summary-enterprise-only"></a>Cost Entity Summary (Resumen de entidad de costos) (solo en Enterprise)
 Este widget resume las entidades de costo administradas, incluido el número de entidades y el número de cuentas.
@@ -158,7 +158,7 @@ Este widget muestra los servicios de almacenamiento utilizados por los departame
 
 ## <a name="cost-controller-dashboard"></a>Panel Cost Controller (Controlador de costos)
 El panel Cost Controller muestra aspectos destacados de la asignación de costos preestablecidos.  
-![Panel Cost Controller (Controlador de costos)](./media/dashboards/cost-controller-dashboard.png)
+![Panel del controlador de costos que muestra los distintos informes](./media/dashboards/cost-controller-dashboard.png)
 
 ### <a name="cost-over-time"></a>Cost Over Time (Costo en el tiempo)
 Este widget le ayuda a detectar las tendencias de los costos. Indica el costo para el último día, en función de la tendencia de los últimos 30 días.
@@ -198,7 +198,7 @@ Este widget indica el gasto durante los últimos seis meses.
 ## <a name="asset-controller-dashboard"></a>Panel Asset Controller (Controlador de recursos)
 
 Este panel muestra el número de instancias en ejecución, los discos disponibles y en uso, la distribución de los tipos de instancia y la información de almacenamiento.  
-![Panel Asset Controller (Controlador de recursos)](./media/dashboards/asset-controller-dashboard.png)
+![Panel del controlador de recursos que muestra los distintos informes](./media/dashboards/asset-controller-dashboard.png)
 
 ### <a name="compute-instances"></a>Compute Instances (Instancias de proceso)
 Este widget muestra el número de instancias en ejecución según las tendencias de uso durante los últimos 30 días.
@@ -227,7 +227,7 @@ Este widget indica el número de instancias de Amazon RDS en ejecución, en func
 
 ## <a name="optimizer-dashboard"></a>Panel Optimizer (Optimizador)
 Este panel muestra las recomendaciones de reducción de tamaños, los recursos sin utilizar y ahorros potenciales.  
-![Panel Optimizer (Optimizador)](./media/dashboards/optimizer-dashboard.png)
+![Panel de optimización que muestra los distintos informes](./media/dashboards/optimizer-dashboard.png)
 
 ### <a name="ri-calculator"></a>RI Calculator (Calculadora de RI)
 Este widget muestra el número de recomendaciones de compra de RI e indica el ahorro anual potencial.
@@ -257,7 +257,7 @@ Las recomendaciones de optimización se basan en los datos de uso y rendimiento 
 
 ## <a name="s3-tracker-dashboard"></a>Panel S3 Tracker (Seguimiento de S3)
 El panel S3 Tracker le ayuda a buscar, analizar y mostrar el uso y las tendencias de almacenamiento actuales.  
-![Panel S3 Tracker (Seguimiento de S3)](./media/dashboards/s3-tracker-dashboard.png)
+![Panel S3 Tracker que muestra los distintos informes](./media/dashboards/s3-tracker-dashboard.png)
 
 ### <a name="all-buckets"></a>All Buckets (Todos los cubos)
 Este widget indica el tamaño total de todos los cubos, en GB, y el número total de objetos en los cubos.
@@ -281,7 +281,7 @@ Este widget indica el número de objetos por cubo en el número y porcentaje rea
 
 ## <a name="cloud-comparison-dashboard"></a>Panel Cloud Comparison (Comparación de la nube)
 El panel Cloud Comparison le ayuda a comparar los costos de distintos proveedores de nube en función de los precios, el tipo de CPU y el tamaño de RAM.  
-![Panel Cloud Comparison (Comparación de la nube)](./media/dashboards/cloud-comparison-dashboard.png)
+![Panel de comparación en la nube que muestra los distintos informes](./media/dashboards/cloud-comparison-dashboard.png)
 
 ### <a name="ec2-cost-in-azure-by-instance-type"></a>EC2 Cost in Azure by Instance Type (Costo de EC2 en Azure por tipo de instancia)
 Este widget indica los últimos 30 días de uso en las tasas a petición. Compara el costo actual de Amazon EC2 con al costo posible en Azure.

@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: c5677dc07326fa16960e0d748f88e26f259c0485
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6d158f14afa305dd547392722abb5f81380de31f
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262287"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384792"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Información acerca de claves, secretos y certificados
 
 Azure Key Vault permite a las aplicaciones y los usuarios de Microsoft Azure almacenar y usar varios tipos de datos de secretos y claves:
 
-- Claves criptográficas: admite varios tipos de claves y algoritmos y habilita el uso de módulos de seguridad de hardware (HSM) para claves de alto valor. 
+- Claves de cifrado: admite varios tipos de claves y algoritmos y habilita el uso de módulos de seguridad de hardware (HSM) para claves de alto valor. 
 - Secretos: proporciona un almacenamiento seguro de secretos, como contraseñas y cadenas de conexión de base de datos.
 - Certificados: admite certificados, que se basan en claves y secretos, y agrega una característica de renovación automática.
-- Azure Storage: puede administrar automáticamente las claves de una cuenta de almacenamiento de Azure. Internamente, Key Vault puede enumerar (sincronizar) las claves con una cuenta de almacenamiento de Azure y volver a generar (rotar) las claves periódicamente. 
+- Azure Storage: puede administrar automáticamente las claves de una cuenta de Azure Storage. Internamente, Key Vault puede enumerar (sincronizar) las claves con una cuenta de almacenamiento de Azure y volver a generar (rotar) las claves periódicamente. 
 
 Para más información sobre Key Vault, vea [¿Qué es Azure Key Vault?](/azure/key-vault/key-vault-whatis)
 
@@ -99,13 +99,13 @@ Key Vault admite solo claves RSA y de curva elíptica.
 -   **EC**: clave de curva elíptica "suave".
 -   **EC-HSM**: clave de curva elíptica "fuerte".
 -   **RSA**: clave RSA "suave".
--   **RSA-HSM**: clave RSA "suave".
+-   **RSA-HSM**: clave RSA "fuerte".
 
 Key Vault admite claves RSA con tamaños de 2048, 3072 y 4096. Key Vault admite los tipos de claves de curva elíptica p-256, p-384, p-521 y P-256K (SECP256K1).
 
 ### <a name="cryptographic-protection"></a>Protección criptográfica
 
-Los módulos criptográficos que utiliza Key Vault, sean HSM o software, tienen validación FIPS (Estándar federal de procesamiento de información). No es necesario hacer nada especial para que se ejecute en el modo FIPS. Las claves **creadas** o **importadas** con protección HSM se procesan dentro de un HSM y se validan con FIPS 140-2 Nivel 2 o superior. Las claves **creadas** o **importadas** con protección de software se procesan dentro de módulos criptográficos y se validan con FIPS 140-2 Nivel 1 o superior. Para más información, consulte [Claves y tipos de clave](#keys-and-key-types).
+Los módulos criptográficos que utiliza Key Vault, sean HSM o software, tienen validación FIPS (Estándar federal de procesamiento de información). No es necesario hacer nada especial para que se ejecute en el modo FIPS. Las claves **creadas** o **importadas** con protección HSM se procesan dentro de un HSM y se validan con FIPS 140-2 Nivel 2. Las claves **creadas** o **importadas** con protección de software se procesan dentro de módulos criptográficos y se validan con FIPS 140-2 Nivel 1. Para más información, consulte [Claves y tipos de clave](#keys-and-key-types).
 
 ###  <a name="ec-algorithms"></a>Algoritmos de EC
  Los identificadores de algoritmo siguientes son compatibles con las claves EC y EC-HSM en Key Vault. 
@@ -113,7 +113,7 @@ Los módulos criptográficos que utiliza Key Vault, sean HSM o software, tienen 
 #### <a name="curve-types"></a>Tipos de curvas
 
 -   **P-256**: curva NIST P-256, definida en [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
--   **P-256K**: curva SEC SECP256K1, definida en [SEC 2: parámetros de dominio recomendados para la curva elíptica](http://www.secg.org/sec2-v2.pdf).
+-   **P-256K**: curva SEC SECP256K1, definida en [SEC 2: parámetros de dominio de curva elíptica recomendados](http://www.secg.org/sec2-v2.pdf).
 -   **P-384**: curva NIST P-384, definida en [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 -   **P-521**: curva NIST P-521, definida en [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 
@@ -179,8 +179,8 @@ Además del material de la clave, se pueden especificar los siguientes atributos
 
 Existen atributos de solo lectura adicionales que se incluyen en cualquier respuesta que incluya atributos de clave:  
 
-- *created*: tipo IntDate, opcional. El atributo *created* indica cuándo se creó esta versión de la clave. El valor es NULL para las claves creadas antes de agregar este atributo. Su valor debe ser un número que contenga un valor IntDate.  
-- *updated*: tipo IntDate, opcional. El atributo *updated* indica cuándo se modificó esta versión de la clave. El valor es NULL para las claves modificadas por última vez antes de agregar este atributo. Su valor debe ser un número que contenga un valor IntDate.  
+- *created*: IntDate, opcional. El atributo *created* indica cuándo se creó esta versión de la clave. El valor es NULL para las claves creadas antes de agregar este atributo. Su valor debe ser un número que contenga un valor IntDate.  
+- *updated*: IntDate, opcional. El atributo *updated* indica cuándo se modificó esta versión de la clave. El valor es NULL para las claves modificadas por última vez antes de agregar este atributo. Su valor debe ser un número que contenga un valor IntDate.  
 
 Para más información acerca de IntDate y otros tipos de datos, consulte [Tipos de datos](#data-types)  
 
@@ -217,9 +217,9 @@ Se pueden conceder los permisos siguientes, por usuario o por entidad de servici
   - *restore*: restaurar una copia de seguridad de una clave a un almacén de claves
 
 - Permisos para las operaciones criptográficas
-  - *decrypt*: usar la clave para desproteger una secuencia arbitraria de bytes
+  - *decrypt*: usar la clave para desproteger una secuencia de bytes
   - *encrypt*: usar la clave para proteger una secuencia arbitraria de bytes
-  - *unwrapKey*: usar la clave para desproteger claves simétricas
+  - *unwrapKey*: usar la clave para desproteger claves simétricas encapsuladas
   - *wrapKey*: usar la clave para proteger una clave simétrica
   - *verify*: usar la clave para verificar hashes  
   - *sign*: usar la clave para firmar hashes
@@ -249,8 +249,8 @@ Además los datos secretos, se pueden especificar los siguientes atributos:
 
 Existen atributos de solo lectura adicionales que se incluyen en cualquier respuesta que incluya atributos de secreto:  
 
-- *created*: tipo IntDate, opcional. El atributo created indica cuándo se creó esta versión del secreto. Este valor es NULL para los secretos creados antes de agregar este atributo. Su valor debe ser un número que contenga un valor IntDate.  
-- *updated*: tipo IntDate, opcional. El atributo updated indica cuándo se modificó esta versión del secreto. Este valor es NULL para los secretos modificados por última vez antes de agregar este atributo. Su valor debe ser un número que contenga un valor IntDate.
+- *created*: IntDate, opcional. El atributo created indica cuándo se creó esta versión del secreto. Este valor es NULL para los secretos creados antes de agregar este atributo. Su valor debe ser un número que contenga un valor IntDate.  
+- *updated*: IntDate, opcional. El atributo updated indica cuándo se modificó esta versión del secreto. Este valor es NULL para los secretos modificados por última vez antes de agregar este atributo. Su valor debe ser un número que contenga un valor IntDate.
 
 #### <a name="date-time-controlled-operations"></a>Operaciones controladas de fecha y hora
 
@@ -267,9 +267,9 @@ Los siguientes permisos se pueden utilizar, en una base por entidad, en la entra
 - Permisos para las operaciones de administración de secretos
   - *get*: leer un secreto  
   - *list*: enumerar los secretos o las versiones de un secreto almacenado en un almacén de claves  
-  - *set*: crear un secreto  
+  - *set*: Crear un secreto  
   - *delete*: eliminar un secreto  
-  - *recover*: recuperar un secreto eliminado
+  - *recover*: recuperar un servidor eliminado
   - *backup*: copia de seguridad de un secreto de un almacén de claves
   - *restore*: restaurar una copia de seguridad de un secreto a un almacén de claves
 
@@ -350,7 +350,7 @@ Cuando se crea un certificado de Key Vault desde el principio, debe proporcionar
 
 En un nivel general, una directiva de certificado contiene la siguiente información:  
 
--   Propiedades del certificado X509: contiene el nombre de asunto, nombres alternativos de asunto y otras propiedades que se usan para crear una solicitud de certificado x509.  
+-   Propiedades del certificado X509: contiene el nombre de asunto, nombres alternativos de asunto y otras propiedades que se usan para crear una solicitud de certificado X509.  
 -   Propiedades de clave: contiene el tipo de clave, la longitud y los campos de clave exportable y de reutilización. Estos campos indican a Key Vault cómo generar una clave.  
 -   Propiedades del secreto: contiene las propiedades del secreto, como el tipo de contenido del secreto direccionable para generar el valor secreto, para recuperar el certificado como un secreto.  
 -   Acciones de vigencia: contiene las acciones de vigencia del certificado de Key Vault. Cada acción de vigencia contiene:  
@@ -424,7 +424,7 @@ Si se establece la directiva de un certificado para la renovación automática, 
 - Permisos para operaciones de administración de certificados
   - *get*: obtener la versión actual del certificado o cualquier versión de un certificado 
   - *list*: enumerar los certificados actuales o las versiones de un certificado  
-  - *update*: actualizar un certificado
+  - *update*: crear un certificado
   - *create*: crear un certificado de Key Vault
   - *import*: importar material del certificado en un certificado de Key Vault
   - *delete*: eliminar un certificado, su directiva y todas sus versiones  
@@ -459,22 +459,22 @@ Para más información, vea [Claves de cuenta de almacenamiento de Azure Key Vau
 Los siguientes permisos pueden usarse al autorizar a una entidad de seguridad de aplicación o usuario para realizar operaciones en una cuenta de almacenamiento administrada:  
 
 - Permisos para la cuenta de almacenamiento administrada y operaciones de definiciones de SAS
-  - *get*: obtiene información sobre una cuenta de almacenamiento 
-  - *list*: enumera las cuentas de almacenamiento administradas por Key Vault
-  - *update*: actualiza una cuenta de almacenamiento
-  - *delete*: elimina una cuenta de almacenamiento  
-  - *recover*: recupera una cuenta de almacenamiento eliminada
-  - *backup*: realiza una copia de seguridad de una cuenta de almacenamiento
-  - *restore*: restaura una copia de seguridad de una cuenta de almacenamiento en un almacén de claves
-  - *set*: crea o actualiza una cuenta de almacenamiento
-  - *regeneratekey*: vuelve a generar un valor de clave específico para una cuenta de almacenamiento
-  - *getsas*: obtiene información sobre una definición de SAS para una cuenta de almacenamiento
-  - *listsas*: enumera las definiciones de SAS de almacenamiento para una cuenta de almacenamiento
-  - *deletesas*: elimina una definición de SAS de una cuenta de almacenamiento
-  - *setsas*: crea o actualiza definiciones o atributos de SAS nuevos para una cuenta de almacenamiento
+  - *get*: obtener información sobre una cuenta de almacenamiento 
+  - *list*: enumerar las cuentas de almacenamiento administradas por Key Vault
+  - *update*: crear una cuenta de almacenamiento
+  - *delete*: Eliminar una cuenta de almacenamiento  
+  - *recover*: recuperar una cuenta de almacenamiento eliminada
+  - *backup*: copia de seguridad de una cuenta de almacenamiento
+  - *restore*: restaurar una copia de seguridad de una cuenta de almacenamiento en un almacén de claves
+  - *set*: crear o actualizar una cuenta de almacenamiento
+  - *regeneratekey*: volver a generar un valor de clave específico para una cuenta de almacenamiento
+  - *getsas*: obtener información sobre una definición de SAS para una cuenta de almacenamiento
+  - *listsas*: enumerar las definiciones de SAS de almacenamiento para una cuenta de almacenamiento
+  - *deletesas*: eliminar una definición de SAS de una cuenta de almacenamiento
+  - *setsas*: crear o actualizar definiciones o atributos de SAS nuevos para una cuenta de almacenamiento
 
 - Permisos para las operaciones con privilegios
-  - *purge*: purga (elimina permanentemente) una cuenta de almacenamiento administrada
+  - *purge*: purgar (eliminar permanentemente) una cuenta de almacenamiento administrada
 
 Para más información, vea las [operaciones para cuentas de almacenamiento en la referencia de la API REST de Key Vault](/rest/api/keyvault). Para obtener información sobre cómo establecer permisos, vea [Almacenes: crear o actualizar](/rest/api/keyvault/vaults/createorupdate) y [Almacenes: actualizar directiva de acceso](/rest/api/keyvault/vaults/updateaccesspolicy).
 

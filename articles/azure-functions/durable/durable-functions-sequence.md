@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ca6eefa6ccba3fabebd125d88010817c66db52ab
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 14d50a17cf7816cb8e792128f8dd3965781657e5
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637540"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339593"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Encadenamiento de funciones en Durable Functions: Hello Sequence de ejemplo
 
@@ -33,9 +33,10 @@ En este artículo se explican las funciones siguientes en la aplicación de ejem
 En las siguientes secciones se explican la configuración y el código que se utilizan para el scripting C# y para JavaScript. Al final del artículo se muestra el código para el desarrollo de Visual Studio.
 
 > [!NOTE]
-> Durable Functions está disponible en JavaScript solo en Functions Runtime v2.
+> Durable Functions de JavaScript están disponibles solo para el entorno de ejecución de Functions 2.x.
 
 ## <a name="e1hellosequence"></a>E1_HelloSequence
+
 ### <a name="functionjson-file"></a>Archivo function.json
 
 Si utiliza Visual Studio Code o Azure Portal para el desarrollo, aquí tiene el contenido del archivo *function.json* para la función de orquestador. La mayoría de los archivos *function.json* de orquestador presentan un aspecto prácticamente idéntico a este.
@@ -47,7 +48,7 @@ Lo importante es el tipo de enlace `orchestrationTrigger`. Todas las funciones d
 > [!WARNING]
 > Para cumplir la regla de "ninguna E/S" de las funciones de orquestador, no use ningún enlace de entrada o salida al utilizar el enlace de desencadenador `orchestrationTrigger`.  Si se necesitan otros enlaces de entrada o salida, deberían utilizarse en el contexto de funciones `activityTrigger` en su lugar, a las que llama el orquestador.
 
-### <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>Script de C# (código de ejemplo de Azure Portal y Visual Studio Code) 
+### <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>Script de C# (código de ejemplo de Azure Portal y Visual Studio Code)
 
 El siguiente es el código fuente:
 
@@ -63,15 +64,16 @@ El siguiente es el código fuente:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
 
-Todas las funciones de orquestación de JavaScript tienen que incluir el módulo `durable-functions`. Se trata de una biblioteca de JavaScript que traduce las acciones de la función de orquestación al protocolo de ejecución de Durable Functions para lenguajes fuera de proceso. Hay tres diferencias importantes entre una función de orquestación y otras funciones de JavaScript:
+Todas las funciones de orquestación de JavaScript tienen que incluir el módulo [`durable-functions`](https://www.npmjs.com/package/durable-functions). Esta es una biblioteca que le permite escribir Durable Functions en JavaScript. Hay tres diferencias importantes entre una función de orquestación y otras funciones de JavaScript:
 
 1. La función es una [función de generador.](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript)
-2. La función se ajusta en una llamada al módulo `durable-functions` (aquí `df`).
-3. La función finaliza llamando a `return`, no a `context.done`.
+2. La función se ajusta en una llamada al método `orchestrator` del módulo `durable-functions` (aquí `df`).
+3. La función debe ser sincrónica. Dado que el método "orchestrator" se encarga de llamar a "context.done", la función debería simplemente devolver "return".
 
-El objeto `context` contiene un objeto `df` que le permite llamar a otras funciones de *actividad* y pasar parámetros de entrada mediante su método `callActivityAsync`. El código llama a `E1_SayHello` tres veces en secuencia con valores de parámetro diferentes, utilizando `yield` para indicar que la ejecución debe esperar en las llamadas de función de actividad asincrónica que se van a devolver. El valor devuelto de cada llamada se agrega a la lista `outputs`, que se devuelve al final de la función.
+El objeto `context` contiene un objeto `df` que le permite llamar a otras funciones de *actividad* y pasar parámetros de entrada mediante su método `callActivity`. El código llama a `E1_SayHello` tres veces en secuencia con valores de parámetro diferentes, utilizando `yield` para indicar que la ejecución debe esperar en las llamadas de función de actividad asincrónica que se van a devolver. El valor devuelto de cada llamada se agrega a la lista `outputs`, que se devuelve al final de la función.
 
 ## <a name="e1sayhello"></a>E1_SayHello
+
 ### <a name="functionjson-file"></a>Archivo function.json
 
 El archivo *function.json* para la función de actividad `E1_SayHello` es similar al de `E1_HelloSequence` salvo en que usa un tipo de enlace `activityTrigger` en lugar de un tipo de enlace `orchestrationTrigger`.
@@ -93,7 +95,7 @@ Esta función tiene un parámetro de tipo [DurableActivityContext](https://azure
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
 
-A diferencia de una función de orquestación de JavaScript, una función de actividad de JavaScript no necesita una configuración especial. La entrada que le pasa la función del orquestador se encuentra en el objeto `context.bindings` bajo el nombre del enlace `activitytrigger`, en este caso `context.bindings.name`. El nombre de enlace puede establecerse como un parámetro de la función exportada y se puede acceder a él directamente, que es lo que hace el código de ejemplo.
+A diferencia de una función de orquestación de JavaScript, una función de actividad no necesita una configuración especial. La entrada que le pasa la función del orquestador se encuentra en el objeto `context.bindings` bajo el nombre del enlace `activityTrigger`, en este caso `context.bindings.name`. El nombre de enlace puede establecerse como un parámetro de la función exportada y se puede acceder a él directamente, que es lo que hace el código de ejemplo.
 
 ## <a name="run-the-sample"></a>Ejecución del ejemplo
 
@@ -150,7 +152,7 @@ Esta es la orquestación como archivo único de C# en un proyecto de Visual Stud
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este ejemplo se ha demostrado una orquestación de encadenamiento de función simple. En el ejemplo siguiente se muestra cómo implementar el de distribución ramificada de salida y entrada. 
+En este ejemplo se ha demostrado una orquestación de encadenamiento de función simple. En el ejemplo siguiente se muestra cómo implementar el de distribución ramificada de salida y entrada.
 
 > [!div class="nextstepaction"]
 > [Ejecución del ejemplo de distribución ramificada de salida y de entrada](durable-functions-cloud-backup.md)

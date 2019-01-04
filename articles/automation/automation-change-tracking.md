@@ -10,12 +10,12 @@ ms.date: 10/12/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2678b9a1b80b1c9de6f1b554ce43bcd4f2dd5d50
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 27bacb12c66ac57a0bf1aea88a447d395b6dde8c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167008"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408925"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Seguimiento de cambios en el entorno con la solución Change Tracking
 
@@ -135,7 +135,7 @@ Use los pasos siguientes para configurar las claves del registro para realizar u
 |habilitado     | Determina si se aplica la configuración.        |
 |Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar.        |
 |Grupo     | Un nombre de grupo para agrupar lógicamente los archivos.        |
-|Clave del registro de Windows   | La ruta de acceso para buscar el archivo. Por ejemplo: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Clave del registro de Windows   | La ruta de acceso para buscar el archivo. Por ejemplo:  "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -171,6 +171,17 @@ En la tabla siguiente se muestra la frecuencia de recopilación de datos para lo
 | Demonios de Linux | 5 minutos |
 | Software de Windows | 30 minutos |
 | Software Linux | 5 minutos |
+
+La siguiente tabla muestra los límites del elemento sometido a seguimiento por máquina para Change Tracking.
+
+| **Recurso** | **Límite**| **Notas** |
+|---|---|---|
+|Archivo|500||
+|Registro|250||
+|Software de Windows|250|No se incluye el costo de las actualizaciones de software|
+|Paquetes Linux|1250||
+|Services|250||
+|Daemon|250||
 
 ### <a name="windows-service-tracking"></a>Seguimiento del servicio de Windows
 

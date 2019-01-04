@@ -7,25 +7,25 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/04/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5634c14ee2b25600d66ff0f2c7385b2aaa9f1810
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: a1457b2aa571b58502b7d819eb3bcf142c10dac1
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699505"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725070"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Directivas personalizadas de Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Las directivas personalizadas son archivos de configuración que definen el comportamiento del inquilino de Azure Active Directory (Azure AD) B2C. Las directivas integradas están predefinidas en el portal de Azure AD B2C para las tareas de identidad más comunes. Un desarrollador de identidades puede editar completamente las directivas personalizadas para completar muchas tareas distintas.
+Las directivas personalizadas son archivos de configuración que definen el comportamiento del inquilino de Azure Active Directory (Azure AD) B2C. Los flujos de usuario están predefinidos en el portal de Azure AD B2C para las tareas de identidad más comunes. Un desarrollador de identidades puede editar completamente las directivas personalizadas para completar muchas tareas distintas.
 
-## <a name="comparing-built-in-policies-and-custom-policies"></a>Comparación entre directivas integradas y directivas personalizadas
+## <a name="comparing-user-flows-and-custom-policies"></a>Comparación de las directivas personalizadas y los flujos de usuario
 
-| | Directivas integradas | Directivas personalizadas |
+| | Flujos de usuario | Directivas personalizadas |
 |-|-------------------|-----------------|
 | Usuarios de destino | Todos los desarrolladores de aplicaciones con o sin conocimientos sobre la identidad. | Profesionales de la identidad, integradores de sistemas, consultores y equipos internos de identidad. Se sienten cómodos con los flujos de OpenIDConnect y comprenden a los proveedores de identidades y la autenticación basada en notificaciones. |
 | Método de configuración | Azure Portal con una interfaz de usuario (UI) fácil de usar. | Edición directa de archivos XML y posterior carga en Azure Portal. |
@@ -33,7 +33,7 @@ Las directivas personalizadas son archivos de configuración que definen el comp
 | Personalización de atributos | Atributos estándar y personalizados. | Iguales |
 | Administración de tokens y sesiones | Varias opciones de sesiones y tokens personalizados. | Iguales |
 | Proveedores de identidades | Proveedor social o local predefinido. | OIDC, OAUTH y SAML basados en estándares. |
-| Tareas de identidad | Registro o inicio de sesión con muchas cuentas locales y de redes sociales.<br><br>Restablecimiento de la contraseña de autoservicio.<br><br>Edición de perfil.<br><br>Autenticación multifactor.<br><br>Sesiones y tokens personalizados.<br><br>Flujos de token de acceso. | Completar las mismas tareas que con las directivas integradas usando proveedores de identidades personalizados o usar ámbitos personalizados.<br><br>Aprovisionar una cuenta de usuario en otro sistema en el momento del registro.<br><br>Enviar un mensaje de bienvenida con su propio proveedor de servicios de correo electrónico.<br><br>Usar un almacén de usuario externo a Azure AD B2C.<br><br>Validar la información proporcionada por el usuario con un sistema de confianza mediante el uso de una API. |
+| Tareas de identidad | Registro o inicio de sesión con muchas cuentas locales y de redes sociales.<br><br>Restablecimiento de la contraseña de autoservicio.<br><br>Edición de perfil.<br><br>Autenticación multifactor.<br><br>Sesiones y tokens personalizados.<br><br>Flujos de token de acceso. | Completar las mismas tareas que con los flujos de usuario usando proveedores de identidades personalizados o usar ámbitos personalizados.<br><br>Aprovisionar una cuenta de usuario en otro sistema en el momento del registro.<br><br>Enviar un mensaje de bienvenida con su propio proveedor de servicios de correo electrónico.<br><br>Usar un almacén de usuario externo a Azure AD B2C.<br><br>Validar la información proporcionada por el usuario con un sistema de confianza mediante el uso de una API. |
 
 ## <a name="policy-files"></a>Archivos de directivas
 
@@ -43,7 +43,7 @@ Se usan estos tres tipos de archivos de directivas:
 - **Archivo de extensiones**: contiene los cambios de configuración únicos para el inquilino.
 - **Un archivo de usuario de confianza (RP)**: el archivo centrado en una tarea única que la aplicación o el servicio (también conocido como usuario de confianza) invoca directamente. Cada tarea única requiere su propio usuario de confianza y, en función de los requisitos de marca, el número podría ser "total de aplicaciones x número total de casos de uso".
 
-Las directivas integradas de Azure AD B2C siguen el patrón de tres archivos mencionado, pero el desarrollador solo ve el archivo de usuario de confianza mientras que Azure Portal hace cambios en el archivo de extensiones en segundo plano.
+Los flujos de usuario de Azure AD B2C siguen el patrón de tres archivos mencionado, pero el desarrollador solo ve el archivo de usuario de confianza mientras que Azure Portal hace cambios en el archivo de extensiones en segundo plano.
 
 ## <a name="custom-policy-core-concepts"></a>Conceptos básicos de directivas personalizadas
 

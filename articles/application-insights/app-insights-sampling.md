@@ -9,17 +9,16 @@ ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.reviewer: vitalyg
 ms.author: mbullwin
-ms.openlocfilehash: 7fca6ffa9efa3eed9f7c74ee89ad8bb9651494bb
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 103f4b10d5fbb7fbcf9c3721a82fe4075abe0dc4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044712"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877622"
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
@@ -35,7 +34,7 @@ El muestreo reduce los costos de tráfico y datos y le ayuda a evitar la limitac
 * También puede establecer el muestreo manualmente, bien en el portal en la página Uso y costos estimados, bien en el SDK de ASP.NET en el archivo .config o en el SDK de Java en el archivo ApplicationInsights.xml, para reducir también el tráfico de red.
 * Si registra eventos personalizados y desea asegurarse de que un conjunto de eventos se retienen o se descartan juntos, asegúrese de que tengan el mismo valor para OperationId.
 * El divisor de muestreo *n* se notifica en cada registro de la propiedad `itemCount`, que en la búsqueda aparece bajo el nombre descriptivo "recuento de solicitudes" o "recuento de eventos". Cuando el muestreo no está en funcionamiento, `itemCount==1`.
-* Si escribe consultas de Analytics, debería [tener en cuenta el muestreo](../log-analytics/query-language/aggregations.md). En concreto, en lugar de simplemente contar registros, debería usar `summarize sum(itemCount)`.
+* Si escribe consultas de Analytics, debería [tener en cuenta el muestreo](../azure-monitor/log-query/aggregations.md). En concreto, en lugar de simplemente contar registros, debería usar `summarize sum(itemCount)`.
 
 ## <a name="types-of-sampling"></a>Tipos de muestreo
 Existen tres métodos de muestreo alternativos:
@@ -113,11 +112,11 @@ En [ApplicationInsights.config](app-insights-configuration-with-applicationinsig
 
 * `<ExcludedTypes>Trace;Exception</ExcludedTypes>`
   
-    Una lista delimitada por puntos y coma de tipos que no desea que se muestreen. Los tipos reconocidos son Dependency, Event, Exception, PageView, Request, Trace. Todas las instancias de los tipos especificados se transmiten; los tipos no especificados se muestrean.
+    Una lista delimitada por puntos y coma de tipos que no desea que se muestreen. Los tipos reconocidos son: Dependency, Event, Exception, PageView, Request y Trace. Todas las instancias de los tipos especificados se transmiten; los tipos no especificados se muestrean.
 
 * `<IncludedTypes>Request;Dependency</IncludedTypes>`
   
-    Una lista delimitada por puntos y coma de tipos que desea que se muestreen. Los tipos reconocidos son Dependency, Event, Exception, PageView, Request, Trace. Los tipos especificados se muestrean, todas las instancias del resto de tipos siempre se transmitirán.
+    Una lista delimitada por puntos y coma de tipos que desea que se muestreen. Los tipos reconocidos son: Dependency, Event, Exception, PageView, Request y Trace. Los tipos especificados se muestrean, todas las instancias del resto de tipos siempre se transmitirán.
 
 
 **Para desactivar** el muestreo adaptable, quite el nodo AdaptiveSamplingTelemetryProcessor de applicationinsights-config.
@@ -207,7 +206,7 @@ En el Explorador de métricas, las tasas, como los recuentos de solicitudes y de
 ### <a name="configuring-fixed-rate-sampling-in-aspnet"></a>Configuración del muestreo de frecuencia fija en ASP.NET ###
 
 1. **Actualice los paquetes de NuGet del proyecto** a la *versión preliminar* más reciente de Application Insights. En Visual Studio, haga clic con el botón derecho en el Explorador de soluciones, elija Administrar paquetes de NuGet, active la opción **Incluir versión preliminar** y busque Microsoft.ApplicationInsights.Web. 
-2. **Deshabilite el muestreo adaptable**: en [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), quite o convierta en comentario el nodo `AdaptiveSamplingTelemetryProcessor`.
+2. **Deshabilite el muestreo adaptable**: en [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), quite o convierta en comentario del nodo `AdaptiveSamplingTelemetryProcessor`.
    
     ```xml
    
@@ -264,7 +263,7 @@ En el Explorador de métricas, las tasas, como los recuentos de solicitudes y de
         <IncludedType>Exception</IncludedType>
     </IncludedTypes>
 ```
-Los tipos de telemetría que pueden incluirse o excluirse del muestreo son: Dependency, Event, Exception, PageView, Request y Trace.
+Los tipos de datos de telemetría que pueden incluirse o excluirse del muestreo son: Dependency, Event, Exception, PageView, Request y Trace.
 
 > [!NOTE]
 > Para el porcentaje de muestreo, elija un porcentaje que esté cerca de 100/N, donde N es un número entero.  Actualmente el muestreo no es compatible con otros valores.

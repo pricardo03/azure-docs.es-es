@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/13/2018
 ms.author: mathoma
-ms.openlocfilehash: 44aee447c7f935cd67ca55902c53c5f6f9eb6fda
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 52036d8f5d25fc4a4f2d1b602428e9cba4762b7f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52577166"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993136"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>Notas de la versión de SQL Server en máquinas virtuales de Azure
 
@@ -28,8 +28,8 @@ Azure permite implementar una máquina virtual con una imagen de SQL Server inte
 
 
 ## <a name="november-2018"></a>Noviembre de 2018
-- **Nuevo proveedor de recursos SQL**: hay un nuevo proveedor de recursos para máquinas virtuales de SQL que permite una mejor administración de la máquina virtual. Para más información sobre cómo registrar la máquina virtual, consulte [Registro de máquinas virtuales de SQL heredadas con el nuevo proveedor de recursos](virtual-machines-windows-sql-ahb.md#register-legacy-sql-vm-with-new-resource-provider).
-- **Cambiar el modelo de licencia**: ahora puede cambiar entre los modelos de pago por uso y traiga su propia licencia para la máquina virtual de SQL, con PowerShell o la CLI de Azure. Para más información, consulte [Modificación del modelo de licencia para una máquina virtual de SQL en Azure](virtual-machines-windows-sql-ahb.md).
+- **Nuevo proveedor de recursos SQL**: hay un nuevo proveedor de recursos para máquinas virtuales de SQL que permite una mejor administración de la máquina virtual. Para más información sobre cómo registrar la máquina virtual, consulte [Registro de máquinas virtuales de SQL existentes con el nuevo proveedor de recursos](virtual-machines-windows-sql-ahb.md#register-existing-sql-vm-with-new-resource-provider).
+- **Cambiar el modelo de licencia**: ahora puede cambiar entre los modelos de pago por uso y traer su propia licencia para la máquina virtual de SQL, con PowerShell o la CLI de Azure. Para más información, consulte [Modificación del modelo de licencia para una máquina virtual de SQL en Azure](virtual-machines-windows-sql-ahb.md).
 
 
 

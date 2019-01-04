@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 14d74c879ee37306f541c89d2ba325109a4ff7f3
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 60da5d4e80a7465d02926066298a5dc63afb1de7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214875"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875185"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure ExpressRoute con Azure Site Recovery
 
@@ -28,25 +28,25 @@ Un circuito ExpressRoute representa una conexión lógica entre la infraestructu
 ## <a name="expressroute-routing-domains"></a>Dominios de enrutamiento de ExpressRoute
 
 Un circuito ExpressRoute tiene asociados varios dominios de enrutamiento:
--   [Emparejamiento privado de Azure](../expressroute/expressroute-circuit-peerings.md#azure-private-peering): los servicios de proceso de Azure, concretamente las máquinas virtuales (IaaS) y los servicios en la nube (PaaS), que se implementan en una red virtual pueden estar conectados mediante el dominio de emparejamiento privado. El dominio de emparejamiento privado se considera una extensión confiable de la red principal en Microsoft Azure.
--   [Emparejamiento público de Azure](../expressroute/expressroute-circuit-peerings.md#azure-public-peering): se ofrecen servicios como Azure Storage, SQL Database y Websites en direcciones IP públicas. Puede conectarse de forma privada a servicios hospedados en direcciones IP públicas (incluida las VIP de servicios en la nube) a través del dominio de enrutamiento de emparejamiento público. El emparejamiento público está en desuso para las nuevas creaciones y el emparejamiento de Microsoft debe usarse en su lugar para los servicios de PaaS de Azure.
--   [Emparejamiento de Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoft-peering): la conectividad con los servicios en línea de Microsoft (Office 365, Dynamics 365 y servicios de PaaS de Azure) se lleva a cabo a través del emparejamiento de Microsoft. El emparejamiento de Microsoft es el dominio de enrutamiento recomendado para conectarse a los servicios de PaaS de Azure.
+-   [Emparejamiento privado de Azure](../expressroute/expressroute-circuit-peerings.md#privatepeering): los servicios de proceso de Azure, concretamente las máquinas virtuales (IaaS) y los servicios en la nube (PaaS), que se implementan en una red virtual pueden estar conectados mediante el dominio de emparejamiento privado. El dominio de emparejamiento privado se considera una extensión confiable de la red principal en Microsoft Azure.
+-   [Emparejamiento público de Azure](../expressroute/expressroute-circuit-peerings.md#publicpeering): se ofrecen servicios como Azure Storage, SQL Database y Websites en direcciones IP públicas. Puede conectarse de forma privada a servicios hospedados en direcciones IP públicas (incluida las VIP de servicios en la nube) a través del dominio de enrutamiento de emparejamiento público. El emparejamiento público está en desuso para las nuevas creaciones y el emparejamiento de Microsoft debe usarse en su lugar para los servicios de PaaS de Azure.
+-   [Emparejamiento de Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering): la conectividad con los servicios en línea de Microsoft (Office 365, Dynamics 365 y servicios de PaaS de Azure) se lleva a cabo a través del emparejamiento de Microsoft. El emparejamiento de Microsoft es el dominio de enrutamiento recomendado para conectarse a los servicios de PaaS de Azure.
 
-Obtenga más información y una comparación sobre los dominios de enrutamiento de ExpressRoute [aquí](../expressroute/expressroute-circuit-peerings.md#routing-domain-comparison).
+Obtenga más información y una comparación sobre los dominios de enrutamiento de ExpressRoute [aquí](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
 
 ## <a name="on-premises-to-azure-replication-with-expressroute"></a>Replicación desde un sitio local en Azure con ExpressRoute
 
 Azure Site Recovery permite la recuperación ante desastres y la migración a Azure para las [máquinas virtuales de Hyper-V](hyper-v-azure-architecture.md), [máquinas virtuales de VMware](vmware-azure-architecture.md) y [servidores físicos](physical-azure-architecture.md) locales. Para todos los escenarios de replicación de sitios locales a Azure, los datos de replicación se envían a una cuenta de Azure Storage y se almacenan en ella. Durante la replicación, no paga ningún cargo de las máquinas virtuales. Cuando se ejecuta una conmutación por error en Azure, Site Recovery crea automáticamente máquinas virtuales IaaS de Azure.
 
-Site Recovery replica los datos en una cuenta de Azure Storage a través de un punto de conexión público. Para usar ExpressRoute para la replicación de Site Recovery, puede usar el [emparejamiento público](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) o el [emparejamiento de Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoft-peering). El emparejamiento de Microsoft es el dominio de enrutamiento recomendado para la replicación. Una vez que las máquinas virtuales o los servidores conmutan por error en una red virtual de Azure, puede acceder a ellos a través del [emparejamiento privado](../expressroute/expressroute-circuit-peerings.md#azure-private-peering). La replicación no se puede realizar a través de un enrutamiento privado.
+Site Recovery replica los datos en una cuenta de Azure Storage a través de un punto de conexión público. Para usar ExpressRoute para la replicación de Site Recovery, puede usar el [emparejamiento público](../expressroute/expressroute-circuit-peerings.md#publicpeering) o el [emparejamiento de Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). El emparejamiento de Microsoft es el dominio de enrutamiento recomendado para la replicación. Una vez que las máquinas virtuales o los servidores conmutan por error en una red virtual de Azure, puede acceder a ellos a través del [emparejamiento privado](../expressroute/expressroute-circuit-peerings.md#privatepeering). La replicación no se puede realizar a través de un enrutamiento privado.
 
-El escenario combinado se representa en el siguiente diagrama: ![Replicación de sitio local a Azure con ExpressRoute](./media/concepts-expressroute-with-site-recovery/site-recovery-with-expressroute.png)
+El escenario combinado se representa en el siguiente diagrama: ![Del entorno local a Azure con ExpressRoute](./media/concepts-expressroute-with-site-recovery/site-recovery-with-expressroute.png)
 
 ## <a name="azure-to-azure-replication-with-expressroute"></a>Replicación de Azure a Azure con ExpressRoute
 
 Azure Site Recovery permite la recuperación ante desastres de las [máquinas virtuales de Azure](azure-to-azure-architecture.md). En función de si las máquinas virtuales de Azure usan [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md), los datos de replicación se envían a una cuenta de Azure Storage o a una instancia de Managed Disks de réplica en la región de Azure de destino. De forma predeterminada, aunque los puntos de conexión de la replicación son públicos, el tráfico de replicación de las máquinas virtuales de Azure no atraviesa Internet, independientemente de la región de Azure en la que esté la red virtual de origen. Puede invalidar la ruta del sistema predeterminada de Azure para el prefijo de dirección 0.0.0.0/0 con una [ruta personalizada](../virtual-network/virtual-networks-udr-overview.md#custom-routes) y desviar el tráfico de la máquina virtual a una aplicación virtual de red (NVA) local, pero esta configuración no se recomienda para la replicación de Site Recovery. Si va a usar rutas personalizadas, debe [crear un punto de conexión de servicio de red virtual](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) en su red virtual de "Storage" para que el tráfico de replicación no salga de los límites de Azure.
 
-De forma predeterminada, para la recuperación ante desastres de máquinas virtuales de Azure no se necesita ExpressRoute para la replicación. Una vez que las máquinas virtuales se conmutan por error en la región de Azure de destino, puede acceder a ellas mediante el [emparejamiento privado](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
+De forma predeterminada, para la recuperación ante desastres de máquinas virtuales de Azure no se necesita ExpressRoute para la replicación. Una vez que las máquinas virtuales se conmutan por error en la región de Azure de destino, puede acceder a ellas mediante el [emparejamiento privado](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 Si ya usa ExpressRoute para conectarse desde el centro de datos local a las máquinas virtuales de Azure en la región de origen, puede planear el restablecimiento de la conectividad de ExpressRoute en la región de destino de la conmutación por error. Puede usar el mismo circuito ExpressRoute para conectarse a la región de destino a través de una nueva conexión de red virtual o usar un circuito ExpressRoute independiente y una conexión para la recuperación ante desastres. [Aquí](azure-vm-disaster-recovery-with-expressroute.md#fail-over-azure-vms-when-using-expressroute) se describen los posibles escenarios.
 
@@ -54,6 +54,6 @@ Puede replicar máquinas virtuales de Azure en cualquier región de Azure del mi
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga más información sobre los [circuitos ExpressRoute](../expressroute/expressroute-circuit-peerings.md).
-- Obtenga más información sobre los [dominios de enrutamiento de ExpressRoute](../expressroute/expressroute-circuit-peerings.md#expressroute-routing-domains).
+- Obtenga más información sobre los [dominios de enrutamiento de ExpressRoute](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
 - Obtenga más información sobre las [ubicaciones de ExpressRoute](../expressroute/expressroute-locations.md).
 - Obtenga más información sobre la recuperación ante desastres de [máquinas virtuales de Azure con ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 283171fa00837a8a7b4e0a13d7bca5645cf63a83
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: f9bafec093a3ad6e26eb12cfdb321945353b4d08
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633072"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434144"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Ejecución de los ejemplos de MapReduce incluidos en HDInsight
 
@@ -25,41 +25,41 @@ Aprenda a ejecutar los ejemplos de MapReduce incluidos con Apache Hadoop en HDIn
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Un clúster de HDInsight**: consulte [Introducción al uso de Hadoop con Hive en HDInsight en Linux](apache-hadoop-linux-tutorial-get-started.md)
+* **Un clúster de HDInsight**: Vea [Introducción al uso de Apache Hadoop con Apache Hive en HDInsight para Linux](apache-hadoop-linux-tutorial-get-started.md)
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-* **Un cliente SSH**: para obtener más información, consulte [Uso de SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Un cliente SSH**: Para más información, consulte [Uso SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="the-mapreduce-examples"></a>Ejemplos de MapReduce
 
-**Ubicación**: Los ejemplos se encuentran en el clúster de HDInsight en `/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar`.
+**Ubicación**: los ejemplos se encuentran en el clúster de HDInsight en `/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar`.
 
-**Contenido**: se incluyen los siguientes ejemplos en este archivo:
+**Contenido**: en este archivo se incluyen los ejemplos siguientes:
 
-* `aggregatewordcount`: programa mapreduce basado en agregación que cuenta las palabras de los archivos de entrada.
-* `aggregatewordhist`: programa mapreduce basado en agregación que cuenta el histograma de las palabras de los archivos de entrada.
-* `bbp`: programa de mapreduce que usa una fórmula Bailey-Borwein-Plouffe para calcular los dígitos exactos de Pi.
-* `dbcount`: trabajo de ejemplo que cuenta los registros de vistas de página almacenados en una base de datos.
-* `distbbp`: programa de mapreduce que usa una fórmula de tipo BBP para calcular los bits exactos de Pi.
-* `grep`: programa de mapreduce que cuenta las coincidencias de regex en la entrada.
-* `join`: trabajo que realiza una unión de conjuntos de datos ordenados con particiones equiparables.
-* `multifilewc`: trabajo que cuenta las palabras de varios archivos.
-* `pentomino`: programa de mapreduce para la colocación de mosaicos con el fin de encontrar soluciones a problemas de pentominó.
-* `pi`: programa de mapreduce que calcula Pi mediante un método cuasi Monte Carlo.
-* `randomtextwriter`: programa de mapreduce que escribe 10 GB de datos de texto aleatorios por nodo.
-* `randomwriter`: programa de mapreduce que escribe 10 GB de datos aleatorios por nodo.
-* `secondarysort`: ejemplo que define una ordenación secundaria para la fase de reducción.
-* `sort`: programa de mapreduce que ordena los datos escritos por el escritor aleatorio.
-* `sudoku`: solucionador de sudokus.
+* `aggregatewordcount`: un programa de MapReduce basado en agregación que cuenta las palabras de los archivos de entrada.
+* `aggregatewordhist`: un programa de MapReduce basado en agregación que cuenta el histograma de las palabras de los archivos de entrada.
+* `bbp`: un programa de MapReduce que usa una fórmula Bailey-Borwein-Plouffe para calcular los dígitos exactos de Pi.
+* `dbcount`: un trabajo de ejemplo que cuenta los registros de vistas de página almacenados en una base de datos.
+* `distbbp`: un programa de MapReduce que usa una fórmula de tipo BBP para calcular los bits exactos de Pi.
+* `grep`: un programa de MapReduce que cuenta las coincidencias de una expresión regular en la entrada.
+* `join`: un trabajo que realiza una unión de conjuntos de datos ordenados con particiones equiparables.
+* `multifilewc`: un trabajo que cuenta las palabras de varios archivos.
+* `pentomino`: un programa de MapReduce para la colocación de mosaicos con el fin de encontrar soluciones a problemas de pentominó.
+* `pi`: un programa de MapReduce que calcula Pi mediante un método cuasi Monte Carlo.
+* `randomtextwriter`: un programa de MapReduce que escribe 10 GB de datos de texto aleatorios por nodo.
+* `randomwriter`: un programa de MapReduce que escribe 10 GB de datos aleatorios por nodo.
+* `secondarysort`: un ejemplo que define una ordenación secundaria para la fase de reducción.
+* `sort`: un programa de MapReduce que ordena los datos escritos por el escritor aleatorio.
+* `sudoku`: un solucionador de sudokus.
 * `teragen`: genera datos para la ordenación de terabytes (terasort).
 * `terasort`: ejecuta la ordenación de terabytes (terasort).
 * `teravalidate`: comprueba los resultados de la ordenación de terabytes (terasort).
-* `wordcount`: programa de mapreduce que cuenta las palabras de los archivos de entrada.
-* `wordmean`: programa de mapreduce que cuenta la longitud media de las palabras de los archivos de entrada.
-* `wordmedian`: programa de mapreduce que cuenta la mediana de la longitud de las palabras de los archivos de entrada.
-* `wordstandarddeviation`: programa de mapreduce que cuenta la desviación estándar de la longitud de las palabras de los archivos de entrada.
+* `wordcount`: un programa de MapReduce que cuenta las palabras de los archivos de entrada.
+* `wordmean`: un programa de MapReduce que cuenta la longitud media de las palabras de los archivos de entrada.
+* `wordmedian`: un programa de MapReduce que cuenta la mediana de longitud de las palabras de los archivos de entrada.
+* `wordstandarddeviation`: un programa de MapReduce que cuenta la desviación estándar de la longitud de las palabras de los archivos de entrada.
 
 **Código fuente**: el código fuente de estos ejemplos se incluye en el clúster de HDInsight en `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
 
@@ -95,7 +95,7 @@ Aprenda a ejecutar los ejemplos de MapReduce incluidos con Apache Hadoop en HDIn
 
     La entrada de este trabajo se lee desde `/example/data/gutenberg/davinci.txt`. La salida de este ejemplo se almacena en `/example/data/davinciwordcount`. Ambas rutas de acceso se encuentran en el almacenamiento predeterminado del clúster, no en el sistema de archivos local.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Como se indica en la Ayuda del ejemplo wordcount, también puede especificar varios archivos de entrada. Por ejemplo, `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` contaría las palabras de davinci.txt y ulysses.txt.
 
 5. Una vez completado el trabajo, use el siguiente comando para ver la salida:
@@ -167,17 +167,17 @@ El valor devuelto debería asemejarse a **3,14159155000000000000**. Como referen
 
 GraySort es una ordenación de pruebas comparativas. La métrica es la velocidad de ordenación (TB/minuto) que se logra después de ordenar enormes volúmenes de datos, normalmente 100 TB, como mínimo.
 
-Este ejemplo utiliza solo 10 GB de datos, para así poder ejecutarlo relativamente rápido. Usa las aplicaciones de MapReduce desarrolladas por Owen O'Malley y Arun Murthy. Estas aplicaciones ganaron el estándar de comparación anual de ordenación de terabytes de fin general ("daytona") en 2009 con una velocidad de 0,578 TB/min (100 TB en 173 minutos). Para obtener más información sobre este y otros estándares de comparación de ordenación, consulte el sitio [Sortbenchmark](http://sortbenchmark.org/) .
+Este ejemplo utiliza solo 10 GB de datos, para así poder ejecutarlo relativamente rápido. Usa las aplicaciones de MapReduce desarrolladas por Owen O'Malley y Arun Murthy. Estas aplicaciones ganaron el estándar de comparación anual de ordenación de terabytes de fin general ("daytona") en 2009 con una velocidad de 0,578 TB/min (100 TB en 173 minutos). Para obtener más información sobre este y otros estándares de comparación de ordenación, consulte el sitio [Sortbenchmark](https://sortbenchmark.org/) .
 
 Este ejemplo utiliza tres conjuntos de programas de MapReduce:
 
-* **TeraGen**: programa de MapReduce que genera filas de datos que se van a ordenar.
+* **TeraGen**: un programa de MapReduce que genera filas de datos que se van a ordenar.
 
 * **TeraSort**: toma una muestra de los datos de entrada y usa MapReduce para ordenar los datos de manera absoluta.
 
     TeraSort es una ordenación MapReduce estándar, salvo por el particionador personalizado. El particionador usa una lista ordenada de N-1 claves de muestra que definen el intervalo de claves para cada reducción. En concreto, todas las claves, como esa muestra[i-1] <= clave < muestra[i] se envían a la reducción i. Esta particionador garantiza que las salidas de la reducción i sean todas menores que la salida de la reducción i+1.
 
-* **TeraValidate**: programa de MapReduce que valida que la salida se ordene de manera global.
+* **TeraValidate**: un programa de MapReduce que valida que la salida se ordene de manera global.
 
     Crea una asignación por archivo en el directorio de salida y cada asignación asegura que cada clave es menor o igual que la anterior. La función de asignación genera registros de la primera y última clave de cada archivo. La función de reducción se asegura de que la primera clave del archivo i es mayor que la última clave del archivo i-1. Los problemas se notifican como una salida de la fase de reducción con las claves que no están en orden.
 
@@ -209,9 +209,9 @@ Utilice los siguientes pasos para generar datos, ordenarlos y, a continuación, 
 
 En este artículo, ha obtenido información acerca de cómo ejecutar los ejemplos incluidos en los clústeres de HDInsight basado en Linux. Para obtener acceso a tutoriales sobre cómo usar Pig, Hive y MapReduce con HDInsight, consulte los siguientes temas:
 
-* [Uso de Pig con Hadoop en HDInsight](hdinsight-use-pig.md)
-* [Uso de Hive con Hadoop en HDInsight](hdinsight-use-hive.md)
-* [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
+* [Uso de Apache Pig con Apache Hadoop en HDInsight](hdinsight-use-pig.md)
+* [Uso de Apache Hive con Apache Hadoop en HDInsight](hdinsight-use-hive.md)
+* [Uso de MapReduce con Apache Hadoop en HDInsight](hdinsight-use-mapreduce.md)
 
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-introduction]:apache-hadoop-introduction.md

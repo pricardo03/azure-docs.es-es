@@ -1,11 +1,12 @@
 ---
 title: Ejemplos y tutoriales para Data Science Virtual Machine en Azure | Microsoft Docs
-description: Ejemplos y tutoriales para Data Science Virtual Machine.
+description: Obtenga información sobre los ejemplos y tutoriales que explican cómo realizar tareas comunes y muestran escenarios con Data Science Virtual Machine.
 keywords: herramientas de ciencia de datos, máquina virtual de ciencia de datos, herramientas para la ciencia de datos, ciencia de datos de linux
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: 74d5893a377fb67dbec7b185525e74ac248deede
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 64be6af340aa02c6c0b094013d2cbd286286aca7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902763"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53102000"
 ---
 # <a name="samples-on-data-science-virtual-machines"></a>Ejemplos de Data Science Virtual Machine
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.openlocfilehash: f3bbcbb70759e7a995797cf89ad75a2a39314927
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: bf95b949d6fee4057f67d1e44ded36f363aa5e2b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048487"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848925"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>Tutorial: Integración de Azure Active Directory con AirWatch
 
@@ -113,12 +113,12 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/airwatch-tutorial/tutorial_airwatch_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.awmdm.com/AirWatch/Login?gid=companycode`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.awmdm.com/AirWatch/Login?gid=companycode`.
 
     b. En el cuadro de texto **Identificador**, escriba el valor como `AirWatch`.
 
     > [!NOTE] 
-    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de AirWatch](http://www.air-watch.com/company/contact-us/) para obtenerlo. 
+    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de AirWatch](https://www.air-watch.com/company/contact-us/) para obtenerlo. 
  
 4. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo XML en el equipo.
 
@@ -154,7 +154,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     ![Cargar](./media/airwatch-tutorial/ic791924.png "Cargar")   
     
-    a. En **Directory Type** (Tipo de directorio), seleccione **None** (Ninguno).
+     a. En **Directory Type** (Tipo de directorio), seleccione **None** (Ninguno).
 
     b. Seleccione **Use SAML For Authentication**(Usar SAML para autenticación).
 
@@ -164,7 +164,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     ![Solicitud](./media/airwatch-tutorial/ic791925.png "Solicitud")  
 
-    a. En **Request Binding Type** (Tipo de enlace de solicitud), seleccione **POST**.
+     a. En **Request Binding Type** (Tipo de enlace de solicitud), seleccione **POST**.
 
     b. En Azure Portal, en la página de diálogo **Configure single sign-on at Airwatch** (Configurar inicio de sesión único en Airwatch), copie el valor de **SAML Single Sign-On Service URL** (Dirección URL del servicio de inicio de sesión único de SAML) y péguelo en el cuadro de texto **Identity Provider Single Sign On URL** (Dirección URL de inicio de sesión del proveedor de identidades).
 
@@ -180,7 +180,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     ![Atributo](./media/airwatch-tutorial/ic791927.png "Atributo")
 
-    a. En el cuadro de texto **Identificador de objetos**, escriba **http://schemas.microsoft.com/identity/claims/objectidentifier**.
+     a. En el cuadro de texto **Identificador de objetos**, escriba **http://schemas.microsoft.com/identity/claims/objectidentifier**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
@@ -219,7 +219,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/airwatch-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 

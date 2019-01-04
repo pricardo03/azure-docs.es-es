@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 3012f07d8c56f2581a087bc8e43aa4a089bf9589
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 627bd114504de20517abcd05f45dc6c58fe80117
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633519"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322711"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Inicio de sesión único en aplicaciones de Azure Active Directory
 Aprenda a elegir el método de inicio de sesión único más adecuado al configurar aplicaciones en Azure Active Directory (Azure AD). 
@@ -61,14 +61,13 @@ El inicio de sesión único basado en SAML es compatible con aplicaciones que us
 
 - SAML 2.0
 - El certificado del proveedor de identidades de WS-Federation
-- OpenID Connect
 
 Para configurar una aplicación para el inicio de sesión único basado en SAML, consulte [Configuración del inicio de sesión único basado en SAML](configure-single-sign-on-portal.md). Además, muchas aplicaciones tienen [tutoriales específicos de la aplicación](../saas-apps/tutorial-list.md) que le guiarán a través de la configuración del inicio de sesión único basado en SAML para aplicaciones específicas. 
 
 Para más información sobre cómo funciona el protocolo SAML, consulte [Protocolo SAML de inicio de sesión único](../develop/single-sign-on-saml-protocol.md).
 
 ## <a name="password-based-sso"></a>Inicio de sesión único basado en contraseñas
-En el inicio de sesión basado en contraseñas, la aplicación se autentica en la aplicación con un nombre de usuario y una contraseña. Los usuarios finales inician sesión en la aplicación la primera vez que acceden a ella. Después del primer inicio de sesión, Azure Active Directory proporciona el nombre de usuario y la contraseña para la aplicación. 
+Con el inicio de sesión con contraseña, los usuarios finales inician sesión con un nombre de usuario y una contraseña en la aplicación la primera vez que acceden a ella. Después del primer inicio de sesión, Azure Active Directory proporciona el nombre de usuario y la contraseña para la aplicación. 
 
 El inicio de sesión único basado en contraseñas usa el proceso de autenticación existente que proporciona la aplicación. Cuando se habilita el inicio de sesión único con contraseña para una aplicación, Azure AD recopila y almacena de forma segura los nombres de usuario y contraseñas de la aplicación. Las credenciales de usuario se almacenan en un estado cifrado en el directorio. 
 
@@ -178,6 +177,6 @@ Para obtener más información, consulte [Ediciones de Azure Active Directory](.
 * [Tutoriales para integrar aplicaciones SaaS con Azure Active Directory](../saas-apps/tutorial-list.md)
 * [Tutorial para configurar el inicio de sesión único](configure-single-sign-on-portal.md)
 * [Introducción a la administración del acceso a las aplicaciones](what-is-access-management.md)
-* Vínculo de descarga: [Plan de implementación del inicio de sesión único](http://aka.ms/SSODeploymentPlan).
+* Vínculo de descarga: [Plan de implementación del inicio de sesión único](https://aka.ms/SSODeploymentPlan).
 
 

@@ -10,12 +10,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 79f2aa9c3e73037aa25848b7d11c34a73bf35f64
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f212e2555b6097912628791635a539bc488d4979
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342405"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413173"
 ---
 # <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>Introducción a Speech Recognition API en JavaScript
 
@@ -34,10 +34,10 @@ Speech API forma parte de Cognitive Services. Puede obtener claves de suscripci�
 
 ## <a name="get-started"></a>Introducción
 
-En esta sección se le guiará por los pasos necesarios para cargar una página HTML de ejemplo. El ejemplo se encuentra en nuestro [repositorio Github](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript). Puede **abrir directamente el ejemplo** desde el repositorio o **abrir el ejemplo desde una copia local** del repositorio. 
+En esta sección se le guiará por los pasos necesarios para cargar una página HTML de ejemplo. El ejemplo se encuentra en nuestro [repositorio de Github](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript). Puede **abrir directamente el ejemplo** desde el repositorio o **abrir el ejemplo desde una copia local** del repositorio.
 
 > [!NOTE]
-> Algunos exploradores bloquean el acceso del micrófono de los orígenes no seguros. Por lo tanto, se recomienda hospedar "ejemplo"/"aplicación" en https para que funcione en todos los exploradores compatibles. 
+> Algunos exploradores bloquean el acceso del micrófono de los orígenes no seguros. Por lo tanto, se recomienda hospedar "ejemplo"/"aplicación" en https para que funcione en todos los exploradores compatibles.
 
 ### <a name="open-the-sample-directly"></a>Abrir el ejemplo directamente
 

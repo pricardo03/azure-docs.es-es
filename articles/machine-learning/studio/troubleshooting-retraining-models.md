@@ -4,9 +4,8 @@ description: Identifique y corrija los problemas comunes que se encuentran al vo
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 75cac53c-185c-437d-863a-5d66d871921e
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
-ms.openlocfilehash: 1105b81d0f8ba80bd76bcdf140fe79b9e8a7102d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0f12627e169af00f575347796d1f2e79fe1f6fa2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307209"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252786"
 ---
 # <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-studio-classic-web-service"></a>Solución de problemas del reentrenamiento de un servicio web clásico de Azure Machine Learning Studio
 ## <a name="retraining-overview"></a>Información general sobre reentrenamiento
@@ -41,16 +40,16 @@ Después, para entrenar el modelo puede usar el código C# de ejemplo de la pág
 
 Con todos los elementos en su lugar, estos son los pasos principales que debe seguir para reentrenar el modelo:
 
-1. Llame al servicio web de entrenamiento: la llamada se realiza al servicio de ejecución por lotes (BES, Batch Execution Service), no al servicio de solicitud-respuesta (RRS, Request-Response Service). Puede usar el código C# de ejemplo en la página de ayuda de la API para realizar la llamada. 
-2. Busque los valores de *BaseLocation*, *RelativeLocation* y *SasBlobToken*: estos valores se devuelven en el resultado de la llamada al servicio web de entrenamiento. 
+1. Llame al servicio web de entrenamiento:  la llamada se realiza al servicio de ejecución por lotes (BES), no al servicio de solicitud de respuesta (RRS). Puede usar el código C# de ejemplo en la página de ayuda de la API para realizar la llamada. 
+2. Busque los valores de *BaseLocation*, *RelativeLocation* y *SasBlobToken*: Estos valores se devuelven en la salida de la llamada al servicio web de entrenamiento. 
    ![muestra de la salida de la ejemplo de reentrenamiento y los valores de BaseLocation, RelativeLocation y SasBlobToken.][image6]
-3. Actualice el punto de conexión agregado en el servicio web de puntuación con el nuevo modelo entrenado: use el código de ejemplo proporcionado en el tema Volver a entrenar modelos de Machine Learning mediante programación para actualizar el nuevo punto de conexión que agregó al modelo de puntuación con el modelo recién entrenado en el servicio web de aprendizaje.
+3. Actualice el punto de conexión agregado desde el servicio web de puntuación con el nuevo modelo entrenado: use el ejemplo de código proporcionado en Repetición del entrenamiento de modelos de Machine Learning Studio mediante programación para actualizar el nuevo punto de conexión que agregó al modelo de puntuación con el modelo recién entrenado en el servicio web de entrenamiento.
 
 ## <a name="common-obstacles"></a>Obstáculos más comunes
 ### <a name="check-to-see-if-you-have-the-correct-patch-url"></a>Compruebe si el valor de PATCH URL es el correcto
 El valor de PATCH URL que use deberá ser el único asociado con el nuevo punto de conexión de puntuación que agregó al servicio web de puntuación. Hay varias maneras de obtener el valor de PATCH URL:
 
-**Opción 1: De forma programada**
+**Opción 1: mediante programación**
 
 Para obtener valor de PATCH URL correcto:
 
@@ -61,7 +60,7 @@ Para obtener valor de PATCH URL correcto:
 3. Pegue la dirección URL en un explorador para ir a una página que proporciona vínculos de ayuda para el servicio web.
 4. Haga clic en el vínculo **Actualizar recurso** para abrir la página de ayuda sobre aplicación de revisiones.
 
-**Opción 2: use el portal Servicios web de Azure Machine Learning**
+**Opción 2: mediante el portal de servicios web de Azure Machine Learning**
 
 1. Inicie sesión en el portal [Servicios web Azure Machine Learning](https://services.azureml.net/).
 2. Haga clic en **Web Services** (Servicios web) o **Classic Web Services** (Servicios web clásicos) en la parte superior.
@@ -71,7 +70,7 @@ Para obtener valor de PATCH URL correcto:
 7. En la dirección URL de **Revisión**, haga clic en **API Help** (Ayuda de API) para abrir la página de ayuda de la aplicación de revisiones.
 
 > [!NOTE]
-> Si ha agregado el punto de conexión al servicio web de entrenamiento, en lugar de al predictivo, verá el siguiente mensaje de error al hacer clic en el vínculo **Update Resource** (Actualizar recurso): "Esta característica no se admite en este contexto ni está disponible en él. Este servicio web no tiene ningún recurso actualizable. Sentimos las molestias. Estamos trabajando en mejorar este flujo de trabajo."
+> Si ha agregado el punto de conexión al servicio web de entrenamiento en lugar de al predictivo, verá el siguiente mensaje de error al hacer clic en el vínculo **Update Resource** (Actualizar recurso): "Sorry, but this feature is not supported or available in this context." (Lo sentimos, pero esta característica no se admite ni está disponible en este contexto). Este servicio web no tiene ningún recurso actualizable. Sentimos las molestias. Estamos trabajando en mejorar este flujo de trabajo."
 > 
 > 
 
@@ -80,8 +79,8 @@ La página de ayuda sobre PATCH contiene el valor de PATCH URL que debe usar y p
 ![PATCH URL.][image5]
 
 ### <a name="check-to-see-that-you-are-updating-the-correct-scoring-endpoint"></a>Compruebe que está actualizando el punto de conexión de puntuación correcto.
-* No aplique revisiones al servicio web de aprendizaje: la operación de revisión debe realizarse en el servicio web de puntuación.
-* No aplique revisiones al punto de conexión predeterminado en el servicio web: la operación de revisión debe realizarse en el nuevo punto de conexión del servicio web de puntuación que agregó.
+* No aplique revisiones al servicio web de entrenamiento: la operación de revisión debe realizarse en el servicio web de puntuación.
+* No aplique revisiones al punto de conexión predeterminado del servicio web: la operación de revisión debe realizarse en el nuevo punto de conexión del servicio web de puntuación que agregó.
 
 Para comprobar en qué servicio web está el punto de conexión, visite el portal de servicios web. 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 00164789d7f37277127878911c3f368a56ec7710
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 8b2d7053ce8d980f15132e1d48497aff192713d0
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616979"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309382"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparación del entorno de desarrollo en Linux
 > [!div class="op_single_selector"]
@@ -104,7 +104,14 @@ Para instalar el SDK y el paquete del sistema en tiempo de ejecución asociado m
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     ```
 
-7. Actualice las listas de paquetes según los repositorios recién agregados.
+7. Agregue la clave de Azul JDK al conjunto de claves de APT y configure su repositorio.
+
+    ```bash
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0x219BD9C9
+    sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
+    ```
+
+8. Actualice las listas de paquetes según los repositorios recién agregados.
 
     ```bash
     sudo apt-get update
@@ -172,7 +179,7 @@ El sistema en tiempo de ejecución de Service Fabric que viene con la instalaci�
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | 1.8 OpenJDK | Implícito de npm | más reciente |
+Ubuntu | 2.0.0 | AzulJDK 1.8 | Implícito de npm | más reciente |
 RHEL | - | 1.8 OpenJDK | Implícito de npm | más reciente |
 
 ## <a name="set-up-a-local-cluster"></a>Instalación de un clúster local
@@ -232,13 +239,12 @@ Instale el [SDK de .NET Core 2.0 para Ubuntu](https://www.microsoft.com/net/core
 
 ## <a name="set-up-java-development"></a>Configuración del desarrollo de Java
 
-Para compilar servicios de Service Fabric mediante Java, instale JDK 1.8 y Gradle para ejecutar las tareas de compilación. El fragmento de código siguiente instala Open JDK 1.8 junto con Gradle. Las bibliotecas de Java de Service Fabric se extraen de Maven.
+Para compilar servicios de Service Fabric mediante Java, instale Gradle para ejecutar las tareas de compilación. Ejecute el siguiente comando para instalar Gradle. Las bibliotecas de Java de Service Fabric se extraen de Maven.
 
 
 * Ubuntu
 
     ```bash
-    sudo apt-get install openjdk-8-jdk-headless
     sudo apt-get install gradle
     ```
 

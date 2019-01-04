@@ -14,12 +14,12 @@ ms.date: 11/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: adb53bb5722bff2374097626e8a3f1679ca00788
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 0c14055209c6094585e0d1df892fea24a3f3ea55
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633536"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721075"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Reglas de pertenencia dinámica a grupos de Azure Active Directory
 
@@ -352,7 +352,7 @@ Pueden utilizarse los siguientes atributos del dispositivo.
  deviceCategory | un nombre de la categoría de dispositivo válido | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | Cualquier valor de cadena | (device.deviceManufacturer -eq "Samsung")
  deviceModel | Cualquier valor de cadena | (device.deviceModel -eq "iPad Air")
- deviceOwnership | Personal, empresa, desconocido | (device.deviceOwnership -eq "Corporate")
+ deviceOwnership | Personal, empresa, desconocido | (device.deviceOwnership -eq "Company")
  domainName | Cualquier valor de cadena | (device.domainName -eq "contoso.com")
  enrollmentProfileName | Perfil de inscripción de dispositivo Apple o nombre de perfil de Windows AutoPilot | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
@@ -360,6 +360,9 @@ Pueden utilizarse los siguientes atributos del dispositivo.
  deviceId | un id. de dispositivo de Azure AD válido | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | un id. de objeto de Azure AD válido |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
  systemLabels | cualquier cadena que coincida con la propiedad de dispositivo de Intune para etiquetar dispositivos del área de trabajo moderno | (device.systemLabels -contains "M365Managed")
+
+> [!Note]  
+> Para deviceOwnership, al crear grupos dinámicos para dispositivos, tiene que establecer el valor igual a "Compañía". En Intune la propiedad del dispositivo se representa en su lugar como Corporativa. Consulte [OwnerTypes](https://docs.microsoft.com/en-us/intune/reports-ref-devices#ownertypes) para obtener más detalles. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

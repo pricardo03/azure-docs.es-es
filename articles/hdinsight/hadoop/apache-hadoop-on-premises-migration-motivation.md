@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 82792414da9df32524e48031089dc18d2dc521cc
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 94dec611a04819580696133c48db66da1ea9c463
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288125"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000428"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Motivación y ventajas de migrar clústeres locales de Apache Hadoop a Azure HDInsight
 
@@ -32,7 +32,7 @@ Azure HDInsight es una distribución en la nube de los componentes de Hadoop de�
 - HBase Apache
 - R
 
-## <a name="advantages-that-azure-hdinsight-offers-over-on-premises-hadoop"></a>Ventajas que ofrece Azure HDInsight sobre las instancias locales de Hadoop
+## <a name="azure-hdinsight-advantages-over-on-premises-hadoop"></a>Ventajas de Azure HDInsight sobre las instancias locales de Hadoop
 
 - **Bajo costo**: se pueden reducir los costos mediante la [creación de clústeres a petición](../hdinsight-hadoop-create-linux-clusters-adf.md) y pagando solo por lo que usa. El almacenamiento y proceso desacoplado proporciona flexibilidad al mantener el volumen de datos independiente del tamaño del clúster.
 
@@ -48,7 +48,7 @@ Azure HDInsight es una distribución en la nube de los componentes de Hadoop de�
 
 - **Administración de versiones simplificada**: Azure HDInsight administra la versión de componentes del ecosistema de Hadoop y los mantiene actualizados. Las actualizaciones de software suelen ser un proceso complejo para las implementaciones locales.
 
-- **Clústeres más pequeños optimizados para cargas de trabajo específicas con menos dependencias entre los componentes**: un programa de instalación de Hadoop local típico utiliza un único clúster que sirve para muchos propósitos. Con Azure HDInsight, se pueden crear clústeres específicos para cargas de trabajo. La creación de clústeres para cargas de trabajo específicas elimina la complejidad de mantener un solo clúster con complejidad cada vez mayor.
+- **Clústeres más pequeños optimizados para cargas de trabajo específicas con menos dependencias entre los componentes**: un programa de instalación de Hadoop local típico usa un único clúster que sirve para muchos propósitos. Con Azure HDInsight, se pueden crear clústeres específicos para cargas de trabajo. La creación de clústeres para cargas de trabajo específicas elimina la complejidad de mantener un solo clúster con complejidad cada vez mayor.
 
 - **Productividad**: puede usar varias herramientas de Hadoop y Spark en su entorno de desarrollo preferido.
 
@@ -67,7 +67,7 @@ Azure HDInsight es una distribución en la nube de los componentes de Hadoop de�
 
 - **Componentes y procesos de recuperación automática**: HDInsight comprueba constantemente los componentes de la infraestructura y de código abierto con su propia infraestructura de supervisión. También se recupera automáticamente de errores críticos como la falta de disponibilidad de nodos y componentes de código abierto. Las alertas se activan en Ambari si se produjo un error en cualquier componente de OSS.
 
-Para obtener más información, vea el artículo [Qué son Azure HDInsight y la pila de tecnología de Hadoop](../hadoop/apache-hadoop-introduction.md).
+Para obtener más información, vea el artículo [Qué son Azure HDInsight y la pila de tecnología de Apache Hadoop](../hadoop/apache-hadoop-introduction.md).
 
 ## <a name="migration-planning-process"></a>Proceso de planeamiento de migración
 
@@ -90,7 +90,7 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 
 | **Pregunta** | **Ejemplo** | **Respuesta** |
 |---|---|---|
-|**Tema**: **entorno**|||
+|**Tema**: **Entorno**|||
 |Tipo de distribución de clúster|Hortonworks, Cloudera, MapR| |
 |Versión de distribución de clúster|HDP 2.6.5, CDH 5.7|
 |Componentes de ecosistema de big Data|HDFS, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
@@ -132,18 +132,18 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 |Trabajos de entrenamiento del modelo de Machine Learning|2 trabajos, una vez a la semana||
 |Lenguajes de programación|Python, Scala, Java||
 |Scripting|Shell, Python||
-|**Tema**: **datos**|||
+|**Tema**: **Datos**|||
 |Orígenes de datos|Archivos sin formato, Json, Kafka, RDBMS||
 |Orquestación de datos|Flujos de trabajo de Oozie, flujo de aire||
 |Búsquedas en memoria|Apache Ignite, Redis||
 |Destinos de datos|HDFS, RDBMS, Kafka, MPP ||
-|**Tema**: **metadatos**|||
+|**Tema**: **Metadatos**|||
 |Tipo de base de datos de Hive|Mysql, Postgres||
 | No. de instancias de Hive Metastore|2||
 | No. de tablas de Hive|100||
 | No. de directivas de Ranger|20||
 | No. de flujos de trabajo de Oozie|100||
-|**Tema**: **escala**|||
+|**Tema**: **Escala**|||
 |Volumen de datos, incluida la replicación|100 TB||
 |Volumen diario de ingesta|50 GB||
 |Tasa de crecimiento de datos|10 % al año||
@@ -159,26 +159,26 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 | No. de usuarios finales|100||
 |Aptitudes|Hadoop, Spark||
 | No. de recursos disponibles para los esfuerzos de migración|2||
-|**Tema**: **limitaciones**|||
+|**Tema**: **Limitaciones**|||
 |Limitaciones actuales|La latencia es alta||
 |Desafíos actuales|Problema de simultaneidad||
 
 ### <a name="azure-requirements-questionnaire"></a>Cuestionario de los requisitos de Azure
 
-|**Tema**: **infraestructura** |||
+|**Tema**: **Infraestructura** |||
 |---|---|---|
 |**Pregunta**|**Ejemplo**|**Respuesta**|
 | Región preferida|Este de EE. UU.||
 |¿Red virtual preferida?|SÍ||
 |¿Es necesaria alta disponibilidad o recuperación ante desastres?|SÍ||
 |¿Integración con otros servicios en la nube?|ADF, CosmosDB||
-|**Tema**: **movimiento de datos**  |||
+|**Tema**:   **Movimiento de datos**  |||
 |Preferencia de carga inicial|DistCp, Data box, ADF, WANDisco||
 |Transferencia de datos delta|DistCp, AzCopy||
 |Transferencia de datos incremental en curso|DistCp, Sqoop||
-|**Tema**: **supervisión y alertas** |||
+|**Tema**:   **supervisión y alertas** |||
 |Usar la supervisión y las alertas de Azure en lugar de supervisión de terceros|Usar supervisión y alertas de Azure||
-|**Tema**: **preferencias de seguridad** |||
+|**Tema**:   **preferencias de seguridad** |||
 |¿Canalización de datos privada y protegida?|SÍ||
 |¿Un clúster unido a un dominio (ESP)?|     SÍ||
 |¿Sincronización de AD local en la nube?|     SÍ||
@@ -191,7 +191,7 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 |¿Auditoría necesaria?|                  SÍ||
 |¿Cifrado de datos en reposo?|          SÍ||
 |¿Cifrado de datos en tránsito?|       SÍ||
-|**Tema**: **preferencias reestructuración de la arquitectura** |||
+|**Tema**:   **preferencias reestructuración de la arquitectura** |||
 |Clúster único frente a determinados tipos de clúster|Tipos de clústeres específicos||
 |¿Almacenamiento remoto frente almacenamiento colocado?|Almacenamiento remoto||
 |¿Tamaño de clúster más pequeño ya que los datos se almacenan de forma remota?|Tamaño de clúster más pequeño||

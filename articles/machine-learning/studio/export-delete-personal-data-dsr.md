@@ -3,22 +3,21 @@ title: Exportación y eliminación de los datos de Azure Machine Learning Studio
 description: Los datos integrados almacenados por Azure Machine Learning Studio están disponibles para su exportación y eliminación en Azure Portal y también mediante las API REST autenticadas. Se puede acceder a los datos de telemetría en el Portal de privacidad de Azure. Este artículo le muestra cómo.
 services: machine-learning
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: cgronlun
 ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
 ms.component: studio
 ms.topic: conceptual
 ms.date: 05/25/2018
-ms.openlocfilehash: 04b26dc9ad9f4b7a4feb03039d92854385d75465
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e69883022937ccb4ad0f83f144afef0b5b1e0e56
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262382"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276271"
 ---
-# <a name="export-and-delete-in-product-user-data-from-machine-learning-studio"></a>Exportación y eliminación de datos de usuario integrados de Machine Learning Studio
+# <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio"></a>Exportar y eliminar datos de usuario integrados de Machine Learning Studio
 
 Puede eliminar o exportar los datos integrados almacenados por Azure Machine Learning Studio mediante Azure Portal, la interfaz de Studio, PowerShell y las API REST autenticadas. Este artículo le indica cómo. 
 
@@ -33,7 +32,7 @@ Se puede acceder a los datos de telemetría en el Portal de privacidad de Azure.
 Para este servicio, los datos de usuario constan de información acerca de los usuarios autorizados a acceder a las áreas de trabajo y de los registros de telemetría de las interacciones del usuario con el servicio.
 
 Hay dos tipos de datos de usuario en Machine Learning Studio:
-- **Datos de la cuenta personal:** identificadores de cuenta y direcciones de correo electrónico asociadas con una cuenta.
+- **Datos de la cuenta personal:** identificadores de cuenta y direcciones de correo electrónico asociados a una cuenta.
 - **Datos del cliente:** los datos que se han cargado para analizar.
 
 ## <a name="studio-account-types-and-how-data-is-stored"></a>Tipos de cuenta de Studio y cómo se almacenan los datos
@@ -65,7 +64,7 @@ Los usuarios pueden eliminar recursos de un área de trabajo; para ello, selecci
 ### <a name="delete-an-entire-workspace"></a>Eliminación de un área de trabajo completa
 
 Los usuarios también pueden eliminar todo el área de trabajo:
-- Área de trabajo de pago: se elimina en Azure Portal.
+- Área de trabajo de pago: eliminar mediante Azure Portal.
 - Área de trabajo gratuita: use el botón Eliminar en el panel **Configuración**.
 
 ![Eliminación de un área de trabajo gratuita en Machine Learning Studio](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)

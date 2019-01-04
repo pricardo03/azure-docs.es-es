@@ -1,12 +1,11 @@
 ---
-title: Capacidad dedicada para trabajos de servicios de ejecución por lotes de aprendizaje automático en Azure Machine Learning Studio | Microsoft Docs
-description: Información general de los servicios de Azure Batch para trabajos de Machine Learning.
+title: Servicios Azure Batch para Machine Learning Studio | Microsoft Docs
+description: Información general de los servicios de Azure Batch para trabajos de Machine Learning. El procesamiento de grupo de lote permite crear grupos en los que se pueden enviar trabajos por lotes.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.service: machine-learning
 ms.component: studio
@@ -15,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 13e9921b15faff10ac250aa7c19d655ada782ce2
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 44b63a51049e663e55cc59a623837cf65cab9ccc
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308144"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275200"
 ---
-# <a name="azure-batch-service-for-machine-learning-jobs"></a>Servicio de Azure Batch para trabajos de Machine Learning
+# <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>Servicio Azure Batch para trabajos de Azure Machine Learning Studio
 
 El procesamiento de grupo de lote de Machine Learning proporciona una escala administrada por el cliente para el servicio de ejecución de lotes de Azure Machine Learning. El procesamiento por lotes clásico para aprendizaje automático tiene lugar en un entorno de varios inquilinos, lo que limita el número de trabajos simultáneos que se pueden enviar, y los trabajos se ponen en una cola que funciona según el principio de "el primero en entrar es el primero en salir". Esta incertidumbre significa que no se puede predecir con exactitud cuándo se ejecutará el trabajo.
 

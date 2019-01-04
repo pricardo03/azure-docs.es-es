@@ -14,30 +14,31 @@ ms.devlang: java
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: a7ced71f2d0a8c5d956bbdbcd8fcae485aee3fc6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3251e2ecc9171081c5128dd0782eecdf83064114
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241586"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312262"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Uso de Notification Hubs desde Java
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-En este tema se describen las principales características del nuevo SDK de Java del Centro de notificaciones de Azure oficial y totalmente compatible. Este es un proyecto de código abierto; puede ver el código entero del SDK en el [SDK de Java]. 
+En este tema se describen las principales características del nuevo SDK de Java del Centro de notificaciones de Azure oficial y totalmente compatible.
+Este es un proyecto de código abierto; puede ver el código entero del SDK en el [SDK de Java].
 
-En general, puede acceder a todas las características de Notification Hubs desde un servidor back-end de Java, PHP, Python y Ruby mediante la interfaz REST de Notification Hubs, como se describe en el tema de MSDN [API de REST de Notification Hubs](https://msdn.microsoft.com/library/dn223264.aspx). Este SDK de Java proporciona un contenedor fino de estas interfaces REST en Java. 
+En general, puede acceder a todas las características de Notification Hubs desde un servidor back-end de Java, PHP, Python y Ruby mediante la interfaz REST de Notification Hubs, como se describe en el tema de MSDN [API de REST de Notification Hubs](https://msdn.microsoft.com/library/dn223264.aspx). Este SDK de Java proporciona un contenedor fino de estas interfaces REST en Java.
 
 El SDK admite actualmente:
 
-* CRUD en Notification Hubs 
+* CRUD en Notification Hubs
 * CRUD en los registros
 * Administración de la instalación
 * Importación y exportación de registros
 * Envíos regulares
 * Envíos programados
 * Operaciones asincrónicas mediante Java NIO
-* Plataformas admitidas: APNS (iOS), GCM (Android), WNS (aplicaciones de la Tienda Windows), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android sin servicios de Google) 
+* Plataformas compatibles: APNS (iOS), GCM (Android), WNS (aplicaciones de la Tienda Windows), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android sin servicios de Google)
 
 ## <a name="sdk-usage"></a>Uso del SDK
 ### <a name="compile-and-build"></a>Compilación y creación
@@ -85,7 +86,7 @@ Para crear:
 
     WindowsRegistration reg = new WindowsRegistration(new URI(CHANNELURI));
     reg.getTags().add("myTag");
-    reg.getTags().add("myOtherTag");    
+    reg.getTags().add("myOtherTag");
     hub.createRegistration(reg);
 
 **Creación de un registro de iOS:**
@@ -122,33 +123,34 @@ Quita los duplicados debido a las respuestas perdidas si se almacenan identifica
 **Consulta de registros:**
 
 * **Obtención de un único registro:**
-  
+
         hub.getRegistration(regid);
 
 * **Obtención de todos los registros en el centro:**
-  
+
         hub.getRegistrations();
 
 * **Obtención de registros con etiqueta:**
-  
+
         hub.getRegistrationsByTag("myTag");
 
 * **Obtención de registros por canal:**
-  
+
         hub.getRegistrationsByChannel("devicetoken");
 
 
 Todas las consultas de la colección admiten los tokens $top y continuation.
 
 ### <a name="installation-api-usage"></a>Uso de la API de instalación
-La API de instalación es un mecanismo alternativo para la administración de registros. En lugar de mantener varios registros, que no es un procedimiento sencillo y puede fácilmente realizarse de manera incorrecta o ineficaz, ahora es posible usar un objeto de instalación ÚNICO. La instalación contiene todo lo que necesita: canal de inserción (token del dispositivo), etiquetas, plantillas, iconos secundarios (para WNS y APNS). No es necesario llamar al servicio para obtener el identificador: solo hay que generar el GUID o cualquier otro identificador, mantenerlo en el dispositivo y enviarlo a su back-end junto con el canal de inserción (token del dispositivo). En el back-end, solo debe hacer una llamada: CreateOrUpdateInstallation, es completamente idempotente, así que no dude en reintentarlo si es necesario.
+La API de instalación es un mecanismo alternativo para la administración de registros. En lugar de mantener varios registros, que no es un procedimiento sencillo y puede fácilmente realizarse de manera incorrecta o ineficaz, ahora es posible usar un objeto de instalación ÚNICO. La instalación contiene todo lo que necesita: canal de inserción (token del dispositivo), etiquetas, plantillas, iconos secundarios (para WNS y APNS). No es necesario llamar al servicio para obtener el identificador: solo hay que generar el GUID o cualquier otro identificador, mantenerlo en el dispositivo y enviarlo a su back-end junto con el canal de inserción (token del dispositivo).
+En el back-end, solo debe hacer una llamada: CreateOrUpdateInstallation, es completamente idempotente, así que no dude en reintentarlo si es necesario.
 
 Un ejemplo para Amazon Kindle Fire:
 
     Installation installation = new Installation("installation-id", NotificationPlatform.Adm, "adm-push-channel");
     hub.createOrUpdateInstallation(installation);
 
-Si desea actualizarlo: 
+Si desea actualizarlo:
 
     installation.addTag("foo");
     installation.addTemplate("template1", new InstallationTemplate("{\"data\":{\"key1\":\"$(value1)\"}}","tag-for-template1"));
@@ -186,7 +188,7 @@ Igual que el envío normal pero con un parámetro adicional - scheduledTime, que
 **Programación de una notificación nativa de Windows:**
 
     Calendar c = Calendar.getInstance();
-    c.add(Calendar.DATE, 1);    
+    c.add(Calendar.DATE, 1);
     Notification n = Notification.createWindowsNotification("WNS body");
     hub.scheduleNotification(n, c.getTime());
 
@@ -216,34 +218,34 @@ A veces es necesario para realizar la operación masiva en registros. Normalment
         job = hub.getNotificationHubJob(job.getJobId());
         if(job.getJobStatus() == NotificationHubJobStatus.Completed)
             break;
-    }       
+    }
 
 **Obtener todos los trabajos:**
 
     List<NotificationHubJob> jobs = hub.getAllNotificationHubJobs();
 
-**URI con firma SAS**: se trata de la dirección URL de algún archivo de blobs o contenedor de blobs más el conjunto de parámetros, como los permisos y la hora de expiración, más la firma de todas las operaciones realizadas mediante la clave SAS de la cuenta. El SDK de Java de Azure Storage tiene amplias capacidades, incluida la creación de ese tipo de URI. Como una alternativa sencilla, puede echar un vistazo a la clase de prueba ImportExportE2E (desde la ubicación de GitHub) que tiene una implementación básica y compacta del algoritmo de firma.
+**URI con firma SAS:** es la dirección URL de algún archivo de blobs o contenedor de blobs más el conjunto de parámetros, como los permisos y la hora de expiración, más la firma de todas las operaciones realizadas mediante la clave SAS de la cuenta. El SDK de Java de Azure Storage tiene amplias capacidades, incluida la creación de ese tipo de URI. Como alternativa sencilla, puede echar un vistazo a la clase de prueba ImportExportE2E (desde la ubicación de GitHub) que tiene una implementación básica y compacta del algoritmo de firma.
 
 ### <a name="send-notifications"></a>Envío de notificaciones
 El objeto de notificación es simplemente un cuerpo con encabezados, algunos métodos de utilidad ayudan en la creación de los objetos de notificación nativos y de plantilla.
 
 * **Tienda Windows y Windows Phone 8.1 (no Silverlight)**
-  
+
         String toast = "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Hello from Java!</text></binding></visual></toast>";
         Notification n = Notification.createWindowsNotification(toast);
         hub.sendNotification(n);
 * **iOS**
-  
+
         String alert = "{\"aps\":{\"alert\":\"Hello from Java!\"}}";
         Notification n = Notification.createAppleNotification(alert);
         hub.sendNotification(n);
 * **Android**
-  
+
         String message = "{\"data\":{\"msg\":\"Hello from Java!\"}}";
         Notification n = Notification.createGcmNotification(message);
         hub.sendNotification(n);
 * **Silverlight para Windows Phone 8.0 y 8.1**
-  
+
         String toast = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
                     "<wp:Notification xmlns:wp=\"WPNotification\">" +
                        "<wp:Toast>" +
@@ -253,7 +255,7 @@ El objeto de notificación es simplemente un cuerpo con encabezados, algunos mé
         Notification n = Notification.createMpnsNotification(toast);
         hub.sendNotification(n);
 * **Kindle Fire**
-  
+
         String message = "{\"data\":{\"msg\":\"Hello from Java!\"}}";
         Notification n = Notification.createAdmNotification(message);
         hub.sendNotification(n);
@@ -263,11 +265,11 @@ El objeto de notificación es simplemente un cuerpo con encabezados, algunos mé
         tags.add("boo");
         tags.add("foo");
         hub.sendNotification(n, tags);
-* **Envío a la expresión de etiqueta**       
-  
+* **Envío a la expresión de etiqueta**
+
         hub.sendNotification(n, "foo && ! bar");
 * **Envío de la notificación de plantilla**
-  
+
         Map<String, String> prop =  new HashMap<String, String>();
         prop.put("prop1", "v1");
         prop.put("prop2", "v2");
@@ -279,7 +281,7 @@ La ejecución del código de Java debe generar ahora una notificación que apare
 ## <a name="next-steps"></a>Pasos siguientes
 En este tema hemos mostrado cómo crear un sencillo cliente de REST en Java para Notification Hubs. Desde aquí puede:
 
-* Descargue el [SDK de Java]completo, que contiene todo el código SDK. 
+* Descargue el [SDK de Java]completo, que contiene todo el código SDK.
 * Practique con los ejemplos:
   * [Introducción a Notification Hubs]
   * [Envío de noticias de última hora]

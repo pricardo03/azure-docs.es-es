@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2ef88fff1313a0e7b1aa0abb502629512daaf636
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: e45c5a37c4ba12d93ff7f78bb465cb650a7faffb
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633842"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435096"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>Usar funciones definidas por el usuario de C# con el streaming de Apache Hive y Apache Pig en Apache Hadoop de HDInsight
 
@@ -45,7 +45,7 @@ Tanto Hive como Pig pueden pasar datos a aplicaciones externas para el procesami
 
 * Clústeres de __HDInsight basados en Linux__ que usan [Mono (https://mono-project.com)](https://mono-project.com)) para ejecutar aplicaciones .NET. La versión 4.2.1 de Mono está incluida en la versión 3.6 de HDInsight.
 
-    Si desea conocer más detalles sobre la compatibilidad entre Mono y las versiones de .NET Framework, consulte la página en la que se trata la [compatibilidad de Mono](http://www.mono-project.com/docs/about-mono/compatibility/).
+    Si desea conocer más detalles sobre la compatibilidad entre Mono y las versiones de .NET Framework, consulte la página en la que se trata la [compatibilidad de Mono](https://www.mono-project.com/docs/about-mono/compatibility/).
 
     Para usar una versión específica de Mono, consulte el documento [Instalación o actualización de Mono](../hdinsight-hadoop-install-mono.md).
 
@@ -55,12 +55,12 @@ Para obtener más información sobre la versión de .NET framework y Mono inclui
 
 ## <a name="create-the-c-projects"></a>Creación de proyectos de C\#
 
-### <a name="hive-udf"></a>UDF de Hive
+### <a name="apache-hive-udf"></a>UDF de Apache Hive
 
 1. Abra Visual Studio y cree una solución. Para el tipo de proyecto, elija **Aplicación de consola (.NET Framework)** y asigne al nuevo proyecto el nombre **HiveCSharp**.
 
     > [!IMPORTANT]
-    > Seleccione __.NET Framework 4.5__ si está usando un clúster de HDInsight basado en Linux. Si desea conocer más detalles sobre la compatibilidad entre Mono y las versiones de .NET Framework, consulte la página en la que se trata la [compatibilidad de Mono](http://www.mono-project.com/docs/about-mono/compatibility/).
+    > Seleccione __.NET Framework 4.5__ si está usando un clúster de HDInsight basado en Linux. Si desea conocer más detalles sobre la compatibilidad entre Mono y las versiones de .NET Framework, consulte la página en la que se trata la [compatibilidad de Mono](https://www.mono-project.com/docs/about-mono/compatibility/).
 
 2. Reemplace el contenido de **Program.cs** por el código siguiente:
 
@@ -115,7 +115,7 @@ Para obtener más información sobre la versión de .NET framework y Mono inclui
 
 3. Compile el proyecto.
 
-### <a name="pig-udf"></a>UDF de Pig
+### <a name="apache-pig-udf"></a>UDF de Apache Pig
 
 1. Abra Visual Studio y cree una solución. Para el tipo de proyecto, elija **Aplicación de consola**. Asigne al nuevo proyecto el nombre **PigUDF**.
 
@@ -168,7 +168,7 @@ Para obtener más información sobre la versión de .NET framework y Mono inclui
 
     * Si se puede expandir esta entrada, significa que está utilizando una __cuenta de Azure Storage__ como almacenamiento predeterminado para el clúster. Para ver los archivos incluidos en el almacenamiento predeterminado del clúster, expanda la entrada y, a continuación, haga doble clic en __(Contenedor predeterminado)__.
 
-    * Si, por el contrario, no puede expandirse, quiere decir que está usando __Azure Data Lake Store__ como almacenamiento predeterminado para el clúster. Para ver los archivos incluidos en el almacenamiento predeterminado del clúster, haga doble clic en la entrada __(Cuenta de almacenamiento predeterminada)__.
+    * Si esta entrada no se puede expandir, quiere decir que está usando __Azure Data Lake Storage__ como almacenamiento predeterminado para el clúster. Para ver los archivos incluidos en el almacenamiento predeterminado del clúster, haga doble clic en la entrada __(Cuenta de almacenamiento predeterminada)__.
 
 6. Para cargar los archivos .exe, siga uno de estos métodos:
 
@@ -176,11 +176,11 @@ Para obtener más información sobre la versión de .NET framework y Mono inclui
 
         ![icono para cargar](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
     
-    * Si usa __Azure Data Lake Store__, haga clic con el botón derecho en un área vacía de la lista de archivos y, después, elija __Cargar__. Por último, elija el archivo **HiveCSharp.exe** y haga clic en **Abrir**.
+    * Si usa __Azure Data Lake Storage__, haga clic con el botón derecho en un área vacía de la lista de archivos y, después, seleccione __Cargar__. Por último, elija el archivo **HiveCSharp.exe** y haga clic en **Abrir**.
 
     Una vez que la carga del archivo __HiveCSharp.exe__ haya finalizado, repita el proceso de carga con el archivo __PigUDF.exe__.
 
-## <a name="run-a-hive-query"></a>Ejecución de una consulta de Hive
+## <a name="run-an-apache-hive-query"></a>Ejecución de una consulta de Apache Hive
 
 1. En Visual Studio, abra el **Explorador de servidores**.
 
@@ -193,7 +193,7 @@ Para obtener más información sobre la versión de .NET framework y Mono inclui
     ```hiveql
     -- Uncomment the following if you are using Azure Storage
     -- add file wasb:///HiveCSharp.exe;
-    -- Uncomment the following if you are using Azure Data Lake Store
+    -- Uncomment the following if you are using Azure Data Lake Storage
     -- add file adl:///HiveCSharp.exe;
 
     SELECT TRANSFORM (clientid, devicemake, devicemodel)
@@ -212,7 +212,7 @@ Para obtener más información sobre la versión de .NET framework y Mono inclui
 
 6. Haga clic en **Actualizar** para actualizar el resumen hasta que el valor de **Estado del trabajo** cambie a **Completado**. Para ver la salida del trabajo, haga clic en **Salida de trabajo**.
 
-## <a name="run-a-pig-job"></a>Ejecución de un trabajo de Pig
+## <a name="run-an-apache-pig-job"></a>Ejecución de un trabajo de Apache Pig
 
 1. Use uno de los métodos siguientes para conectar su clúster de HDInsight:
 
@@ -256,10 +256,10 @@ Para obtener más información sobre la versión de .NET framework y Mono inclui
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este documento, ha aprendido a utilizar una aplicación de .NET Framework desde Hive y Pig en HDInsight. Si desea obtener información sobre cómo utilizar Python con Hive y Pig, consulte [Uso de Python con Hive y Pig en HDInsight](python-udf-hdinsight.md).
+En este documento, ha aprendido a utilizar una aplicación de .NET Framework desde Hive y Pig en HDInsight. Si quiere obtener información sobre cómo usar Python con Hive y Pig, vea [Uso de Python con Apache Hive y Apache Pig en HDInsight](python-udf-hdinsight.md).
 
 Para conocer otras formas de usar Pig y Hive, y para obtener información sobre el uso de MapReduce, vea los siguientes documentos:
 
-* [Uso de Hive con HDInsight](hdinsight-use-hive.md)
-* [Uso de Pig con HDInsight](hdinsight-use-pig.md)
+* [Uso de Apache Hive con HDInsight](hdinsight-use-hive.md)
+* [Uso de Apache Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de MapReduce con HDInsight](hdinsight-use-mapreduce.md)

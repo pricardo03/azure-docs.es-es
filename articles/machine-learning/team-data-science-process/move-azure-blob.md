@@ -1,5 +1,5 @@
 ---
-title: Movimiento de datos hacia y desde Azure Blob Storage | Microsoft Docs
+title: 'Mover datos hacia y desde Azure Blob Storage: proceso de ciencia de datos en equipos'
 description: Movimiento de datos hacia y desde Azure Blob Storage
 services: machine-learning
 author: marktab
@@ -10,17 +10,20 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: fa3fd5dfdd0fbdb8200b0c5c8df512caedbe735c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a37c19ac0d3c053644b2f1f970ef9f84eac2f1df
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441849"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139864"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage"></a>Movimiento de datos hacia y desde Azure Blob Storage
 
 El proceso de ciencia de datos en equipos requiere que los datos se introduzcan o se cargue en una variedad de entornos de almacenamiento diferentes para que se procesen o analicen de la manera más adecuada en cada fase del proceso.
+
+## <a name="different-technologies-for-moving-data"></a>Distintas tecnologías para mover datos
+
 Los artículos siguientes describen cómo mover datos hacia y desde Azure Blob storage mediante diferentes tecnologías.
 
 * [Explorador de Azure Storage](move-data-to-azure-blob-using-azure-storage-explorer.md)
@@ -35,6 +38,8 @@ El método más adecuado para usted dependerá de su escenario. El artículo [Es
 > 
 > 
 
+## <a name="using-azure-data-factory"></a>Uso de Azure Data Factory
+
 Como alternativa, puede usar [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) para: 
 
 * crear y programar una canalización que descarga los datos desde Azure Blob Storage, 
@@ -45,7 +50,7 @@ Como alternativa, puede usar [Azure Data Factory](https://azure.microsoft.com/se
 Consulte [Creación de canalizaciones predictivas mediante Factoría de datos de Azure y Azure Machine Learning](../../data-factory/transform-data-using-machine-learning.md)para obtener más información.
 
 ## <a name="prerequisites"></a>Requisitos previos
-En este documento se supone que tiene una suscripción de Azure y una cuenta de almacenamiento y la clave de almacenamiento correspondiente para dicha cuenta. Antes de cargar o descargar datos, debe conocer su nombre de cuenta de almacenamiento de Azure y la clave de cuenta.
+En este artículo se presupone que tiene una suscripción de Azure, una cuenta de almacenamiento y la clave de almacenamiento correspondiente para dicha cuenta. Antes de cargar o descargar datos, debe conocer su nombre de cuenta de almacenamiento de Azure y la clave de cuenta.
 
 * Para configurar una suscripción a Azure, consulte [Prueba gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/).
 * Para obtener instrucciones sobre la creación de una cuenta de almacenamiento y para obtener información de cuentas y claves, vea [Acerca de las cuentas de almacenamiento de Azure](../../storage/common/storage-create-storage-account.md).

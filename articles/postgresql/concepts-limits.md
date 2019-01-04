@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/30/2018
-ms.openlocfilehash: f24f15134bf189097f20f75ff0b23b72a3e48363
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.date: 12/12/2018
+ms.openlocfilehash: 108d2ac83c0dc317dee2f8c66f95f01d3569a7c4
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299613"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311667"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitaciones en Azure Database for PostgreSQL
 En las secciones siguientes se describen los límites de capacidad y funcionales en el servicio de base de datos.
@@ -31,10 +31,12 @@ El número máximo de conexiones por plan de tarifa y núcleos virtuales es el s
 |Uso general| 8| 480|
 |Uso general| 16| 950|
 |Uso general| 32| 1.500|
+|Uso general| 64| 1900|
 |Memoria optimizada| 2| 300|
 |Memoria optimizada| 4| 500|
 |Memoria optimizada| 8| 960|
 |Memoria optimizada| 16| 1900|
+|Memoria optimizada| 32| 3000|
 
 Si las conexiones superan el límite, puede que reciba el error siguiente:
 > FATAL:  sorry, too many clients already
@@ -56,6 +58,9 @@ El sistema de Azure requiere cinco conexiones para supervisar el servidor de Azu
 - Al usar la característica PITR, el nuevo servidor se crea con la misma configuración de plan de tarifa que el servidor en el que se basa.
 - El servidor creado durante una restauración no tiene las reglas de firewall que existían en el servidor original. Las reglas de firewall deben configurarse por separado para este nuevo servidor.
 - La restauración a un servidor que se ha eliminado no se admite en este momento.
+
+### <a name="utf-8-characters-on-windows"></a>Caracteres UTF-8 en Windows
+- En algunos escenarios, los caracteres UTF-8 no se admiten completamente en PostgreSQL de código abierto en Windows, lo que afecta a Azure Database for PostgreSQL. Consulte el subproceso en [Bug #15476 en postgresql-archive](https://www.postgresql-archive.org/BUG-15476-Problem-on-show-trgm-with-4-byte-UTF-8-characters-td6056677.html) para más información.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Comprenda lo que [hay disponible en cada plan de tarifa](concepts-pricing-tiers.md).

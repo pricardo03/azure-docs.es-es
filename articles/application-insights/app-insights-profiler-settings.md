@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 81608dd7281ceddce7e0701535ad99e1c9e44315
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: d96b4a99b2ea66cdeff43f06c1789dd133c2c31a
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142919"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723013"
 ---
 # <a name="configure-application-insights-profiler"></a>Configuración de Application Insights Profiler
 
@@ -68,7 +67,7 @@ Una vez que se está ejecutando la prueba de carga, se puede iniciar Profiler pa
 Vaya al panel de configuración de Profiler:
 
 
-### <a name="step-3-view-traces"></a>El paso 3: Visualización de seguimientos
+### <a name="step-3-view-traces"></a>Paso 3: Visualización de seguimientos
 
 Una vez que termine de ejecutarse el generador de perfiles, siga las instrucciones de la notificación para ir a la página Rendimiento y ver los seguimientos.
 

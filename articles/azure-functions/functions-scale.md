@@ -13,16 +13,16 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfdd0c647021c453095ec4e05c042992011389b9
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: b42529df406febc617c778d18d5b420f9c38c59a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975897"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434671"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escalado y hospedaje de Azure Functions
 
-Azure Functions se ejecuta de dos modos diferentes: plan de consumo y plan de Azure App Service. El plan de consumo asigna automáticamente potencia de proceso cuando se ejecuta el código. La aplicación se escala horizontalmente cuando es necesario para administrar la carga, y se reduce verticalmente si no se está ejecutando el código. No tiene que pagar por VM inactivas ni reservar capacidad de antemano.
+Azure Functions se ejecuta en dos modos diferentes: plan de consumo y plan de Azure App Service. El plan de consumo asigna automáticamente potencia de proceso cuando se ejecuta el código. La aplicación se escala horizontalmente cuando es necesario para administrar la carga, y se reduce verticalmente si no se está ejecutando el código. No tiene que pagar por VM inactivas ni reservar capacidad de antemano.
 
 > [!NOTE]  
 > El [hospedaje de Linux](functions-create-first-azure-function-azure-cli-linux.md) solo está disponible en un plan de App Service.
@@ -68,7 +68,7 @@ Considere el plan de App Service en los casos siguientes:
 
 Una máquina virtual separa el coste del número de ejecuciones, el tiempo de ejecución y el uso de la memoria. Como resultado, no tendrá que pagar más que el coste de la instancia de máquina virtual que asigna. Para más información acerca del funcionamiento del plan de App Service, consulte [Introducción detallada sobre los planes de Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
-Con un plan de App Service, se puede escalar horizontalmente de forma manual mediante la incorporación de más instancias de máquina virtual o se puede habilitar el escalado automático. Para obtener más información, consulte [Escalación del recuento de instancias de forma manual o automática](../monitoring-and-diagnostics/monitoring-autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). También puede escalar verticalmente eligiendo un plan de App Service diferente. Vea [Escalado vertical de aplicaciones en Azure](../app-service/web-sites-scale.md) para obtener más información. 
+Con un plan de App Service, se puede escalar horizontalmente de forma manual mediante la incorporación de más instancias de máquina virtual o se puede habilitar el escalado automático. Para obtener más información, consulte [Escalación del recuento de instancias de forma manual o automática](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). También puede escalar verticalmente eligiendo un plan de App Service diferente. Vea [Escalado vertical de aplicaciones en Azure](../app-service/web-sites-scale.md) para obtener más información. 
 
 Al ejecutar funciones de JavaScript en un plan de App Service, debe elegir un plan con menos vCPU. Para obtener más información, consulte [Elección de los planes de App Service de un solo núcleo](functions-reference-node.md#considerations-for-javascript-functions).  
 

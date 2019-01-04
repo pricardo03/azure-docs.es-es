@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 61af2c13a7cf395b5a96dc7b7ba63ad4d70dcf36
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 0cac5658d5f6f32795b5988008b3b895024ecc06
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333026"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960541"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Adición de Kubernetes a Marketplace de Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 > [!note]  
 > Kubernetes en Azure Stack está en versión preliminar.
@@ -95,7 +95,7 @@ Agregue Kubernetes desde Marketplace:
 1. Seleccione el script con el perfil siguiente:
     - **Oferta**: Script personalizado para Linux 2.0
     - **Versión**: 2.0.6
-    - **Publicador**: Microsoft Corp.
+    - **Publicador**: Microsoft Corp
 
     > [!Note]  
     > Podría aparecer más de una versión del script personalizado para Linux. Debe agregar la versión que coincida. Kubernetes requiere la versión exacta del elemento.
@@ -120,7 +120,7 @@ Agregue Kubernetes desde Marketplace:
     > [!note]  
     > El elemento podría tardar cinco minutos en aparecer en Marketplace.
 
-    ![kubernetes](user\media\azure-stack-solution-template-kubernetes-deploy\marketplaceitem.png)
+    ![kubernetes](user/media/azure-stack-solution-template-kubernetes-deploy/marketplaceitem.png)
 
 ## <a name="update-or-remove-the-kubernetes"></a>Actualización o eliminación de Kubernetes 
 

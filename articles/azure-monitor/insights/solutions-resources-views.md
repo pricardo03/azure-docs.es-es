@@ -8,18 +8,17 @@ manager: jwhit
 editor: tysonn
 ms.assetid: 570b278c-2d47-4e5a-9828-7f01f31ddf8c
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 97e499612082d0d58cd75bb9f8854b8c4e0f669e
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 6e0bab08e52233d10cff3ec936d024dcbb86d2a6
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635771"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188017"
 ---
 # <a name="views-in-management-solutions-preview"></a>Vistas de soluciones de administración (versión preliminar)
 > [!NOTE]
@@ -90,15 +89,15 @@ Tenga en cuenta que podría copiar todo el recurso de vista desde el archivo de 
 * Las variables deben definirse en la solución y usarse en las propiedades adecuadas.
 
 ### <a name="log-analytics-api-version"></a>Versión de la API de Log Analytics
-Todos los recursos de Log Analytics definidos en una plantilla de Resource Manager tienen una propiedad **apiVersion** que define la versión de la API que el recurso debe usar.  Esta versión es diferente para las vistas con consultas que usan el [lenguaje de consulta heredado y actualizado](../../log-analytics/log-analytics-queries.md).  
+Todos los recursos de Log Analytics definidos en una plantilla de Resource Manager tienen una propiedad **apiVersion** que define la versión de la API que el recurso debe usar.  Esta versión es diferente para las vistas con consultas que usan el [lenguaje de consulta heredado y actualizado](../../azure-monitor/log-query/log-query-overview.md).  
 
  En la tabla siguiente se especifican las versiones de API de Log Analytics para las vistas en los espacios de trabajo heredados y actualizados: 
 
 | Versión del área de trabajo | Versión de API | Consultar |
 |:---|:---|:---|
 | v1 (heredado)   | 2015-11-01-preview | Formato heredado.<br> Ejemplo: Type=Event EventLevelName = Error  |
-| v2 (actualizado) | 2015-11-01-preview | Formato heredado.  Convertido al formato actualizado en la instalación.<br> Ejemplo: Type=Event EventLevelName = Error<br>Convertido a: Event &#124; donde EventLevelName == "Error"  |
-| v2 (actualizado) | 2017-03-03-preview | Formato de actualización. <br>Ejemplo: Event &#124; donde EventLevelName == "Error"  |
+| v2 (actualizado) | 2015-11-01-preview | Formato heredado.  Convertido al formato actualizado en la instalación.<br> Ejemplo: Type=Event EventLevelName = Error<br>Convertido a: Event &#124; where EventLevelName == "Error"  |
+| v2 (actualizado) | 2017-03-03-preview | Formato de actualización. <br>Ejemplo: Event &#124; where EventLevelName == "Error"  |
 
 
 ## <a name="add-the-view-details"></a>Agregar los detalles de la vista

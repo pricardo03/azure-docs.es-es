@@ -1,11 +1,12 @@
 ---
 title: Plataformas de datos para Data Science Virtual Machine en Azure | Microsoft Docs
-description: Plataformas de datos para Data Science Virtual Machine.
+description: Obtenga información sobre las herramientas y las plataformas de datos admitidas en Data Science Virtual Machine.
 keywords: herramientas de ciencia de datos, máquina virtual de ciencia de datos, herramientas para la ciencia de datos, ciencia de datos de linux
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,14 +16,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: b3f340006801287383c2afb2924706affbd77a51
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f73f90b76900a3a5213297f8a28ff13204852039
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31411036"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105554"
 ---
-# <a name="data-platforms"></a>Plataformas de datos
+# <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Plataformas de datos admitidas en Data Science Virtual Machine
 
 Data Science Virtual Machine (DSVM) permite crear los análisis en una amplia variedad de plataformas de datos. Además de interfaces para plataformas de datos remotos, DSVM proporciona una instancia local para el desarrollo rápido y la creación de prototipos. 
 
@@ -33,7 +34,7 @@ Las siguientes son las herramientas de la plataforma de datos compatibles con DS
 | | |
 | ------------- | ------------- |
 | ¿Qué es?   | Una instancia de base de datos relacional local      |
-| Ediciones compatibles de DSVM      | Windows      |
+| Ediciones compatibles de DSVM      |  Windows      |
 | Usos típicos      | Desarrollo rápido de forma local con un conjunto de datos más pequeño <br/> Ejecución de R en base de datos   |
 | Vínculos a ejemplos      |    Una pequeña muestra de conjunto de datos de ciudad de Nueva York se carga en la instancia de SQL Database `nyctaxi`. <br/> Ejemplo de Jupyter que muestra Microsoft R y el análisis en bases de datos se puede encontrar en:<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
 | Herramientas relacionadas en DSVM       | SQL Server Management Studio <br/> Controladores ODBC/JDBC<br/> pyodbc, RODBC<br />Apache Drill      |
@@ -100,7 +101,7 @@ Puede detener los servicios relacionados de Hadoop cuando no los necesite; para 
 ### <a name="how-is-it-configured--installed-on-the-dsvm"></a>¿Cómo se configura/instala en DSVM? 
 |Plataforma|Ubicación de instalación ($SPARK_HOME)|
 |:--------|:--------|
-|Windows | c:\dsvm\tools\spark-X.X.X-bin-hadoopX.X|
+| Windows | c:\dsvm\tools\spark-X.X.X-bin-hadoopX.X|
 |Linux   | /dsvm/tools/spark-X.X.X-bin-hadoopX.X|
 
 

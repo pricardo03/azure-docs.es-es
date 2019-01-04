@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: 9fb25f21e9ff54baf0e297fad1601018af45e476
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: aba3d9f33d179c09708464975fa2a929a8bb68d0
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497240"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876526"
 ---
 # <a name="monitor-azure-functions"></a>Monitor Azure Functions
 
@@ -158,7 +158,7 @@ Las tablas que están disponibles se muestran en la pestaña **Esquema** del pan
 * **requests**: una por cada invocación de función.
 * **exceptions**: cualquier excepción que produzca el tiempo de ejecución.
 * **customMetrics**: recuento de invocaciones correctas y erróneas, tasa de éxito y duración.
-* **customEvents**: eventos registrados por el tiempo de ejecución; por ejemplo: solicitudes HTTP que desencadenan una función.
+* **customEvents**: eventos registrados por el tiempo de ejecución, por ejemplo:  solicitudes HTTP que desencadenan una función.
 * **performanceCounters**: información acerca del rendimiento de los servidores en los que se ejecutan las funciones.
 
 El resto de tablas son para pruebas de disponibilidad, y telemetría de explorador y de cliente. Puede implementar telemetría personalizada para agregarles datos.
@@ -330,6 +330,21 @@ Como se indicó en la sección anterior, el tiempo de ejecución agrega datos ac
 ## <a name="configure-sampling"></a>Configurar el muestreo
 
 Application Insights tiene una característica de [muestreo](../application-insights/app-insights-sampling.md) que le puede ayudar a impedir que se recopilen demasiados datos de telemetría en los momentos de picos de carga. Cuando tasa de datos de telemetría supera un umbral especificado, Application Insights empieza a omitir aleatoriamente algunos de los elementos entrantes. La configuración predeterminada para el número máximo de elementos por segundo es 5. Puede configurar el muestreo en [host.json](functions-host-json.md).  Este es un ejemplo:
+
+### <a name="version-2x"></a>Versión 2.x 
+
+```json
+{
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "maxTelemetryItemsPerSecond" : 5
+      }
+    }
+  }
+}
+```
 
 ### <a name="version-1x"></a>Versión 1.x 
 

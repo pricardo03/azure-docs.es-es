@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 2aa8036149f4056f2d197f0712b86104f5cf2215
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 18398326e21ac6f3d64e43a577cf7d57cfb23438
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095052"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139527"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Uso de Azure Functions Proxies
 
@@ -82,14 +82,14 @@ Además de los parámetros de la plantilla de ruta, pueden usarse los siguientes
 
 * **{request.method}**: método HTTP que se usa en la solicitud original.
 * **{request.headers.\<nombreDeEncabezado\>}**: encabezado que puede leerse desde la solicitud original. Reemplace *\<nombreDeEncabezado\>* por el nombre del encabezado que desea leer. Si el encabezado no se incluye en la solicitud, el valor será una cadena vacía.
-* **{request.querystring.\<nombreDeParámetro\>}**: parámetro de cadena de consulta que se puede leer desde la solicitud original. Reemplace *\<nombreDeParámetro\>* por el nombre del parámetro que desea leer. Si el parámetro no se incluye en la solicitud, el valor será una cadena vacía.
+* **{request.querystring.\<nombreDeParámetro\>}**: Parámetro de cadena de consulta que puede leerse de la solicitud original. Reemplace *\<nombreDeParámetro\>* por el nombre del parámetro que desea leer. Si el parámetro no se incluye en la solicitud, el valor será una cadena vacía.
 
 ### <a name="response-parameters"></a>Referencia a parámetros de respuesta de back-end
 
 Los parámetros de respuesta pueden utilizarse como parte de la modificación de la respuesta al cliente. Se pueden usar los siguientes valores en la configuración:
 
 * **{backend.response.statusCode}**: código de estado HTTP que se devuelve en la respuesta de back-end.
-* **{backend.response.statusReason}**: la frase de motivo HTTP que se devuelve en la respuesta de back-end.
+* **{backend.response.statusReason}**: frase de motivo HTTP que se devuelve en la respuesta de back-end.
 * **{backend.response.headers.\<nombreDeEncabezado\>}**: encabezado que puede leerse desde la respuesta de back-end. Reemplace *\<nombreDeEncabezado\>* por el nombre del encabezado que desea leer. Si el encabezado no se incluye en la respuesta, el valor será una cadena vacía.
 
 ### <a name="use-appsettings"></a>Referencia a la configuración de la aplicación
@@ -139,17 +139,17 @@ El archivo *proxies.json* lo define un objeto de servidores proxy, compuesto de 
 
 Cada proxy tiene un nombre descriptivo, como *proxy1* en el ejemplo anterior. El objeto de definición de proxy correspondiente se define mediante las siguientes propiedades:
 
-* **matchCondition**: (requerida) un objeto que define las solicitudes que desencadenan la ejecución de este proxy. Contiene dos propiedades compartidas con los [desencadenadores HTTP]:
-    * _methods_: una matriz de los métodos HTTP a los que responde el servidor proxy. Si no se especifica, el proxy responde a todos los métodos HTTP de la ruta.
+* **matchCondition**: (requerida) objeto que define las solicitudes que desencadenan la ejecución de este proxy. Contiene dos propiedades compartidas con los [desencadenadores HTTP]:
+    * _methods_: matriz de los métodos HTTP a los que responde el servidor proxy. Si no se especifica, el proxy responde a todos los métodos HTTP de la ruta.
     * _route_: (requerida) define la plantilla de ruta y controla a qué direcciones URL de solicitud responde el proxy. A diferencia de los desencadenadores HTTP, no hay ningún valor predeterminado.
-* **backendUri**: la dirección URL del recurso de back-end a la que se redirigirá la solicitud mediante proxy. Este valor puede hacer referencia a la configuración de la aplicación y a parámetros de la solicitud de cliente original. Si no se incluye esta propiedad, Azure Functions responde con el mensaje HTTP 200 - Correcto.
+* **backendUri**: dirección URL del recurso de back-end a la que se redirigirá la solicitud mediante proxy. Este valor puede hacer referencia a la configuración de la aplicación y a parámetros de la solicitud de cliente original. Si no se incluye esta propiedad, Azure Functions responde con el mensaje HTTP 200 - Correcto.
 * **requestOverrides**: objeto que define transformaciones a la solicitud de back-end. Consulte [Definición de un objeto requestOverrides].
 * **responseOverrides**: objeto que define transformaciones a la respuesta del cliente. Consulte [Definición de un objeto responseOverrides].
 
 > [!NOTE] 
 > La propiedad *route* de Azure Functions Proxies no respeta la propiedad *routePrefix* de la configuración del host de Function App. Si quiere incluir un prefijo como `/api`, se debe incluir en la propiedad *route*.
 
-### <a name="disableProxies"></a>Deshabilitar servidores proxy individuales
+### <a name="disableProxies"></a> Deshabilitación de servidores proxy individuales
 
 Puede deshabilitar servidores proxy individuales añadiendo `"disabled": true` al proxy en el archivo `proxies.json`. Esto hará que las solicitudes que cumplan matchCondition devuelvan un error 404.
 ```json
@@ -167,13 +167,29 @@ Puede deshabilitar servidores proxy individuales añadiendo `"disabled": true` a
 }
 ```
 
+### <a name="applicationSettings"></a> Configuración de la aplicación
+
+El comportamiento del proxy puede controlarse mediante varias opciones de configuración de la aplicación. Opciones que se describen en [Referencia de configuración de aplicación para Azure Functions](./functions-app-settings.md).
+
+* [AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL](./functions-app-settings.md#azurefunctionproxydisablelocalcall)
+* [AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES](./functions-app-settings.md#azurefunctionproxybackendurldecodeslashes)
+
+### <a name="reservedChars"></a> Caracteres reservados (formato de cadena)
+
+Los servidores proxy leen todas las cadenas sin interpretación, a excepción de llaves y barras diagonales.
+
+|Character|Carácter de escape|Ejemplo|
+|-|-|-|
+|{ o }|{{ o }}|`{{ example }}` --> `{ example }`
+|/|///| `example.com///text.html` --> `example.com/text.html`
+
 ### <a name="requestOverrides"></a>Definición de un objeto requestOverrides
 
 El objeto requestOverrides define los cambios realizados en la solicitud cuando se llama al recurso de back-end. El objeto se define mediante las siguientes propiedades:
 
 * **backend.request.method**: método HTTP que se usa para llamar al back-end.
 * **backend.request.querystring.\<nombreDeParámetro\>**: parámetro de cadena de consulta que se puede establecer para llamar al back-end. Reemplace *\<nombreDeParámetro\>* por el nombre del parámetro que desea establecer. Si se proporciona una cadena vacía, el parámetro no se incluye en la solicitud de back-end.
-* **backend.request.headers.\<nombreDeEncabezado\>**: encabezado que se puede establecer para llamar al back end. Reemplace *\<nombreDeEncabezado\>* por el nombre del encabezado que desea establecer. Si se proporciona una cadena vacía, el encabezado no se incluye en la solicitud de back-end.
+* **backend.request.headers.\<nombreDeEncabezado\>**: encabezado que se puede establecer para llamar al back-end. Reemplace *\<nombreDeEncabezado\>* por el nombre del encabezado que desea establecer. Si se proporciona una cadena vacía, el encabezado no se incluye en la solicitud de back-end.
 
 Los valores pueden hacer referencia a la configuración de la aplicación y a los parámetros de la solicitud de cliente original.
 

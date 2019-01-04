@@ -1,28 +1,28 @@
 ---
-title: Configuración del inicio de sesión de cuentas de Azure Active Directory con una directiva integrada en Azure Active Directory B2C | Microsoft Docs
-description: Configure el inicio de sesión de cuentas de Azure Active Directory con una directiva integrada en Azure Active Directory B2C.
+title: Configuración del inicio de sesión para una organización de Azure Active Directory en Azure Active Directory B2C | Microsoft Docs
+description: Configuración del inicio de sesión para una determinada organización de Azure Active Directory en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 86e5381096633e58d7a1a28ac94728136273c685
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c48e4696d572b87a4e1553f9d4a2dc9921361388
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312789"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52719919"
 ---
-# <a name="set-up-sign-in-azure-active-directory-accounts-a-built-in-policy-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión de cuentas de Azure Active Directory con una directiva integrada en Azure Active Directory B2C
+# <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión para una determinada organización de Azure Active Directory en Azure Active Directory B2C
 
 >[!NOTE]
 > Esta característica está en versión preliminar pública. No use esta característica en entornos de producción.
 
-En este artículo se muestra cómo habilitar el inicio de sesión para los usuarios de una organización de Azure Active Directory (Azure AD) específica mediante una directiva integrada en Azure Active Directory (Azure AD) B2C.
+En este artículo se muestra cómo habilitar el inicio de sesión para los usuarios de una organización de Azure Active Directory (Azure AD) específica mediante un flujo de usuario en Azure Active Directory (Azure AD) B2C.
 
 ## <a name="create-an-azure-ad-app"></a>Creación de una aplicación de Azure AD
 

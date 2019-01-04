@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2017
+ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: e3c5a581b02f1dd7b7415ebd93de0e425ac2f8ae
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 85aab429fd59afd36cd026e6d8aef2b7e6f6e122
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358372"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140462"
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Sección de salidas en plantillas de Azure Resource Manager
 En la sección de salidas, especifique valores que se devuelven de la implementación. Por ejemplo, podría devolver el URI para acceder a un recurso implementado.
@@ -48,7 +48,9 @@ Para la CLI de Azure, utilice:
 az group deployment show -g <resource-group-name> -n <deployment-name> --query properties.outputs.resourceID.value
 ```
 
-Puede recuperar el valor de salida de una plantilla vinculada mediante la función [reference](resource-group-template-functions-resource.md#reference). Para obtener un valor de salida de una plantilla vinculada, recupere el valor de propiedad con sintaxis de esta manera: `"[reference('<name-of-deployment>').outputs.<property-name>.value]"`.
+Puede recuperar el valor de salida de una plantilla vinculada mediante la función [reference](resource-group-template-functions-resource.md#reference). Para obtener un valor de salida de una plantilla vinculada, recupere el valor de propiedad con sintaxis de esta manera: `"[reference('deploymentName').outputs.propertyName.value]"`.
+
+Al obtener una propiedad de salida a partir de una plantilla vinculada, el nombre de propiedad no puede incluir un guión.
 
 Por ejemplo, puede establecer la dirección IP en un equilibrador de carga mediante la recuperación de un valor de una plantilla vinculada.
 
@@ -58,7 +60,7 @@ Por ejemplo, puede establecer la dirección IP en un equilibrador de carga media
 }
 ```
 
-No se puede utilizar la función `reference` en la sección de salidas de una [plantilla anidada](resource-group-linked-templates.md#link-or-nest-a-template). Para devolver los valores de un recurso implementado en una plantilla anidada, convierta la plantilla anidada en una plantilla vinculada.
+No se puede usar la función `reference` en la sección de salidas de una [plantilla anidada](resource-group-linked-templates.md#link-or-nest-a-template). Para devolver los valores de un recurso implementado en una plantilla anidada, convierta la plantilla anidada en una plantilla vinculada.
 
 ## <a name="available-properties"></a>Propiedades disponibles
 
@@ -75,9 +77,9 @@ En el ejemplo siguiente se muestra la estructura de una definición de salida:
 
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--- |:--- |:--- |
-| outputName |Sí |Nombre del valor de salida. Debe ser un identificador válido de JavaScript. |
-| Tipo |Sí |Tipo del valor de salida. Los valores de salida admiten los mismos tipos que los parámetros de entrada de plantilla. |
-| value |Sí |Expresión de lenguaje de plantilla que se evaluará y devolverá como valor de salida. |
+| outputName |SÍ |Nombre del valor de salida. Debe ser un identificador válido de JavaScript. |
+| Tipo |SÍ |Tipo del valor de salida. Los valores de salida admiten los mismos tipos que los parámetros de entrada de plantilla. |
+| value |SÍ |Expresión de lenguaje de plantilla que se evaluará y devolverá como valor de salida. |
 
 ## <a name="recommendations"></a>Recomendaciones
 

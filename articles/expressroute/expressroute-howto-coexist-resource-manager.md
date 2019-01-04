@@ -1,19 +1,19 @@
 ---
-title: 'Configuración de conexiones ExpressRoute y VPN de sitio a sitio coexistentes: PowerShell: Azure | Microsoft Docs'
-description: Este artículo le guiará en la configuración de conexiones ExpressRoute y VPN de sitio a sitio que puedan coexistir en el modelo de implementación de Resource Manager con PowerShell.
+title: 'Configuración de conexiones de ExpressRoute y VPN de sitio a sitio coexistentes: PowerShell: Azure | Microsoft Docs'
+description: Configure conexiones ExpressRoute y VPN de sitio a sitio que puedan coexistir en el modelo de implementación de Resource Manager con PowerShell.
 services: expressroute
 author: charwen
-manager: rossort
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: charwen
-ms.openlocfilehash: 96e2eb85bc96075e0673359910522f8e35bf5a5c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 1aeb5ca447a3058962483b640f742e4a7ec4a414
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243818"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104040"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configuración de conexiones ExpressRoute y de sitio a sitio coexistentes con PowerShell
 > [!div class="op_single_selector"]
@@ -21,6 +21,9 @@ ms.locfileid: "51243818"
 > * [PowerShell: clásico](expressroute-howto-coexist-classic.md)
 > 
 > 
+
+
+En este artículo se le ayuda a configurar conexiones ExpressRoute y VPN de sitio a sitio que coexisten. Tener la posibilidad de configurar VPN de sitio a sitio y ExpressRoute tiene varias ventajas. Puede configurar una VPN de sitio a sitio como una ruta de acceso seguro de conmutación por error para ExpressRoute, o bien usar las VPN de sitio a sitio para conectarse a sitios que no están conectados mediante ExpressRoute. En este artículo trataremos los pasos para configurar ambos escenarios. Este artículo se aplica al modelo de implementación de Resource Manager.
 
 La configuración de las conexiones coexistentes de VPN de sitio a sitio y ExpressRoute tiene varias ventajas:
 

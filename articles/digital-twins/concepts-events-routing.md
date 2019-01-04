@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: a1a31ec7ee0d1daea9f178e51dc860279d3787ec
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: e16d27314a159b124e35560ffb8cd9685fc5c7a0
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615354"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438020"
 ---
 # <a name="routing-events-and-messages"></a>Enrutamiento de eventos y mensajes
 
@@ -23,9 +23,9 @@ A menudo, las soluciones de IoT reúnen varios servicios eficaces como almacenam
 
 Azure Digital Twins ofrece dos formas para integrar eventos de IoT en otros servicios de Azure o en aplicaciones empresariales:
 
-* **Enrutamiento de eventos de Azure Digital Twins**: al cambiar un objeto en el grafo espacial, al recibirse datos de telemetría, o cuando una función definida por el usuario crea una notificación basada en condiciones predefinidas, pueden desencadenarse eventos de Azure Digital Twins. Los usuarios pueden enviar estos eventos a [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), a [temas de Azure Service Bus](https://azure.microsoft.com/services/service-bus/) o a [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) para su posterior procesamiento.
+* **Enrutamiento de eventos de Azure Digital Twins**: al cambiar un objeto en el grafo espacial, al recibir datos de telemetría, o cuando una función definida por el usuario crea una notificación basada en condiciones predefinidas, se pueden desencadenar eventos de Azure Digital Twins. Los usuarios pueden enviar estos eventos a [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), a [temas de Azure Service Bus](https://azure.microsoft.com/services/service-bus/) o a [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) para su posterior procesamiento.
 
-* **Enrutamiento de telemetría de dispositivo**: además de los eventos de enrutamientos, Azure Digital Twins también puede enrutar los mensajes de telemetría de dispositivo sin procesar a las instancias de Event Hubs para obtener más información y análisis. Estos tipos de mensajes no los procesa Azure Digital Twins. Únicamente se envían al centro de eventos.
+* **Telemetría de dispositivo de enrutamiento**: además del enrutamiento de eventos, Azure Digital Twins también puede enrutar los mensajes de telemetría de dispositivo sin procesar a las instancias de Event Hubs para obtener más información y análisis. Estos tipos de mensajes no los procesa Azure Digital Twins. Únicamente se envían al centro de eventos.
 
 Los usuarios pueden especificar uno o varios puntos de conexión de salida para enviar eventos o para reenviar mensajes. Los eventos y mensajes se enviarán a los puntos de conexión según estas preferencias de enrutamiento predefinidas. En otras palabras, los usuarios pueden especificar un punto de conexión determinado para recibir eventos de operación de grafos, otro para recibir eventos de telemetría de dispositivo, y así sucesivamente.
 

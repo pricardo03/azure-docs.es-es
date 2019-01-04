@@ -1,75 +1,94 @@
+items:
 - name: Documentación de Bing Entity Search
   href: index.yml
 - name: Información general
   items:
-    - name: ¿Qué es Bing Entity Search?
-      href: search-the-web.md
+  - name: ¿Qué es Bing Entity Search?
+    href: search-the-web.md
 - name: Guías de inicio rápido de API REST
-  expanded: true
   items:
-    - name: 'C#'
-      href: quickstarts/csharp.md
-    - name: Java
-      href: quickstarts/java.md
-    - name: Node.js
-      href: quickstarts/nodejs.md
-    - name: PHP
-      href: quickstarts/php.md
-    - name: Python
-      href: quickstarts/python.md
-    - name: Ruby
-      href: quickstarts/ruby.md
+  - name: C#
+    href: quickstarts/csharp.md
+  - name: Java
+    href: quickstarts/java.md
+  - name: Node.js
+    href: quickstarts/nodejs.md
+  - name: PHP
+    href: quickstarts/php.md
+  - name: Python
+    href: quickstarts/python.md
+  - name: Ruby
+    href: quickstarts/ruby.md
+  expanded: true
 - name: Guías de inicio rápido de SDK
   items:
-    - name: Introducción a los ejemplos de SDK
-      href: sdk.md
-    - name: 'Guía de inicio rápido de Entity Search para C#'
-      href: entity-search-sdk-quickstart.md
-    - name: Guía de inicio rápido de Entity Search para Node.js
-      href: entity-search-sdk-node-quickstart.md
-    - name: Guía de inicio rápido de Entity Search para Python
-      href: entity-sdk-python-quickstart.md
-    - name: Guía de inicio rápido de Entity Search para Java
-      href: entity-sdk-java-quickstart.md
+  - name: Introducción a los ejemplos de SDK
+    href: sdk.md
+  - name: Guía de inicio rápido de Entity Search para C#
+    href: entity-search-sdk-quickstart.md
+  - name: Guía de inicio rápido de Entity Search para Node.js
+    href: entity-search-sdk-node-quickstart.md
+  - name: Guía de inicio rápido de Entity Search para Python
+    href: entity-sdk-python-quickstart.md
+  - name: Guía de inicio rápido de Entity Search para Java
+    href: entity-sdk-java-quickstart.md
 - name: Tutoriales
   items:
-    - name: Aplicación web de una sola página
-      href: tutorial-bing-entities-search-single-page-app.md
-    - name: Aplicación web de una sola página (código fuente)
-      href: tutorial-bing-entities-search-single-page-app-source.md
+  - name: Aplicación web de una sola página
+    href: tutorial-bing-entities-search-single-page-app.md
+  - name: Aplicación web de una sola página (código fuente)
+    href: tutorial-bing-entities-search-single-page-app-source.md
 - name: Ejemplos
   items:
-    - name: Ejemplos de código
-      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Entity+Search'
+  - name: Ejemplos de código
+    href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Entity+Search
 - name: Guías de procedimientos
   items:
-    - name: Requisitos de uso y visualización
-      href: use-display-requirements.md
-    - name: Cambio de tamaño y recorte de miniaturas
-      href: resize-and-crop-thumbnails.md
+  - name: Requisitos de uso y visualización
+    href: use-display-requirements.md
+  - name: Cambio de tamaño y recorte de miniaturas
+    href: resize-and-crop-thumbnails.md
 - name: Referencia
   items:
-    - name: Bing Entity Search API v7
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference'
+  - name: Bing Entity Search API v7
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference
+  - name: SDK
+    items:
+    - name: .NET
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingentitysearchapi?view=azure-dotnet
+    - name: Java
+      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/entitysearch?view=azure-java-stable
+    - name: Python
+      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/entitysearch?view=azure-python
+    - name: Node.js
+      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/entitysearch?view=azure-node-latest
+    - name: Go
+      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/entitysearch
 - name: Recursos
   items:
-    - name: Precios
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/bing-entity-search-api/'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/601036-bing-entity-search-api'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/search?q=bing+entity+search'
-    - name: Disponibilidad regional
-      href: 'https://azure.microsoft.com/global-infrastructure/services/'
-    - name: Azure Roadmap
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Knowledge Base
-      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
-    - name: Obtener clave de API
-      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-entities-search-api'
-    - name: ¡Pruébelo!
-      href: 'https://dev.cognitive.microsoft.com/docs/services/7a3fb374be374859a823b79fd938cc65/'
-    - name: Punto de conexión de Bing Entity Search
-      href: entity-search-endpoint.md
-    - name: Análisis para Bing Entity Search API
-      href: bing-entity-stats.md
+  - name: Precios
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/bing-entity-search-api/
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/601036-bing-entity-search-api
+  - name: Stack Overflow
+    href: https://stackoverflow.com/search?q=bing+entity+search
+  - name: Disponibilidad regional
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Knowledge Base
+    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
+  - name: Obtener clave de API
+    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-entities-search-api
+  - name: ¡Pruébelo!
+    href: https://dev.cognitive.microsoft.com/docs/services/7a3fb374be374859a823b79fd938cc65/
+  - name: Punto de conexión de Bing Entity Search
+    href: entity-search-endpoint.md
+  - name: Análisis para Bing Entity Search API
+    href: bing-entity-stats.md
+ms.openlocfilehash: a0f92f5b3ef8f0ea24393da1199422b032a57f06
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789550"

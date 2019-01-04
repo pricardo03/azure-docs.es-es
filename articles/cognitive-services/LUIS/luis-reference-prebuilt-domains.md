@@ -1,23 +1,24 @@
 ---
-title: Referencia de dominio creado previamente - Azure| Microsoft Docs
+title: Referencia de dominio creado previamente
 titleSuffix: Azure
 description: La referencia de dominios creados previamente, que son colecciones creadas previamente de intenciones y entidades de Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 287a0986d921798bc7735e5a75d279f010712b16
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 3cb85a48a881545e9b2a0df29c35218b999fdbf0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335630"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140972"
 ---
-# <a name="prebuilt-domain-reference"></a>Referencia de dominio creado previamente
+# <a name="prebuilt-domain-reference-for-your-luis-app"></a>Referencia de dominio creado previamente para la aplicación de LUIS
 Esta referencia ofrece información sobre los [dominios creados previamente](luis-how-to-use-prebuilt-domains.md), que son colecciones creadas previamente de intenciones y entidades que LUIS ofrece.
 
 Los [dominios personalizados](luis-how-to-start-new-app.md), por el contrario, se inician sin intenciones ni modelos. Puede agregar cualquier intención y entidad de dominios creados previamente a un modelo personalizado.
@@ -115,7 +116,7 @@ El dominio de comunicación ofrece intenciones y entidades relacionadas con el c
 | TurnForwardingOff| Hacer una llamada telefónica.|<br/><br/>|
 | Volver a marcar| Volver a marcar un número o rellamar a dicho número.|Volver a marcar.<br/>Volver a marcar mi última llamada.|
 | Reject| Rechazar una llamada entrante.|Rechazar llamada<br/>No puedo responder ahora<br/>No está disponible en este momento; le devolverá la llamada más tarde.|
-| SendEmail| Enviar un correo electrónico. Esta intención se aplica al correo electrónico, pero no a los mensajes de texto.|Enviar correo electrónico a Mike Waters: Mike, la cena de la semana pasada fue magnífica.<br/>Enviar un correo electrónico a Bob<br/>|
+| SendEmail| Enviar un correo electrónico. Esta intención se aplica al correo electrónico, pero no a los mensajes de texto.|Correo electrónico para Mike Waters: Mike, la cena de la semana pasada fue espléndida.<br/>Enviar un correo electrónico a Bob<br/>|
 | SendMessage| Enviar un mensaje de texto o un mensaje instantáneo.|Enviar texto a Chris y Carol|
 | SetSpeedDial| Establecer un acceso directo de marcación rápida para el número de teléfono de un contacto.|Establecer el número uno como marcación rápida para Carol.<br/>Configurar la marcación rápida para mamá.|
 | ShowNext| Ver el siguiente elemento, por ejemplo, en una lista de mensajes de texto o de correos electrónicos.|Mostrar lo siguiente.<br/>Ir a la página siguiente.|
@@ -241,11 +242,12 @@ El dominio HomeAutomation ofrece intenciones y entidades relacionadas con el con
 El dominio MovieTickets ofrece intenciones y entidades relacionadas con la reserva de entradas para el cine.
 
 ### <a name="examples"></a>Ejemplos
-```
-Book me two tickets for Captain Omar and the two Musketeers
-Cancel tickets
-When is Captain Omar showing?
-```
+
+|Ejemplos|
+|--|
+|Reservarme dos entradas para el Capitán Omar y los dos mosqueteros|
+|Cancelar vales|
+|¿A qué hora empieza el Capitán Omar?|
 
 ### <a name="intents"></a>Intenciones
 | Nombre de intención | DESCRIPCIÓN | Ejemplos |
@@ -266,11 +268,12 @@ When is Captain Omar showing?
 El dominio de música proporciona intenciones y entidades relacionadas con la reproducción de música en un reproductor.
 
 ### <a name="examples"></a>Ejemplos
-```
-play Beethoven
-Increase track volume
-Skip to the next song
-```
+
+|Ejemplos|
+|--|
+|reproducir Beethoven|
+|Subir el volumen de pista|
+|Pasar a la siguiente canción|
 
 ### <a name="intents"></a>Intenciones
 | Nombre de intención | DESCRIPCIÓN | Ejemplos |
@@ -297,11 +300,12 @@ Skip to the next song
 El dominio de notas ofrece intenciones y entidades relacionadas con la creación, edición y búsqueda de notas.
 
 ### <a name="examples"></a>Ejemplos
-```
-Add to my groceries note lettuce tomato bread coffee
-Check off bananas from my grocery list
-Remove all items from my vacation list
-```
+
+|Ejemplos|
+|--|
+|Agregar a mi lista de la compra lechuga, tomate, pan y café|
+|Seleccionar los plátanos de mi lista de la compra|
+|Quitar todos los elementos de mi lista de vacaciones|
 
 ### <a name="intents"></a>Intenciones
 | Nombre de intención | DESCRIPCIÓN | Ejemplos |
@@ -330,11 +334,13 @@ Remove all items from my vacation list
 El dominio OnDevice ofrece intenciones y entidades relacionadas con el control del dispositivo.
 
 ### <a name="examples"></a>Ejemplos
-```
-Close video player
-Cancel playback
-Can you make the screen brighter?
-```
+
+|Ejemplos|
+|--|
+|Cerrar el reproductor de vídeo|
+|Cancelar la reproducción|
+|¿Puede aumentar el brillo de la pantalla?|
+
 
 ### <a name="intents"></a>Intenciones
 | Nombre de intención | DESCRIPCIÓN | Ejemplos |
@@ -381,11 +387,13 @@ Can you make the screen brighter?
 El dominio de lugares ofrece intenciones para controlar consultas relacionadas con lugares, como empresas, instituciones, restaurantes, espacios públicos y direcciones.
 
 ### <a name="examples"></a>Ejemplos
-```
-Save this location to my favorites
-How far away is Holiday Inn?
-At what time does Safeway close?
-```
+
+|Ejemplos|
+|--|
+|Guardar esta ubicación en Mis favoritos|
+|¿A qué distancia está Holiday Inn?|
+|¿A qué hora cierra Safeway?|
+
 
 ### <a name="intents"></a>Intenciones
 | Nombre de intención | DESCRIPCIÓN | Ejemplos |
@@ -450,11 +458,13 @@ restart|
 El dominio de recordatorio ofrece intenciones y entidades relacionadas con la creación, edición y búsqueda de recordatorios.
 
 ### <a name="examples"></a>Ejemplos
-```
-Change my interview to 9 am tomorrow
-Remind me to buy milk on my way back home
-Can you check if I have a reminder about Christine's birthday?
-```
+
+|Ejemplos|
+|--|
+|Cambiar mi entrevista a las 9:00 horas de mañana|
+|Recordarme que tengo que comprar leche de camino a casa|
+|¿Puede comprobar si tengo algún recordatorio del cumpleaños de Christine?|
+
 
 ### <a name="intents"></a>Intenciones
 | Nombre de intención | DESCRIPCIÓN | Ejemplos |
@@ -473,11 +483,12 @@ Can you check if I have a reminder about Christine's birthday?
 El dominio RestaurantReservation ofrece intenciones y entidades relacionadas con la administración de reservas en restaurantes.
 
 ### <a name="examples"></a>Ejemplos
-```
-Reserve at Zucca for two for tonight
-Book a table at BJ's for tomorrow
-Table for 3 in Palo Alto at 7
-```
+
+|Ejemplos|
+|--|
+|Reservar en Zucca para dos esta noche|
+|Reservar una mesa en BJ para mañana|
+|Mesa para tres en Palo Alto para las 7:00|
 
 ### <a name="intents"></a>Intenciones
 | Nombre de intención | DESCRIPCIÓN | Ejemplos |
@@ -502,11 +513,12 @@ Table for 3 in Palo Alto at 7
 El dominio Taxi ofrece intenciones y entidades para crear y administrar las reservas de taxis.
 
 ### <a name="examples"></a>Ejemplos
-```
-Get me a cab at 3 pm
-How much longer do I have to wait for my taxi?
-Cancel my Uber
-```
+
+|Ejemplos|
+|--|
+|Llamarme a un taxi a las 3 p.m.|
+|¿Cuánto tiempo tengo que esperar el taxi?|
+|Cancelar mi Uber|
 
 ### <a name="intents"></a>Intenciones
 | Nombre de intención | DESCRIPCIÓN | Ejemplos |
@@ -531,11 +543,13 @@ Cancel my Uber
 El dominio de traducción ofrece intenciones y entidades relacionadas con la traducción de texto a un idioma de destino.
 
 ### <a name="examples"></a>Ejemplos
-```
-Translate to French
-Translate hello to German
-Translate this sentence to English
-```
+
+|Ejemplos|
+|--|
+|Traducir al francés|
+|Traducir hola en alemán|
+|Traducir esta frase en inglés|
+
 
 ### <a name="intents"></a>Intenciones
 | Nombre de intención | DESCRIPCIÓN | Ejemplos |
@@ -554,11 +568,12 @@ Translate this sentence to English
 El dominio de TV ofrece intenciones y entidades para controlar la televisión.
 
 ### <a name="examples"></a>Ejemplos
-```
-Switch channel to BBC
-Show TV guide
-Watch National Geographic
-```
+
+|Ejemplos|
+|--|
+|Cambiar canal a la BBC|
+|Mostrar guía de TV|
+|Ver National Geographic|
 
 ### <a name="intents"></a>Intenciones
 | Nombre de intención | DESCRIPCIÓN | Ejemplos |
@@ -576,11 +591,13 @@ Watch National Geographic
 El dominio de sectores públicos ofrece intenciones para tareas comunes de muchas tareas, como saludos, cancelaciones, confirmaciones, ayuda, repetición, navegación, inicio y detención.
 
 ### <a name="examples"></a>Ejemplos
-```
-Go back to Twitter
-Please help
-Repeat last question please
-```
+
+|Ejemplos|
+|--|
+|Volver a Twitter|
+|Ayuda, por favor|
+|Repetir la última pregunta|
+
 
 ### <a name="intents"></a>Intenciones
 | Nombre de intención | DESCRIPCIÓN | Ejemplos |
@@ -600,11 +617,13 @@ Repeat last question please
 El dominio de tiempo ofrece intenciones y entidades para obtener informes y previsiones meteorológicos.
 
 ### <a name="examples"></a>Ejemplos
-```
-weather in London in september
-What?s the 10 day forecast?
-What's the average temperature in India in september?
-```
+
+|Ejemplos|
+|--|
+|Tiempo en Londres en septiembre|
+|¿Cuál es la previsión para los 10 próximos días?|
+|¿Cuál es la temperatura media en la India en septiembre?|
+
 
 ### <a name="intents"></a>Intenciones
 | Nombre de intención | DESCRIPCIÓN | Ejemplos |
@@ -621,11 +640,12 @@ What's the average temperature in India in september?
 El dominio Web ofrece una intención para navegar a un sitio web.
 
 ### <a name="examples"></a>Ejemplos
-```
-Navigate to facebook.com
-Go to www.twitter.com
-Navigate to www.bing.com
-```
+
+|Ejemplos|
+|--|
+|Navegar a facebook.com|
+|Ir a www.twitter.com|
+|Vaya a www.bing.com|
 
 ### <a name="intents"></a>Intenciones
 | Nombre de intención | DESCRIPCIÓN | Ejemplos |

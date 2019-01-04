@@ -1,6 +1,6 @@
 ---
-title: Índices en Azure Search | Microsoft Docs
-description: Información acerca de conceptos del índice en Azure Search y cómo se utilizan los índices.
+title: 'Conceptos y definición del índice: Azure Search'
+description: Introducción a los conceptos del índice en Azure Search y cómo se utilizan los índices.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -8,12 +8,13 @@ services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 11/08/2017
-ms.openlocfilehash: cc2c56d4463203aa2561e820540acdfff651d80a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: e1ff28434dab4e63e10d6b14eb671260650d4ada
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793409"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317073"
 ---
 # <a name="indexes-in-azure-search"></a>Índices en Azure Search
 > [!div class="op_single_selector"]

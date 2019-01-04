@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: jroth
-ms.openlocfilehash: 0677faa90c73ffe4c0c1c48600c2f1ef2d05eb50
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 298a8597ae111550dfbd44d1e7bd9efb212f08af
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628790"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323224"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Migración de una Base de datos SQL Server a SQL Server en una máquina virtual de Azure
 
@@ -36,7 +36,7 @@ Los principales métodos de migración son:
 * Desasociar y, a continuación, copiar los archivos de datos y de registro en el almacenamiento de blobs de Azure y, seguidamente, asociarlos a SQL Server en la máquina virtual de Azure desde una dirección URL.
 * Convertir una máquina física de local a VHD de Hyper-V, cargarla en el almacenamiento de blobs de Azure y, a continuación, implementarla como una máquina virtual nueva con el VHD cargado
 * Enviar la unidad de disco duro de envío con el servicio Import/Export de Windows
-* Si tiene una implementación AlwaysOn local, utilice el [Asistente para agregar una réplica de Azure](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) para crear una réplica en Azure y, luego, ejecute una conmutación por error para dirigir a los usuarios a la instancia de base de datos de Azure.
+* Si tiene una implementación de grupos de disponibilidad AlwaysOn local, utilice el [Asistente para agregar una réplica de Azure](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) para crear una réplica en Azure y, luego, ejecute una conmutación por error para dirigir a los usuarios a la instancia de base de datos de Azure.
 * Utilice la [replicación transaccional](https://msdn.microsoft.com/library/ms151176.aspx) de SQL Server para configurar la instancia de Azure SQL Server como suscriptor y, luego, deshabilite la replicación y dirija a los usuarios a la instancia de base de datos de Azure.
 
 > [!TIP]

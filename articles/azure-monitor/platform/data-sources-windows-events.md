@@ -1,6 +1,6 @@
 ---
-title: Recopilación y análisis de registros de eventos de Windows en Azure Log Analytics (OMS) | Microsoft Docs
-description: Los registros de eventos de Windows son uno de los orígenes de datos más comunes que usa Log Analytics.  En este artículo se describe cómo configurar la recopilación de registros de eventos de Windows y los detalles de los registros que crean en el área de trabajo de Log Analytics.
+title: Recopilación y análisis de registros de eventos de Windows en Azure Monitor | Microsoft Docs
+description: Se describe cómo configurar la recopilación de registros de eventos de Windows mediante Azure Monitor y se incluyen detalles de los registros que crean.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -8,39 +8,37 @@ manager: carmonm
 editor: tysonn
 ms.assetid: ee52f564-995b-450f-a6ba-0d7b1dac3f32
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/11/2017
+ms.date: 11/28/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 036378c5ed595ffbaeefad9407fba8519945cf5c
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: a8c08eb222595b1531eef850667d3834d568b166
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336745"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435810"
 ---
-# <a name="windows-event-log-data-sources-in-log-analytics"></a>Orígenes de datos de registros de eventos de Windows en Log Analytics
+# <a name="windows-event-log-data-sources-in-azure-monitor"></a>Orígenes de datos de registros de eventos de Windows en Azure Monitor
 Muchas aplicaciones escriben en el registro de eventos de Windows, por lo que constituye uno de los [orígenes de datos](agent-data-sources.md) más comunes para recopilar información mediante agentes de Windows.  Puede recopilar eventos de registros estándar, como el sistema y la aplicación, además de especificar cualquier registro personalizado creado por las aplicaciones que debe supervisar.
 
 ![Eventos de Windows](media/data-sources-windows-events/overview.png)     
 
 ## <a name="configuring-windows-event-logs"></a>Configuración de registros de eventos de Windows
-Configure los registros de eventos de Windows en el [menú Datos en Configuración de Log Analytics](agent-data-sources.md#configuring-data-sources).
+Configure los registros de eventos de Windows en el [menú Datos en Configuración avanzada](agent-data-sources.md#configuring-data-sources).
 
-Log Analytics solo recopila eventos de los registros de eventos de Windows que se especifican en la configuración.  Para agregar un registro nuevo, escriba el nombre y haga clic en **+**.  Para cada registro, solo se recopilan los eventos con los niveles de gravedad seleccionados.  Compruebe las gravedades del registro determinado que desea recopilar.  No puede proporcionar criterios adicionales para filtrar eventos.
+Azure Monitor solo recopila eventos de los registros de eventos de Windows que se especifican en la configuración.  Para agregar un registro nuevo, escriba el nombre y haga clic en **+**.  Para cada registro, solo se recopilan los eventos con los niveles de gravedad seleccionados.  Compruebe las gravedades del registro determinado que desea recopilar.  No puede proporcionar criterios adicionales para filtrar eventos.
 
-A medida que escribe el nombre de un registro de eventos, Log Analytics da sugerencias de nombres comunes de este tipo de registros. Aun cuando el registro que desea agregar no aparezca en la lista, puede incluirlo escribiendo su nombre completo. Encontrará el nombre completo del registro en el Visor de eventos. En el Visor de eventos, abra la página *Propiedades* del registro y copie la cadena del campo *Nombre completo*.
+A medida que escribe el nombre de un registro de eventos, Azure Monitor da sugerencias de nombres comunes de este tipo de registros. Aun cuando el registro que desea agregar no aparezca en la lista, puede incluirlo escribiendo su nombre completo. Encontrará el nombre completo del registro en el Visor de eventos. En el Visor de eventos, abra la página *Propiedades* del registro y copie la cadena del campo *Nombre completo*.
 
 ![Configurar eventos de Windows](media/data-sources-windows-events/configure.png)
 
 ## <a name="data-collection"></a>Colección de datos
-Log Analytics recopila cada evento que coincide con una gravedad seleccionada de un registro de eventos supervisado al crear el evento.  El agente registra su lugar en cada registro de eventos del que recopila entradas.  Si el agente queda sin conexión durante un período, Log Analytics recopila los eventos desde donde quedó, aunque esos eventos se hayan creado mientras el agente estaba sin conexión.  Sin embargo, existe la posibilidad de que estos eventos no se recopilen si el registro de eventos hace que los eventos no recopilados se sobrescriban mientras el agente está sin conexión.
+Azure Monitor recopila cada evento que coincide con una gravedad seleccionada de un registro de eventos supervisado al crear el evento.  El agente registra su lugar en cada registro de eventos del que recopila entradas.  Si el agente queda sin conexión durante un período, recopila los eventos desde donde quedó, aunque esos eventos se hayan creado mientras el agente estaba sin conexión.  Sin embargo, existe la posibilidad de que estos eventos no se recopilen si el registro de eventos hace que los eventos no recopilados se sobrescriban mientras el agente está sin conexión.
 
 >[!NOTE]
->Log Analytics no recopila eventos de auditoría creados por SQL Server del origen *MSSQLSERVER* con el identificador de evento 18453 que contenga las palabras clave  *Classic* o *Audit Success* y la palabra clave *0xa0000000000000*.
+>Azure Monitor no recopila eventos de auditoría creados por SQL Server del origen *MSSQLSERVER* con un identificador de evento 18453 que contenga las palabras clave  *Classic* o *Audit Success* y la palabra clave *0xa0000000000000*.
 >
 
 ## <a name="windows-event-records-properties"></a>Propiedades de los registros de eventos de Windows
@@ -63,8 +61,8 @@ Los registros de eventos de Windows tienen un tipo **Event** y las propiedades q
 | TimeGenerated |La fecha y la hora de creación del evento en Windows. |
 | UserName |El nombre de usuario de la cuenta que registró el evento. |
 
-## <a name="log-searches-with-windows-events"></a>Búsquedas de registros con eventos de Windows
-La tabla siguiente proporciona distintos ejemplos de búsquedas de registros que recuperar registros de eventos de Windows.
+## <a name="log-queries-with-windows-events"></a>Consultas de registros con eventos de Windows
+La tabla siguiente proporciona distintos ejemplos de consultas de registros que recuperan registros de eventos de Windows.
 
 | Consultar | DESCRIPCIÓN |
 |:---|:---|
@@ -75,7 +73,6 @@ La tabla siguiente proporciona distintos ejemplos de búsquedas de registros que
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Configure Log Analytics para recopilar otros [orígenes de datos](agent-data-sources.md) para su análisis.
-* Obtenga información acerca de las [búsquedas de registros](../../log-analytics/log-analytics-queries.md) para analizar los datos recopilados de soluciones y orígenes de datos.  
-* Use [Campos personalizados](../../log-analytics/log-analytics-custom-fields.md) para redistribuir los registros de eventos en campos individuales.
+* Configure Azure Monitor para recopilar otros [orígenes de datos](agent-data-sources.md) para su análisis.
+* Obtenga información acerca de las [consultas de registros](../../log-analytics/log-analytics-queries.md) para analizar los datos recopilados de soluciones y orígenes de datos.  
 * Configure la [recopilación de contadores de rendimiento](data-sources-performance-counters.md) desde los agentes de Windows.

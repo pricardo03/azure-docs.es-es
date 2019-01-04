@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: juliako
-ms.openlocfilehash: 7ff48962d01a83e8c9fce380d92fbc196ff96533
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 2dbc2b4e316155e880d3baa900196d5cdd31be72
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585488"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011783"
 ---
 # <a name="liveevent-types-comparison"></a>Comparación de tipos de objetos LiveEvent
 
@@ -42,6 +42,7 @@ En la tabla siguiente se comparan las características de dos tipos de objetos L
 | Profundidad de bits, entrada y salida de vídeo compatibles|Hasta 10 bits incluido HDR 10/HLG|8 bits|
 | Códecs de audio de entrada compatibles|AAC-LC, HE-AAC v1, HE-AAC v2|AAC-LC, HE-AAC v1, HE-AAC v2|
 | Códecs de audio de salida compatibles|Igual que la entrada|AAC-LC|
+| Resolución máxima de vídeo para el vídeo de salida|Igual que la entrada|720p (a 30 fotogramas/segundo)|
 | Protocolos de entrada|RTMP, MP4 fragmentado (Smooth Streaming)|RTMP, MP4 fragmentado (Smooth Streaming)|
 | Precio|Consulte la [página de precios](https://azure.microsoft.com/pricing/details/media-services/) y haga clic en la pestaña "Vídeo en vivo"|Consulte la [página de precios](https://azure.microsoft.com/pricing/details/media-services/) y haga clic en la pestaña "Vídeo en vivo"|
 | Tiempo de ejecución máximo|24 x 365 lineales en vivo|24x7|

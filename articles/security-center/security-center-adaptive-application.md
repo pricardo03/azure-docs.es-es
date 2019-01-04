@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: ddf9c5e30a27a829a74ccf0985dce30a68f9bbb7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b4023d45c3628df5006d076e01f32bb8f3aa80a6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256658"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846256"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Controles de aplicación adaptables en Azure Security Center
 Obtenga información acerca de cómo configurar el control de aplicación en Azure Security Center con este tutorial.
@@ -118,7 +118,8 @@ Después de seleccionar Crear, Azure Security Center crea automáticamente las r
   - **Forzar**: en este modo, la solución de control de aplicación exige el cumplimiento de las reglas y se asegura de bloquear las aplicaciones cuya ejecución no está permitida.
 
    > [!NOTE]
-   > Como se mencionó anteriormente, una nueva directiva de control de aplicación siempre se configura en modo *Auditoría* de forma predeterminada. 
+   > -  El modo de aplicación **Forzar** está deshabilitado hasta nuevo aviso.
+   > - Como se mencionó anteriormente, una nueva directiva de control de aplicación siempre se configura en modo *Auditoría* de forma predeterminada. 
    >
 
 4. En **Extensión de directiva**, puede agregar cualquier ruta de acceso de aplicación que quiera permitir. Después de agregar estas rutas de acceso, Security Center actualiza la directiva de inclusión en la lista de aplicaciones permitidas en las máquinas virtuales dentro del grupo seleccionado de máquinas virtuales y crea las reglas adecuadas para estas aplicaciones, además de las reglas que ya están en vigor.
@@ -130,7 +131,7 @@ Después de seleccionar Crear, Azure Security Center crea automáticamente las r
 6. En **Reglas de inclusión en lista aprobada de publicadores**, **Reglas de inclusión en listas de rutas de acceso permitidas** y **Reglas hash relativas a las listas de permitidos** puede ver qué reglas de la lista de aplicaciones permitidas están actualmente configuradas en las máquinas virtuales dentro de un grupo, según el tipo de regla de recopilación. Para cada regla se puede ver lo siguiente:
 
   - **Regla**: los parámetros específicos según los cuales AppLocker examina una aplicación para determinar si una aplicación puede ejecutarse.
-  - **Tipo de archivo**: tipos de archivo cubiertos por una regla específica. Esto puede ser cualquiera de las acciones siguientes: EXE, Script, MSI o cualquier permutación de estos tipos de archivo.
+  - **Tipo de archivo**: los tipos de archivo cubiertos por una regla específica. Puede ser uno de los siguientes: EXE, Script, MSI o cualquier permutación de estos tipos.
   - **Usuarios**: nombre o número de usuarios que tienen permiso para ejecutar una aplicación que está cubierta por una regla de inclusión en listas de aplicaciones permitidas.
 
    ![Reglas de inclusión en listas de permitidos](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)

@@ -1,5 +1,5 @@
 ---
-title: Escalado vertical de aplicaciones en Azure | Microsoft Docs
+title: 'Escalado vertical de características y capacidades: Azure App Service | Microsoft Docs'
 description: Aprenda a escalar verticalmente una aplicación de Azure App Service para agregar capacidad y características.
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: 79450cdd0928304c3b98cf13f8aaca7a1bf11d33
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.custom: seodec18
+ms.openlocfilehash: 2fb1f5ad0c3b46623550cbcc1204761b57f6093b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43381942"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251066"
 ---
 # <a name="scale-up-an-app-in-azure"></a>Escalado vertical de aplicaciones en Azure
 
@@ -107,7 +108,7 @@ Para ver una tabla de límites de servicio, presupuestos y restricciones, así c
 
 <!-- LINKS -->
 [vmsizes]:https://azure.microsoft.com/pricing/details/app-service/
-[SQLaccountsbilling]:http://go.microsoft.com/fwlink/?LinkId=234930
+[SQLaccountsbilling]:https://go.microsoft.com/fwlink/?LinkId=234930
 [azuresubscriptions]:https://account.windowsazure.com/subscriptions
 [portal]: https://portal.azure.com/
 

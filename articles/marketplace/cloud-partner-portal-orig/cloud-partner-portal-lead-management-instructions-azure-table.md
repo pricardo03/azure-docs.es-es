@@ -12,17 +12,16 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 60e3e3d81b07bf7ae681b5cef2d6d9681877a35f
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: c4537709181398e401ade67b831bc2d26a99221f
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809028"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193593"
 ---
-<a name="lead-management-instructions-for-azure-table"></a>Instrucciones de administración de clientes potenciales con Azure Table
-============================================
+# <a name="lead-management-instructions-for-azure-table"></a>Instrucciones de administración de clientes potenciales con Azure Table
 
 En este artículo se describe cómo configurar Azure Table para almacenar clientes potenciales de ventas. Azure Table le permite almacenar y personalizar la información del cliente.
 
@@ -42,140 +41,111 @@ En este artículo se describe cómo configurar Azure Table para almacenar client
 Puede usar el [Explorador de Azure Storage](http://azurestorageexplorer.codeplex.com/) o cualquier otra herramienta para ver los datos en la tabla de almacenamiento. También puede exportar los datos en Azure Table.
 datos.
 
-## <a name="optional-to-use-azure-functions-with-an-azure-table"></a>**(Opcional)**  Para usar Azure Functions con una tabla de Azure
+## <a name="optional-use-microsoft-flow-with-an-azure-table"></a>**(Opcional)**  Uso de Microsoft Flow con una tabla de Azure
 
-Si desea personalizar cómo se están recibiendo los clientes potenciales, use [Azure Functions](https://azure.microsoft.com/services/functions/) con una tabla de Azure. El servicio Azure Functions le permite automatizar el proceso de generación de clientes potenciales.
+Puede usar [Microsoft Flow](https://docs.microsoft.com/flow/) para automatizar las notificaciones cada vez que un cliente potencial se agregue a la tabla de Azure. Si aún no tiene una cuenta, puede [registrarse para obtener una gratuita](https://flow.microsoft.com/).
 
-Los pasos siguientes le muestran cómo crear una función de Azure que usa un temporizador. Cada cinco minutos, la función busca en la tabla de Azure nuevos registros y, a continuación, usa el servicio SendGrid para enviar una notificación por correo electrónico.
+### <a name="lead-notification-example"></a>Ejemplo de notificación de cliente potencial
 
+Utilice este ejemplo como guía para crear un flujo simple que envíe automáticamente una notificación por correo electrónico cuando se agregue un nuevo cliente potencial a una tabla de Azure. En este ejemplo se configura una periodicidad para enviar información de clientes potenciales cada hora si se actualiza el almacenamiento en las tablas.
 
-1.  [Cree](https://portal.azure.com/#create/SendGrid.SendGrid) una cuenta de servicio de SendGrid gratuita en la suscripción de Azure.
+1. Inicie sesión en la cuenta de Microsoft Flow.
+2. En la barra de navegación de la izquierda, seleccione **My flows** (Mis flujos).
+3. En la barra de navegación de la izquierda, seleccione **+ New** (+ Nuevo).  
+4. En la lista desplegable, seleccione **+ Crear desde cero**.
+5. En Crear un flujo a partir de un documento en blanco, seleccione **Crear desde cero**.
 
-    ![Creación de SendGrid](./media/cloud-partner-portal-lead-management-instructions-azure-table/createsendgrid.png)
+   ![Creación de un flujo a partir de un documento en blanco](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-create-from-blank.png)
 
-2.  Creación de una clave de API de SendGrid 
-    - Seleccione **Administrar** para ir a la interfaz de usuario de SendGrid
-    - Seleccione **Configuración**, **Claves de API** y, a continuación, cree una clave que tenga Enviar correo -\> Acceso completo
-    - Guarde la clave de API.
+6. En la página de búsqueda de los conectores y desencadenadores, escriba **Desencadenadores**.
+7. En **Desencadenadores**, seleccione **Periodicidad**.
+8. En la ventana **Periodicidad**, mantenga el valor predeterminado de 1 para **Intervalo**. Desde la lista desplegable **Frecuencia**, seleccione **Hora**.
 
+   >[!NOTE] 
+   >Aunque en este ejemplo se usa un intervalo de 1 hora, puede seleccionar el intervalo y la frecuencia más apropiada para sus necesidades empresariales.
 
-    ![Clave de API de SendGrid](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridkey.png)
+   ![Establecimiento de la frecuencia de 1 hora para la periodicidad](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-recurrence-dropdown.png)
 
+9. Seleccione **+ New step**(+ Nuevo paso).
+10. Busque "Obtener la hora pasada" y, a continuación, seleccione **Obtener la hora pasada** en Acciones. 
 
-3.  [Cree](https://portal.azure.com/#create/Microsoft.FunctionApp) una aplicación de Azure Functions mediante la utilización de la opción de Plan de hospedaje denominada "Plan de consumo".
+    ![Búsqueda y selección de la acción de obtener la hora pasada](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-search-getpasttime.png)
 
-    ![Creación de Azure Function App](./media/cloud-partner-portal-lead-management-instructions-azure-table/createfunction.png)
+11. En la ventana **Obtener la hora pasada**, establezca el **Intervalo** en 1.  Desde la lista desplegable **Unidad de tiempo**, seleccione **Hora**.
+    >[!IMPORTANT] 
+    >Asegúrese de que este intervalo y unidad de tiempo coinciden con el intervalo y la frecuencia que se ha configurado para la periodicidad.
 
+    ![Establecimiento del valor para obtener el intervalo de tiempo pasado](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getpast-time.png)
 
-4.  Cree una nueva definición de función.
+    >[!TIP] 
+    >Puede comprobar el flujo en cualquier momento para comprobar que cada paso está configurado correctamente. Para comprobar el flujo, seleccione **Comprobador de flujo** en la barra de menús Flujo.
 
-    ![Creación de definición de función de Azure](./media/cloud-partner-portal-lead-management-instructions-azure-table/createdefinition.png)
- 
+En el siguiente conjunto de pasos, se conectará a la tabla de Azure y configurará la lógica de procesamiento para controlar nuevos clientes potenciales.
 
-5.  Si desea que la función envíe una actualización en un momento dado, seleccione **TimerTrigger-CSharp** como la opción de inicio.
+1. Después del paso para obtener la hora pasada, seleccione **+ Nuevo paso** y, a continuación, busque "Obtener entidades".
+2. En **Acciones**, seleccione **Obtener entidades** y, a continuación, seleccione **Mostrar opciones avanzadas**.
+3. En la ventana **Obtener entidades**, proporcione información para los campos siguientes:
 
-     ![Opción de desencadenador de hora de función de Azure](./media/cloud-partner-portal-lead-management-instructions-azure-table/timetrigger.png)
+   - **Tabla**: escriba el nombre de Azure Table Storage. La captura de pantalla siguiente muestra el símbolo del sistema cuando se escribe "MarketPlaceLeads" en este ejemplo. 
 
+     ![Elija un valor personalizado para el nombre de la tabla de Azure](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-table-name.png)
 
-6.  Sustituya el código "Develop", por el siguiente ejemplo de código. Edite las direcciones de correo electrónico con las direcciones que desee usar para el remitente y el receptor.
+   - **Consulta de filtro**: haga clic en este campo y el icono de Obtener la hora pasada se mostrará en una ventana emergente. Seleccione **Hora pasada** para usarla como marca de tiempo para filtrar la consulta. Como alternativa, puede pegar esta función en el campo: `gt datetime'@{body('Get_past_time')}'`
 
-        #r "Microsoft.WindowsAzure.Storage"
-        #r "SendGrid"
-        using Microsoft.WindowsAzure.Storage.Table;
-        using System;
-        using SendGrid;
-        using SendGrid.Helpers.Mail;
-        public class MyRow : TableEntity
-        {
-            public string Name { get; set; }
-        }
-        public static void Run(TimerInfo myTimer, IQueryable<MyRow> inputTable, out Mail message, TraceWriter log)
-        {
-            // UTC datetime that is 5.5 minutes ago while the cron timer schedule is every 5 minutes
-            DateTime dateFrom = DateTime.UtcNow.AddSeconds(-(5 * 60 + 30));
-            var emailFrom = "YOUR EMAIL";
-            var emailTo = "YOUR EMAIL";
-            var emailSubject = "Azure Table Notification";
-            // Look in the table for rows that were added recently
-            var rowsList = inputTable.Where(r => r.Timestamp > dateFrom).ToList();
-            // Check how many rows were added
-            int rowsCount = rowsList.Count;
-            if (rowsCount > 0)
-            {
-                log.Info($"Found {rowsCount} rows added since {dateFrom} UTC");
-                // Configure the email message describing how many rows were added
-                message = new Mail
-                {
-                    From = new Email(emailFrom),
-                    Subject = emailSubject + " (" + rowsCount + " new rows)"
-                };
-                var personalization = new Personalization();
-                personalization.AddTo(new Email(emailTo));
-                message.AddPersonalization(personalization);
-                var content = new Content
-                {
-                    Type = "text/plain",
-                    Value = "Found " + rowsCount + " new rows added since " + dateFrom.ToString("yyyy-MM-dd HH:mm:ss") + " UTC"
-                };
-                message.AddContent(content);
-            }
-            else
-            {
-                // Do not send the email if no new rows were found
-                message = null;
-            }
-        }
+     ![Configuración de la función de consulta de filtro](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
 
-    ![Fragmento de código de función de Azure](./media/cloud-partner-portal-lead-management-instructions-azure-table/code.png)
+4. Seleccione **Nuevo paso** para agregar una condición para examinar la tabla de Azure y comprobar si hay nuevos clientes potenciales.
 
+   ![Uso del paso Nuevo para agregar una condición para examinar la tabla de Azure](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-add-filterquery-new-step.png)
 
-7.  Haga clic en **Integrar** y **Entradas** para definir la conexión a Azure Table.
+5. En la ventana **Elegir una acción**, seleccione **Acciones** y, a continuación, seleccione el control **Condición**.
 
-    ![Integración de función de Azure](./media/cloud-partner-portal-lead-management-instructions-azure-table/integrate.png)
+     ![Adición de un control a la condición](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-action-condition-control.png)
 
+6. En la ventana **Condición**, seleccione el campo **Elegir un valor** y, a continuación, seleccione **Expresión** en la ventana emergente.
+7. Pegue `length(body('Get_entities')?['value'])` en el campo ***fx***. Seleccione **Aceptar** para agregar esta función. Para finalizar la configuración de la condición:
 
-8.  Escriba el nombre de la tabla y defina la cadena de conexión; para ello, seleccione **Nuevo**.
+   - Seleccione "es mayor que" en la lista desplegable.
+   - Escriba 0 como valor. 
 
+     ![Adición de una función a la condición](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-condition-fx0.png)
 
-    ![Conexión de tabla de función de Azure](./media/cloud-partner-portal-lead-management-instructions-azure-table/configtable.png)
+8. Configure la acción que se realizará basándose en el resultado de la condición.
 
-9.  Ahora defina la salida como SendGrid y mantenga todos los valores predeterminados.
+     ![Configuración de las acciones según los resultados de la condición](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-condition-pick-action.png)
 
-    ![Salida de SendGrid](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridoutput.png)
+9. Si la condición se resuelve como **En caso negativo**, no haga nada. 
+10. Si la condición se resuelve como **En caso positivo**, desencadene una acción que se conecte a su cuenta de Office 365 para enviar un correo electrónico. Seleccione **Add an action**(Agregar una acción).
+11. Seleccione **Enviar un correo electrónico**. 
+12. En la ventana **Enviar un correo electrónico**, proporcione información para los campos siguientes:
 
-    ![Valores predeterminados de salida de SendGrid](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridoutputdefaults.png)
+    - **Para**: escriba una dirección de correo electrónico para todos los usuarios que reciban esta notificación.
+    - **Asunto**: proporcione un asunto para el correo electrónico. Por ejemplo:  Nuevos clientes potenciales.
+    - **Cuerpo**:   Agregue el texto que desee incluir en cada correo electrónico (opcional) y, a continuación, pegue en el cuerpo `('Get_entities')?['value']` como una función para insertar información de los clientes potenciales.
 
-10. Agregue la clave de API de SendGrid a la configuración de Function App con el nombre "SendGridApiKey" y el valor obtenido de las claves de API en la interfaz de usuario de SendGrid.
+      >[!NOTE] 
+      >Puede insertar puntos de datos estáticos o dinámicos adicionales en el cuerpo de este correo electrónico.
 
-    ![Administración de SendGrid](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridmanage.png)
-    ![Clave de administración de SendGrid](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridmanagekey.png)
+       ![Configuración del correo electrónico de notificación de clientes potenciales](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-emailbody-fx.png)
 
-Una vez haya terminado de configurar la función, el código de la sección "Integrar" debe ser similar al del ejemplo siguiente.
+13. Seleccione **Guardar** para guardar el flujo. Microsoft Flow probará automáticamente el flujo de errores. Si no hay errores, el flujo comienza a ejecutarse después de guardarlo.
 
-    {
-      "bindings": [
-        {
-          "name": "myTimer",
-          "type": "timerTrigger",
-          "direction": "in",
-          "schedule": "0 */5 * * * *"
-        },
-        {
-          "type": "table",
-          "name": "inputTable",
-          "tableName": "MarketplaceLeads",
-          "take": 50,
-          "connection": "yourstorageaccount_STORAGE",
-          "direction": "in"
-        },
-        {
-          "type": "sendGrid",
-          "name": "message",
-          "apiKey": "SendGridApiKey",
-          "direction": "out"
-        }
-      ],
-      "disabled": false
-    }
+La captura de pantalla siguiente muestra un ejemplo de cómo debe ser el último flujo.
 
-11. El último paso es ir a la interfaz de usuario de desarrollo de la función y, después, seleccionar **Ejecutar** para iniciar el temporizador. A partir de ahora recibirá una notificación cada vez que entre un nuevo cliente potencial.
+ ![Secuencia del flujo final](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end.png)
+
+### <a name="managing-your-flow"></a>Administración del flujo
+
+Es fácil administrar el flujo una vez se está ejecutando.  Tiene control completo sobre el flujo. Por ejemplo, puede detenerlo, editarlo, ver un historial de ejecución y obtener el análisis. La captura de pantalla siguiente muestra las opciones disponibles para administrar un flujo. 
+
+ ![Administración de un flujo](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-manage-completed.png)
+
+El flujo seguirá ejecutándose hasta que lo detenga mediante la opción **Desactivar el flujo**.
+
+Si no recibe notificaciones de correo electrónico de clientes potenciales, significa que no se han agregado nuevos clientes potenciales a la tabla de Azure. Si se produce un error de flujo, recibirá un correo electrónico similar al del ejemplo de la siguiente captura de pantalla.
+
+ ![Notificación por correo electrónico de los errores del flujo](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-failure-note.png)
+
+## <a name="next-steps"></a>Pasos siguientes
+
+[Configuración de clientes potenciales](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads)

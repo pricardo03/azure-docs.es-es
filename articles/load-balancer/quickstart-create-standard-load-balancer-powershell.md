@@ -1,5 +1,6 @@
 ---
-title: 'Inicio rápido: Creación de una instancia de Standard Load Balancer en Azure PowerShell | Microsoft Docs'
+title: 'Guía de inicio rápido: Creación de una instancia de Standard Load Balancer: Azure PowerShell'
+titlesuffix: Azure Load Balancer
 description: En este inicio rápido se muestra cómo crear una instancia de Standard Load Balancer con PowerShell
 services: load-balancer
 documentationcenter: na
@@ -13,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/22/2018
 ms.author: kumud
-ms:custom: mvc
-ms.openlocfilehash: e4e66d18f9dcb7f020cdb881226f6e47118e5186
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms:custom: seodec18
+ms.openlocfilehash: 0db575ee6c04c0fb4639ea2e9e095200da781fe8
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578559"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256322"
 ---
-# <a name="get-started"></a>Inicio rápido: Creación de una instancia de Standard Load Balancer con Azure PowerShell
+# <a name="get-started"></a>Guía de inicio rápido: Creación de una instancia de Standard Load Balancer mediante Azure PowerShell
 En este inicio rápido se muestra cómo crear una instancia de Standard Load Balancer con Azure PowerShell. Para probar el equilibrador de carga, implemente dos máquinas virtuales que ejecuten Windows Server y equilibre la carga de una aplicación web entre ellas. Para más información sobre Standard Load Balancer, consulte [Introducción a Standard Load Balancer](load-balancer-standard-overview.md).
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]

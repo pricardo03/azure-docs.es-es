@@ -9,21 +9,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 08ffc3a9eb4942cb21c0a800d493b87b016d7f87
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 100c9266718d618b8b00a3169c3d88ac7d501791
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016196"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409928"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Uso de firmas de acceso compartido de Azure Storage para restringir el acceso a datos en HDInsight
 
 HDInsight tiene acceso total a los datos de las cuentas de Azure Storage asociadas con el clúster. Puede usar firmas de acceso compartido en el contenedor de blobs para restringir el acceso a los datos. Las firmas de acceso compartido (SAS) son una característica de las cuentas de Almacenamiento de Azure que permite limitar el acceso a los datos. Por ejemplo, al proporcionar acceso de solo lectura a los datos.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Para una solución con Apache Ranger, considere la posibilidad de usar HDInsight unido a un dominio. Para más información, consulte el documento [Configuración de clústeres de HDInsight unidos a un dominio](./domain-joined/apache-domain-joined-configure.md).
 
-> [!WARNING]
+> [!WARNING]  
 > HDInsight debe tener acceso total al almacenamiento predeterminado para el clúster.
 
 ## <a name="requirements"></a>Requisitos
@@ -34,9 +34,9 @@ HDInsight tiene acceso total a los datos de las cuentas de Azure Storage asociad
   * Se debe usar la versión de Visual Studio 2013, 2015 o 2017
   * Se debe usar la versión de Python 2.7 o superior.
 
-* Un clúster de HDInsight basado en Linux o [Azure PowerShell][powershell]: si ya tiene un clúster basado en Linux, puede usar Ambari para agregar una firma de acceso compartido al clúster. Si no es así, puede usar Azure PowerShell para crear un clúster y agregar una firma de acceso compartido durante la creación del clúster.
+* Un clúster de HDInsight basado en Linux o [Azure PowerShell][powershell]: si ya tiene un clúster basado en Linux, puede usar Apache Ambari para agregar una firma de acceso compartido al clúster. Si no es así, puede usar Azure PowerShell para crear un clúster y agregar una firma de acceso compartido durante la creación del clúster.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Los archivos de ejemplo de [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Este repositorio contiene los siguientes elementos:
@@ -51,7 +51,7 @@ Hay dos formas de firmas de acceso compartido:
 
 * Ad hoc: la hora de inicio, la hora de expiración y los permisos para la firma de acceso compartido se especifican en el URI de esta.
 
-* Directiva de acceso almacenada: se define una directiva de acceso almacenada en un contenedor de recursos, como un contenedor de blobs. Una directiva puede usarse para administrar las restricciones de una o varias firmas de acceso compartido. Cuando asocia una SAS a una directiva de acceso almacenada, la SAS hereda las restricciones (hora de inicio, hora de expiración y permisos) definidas para la directiva de acceso almacenada.
+* Directiva de acceso compartido: se define una directiva de acceso almacenada en un contenedor de recursos, como un contenedor de blobs. Una directiva puede usarse para administrar las restricciones de una o varias firmas de acceso compartido. Cuando asocia una SAS a una directiva de acceso almacenada, la SAS hereda las restricciones (hora de inicio, hora de expiración y permisos) definidas para la directiva de acceso almacenada.
 
 La diferencia entre las dos formas es importante para un escenario principal: revocación. Una SAS es una dirección URL, por lo que cualquier persona que obtenga la SAS puede usarla, independientemente de quién la solicitó para comenzar. Si una SAS se encuentra disponible públicamente, cualquier persona del mundo puede usarla. Una SAS distribuida es válida hasta que se produzca una de las cuatro situaciones:
 
@@ -66,7 +66,7 @@ La diferencia entre las dos formas es importante para un escenario principal: re
 
 4. Se vuelve a generar la clave de cuenta que se usó para crear la SAS. Regenerar la clave hace que todas las aplicaciones que usan la clave anterior no se puedan autenticar. Actualice todos los componentes con la nueva clave.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Los URI de firma de acceso compartido están asociados a la clave de la cuenta que se utiliza para crear la firma y a la directiva de acceso almacenada correspondiente (en su caso). Si no se especifica una directiva de acceso almacenada, la única forma de revocar una firma de acceso compartido es cambiar la clave de la cuenta.
 
 Se recomienda usar siempre las directivas de acceso almacenadas. Al utilizar las directivas almacenadas, puede revocar las firmas o ampliar la fecha de expiración según sea necesario. Los pasos descritos en este documento utilizan directivas de acceso almacenadas para generar las SAS.
@@ -101,11 +101,11 @@ Para más información sobre firmas de acceso compartido, consulte [Firmas de ac
 
    * policy\_name: el nombre que se usará para la directiva almacenada que se va a crear.
 
-   * storage\_account\_name: el nombre de su cuenta de almacenamiento.
+   * storage\_account\_name: nombre de la cuenta de almacenamiento.
 
-   * storage\_account\_key: la clave de su cuenta de almacenamiento.
+   * storage\_account\_key: La clave de la cuenta de almacenamiento.
 
-   * storage\_container\_name: el contenedor de la cuenta de almacenamiento al que desea restringir el acceso.
+   * storage\_container\_name: el contenedor de la cuenta de almacenamiento a la que desea restringir el acceso.
 
    * example\_file\_path: la ruta de acceso a un archivo que se carga en el contenedor.
 
@@ -177,7 +177,7 @@ Se incluye un ejemplo de creación de un clúster de HDInsight que usa la SAS en
 
     Si está creando un clúster basado en Linux, se le solicitará un nombre de cuenta de usuario SSH y una contraseña. Esta cuenta se usa para el inicio de sesión remoto al clúster.
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > Cuando se le pida el nombre de usuario SSH o HTTP/s y la contraseña, debe proporcionar una contraseña que cumpla los criterios siguientes:
    >
    > * Debe tener como mínimo 10 caracteres.
@@ -200,7 +200,7 @@ Si tiene un clúster existente basado en Linux, puede agregar las SAS para la co
 4. Expanda la sección **Custom core-site** (Sitio principal personalizado), desplácese hasta el final y seleccione el vínculo **Add property...** (Agregar propiedad...). Utilice los siguientes valores para los campos **Key** (Clave) y **Value** (Valor):
 
    * **Key**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
-   * **Value**: la SAS devuelta por la aplicación de C# o Python ejecutada anteriormente.
+   * **Valor**: la SAS devuelta por la aplicación de C# o Python ejecutada anteriormente.
 
      Reemplace **CONTAINERNAME** por el nombre del contenedor utilizado con la aplicación de C# o de SAS. Reemplace **STORAGEACCOUNTNAME** por el nombre de la cuenta de almacenamiento utilizada.
 
@@ -208,7 +208,7 @@ Si tiene un clúster existente basado en Linux, puede agregar las SAS para la co
 
     Haga clic en **OK** (Aceptar) cuando se hayan completado los cambios.
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > Debe reiniciar varios servicios para que el cambio surta efecto.
 
 6. En la interfaz de usuario web Ambari, seleccione **HDFS** en la lista de la izquierda y, a continuación, seleccione **Restart All Affected** (Reiniciar todas las entradas afectadas) en la lista desplegable **Service Actions** (Acciones del servicio) de la derecha. Cuando se le solicite, seleccione __Confirm Restart All__ (Confirmar reiniciar todo).
@@ -286,9 +286,9 @@ Una vez conectado al clúster, siga estos pasos para comprobar que solo puede le
         + CategoryInfo          : NotSpecified: (:) [New-AzureRmHDInsightCluster], CloudException
         + FullyQualifiedErrorId : Hyak.Common.CloudException,Microsoft.Azure.Commands.HDInsight.NewAzureHDInsightClusterCommand
 
-**Causa**: este error se puede producir si usa una contraseña para el usuario administrador/HTTP del clúster o, en clústeres basados en Linux, el usuario SSH.
+**Causa**: este error se puede producir si utiliza una contraseña para el usuario administrador/HTTP del clúster o, en clústeres basados en Linux, el usuario SSH.
 
-**Solución**: utilice una contraseña que cumpla los criterios siguientes:
+**Resolución**: utilice una contraseña que cumpla los criterios siguientes:
 
 * Debe tener como mínimo 10 caracteres.
 * Debe contener al menos un dígito.
@@ -299,8 +299,8 @@ Una vez conectado al clúster, siga estos pasos para comprobar que solo puede le
 
 Ahora que ha aprendido a agregar almacenamiento de acceso limitado al clúster de HDInsight, obtenga información acerca de otras maneras de trabajar con datos en el clúster:
 
-* [Uso de Hive con HDInsight](hadoop/hdinsight-use-hive.md)
-* [Uso de Pig con HDInsight](hadoop/hdinsight-use-pig.md)
+* [Uso de Apache Hive con HDInsight](hadoop/hdinsight-use-hive.md)
+* [Uso de Apache Pig con HDInsight](hadoop/hdinsight-use-pig.md)
 * [Uso de MapReduce con HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 [powershell]: /powershell/azureps-cmdlets-docs

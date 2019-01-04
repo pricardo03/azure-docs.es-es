@@ -12,38 +12,38 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: ''
-ms.openlocfilehash: 38120b2be2ab7789946a4ad2fe688954e6212189
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 21a6eeb4b0a83574be4c5c996e43d9867c3249d0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959033"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185739"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Características y conceptos clave de Azure Stack
 Si nunca ha usado Microsoft Azure Stack, estos términos y las descripciones de las características pueden resultar útiles.
 
 ## <a name="personas"></a>Personas
-Hay dos tipos de usuarios de Microsoft Azure Stack, el operador de nube (proveedor) y el inquilino (consumidor).
+Hay dos tipos de usuarios de Microsoft Azure Stack: el operador y el usuario.
 
-* Un **operador de nube** puede configurar Azure Stack y administrar ofertas, planes, servicios, cuotas y precios para proporcionar recursos a sus inquilinos.  Los operadores de nube también administran la capacidad y responden a las alertas.  
-* Un **inquilino** (también llamado “usuario”) consume los servicios que ofrece el administrador de la nube. Los inquilinos pueden aprovisionar, supervisar y administrar los servicios a los que se han suscrito, como Web Apps, Storage y Virtual Machines.
+* Un **operador** de Azure Stack puede configurar Azure Stack, para lo cual administra las ofertas, planes, servicios, cuotas y precios a fin de proporcionar recursos a sus usuarios inquilinos. Los operadores también administran la capacidad y responden a las alertas.  
+* Un **usuario** de Azure Stack consume los servicios que el operador ofrece. Los inquilinos pueden aprovisionar, supervisar y administrar los servicios a los que se han suscrito, como Web Apps, Storage y Virtual Machines.
 
 ## <a name="portal"></a>Portal
 Los métodos principales de interacción con Microsoft Azure Stack son el portal de administración, el portal de usuarios y PowerShell.
 
-Cada uno de los portales de Azure Stack cuenta con el respaldo de instancias independientes de Azure Resource Manager.  Un operador de nube usa el portal de administración para administrar Azure Stack y para realizar tareas, tales como crear ofertas para inquilinos.  El portal de usuarios (conocido también como “portal de inquilinos”) proporciona una experiencia de autoservicio para el consumo de recursos de nube, como máquinas virtuales, cuentas de almacenamiento y Web Apps. Para obtener más información, consulte [Using the Azure Stack administrator and user portals](azure-stack-manage-portals.md) (Usar los portales de administración y de usuarios de Azure Stack).
+Cada uno de los portales de Azure Stack cuenta con el respaldo de instancias independientes de Azure Resource Manager. Un operador usa el portal de administración para administrar Azure Stack y para realizar tareas, tales como crear ofertas para inquilinos. El portal de usuarios (conocido también como "portal de inquilinos") proporciona una experiencia de autoservicio para el consumo de recursos de nube, como máquinas virtuales, cuentas de almacenamiento y Web Apps. Para obtener más información, consulte [Using the Azure Stack administrator and user portals](azure-stack-manage-portals.md) (Usar los portales de administración y de usuarios de Azure Stack).
 
 ## <a name="identity"></a>Identidad 
-Azure Stack usa Azure Active Directory (AAD) o los Servicios de federación de Active Directory (AD FS) como proveedor de identidades.  
+Azure Stack usa Azure Active Directory (Azure AD) o los Servicios de federación de Active Directory (AD FS) como proveedor de identidades.  
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
-Azure Active Directory es el proveedor de identidades multiinquilino basado en la nube de Microsoft.  La mayoría de los escenarios híbridos usa Azure Active Directory como almacén de identidades.
+Azure AD es el proveedor de identidades multiinquilino basado en la nube de Microsoft. La mayoría de los escenarios híbridos usa Azure AD como almacén de identidades.
 
 ### <a name="active-directory-federation-services"></a>Servicios de federación de Active Directory
-Puede elegir usar los Servicios de federación de Active Directory (AD FS) para las implementaciones desconectadas de Azure Stack.  Azure Stack, los proveedores de recursos y otras aplicaciones funcionan con AD FS de manera muy similar a como lo hacen con Azure Active Directory. Azure Stack incluye su propia instancia de AD FS y Active Directory, así como Graph API de Active Directory. El Kit de desarrollo de Azure Stack admite los siguientes escenarios de AD FS:
+Puede elegir usar los Servicios de federación de Active Directory (AD FS) para las implementaciones desconectadas de Azure Stack. Los proveedores de recursos de Azure Stack y otras aplicaciones funcionan con AD FS de manera muy similar a como lo hacen con Azure AD. Azure Stack incluye su propia instancia de Active Directory, así como una instancia de Graph API de Active Directory. El Kit de desarrollo de Azure Stack admite los siguientes escenarios de AD FS:
 
 - Inicio de sesión en la implementación mediante AD FS.
 - Creación de una máquina virtual con secretos en Key Vault.
@@ -93,9 +93,9 @@ Para el administrador, se crea una suscripción de proveedor predeterminado dura
 Con Azure Resource Manager, puede trabajar con los recursos de la infraestructura en un modelo declarativo basado en plantillas.   Proporciona una única interfaz que puede usar para implementar y administrar los componentes de la solución. Para obtener información e instrucciones completas, consulte [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 ### <a name="resource-groups"></a>Grupos de recursos
-Los grupos de recursos son colecciones de recursos, servicios y aplicaciones (y cada recurso tiene un tipo, como máquinas virtuales, redes virtuales, IP públicas, cuentas de almacenamiento y sitios web). Cada recurso debe estar en un grupo de recursos, por lo que los grupos de recursos ayudan a organizar los recursos de manera lógica, por ejemplo, por carga de trabajo o ubicación.  En Microsoft Azure Stack, los recursos, como los planes y ofertas, también se administran en grupos de recursos.
+Los grupos de recursos son colecciones de recursos, servicios y aplicaciones (y cada recurso tiene un tipo, como máquinas virtuales, redes virtuales, IP públicas, cuentas de almacenamiento y sitios web). Cada recurso debe estar en un grupo de recursos, por lo que los grupos de recursos ayudan a organizar los recursos de manera lógica, por ejemplo, por carga de trabajo o ubicación. En Azure Stack, los recursos, como los planes y las ofertas, también se administran en grupos de recursos.
 
-A diferencia de [Azure](../azure-resource-manager/resource-group-move-resources.md), no se pueden mover recursos entre grupos de recursos. Al ver las propiedades de un recurso o grupo de recursos en el portal de administración de Azure Stack, el botón *Mover* está atenuado y no está disponible. 
+A diferencia de [Azure](../azure-resource-manager/resource-group-move-resources.md), no se pueden mover recursos de Azure Stack entre grupos de recursos. Al ver las propiedades de un recurso o de un grupo de recursos en el portal de administración de Azure Stack, el botón *Mover* está atenuado y no está disponible. Además, tampoco se permite el uso de las acciones **Cambiar grupo de recursos** o **Cambiar suscripción** desde las propiedades de un elemento de un grupo de recursos o de un grupo de recursos. Todas las operaciones de movimiento que se intenten generarán un error.
  
 ### <a name="azure-resource-manager-templates"></a>Plantillas del Administrador de recursos de Azure
 Con Azure Resource Manager, puede crear una plantilla (en formato JSON) que defina la implementación y configuración de la aplicación. Esta plantilla se conoce como plantilla del Administrador de recursos de Azure y proporciona una manera declarativa de definir la implementación. El uso de una plantilla permite implementar la aplicación repetidamente a lo largo del ciclo de vida de esta y tener la seguridad de que los recursos se implementan de forma coherente.
@@ -103,7 +103,7 @@ Con Azure Resource Manager, puede crear una plantilla (en formato JSON) que defi
 ## <a name="resource-providers-rps"></a>Proveedores de recursos (RP)
 Los proveedores de recursos son servicios web que forman la base de todos los servicios IaaS y PaaS basados en Azure. Azure Resource Manager utiliza distintos RP para proporcionar acceso a los servicios.
 
-Hay cuatro RP fundamentales: Network, Storage, Compute y KeyVault. Cada uno de estos RP le ayuda a configurar y controlar sus respectivos recursos. Los administradores de servicios también pueden agregar nuevos proveedores de recursos personalizados.
+Hay cuatro proveedores de recursos fundamentales: red, almacenamiento, proceso y almacén de claves. Cada uno de estos RP le ayuda a configurar y controlar sus respectivos recursos. Los administradores de servicios también pueden agregar nuevos proveedores de recursos personalizados.
 
 ### <a name="compute-rp"></a>RP de proceso
 El proveedor de recursos de proceso (CRP) permite a los inquilinos de Azure Stack crear sus propias máquinas virtuales. El CRP incluye la capacidad de crear tanto máquinas virtuales como extensiones de Máquina virtual. El servicio de extensión de Máquina virtual ayuda a proporcionar capacidades de IaaS a las máquinas virtuales Windows y Linux.  Por ejemplo, puede usar el CRP para aprovisionar una máquina virtual Linux y ejecutar scripts de Bash durante la implementación para configurar la máquina virtual.
@@ -129,7 +129,7 @@ El almacenamiento en cola de Azure proporciona mensajería en la nube entre comp
 El RP KeyVault proporciona administración y auditoría de secretos, como contraseñas y certificados. Por ejemplo, un inquilino puede utilizar el RP KeyVault para proporcionar contraseñas o claves de administrador durante la implementación de máquinas virtuales.
 
 ## <a name="high-availability-for-azure-stack"></a>Alta disponibilidad para Azure Stack
-*Se aplica a: Azure Stack 1802 o versiones superiores*
+*Se aplica a: Azure Stack 1802 o versiones posteriores*
 
 Para conseguir la alta disponibilidad de un sistema de producción con varias máquinas virtuales en Azure, las máquinas virtuales se colocan en un conjunto de disponibilidad que las distribuye a varios dominios de error y dominios de actualización. De este modo, [las máquinas virtuales implementadas en conjuntos de disponibilidad](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) se aíslan físicamente entre sí en bastidores de servidores independientes para permitir la resistencia ante errores, tal como se muestra en el diagrama siguiente:
 

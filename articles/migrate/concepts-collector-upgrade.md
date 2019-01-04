@@ -4,15 +4,15 @@ description: Proporciona información sobre las actualizaciones al dispositivo A
 author: musa-57
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/29/2018
 ms.author: hamusa
 services: azure-migrate
-ms.openlocfilehash: cd48b824845a0195fc78814a88dd449507c99394
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 88077ac965b2abb69be145f29cbadca2ff1128d6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241470"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836651"
 ---
 # <a name="collector-update-release-history"></a>Historial de versiones de actualizaciones de Collector
 
@@ -20,12 +20,18 @@ En este artículo se resume la información de actualización para la aplicació
 
 Azure Migrate Collector es un dispositivo ligero que sirve para detectar un entorno de vCenter local a efectos de evaluación antes de realizar la migración a Azure. [Más información](concepts-collector.md).
 
+## <a name="continuous-discovery-upgrade-versions"></a>Detección continua: versiones de actualización
 
-## <a name="one-time-discovery-upgrade-versions"></a>Detección de un solo uso: actualización de versiones
+Aún no está disponible ninguna actualización para el dispositivo de detección continua.
+
+## <a name="one-time-discovery-deprecated-now-previous-upgrade-versions"></a>Detección de una sola vez (en desuso): versiones de actualización anteriores
+
+> [!NOTE]
+> El dispositivo de detección de una sola vez está en desuso, ya que este método dependía de la configuración de las estadísticas de vCenter Server para la disponibilidad de punto de datos de rendimiento y la media recopilada de los contadores de rendimiento, lo que daba lugar a un cálculo de tamaño insuficiente de las máquinas virtuales para la migración a Azure.
 
 ### <a name="version-10916-released-on-10292018"></a>Versión 1.0.9.16 (publicada el 29/10/2018)
 
-Contiene correcciones para problemas de PowerCLI que surgen al configurar el dispositivo. 
+Contiene correcciones para problemas de PowerCLI que surgen al configurar el dispositivo.
 
 Valores de código hash para el [paquete 1.0.9.16](https://aka.ms/migrate/col/upgrade_9_16) de actualización
 
@@ -55,29 +61,6 @@ MD5 | 739f588fe7fb95ce2a9b6b4d0bf9917e
 SHA1 | 9b3365acad038eb1c62ca2b2de1467cb8eed37f6
 SHA256 | 7a49fb8286595f39a29085534f29a623ec2edb12a3d76f90c9654b2f69eef87e
 
-### <a name="version-10911"></a>Versión 1.0.9.11
-
-Hash de valores para actualizar el [paquete 1.0.9.11](https://aka.ms/migrate/col/upgrade_9_11)
-
-**Algoritmo** | **Valor del código hash**
---- | ---
-MD5 | 0e36129ac5383b204720df7a56b95a60
-SHA1 | aa422ef6aa6b6f8bc88f27727e80272241de1bdf
-SHA256 | 5f76dbbe40c5ccab3502cc1c5f074e4b4bcbf356d3721fd52fb7ff583ff2b68f
-
-### <a name="version-1097"></a>Versión 1.0.9.7
-
-Hash de valores para actualizar el [paquete 1.0.9.7](https://aka.ms/migrate/col/upgrade_9_7)
-
-**Algoritmo** | **Valor del código hash**
---- | ---
-MD5 | 01ccd6bc0281f63f2a672952a2a25363
-SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
-SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
-
-## <a name="continuous-discovery-upgrade-versions"></a>Detección continua: actualización de versiones
-
-Aún no está disponible ninguna actualización para el dispositivo de detección continua.
 
 ## <a name="run-an-upgrade"></a>Ejecutar una actualización
 

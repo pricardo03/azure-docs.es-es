@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: d65c8653bc039b591f1c0fb711dfe68e3fbacd88
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 66688ae762aa646fc72045836c4ec4671bf4b7b4
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353568"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888518"
 ---
 # <a name="configure-deployment-sources"></a>Configuración de orígenes de implementación
 
@@ -38,7 +38,8 @@ Además de GIT local, se admiten los siguientes proveedores de control de códig
 ## <a name="view-deployment-sources-in-app-service-administration"></a>Visualización de orígenes de implementación en la administración de App Service
 
 1. Inicie sesión en el portal de administración de Azure Stack (https://adminportal.local.azurestack.external)) como administrador de servicios.
-2. Vaya a **Proveedores de recursos** y seleccione **App Service Resource Provider Admin** (Administración de proveedores de recursos de App Service).  ![Opción de administración de proveedores de recursos de App Service][1]
+2. Vaya a **Todos los servicios** y seleccione **App Service**.
+    ![Opción de administración de proveedores de recursos de App Service][1]
 3. Haga clic en la **Source control configuration** (Configuración de control de código fuente). Puede ver la lista de todos los orígenes de implementación configurados.
     ![Configuración de control de código fuente de hoja de administración de proveedores de recursos de App Service][2]
 
@@ -74,7 +75,7 @@ Debe tener una cuenta de BitBucket para llevar a cabo esta tarea. Puede que dese
 6. Escriba la **dirección URL**. Dicha URL debe ser la dirección del portal de Azure Stack; por ejemplo, https://portal.local.azurestack.external.
 7. Seleccione los **permisos** necesarios:
     - **Repositorios**: *Lectura*
-    - **Webhooks**: *Lectura y escritura*
+    - **Webhooks**: *lectura y escritura*
 8. Haga clic en **Save**(Guardar). Ahora se muestra esta nueva aplicación, junto con la **clave** y el **secreto** en **OAuth consumers** (Consumidores de OAuth).
     ![Lista de aplicaciones de BitBucket][9]
 9.  En una nueva pestaña o ventana del explorador, inicie sesión en el portal de administración de Azure Stack (https://adminportal.local.azurestack.external)) como administrador de servicios.

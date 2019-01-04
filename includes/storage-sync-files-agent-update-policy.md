@@ -2,28 +2,30 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 12/11/2018
 ms.author: tamram
-ms.openlocfilehash: 80bb07d850628f07ebc37a39da1294399804d8f5
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: b099f5ff7e43f2deeb3b8c41adcb802cd431a65a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164477"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53285883"
 ---
 El agente de Azure File Sync se actualiza periódicamente con el fin de agregar nueva funcionalidad y solucionar los problemas. Se recomienda configurar Microsoft Update para obtener todas las actualizaciones del agente de Azure File Sync a medida que están disponibles.
 
 #### <a name="major-vs-minor-agent-versions"></a>Versiones de agente principales y secundarias
-* Con frecuencia, las versiones de agente principales contienen nuevas características y en la primera parte del número de versión tienen un número creciente. Por ejemplo: *2.\*.\**
+* Con frecuencia, las versiones de agente principales contienen nuevas características y en la primera parte del número de versión tienen un número creciente. Por ejemplo:  *2.\*.\**
 * Las versiones de agente secundarias se llaman también "revisiones" y se lanzan con más frecuencia que las principales. Suelen contener correcciones de errores y mejoras más pequeñas, pero no características nuevas. Por ejemplo: *\*.3.\**
 
 #### <a name="upgrade-paths"></a>Rutas de actualización
-Existen tres métodos aprobados y probados de instalar las actualizaciones del agente de Azure File Sync. Estas rutas de actualización funcionan tanto con las versiones principales como las secundarias.
+Existen cuatro métodos aprobados y probados de instalar las actualizaciones del agente de Azure File Sync. 
 1. **(Preferida) Configurar Microsoft Update para descargar e instalar automáticamente las actualizaciones del agente.**  
     Se recomienda realizar siempre todas las actualizaciones de Azure File Sync para asegurarse de que tiene acceso a las correcciones más recientes del agente de servidor. Microsoft Update realiza este proceso íntegramente al descargar e instalar automáticamente estas actualizaciones.
-2. **Aplicar revisiones a un agente de Azure File Sync existente mediante un archivo de revisiones de Microsoft Update o un archivo ejecutable .msp. La actualización más reciente de Azure File Sync se puede descargar del [Catálogo de Microsoft Update](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20File%20Sync).**  
+2. **Use AfsUpdater.exe para descargar e instalar las actualizaciones del agente.**  
+    AfsUpdater.exe se encuentra en el directorio de instalación del agente. Haga doble clic en el archivo ejecutable para descargar e instalar las actualizaciones del agente. 
+3. **Aplicar revisiones a un agente de Azure File Sync existente mediante un archivo de revisiones de Microsoft Update o un archivo ejecutable .msp. La actualización más reciente de Azure File Sync se puede descargar del [Catálogo de Microsoft Update](https://www.catalog.update.microsoft.com/Search.aspx?q=Azure%20File%20Sync).**  
     Al ejecutar un archivo ejecutable .msp, se actualiza la instalación de Azure File Sync con el mismo método usado automáticamente por Microsoft Update en la ruta de actualización anterior. Cuando se aplica una revisión de Microsoft Update, se realiza una actualización local de una instalación de Azure File Sync.
-3. **Descargar el instalador del agente de Azure File Sync más reciente del [Centro de descarga de Microsoft](https://go.microsoft.com/fwlink/?linkid=858257). La descarga del instalador es un paquete de Microsoft Installer o un archivo ejecutable .msi.**  
+4. **Descargar el instalador del agente de Azure File Sync más reciente del [Centro de descarga de Microsoft](https://go.microsoft.com/fwlink/?linkid=858257). La descarga del instalador es un paquete de Microsoft Installer o un archivo ejecutable .msi.**  
     Para actualizar una instalación existente del agente de Azure File Sync, desinstale la versión antigua e instale a continuación la versión más reciente del instalador descargado. El registro del servidor, los grupos de sincronización y cualquier otra configuración se mantienen durante la instalación de Azure File Sync.
 
 #### <a name="agent-lifecycle-and-change-management-guarantees"></a>Garantías de ciclo de vida y administración de cambios del agente

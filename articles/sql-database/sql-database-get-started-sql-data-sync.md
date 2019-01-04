@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: 7ab1c0f918b5e5b9135e8d1b91f0f97a6c95d05e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 9175ed0b4f362a40e1d29a20a8378854b5f4cc81
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685436"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310393"
 ---
 # <a name="tutorial-set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>Tutorial: Configuración de SQL Data Sync para sincronizar datos entre Azure SQL Database e instancias locales de SQL Server
 
@@ -199,7 +199,7 @@ Una vez que se han creado e implementado los nuevos miembros del grupo de sincro
 
 ### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>¿Con qué frecuencia puede sincronizar mis datos Data Sync?
 
-La frecuencia mínima es cada cinco minutos.
+La duración mínima entre activaciones de sincronizaciones es de cinco minutos.
 
 ### <a name="does-sql-data-sync-fully-create-and-provision-tables"></a>¿SQL Data Sync crea y aprovisiona tablas completamente?
 
@@ -261,7 +261,7 @@ Para ver las preguntas más frecuentes sobre el agente de cliente, consulte [Pre
 
 Para más información sobre SQL Data Sync, consulte:
 
--   Introducción: [Sincronización de datos entre varias bases de datos locales y de la nube con Azure SQL Data Sync](sql-database-sync-data.md)
+-   Introducción: [Sincronización de datos entre varias bases de datos locales y en la nube con Azure SQL Data Sync](sql-database-sync-data.md)
 -   Configuración de Data Sync
     - Con PowerShell
         -  [Uso de PowerShell para sincronizar entre varias bases de datos SQL de Azure.](scripts/sql-database-sync-data-between-sql-databases.md)

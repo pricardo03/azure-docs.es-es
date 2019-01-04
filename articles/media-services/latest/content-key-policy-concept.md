@@ -1,5 +1,5 @@
 ---
-title: Directivas de clave de contenido de Azure Media Services | Microsoft Docs
+title: 'Directivas de clave de contenido de Media Services: Azure | Microsoft Docs'
 description: En este artículo se explica qué son las directivas de clave de contenido y cómo las usa Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -9,18 +9,19 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: 24597c36ab6569abb53c7be331631556e2abfe66
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.custom: seodec18
+ms.openlocfilehash: 541713677184d93eb78856e3c3373ab432d5f0cf
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085969"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141538"
 ---
 # <a name="content-key-policies"></a>Directivas de clave de contenido
 
-Puede usar Azure Media Services para proteger su contenido multimedia desde el momento en que este deja el equipo y pasa a través del almacenamiento, el procesamiento y la entrega. Con Media Services puede entregar el contenido cifrado de forma dinámica en vivo y a petición con Estándar de cifrado avanzado (AES-128) o cualquiera de los tres sistemas de administración de derechos digitales (DRM) principales: Microsoft PlayReady, Google Widevine y Apple FairPlay. Media Services también proporciona un servicio para entregar claves AES y licencias de DMR (PlayReady, Widevine y FairPlay) a los clientes autorizados.
+Puede usar Azure Media Services para proteger su contenido multimedia desde el momento en que este deja el equipo y pasa a través del almacenamiento, el procesamiento y la entrega. Con Media Services puede entregar el contenido cifrado de forma dinámica en vivo y a petición con el Estándar de cifrado avanzado (AES-128) o cualquiera de los tres sistemas de administración de derechos digitales (DRM) principales: Microsoft PlayReady, Google Widevine y Apple FairPlay. Media Services también proporciona un servicio para entregar claves AES y licencias de DMR (PlayReady, Widevine y FairPlay) a los clientes autorizados.
 
 En Azure Media Services v3, las directivas de clave de contenido permiten especificar cómo se entrega la clave de contenido a los clientes finales mediante el componente Media Services Key Delivery. Para obtener más información, vea [Introducción a la protección de contenido](content-protection-overview.md).
 

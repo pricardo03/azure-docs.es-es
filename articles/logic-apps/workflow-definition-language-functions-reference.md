@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 3450a2ba4a0bf4b1f38806ad4aacf5772c13ed9f
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 179d8fc0f17bf43792db6a9b0e15a6f63349f002
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317796"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890949"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referencia de las funciones del lenguaje de definición de flujo de trabajo en Azure Logic Apps
 
 Algunas [expresiones](../logic-apps/logic-apps-workflow-definition-language.md#expressions) de [Azure Logic Apps](../logic-apps/logic-apps-overview.md) obtienen sus valores de las acciones del runtime que puede que no existan aún cuando comienza a ejecutarse la definición del flujo de trabajo de su aplicación lógica. Para hacer referencia a estos valores o trabajar con ellos en expresiones, puede usar las *funciones* que proporciona el [lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md). Por ejemplo, puede usar funciones matemáticas para los cálculos, como la función [add()](../logic-apps/workflow-definition-language-functions-reference.md#add), que devuelve la suma de números enteros y flotantes. Estas son algunas tareas más de ejemplo que se pueden realizar con las funciones:
 
-| Task | Sintaxis de la función | Resultado | 
+| Tarea | Sintaxis de la función | Resultado | 
 | ---- | --------------- | ------ | 
 | Devuelve una cadena en formato de minúsculas. | toLower('<*text*>') <p>Por ejemplo: toLower('Hello') | "Hola" | 
 | Devuelve un identificador único global (GUID). | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" | 
@@ -43,7 +43,7 @@ Para mostrar cómo usar una función en una expresión, en este ejemplo se muest
 
 Estas son algunas otras formas generales en que puede usar funciones en expresiones:
 
-| Task | Sintaxis de la función en una expresión | 
+| Tarea | Sintaxis de la función en una expresión | 
 | ---- | -------------------------------- | 
 | Realice el trabajo con un elemento y para ello pase ese elemento a una función. | "\@<*functionName*>(<*item*>)" | 
 | 1. Obtenga el valor de *parameterName* mediante la función anidada `parameters()`. </br>2. Realice el trabajo con el resultado y para ello pase ese valor a *functionName*. | "\@<*functionName*>(parameters('<*parameterName*>'))" | 
@@ -74,7 +74,7 @@ Estas son las funciones disponibles ordenadas por su uso general, o bien puede v
 
 Para trabajar con cadenas, puede usar estas funciones de cadena y también algunas [funciones de colección](#collection-functions). Las funciones de cadena solo funcionan en cadenas. 
 
-| Función de cadena | Task | 
+| Función de cadena | Tarea | 
 | --------------- | ---- | 
 | [concat](../logic-apps/workflow-definition-language-functions-reference.md#concat) | Combina dos o más cadenas y devuelve la cadena combinada. | 
 | [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Comprueba si una cadena termina con la subcadena especificada. | 
@@ -96,7 +96,7 @@ Para trabajar con cadenas, puede usar estas funciones de cadena y también algun
 
 Para trabajar con colecciones, por lo general matrices, cadenas y, en ocasiones, diccionarios, puede usar estas funciones de colección. 
 
-| Función de colección | Task | 
+| Función de colección | Tarea | 
 | ------------------- | ---- | 
 | [contains](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Comprueba si una colección contiene un elemento específico. |
 | [empty](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Comprueba si una colección está vacía. | 
@@ -116,7 +116,7 @@ Para trabajar con colecciones, por lo general matrices, cadenas y, en ocasiones,
 
 Para trabajar con condiciones, comparar valores y resultados de expresiones, o evaluar varios tipos de lógica, puede usar estas funciones de comparación lógica. Para obtener la referencia completa sobre cada función, consulte la [lista en orden alfabético](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
-| Función de comparación lógica | Task | 
+| Función de comparación lógica | Tarea | 
 | --------------------------- | ---- | 
 | [and](../logic-apps/workflow-definition-language-functions-reference.md#and) | Comprueba si todas las expresiones son true. | 
 | [equals](../logic-apps/workflow-definition-language-functions-reference.md#equals) | Comprueba si ambos valores son equivalentes. | 
@@ -135,7 +135,7 @@ Para trabajar con condiciones, comparar valores y resultados de expresiones, o e
 
 Para cambiar el tipo o el formato de un valor, puede usar estas funciones de conversión. Por ejemplo, puede cambiar un valor de booleano a entero. Para información sobre cómo Logic Apps administra los tipos de contenido durante la conversión, consulte [Administración de los tipos de contenido](../logic-apps/logic-apps-content-type.md). Para obtener la referencia completa sobre cada función, consulte la [lista en orden alfabético](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
-| Función de conversión | Task | 
+| Función de conversión | Tarea | 
 | ------------------- | ---- | 
 | [matriz](../logic-apps/workflow-definition-language-functions-reference.md#array) | Devuelve una matriz a partir de una única entrada especificada. Para varias entradas, consulte [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray). | 
 | [base64](../logic-apps/workflow-definition-language-functions-reference.md#base64) | Devuelve la versión de una cadena codificada en base64. | 
@@ -167,7 +167,7 @@ Para cambiar el tipo o el formato de un valor, puede usar estas funciones de con
 
 Para trabajar con números enteros y flotantes, puede usar estas funciones matemáticas. Para obtener la referencia completa sobre cada función, consulte la [lista en orden alfabético](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
-| Función matemática | Task | 
+| Función matemática | Tarea | 
 | ------------- | ---- | 
 | [agregar](../logic-apps/workflow-definition-language-functions-reference.md#add) | Devuelve el resultado de sumar dos números. | 
 | [div](../logic-apps/workflow-definition-language-functions-reference.md#div) | Devuelve el resultado de dividir dos números. | 
@@ -187,7 +187,7 @@ Para trabajar con números enteros y flotantes, puede usar estas funciones matem
 Para trabajar con fechas y horas, puede usar estas funciones de fecha y hora.
 Para obtener la referencia completa sobre cada función, consulte la [lista en orden alfabético](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
-| Función de fecha u hora | Task | 
+| Función de fecha u hora | Tarea | 
 | --------------------- | ---- | 
 | [addDays](../logic-apps/workflow-definition-language-functions-reference.md#addDays) | Agrega un número de días a una marca de tiempo. | 
 | [addHours](../logic-apps/workflow-definition-language-functions-reference.md#addHours) | Agrega un número de horas a una marca de tiempo. | 
@@ -223,7 +223,7 @@ Estas funciones de flujo de trabajo pueden ayudarle a:
 
 Por ejemplo, puede hacer referencia a las salidas de una acción y usar esos datos en una acción posterior. Para obtener la referencia completa sobre cada función, consulte la [lista en orden alfabético](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
-| Función de flujo de trabajo | Task | 
+| Función de flujo de trabajo | Tarea | 
 | ----------------- | ---- | 
 | [action](../logic-apps/workflow-definition-language-functions-reference.md#action) | Devuelve la salida de la acción actual en tiempo de ejecución, o valores de otros pares de nombre y valor JSON. Consulte también [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions). | 
 | [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody) | Devuelve la salida en tiempo de ejecución del elemento `body` de una acción. Consulte también [body](../logic-apps/workflow-definition-language-functions-reference.md#body). | 
@@ -253,7 +253,7 @@ Por ejemplo, puede hacer referencia a las salidas de una acción y usar esos dat
 
 Para trabajar con identificadores uniformes de recursos (URI) y obtener distintos valores de propiedad para estos URI, puede usar estas funciones de análisis de URI. Para obtener la referencia completa sobre cada función, consulte la [lista en orden alfabético](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
-| Función de análisis de URI | Task | 
+| Función de análisis de URI | Tarea | 
 | -------------------- | ---- | 
 | [uriHost](../logic-apps/workflow-definition-language-functions-reference.md#uriHost) | Devuelve el valor `host` de un identificador uniforme de recursos (URI). | 
 | [uriPath](../logic-apps/workflow-definition-language-functions-reference.md#uriPath) | Devuelve el valor `path` de un identificador uniforme de recursos (URI). | 
@@ -265,11 +265,11 @@ Para trabajar con identificadores uniformes de recursos (URI) y obtener distinto
 
 <a name="manipulation-functions"></a>
 
-## <a name="manipulation-functions-json--xml"></a>Funciones de manipulación: JSON y XML
+## <a name="manipulation-functions-json--xml"></a>Funciones de manipulación: JSON Y XML
 
 Para trabajar con objetos JSON y nodos XML, puede usar estas funciones de manipulación. Para obtener la referencia completa sobre cada función, consulte la [lista en orden alfabético](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
-| Función de manipulación | Task | 
+| Función de manipulación | Tarea | 
 | --------------------- | ---- | 
 | [addProperty](../logic-apps/workflow-definition-language-functions-reference.md#addProperty) | Agrega una propiedad y su valor o un par de nombre y valor a un objeto JSON y devuelve el objeto actualizado. | 
 | [coalesce](../logic-apps/workflow-definition-language-functions-reference.md#coalesce) | Devuelve el primer valor distinto de null de uno o más parámetros. | 
@@ -691,7 +691,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*marca_de_tiempo*> | SÍ | string | Cadena que contiene la marca de tiempo | 
 | <*intervalo*> | SÍ | Entero | Número de unidades de tiempo especificadas que se va a agregar | 
-| <*unidad_de_tiempo*> | SÍ | string | Unidad de tiempo que se usará con el *intervalo*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" ("Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año") | 
+| <*unidad_de_tiempo*> | SÍ | string | La unidad de tiempo que se usará con *intervalo*: "Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año" | 
 | <*formato*> | Sin  | string | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 ||||| 
 
@@ -1895,7 +1895,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 | Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
 | <*intervalo*> | SÍ | Entero | Número de unidades de tiempo especificadas que se va a sustraer | 
-| <*unidad_de_tiempo*> | SÍ | string | Unidad de tiempo que se usará con el *intervalo*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" ("Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año") | 
+| <*unidad_de_tiempo*> | SÍ | string | La unidad de tiempo que se usará con *intervalo*: "Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año" | 
 | <*formato*> | Sin  | string | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. | 
 ||||| 
 
@@ -1937,7 +1937,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 | Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
 | <*intervalo*> | SÍ | Entero | Número de unidades de tiempo especificadas que se va a sustraer | 
-| <*unidad_de_tiempo*> | SÍ | string | Unidad de tiempo que se usará con el *intervalo*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" ("Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año") | 
+| <*unidad_de_tiempo*> | SÍ | string | La unidad de tiempo que se usará con *intervalo*: "Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año" | 
 | <*formato*> | Sin  | string | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. | 
 ||||| 
 
@@ -3294,7 +3294,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*marca_de_tiempo*> | SÍ | string | Cadena que contiene la marca de tiempo | 
 | <*intervalo*> | SÍ | Entero | Número de unidades de tiempo especificadas que se va a sustraer | 
-| <*unidad_de_tiempo*> | SÍ | string | Unidad de tiempo que se usará con el *intervalo*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" ("Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año") | 
+| <*unidad_de_tiempo*> | SÍ | string | La unidad de tiempo que se usará con *intervalo*: "Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año" | 
 | <*formato*> | Sin  | string | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. | 
 ||||| 
 
@@ -4026,7 +4026,7 @@ xml('<value>')
 
 Este ejemplo crea la versión XML de esta cadena, que contiene un objeto JSON: 
 
-`xml( '{ \"name\": \"Sophia Owen\" }' )`
+`xml(json('{ \"name\": \"Sophia Owen\" }'))`
 
 Y devuelve este código XML resultante: 
 
@@ -4049,7 +4049,7 @@ Suponga que tiene este objeto JSON:
 
 Este ejemplo crea código XML de una cadena que contiene este objeto JSON:
 
-`xml( '{ \"person\": { \"name\": \"Sophia Owen\", \"city\": \"Seattle\" } }' )`
+`xml(json('{\"person\": {\"name\": \"Sophia Owen\", \"city\": \"Seattle\"}}'))`
 
 Y devuelve este código XML resultante: 
 

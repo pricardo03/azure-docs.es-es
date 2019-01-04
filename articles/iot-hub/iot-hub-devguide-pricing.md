@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: ac25fa1bcca9a49054f37d8799511fbc7d95645b
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 247c12fb15fe8aa82c3a29c4c2d1e704db40e424
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584105"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141516"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Información de precios de IoT Hub de Azure
 
@@ -35,6 +35,7 @@ En [Precios de Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hu
 | Consultas de dispositivos y módulos gemelos | Las consultas se cobran como mensajes según el tamaño de los resultados en fragmentos de 512 bytes. |
 | Operaciones de trabajos <br/> (crear, actualizar, enumerar, eliminar) | No se aplicará ningún cargo. |
 | Operaciones por dispositivo de trabajos | Las operaciones de trabajos (como actualizaciones de gemelos y métodos) se cobran del modo habitual. Por ejemplo, un trabajo que dé como resultado 1000 llamadas de método con solicitudes de 1 KB y respuestas con cuerpo vacío se cobra como 1000 mensajes. |
+| Mensajes de mantenimiento | Al usar los protocolos AMQP o MQTT, no se cobran los mensajes intercambiados para establecer la conexión y los mensajes intercambiados en la negociación. |
 
 > [!NOTE]
 > Todos los tamaños se calculan teniendo en cuenta el tamaño de carga en bytes (se omiten las tramas de protocolo). En el caso de los mensajes, que tienen propiedades y cuerpo, el tamaño se calcula independiente del protocolo. Para más información, consulte [Formato de mensaje de IoT Hub](iot-hub-devguide-messages-construct.md).

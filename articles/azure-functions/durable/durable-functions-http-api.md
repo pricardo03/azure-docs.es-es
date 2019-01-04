@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a5e3bd655e0780861f4bf70c247df72e6acedd09
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 577147ad91c6a35a45fd40ca9e6424863ea196d6
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637090"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340790"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>API de HTTP en Durable Functions (Azure Functions)
 
@@ -24,7 +24,6 @@ La extensión Durable Task expone un conjunto de API de HTTP que sirve para real
 * Capturar el estado de una instancia de orquestación.
 * Enviar un evento a una instancia de orquestación en espera.
 * Terminar una instancia de orquestación en ejecución.
-
 
 Cada una de estas API HTTP es una operación de webhook que se administra directamente mediante la extensión Durable Task. No son específicas de ninguna función de la aplicación de función.
 
@@ -35,9 +34,15 @@ Cada una de estas API HTTP es una operación de webhook que se administra direct
 
 La clase [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) clase expone una API [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_) que sirve para generar una carga de respuesta HTTP con vínculos a todas las operaciones compatibles. Este ejemplo de función que se desencadena mediante HTTP muestra cómo utilizar la API:
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/HttpStart/run.csx)]
 
-Esta función de ejemplo genera los siguientes datos de respuesta JSON. El tipo de datos de todos los campos es `string`.
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo Functions 2.x)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
+
+Estas funciones de ejemplo generan los siguientes datos de respuesta JSON. El tipo de datos de todos los campos es `string`.
 
 | Campo             |DESCRIPCIÓN                           |
 |-------------------|--------------------------------------|
@@ -63,8 +68,9 @@ Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d84
     "rewindPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/rewind?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
 }
 ```
+
 > [!NOTE]
-> El formato de las direcciones URL del webhook puede diferir en función de la versión del host de Azure Functions en ejecución. El ejemplo anterior es para el host de Azure Functions 2.0.
+> El formato de las direcciones URL del webhook puede diferir en función de la versión del host de Azure Functions en ejecución. El ejemplo anterior es para el host de Azure Functions 2.x.
 
 ## <a name="async-operation-tracking"></a>Seguimiento de operaciones asincrónicas
 
@@ -91,8 +97,8 @@ Todas las API de HTTP que implementa la extensión tienen los siguientes paráme
 | connection | Cadena de consulta    | **Nombre** de la cadena de conexión de la cuenta de almacenamiento. Si no se especifica, se toma el de la cadena de conexión predeterminada de la aplicación de función. |
 | systemKey  | Cadena de consulta    | Clave de autorización necesaria para invocar la API. |
 | showInput  | Cadena de consulta    | Parámetro opcional. Si se establece en `false`, la entrada de ejecución no se incluirá en la carga de respuesta.|
-| showHistory| Cadena de consulta    | Parámetro opcional. Si se establece en `true`, el historial de ejecución de orquestación se incluirá en la carga de respuesta.| 
-| showHistoryOutput| Cadena de consulta    | Parámetro opcional. Si se establece en `true`, las salidas de actividad se incluirán en el historial de ejecución de orquestación.| 
+| showHistory| Cadena de consulta    | Parámetro opcional. Si se establece en `true`, el historial de ejecución de orquestación se incluirá en la carga de respuesta.|
+| showHistoryOutput| Cadena de consulta    | Parámetro opcional. Si se establece en `true`, las salidas de actividad se incluirán en el historial de ejecución de orquestación.|
 | createdTimeFrom  | Cadena de consulta    | Parámetro opcional. Cuando se especifica, se filtra la lista de instancias devueltas que se crearon durante o después de la marca de tiempo ISO8601 especificada.|
 | createdTimeTo    | Cadena de consulta    | Parámetro opcional. Cuando se especifica, se filtra la lista de instancias devueltas que se crearon antes o durante la marca de tiempo ISO8601 determinada.|
 | runtimeStatus    | Cadena de consulta    | Parámetro opcional. Cuando se especifica, se filtra la lista de instancias devueltas según su estado en tiempo de ejecución. Para ver la lista de valores posibles del estado en tiempo de ejecución, consulte el tema [Consulta de instancias](durable-functions-instance-management.md). |
@@ -128,7 +134,7 @@ Se pueden devolver varios valores de código de estado.
 * **HTTP 202 (aceptado)**: la instancia especificada está en curso.
 * **HTTP 400 (solicitud incorrecta)**: se produjo un error en la instancia especificada o esta se ha finalizado.
 * **HTTP 404 (no se encuentra)**: la instancia especificada no existe o no ha empezado a ejecutarse.
-* **HTTP 500 (Error interno del servidor)**: error de la instancia especificada con una excepción no controlada.
+* **HTTP 500 (error interno del servidor)**: error de la instancia especificada con una excepción no controlada.
 
 La carga de respuesta para los casos **HTTP 200** y **HTTP 202** es un objeto JSON con los siguientes campos:
 
@@ -140,7 +146,7 @@ La carga de respuesta para los casos **HTTP 200** y **HTTP 202** es un objeto JS
 | output          | JSON      | Salida JSON de la instancia. Este campo es `null` si el estado de la instancia no es Completado. |
 | createdTime     | string    | Hora a la que se creó la instancia. Usa la notación ampliada de ISO 8601. |
 | lastUpdatedTime | string    | Hora a la que se almacenó la instancia por última vez. Usa la notación ampliada de ISO 8601. |
-| historyEvents   | JSON      | Una matriz JSON que contiene el historial de ejecución de orquestación. Este campo es `null` a menos que el parámetro de cadena de consulta `showHistory` esté establecido en `true`.  | 
+| historyEvents   | JSON      | Una matriz JSON que contiene el historial de ejecución de orquestación. Este campo es `null` a menos que el parámetro de cadena de consulta `showHistory` esté establecido en `true`.  |
 
 Este es un ejemplo de una carga de respuesta que incluye las salidas de historial de ejecución de orquestación y de actividad (a la que se ha aplicado formato para mejorar la legibilidad):
 
@@ -199,10 +205,9 @@ Este es un ejemplo de una carga de respuesta que incluye las salidas de historia
 
 La respuesta **HTTP 202** también incluye un encabezado de respuesta **Location** que hace referencia a la misma dirección URL que el campo `statusQueryGetUri` mencionado anteriormente.
 
-
 ### <a name="get-all-instances-status"></a>Obtención de todos los estados de instancias
 
-También puede consultar todos los estados de instancias. Quite `instanceId` de la solicitud "Obtener el estado de la instancia". Los parámetros son los mismos que en "Obtener el estado de la instancia". 
+También puede consultar todos los estados de instancias. Quite `instanceId` de la solicitud "Obtener el estado de la instancia". Los parámetros son los mismos que en "Obtener el estado de la instancia".
 
 Es importante recordar que `connection` y `code` son parámetros opcionales. Si tiene la autenticación anónima en la función, no es necesario usar código.
 Puede ignorar el parámetro de la cadena de consulta de conexión si no quiere usar ninguna cadena de conexión de almacenamiento de blob distinta a la definida en la configuración de la aplicación AzureWebJobsStorage.
@@ -215,7 +220,7 @@ Para Functions 1.0, el formato de solicitud es el siguiente:
 GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
-El formato de Functions 2.0 tiene los mismos parámetros, excepto un prefijo de dirección URL ligeramente distinto: 
+El formato de Functions 2.0 tiene los mismos parámetros, excepto un prefijo de dirección URL ligeramente distinto:
 
 ```http
 GET /runtime/webhooks/durabletask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
@@ -231,7 +236,7 @@ Para Functions 1.0, el formato de solicitud es el siguiente:
 GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}&showInput={showInput}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
 ```
 
-El formato de Functions 2.0 tiene los mismos parámetros, excepto un prefijo de dirección URL ligeramente distinto: 
+El formato de Functions 2.0 tiene los mismos parámetros, excepto un prefijo de dirección URL ligeramente distinto:
 
 ```http
 GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}&showInput={showInput}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
@@ -291,8 +296,8 @@ Este es un ejemplo de cargas de respuesta, incluido el estado de orquestación (
 ```
 
 > [!NOTE]
-> Esta operación puede ser muy costosa en términos de E/S de Azure Storage si hay muchas filas en la tabla Instancias. Puede encontrar más detalles sobre la tabla Instancias en la documentación [Rendimiento y escalado horizontal en Durable Functions (Azure Functions)](https://docs.microsoft.com/azure/azure-functions/durable-functions-perf-and-scale#instances-table).
-> 
+> Esta operación puede ser muy costosa en términos de E/S de Azure Storage si hay muchas filas en la tabla Instancias. Puede encontrar más detalles sobre la tabla Instancias en la documentación [Rendimiento y escalado horizontal en Durable Functions (Azure Functions)](durable-functions-perf-and-scale.md#instances-table).
+>
 
 #### <a name="request-with-paging"></a>Solicitud con paginación
 
@@ -304,7 +309,7 @@ Para Functions 1.0, el formato de solicitud es el siguiente:
 GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&top={top}
 ```
 
-El formato de Functions 2.0 tiene los mismos parámetros, excepto un prefijo de dirección URL ligeramente distinto: 
+El formato de Functions 2.0 tiene los mismos parámetros, excepto un prefijo de dirección URL ligeramente distinto:
 
 ```http
 GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&top={top}
@@ -313,7 +318,6 @@ GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={conne
 Si no existe la página siguiente, se devuelve un token de continuación en el encabezado de respuesta.  El nombre del encabezado es `x-ms-continuation-token`.
 
 Si establece el valor del token de continuación en el siguiente encabezado de solicitud, puede obtener la página siguiente.  Esta clave en el encabezado de solicitud es `x-ms-continuation-token`.
-
 
 ### <a name="raise-event"></a>Generación de eventos
 
@@ -405,7 +409,7 @@ Las respuestas para esta API no tienen contenido.
 
 Restaura una instancia de orquestación errónea a un estado de ejecución mediante la reproducción de las operaciones erróneas más recientes.
 
-#### <a name="request"></a>Solicitud
+### <a name="request"></a>Solicitud
 
 Para Functions 1.0, el formato de solicitud es el siguiente:
 
@@ -425,7 +429,7 @@ Los parámetros de solicitud de esta API incluyen el conjunto predeterminado men
 |-------------|-----------------|-----------|-------------|
 | reason      | Cadena de consulta    | string    | Opcional. Motivo para rebobinar la instancia de orquestación. |
 
-#### <a name="response"></a>Response
+### <a name="response"></a>Response
 
 Se pueden devolver varios valores de código de estado.
 

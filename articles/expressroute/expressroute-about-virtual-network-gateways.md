@@ -1,21 +1,22 @@
 ---
-title: Acerca de las puertas de enlace de red virtual de Azure ExpressRoute | Microsoft Docs
-description: Conozca sobre las puertas de enlace de red virtual para ExpressRoute.
+title: 'Acerca de las puertas de enlace de red virtual de ExpressRoute: Azure| Microsoft Docs'
+description: Conozca sobre las puertas de enlace de red virtual para ExpressRoute. En este artículo incluye información sobre los tipos y las SKU de puerta de enlace.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: mialdrid
-ms.openlocfilehash: df0d9c91d1d4f120f934c7375d0c517e3869834e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: dcae78e507597ae2b7f79cc1d6cbb326ee535696
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684773"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076600"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>Acerca de las puertas de enlace de red virtual para ExpressRoute
-Una puerta de enlace de red virtual se usa para enviar tráfico de red entre redes virtuales y ubicaciones locales de Azure. Puede usar una puerta de enlace de red virtual para tráfico de ExpressRoute o tráfico VPN. Este artículo se centra en la puerta de enlace de red virtual de ExpressRoute.
+Una puerta de enlace de red virtual se usa para enviar tráfico de red entre redes virtuales y ubicaciones locales de Azure. Puede usar una puerta de enlace de red virtual para tráfico de ExpressRoute o tráfico VPN. Este artículo se centra en las puertas de enlace de red virtual de ExpressRoute y contiene información sobre las SKU, el rendimiento estimado por SKU y los tipos de puerta de enlace.
 
 ## <a name="gateway-types"></a>Tipos de puerta de enlace
 

@@ -2,19 +2,20 @@
 title: Modelado multiinquilino en Azure Search | Microsoft Docs
 description: Aprenda sobre patrones de diseño comunes para aplicaciones SaaS multiinquilino mientras usa Azure Search.
 manager: jlembicz
-author: ashmaka
+author: LiamCavanagh
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/30/2018
-ms.author: ashmaka
-ms.openlocfilehash: b7befb46da8674e0bec7d3f73ad33a12529ffc3a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: liamca
+ms.custom: seodec2018
+ms.openlocfilehash: 1da9756df4fa05b367665a5fe024528939f22578
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232388"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313044"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Modelos de diseño para aplicaciones SaaS multiinquilino y Azure Search
 Una aplicación multiinquilino es una que proporciona los mismos servicios y funcionalidades a cualquier número de inquilinos que no pueden ver o compartir los datos de cualquier otro inquilino. En este documento se describen estrategias de aislamiento de inquilinos para aplicaciones miltiinquilino creadas con Azure Search.
@@ -57,8 +58,8 @@ En concreto, un servicio S3 podría tener entre 1 y 200 índices que juntos podr
 ## <a name="considerations-for-multitenant-applications"></a>Consideraciones sobre las aplicaciones multiinquilino
 Las aplicaciones multiinquilino deben distribuir de forma eficaz los recursos entre los inquilinos y conservar al mismo tiempo cierto nivel de privacidad entre los distintos inquilinos. Existen algunas consideraciones que se deben tener en cuenta al diseñar la arquitectura para aplicaciones de este tipo:
 
-* *Aislamiento de inquilinos:* los desarrolladores de aplicaciones necesitan tomar las medidas adecuadas para garantizar que ningún inquilino tenga acceso no autorizado o no deseado a los datos de otros inquilinos. Más allá de la perspectiva de privacidad de los datos, las estrategias de aislamiento de inquilinos requieren la administración eficaz de los recursos compartidos y la protección frente a vecinos ruidosos.
-* *Costo de los recursos de nube:* al igual que sucede con cualquier otra aplicación, las soluciones de software deben tener un costo competitivo en cuanto componente de una aplicación multiinquilino.
+* *Aislamiento de inquilinos*: los desarrolladores de aplicaciones necesitan tomar las medidas adecuadas para garantizar que ningún inquilino tenga acceso no autorizado o no deseado a los datos de otros inquilinos. Más allá de la perspectiva de privacidad de los datos, las estrategias de aislamiento de inquilinos requieren la administración eficaz de los recursos compartidos y la protección frente a vecinos ruidosos.
+* *Costo de los recursos en la nube*: al igual que sucede con cualquier otra aplicación, las soluciones de software deben tener un costo competitivo en cuanto componente de una aplicación multiinquilino.
 * *Facilidad de operaciones:* al desarrollar una arquitectura multiinquilino, es importante tener en cuenta el impacto en las operaciones y la complejidad de la aplicación. Azure Search tiene un [Acuerdo de Nivel de Servicio del 99,9 %](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 * *Superficie global:* las aplicaciones multiinquilino pueden tener que atender de forma eficaz a inquilinos que se encuentran distribuidos por todo el planeta.
 * *Escalabilidad:* los desarrolladores de aplicaciones deben tener en cuenta el equilibrio entre mantener un nivel de complejidad de la aplicación lo suficientemente bajo y diseñar la aplicación para escalarse con el número de inquilinos y el tamaño de los datos y la carga de trabajo de los inquilinos.

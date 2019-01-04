@@ -7,25 +7,25 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 588ce454248f0577a52515a4327d1e43013d34a5
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f8ebb282d3f6abbc37739891c0f7228bef110d82
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581806"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842686"
 ---
 # <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>Tutorial: Personalización de la interfaz de usuario de la aplicación en Azure Active Directory B2C
 
-Para obtener experiencias de usuario más comunes, como registrarse, iniciar sesión y editar perfiles, puede usar las [directivas integradas](active-directory-b2c-reference-policies.md) de Azure Active Directory (Azure AD) B2C. La información de este tutorial le ayuda a obtener información acerca de cómo [personalizar la interfaz de usuario (IU)](customize-ui-overview.md) de estas experiencias mediante sus propios archivos HTML y CSS.
+Para obtener experiencias de usuario más comunes, como registrarse, iniciar sesión y editar perfiles, puede usar los [flujos de usuario](active-directory-b2c-reference-policies.md) de Azure Active Directory (Azure AD) B2C. La información de este tutorial le ayuda a obtener información acerca de cómo [personalizar la interfaz de usuario (IU)](customize-ui-overview.md) de estas experiencias mediante sus propios archivos HTML y CSS.
 
 En este artículo, aprenderá a:
 
 > [!div class="checklist"]
 > * Crear archivos de personalización de la interfaz de usuario
-> * Crear una directiva de registro o de inicio de sesión que use los archivos
+> * Crear un flujo de usuario de registro o de inicio de sesión que use los archivos
 > * Probar la interfaz de usuario personalizada
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
@@ -61,7 +61,7 @@ Aunque se pueden almacenar los archivos de muchas maneras, para este tutorial, a
 
 ### <a name="enable-cors"></a>Habilitación de CORS
 
- El código de Azure AD B2C en un explorador utiliza un enfoque moderno y estándar para cargar contenido personalizado desde una dirección URL que especifique en una directiva. Uso compartido de recursos entre orígenes (CORS) permite que los recursos restringidos en una página web se soliciten desde otros dominios.
+ El código de Azure AD B2C en un explorador utiliza un enfoque moderno y estándar para cargar contenido personalizado desde una dirección URL que especifique en un flujo de usuario. Uso compartido de recursos entre orígenes (CORS) permite que los recursos restringidos en una página web se soliciten desde otros dominios.
 
 1. En el menú, seleccione **CORS**.
 2. En **Orígenes permitidos**, escriba `https://your-tenant-name.b2clogin.com`. Reemplace `your-tenant-name` por el nombre del inquilino de Azure AD B2C. Por ejemplo, `https://fabrikam.b2clogin.com`. Al escribir su nombre de inquilino, use solo minúsculas.
@@ -137,9 +137,9 @@ En este tutorial, almacenará los archivos que ha creado en la cuenta de almacen
 4. Copie la dirección URL del archivo que cargó para usarla más adelante en el tutorial.
 5. Repita el paso 3 y 4 para el archivo *style.css*.
 
-## <a name="create-a-sign-up-and-sign-in-policy"></a>Creación de una directiva de registro o de inicio de sesión
+## <a name="create-a-sign-up-and-sign-in-user-flow"></a>Creación de un flujo de usuario de registro y de inicio de sesión
 
-Para completar los pasos de este tutorial, deberá crear una aplicación de prueba y una directiva de registro o inicio de sesión en Azure AD B2C. Puede aplicar los principios descritos en este tutorial a otras experiencias de usuario, como la edición de perfiles.
+Para completar los pasos de este tutorial, deberá crear una aplicación de prueba y un flujo de usuario de registro o de inicio de sesión en Azure AD B2C. Puede aplicar los principios descritos en este tutorial a otras experiencias de usuario, como la edición de perfiles.
 
 ### <a name="create-an-azure-ad-b2c-application"></a>Creación de una aplicación de Azure AD B2C
 
@@ -153,29 +153,34 @@ La comunicación con Azure AD B2C se produce mediante una aplicación que se cre
 6. En **Aplicación web/API web**, seleccione `Yes` y escriba `https://jwt.ms` como **URL de respuesta**.
 7. Haga clic en **Create**(Crear).
 
-### <a name="create-the-policy"></a>Creación de la directiva
+### <a name="create-the-user-flow"></a>Creación del flujo de usuario
 
-Para probar los archivos de personalización, cree una directiva de registro o inicio de sesión integrada que use la aplicación que creó anteriormente.
+Para probar los archivos de personalización, cree un flujo de usuario de registro o de inicio de sesión integrado que use la aplicación que creó anteriormente.
 
-1. En el inquilino de Azure AD B2C, seleccione **Sign-up or sign-in policies** (Directivas de registro o inicio de sesión) y, después, haga clic en **Agregar**.
-2. Escriba un nombre para la directiva. Por ejemplo, *signup_signin*. El prefijo *B2C_1* se agrega automáticamente al nombre cuando se crea la directiva.
-3. Seleccione **Proveedores de identidades**, establezca **Email sign-up** (Registro de correo electrónico) para una cuenta local y, después, haga clic en **Aceptar**.
-4. Seleccione **Atributos de registro**, elija los atributos que quiere recopilar del cliente durante el registro. Por ejemplo, configure **País o región**, **Nombre para mostrar** y **Código postal** y, luego, haga clic en **Aceptar**.
-5. Seleccione **Notificaciones de la aplicación**, puede elegir las notificaciones que quiere que se devuelvan en los tokens de autorización enviados de vuelta a su aplicación después de una experiencia de registro o de inicio de sesión correcta. Por ejemplo, seleccione **Nombre para mostrar**, **Proveedor de identidades**, **Código Postal**, **El usuario es nuevo** e **Id. de objeto del usuario**. Luego, haga clic en **Aceptar**.
-6. Seleccione **Personalización de la interfaz de usuario de la página**, seleccione **Página de inicio de sesión o registro unificada** y haga clic en **Sí** para **Usar página personalizada**.
-7. En **URI de página personalizado**, escriba la dirección URL para el archivo *custom-ui.html* que anotó anteriormente y, después, haga clic en **Aceptar**.
-8. Haga clic en **Create**(Crear).
+1. En el inquilino de Azure AD B2C, seleccione **Flujos de usuario** y, después, haga clic en **Nuevo flujo de usuario**.
+2. En la pestaña **Recomendado**, haga clic en **Registrarse e iniciar sesión**.
+3. Escriba un nombre para el flujo de usuario. Por ejemplo, *signup_signin*. El prefijo *B2C_1* se agrega automáticamente al nombre cuando se crea el flujo de usuario.
+4. En **Proveedores de identidades**, seleccione **Registro por correo electrónico**.
+5. En **Atributos y notificaciones de usuario**, haga clic en **Mostrar más**.
+6. En la columna **Recopilar atributo**, elija los atributos que quiere recopilar del cliente durante el registro. Por ejemplo, establezca **País o región**, **Nombre para mostrar** y **Código postal**.
+7. En la columna **Notificación de devolución**, puede elegir las notificaciones que quiere que se devuelvan en los tokens de autorización enviados de vuelta a su aplicación después de una experiencia de registro o de inicio de sesión correcta. Por ejemplo, seleccione **Nombre para mostrar**, **Proveedor de identidades**, **Código postal**, **El usuario es nuevo** e **Id. de objeto del usuario**.
+8. Haga clic en **OK**.
+9. Haga clic en **Create**(Crear).
+10. En **Personalizar**, seleccione **Diseños de página**. Seleccione **Página de inicio de sesión o registro unificada** y haga clic en **Sí** para **Usar contenido de la página personalizada**.
+11. En **URI de página personalizado**, escriba la dirección URL del archivo *custom-ui.html* que anotó anteriormente.
+12. Haga clic en **Guardar** en la parte superior de la página.
 
-## <a name="test-the-policy"></a>Prueba de la directiva
+## <a name="test-the-user-flow"></a>Prueba del flujo de usuario
 
-1. En el inquilino de Azure AD B2C, seleccione **Sign-up or sign-in policies** (Directivas de registro o inicio de sesión) y, después, seleccione la directiva que creó. Por ejemplo, *B2C_1_signup_signin*.
-2. Asegúrese de que la aplicación que creó está seleccionada en **Seleccionar aplicación** y, después, haga clic en **Ejecutar ahora**.
+1. En el inquilino de Azure AD B2C, seleccione **Flujos de usuario** y seleccione el flujo de usuario que creó. Por ejemplo, *B2C_1_signup_signin*.
+2. En la parte superior de la página, haga clic en **Ejecutar flujo de usuario**.
+3. Haga clic en el botón **Ejecutar flujo de usuario**.
 
-    ![Ejecutar la directiva de registro o de inicio de sesión](./media/tutorial-customize-ui/signup-signin.png)
+    ![Ejecución del flujo de usuario de registro o de inicio de sesión](./media/tutorial-customize-ui/run-user-flow.png)
 
     Debería ver una página similar al ejemplo siguiente con los elementos centrados basándose en el archivo CSS que ha creado:
 
-    ![Resultados de directivas](./media/tutorial-customize-ui/run-now.png) 
+    ![Resultados del flujo de usuario](./media/tutorial-customize-ui/run-now.png) 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -183,7 +188,7 @@ En este artículo, ha aprendido cómo:
 
 > [!div class="checklist"]
 > * Crear archivos de personalización de la interfaz de usuario
-> * Crear una directiva de registro o de inicio de sesión que use los archivos
+> * Crear un flujo de usuario de registro o de inicio de sesión que use los archivos
 > * Probar la interfaz de usuario personalizada
 
 > [!div class="nextstepaction"]

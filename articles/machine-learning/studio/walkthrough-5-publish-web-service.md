@@ -1,12 +1,11 @@
 ---
-title: 'Paso 5: implementar el servicio web de Machine Learning Studio | Microsoft Docs'
-description: 'Paso 5 del tutorial Desarrollo de una solución predictiva: implementación de un experimento predictivo en Machine Learning Studio como servicio web.'
+title: 'Paso 5: Implementar un servicio web: Azure Machine Learning Studio | Microsoft Docs'
+description: 'Paso 5 del tutorial de desarrollo de una solución predictiva: implementación del experimento predictivo como servicio web en Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 editor: cgronlun
 ms.assetid: 3fca74a3-c44b-4583-a218-c14c46ee5338
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 33965270c2be6f70614def79a49f1c4aa1a8fbbc
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ab23636aa0480532606268efedcc76ea1ddd339a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309936"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253738"
 ---
-# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-studio-web-service"></a>Paso 5 del tutorial: implementar el servicio web de Azure Machine Learning Studio
+# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-studio-web-service"></a>Paso 5 del tutorial: Implementar el servicio web de Azure Machine Learning Studio
 Este es el quinto paso del tutorial [Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
 1. [Creación de un área de trabajo de Machine Learning](walkthrough-1-create-ml-workspace.md)
@@ -205,7 +204,7 @@ Para supervisar el rendimiento del servicio web, siga estos pasos:
 4. Haga clic en **Panel**.
 
 - - -
-**Siguiente: [Acceso al servicio web](walkthrough-6-access-web-service.md)**
+**A continuación: [Acceso al servicio web](walkthrough-6-access-web-service.md)**
 
 [3]: ./media/walkthrough-5-publish-web-service/publish3.png
 [3a]: ./media/walkthrough-5-publish-web-service/publish3a.png

@@ -1,5 +1,5 @@
 ---
-title: Grabación de muestras de voz para crear una voz personalizada
+title: 'Grabación de ejemplos de voz personalizada: servicios de Voz'
 titleSuffix: Azure Cognitive Services
 description: Para crear una voz personalizada con calidad de producción, prepare un guion sólido, contrate un buen actor de voz y realice la grabación de manera profesional.
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 07/5/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: b1b189db56eb3f70f23940a8612d310d2ba8566f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 6aaa638504dd441240879050531952b269d02d15
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471193"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081088"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Grabación de muestras de voz para crear una voz personalizada
 
@@ -50,7 +51,7 @@ Elija un actor cuya voz natural le guste. Aunque se pueden crear voces de "perso
 > [!TIP]
 > Por lo general, evite usar voces reconocibles para crear una voz personalizada, a menos que, desde luego, el objetivo sea producir la voz de un famoso. Las voces menos conocidas generan normalmente menos distracciones para los usuarios.
 
-El único factor más importante para elegir el actor de voz es la uniformidad. Las grabaciones deben sonar como que si se realizaran el mismo día en la misma sala. Puede aproximarse a este ideal con unas buenas prácticas y una buena ingeniería de grabación. 
+El único factor más importante para elegir el actor de voz es la uniformidad. Las grabaciones deben sonar como que si se realizaran el mismo día en la misma sala. Puede aproximarse a este ideal con unas buenas prácticas y una buena ingeniería de grabación.
 
 Su actor de voz es la otra mitad de la ecuación. Él o ella deben ser capaces de hablar a una velocidad, con un nivel de volumen y un tono uniformes. Es obligatorio una dicción clara. El actor también debe ser capaz de controlar estrictamente la variación de su tono, el efecto emocional y los manierismos del habla.
 
@@ -71,7 +72,7 @@ Los enunciados del guion pueden proceder de cualquier parte: ficción, no ficci�
 
 Las expresiones no tienen que proceder de la misma fuente, o de la misma clase de fuente. Incluso no es necesario que tengan nada que ver unos con otros. Sin embargo, si va a usar frases hechas (por ejemplo, "Ha iniciado sesión correctamente") en la aplicación de voz, asegúrese de incluirlas en el guion. De esta forma, la voz personalizada tendrá una mejor oportunidad de pronunciar bien esas frases. Y si decide usar una grabación en lugar de voz sintetizada, ya la tendrá en la misma voz.
 
-Si bien la uniformidad es importante a la hora de elegir un actor de voz, la variedad es lo que distingue un buen guion. El guion debe incluir muchas palabras y frases diferentes con diversas longitudes de frase, estructuras y estados de ánimo. Cada sonido del idioma se debe representar varias veces y en varios contextos (lo que se conoce como *cobertura fonética*). 
+Si bien la uniformidad es importante a la hora de elegir un actor de voz, la variedad es lo que distingue un buen guion. El guion debe incluir muchas palabras y frases diferentes con diversas longitudes de frase, estructuras y estados de ánimo. Cada sonido del idioma se debe representar varias veces y en varios contextos (lo que se conoce como *cobertura fonética*).
 
 Además, el texto debe incorporar todas las formas en que puede representarse un sonido determinado al escribir, y colocar cada sonido en distintos lugares en las oraciones. Se deben incluir tanto oraciones afirmativas como preguntas y se deben leer con la entonación adecuada.
 
@@ -188,9 +189,9 @@ Grabe un buen silencio de cinco segundos antes de la primera grabación para cap
 > [!TIP]
 > Lo que realmente necesita es captar al actor de voz, por lo que puede hacer una grabación monofónica (un solo canal) de esas líneas concretas. Sin embargo, si graba en estéreo, puede usar el segundo canal para grabar la charla en la sala de control y capturar los comentarios de líneas o cortes determinados. Quite esta pista de la versión que se carga en el portal Custom Voice.
 
-Use auriculares para escuchar con atención la representación del actor de voz. Lo que busca es una dicción buena pero natural, una pronunciación correcta y ausencia de sonidos no deseados. No dude en pedir al actor que vuelva a grabar un enunciado que no satisfaga estas normas. 
+Use auriculares para escuchar con atención la representación del actor de voz. Lo que busca es una dicción buena pero natural, una pronunciación correcta y ausencia de sonidos no deseados. No dude en pedir al actor que vuelva a grabar un enunciado que no satisfaga estas normas.
 
-> [!TIP] 
+> [!TIP]
 > Cuando se usa un volumen elevado de expresiones, una sola de ellas podría no tener un efecto apreciable sobre la voz personalizada resultante. Es posible que sea más adecuado anotar simplemente las expresiones con problemas, excluirlas del conjunto de datos y ver el resultado de la voz personalizada. Siempre puede volver al estudio y grabar las muestras que faltan más tarde.
 
 Anote en el guion el número de toma o código de tiempo de cada expresión. Pídale también al ingeniero que marque todas las expresiones en los metadatos de la grabación o en la hoja de pistas.

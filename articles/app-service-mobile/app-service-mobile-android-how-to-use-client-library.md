@@ -13,12 +13,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: b595e62e032743be2655406ac02c8db94cf708f9
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5052ec73114c040a4c140d258b197fdde58f6667
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281774"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409333"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Uso del SDK de Azure Mobile Apps para Android
 
@@ -189,7 +189,7 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-Para más información sobre cómo crear tablas adicionales en el back-end de Mobile Apps, consulte [Cómo definir un controlador de tabla][15] (back-end de. NET) o [Definición de tablas con un esquema dinámico][16] (back-end de Node.js).
+Para aprender a crear tablas adicionales en su back-end de Mobile Apps, consulte [Definición de un controlador de tabla][15] (back-end de .NET) o [Definición de tablas con un esquema dinámico][16] (back-end de Node.js).
 
 Una tabla de back-end de Azure Mobile Apps define cinco campos especiales, cuatro de los cuales están disponibles para los clientes:
 
@@ -768,7 +768,7 @@ En el modelo con tipo se encuentra disponible el mismo conjunto de métodos de f
 El SDK de cliente de Azure Mobile Apps también implementa la sincronización de datos sin conexión mediante una base de datos SQLite que almacena una copia de los datos de servidor de manera local.  Las operaciones realizadas en una tabla sin conexión no necesitan conectividad móvil para funcionar.  La sincronización sin conexión favorece la resistencia y el rendimiento; a cambio, la resolución de conflictos conlleva una lógica más compleja.  El SDK de cliente de Azure Mobile Apps implementa las siguientes características:
 
 * Sincronización incremental: solo se descargan registros nuevos y actualizados, lo que ahorra ancho de banda y consumo de memoria.
-* Simultaneidad optimista: se supone que las operaciones se realizan correctamente.  La resolución de conflictos se aplaza hasta que se realizan actualizaciones en el servidor.
+* Simultaneidad optimista: se presupone que las operaciones se llevan a cabo correctamente.  La resolución de conflictos se aplaza hasta que se realizan actualizaciones en el servidor.
 * Resolución de conflictos: el SDK detecta cuándo se ha realizado un cambio conflictivo en el servidor y proporciona enlaces para avisar al usuario.
 * Eliminación temporal: los registros eliminados se marcan como eliminados, lo que permite que otros dispositivos actualicen su caché sin conexión.
 
@@ -892,7 +892,7 @@ El método **invokeApi** se llama en el cliente, el cual envía una solicitud de
 
 Los tutoriales ya describen detalladamente cómo agregar estas características.
 
-App Service admite la [autenticación de los usuarios de aplicaciones](app-service-mobile-android-get-started-users.md) mediante diversos proveedores de identidades externos: Facebook, Google, cuenta de Microsoft, Twitter y Azure Active Directory. Puede establecer permisos en tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. También puede usar la identidad de usuarios autenticados para implementar reglas de autorización en el back-end.
+App Service admite la [autenticación de usuarios de la aplicación](app-service-mobile-android-get-started-users.md) que usan diversos proveedores de identidades externos: Facebook, Google, cuenta de Microsoft, Twitter, y Azure Active Directory. Puede establecer permisos en tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. También puede usar la identidad de usuarios autenticados para implementar reglas de autorización en el back-end.
 
 Se admiten dos flujos de autenticación: un flujo de **servidor** y un flujo de **cliente**. El flujo de servidor ofrece la experiencia de autenticación más simple, ya que se basa en la interfaz de autenticación web de los proveedores de identidades.  No se requieren más SDK para implementar la autenticación de flujo de servidor. Este tipo de autenticación no proporciona una integración perfecta con el dispositivo móvil y solo se recomienda en escenarios de pruebas de concepto.
 
@@ -907,7 +907,7 @@ Hay que realizar cuatro pasos para habilitar la autenticación en su aplicación
 
 Puede establecer permisos en tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. También puede usar el SID de un usuario autenticado para modificar las solicitudes.  Para obtener más información, consulte [Introducción a la autenticación] y la documentación de los procedimientos del SDK de servidor.
 
-### <a name="caching"></a>Autenticación: flujo de servidor
+### <a name="caching"></a>Autenticación: Flujo de servidor
 
 El código siguiente inicia un proceso de inicio de sesión del flujo de servidor mediante el proveedor de Google:  Hace falta configuración adicional debido a los requisitos de seguridad del proveedor de Google:
 
@@ -1289,31 +1289,31 @@ Este código debe ejecutarse antes de crear una referencia de cliente móvil med
 
 <!-- URLs. -->
 [Get started with Azure Mobile Apps]: app-service-mobile-android-get-started.md
-[ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[Mobile Services SDK for Android]: http://go.microsoft.com/fwlink/p/?LinkID=717033
+[ASCII control codes C0 and C1]: https://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
+[Mobile Services SDK for Android]: https://go.microsoft.com/fwlink/p/?LinkID=717033
 [Azure portal]: https://portal.azure.com
 [Introducción a la autenticación]: app-service-mobile-android-get-started-users.md
 [1]: https://static.javadoc.io/com.google.code.gson/gson/2.8.5/com/google/gson/JsonObject.html
-[2]: http://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson
+[2]: https://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson
 [3]: https://www.javadoc.io/doc/com.google.code.gson/gson/2.8.5
-[4]: http://go.microsoft.com/fwlink/p/?LinkId=296840
+[4]: https://go.microsoft.com/fwlink/p/?LinkId=296840
 [5]: app-service-mobile-android-get-started-push.md
 [6]: ../notification-hubs/notification-hubs-push-notification-overview.md#integration-with-app-service-mobile-apps
 [7]: app-service-mobile-android-get-started-users.md#cache-tokens
-[8]: http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/table/MobileServiceTable.html
-[9]: http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html
+[8]: https://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/table/MobileServiceTable.html
+[9]: https://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html
 [10]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [11]: app-service-mobile-node-backend-how-to-use-server-sdk.md
-[12]: http://azure.github.io/azure-mobile-apps-android-client/
+[12]: https://azure.github.io/azure-mobile-apps-android-client/
 [13]: app-service-mobile-android-get-started.md#create-a-new-azure-mobile-app-backend
-[14]: http://go.microsoft.com/fwlink/p/?LinkID=717034
+[14]: https://go.microsoft.com/fwlink/p/?LinkID=717034
 [15]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller
 [16]: app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations
 [17]: https://developer.android.com/reference/java/util/UUID.html
 [18]: https://github.com/google/guava/wiki/ListenableFutureExplained
-[19]: http://www.odata.org/documentation/odata-version-3-0/
-[20]: http://hashtagfail.com/post/46493261719/mobile-services-android-querying
+[19]: https://www.odata.org/documentation/odata-version-3-0/
+[20]: https://hashtagfail.com/post/46493261719/mobile-services-android-querying
 [21]: https://github.com/Azure-Samples/azure-mobile-apps-android-quickstart
-[22]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
-[Future]: http://developer.android.com/reference/java/util/concurrent/Future.html
-[AsyncTask]: http://developer.android.com/reference/android/os/AsyncTask.html
+[22]: ../app-service/configure-authentication-provider-aad.md
+[Future]: https://developer.android.com/reference/java/util/concurrent/Future.html
+[AsyncTask]: https://developer.android.com/reference/android/os/AsyncTask.html

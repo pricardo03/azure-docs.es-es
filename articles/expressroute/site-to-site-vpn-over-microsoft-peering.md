@@ -1,5 +1,5 @@
 ---
-title: Configuración de una VPN de sitio a sitio a través del emparejamiento de Microsoft de Azure ExpressRoute | Microsoft Docs
+title: Configuración de una VPN de sitio a sitio mediante el emparejamiento de Microsoft de Azure ExpressRoute | Microsoft Docs
 description: Configure la conectividad de IPsec/IKE a Azure a través de un circuito de emparejamiento de Microsoft de ExpressRoute mediante una puerta de enlace VPN de sitio a sitio.
 services: expressroute
 author: cherylmc
@@ -7,25 +7,25 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5fb4a4034a744b8b2b769a1cfd2d9df12ea90dde
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.custom: seodec18
+ms.openlocfilehash: 3ba9d7ab9e05c3c5480e1832cc5ddd0ce91a3ae1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240920"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094209"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Configuración de una VPN de sitio a sitio a través del emparejamiento de Microsoft de ExpressRoute
 
-Este artículo le ayudará a configurar una conexión cifrada segura entre su red local y sus redes virtuales (VNET) de Azure a través de una conexión privada ExpressRoute. La configuración de un túnel seguro a través de ExpressRoute permite el intercambio de datos con confidencialidad, antireproducción, autenticidad e integridad.
+Este artículo le ayudará a configurar una conexión cifrada segura entre su red local y sus redes virtuales (VNET) de Azure a través de una conexión privada ExpressRoute. Puede usar el emparejamiento de Microsoft para establecer un túnel VPN de IPsec/IKE de sitio a sitio entre las redes locales seleccionadas y las redes virtuales de Azure. La configuración de un túnel seguro a través de ExpressRoute permite el intercambio de datos con confidencialidad, antireproducción, autenticidad e integridad.
 
-## <a name="architecture"></a>Arquitectura
-
-Puede aprovechar el emparejamiento de Microsoft para establecer un túnel VPN de IPsec/IKE de sitio a sitio entre sus redes locales seleccionadas y las redes virtuales de Azure.
-
-  >[!NOTE]
+>[!NOTE]
 >Al configurar una VPN de sitio a sitio a través del emparejamiento de Microsoft, se le aplican cargos por VPN Gateway y la salida de VPN. Para obtener más información, vea [Precios de VPN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway).
 >
 >
+
+## <a name="architecture"></a>Arquitectura
+
 
   ![información general sobre la conectividad](./media/site-to-site-vpn-over-microsoft-peering/IPsecER_Overview.png)
 

@@ -1,21 +1,22 @@
 ---
-title: 'Procedimientos recomendados para compilar aplicaciones con LUIS: Language Understanding'
-titleSuffix: Azure Cognitive Services
-description: Obtenga información sobre los procedimientos recomendados de LUIS para conseguir los mejores resultados.
+title: Procedimientos recomendados
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Obtenga información sobre los procedimientos recomendados de LUIS para conseguir los mejores resultados del modelo de la aplicación de LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 6b7b9c8a2a3e7da1628ef3e6f93a4b632ce38615
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: e63d6ed584c0e8afc823bbcdc6e70ceabbf43db6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637787"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085287"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Procedimientos recomendados para compilar una aplicación de reconocimiento de lenguaje con Cognitive Services
 Use el proceso de creación de aplicaciones para compilar la aplicación de LUIS. 
@@ -50,10 +51,10 @@ Si el vocabulario entre dos intenciones es el mismo, combine la intención y use
 
 Considere las siguientes expresiones de ejemplo:
 
-```
-Book a flight
-Book a hotel
-```
+|Expresiones de ejemplo|
+|--|
+|Reservar un vuelo|
+|Reservar un hotel|
 
 "Book a flight" ("Reservar un vuelo") y "Book a hotel" ("Reservar un hotel") usan el mismo vocabulario: "book a" (“reservar un”). Como se superponen, debería tratarse de la misma intención con las diferentes palabras extraídas de las entidades "flight" (“vuelo”) y "hotel". 
 

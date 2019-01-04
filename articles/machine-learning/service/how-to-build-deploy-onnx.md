@@ -1,5 +1,6 @@
 ---
-title: ONNX y Azure Machine Learning | Creación e implementación de modelos
+title: Creación e implementación de modelos de ONNX interoperables
+titleSuffix: Azure Machine Learning service
 description: Información sobre ONNX y cómo usar Azure Machine Learning para crear e implementar modelos de ONNX
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +10,15 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
-ms.openlocfilehash: 2e5c0e479d5564a48048b9fa9c67ad8870122601
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.custom: seodec18
+ms.openlocfilehash: 15aa80c5291854c937bdc128a597ed5bebd608a2
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706065"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437440"
 ---
-# <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX y Azure Machine Learning: creación e implementación de modelos de inteligencia artificial interoperables
+# <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX y Azure Machine Learning: creación e implementación de modelos de IA interoperables
 
 El formato [Open Neural Network Exchange](https://onnx.ai) (ONNX) es un estándar abierto para representar modelos de aprendizaje automático. ONNX tiene el apoyo de una [comunidad de asociados](https://onnx.ai/supported-tools), incluido Microsoft, que crean herramientas y marcos compatibles. Microsoft se compromete con una inteligencia artificial abierta e interoperable para que los desarrolladores y científicos de datos puedan:
 
@@ -32,7 +34,7 @@ Puede crear modelos de ONNX desde muchos marcos, incluidos PyTorch, Chainer, Mic
 
 También hay un ecosistema de herramientas para visualizar y acelerar modelos de ONNX. Además, hay disponibles varios modelos de ONNX previamente entrenados para escenarios comunes.
 
-[Se pueden implementar modelos de ONNX](#deploy) en la nube con Azure Machine Learning y el entorno de ejecución de ONNX. También se pueden implementar en dispositivos Windows 10 mediante [Windows ML](https://docs.microsoft.com/windows/ai/). Incluso se pueden implementar en otras plataformas mediante convertidores que están disponibles en la comunidad de ONNX. 
+[Se pueden implementar modelos de ONNX](#deploy) en la nube con Azure Machine Learning y ONNX Runtime. También se pueden implementar en dispositivos Windows 10 mediante [Windows ML](https://docs.microsoft.com/windows/ai/). Incluso se pueden implementar en otras plataformas mediante convertidores que están disponibles en la comunidad de ONNX. 
 
 [ ![Diagrama de flujo de ONNX que muestra el aprendizaje, los convertidores y la implementación](media/concept-onnx/onnx.png) ] (./media/concept-onnx/onnx.png#lightbox)
 
@@ -63,18 +65,18 @@ Puede encontrar la lista más reciente de marcos y convertidores admitidos en el
 
 ## <a name="deploy-onnx-models-in-azure"></a>Implementación de modelos de ONNX en Azure
 
-Con el servicio Azure Machine Learning, puede implementar, administrar y supervisar sus modelos de ONNX. Mediante el [flujo de trabajo de implementación](concept-model-management-and-deployment.md) estándar y el entorno de ejecución de ONNX, puede crear un punto de conexión REST hospedado en la nube. Vea un ejemplo completo de un cuaderno de Jupyter Notebook al final de este artículo para probarlo usted mismo. 
+Con el servicio Azure Machine Learning, puede implementar, administrar y supervisar sus modelos de ONNX. Mediante el [flujo de trabajo de implementación](concept-model-management-and-deployment.md) estándar y ONNX Runtime, puede crear un punto de conexión REST hospedado en la nube. Vea un ejemplo completo de un cuaderno de Jupyter Notebook al final de este artículo para probarlo usted mismo. 
 
-### <a name="install-and-configure-the-onnx-runtime"></a>Instalación y configuración del entorno de ejecución de ONNX
+### <a name="install-and-configure-onnx-runtime"></a>Instalación y configuración de ONNX Runtime
 
-El entorno de ejecución de ONNX es un motor de inferencia de alto rendimiento para los modelos de ONNX. Incluye una API de Python y proporciona aceleración de hardware en la CPU y la GPU. Actualmente admite modelos de ONNX 1.2 y se ejecuta en Ubuntu 16.04 Linux. Ambos paquetes [CPU](https://pypi.org/project/onnxruntime) y [GPU](https://pypi.org/project/onnxruntime-gpu) están disponibles en [PyPi.org](https://pypi.org).
+ONNX Runtime es un motor de inferencia de alto rendimiento de código abierto para los modelos de ONNX. Proporciona aceleración de hardware de CPU y GPU, con API disponibles para Python, C# y C. ONNX Runtime admite modelos ONNX 1.2 + y se ejecuta en Linux, Windows y Mac. Los paquetes de Python están disponibles en [PyPi.org](https://pypi.org) ([CPU](https://pypi.org/project/onnxruntime), [GPU](https://pypi.org/project/onnxruntime-gpu)), y el [paquete de C#](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntime/) en [Nuget.org](https://www.nuget.org). Obtenga más información sobre el proyecto en [GitHub](https://github.com/Microsoft/onnxruntime). 
 
-Para instalar el entorno de ejecución de ONNX, use:
+Para instalar ONNX Runtime para Python, use lo siguiente:
 ```python
 pip install onnxruntime
 ```
 
-Para llamar al entorno de ejecución de ONNX en el script de Python, use:
+Para llamar a ONNX Runtime en el script de Python, use lo siguiente:
 ```python
 import onnxruntime
 
@@ -94,7 +96,7 @@ results = session.run(["output1", "output2"], {"input1": indata1, "input2": inda
 results = session.run([], {"input1": indata1, "input2": indata2})
 ```
 
-Para obtener una referencia completa de la API, consulte [los documentos de referencia del entorno de ejecución de ONNX](https://aka.ms/onnxruntime-python).
+Para obtener la referencia completa de API de Python, vea la [documentación de referencia de ONNX Runtime](https://aka.ms/onnxruntime-python).
 
 ### <a name="example-deployment-steps"></a>Pasos de implementación de ejemplo
 
@@ -183,24 +185,12 @@ Aquí tiene un ejemplo para implementar un modelo de ONNX:
     f.write(myenv.serialize_to_string())
    ```
 
-4. Implemente su modelo de ONNX con Azure Machine Learning en:
-   + Azure Container Instances (ACI): [más información](how-to-deploy-to-aci.md)
-
-   + Azure Kubernetes Service (AKS): [más información](how-to-deploy-to-aks.md)
+4. Para implementar el modelo, vea el documento [Cómo y dónde implementar](how-to-deploy-and-where.md).
 
 
 ## <a name="examples"></a>Ejemplos
  
-En los siguientes cuadernos se muestra cómo crear modelos de ONNX e implementarlos con Azure Machine Learning: 
-+ [onnx/onnx-modelzoo-aml-deploy-resnet50.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-modelzoo-aml-deploy-resnet50.ipynb)
-+ [onnx/onnx-convert-aml-deploy-tinyyolo.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-convert-aml-deploy-tinyyolo.ipynb)
-+ [onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb)
-
-En los siguientes cuadernos se muestra cómo implementar modelos de ONNX existentes con Azure Machine Learning: 
-+ [onnx/onnx-inference-mnist-deploy.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-mnist-deploy.ipynb) 
-+ [onnx/onnx-inference-facial-expression-recognition-deploy.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-facial-expression-recognition-deploy.ipynb)
- 
-Obtenga estos cuadernos:
+Vea [how-to-use-azureml/deployment/onnx](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx) para obtener cuadernos de ejemplo en los que se crean e implementan modelos de ONNX.
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
@@ -210,3 +200,8 @@ Obtenga más información sobre ONNX o contribuya al proyecto:
 + [Sitio web del proyecto de ONNX](https://onnx.ai)
 
 + [Código de ONNX en GitHub](https://github.com/onnx/onnx)
+
+Obtenga más información sobre ONNX Runtime o contribuya al proyecto:
++ [Repositorio de ONNX Runtime en GitHub](https://github.com/Microsoft/onnxruntime)
+
+

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 982c6112a19654e268c9c50fec35d65fbc1766c2
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: c6d4ec767b4c566e6a390f37b97266916819a40c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062027"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015167"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Configuración de alta disponibilidad en SUSE mediante STONITH
 Este documento proporciona instrucciones paso a paso para configurar la alta disponibilidad en el sistema operativo SUSE mediante el dispositivo STONITH.
@@ -38,7 +38,7 @@ Para configurar la alta disponibilidad con la agrupación en clústeres de SUSE,
 ### <a name="setup-details"></a>Detalles de la configuración
 Esta guía utiliza la siguiente configuración:
 - Sistema operativo: SLES 12 SP1 para SAP
-- Instancias grandes de HANA: 2xS192 (cuatro sockets, 2 TB)
+- Instancias grandes de HANA: 2xS192 (cuatro zócalos, 2 TB)
 - Versión de HANA: HANA 2.0 SP1
 - Nombres de servidor: sapprdhdb95 (nodo 1) y sapprdhdb96 (nodo 2)
 - Dispositivo STONITH: dispositivo STONITH basado en iSCSI
@@ -76,7 +76,7 @@ Microsoft Service Management no proporciona esta cadena. Modifique el archivo en
 
 ![initiatorname.png](media/HowToHLI/HASetupWithStonith/initiatorname.png)
 
-1.2 Modifique */etc/iscsi/iscsid.conf*: establezca *node.session.timeo.replacement_timeout=5* y *node.startup = automatic*. Modifique el archivo **ambos** nodos.
+1.2 Cambie */etc/iscsi/iscsid.conf*: establezca *node.session.timeo.replacement_timeout=5* y *node.startup = automatic*. Modifique el archivo **ambos** nodos.
 
 1.3 Ejecute el comando de detección. Muestra cuatro sesiones. Ejecútelo en ambos nodos.
 
@@ -297,8 +297,7 @@ Agregue el recurso STONITH. Cree el archivo y agregue el texto de la siguiente f
 # vi crm-sbd.txt
 # enter the following to crm-sbd.txt
 primitive stonith-sbd stonith:external/sbd \
-params pcmk_delay_max="15" \
-op monitor interval="15" timeout="15"
+params pcmk_delay_max="15"
 ```
 Agregue la configuración al clúster.
 ```
@@ -458,7 +457,7 @@ Para corregir el problema, tiene que instalar bibliotecas (libgcc_sl y libstdc++
 
 ![zypper-install-lib.png](media/HowToHLI/HASetupWithStonith/zypper-install-lib.png)
 
-### <a name="scenario-5-pacemaker-service-fails"></a>Escenario 5: Error de servicio Pacemarker
+### <a name="scenario-5-pacemaker-service-fails"></a>Escenario 5: Error del servicio Pacemaker
 
 Se ha producido el siguiente error durante el arranque del servicio Pacemaker.
 
@@ -509,7 +508,7 @@ Persistent=true
 
 ![Persistent.png](media/HowToHLI/HASetupWithStonith/Persistent.png)
 
-### <a name="scenario-6-node-2-unable-to-join-the-cluster"></a>Escenario 6: El nodo 2 no se puede unir al clúster
+### <a name="scenario-6-node-2-unable-to-join-the-cluster"></a>Escenario 6: El nodo 2 no puede unirse al clúster
 
 Cuando se une el nodo 2 al clúster existente mediante el comando *ha-cluster-join*, se produce el siguiente error.
 

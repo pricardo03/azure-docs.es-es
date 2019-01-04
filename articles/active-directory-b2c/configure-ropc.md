@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2ea9356f1292669f115d2bb482419435320f644c
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 1b07825bd3ff46267764467bba815c1097278084
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978832"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726294"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configuración del flujo de credenciales de contraseña de propietario del recurso en Azure AD B2C
 
@@ -27,22 +27,25 @@ El flujo de credenciales de contraseña de propietario del recurso (ROPC) es un 
 En Azure Active Directory (Azure AD) B2C, se admiten las siguientes opciones:
 
 - **Cliente nativo**: la interacción del usuario durante la autenticación se produce cuando se ejecuta el código en un dispositivo en el lado del usuario. El dispositivo puede ser una aplicación móvil que se ejecuta en un sistema operativo nativo, por ejemplo, Android, o en un explorador, como JavaScript.
-- **Public client flow** (Flujo de cliente público): en la llamada de API, solo se envían credenciales de usuario recopiladas por una aplicación. No se envían las credenciales de la aplicación.
+- **Public client flow** (Flujo de cliente público): en la llamada API, solo se envían credenciales de usuario recopiladas por una aplicación. No se envían las credenciales de la aplicación.
 - **Add new claims** (Agregar nuevas notificaciones): se puede cambiar el contenido del token de id. para agregar nuevas notificaciones. 
 
 No se admiten los siguientes flujos:
 
 - **De servidor a servidor**: el sistema de protección de identidades necesita una dirección IP de confianza que recopile el autor de la llamada (el cliente nativo) como parte de la interacción. En una llamada API del lado servidor, se utiliza sólo la dirección IP del servidor. Si se supera un umbral dinámico de errores de autenticación, el sistema de protección de identidad puede identificar una dirección IP repetida como un atacante.
-- **Confidential client flow (Flujo de cliente confidencial)**: se valida el id. de cliente de la aplicación, pero no el secreto de la aplicación.
+- **Confidential client flow (Flujo de cliente confidencial)**: se valida el identificador de cliente de la aplicación, pero no el secreto de la aplicación.
 
-##  <a name="create-a-resource-owner-policy"></a>Creación de una directiva del propietario del recurso
+##  <a name="create-a-resource-owner-user-flow"></a>Creación de un flujo de usuario del propietario del recurso
 
-1. Inicie sesión en Azure Portal como administrador global del inquilino de Azure AD B2C.
-2. Para cambiar al inquilino de Azure AD B2C, seleccione el directorio B2C en la esquina superior derecha del portal.
-3. En **Directivas**, seleccione **Directivas del propietario del recurso**.
-4. Proporcione un nombre para la directiva, como *ROPC_Auth* y luego haga clic en **Notificaciones de aplicación**.
-5. Seleccione las notificaciones de la aplicación que necesite para su aplicación, como el *nombre para mostrar*, la *dirección de correo electrónico* y el *proveedor de identidades*.
-6. Seleccione **Aceptar** y después **Crear**.
+1.  Inicie sesión en Azure Portal como administrador global del inquilino de Azure AD B2C.
+2.  Para cambiar al inquilino de Azure AD B2C, seleccione el directorio B2C en la esquina superior derecha del portal.
+3.  Haga clic en **Flujos de usuario**y seleccione **Nuevo flujo de usuario**.
+4.  Haga clic en la pestaña **Todos** y seleccione **Propietario del recurso**.
+5.  Proporcione un nombre para el flujo de usuario, como *ROPC_Auth*.
+6.  En **Notificaciones de la aplicación**, haga clic en **Mostrar más**.
+7.  Seleccione las notificaciones de la aplicación que necesite para su aplicación, como el nombre para mostrar, la dirección de correo electrónico y el proveedor de identidades.
+8.  Seleccione **Aceptar** y después **Crear**.
+9.  Haga clic en **Ejecutar flujo de usuario**.
 
    A continuación, verá un punto de conexión como en este ejemplo:
 
@@ -57,9 +60,9 @@ No se admiten los siguientes flujos:
 4. Deje los demás valores como están y seleccione **Crear**.
 5. Seleccione la nueva aplicación y tome nota del id. de la aplicación para usarlo más tarde.
 
-## <a name="test-the-policy"></a>Prueba de la directiva
+## <a name="test-the-user-flow"></a>Prueba del flujo de usuario
 
-Use su aplicación favorita de desarrollo de API para generar una llamada de API y revise la respuesta para depurar la directiva. Cree una llamada similar a esta con la información que se muestra en la tabla siguiente como el cuerpo de la solicitud POST:
+Use su aplicación favorita de desarrollo de API para generar una llamada API y revise la respuesta para depurar el flujo de usuario. Cree una llamada similar a esta con la información que se muestra en la tabla siguiente como el cuerpo de la solicitud POST:
 - Reemplace *\<yourtenant.onmicrosoft.com>* con el nombre del inquilino B2C.
 - Reemplace  *\<B2C_1A_ROPC_Auth >* con el nombre completo de la directiva de credenciales de contraseña del propietario de recursos.
 - Reemplace *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* con el id. de la aplicación desde el registro.

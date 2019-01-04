@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 4128d113535c67c0b440dc3fb275af05b5c1c1ae
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 79803a749b6d08c94bcbf5f3ca66aac8b7294fa3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306152"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844658"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Marco de seguridad: Criptografía | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -140,7 +140,7 @@ ms.locfileid: "43306152"
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [ADD SIGNATURE (Transact-SQL)](https://msdn.microsoft.com/library/ms181700)[Agregar firma (Transact-SQL)] |
-| **Pasos** | En casos donde la integridad de una base de datos crítica protegible tiene que comprobarse, deben usarse firmas digitales. Los elementos protegibles de una base de datos, como un procedimiento almacenado, una función, un ensamblado o un desencadenador pueden firmarse digitalmente. A continuación se muestra un ejemplo en el que esto puede resultar útil: supongamos que un ISV (fabricante de software independiente) ha proporcionado soporte técnico para un software que ha entregado a uno de sus clientes. Antes de proporcionar soporte técnico, el ISV debería asegurarse de que un elemento protegible en la base de datos del software no se alteró por error o a través de un intento malicioso. Si el elemento protegible está firmado digitalmente, el ISV puede comprobar la firma digital y validar su integridad.| 
+| **Pasos** | En casos donde la integridad de una base de datos crítica protegible tiene que comprobarse, deben usarse firmas digitales. Los elementos protegibles de una base de datos, como un procedimiento almacenado, una función, un ensamblado o un desencadenador pueden firmarse digitalmente. A continuación se muestra un ejemplo de cuándo una firma digital puede ser útil: supongamos que un ISV (fabricante de software independiente) ha proporcionado soporte técnico para un software entregado a uno de sus clientes. Antes de proporcionar soporte técnico, el ISV debería asegurarse de que un elemento protegible en la base de datos del software no se alteró por error o a través de un intento malicioso. Si el elemento protegible está firmado digitalmente, el ISV puede comprobar la firma digital y validar su integridad.| 
 
 ## <a id="ekm-keys"></a>Use la administración extensible de claves (EKM) de SQL Server para proteger las claves de cifrado
 
@@ -172,8 +172,8 @@ ms.locfileid: "43306152"
 | **Fase de SDL**               | Compilación |  
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | Sistema operativo del dispositivo: Windows IoT Core, Conectividad de dispositivos: SDK de dispositivo IoT de Azure |
-| **Referencias**              | [TPM on Windows IoT Core](https://developer.microsoft.com/windows/iot/docs/tpm) (TPM en Windows IoT Core), [Configuración de TPM en Windows IoT Core](https://developer.microsoft.com/windows/iot/win10/setuptpm), [TPM con SDK de dispositivo IoT de Azure](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) |
-| **Pasos** | Claves privadas de certificado o simétricas en un almacenamiento protegido de hardware como chips TPM o de tarjeta inteligente. Windows 10 IoT Core es compatible con el usuario de un TPM y se pueden usar varios TPM compatibles: https://developer.microsoft.com/windows/iot/win10/tpm. Se recomienda usar un TPM discreto o de firmware. Un TPM de software solo se debe usar con fines de desarrollo y prueba. Una vez que un TPM está disponible y se aprovisiona con las claves, se debe escribir el código que genera el token sin codificar de forma rígida ninguna información confidencial en él. | 
+| **Referencias**              | [TPM on Windows IoT Core](https://developer.microsoft.com/windows/iot/docs/tpm) (TPM en Windows IoT Core), [Configuración de TPM en Windows IoT Core](https://docs.microsoft.com/windows/iot-core/secure-your-device/setuptpm), [TPM con SDK de dispositivo IoT de Azure](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) |
+| **Pasos** | Claves privadas de certificado o simétricas en un almacenamiento protegido de hardware como chips TPM o de tarjeta inteligente. Windows 10 IoT Core es compatible con el usuario de un TPM y se pueden usar varios TPM compatibles: https://docs.microsoft.com/windows/iot-core/secure-your-device/tpm#discrete-tpm-dtpm. Se recomienda usar un TPM discreto o de firmware. Un TPM de software solo se debe usar con fines de desarrollo y prueba. Una vez que un TPM está disponible y se aprovisiona con las claves, se debe escribir el código que genera el token sin codificar de forma rígida ninguna información confidencial en él. | 
 
 ### <a name="example"></a>Ejemplo
 ```

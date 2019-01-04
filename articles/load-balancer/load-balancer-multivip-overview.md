@@ -1,22 +1,24 @@
 ---
-title: Varios servidores front-end para Azure Load Balancer | Microsoft Docs
+title: Varios servidores front-end para Azure Load Balancer
+titlesuffix: Azure Load Balancer
 description: Introducción a varios servidores front-end en Azure Load Balancer
 services: load-balancer
 documentationcenter: na
 author: chkuhtz
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: chkuhtz
-ms.openlocfilehash: d435d2c491cf17356e96f7bbb05b1e22c8e04aca
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: b9a140314b8eba6386c37bdbcf2bb3de58589335
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219365"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163436"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Varios servidores front-end para Azure Load Balancer
 
@@ -46,7 +48,7 @@ Azure Load Balancer permite combinar ambos tipos de regla en la misma configurac
 
 Se analizan aún más estos escenarios empezando con el comportamiento predeterminado.
 
-## <a name="rule-type-1-no-backend-port-reuse"></a>Tipo de regla 1: No reutilización de puerto back-end
+## <a name="rule-type-1-no-backend-port-reuse"></a>Tipo de regla n.º 1: no reutilización de puerto back-end
 
 ![Ilustración de varios servidores front-end con el front-end en verde y violeta](./media/load-balancer-multivip-overview/load-balancer-multivip.png)
 
@@ -63,8 +65,8 @@ Se definen dos reglas:
 
 | Regla | Asignación de front-end | Para grupo back-end |
 | --- | --- | --- |
-| 1 |![front-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
-| 2 |![IP virtual](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
+| 1 |![front-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  DIP2:80 |
+| 2 |![IP virtual](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  DIP2:81 |
 
 La asignación completa en Azure Load Balancer ahora se realiza como sigue:
 

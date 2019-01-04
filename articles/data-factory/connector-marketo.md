@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 02d21db5c5fadb65ec63e41cbd9e2db8869ed2e7
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 8c3210a560c079f66cd21dbb30be4a4b823a6502
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415838"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078215"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Copia de datos de Marketo con Azure Data Factory (versión preliminar)
 
@@ -34,7 +34,7 @@ Puede copiar datos de Marketo en cualquier almacén de datos receptor admitido. 
 Azure Data Factory proporciona un controlador integrado para habilitar la conectividad. Por lo tanto, no es necesario instalar manualmente ningún controlador mediante este conector.
 
 >[!NOTE]
->Este conector de Marketo se basa en la API REST de Marketo. Tenga en cuenta que Marketo tiene un [límite de solicitudes simultáneas](http://developers.marketo.com/rest-api/) en el lado del servicio. Si encuentra algún error como los siguientes: "Error while attempting to use REST API: Max rate limit '100' exceeded with in '20' secs (606)" (Error al intentar usar REST API: el límite de velocidad máx. "100" se superó en "20" s (606)) o "Error while attempting to use REST API: Concurrent access limit '10' reached (615)" (Error al intentar usar REST API: se alcanzó el límite de acceso simultáneo de "10" (615)), considere la posibilidad de reducir las ejecuciones de actividad de copia simultáneas para reducir el número de solicitudes al servicio.
+>Este conector de Marketo se basa en la API REST de Marketo. Tenga en cuenta que Marketo tiene un [límite de solicitudes simultáneas](http://developers.marketo.com/rest-api/) en el lado del servicio. Si recibe el error "Error while attempting to use REST API: Max rate limit '100' exceeded with in '20' secs (606)" (Error al intentar usar la API de REST: el límite de velocidad máx. ('100') se superó en '20' s (606)) o el error "Error while attempting to use REST API: Concurrent access limit '10' reached (615)" (Error al intentar usar la API de REST: se alcanzó el límite de acceso simultáneo de '10' (615)), considere la posibilidad de reducir las ejecuciones de actividad de copia simultáneas para reducir el número de solicitudes al servicio.
 
 ## <a name="getting-started"></a>Introducción
 
@@ -48,8 +48,8 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Marketo:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **Marketo**. | SÍ |
-| endpoint | Punto de conexión del servidor de Marketo (es decir, 123-ABC-321.mktorest.com).  | SÍ |
+| Tipo | La propiedad type debe establecerse en: **Marketo** | SÍ |
+| punto de conexión | Punto de conexión del servidor de Marketo (es decir, 123-ABC-321.mktorest.com).  | SÍ |
 | clientId | Identificador de cliente del servicio Marketo.  | SÍ |
 | clientSecret | Secreto de cliente del servicio Marketo. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | SÍ |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin  |
@@ -79,7 +79,12 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Marketo:
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). En esta sección se proporciona una lista de las propiedades compatibles con el conjunto de datos de Marketo.
 
-Para copiar datos de Marketo, establezca la propiedad type del conjunto de datos en **MarketoObject**. No hay ninguna propiedad específica de tipo adicional en este tipo de conjunto de datos.
+Para copiar datos de Marketo, establezca la propiedad type del conjunto de datos en **MarketoObject**. Se admiten las siguientes propiedades:
+
+| Propiedad | DESCRIPCIÓN | Obligatorio |
+|:--- |:--- |:--- |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **MarketoObject** | SÍ |
+| tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
 
@@ -91,7 +96,8 @@ Para copiar datos de Marketo, establezca la propiedad type del conjunto de datos
         "linkedServiceName": {
             "referenceName": "<Marketo linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -100,14 +106,14 @@ Para copiar datos de Marketo, establezca la propiedad type del conjunto de datos
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo sobre [canalizaciones](concepts-pipelines-activities.md). En esta sección se proporciona una lista de las propiedades compatibles con el origen de Marketo.
 
-### <a name="marketosource-as-source"></a>MarketoSource como origen
+### <a name="marketo-as-source"></a>Marketo como origen
 
 Para copiar datos de Marketo, establezca el tipo de origen de la actividad de copia en **MarketoSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **MarketoSource**. | SÍ |
-| query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM Activitiy_Types"`. | SÍ |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **MarketoSource** | SÍ |
+| query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM Activitiy_Types"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**
 

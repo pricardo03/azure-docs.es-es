@@ -4,17 +4,17 @@ description: En este artículo se describe cómo usar Azure Stream Analytics y A
 services: stream-analytics
 author: dubansal
 ms.author: dubansal
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/09/2018
-ms.openlocfilehash: 3f6d6f700ccf232dacb512f22dd1f9fb5d870740
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: df1010be8c9f41684af806885db7587bfcf1c540
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567050"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091227"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Detección de anomalías en Azure Stream Analytics
 
@@ -27,9 +27,9 @@ El operador AnomalyDetection detecta tres tipos de anomalías:
 
 * **Cambio del nivel bidireccional**: un aumento o disminución sostenido en el nivel de valores, tanto al alza como a la baja. Este valor es diferente de los picos y caídas, que son cambios instantáneos o de corta duración.  
 
-* **Tendencia positiva lenta**: un aumento lento en la tendencia con el tiempo.  
+* **Tendencia positiva lenta**: un aumento lento de la tendencia en el tiempo.  
 
-* **Tendencia negativa lenta**: una disminución lenta en la tendencia con el tiempo.  
+* **Tendencia negativa lenta**: una disminución lenta de la tendencia en el tiempo.  
 
 Cuando se utiliza el operador AnomalyDetection, debe especificar la cláusula **Limit Duration**. Esta cláusula especifica el intervalo de tiempo (cuánto tiempo atrás en el historial del evento actual) que debe tenerse en cuenta al detectar anomalías. Este operador puede limitarse opcionalmente a los eventos que coinciden con una propiedad o condición concretas mediante la cláusula **When**. También existe la opción de procesar grupos de eventos por separado en función de la clave especificada en la cláusula **PARTITION BY**. El aprendizaje y la predicción se producen de forma independiente para cada partición. 
 
@@ -95,7 +95,7 @@ A medida que el tiempo avanza, los modelos se entrenan con diferentes datos. Par
 
 En el diagrama, los pasos se ven como sigue: 
 
-![Aprendizaje de modelos](media/stream-analytics-machine-learning-anomaly-detection/training_model.png)
+![Modelos de entrenamiento de aprendizaje automático](media/stream-analytics-machine-learning-anomaly-detection/machine-learning-training-model.png)
 
 |**Model** | **Hora de inicio del aprendizaje** | **Tiempo para empezar a usar su puntuación** |
 |---------|---------|---------|
@@ -121,12 +121,12 @@ Revisemos el cálculo de la extrañeza en detalle (supongamos que existe un conj
    - event_value/90th_percentile, si event_value > 90th_percentile  
    - 10th_percentile/event_value, si event_value es < 10th_percentile  
 
-2. **Tendencia positiva lenta:** se calcula una línea de tendencia sobre los valores del evento en la ventana de historial y la operación busca una tendencia positiva dentro de la línea. El valor de extrañeza se calcula como:  
+2. **Tendencia positiva lenta**: se calcula una línea de tendencia sobre los valores del evento en la ventana de historial y la operación busca una tendencia positiva dentro de la línea. El valor de extrañeza se calcula como:  
 
    - Pendiente, si la pendiente es positiva  
    - 0, de lo contrario. 
 
-3. **Tendencia negativa lenta:** se calcula una línea de tendencia sobre los valores del evento en la ventana de historial y la operación busca una tendencia negativa dentro de la línea. El valor de extrañeza se calcula como: 
+3. **Tendencia negativa lenta**: se calcula una línea de tendencia sobre los valores del evento en la ventana de historial y la operación busca una tendencia negativa dentro de la línea. El valor de extrañeza se calcula como: 
 
    - Pendiente, si la pendiente es negativa  
    - 0, de lo contrario.  
@@ -145,15 +145,15 @@ Deben tener en cuenta los siguientes puntos cuando se usa este detector:
 
    Esto se muestra en las figuras 1 y 2, a continuación, que utilizan un cambio de límite superior (la misma lógica se aplica a un cambio de límite inferior). En ambas ilustraciones, las formas de onda constituyen un cambio de nivel anómalo. Las líneas naranja verticales indican los límites del salto y el tamaño del salto es el mismo que la ventana de detección especificada en el operador AnomalyDetection. Las líneas verdes indican el tamaño de la ventana de aprendizaje. En la figura 1, el tamaño de salto es igual al tiempo durante el cual dura la anomalía. En la figura 2, el tamaño de salto es la mitad del tiempo durante el cual dura la anomalía. En todos los casos, se detecta un cambio al alza porque el modelo utilizado para la puntuación se ha entrenado con datos normales. Pero en función de cómo funciona el detector de cambios de nivel bidireccional, se deben excluir los valores normales de la ventana de aprendizaje que se usan para el modelo que puntúa la vuelta a la normalidad. En la figura 1, el aprendizaje del modelo de puntuación incluye algunos eventos normales, por lo que no se puede detectar la vuelta a la normalidad. Pero en la figura 2, el aprendizaje solo incluye la parte anómala, lo que asegura que se detecte la vuelta a la normalidad. Cualquier valor menor que la mitad también funciona por la misma razón, mientras que cualquier valor mayor terminará incluyendo un poco de los eventos normales. 
 
-   ![Detección de anomalías con tamaño de ventana igual a la longitud de la anomalía](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_anomaly_length.png)
+   ![Detección de anomalías con tamaño de ventana igual a la longitud de la anomalía](media/stream-analytics-machine-learning-anomaly-detection/windowsize-equal-anomaly-length.png)
 
-   ![Detección de anomalías con tamaño de ventana igual a la mitad de la longitud de la anomalía](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_half_anomaly_length.png)
+   ![Detección de anomalías con tamaño de ventana igual a la mitad de la longitud de la anomalía](media/stream-analytics-machine-learning-anomaly-detection/windowsize-equal-half-anomaly-length.png)
 
 2. En aquellos casos en los que no se puede predecir la longitud de la anomalía, este detector funciona con el mejor esfuerzo. Sin embargo, elegir una ventana de tiempo más estrecha limita los datos del aprendizaje, lo que aumentaría la probabilidad de detectar la vuelta a la normalidad. 
 
 3. En el siguiente escenario, la anomalía más larga no se detecta ya que la ventana de aprendizaje incluye una anomalía del mismo valor elevado. 
 
-   ![Anomalías con el mismo tamaño](media/stream-analytics-machine-learning-anomaly-detection/anomalies_with_same_length.png)
+   ![Anomalías detectadas con el mismo tamaño](media/stream-analytics-machine-learning-anomaly-detection/anomalies-with-same-length.png)
 
 ## <a name="example-query-to-detect-anomalies"></a>Consulta de ejemplo para detectar anomalías 
 

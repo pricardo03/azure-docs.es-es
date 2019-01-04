@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: e3dfbc4fc4d7ed40ebac7de6fe78398b13eafd58
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b24e10abd7c0d4dd5a20f8f85c340de03dae696a
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316555"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343826"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personalización de la directiva de SQL Information Protection en Azure Security Center (versión preliminar)
  
@@ -85,8 +85,8 @@ En este artículo, ha aprendido acerca de cómo definir una directiva de SQL Inf
 
 Para obtener más información acerca de las directivas de seguridad y la seguridad de datos en Azure Security Center, consulte los artículos siguientes:
  
-- [Información general de las directivas de seguridad](security-center-policies-overview.md): en este documento se proporciona información general sobre las directivas de seguridad de Security Center.
-- [Establecimiento de directivas de seguridad en Azure Security Center](security-center-azure-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure
-- [Seguridad de datos de Azure Security Center](security-center-data-security.md): aprenda cómo Security Center administra y protege los datos
+- [Introducción a las directivas de seguridad](security-center-policies-overview.md): Obtenga información general sobre las directivas de seguridad de Security Center.
+- [Establecimiento de directivas de seguridad en Azure Security Center](tutorial-security-policy.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
+- [Seguridad de datos de Azure Security Center](security-center-data-security.md): Aprenda cómo Security Center administra y protege los datos.
 
 

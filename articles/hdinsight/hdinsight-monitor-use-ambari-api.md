@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4be14cd1804c27eedc49cc17e33298c6134f6a37
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 062925f7e072651f4b4189cec7ca73144c0cf994
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008749"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436337"
 ---
-# <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>Supervisión de clústeres de Hadoop en HDInsight con la API de Ambari
-Aprenda a supervisar clústeres de HDInsight con las API de Ambari.
+# <a name="monitor-apache-hadoop-clusters-in-hdinsight-using-the-apache-ambari-api"></a>Supervisión de clústeres de Apache Hadoop en HDInsight con la API de Apache Ambari
+Aprenda a supervisar clústeres de HDInsight con las API de Apache Ambari.
 
-> [!NOTE]
-> La información de este artículo es principalmente para los clústeres de HDInsight basados en Windows, que proporcionan una versión de solo lectura de la API de REST de Ambari. Para los clústeres basados en Linux, vea [Administrar clústeres de Hadoop mediante Ambari](hdinsight-hadoop-manage-ambari.md).
+> [!NOTE]  
+> La información de este artículo es principalmente para los clústeres de HDInsight basados en Windows, que proporcionan una versión de solo lectura de la API de REST de Ambari. Para los clústeres basados en Linux, consulte [Administración de clústeres de Apache Hadoop mediante Apache Ambari](hdinsight-hadoop-manage-ambari.md).
 > 
 > 
 
@@ -36,7 +36,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 * **Una estación de trabajo con Azure PowerShell**.
 * (Opcional) [cURL][curl]. Para instalarlo, consulte [Descargas y versiones de cURL][curl-download].
   
-  > [!NOTE]
+  > [!NOTE]  
   > Cuando utilice el comando cURL en Windows, utilice comillas dobles en lugar de comillas simples para los valores de opción.
   > 
   > 
@@ -56,7 +56,7 @@ Existen varias maneras de usar Ambari para supervisar clústeres de HDInsight.
 
 **Uso de Azure PowerShell**
 
-El siguiente es un script de Azure PowerShell para obtener la información del seguimiento de trabajos de MapReduce *en un clúster de HDInsight 3.5*.  La principal diferencia aquí es que extraemos estos detalles del servicio YARN (en lugar de MapReduce).
+El siguiente es un script de Azure PowerShell para obtener la información del seguimiento de trabajos de MapReduce *en un clúster de HDInsight 3.5*.   La principal diferencia aquí es que extraemos estos detalles del servicio YARN (en lugar de MapReduce).
 
     $clusterName = "<HDInsightClusterName>"
     $clusterUsername = "<HDInsightClusterUsername>"
@@ -120,7 +120,7 @@ La salida es la siguiente:
 Cuando se usa el extremo Ambari, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", el campo *host_name* devuelve ahora el nombre de dominio completo (FQDN) del nodo en lugar de solo el nombre del host. Antes de la versión del 8/10/2014, este ejemplo devolvía simplemente "**headnode0**". Después de la versión del 8/10/2014, se obtiene el FQDN "**headnode0.{ClusterDNS}.azurehdinsight.net**", como se muestra en el ejemplo anterior. Este cambio se solicitó para facilitar escenarios donde se pueden implementar varios tipos de clúster (como HBase y Hadoop) en una misma red virtual (VNET). Esto ocurre, por ejemplo, cuando se usa HBase como plataforma de back-end para Hadoop.
 
 ## <a name="ambari-monitoring-apis"></a>API de supervisión de Ambari
-En la siguiente lista se enumeran algunas de las llamadas a API desde la supervisión de Ambari. Para obtener más información sobre la API, consulte [Referencia de API de Ambari][ambari-api-reference].
+En la siguiente lista se enumeran algunas de las llamadas a API desde la supervisión de Ambari. Para más información sobre la API, consulte [Referencia de API de Apache Ambari][ambari-api-reference].
 
 | Supervisión de la llamada a la API | URI | DESCRIPCIÓN |
 | --- | --- | --- |
@@ -138,7 +138,7 @@ En la siguiente lista se enumeran algunas de las llamadas a API desde la supervi
 | Obtener información de configuración |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/configurations?type=<ConfigType>&tag=<VersionName>` |Tipos de configuración: core-site, hdfs-site, mapred-site, hive-site |
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora sabe cómo usar las llamadas de API de supervisión de Ambari. Para obtener más información, consulte:
+Ahora sabe cómo usar las llamadas de API de supervisión de Apache Ambari. Para obtener más información, consulte:
 
 * [Administrar clústeres de HDInsight con Azure Portal][hdinsight-admin-portal]
 * [Administrar clústeres de HDInsight con Azure PowerShell][hdinsight-admin-powershell]
@@ -150,12 +150,12 @@ Ahora sabe cómo usar las llamadas de API de supervisión de Ambari. Para obtene
 [ambari-api-reference]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
 [curl]: http://curl.haxx.se
-[curl-download]: http://curl.haxx.se/download.html
+[curl-download]: https://curl.haxx.se/download.html
 
 [microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
 [powershell-install]: /powershell/azureps-cmdlets-docs
-[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
+[powershell-script]: https://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md

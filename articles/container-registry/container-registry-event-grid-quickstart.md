@@ -7,14 +7,15 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: danlep
-ms.openlocfilehash: 60248da2bbdac751845a40720f8967203c562b4a
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.custom: seodec18
+ms.openlocfilehash: 48fd64908a5cb2488d58f3c078e0ccb17419352f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085756"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260256"
 ---
-# <a name="quickstart-send-container-registry-events-to-event-grid"></a>Inicio rápido: Envío de eventos del registro de contenedor a Event Grid
+# <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Inicio rápido: Envío de eventos de registro de contenedor privado a Event Grid
 
 Azure Event Grid es un servicio de enrutamiento de eventos completamente administrado que ofrece un consumo de eventos uniforme mediante un modelo de publicación-suscripción. En este tutorial de inicio rápido, usará la CLI de Azure para crear un registro de contenedor, suscribirse a eventos del registro e implementar una aplicación web de ejemplo para recibir los eventos. Por último, desencadenará los eventos `push` y `delete` de la imagen de contenedor, y verá la carga del evento en la aplicación de ejemplo.
 

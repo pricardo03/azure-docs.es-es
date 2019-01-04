@@ -196,10 +196,6 @@
 #### [Pestaña Detalles del escaparate](./cloud-partner-portal/consulting-services/cpp-consulting-service-storefront-details.md)
 ### [Publicación de una oferta de servicios de consultoría](./cloud-partner-portal/consulting-services/cpp-consulting-service-publish-offer.md) 
 
-## [Administración de perfil de publicador](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
-## [Administrar usuarios](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
-## [Cumplimiento del RGPD](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
-
 ## Versión de prueba
 ### [¿Qué es la versión de prueba?](./cloud-partner-portal-orig/what-is-test-drive.md)
 ### [Versión de prueba de Azure Resource Manager](./cloud-partner-portal-orig/azure-resource-manager-test-drive.md)

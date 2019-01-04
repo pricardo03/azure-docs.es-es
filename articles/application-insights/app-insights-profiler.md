@@ -8,21 +8,20 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: b0fc10099f1388169146d90efcd7c20dcbe8df27
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 4d957c26bd4e4ae278c0909c9df1476b02954b86
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164955"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138014"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Generación de perfiles de aplicaciones web de Azure activas con Application Insights
 
-Actualmente, Profiler puede usarse con aplicaciones web ASP.NET y ASP.NET Core que se ejecutan en Web Apps. Es necesario disponer del nivel de servicio Básico o superior para poder utilizar Profiler.
+Actualmente, Profiler puede usarse con aplicaciones web ASP.NET y ASP.NET Core que se ejecutan en Web Apps. Es necesario disponer del nivel de servicio Básico o superior para poder utilizar Profiler. Actualmente, la habilitación de Profiler en Linux solo es posible a través de [este método](app-insights-profiler-aspnetcore-linux.md).
 
 ## <a id="installation"></a> Habilitación de Profiler para su instancia de Web Apps
 Para habilitar Profiler para una aplicación web, siga las instrucciones a continuación. Si está ejecutando otro tipo de servicio de Azure, aquí encontrará instrucciones para habilitar Profiler en otras plataformas compatibles:
@@ -30,11 +29,10 @@ Para habilitar Profiler para una aplicación web, siga las instrucciones a conti
 * [Aplicaciones de Service Fabric](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas virtuales](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
-
 Application Insights Profiler está preinstalado como parte del tiempo de ejecución de App Services, pero necesita activarlo para obtener perfiles de Azure Web Apps. Una vez que ha implementado una aplicación web, incluso si ha incluido el SDK de App Insights en el código fuente, siga los pasos a continuación para habilitar el generador de perfiles.
 
 1. Vaya al panel **App Services** en Azure Portal.
-1. Vaya al panel **Configuración > Supervisión**.
+1. Vaya al panel **Configuración > Application Insights**.
 
    ![Habilitación de App Insights en el portal de App Services](./media/app-insights-profiler/AppInsights-AppServices.png)
 

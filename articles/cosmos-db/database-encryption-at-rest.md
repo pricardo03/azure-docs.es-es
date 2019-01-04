@@ -1,20 +1,18 @@
 ---
-title: 'Cifrado de bases de datos en reposo: Azure Cosmos DB | Microsoft Docs'
-description: Obtenga información sobre cómo Azure Cosmos DB proporciona cifrado predeterminado de todos los datos.
-services: cosmos-db
+title: Cifrado de Azure Cosmos DB en reposo
+description: Obtenga información acerca de cómo Azure Cosmos DB proporciona cifrado de datos en reposo y cómo se implementa.
 author: rafats
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/23/2017
-ms.author: rafats
-ms.openlocfilehash: 2b54f8c7d9f6427f3104d3c64c65cc555f68738a
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.date: 12/06/2018
+ms.author: sngun
+ms.custom: seodec18
+ms.openlocfilehash: 8138a7dcae427d5f5f622170a7825306a7bf8dae
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038417"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140326"
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Cifrado de base de datos en reposo en Azure Cosmos DB
 
@@ -38,7 +36,7 @@ El flujo básico de una solicitud de usuario es el siguiente:
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
-### <a name="q-how-much-more-does-azure-storage-cost-if-storage-service-encryption-is-enabled"></a>P: ¿Cuánto aumenta el costo de Azure Storage si se habilita el cifrado del servicio Storage?
+### <a name="q-how-much-more-does-azure-storage-cost-if-storage-service-encryption-is-enabled"></a>P: ¿Cuánto aumenta el costo de Azure Storage si se habilita Storage Service Encryption?
 R: No hay costo adicional.
 
 ### <a name="q-who-manages-the-encryption-keys"></a>P: ¿Quién administra las claves de cifrado?
@@ -56,7 +54,7 @@ R: Todas las regiones de Azure Cosmos DB tienen activado el cifrado de todos los
 ### <a name="q-does-encryption-affect-the-performance-latency-and-throughput-slas"></a>P: ¿Afecta el cifrado a los Acuerdos de Nivel de Servicio de rendimiento y de latencia del rendimiento?
 R: No hay ningún impacto ni cambios en el rendimiento de los Acuerdos de Nivel de Servicio ahora que está habilitado el cifrado en reposo para todas las cuentas nuevas y existentes. Puede leer más sobre la página del [Acuerdo de Nivel de Servicio de Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db) para consultar las garantías más recientes.
 
-### <a name="q-does-the-local-emulator-support-encryption-at-rest"></a>P: ¿Admite el emulador local admite el cifrado en reposo?
+### <a name="q-does-the-local-emulator-support-encryption-at-rest"></a>P: ¿Admite el emulador local el cifrado en reposo?
 R: El emulador es una herramienta de desarrollo o prueba independiente y no emplea los servicios de administración de claves que usa el servicio de Cosmos DB. Nuestra recomendación es habilitar BitLocker en aquellas unidades de disco donde se almacenan los datos de prueba del emulador confidenciales. El [emulador admite los cambios de directorio de datos predeterminado](local-emulator.md), así como el uso de una ubicación conocida.
 
 ## <a name="next-steps"></a>Pasos siguientes

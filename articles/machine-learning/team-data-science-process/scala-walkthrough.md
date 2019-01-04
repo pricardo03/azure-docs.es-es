@@ -1,5 +1,5 @@
 ---
-title: Ciencia de datos mediante Scala y Spark en Azure | Microsoft Docs
+title: 'Ciencia de datos con Scala y Spark en Azure: Proceso de ciencia de datos en equipo'
 description: Este artículo muestra cómo utilizar Scala para tareas de aprendizaje automático supervisado con los paquetes MLlib escalable y ML de Spark en un clúster de Spark de HDInsight de Azure.
 services: machine-learning
 author: marktab
@@ -10,19 +10,19 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 836fdb5da13465d77c6e9e6ede4780f5d4048597
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: bf4e65b95211fc03ea4a319fd4e503396b893522
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447170"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135154"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Ciencia de datos mediante Scala y Spark en Azure
-Este artículo muestra cómo utilizar Scala para tareas de aprendizaje automático supervisado con los paquetes MLlib escalable y ML de Spark en un clúster de Spark en HDInsight de Azure. Además, se explican cuáles son las tareas que constituyen el [proceso de ciencia de datos](https://aka.ms/datascienceprocess): exploración e ingesta de datos, visualización, ingeniería de características, modelado y consumo de modelos. Los modelos en el artículo incluyen regresión logística y lineal, bosques aleatorios y árboles incrementados de degradado (GBTs), además de dos tareas habituales de aprendizaje automático supervisado:
+Este artículo muestra cómo utilizar Scala para tareas de aprendizaje automático supervisado con los paquetes MLlib escalable y ML de Spark en un clúster de Spark en HDInsight de Azure. Además, se explican cuáles son las tareas que constituyen el [proceso de ciencia de datos](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): exploración e ingesta de datos, visualización, ingeniería de características, modelado y consumo de modelos. Los modelos en el artículo incluyen regresión logística y lineal, bosques aleatorios y árboles incrementados de degradado (GBTs), además de dos tareas habituales de aprendizaje automático supervisado:
 
-* Problema de regresión: predicción de propinas (en dólares) por una carrera de taxi
-* Clasificación binaria: predicción de si se dará propina o no (1/0) en una carrera de taxi
+* Problema de regresión: predicción de la propina ($) para un viaje en taxi
+* Clasificación binaria: predicción de la propina o no propina (1/0) para un viaje en taxi
 
 Para llevar a cabo el proceso de modelado hay que realizar entrenamientos y evaluaciones en conjuntos de datos de pruebas y métricas de precisión pertinentes. En este artículo se describe cómo almacenar estos modelos en el Almacenamiento de blobs de Azure, además de puntuar y evaluar su rendimiento predictivo. También se tratan temas más avanzados sobre cómo optimizar modelos mediante validación cruzada y barridos de hiperparámetros. Los datos que se utilizan son un ejemplo del conjunto de datos de carreras y tarifas de taxi de la ciudad de Nueva York en 2013 disponible en GitHub.
 
@@ -41,7 +41,7 @@ Los pasos de instalación y el código de este artículo están diseñados para 
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Debe tener una suscripción de Azure. Si aún no tiene una, [consiga una evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Necesita un clúster de Spark 1.6 con HDInsight de Azure 3.4 para completar los procedimientos siguientes. Para crear un clúster, consulte las instrucciones proporcionadas en [Introducción: creación de clústeres Apache Spark en HDInsight para Linux y ejecución de consultas interactivas mediante Spark SQL](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Establezca el tipo de clúster y la versión en el menú **Seleccionar tipo de clúster** .
+* Necesita un clúster de Spark 1.6 con HDInsight de Azure 3.4 para completar los procedimientos siguientes. Para crear un clúster, consulte las instrucciones que aparecen en el artículo sobre la [creación de Apache Spark en Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Establezca el tipo de clúster y la versión en el menú **Seleccionar tipo de clúster** .
 
 ![Configuración de tipo de clúster de HDInsight](./media/scala-walkthrough/spark-cluster-on-portal.png)
 
@@ -532,7 +532,7 @@ Este es el código para estas dos tareas.
 
 
 
-## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>Clasificación binaria: predicción de si se debe dar propina
+## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>Modelo de clasificación binaria: predicción sobre si se debe pagar una propina
 En esta sección, crearemos tres tipos de modelos de clasificación binaria para predecir si se debe pagar propina:
 
 * Un **modelo de regresión logística** con la función `LogisticRegression()` del aprendizaje automático de Spark
@@ -723,7 +723,7 @@ Ahora, cree un modelo de clasificación GBT mediante la función `GradientBooste
 
 **Salida:**
 
-Área bajo la curva de ROC = 0,9846895479241554
+Área bajo la curva de ROC: 0,9846895479241554
 
 ## <a name="regression-model-predict-tip-amount"></a>Modelo de regresión: predicción del importe de la propina
 En esta sección, se crean dos tipos de modelos de regresión para predecir el importe de la propina:
@@ -848,7 +848,7 @@ Creación de trazados con matplotlib de Python.
 
 **Salida:**
 
-![Importe de la propina: real frente a predicción](./media/scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
+![Importe de la propina: real frente a la predicción](./media/scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
 
 ### <a name="create-a-gbt-regression-model"></a>Creación de un modelo de regresión GBT
 Cree un modelo de clasificación de bosque aleatorio mediante la función `GBTRegressor()` del aprendizaje automático de Spark y evalúe el modelo con los datos de prueba.
@@ -881,7 +881,7 @@ Cree un modelo de clasificación de bosque aleatorio mediante la función `GBTRe
 
 **Salida:**
 
-R-sqr de prueba = 0,7655383534596654
+El R-sqr de prueba es: 0,7655383534596654
 
 ## <a name="advanced-modeling-utilities-for-optimization"></a>Utilidades avanzadas de modelado para la optimización
 En esta sección, utilizará herramientas de aprendizaje automático que los desarrolladores usan con frecuencia para la optimización de modelos. En concreto, pueden optimizarse los modelos de aprendizaje automático de tres maneras distintas mediante barrido de parámetros y validación cruzada:
@@ -938,7 +938,7 @@ Ahora, divida los datos en conjuntos de entrenamiento y validación, optimice el
 
 **Salida:**
 
-R-sqr de prueba = 0,6226484708501209
+El R-sqr de prueba es: 0,6226484708501209
 
 ### <a name="optimize-the-binary-classification-model-by-using-cross-validation-and-hyper-parameter-sweeping"></a>Optimización del modelo de clasificación binaria mediante barrido de hiperparámetros y validación cruzada
 En esta sección se muestra cómo optimizar el modelo de clasificación binaria mediante barrido de hiperparámetros y validación cruzada. Esto utiliza la función `CrossValidator` del aprendizaje automático de Spark.
@@ -1100,7 +1100,7 @@ A continuación, optimice el modelo usando código personalizado e identifique l
 Tiempo de ejecución de la celda: 61 segundos.
 
 ## <a name="consume-spark-built-machine-learning-models-automatically-with-scala"></a>Uso automático en Scala de los modelos de aprendizaje automático creados en Spark
-Para ver una introducción de los temas que lo guiarán por las tareas que componen el proceso de ciencia de datos en Azure, consulte [Proceso de ciencia de los datos en equipos (TDSP)](https://aka.ms/datascienceprocess).
+Para ver una introducción de los temas que lo guiarán por las tareas que componen el proceso de ciencia de datos en Azure, consulte [Proceso de ciencia de los datos en equipos (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 [Tutoriales del proceso de ciencia de datos en equipos](walkthroughs.md) describe otros tutoriales de extremo a extremo que muestran los pasos en el proceso de ciencia de datos de equipo en escenarios específicos. En los tutoriales también se muestra cómo combinar servicios y herramientas en la nube y locales en un flujo de trabajo o una canalización con el fin de crear una aplicación inteligente.
 

@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/12/2018
+ms.date: 12/4/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 33fce88e7108ee45236e20b1f20dde56bb7446b5
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 5f2f262d5ec4b9e8884e47c6c064927da2af4790
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616391"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876156"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Implementación de Azure Blockchain Workbench
 
@@ -43,6 +43,9 @@ La siguiente es una implementación de ejemplo creada en el grupo de recursos **
 ![Implementación de ejemplo](media/deploy/example-deployment.png)
 
 El costo de Blockchain Workbench se agrega al costo de los servicios de Azure subyacentes. La información de precios de los servicios de Azure se pueden calcular mediante la [calculadora de precios](https://azure.microsoft.com/pricing/calculator/).
+
+> [!IMPORTANT]
+> Si usa una suscripción con límites de servicio bajos, como una suscripción a Azure de nivel Gratis, puede producirse un error en la implementación por una cuota insuficiente de núcleos de máquina virtual. Antes de la implementación, compruebe la cuota con las instrucciones indicadas en el artículo [Cuotas de vCPU de máquinas virtuales](../../virtual-machines/windows/quotas.md). La selección de máquina virtual predeterminada requiere seis núcleos de máquina virtual. Al cambiar a un tamaño más pequeño de máquina virtual, como *Estándar DS1 v2*, se reduce el número de núcleos a 4.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -98,8 +101,8 @@ Una vez que se han completado los pasos descritos en los requisitos previos, est
     | Configuración | DESCRIPCIÓN  |
     |---------|--------------|
     | Supervisión | Elija si desea habilitar Azure Monitor para supervisar la red de la cadena de bloques |
-    | Configuración de Azure Active Directory | Seleccione **Agregar más adelante**.</br>Nota: Si decide [configurar previamente Azure AD](#azure-ad-configuration) o volver a implementar, elija *Añadir ahora*. |
-    | Selección de máquina virtual | Elija el tamaño preferido de la máquina virtual para la red de cadena de bloques. |
+    | Configuración de Azure Active Directory | Seleccione **Agregar más adelante**.</br>Nota: Si decide [configurar previamente Azure AD](#azure-ad-configuration) o volver a implementar, elija *Agregar ahora*. |
+    | Selección de máquina virtual | Elija el tamaño preferido de la máquina virtual para la red de cadena de bloques. Elija un tamaño más pequeño de máquina virtual, como *Estándar DS1 v2*, si tiene una suscripción con límites de servicio bajos, como el nivel Gratis de Azure. |
 
     Para **Usar existente**:
 
@@ -117,7 +120,7 @@ Una vez que se han completado los pasos descritos en los requisitos previos, est
     | Configuración | DESCRIPCIÓN  |
     |---------|--------------|
     | Punto de conexión RPC de Ethereum | Proporcione el punto de conexión RPC de una red de cadena de bloques PoA existente. El punto de conexión comienza con https:// o http:// y termina con un número de puerto. Por ejemplo: `https://network.westus.cloudapp.com:8540` |
-    | Configuración de Azure Active Directory | Seleccione **Agregar más adelante**.</br>Nota: Si decide [configurar previamente Azure AD](#azure-ad-configuration) o volver a implementar, elija *Añadir ahora*. |
+    | Configuración de Azure Active Directory | Seleccione **Agregar más adelante**.</br>Nota: Si decide [configurar previamente Azure AD](#azure-ad-configuration) o volver a implementar, elija *Agregar ahora*. |
     | Selección de máquina virtual | Elija el tamaño preferido de la máquina virtual para la red de cadena de bloques. |
 
 9. Seleccione **Aceptar** para finalizar la configuración avanzada.

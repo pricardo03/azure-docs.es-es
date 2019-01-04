@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/20/2018
 ms.author: amitsriva
-ms.openlocfilehash: d2f3c2ba6849540f90117ef127e25030ff56b569
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 45a13bca32593895e51fa7fe3c5bd7ce1ba547e6
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427172"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437476"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Mantenimiento del back-end, registro de diagnóstico y métricas de Application Gateway
 
@@ -25,7 +25,7 @@ Con Azure Application Gateway, puede supervisar los recursos de las siguientes m
 
 * [Mantenimiento del back-end](#back-end-health): Application Gateway permite supervisar el mantenimiento de los servidores en los grupos de back-end a través de Azure Portal y de PowerShell. El mantenimiento de los grupos de back-end también se puede encontrar en los registros de diagnóstico de rendimiento.
 
-* [Registros](#diagnostic-logging): permiten que un recurso guarde o consuma datos de rendimiento, acceso u otros con fines de supervisión.
+* [Registros](#diagnostic-logging): los registros permiten que un recurso guarde o consuma datos de rendimiento, acceso o de otro tipo con fines de supervisión.
 
 * [Métricas](#metrics): Application Gateway actualmente tiene siete métricas para ver los contadores de rendimiento.
 
@@ -97,10 +97,10 @@ El siguiente fragmento de código muestra un ejemplo de la respuesta:
 
 Puede usar diferentes tipos de registros en Azure para administrar y solucionar problemas de Application Gateway. Se puede acceder a algunos de estos registros mediante el portal. Se pueden extraer todos los registros de Azure Blob Storage y visualizarse en distintas herramientas, como [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Excel y PowerBI. Puede obtener más información sobre los diferentes tipos de registros en la lista siguiente:
 
-* **Registro de actividades:** puede usar el [registro de actividades de Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anteriormente conocido como registros operativos y registros de auditoría) para ver todas las operaciones enviadas a sus suscripciones de Azure, así como su estado. Las entradas del registro de actividades se recopilan de forma predeterminada y se pueden ver en Azure Portal.
-* **Registro de acceso** : este registro se puede utilizar para ver los patrones de acceso de Application Gateway y analizar información importante, como la dirección IP del autor de llamada, la dirección URL solicitada, la latencia de la respuesta, el código de retorno y los bytes de entrada y de salida. El registro de acceso se recopila cada 300 segundos. Este registro contiene un registro por cada instancia de Application Gateway. La instancia de Application Gateway puede identificarse por la propiedad instanceId.
-* **Registro de rendimiento**: este registro se puede utilizar para ver el rendimiento de las instancias de Application Gateway. Este registro captura la información de rendimiento de cada instancia, incluida la cantidad total de solicitudes atendidas, el rendimiento en bytes, la cantidad de solicitudes con error y el número de instancias de back-end con un mantenimiento correcto o incorrecto. El registro de rendimiento se recopila cada 60 segundos.
-* **Registro de firewall**: puede utilizar este registro para ver las solicitudes que se registran con el modo de detección o prevención de una puerta de enlace de aplicaciones que está configurada con el firewall de aplicaciones web.
+* **Registro de actividades**: se puede usar el [registro de actividades de Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anteriormente conocido como registros operativos y registros de auditoría) para ver todas las operaciones enviadas a la suscripción de Azure, así como su estado. Las entradas del registro de actividades se recopilan de forma predeterminada y se pueden ver en Azure Portal.
+* **Registro de acceso**: este registro se puede usar para ver los patrones de acceso de Application Gateway y analizar información importante, como la dirección IP del autor de la llamada, la dirección URL solicitada, la latencia de la respuesta, el código de retorno y los bytes de entrada y de salida. El registro de acceso se recopila cada 300 segundos. Este registro contiene un registro por cada instancia de Application Gateway. La instancia de Application Gateway puede identificarse por la propiedad instanceId.
+* **Registro de rendimiento**: este registro se puede usar para ver el rendimiento de las instancias de Application Gateway. Este registro captura la información de rendimiento de cada instancia, incluida la cantidad total de solicitudes atendidas, el rendimiento en bytes, la cantidad de solicitudes con error y el número de instancias de back-end con un mantenimiento correcto o incorrecto. El registro de rendimiento se recopila cada 60 segundos.
+* **Registro de firewall**: este registro se puede usar para ver las solicitudes que se registran con el modo de detección o prevención de una puerta de enlace de aplicaciones que está configurada con el firewall de aplicaciones web.
 
 > [!NOTE]
 > Los registros solo están disponibles para los recursos implementados en el modelo de implementación de Azure Resource Manager. No puede usar los registros de recursos del modelo de implementación clásica. Para entender mejor los dos modelos, consulte el artículo [Descripción de la implementación de Resource Manager y la implementación clásica](../azure-resource-manager/resource-manager-deployment-model.md) .
@@ -108,7 +108,7 @@ Puede usar diferentes tipos de registros en Azure para administrar y solucionar 
 Tiene tres opciones para almacenar los archivos de registro:
 
 * **Cuenta de almacenamiento**: cuentas que resultan especialmente útiles para registros cuando estos se almacenan durante mucho tiempo y se revisan cuando es necesario.
-* **Event Hubs**: es una buena opción para la integración con otras herramientas de información de seguridad y administración de eventos (SEIM) para obtener alertas acerca de los recursos.
+* **Centros de eventos**: es una buena opción para la integración con otras herramientas de administración de eventos e información de seguridad (SIEM) para obtener alertas sobre los recursos.
 * **Log Analytics**: se usa para la supervisión general en tiempo real de la aplicación o para examinar las tendencias.
 
 ### <a name="enable-logging-through-powershell"></a>Habilitación del registro con PowerShell
@@ -174,7 +174,7 @@ El registro de acceso solo se genera si lo habilitó para cada instancia de Appl
 |clientPort     | Puerto de origen de la solicitud.       |
 |httpMethod     | Método HTTP utilizado por la solicitud.       |
 |requestUri     | URI de la solicitud recibida.        |
-|RequestQuery     | **Server-Routed**: instancia del grupo de back-end al que se envió la solicitud.</br>**X-AzureApplicationGateway-LOG-ID**: identificador de correlación utilizado para la solicitud. Se puede utilizar para solucionar problemas de tráfico en los servidores back-end. </br>**SERVER-STATUS**: código de respuesta HTTP que Application Gateway recibió del back-end.       |
+|RequestQuery     | **Server-Routed**: instancia del grupo de back-end a la que se ha enviado la solicitud.</br>**X-AzureApplicationGateway-LOG-ID**: identificador de correlación que se ha usado para la solicitud. Se puede utilizar para solucionar problemas de tráfico en los servidores back-end. </br>**SERVER-STATUS**: código de respuesta HTTP que Application Gateway ha recibido del back-end.       |
 |UserAgent     | Agente de usuario del encabezado de solicitud HTTP.        |
 |httpStatus     | Código de estado HTTP que se devuelve al cliente desde Application Gateway.       |
 |HttpVersion     | Versión HTTP de la solicitud.        |
@@ -298,8 +298,8 @@ El registro de firewall solo se genera si lo habilitó para cada instancia de Ap
 
 Puede ver y analizar los datos del registro de actividades con cualquiera de los métodos siguientes:
 
-* **Herramientas de Azure:** puede recuperar información de los registros de actividades mediante Azure PowerShell, CLI de Azure, la API de REST de Azure o Azure Portal. En el artículo [Operaciones de actividades con Resource Manager](../azure-resource-manager/resource-group-audit.md) se detallan instrucciones paso a paso de cada método.
-* **Power BI:** si todavía no tiene una cuenta de [Power BI](https://powerbi.microsoft.com/pricing) , puede probarlo gratis. Con el [paquete de contenido de los registros de actividades de Azure para Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/), puede analizar sus datos con los paneles preconfigurados que puede personalizar o usar tal cual.
+* **Herramientas de Azure**: permiten recuperar información de los registros de actividades mediante Azure PowerShell, la CLI de Azure, la API REST de Azure o Azure Portal. En el artículo [Operaciones de actividades con Resource Manager](../azure-resource-manager/resource-group-audit.md) se detallan instrucciones paso a paso de cada método.
+* **Power BI**: si todavía no tiene una cuenta de [Power BI](https://powerbi.microsoft.com/pricing), puede probarlo gratis. Con el [paquete de contenido de los registros de actividades de Azure para Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/), puede analizar sus datos con los paneles preconfigurados que puede personalizar o usar tal cual.
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>Visualización y análisis de los registros de acceso, rendimiento y firewall
 
@@ -343,7 +343,7 @@ En la siguiente imagen, verá un ejemplo con tres métricas que se muestran para
 
 [![](media/application-gateway-diagnostics/figure5.png "Vista de métrica")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
-Para ver una lista de métricas actuales, consulte el artículo de [métricas compatibles con Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
+Para ver una lista de métricas actuales, consulte el artículo de [métricas compatibles con Azure Monitor](../azure-monitor/platform/metrics-supported.md).
 
 ### <a name="alert-rules"></a>Reglas de alertas
 
@@ -375,7 +375,7 @@ Después de crear una alerta de métrica, aparece una lista de alertas. Proporci
 
 Para más información acerca de las notificaciones de alerta, consulte [Recibir notificaciones de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
-Para conocer más detalles sobre los webhooks y cómo usarlos con las alertas, visite [Configuración de un webhook en una alerta de métrica de Azure](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+Para conocer más detalles sobre los webhooks y cómo usarlos con las alertas, visite [Configuración de un webhook en una alerta de métrica de Azure](../azure-monitor/platform/alerts-webhooks.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

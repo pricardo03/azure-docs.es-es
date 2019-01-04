@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 9b83d6ac908be1e62e3c6c2025ae31aa374bdeea
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 47f3e8ab14ecd50e958c57ba4c8f9f098fd5bb7b
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975080"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868368"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Gobierno de la infraestructura de Azure DevTest Labs: administrar costo y propiedad
 El costo y la propiedad son las principales preocupaciones cuando considere la posibilidad de crear los entornos de desarrollo y pruebas. En esta sección, encontrará información que le ayudará a optimizar el costo y alinear la propiedad en su entorno.
@@ -40,7 +40,7 @@ Este enfoque le proporciona numerosas ventajas:
  
 Solo los suscriptores activos de Visual Studio (suscripciones estándar, suscripciones de nube anuales y mensuales) pueden usar los recursos de Azure que se ejecutan en una suscripción Desarrollo/pruebas - Enterprise. No obstante, los usuarios finales pueden acceder también a la aplicación para aportar comentarios o hacer pruebas de aceptación. El uso de recursos en esta suscripción se restringe al desarrollo y la realización de pruebas de aplicaciones, y no se ofrece ninguna garantía sobre el tiempo de actividad.
 
-Si decide usar la oferta de DevTest, tenga en cuenta que este beneficio es únicamente para desarrollo y pruebas de sus aplicaciones. El uso en el marco de la suscripción no incluye un Acuerdo de Nivel de Servicio con respaldo financiero, salvo para la utilización de Visual Studio Team Services y HockeyApp.
+Si decide usar la oferta de DevTest, tenga en cuenta que este beneficio es únicamente para desarrollo y pruebas de sus aplicaciones. El uso en el marco de la suscripción no incluye un Acuerdo de Nivel de Servicio con respaldo financiero, salvo para la utilización de Azure DevOps y HockeyApp.
 
 ## <a name="define-a-role-based-access-across-your-organization"></a>Definir un acceso basado en roles en toda la organización
 ### <a name="question"></a>Pregunta

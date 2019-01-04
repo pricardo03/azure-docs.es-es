@@ -10,13 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: 8c30af5023cb83ee1f9ca0f41db5b7f977cc4bc7
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.date: 12/14/2018
+ms.openlocfilehash: a315e8b42ab8e0df659a3388a50fedf5dd3a54d2
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883914"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413071"
 ---
 # <a name="monitor-migration-activity"></a>Supervisión de la actividad de migración
 En este artículo, aprenderá a supervisar el progreso de una migración tanto de nivel de base de datos como de tabla.
@@ -24,7 +24,7 @@ En este artículo, aprenderá a supervisar el progreso de una migración tanto d
 ## <a name="monitor-at-the-database-level"></a>Supervisión de nivel de base de datos
 Para supervisar la actividad de nivel de base de datos, consulte la hoja de nivel de base de datos:
 
-![Hoja de nivel de base de datos](media\how-to-monitor-migration-activity\dms-database-level-blade.png)
+![Hoja de nivel de base de datos](media/how-to-monitor-migration-activity/dms-database-level-blade.png)
 
 > [!NOTE]
 > Al seleccionar el hipervínculo de la base de datos, se mostrará la lista de tablas y el progreso de su migración.
@@ -104,7 +104,7 @@ Para supervisar la actividad de nivel de tabla, consulte la hoja de nivel de tab
 
 La parte inferior de la hoja enumera las tablas y muestra un resumen rápido del progreso de la migración.
 
-![Hoja de nivel de tabla: resumen rápido](media\how-to-monitor-migration-activity\dms-table-level-blade-summary.png)
+![Hoja de nivel de tabla: resumen rápido](media/how-to-monitor-migration-activity/dms-table-level-blade-summary.png)
 
 En la tabla siguiente se describen los campos que se muestran en los detalles de nivel de tabla.
 
@@ -123,9 +123,9 @@ En la tabla siguiente se describen los campos que se muestran en los detalles de
 ## <a name="monitor-at-table-level--detailed-summary"></a>Supervisión en el nivel de tabla: resumen detallado
 Hay dos pestañas que muestran el progreso de la migración en la carga completa y la sincronización de datos incrementales.
     
-![Pestaña de la carga completa](media\how-to-monitor-migration-activity\dms-full-load-tab.png)
+![Pestaña de la carga completa](media/how-to-monitor-migration-activity/dms-full-load-tab.png)
 
-![Pestaña de sincronización de datos incrementales](media\how-to-monitor-migration-activity\dms-incremental-data-sync-tab.png)
+![Pestaña de sincronización de datos incrementales](media/how-to-monitor-migration-activity/dms-incremental-data-sync-tab.png)
 
 En la tabla siguiente se describen los campos que se muestran en el progreso de la migración de nivel de tabla.
 
@@ -136,7 +136,7 @@ En la tabla siguiente se describen los campos que se muestran en el progreso de 
 | **Actualizar** | Número de actualizaciones de CDC en las filas, que se aplican al destino.      |
 | **Eliminar**      | Número de eliminaciones de CDC en las filas, que se aplican al destino. |
 | **Total aplicado**      | Total de actualizaciones, inserciones y eliminaciones de CDC en las filas, que se aplican al destino. |
-| **Errores de datos** | Número de errores de datos que se han producido en esta tabla. Algunos ejemplos de los errores son *511: Cannot create a row of size %d which is greater than the allowable maximum row size of %d, 8114: Error converting data type %ls to %ls.* (511: No se puede crear una fila de tamaño %d que sea mayor que el tamaño de fila máximo permitido de %d, 8114: Error al convertir el tipo de datos de %ls a %ls.)  El cliente debe consultar desde la tabla attms_apply_exceptions en el destino de Azure para ver los detalles del error.    |
+| **Errores de datos** | Número de errores de datos que se han producido en esta tabla. Algunos ejemplos de errores son *511: No se puede crear una fila de tamaño %d que sea mayor que el tamaño de fila máximo permitido de %d, 8114: Error al convertir el tipo de datos %ls a %ls.*  El cliente debe consultar desde la tabla dms_apply_exceptions en el destino de Azure para ver los detalles del error.    |
 
 > [!NOTE]
 > Los valores de inserción, actualización, eliminación y total aplicado de CDC pueden disminuir cuando la base de datos migra totalmente o se reinicia la migración.

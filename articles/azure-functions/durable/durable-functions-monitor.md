@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7af8015e424b4a9169a9b80ed5e7070a8fa6de1c
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4322841f126e4aa017b4d901cbfb1afd39e5bccf
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638460"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342579"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Escenario de supervisión en Durable Functions: ejemplo de supervisión meteorológica
 
@@ -32,7 +32,7 @@ En este ejemplo se supervisan las condiciones meteorológicas actuales de una ub
 * Las supervisiones pueden finalizar cuando se cumple alguna condición o cuando otro proceso las finaliza.
 * Las supervisiones pueden aceptar parámetros. El ejemplo muestra cómo se puede aplicar el mismo proceso de supervisión meteorológica a cualquier ubicación y número de teléfono solicitados.
 * Las supervisiones son escalables. Debido a que cada supervisión es una instancia de orquestación, se pueden crear múltiples supervisiones sin tener que crear nuevas funciones ni definir más código.
-* Las supervisiones se integran fácilmente en flujos de trabajo mayores. Una supervisión puede ser una sección de una función de orquestación más compleja, o una [suborquestación](https://docs.microsoft.com/azure/azure-functions/durable-functions-sub-orchestrations).
+* Las supervisiones se integran fácilmente en flujos de trabajo mayores. Una supervisión puede ser una sección de una función de orquestación más compleja, o una [suborquestación](durable-functions-sub-orchestrations.md).
 
 ## <a name="configuring-twilio-integration"></a>Configuración de la integración de Twilio
 
@@ -54,12 +54,12 @@ Cuando tenga una clave de API, agregue la siguiente **configuración de la aplic
 
 En este artículo se explican las funciones siguientes en la aplicación de ejemplo:
 
-* `E3_Monitor`: una función del orquestador que llama a `E3_GetIsClear` periódicamente. Llama a `E3_SendGoodWeatherAlert` si `E3_GetIsClear` devuelve true.
-* `E3_GetIsClear`: una función de actividad que comprueba las condiciones meteorológicas actuales de una ubicación.
+* `E3_Monitor`: una función de orquestador que llama a `E3_GetIsClear` periódicamente. Llama a `E3_SendGoodWeatherAlert` si `E3_GetIsClear` devuelve true.
+* `E3_GetIsClear`: una función de la actividad que comprueba las condiciones meteorológicas actuales de una ubicación.
 * `E3_SendGoodWeatherAlert`: una función de la actividad que envía un mensaje SMS por Twilio.
 
 En las siguientes secciones se explican la configuración y el código que se utilizan para el scripting C# y para JavaScript. Al final del artículo se muestra el código para el desarrollo de Visual Studio.
- 
+
 ## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>La orquestación de supervisión meteorológica (código de ejemplo de Azure Portal y Visual Studio Code)
 
 La función **E3_Monitor** utiliza la norma *function.json* para las funciones de orquestador.
@@ -72,7 +72,7 @@ Este es el código que implementa la función:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (solo Functions v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo Functions 2.x)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
@@ -83,7 +83,7 @@ Esta función de orquestador realiza las acciones siguientes:
 3. Llama a **E3_GetIsClear** para determinar si el cielo está despejado en la ubicación solicitada.
 4. Si está despejado, llama a **E3_SendGoodWeatherAlert** para enviar una notificación por SMS al número de teléfono solicitado.
 5. Crea un temporizador duradero para reanudar la orquestación en el siguiente intervalo de sondeo. El ejemplo utiliza un valor modificable por brevedad.
-6. Continúa ejecutándose hasta que la función [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) pasa la hora de expiración de la supervisión o una alerta por SMS.
+6. Sigue ejecutándose hasta que [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) (C#) o `currentUtcDateTime` (JavaScript) pasan la hora de expiración de la supervisión o se envía una alerta por SMS.
 
 Para ejecutar simultáneamente varias instancias del orquestador, envíe varias funciones **MonitorRequests**. Se puede especificar la ubicación que se va a supervisar, así como el número de teléfono para enviar una alerta por SMS.
 
@@ -107,7 +107,7 @@ Y esta es la implementación. Al igual que los objetos POCO usados para la trans
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (solo Functions v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo Functions 2.x)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
 
@@ -121,7 +121,7 @@ Y este es el código que envía el mensaje SMS:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (solo Functions v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (solo Functions 2.x)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
 
@@ -134,8 +134,9 @@ POST https://{host}/orchestrators/E3_Monitor
 Content-Length: 77
 Content-Type: application/json
 
-{ "Location": { "City": "Redmond", "State": "WA" }, "Phone": "+1425XXXXXXX" }
+{ "location": { "city": "Redmond", "state": "WA" }, "phone": "+1425XXXXXXX" }
 ```
+
 ```
 HTTP/1.1 202 Accepted
 Content-Type: application/json; charset=utf-8
@@ -144,9 +145,6 @@ RetryAfter: 10
 
 {"id": "f6893f25acf64df2ab53a35c09d52635", "statusQueryGetUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "sendEventPostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/raiseEvent/{eventName}?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "terminatePostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason={text}&taskHub=SampleHubVS&connection=Storage&code={systemKey}"}
 ```
-
-   > [!NOTE]
-   > Actualmente, las funciones de inicio de orquestación de JavaScript no pueden devolver los URI de administración de instancias. Esta funcionalidad se agregará en una versión posterior.
 
 Se inicia la instancia de **E3_Monitor** y consulta las condiciones meteorológicas actuales para la ubicación solicitada. Si el tiempo está despejado, llama a una función de actividad para enviar una alerta; de lo contrario, establece un temporizador. Cuando expire el temporizador, se reanudará la orquestación.
 
@@ -168,7 +166,7 @@ Puede ver los resultados de la actividad de orquestación al examinar los regist
 2018-03-01T01:14:54.030 Function completed (Success, Id=561d0c78-ee6e-46cb-b6db-39ef639c9a2c, Duration=62ms)
 ```
 
-La orquestación [finalizará](durable-functions-instance-management.md#terminating-instances) una vez que se alcance el tiempo de espera o se detecten cielos despejados. También puede usar `TerminateAsync` dentro de otra función o invocar el webhook HTTP POST **terminatePostUri** al que se hace referencia en la respuesta 202 anterior y sustituir `{text}` por el motivo de la finalización:
+La orquestación [finalizará](durable-functions-instance-management.md#terminating-instances) una vez que se alcance el tiempo de espera o se detecten cielos despejados. También puede usar `TerminateAsync` (.NET) o `terminate` (JavaScript) dentro de otra función, o bien invocar el webhook HTTP POST **terminatePostUri** al que se hace referencia en la respuesta 202 anterior y reemplazar `{text}` por el motivo de la finalización:
 
 ```
 POST https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}

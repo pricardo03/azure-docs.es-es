@@ -9,16 +9,15 @@ editor: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 14e89d5eab058b9fa42c20811df9c5ac0ceca44a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 54fda4852e986749499b7fc8717308edf81915b2
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633204"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338505"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solución de administración de Office 365 en Azure (versión preliminar)
 
@@ -30,7 +29,7 @@ La solución de administración de Office 365 permite supervisar el entorno de O
 - Supervise las actividades del administrador para realizar el seguimiento de cambios de configuración u operaciones de privilegios elevados.
 - Detecte e investigue comportamientos de usuario no deseados, que puede personalizar para las necesidades de la organización.
 - Demuestre el cumplimiento de las normas y las auditorías. Por ejemplo, puede supervisar las operaciones de acceso a archivos en los archivos confidenciales, lo que pueden ayudarle con el proceso de cumplimiento y auditoría.
-- Solucione problemas operativos mediante [búsqueda de registros](../../log-analytics/log-analytics-queries.md) en los datos de actividad de Office 365 de su organización.
+- Solucione problemas operativos mediante [búsqueda de registros](../../azure-monitor/log-query/log-query-overview.md) en los datos de actividad de Office 365 de su organización.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Se requiere lo siguiente antes de la instalación y configuración de esta solución.
@@ -41,7 +40,7 @@ Se requiere lo siguiente antes de la instalación y configuración de esta soluc
  
 
 ## <a name="management-packs"></a>Módulos de administración
-Esta solución no instala ningún módulo de administración en [grupos de administración conectados](../../log-analytics/log-analytics-om-agents.md).
+Esta solución no instala ningún módulo de administración en [grupos de administración conectados](../../azure-monitor/platform/om-agents.md).
   
 ## <a name="install-and-configure"></a>Instalación y configuración
 Empiece por agregar la [solución Office 365 a su suscripción](solutions.md#install-a-management-solution). Una vez agregada, debe realizar los pasos de configuración de esta sección para proporcionar acceso a la suscripción a Office 365.
@@ -52,14 +51,14 @@ Antes de iniciar este procedimiento, recopile la siguiente información.
 Desde el área de trabajo de Log Analytics:
 
 - Nombre del área de trabajo: área de trabajo donde se recopilarán los datos de Office 365.
-- Nombre del grupo de recursos: grupo de recursos que contiene el área de trabajo.
-- Identificador de la suscripción de Azure: suscripción que contiene el área de trabajo.
+- Nombre del grupo de recursos: el grupo de recursos que contiene el área de trabajo.
+- Identificador de suscripción de Azure: la suscripción que contiene el área de trabajo.
 
 Desde la suscripción a Office 365:
 
 - Nombre de usuario: dirección de correo electrónico de una cuenta administrativa.
-- Id. de inquilino: identificador único de la suscripción a Office 365.
-- Id. de cliente: cadena de 16 caracteres que representa el cliente de Office 365.
+- Identificador de inquilino: identificador único de la suscripción a Office 365.
+- Identificador de cliente: cadena de 16 caracteres que representa el cliente de Office 365.
 - Secreto de cliente: cadena cifrada necesaria para la autenticación.
 
 ### <a name="create-an-office-365-application-in-azure-active-directory"></a>Creación de una aplicación de Office 365 en Azure Active Directory
@@ -709,6 +708,6 @@ En la tabla siguiente se proporcionan ejemplos de búsquedas de registros para l
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Usar Búsquedas de registros en [Log Analytics](../../log-analytics/log-analytics-queries.md) para ver datos detallados sobre la actualización.
+* Usar Búsquedas de registros en [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) para ver datos detallados sobre la actualización.
 * [Cree sus propios paneles](../../azure-monitor/platform/dashboards.md) para mostrar las consultas de búsqueda favoritas de Office 365.
-* [Cree alertas](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) para recibir notificaciones proactivas de actividades importantes de Office 365.  
+* [Cree alertas](../../azure-monitor/platform/alerts-overview.md) para recibir notificaciones proactivas de actividades importantes de Office 365.  

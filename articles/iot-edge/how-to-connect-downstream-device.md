@@ -1,5 +1,5 @@
 ---
-title: Configuración de dispositivos de bajada con Azure IoT Edge | Microsoft Docs
+title: 'Conexión de dispositivos de bajada: Azure IoT Edge | Microsoft Docs'
 description: Cómo configurar dispositivos de bajada o dispositivos hoja para su conexión mediante dispositivos de puerta de enlace Azure IoT Edge.
 author: kgremban
 manager: philmea
@@ -8,12 +8,13 @@ ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: bd9d8c4a75df0d9070476fb72d2b60f5cb182a87
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 0797952641efb9fe876d72f2dce0418ff5771d40
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566234"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083341"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Conexión de un dispositivo de bajada a una puerta de enlace Azure IoT Edge
 
@@ -88,7 +89,7 @@ sudo update-ca-certificates
 
 Verá un mensaje que dice "Updating certificates in /etc/ssl/certs... 1 added, 0 removed; done." (Actualizando certificados en /etc/ssl/certs...1 agregado, 0 quitados, listo)
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 Los siguientes pasos son un ejemplo de cómo instalar un certificado de entidad de certificación en un host con Windows. En este ejemplo se da por supuesto que usa el certificado **azure-iot-test-only.root.ca.cert.pem** de los artículos de requisitos previos y que ha copiado el certificado en una ubicación en el dispositivo de bajada.  
 

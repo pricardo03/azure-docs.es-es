@@ -1,5 +1,5 @@
 ---
-title: Implementación de contenedores con Helm en Azure Kubernetes
+title: (EN DESUSO) Implementación de contenedores con Helm en Azure Kubernetes
 description: Uso de la herramienta de empaquetado de Helm para implementar contenedores en un clúster de Kubernetes en Azure Container Service
 services: container-service
 author: sauryadas
@@ -9,16 +9,19 @@ ms.topic: article
 ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 882e785968f94473e80c7a14e5a68498add37735
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 05edbf40e8cd5f8edbdc8b74b540962b1a25c8de
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38634160"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997888"
 ---
-# <a name="use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>Uso de Helm para implementar contenedores en un clúster de Kubernetes
+# <a name="deprecated-use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>(EN DESUSO) Uso de Helm para implementar contenedores en un clúster de Kubernetes
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Para la versión actualizada de este artículo que utiliza Azure Kubernetes Service, consulte [Instalación de aplicaciones con Helm en Azure Kubernetes Service (AKS)](../../aks/kubernetes-helm.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 [Helm](https://github.com/kubernetes/helm/) es una herramienta de empaquetado de código abierto que ayuda a instalar y administrar el ciclo de vida de las aplicaciones de Kubernetes. Helm, que funciona de forma similar a los administradores de paquetes de Linux como get Apt y Yum, se utiliza para administrar los gráficos de Kubernetes, que son paquetes de recursos de Kubernetes preconfigurados. Este artículo muestra cómo trabajar con Helm en un clúster de Kubernetes implementado en Azure Container Service.
 
@@ -27,7 +30,7 @@ Helm tiene dos componentes:
 
 * **Tiller** es un servidor que se ejecuta en el clúster de Kubernetes y administra el ciclo de vida de las aplicaciones de Kubernetes 
  
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * [Creación de un clúster de Kubernetes](container-service-kubernetes-walkthrough.md) en Azure Container Service
 

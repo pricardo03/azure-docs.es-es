@@ -1,22 +1,19 @@
 ---
-title: Arquitectura lambda con Azure Cosmos DB y HDInsight (Apache Spark) | Microsoft Docs
+title: Arquitectura lambda con Azure Cosmos DB y HDInsight (Apache Spark)
 description: En este artículo se describe cómo implementar una arquitectura lambda mediante Azure Cosmos DB, HDInsight y Spark
 keywords: arquitectura lambda
 services: cosmos-db
-author: tknandu
-manager: kfile
-editor: ''
 ms.service: cosmos-db
-ms.devlang: na
+author: tknandu
+ms.author: ramkris
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: ramkris
-ms.openlocfilehash: c926c67a330648e09c1fd8133164f64582ad9a34
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: b6831e9c6b679d2fd4fa585331213290d67068c2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701082"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084029"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB: Implementación de una arquitectura lambda en la plataforma Azure 
 
@@ -37,7 +34,7 @@ Una arquitectura lambda es una arquitectura de procesamiento de datos genérica,
 
 Origen: http://lambda-architecture.net/
 
-Los principios básicos de una arquitectura lambda se describen en el diagrama anterior según se indica en [https://lambda-architecture.net](http://lambda-architecture.net/).
+Los principios básicos de una arquitectura lambda se describen en el diagrama anterior según se indica en [http://lambda-architecture.net](http://lambda-architecture.net/).
 
  1. Todos los **datos** se insertan en *ambas capas,* la *capa de procesamiento por lotes* y la *capa de velocidad*.
  2. La **capa de procesamiento por lotes** tiene un conjunto de datos maestro (un conjunto inmutable, solo de anexación de datos sin procesar), y permite calcular previamente las vistas de lote.
@@ -64,7 +61,7 @@ Desde una perspectiva operativa, mantener dos flujos de datos al tiempo que se g
  4. La **capa de velocidad** utiliza HDInsight (Apache Spark) para leer la fuente de cambios de Azure Cosmos DB. Esto le permite conservar los datos así como consultarlos y procesarlos de forma simultánea.
  5. Todas las consultas se pueden resolver mediante la combinación de los resultados de las vistas de lote y las vistas en tiempo real, o haciendo ping en ellas individualmente.
  
-### <a name="code-example-spark-structured-streaming-to-an-azure-cosmos-db-change-feed"></a>Ejemplo de código: flujos estructurados de Spark en una fuente de cambios de Azure Cosmos DB
+### <a name="code-example-spark-structured-streaming-to-an-azure-cosmos-db-change-feed"></a>Ejemplo de código: Flujos estructurados de Spark en una fuente de cambios de Azure Cosmos DB
 Antes de ejecutar un prototipo rápido de la fuente de cambios de Azure Cosmos DB como parte de la **capa de velocidad**, puede probarlo mediante datos de Twitter como parte del ejemplo que se describe en [Stream Processing Changes using Azure Cosmos DB Change Feed and Apache Spark](https://github.com/Azure/azure-cosmosdb-spark/wiki/Stream-Processing-Changes-using-Azure-Cosmos-DB-Change-Feed-and-Apache-Spark) (Procesamiento de flujos de cambios mediante la fuente de cambios de Azure Cosmos DB). Para comenzar de inmediato con la salida de Twitter, consulte el ejemplo de código de [Stream feed from Twitter to Cosmos DB](https://github.com/tknandu/TwitterCosmosDBFeed) (Fuente de flujos de Twitter a Cosmos DB). En el ejemplo anterior va a cargar datos de Twitter en Azure Cosmos DB y, a continuación, puede configurar el clúster de HDInsight (Apache Spark) para que se conecte a la fuente de cambios. Para más información sobre cómo realizar esta configuración, consulte [Apache Spark to Azure Cosmos DB Connector Setup](https://github.com/Azure/azure-cosmosdb-spark/wiki/Spark-to-Cosmos-DB-Connector-Setup) (Configuración del conector de Apache Spark en Azure Cosmos DB).  
 
 El fragmento de código siguiente muestra cómo configurar `spark-shell` para ejecutar un trabajo de flujos estructurados para que se conecte a una fuente de cambios de Azure Cosmos DB que revisa en tiempo real el flujo de datos de Twitter para llevar a cabo un recuento del intervalo de ejecución.
@@ -108,7 +105,7 @@ Para más información sobre la fuente de cambios de Azure Cosmos DB, consulte:
 
 * [Compatibilidad con la fuente de cambios en Azure Cosmos DB](change-feed.md)
 * [Introducing the Azure CosmosDB Change Feed Processor Library](https://azure.microsoft.com/blog/introducing-the-azure-cosmosdb-change-feed-processor-library/) (Introducción a la biblioteca de procesadores de la fuente de cambios de Azure Cosmos DB)
-* [Stream Processing Changes: Azure CosmosDB change feed + Apache Spark](https://azure.microsoft.com/blog/stream-processing-changes-azure-cosmosdb-change-feed-apache-spark/) (Procesamiento de flujo de cambios: fuente de cambios de Azure CosmosDB + Apache Spark)
+* [Stream Processing Changes: Azure CosmosDB change feed + Apache Spark](https://azure.microsoft.com/blog/stream-processing-changes-azure-cosmosdb-change-feed-apache-spark/) (Cambios en el procesamiento de transmisiones: fuente de cambios de Azure CosmosDB + Apache Spark)
 
 ## <a name="batch-and-serving-layers"></a>Capas de proceso por lotes y de servicio
 Puesto que los nuevos datos se cargan en Azure Cosmos DB (donde la fuente de cambios se está usando para la capa de velocidad), aquí es donde reside el **conjunto de datos maestro** (un conjunto inmutable, solo de anexación de datos sin procesar). De aquí en adelante, utilice HDInsight (Apache Spark) para realizar las funciones de cálculo previo de la **capa de procesamiento por lotes** a la **capa de servicio**, tal y como se muestra en la siguiente imagen:
@@ -281,4 +278,4 @@ Si aún no lo ha hecho, descargue el conector de Spark a Azure Cosmos DB del rep
 * [Demostraciones de fuente de cambios](https://github.com/Azure/azure-cosmosdb-spark/wiki/Change-Feed-demos)
 * [Stream processing changes using Azure Cosmos DB Change Feed and Apache Spark](https://github.com/Azure/azure-cosmosdb-spark/wiki/Stream-Processing-Changes-using-Azure-Cosmos-DB-Change-Feed-and-Apache-Spark) (Procesamiento de flujo de cambios mediante la fuente de cambios de Azure Cosmos DB y Apache Spark)
 
-Es posible que también quiera consultar la [guía de Apache Spark SQL, DataFrames y conjuntos de datos](http://spark.apache.org/docs/latest/sql-programming-guide.html) y el artículo [Apache Spark en Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
+Es posible que también quiera consultar la [guía de Apache Spark SQL, DataFrames y conjuntos de datos](https://spark.apache.org/docs/latest/sql-programming-guide.html) y el artículo [Apache Spark en Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md).

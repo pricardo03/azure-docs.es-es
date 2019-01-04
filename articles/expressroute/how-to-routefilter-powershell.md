@@ -1,19 +1,20 @@
 ---
-title: Configuración de filtros de ruta para el emparejamiento de Microsoft en Azure ExpressRoute | Microsoft Docs
+title: 'Configuración de filtros de ruta para el emparejamiento de Microsoft: ExpressRoute: PowerShell: Azure | Microsoft Docs'
 description: En este artículo se describe cómo configurar filtros de ruta para el emparejamiento de Microsoft mediante PowerShell
 documentationcenter: na
 services: expressroute
 author: ganesr
 ms.service: expressroute
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: ganesr
-ms.openlocfilehash: d4ef500185675ab84485c5dd6a9af4034c57b060
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec18
+ms.openlocfilehash: 30388185c415346b298dbada715b17e631c66769
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419272"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096303"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Configuración de filtros de ruta para el emparejamiento de Microsoft: PowerShell
 > [!div class="op_single_selector"]
@@ -141,7 +142,7 @@ $routefilter.Rules.Add($rule)
 Set-AzureRmRouteFilter -RouteFilter $routefilter
 ```
 
-## <a name="attach"></a>Paso 3: Asociación del filtro de ruta a un circuito de ExpressRoute
+## <a name="attach"></a>Paso 3: Asociación del filtro de ruta a un circuito ExpressRoute
 
 Ejecute el siguiente comando para asociar el filtro de ruta al circuito ExpressRoute (se da por hecho que solo tiene emparejamiento de Microsoft):
 

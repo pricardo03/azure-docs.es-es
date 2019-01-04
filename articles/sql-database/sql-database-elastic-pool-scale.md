@@ -3,7 +3,7 @@ title: 'Escalar recursos de grupos elásticos: Azure SQL Database | Microsoft Do
 description: En esta página se describe el proceso de escalado de recursos de grupos elásticos en Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-pool
+ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,18 +12,18 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: cd9886f11685397cbfb82f88bb0b37c8ccc41b67
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 04fcb84b22e84060652b4a3743cb73e4543ee573
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240178"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868453"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Escalar recursos de grupos elásticos en Azure SQL Database
 
 En este artículo se describe cómo escalar los recursos de proceso y almacenamiento disponibles para los grupos elásticos y las bases de datos agrupadas en Azure SQL Database.
 
-## <a name="vcore-based-purchasing-model-change-elastic-pool-storage-size"></a>Modelo de compra basado en núcleos virtuales: cambiar el tamaño del almacenamiento de los grupos elásticos
+## <a name="vcore-based-purchasing-model-change-elastic-pool-storage-size"></a>Modelo de compra basado en núcleos virtuales: cambiar el tamaño de almacenamiento de grupos elásticos
 
 - Se puede aprovisionar el almacenamiento hasta el límite de tamaño máximo:
 
@@ -44,7 +44,7 @@ Puede aumentar o disminuir el tamaño de proceso para un grupo elástico en func
 - En general, lo que se tarda en cambiar los núcleos virtuales mínimos por base de datos o los núcleos virtuales máximos por base de datos suele ser cinco minutos o menos.
 - Cuando se reduce el tamaño de los núcleos virtuales del grupo, el espacio usado por el grupo debe ser menor que el tamaño máximo permitido del nivel de servicio de destino y de los núcleos virtuales del grupo.
 
-## <a name="dtu-based-purchasing-model-change-elastic-pool-storage-size"></a>Modelo de compra basado en DTU: cambiar el tamaño del almacenamiento de los grupos elásticos
+## <a name="dtu-based-purchasing-model-change-elastic-pool-storage-size"></a>Modelo de compra basado en DTU: cambiar el tamaño de almacenamiento de grupos elásticos
 
 - El precio de la eDTU de un grupo elástico incluye una cierta cantidad de almacenamiento sin ningún costo adicional. El almacenamiento adicional que supere la cantidad incluida se puede aprovisionar por un costo extra hasta el límite de tamaño máximo en incrementos de 250 GB hasta 1 TB, y luego en incrementos de 256 GB superando 1 TB. Para los límites de tamaño máximo y las cantidades de almacenamiento incluidas, consulte [Grupos elásticos: tamaños de almacenamiento y de proceso](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
 - Se puede aprovisionar el almacenamiento adicional para un grupo elástico si se aumenta su tamaño máximo mediante [Azure Portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), la [CLI de Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) o la [API de REST](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
@@ -53,7 +53,7 @@ Puede aumentar o disminuir el tamaño de proceso para un grupo elástico en func
 > [!IMPORTANT]
 > En algunas circunstancias, puede que deba reducir una base de datos para reclamar el espacio no utilizado. Para más información, consulte [Administración del espacio de archivo en Azure SQL Database](sql-database-file-space-management.md).
 
-## <a name="dtu-based-purchasing-model-change-elastic-pool-compute-resources-edtus"></a>Modelo de compra basado en DTU: cambiar los recursos de proceso de los grupos elásticos (eDTU)
+## <a name="dtu-based-purchasing-model-change-elastic-pool-compute-resources-edtus"></a>Modelo de compra basado en DTU: cambiar los recursos de proceso de los grupos elásticos (unidades de transacción de base de datos elástica)
 
 Puede aumentar o disminuir los recursos disponibles para un grupo elástico en función de los recursos que necesita mediante [Azure Portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), la [CLI de Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) o la [ API de REST](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 

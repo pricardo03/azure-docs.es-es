@@ -3,7 +3,7 @@ title: Restauración de una base de datos Azure SQL Database a partir de una cop
 description: Obtenga información acerca de la restauración a un momento dado, que le permite revertir Azure SQL Database a un momento dado anterior (hasta 35 días).
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/23/2018
-ms.openlocfilehash: ba6493f77b622a814c970b07fc2a23e7ce1d3624
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 4d77f8aad07d2fd4b3e2c4ec42b5b0ec328f779d
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987569"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269522"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperación de una Base de datos SQL de Azure mediante copias de seguridad automatizadas
 
@@ -64,10 +64,10 @@ Para una única suscripción, existen algunas limitaciones en el número de soli
 |Grupo elástico (por grupo)|4|200|
 ||||
 
-No existe ninguna funcionalidad integrada para restaurar de forma masiva. El script denominado [Azure SQL Database: recuperación completa del servidor](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) , es un ejemplo de uno de los diferentes modos de realizar esta tarea.
+No existe ninguna funcionalidad integrada para restaurar de forma masiva. El script [Azure SQL Database: Full Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) es un ejemplo de uno de los diferentes modos de realizar esta tarea.
 
 > [!IMPORTANT]
-> Para poder efectuar una recuperación con copias de seguridad automatizadas, debe ser miembro del rol de colaborador de SQL Server en la suscripción o ser el propietario de la suscripción; consulte [RBAC: roles integrados](../role-based-access-control/built-in-roles.md). Las recuperaciones se pueden realizar a través del Portal de Azure, PowerShell o la API de REST. No puede utilizar Transact-SQL.
+> Para poder efectuar una recuperación con copias de seguridad automatizadas, debe ser miembro del rol de colaborador de SQL Server en la suscripción o ser el propietario de la suscripción: consulte [RBAC: roles integrados](../role-based-access-control/built-in-roles.md). Las recuperaciones se pueden realizar a través del Portal de Azure, PowerShell o la API de REST. No puede utilizar Transact-SQL.
 
 ## <a name="point-in-time-restore"></a>Restauración a un momento dado
 
@@ -129,7 +129,7 @@ La funcionalidad de restauración geográfica proporciona la opción de recupera
 Actualmente no se admite la restauración a un momento dad en una base de datos geográfica secundaria. La restauración a un momento dado solo puede realizarse en una base de datos principal. Para obtener información detallada sobre cómo usar la restauración geográfica a fin de recuperarse de una interrupción, consulte [Restauración de una base de datos SQL de Azure o una conmutación por error en una secundaria](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> La recuperación de copias de seguridad es la más básica de las soluciones de recuperación ante desastres disponibles en SQL Database con el objetivo de punto de recuperación (RPO) y el tiempo de recuperación estimado (ERT) más largos. En el caso de las soluciones que utilizan las bases de datos de tamaño pequeño (por ejemplo, nivel de servicio básico o bases de datos de inquilino de tamaño pequeño en grupos elásticos), la restauración geográfica suele ser una solución de recuperación ante desastres razonable con un ERT de hasta 12 horas (normalmente, tarda mucho menos). En lo que respecta a las soluciones que utilizan bases de datos de gran tamaño que precisan tiempos de recuperación más cortos, sería conveniente considerar la posibilidad de usar [grupos de conmutación por error y replicación geográfica activa](sql-database-geo-replication-overview.md). La replicación geográfica activa ofrece RPO y ERT mucho menores, ya que solo es necesario iniciar una conmutación por error en un elemento secundario replicado continuamente. Para más información sobre las opciones de continuidad empresarial, vea [Introducción a la continuidad empresarial](sql-database-business-continuity.md).
+> La recuperación de copias de seguridad es la más básica de las soluciones de recuperación ante desastres disponibles en SQL Database con el objetivo de punto de recuperación (RPO) y el tiempo de recuperación estimado (ERT) más largos. En el caso de las soluciones que utilizan las bases de datos de tamaño pequeño (por ejemplo, nivel de servicio básico o bases de datos de inquilino de tamaño pequeño en grupos elásticos), la restauración geográfica suele ser una solución de recuperación ante desastres razonable con un ERT de hasta 12 horas (normalmente, tarda mucho menos). En lo que respecta a las soluciones que utilizan bases de datos de gran tamaño que precisan tiempos de recuperación más cortos, sería conveniente considerar la posibilidad de usar [replicación geográfica activa](sql-database-active-geo-replication.md) o [grupos de conmutación por error automáticos](sql-database-auto-failover-group.md). La replicación geográfica activa ofrece RPO y ERT mucho menores, ya que solo es necesario iniciar una conmutación por error en un elemento secundario replicado continuamente. Los grupos de conmutación por error automáticos permiten la conmutación automática por error de un grupo de bases de datos. Para más información sobre las opciones de continuidad empresarial, vea [Introducción a la continuidad empresarial](sql-database-business-continuity.md).
 
 ### <a name="geo-restore-using-the-azure-portal"></a>Restauración geográfica mediante Azure Portal
 
@@ -177,4 +177,4 @@ Las copias de seguridad automáticas protegen las bases de datos de los errores 
 - Para obtener una descripción general y los escenarios de la continuidad empresarial, consulte [Información general sobre la continuidad empresarial](sql-database-business-continuity.md).
 - Para saber en qué consisten las copias de seguridad automatizadas de Azure SQL Database, consulte [Información general: copias de seguridad automatizadas de SQL Database](sql-database-automated-backups.md).
 - Para obtener más información sobre la retención de copia de seguridad a largo plazo, lea sobre la [retención de copias de seguridad a largo plazo](sql-database-long-term-retention.md).
-- Para conocer las opciones de recuperación más rápidas, consulte [Grupos de conmutación por error y replicación geográfica activa](sql-database-geo-replication-overview.md).
+- Para conocer las opciones de recuperación más rápidas, consulte el artículo sobre la [replicación geográfica activa](sql-database-active-geo-replication.md) y los [grupos de conmutación por error automáticos](sql-database-auto-failover-group.md).

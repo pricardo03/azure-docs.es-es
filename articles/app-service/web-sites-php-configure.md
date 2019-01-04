@@ -1,5 +1,5 @@
 ---
-title: Configuración de PHP en Azure App Service Web Apps
+title: Configurar el tiempo de ejecución de PHP - Azure App Service
 description: Obtenga información acerca de cómo configurar la instalación de PHP predeterminada o agregar una instalación de PHP personalizada para Web Apps en Azure App Service.
 services: app-service
 documentationcenter: php
@@ -13,12 +13,13 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 1e5f7ed2fb4c77e0a738cbe6ee6c84b46bc59bb8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: d5ad7b392029ae33ee7666b80edfe5b4b7555b41
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230842"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273208"
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Configuración de PHP en Azure App Service Web Apps
 
@@ -28,7 +29,7 @@ En esta guía se explica cómo configurar el tiempo de ejecución de PHP integra
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="how-to-change-the-built-in-php-version"></a>Cómo: Cambiar la versión de PHP integrada
+## <a name="how-to-change-the-built-in-php-version"></a>Control de Cambiar la versión de PHP integrada
 
 PHP 5.6 está instalado de forma predeterminada y está disponible para utilizarse inmediatamente después de crear una aplicación web de App Service. La mejor forma de ver la revisión publicada disponible, su configuración predeterminada y las extensiones habilitadas es implementando un script que llame a la función [phpinfo()] .
 
@@ -39,10 +40,10 @@ También están disponibles las versiones PHP 7.0 y PHP 7.2, pero no habilitadas
 1. Vaya a la aplicación web en [Azure Portal](https://portal.azure.com) y haga clic en el botón **Configuración**.
 
     ![Configuración de aplicaciones web][settings-button]
-1. En la hoja **Configuración**, seleccione **Configuración de la aplicación** y elija la nueva versión de PHP.
+2. En la hoja **Configuración**, seleccione **Configuración de la aplicación** y elija la nueva versión de PHP.
 
     ![Configuración de la aplicación][application-settings]
-1. Haga clic en el botón **Guardar**, situado en la parte superior de la hoja **Configuración de aplicaciones web**.
+3. Haga clic en el botón **Guardar**, situado en la parte superior de la hoja **Configuración de aplicaciones web**.
 
     ![Guardar la configuración][save-button]
 
@@ -78,7 +79,7 @@ Para usar la interfaz de la línea de comandos de Azure, debe [instalar la CLI d
 
         az webapp show --name {app-name} --resource-group {resource-group-name}
 
-## <a name="how-to-change-the-built-in-php-configurations"></a>Cómo: Cambiar las configuraciones de PHP integradas
+## <a name="how-to-change-the-built-in-php-configurations"></a>Control de Cambiar las configuraciones de PHP integradas
 
 En todos los tiempos de ejecución de PHP integrados es posible cambiar las opciones de configuración siguiendo los pasos que se indican a continuación. (Para obtener información acerca de las directivas, consulte la [lista de directivas de php.ini]).
 
@@ -109,7 +110,7 @@ Como alternativa al uso de un archivo `.user.ini`, puede usar la función [ini_s
         wincache.maxfilesize=512
 1. Para volver a cargar los cambios, reinicie la aplicación web.
 
-## <a name="how-to-enable-extensions-in-the-default-php-runtime"></a>Cómo: Habilitar las extensiones en el tiempo de ejecución predeterminado de PHP
+## <a name="how-to-enable-extensions-in-the-default-php-runtime"></a>Control de Habilitar las extensiones en el tiempo de ejecución predeterminado de PHP
 
 Como se ha mencionado en la sección anterior, la mejor forma de ver la versión de PHP predeterminada, su configuración predeterminada y las extensiones habilitadas es implementar un script que llame a la función [phpinfo()]. Para habilitar extensiones adicionales, siga los pasos que se detallan a continuación:
 
@@ -144,11 +145,11 @@ Como se ha mencionado en la sección anterior, la mejor forma de ver la versión
 
 También se pueden usar las extensiones Zend mediante una clave **PHP_ZENDEXTENSIONS**. Para habilitar varias extensiones, incluya una lista separada por comas de los archivos `.dll` como valor de configuración de aplicaciones.
 
-## <a name="how-to-use-a-custom-php-runtime"></a>Cómo: Usar un tiempo de ejecución de PHP personalizado
+## <a name="how-to-use-a-custom-php-runtime"></a>Control de Usar un tiempo de ejecución de PHP personalizado
 
 En lugar del tiempo de ejecución de PHP, App Service Web Apps puede usar un tiempo de ejecución de PHP facilitado por el usuario para ejecutar scripts PHP. El tiempo de ejecución que facilita se puede configurar mediante un archivo `php.ini` que también usted facilita. Para usar un tiempo de ejecución de PHP personalizado en Web Apps, siga estos pasos.
 
-1. Obtenga una versión compatible con VC9 y VC11 no segura para subprocesos de PHP para Windows. Las versiones recientes de PHP para Windows se pueden encontrar aquí: [http://windows.php.net/download/]. Las versiones anteriores se pueden encontrar en el archivo aquí: [http://windows.php.net/downloads/releases/archives/].
+1. Obtenga una versión compatible con VC9 y VC11 no segura para subprocesos de PHP para Windows. Las versiones recientes de PHP para Windows se pueden encontrar aquí: [https://windows.php.net/download/]. Las versiones anteriores se pueden encontrar en el archivo aquí: [https://windows.php.net/downloads/releases/archives/].
 1. Modifique el archivo `php.ini` para el tiempo de ejecución. Web Apps omite las opciones de configuración correspondientes a directivas que sean solo de nivel de sistema. (Para obtener información acerca de las directivas solo a nivel de sistema, consulte la [lista de directivas de php.ini]).
 1. También puede agregar extensiones al tiempo de ejecución de PHP y habilitarlas en el archivo `php.ini` .
 1. Agregue un directorio `bin` al directorio raíz y coloque en él el directorio que contiene el tiempo de ejecución de PHP (por ejemplo, `bin\php`).
@@ -165,7 +166,7 @@ En lugar del tiempo de ejecución de PHP, App Service Web Apps puede usar un tie
 
 <a name="composer" />
 
-## <a name="how-to-enable-composer-automation-in-azure"></a>Procedimiento para habilitar la automatización de Composer en Azure
+## <a name="how-to-enable-composer-automation-in-azure"></a>Control de Habilitar la automatización de Composer en Azure
 
 De forma predeterminada, App Service no responde con composer.json, si tiene uno en el proyecto PHP. Si usa la [implementación de Git](app-service-deploy-local-git.md), puede habilitar el procesamiento de composer.json durante `git push` mediante la habilitación de la extensión de Composer.
 
@@ -196,7 +197,7 @@ Para más información, vea el [Centro para desarrolladores de PHP](https://azur
 >
 
 [evaluación gratuita]: https://www.windowsazure.com/pricing/free-trial/
-[phpinfo()]: http://php.net/manual/en/function.phpinfo.php
+[phpinfo()]: https://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
 [lista de directivas de php.ini]: http://www.php.net/manual/en/ini.list.php
 [.user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
@@ -206,8 +207,8 @@ Para más información, vea el [Centro para desarrolladores de PHP](https://azur
 [save-button]: ./media/web-sites-php-configure/save-button.png
 [php-extensions]: ./media/web-sites-php-configure/php-extensions.png
 [handler-mappings]: ./media/web-sites-php-configure/handler-mappings.png
-[http://windows.php.net/download/]: http://windows.php.net/download/
-[http://windows.php.net/downloads/releases/archives/]: http://windows.php.net/downloads/releases/archives/
+[https://windows.php.net/download/]: https://windows.php.net/download/
+[https://windows.php.net/downloads/releases/archives/]: https://windows.php.net/downloads/releases/archives/
 [SETPHPVERCLI]: ./media/web-sites-php-configure/ChangePHPVersion-XPlatCLI.png
 [GETPHPVERCLI]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
 [SETPHPVERPS]: ./media/web-sites-php-configure/ChangePHPVersion-PS.png

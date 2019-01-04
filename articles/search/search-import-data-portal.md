@@ -1,5 +1,5 @@
 ---
-title: Importación de datos en Azure Search en el portal | Microsoft Docs
+title: Importación de datos en un índice de búsqueda de Azure Search con Azure Portal
 description: Aprenda a usar el Asistente para la importación de datos en Azure Portal para rastrear datos de Azure desde Cosmos DB, Blob Storage, Table Storage, SQL Database y SQL Server en máquinas virtuales de Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: dcdc0501d94191cf2c281a4f880ddab3db023fc0
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.custom: seodec2018
+ms.openlocfilehash: ceca9b8e89a963cd9a9226be143d24ed5429747b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004956"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316481"
 ---
 # <a name="how-to-import-data-into-azure-search-index-using-the-azure-portal"></a>Cómo importar datos en un índice de Azure Search con Azure Portal
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: b84992f5deea1135692c368900f63773b51453bb
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4c783c70217a84bbe5ccf15accc4a2bec0b7cca8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669372"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959689"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Solucionar problemas de conexión de RDP de máquinas virtuales de Azure en función de los identificadores de eventos 
 
@@ -37,7 +37,7 @@ Para solucionar este problema, revise los registros de eventos en la máquina vi
 
 ### <a name="create-a-backup-snapshot"></a>Cree una instantánea de copia de seguridad
 
-Para crear una instantánea de copia de seguridad, siga los pasos descritos en [Instantánea de un disco](..\windows\snapshot-copy-managed-disk.md).
+Para crear una instantánea de copia de seguridad, siga los pasos descritos en [Instantánea de un disco](../windows/snapshot-copy-managed-disk.md).
 
 ### <a name="connect-to-the-vm-remotely"></a>Conéctese a la máquina virtual de forma remota
 
@@ -54,36 +54,36 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windows-TerminalServices-RemoteConnectionManager'] and EventID=1057 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Nombre del registro:**      System <br />
-**Origen:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
+**Nombre de registro**:      Sistema <br />
+**Origen**:        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
 **Fecha:**          *time* <br />
-**Id. de evento:**      1058 <br />
-**Categoría de tarea:** ninguna <br />
-**Nivel:**         Error <br />
-**Palabras clave:**      Classic <br />
-**Usuario:**          N/D <br />
+**Id. de evento**:      1058 <br />
+**Categoría de tarea**: None <br />
+**Nivel**:         Error <br />
+**Palabras clave:**      Clásico <br />
+**Usuario**:          N/D <br />
 **Equipo:**      *computer* <br />
 **Descripción:** el servidor host de sesión de Escritorio remoto no pudo reemplazar el certificado autofirmado que expiró y que se usó para autenticar el servidor host de sesión de Escritorio remoto en las conexiones SSL. El código de estado correspondiente era Access y fue denegado.
 
-**Nombre del registro:**      System <br />
-**Origen:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
+**Nombre de registro**:      Sistema <br />
+**Origen**:        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
 **Fecha:**          *time* <br />
-**Id. de evento:**      1058 <br />
-**Categoría de tarea:** ninguna <br />
-**Nivel:**         Error <br />
-**Palabras clave:**      Classic <br />
-**Usuario:**          N/D <br />
+**Id. de evento**:      1058 <br />
+**Categoría de tarea**: None <br />
+**Nivel**:         Error <br />
+**Palabras clave:**      Clásico <br />
+**Usuario**:          N/D <br />
 **Equipo:**      *computer* <br />
 **Descripción:** El servidor host de sesión de Escritorio remoto no pudo crear el nuevo certificado autofirmado que se usará en la autenticación del servidor host de sesión Escritorio remoto en las conexiones SSL. El código de estado correspondiente era Object y ya existe.
 
-**Nombre del registro:**      System <br />
-**Origen:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
+**Nombre de registro**:      Sistema <br />
+**Origen**:        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
 **Fecha:**          *time* <br />
-**Id. de evento:**      1057 <br />
-**Categoría de tarea:** ninguna <br />
-**Nivel:**         Error <br />
-**Palabras clave:**      Classic <br />
-**Usuario:**          N/D <br />
+**Id. de evento**:      1057 <br />
+**Categoría de tarea**: None <br />
+**Nivel**:         Error <br />
+**Palabras clave:**      Clásico <br />
+**Usuario**:          N/D <br />
 **Equipo:**      *computer* <br />
 **Descripción:** El servidor host de sesión Escritorio remoto no pudo crear el nuevo certificado autofirmado que se usará en la autenticación del servidor host de sesión de Escritorio remoto en las conexiones SSL. El código de estado correspondiente era Keyset y no existe.
 
@@ -94,14 +94,14 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and EventID=36872 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Nombre del registro:**      System <br />
-**Origen:**        Schannel <br />
+**Nombre de registro**:      Sistema <br />
+**Origen**:        Schannel <br />
 **Fecha**          — <br />
-**Id. de evento:**      36870 <br />
-**Categoría de tarea:** ninguna <br />
-**Nivel:**         Error <br />
+**Id. de evento**:      36870 <br />
+**Categoría de tarea**: None <br />
+**Nivel**:         Error <br />
 **Palabras clave:**       <br />
-**Usuario:**          SYSTEM <br />
+**Usuario**:          SYSTEM <br />
 **Equipo:**      *computer* <br />
 **Descripción:** Se produjo un error grave al intentar obtener acceso a la clave privada de las credenciales del servidor SSL. El código de error devuelto del módulo criptográfico es 0x8009030D.  <br />
 El estado del error interno es 10001.
@@ -216,16 +216,16 @@ En una instancia de CMD, ejecute los siguientes comandos para comprobar si el ev
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and EventID=36871 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Nombre del registro:**      System <br />
-**Origen:**        Schannel <br />
+**Nombre de registro**:      Sistema <br />
+**Origen**:        Schannel <br />
 **Fecha**          — <br />
-**Id. de evento:**      36871 <br />
-**Categoría de tarea:** ninguna <br />
-**Nivel:**         Error <br />
+**Id. de evento**:      36871 <br />
+**Categoría de tarea**: None <br />
+**Nivel**:         Error <br />
 **Palabras clave:**       <br />
-**Usuario:**          SYSTEM <br />
+**Usuario**:          SYSTEM <br />
 **Equipo:**      *computer* <br />
-**Descripción:** se produjo un error grave al crear las credenciales del servidor TLS. El estado del error interno es 10013.
+**Descripción:** Se produjo un error grave al crear las credenciales del servidor TLS. El estado del error interno es 10013.
  
 ### <a name="cause"></a>Causa
 
@@ -246,32 +246,32 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Wind
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Windows-TerminalServices-SessionBroker-Client '] and EventID=1296 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Nombre del registro:**      Microsoft-Windows-TerminalServices-SessionBroker/Operational <br />
-**Origen:**        Microsoft-Windows-TerminalServices-SessionBroker <br />
+**Nombre de registro**:      Microsoft-Windows-TerminalServices-SessionBroker/Operational <br />
+**Origen**:        Microsoft-Windows-TerminalServices-SessionBroker <br />
 **Fecha:**          *time* <br />
-**Id. de evento:**      2056 <br />
-**Categoría de tarea** (109) <br />
-**Nivel:**         Error <br />
+**Id. de evento**:      2056 <br />
+**Categoría de tarea**: (109) <br />
+**Nivel**:         Error <br />
 **Palabras clave:**       <br />
-**Usuario:**          NETWORK SERVICE <br />
+**Usuario**:          SERVICIO DE RED <br />
 **Equipo:**      *computer fqdn* <br />
-**Descripción:** no se puede encontrar la descripción del id. de evento 2056 del origen Microsoft-Windows-TerminalServices-SessionBroker. El componente que provoca este evento no está instalado en el equipo local o la instalación está dañada. Puede instalar o reparar el componente en el equipo local. <br />
+**Descripción:** No se puede encontrar la descripción del id. de evento 2056 del origen Microsoft-Windows-TerminalServices-SessionBroker. El componente que provoca este evento no está instalado en el equipo local o la instalación está dañada. Puede instalar o reparar el componente en el equipo local. <br />
 Si el evento se originó en otro equipo, la información que aparezca en pantalla se debe guardar con el evento. <br />
 La siguiente información se incluyó con el evento: <br />
 NULL <br />
 NULL <br />
 No se pudo iniciar sesión en la base de datos.
 
-**Nombre del registro:**      Microsoft-Windows-TerminalServices-SessionBroker-Client/Operational <br />
-**Origen:**        Microsoft-Windows-TerminalServices-SessionBroker-Client <br />
+**Nombre de registro**:      Microsoft-Windows-TerminalServices-SessionBroker-Client/Operational <br />
+**Origen**:        Microsoft-Windows-TerminalServices-SessionBroker-Client <br />
 **Fecha:**          *time* <br />
-**Id. de evento:**      1296 <br />
-**Categoría de tarea** (104) <br />
-**Nivel:**         Error <br />
+**Id. de evento**:      1296 <br />
+**Categoría de tarea**: (104) <br />
+**Nivel**:         Error <br />
 **Palabras clave:**       <br />
-**Usuario:**          NETWORK SERVICE <br />
+**Usuario**:          SERVICIO DE RED <br />
 **Equipo:**      *computer fqdn* <br />
-**Descripción:** no se puede encontrar la descripción del id. de evento 1296 del origen Microsoft-Windows-TerminalServices-SessionBroker-Client. El componente que provoca este evento no está instalado en el equipo local o la instalación está dañada. Puede instalar o reparar el componente en el equipo local.
+**Descripción:** No se puede encontrar la descripción del id. de evento 1296 del origen Microsoft-Windows-TerminalServices-SessionBroker-Client. El componente que provoca este evento no está instalado en el equipo local o la instalación está dañada. Puede instalar o reparar el componente en el equipo local.
 Si el evento se originó en otro equipo, la información que aparezca en pantalla se debe guardar con el evento.
 La siguiente información se incluyó con el evento:  <br />
 *text* <br />

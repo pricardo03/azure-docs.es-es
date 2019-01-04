@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/06/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 716cf9e47cd71d003513066d390f9dccb5c83dcb
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: a5bf15289e91cc568524e8110702b5608118bc2d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344133"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833931"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>Azure AD B2C: Inicio de sesión con una aplicación Android
 
@@ -40,17 +40,17 @@ A continuación, debe crear una aplicación en su directorio B2C. Esto proporcio
 * Copiar el **identificador de aplicación** asignado a la aplicación. Lo necesitará más adelante.
 * Configurar un **URI de redireccionamiento** del cliente nativo (por ejemplo, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). También lo necesitará más adelante.
 
-## <a name="create-your-policies"></a>Crear sus directivas
+## <a name="create-your-user-flows"></a>Creación de flujos de usuario
 
-En Azure AD B2C, cada experiencia del usuario se define mediante una [directiva](active-directory-b2c-reference-policies.md). Esta aplicación contiene una experiencia de identidad: una combinación de inicio de sesión y registro. Es necesario crear esta directiva, tal como se describe en el [artículo de referencia de las directivas](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Al crear la directiva, tenga en cuenta lo siguiente:
+En Azure AD B2C, cada experiencia del usuario se define mediante un [flujo de usuario](active-directory-b2c-reference-policies.md), que es un conjunto de directivas que controlan el comportamiento de Azure AD. Esta aplicación contiene una experiencia de identidad: un flujo de usuario combinado de inicio de sesión y registro. Debe crear este flujo de usuario, como se describe en el [artículo de referencia de flujos de usuario](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). Cuando cree el flujo de usuario, asegúrese de hacer lo siguiente:
 
-* Elija el **nombre para mostrar** como atributo de registro en la directiva.
-* Elija las notificaciones de aplicación de **nombre para mostrar** e **id. de objeto** de cada directiva. Puede elegir también otras notificaciones.
-* Copiar el **nombre** de cada directiva después de crearla. Debe tener el prefijo `b2c_1_`.  Necesitará el nombre de la directiva más adelante.
+* Elegir el **nombre para mostrar** como atributo de registro en el flujo de usuario
+* Elegir las notificaciones de aplicación de **nombre para mostrar** e **identificador de objeto** de cada flujo de usuario Puede elegir también otras notificaciones.
+* Copiar el **nombre** de cada flujo de usuario después de crearlo Debe tener el prefijo `b2c_1_`.  Necesitará el nombre del flujo de usuario más adelante.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-Después de crear las directivas, está listo para compilar la aplicación.
+Después de haber creado los flujos de usuario, está listo para compilar la aplicación.
 
 ## <a name="download-the-sample-code"></a>Descarga del código de ejemplo
 
@@ -69,7 +69,7 @@ El ejemplo es una modificación del ejemplo que proporciona [AppAuth](https://op
 Puede configurar la comunicación con Azure AD B2C si especifica el URI de detección o tanto los URI del punto de conexión de autorización y del punto de conexión del token. Cualquiera sea el caso, necesitará la siguiente información:
 
 * Id. de inquilino (por ejemplo, contoso.onmicrosoft.com)
-* Nombre de la directiva (por ejemplo, B2C\_1\_SignUpIn)
+* Nombre del flujo de usuario (por ejemplo, B2C\_1\_SignUpIn)
 
 Si elige detectar automáticamente los URI de punto de conexión de autorización y token, deberá recuperar información del URI de detección. El URI de detección se puede generar si se reemplaza Tenant\_ID y Policy\_Name en la siguiente dirección URL:
 

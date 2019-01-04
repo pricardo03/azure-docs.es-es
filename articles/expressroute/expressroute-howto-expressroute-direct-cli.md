@@ -1,18 +1,19 @@
 ---
-title: Configuración de Azure ExpressRoute Direct mediante la CLI de Azure | Microsoft Docs
-description: Este artículo le ayuda a configurar ExpressRoute Direct mediante la CLI de Azure (versión preliminar).
+title: 'Configuración de ExpressRoute Direct: CLI de Azure | Microsoft Docs'
+description: En este artículo aprenderá a configurar ExpressRoute Direct mediante la CLI de Azure (versión preliminar)
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: dfc13d584abcd05cd15b7ce9e3034bbf246f3b8b
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.custom: seodec18
+ms.openlocfilehash: 285b429f565f8a2c7f8c20756f076e631223b10f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976621"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076727"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli-preview"></a>Configuración de ExpressRoute Direct mediante la CLI de Azure (versión preliminar)
 

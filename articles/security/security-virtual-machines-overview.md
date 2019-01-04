@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: terrylan
-ms.openlocfilehash: fb053cb646d433d1e326747a4b48ed430583b847
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5e024161b55db9662aa288a4d3ff6a7c2b7e6266
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259112"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969692"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Información general de seguridad de Azure Virtual Machines
 
@@ -47,10 +47,10 @@ Microsoft Antimalware para Azure es una solución de un único agente dirigida a
 
 Al implementar y habilitar Microsoft Antimalware para Azure, están disponibles las siguientes características principales:
 
-* **Protección en tiempo real**: supervisa la actividad en Cloud Services y Virtual Machines para detectar y bloquear la ejecución de malware.
+* **Protección en tiempo real**: supervisa la actividad en Cloud Services y en las máquinas virtuales para detectar y bloquear la ejecución de malware.
 * **Análisis programado**: realiza periódicamente exámenes dedicados a detectar malware, lo que incluye programas que se ejecutan activamente.
 * **Corrección de malware**: actúa automáticamente sobre el malware detectado y elimina o pone en cuarentena los archivos malintencionados y limpia las entradas del Registro malintencionadas.
-* **Actualizaciones de firmas**: instala automáticamente las últimas firmas de protección (definiciones de virus) para garantizar que la protección está actualizada con una frecuencia previamente determinada.
+* **Actualizaciones de firmas**: instala de forma automática las firmas de protección (definiciones de virus) más recientes para garantizar que la protección está actualizada con una frecuencia determinada previamente.
 * **Actualizaciones de Antimalware Engine**: actualiza automáticamente el motor de Microsoft Antimalware para Azure.
 * **Actualizaciones de la plataforma antimalware**: actualiza automáticamente la plataforma de Microsoft Antimalware para Azure.
 * **Protección activa**: proporciona metadatos de telemetría a Azure sobre amenazas detectadas y recursos sospechosos, para garantizar una respuesta rápida. Permite la entrega de firmas sincrónicas en tiempo real a través de Microsoft Active Protection System (MAPS).
@@ -103,7 +103,7 @@ La solución se integra con Azure Key Vault para controlar y administrar los sec
 Más información:
 
 * [Azure Disk Encryption para máquinas virtuales IaaS](../security/azure-security-disk-encryption-overview.md)
-* [Guía de inicio rápido: Cifrado de una máquina virtual IaaS Windows con Azure PowerShell](../security/quick-encrypt-vm-powershell.md)
+* [Inicio rápido: Cifrado de una máquina virtual IaaS Windows con Azure PowerShell](../security/quick-encrypt-vm-powershell.md)
 
 ## <a name="virtual-machine-backup"></a>Copia de seguridad de máquina virtual
 
@@ -112,7 +112,6 @@ Azure Backup es una solución escalable que protege los datos de su aplicación 
 Más información:
 
 * [¿Qué es Azure Backup?](../backup/backup-introduction-to-azure-backup.md)
-* [Azure Backup](https://azure.microsoft.com/documentation/learning-paths/backup/)
 * [P+F del servicio Azure Backup](../backup/backup-azure-backup-faq.md)
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
@@ -121,10 +120,10 @@ Una parte importante de la estrategia de BCDR de la organización es averiguar c
 
 Site Recovery:
 
-* **Simplifica su estrategia de BCDR**: Site Recovery facilita el control de la replicación, la conmutación por error y la recuperación de varias cargas de trabajo y aplicaciones de negocios desde una única ubicación. Site Recovery organiza la replicación y la conmutación por error pero no intercepta los datos de la aplicación ni obtiene información alguna sobre ella.
-* **Proporciona replicación flexible**: con Site Recovery puede replicar las cargas de trabajo que se ejecutan en máquinas virtuales de Hyper-V, máquinas virtuales de VMware y servidores físicos de Windows o Linux.
+* **Simplificar su estrategia de BCDR**: Site Recovery facilita el control de la replicación, la conmutación por error y la recuperación de varias cargas de trabajo y aplicaciones de negocios desde una única ubicación. Site Recovery organiza la replicación y la conmutación por error pero no intercepta los datos de la aplicación ni obtiene información alguna sobre ella.
+* **Proporcionar replicación flexible**: con Site Recovery puede replicar las cargas de trabajo que se ejecutan en máquinas virtuales de Hyper-V, máquinas virtuales de VMware y servidores físicos con Windows o Linux.
 * **Admite recuperación y conmutación por error**: Site Recovery proporciona conmutaciones por error de prueba que admiten maniobras de recuperación ante desastres sin que los entornos de producción se vean afectados. También puede ejecutar conmutaciones por error planeadas sin pérdidas de datos para interrupciones previstas o conmutaciones por error con una pérdida de datos mínima (según la frecuencia de replicación) ante desastres inesperados. Después de la conmutación por error puede ejecutar una conmutación por recuperación a los sitios principales. Site Recovery proporciona planes de recuperación que pueden incluir scripts y libros de Azure Automation para que pueda personalizar la conmutación por error y la recuperación de aplicaciones de varios niveles.
-* **Elimina los centros de datos secundarios**: puede replicar en un sitio local secundario o en Azure. Usar Azure como destino de la recuperación ante desastres elimina el costo y la complejidad de mantener un sitio secundario. Los datos replicados se almacenan en Azure Storage.
+* **Eliminar centros de datos secundarios**: puede replicar en un sitio local secundario o en Azure. Usar Azure como destino de la recuperación ante desastres elimina el costo y la complejidad de mantener un sitio secundario. Los datos replicados se almacenan en Azure Storage.
 * **Se integra con tecnologías de BCDR existentes**: Site Recovery se asocia con otras características de BCDR de las aplicaciones. Por ejemplo, puede usar Site Recovery para proteger el back-end de SQL Server de las cargas de trabajo corporativas. Esto incluye la compatibilidad nativa con SQL Server AlwaysOn para administrar la conmutación por error de los grupos de disponibilidad.
 
 Más información:
@@ -166,7 +165,7 @@ Azure Virtual Machines tiene las certificaciones de FISMA, FedRAMP, HIPAA, PCI D
 
 Más información:
 
-* [Centro de confianza de Microsoft: conformidad](https://www.microsoft.com/en-us/trustcenter/compliance)
+* [Centro de confianza de Microsoft: Cumplimiento normativo](https://www.microsoft.com/en-us/trustcenter/compliance)
 * [Trusted Cloud: Microsoft Azure Security, Privacy, and Compliance (La nube de confianza: Seguridad, privacidad y cumplimiento de Microsoft Azure)](https://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
 
 ## <a name="confidential-computing"></a>Computación confidencial

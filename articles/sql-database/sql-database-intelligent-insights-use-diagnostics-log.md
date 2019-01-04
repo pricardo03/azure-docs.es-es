@@ -8,20 +8,20 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/04/2018
-ms.openlocfilehash: fb18507cc9b7aef92a07e6c34c99403e47be1c88
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: a0eac4344f1294ad2eddd4e05520c1f030a0c4d7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977104"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278226"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Uso del registro de diagnóstico de rendimiento de Azure SQL Database de Intelligent Insights
 
-Esta página proporciona información sobre cómo usar el registro de diagnóstico de rendimiento de Azure SQL Database generado por [Intelligent Insights](sql-database-intelligent-insights.md), el formato y los datos que contiene según sus necesidades de desarrollo personalizadas. Este registro de diagnóstico se puede enviar a [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage) o a una solución de terceros para las funcionalidades personalizadas de informes y alertas de DevOps.
+Esta página proporciona información sobre cómo usar el registro de diagnóstico de rendimiento de Azure SQL Database generado por [Intelligent Insights](sql-database-intelligent-insights.md), el formato y los datos que contiene según sus necesidades de desarrollo personalizadas. Este registro de diagnóstico se puede enviar a [Azure Log Analytics](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage) o a una solución de terceros para las funcionalidades personalizadas de informes y alertas de DevOps.
 
 ## <a name="log-header"></a>Encabezado de registro
 
@@ -100,7 +100,7 @@ La propiedad de impacto (Impact) describe cuánto ha contribuido un comportamien
 
 ### <a name="impacted-queries"></a>Consultas afectadas
 
-En la sección siguiente del registro de Intelligent Insights se proporciona información sobre consultas concretas que resultaron afectadas por los problemas de rendimiento detectados. Esta información se divulga como una matriz de objetos insertados en la propiedad impact_s. La propiedad de impacto consta de entidades y métricas. Las entidades hacen referencia a una consulta determinada (tipo: consulta). El código hash de consulta única se revela en la propiedad de valor (Value). Además, cada una de las consultas reveladas va seguida de una métrica y un valor, que indican que se detectó un problema de rendimiento.
+En la sección siguiente del registro de Intelligent Insights se proporciona información sobre consultas concretas que resultaron afectadas por los problemas de rendimiento detectados. Esta información se divulga como una matriz de objetos insertados en la propiedad impact_s. La propiedad de impacto consta de entidades y métricas. Las entidades hacen referencia a una consulta determinada (tipo: Consulta). El código hash de consulta única se revela en la propiedad de valor (Value). Además, cada una de las consultas reveladas va seguida de una métrica y un valor, que indican que se detectó un problema de rendimiento.
 
 En el ejemplo de registro siguiente, se detectó que la consulta con el código hash 0x9102EXZ4 tenía una mayor duración de ejecución (Métrica: DurationIncreaseSeconds). El valor de 110 segundos indica que esta consulta en particular tardó 110 segundos más en ejecutarse. Dado que se pueden detectar varias consultas, esta sección del registro en particular podría incluir varias entradas de consulta.
 

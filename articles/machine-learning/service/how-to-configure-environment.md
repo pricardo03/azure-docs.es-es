@@ -1,5 +1,6 @@
 ---
-title: Configuración de un entorno de desarrollo para Azure Machine Learning | Microsoft Docs
+title: Configuración del entorno de desarrollo de Python
+titleSuffix: Azure Machine Learning service
 description: Obtenga información sobre cómo configurar un entorno de desarrollo al trabajar con el servicio Azure Machine Learning. En este documento, aprenda a usar entornos de Conda, crear archivos de configuración y configurar instancias de Jupyter Notebook, Azure Notebooks, IDE, editores de código y Data Science Virtual Machine.
 services: machine-learning
 author: rastala
@@ -9,13 +10,14 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 11/6/2018
-ms.openlocfilehash: fa70e0dfa1f131e38e43faa3d80497d50a52e135
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 59f847dc38cddfd9185cfd169cf1ef34c744f8f7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275221"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192641"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar un entorno de desarrollo para Azure Machine Learning
 
@@ -23,10 +25,11 @@ En este documento obtendrá información acerca de cómo configurar un entorno d
 
 Este documento se centra en los siguientes entornos y herramientas específicos:
 
-* [Azure Notebooks](#aznotebooks): es un servicio de Jupyter Notebook en la nube de Azure. Es __la forma más fácil__ para empezar a trabajar, ya que el SDK de Azure Machine Learning ya está instalado.
-* [Data Science Virtual Machine](#dsvm): es una máquina virtual en la nube de Azure que está __diseñada para trabajar con ciencia de datos__. Python 3, Conda, Jupyter Notebooks y el SDK de Azure Machine Learning ya están instalados. La máquina virtual incluye editores, herramientas y marcos de Machine Learning populares para desarrollar soluciones de Machine Learning. Es probable que se trate __del entorno más completo__ de desarrollo para Machine Learning en la plataforma de Azure.
-* [Jupyter Notebook](#jupyter): si ya usa instancias de Jupyter Notebook, el SDK incluye algunos elementos adicionales que debe instalar.
+* [Azure Notebooks](#aznotebooks): Servicio de Jupyter Notebook hospedado en la nube de Azure. Es __la forma más fácil__ para empezar a trabajar, ya que el SDK de Azure Machine Learning ya está instalado.
+* [Data Science Virtual Machine](#dsvm): Un __entorno de desarrollo/experimentación preconfigurado__ en la nube de Azure que está __diseñado para el trabajo de ciencia de datos__ y se puede implementar en cualquier CPU para instancias de VM solo con CPU o basadas en GPU. Python 3, Conda, Jupyter Notebooks y el SDK de Azure Machine Learning ya están instalados. La máquina virtual incluye editores, herramientas y marcos de Machine Learning o de aprendizaje profundo populares para desarrollar soluciones de Machine Learning. Es probable que se trate __del entorno más completo__ de desarrollo para Machine Learning en la plataforma de Azure.
+* [Jupyter Notebooks](#jupyter): si ya usa instancias de Jupyter Notebook, el SDK incluye algunos elementos adicionales que debe instalar.
 * [Visual Studio Code](#vscode): si usa Visual Studio Code, hay algunas extensiones útiles que puede instalar.
+* [Azure Databricks](#aml-databricks): una plataforma popular para el análisis de datos basada en Apache Spark. Sepa cómo obtener el SDK de Azure Machine Learning en el clúster para poder implementar los modelos.
 
 Si ya tiene un entorno de Python 3, o tan solo quiere los pasos básicos para instalar el SDK, consulte la sección [Equipo local](#local).
 
@@ -57,20 +60,49 @@ Para comenzar a desarrollar con Azure Notebooks, siga el documento [Introducció
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
-Data Science Virtual Machine (DSVM) es una imagen de máquina virtual personalizada que está **diseñada para trabajar con ciencia de datos**.  Incluye:
+Data Science Virtual Machine (DSVM) es una imagen de máquina virtual personalizada que está **diseñada para trabajar con ciencia de datos** y que se configura previamente con:
 
-  - Herramientas de ciencia de datos populares
-  - Entornos de desarrollo integrado (IDE), como PyCharm y RStudio
-  - Paquetes como Jupyter Notebook y Tensorflow
+  - Paquetes como Tensorflow, Pytorch, scikit-learn, Xgboost y Azure ML SDK
+  - Herramientas de ciencia de datos populares como Spark independiente o Drill
+  - Herramientas de Azure como la CLI, Azcopy y el explorador de Azure
+  - Entornos de desarrollo integrado (IDE), como Visual Studio Code, PyCharm y RStudio
+  - Servidor de Jupyter Notebook 
 
-El SDK de Azure Machine Learning funciona en la versión de Ubuntu o de Windows de DSVM. Para usar DSVM como entorno de desarrollo, siga estos pasos:
+El SDK de Azure Machine Learning funciona en la versión de Ubuntu o de Windows de DSVM. Para usar Data Science Virtual Machine como un entorno de desarrollo, siga estos pasos:
 
-1. Para crear una instancia de Data Science Virtual Machine, siga los pasos de uno de los siguientes documentos:
+1. Para crear una instancia de Data Science Virtual Machine, siga uno de los siguientes métodos:
 
-    * [Crear una instancia de Data Science Virtual Machine de Ubuntu](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)
-    * [Crear una instancia de Data Science Virtual Machine de Windows](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/provision-vm)
+    * En Azure Portal:
 
-1. El SDK de Azure Machine Learning **ya está instalado** en DSVM. Para usar el entorno de Conda que contiene el SDK, use uno de los siguientes comandos:
+        * [Creación de una instancia de Data Science Virtual Machine](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro) de __Ubuntu__
+
+        * [Creación de una instancia de Data Science Virtual Machine](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/provision-vm) de __Windows__
+
+    * En la CLI de Azure:
+
+        > [!IMPORTANT]
+        > Si usa la CLI de Azure, primero debe iniciar sesión en su suscripción de Azure con el comando `az login`.
+        >
+        > Al utilizar los comandos en este paso, debe proporcionar un nombre de grupo de recursos, un nombre para la máquina virtual, un nombre de usuario y una contraseña.
+
+        * Para crear una instancia de Data Science Virtual Machine de __Ubuntu__, use el siguiente comando:
+
+            ```azurecli
+            # create a Ubuntu DSVM in your resource group
+            # note you need to be at least a contributor to the resource group in order to execute this command successfully
+            # If you need to create a new resource group use: "az group create --name YOUR-RESOURCE-GROUP-NAME --location YOUR-REGION (For example: westus2)"
+            az vm create --resource-group YOUR-RESOURCE-GROUP-NAME --name YOUR-VM-NAME --image microsoft-dsvm:linux-data-science-vm-ubuntu:linuxdsvmubuntu:latest --admin-username YOUR-USERNAME --admin-password YOUR-PASSWORD --generate-ssh-keys --authentication-type password
+            ```
+
+        * Para crear una instancia de Data Science Virtual Machine de __Windows__, use el siguiente comando:
+
+            ```azurecli
+            # create a Windows Server 2016 DSVM in your resource group
+            # note you need to be at least a contributor to the resource group in order to execute this command successfully
+            az vm create --resource-group YOUR-RESOURCE-GROUP-NAME --name YOUR-VM-NAME --image microsoft-dsvm:dsvm-windows:server-2016:latest --admin-username YOUR-USERNAME --admin-password YOUR-PASSWORD --authentication-type password
+            ```    
+
+2. El SDK de Azure Machine Learning **ya está instalado** en DSVM. Para usar el entorno de Conda que contiene el SDK, use uno de los siguientes comandos:
 
     * En la DSVM de __Ubuntu__, use este comando:
 
@@ -150,17 +182,11 @@ Los pasos descritos en la sección [Equipo local](#local) permiten instalar comp
 
 1. Abra el shell o un símbolo del sistema.
 
-1. Para instalar un servidor de Jupyter Notebook compatible con Conda y habilitar los widgets de experimento, use los comandos siguientes:
+1. Para instalar un servidor de Jupyter Notebook compatible con Conda, use el comando siguiente:
 
     ```shell
     # install Jupyter
     conda install nb_conda
-
-    # install experiment widget
-    jupyter nbextension install --py --user azureml.widgets
-
-    # enable experiment widget
-    jupyter nbextension enable --py --user azureml.widgets
     ```
 
 1. Abra Jupyter Notebook con el comando siguiente:
@@ -195,9 +221,35 @@ Para usar Visual Studio Code para desarrollar, use los pasos siguientes:
     azureml.core.VERSION
     ```
 
-1. Para instalar la extensión Tools for AI de Visual Studio Code, consulte la página [Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai).
+1. Para instalar la extensión de Azure Machine Learning para Visual Studio Code, consulte la página [Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai).
 
-    Para obtener más información, consulte el documento [Use VS Code Tools for AI with Azure Machine Learning](how-to-vscode-tools.md) (Usar Visual Studio Code Tools for AI con Azure Machine Learning).
+    Para más información, consulte [Uso de Azure Machine Learning para Visual Studio Code](how-to-vscode-tools.md).
+
+<a name="aml-databricks"></a>
+
+## <a name="azure-databricks"></a>Azure Databricks
+
+Puede usar una versión personalizada del SDK de Azure Machine Learning para Azure Databricks destinada al aprendizaje automático personalizado de un extremo a otro. O bien, entrene el modelo dentro de Databricks y use [Visual Studio Code](how-to-vscode-train-deploy.md#deploy-your-service-from-vs-code) para implementarlo.
+
+Para preparar el clúster de Databricks y obtener los cuadernos de ejemplo:
+
+1. Cree un [clúster de Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) con la versión 4.x del entorno de ejecución de Databricks (con preferencia, de alta simultaneidad) con **Python 3**. 
+
+1. Cree una biblioteca para [instalar y adjuntar](https://docs.databricks.com/user-guide/libraries.html#create-a-library) el paquete PyPi del SDK de Azure Machine Learning para Python `azureml-sdk[databricks]` al clúster. Cuando haya terminado, verá la biblioteca conectada como se muestra en esta imagen. Tenga en cuenta estos [problemas comunes de Databricks](resource-known-issues.md#databricks).
+
+   ![SDK instalado en Databricks ](./media/how-to-azure-machine-learning-on-databricks/sdk-installed-on-databricks.jpg)
+
+   Si se produce un error en este paso, reinicie el clúster:
+   1. En el panel izquierdo, seleccione `Clusters`. Seleccione el nombre del clúster en la tabla. 
+   1. En la pestaña `Libraries`, seleccione `Restart`.
+
+1. Descargue el [archivo de Azure Databricks o del cuaderno del SDK de Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/databricks/Databricks_AMLSDK_github.dbc).
+
+   >[!Warning]
+   > Muchos cuadernos de ejemplo están disponibles para usarse con el servicio Azure Machine Learning Service. Estos cuadernos de ejemplo solo funcionan con Azure Databricks: https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks
+
+1.  [Importe este archivo](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) en el clúster de Databricks y empiece a explorar según se [describe aquí](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks).
+
 
 ## <a id="workspace"></a>Crear un archivo de configuración del área de trabajo
 

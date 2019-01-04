@@ -1,17 +1,18 @@
 ---
-title: Presencia regional de Azure Cosmos DB
-description: En este artículo se explica la presencia regional de Azure Cosmos DB y los distintos entornos en la nube que están disponibles.
+title: Presencia regional con Azure Cosmos DB
+description: En este artículo se explica la presencia regional de Azure Cosmos DB y los distintos entornos en la nube.
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 7c060fae389766e89a84e2f6779209ad31edb031
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: c3299b2ea777577281ede234cd1aa5137ce5a445
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52166892"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138116"
 ---
 # <a name="regional-presence-of-azure-cosmos-db"></a>Presencia regional de Azure Cosmos DB
 

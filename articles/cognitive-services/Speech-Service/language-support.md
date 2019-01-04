@@ -1,27 +1,28 @@
 ---
 title: 'Idiomas admitidos: Speech Service API'
 titleSuffix: Azure Cognitive Services
-description: Una lista de los idiomas naturales admitidos por Speech Service.
+description: Los servicios de Voz de Azure admite un gran número de idiomas para la conversión de texto a voz y texto a voz, junto con la traducción por voz. En este artículo se proporciona una lista completa idiomas compatibles por servicio.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: fa4563b84eb0882832a89ccc98396ff487f51b48
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.custom: seodec18
+ms.openlocfilehash: 65c89e337d62ccb7ce58a1ea4e7414527bf9af19
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284768"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342105"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Idiomas y regiones admitidos para Speech Service API
 
-Se admiten diferentes idiomas para distintas funciones del servicio Voz. En las tablas siguientes se resumen los idiomas admitidos.
+Se admiten diferentes idiomas para distintas funciones de los servicios de voz. En las tablas siguientes se resumen los idiomas admitidos.
 
-## <a name="speech-to-text"></a>Speech to Text
+## <a name="speech-to-text"></a>Voz a texto
 
 Speech Recognition API de Microsoft admite los siguientes idiomas. Para cada idioma hay diferentes niveles de personalización disponibles.
 
@@ -37,7 +38,7 @@ Speech Recognition API de Microsoft admite los siguientes idiomas. Para cada idi
  en-IN | Inglés (India) | SÍ | Sí | SÍ
  en-NZ | Inglés (Nueva Zelanda) | Sin  | SÍ | SÍ  
  en-US | Inglés (Estados Unidos) | SÍ | Sí | SÍ
- es-ES | Español (España) | Sin  | Sí | Sin 
+ es-ES | Español (España) | SÍ | SÍ | Sin 
  es-MX | Español (México) | Sin  | Sí | Sin 
  fi-FI | Finés (Finlandia) | Sin  | No | Sin 
  fr-CA | Francés (Canadá) | Sin  | Sí | Sin 
@@ -49,7 +50,7 @@ Speech Recognition API de Microsoft admite los siguientes idiomas. Para cada idi
  nb-NO | Noruego, Bokmål (Noruego) | Sin  | No | Sin 
  nl-NL | Neerlandés (Países Bajos) | Sin  | Sí | Sin 
  pl-PL | Polaco (Polonia) | Sin  | No | Sin 
- pt-BR | Portugués (Brasil) | Sin  | Sí | Sin 
+ pt-BR | Portugués (Brasil) | SÍ | SÍ | Sin 
  pt-PT | Portugués (Portugal) | Sin  | Sí | Sin 
  ru-RU | Ruso (Rusia) | SÍ | SÍ | Sin 
  sv-SE | Sueco (Suecia) | Sin  | No | Sin 
@@ -61,7 +62,24 @@ Speech Recognition API de Microsoft admite los siguientes idiomas. Para cada idi
 
 ## <a name="text-to-speech"></a>Texto a voz
 
-La API de síntesis de voz ofrece las voces siguientes, cada una de las cuales admite un idioma y un dialecto específicos, identificados mediante la configuración regional.
+Text to Speech REST API admite las siguientes voces, y cada una de ellas admite un idioma y un dialecto específicos, que se identifican mediante la configuración regional.
+
+### <a name="neural-voices-preview"></a>Voces neuronales (versión preliminar)
+
+Texto a voz neuronal es un nuevo tipo de síntesis de voz con tecnología de redes neuronales profundas. Cuando se usa una voz neuronal, es prácticamente imposible distinguir la voz sintetizada de las grabaciones humanas.
+
+Las voces neuronales se pueden usar para que las interacciones con los bots de chat y los asistentes virtuales sean más naturales y atractivas, para convertir textos digitales, como los libros electrónicos, en audiolibros y para mejorar los sistemas de navegación de los automóviles. Con su prosodia natural similar a la humana y la clara articulación de las palabras, las voces neuronales reducen considerablemente la fatiga de la escucha que aparece cuando los usuarios interactúan con sistemas de inteligencia artificial.
+
+Para obtener una lista completa de las voces neuronales y la disponibilidad regional, consulte las [regiones](regions.md#neural-voices).
+
+| Configuración regional | Idioma | Sexo | Asignación de nombre de servicio|
+|--------|----------|---------|--------------------|
+| en-US | Inglés (EE. UU.) | Hombre | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" |
+| en-US | Inglés (EE. UU.) | Mujer | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" |
+
+### <a name="standard-voices"></a>Voces estándar
+
+Hay más de 75 voces estándar disponibles en más de 45 idiomas y configuraciones regionales, lo que le permite convertir texto en voz sintetizada. Para más información acerca de la disponibilidad regional, consulte las [regiones](regions.md#standard-voices).
 
 Configuración regional | Idioma | Sexo | Asignación de nombre de servicio
 -------|----------|---------|--------------------
@@ -156,9 +174,9 @@ La personalización de la voz está disponible para inglés de Estados Unidos (e
 > [!NOTE]
 > El entrenamiento de voz en francés, alemán e italiano comienza con un conjunto de datos de más de 2000 expresiones. Los modelos bilingües chino-inglés también se admiten con un conjunto de datos inicial de más de 2000 expresiones.
 
-## <a name="speech-translation"></a>Speech Translation
+## <a name="speech-translation"></a>Traducción de voz
 
-**Speech Translation** API admite varios idiomas para la traducción de voz a voz y de texto a voz. El idioma de origen siempre debe ser de la tabla de idiomas de Voz siguiente. Los idiomas de destino admitidos dependen de si el destino de traducción es voz o texto. Puede traducir la voz entrante en más de [60 idiomas](https://www.microsoft.com/translator/business/languages/). Un subconjunto de estos idiomas está disponible para [síntesis de voz](language-support.md#text-languages). 
+**Speech Translation** API admite varios idiomas para la traducción de voz a voz y de texto a voz. El idioma de origen siempre debe ser de la tabla de idiomas de Voz siguiente. Los idiomas de destino admitidos dependen de si el destino de traducción es voz o texto. Puede traducir la voz entrante en más de [60 idiomas](https://www.microsoft.com/translator/business/languages/). Un subconjunto de estos idiomas está disponible para [síntesis de voz](language-support.md#text-languages).
 
 ### <a name="speech-languages"></a>Idiomas de voz
 

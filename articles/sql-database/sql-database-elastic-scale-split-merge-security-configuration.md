@@ -3,21 +3,21 @@ title: Configuración de seguridad de división y combinación | Microsoft Docs
 description: Configure certificados x409 para el cifrado con el servicio de división y combinación para escala elástica.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: VanMSFT
+ms.author: vanto
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 6967805044bb11e9aed3fe66d580df059f7a461a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/04/2018
+ms.openlocfilehash: 06e9b443c5b0dc1c23b325c7127511f8542a1a11
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231404"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964839"
 ---
 # <a name="split-merge-security-configuration"></a>Configuración de seguridad de división y combinación
 Para usar el servicio de división y combinación, debe configurar correctamente la seguridad. El servicio forma parte de la característica de Escalado elástico de Microsoft Azure SQL Database. Para obtener más información, vea el [Tutorial del servicio de división y combinación de Escalado elástico](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
@@ -43,7 +43,7 @@ Si esas opciones no están disponibles, puede generar **certificados autofirmado
     Si está instalado, vaya a:
   
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
-* Obtenga el WDK de [Windows 8.1: descargar kits y herramientas](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
+* Obtener el WDK de [Windows 8.1: descargar kits y herramientas](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## <a name="to-configure-the-ssl-certificate"></a>Configuración del certificado SSL
 Se requiere un certificado SSL para cifrar la comunicación y autenticar el servidor. Elija el escenario más aplicable entre los tres que aparecen a continuación y ejecute todos sus pasos:
@@ -142,7 +142,7 @@ Existen dos mecanismos distintos compatibles para detectar y evitar los ataques 
 Estos mecanismos se basan en las características más documentadas en Seguridad de IP dinámica en IIS. Cuando cambie esta configuración, tenga cuidado con los siguientes factores:
 
 * El comportamiento de los servidores proxy y los dispositivos de traducción de direcciones de red sobre la información de host remoto
-* Se considera cada solicitud a cualquier recurso en el rol web (por ejemplo, carga de scripts, imágenes, etc.)
+* Se consideran todas las solicitudes a cualquier recurso en el rol web (por ejemplo, carga de scripts, imágenes, etc.)
 
 ## <a name="restricting-number-of-concurrent-accesses"></a>Restricción de la cantidad de acceso simultáneos
 Los ajustes que configuran este comportamiento son:
@@ -178,7 +178,7 @@ Ejecute:
       -n "CN=myservice.cloudapp.net" ^
       -e MM/DD/YYYY ^
       -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1" ^
-      -a sha1 -len 2048 ^
+      -a sha256 -len 2048 ^
       -sv MySSL.pvk MySSL.cer
 
 Personalizar:
@@ -221,7 +221,7 @@ Siga estos pasos en todas las cuentas/máquinas que se comunicarán con el servi
 * Importe el certificado al almacén de Entidades de certificación de raíz de confianza
 
 ## <a name="turn-off-client-certificate-based-authentication"></a>Desactivación de la autenticación basada en certificado de cliente
-Solo se admite la autenticación basada en certificado de cliente y deshabilitarla permitirá el acceso público a los extremos del servicio, a menos que existan otros mecanismos (por ejemplo, Microsoft Azure Virtual Network).
+Solo se admite la autenticación basada en certificado de cliente y deshabilitarla permitirá el acceso público a los puntos de conexión del servicio, a menos que existan otros mecanismos (por ejemplo, Microsoft Azure Virtual Network).
 
 Cambie esta configuración a falso en el archivo de configuración del servicio para deshabilitar la característica:
 
@@ -239,7 +239,7 @@ Ejecute los siguientes pasos para crear un certificado autofirmado que actúe co
     -n "CN=MyCA" ^
     -e MM/DD/YYYY ^
      -r -cy authority -h 1 ^
-     -a sha1 -len 2048 ^
+     -a sha256 -len 2048 ^
       -sr localmachine -ss my ^
       MyCA.cer
 
@@ -288,7 +288,7 @@ Los siguientes pasos se deben ejecutar en la misma máquina donde se generó y a
       -n "CN=My ID" ^
       -e MM/DD/YYYY ^
       -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.2" ^
-      -a sha1 -len 2048 ^
+      -a sha256 -len 2048 ^
       -in "MyCA" -ir localmachine -is my ^
       -sv MyID.pvk MyID.cer
 

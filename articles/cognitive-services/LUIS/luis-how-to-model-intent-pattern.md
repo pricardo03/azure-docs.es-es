@@ -1,21 +1,22 @@
 ---
-title: Agregar plantillas de patrón en lugar de más expresiones en aplicaciones de LUIS
-titleSuffix: Azure Cognitive Services
+title: Precisión de la adición de patrones
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Obtenga información sobre cómo agregar plantillas de patrón en aplicaciones de Language Understanding (LUIS) para mejorar la precisión de las predicciones.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 6c15fc256a330c7de154c551c1ef4c78913f470a
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ae0fdb17680f415a1dacce1738fa53fcda943788
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885893"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135005"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Cómo agregar patrones para mejorar la precisión de las predicciones
 Después de que una aplicación de LUIS reciba expresiones de punto de conexión, use el [concepto](luis-concept-patterns.md) de patrones para mejorar la precisión de la predicción para las expresiones que revelan un patrón en el orden y la elección de las palabras. En los patrones se usan [entidades](luis-concept-entity-types.md) y sus roles para extraer datos mediante una sintaxis de patrón concreta. 
@@ -95,7 +96,7 @@ Para reasignar varios patrones a otra intención, active la casilla situada a la
 
 2. Aparece el cuadro de diálogo de confirmación **Delete patterns** (Eliminar patrones). Haga clic en **Ok** (Aceptar) para finalizar la eliminación.
 
-    ![Captura de pantalla de la eliminación de varios patrones](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
+    ![Captura de pantalla del cuadro de confirmación de la eliminación de varios patrones](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
 
 ## <a name="filter-pattern-list-by-entity"></a>Filtrar la lista de patrones por entidad
 
@@ -116,7 +117,7 @@ Después de aplicar el filtro, el nombre de la intención aparece debajo de la b
 ## <a name="remove-entity-or-intent-filter"></a>Quitar el filtro de intención o entidad
 Cuando se filtra la lista de patrones, el nombre de la intención o entidad aparece debajo de la barra de herramientas. Para quitar el filtro, haga clic en el nombre.
 
-![Captura de pantalla de los patrones filtrados por entidad](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
+![Captura de pantalla de la eliminación de la entidad del filtro](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
 
 Se quita el filtro y se muestran todos los patrones. 
 
@@ -125,7 +126,7 @@ Puede crear un patrón a partir de una expresión existente en la página **Inte
 
 1. En la fila seleccionada de la expresión, seleccione el botón de puntos suspensivos (***...***) a la derecha de la expresión y seleccione **Add as pattern** (Agregar como patrón).
 
-    [![](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Captura de pantalla de la tabla de expresiones con la opción de agregar como patrón resaltada en el menú de opciones")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
+    [![Captura de pantalla de la tabla de expresiones con la opción Agregar patrón resaltada en el menú de opciones](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Screenshot of utterances table with Add pattern highlighted in options menu")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
 
 2. Modifique el patrón de acuerdo con las [reglas de sintaxis](luis-concept-patterns.md#pattern-syntax). Si la expresión seleccionada está etiquetada con entidades, esas entidades ya están en el patrón con la sintaxis correcta.
 

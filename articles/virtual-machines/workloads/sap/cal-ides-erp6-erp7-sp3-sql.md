@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
-ms.openlocfilehash: 93824c8f0e7667fcb58fd6b8292cddfa2b4a482a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: eb5d731fbef22c70aaf970bf64aa90361e47a542
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441468"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194205"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Implementación de SAP IDES EHP7 SP3 para SAP ERP 6.0 en Azure
 En este artículo se describe cómo implementar un sistema SAP IDES que se ejecuta con SQL Server y el sistema operativo Windows en Azure por medio de SAP Cloud Appliance Library (SAP CAL) 3.0. Las capturas de pantalla muestran el proceso paso a paso. Para implementar otra solución, siga los mismos pasos.
@@ -29,7 +29,7 @@ En este artículo se describe cómo implementar un sistema SAP IDES que se ejecu
 Para empezar con SAP CAL, vaya al sitio web de [SAP Cloud Appliance Library](https://cal.sap.com/). SAP también tiene un blog acerca de [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
 
 > [!NOTE]
-A partir del 29 de mayo de 2017 puede usar el modelo de implementación mediante Azure Resource Manager, además del modelo de implementación clásico, que se usa menos, para implementar SAP CAL. Se recomienda usar el nuevo modelo de implementación mediante Resource Manager, en lugar del modelo de implementación clásico.
+> A partir del 29 de mayo de 2017 puede usar el modelo de implementación mediante Azure Resource Manager, además del modelo de implementación clásico, que se usa menos, para implementar SAP CAL. Se recomienda usar el nuevo modelo de implementación mediante Resource Manager, en lugar del modelo de implementación clásico.
 
 Si ya ha creado una cuenta de SAP CAL que utiliza el modelo clásico, *debe crear otra*. Dicha cuenta se debe implementar exclusivamente en Azure mediante el modelo de Resource Manager.
 
@@ -40,7 +40,7 @@ Después de iniciar sesión SAP CAL, la primera página normalmente conducir a l
 ### <a name="create-an-account-in-the-sap-cal"></a>Creación de una cuenta en SAP CAL
 1. La primera vez que inicie sesión en SAP CAL, utilice S-User de SAP, o cualquier otro usuario registrado de SAP. A continuación, defina una cuenta de SAP CAL que SAP CAL use para implementar aplicaciones en Azure. En la definición de la cuenta, debe:
 
-    a. Seleccione el modelo de implementación en Azure (Resource Manager o clásico).
+     a. Seleccione el modelo de implementación en Azure (Resource Manager o clásico).
 
     b. Especifique la suscripción a Azure. Una cuenta de SAP CAL no se puede asignar a más de una suscripción. Si necesita más de una suscripción, debe crear otra cuenta de SAP CAL.
     
@@ -51,7 +51,7 @@ Después de iniciar sesión SAP CAL, la primera página normalmente conducir a l
 
 1. Para crear una nueva cuenta de SAP CAL, la página **Accounts** (Cuentas) muestra dos opciones para Azure: 
 
-    a. **Microsoft Azure (classic)** es el modelo de implementación clásico y ya no se suele usar.
+     a. **Microsoft Azure (classic)** es el modelo de implementación clásico y ya no se suele usar.
 
     b. **Microsoft Azure** es el nuevo modelo de implementación mediante Resource Manager.
 
@@ -98,15 +98,15 @@ Para poder implementar la solución SAP IDES para Windows y SQL Server, es preci
 
 1. En la página **Basic Mode: Create Instance** (Modo básico: crear instancia), tiene que:
 
-    a. Especificar en **Name** el nombre de la instancia.
+     a. Especificar en **Name** el nombre de la instancia.
 
     b. Seleccionar una **región** de Azure. Para poder elegir entre varias regiones de Azure, puede que necesite tener una suscripción a SAP CAL.
 
     c.  Escribir en **Master Password** la contraseña maestra de la solución, como se muestra:
 
-    ![SAP CAL, Modo básico: crear instancia](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
+    ![SAP CAL Basic Mode: Create Instance](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
 
-1. Haga clic en **Create** (Crear). Después de un tiempo, y en función del tamaño y la complejidad de la solución (SAP CAL ofrece una estimación), el estado pasa mostrarse como activo y listo para usarse: 
+1. Haga clic en **Create**(Crear). Después de un tiempo, y en función del tamaño y la complejidad de la solución (SAP CAL ofrece una estimación), el estado pasa mostrarse como activo y listo para usarse: 
 
     ![Instancias de SAP CAL](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic12a.png)
 

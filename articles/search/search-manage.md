@@ -1,6 +1,6 @@
 ---
-title: Administración de servicios de Azure Search en Azure Portal
-description: Administrar Azure Search, un servicio hospedado de búsqueda en la nube de Microsoft Azure, mediante Azure Portal.
+title: 'Administración de servicios de Azure Search en el portal: Azure Search'
+description: Administrar un servicio de Azure Search, un servicio hospedado de búsqueda en la nube de Microsoft Azure, mediante Azure Portal.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
@@ -9,12 +9,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: heidist
-ms.openlocfilehash: fb09e12a5122f6e6671e55c5b5623afdd6b35c29
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.custom: seodec2018
+ms.openlocfilehash: 70343c0d66eb2a00ff2245b7e4876c2e94a96855
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842296"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314496"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administración de servicios de Azure Search en Azure Portal
 > [!div class="op_single_selector"]

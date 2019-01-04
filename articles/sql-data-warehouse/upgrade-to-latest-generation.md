@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 08/22/2018
+ms.date: 11/26/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: fe1f2e026aaa4260d34b9b1cb96064053af1c3c7
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 1e2f1a3c46c9d343c305292a217fff5750f442fa
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568019"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682561"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Actualización de SQL Data Warehouse para optimizar el rendimiento
 Actualización de Azure SQL Data Warehouse a la última generación de arquitectura de almacenamiento y hardware de Azure.
@@ -35,43 +35,82 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 ## <a name="before-you-begin"></a>Antes de empezar
 > [!NOTE]
 > Si el almacenamiento de datos del nivel Gen1 optimizado para proceso existente no está en una región donde está disponible el nivel Gen2 optimizado para proceso, puede realizar la [restauración geográfica](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) mediante PowerShell en una región admitida.
-> 
 >
+> 
 
 1. Si la actualización del almacenamiento de datos del nivel Gen1 optimizado para proceso se pausa, [reanude el almacenamiento de datos](pause-and-resume-compute-portal.md).
+
 2. Prepárese para unos minutos de inactividad. 
+
+3. Identifique todas las referencias de código para los niveles de rendimiento Optimizado para Compute Gen1 y modifíquelos a su nivel de rendimiento equivalente Optimizado para Compute Gen2. A continuación, se muestran dos ejemplos de dónde debe actualizar las referencias de código antes de actualizar:
+
+   Comando de PowerShell Gen1 original:
+
+   ```powershell
+   Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
+   ```
+
+   Modificado a:
+
+   ```powershell
+   Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
+   ```
+
+   > [!NOTE] 
+   > -RequestedServiceObjectiveName "DW300" cambiado a RequestedServiceObjectiveName "DW300**c**"
+   >
+
+   Comando de T-SQL Gen1 original:
+
+   ```SQL
+   ALTER DATABASE mySampleDataWarehouse MODIFY (SERVICE_OBJECTIVE = 'DW300') ;
+   ```
+
+   Modificado a:
+
+   ```sql
+   ALTER DATABASE mySampleDataWarehouse MODIFY (SERVICE_OBJECTIVE = 'DW300c') ; 
+   ```
+    > [!NOTE] 
+    > SERVICE_OBJECTIVE = 'DW300' cambiado a SERVICE_OBJECTIVE = 'DW300**c**'
 
 
 
 ## <a name="start-the-upgrade"></a>Iniciar la actualización
 
-1. Vaya al almacenamiento de datos del nivel Gen1 optimizado para proceso en Azure Portal y haga clic en la tarjeta **Actualizar a Gen2** de la pestaña Tareas: ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
+1. Vaya al almacenamiento de datos del nivel Gen1 optimizado para proceso en Azure Portal y haga clic en la tarjeta **Actualizar a Gen2** de la pestaña Tareas:  ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
     
-> [!NOTE]
-> Si no aparece la tarjeta **Actualizar a Gen2** en la pestaña Tareas, su suscripción es de un tipo que tiene limitaciones en la región actual. [Envíe una incidencia de soporte técnico](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) para obtener la lista de elementos permitidos en la suscripción.
+    > [!NOTE]
+    > Si no aparece la tarjeta **Actualizar a Gen2** en la pestaña Tareas, su suscripción es de un tipo que tiene limitaciones en la región actual.
+    > [Envíe una incidencia de soporte técnico](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) para obtener la lista de elementos permitidos en la suscripción.
 
 2. De forma predeterminada, **seleccione el nivel de rendimiento sugerido** para el almacenamiento de datos en función del nivel de rendimiento actual en el nivel Gen1 optimizado para proceso mediante la asignación siguiente:
-    
-   | Nivel Gen1 optimizado para proceso | Nivel Gen2 optimizado para proceso |
-   | :----------------------: | :-------------------: |
-   |      DW100 – DW600       |        DW500c         |
-   |          DW1000          |        DW1000c        |
-   |          DW1200          |        DW1500c        |
-   |          DW1500          |        DW1500c        |
-   |          DW2000          |        DW2000c        |
-   |          DW3000          |        DW3000c        |
-   |          DW6000          |        DW6000c        |
 
-3. Asegúrese de que la carga de trabajo ha terminado de ejecutarse y está en modo inactivo antes de actualizar. Experimentará tiempo de inactividad unos minutos antes de que el almacenamiento de datos vuelva a estar en línea como un almacenamiento de datos de nivel Gen2 optimizado para proceso. Haga clic en **Actualizar**. Actualmente, el precio del nivel de rendimiento de Gen2 optimizado para proceso está medio desactivado durante el período de versión preliminar:
-    
+   | Nivel Gen1 optimizado para proceso | Nivel Gen2 optimizado para proceso |
+   | :-------------------------: | :-------------------------: |
+   |            DW100            |           DW100c            |
+   |            DW200            |           DW200c            |
+   |            DW300            |           DW300c            |
+   |            DW400            |           DW400c            |
+   |            DW500            |           DW500c            |
+   |            DW600            |           DW500c            |
+   |           DW1000            |           DW1000c           |
+   |           DW1200            |           DW1000c           |
+   |           DW1500            |           DW1500c           |
+   |           DW2000            |           DW2000c           |
+   |           DW3000            |           DW3000c           |
+   |           DW6000            |           DW6000c           |
+
+3. Asegúrese de que la carga de trabajo ha terminado de ejecutarse y está en modo inactivo antes de actualizar. Experimentará tiempo de inactividad unos minutos antes de que el almacenamiento de datos vuelva a estar en línea como un almacenamiento de datos de nivel Gen2 optimizado para proceso. **Haga clic en Actualizar**:
+
    ![Upgrade_2](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_2.png)
 
 4. Para **supervisar la actualización**, compruebe el estado en Azure Portal:
 
    ![Upgrade3](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_3.png)
-   
+
    El primer paso del proceso de actualización recorre la operación de escalado ("Actualización: sin conexión") donde todas las sesiones se terminan y las conexiones se descartan. 
-   
+
    El segundo paso del proceso de actualización es la migración de datos ("Actualización: en línea"). La migración de datos es un proceso en segundo plano lento y en línea, durante el cual se mueven lentamente los datos en columnas desde la arquitectura de almacenamiento antigua hasta la nueva arquitectura de almacenamiento mediante una caché de SSD local. Durante este tiempo, el almacenamiento de datos estará en línea para consulta y carga. Todos los datos estarán disponibles para consulta tanto si se han migrado como si no. La migración de los datos se produce a una velocidad variable, según el tamaño de los datos, el nivel de rendimiento y el número de segmentos del almacén de columnas. 
 
 5. **Recomendación opcional:** para acelerar el proceso en segundo plano de migración de los datos, puede forzar inmediatamente el movimiento de datos mediante la ejecución de [Alter Index rebuild](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-index) en todas las tablas de almacén de columnas principales que consulte con un SLO y una clase de recurso más grandes. Esta operación se realiza **sin conexión** en comparación con el proceso en segundo plano lento que puede tardar horas en completarse en f unción del número y el tamaño de las tablas; sin embargo, la migración de los datos será mucho más rápida donde pueda aprovechar la nueva arquitectura de almacenamiento mejorada una vez completada con grupos de filas de alta calidad. 
@@ -125,4 +164,3 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 ## <a name="next-steps"></a>Pasos siguientes
 El almacenamiento de datos actualizado está en línea. Para aprovechar las ventajas de la arquitectura mejorada, consulte [Clases de recursos para la administración de cargas de trabajo](resource-classes-for-workload-management.md).
- 

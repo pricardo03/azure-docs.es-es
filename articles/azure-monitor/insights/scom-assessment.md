@@ -8,19 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 1b6f157ce8a184885fcd1cd6bbde912516916db9
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: fc625192464dce174b4c2a6d8a2a98343519699f
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52429730"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186130"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimización del entorno con la solución System Center Operations Manager Health Check (versión preliminar)
 
@@ -99,7 +97,7 @@ Ahora que se creó la cuenta de ejecución, es necesario asignar servidores de a
 2. En la pestaña **Distribución**, haga clic en **Agregar** para el cuadro **Equipos seleccionados** y agregue el servidor de administración al que distribuir la cuenta.  Haga clic en **Aceptar** dos veces para guardar los cambios.
 3. En **Run As Configuration** (Configuración de ejecución), haga clic en **Perfiles**.
 4. Busque *SCOM Assessment Profile* (Perfil de evaluación de SCOM).
-5. El nombre del perfil deberá ser: *Microsoft System Center Advisor SCOM Assessment Run As Profile* (Perfil de ejecución de Evaluación de Microsoft System Center Advisor SCOM).
+5. El nombre de perfil debe ser: *Microsoft System Center Advisor SCOM Assessment Run As Profile* (Perfil de ejecución de Evaluación de Microsoft System Center Advisor SCOM).
 6. Haga clic con el botón derecho, actualice sus propiedades y agregue la cuenta de ejecución que creó antes.
 
 ### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>Concesión de permisos específicos a la cuenta de ejecución mediante un script SQL
@@ -161,8 +159,8 @@ De forma predeterminada, la regla Microsoft System Center Advisor SCOM Assessmen
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>Habilitación de la regla para un servidor de administración específico
 
 1. En el área de trabajo **Creación** de la consola del operador de Operations Manager, busque la regla *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule* (Regla de Evaluación de Microsoft System Center Advisor SCOM) en el panel **Reglas**.
-2. En los resultados de búsqueda, seleccione el que incluye el texto *Tipo: servidor de administración*.
-3. Haga clic con el botón derecho en la regla y, a continuación, haga clic en **Invalidaciones** > **Para un objeto de clase específico: servidor de administración**.
+2. En los resultados de búsqueda, seleccione el que incluye el texto *Tipo: Servidor de administración*.
+3. Haga clic con el botón derecho en la regla y, a continuación, haga clic en **Invalidaciones** > **Para un objeto de clase específico: Servidor de administración**.
 4.  En la lista de servidores de administración disponibles, seleccione el servidor de administración donde se debe ejecutar la regla.  Debe ser el mismo servidor de administración que configuró anteriormente al que asociar la cuenta de ejecución.
 5.  Asegúrese de cambiar el valor de la invalidación a **True** para el valor del parámetro **Habilitado**.<br><br> ![invalidar parámetro](./media/scom-assessment/rule.png)
 
@@ -173,8 +171,8 @@ De forma predeterminada, la regla Microsoft System Center Advisor SCOM Assessmen
 La evaluación está configurada para ejecutarse cada 10.080 minutos (o siete días) de forma predeterminada. Puede cambiar el valor por el valor mínimo de 1440 minutos (o un día). El valor representa el intervalo de tiempo mínimo necesario entre ejecuciones de evaluación sucesivas. Para invalidar el intervalo, siga estos pasos.
 
 1. En el área de trabajo **Creación** de la consola de Operations Manager, busque la regla *Microsoft System Center Advisor SCOM Assessment Run Assessment Rule* (Regla de Evaluación de Microsoft System Center Advisor SCOM) en la sección **Reglas**.
-2. En los resultados de búsqueda, seleccione el que incluye el texto *Tipo: servidor de administración*.
-3. Haga clic con el botón derecho en la regla y, a continuación, haga clic en **Invalidar la regla** > **Para todos los objetos de clase: servidor de administración**.
+2. En los resultados de búsqueda, seleccione el que incluye el texto *Tipo: Servidor de administración*.
+3. Haga clic con el botón derecho en la regla y, a continuación, haga clic en **Invalidar la regla** > **Para todos los objetos de clase: Servidor de administración**.
 4. Cambie el valor del parámetro **Intervalo** por el valor de intervalo deseado. En el ejemplo siguiente, el valor se establece en 1440 minutos (un día).<br><br> ![parámetro de intervalo](./media/scom-assessment/interval.png)<br>  
 
     Si el valor se establece en menos de 1440 minutos, la regla se ejecuta en un intervalo de un día. En este ejemplo, la regla omite el valor del intervalo y se ejecuta con una frecuencia de un día.
@@ -238,7 +236,7 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Log
     ```
 
     >[!NOTE]
-    > Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](../../log-analytics/log-analytics-queries.md), la consulta anterior cambiaría como sigue.
+    > Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](../../azure-monitor/log-query/log-query-overview.md), la consulta anterior cambiaría como sigue.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -263,7 +261,7 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Log
     ```
 
     >[!NOTE]
-    > Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](../../log-analytics/log-analytics-queries.md), la consulta anterior cambiaría como sigue.
+    > Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](../../azure-monitor/log-query/log-query-overview.md), la consulta anterior cambiaría como sigue.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -304,4 +302,4 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Log
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Búsquedas de registros](../../log-analytics/log-analytics-queries.md) para obtener más información sobre cómo analizar recomendaciones y datos de System Center Operations Manager Health Check.
+- [Búsquedas de registros](../../azure-monitor/log-query/log-query-overview.md) para obtener más información sobre cómo analizar recomendaciones y datos de System Center Operations Manager Health Check.

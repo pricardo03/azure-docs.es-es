@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 173a64181c1e8c051c6856fa8353f484540917e7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cd8a7540b14c9d0896b9b0db2cae91ac54d92f2a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249717"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844692"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Ejecución de un simulacro de recuperación ante desastres en Azure 
 
@@ -30,10 +30,10 @@ En este procedimiento se describe cómo ejecutar una conmutación por error de p
 
 1. En Site Recovery en Azure Portal, haga clic en **Planes de recuperación** > *recoveryplan_name* > **Conmutación por error de prueba**.
 2. Seleccione un **Punto de recuperación** en el que realizar la conmutación por error. Puede seleccionar una de las siguientes opciones:
-    - **Procesado más recientemente**: con esta opción se realiza una conmutación por error de todas las máquinas virtuales al último punto de recuperación procesado por Site Recovery. Para ver el último punto de recuperación de una máquina virtual específica, seleccione **Puntos de recuperación más recientes** en la configuración de la máquina virtual. Esta opción proporciona un objetivo de tiempo de recuperación (RTO) bajo, ya que no se invierte tiempo en el procesamiento de datos sin procesar.
+    - **Procesado más recientemente**: esta opción realiza una conmutación por error de todas las máquinas virtuales al último punto de recuperación procesado por Site Recovery. Para ver el último punto de recuperación de una máquina virtual específica, seleccione **Puntos de recuperación más recientes** en la configuración de la máquina virtual. Esta opción proporciona un objetivo de tiempo de recuperación (RTO) bajo, ya que no se invierte tiempo en el procesamiento de datos sin procesar.
     - **Más reciente coherente con la aplicación**: esta opción conmuta por error todas las máquinas virtuales del plan al punto de recuperación más reciente coherente con la aplicación que haya procesado Site Recovery. Para ver el último punto de recuperación de una máquina virtual específica, seleccione **Puntos de recuperación más recientes** en la configuración de la máquina virtual.
-    - **Última**: esta opción procesa primero todos los datos que se han enviado al servicio Site Recovery para crear un punto de recuperación para cada máquina virtual antes de conmutarla por error a dicho punto de recuperación. Esta opción ofrece el objetivo de punto de recuperación (RPO) mínimo, ya que la máquina virtual de Azure creada después de la conmutación por error tiene todos los datos replicados en Site Recovery al desencadenarse la conmutación por error.
-    - **Último procesamiento de máquinas virtuales múltiples** : esta opción está disponible para los planes de recuperación con una o varias máquinas virtuales que tienen habilitada la coherencia entre varias máquinas virtuales. Máquinas virtuales con la conmutación por error habilitada para el último punto de recuperación común coherente con varias máquinas virtuales. Otras máquinas virtuales realizan la conmutación por error al último punto de recuperación procesado.  
+    - **Más reciente**: esta opción procesa primero todos los datos que se han enviado al servicio Site Recovery para crear un punto de recuperación para cada máquina virtual antes de conmutarla por error a dicho punto de recuperación. Esta opción ofrece el objetivo de punto de recuperación (RPO) mínimo, ya que la máquina virtual de Azure creada después de la conmutación por error tiene todos los datos replicados en Site Recovery al desencadenarse la conmutación por error.
+    - **Último procesamiento de máquinas virtuales múltiples**: esta opción está disponible para los planes de recuperación con una o varias máquinas virtuales que tienen habilitada la coherencia entre varias máquinas virtuales. Máquinas virtuales con la conmutación por error habilitada para el último punto de recuperación común coherente con varias máquinas virtuales. Otras máquinas virtuales realizan la conmutación por error al último punto de recuperación procesado.  
     - **Último coherente con aplicación de múltiples VM**: esta opción está disponible para los planes de recuperación con una o varias máquinas virtuales que tienen habilitada la coherencia entre varias máquinas virtuales. Las máquinas virtuales que forman parte de un grupo de replicación conmutan por error al último punto de recuperación común coherente con la aplicación de varias máquinas virtuales. Otras máquinas virtuales conmutan por error a su punto de recuperación coherente con la aplicación más reciente.
     - **Personalizado**: use esta opción para conmutar por error una máquina virtual específica a un punto de recuperación concreto.
 3. Seleccione la red virtual de Azure en la que se crearán las máquinas virtuales de prueba.
@@ -55,7 +55,7 @@ Cuando se desencadena una conmutación por error de prueba, ocurre lo siguiente:
 1. **Requisitos previos**: se ejecuta una comprobación de requisitos previos para garantizar que se dan todas las condiciones necesarias para la conmutación por error.
 2. **Conmutación por error**: la conmutación por error procesa y prepara los datos, por lo que se puede crear una máquina virtual de Azure a partir de ellos.
 3. **Más reciente**: si ha elegido el punto de recuperación más reciente, se crea un punto de recuperación de los datos enviados al servicio.
-4. **Inicio**: en este paso se crea una máquina virtual de Azure con los datos procesados en el paso anterior.
+4. **Iniciar**: en este paso se crea una máquina virtual de Azure con los datos procesados en el paso anterior.
 
 ### <a name="failover-timing"></a>Temporización de la conmutación por error
 

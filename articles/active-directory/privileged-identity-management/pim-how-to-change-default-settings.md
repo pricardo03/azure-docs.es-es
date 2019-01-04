@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 09/21/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 77a57afda3859de4a246c15d3b5c0b4ba8e2a8c8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 87003a053823cfc257a3b6f41699feefadbbcc66
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039010"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835172"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>Configuración de roles de directorio de Azure AD en PIM
 
@@ -50,7 +50,15 @@ Use control deslizante **Activaciones** para establecer el tiempo máximo, en ho
 
 ## <a name="notifications"></a>Notificaciones
 
-Use el modificador **Notificaciones** para especificar si el sistema envía correos electrónicos a los administradores para confirmar que han activado un rol. Puede ser útil para detectar activaciones no autorizadas o ilegales.
+Use el conmutador **Notificaciones** para especificar si los administradores recibirán notificaciones por correo electrónico cuando se activan los roles. Puede ser útil para detectar activaciones no autorizadas o ilegales.
+
+Cuando se establece en **Habilitar**, las notificaciones se envían al:
+
+- Administrador de roles con privilegios
+- Administrador de seguridad
+- Administrador global
+
+Para más información, consulte [Notificaciones por correo electrónico en PIM](pim-email-notifications.md).
 
 ## <a name="incidentrequest-ticket"></a>Vale de solicitud o incidencia
 

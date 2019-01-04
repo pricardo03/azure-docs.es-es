@@ -1,5 +1,5 @@
 ---
-title: Análisis de tráfico de búsqueda para Azure Search | Microsoft Docs
+title: 'Análisis del tráfico de búsqueda: Azure Search'
 description: Habilite el análisis de tráfico de búsqueda para Azure Search, un servicio de búsqueda hospedado en la nube en Microsoft Azure, para descubrir información acerca de los usuarios y los datos.
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 04/05/2017
 ms.author: heidist
-ms.openlocfilehash: 4b40e8c9f681b7489c0ab2ffe7b369cc869c73e2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.custom: seodec2018
+ms.openlocfilehash: 4cc7434508e49715e95c87421db2bbed7e20de05
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777266"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310303"
 ---
 # <a name="what-is-search-traffic-analytics"></a>Análisis de tráfico de búsqueda
 Análisis de tráfico de búsqueda es un modelo de implementación de un bucle de comentarios para el servicio de búsqueda. Este modelo describe los datos necesarios y cómo recopilarlos con Application Insights, el líder en el sector para la supervisión de servicios en varias plataformas.
@@ -30,7 +31,7 @@ Hay dos señales que necesita Análisis de tráfico de búsqueda:
 
 1. Eventos de búsqueda generados por el usuario: solo las consultas de búsqueda iniciadas por un usuario son interesantes. Las solicitudes de búsqueda usadas para rellenar las facetas, el contenido adicional o cualquier información interna, no son importantes y sesgan y desvían los resultados.
 
-2. Eventos de clic generados por el usuario: mediante los clics en este documento, nos referimos a la selección por parte del usuario de un resultado de búsqueda determinado devuelto a partir de una consulta de búsqueda. Un clic generalmente significa que un documento es un resultado relevante para una consulta de búsqueda específica.
+2. Eventos de clic generados por el usuario: con clics nos referimos en este documento a que un usuario selecciona un resultado de búsqueda determinado devuelto por una consulta de búsqueda. Un clic generalmente significa que un documento es un resultado relevante para una consulta de búsqueda específica.
 
 Si vincula la búsqueda y eventos de clic con un identificador de correlación, es posible analizar los comportamientos de los usuarios en la aplicación. Estas informaciones de búsqueda son imposibles de obtener con solo los registros de tráfico de búsqueda.
 

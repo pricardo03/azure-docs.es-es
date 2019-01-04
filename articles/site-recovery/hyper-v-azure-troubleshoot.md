@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: c7626c6edceddcfbd4d95ff6efc4678836a4502c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2f9c4c0b973efe26e6ece2235f2d0c7a6878ebef
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248000"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844998"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Solución de problemas de la replicación y la conmutación por error de Hyper-V en Azure
 
@@ -112,7 +112,7 @@ Una instantánea coherente con la aplicación es una instantánea en un momento 
 7. Compruebe si la máquina virtual está experimentando una tasa de modificación elevada:
     - Puede medir la tasa de cambio de datos diaria para las máquinas virtuales invitadas con los contadores de rendimiento en el host de Hyper-V. Para medir la tasa de cambio de datos, habilite el siguiente contador. Agregar un ejemplo de este valor a los discos de máquina virtual de 5 a 15 minutos, para obtener la modificación de la máquina virtual.
         - Categoría: "Dispositivo de almacenamiento virtual de Hyper-V"
-        - Contador: "Bytes de escritura/seg"</br>
+        - Contador: "Bytes de escritura/s"</br>
         - Esta tasa de modificación de datos aumentará o permanecer en un nivel alto, dependiendo de cómo de estén de ocupadas la máquina virtual o sus aplicaciones.
         - El promedio de modificación de datos del disco de origen es 2 MB/s de almacenamiento estándar para Site Recovery. [Más información](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
     - Además, puede [comprobar los objetivos de escalabilidad de Storage](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#scalability-targets-for-a-storage-account).
@@ -125,7 +125,7 @@ Una instantánea coherente con la aplicación es una instantánea en un momento 
 1. Busque en los registros de eventos errores VSS y recomendaciones:
     - En el servidor host de Hyper-V, abra el registro de eventos de administrador de Hyper-V en **Visor de eventos** > **Registros de aplicaciones y servicios** > **Microsoft**  >  **Windows** > **Hyper-V** > **Administrador**.
     - Compruebe si existen eventos que indiquen errores de instantánea coherentes con la aplicación.
-    - Un error habitual es: "Hyper-V failed to generate VSS snapshot set for virtual machine 'XYZ': The writer experienced a non-transient error. Restarting the VSS service might resolve issues if the service is unresponsive". (Hyper-V no ha podido generar el conjunto de instantáneas VSS para la máquina virtual "XYZ": El escritor ha experimentado un error no transitorio. Reiniciar el servicio VSS puede resolver el problema si el servicio no responde)
+    - Un error habitual es: "Hyper-V failed to generate VSS snapshot set for virtual machine: More data is available. The writer experienced a non-transient error (Hyper-V no pudo generar el conjunto de instantáneas VSS para la máquina virtual: hay más datos disponibles. El escritor ha experimentado un error transitorio). Restarting the VSS service might resolve issues if the service is unresponsive". (Hyper-V no ha podido generar el conjunto de instantáneas VSS para la máquina virtual "XYZ": El escritor ha experimentado un error no transitorio. Reiniciar el servicio VSS puede resolver el problema si el servicio no responde)
 
 2. Para generar instantáneas VSS para la máquina virtual, compruebe que los servicios de integración de Hyper-V están instalados en la máquina virtual y que está habilitado el servicio de integración de copia de seguridad (VSS).
     - Asegúrese de que los servicios/demonios de VSS de Integration Services se ejecutan en el invitado y se encuentran en un estado **Aceptar**.
@@ -136,7 +136,7 @@ Una instantánea coherente con la aplicación es una instantánea en un momento 
 
 **Código de error** | **Mensaje** | **Detalles**
 --- | --- | ---
-**0x800700EA** | "Hyper-V failed to generate VSS snapshot set for virtual machine: More data is available. (Hyper-V no pudo generar el conjunto de instantáneas VSS para la máquina virtual: hay más datos disponibles). (0x800700EA). VSS snapshot set generation can fail if backup operation is in progress. Replication operation for virtual machine failed: More data is available" (La generación de un conjunto de instantáneas VSS puede producir un error si la operación de copia de seguridad está en curso).<br/><br/> Replication operation for virtual machine failed: More data is available (Se ha producido un error en la operación de replicación para máquina virtual: hay más datos disponibles). | Compruebe si la máquina virtual tiene habilitado un disco dinámico. No es una opción admitida.
+**0x800700EA** | "Hyper-V failed to generate VSS snapshot set for virtual machine: More data is available (Hyper-V no pudo generar el conjunto de instantáneas de VSS para la máquina virtual: hay más datos disponibles). (0x800700EA). VSS snapshot set generation can fail if backup operation is in progress. Replication operation for virtual machine failed: More data is available" (La generación de un conjunto de instantáneas VSS puede producir un error si la operación de copia de seguridad está en curso).<br/><br/> Replication operation for virtual machine failed: More data is available" (Error en la operación de replicación de la máquina virtual: hay más datos disponibles) | Compruebe si la máquina virtual tiene habilitado un disco dinámico. No es una opción admitida.
 **0x80070032** | "Hyper-V Volume Shadow Copy Requestor failed to connect to virtual machine <./VMname> because the version does not match the version expected by Hyper-V" (El solicitante de instantáneas de volumen de Hyper-V no ha podido conectar con la máquina virtual <./VMname> porque la versión no coincide con la versión esperada por Hyper-V) | Compruebe que las actualizaciones más recientes de Windows están instaladas.<br/><br/> [Actualice](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) a la versión más reciente de Integration Services.
 
 

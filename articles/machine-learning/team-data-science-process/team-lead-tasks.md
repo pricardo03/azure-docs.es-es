@@ -1,6 +1,6 @@
 ---
-title: 'Tareas del responsable de equipo del Proceso de ciencia de datos en equipo: Azure | Microsoft Docs'
-description: Un esquema de las tareas de un responsable de equipo en un proyecto de ciencia de datos en equipo.
+title: Tareas del responsable de equipo en el equipo de proceso de ciencia de datos en equipos
+description: Descripción de las tareas que debe realizar un responsable de equipo en un proyecto de equipo de ciencia de datos para su equipo de ciencia de datos.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 2004396266d4bde9f3be540408524b668bbb863d
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: faf0e06a0649c31cec840a5043a11af601ba5c47
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443856"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139646"
 ---
-# <a name="team-lead-tasks"></a>Tareas del responsable de equipo
+# <a name="tasks-for-the-team-lead-in-the-team-data-science-process-team"></a>Tareas del responsable de equipo en el equipo de proceso de ciencia de datos en equipos
 
 En este tema se describen las tareas que debe realizar un responsable de equipo en su equipo de ciencia de datos. El objetivo es establecer un entorno de colaboración de equipo que se normaliza en el [Proceso de ciencia de datos en equipo](overview.md) (TDSP). TDSP es una metodología de ciencia de datos ágil e iterativa para proporcionar soluciones de análisis predictivo y aplicaciones inteligentes de manera eficiente. Está diseñado para ayudar a mejorar la colaboración y el aprendizaje en equipo. El proceso es una extracción de los procedimientos recomendados y las estructuras, tanto de Microsoft como de la industria, que son necesarios para la correcta implementación de iniciativas de ciencia de datos con el fin de ayudar a las empresas a darse cuenta verdaderamente de las ventajas de sus programas de análisis. Puede encontrar un esquema de los roles personales y sus tareas asociadas que se controlan en un equipo de ciencia de datos que se estandariza en este proceso en [Roles y tareas del Proceso de ciencia de datos en equipo](roles-tasks.md).
 
@@ -45,12 +45,12 @@ Después de que el administrador del grupo haya satisfecho varias tareas que son
 
 En este tema se usan abreviaturas de nombres de los repositorios y directorios. Estos nombres facilitan el seguimiento de las operaciones entre los repositorios y los directorios. Esta notación (**R** para repositorios de Git y **D** para directorios locales de su DSVM) se usa en las siguientes secciones:
 
-- **R1**: el repositorio **GroupProjectTemplate** de GIT que configura el administrador de grupo en el servidor de grupos de Azure DevOps.
-- **R3**: el repositorio **ProjectTemplate** del equipo de Git que configura el responsable de equipo.
-- **R4**: el repositorio **TeamUtilities** de Git que configura el responsable de equipo.
-- **D1**: el directorio local clonado de R1 y copiado en D3.
-- **D3**: el directorio local clonado de R3, personalizado y copiado de nuevo en R3.
-- **D4**: el directorio local clonados de R4, personalizado y copiado de nuevo en R4.
+- **R1**: repositorio **GroupProjectTemplate** de GIT que el administrador de grupo configura en el servidor de grupos de Azure DevOps.
+- **R3**: repositorio **ProjectTemplate** del equipo de GIT que configura el usuario.
+- **R4**: repositorio **TeamUtilities** de GIT que configura el usuario.
+- **D1**: directorio local clonado de R1 y copiado en D3.
+- **D3**: directorio local clonado de R3, personalizado y copiado de nuevo en R3.
+- **D4**: directorio local clonado de R4, personalizado y copiado de nuevo en R4.
 
 Los nombres especificados para los directorios y repositorios de este tutorial se han proporcionado basándose en el supuesto de que su objetivo es establecer un proyecto independiente para su propio equipo dentro de un grupo de ciencia de datos mayor. Sin embargo, como responsable de equipo, dispone de otras opciones:
 
@@ -140,9 +140,9 @@ El procedimiento de propagación usa los directorios de su DSVM local como sitio
 
 - Clone el repositorio de grupo en el directorio local: R1 de equipo - clonado en -> D1 local.
 - Clone los repositorios de equipo en los directorios locales: R3 y R4 de equipo - clonados en -> D3 y D4 locales.
-- Copie el contenido de la plantilla de proyecto de grupo en la carpeta de equipo local: D1 - contenido copiado en -> D3.
+- Copie el contenido de la plantilla de proyecto de grupo en la carpeta de equipo local:  D1: contenido copiado en -> D3
 - (Opcional) Personalización de D3 y D4 locales
-- Inserte el contenido del directorio local en los repositorios de equipo: D3 y D4 - el contenido se agrega a -> R3 y R4 de equipo.
+- Inserción de contenido del directorio local en los repositorios de equipo: D3 y D4: contenido agregado en -> R3 y R4 de equipo
 
 
 ### <a name="initialize-the-team-repositories"></a>Propagación de los repositorios de equipo
@@ -355,7 +355,7 @@ Confirme que se ha montado correctamente una nueva unidad F en la máquina.
 
 ![34](./media/team-lead-tasks/team-leads-34-attach-s3.png)
 
-**Cómo especificar manualmente la información de Azure File Storage:** si no tiene su información de Azure File Storage en un archivo de texto, puede seguir las instrucciones de la siguiente pantalla para escribir la suscripción necesaria, la cuenta de almacenamiento y la información de Azure File Storage:
+**Cómo especificar manualmente la información de Azure File Storage:** Si no tiene su información de Azure File Storage en un archivo de texto, puede seguir las instrucciones de la siguiente pantalla para escribir la información necesaria de suscripción, cuenta de almacenamiento y Azure File Storage:
 
 ![35](./media/team-lead-tasks/team-leads-35-attach-s4.png)
 
@@ -384,7 +384,7 @@ Confirme que se ha montado correctamente una nueva unidad F en la máquina.
 
 ![40](./media/team-lead-tasks/team-leads-40-attach-s4-linux.png)
 
-**Cómo especificar manualmente la información de Azure File Storage:** si no tiene su información de Azure File Storage en un archivo de texto, puede seguir las instrucciones de la siguiente pantalla para escribir la suscripción necesaria, la cuenta de almacenamiento y la información de Azure File Storage:
+**Cómo especificar manualmente la información de Azure File Storage:** Si no tiene su información de Azure File Storage en un archivo de texto, puede seguir las instrucciones de la siguiente pantalla para escribir la información necesaria de suscripción, cuenta de almacenamiento y Azure File Storage:
 
 - Entrada **n**.
 - Seleccione el índice del nombre de la suscripción donde se creó el almacenamiento de Azure File Storage en el paso anterior:

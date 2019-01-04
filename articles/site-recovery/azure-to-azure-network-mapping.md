@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 683f8ef89b02679d1f3f1a66f867f0dde757ada1
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 6140687d583534d21ee50652811c2fd1624a5cf5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564976"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840459"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configuración de la asignación de red y el direccionamiento IP para redes virtuales
 
@@ -63,7 +63,7 @@ La subred de la máquina virtual de destino se selecciona en función del nombre
 La dirección IP de cada NIC de una máquina virtual de destino se configura como sigue:
 
 - **DHCP**: si la NIC de la máquina virtual de origen usa DHCP, la NIC de la máquina virtual de destino también se establece para usar DHCP.
-- **Dirección IP estática**: si la NIC de la máquina virtual de origen usa una dirección IP estática, la NIC de la máquina virtual de destino también usará una dirección IP estática.
+- **Static IP address** (Dirección IP estática): si la NIC de la máquina virtual de origen usa direccionamiento IP estático, la NIC de la máquina virtual de destino también usará una dirección IP estática.
 
 
 ## <a name="ip-address-assignment-during-failover"></a>Asignación de direcciones IP durante la conmutación por error
@@ -79,8 +79,8 @@ Distinto espacio de direcciones<br/><br/> La siguiente dirección IP disponible 
 
 **Red de destino** | **Detalles**
 --- | ---
-La red de destino es la red virtual de conmutación por error | - La dirección IP de destino es estática, pero no la misma dirección IP que se reserva para la conmutación por error.<br/><br/>  - La dirección IP asignada será la siguiente dirección disponible del final del intervalo de direcciones de subred.<br/><br/> Por ejemplo: si la dirección IP de origen es la 10.0.0.19 y la red de conmutación por error usa el intervalo 10.0.0.0/24, la siguiente dirección IP asignada a la máquina virtual de destino es la 10.0.0.254.
-La red de destino no es la red virtual de conmutación por error | - La dirección IP de destino será estática con la misma dirección IP reservada para la conmutación por error.<br/><br/>  - Si la misma dirección IP ya está asignada, la dirección IP es la siguiente disponible del final del intervalo de direcciones de subred.<br/><br/> Por ejemplo: si la dirección IP estática de origen es la 10.0.0.19 y la conmutación por error está en una red que no es la red de conmutación por error, con el intervalo 10.0.0.0/24, la dirección IP estática de destino será la 10.0.0.19 si está disponible y, en caso contrario, será la 10.0.0.254.
+La red de destino es la red virtual de conmutación por error | - La dirección IP de destino es estática, pero no la misma dirección IP que se reserva para la conmutación por error.<br/><br/>  - La dirección IP asignada será la siguiente dirección disponible del final del intervalo de direcciones de subred.<br/><br/> Por ejemplo:  si la dirección IP de origen es la 10.0.0.19 y la red de conmutación por error usa el intervalo 10.0.0.0/24, la siguiente dirección IP asignada a la máquina virtual de destino es la 10.0.0.254.
+La red de destino no es la red virtual de conmutación por error | - La dirección IP de destino será estática con la misma dirección IP reservada para la conmutación por error.<br/><br/>  - Si la misma dirección IP ya está asignada, la dirección IP es la siguiente disponible del final del intervalo de direcciones de subred.<br/><br/> Por ejemplo:  si la dirección IP estática de origen es la 10.0.0.19 y la conmutación por error está en una red que no es la red de conmutación por error, con el intervalo 10.0.0.0/24, la dirección IP estática de destino será la 10.0.0.0.19 si está disponible y, en caso contrario, será la 10.0.0.254.
 
 - La red virtual de conmutación por error es la red de destino que seleccionó al configurar la recuperación ante desastres.
 - Se recomienda que utilice siempre una red que no sea de producción para la conmutación por error de prueba.

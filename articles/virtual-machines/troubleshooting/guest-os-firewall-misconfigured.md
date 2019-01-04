@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: ad659cfcf1bfdad440968da5568b993724a5f351
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: cd45220326221490b461c5706620df2aab55a5d6
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319184"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137844"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>El firewall de SO invitado de máquina virtual de Azure no está correctamente configurado
 
@@ -33,7 +33,7 @@ Este artículo describe cómo corregir el firewall mal configurado del sistema o
 
 ## <a name="cause"></a>Causa
 
-Una configuración incorrecta del firewall del sistema invitado puede bloquear total o parcialmente el tráfico de red a la máquina virtual. 
+Una configuración incorrecta del firewall del sistema invitado puede bloquear total o parcialmente el tráfico de red a la máquina virtual.
 
 ## <a name="solution"></a>Solución
 
@@ -43,11 +43,11 @@ Para solucionar este problema, utilice la consola serie o [repare la máquina vi
 
 ## <a name="online-mitigations"></a>Mitigaciones con conexión
 
-Conéctese a la [consola serie y abra una instancia de PowerShell](serial-console-windows.md#open-cmd-or-powershell-in-serial-console). Si la consola serie no está habilitada en la máquina virtual, vaya a la sección de reparación de la máquina virtual sin conexión del siguiente artículo de Azure:
+Conéctese a la [consola serie y abra una instancia de PowerShell](serial-console-windows.md#use-cmd-or-powershell-in-serial-console). Si la consola serie no está habilitada en la máquina virtual, vaya a la sección de reparación de la máquina virtual sin conexión del siguiente artículo de Azure:
 
  [Se produce un error interno al intentar conectarse a una máquina virtual de Azure a través de Escritorio remoto](troubleshoot-rdp-internal-error.md#repair-the-vm-offline)
 
-Para habilitar el acceso a la máquina virtual (mediante RDP) o para proporcionar una experiencia de solución de problemas más sencilla, se pueden editar las reglas siguientes: 
+Para habilitar el acceso a la máquina virtual (mediante RDP) o para proporcionar una experiencia de solución de problemas más sencilla, se pueden editar las reglas siguientes:
 
 *   Escritorio remoto (TCP de entrada): esta es la regla estándar que proporciona acceso principal a la máquina virtual, ya que permite RDP en Azure.
 
@@ -55,7 +55,7 @@ Para habilitar el acceso a la máquina virtual (mediante RDP) o para proporciona
 
 *   Compartir archivos e impresoras (SMB de entrada): esta regla permite el acceso de recurso compartido de red como una opción de solución de problemas.
 
-*   Compartir archivos e impresoras (solicitud de eco - ICMPv4 de entrada): esta regla le permite hacer ping a la máquina virtual. 
+*   Compartir archivos e impresoras (solicitud de eco: ICMPv4 de entrada): esta regla le permite hacer ping a la máquina virtual.
 
 En la instancia de acceso a la consola serie, puede consultar el estado actual de la regla de firewall.
 
@@ -83,7 +83,7 @@ En la instancia de acceso a la consola serie, puede consultar el estado actual d
     netsh advfirewall firewall set rule name="<RULE NAME>" new enable=yes
     ```
 
-*   Para solucionar problemas, puede establecer los perfiles de firewall en OFF (desactivados): 
+*   Para solucionar problemas, puede establecer los perfiles de firewall en OFF (desactivados):
 
     ```cmd
     netsh advfirewall set allprofiles state off

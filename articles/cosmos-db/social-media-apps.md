@@ -1,27 +1,25 @@
 ---
-title: 'Patrón de diseño de Azure Cosmos DB: aplicaciones de redes sociales | Microsoft Docs'
+title: 'Modelo de diseño de Azure Cosmos DB: Aplicaciones de redes sociales'
 description: Obtenga información sobre un patrón de diseño para redes sociales con la flexibilidad de almacenamiento de Azure Cosmos DB y otros servicios de Azure.
 keywords: aplicaciones de redes sociales
 services: cosmos-db
 author: ealsur
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: maquaran
-ms.openlocfilehash: 6c2911ac65b95ea0a705944fdd8fb9288af28498
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 669cfdc59fc0b2f509db704afa4867d8f55d86f8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165686"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083978"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Redes sociales y Azure Cosmos DB
 
 Vivir en una sociedad enormemente interconectada significa que, en algún momento de la vida, uno formará parte de una **red social**. Las redes sociales se usan para mantenerse en contacto con amigos, compañeros de trabajo y familiares y, a veces, para compartir intereses comunes con otras personas.
 
-Como ingeniero o desarrollador, puede que se haya preguntado cómo es que estas redes almacenan e interconectan sus datos. O bien es posible que incluso le hayan encargado crear o diseñar una nueva red social para un segmento de mercado específico. Y ahí surge la gran duda: ¿cómo se almacenan todos estos datos?
+Como ingeniero o desarrollador, puede que se haya preguntado cómo es que estas redes almacenan e interconectan sus datos. O bien es posible que incluso le hayan encargado crear o diseñar una nueva red social para un segmento de mercado específico. Es ahí cuando surge la pregunta importante: ¿Cómo se almacenan todos estos datos?
 
 Suponga que quiere crear una red social nueva en la que los usuarios puedan publicar artículos y materiales como imágenes, vídeos o incluso música. En esta red social, los usuarios podrán comentar y valorar las publicaciones con fines de clasificación. Además, en la página de aterrizaje del sitio web, los usuarios verán e interactuarán con una fuente de publicaciones. Este método no parece complejo en un principio, pero por motivos de simplicidad, nos detendremos allí. (Puede profundizar en las fuentes de usuario personalizadas que son afectadas por las relaciones, pero eso va más allá del objetivo de este artículo).
 
@@ -49,14 +47,14 @@ En este artículo, se le guiará por el proceso de modelar los datos de su plata
         "date":"2016-01-01",
         "body":"this is an awesome post stored on NoSQL",
         "createdBy":User,
-        "images":["http://myfirstimage.png","http://mysecondimage.png"],
+        "images":["https://myfirstimage.png","https://mysecondimage.png"],
         "videos":[
-            {"url":"http://myfirstvideo.mp4", "title":"The first video"},
-            {"url":"http://mysecondvideo.mp4", "title":"The second video"}
+            {"url":"https://myfirstvideo.mp4", "title":"The first video"},
+            {"url":"https://mysecondvideo.mp4", "title":"The second video"}
         ],
         "audios":[
-            {"url":"http://myfirstaudio.mp3", "title":"The first audio"},
-            {"url":"http://mysecondaudio.mp3", "title":"The second audio"}
+            {"url":"https://myfirstaudio.mp3", "title":"The first audio"},
+            {"url":"https://mysecondaudio.mp3", "title":"The second audio"}
         ]
     }
 
@@ -102,7 +100,7 @@ Para la creación de fuentes solo es necesario crear documentos que puedan conte
 
 Podría tener una secuencia "más recientes" con publicaciones ordenadas por fecha de creación. O bien podría tener una secuencia "más populares" con las publicaciones que han recibido más "me gusta" en las últimas 24 horas. Incluso podría implementar una secuencia personalizada para cada usuario según alguna lógica, como los seguidores e intereses. Aún así, sería una lista de publicaciones. Sin importar cómo cree estas listas, el rendimiento de lectura no se ve afectado. Una vez que se adquiere una de estas listas, se emite una consulta única a Cosmos DB con el [operador IN](how-to-sql-query.md#WhereClause) para obtener páginas de publicaciones cada vez.
 
-Los flujos de fuente se pueden generar mediante procesos en segundo plano de [Azure App Service](https://azure.microsoft.com/services/app-service/): [Webjobs](../app-service/web-sites-create-web-jobs.md). Una vez que se crea una publicación, el procesamiento en segundo plano puede activarse mediante el uso de [Azure Storage](https://azure.microsoft.com/services/storage/) [Queues](../storage/queues/storage-dotnet-how-to-use-queues.md) y Webjobs desencadenados mediante el [SDK Azure Webjobs](https://github.com/Azure/azure-webjobs-sdk/wiki), implementando la propagación de publicaciones dentro de los flujos en función de nuestra lógica personalizada.
+Los flujos de fuente se pueden generar mediante procesos en segundo plano de [Azure App Services](https://azure.microsoft.com/services/app-service/): [Trabajos web](../app-service/web-sites-create-web-jobs.md). Una vez que se crea una publicación, el procesamiento en segundo plano puede activarse mediante el uso de [Azure Storage](https://azure.microsoft.com/services/storage/) [Queues](../storage/queues/storage-dotnet-how-to-use-queues.md) y Webjobs desencadenados mediante el [SDK Azure Webjobs](https://github.com/Azure/azure-webjobs-sdk/wiki), implementando la propagación de publicaciones dentro de los flujos en función de nuestra lógica personalizada.
 
 La puntuación y los "me gusta" de una publicación se pueden procesar de manera aplazada usando esta misma técnica para crear un entorno coherente.
 
@@ -208,15 +206,15 @@ Para obtener más información sobre Azure Search, puede consultar la guía [Hit
 
 ## <a name="the-underlying-knowledge"></a>La información subyacente
 
-Después de almacenar todo este contenido que crece y crece diariamente, se podría pensar: ¿qué puedo hacer con todo este flujo de información de mis usuarios?
+Después de almacenar todo este contenido que crece cada día más, es posible que se pregunte lo siguiente: ¿Qué puedo hacer con todo este flujo de información de mis usuarios?
 
-La respuesta es sencilla: póngala a trabajar y aprenda de ella.
+La respuesta es sencilla: póngalo a trabajar y aprenda de él.
 
 Pero, ¿qué se puede aprender? Por ejemplo, [análisis de sentimiento](https://en.wikipedia.org/wiki/Sentiment_analysis), recomendaciones de contenido según las preferencias de un usuario o, incluso, un moderador automatizado que se asegura de que el contenido que publique nuestra red social sea adecuado para todos los públicos.
 
 Ahora que ya está interesado, probablemente pensará que necesita un doctorado en ciencias matemáticas para extraer estos patrones y la información de los archivos y las bases de datos, pero no es así.
 
-[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), que forma parte de [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), es un servicio en la nube totalmente administrado que permite crear flujos de trabajo mediante algoritmos en una sencilla interfaz de arrastrar y colocar, programar sus propios algoritmos en [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) o usar algunas de las API integradas y listas para usar, como [Text Analytics](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Content Moderator] o [Recommendations](https://gallery.azure.ai/Solution/Recommendations-Solution).
+[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), que forma parte de [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), es un servicio en la nube totalmente administrado que permite crear flujos de trabajo mediante algoritmos en una sencilla interfaz de arrastrar y colocar, programar sus propios algoritmos en [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) o usar algunas de las API integradas y listas para usar, como: [Text Analytics](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Content Moderator] o [Recommendations](https://gallery.azure.ai/Solution/Recommendations-Solution).
 
 Para posibilitar cualquiera de estos escenarios de Machine Learning, puede usar [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) para ingerir la información de distintas fuentes. También puede usar [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) para procesar la información y generar una salida que Azure Machine Learning pueda procesar.
 

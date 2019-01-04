@@ -1,5 +1,5 @@
 ---
-title: Recursos de documentación de búsqueda cognitiva (Azure Search) | Microsoft Docs
+title: 'Recursos de documentación de búsqueda cognitiva: Azure Search'
 description: Una lista anotada de artículos, tutoriales, ejemplos y entradas de blog relacionados con cargas de trabajo de búsqueda cognitiva en Azure Search.
 services: search
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: bad73d2bf8bdf4adee4ce6e40550e506a35a2083
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.custom: seodec2018
+ms.openlocfilehash: 609b5d990cffce10733f6fc82e6b1032ad0f06bb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165687"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314608"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>Recursos de documentación para las cargas de trabajo de búsqueda cognitiva
 
@@ -24,8 +25,8 @@ Los artículos siguientes son la documentación completa para la búsqueda cogni
 
 ## <a name="getting-started"></a>Introducción
 + [What is cognitive search?](cognitive-search-concept-intro.md) (¿Qué es la búsqueda cognitiva?)
-+ [Inicio rápido: crear una canalización de Cognitive Search mediante aptitudes y datos de ejemplo](cognitive-search-quickstart-blob.md)
-+ [Tutorial: Procedimiento para llamar a Cognitive Search API (versión preliminar)](cognitive-search-tutorial-blob.md)
++ [Inicio rápido: Probar Cognitive Search en el portal](cognitive-search-quickstart-blob.md)
++ [Tutorial: Aprendizaje de Cognitive Search API](cognitive-search-tutorial-blob.md)
 + [Ejemplo: creación de una aptitud personalizada](cognitive-search-create-custom-skill-example.md)
 
 ## <a name="how-to-guidance"></a>Guía de procedimientos

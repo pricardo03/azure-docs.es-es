@@ -1,7 +1,7 @@
 ---
 title: 'Idiomas admitidos: QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Una lista de los idiomas naturales admitidos QnA Maker.
+description: Una lista de referencias culturales y lenguajes naturales admitidos por QnA Maker para la base de conocimiento. No mezcle idiomas en la misma base de conocimiento.
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: tulasim
-ms.openlocfilehash: 8c47c4a59f03328b1dc8d3df7771bac81864bb34
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: d51af0f59ffc0189ddaba4f8197aca79becf779e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566642"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106369"
 ---
 # <a name="language-and-region-support-for-qna-maker"></a>Compatibilidad de idiomas y regiones en QnA Maker
 

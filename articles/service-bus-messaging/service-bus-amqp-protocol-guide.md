@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: 0801e3a0e9217ab0855d09df8a054926b488d759
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 04588d0af0f85a9e69f44e82d01294c2a4440abc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821555"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961151"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guía del protocolo AMQP 1.0 Azure Service Bus y Event Hubs
 
@@ -94,7 +94,7 @@ El contenedor que inicia el vínculo pide al contenedor opuesto que acepte un v�
 
 Se asigna nombre a los vínculos y se asocian a los nodos. Como se indicó al principio, los nodos son las entidades que se comunican dentro de un contenedor.
 
-En Service Bus, un nodo es directamente equivalente a una cola, un tema, una suscripción o una subcola de mensajes fallidos de una cola o suscripción. Por lo tanto, el nombre de nodo utilizado en AMQP es el nombre relativo de la entidad dentro del espacio de nombres de Service Bus. Si una cola se denomina `myqueue`, ese es también su nombre de nodo de AMQP. Una suscripción de un tema sigue la convención de API HTTP, ya que se ordena en una colección de recursos de "suscripciones" y, por consiguiente, una suscripción **sub** o un tema **mytopic** tienen el nombre de nodo de AMQP **mytopic/subscriptions/sub**.
+En Service Bus, un nodo es directamente equivalente a una cola, un tema, una suscripción o una subcola de mensajes fallidos de una cola o suscripción. Por lo tanto, el nombre de nodo utilizado en AMQP es el nombre relativo de la entidad dentro del espacio de nombres de Service Bus. Si una cola se denomina `myqueue`, ese es también su nombre de nodo de AMQP. Una suscripción de un tema sigue la convención de API HTTP, ya que se ordena en una colección de recursos de "suscripciones" y, por consiguiente, una suscripción **sub** en un tema **mytopic** tiene el nombre de nodo de AMQP **mytopic/subscriptions/sub**.
 
 El cliente que se conecta también debe usar un nombre de nodo local para crear los vínculos; Service Bus no es preceptivo acerca de esos nombres de nodo y no los interpreta. Normalmente, las pilas de cliente de AMQP 1.0 utilizan un esquema para asegurarse de que estos nombres de nodo efímero son únicos en el ámbito del cliente.
 
@@ -351,7 +351,7 @@ La integración de SASL de AMQP tiene dos inconvenientes:
 * Todas las credenciales y los tokens se limitan al ámbito de la conexión. Una infraestructura de mensajería puede desear proporcionar un control de acceso diferenciado por entidad. Por ejemplo, permitiendo que el portador de un token envíe a la cola A pero no a cola B. Con el contexto de autorización anclado en la conexión, no es posible usar una sola conexión y utilizar tokens de acceso diferentes para la cola A y la cola B.
 * Normalmente, los tokens de acceso solo son válidos durante un tiempo limitado. Esta validez obliga al usuario a volver a adquirir periódicamente los tokens y proporciona una oportunidad al emisor del token de rechazar la emisión de un nuevo token si los permisos de acceso del usuario han cambiado. Las conexiones de AMQP pueden durar períodos muy largos. El modelo SASL solo proporciona una oportunidad para establecer un token en tiempo de conexión, lo que significa que la infraestructura de mensajería tiene para desconectar el cliente cuando el token expira o debe aceptar el riesgo de permitir una comunicación continua con un cliente cuyos derechos de acceso pueden haberse revocado mientras tanto.
 
-La especificación de CBS de AMQP, implementada por Service Bus, permite una solución elegante para estos dos problemas: permite que un cliente asocie los tokens de acceso a cada nodo y actualice esos tokens antes de que expiren, sin interrumpir el flujo de mensajes.
+La especificación de CBS de AMQP, implementada por Service Bus, proporciona una solución alternativa elegante para estos problemas: Permite que un cliente asocie los tokens de acceso a cada nodo y actualice esos tokens antes de que expiren, sin interrumpir el flujo de mensajes.
 
 CBS define un nodo de administración virtual denominado *$cbs*, proporcionado por la infraestructura de mensajería. El nodo de administración acepta los tokens en nombre de los otros nodos de la infraestructura de mensajería.
 

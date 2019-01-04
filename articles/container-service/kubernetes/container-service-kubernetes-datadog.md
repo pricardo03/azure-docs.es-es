@@ -1,5 +1,5 @@
 ---
-title: Supervisión de un clúster de Azure Kubernetes con Datadog
+title: (EN DESUSO) Supervisión de un clúster de Azure Kubernetes con Datadog
 description: Supervisión de un clúster de Kubernetes en Azure Container Service utilizando Datadog
 services: container-service
 author: bburns
@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 0a3f0baa4998dbc594023935575d659f7d45bbb9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6a682c199b40035bfd44fc5611a7d44b49f7b3ab
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38629076"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995355"
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-datadog"></a>Supervisión de un clúster de Azure Container Service con DataDog
+# <a name="deprecated-monitor-an-azure-container-service-cluster-with-datadog"></a>(EN DESUSO) Supervisión de un clúster de Azure Container Service con DataDog
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 En este tutorial se da por supuesto que ha [creado un clúster de Kubernetes con Azure Container Service](container-service-kubernetes-walkthrough.md).
 
 También se da por supuesto que tiene la CLI de Azure `az` y las herramientas de `kubectl` instaladas.

@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: ashish
-ms.openlocfilehash: 93eb6fb0da86909dfc880db2a9bb2331abe4418a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3e664fc83fde937b26a4726f997da4c0cb4d8f8a
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948141"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407888"
 ---
 # <a name="scale-hdinsight-clusters"></a>Escalabilidad de clústeres de HDInsight
 
 HDInsight proporciona elasticidad, lo que ofrece la opción de escalar y reducir verticalmente el número de nodos de trabajo de los clústeres. Esto permite reducir un clúster después de horas o los fines de semana y expandirlo durante períodos de máxima demanda empresarial.
 
-Por ejemplo, si algún procesamiento por lotes se ejecuta una vez al día o una vez al mes, se puede escalar verticalmente el clúster de HDInsight unos minutos antes del evento programado, a fin de disponer de la memoria y la capacidad de proceso de CPU apropiadas. Puede realizar el escalado automáticamente con el cmdlet de PowerShell [`Set–AzureRmHDInsightClusterSize`](hdinsight-administer-use-powershell.md#scale-clusters).  Después, una vez realizado el procesamiento y de que el uso vuelva a bajar, puede reducir verticalmente el clúster de HDInsight a menos nodos de trabajo.
+Por ejemplo, si algún procesamiento por lotes se ejecuta una vez al día o una vez al mes, se puede escalar verticalmente el clúster de HDInsight unos minutos antes del evento programado, a fin de disponer de la memoria y la capacidad de proceso de CPU apropiadas. Puede realizar el escalado automáticamente con el cmdlet de PowerShell [`Set–AzureRmHDInsightClusterSize`](hdinsight-administer-use-powershell.md#scale-clusters).  Después, una vez realizado el procesamiento y de que el uso vuelva a bajar, puede reducir verticalmente el clúster de HDInsight a menos nodos de trabajo.
 
 * Para escalar el clúster mediante [PowerShell](hdinsight-administer-use-powershell.md):
 
@@ -77,7 +77,7 @@ Por ejemplo:
 yarn application -kill "application_1499348398273_0003"
 ```
 
-## <a name="rebalancing-an-hbase-cluster"></a>Reequilibrio de un clúster de HBase
+## <a name="rebalancing-an-apache-hbase-cluster"></a>Reequilibrio de un clúster de Apache HBase
 
 Los servidores regionales se equilibran automáticamente en unos pocos minutos tras completar la operación de escalado. Para equilibrar manualmente servidores regionales, siga estos pasos:
 
@@ -99,11 +99,11 @@ Como se mencionó anteriormente, los trabajos pendientes o en ejecución se term
 
 ![Escalar clúster](./media/hdinsight-scaling-best-practices/scale-cluster.png)
 
-Si reduce el clúster hasta el mínimo de un nodo de trabajo, como se muestra en la imagen anterior, HDFS puede bloquearse en modo seguro cuando se reinician los nodos de trabajo debido a la aplicación de revisiones o inmediatamente después de la operación de escalado.
+Si reduce el clúster hasta el mínimo de un nodo de trabajo, como se muestra en la imagen anterior, Apache HDFS puede bloquearse en modo seguro cuando se reinician los nodos de trabajo debido a la aplicación de revisiones o inmediatamente después de la operación de escalado.
 
 La causa principal de esto es que Hive usa algunos archivos `scratchdir` y, de forma predeterminada, espera tres réplicas de cada bloque, pero solo se puede realizar una réplica si se reduce verticalmente al mínimo de un nodo de trabajo. Como consecuencia, los archivos de `scratchdir` están *subreplicados*. Esto puede dar lugar a que HDFS permanezca en modo seguro cuando se reinician los servicios después de la operación de escalado.
 
-Cuando se produce un intento de reducción vertical, HDInsight se basa en las interfaces de administración de Ambari para retirar los nodos de trabajo adicionales no deseados, que replica sus bloques de HDFS en otros nodos de trabajo en línea y, después, reduce verticalmente el clúster de manera segura. HDFS entra en modo seguro durante la ventana de mantenimiento, y se espera que salga de dicho modo una vez finalizado el escalado. En este punto, HDFS puede bloquearse en modo seguro.
+Cuando se produce un intento de reducción vertical, HDInsight se basa en las interfaces de administración de Apache Ambari para retirar los nodos de trabajo adicionales no deseados, que replica sus bloques de HDFS en otros nodos de trabajo en línea y, después, reduce verticalmente el clúster de manera segura. HDFS entra en modo seguro durante la ventana de mantenimiento, y se espera que salga de dicho modo una vez finalizado el escalado. En este punto, HDFS puede bloquearse en modo seguro.
 
 HDFS se configura con un valor de 3 en `dfs.replication`. Por tanto, los bloques de los archivos temporales se subreplican siempre que haya menos de tres nodos de trabajo en línea, ya que no se dispone de las tres copias esperadas de cada bloque de archivos disponible.
 
@@ -121,9 +121,9 @@ Después de salir del modo seguro, puede quitar manualmente los archivos tempora
 
 * H100 No se puede enviar la instrucción para mostrar bases de datos: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: No se pudo conectar a hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. internal.cloudapp.net/1.1.1.1]: **Conexión rechazada**
 
-* H020 No se pudo establecer la conexión con hn0-hdisrv.servername.bx.internal.cloudapp.net:10001: org.apache.thrift.transport.TTransportException: No se pudo establecer la conexión HTTP a http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: No se pudo conectar a hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28]: Conexión rechazada: org.apache.thrift.transport.TTransportException: No se pudo crear la conexión HTTP a http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: No se pudo conectar a hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28]: **Conexión rechazada**
+* H020 No se pudo establecer la conexión con hn0-hdisrv.servername.bx.internal.cloudapp.net:10001: org.apache.thrift.transport.TTransportException: No se pudo establecer la conexión HTTP a http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: No se pudo conectar a hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28]: Conexión rechazada: org.apache.thrift.transport.TTransportException: No se pudo establecer la conexión HTTP a http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: No se pudo conectar a hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28]: **Conexión rechazada**
 
-* De los registros de Hive: ADVERTENCIA [principal]: server.HiveServer2 (HiveServer2.java:startHiveServer2(442)) – Error al iniciar HiveServer2 en el intento 21; se reintentará en 60 segundos java.lang.RuntimeException: Error al aplicar la directiva de autorización en la configuración de Hive: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **No se puede crear el directorio** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374. **El nodo de nombre está en modo seguro**.
+* Desde los registros de Hive: ADVERTENCIA [main]: server.HiveServer2 (HiveServer2.java:startHiveServer2(442)) – Error al iniciar HiveServer2 en el intento 21; se reintentará en 60 segundos java.lang.RuntimeException: Error al aplicar la directiva de autorización en la configuración de Hive: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **No se puede crear el directorio** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374. **El nodo de nombre está en modo seguro**.
     Los 0 bloques notificados necesitan 9 bloques más para llegar al umbral de 0,9900 de un total de 9 bloques.
     El número de nodos de datos dinámicos de 10 ha alcanzado el número mínimo de 0. **El modo seguro se desactivará automáticamente una vez alcanzados los umbrales**.
     at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1324)
@@ -151,7 +151,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
 
 ![Modo seguro desactivado](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
 
-> [!NOTE]
+> [!NOTE]  
 > El conmutador `-D` es necesario porque el sistema de archivos predeterminado de HDInsight es Azure Storage o Azure Data Lake Store. `-D` especifica que los comandos se ejecuten en el sistema de archivos HDFS local.
 
 A continuación, puede consultar un informe en que se muestran los detalles del estado de HDFS:
@@ -251,7 +251,7 @@ Para limpiar los archivos temporales, con lo que se eliminan los errores de repl
 hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Este comando puede interrumpir Hive si algunos trabajos siguen en ejecución.
 
 ### <a name="how-to-prevent-hdinsight-from-getting-stuck-in-safe-mode-due-to-under-replicated-blocks"></a>Cómo evitar que HDInsight quede bloqueado en modo seguro debido a bloques subreplicados
@@ -327,4 +327,4 @@ La última opción consiste en estar atento a los casos excepcionales en que HDF
 
 * [Introducción a Azure HDInsight](hadoop/apache-hadoop-introduction.md)
 * [Escalado de clústeres](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari](hdinsight-hadoop-manage-ambari.md)
+* [Administración de clústeres de HDInsight con la interfaz de usuario web de Apache Ambari](hdinsight-hadoop-manage-ambari.md)

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c1db8c99b1bd3f9bbb768572ca1f5f7a4e1e0de4
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 5ccfef8a6ad367e8fac100217713cd323341a535
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639392"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183478"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Configurar la máquina virtual hospedada en Azure
 
@@ -28,14 +28,14 @@ En este artículo se explica cómo cambiar el tamaño, actualizar y generalizar 
 
 ## <a name="sizing-the-vhds"></a>Cambio de tamaño de los VHD
 
-<!--TD: Check if the following assertion is true. I didn't understand the original content. --> Si ha seleccionado una de las máquinas virtuales preconfiguradas con un sistema operativo (y, opcionalmente, otros servicios), entonces ya ha seleccionado un tamaño de máquina virtual de Azure estándar, como se explica en [Pestaña SKU de máquina virtual](./cpp-skus-tab.md).  Éste es el método recomendado.  Pero si va a instalar un sistema operativo manualmente, debe ajustar el tamaño del disco duro virtual principal en la imagen de máquina virtual:
+<!--TD: Check if the following assertion is true. I didn't understand the original content. --> Si ha seleccionado una de las máquinas virtuales preconfiguradas con un sistema operativo (y, opcionalmente, otros servicios), entonces ya ha seleccionado un tamaño de máquina virtual de Azure estándar, como se explica en [Pestaña SKU de máquina virtual](./cpp-skus-tab.md).  Iniciar la solución con un sistema operativo configurado previamente es el enfoque recomendado.  Pero si va a instalar un sistema operativo manualmente, debe ajustar el tamaño del disco duro virtual principal en la imagen de máquina virtual:
 
 - En Windows, el VHD del sistema operativo debe crearse como VHD de 127-128 GB con formato fijo. 
 - En Linux, este VHD debe crearse como VHD de 30-50 GB con formato fijo.
 
 Si el tamaño físico es inferior a 127-128 GB, el VHD debe ser disperso. Las imágenes base de Windows y SQL Server proporcionadas cumplen ya estos requisitos, por lo que no es necesario que cambie el formato ni el tamaño del VHD obtenido. 
 
-Los discos de datos pueden tener un tamaño de hasta 1 TB. A la hora de decidir el tamaño de disco, tenga en cuenta que los clientes no pueden cambiar el tamaño de los VHD de una imagen en el momento de la implementación. Los VHD de discos de datos deben crearse como VHD con formato fijo. También deben ser dispersos. Los discos de datos inicialmente pueden estar vacíos o contener datos.
+Los discos de datos pueden tener un tamaño de hasta 1 TB. A la hora de decidir el tamaño, tenga en cuenta que los clientes no pueden cambiar el tamaño de los VHD de una imagen en el momento de la implementación. Los VHD de discos de datos deben crearse como VHD con formato fijo. También deben ser dispersos. Los discos de datos inicialmente pueden estar vacíos o contener datos.
 
 
 ## <a name="install-the-most-current-updates"></a>Instalar las actualizaciones más recientes
@@ -49,7 +49,7 @@ En distribuciones Linux, las actualizaciones se suelen descargar e instalar medi
 
 ## <a name="perform-additional-security-checks"></a>Realizar comprobaciones de seguridad adicionales
 
-Debe mantener un alto nivel de seguridad para las imágenes de la solución en Azure Marketplace.  El siguiente artículo proporciona una lista de comprobación de las configuraciones y los procedimientos de seguridad para ayudarle a lograrlo: [Recomendaciones de seguridad para imágenes de Azure Marketplace](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images).  Algunas de estas recomendaciones son específicas de imágenes basadas en Linux, pero la mayoría se aplica a cualquier imagen de máquina virtual. 
+Debe mantener un alto nivel de seguridad para las imágenes de la solución en Azure Marketplace.  En el siguiente artículo se proporciona una lista de comprobación de las configuraciones y los procedimientos de seguridad para ayudarle a lograrlo: [Recomendaciones de seguridad para imágenes de Azure Marketplace](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images).  Algunas de estas recomendaciones son específicas de imágenes basadas en Linux, pero la mayoría se aplica a cualquier imagen de máquina virtual. 
 
 
 ## <a name="perform-custom-configuration-and-scheduled-tasks"></a>Realizar una configuración personalizada y tareas programadas
@@ -65,7 +65,7 @@ Para obtener más información sobre las personalizaciones de Linux, vea [Caract
 
 Todas las imágenes de Azure Marketplace deben ser reutilizables de forma genérica. Para lograrlo, el VHD de sistema operativo debe estar *generalizado*, una operación que quita todos los controladores de software y los identificadores específicos de la instancia de una máquina virtual.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 Los discos de sistema operativo Windows se generalizan con la [herramienta sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview). Si posteriormente actualiza o vuelve a configurar el sistema operativo, debe volver a ejecutar sysprep. 
 
@@ -95,8 +95,8 @@ El siguiente proceso de dos pasos generaliza una máquina virtual Linux y la vue
 
 Crear copias de máquina virtual suele resultar útil para las copias de seguridad, las pruebas, la conmutación por error personalizada o el equilibrio de carga, para ofrecer distintas configuraciones de una solución, etc. Para obtener información sobre cómo duplicar y descargar un VHD principal, para crear un clon no administrado, vea:
 
-- Máquina virtual Linux: [Descarga de un VHD de Linux desde Azure](../../../virtual-machines/linux/download-vhd.md)
-- Máquina virtual Windows: [Descargar un VHD de Windows desde Azure](../../../virtual-machines/windows/download-vhd.md)
+- VM Linux: [Descarga de un VHD de Linux desde Azure](../../../virtual-machines/linux/download-vhd.md)
+- VM Windows: [Descargar un VHD de Windows desde Azure](../../../virtual-machines/windows/download-vhd.md)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

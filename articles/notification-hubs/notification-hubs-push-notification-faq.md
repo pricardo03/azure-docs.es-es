@@ -1,5 +1,5 @@
 ---
-title: 'Azure Notification Hubs: preguntas más frecuentes (P+F) | Microsoft Docs'
+title: 'Azure Notification Hubs: Preguntas más frecuentes (P+F) | Microsoft Docs'
 description: Preguntas más frecuentes sobre el diseño y la implementación de soluciones en Notification Hubs
 services: notification-hubs
 documentationcenter: mobile
@@ -15,14 +15,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: cec57f2dafaddfa2ebc492f0cb92755b1f65607f
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 140994de4b1be61f16593e450d156b81727a9f52
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251029"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437850"
 ---
-# <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificaciones push en Azure Notification Hubs: preguntas más frecuentes
+# <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificaciones de inserción con Azure Notification Hubs: Preguntas más frecuentes
 ## <a name="general"></a>General
 ### <a name="what-is-the-resource-structure-of-notification-hubs"></a>¿Cuál es la estructura de los recursos de Notification Hubs?
 
@@ -33,14 +33,14 @@ La asignación recomendada hace coincidir un espacio de nombres con una aplicaci
 ### <a name="what-is-the-price-model-for-notification-hubs"></a>¿Cuál es el modelo de precios para Notification Hubs?
 Los detalles más recientes sobre los precios pueden encontrarse en la página [Precios de Notification Hubs]. Notification Hubs se factura a nivel de espacio de nombres. (Si necesita ver la definición de espacio de nombres, consulte "¿Cuál es la estructura de los recursos de Notification Hubs?") Notification Hubs ofrece tres niveles:
 
-* **Gratis**: Este nivel es un buen punto de partida para explorar las funcionalidades de inserción. No se recomienda para las aplicaciones de producción. Se incluyen 500 dispositivos y 1 millón de inserciones por espacio de nombres por mes, sin garantía de Acuerdo de Nivel de Servicio (SLA).
-* **Básico**: Este nivel (o el Estándar) se recomienda para las aplicaciones de producción más pequeñas. Se incluyen 200 000 dispositivos y 10 millones de inserciones por espacio de nombres por mes como línea base. Se incluyen opciones de aumento con cuota.
-* **Estándar**: Es el nivel recomendado para aplicaciones de producción de tamaño medio a grande. Se incluyen 10 millones de dispositivos y 10 millones de inserciones por espacio de nombres por mes como línea base. Se incluyen opciones de aumento con cuota y funcionalidades de telemetría enriquecida.
+* **Gratis**: este nivel es un buen punto de partida para explorar las funcionalidades de inserción. No se recomienda para las aplicaciones de producción. Se incluyen 500 dispositivos y 1 millón de inserciones por espacio de nombres por mes, sin garantía de Acuerdo de Nivel de Servicio (SLA).
+* **Básico**: este nivel (o el Estándar) se recomienda para las aplicaciones de producción más pequeñas. Se incluyen 200 000 dispositivos y 10 millones de inserciones por espacio de nombres por mes como línea base. Se incluyen opciones de aumento con cuota.
+* **Estándar**: es el nivel recomendado para aplicaciones de producción de tamaño medio a grande. Se incluyen 10 millones de dispositivos y 10 millones de inserciones por espacio de nombres por mes como línea base. Se incluyen opciones de aumento con cuota y funcionalidades de telemetría enriquecida.
 
 Características del nivel Estándar:
-* **Telemetría enriquecida**: Puede usar Telemetría por mensaje de Notification Hubs para realizar seguimiento de cualquier solicitud de inserción y comentarios del Sistema de notificación de plataforma para depurar.
-* **Multiinquilinato**: Puede trabajar con credenciales del Sistema de notificación de plataforma a nivel de un espacio de nombres. Esta opción permite dividir fácilmente los inquilinos en los concentradores dentro del mismo espacio de nombres.
-* **Inserción programada**: Puede programar que las notificaciones se envíen en cualquier momento.
+* **Telemetría enriquecida**: puede usar Telemetría por mensaje de Notification Hubs para realizar el seguimiento de cualquier solicitud de inserción y comentarios del Sistema de notificación de plataforma para depurar.
+* **Multiinquilino**: puede trabajar con credenciales del Sistema de notificación de plataforma en el nivel de un espacio de nombres. Esta opción permite dividir fácilmente los inquilinos en los concentradores dentro del mismo espacio de nombres.
+* **Inserción programada**: puede programar que las notificaciones se envíen en cualquier momento.
 
 ### <a name="what-is-the-notification-hubs-sla"></a>¿Cuál es el SLA de Notification Hubs?
 En el caso de los niveles Básico y Estándar de Notification Hubs, las aplicaciones configuradas correctamente pueden enviar notificaciones push o realizar operaciones de administración de registros al menos un 99,9 por ciento del tiempo. Para más información sobre el Acuerdo de Nivel de Servicio, vaya a la página [Contrato de nivel de servicio para Notification Hubs](https://azure.microsoft.com/support/legal/sla/notification-hubs/).
@@ -52,10 +52,10 @@ En el caso de los niveles Básico y Estándar de Notification Hubs, las aplicaci
 Muchos clientes usan Notification Hubs. Los siguientes son algunos clientes destacados:
 
 * Sochi 2014: cientos de grupos de interés, más de 3 millones de dispositivos y más de 150 millones de notificaciones enviadas en dos semanas. [Caso práctico: Sochi]
-* Skanska. [Caso práctico: Skanska]
-* Seattle Times. [Caso práctico: Seattle Times]
-* Mural.ly. [Caso práctico: Mural.ly]
-* 7Digital. [Caso práctico: 7Digital]
+* Skanska: [Caso práctico: Skanska]
+* Seattle Times: [Caso práctico: Seattle Times]
+* Mural.ly: [Caso práctico: Mural.ly]
+* 7Digital: [Caso práctico: 7Digital]
 * Aplicaciones de Bing: decenas de millones de dispositivos envían 3 millones de notificaciones al día.
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>¿Cómo se puede subir o bajar de nivel mi concentrador o espacio de nombres?
@@ -213,7 +213,7 @@ También proporciona la funcionalidad de exportar los datos de telemetría media
 [Modelo de seguridad de Notification Hubs]: https://msdn.microsoft.com/library/azure/dn495373.aspx
 [Tutorial sobre inserciones seguras de Notification Hubs]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [Solución de problemas de Notification Hubs]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
-[Métricas de Notification Hubs]: ../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnotificationhubsnamespacesnotificationhubs
+[Métricas de Notification Hubs]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Ejemplo de métricas de Notification Hubs]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Procedimiento: cómo exportar y modificar registros en bloque]: https://msdn.microsoft.com/library/dn790624.aspx
 [Azure Portal]: https://portal.azure.com

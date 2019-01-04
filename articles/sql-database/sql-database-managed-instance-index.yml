@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 46e05ef45cca5accd6af817a06b63861c41aa2b3
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 11832a3b7fb68dce6fb24f44ceec5ffb9a57eb69
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160620"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437561"
 documentType: LandingData
 title: Instancia administrada de Azure SQL Database
 metadata:
@@ -18,8 +18,8 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: 
   ms.topic: overview
-  ms.date: 11/11/2018
-  ms.author: jovanpop-msft
+  ms.date: 12/14/2018
+  ms.author: jovanpop
 abstract:
   description: Instancia administrada de Azure SQL Database es una instancia de motor de base de datos de SQL Server totalmente administrada que se hospeda en la nube de Azure. Esta es la mejor opción de PaaS para migrar su base de datos de SQL Server a la nube. Aprenda a crear y usar Instancias administradas con nuestros inicios rápidos, tutoriales y ejemplos.
   aside:
@@ -65,6 +65,20 @@ sections:
     - title: Seguridad avanzada
       href: /azure/sql-database/sql-database-security-index
       html: <p>Proteja su instancia y las bases de datos con las características de seguridad integradas en las bases de datos de SQL de Azure.<p>
+- title: Novedades y características de la versión preliminar
+  items:
+  - type: paragraph
+    text: 'Estamos mejorando Instancia administrada continuamente con características nuevas:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="sql-database-managed-instance#business-critical-service-tier">El nivel de servicio Crítico para la empresa</a> está ahora en <a href="https://azure.microsoft.com/blog/migrate-mission-critical-sql-workloads-to-the-most-economical-cloud-destination/">Disponibilidad General (GA)</a>.
+    - html: (Versión preliminar) Los <a href="https://aka.ms/managed-instance-aadlogins">inicios de sesión de Azure AD de nivel de instancia</a> se crean mediante <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a>.
+    - html: (Versión preliminar) Las instancias se crean con la <a href="https://aka.ms/managed-instance-collation">intercalación de nivel de servidor que elija</a>.
+    - html: <a href="https://aka.ms/managed-instance-configurable-backup-retention">Puede configurar la retención de copia de seguridad hasta 35 días</a> para la restauración a un momento dado. Tenga en cuenta que la retención de copias de seguridad a largo plazo (hasta 10 años) aún no está habilitada, por lo que se pueden usar <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">copias de seguridad de solo copia</a> como alternativa.
+    - html: (Versión preliminar) Use <a href="https://aka.ms/managed-instance-failover-groups">grupos de conmutación por error distribuidos geográficamente</a> para mantener una copia de la instancia en la otra región y asegurarse de que los datos estarán disponibles incluso en caso de desastre regional.
+    - html: (Versión preliminar) <a href="https://aka.ms/managed-instance-tde-byok">Use claves de cifrado propias</a> al migrar bases de datos locales en las que ya se ha habilitado el cifrado de datos transparente (TDE).
+    - html: Las instancias administradas están protegidas con <a href="sql-database-managed-instance-endpoint-verify-built-in-firewall">firewall integrado</a>.
 - title: Inicios rápidos en 5 minutos
   items:
   - type: paragraph
@@ -116,15 +130,16 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Obtenga información sobre las <a href="/azure/sql-database/sql-database-managed-instance-resource-limits">características de hardware y limitaciones</a> y las <a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">limitaciones del lenguaje SQL</a>.
+    - html: Obtenga información sobre las <a href="/azure/sql-database/sql-database-managed-instance-resource-limits">características de hardware y limitaciones</a> y las <a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">diferencias del lenguaje Transact-SQL</a>.
     - html: <a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">Configure</a> la red virtual de Azure donde se implementará la Instancia administrada.
     - html: <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#modify-an-existing-virtual-network-for-managed-instances">Valide</a> que su red virtual de Azure existente se puede usar para implementar Instancias administradas.
     - html: Conéctese a su instancia mediante una <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/21/the-easiest-way-to-create-azure-vm-that-can-access-your-azure-sql-managed-instance/">máquina virtual de Azure</a>, una <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">conexión de punto a sitio</a> o mediante <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">aplicaciones</a>.
     - html: Compruebe que la base de datos se puede migrar mediante el <a href="https://www.microsoft.com/download/details.aspx?id=53595">asistente de migración de datos</a> o el <a href="https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/">asistente para experimentación con bases de datos</a>.
     - html: Migre sus bases de datos a la Instancia administrada mediante la <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">restauración nativa</a> o <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Data Migration Service</a>.
     - html: Migre sus paquetes SSIS a <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure Data Factory</a>, sus modelos tabulares de SSAS a <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Services</a> y sus informes de SSRS a <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">Power BI Premium</a>.
+    - html: Aplique <a href="https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose">procedimientos recomendados y consideraciones de rendimiento de almacenamiento para el nivel de servicio de uso general</a>.
     - html: Encuentre las prácticas recomendadas y recomendaciones para <a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">proteger su instancia</a>.
-    - html: Distribuya sus datos mediante la <a href="/azure/sql-database/replication-with-sql-database-managed-instance">replicación transaccional</a>.
+    - html: Busque más <a href="sql-database-howto-managed-instance.md">guías paso a paso</a> que puedan ayudarle a configurar su instancia administrada.
 - title: Referencia
   items:
   - type: list
@@ -135,3 +150,5 @@ sections:
       html: <p><a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/tag/managed-instance/">MSDN</a></p><p><a href="https://medium.com/azure-sqldb-managed-instance ">Mediano</a></p>
     - title: Preguntas más frecuentes
       html: <p><a href="https://stackoverflow.com/questions/tagged/azure-sql-managed-instance">Stack Overflow</a></p>
+    - title: Materiales de aprendizaje
+      html: <p><a href="https://www.microsoft.com/handsonlabs/selfpacedlabs">Laboratorios prácticos</a></p><p><a href="https://www.microsoft.com/handsonlabs/instructorledlabs">Laboratorios con instrucciones</a></p>

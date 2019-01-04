@@ -1,5 +1,5 @@
 ---
-title: Movimiento de datos hacia y desde Blob Storage con el Explorador de Azure Storage | Microsoft Docs
+title: 'Movimiento de datos de Blob Storage con el Explorador de Azure Storage: Team Data Science Process'
 description: Mover datos hacia y desde Azure Blob Storage con el Explorador de Azure Storage
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 7d4fc17c466f9f7187ca28c847631254d6600ead
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 99c9a86d130989e8c62a948e440b35c928b42299
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447009"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134105"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Mover datos hacia y desde Azure Blob Storage con el Explorador de Azure Storage
 El Explorador de Azure Storage es una herramienta gratuita de Microsoft que permite trabajar con los datos de Azure Storage en Windows, macOS y Linux. En este tema se describe cómo usarlo para cargar y descargar datos del Almacenamiento de blobs de Azure. La herramienta se puede descargar desde el [Explorador de Microsoft Azure Storage](http://storageexplorer.com/).
@@ -45,8 +45,8 @@ En los pasos siguientes se describe cómo cargar y descargar datos mediante el E
 
 1. Inicie Explorador de Microsoft Azure Storage.
 2. Para que aparezca el Asistente **Iniciar sesión en una cuenta...**, seleccione el icono de **Configuración de la cuenta de Azure**, luego **Agregar una cuenta** y escriba las credenciales. ![Agregar una cuenta de Azure Storage](./media/move-data-to-azure-blob-using-azure-storage-explorer/add-an-azure-store-account.png)
-3. Para que aparezca el Asistente **Conectar a Azure Storage**, seleccione el icono de **Conectar a Azure Storage**. ![Conectar a Azure Storage](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-1.png)
-4. Escriba la clave de acceso de la cuenta de Azure Storage en el Asistente **Conectar a Azure Storage** y luego haga clic en **Siguiente**. ![Conectar a Azure Storage](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-2.png)
+3. Para que aparezca el Asistente **Conectar a Azure Storage**, seleccione el icono de **Conectar a Azure Storage**. ![Haga clic en "Conectar a Azure Storage"](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-1.png)
+4. Escriba la clave de acceso de la cuenta de Azure Storage en el Asistente **Conectar a Azure Storage** y luego haga clic en **Siguiente**. ![Escribir la clave de acceso de la cuenta de Azure Storage](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-2.png)
 5. Escriba el nombre de la cuenta de almacenamiento en el cuadro **Nombre de cuenta** y, después, seleccione **Siguiente**. ![Adjuntar almacenamiento externo](./media/move-data-to-azure-blob-using-azure-storage-explorer/attach-external-storage.png)
 6. Ahora debería aparecer la cuenta de almacenamiento agregada. Para crear un contenedor de blobs en una cuenta de almacenamiento, haga clic con el botón derecho en el nodo **Contenedores de blob** de esa cuenta, seleccione **Crear contenedor de blobs** y escriba un nombre.
 7. Para cargar datos en un contenedor, seleccione el contenedor de destino y haga clic en el botón **Cargar**.![Cuentas de almacenamiento](./media/move-data-to-azure-blob-using-azure-storage-explorer/storage-accounts.png)

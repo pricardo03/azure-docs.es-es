@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 6868b842f22a6d107936fcb1e49c46b0c1f58469
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 3808511e588ba4284dee16cf7ca88bfd5a382c3a
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345312"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337485"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migración de una instancia de SQL Server a Instancia administrada de Azure SQL Database
 
@@ -60,7 +60,7 @@ Puede seleccionar recursos de almacenamiento y proceso en el momento de la imple
 Para más información sobre la creación de la infraestructura de red virtual y una instancia administrada, consulte el artículo de [creación de una instancia administrada](sql-database-managed-instance-get-started.md).
 
 > [!IMPORTANT]
-> Es importante que la red virtual y la subred de destino cumplan siempre los [requisitos de red virtual de instancia administrada de Azure SQL Database](sql-database-managed-instance-vnet-configuration.md#requirements). Cualquier incompatibilidad puede impedir crear nuevas instancias o usar las que ya ha creado.
+> Es importante que la red virtual y la subred de destino cumplan siempre los [requisitos de red virtual de instancia administrada de Azure SQL Database](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Cualquier incompatibilidad puede impedir crear nuevas instancias o usar las que ya ha creado. Obtenga más información sobre la [creación de nuevas redes](sql-database-managed-instance-create-vnet-subnet.md) y la [configuración de las ya existentes](sql-database-managed-instance-configure-vnet-subnet.md).
 
 ## <a name="select-migration-method-and-migrate"></a>Selección del método de migración y migración
 
@@ -117,8 +117,7 @@ Realice un seguimiento del comportamiento y el rendimiento de las aplicaciones d
 
 Para reducir los riesgos de la migración, cambie el nivel de compatibilidad de la base de datos solo después de supervisar el rendimiento. Use Almacén de consultas como herramienta ideal para obtener información sobre el rendimiento de la carga de trabajo antes y después de cambiar el nivel de compatibilidad de la base de datos, tal y como se explica en [Mantener la estabilidad del rendimiento al actualizar a una versión más reciente de SQL Server](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
 
-Cuando ya esté en una plataforma completamente administrada, aproveche las ventajas que proporciona automáticamente el servicio SQL Database. Por ejemplo, no tiene que crear copias de seguridad en Instancia administrada; el servicio realiza las copias de seguridad automáticamente. Ya no debe preocuparse de programar, seguir y administrar las copias de seguridad. Instancia administrada permite restaurar a un momento dado dentro de este período de retención mediante la [recuperación a un momento dado (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore). Durante la versión preliminar pública, el período de retención se ha fijado en siete días.
-Además, no es necesario preocuparse por la configuración de la alta disponibilidad porque la [alta disponibilidad](sql-database-high-availability.md) está integrada.
+Cuando ya esté en una plataforma completamente administrada, aproveche las ventajas que proporciona automáticamente el servicio SQL Database. Por ejemplo, no tiene que crear copias de seguridad en Instancia administrada; el servicio realiza las copias de seguridad automáticamente. Ya no debe preocuparse de programar, seguir y administrar las copias de seguridad. Instancia administrada permite restaurar a un momento dado dentro de este período de retención mediante la [recuperación a un momento dado (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore). Además, no es necesario preocuparse por la configuración de la alta disponibilidad porque la [alta disponibilidad](sql-database-high-availability.md) está integrada.
 
 Para reforzar la seguridad, considere la posibilidad de utilizar algunas de las características que hay disponibles:
 

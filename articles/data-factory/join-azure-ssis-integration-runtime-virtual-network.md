@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 38839379f584b40cdbefad3e4cbb3bc47881c9a7
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 1afd98026a2aad552258b636ba078ca4f9bd2d58
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094602"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723149"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unión de una instancia de Integration Runtime de SSIS de Azure a una red virtual
 Una su instancia de Integration Runtime para la integración de SSIS en Azure a una red virtual de Azure en los siguientes escenarios: 
@@ -165,7 +165,7 @@ Antes de poder unir una instancia de Integration Runtime para la integración de
 
 1. Compruebe que el proveedor de Azure Batch está registrado en la suscripción de Azure que tiene la red virtual. O bien, registre el proveedor de Azure Batch. Si ya tiene una cuenta de Azure Batch en su suscripción, entonces su suscripción está registrada para Azure Batch. Si crea la instancia de Integration Runtime para la integración de SSIS en Azure en el portal de Data Factory, el proveedor de Azure Batch se registrará automáticamente. 
 
-   a. En Azure Portal, seleccione **Suscripciones** en el menú izquierdo. 
+    a. En Azure Portal, seleccione **Suscripciones** en el menú izquierdo. 
 
    b. Seleccione su suscripción. 
 
@@ -198,25 +198,27 @@ Antes de poder unir una instancia de Integration Runtime para la integración de
 
 1. Una **MicrosoftAzureBatch** al rol **Colaborador de la máquina virtual clásica** de la red virtual. 
 
-    a. Seleccione **Control de acceso (IAM)** en el menú izquierdo y seleccione **Agregar** en la barra de herramientas. 
+     a. Seleccione **Control de acceso (IAM)** en el menú izquierdo y seleccione la pestaña **Asignaciones de roles**. 
 
     ![Botones "Control de acceso" y "Agregar"](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png)
 
-    b. En la página **Agregar permisos**, seleccione **Colaborador de la máquina virtual clásica** en **Rol**. Pegue **ddbf3205-c6bd-46ae-8127-60eb93363864** en el cuadro de texto **Seleccionar** y, después, seleccione **Microsoft Azure Batch** en la lista de resultados de la búsqueda. 
+    b. Seleccione **Agregar asignación de roles**.
 
-    ![Resultados de búsqueda de la página "Agregar permisos"](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
+    c. En la página **Agregar asignación de roles**, seleccione **Colaborador de la máquina virtual clásica** en **Rol**. Pegue **ddbf3205-c6bd-46ae-8127-60eb93363864** en el cuadro de texto **Seleccionar** y, después, seleccione **Microsoft Azure Batch** en la lista de resultados de la búsqueda. 
 
-    c. Seleccione **Guardar** para guardar la configuración y cerrar la página. 
+    ![Resultados de la búsqueda en la página "Agregar asignación de roles"](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
+
+    d. Seleccione **Guardar** para guardar la configuración y cerrar la página. 
 
     ![Guardado de la configuración de acceso](media/join-azure-ssis-integration-runtime-virtual-network/save-access-settings.png)
 
-    d. Confirme que ve **Microsoft Azure Batch** en la lista de colaboradores. 
+    e. Confirme que ve **Microsoft Azure Batch** en la lista de colaboradores. 
 
     ![Confirmación del acceso a Azure Batch](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png)
 
 1. Compruebe que el proveedor de Azure Batch está registrado en la suscripción de Azure que tiene la red virtual. O bien, registre el proveedor de Azure Batch. Si ya tiene una cuenta de Azure Batch en su suscripción, entonces su suscripción está registrada para Azure Batch. Si crea la instancia de Integration Runtime para la integración de SSIS en Azure en el portal de Data Factory, el proveedor de Azure Batch se registrará automáticamente. 
 
-   a. En Azure Portal, seleccione **Suscripciones** en el menú izquierdo. 
+    a. En Azure Portal, seleccione **Suscripciones** en el menú izquierdo. 
 
    b. Seleccione su suscripción. 
 
@@ -259,7 +261,7 @@ Antes de poder unir una instancia de Integration Runtime para la integración de
 
 1. Haga lo siguiente en la página **Configuración avanzada**: 
 
-   a. Active la casilla **Select a VNet for your Azure-SSIS Integration Runtime to join and allow Azure services to configure VNet permissions/settings** (Seleccionar una red virtual a la que unir su instancia de Integration Runtime para la integración de SSIS en Azure y permitir que los servicios de Azure configuren los permisos y la configuración de la red virtual). 
+    a. Active la casilla **Select a VNet for your Azure-SSIS Integration Runtime to join and allow Azure services to configure VNet permissions/settings** (Seleccionar una red virtual a la que unir su instancia de Integration Runtime para la integración de SSIS en Azure y permitir que los servicios de Azure configuren los permisos y la configuración de la red virtual). 
 
    b. En **Type** (Tipo), especifique si la red virtual es una red virtual clásica o una red virtual de Azure Resource Manager. 
 

@@ -1,5 +1,5 @@
 ---
-title: Ejemplos de consultas de Lucene para Azure Search | Microsoft Docs
+title: Ejemplos de consulta de Lucene con Azure Search
 description: Sintaxis de consulta de Lucene para la búsqueda aproximada, la búsqueda de proximidad, la priorización de términos, la búsqueda de expresiones regulares y la búsqueda con caracteres comodín en un servicio de Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
-ms.openlocfilehash: b5a3e2eac218ba2aa6958ffc56bd59f5b513cf48
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.custom: seodec2018
+ms.openlocfilehash: 0ce230bc6a926229ed383c828f83aafd60117471
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42144983"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317166"
 ---
 # <a name="lucene-syntax-query-examples-for-building-advanced-queries-in-azure-search"></a>Ejemplos de consulta con sintaxis de Lucene para la creación de consultas avanzadas en Azure Search
 Al construir consultas para Azure Search, puede reemplazar el [analizador de consultas sencillo](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) predeterminado con el más integral [analizador de consultas de Lucene en Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) para formular definiciones de consultas especializadas y avanzadas. 
@@ -187,7 +188,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 > Las consultas Regex no se [analizan](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis). La única transformación que se realiza en los términos de consulta incompletos es el establecimiento de minúsculas.
 >
 
-## <a name="example-7-wildcard-search"></a>Ejemplo 7: búsqueda con caracteres comodín
+## <a name="example-7-wildcard-search"></a>Ejemplo 7: Búsqueda con caracteres comodín
 Puede usar la sintaxis generalmente reconocida para búsquedas con caracteres comodín únicas (?) o múltiples (\*). Tenga en cuenta que el Analizador de consultas de Lucene admite el uso de estos símbolos con un único término y no una frase.
 
 En esta consulta, busque los trabajos que contengan el prefijo "prog" que incluiría los títulos de empresa con los términos "programación" y "programador". ¿No puede utilizar un símbolo * o ? como primer carácter de la búsqueda.

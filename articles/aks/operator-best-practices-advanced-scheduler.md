@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 3fa2183a5bb3239059c349e8417aeb52553829cf
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 395b0cadf3ba3313a9a1304d9244f1fe72a8209c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52430590"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016885"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para características avanzadas del programador en Azure Kubernetes Service (AKS)
 
@@ -151,14 +151,14 @@ Para obtener más información, consulte [Affinity and anti-affinity][k8s-affini
 
 Un último enfoque para que el programador de Kubernetes aísle lógicamente las cargas de trabajo es usar la afinidad o la falta de afinidad entre pods. La configuración define que los pods *no deben* estar programados en un nodo que tenga un pod coincidente existente, o que *deben* estar programados. De forma predeterminada, el programador de Kubernetes intenta programar varios pods en un conjunto de réplica entre nodos. Puede definir reglas más específicas sobre este comportamiento.
 
-Un buen ejemplo es una aplicación web que también utiliza una caché en Redis. Puede usar reglas de falta de afinidad de pods para solicitar que el programador de Kubernetes distribuya réplicas entre nodos. A continuación, puede usar las reglas de afinidad para asegurarse de que cada componente de aplicación web se programe en el mismo host como una memoria caché correspondiente. La distribución de pods en todos los nodos es similar al ejemplo siguiente:
+Un buen ejemplo es una aplicación web que también usa una instancia de Azure Cache for Redis. Puede usar reglas de falta de afinidad de pods para solicitar que el programador de Kubernetes distribuya réplicas entre nodos. A continuación, puede usar las reglas de afinidad para asegurarse de que cada componente de aplicación web se programe en el mismo host como una memoria caché correspondiente. La distribución de pods en todos los nodos es similar al ejemplo siguiente:
 
 | **Nodo 1** | **Nodo 2** | **Nodo 3** |
 |------------|------------|------------|
 | aplicación web-1   | aplicación web-2   | aplicación web-3   |
 | caché-1    | caché-2    | caché-3    |
 
-Este ejemplo es una implementación más compleja que el uso de selectores de nodo o afinidad de nodo. La implementación le permite controlar cómo programa Kubernetes los pods en los nodos y puede aislar los recursos de forma lógica. Para obtener un ejemplo completo de esta aplicación web con el ejemplo de la caché de Redis, consulte [Colocate pods on the same node][k8s-pod-affinity] (Colocación de pods en el mismo nodo).
+Este ejemplo es una implementación más compleja que el uso de selectores de nodo o afinidad de nodo. La implementación le permite controlar cómo programa Kubernetes los pods en los nodos y puede aislar los recursos de forma lógica. Para obtener un ejemplo completo de esta aplicación web con el ejemplo de la instancia de Azure Cache for Redis, consulte [Colocate pods on the same node][k8s-pod-affinity] (Colocación de pods en el mismo nodo).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

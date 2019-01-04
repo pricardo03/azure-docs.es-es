@@ -1,5 +1,5 @@
 ---
-title: Operacionalización de modelos de aprendizaje automático creados con Spark | Microsoft Docs
+title: 'Puesta en funcionamiento de modelos de Machine Learning compilados con Spark: proceso de ciencia de datos en equipos'
 description: Cómo cargar y puntuar modelos de aprendizaje almacenados en Azure Blob Storage (WASB) con Python.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 6ffe1dd960b6fd09539d093d8a632efc99452c00
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 543ae7cecf9edcb5997a0bae66e0722d258a4523
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442512"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135312"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Operacionalización de modelos de aprendizaje automático creados con Spark
 
@@ -120,7 +120,7 @@ Para obtener más información sobre los kernels de cuadernos de Jupyter Noteboo
 ## <a name="ingest-data-and-create-a-cleaned-data-frame"></a>Inserción de datos y creación de una trama de datos limpia
 Esta sección contiene el código de una serie de tareas necesarias para incorporar los datos que se van a puntuar. Lee una muestra del 0,1 % combinado del archivo de tarifas y carreras de taxi (almacenado como un archivo .tsv), da formato a los datos y, después, crea un marco de datos limpio.
 
-Los archivos de tarifas y carreras de taxi se combinaron según el procedimiento descrito en el tema [Proceso de ciencia de datos en equipos en acción: uso de clústeres de Hadoop de HDInsight](hive-walkthrough.md) .
+Los archivos de tarifas y carreras de taxi se combinaron según el procedimiento indicado en el: tema [Proceso de ciencia de datos en equipos en acción: uso de clústeres de Hadoop de HDInsight](hive-walkthrough.md).
 
     # INGEST DATA AND CREATE A CLEANED DATA FRAME
 
@@ -182,7 +182,7 @@ Los archivos de tarifas y carreras de taxi se combinaron según el procedimiento
 
 **SALIDA:**
 
-Time taken to execute above cell: 46.37 seconds
+Tiempo empleado en ejecutar la celda anterior: 46,37 segundos
 
 ## <a name="prepare-data-for-scoring-in-spark"></a>Preparación de los datos para la puntuación en Spark
 En esta sección se explica cómo indexar, codificar y ajustar la escala de características categóricas para prepararlas para su uso en algoritmos de aprendizaje supervisado de MLlib para clasificación y regresión.
@@ -254,7 +254,7 @@ En esta sección se muestra cómo indexar datos de categorías mediante `StringI
 
 **SALIDA:**
 
-Time taken to execute above cell: 5.37 seconds
+Tiempo empleado en ejecutar la celda anterior: 5,37 segundos
 
 ### <a name="create-rdd-objects-with-feature-arrays-for-input-into-models"></a>Creación de objetos RDD con matrices de características para su entrada en los modelos
 Esta sección contiene código que muestra cómo indexar datos de texto categóricos como un objeto RDD y cómo codificarlos como “uno de n” para poder usarlos para entrenar y probar la regresión logística de MLlib y otros modelos basados en árboles. Los datos indexados se almacenan en objetos de [conjunto de datos distribuido resistente (RDD)](http://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) . Esta es la abstracción básica en Spark. Un objeto RDD representa una colección inmutable con particiones de los elementos con los que se puede trabajar en paralelo con Spark.
@@ -328,7 +328,7 @@ También contiene código que muestra cómo escalar datos con el elemento `Stand
 
 **SALIDA:**
 
-Time taken to execute above cell: 11.72 seconds
+Tiempo empleado en ejecutar la celda anterior: 11,72 segundos
 
 ## <a name="score-with-the-logistic-regression-model-and-save-output-to-blob"></a>Puntuación con el modelo de regresión logística y guardado de la salida en un blob
 El código de esta sección muestra cómo cargar un modelo de regresión logística guardado en Azure Blob Storage, y cómo usarlo para predecir si se dio o no una propina en una carrera de taxi, puntuarlo con métricas de clasificación estándar y, después, guardar y trazar los resultados en un almacenamiento de blobs. Los resultados puntuados se almacenan en objetos RDD. 
@@ -359,7 +359,7 @@ El código de esta sección muestra cómo cargar un modelo de regresión logíst
 
 **SALIDA:**
 
-Time taken to execute above cell: 19.22 seconds
+Tiempo empleado en ejecutar la celda anterior: 19,22 segundos
 
 ## <a name="score-a-linear-regression-model"></a>Puntuación de un modelo de regresión lineal
 Usamos [LinearRegressionWithSGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) para entrenar un modelo de regresión lineal que usa descenso de gradiente estocástico (SGD) para predecir los importes de las propinas de forma óptima. 
@@ -392,7 +392,7 @@ El código de esta sección muestra cómo cargar un modelo de regresión lineal 
 
 **SALIDA:**
 
-Time taken to execute above cell: 16.63 seconds
+Tiempo empleado en ejecutar la celda anterior: 16,63 segundos
 
 ## <a name="score-classification-and-regression-random-forest-models"></a>Puntuación de los modelos de bosque aleatorio de clasificación y regresión
 El código de esta sección muestra cómo cargar los modelos de bosque aleatorio de clasificación y regresión guardados en Almacenamiento de blobs de Azure, puntuar su rendimiento con medidas estándar de clasificación y regresión y, después, guardar los resultados en Almacenamiento de blobs.
@@ -438,7 +438,7 @@ El código de esta sección muestra cómo cargar los modelos de bosque aleatorio
 
 **SALIDA:**
 
-Time taken to execute above cell: 31.07 seconds
+Tiempo empleado en ejecutar la celda anterior: 31,07 segundos
 
 ## <a name="score-classification-and-regression-gradient-boosting-tree-models"></a>Puntuación de modelos de árboles impulsados por gradiente de clasificación y regresión
 El código de esta sección muestra cómo cargar los modelos de árboles impulsados por gradiente de clasificación y regresión guardados en Almacenamiento de blobs de Azure, puntuar su rendimiento con medidas estándar de clasificación y regresión y, después, guardar los resultados en Almacenamiento de blobs. 
@@ -488,7 +488,7 @@ El código de esta sección muestra cómo cargar los modelos de árboles impulsa
 
 **SALIDA:**
 
-Time taken to execute above cell: 14.6 seconds
+Tiempo empleado en ejecutar la celda anterior: 14,6 segundos
 
 ## <a name="clean-up-objects-from-memory-and-print-scored-file-locations"></a>Limpieza de objetos de la memoria e impresión de las ubicaciones de los archivos puntuados
     # UNPERSIST OBJECTS CACHED IN MEMORY
@@ -524,7 +524,7 @@ BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-031
 BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.860740.txt
 
 ## <a name="consume-spark-models-through-a-web-interface"></a>Uso de modelos de Spark mediante una interfaz web
-Spark proporciona un mecanismo para el envío remoto de trabajos por lotes o consultas interactivas mediante una interfaz REST con un componente llamado Livy. Livy está habilitado de forma predeterminada en el clúster de Spark en HDInsight. Para más información, vea [Envío de trabajos de Spark de forma remota mediante Livy](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
+Spark proporciona un mecanismo para el envío remoto de trabajos por lotes o consultas interactivas mediante una interfaz REST con un componente llamado Livy. Livy está habilitado de forma predeterminada en el clúster de Spark en HDInsight. Para más información sobre Livy, consulte: [Envío remoto de trabajos de Spark mediante Livy](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
 
 Puede usar Livy para enviar de forma remota un trabajo que puntúa por lotes un archivo almacenado en un blob de Azure y, después, escribe los resultados en otro blob. Para ello, cargue el script de Python desde   
 [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) en el blob del clúster de Spark. Puede usar una herramienta como el **Explorador de Microsoft Azure Storage** o **AzCopy** para copiar el script en el blob del clúster. En este caso, se carga el script en ***wasb:///example/python/ConsumeGBNYCReg.py***.   
@@ -587,5 +587,5 @@ Si prefiere usar un cliente sin código, use [Azure Logic Apps](https://azure.mi
 ![Diseñador de Logic Apps](./media/spark-model-consumption/spark-logica-app-client.png)
 
 ## <a name="whats-next"></a>Pasos siguientes
-**Validación cruzada y barrido de hiperparámetros**: Consulte [Exploración y modelado avanzados de datos con Spark](spark-advanced-data-exploration-modeling.md) sobre cómo pueden prepararse los modelos con el barrido de hiperparámetros y la validación cruzada.
+**Validación cruzada y barrido de hiperparámetros**: Consulte [Exploración y modelado avanzados de datos con Spark](spark-advanced-data-exploration-modeling.md) para saber cómo se pueden entrenar modelos con el barrido de hiperparámetros y la validación cruzada.
 

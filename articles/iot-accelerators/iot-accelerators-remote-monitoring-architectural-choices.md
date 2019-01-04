@@ -6,14 +6,14 @@ manager: camerons
 ms.author: timlav
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/12/2018
+ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 94641796fa77e03efc7158bc3aaf4bde9385c899
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 20af014e5a59cb526d5b96e543b10d5b2b6d6937
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824275"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679603"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>Opciones de arquitectura de supervisión remota
 
@@ -25,7 +25,7 @@ El acelerador de soluciones de Supervisión remota de Azure IoT es un acelerador
 
 La solución de Supervisión remota sigue la [arquitectura de referencia recomendada de Azure IoT](https://aka.ms/iotrefarchitecture).
 
-En este artículo, se describen las opciones de arquitectura y técnicas realizadas en cada uno de los subsistemas de la solución de Supervisión remota y se tratan las alternativas consideradas. Sin embargo, las opciones técnicas de Microsoft en la solución de Supervisión remota no son la única forma de implementar una solución de IoT de supervisión remota. Se debe considerar la implementación técnica como una línea de base para la compilación de una aplicación correcta y debe modificarla para:
+En este artículo, se describen las opciones de arquitectura y técnicas clave realizadas en cada uno de los subsistemas de supervisión remota. Sin embargo, las opciones técnicas de Microsoft en la solución de Supervisión remota no son la única forma de implementar una solución de IoT de supervisión remota. Se debe considerar la implementación técnica como una línea de base para la compilación de una aplicación correcta y debe modificarla para:
 
 - Adaptar las habilidades y experiencia disponibles en su organización.
 - Satisfacer las necesidades de aplicación vertical.
@@ -52,7 +52,8 @@ Azure IoT Hub se usa como la puerta de enlace en la nube de la solución de supe
 Para la conectividad de dispositivos IoT, puede usar:
 
 - [SDK de dispositivos de IoT Hub](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-device-sdks) para implementar una aplicación cliente nativa para el dispositivo. Los SDK ofrecen contenedores en torno a la API REST de IoT Hub y controlan escenarios como los reintentos.
-- La integración con Azure IoT Edge en el Acelerador de soluciones para implementar y administrar módulos personalizados que se ejecutan en contenedores en los dispositivos.
+- La integración con Azure IoT Edge para implementar y administrar módulos personalizados que se ejecutan en contenedores de los dispositivos.
+- La integración con la administración de dispositivos automática en IoT Hub para administrar los dispositivos conectados de forma masiva.
 
 ### <a name="stream-processing"></a>Procesamiento de flujos
 
@@ -62,7 +63,7 @@ Para el procesamiento de flujos, la solución de supervisión remota usa Azure S
 
 Para el almacenamiento, el acelerador de soluciones de Supervisión remota usa tanto Azure Time Series Insights como Azure Cosmos DB. Azure Time Series Insights almacena los mensajes entrantes a través de IoT Hub desde los dispositivos conectados. El acelerador de soluciones usa Azure Cosmos DB para todo el almacenamiento restante, como el almacenamiento en frío, las definiciones de reglas, las alarmas y las opciones de configuración.
 
-Azure Cosmos DB es la solución de almacenamiento en caliente de uso general recomendada para aplicaciones IoT, aunque las soluciones como Azure Time Series Insights y Azure Data Lake son apropiadas para muchos casos de uso. Con Azure Time Series Insights, puede obtener conclusiones más detalladas de los datos de los sensores de serie temporal mediante una detección de tendencias y anomalías. Esta característica le permite realizar análisis de causa principal y evitar costosos tiempos de inactividad.
+Azure Cosmos DB es la solución de almacenamiento intermedio de uso general recomendada para aplicaciones IoT. Sin embargo, las soluciones como Azure Time Series Insights y Azure Data Lake son adecuadas para muchos casos de uso. Con Azure Time Series Insights, puede obtener conclusiones más detalladas de los datos de los sensores de serie temporal mediante una detección de tendencias y anomalías. Esta característica le permite realizar análisis de causa principal y evitar costosos tiempos de inactividad.
 
 > [!NOTE]
 > Time Series Insights actualmente no está disponible en la nube de Azure China. Las nuevas implementaciones del acelerador de soluciones de Supervisión remota en la nube de Azure China usan Cosmos DB para todo el almacenamiento.

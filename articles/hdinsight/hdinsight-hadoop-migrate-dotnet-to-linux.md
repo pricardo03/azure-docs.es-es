@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: dc7cfb4df768fb7554bc7b5c772a6a778a8a793a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3681f87780f1ef2a6b42e33bcd6fc2d761994d5c
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008120"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384212"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migración de soluciones .NET para HDInsight basado en Windows a HDInsight basado en Linux
 
@@ -26,7 +26,7 @@ La versión 4.2.1 de Mono está incluida en la versión 3.6 de HDInsight. Para o
 
 Para más información sobre la compatibilidad entre Mono y .NET, vea el documento sobre [compatibilidad con Mono (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > El marco de trabajo de SCP.NET es compatible con Mono. Para obtener más información sobre cómo usar SCP.NET con Mono, consulte [Uso de Visual Studio para el desarrollo de topologías de C# para Apache Storm en HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md).
 
 ## <a name="automated-portability-analysis"></a>Análisis de portabilidad automatizado
@@ -47,7 +47,7 @@ El [Analizador de portabilidad de .NET](https://marketplace.visualstudio.com/ite
 
     ![Cuadro de diálogo de resultados del analizador de portabilidad](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > El analizador no puede detectar todos los problemas de su solución. Por ejemplo, la ruta del archivo `c:\temp\file.txt` se considera correcta si Mono se ejecuta en Windows. Sin embargo, la misma ruta de acceso no es válida en una plataforma Linux.
 
 ## <a name="manual-portability-analysis"></a>Análisis de portabilidad manual
@@ -64,12 +64,12 @@ Una vez que haya modificado la solución mediante las recomendaciones del Analiz
 
 Para obtener más información sobre el acceso a los registros, consulte los documentos siguientes:
 
-* [Acceso a registros de aplicación de YARN en HDInsight basado en Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Acceso a registros de aplicación de YARN de Apache Hadoop en HDInsight basado en Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Uso de MapReduce en C# en HDInsight](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [Uso de funciones definidas por el usuario de C# con Hive y Pig](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Uso de funciones definidas por el usuario de C# con Apache Hive y Apache Pig](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [Desarrollo de topologías de C# para Storm en HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md)
+* [Desarrollo de topologías de C# para Apache Storm en HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: a9248e2310e509bbc4f527608246b47543a03fc4
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: aee8492c73ace608abaeca9d833494e041d2b9dd
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502184"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969011"
 ---
 # <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Comprobación del estado de un dominio administrado con Azure AD Domain Services
 
@@ -32,7 +32,7 @@ Mediante la página de estado de Azure Portal, puede mantenerse actualizado sobr
 2. Haga clic en el dominio cuyo estado quiera ver.
 3. En el panel de navegación izquierdo, haga clic en **Estado**.
 
-En la siguiente imagen se muestra un ejemplo de la página de estado: ![Ejemplo de la página de estado](.\media\active-directory-domain-services-alerts\health-page.png)
+En la siguiente imagen se muestra un ejemplo de la página de estado: ![Ejemplo de la página de estado](./media/active-directory-domain-services-alerts/health-page.png)
 
 >[!NOTE]
 > El estado del dominio administrado se evalúa cada hora. Tras realizar cambios en el dominio administrado, espere hasta el siguiente ciclo de evaluación para ver el estado actualizado del dominio administrado. La marca de tiempo "Última evaluación" de la esquina superior derecha muestra cuándo se evaluó por última vez el estado del dominio administrado.
@@ -43,10 +43,10 @@ El estado de la parte superior derecha de la página de mantenimiento indica el 
 
 | Status | Icono | Explicación |
 | --- | :----: | --- |
-| En ejecución | <img src= ".\media\active-directory-domain-services-alerts\running-icon.png" width = "15"> | El dominio administrado se ejecuta sin problemas y no tiene ninguna alerta crítica ni de advertencia. Este dominio puede tener alertas informativas. |
-| Requiere atención (advertencia) | <img src= ".\media\active-directory-domain-services-alerts\warning-icon.png" width = "15"> | No hay ninguna alerta crítica en el dominio administrado, pero hay una o varias alertas de advertencia que se deben abordar. |
-| Requiere atención (crítico) | <img src= ".\media\active-directory-domain-services-alerts\critical-icon.png" width = "15"> | Hay una o varias alertas críticas en el dominio administrado. También puede tener alertas de advertencia o informativas. |
-| Implementando | <img src= ".\media\active-directory-domain-services-alerts\deploying-icon.png" width = "15"> | El dominio está en proceso de implementación. |
+| En ejecución | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15"> | El dominio administrado se ejecuta sin problemas y no tiene ninguna alerta crítica ni de advertencia. Este dominio puede tener alertas informativas. |
+| Requiere atención (advertencia) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15"> | No hay ninguna alerta crítica en el dominio administrado, pero hay una o varias alertas de advertencia que se deben abordar. |
+| Requiere atención (crítico) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15"> | Hay una o varias alertas críticas en el dominio administrado. También puede tener alertas de advertencia o informativas. |
+| Implementando | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15"> | El dominio está en proceso de implementación. |
 
 ## <a name="monitors"></a>Monitores
 Los monitores son aspectos del dominio administrado que Azure AD Domain Services supervisa de forma regular. La mejor manera de mantener los monitores en un estado correcto es resolver todas las alertas activas de su dominio administrado.

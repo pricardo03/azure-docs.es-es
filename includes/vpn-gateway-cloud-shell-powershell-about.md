@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/25/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b878d54f0f52768459dbfc810e47d294b9c8d996
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 6a0ea318f2e9b8f392ac7c0a1f1091c062c59d41
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50097773"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52852371"
 ---
 En este artículo se usan cmdlets de PowerShell. Para ejecutar los cmdlets, puede usar Azure Cloud Shell, un shell interactivo gratuito. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Simplemente haga clic en **Copiar** para copiar el código, péguelo en la instancia de Cloud Shell y, a continuación, presione Entrar para ejecutarlo. Hay unas cuantas maneras de iniciar Cloud Shell:
 
@@ -24,4 +24,6 @@ En este artículo se usan cmdlets de PowerShell. Para ejecutar los cmdlets, pued
 | Haga clic en el botón **Cloud Shell** en el menú de la parte superior derecha de Azure Portal. | [![Cloud Shell en el portal](./media/vpn-gateway-cloud-shell-powershell/cloud-shell-menu.png)](https://portal.azure.com) |
 |  |  |
 
-Si no desea usar Azure Cloud Shell, puede instalar PowerShell localmente en su lugar. Si elige instalar y usar PowerShell de forma local, asegúrese de instalar la versión más reciente de los cmdlets de PowerShell de Azure Resource Manager. Los cmdlets de PowerShell se actualizan con frecuencia y, por lo general, deberá actualizarlos para obtener la funcionalidad más reciente de la característica. Si no actualiza los cmdlets de PowerShell, se pueden producir errores en los valores especificados. Para buscar la versión de PowerShell que se ejecuta localmente, use el cmdlet "Get-Module -ListAvailable AzureRM". Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
+Si no desea usar Azure Cloud Shell, puede instalar PowerShell localmente en su lugar. Si elige instalar y usar PowerShell de forma local, asegúrese de instalar la versión más reciente de los cmdlets de PowerShell de Azure Resource Manager para obtener la última funcionalidad de la característica.
+
+Para buscar la versión de PowerShell que se ejecuta localmente, use el cmdlet "Get-Module -ListAvailable AzureRM". Para realizar la actualización, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).

@@ -4,14 +4,16 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: f4acec3db7d74b969c55e725d9ec1c5f063b552c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: cc72fb39bf62915be10493a780538121f26ca835
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628210"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002278"
 ---
-# <a name="securing-docker-containers-in-azure-container-service"></a>Protección de contenedores de Docker en Azure Container Service
+# <a name="deprecated-securing-docker-containers-in-azure-container-service"></a>(EN DESUSO) Protección de contenedores de Docker en Azure Container Service
+
+[!INCLUDE [ACS deprecation](container-service-deprecation.md)]
 
 Este artículo presenta consideraciones y recomendaciones para proteger los contenedores de Docker implementados en Azure Container Service. Muchas de estas consideraciones se aplican generalmente a los contenedores de Docker implementados en Azure o en otros entornos. 
 
@@ -56,11 +58,11 @@ Cada orquestador disponible en Azure Container Service tiene sus propias conside
 
 Para información adicional sobre la seguridad específica del orquestador, consulte estos los siguientes recursos:
 
-* **Kubernetes**: [prácticas recomendadas de seguridad para la implementación de Kubernetes](https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/)
+* **Kubernetes**: [Security Best Practices for Kubernetes Deployment](https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/) (Prácticas recomendadas de seguridad para la implementación de Kubernetes)
 
-* **DC/OS**: [cómo asegurar su clúster](https://dcos.io/docs/1.8/administration/securing-your-cluster/)
+* **DC/OS**: [Securing Your Cluster](https://dcos.io/docs/1.8/administration/securing-your-cluster/) (Protección de su clúster)
 
-* **Docker Swarm**: [seguridad de Docker](https://www.docker.com/docker-security)
+* **Docker Swarm**: [Docker Security](https://www.docker.com/docker-security) (Seguridad de docker)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

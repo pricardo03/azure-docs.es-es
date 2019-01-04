@@ -5,9 +5,8 @@ keywords: experimento,regresión lineal,algoritmos de aprendizaje automático,tu
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=haining, author=hning86)
+ms.custom: previous-ms.author=haining, previous-author=hning86
 ms.author: amlstudiodocs
-manager: mwinkle
 editor: cgronlun
 ms.assetid: a9001cc2-3aa0-47e1-b175-1f76408ba1d1
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.openlocfilehash: 3191ff845f72c87b85fdd414716ed9a00b022d06
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 6539ec36c23feccfa52c8214784590106fa5a01e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312034"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257529"
 ---
 # <a name="powershell-module-for-azure-machine-learning-studio"></a>Módulo de PowerShell para Azure Machine Learning Studio
 El módulo de PowerShell para Azure Machine Learning es una herramienta eficaz que permite usar Windows PowerShell para administrar áreas de trabajo, experimentos, conjuntos de datos, servicios web clásicos y mucho más.
@@ -54,7 +53,7 @@ A continuación, se ofrece un ejemplo rápido de cómo usar PowerShell para ejec
         #Run the Experiment
         Start-AmlExperiment -ExperimentId $exp.ExperimentId 
 
-Para ver un caso de uso más detallado, consulte este artículo sobre cómo usar el módulo de PowerShell para automatizar una tarea solicitada habitualmente: [Creación de varios modelos de Machine Learning y puntos de conexión de servicio web a partir de un experimento mediante PowerShell](create-models-and-endpoints-with-powershell.md).
+Para un caso de uso más detallado, consulte este artículo sobre el uso del módulo de PowerShell para automatizar una tarea que se solicita con frecuencia: [Creación de varios modelos de Machine Learning y puntos de conexión de servicio web a partir de un experimento mediante PowerShell](create-models-and-endpoints-with-powershell.md).
 
 ## <a name="how-do-i-get-started"></a>¿Cómo empiezo?
 Para empezar a usar PowerShell para Machine Learning, descargue el [paquete de versión](https://github.com/hning86/azuremlps/releases) en GitHub y siga las [instrucciones de instalación](https://github.com/hning86/azuremlps/blob/master/README.md). Estas instrucciones explican cómo desbloquear el archivo DLL descargado y descomprimido y, después, importarlo en el entorno de PowerShell. La mayoría de los cmdlets requieren que se proporcione el identificador de área de trabajo, el token de autorización del área de trabajo y la región de Azure donde se encuentra el área de trabajo. La forma más sencilla de proporcionar estos valores es mediante un archivo config.json predeterminado. Las instrucciones también explican cómo configurar este archivo. 

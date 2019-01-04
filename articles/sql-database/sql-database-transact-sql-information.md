@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: fc8336a46f61a7c9ab7c174b5f24d907369f481c
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.date: 12/03/2018
+ms.openlocfilehash: 48f8bb2e8251191fac456549cfca7a37e75d7f8c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567577"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997681"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolución de diferencias de Transact-SQL durante la migración a SQL Database
 
@@ -45,25 +45,37 @@ Las instrucciones DDL (lenguaje de definición de datos) principales están disp
 
 Además de las instrucciones de Transact-SQL relacionadas con las funciones no admitidas descritas en  [Comparación de características de Azure SQL Database](sql-database-features.md), no se admiten las instrucciones y grupos de instrucciones siguientes. Por tanto, si la base de datos que se va a migrar usa alguna de las siguientes características, vuelva a diseñar el código de T-SQL para eliminar estas características e instrucciones de T-SQL.
 
-- Intercalación de objetos del sistema. - Conexión relacionada: instrucciones del punto de conexión. SQL Database no admite la autenticación de Windows, pero admite la autenticación de Azure Active Directory similar. Algunos tipos de autenticación requieren la versión más reciente de SSMS. Para obtener más información, vea  [Conexión a SQL Database o a SQL Data Warehouse mediante autenticación de Azure Active Directory](sql-database-aad-authentication.md).
-- Consultas entre bases de datos con tres o cuatro nombres de partes. (Las consultas entre bases de datos de solo lectura se admiten mediante el uso de  [consultas de base de datos elástica](sql-database-elastic-query-overview.md).) - Encadenamiento de propiedad entre bases de datos, configuración  `TRUSTWORTHY` . -  `EXECUTE AS LOGIN`  Use "EXECUTE AS USER" en su lugar.
-- Se admite el cifrado, excepto para la administración extensible de claves. - Eventos: eventos, notificaciones de eventos, notificaciones de consultas. - Ubicación de archivos: sintaxis relacionada con la ubicación de archivos de base de datos, el tamaño y los archivos de base de datos que Microsoft Azure administra automáticamente.
-- Alta disponibilidad: sintaxis relacionada con la alta disponibilidad que se administra mediante la cuenta de Microsoft Azure. Esto incluye la sintaxis de las copias de seguridad, restauración, Siempre activado, creación de reflejos de las bases de datos, trasvase de registros, modos de recuperación.
-- Registro del LOG: sintaxis que se basa en el registro del LOG, que no está disponible en SQL Database: replicación de inserción y captura de datos modificados. SQL Database puede estar suscrito a un artículo de replicación de inserción.
-- Funciones: `fn_get_sql`, `fn_virtualfilestats`, `fn_virtualservernodes`. - Hardware: sintaxis relacionada con la configuración del servidor relativa al hardware: memoria, subprocesos de trabajo, afinidad de CPU, marcas de seguimiento. Use niveles de servicio y tamaños de proceso en su lugar.
-- `KILL STATS JOB`
-- `OPENQUERY`,  `OPENROWSET`,  `OPENDATASOURCE` y nombres de cuatro partes. - .NET Framework: integración de CLR con SQL Server. - Búsqueda semántica. - Credenciales de servidor: use [credenciales con ámbito de base de datos](https://msdn.microsoft.com/library/mt270260.aspx) en su lugar.
-- Elementos de nivel de servidor: roles de servidor,  `sys.login_token`. `GRANT`, `REVOKE` y `DENY` de los permisos de nivel de servidor no están disponibles, aunque algunos se sustituyen por permisos en el nivel de base de datos. Algunos DMV útiles de nivel de servidor cuentan con DMV equivalentes de nivel de base de datos.Opciones de 
-- `SET REMOTE_PROC_TRANSACTIONS`
-- `SHUTDOWN`
-- `sp_addmessage`
-- `sp_configure`  y  `RECONFIGURE`. Algunas opciones están disponibles mediante  [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx).
-- `sp_helpuser`
-- `sp_migrate_user_to_contained`
-- Agente SQL Server: sintaxis que se basa en el Agente SQL Server o la base de datos MSDB: alertas, operadores, servidores de administración central. Use el scripting como Azure PowerShell en su lugar.
-- Auditoría de SQL Server: usar auditoría de SQL Database en su lugar.
-- Seguimiento de SQL Server. - Marcas de seguimiento: algunos elementos de la marca de seguimiento se trasladaron a los modos de compatibilidad.
-- Depuración de Transact-SQL. - Desencadenadores: desencadenadores LOGON o con ámbito de servidor. - instrucción  `USE` : para cambiar el contexto de base de datos a una base de datos distinta, debe crear una nueva conexión a la nueva base de datos.
+- Intercalación de objetos del sistema
+- Conexión relacionada: instrucciones del punto de conexión. SQL Database no admite la autenticación de Windows, pero admite la autenticación de Azure Active Directory similar. Algunos tipos de autenticación requieren la versión más reciente de SSMS. Para obtener más información, vea [Conexión a SQL Database o a SQL Data Warehouse mediante autenticación de Azure Active Directory](sql-database-aad-authentication.md).
+- Consultas entre bases de datos con tres o cuatro nombres de partes. (Las consultas entre bases de datos de solo lectura se admiten mediante el uso de [consultas de base de datos elástica](sql-database-elastic-query-overview.md)).
+- Encadenamiento de propiedad entre bases de datos, configuración `TRUSTWORTHY`
+- `EXECUTE AS LOGIN` Use "EXECUTE AS USER" en su lugar.
+- Se admite el cifrado excepto para la administración extensible de claves.
+- Eventos: eventos, notificaciones de eventos, notificaciones de consulta
+- Ubicación del archivo: Sintaxis relacionada con la ubicación de los archivos de las bases de datos, el tamaño y los archivos de las bases de datos que Microsoft Azure administra automáticamente.
+- Alta disponibilidad: Sintaxis relacionada con la alta disponibilidad que se administra mediante su cuenta de Microsoft Azure. Esto incluye la sintaxis de las copias de seguridad, restauración, Siempre activado, creación de reflejos de las bases de datos, trasvase de registros, modos de recuperación.
+- Registro del LOG: sintaxis que se basa en el registro del LOG que no está disponible en SQL Database: replicación de inserción y captura de datos modificados. SQL Database puede estar suscrito a un artículo de replicación de inserción.
+- Funciones: `fn_get_sql`, `fn_virtualfilestats`, `fn_virtualservernodes`
+- Hardware: sintaxis relacionada con la configuración del servidor relativa al hardware: memoria, subprocesos de trabajo, afinidad de CPU, marcas de seguimiento. Use niveles de servicio y tamaños de proceso en su lugar.
+- `KILL STATS JOB`
+- `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE` y nombres de cuatro partes
+- .NET Framework: integración de CLR con SQL Server
+- Búsqueda semántica
+- Credenciales de servidor: en su lugar, use [credenciales con ámbito de base de datos](https://msdn.microsoft.com/library/mt270260.aspx).
+- Elementos de nivel de servidor: roles de servidor, `sys.login_token`. `GRANT`, `REVOKE` y `DENY` de los permisos de nivel de servidor no están disponibles, aunque algunos se sustituyen por permisos en el nivel de base de datos. Algunos DMV útiles de nivel de servidor cuentan con DMV equivalentes de nivel de base de datos.
+- `SET REMOTE_PROC_TRANSACTIONS`
+- `SHUTDOWN`
+- `sp_addmessage`
+- Opciones de `sp_configure` y `RECONFIGURE`. Algunas opciones están disponibles mediante [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx).
+- `sp_helpuser`
+- `sp_migrate_user_to_contained`
+- Agente SQL Server: Sintaxis que se basa en el Agente SQL Server o la base de datos MSDB: alertas, operadores, servidores de administración central. Use el scripting como Azure PowerShell en su lugar.
+- Auditoría de SQL Server: Use la auditoría de SQL Database en su lugar.
+- Seguimiento de SQL Server
+- Marcas de seguimiento: Algunos elementos de la marca de seguimiento se han trasladado a los modos de compatibilidad.
+- Depuración de Transact-SQL
+- Desencadenadores: desencadenadores LOGON o con ámbito de servidor
+- Instrucción `USE`: para cambiar el contexto de base de datos a una base de datos distinta, debe crear una nueva conexión a la base de datos nueva.
 
 ## <a name="full-transact-sql-reference"></a>Referencia completa de Transact-SQL
 

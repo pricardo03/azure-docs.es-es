@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 71e39c6430231ae8d175f9c09a9059c3da4c9a1e
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 0a2b56164662a13d8254d8956712077e5f8a83a9
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854261"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961527"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Escribir consultas para el Explorador de datos de Azure
 
@@ -26,9 +26,9 @@ Puede ejecutar las consultas de este artículo de dos maneras:
 - En el *clúster de ayuda* del Explorador de datos de Azure que hemos configurado para facilitar el aprendizaje.
     [Inicie sesión en el clúster](https://dataexplorer.azure.com/clusters/help/databases/samples) con una cuenta de correo electrónico organizativa que sea miembro de Azure Active Directory.
 
-- En su propio clúster que incluye los datos de ejemplo de StormEvents. Para más información, consulte [Quickstart: Create an Azure Data Explorer cluster and database](create-cluster-database-portal.md)(Inicio rápido: crear un clúster y una base de datos del Explorador de datos de Azure) y [Ingest sample data into Azure Data Explorer](ingest-sample-data.md)Introducir datos de ejemplo en el Explorador de datos de Azure.
+- En su propio clúster que incluye los datos de ejemplo de StormEvents. Para más información, consulte [Guía de inicio rápido: Creación de un clúster y de la base de datos de Azure Data Explorer](create-cluster-database-portal.md) e [Ingesta de datos de ejemplo en Azure Data Explorer](ingest-sample-data.md).
 
-[!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
+    [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
 ## <a name="overview-of-the-query-language"></a>Información general sobre el lenguaje de consulta
 
@@ -84,7 +84,7 @@ StormEvents | count
 
 ### <a name="take"></a>take
 
-[**take**](https://docs.microsoft.com/azure/kusto/query/takeoperator): vuelve al número especificado de filas de datos.
+[**take**](https://docs.microsoft.com/azure/kusto/query/takeoperator): devuelve al número especificado de filas de datos.
 
 La siguiente consulta devuelve cinco filas de la tabla StormEvents. La palabra clave *limit* es un alias para *take.*
 
@@ -113,7 +113,7 @@ StormEvents
 
 ### <a name="where"></a>donde
 
-[**where**](https://docs.microsoft.com/azure/kusto/query/whereoperator): filtra una tabla para el subconjunto de filas que cumplen un predicado.
+[**where**](https://docs.microsoft.com/azure/kusto/query/whereoperator): Filtra una tabla para el subconjunto de filas que cumplen un predicado.
 
 La siguiente consulta filtra los datos por `EventType` y `State`.
 
@@ -128,7 +128,7 @@ StormEvents
 
 ### <a name="sort"></a>sort
 
-[**sort**](https://docs.microsoft.com/azure/kusto/query/sortoperator): ordena las filas de la tabla de entrada por una o más columnas.
+[**sort**](https://docs.microsoft.com/azure/kusto/query/sortoperator): ordena las filas de la tabla de entrada en una o más columnas.
 
 La siguiente consulta ordena los datos en orden descendente por `DamageProperty`.
 
@@ -271,7 +271,7 @@ Esta sección trata algunos de los operadores escalares más importantes.
 
 ### <a name="bin"></a>bin()
 
-[**bin()**](https://docs.microsoft.com/azure/kusto/query/binfunction): redondea los valores a la baja hasta un entero múltiplo del tamaño de un intervalo determinado.
+[**bin()**](https://docs.microsoft.com/azure/kusto/query/binfunction): redondea los valores hacia abajo hasta un entero múltiplo del tamaño de un intervalo determinado.
 
 La siguiente consulta calcula el número con un tamaño de depósito de un día.
 
@@ -304,7 +304,7 @@ StormEvents
 
 ### <a name="extract"></a>extract()
 
-[**extract()**](https://docs.microsoft.com/azure/kusto/query/extractfunction): obtiene una coincidencia para una expresión regular a partir de una cadena de texto.
+[**extract()**](https://docs.microsoft.com/azure/kusto/query/extractfunction): obtiene una coincidencia para una expresión regular a partir de una cadena determinada.
 
 La siguiente consulta extrae los valores de atributo específicos de un seguimiento.
 
@@ -358,7 +358,7 @@ MyData
 
 ### <a name="ago"></a>ago()
 
-[**ago()**](https://docs.microsoft.com/azure/kusto/query/agofunction): resta un intervalo de tiempo especificado a la hora UTC actual.
+[**ago()**](https://docs.microsoft.com/azure/kusto/query/agofunction): Resta un intervalo de tiempo especificado a la hora UTC actual.
 
 La siguiente consulta devuelve los datos de las últimas 12 horas.
 
@@ -512,7 +512,7 @@ Se tratan como agregaciones básicas, como **count** y **summarize**, anteriorme
 
 [**top-nested**](https://docs.microsoft.com/azure/kusto/query/topnestedoperator): genera los principales resultados jerárquicos, donde cada nivel es un desglose según los valores de niveles anteriores.
 
-Este operador es útil para escenarios de visualización del panel, o cuando es necesario responder a una pregunta similar a la siguiente: "Encontrar los principales valores de N de K1 (mediante agregación); para cada uno de ellos, encontrar los valores principales de M de K2 (mediante otra agregación); ..."
+Este operador es útil para escenarios de visualización del panel, o cuando es necesario que responda una pregunta similar a la siguiente: "Encontrar los valores principales de N de K1 (mediante la agregación); para cada uno de ellos, buscar cuáles son los valores principales de M de K2 (mediante otra agregación); ..."
 
 La siguiente consulta devuelve una tabla jerárquica con `State` en el nivel superior, seguido por `Sources`.
 
@@ -570,7 +570,7 @@ StormEvents
 
 ### <a name="dcounthll"></a>dcount_hll()
 
-[**dcount_hll()**](https://docs.microsoft.com/azure/kusto/query/dcount-hllfunction): calcula  **dcount**  de los resultados de HyperLogLog (generados por [**hll**](https://docs.microsoft.com/azure/kusto/query/hll-aggfunction) o [**hll_merge**](https://docs.microsoft.com/azure/kusto/query/hll-merge-aggfunction).
+[**dcount_hll()**](https://docs.microsoft.com/azure/kusto/query/dcount-hllfunction): calcula  **dcount**  de los resultados de HyperLogLog (generados por [**hll**](https://docs.microsoft.com/azure/kusto/query/hll-aggfunction) o [**hll_merge**](https://docs.microsoft.com/azure/kusto/query/hll-merge-aggfunction)).
 
 La consulta siguiente usa el algoritmo HLL para generar el recuento.
 
@@ -741,7 +741,7 @@ StormEvents
 
 ### <a name="cross-database-and-cross-cluster-queries"></a>Consultas entre bases de datos y entre clústeres
 
-[Consultas entre bases de datos y entre clústeres](https://docs.microsoft.com/azure/kusto/query/cross-cluster-or-database-queries): puede consultar una base de datos en el mismo clúster haciendo referencia a él como `database("MyDatabase").MyTable`. Puede consultar una base de datos en un clúster remoto haciendo referencia a él como `cluster("MyCluster").database("MyDatabase").MyTable`.
+[Consultas entre bases de datos y entre clústeres](https://docs.microsoft.com/azure/kusto/query/cross-cluster-or-database-queries): Puede consultar una base de datos en el mismo clúster haciendo referencia a él como `database("MyDatabase").MyTable`. Puede consultar una base de datos en un clúster remoto haciendo referencia a él como `cluster("MyCluster").database("MyDatabase").MyTable`.
 
 Se llama a la consulta siguiente desde un clúster y consulta los datos del clúster `MyCluster`. Para ejecutar esta consulta, use su propio nombre de clúster y nombre de base de datos.
 

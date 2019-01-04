@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: a45e8c7bdb616eb389d95be8421bea7d31eafe29
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 43276aad26bc06400c1bc4b5feaace0d5646c213
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974176"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849248"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Preparación del destino (VMware a Azure)
 
@@ -26,12 +26,12 @@ En este artículo se da por supuesto lo siguiente:
 
 ## <a name="prepare-target"></a>Preparación del destino
 
-Después de completar el **Paso 1: Selección del objetivo de protección** y el **Paso 2: Preparación del origen**, irá al **Paso 3: Destino**.
+Después de completar el **Paso 1: Selección del objetivo de protección** y el **Paso 2: Preparación del origen**, irá al **Paso 3: Destino**
 
 ![Preparación del destino](./media/physical-azure-set-up-target/prepare-target-physical-to-azure.png)
 
-1. **Suscripción:** En el menú desplegable, seleccione la suscripción en la que desea replicar los servidores físicos.
-2. **Modelo de implementación:** Seleccione el modelo de implementación (clásica o Resource Manager).
+1. **Suscripción:** en el menú desplegable, seleccione la suscripción en la que desea replicar los servidores físicos.
+2. **Modelo de implementación:** seleccione el modelo de implementación (clásico o Resource Manager)
 
 Según el modelo de implementación elegido, se ejecuta una validación para asegurarse de que tiene al menos una cuenta de almacenamiento compatible y una red virtual en la suscripción de destino en la que replicar y conmutar por error los servidores físicos.
 

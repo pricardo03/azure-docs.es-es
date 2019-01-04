@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c0729fd4c6d5e387b38c310a708505c3395ea41f
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 7f4750dd527aa53624fa977115a120911511b7d5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284887"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185076"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Información de seguridad detallada sobre la autenticación de paso a través de Azure Active Directory
 
@@ -41,7 +41,7 @@ Estos son los aspectos clave de seguridad de esta característica:
 - Solo se usan puertos estándar (80 y 443) para la comunicación saliente de los agentes de autenticación a Azure AD. No es necesario abrir puertos entrantes en el firewall. 
   - El puerto 443 se usa en todas las comunicaciones salientes autenticadas.
   - Solo se usa el puerto 80 para descargar las listas de revocación de certificados (CRL) a fin de garantizar que ninguno de los certificados que use la característica hayan sido revocados.
-  - Para obtener la lista completa de los requisitos de red, consulte [Autenticación de paso a través de Azure Active Directory: inicio rápido](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites).
+  - Para obtener la lista completa de los requisitos de red, consulte [Autenticación de paso a través de Azure Active Directory: Inicio rápido](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites).
 - Las contraseñas que proporciona el usuario durante el inicio de sesión se cifran en la nube antes de que los agentes de autenticación locales las acepten para validarlas en Active Directory.
 - El canal HTTPS entre Azure AD y el agente de autenticación local está protegido gracias a la autenticación mutua.
 - Protege las cuentas de usuario y, para ello, trabaja sin problemas con [directivas de acceso condicional de Azure AD](../active-directory-conditional-access-azure-portal.md), incluida la autenticación multifactor, el [bloqueo de autenticación heredada](../authentication/howto-password-smart-lockout.md) y el [filtrado de ataques por fuerza bruta](../conditional-access/conditions.md).
@@ -50,8 +50,8 @@ Estos son los aspectos clave de seguridad de esta característica:
 
 Para obtener información general sobre la seguridad operativa, del servicio y de los datos de Azure AD, consulte el [Centro de confianza](https://azure.microsoft.com/support/trust-center/). Los siguientes componentes son necesarios al usar la autenticación de paso a través del inicio de sesión de usuario:
 - **STS de Azure AD**: un servicio de token de seguridad (STS) sin estado que procesa las solicitudes de inicio de sesión y genera tokens de seguridad para los clientes, servicios o exploradores de los usuarios, según proceda.
-- **Azure Service Bus** proporciona comunicación habilitada para la nube con mensajería empresarial y retransmite comunicación que ayuda a conectar las soluciones locales con la nube.
-- **Agente de autenticación de Azure AD Connect** : es un componente local que escucha las solicitudes de validación de contraseña y responde a ellas.
+- **Azure Service Bus**: proporciona comunicación habilitada para la nube con mensajería empresarial y retransmite comunicación que ayuda a conectar las soluciones locales con la nube.
+- **Agente de autenticación de Azure AD Connect**: un componente local que escucha las solicitudes de validación de contraseña y las responde.
 - **Azure SQL Database**: retiene información sobre los agentes de autenticación del inquilino, incluidos los metadatos y las claves de cifrado.
 - **Active Directory**: es el entorno local de Active Directory, donde se almacenan las cuentas de usuario y las contraseñas correspondientes.
 
@@ -97,8 +97,8 @@ Los agentes de autenticación realizan los siguientes pasos para registrarse con
 5. A continuación, Azure AD firma y emite un certificado de identidad digital al agente de autenticación.
     - La entidad de certificación raíz en Azure AD se usa para firmar el certificado. 
 
-     >[!NOTE]
-     > Tenga en cuenta que esta entidad de certificación _no_ está en el almacén de entidades de certificación raíz de confianza de Windows.
+      > [!NOTE]
+      > Tenga en cuenta que esta entidad de certificación _no_ está en el almacén de entidades de certificación raíz de confianza de Windows.
     - Esa entidad de certificación se usa solo con la característica de autenticación de paso a través. La entidad de certificación solo se usa para firmar CSR durante el registro del agente de autenticación.
     -  Ninguno de los demás servicios de Azure AD usa esta entidad de certificación.
     - El sujeto del certificado (nombre distintivo o DN) se establece en su id. de inquilino. Este DN es un GUID que identifica al inquilino de forma exclusiva. Asimismo, limita el uso del certificado a dicho inquilino.
@@ -207,11 +207,11 @@ Para actualizar automáticamente un agente de autenticación:
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Limitaciones actuales](how-to-connect-pta-current-limitations.md): conozca qué escenarios son compatibles y cuáles no.
-- [Inicio rápido](how-to-connect-pta-quick-start.md): poner en marcha la autenticación de paso a través de Azure AD.
+- [Limitaciones actuales](how-to-connect-pta-current-limitations.md): Obtenga información sobre los escenarios que se admiten y los que no.
+- [Inicio rápido](how-to-connect-pta-quick-start.md): ponga en marcha la autenticación de paso a través de Azure AD.
 - [Migración de AD FS a la autenticación de paso a través](https://aka.ms/adfstoptadpdownload): una guía detallada para migrar desde AD FS (u cualquier otra tecnología de federación) a la autenticación de paso a través.
-- [Bloqueo inteligente](../authentication/howto-password-smart-lockout.md): configurar la funcionalidad de bloqueo inteligente en el inquilino para proteger las cuentas de usuario.
+- [Bloqueo inteligente](../authentication/howto-password-smart-lockout.md): configure la funcionalidad de bloqueo inteligente en el inquilino para proteger las cuentas de usuario.
 - [Cómo funciona](how-to-connect-pta-how-it-works.md): aprenda los conceptos básicos sobre cómo funciona la autenticación de paso a través de Azure AD.
-- [Preguntas más frecuentes](how-to-connect-pta-faq.md): encuentre respuestas a las preguntas más frecuentes.
-- [Solución de problemas](tshoot-connect-pass-through-authentication.md): obtenga información acerca de cómo resolver problemas comunes relacionados con la característica de autenticación de paso a través.
-- [SSO de conexión directa de Azure AD](how-to-connect-sso.md): obtenga más información sobre esta característica complementaria.
+- [Preguntas más frecuentes](how-to-connect-pta-faq.md): obtenga respuestas a las preguntas más frecuentes.
+- [Solución de problemas](tshoot-connect-pass-through-authentication.md): obtenga información sobre cómo resolver problemas comunes relacionados con la característica de autenticación de paso a través.
+- [SSO de conexión directa de Azure AD](how-to-connect-sso.md): más información sobre esta característica complementaria.

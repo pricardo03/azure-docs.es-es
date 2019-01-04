@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 32198387be680fd01558e900e4c438cde2cdc5b1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: b2f106edf69b57410fd1990d0888cf9d3a71be56
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52266666"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880189"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Azure Marketplace: ‎Funcionalidades y consideraciones sobre transacciones comerciales
 
@@ -177,8 +177,9 @@ Por ejemplo, si el cliente compra con tarjeta de crédito:
 |Fecha de cálculo de pago (mensualmente el día 15) | 1 de octubre de 2018 |
 |Payout Date (Fecha de pago) | 15 de octubre de 2018 |
 
-Si el cliente compra mediante un contrato Enterprise:  
-|DESCRIPCIÓN    |    Date  |
+Si el cliente compra mediante un contrato Enterprise:
+
+| DESCRIPCIÓN |    Date  |
 |----------|----------|
 |Período del pedido | Del 15 de agosto al 30 de agosto de 2018 |
 |Final del período (trimestre) | 30 de septiembre de 2018 |

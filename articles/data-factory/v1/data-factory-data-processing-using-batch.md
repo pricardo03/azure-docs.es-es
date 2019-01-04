@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 0865c8b88788387eff173443d190658cc6488946
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: a20ba54226e5cdcec242e29344110840615a0c95
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976866"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317532"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Procesamiento de conjuntos de datos a gran escala mediante Data Factory y Batch
 > [!NOTE]
@@ -41,7 +41,7 @@ Con el servicio Batch, se definen los recursos de procesos de Azure para ejecuta
 * [Conceptos básicos de Batch](../../batch/batch-technical-overview.md)
 * [Información general de las características de Batch](../../batch/batch-api-basics.md)
 
-Si quiere, para obtener más información sobre Batch, consulte la [documentación de Batch](https://docs.microsoft.com/en-us/azure/batch/).
+Si quiere, para obtener más información sobre Batch, consulte la [documentación de Batch](https://docs.microsoft.com/azure/batch/).
 
 ## <a name="why-azure-data-factory"></a>¿Por qué elegir Azure Data Factory?
 Factoría de datos es un servicio de integración de datos basado en la nube que organiza y automatiza el movimiento y la transformación de datos. Puede utilizar Data Factory para crear canalizaciones de datos administrados que mueven datos desde el entorno local y los almacenes de datos en la nube a un almacén de datos centralizado. Un ejemplo es Azure Blob Storage. Puede usar Data Factory para procesar o transformar datos mediante el uso de servicios como Azure HDInsight y Azure Machine Learning. También puede programar las canalizaciones de datos para que se ejecuten de forma programada (por ejemplo, cada hora, diariamente y semanalmente). Puede supervisar y administrar las canalizaciones de un vistazo para identificar problemas y llevar a cabo acciones.
@@ -51,7 +51,7 @@ Factoría de datos es un servicio de integración de datos basado en la nube que
 * [Introducción al servicio Factoría de datos de Azure](data-factory-introduction.md)
 * [Creación de la primera canalización de datos](data-factory-build-your-first-pipeline.md)   
 
-Si quiere, para obtener más información sobre Data Factory, consulte la [documentación de Data Factory](https://docs.microsoft.com/en-us/rest/api/datafactory/v1/data-factory-data-factory).
+Si quiere, para obtener más información sobre Data Factory, consulte la [documentación de Data Factory](https://docs.microsoft.com/rest/api/datafactory/v1/data-factory-data-factory).
 
 ## <a name="data-factory-and-batch-together"></a>Data Factory y Batch juntos
 Data Factory incluye actividades integradas. Por ejemplo, la actividad de copia se usa para copiar y mover datos de un almacén de datos de origen a uno de destino. La actividad de Hive se usa para procesar los datos mediante el uso de clústeres de Hadoop (HDInsight) en Azure. Para obtener una lista de actividades de transformación compatibles, vea las [actividades de transformación de datos](data-factory-data-transformation-activities.md).
@@ -546,7 +546,7 @@ En el siguiente tutorial, se proporcionan más detalles.
 
    ![Página Data Factory](./media/data-factory-data-processing-using-batch/image6.png)
 
-#### <a name="step-2-create-linked-services"></a>Paso 2: Creación de servicios vinculados
+#### <a name="step-2-create-linked-services"></a>Paso 2: Crear servicios vinculados
 Los servicios vinculados vinculan almacenes de datos o servicios de proceso con una factoría de datos. En este paso, vinculará la cuenta de almacenamiento y la cuenta de Batch con su factoría de datos.
 
 #### <a name="create-an-azure-storage-linked-service"></a>Creación de un servicio vinculado de Azure Storage
@@ -932,9 +932,9 @@ Puede extender este ejemplo para obtener más información sobre las caracterís
 
 1. Agregue las siguientes subcarpetas en `inputfolder`: 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08 y 2015-11-16-09. Coloque los archivos de entrada en esas carpetas. Cambie la hora de finalización de la canalización de `2015-11-16T05:00:00Z` a `2015-11-16T10:00:00Z`. En la vista **Diagrama**, haga doble clic en **InputDataset** y confirme que los segmentos de entrada están listos. Haga doble clic en **OuptutDataset** para ver el estado de los segmentos de salida. Si se encuentran en el estado **Listo**, compruebe si los archivos de salida se encuentran en la carpeta de salida.
 
-1. Aumente o disminuya la configuración de **concurrency** para saber cómo afecta al rendimiento de la solución, especialmente el procesamiento que se produce en Batch. Para más información sobre la configuración del valor **concurrency**, vea "Paso 4: Creación y ejecución de la canalización con una actividad personalizada".
+1. Aumente o disminuya la configuración de **concurrency** para saber cómo afecta al rendimiento de la solución, especialmente el procesamiento que se produce en Batch. Para más información sobre la **simultaneidad**, consulte "Paso 4: Creación y ejecución de la canalización con una actividad personalizada".
 
-1. Cree un grupo con un valor mayor o menor en **Máximo de tareas por máquina virtual**. Actualice el servicio vinculado Batch en la solución de Data Factory para que use el nuevo grupo que creó. Para más información sobre la configuración del valor **Maximum tasks per VM** (Máximo de tareas por máquina virtual), vea "Paso 4: Creación y ejecución de la canalización con una actividad personalizada".
+1. Cree un grupo con un valor mayor o menor en **Máximo de tareas por máquina virtual**. Actualice el servicio vinculado Batch en la solución de Data Factory para que use el nuevo grupo que creó. Para más información sobre el **Máximo de tareas por máquina virtual**, consulte "Paso 4: Creación y ejecución de la canalización con una actividad personalizada".
 
 1. Cree un grupo de Batch con la característica de **escalado automático**. El escalado automático de los nodos de ejecución de un grupo de Batch es el ajuste dinámico de la potencia de procesamiento que usa su aplicación. 
 
@@ -956,13 +956,13 @@ Puede extender este ejemplo para obtener más información sobre las caracterís
 
 1. En la solución de ejemplo, el método **Execute** invoca al método **Calculate** que procesa un segmento de datos de entrada para generar un segmento de datos de salida. Puede escribir su propio método para procesar los datos de entrada y reemplazar la llamada al método **Calculate** en el método **Execute** por una llamada a su método.
 
-### <a name="next-steps-consume-the-data"></a>Pasos siguientes: Consumo de los datos
+### <a name="next-steps-consume-the-data"></a>Pasos siguientes: Consumo de datos
 Después de procesar datos, puede consumirlos con herramientas en línea como Power BI. Estos vínculos lo ayudarán a comprender Power BI y aprender a usarlo en Azure:
 
 * [Exploración de un conjunto de datos en Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
 * [Introducción a Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
 * [Actualizar datos en Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
-* [Información general básica de Azure y Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
+* [Azure y Power BI Información general básica](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
 ## <a name="references"></a>Referencias
 * [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)

@@ -1,19 +1,20 @@
 ---
-title: Filtros de seguridad para restringir los resultados en Azure Search | Microsoft Docs
+title: Filtros de seguridad para restringir los resultados en Azure Search
 description: Control de acceso al contenido de Azure Search mediante filtros de seguridad e identidades de usuario.
 ms.service: search
 ms.topic: conceptual
 services: search
 ms.date: 08/07/2017
-author: revitalbarletz
-ms.author: revitalb
+author: brjohnstmsft
+ms.author: brjohnst
 manager: jlembicz
-ms.openlocfilehash: dd26676b74431566b3631b8a79cd06bcf3022518
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 84147b250ea17df9af67cc8a9025cdf6ec59a705
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792807"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314234"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-search"></a>Filtros de seguridad para restringir los resultados en Azure Search
 
@@ -32,7 +33,7 @@ En este artículo se explica cómo realizar el filtrado de seguridad mediante lo
 >[!NOTE]
 > El proceso de recuperación de los identificadores de entidad de seguridad no se trata en este documento. Debe obtenerlo de su proveedor de servicio de identidad.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo se da por hecho que dispone de una [suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), el [servicio Azure Search](https://docs.microsoft.com/azure/search/search-create-service-portal) y el [Índice de Azure Search](https://docs.microsoft.com/azure/search/search-create-index-portal).  
 

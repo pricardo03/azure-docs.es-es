@@ -1,12 +1,11 @@
 ---
-title: Creación de modelos de análisis de texto en Azure Machine Learning Studio | Microsoft Docs
+title: 'Creación de modelos de análisis de texto: Azure Machine Learning Studio | Microsoft Docs'
 description: Cómo crear modelos de análisis de texto en Azure Machine Learning Studio mediante módulos de preprocesamiento de texto, n-gramas o hash de características
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=roastala, author=rastala)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: cgronlun
 editor: ''
 ms.assetid: 08cd6723-3ae6-4e99-a924-e650942e461b
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.openlocfilehash: 10b4f8a494a9effc04db731f05eeb010f4fb0b6a
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 11f4ad4ff1e8e2eab688596d393e63009f7e5624
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262489"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255489"
 ---
 # <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Creación de modelos de análisis de texto en Azure Machine Learning Studio
 Puede usar Azure Machine Learning para generar y aplicar modelos de análisis de texto. Estos modelos pueden ayudarle a resolver, por ejemplo, problemas de clasificación de documentos o de análisis de opinión.
@@ -34,7 +33,7 @@ En un experimento de análisis de texto, normalmente debería:
 4. Puntuar y validar el modelo
 5. Implementar el modelo en producción
 
-En este tutorial, aprenderá estos pasos a medida que se explique un modelo de análisis de opinión mediante el conjunto de datos de Amazon Book Reviews (consulte el trabajo de investigación, “Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification” ("Biografías, Bollywoood, equipos de sonido y licuadoras") de John Blitzer, Mark Dredze y Fernando Pereira; Asociación de Lingüística Informática (ACL), 2007. Este conjunto de datos consta de las puntuaciones de revisión (1-2 o 4-5) y un texto de forma libre. El objetivo es predecir la puntuación de revisión: baja (1 - 2) o alta (4-5).
+En este tutorial, aprenderá estos pasos a medida que le guiamos por un modelo de análisis de opiniones mediante el conjunto de datos de Amazon Book Reviews (consulte este artículo de investigación "Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification” [Biografías, Bollywood, equipos de sonido y licuadoras: adaptación del dominio para la clasificación de opiniones], de John Blitzer, Mark Dredze y Fernando Pereira; Asociación de Lingüística Informática [ACL], 2007). Este conjunto de datos consta de las puntuaciones de revisión (1-2 o 4-5) y un texto de forma libre. El objetivo es predecir la puntuación de revisión: baja (1 - 2) o alta (4-5).
 
 Puede encontrar los experimentos citados en este tutorial en la Galería de Azure AI:
 

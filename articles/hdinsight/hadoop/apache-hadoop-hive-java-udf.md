@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 562320b49f92d9ebb0c74c06e27fab63681955be
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 6e31062e3965c9ed5a0b24e822f0ec14234cec1c
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634080"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435079"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Utilización de una función definida por el usuario de Java con Apache Hive en HDInsight
 
@@ -29,9 +29,9 @@ Aprenda cómo crear una función basada en Java y definida por el usuario (UDF) 
 
     La mayoría de los pasos de este documento funcionan tanto en clústeres basados en Windows como en Linux. Sin embargo, los pasos utilizados para cargar la función definida por el usuario compilada al clúster y ejecutarla son específicos de los clústeres basados en Linux. Se proporcionan vínculos a información que puede utilizarse con clústeres basados en Windows.
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 o posterior (o un equivalente como OpenJDK).
+* [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/) 8 o posterior (o un equivalente como OpenJDK).
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 * Un editor de texto o IDE de Java
 
@@ -213,7 +213,7 @@ Aprenda cómo crear una función basada en Java y definida por el usuario (UDF) 
     ```
 
     > [!NOTE]
-    > En este ejemplo se da por supuesto que el almacenamiento predeterminado para el clúster es Azure Storage. Si su clúster utiliza Data Lake Store en su lugar, cambie el valor `wasb:///` a `adl:///`.
+    > En este ejemplo se da por supuesto que el almacenamiento predeterminado para el clúster es Azure Storage. Si el clúster utiliza Data Lake Storage en su lugar, cambie el valor `wasb:///` a `adl:///`.
 
 3. Use la función definida por el usuario para convertir los valores recuperados de una tabla a cadenas de minúsculas.
 
@@ -240,6 +240,6 @@ Aprenda cómo crear una función basada en Java y definida por el usuario (UDF) 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para conocer otras formas de trabajar con Hive, consulte [Usar Hive y HiveQL con Hadoop en HDInsight para analizar un archivo log4j de Apache de muestra](hdinsight-use-hive.md).
+Para conocer otras formas de trabajar con Hive, consulte [Uso de Apache Hive con HDInsight](hdinsight-use-hive.md).
 
-Para más información sobre las funciones definidas por el usuario de Hive, consulte la sección [Hive Operators and User-Defined Functions](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) (Operadores de Hive y funciones definidas por el usuario) de la wiki de Hive en apache.org.
+Para más información sobre las funciones definidas por el usuario de Hive, consulte la sección [Apache Hive Operators and User-Defined Functions](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) (Operadores de Apache Hive y funciones definidas por el usuario) de la wiki de Hive en apache.org.

@@ -1,5 +1,5 @@
 ---
-title: 'SDK de .NET: operaciones del sistema de archivos en Azure Data Lake Storage Gen1 | Microsoft Docs'
+title: '.NET SDK: operaciones del sistema de archivos en Azure Data Lake Storage Gen1 | Microsoft Docs'
 description: Use el SDK de .NET de Azure Data Lake Storage Gen1 para realizar operaciones del sistema de archivos en Data Lake Storage Gen1, como, por ejemplo, crear carpetas.
 services: data-lake-store
 documentationcenter: ''
@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 71ddbc2363075b721bfbd418bd29e5154baba866
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 57f4485e70bf91713539b3398fc93d6810c3c28e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391494"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163247"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operaciones del sistema de archivos en Azure Data Lake Storage Gen1 mediante el uso del SDK de .NET
 > [!div class="op_single_selector"]
 > * [SDK de .NET](data-lake-store-data-operations-net-sdk.md)
 > * [SDK de Java](data-lake-store-get-started-java-sdk.md)
-> * [API de REST](data-lake-store-data-operations-rest-api.md)
+> * [API DE REST](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
 >
 >
@@ -146,7 +146,7 @@ El fragmento de código siguiente devuelve las propiedades asociadas a un archiv
     var directoryEntry = client.GetDirectoryEntry(fileName);
     PrintDirectoryEntry(directoryEntry);
 
-La definición del método `PrintDirectoryEntry` está disponible como parte del ejemplo [en Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted). 
+La definición del método `PrintDirectoryEntry` está disponible como parte del ejemplo [en GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted). 
 
 ## <a name="rename-a-file"></a>Cambio del nombre de un archivo
 El fragmento de código siguiente cambia el nombre de un archivo existente en una cuenta de Data Lake Storage Gen1.
@@ -164,7 +164,7 @@ El fragmento de código siguiente enumera los directorios en una cuenta de Data 
         PrintDirectoryEntry(entry);
     }
 
-La definición del método `PrintDirectoryEntry` está disponible como parte del ejemplo [en Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted).
+La definición del método `PrintDirectoryEntry` está disponible como parte del ejemplo [en GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted).
 
 ## <a name="delete-directories-recursively"></a>Eliminación de directorios de forma recursiva
 El fragmento de código siguiente elimina recursivamente un directorio y todos sus subdirectorios.

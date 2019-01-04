@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: 9c58e5c64ea3689634d7afb4c5fef08c9b21798c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 103b5c1d2bc70f187b6e65a9fa9d80a35ad8e0c1
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244379"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321586"
 ---
-# <a name="how-to-monitor-apps-in-azure-app-service"></a>Supervisión de Aplicaciones en Azure App Service
+# <a name="how-to-monitor-apps-in-azure-app-service"></a>Control de Supervisión de aplicaciones en Azure App Service
 [App Service](https://go.microsoft.com/fwlink/?LinkId=529714) proporciona una funcionalidad de supervisión integrada en [Azure Portal](https://portal.azure.com).
 Azure Portal incluye la capacidad de revisar **cuotas** y **métricas** de una aplicación, así como el plan de App Service, configurar **alertas** e incluso **escalar** automáticamente en función de estas métricas.
 
@@ -53,7 +54,7 @@ Las **cuotas** de las aplicaciones **gratis** o **compartidas** son:
 
 La única cuota aplicable a las aplicaciones hospedadas en un plan **básico**, **estándar** o **premium** es la del **sistema de archivos**.
 
-Para obtener más información sobre cuotas específicas, límites y características disponibles para las distintas SKU de App Service, consulte los [límites del servicio de suscripción de Azure](../azure-subscription-service-limits.md#app-service-limits).
+Para más información sobre cuotas específicas, límites y características disponibles para las distintas SKU de App Service, consulte: [Límites de servicio de suscripción de Azure](../azure-subscription-service-limits.md#app-service-limits)
 
 #### <a name="quota-enforcement"></a>Aplicación de cuotas
 Si una aplicación supera las cuotas **CPU (Short)** (CPU [corta]), **CPU (Day)** (CPU [diaria]) o **bandwidth** (ancho de banda), se detiene hasta que vuelva a establecerse la cuota. Durante este tiempo, todas las solicitudes entrantes provocan un error **HTTP 403**.
@@ -75,7 +76,7 @@ Para una **aplicación**, estas son las métricas disponibles:
 * **Espacio de trabajo de memoria promedio**
   * Cantidad media de memoria en MiBs que utiliza la aplicación.
 * **Tiempo de CPU**
-  * Cantidad de CPU en segundos consumida por la aplicación. Para más información acerca de esta métrica, consulte [Tiempo de CPU y porcentaje de CPU](#cpu-time-vs-cpu-percentage).
+  * Cantidad de CPU en segundos consumida por la aplicación. Para más información acerca de esta métrica, consulte: [Tiempo de CPU y porcentaje de CPU](#cpu-time-vs-cpu-percentage)
 * **Entrada de datos**
   * Cantidad de ancho de banda entrante consumido por la aplicación en MiBs.
 * **Salida de datos**
@@ -144,23 +145,23 @@ Puede revisar el estado de las distintas **cuotas** y **métricas** que afectan 
 Las **cuotas** se encuentran en Configuración &gt;**Cuotas**. La experiencia de usuario permite revisar: (1) el nombre de las cuotas, (2) su intervalo de restablecimiento, (3) su límite actual y (4) su valor actual.
 
 ![][metrics]
-Se puede acceder a **Métricas** directamente desde la página de recursos. También puede personalizar el gráfico si (1) **hace clic** en él y selecciona (2) **Editar gráfico**.
+Se puede acceder a **Métricas** directamente desde la página de recursos. También puede personalizar el gráfico si: (1) **hace clic** en él y selecciona (2) **Editar gráfico**.
 Desde aquí puede cambiar (3) el **intervalo de tiempo**, (4) el **tipo de gráfico** y (5) las **métricas** que se muestran.  
 
-Para más información acerca de las métricas, consulte [Supervisión de las métricas del servicio](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
+Para más información acerca de las métricas, consulte: [Supervisión de las métricas del servicio](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
 ## <a name="alerts-and-autoscale"></a>Alertas y autoescala
 Las métricas para una aplicación o plan de App Service pueden enlazarse con las alertas. Para más información sobre esto, consulte [Recibir notificaciones de alerta](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-Las aplicaciones de App Service hospedadas en planes de App Service Básico, Estándar o Premium admiten el **escalado automático**. El escalado automático le permite configurar reglas que supervisan las métricas del plan de App Service. Las reglas pueden aumentar o disminuir el recuento de instancias que proporcionan recursos adicionales según sea necesario. Las reglas también pueden ayudarle a ahorrar dinero cuando la aplicación se aprovisiona en exceso. Para más información acerca de la autoescala, consulte [Escalado](../monitoring-and-diagnostics/insights-how-to-scale.md) y [Procedimientos recomendados de escalado automático en Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-best-practices.md).
+Las aplicaciones de App Service hospedadas en planes de App Service Básico, Estándar o Premium admiten el **escalado automático**. El escalado automático le permite configurar reglas que supervisan las métricas del plan de App Service. Las reglas pueden aumentar o disminuir el recuento de instancias que proporcionan recursos adicionales según sea necesario. Las reglas también pueden ayudarle a ahorrar dinero cuando la aplicación se aprovisiona en exceso. Para más información sobre el escalado automático, consulte: [Escalado](../monitoring-and-diagnostics/insights-how-to-scale.md) y [Procedimientos recomendados de escalabilidad automática en Azure Monitor](../azure-monitor/platform/autoscale-best-practices.md)
 
 > [!NOTE]
 > Si desea empezar a trabajar con Azure App Service antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba de App Service](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en App Service. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 > 
 > 
 
-[fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
-[vmsizes]:http://go.microsoft.com/fwlink/?LinkID=309169
+[fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
+[vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169
 
 
 

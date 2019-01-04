@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/07/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5f95b71497b59eafff09d4add2b4bb1c20656592
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 9dbe88e1e179df4560d5094cf3f58ca770541323
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339365"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842279"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Inicio de sesión con una aplicación iOS
 
@@ -38,16 +38,16 @@ A continuación, debe crear una aplicación en su directorio B2C. El registro de
 * Copiar el **identificador de aplicación** asignado a la aplicación. Necesitará este GUID más adelante.
 * Configure un **URI de redireccionamiento** con un esquema personalizado (por ejemplo, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). Necesitará este URI más adelante.
 
-## <a name="create-your-policies"></a>Crear sus directivas
-En Azure AD B2C, cada experiencia del usuario se define mediante una [directiva](active-directory-b2c-reference-policies.md). Esta aplicación contiene una experiencia de identidad: una combinación de inicio de sesión y registro. Cree esta directiva, tal como se describe en el [artículo de referencia de las directivas](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Al crear la directiva, tenga en cuenta lo siguiente:
+## <a name="create-your-user-flows"></a>Creación de flujos de usuario
+En Azure AD B2C, cada experiencia del usuario se define mediante un [flujo de usuario](active-directory-b2c-reference-policies.md). Esta aplicación contiene una experiencia de identidad: una combinación de inicio de sesión y registro. Cree este flujo de usuario, como se describe en el [artículo de referencia de flujo de usuario](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). Cuando cree el flujo de usuario, asegúrese de hacer lo siguiente:
 
 * En **Atributos de registro**, seleccione **Nombre para mostrar**.  Puede seleccionar también otros atributos.
 * En **Notificaciones de aplicación**, seleccione las notificaciones **Nombre para mostrar** e **Identificador de objeto del usuario**. Puede elegir también otras notificaciones.
-* Copiar el **Nombre** de cada directiva después de crearla. El nombre de la directiva tiene como prefijo `b2c_1_` al guardarla.  Necesitará el nombre de la directiva más adelante.
+* Copiar el **nombre** de cada flujo de usuario después de crearlo Cuando se guarda el flujo de usuario, el nombre tiene como prefijo `b2c_1_`.  Esta información la necesitará más adelante.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-Después de crear las directivas, está listo para compilar la aplicación.
+Después de haber creado los flujos de usuario, está listo para compilar la aplicación.
 
 ## <a name="download-the-sample-code"></a>Descarga del código de ejemplo
 Hemos proporcionado un ejemplo de trabajo que usa AppAuth con Azure AD B2C [en GitHub](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Puede descargar el código y ejecutarlo. Para usar su propio inquilino de Azure AD B2C, siga las instrucciones que aparecen en el archivo [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md).
@@ -64,7 +64,7 @@ Este ejemplo se creó con las instrucciones del archivo README del [proyecto App
 
 Puede configurar la comunicación con Azure AD B2C si especifica tanto los URI del punto de conexión de autorización como del punto de conexión del token.  Para generar estos URI, necesita la información siguiente:
 * Identificador de inquilino (por ejemplo, contoso.onmicrosoft.com)
-* Nombre de la directiva (por ejemplo, B2C\_1\_SignUpIn)
+* Nombre del flujo de usuario (por ejemplo, B2C\_1\_SignUpIn)
 
 El URI de punto de conexión de token se puede generar si se reemplaza Tenant\_ID y Policy\_Name en la siguiente dirección URL:
 

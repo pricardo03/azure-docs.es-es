@@ -1,6 +1,6 @@
 ---
-title: 'Proceso de ciencia de datos en equipos en acción: uso de SQL Data Warehouse | Microsoft Docs'
-description: Tecnología y procesos de análisis avanzado en acción
+title: 'Compilación e implementación de un modelo con SQL Data Warehouse: Proceso de ciencia de datos en equipo'
+description: Compile e implemente un modelo de aprendizaje automático mediante SQL Data Warehouse con un conjunto de datos disponible públicamente.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 87c3b0b597a401041b8bf1b6f3997431d8816e92
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: ed3731db88d7f829634a03c55e5ec033c03e4b0f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445721"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139137"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Proceso de ciencia de datos en equipos en acción: uso de SQL Data Warehouse
 En este tutorial le guiaremos a través de la creación e implementación de un modelo de aprendizaje automático mediante SQL Data Warehouse (SQL DW) para un conjunto de datos disponible públicamente: el conjunto de datos [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) . El modelo de clasificación binaria construido predice si se va a pagar o no una propina para la carrera, y también se describen los modelos de clasificación y regresión multiclase que predicen la distribución de los importes pagados en concepto de propina.
@@ -52,15 +52,15 @@ La **clave única** para unir trip\_data y trip\_fare se compone de los tres cam
 ## <a name="mltasks"></a>Realicemos tres tipos de tareas de predicción
 Se formulan tres problemas de predicción basados en el valor *tip\_amount* para mostrar tres tipos de tareas de modelado:
 
-1. **Clasificación binaria**: permite predecir si se pagó una propina tras una carrera, o no; es decir, un valor de *tip\_amount* mayor que 0 $ es un ejemplo positivo, mientras que un valor de *tip\_amount* de 0 $ es un ejemplo negativo.
-2. **Clasificación con múltiples clases**: para predecir el intervalo de la propina de la carrera. Dividimos *tip\_amount* en cinco ubicaciones o clases:
+1. **Clasificación binaria**: permite predecir si se pagó una propina tras una carrera, o no; es decir, un valor de *tip\_amount* que es mayor que 0 $ es un ejemplo positivo, mientras que un valor de *tip\_amount* de 0 $ es un ejemplo negativo.
+2. **Clasificación multiclase**: permite predecir el intervalo de la propina de la carrera. Dividimos *tip\_amount* en cinco ubicaciones o clases:
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
         Class 2 : tip_amount > $5 and tip_amount <= $10
         Class 3 : tip_amount > $10 and tip_amount <= $20
         Class 4 : tip_amount > $20
-3. **Tarea de regresión**: para predecir la cantidad de propina pagada en una carrera.  
+3. **Tarea de regresión**: permite predecir el importe de la propina pagada por una carrera.  
 
 ## <a name="setup"></a>Configuración del entorno de ciencia de datos de Azure para análisis avanzado
 Para configurar el entorno de ciencia de datos de Azure, siga estos pasos.
@@ -117,7 +117,7 @@ Abra una consola de comandos de Windows PowerShell. Ejecute los comandos de Powe
 
 Cuando se haya ejecutado correctamente, el directorio de trabajo actual cambia a *-DestDir*. Debe ver una pantalla similar a la siguiente:
 
-![][19]
+![El directorio de trabajo actual cambia][19]
 
 En su *-DestDir*, ejecute el siguiente script de PowerShell en modo de administrador:
 
@@ -321,7 +321,7 @@ Tendrá que decidir qué hacer si tiene archivos de origen y de destino duplicad
 > 
 > 
 
-![Diagrama 21][21]
+![Salida de AzCopy][21]
 
 Puede usar sus propios datos. Si los datos están en la máquina local en la aplicación de la vida real, todavía puede usar AzCopy para cargar los datos locales a su área privada de Azure Blob Storage. Solo tiene que cambiar la ubicación de **origen**, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, en el comando de AzCopy del archivo de scripts de PowerShell por un directorio local que contiene los datos.
 
@@ -334,7 +334,7 @@ Este script de Powershell también conecta la información de Almacenamiento de 
 
 Después de una ejecución correcta, verá una pantalla similar a la siguiente:
 
-![][20]
+![Salida de una ejecución correcta del script][20]
 
 ## <a name="dbexplore"></a>Exploración de datos y diseño de características en Azure SQL Data Warehouse
 En esta sección, realizamos la generación de características y la exploración de datos mediante la ejecución de consultas SQL en Almacenamiento de datos SQL de Azure directamente mediante **Visual Studio Data Tools**. Todas las consultas SQL que se usan en esta sección se pueden encontrar en el script de ejemplo llamado *SQLDW_Explorations.sql*. Este archivo ya lo ha descargado en el directorio local el script de PowerShell. También puede recuperarlo desde [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql). Pero el archivo de GitHub no tiene la información de Azure SQL DW conectada.
@@ -365,7 +365,7 @@ Estas consultas proporcionan una comprobación rápida del número de filas y co
 
 **Salida:** debe obtener 173 179 759 filas y 14 columnas.
 
-### <a name="exploration-trip-distribution-by-medallion"></a>Exploración: distribución de carreras por licencia
+### <a name="exploration-trip-distribution-by-medallion"></a>Exploración: distribución de carreras por placa
 Esta consulta de ejemplo identifica las licencias (números de taxi) que han completado más de 100 carreras dentro de un período de tiempo especificado. La consulta se beneficiaría del acceso de la tabla con particiones, ya que está condicionada por el esquema de partición de **pickup\_datetime**. La consulta el conjunto de datos completo también hará uso de la tabla con particiones o del recorrido de índice.
 
     SELECT medallion, COUNT(*)
@@ -387,7 +387,7 @@ Este ejemplo identifica las licencias (números de taxi) y los números de hack_
 
 **Salida:** la consulta debe devolver una tabla con 13 369 filas en las que se especifiquen los 13 369 identificadores de vehículo/conductor que han realizado más de 100 carreras en 2013. La última columna contiene el recuento del número de carreras realizadas.
 
-### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Evaluación de la calidad de los datos: comprobar los registros con longitud o latitud incorrectas
+### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Evaluación de la calidad de los datos: compruebe los registros con longitud o latitud incorrectas
 En este ejemplo se investiga si alguno de los campos de longitud y latitud contiene un valor no válido (los grados radianes deben encontrarse entre -90 y 90) o tienen coordenadas (0, 0).
 
     SELECT COUNT(*) FROM <schemaname>.<nyctaxi_trip>
@@ -410,9 +410,9 @@ Este ejemplo busca el número de carreras en las que se han dado propinas frente
       WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tipped
 
-**Salida** : la consulta debe devolver las siguientes frecuencias de propinas para el año 2013: 90 447 622 con propina y 82 264 709 sin propina.
+**Salida:** La consulta debe devolver las siguientes frecuencias de propinas para el año 2013: 90 447 622 con propina y 82 264 709 sin propina.
 
-### <a name="exploration-tip-classrange-distribution"></a>Exploración: distribución por intervalos y clases de propinas
+### <a name="exploration-tip-classrange-distribution"></a>Exploración: Distribución por intervalos y clases de propinas
 Este ejemplo calcula la distribución de los intervalos de propinas de un período de tiempo determinado (o en el conjunto de datos completo si abarca todo el año). Esta es la distribución de las clases de etiquetas que se usarán posteriormente para el modelado de clasificación multiclase.
 
     SELECT tip_class, COUNT(*) AS tip_freq FROM (
@@ -571,16 +571,16 @@ Si ya ha configurado un área de trabajo de Aprendizaje automático de Azure, pu
 
 1. Inicie sesión en el área de trabajo de Aprendizaje automático de Azure, haga clic en "Estudio" en la parte superior y después en "CUADERNOS" en el lado izquierdo de la página web.
    
-    ![Diagrama 22][22]
+    ![Haga clic en Studio, a continuación, en CUADERNOS.][22]
 2. Haga clic en "NUEVO" en la esquina inferior izquierda de la página web y seleccione "Python 2". A continuación, proporcione un nombre para el cuaderno y haga clic en la marca de verificación para crear el nuevo cuaderno de IPython Notebook en blanco.
    
-    ![Diagrama 23][23]
+    ![Haga clic en NUEVO y, a continuación, seleccione Python 2.][23]
 3. Haga clic en el símbolo "Jupyter" en la esquina superior izquierda del nuevo cuaderno de IPython Notebook.
    
-    ![Diagrama 24][24]
+    ![Haga clic en el símbolo de Jupyter.][24]
 4. Arrastre y coloque el cuaderno de IPython Notebook de ejemplo en la página **árbol** del servicio IPython Notebook de Azure Machine Learning y haga clic en **Cargar**. A continuación, se cargará el cuaderno de IPython Notebook de ejemplo en el servicio IPython Notebook de Aprendizaje automático de Azure.
    
-    ![Diagrama 25][25]
+    ![Haga clic en Cargar][25]
 
 Para ejecutar el cuaderno de IPython Notebook de ejemplo o el archivo de script de Python, son necesarios los siguientes paquetes Python. Si usa el servicio IPython Notebook de Aprendizaje automático de Azure, estos paquetes ya están preinstalados.
 
@@ -679,14 +679,14 @@ Ya puede explorar los datos de muestreo. Comenzamos echando un vistazo a algunas
 
     df1['trip_distance'].describe()
 
-### <a name="visualization-box-plot-example"></a>Visualización: ejemplo de diagrama de caja
+### <a name="visualization-box-plot-example"></a>Visualización: Ejemplo de diagrama de caja
 A continuación, observaremos el diagrama de caja de la distancia de la carrera para ver los cuantiles.
 
     df1.boxplot(column='trip_distance',return_type='dict')
 
-![Diagrama 1][1]
+![Salida del diagrama de caja][1]
 
-### <a name="visualization-distribution-plot-example"></a>Visualización: ejemplo de diagrama de distribución
+### <a name="visualization-distribution-plot-example"></a>Visualización: Ejemplo de diagrama de distribución
 Diagramas que visualizan la distribución y un histograma de las distancias de las carreras muestreadas.
 
     fig = plt.figure()
@@ -695,9 +695,9 @@ Diagramas que visualizan la distribución y un histograma de las distancias de l
     df1['trip_distance'].plot(ax=ax1,kind='kde', style='b-')
     df1['trip_distance'].hist(ax=ax2, bins=100, color='k')
 
-![Diagrama 2][2]
+![Salida del diagrama de distribución][2]
 
-### <a name="visualization-bar-and-line-plots"></a>Visualización: diagramas de barras y líneas
+### <a name="visualization-bar-and-line-plots"></a>Visualización: Diagramas de barras y líneas
 En este ejemplo, se discretiza la distancia de la carrera en cinco discretizaciones y se visualizan los resultados de la discretización.
 
     trip_dist_bins = [0, 1, 2, 4, 10, 1000]
@@ -709,26 +709,26 @@ Podemos trazar la distribución de discretización anterior en un gráfico de ba
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='bar')
 
-![Diagrama 3][3]
+![Salida del diagrama de barras][3]
 
 y
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
 
-![Diagrama 4][4]
+![Salida del diagrama de líneas][4]
 
-### <a name="visualization-scatterplot-examples"></a>Visualización: ejemplos de gráfico de dispersión
+### <a name="visualization-scatterplot-examples"></a>Visualización: Ejemplo de gráfico de dispersión
 Se muestra el gráfico de dispersión entre **trip\_time\_in\_secs** y **trip\_distance** para ver si existe algún tipo de correlación
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
 
-![Diagrama 6][6]
+![Salida del gráfico de dispersión de la relación entre el tiempo y la distancia][6]
 
 También podemos comprobar la relación entre **rate\_code** y **trip\_distance**.
 
     plt.scatter(df1['passenger_count'], df1['trip_distance'])
 
-![Diagrama 8][8]
+![Salida del gráfico de dispersión de la relación entre el código y la distancia][8]
 
 ### <a name="data-exploration-on-sampled-data-using-sql-queries-in-ipython-notebook"></a>Exploración de datos en datos de muestreo mediante consultas SQL en IPython Notebook
 En esta sección, se explorarán las distribuciones de datos con los datos de muestreo que se conservan en la nueva tabla que se creó anteriormente. Tenga en cuenta que se pueden realizar exploraciones similares con las tablas originales.
@@ -749,7 +749,7 @@ En esta sección, se explorarán las distribuciones de datos con los datos de mu
 
     pd.read_sql(query, conn)
 
-#### <a name="exploration-tip-class-distribution"></a>Exploración: distribución de clases de propinas
+#### <a name="exploration-tip-class-distribution"></a>Exploración: distribución de la clase de prueba
     query = '''
         SELECT tip_class, count(*) AS tip_freq
         FROM <schemaname>.<nyctaxi_sample>
@@ -772,7 +772,7 @@ En esta sección, se explorarán las distribuciones de datos con los datos de mu
 
     pd.read_sql(query,conn)
 
-#### <a name="exploration-trip-distribution-per-medallion"></a>Exploración: distribución de carreras por licencia
+#### <a name="exploration-trip-distribution-per-medallion"></a>Exploración: distribución de carreras por placa
     query = '''
         SELECT medallion,count(*) AS c
         FROM <schemaname>.<nyctaxi_sample>
@@ -781,7 +781,7 @@ En esta sección, se explorarán las distribuciones de datos con los datos de mu
 
     pd.read_sql(query,conn)
 
-#### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Exploración: distribución de carreras por placa y número de licencia
+#### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Exploración: distribución de carreras por medallion y hack_license
     query = '''select medallion, hack_license,count(*) from <schemaname>.<nyctaxi_sample> group by medallion, hack_license'''
     pd.read_sql(query,conn)
 
@@ -805,9 +805,9 @@ En esta sección, se explorarán las distribuciones de datos con los datos de mu
 ## <a name="mlmodel"></a>Creación de modelos en Azure Machine Learning
 Ya está todo listo para pasar a la creación del modelo y la implementación del mismo en [Azure Machine Learning](https://studio.azureml.net). Los datos están listos para usarse en cualquiera de los problemas de predicción identificados anteriormente, a saber:
 
-1. **Clasificación binaria**: para predecir si se dio propina en una carrera o no.
-2. **Clasificación multiclase**: para predecir el intervalo de la propina dada, según las clases definidas anteriormente.
-3. **Tarea de regresión**: para predecir la cantidad de propina pagada en una carrera.  
+1. **Clasificación binaria**: permite predecir si se dio propina en una carrera o no.
+2. **Clasificación multiclase**: permite predecir el rango de la propina dada, según las clases definidas anteriormente.
+3. **Tarea de regresión**: permite predecir el importe de la propina pagada por una carrera.  
 
 Para iniciar el ejercicio de modelado, inicie sesión en el área de trabajo de **Azure Machine Learning** . Si aún no ha creado un área de trabajo de aprendizaje automático, consulte [Creación de un área de trabajo de Aprendizaje automático de Azure](../studio/create-workspace.md).
 

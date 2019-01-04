@@ -9,17 +9,16 @@ ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/09/2017
 ms.reviewer: yossiy
 ms.author: mbullwin
-ms.openlocfilehash: 8394584b2b4f8cbc47a6fdaadd754e8649c3f794
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0895d31475de5d78c82f3bfedc0765e5a9549339
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960929"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877605"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Detección inteligente: anomalías de error
 [Application Insights](app-insights-overview.md) le notifica automáticamente casi en tiempo real si la aplicación web sufre un aumento anómalo en la frecuencia de solicitudes erróneas. Asimismo, detecta un aumento inusual de la tasa de solicitudes HTTP o llamadas de dependencia notificadas como errores. En el caso de las solicitudes, las solicitudes con error suelen ser aquellas con códigos de respuesta de 400 o superiores. Para ayudarle a evaluar las prioridades y a diagnosticar el problema, en la notificación se proporciona un análisis de las características de los errores y la telemetría relacionada. También hay vínculos en el portal de Application Insights para obtener un diagnóstico más amplio. La característica no necesita ninguna instalación o configuración, ya que usa algoritmos de aprendizaje automático para predecir la tasa normal de errores.
@@ -92,7 +91,7 @@ Hay algunas otras pistas. Por ejemplo, la tasa de error de dependencia en este e
 
 Pero si necesita investigar más, los vínculos de cada sección le llevarán directamente a una [página de búsqueda](app-insights-diagnostic-search.md) filtrada por las solicitudes, la excepción, la dependencia o el seguimiento correspondientes. O puede abrir el [Portal de Azure](https://portal.azure.com), navegar hasta el recurso de Application Insights de su aplicación y abrir la hoja Errores.
 
-En este ejemplo, si hace clic en el vínculo "Ver los detalles de los errores de dependencia", se abre la hoja de búsqueda de Application Insights. Muestra la instrucción SQL que incluye un ejemplo de la causa principal: se proporcionaron valores nulos en los campos obligatorios y no se superó la validación durante la operación de guardado.
+En este ejemplo, si hace clic en el vínculo "Ver los detalles de los errores de dependencia", se abre la hoja de búsqueda de Application Insights. Muestra la instrucción SQL que incluye un ejemplo de la causa raíz: Los valores NULL se proporcionaron en los campos obligatorios y no superó la validación durante la operación de guardado.
 
 ![Búsqueda de diagnóstico](./media/app-insights-proactive-failure-diagnostics/051.png)
 
@@ -124,11 +123,11 @@ La detección inteligente de anomalías de errores complementa otras caracterís
 
 *¿Entonces están mirando mis datos?*
 
-* No. El servicio es completamente automático. Solo obtendrá las notificaciones. Los datos son [privados](app-insights-data-retention-privacy.md).
+*  No. El servicio es completamente automático. Solo obtendrá las notificaciones. Los datos son [privados](app-insights-data-retention-privacy.md).
 
 *¿Es necesario suscribirse a esta alerta?*
 
-* No. Cada aplicación que envía telemetría de solicitud tiene la regla de alerta de detección inteligente.
+*  No. Cada aplicación que envía telemetría de solicitud tiene la regla de alerta de detección inteligente.
 
 *¿Puedo cancelar la suscripción u hacer que mis colegas reciban las notificaciones?*
 
@@ -147,7 +146,7 @@ Estas herramientas de diagnóstico lo ayudarán a inspeccionar los datos de tele
 
 * [Explorador de métricas](app-insights-metrics-explorer.md)
 * [Explorador de búsqueda](app-insights-diagnostic-search.md)
-* [Analytics: Lenguaje de consulta eficaz](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Analytics: Lenguaje de consulta eficaz](../azure-monitor/log-query/get-started-portal.md)
 
 Las detecciones inteligentes son completamente automáticas. Pero ¿quizás le gustaría configurar algunas alertas más?
 

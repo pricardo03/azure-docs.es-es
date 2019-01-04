@@ -4,9 +4,8 @@ description: Sintaxis del lenguaje de especificación de redes neuronales de Net
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: cfd1454b-47df-4745-b064-ce5f9b3be303
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: 3aa364e92dd7ce3742d28ac2b36d9a7f16cbebbf
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: fb6efad1f1c06349adb877516f5323d8b9ee45e8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315314"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272242"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guía sobre el lenguaje de especificación de redes neuronales de Net# para Azure Machine Learning Studio
 
@@ -29,7 +28,7 @@ Net# es un lenguaje desarrollado por Microsoft que se utiliza para definir las a
 
 Puede usar una especificación de arquitectura de Net # en estos contextos:
 
-+ Todos los módulos de red neuronal en Microsoft Azure Machine Learning Studio: [red neuronal multiclase](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [red neuronal de dos clases](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network) y [regresión de red neuronal](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression).
++ Puede usar todos los módulos de red neuronal de Microsoft Azure Machine Learning Studio: [Red neuronal multiclase](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [Red neuronal de dos clases](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network) y [Regresión de red neuronal](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
 + Funciones de red neuronal en MicrosoftML: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) y [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet) para el lenguaje R, y [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) para Python.
 
 
@@ -39,7 +38,7 @@ En este artículo se describen los conceptos básicos y la sintaxis necesaria pa
 + Sintaxis y palabras clave del lenguaje de especificación Net#
 + Ejemplos de redes neuronales personalizadas creadas mediante Net# 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="neural-network-basics"></a>Conceptos básicos sobre redes neuronales
 
@@ -114,7 +113,7 @@ output Result[2] from Hidden all;
 ```
 
 + El producto de las dimensiones es el número de nodos de la capa. En este ejemplo, hay dos dimensiones [5,20], lo que significa que hay 100 nodos en la capa.
-+ Las capas se pueden declarar en cualquier orden con una excepción: si se define más de una capa de entrada, el orden en que se declaran debe coincidir con el orden de las característica en los datos de entrada.
++ Las capas se pueden declarar en cualquier orden, con una excepción: si se define más de una capa de entrada, el orden en que se declaran debe coincidir con el orden de las característica en los datos de entrada.
 
 Para especificar que el número de nodos de una capa se debe determinar de forma automática, utilice la palabra clave `auto`. La palabra clave `auto` tiene diferentes efectos, dependiendo de la capa:
 
@@ -375,7 +374,7 @@ Solo puede utilizar la forma abreviada cuando las capas contienen una única agr
 
 En esta sección se ofrecen ejemplos acerca del modo de utilizar Net# para agregar capas ocultas, definir el modo en que las capas ocultas interactúan con otras capas y crear redes convolucionales.
 
-### <a name="define-a-simple-custom-neural-network-hello-world-example"></a>Definición de una red neuronal sencilla personalizada: ejemplo "Hello World"
+### <a name="define-a-simple-custom-neural-network-hello-world-example"></a>Definición de una red neuronal sencilla personalizada: ejemplo "Hola mundo"
 
 Este sencillo ejemplo demuestra cómo crear un modelo de red neuronal que tenga una única capa oculta.
 

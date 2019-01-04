@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: b799a3947770b44752b599dbb2c47cbf1cfbcda2
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7657ac2e2d5a169607c73b8934328ce41ecea78e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959067"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141941"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Mover aplicaciones de AD FS a Azure AD 
 
@@ -82,7 +82,7 @@ Las aplicaciones federadas incluyen aplicaciones que se dividen en estas categor
 
 ### <a name="non-federated-apps"></a>Aplicaciones no federadas
 Es posible integrar aplicaciones no federadas con Azure AD mediante Azure AD Application Proxy y las funcionalidades relacionadas. Las aplicaciones no federadas incluyen:
-- Aplicaciones que usan Windows Integrated Authentication directamente con Active Directory. Estas aplicaciones se pueden integrar con Azure AD mediante [Azure AD Application Proxy](application-proxy-publish-azure-portal.md).
+- Aplicaciones que usan Windows Integrated Authentication directamente con Active Directory. Estas aplicaciones se pueden integrar con Azure AD mediante [Azure AD Application Proxy](application-proxy-add-on-premises-application.md).
 - Aplicaciones que se integran con el proveedor de inicio de sesión único mediante un agente y que usan encabezados para la autorización. Las aplicaciones locales que usan un agente instalado para el inicio de sesión y la autorización basada en encabezados se pueden configurar para el inicio de sesión basado en Azure AD mediante Azure AD Application Proxy con [Ping Access for Azure AD](https://blogs.technet.microsoft.com/enterprisemobility/2017/06/15/ping-access-for-azure-ad-is-now-generally-available-ga/).
 
 ## <a name="translating-on-premises-federated-apps-to-azure-ad"></a>Conversión de aplicaciones federadas locales a Azure AD 
@@ -92,8 +92,8 @@ Las tablas siguientes asignan las ideas principales que comparten las aplicacion
 
 ### <a name="representing-the-app-in-azure-ad-or-ad-fs"></a>Representación de la aplicación en Azure AD o AD FS
 La migración comienza con la evaluación de cómo está configurada la aplicación en el entorno local y la asignación de esa configuración a Azure AD. La tabla siguiente es una asignación de los elementos de configuración de usuario de confianza de AD FS a los elementos de Azure AD correspondientes.  
-- Término de AD FS: usuario de confianza o relación de confianza de usuario autenticado.
-- Términos de Azure AD: aplicación empresarial o registro de aplicación (en función del tipo de aplicación).
+- Término de AD FS: Usuario de confianza o relación de confianza de usuario autenticado.
+- Términos de Azure AD: Aplicación empresarial o registro de aplicación (en función del tipo de aplicación).
 
 |Elemento de configuración de aplicación|DESCRIPCIÓN|Ubicación en la configuración de AD FS|Ubicación correspondiente en la configuración de Azure AD|Elemento de token de SAML|
 |-----|-----|-----|-----|-----|
@@ -203,7 +203,7 @@ Para asignar los usuarios en el portal de Azure AD, vaya a la página de la apli
 
 ![Panel "Agregar asignación"](media/migrate-adfs-apps-to-azure/migrate7.png)
 
-Para comprobar el acceso, los usuarios deben ver la aplicación SaaS en su [panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md) cuando inician sesión. Pueden encontrar el panel de acceso en http://myapps.microsoft.com. En este ejemplo, se ha asignado acceso correctamente a un usuario en Salesforce y ServiceNow.
+Para comprobar el acceso, los usuarios deben ver la aplicación SaaS en su [panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md) cuando inician sesión. Pueden encontrar el panel de acceso en https://myapps.microsoft.com. En este ejemplo, se ha asignado acceso correctamente a un usuario en Salesforce y ServiceNow.
 
 ![Ejemplo de panel de acceso con las aplicaciones Salesforce y ServiceNow](media/migrate-adfs-apps-to-azure/migrate8.png)
 
@@ -214,15 +214,15 @@ El proceso de traslado de federación local a Azure AD depende de si la aplicaci
     
    R: Las aplicaciones SaaS que admiten varios IdP le permiten proporcionar toda la información sobre el nuevo IdP (en nuestro caso, Azure AD) antes de confirmar el cambio de la experiencia de inicio de sesión. Después de realizar la configuración, puede cambiar la configuración de autenticación de la aplicación para que apunte a Azure AD.
 
-   **P: ¿por qué es importante que la aplicación SaaS admita varios IdP?**
+   **P: ¿Por qué es importante que la aplicación SaaS admita varios IdP?**
 
-   R: Si no se admiten varios IdP, el administrador tiene que se reservar un breve período de tiempo como una interrupción del servicio o de mantenimiento durante el cual puede configurar Azure AD como el nuevo IdP de una aplicación. Durante esta interrupción, se debe notificar a los usuarios que no podrán iniciar sesión con sus cuentas.
+   R: Si no se admiten varios IdP, el administrador tiene que reservar un breve período de tiempo como interrupción del servicio o de mantenimiento durante el cual puede configurar Azure AD como el nuevo IdP de una aplicación. Durante esta interrupción, se debe notificar a los usuarios que no podrán iniciar sesión con sus cuentas.
 
    Si una aplicación admite varios IdP, el IdP adicional se puede configurar de antemano. El administrador, a continuación, puede cambiar el IdP a Azure.
 
    Si la aplicación admite varios IdP y elige varios IdP para controlar la autenticación de inicio de sesión al mismo tiempo, el usuario puede elegir el IdP para autenticarse en su página de inicio de sesión.
 
-#### <a name="example-support-for-multiple-idps"></a>Ejemplo: compatibilidad con varios IdP
+#### <a name="example-support-for-multiple-idps"></a>Ejemplo: Compatibilidad con varios IdP
 Por ejemplo, en Salesforce, puede encontrar la configuración del IdP en **Configuración** > **Configuración de la empresa** > **Mi dominio** >  **Configuración de autenticación**.
 
 ![Sección "Configuración de autenticación" en la aplicación Salesforce](media/migrate-adfs-apps-to-azure/migrate9.png)
@@ -231,7 +231,7 @@ Debido a la configuración creada anteriormente en **Identidad** > **Configuraci
 
 ![Selección de Azure AD como el servicio de autenticación](media/migrate-adfs-apps-to-azure/migrate10.png)
 
-### <a name="optional-configure-user-provisioning-in-azure-ad"></a>Opcional: configuración del aprovisionamiento de usuarios en Azure AD
+### <a name="optional-configure-user-provisioning-in-azure-ad"></a>Opcional: Configuración del aprovisionamiento de usuarios en Azure AD
 Si desea que Azure AD controle directamente el aprovisionamiento de usuarios para una aplicación SaaS, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](user-provisioning.md).
 
 ## <a name="next-steps"></a>Pasos siguientes

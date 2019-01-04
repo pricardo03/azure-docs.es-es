@@ -1,5 +1,5 @@
 ---
-title: Fase de modelado del ciclo de vida del Proceso de ciencia de datos en equipo| Microsoft Docs
+title: Fase de modelado del ciclo de vida del proceso de ciencia de datos en equipos
 description: Los objetivos, las tareas y los resultados de la fase de modelado de los proyectos de ciencia de datos.
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b486083e4dc76f6d9ebc5e24e7d52b5ef3b99f3a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: dac686878ff128e3d556c0dbd7e9a2d51ac1756d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442420"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139965"
 ---
-# <a name="modeling"></a>Modelado
+# <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Fase de modelado del ciclo de vida del proceso de ciencia de datos en equipos
 
 En este artículo se describen los objetivos, las tareas y los resultados asociados a la fase de modelado del Proceso de ciencia de datos en equipo (TDSP). Este proceso proporciona un ciclo de vida recomendado que puede usar para estructurar los proyectos de ciencia de datos. El ciclo de vida describe las fases principales por las que pasan normalmente los proyectos, a menudo de forma iterativa:
 
@@ -41,7 +41,7 @@ Esta es una representación visual del ciclo de vida de TDSP:
 ## <a name="how-to-do-it"></a>Modo de hacerlo
 En esta fase se abordan tres tareas principales:
 
-  * **Diseño de características**: cree las características de datos a partir de los datos sin procesar para facilitar el entrenamiento del modelo.
+  * **Diseño de características**: cree características de datos a partir de los datos sin procesar para facilitar el entrenamiento del modelo.
   * **Entrenamiento del modelo**: busque el modelo que responda a la pregunta con la máxima precisión comparando sus métricas de éxito.
   * Determine si el modelo es **adecuado para su uso en producción**.
 
@@ -63,7 +63,7 @@ El proceso de entrenamiento del modelo incluye los pasos siguientes:
    * **Determinar la "mejor" solución** para responder a la pregunta mediante la comparación de las métricas de éxito entre los métodos alternativos.
 
 > [!NOTE]
-> **Evitar la pérdida de datos**: puede provocar la pérdida de datos si incluye datos desde fuera del conjunto de datos de aprendizaje que permite que un modelo o algoritmo de aprendizaje automático haga predicciones demasiado buenas para ser realistas. La pérdida de datos es uno de los motivos por los que los científicos de datos se preocupan cuando obtienen resultados predictivos que parecen demasiado buenos para ser ciertos. Estas dependencias pueden ser difíciles de detectar. Para evitar fugas, a menudo es preciso efectuar iteraciones entre la generación del conjunto de datos de análisis, la creación del modelo y la evaluación de la precisión de los resultados. 
+> **Evitar la pérdida de datos**: puede provocar la pérdida de datos si incluye datos ajenos al conjunto de datos de aprendizaje que permiten que un modelo o algoritmo de aprendizaje automático haga predicciones demasiado buenas para ser realistas. La pérdida de datos es uno de los motivos por los que los científicos de datos se preocupan cuando obtienen resultados predictivos que parecen demasiado buenos para ser ciertos. Estas dependencias pueden ser difíciles de detectar. Para evitar fugas, a menudo es preciso efectuar iteraciones entre la generación del conjunto de datos de análisis, la creación del modelo y la evaluación de la precisión de los resultados. 
 > 
 > 
 
@@ -74,7 +74,7 @@ Los artefactos que se producen en esta fase incluyen, entre otros:
 
    * [Conjuntos de características](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#feature-sets): las características desarrolladas para el modelado se describen en la sección de **conjuntos de características** del informe **Definición de datos**. Contiene punteros al código para generar las características y la descripción de cómo se ha generado cada una de ellas.
    * [Informe del modelo](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): para cada modelo que se prueba, se genera un informe estándar basado en una plantilla que proporciona información detallada sobre cada experimento.
-   * **Decisión de punto de comprobación**: evalúe si el modelo funciona lo bastante bien para implementarlo en un sistema de producción. Algunas preguntas clave son:
+   * **Decisión de punto de control**: evalúe si el modelo funciona lo bastante bien como para implementarlo en un sistema de producción. Algunas preguntas clave son:
      * ¿El modelo responde a la pregunta con la confianza suficiente considerando los datos de prueba? 
      * ¿Debe probar algún planteamiento alternativo? ¿Debe recopilar datos adicionales, rediseñar las características o experimentar con otros algoritmos?
 

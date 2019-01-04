@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: c65cc24f9b0083e9c873465008490bf00ea83852
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 70242de62e976b05e2708dfd4991915c854d4bb4
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232383"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995639"
 ---
 # <a name="monitor-logic-apps-with-azure-log-analytics"></a>Supervisión de aplicaciones lógicas con Azure Log Analytics
 
@@ -23,11 +23,11 @@ Para supervisar y obtener información más detallada sobre la depuración de la
 Para activar Azure Log Analytics para las aplicaciones lógicas existentes, siga estos pasos para [activar el registro de diagnóstico y enviar datos de tiempo de ejecución de aplicaciones lógicas a Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 > [!NOTE]
-> En esta página ya se describieron los pasos para realizar estas tareas con Microsoft Operations Management Suite (OMS), que [se retirará en enero de 2019](../log-analytics/log-analytics-oms-portal-transition.md). Reemplace esos pasos por Azure Log Analytics. 
+> En esta página ya se describieron los pasos para realizar estas tareas con Microsoft Operations Management Suite (OMS), que [se retirará en enero de 2019](../azure-monitor/platform/oms-portal-transition.md). Reemplace esos pasos por Azure Log Analytics. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de empezar, necesita un área de trabajo de Log Analytics. Aprenda a [crear un área de trabajo de Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md). 
+Antes de empezar, necesita un área de trabajo de Log Analytics. Aprenda a [crear un área de trabajo de Log Analytics](../azure-monitor/learn/quick-create-workspace.md). 
 
 ## <a name="turn-on-diagnostics-logging-when-creating-logic-apps"></a>Activación del registro de diagnóstico al crear aplicaciones lógicas
 
@@ -116,7 +116,7 @@ Una vez que se ejecuta la aplicación lógica, puede ver el estado y el recuento
 
      Todas las propiedades controladas recién agregadas pueden tardar entre 10 y 15 minutos en aparecer la primera vez. Aprenda a [agregar propiedades controladas a la aplicación lógica](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details).
 
-   * **Reenviar:** se puede volver a enviar una o varias ejecuciones de aplicaciones lógicas que no se pudieron realizar correctamente, de aquellas que sí lo hicieron o de aquellas que aún están en ejecución. Seleccione las casillas de las ejecuciones que desea volver a enviar y elija **Reenviar**. 
+   * **Reenviar**: se puede volver a enviar una o varias ejecuciones de aplicaciones lógicas que no se pudieron realizar correctamente, de aquellas que sí lo hicieron o de aquellas que aún están en ejecución. Seleccione las casillas de las ejecuciones que desea volver a enviar y elija **Reenviar**. 
 
      ![Reenviar ejecuciones de aplicaciones lógicas](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
 

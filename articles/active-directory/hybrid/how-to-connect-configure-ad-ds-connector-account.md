@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: configurar los permisos de cuenta del conector de AD DS | Microsoft Docs'
+title: 'Azure AD Connect: Configuración de los permisos de cuenta del conector de AD DS | Microsoft Docs'
 description: En este documento se detalla la manera de configurar la cuenta del conector de AD DS con el nuevo módulo de PowerShell ADSyncConfig.
 services: active-directory
 author: billmath
@@ -10,14 +10,14 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f57a5a2413103ddcf7484f3b1fc5b4170b7bdc98
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 97352cdc89aabe312bf500901347acaf5238e871
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412867"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437000"
 ---
-# <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: configurar los permisos de cuenta del conector de AD DS 
+# <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurar los permisos de cuenta del conector de AD DS 
 
 Con la compilación 1.1.880.0 (publicada en agosto de 2018), se introdujo un nuevo módulo de PowerShell denominado [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) que incluye una colección de cmdlets que le ayudarán a configurar los permisos correctos de Active Directory para su implementación de Azure AD Connect. 
 
@@ -205,12 +205,12 @@ Este cmdlet establecerá los siguientes permisos:
 Para establecer los permisos de la cuenta del conector de AD DS cuando se usa la escritura diferida de grupos, ejecute lo siguiente: 
 
 ``` powershell
-Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
+Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
 O bien: 
 
 ``` powershell
-Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>]
+Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>]
 ```
  
 Este cmdlet establecerá los siguientes permisos: 
@@ -225,14 +225,14 @@ Este cmdlet establecerá los siguientes permisos:
 Para establecer los permisos de la cuenta del conector de AD DS cuando se usa la implementación híbrida de Exchange, ejecute lo siguiente: 
 
 ``` powershell
-Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
+Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
 
 
 O bien: 
 
 ``` powershell
-Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
+Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
 ```
 
 Este cmdlet establecerá los siguientes permisos:  

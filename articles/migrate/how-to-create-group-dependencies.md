@@ -4,14 +4,14 @@ description: Describe cómo refinar una evaluación mediante la asignación de d
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: d79513569b53d2b8958f44fbfac3839c91caaff8
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 9f01e94eb23083ab25dd2cbd41e8bad1297abb54
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634309"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255268"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Refinación de un grupo con la asignación de dependencias de grupo
 
@@ -25,6 +25,9 @@ En este artículo se describe cómo restringir un grupo mediante la visualizaci�
 ## <a name="prepare-for-dependency-visualization"></a>Preparar la visualización de dependencias
 Azure Migrate aprovecha la solución Service Map en Log Analytics para habilitar la visualización de dependencias de máquinas.
 
+> [!NOTE]
+> La funcionalidad de visualización de dependencias no está disponible en Azure Government.
+
 ### <a name="associate-a-log-analytics-workspace"></a>Asociar un área de trabajo de Log Analytics
 Si quiere aprovechar la visualización de dependencias, necesita asociar un área de trabajo de Log Analytics, actual o nueva, con un proyecto de Azure Migrate. Solo se puede crear o vincular un área de trabajo en la misma suscripción donde se crea el proyecto de migración.
 
@@ -32,8 +35,9 @@ Si quiere aprovechar la visualización de dependencias, necesita asociar un áre
 
     ![Asociar un área de trabajo de Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
 
-- Cuando se crea una nueva área de trabajo, hay que especificar un nombre para el área de trabajo. Después, se crea el área de trabajo en la misma suscripción que el proyecto de migración y en una región en la misma [ubicación geográfica de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que el proyecto de migración.
-- La opción **Usar existente** enumera solo esas áreas de trabajo que se crean en las regiones donde está disponible Service Map. Si tiene un área de trabajo en una región donde Service Map no está disponible, no aparecerá en la lista desplegable.
+- Al asociar un área de trabajo, obtendrá la opción de crear una o de conectar una existente:
+    - Cuando se crea una nueva área de trabajo, hay que especificar un nombre para el área de trabajo. Después, se crea el área de trabajo en una región en la misma [ubicación geográfica de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que el proyecto de migración.
+    - Al asociar un área de trabajo existente, puede elegir entre las disponibles en la misma suscripción del proyecto de migración. Tenga en cuenta que solo se enumeran las áreas de trabajo que se crearon en una región donde [se admita Service Map](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). Para poder asociar un área de trabajo, asegúrese de que tiene acceso de lectura a ella.
 
 > [!NOTE]
 > No se puede cambiar el área de trabajo asociada a un proyecto de migración.
@@ -63,7 +67,6 @@ Para instalar al agente en una máquina Linux, siga estos pasos:
 2. Instale el paquete mediante el argumento --install.
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
-
 
 ### <a name="install-the-dependency-agent"></a>Instalación del agente de dependencia
 1. Para instalar al agente de dependencia en una máquina Windows, haga doble clic en el archivo de instalación y siga los pasos del asistente.

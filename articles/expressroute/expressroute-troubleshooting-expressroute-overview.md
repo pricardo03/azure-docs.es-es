@@ -1,28 +1,22 @@
 ---
-title: 'Comprobación de la conectividad: Guía de solución de problemas de Azure ExpressRoute | Microsoft Docs'
+title: 'Comprobar la conectividad - Guía para la solución de problemas de ExpressRoute: Azure | Microsoft Docs'
 description: Esta página proporciona instrucciones para la solución de problemas y para validar la conectividad de extremo a extremo de un circuito ExpressRoute.
-documentationcenter: na
 services: expressroute
 author: rambk
-manager: tracsman
-editor: ''
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 09/26/2017
-ms.author: cherylmc
-ms.openlocfilehash: 10d4779d05d95822ffd487db1ce8992d199c495f
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.author: rambala
+ms.custom: seodec18
+ms.openlocfilehash: a64aa59b205e8986b80a575c50041f826606e16f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753460"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272820"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Comprobación de la conectividad de ExpressRoute
-ExpressRoute amplía una red local en Microsoft Cloud por medio de una conexión privada que se realiza mediante un proveedor de conectividad, y abarca las siguientes tres zonas de red distintas:
+En este artículo encontrará información útil para comprobar y solucionar problemas de conectividad de ExpressRoute. ExpressRoute amplía una red local en Microsoft Cloud por medio de una conexión privada que se realiza mediante un proveedor de conectividad, y abarca las siguientes tres zonas de red distintas:
 
 -   Red del cliente
 -   Red del proveedor
@@ -47,7 +41,7 @@ Según el modelo de conectividad de ExpressRoute (ubicación compartida de Excha
 2.  CE: enrutadores en el lado del cliente 
 3.  PE (hacia los CE): enrutadores o conmutadores del lado del proveedor orientados hacia los enrutadores del lado del cliente. Se hace referencia como PE-CE en este documento.
 4.  PE (hacia los MSEE): enrutadores o conmutadores del lado del proveedor orientados hacia los MSEE. Se hace referencia como PE-MSEE en este documento.
-5.  MSEEs: enrutadores de Microsoft Enterprise Edge (MSEE) ExpressRoute
+5.  MSEE: enrutadores de Microsoft Enterprise Edge (MSEE) ExpressRoute
 6.  Puerta de enlace de Virtual Network (VNet)
 7.  Dispositivo de proceso de Azure Virtual Network
 
@@ -161,7 +155,7 @@ Una respuesta de ejemplo es:
     Sku                              : Standard
     Status                           : Enabled
 
-Para confirmar si un circuito ExpressRoute está operativo, preste especial atención a los campos siguientes: ServiceProviderProvisioningState : Provisioned Status                           : Enabled
+Para confirmar si un circuito ExpressRoute está operativo, preste especial atención a los campos siguientes: ServiceProviderProvisioningState: Estado aprovisionado                           : habilitado
 
 >[!NOTE]
 >Si el valor de *Status* (Estado) no es Enabled (Habilitado), póngase en contacto con el [soporte técnico de Microsoft][Support]. Si el valor de *ServiceProviderProvisioningState* no es Provisioned (Aprovisionado), póngase en contacto con su proveedor de servicios.

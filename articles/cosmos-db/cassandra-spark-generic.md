@@ -3,19 +3,18 @@ title: Uso de Cassandra API de Azure Cosmos DB desde Spark
 description: Este artículo es la página principal para la integración de Cassandra API de Cosmos DB desde Spark.
 services: cosmos-db
 author: anagha-microsoft
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: 165919fa3d456786e926f754dba378be38c12588
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: cb58ad60501be43ff4da2db29ab3ad3dfee9aad1
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094251"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847140"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Conexión con Cassandra API de Azure Cosmos DB desde Spark
 
@@ -36,7 +35,7 @@ Este artículo es uno de los que se encuentra entre la serie de artículos sobre
   > [!NOTE] 
   > La directiva de reintentos solo puede proteger los trabajos de Spark frente a picos momentáneos. Si no ha configurado suficientes RU necesarias para ejecutar la carga de trabajo, la directiva de reintentos no es aplicable y la clase de directiva de reintentos vuelve a producir la excepción.
 
-* **Detalles de conexión de la cuenta de Azure Cosmos DB:** nombre de la cuenta, punto de conexión de la cuenta y clave de Cassandra API de Azure.
+* **Detalles de conexión de la cuenta de Azure Cosmos DB:** El nombre de cuenta de Azure Cassandra API, el punto de conexión de la cuenta y la clave.
     
 ## <a name="spark-connector-throughput-configuration-parameters"></a>Parámetros de configuración de rendimiento del conector de Spark
 

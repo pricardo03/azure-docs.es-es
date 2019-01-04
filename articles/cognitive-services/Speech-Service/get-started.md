@@ -1,7 +1,7 @@
 ---
-title: Prueba gratuita del servicio Voz
+title: Prueba gratuita de los servicios de Voz
 titleSuffix: Azure Cognitive Services
-description: Descubra cómo puede probar el servicio Voz sin costo alguno.
+description: Comenzar con el servicio Voz es fácil y asequible. Una prueba gratuita de 30 días permite descubrir lo que el servicio puede hacer y decidir si es adecuado para las necesidades de la aplicación.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 4e29f2e77ad2b4e993fbe6a39b90325a0738f538
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 69e2c094e1fca57d0dddc662cc1dae6453897c38
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471397"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079116"
 ---
 # <a name="try-the-speech-service-for-free"></a>Prueba gratuita del servicio Voz
 
@@ -36,7 +37,7 @@ Para registrarse a fin de obtener una evaluación gratuita de 30 días:
 1. Seleccione la pestaña **Speech API**.
 
    ![Pestaña Servicios de voz](media/index/try-speech-api-free-trial1.png)
-   
+
 1. En **Servicios de voz**, seleccione el botón **Obtener clave de API**.
 
    ![Clave de API](media/index/try-speech-api-free-trial2.png)
@@ -122,5 +123,5 @@ Las claves creadas para una región son válidas únicamente en esa región. Si 
 Realice alguno de los inicios rápidos de 10 minutos o visite los ejemplos de SDK:
 
 > [!div class="nextstepaction"]
-> [Guía de inicio rápido: Reconocimiento de voz en C#](quickstart-csharp-dotnet-windows.md)
-> [Ejemplos de Speech SDK](speech-sdk.md#get-the-samples)
+> [Inicio rápido: Reconocimiento de voz en C#](quickstart-csharp-dotnet-windows.md)
+> [Ejemplos del SDK de Voz](speech-sdk.md#get-the-samples)

@@ -7,16 +7,16 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0b206d7b56fc8a65c422a4ce22b2f5585e71c8da
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 20e86220fffe95fc38b5fa15dd5603db4331203f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219432"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315764"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personalización y reimplementación de un microservicio
 
-En este tutorial se explica cómo editar uno de los microservicios en la solución remota, crear una imagen del microservicio, implementar la imagen en el centro de Docker y luego usarla en la solución de supervisión remota. Para introducir este concepto, el tutorial usa un escenario básico donde llamar a una API de microservicio y cambiar el mensaje de estado de "Activo y correcto" a "Las nuevas modificaciones se hacen aquí".
+En este tutorial se explica cómo editar uno de los [microservicios](http://azure.com/microservices) en la solución remota, crear una imagen del microservicio, implementar la imagen en el centro de Docker y luego usarla en la solución de supervisión remota. Para introducir este concepto, el tutorial usa un escenario básico donde llamar a una API de microservicio y cambiar el mensaje de estado de "Activo y correcto" a "Las nuevas modificaciones se hacen aquí".
 
 La solución de supervisión remota usa los microservicios compilados con imágenes de Docker extraídas de un centro de Docker. 
 
@@ -54,25 +54,31 @@ En esta parte, llame a la API de microservicio del administrador de IoT Hub pred
 Ahora cambie el mensaje de estado del microservicio del administrador de IoT Hub a "Las nuevas modificaciones se hacen aquí" y luego recompile la imagen de Docker con este nuevo estado. Si experimenta problemas aquí, vea la sección [Solución de problemas](#Troubleshoot).
 
 1. Asegúrese de que el terminal esté abierto y cambie al directorio en que clonó la solución de supervisión remota. 
-2. Cambie el directorio a "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/WebService/v1/Controllers".
-3. Abra StatusController.cs en el editor de texto o el IDE que le guste. 
-4. Busque el código siguiente:
+1. Cambie el directorio a "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/Services".
+1. Abra StatusService.cs en el editor de texto o el IDE que le guste. 
+1. Busque el código siguiente:
 
     ```csharp
-    return new StatusApiModel(true, "Alive and well");
+    var result = new StatusServiceModel(true, "Alive and well!");
     ```
 
     y cámbielo por el código siguiente y guárdelo.
 
     ```csharp
-    return new StatusApiModel(true, "New Edits Made Here!");
+    var result = new StatusServiceModel(true, "New Edits Made Here!");
     ```
 
 5. Vuelva al terminal, pero ahora cambie al siguiente directorio: "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/scripts/docker".
 6. Para compilar la nueva imagen de Docker, escriba
 
-    ```cmd/sh
+    ```sh
     sh build
+    ```
+    
+    o en Windows:
+    
+    ```
+    ./build.cmd
     ```
 
 7. Para verificar que la nueva imagen se creó correctamente, escriba
@@ -138,7 +144,7 @@ Para terminar, reimplemente una instancia local de la solución de supervisión 
     ```
 
 3. Busque el entorno de Postman descargado y ábralo.
-4. En Postman, escriba la siguiente solicitud en GET: http://localhost:8080/iothubmanager/v1/status. Ahora debería ver "Estado": "Correcto. Las nuevas modificaciones se hacen aquí".
+4. En Postman, escriba la siguiente solicitud en GET: http://localhost:8080/iothubmanager/v1/status. Ahora debería ver "Estado": "Correcto: Las nuevas modificaciones se hacen aquí".
 
 ![Mensaje de Postman Las nuevas modificaciones se hacen aquí](./media/iot-accelerators-microservices-example/new-postman-message.png)
 

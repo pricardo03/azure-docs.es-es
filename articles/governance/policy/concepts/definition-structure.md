@@ -1,23 +1,25 @@
 ---
-title: Estructura de definición de Azure Policy
+title: Detalles de la estructura de definición de directivas
 description: Describe cómo Azure Policy usa la definición de directiva de recursos para establecer convenciones para los recursos de su organización al describir cuándo se aplica la directiva y qué efecto tiene.
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/30/2018
+ms.date: 12/12/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: b5c7d0c6d54272518b19ffec0d8f02ebbcfe55d9
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.custom: seodec18
+ms.openlocfilehash: f1332e1622c34a33dd264a1115a0fd7f37ee8ba7
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283298"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383976"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
-La definición de directiva de recursos que Azure Policy usa le permite establecer convenciones para los recursos de su organización al describir cuándo se aplica la directiva y qué efecto tiene. La definición de convenciones permite controlar los costes y administrar los recursos más fácilmente. Por ejemplo, puede especificar que se permitan solo determinados tipos de máquinas virtuales. O puede obligar a que todos los recursos tengan una etiqueta concreta. Todos los recursos secundarios heredan las directivas. De este modo, si una directiva se aplica a un grupo de recursos, será aplicable a todos los recursos de dicho grupo de recursos.
+Azure Policy usa las definiciones de directivas de recursos para establecer convenciones para los recursos. Cada definición describe la compatibilidad de recursos y el efecto que debe realizarse cuando un recurso no es compatible.
+La definición de convenciones permite controlar los costes y administrar los recursos más fácilmente. Por ejemplo, puede especificar que se permitan solo determinados tipos de máquinas virtuales. O puede obligar a que todos los recursos tengan una etiqueta concreta. Todos los recursos secundarios heredan las directivas. Si una directiva se aplica a un grupo de recursos, será aplicable a todos los recursos de dicho grupo de recursos.
 
 El esquema utilizado por Azure Policy puede encontrarse aquí: [https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json](https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json)
 
@@ -73,9 +75,9 @@ El **modo** determina qué tipos de recurso se evaluarán para una directiva. Lo
 - `all`: evalúe los grupos de recursos y todos los tipos de recurso
 - `indexed`: evalúe solo los tipos de recurso que admitan las etiquetas y la ubicación
 
-Se recomienda que establezca **mode** en `all` en la mayoría de los casos. Todas las definiciones de directivas creadas a través del portal usan el modo `all`. Si usa PowerShell o la CLI de Azure, puede especificar el parámetro **mode** de forma manual. Si la definición de directiva no contiene un valor **mode**, utiliza `all` en Azure PowerShell y `null` en la CLI de Azure, como valor predeterminado, lo que es equivalente a `indexed`, para compatibilidad con versiones anteriores.
+Se recomienda que establezca **mode** en `all` en la mayoría de los casos. Todas las definiciones de directivas creadas a través del portal usan el modo `all`. Si usa PowerShell o la CLI de Azure, puede especificar el parámetro **mode** de forma manual. Si la definición de directiva no incluye un valor de **modo**, el valor predeterminado es `all` en Azure PowerShell y `null` en la CLI de Azure. Un modo `null` es lo mismo que usar `indexed` para la compatibilidad con versiones anteriores.
 
-`indexed` debe usarse al crear directivas que apliquen etiquetas o ubicaciones. Esto no es obligatorio, pero impedirá que los recursos que no son compatibles con etiquetas y ubicaciones aparezcan como no conformes en los resultados de cumplimiento. La única excepción a esto es **grupos de recursos**. Las directivas que intentan aplicar la ubicación o etiquetas en un grupo de recursos deben establecer **mode** en `all` y tener como destino específico el tipo `Microsoft.Resources/subscriptions/resourceGroup`. Para obtener un ejemplo, consulte [Aplicar etiqueta y su valor en grupos de recursos](../samples/enforce-tag-rg.md).
+`indexed` debe usarse al crear directivas que apliquen etiquetas o ubicaciones. Aunque no es obligatorio, impide que los recursos que no son compatibles con etiquetas y ubicaciones aparezcan como no compatibles en los resultados de cumplimiento. La excepción son los **grupos de recursos**. Las directivas que aplican la ubicación o etiquetas en un grupo de recursos deben establecer **mode** en `all` y tener como destino específico el tipo `Microsoft.Resources/subscriptions/resourceGroup`. Para obtener un ejemplo, consulte [Aplicar etiqueta y su valor en grupos de recursos](../samples/enforce-tag-rg.md).
 
 ## <a name="parameters"></a>Parámetros
 
@@ -86,7 +88,8 @@ Los parámetros funcionan del mismo modo al crear las directivas. Con la inclusi
 > La definición de parámetros para una directiva o la definición de la iniciativa solo se pueden configurar durante la creación inicial de la directiva o iniciativa. La definición de parámetros no se puede cambiar más adelante.
 > Así se evita que las asignaciones existentes de la directiva o la iniciativa realizadas indirectamente no sean válidas.
 
-Por ejemplo, podría definir una directiva de una propiedad de recurso para limitar las ubicaciones en las que se pueden implementar los recursos. En este caso, podría declarar los parámetros siguientes en el momento de crear la directiva:
+Por ejemplo, podría definir una directiva para limitar las ubicaciones en las que se pueden implementar los recursos.
+Podría declarar los parámetros siguientes en el momento de crear la directiva:
 
 ```json
 "parameters": {
@@ -123,7 +126,7 @@ En la regla de directiva, se hace referencia a los parámetros con la siguiente 
 
 ## <a name="definition-location"></a>Ubicación de definición
 
-Al crear una iniciativa o directiva, es necesario especificar la ubicación de la definición. La ubicación de la definición debe ser un grupo de administración o una suscripción y determina el ámbito al que se puede asignar la iniciativa o directiva. Los recursos deben ser miembros directos o elementos secundarios dentro de la jerarquía de la ubicación de la definición para que puedan ser destino de asignación.
+Al crear una iniciativa o directiva, es necesario especificar la ubicación de la definición. La ubicación de la definición puede especificarse como un grupo de administración o una suscripción. La ubicación determina el ámbito al que pueden asignarse la directiva o la iniciativa. Los recursos deben ser miembros directos o elementos secundarios dentro de la jerarquía de la ubicación de la definición para que puedan ser destino de asignación.
 
 Si la ubicación de la definición es:
 
@@ -132,7 +135,7 @@ Si la ubicación de la definición es:
 
 ## <a name="display-name-and-description"></a>Nombre para mostrar y descripción
 
-Puede usar los valores **displayName** y **description** para identificar la definición de directiva y proporcionar el contexto para su uso.
+Use los valores **displayName** y **description** para identificar la definición de directiva y proporcionar el contexto para su uso.
 
 ## <a name="policy-rule"></a>Regla de directiva
 
@@ -197,14 +200,14 @@ Una condición evalúa si un **campo** cumple determinados criterios. Estas son 
 - `"notContainsKey": "keyName"`
 - `"exists": "bool"`
 
-Cuando se usan las condiciones **like** y **notLike**, puede incluir un carácter comodín (`*`) en el valor.
+Cuando se usan las condiciones **like** y **notLike**, incluya un carácter comodín (`*`) en el valor.
 El valor no debe contener más de un carácter comodín `*`.
 
-Cuando se usan las condiciones **match** y **notMatch**, proporcione `#` para representar un dígito, `?` para una letra, `.` para que coincidan todos los caracteres y cualquier otro carácter para representar ese carácter en sí. Por ejemplo, consulte [Permitir varios patrones de nombre](../samples/allow-multiple-name-patterns.md).
+Cuando se usan las condiciones **match** y **notMatch**, proporcione `#` para que coincida un dígito, `?` para una letra, `.` para que coincidan todos los caracteres y cualquier otro carácter para que coincida ese carácter en sí. Por ejemplo, consulte [Permitir varios patrones de nombre](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Fields
 
-Para crear condiciones se usan campos. Un campo representa las propiedades de la carga de solicitud de recursos que se usa para describir el estado del recurso.
+Para crear condiciones se usan campos. Un campo coincide con las propiedades de la carga de solicitud de recursos y describe el estado del recurso.
 
 Se admiten los siguientes campos:
 
@@ -214,12 +217,15 @@ Se admiten los siguientes campos:
 - `kind`
 - `type`
 - `location`
+  - Use **global** para los recursos que son independientes de la ubicación. Para obtener un ejemplo, consulte [Ejemplos: ubicaciones permitidas](../samples/allowed-locations.md).
+- `identity.type`
+  - Devuelve el tipo de [identidad administrada](../../../active-directory/managed-identities-azure-resources/overview.md) habilitado en el recurso.
 - `tags`
 - `tags.<tagName>`
   - Donde **\<tagName\>** es el nombre de la etiqueta para validar la condición.
   - Ejemplo: `tags.CostCenter` donde **CostCenter** es el nombre de la etiqueta.
 - `tags[<tagName>]`
-  - Esta sintaxis con corchetes admite nombres de etiqueta que contengan puntos.
+  - Esta sintaxis con corchetes admite nombres de etiqueta que contengan un punto.
   - Donde **\<tagName\>** es el nombre de la etiqueta para validar la condición.
   - Ejemplo: `tags[Acct.CostCenter]` donde **Acct.CostCenter** es el nombre de la etiqueta.
 - alias de propiedad: para obtener una lista, vea [Alias](#aliases).
@@ -247,7 +253,7 @@ En el caso de **append**, debe proporcionar los detalles tal y como se muestra a
 
 El valor puede ser una cadena o un objeto con formato JSON.
 
-Con **AuditIfNotExists** y **DeployIfNotExists**, puede evaluar la existencia de un recurso relacionado y aplicar una regla y un efecto correspondiente si no existe ese recurso. Por ejemplo, puede requerir que un monitor de red se implemente para todas las redes virtuales. Para un ejemplo de auditoría cuando no se implementa una extensión de máquina virtual, consulte el artículo sobre la [auditoría si la extensión no existe](../samples/audit-ext-not-exist.md).
+**AuditIfNotExists** y **DeployIfNotExists** evalúan la existencia de un recurso relacionado y aplican una regla. Si el recurso no coincide con la regla, se implementa el efecto. Por ejemplo, puede requerir que un monitor de red se implemente para todas las redes virtuales. Para obtener más información, vea el ejemplo [Auditar si la extensión no existe](../samples/audit-ext-not-exist.md).
 
 El efecto de **DeployIfNotExists** requiere la propiedad **roleDefinitionId** en la parte **details** de la regla de directivas. Para obtener más información, vea [Remediation - Configure policy definition](../how-to/remediate-resources.md#configure-policy-definition) (Corrección: configurar la definición de directiva).
 
@@ -265,14 +271,14 @@ Para obtener información detallada sobre cada efecto, el orden de evaluación, 
 
 ### <a name="policy-functions"></a>Funciones de directiva
 
-Se encuentra disponible un subconjunto de [funciones de plantilla de Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) para usarlo en una regla de directiva. Actualmente se admiten estas funciones:
+Se encuentran disponibles varias [funciones de plantilla de Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) para usarlas en una regla de directiva. Actualmente se admiten estas funciones:
 
 - [parameters](../../../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
 - [concat](../../../azure-resource-manager/resource-group-template-functions-array.md#concat)
 - [resourceGroup](../../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
 - [suscripción](../../../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
 
-Además, la función `field` está disponible para las reglas de directiva. Esta función se usa principalmente con **AuditIfNotExists** y **DeployIfNotExists** para hacer referencia a los campos del recurso que se va a evaluar. Esto se puede observar en el [ejemplo de DeployIfNotExists](effects.md#deployifnotexists-example).
+Además, la función `field` está disponible para las reglas de directiva. `field` se usa principalmente con **AuditIfNotExists** y **DeployIfNotExists** para hacer referencia a los campos del recurso que se van a evaluar. Este uso se puede observar en el [ejemplo de DeployIfNotExists](effects.md#deployifnotexists-example).
 
 #### <a name="policy-function-examples"></a>Ejemplos de función de directiva
 
@@ -420,7 +426,7 @@ Como una condición se evaluó como false, el efecto de la **denegación** no se
 
 ## <a name="initiatives"></a>Iniciativas
 
-Las iniciativas le permiten agrupan varias definiciones de directivas relacionadas para simplificar las asignaciones y la administración, porque se trabaja con un grupo como un elemento único. Por ejemplo, puede agrupar todas las definiciones de directivas de etiquetado relacionadas en una sola iniciativa. En lugar de asignar individualmente cada directiva, la aplica.
+Las iniciativas le permiten agrupan varias definiciones de directivas relacionadas para simplificar las asignaciones y la administración, porque se trabaja con un grupo como un elemento único. Por ejemplo, puede agrupar las definiciones de directivas de etiquetado relacionadas en una sola iniciativa. En lugar de asignar individualmente cada directiva, la aplica.
 
 En el ejemplo siguiente se muestra cómo crear una iniciativa para controlar dos etiquetas: `costCenter` y `productName`. Usa dos directivas integradas para aplicar el valor de etiqueta predeterminado.
 
@@ -502,5 +508,5 @@ En el ejemplo siguiente se muestra cómo crear una iniciativa para controlar dos
 - Consulte [Descripción de los efectos de directivas](effects.md)
 - Entender cómo se pueden [crear directivas mediante programación](../how-to/programmatically-create.md)
 - Obtenga información sobre cómo [obtener datos de cumplimiento](../how-to/getting-compliance-data.md)
-- Descubrir cómo se pueden [corregir recursos no compatibles](../how-to/remediate-resources.md)
+- Más información acerca de cómo se pueden [corregir recursos no compatibles](../how-to/remediate-resources.md)
 - En [Organización de los recursos con grupos de administración de Azure](../../management-groups/overview.md), obtendrá información sobre lo que es un grupo de administración.

@@ -1,5 +1,6 @@
 ---
-title: Entrenar modelos de TensorFlow con Azure Machine Learning
+title: Entrenamiento de modelos con TensorFlow
+titleSuffix: Azure Machine Learning service
 description: Obtenga información sobre cómo ejecutar el entrenamiento de modelos de TensorFlow distribuidos y de nodo único con el Estimador de TensorFlow
 services: machine-learning
 ms.service: machine-learning
@@ -8,22 +9,23 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 09/24/2018
-ms.openlocfilehash: c761d0ac5d2c52241eadd18b2d8b65e00ccb34ba
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: d15d3ed115009ad1395a85d36e833d85197d4d19
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114998"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094121"
 ---
-# <a name="how-to-train-tensorflow-models"></a>Cómo entrenar modelos de TensorFlow
+# <a name="train-tensorflow-models-with-azure-machine-learning-service"></a>Entrenamiento de modelos de TensorFlow con Azure Machine Learning Service
 
 Para el entrenamiento de red neuronal profunda (DNN) con TensorFlow, Azure Machine Learning proporciona una clase personalizada de `TensorFlow` de `Estimator`. El estimador de `TensorFlow` del SDK de Azure (que no debe confundirse con la clase [`tf.estimator.Estimator`](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator)) le permite enviar fácilmente los trabajos de entrenamiento de TensorFlow de ejecuciones de nodo único y distribuidas en procesos de Azure.
 
 ## <a name="single-node-training"></a>Entrenamiento de nodo único
 El entrenamiento con el estimador de `TensorFlow` es similar a usar el [base`Estimator`](how-to-train-ml-models.md), así que primero debe leer el artículo de instrucciones y comprender los conceptos que presenta.
   
-Para ejecutar un trabajo de TensorFlow, cree una instancia de un objeto `TensorFlow`. Debería haber creado su objeto de [destino de proceso](how-to-set-up-training-targets.md#batch) `compute_target`.
+Para ejecutar un trabajo de TensorFlow, cree una instancia de un objeto `TensorFlow`. Debería haber creado su objeto de [destino de proceso](how-to-set-up-training-targets.md#amlcompute) `compute_target`.
 
 ```Python
 from azureml.train.dnn import TensorFlow
@@ -47,7 +49,7 @@ Parámetro | DESCRIPCIÓN
 --|--
 `source_directory` | Directorio local que contiene todo el código necesario para el trabajo de aprendizaje. Esta carpeta se copia desde el equipo local al proceso remoto
 `script_params` | Diccionario que especifica los argumentos de línea de comandos para el script de aprendizaje `entry_script`, en forma de pares <argumento de línea de comandos, valor>
-`compute_target` | Proceso remoto que ejecutará el script de aprendizaje, en este caso un clúster [Batch AI](how-to-set-up-training-targets.md#batch)
+`compute_target` | El destino de proceso remoto que el script de entrenamiento ejecutará, en este caso, un clúster de Proceso de Azure Machine Learning ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)).
 `entry_script` | Ruta del archivo (relativa al `source_directory`) del script de aprendizaje que se va a ejecutar en el proceso remoto. Este archivo y los archivos adicionales de los que depende deben encontrarse en esta carpeta
 `conda_packages` | Lista de paquetes de Python para instalarse mediante Conda que necesita el script de aprendizaje. En este caso se utiliza el script de entrenamiento `sklearn` para cargar los datos, por lo que debe indicar que se instalará este paquete.  El constructor tiene otro parámetro llamado `pip_packages` que puede usar para todos los paquetes de PIP necesitados
 `use_gpu` | Establezca esta marca en `True` para aprovechar la GPU para el entrenamiento. De manera predeterminada, su valor es `False`.
@@ -170,16 +172,9 @@ run = exp.submit(tf_est)
 ```
 
 ## <a name="examples"></a>Ejemplos
-Para ver un tutorial sobre el aprendizaje de TensorFlow de nodo único, vea:
-* [training/03.train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb)
 
-Para ver un tutorial sobre TensorFlow distribuido con Horovod, vea:
-* [training/04.distributed-tensorflow-with-horovod](https://github.com/Azure/MachineLearningNotebooks/tree/master/training/04.distributed-tensorflow-with-horovod)
-
-Para ver un tutorial sobre TensorFlow distribuido nativo, vea:
-* [training/05.distributed-tensorflow-with-parameter-server](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/05.distributed-tensorflow-with-parameter-server)
-
-Obtenga estos cuadernos:
+Para los cuadernos de aprendizaje profundo distribuido, consulte:
+* [how-to-use-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

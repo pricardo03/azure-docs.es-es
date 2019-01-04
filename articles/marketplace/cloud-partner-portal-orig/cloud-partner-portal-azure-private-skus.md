@@ -1,5 +1,5 @@
 ---
-title: SKU privadas | Microsoft Docs
+title: SKU y planes privados | Microsoft Docs
 description: Cómo usar las SKU privadas para administrar la disponibilidad de la oferta.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 28fe85c6443701d5fb40d4f90dbec9ba445a234d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 519f0354f2a19e106ca1072170721b27357d173e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230247"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849214"
 ---
-<a name="private-skus"></a>SKU privadas
+<a name="private-skus-and-plans"></a>SKU y planes privados
 ============
 
 Las SKU privadas le permiten restringir la disponibilidad de las SKU a clientes específicos. Cuando una SKU se marca como privada, no está disponible en ningún catálogo público, incluidos [Azure Marketplace](https://azuremarketplace.microsoft.com) y [Azure Portal](http://portal.azure.com). En Azure Portal, solo los clientes con acceso a la SKU pueden verla. Además, también se les puede exigir que tengan acceso a las ofertas privadas.
@@ -90,6 +90,11 @@ Contenido del archivo CSV de ejemplo:
             SubscriptionId,7738d703-3135-4e8d-8b81-1e70379abd9d,Private Customer
 
 Al cambiar de la vista de entrada manual a la de carga de CSV o de la entrada de CSV a la entrada manual, no se conserva la lista antigua de identificadores de suscripción con acceso a la SKU. Se muestra una advertencia y solo se sobrescribe la lista al guardar la oferta.
+
+<a name="sync-private-subscriptions"></a>Suscripciones de sincronización privada
+-------------------------
+
+Al agregar suscripciones a una oferta publicada con una SKU o plan privados, no es necesario volver a publicar la oferta para agregar información de la audiencia. Simplemente use un id. de suscripción de Azure (planes y SKU) o el id. de inquilino (solo planes) para agregar la audiencia.
 
 <a name="previewing-private-offers"></a>Obtener una vista previa de las ofertas privadas
 -------------------------

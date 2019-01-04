@@ -4,9 +4,8 @@ description: En este artículo se muestra cómo evaluar el rendimiento de un mod
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 5dc5348a-4488-4536-99eb-ff105be9b160
 ms.service: machine-learning
@@ -16,25 +15,26 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: de013f8deb5e64077aad96bd34d64135f981166d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 501a9834e598fc8b1c11a86ef0ae9db1c19a66a7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311508"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269947"
 ---
-# <a name="how-to-evaluate-model-performance-in-azure-machine-learning"></a>Evaluación del rendimiento de un modelo en Azure Machine Learning
+# <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio"></a>Evaluación del rendimiento de un modelo en Azure Machine Learning Studio
+
 En este artículo se muestra cómo evaluar el rendimiento de un modelo en Azure Machine Learning Studio y se proporciona una breve explicación de las métricas disponibles para esta tarea. Se presentan tres escenarios comunes de aprendizaje supervisado: 
 
 * regresión
 * clasificación binaria 
 * clasificación multiclase
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 La evaluación del rendimiento de un modelo es una de las fases principales en el proceso de ciencia de datos. Indica el nivel de acierto de las puntuaciones (predicciones) de un conjunto de datos mediante un modelo entrenado. 
 
-Azure Machine Learning admite la evaluación de modelos a través de dos de sus módulos principales de aprendizaje automático: [Evaluar modelo][evaluate-model] y [Validar modelo de forma cruzada][cross-validate-model]. Estos módulos permiten ver el rendimiento del modelo como un número de métricas que se usan habitualmente en estadísticas y aprendizaje automático.
+Azure Machine Learning admite la evaluación de modelos a través de dos de sus módulos principales de aprendizaje automático: [Evaluate Model][evaluate-model] (Modelo de evaluación) y [Cross-Validate Model][cross-validate-model] (Modelo de validación cruzada). Estos módulos permiten ver el rendimiento del modelo como un número de métricas que se usan habitualmente en estadísticas y aprendizaje automático.
 
 ## <a name="evaluation-vs-cross-validation"></a>Evaluación frente a Validación cruzada
 La evaluación y la validación cruzada son métodos estándares para medir el rendimiento de un modelo. Ambos generan métricas de evaluación que puede inspeccionar o comparar con las de otros modelos.
@@ -116,7 +116,7 @@ Por ese motivo, es útil calcular métricas adicionales que capturen aspectos m�
 
 Figura 6. Matriz de confusión de la clasificación binaria.
 
-Volviendo al problema de clasificación de ingresos, existen varias preguntas de evaluación que querríamos preguntar para ayudarnos a comprender el rendimiento del clasificador utilizado. Una pregunta muy natural es: "De los individuos que el modelo predijo que ganan >50.000 (TP+FP), cuántos se han clasificado correctamente (TP)?" Puede responder esta pregunta observando la **Precisión** del modelo, que es la proporción de positivos que se han clasificado correctamente: TP/(TP+FP). Otra pregunta común es "De todos los empleados con ingresos >50.000 (TP+FN), ¿cuántos predijo el clasificador correctamente (TP)?". Esto es en realidad la **Recuperación** o la tasa de positivos verdaderos: TP/(TP+FN) del clasificador. Observará que hay una evidente compensación entre la precisión y la recuperación. Por ejemplo, dado un conjunto de datos relativamente equilibrado, un clasificador que prediga principalmente instancias positivas tendría una recuperación alta, pero una precisión más baja, ya que muchas de las instancias negativas se clasificarían incorrectamente y se produciría un número mayor de falsos positivos. Para ver un gráfico de cómo varían estas dos métricas, haga clic en la curva de **PRECISIÓN/RECUPERACIÓN** en la página de salida de resultados de evaluación (parte superior izquierda de la Figura 7).
+Volviendo al problema de clasificación de ingresos, existen varias preguntas de evaluación que querríamos preguntar para ayudarnos a comprender el rendimiento del clasificador utilizado. Una pregunta muy natural es: "De las personas que el modelo predijo que ganan >50 000 (TP+FP), ¿cuántos se han clasificado correctamente (TP)?" Puede responder esta pregunta observando la **precisión** del modelo, que es la proporción de positivos que se han clasificado correctamente: TP/(TP+FP). Otra pregunta común es "De todos los empleados con ingresos >50.000 (TP+FN), ¿cuántos predijo el clasificador correctamente (TP)?". Esto es en realidad la **recuperación** o la tasa de positivos verdaderos: TP/(TP+FN) del clasificador. Observará que hay una evidente compensación entre la precisión y la recuperación. Por ejemplo, dado un conjunto de datos relativamente equilibrado, un clasificador que prediga principalmente instancias positivas tendría una recuperación alta, pero una precisión más baja, ya que muchas de las instancias negativas se clasificarían incorrectamente y se produciría un número mayor de falsos positivos. Para ver un gráfico de cómo varían estas dos métricas, haga clic en la curva de **PRECISIÓN/RECUPERACIÓN** en la página de salida de resultados de evaluación (parte superior izquierda de la Figura 7).
 
 ![Resultados de la evaluación de clasificación binaria](./media/evaluate-model-performance/7.png)
 

@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: cd41fba675a0814e6f2a1b17576add7811a803eb
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: e5d415593a510acb81eac65242010d1841044857
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233487"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162654"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Uso de Virtual Kubelet con Azure Kubernetes Service (AKS)
 
@@ -22,9 +22,9 @@ Azure Container Instances (ACI) proporciona un entorno hospedado para ejecutar c
 Al usar el proveedor de Virtual Kubelet para Azure Container Instances, los contenedores de Linux y Windows se pueden programar en una instancia de contenedor como si fueran un nodo de Kubernetes estándar. Esta configuración le permite aprovechar las funcionalidades de Kubernetes y la ventaja de valor y costo de administración de las instancias de contenedor.
 
 > [!NOTE]
+> AKS ahora tiene compatibilidad integrada para programar los contenedores en ACI, que se conocen como *nodos virtuales*. Actualmente, estos nodos virtuales admiten instancias de contenedor de Linux. Si tiene que programar instancias de contenedor de Windows, puede seguir usando Virtual Kubelet. En caso contrario, debe usar los nodos virtuales en lugar de las instrucciones manuales de Virtual Kubelet que se han indicado en este artículo. Puede empezar a trabajar con los nodos virtuales mediante la [CLI de Azure] [virtual-nodes-cli] o [Azure Portal][virtual-nodes-portal].
+>
 > Virtual Kubelet es un proyecto de código abierto experimental y debe usarse como tal. Para contribuir, registrar problemas y leer más información acerca de Virtual Kubelet, consulte el [proyecto Virtual Kubelet de GitHub][vk-github].
-
-Este documento describe la configuración de Virtual Kubelet para las instancias de contenedor en un AKS.
 
 ## <a name="prerequisite"></a>Requisito previo
 
@@ -90,7 +90,7 @@ Estos argumentos están disponibles para el comando `aks install-connector`.
 | `--connector-name` | Nombre del conector de ACI.| SÍ |
 | `--name``-n` | Nombre del clúster administrado. | SÍ |
 | `--resource-group``-g` | Nombre del grupo de recursos. | SÍ |
-| `--os-type` | Tipo de sistema operativo de Container Instances. Valores permitidos: Both, Linux, Windows. Valor predeterminado: Linux. | Sin  |
+| `--os-type` | Tipo de sistema operativo de Container Instances. Valores permitidos: Ambos, Linux, Windows. Valor predeterminado: Linux. | Sin  |
 | `--aci-resource-group` | Grupo de recursos en el que se crearán los grupos de contenedores de ACI. | Sin  |
 | `--location``-l` | Ubicación donde se crearán los grupos de contenedores de ACI. | Sin  |
 | `--service-principal` | Entidad de servicio utilizada para la autenticación en las API de Azure. | Sin  |
@@ -228,13 +228,15 @@ az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --conn
 
 Para posibles problemas con Virtual Kubelet, consulte [Known quirks and workarounds][vk-troubleshooting] (Peculiaridades conocidas y soluciones alternativas). Para informar de problemas con Virtual Kubelet, [abra un problema de GitHub][vk-issues].
 
-Obtenga más información sobre Virtual Kubelet en el [proyecto Virtual Kubelet de Github][vk-github].
+Obtenga más información sobre Virtual Kubelet en el [proyecto Virtual Kubelet de GitHub][vk-github].
 
 <!-- LINKS - internal -->
 [aks-quick-start]: ./kubernetes-walkthrough.md
 [aks-remove-connector]: /cli/azure/aks#az-aks-remove-connector
 [az-container-list]: /cli/azure/aks#az-aks-list
 [aks-install-connector]: /cli/azure/aks#az-aks-install-connector
+[virtual-nodes-cli]: virtual-nodes-cli.md
+[virtual-nodes-portal]: virtual-nodes-portal.md
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create

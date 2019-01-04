@@ -8,14 +8,14 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1c2294004245e0ef64b9b708a5b57ec0d34cc45f
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 1cef5f8f77a11dad605d9758296c9632f5d30ab8
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321995"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409027"
 ---
-# <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Security and Compliance Blueprint: hospedaje de aplicaciones web de PaaS para cargas de trabajo de la clasificación OFFICIAL (Reino Unido)
+# <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Plano técnico de seguridad y cumplimiento de Azure: Hospedaje de aplicaciones web PaaS para cargas de trabajo de la clasificación OFFICIAL (Reino Unido)
 
 ## <a name="azure-security-and-compliance-blueprints"></a>Planos de seguridad y cumplimiento de Azure
 
@@ -79,7 +79,7 @@ Las siguientes tecnologías proporcionan funcionalidades de administración de i
 
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) es el directorio multiinquilino basado en la nube y el servicio de administración de identidades de Microsoft. Todos los usuarios de la solución se crearon en Azure Active Directory, incluidos los usuarios que acceden a SQL Database.
 - La autenticación para la aplicación web orientada a los operadores y el acceso para la administración de los recursos de Azure se realiza con Azure AD. Para obtener más información, consulte [Integración de aplicaciones con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
-- El cifrado de las columnas de la base de datos usa Azure AD para autenticar la aplicación en Azure SQL Database. Para obtener más información, consulte [Always Encrypted: protección de datos confidenciales en SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
+- El cifrado de las columnas de la base de datos usa Azure AD para autenticar la aplicación en Azure SQL Database. Para obtener más información, consulte [Always Encrypted: Protect sensitive data in SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) (Proteger datos confidenciales en SQL Database).
 - La aplicación web orientada a los ciudadanos está configurada para acceso público. Para permitir la creación de cuentas y la autenticación mediante Active Directory o proveedores de identidades de redes sociales, es posible integrar [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) si es necesario.
 - [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) detecta posibles vulnerabilidades y cuentas en riesgo, proporciona recomendaciones para mejorar la posición de seguridad de las identidades de la organización, configura respuestas automatizadas si surgen acciones sospechosas relacionadas con esas identidades, investiga incidentes sospechosos y toma las medidas oportunas para resolverlos.
 - El [control de acceso basado en rol de Azure (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) permite administrar al detalle el control de acceso de Azure. El acceso a la suscripción está limitado al administrador de la suscripción y el acceso a Azure Key Vault está restringido únicamente a los usuarios que necesitan acceso de administración de claves.
@@ -104,14 +104,14 @@ Los datos en tránsito desde el exterior y entre los componentes de Azure están
 
 Azure Web Apps proporciona un entorno de hospedaje web completamente administrado para aplicaciones web desarrolladas en Java, PHP, Node.js, Python, HTML y C# sin necesidad de administrar la infraestructura. Ofrece escalado automático y alta disponibilidad, es compatible con Windows y Linux y permite implementaciones automatizadas desde [Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/) o cualquier repositorio basado en Git.
 
-App Service es [conforme a las normas ISO, SOC y PCI](https://www.microsoft.com/TrustCenter/) y puede autenticar a los usuarios con [Azure Active Directory](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) o con un inicio de sesión social ([Google](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-google-authentication), [Facebook](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-facebook-authentication), [Twitter](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-twitter-authentication) y la [autenticación de Microsoft](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-microsoft-authentication).
+App Service es [conforme a las normas ISO, SOC y PCI](https://www.microsoft.com/TrustCenter/) y puede autenticar a los usuarios con [Azure Active Directory](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) o con un inicio de sesión social ([Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google), [Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook), [Twitter](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter) y la [autenticación de Microsoft](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft).
 
 Los planes Básico, Estándar y Premium están pensados para cargas de trabajo de producción y se ejecutan en instancias de máquinas virtuales dedicadas. Cada instancia puede admitir varias aplicaciones y dominios. App Service también admite [restricciones de direcciones IP](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) para proteger el tráfico a direcciones IP de confianza si es necesario y también [identidades administradas para los recursos de Azure](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) para una conexión segura a otros servicios de PaaS como [Key Vault](https://azure.microsoft.com/services/key-vault/) y [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Cuando se requiere seguridad adicional, el plan Aislado permite hospedar las aplicaciones en un entorno privado y dedicado de Azure y resulta ideal para aquellas aplicaciones que requieren conexiones seguras con la red local o rendimiento y escalabilidad adicional.
 
 Esta plantilla implementa las siguientes características de App Service:
 
 - Nivel del plan de App Service [Estándar](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview)
-- Varias [ranuras de implementación](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing) de aplicaciones web: desarrollo, versión preliminar, control de calidad, pruebas de aceptación de usuario y, por supuesto, producción (ranura predeterminada).
+- Varias [ranuras de implementación](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing) de aplicación web: desarrollo, versión preliminar, control de calidad, pruebas de aceptación de usuario y, por supuesto, producción (ranura predeterminada).
 - [Identidades administradas para los recursos de Azure](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) para conectarse a [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (también se puede usar para proporcionar acceso a [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)). 
 - Integración con [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps) para supervisar el rendimiento
 - [Registros de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 

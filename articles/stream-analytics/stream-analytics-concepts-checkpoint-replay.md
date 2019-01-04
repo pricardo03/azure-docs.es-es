@@ -2,25 +2,25 @@
 title: Conceptos de punto de control y reproducción para la recuperación de trabajos en Azure Stream Analytics
 description: En este artículo se describen los conceptos de punto de control y reproducción para la recuperación de trabajos en Azure Stream Analytics.
 services: stream-analytics
-author: zhongc
-ms.author: zhongc
-manager: kfile
+author: mamccrea
+ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/12/2018
-ms.openlocfilehash: 32970ff37d202cc73e7ab7aa1bf3d737dae895c1
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 9dcfbd4b5fcc8462c88b16f585424166ecd3d499
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936724"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088262"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Conceptos de punto de control y reproducción en trabajos de Azure Stream Analytics
 En este artículo se describen los conceptos de punto de control y reproducción internos en Azure Stream Analytics y el impacto que tienen en la recuperación de trabajos. Cada vez que se ejecuta un trabajo de Stream Analytics, la información de estado se mantiene internamente. La información de estado se guarda en un punto de control de manera periódica. En algunos escenarios, la información de punto de control se usa para la recuperación del trabajo si se produce algún error o actualización del trabajo. En otros casos, no se puede usar el punto de control para la recuperación y es necesaria la reproducción.
 
-## <a name="stateful-query-logic-in-temporal-elements"></a>Lógica de consulta con estado en elementos temporales
-Una funcionalidad única de un trabajo de Azure Stream Analytics es realizar procesamiento con estado, como funciones de análisis temporal, combinaciones temporales y agregados en ventanas. Cada uno de estos operadores conserva información de estado cuando se ejecuta el trabajo. El tamaño máximo de la ventana para estos elementos de consulta es siete días. 
+## <a name="stateful-query-logicin-temporal-elements"></a>Lógica de consulta con estado en elementos temporales
+Una funcionalidad única de un trabajo de Azure Stream Analytics es realizar procesamiento con estado, como funciones de análisis temporal, combinaciones temporales y agregados en ventanas. Cada uno de estos operadores conserva información de estado cuando se ejecuta el trabajo. El tamaño máximo de la ventana para estos elementos de consulta es siete días. 
 
 El concepto de ventana temporal aparece en varios elementos de consulta de Stream Analytics:
 1. Agregados en ventanas (GROUP BY de ventanas de saltos de tamaño constante, de salto y deslizantes)
@@ -70,6 +70,6 @@ Los datos del punto de control no se pueden usar para el reinicio de un trabajo 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre la confiabilidad y escalabilidad, consulte estos artículos:
-- [Configuración de alertas en Azure Stream Analytics](stream-analytics-set-up-alerts.md)
+- [Tutorial: Configuración de alertas en Azure Stream Analytics](stream-analytics-set-up-alerts.md)
 - [Escalado de un trabajo de Azure Stream Analytics para incrementar el rendimiento](stream-analytics-scale-jobs.md)
 - [Garantía de la confiabilidad del trabajo de Stream Analytics durante las actualizaciones del servicio](stream-analytics-job-reliability.md)

@@ -10,12 +10,12 @@ ms.service: azure-portal
 ms.custom: ''
 manager: dougeby
 ms.author: cwatson
-ms.openlocfilehash: b2bf674dbb253c7ec698b18776d8752ed6a4c1c8
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 8bbba504f95233db7cf65556b57148771962f507
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394087"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308590"
 ---
 # <a name="export-or-delete-settings-in-the-azure-portal"></a>Exportar o eliminar la configuración en Azure Portal
 Puede exportar y eliminar las siguientes opciones en el menú de configuración de Azure Portal:
@@ -29,7 +29,7 @@ Se recomienda encarecidamente que exporte y revise la configuración antes de el
 
 **Exportar o eliminar la configuración del portal**
 
-1. Inicie sesión en el [Azure Portal](http://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En la parte superior derecha del portal, seleccione **Configuración**.
 
     ![Captura de pantalla que muestra el engranaje de configuración del portal](media/azure-portal-export-delete-settings/azure-portal-settings-icon.png)

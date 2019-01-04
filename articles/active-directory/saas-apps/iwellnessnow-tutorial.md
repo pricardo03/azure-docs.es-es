@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: c260b32dc6f659ca4cc1b4c3f59859f75ba999d0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b02a5ec5a68743e148bcfef3c631d7777fd0a067
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447380"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871703"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iwellnessnow"></a>Tutorial: Integración de Azure Active Directory con iWellnessNow
 
@@ -108,7 +108,7 @@ En esta sección se habilita el inicio de sesión único de Azure AD en Azure Po
 
     ![Carga de inicio de sesión único de Dominio y direcciones URL de iWellnessNow](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_upload.png)
 
-    a. Haga clic en **Cargar el archivo de metadatos**.
+     a. Haga clic en **Cargar el archivo de metadatos**.
 
     ![Configuración de carga de inicio de sesión único de Dominio y direcciones URL de iWellnessNow](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_uploadconfig.png)
 
@@ -122,7 +122,7 @@ En esta sección se habilita el inicio de sesión único de Azure AD en Azure Po
 
     ![Información de inicio de sesión único de Dominio y direcciones URL de iWellnessNow](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `http://<CustomerName>.iwellnessnow.com`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `http://<CustomerName>.iwellnessnow.com`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<CustomerName>.iwellnessnow.com/ssologin`.
 
@@ -169,7 +169,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/iwellnessnow-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -179,7 +179,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="create-an-iwellnessnow-test-user"></a>Crear un usuario de prueba de iWellnessNow
 
-En esta sección se crea un usuario de nombre Britta Simon en iWellnessNow. Trabaje con el [equipo de atención al cliente de iWellnessNow](mailto:info@iwellnessnow.com) para agregar los usuarios a la plataforma iWellnessNow. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección se crea un usuario de nombre Britta Simon en iWellnessNow. Trabaje con el  [equipo de atención al cliente de iWellnessNow](mailto:info@iwellnessnow.com) para agregar los usuarios a la plataforma iWellnessNow. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -216,7 +216,7 @@ En esta sección se habilita a Britta Simon para que use el inicio de sesión ú
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de iWellnessNow en el panel de acceso, debería iniciar sesión automáticamente en la aplicación iWellnessNow.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

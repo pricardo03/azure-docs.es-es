@@ -13,17 +13,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: c505feb20321d785a86cad0422470aa5c9a4311b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0b6fae59fbe0fa86cb16b176eb1df47e031d04f1
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259095"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317199"
 ---
-<a id="preparemachines"></a>
-
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planeamiento y preparación de la implementación de un clúster independiente de Service Fabric
-Realice los pasos siguientes antes de crear el clúster.
+
+<a id="preparemachines"></a>Realice los pasos siguientes antes de crear el clúster.
 
 ## <a name="plan-your-cluster-infrastructure"></a>Planear la infraestructura del clúster
 Va a crear un clúster de Service Fabric en máquinas que "posee", por lo que podrá decidir qué tipos de errores desea que resista el clúster. Por ejemplo, ¿necesita separar redes eléctricas o conexiones a Internet que proporcionan estas máquinas? Además, debe tener en cuenta la seguridad física de estas máquinas. ¿Donde se encuentran las máquinas y quién tiene acceso a ellas? Una vez que haya tomado estas decisiones, asigne las máquinas de manera lógica a los distintos dominios de error (consulte el siguiente paso). El planeamiento de la infraestructura para clústeres de producción es más complicado que el de los clústeres de prueba.
@@ -83,10 +82,11 @@ Para crear un clúster independiente, debe crear un archivo ClusterConfig.json d
 Para ver detalles sobre las secciones de este archivo, vea [Opciones de configuración de clústeres de Windows independientes](service-fabric-cluster-manifest.md).
 
 Abra uno de los archivos ClusterConfig.json del paquete descargado y modifique las siguientes opciones:
+
 | **Opciones de configuración.** | **Descripción** |
 | --- | --- |
 | **NodeTypes** |Los tipos de nodo permiten separar los nodos de clúster en grupos distintos. Un clúster debe tener al menos un tipo NodeType. Todos los nodos de un grupo tienen las siguientes características comunes:  <br> **nombre** : es el nombre del tipo de nodo. <br>**Endpoint Ports** : diversos puntos de conexión (puertos) con nombre asociados a este tipo de nodo. Puede usar cualquier número de puerto que desee, siempre que no entren en conflicto con nada de este manifiesto y que no estén siendo usados por otra aplicación que se ejecute en el equipo o en la máquina virtual. <br> **Propiedades de ubicación**: Describen las propiedades de este tipo de nodo que se usan como restricciones de ubicación para los servicios del sistema o para sus servicios. Estas propiedades son pares de clave y valor definidos por el usuario que proporcionan metadatos adicionales para un nodo determinado. Algunos ejemplos de propiedades de nodo son si el nodo tiene una unidad de disco duro o una tarjeta gráfica, el número de ejes de la unidad de disco duro, los núcleos y otras propiedades físicas. <br> **Capacities** : las capacidades del nodo definen el nombre y la cantidad de un recurso concreto que un nodo tiene disponible para consumir. Por ejemplo, un nodo puede definir que tenga capacidad para una métrica llamada "MemoryInMb" y 2048 MB de memoria disponible de forma predeterminada. Estas funcionalidades se usan en tiempo de ejecución para garantizar que los servicios que requieren una cantidad determinada de recursos se coloquen en nodos donde esos recursos estén disponibles en la cantidad necesaria.<br>**IsPrimary** : si hay varias opciones NodeType definidas, asegúrese de establecer solo una como principal con el valor *true*; es donde se ejecutan los servicios del sistema. Todos los demás tipos de nodo se deben establecer en *false* |
-| **Nodos** |Se trata de los detalles de cada uno de los nodos que forman parte del clúster (tipo de nodo, nombre de nodo, dirección IP, dominio de error y dominio de actualización del nodo). Las máquinas en las que desee que se cree el clúster en función de las necesidades se mostrarán aquí con sus direcciones IP. <br> Si usa la misma dirección IP para todos los nodos, se crea un clúster one-box, que puede usar con fines de prueba. No use clústeres one-box para implementar cargas de trabajo de producción. |
+| **Nodos** |Se trata de los detalles de cada uno de los nodos que forman parte del clúster (tipo de nodo, nombre de nodo, dirección IP, dominio de error y dominio de actualización del nodo). Las máquinas en las que desee que se cree el clúster en función de las necesidades se mostrarán aquí con sus direcciones IP. <br>  Si usa la misma dirección IP para todos los nodos, se crea un clúster one-box, que puede usar con fines de prueba. No use clústeres one-box para implementar cargas de trabajo de producción. |
 
 Después de que se han realizado todas las configuraciones del clúster de acuerdo con el entorno, se puede probar en el entorno del clúster (paso 7).
 
@@ -97,20 +97,20 @@ Después de que se han realizado todas las configuraciones del clúster de acuer
 Cuando un administrador de clústeres configura un clúster independiente de Service Fabric, es necesario configurar el entorno con los siguientes criterios: <br>
 1. El usuario que crea el clúster debe tener privilegios de seguridad de nivel de administrador en todas las máquinas que se enumeran como nodos en el archivo de configuración del clúster.
 2. La máquina desde la que se crea el clúster, así como la máquina de cada nodo del clúster debe cumplir estos requisitos:
-* Tener desinstalado el SDK de Service Fabric
-* tener desinstalado el entorno de tiempo de ejecución de Service Fabric 
-* Tener habilitado el servicio Firewall de Windows (mpssvc)
-* Tener habilitado el servicio Remote Registry (registro remoto)
-* Tener habilitado el uso compartido de archivos (SMB)
-* Tener abiertos los puertos necesarios, según los puertos de configuración del clúster
-* Tener abiertos los puertos necesarios para Windows SMB y el servicio Registro remoto: 135, 137, 138, 139 y 445
-* Tener conectividad de red con otra máquina
+   * Tener desinstalado el SDK de Service Fabric
+   * tener desinstalado el entorno de tiempo de ejecución de Service Fabric 
+   * Tener habilitado el servicio Firewall de Windows (mpssvc)
+   * Tener habilitado el servicio Remote Registry (registro remoto)
+   * Tener habilitado el uso compartido de archivos (SMB)
+   * Tener abiertos los puertos necesarios, según los puertos de configuración del clúster
+   * Tener abiertos los puertos necesarios para Windows SMB y el servicio Registro remoto: 135, 137, 138, 139 y 445
+   * Tener conectividad de red con otra máquina
 3. Ninguna de las máquinas de nodo del clúster debe ser un controlador de dominio.
 4. Si el clúster que se va a implementar es un clúster seguro, valide que los requisitos previos de seguridad necesarios estén implementados y que se ajusten a la configuración.
 5. Si las máquinas del clúster no son accesibles desde Internet, establezca lo siguiente en la configuración del clúster:
-* Deshabilite la telemetría: en *Propiedades*, establezca *"enableTelemetry" en false*
-* Deshabilite la descarga de versiones de Fabric y las notificaciones automáticas de que la versión actual del clúster está próxima a finalizar el soporte técnico: en *properties*, establezca *"fabricClusterAutoupgradeEnabled" en false*
-* Como alternativa, en el caso de que el acceso a Internet de red está limitado a los dominios de la lista blanca, tendrán que incluirse los dominios siguientes para la actualización automática: go.microsoft.com y download.microsoft.com.
+   * Deshabilite la telemetría: en *Propiedades*, establezca *"enableTelemetry" en false*
+   * Deshabilite la descarga de versiones automáticas de Fabric y las notificaciones de que la versión actual del clúster está próxima a finalizar el soporte técnico: en *Propiedades*, establezca *"fabricClusterAutoupgradeEnabled" en true*.
+   * Como alternativa, en el caso de que el acceso a Internet de red está limitado a los dominios de la lista blanca, tendrán que incluirse los dominios siguientes para la actualización automática: go.microsoft.com y download.microsoft.com.
 
 6. Establezca las exclusiones adecuadas del antivirus de Service Fabric:
 

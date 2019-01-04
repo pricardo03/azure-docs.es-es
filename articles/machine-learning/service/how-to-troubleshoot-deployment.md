@@ -1,6 +1,7 @@
 ---
-title: Guía de solución de problemas de implementación del servicio de Azure Machine Learning
-description: Obtenga información sobre cómo abordar, solucionar y resolver los errores comunes de implementación de Docker con el servicio de Azure Machine Learning.
+title: Guía de solución de problemas de implementación
+titleSuffix: Azure Machine Learning service
+description: Obtenga información sobre cómo abordar, solucionar y resolver los errores comunes de implementación de Docker con AKS y ACI con la instancia de Azure Machine Learning Service
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,17 +9,18 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: jmartens
-ms.date: 10/01/2018
-ms.openlocfilehash: a10b05e95fa719b80775191e48bd4117e3a785fd
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 6bd3bc86aa828ab28462de9d45f660889634cbd7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321689"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100521"
 ---
-# <a name="troubleshooting-azure-machine-learning-service-deployments"></a>Solución de problemas de implementaciones del servicio Azure Machine Learning
+# <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Solución de problemas de implementaciones de AKS y ACI de Azure Machine Learning Service
 
-En este artículo, aprenderá cómo abordar, solucionar y resolver los errores comunes de implementación de Docker con el servicio de Azure Machine Learning.
+En este artículo, aprenderá cómo abordar, solucionar y resolver los errores comunes de implementación de Docker con Azure Container Instances (ACI) y Azure Kubernetes Service (AKS) con Azure Machine Learning Service.
 
 Al implementar un modelo en el servicio de Azure Machine Learning, el sistema realiza una serie de tareas. Se trata de una secuencia de eventos compleja y, a veces, surgen problemas. Las tareas de implementación son:
 
@@ -117,7 +119,7 @@ print(ws.webservices()['mysvc'].get_logs())
 ```
 
 ### <a name="debug-the-docker-image-locally"></a>Depuración local de la imagen de Docker
-En ocasiones, el registro de Docker no emite información suficiente sobre la causa del error. Puede ir un paso más allá y extraer la imagen de Docker compilada, iniciar un contenedor local y depurar directamente dentro del contenedor en vivo de manera interactiva. Para iniciar un contenedor local, debe tener un motor de Docker que se ejecute localmente, y sería mucho más fácil si también tiene [azure-cli](/cli/azure/install-azure-cli?view=azure-cli-latest) instalada.
+En ocasiones, el registro de Docker no emite información suficiente sobre la causa del error. Puede ir un paso más allá y extraer la imagen de Docker compilada, iniciar un contenedor local y depurar directamente dentro del contenedor en vivo de manera interactiva. Para iniciar un contenedor local, debe tener un motor de Docker que se ejecute localmente, y sería mucho más fácil si también tiene [azure-cli](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) instalada.
 
 Primero debe averiguar la ubicación de la imagen:
 
@@ -222,10 +224,6 @@ def run(input_data):
 ## <a name="next-steps"></a>Pasos siguientes
 
 Más información acerca de la implementación: 
-* [Implementación en ACI](how-to-deploy-to-aci.md)
+* [Cómo implementar y dónde](how-to-deploy-and-where.md)
 
-* [Implementación en AKS](how-to-deploy-to-aks.md)
-
-* [Tutorial 1: Entrenamiento de un modelo](tutorial-train-models-with-aml.md)
-
-* [Tutorial 2: Implementación de un modelo](tutorial-deploy-models-with-aml.md)
+* [Tutorial: Entrenamiento e implementación de modelos](tutorial-train-models-with-aml.md)

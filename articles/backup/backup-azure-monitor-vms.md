@@ -2,18 +2,18 @@
 title: Supervisión de alertas de copia de seguridad para máquinas virtuales de Azure
 description: Supervise eventos y alertas de los trabajos de copia de seguridad para máquinas virtuales de Azure. Envíe correo electrónico basado en alertas.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 02/23/2018
-ms.author: markgal
-ms.openlocfilehash: 3783014738ec4e8f185531773b1259dc63e7f49f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: raynew
+ms.openlocfilehash: 0cfbb258364ed684ff38b2be9f998d8ff0656251
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606314"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864543"
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Supervisión de alertas de copias de seguridad de máquinas virtuales de Azure
 Las alertas son las respuestas del servicio que indican que se ha alcanzado o superado un umbral de evento. Saber cuándo comenzaron los problemas puede ser vital para reducir los costos del negocio. Las alertas no se producen de forma programada por lo general, por lo que resulta útil conocerlas tan pronto como se produjeron. Por ejemplo, cuando se produce un error en un trabajo de copia de seguridad o de restauración, se produce una alerta en los cinco minutos siguientes al error. En el panel del almacén, el icono Alertas de copias de seguridad muestra eventos de nivel crítico y de advertencia. En la configuración de Alertas de copias de seguridad, puede ver todos los eventos. Pero, ¿qué hacer si se produce una alerta cuando está trabajando en otro asunto? Si no sabe cuándo se produce la alerta, esto puede ser un inconveniente secundario o puede llegar incluso a comprometer los datos. Para asegurarse de que las personas adecuadas se enteran de una alerta cuando esta se produce, configure el servicio para enviar notificaciones de alerta por correo electrónico. Para más información acerca de cómo configurar las notificaciones por correo electrónico, consulte [Configuración de notificaciones](backup-azure-monitor-vms.md#configure-notifications).
@@ -66,7 +66,7 @@ Configuración de notificaciones de correo electrónico para alertas
    | Nivel de alerta | Alertas enviadas |
    | --- | --- |
    | Crítico | Error de copia de seguridad, error de recuperación |
-   | Warning (Advertencia) | Para trabajos de copia de seguridad realizados correctamente con advertencias (por ejemplo, se produjo un error en algunos escritores al crear una instantánea) |
+   | Advertencia | Para trabajos de copia de seguridad realizados correctamente con advertencias (por ejemplo, se produjo un error en algunos escritores al crear una instantánea) |
    | Informativo | Actualmente, no hay alertas informativas disponibles para la copia de seguridad de máquinas virtuales de Azure |
 
 ### <a name="are-there-situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>¿Existen situaciones en las que no se envía ningún correo electrónico incluso si las notificaciones se configuran?
@@ -124,6 +124,6 @@ Las alertas basadas en eventos están sometidas a las siguientes limitaciones:
 ## <a name="next-steps"></a>Pasos siguientes
 Para información sobre cómo volver a crear una máquina virtual a partir de un punto de recuperación, consulte [Restauración de máquinas virtuales en Azure](backup-azure-arm-restore-vms.md).
 
-Si necesita información sobre la protección de las máquinas virtuales, consulte [Primer análisis: copia de seguridad de máquinas virtuales con ARM en un almacén de Recovery Services](backup-azure-vms-first-look-arm.md). 
+Si necesita información sobre la protección de las máquinas virtuales, consulte [Primer análisis: Copia de seguridad de máquinas virtuales de Azure en almacenes de Recovery Services](backup-azure-vms-first-look-arm.md). 
 
 Aprenda más sobre las tareas de administración de las copias de seguridad de máquina virtual en el artículo [Administración de copias de seguridad de máquinas virtuales de Azure](backup-azure-manage-vms.md).

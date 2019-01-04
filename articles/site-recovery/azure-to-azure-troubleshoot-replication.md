@@ -5,16 +5,15 @@ services: site-recovery
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/30/2018
+ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 22ea3d955fe2910dc99ab4015165008da899d48e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9a32ac1ae71cb7bd89c4252157c3a5cd395b2694
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312857"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842346"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-ongoing-replication-issues"></a>Solución de problemas de replicación de máquinas virtuales en curso de Azure a Azure
 
@@ -23,13 +22,13 @@ En este artículo se describen los problemas comunes de Azure Site Recovery al r
 
 ## <a name="recovery-points-not-getting-generated"></a>No se están generando los puntos de recuperación
 
-MENSAJE DE ERROR: No crash consistent recovery point available for the VM in the last 60 minutes (No se ha producido ningún punto de recuperación coherente por bloqueo de la máquina virtual en los últimos 60 minutos).</br>
-Id. del error: 153007 </br>
+MENSAJE DE ERROR: No crash consistent recovery point available for the VM in the last 60 minutes (No se ha producido ningún punto de recuperación coherente con bloqueo de la máquina virtual en los últimos 60 minutos).</br>
+ID. DEL ERROR: 153007 </br>
 
 Azure Site Recovery replica los datos de manera coherente de la región de origen a la región de recuperación ante desastres y crea puntos coherentes por bloqueo cada 5 minutos. Si Site Recovery no puede crear puntos de recuperación durante 60 minutos, alerta de usuario. A continuación se muestran las posibles causas de este error:
 
-**Causa 1: [Velocidad de cambio elevada en los datos de la máquina virtual de origen](#high-data-change-rate-on-the-source-virtal-machine)**    
-**Causa 2: [Problema de conectividad de red](#Network-connectivity-issue)**
+**Causa 1: [velocidad de cambio elevada en los datos de la máquina virtual de origen](#high-data-change-rate-on-the-source-virtal-machine)**    
+**Causa 2: [problema de conectividad de red](#Network-connectivity-issue)**
 
 ## <a name="causes-and-solutions"></a>Causas y soluciones
 
@@ -69,10 +68,10 @@ Para buscar la velocidad de cambio en los datos de la máquina virtual afectada.
 
 En casos como el anterior, si es una ráfaga de datos ocasional y la velocidad de cambio de los datos es superior a 10 MBps (para Premium) y 2 MBps (para Estándar) durante algún tiempo y desciende, la replicación mantendrá el ritmo. Sin embargo, si la renovación supera con creces el límite admitido la mayoría del tiempo, debería considerar una de las siguientes opciones (si es posible):
 
-**Opción 1:** excluir el disco que causa la alta velocidad de cambio en los datos: </br>
+**Opción 1:** excluya el disco que provoca la alta velocidad de cambio en los datos: </br>
 Actualmente puede excluir el disco con [Powershell de Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine).
 
-**Opción 2:** cambiar el nivel de disco de almacenamiento de recuperación ante desastres: </br>
+**Opción 2:** cambie el nivel de disco de almacenamiento de recuperación ante desastres: </br>
 Esta opción solo es posible si la renovación de datos de disco tiene una velocidad inferior a 10 MB/s. Digamos que una máquina virtual con un disco P10 renueva datos a una velocidad mayor que 8 MB/s pero menor que 10 MB/s. Si el cliente puede usar un disco P30 de almacenamiento de destino durante la protección, el problema se puede resolver.
 
 ### <a name="Network-connectivity-issue"></a>Problema de conectividad de red

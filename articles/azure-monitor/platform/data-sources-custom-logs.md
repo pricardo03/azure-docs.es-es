@@ -1,6 +1,6 @@
 ---
-title: Recopilación de registros personalizados en Azure Log Analytics (OMS) | Microsoft Docs
-description: Log Analytics puede recopilar eventos de archivos de texto en equipos Windows y Linux.  En este artículo se describe cómo definir un nuevo registro personalizado y detalles de los registros que crean en el área de trabajo de Log Analytics.
+title: Recopilación de registros personalizados en Azure Monitor | Microsoft Docs
+description: Azure Monitor puede recopilar eventos de archivos de texto en equipos Windows y Linux.  En este artículo se describe cómo definir un nuevo registro personalizado y los detalles de los registros que crean en Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -8,22 +8,20 @@ manager: carmonm
 editor: tysonn
 ms.assetid: aca7f6bb-6f53-4fd4-a45c-93f12ead4ae1
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2018
+ms.date: 11/27/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 494d4f39965849ebef7dfbbacc7114dd95f48641
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 28c8ca5a81f76e10e7c8b84897f77702ee68cdc0
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336615"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434399"
 ---
-# <a name="custom-logs-in-log-analytics"></a>Registros personalizados de Log Analytics
-El origen de datos de registros personalizados en Log Analytics permite recopilar eventos de archivos de texto en equipos Windows y Linux. Muchas aplicaciones registran información en archivos de texto, en lugar de los servicios de registro estándar, como el registro de eventos de Windows o Syslog.  Una vez recopilada la información, puede analizar cada entrada del registro en campos individuales mediante la característica [Campos personalizados](../../log-analytics/log-analytics-custom-fields.md) de Log Analytics.
+# <a name="custom-logs-in-azure-monitor"></a>Registros personalizados en Azure Monitor
+El origen de datos de registros personalizados de Azure Monitor permite recopilar eventos de archivos de texto en equipos Windows y Linux. Muchas aplicaciones registran información en archivos de texto, en lugar de los servicios de registro estándar, como el registro de eventos de Windows o Syslog. Una vez recopilados, puede analizar los datos en campos individuales en las consultas o extraerlos durante la recopilación de campos individuales.
 
 ![Recopilación de registros personalizados](media/data-sources-custom-logs/overview.png)
 
@@ -37,7 +35,7 @@ Los archivos de registro que se van a recopilar deben cumplir los criterios sigu
 - El archivo de registro debe utilizar la codificación ASCII o UTF-8.  No se admiten otros formatos, como UTF-16.
 
 >[!NOTE]
->Si hay entradas duplicadas en el archivo de registro, Log Analytics los recoge.  Sin embargo, los resultados de búsqueda serán incoherentes donde los resultados del filtro muestren más eventos que el recuento de resultados.  Es importante que valide el registro para determinar si la aplicación que crea está causando este comportamiento y solucionarlo si es posible antes de crear la definición de la colección de registros personalizada.  
+>Si hay entradas duplicadas en el archivo de registro, Azure Monitor las recopila.  Pero los resultados de la consulta serán incoherentes cuando los resultados del filtro muestren más eventos que el recuento de resultados.  Es importante que valide el registro para determinar si la aplicación que crea está causando este comportamiento y solucionarlo si es posible antes de crear la definición de la colección de registros personalizada.  
 >
   
 >[!NOTE]
@@ -56,11 +54,11 @@ El Asistente para registros personalizados se ejecuta en Azure Portal y le permi
 4. Haga clic en **Agregar+** para abrir el Asistente para registros personalizados.
 
 ### <a name="step-2-upload-and-parse-a-sample-log"></a>Paso 2. Carga y análisis de un registro de ejemplo
-Para empezar, cargue una muestra del registro personalizado.  El Asistente analizará y mostrará las entradas de este archivo para que las valide.  Log Analytics utilizará el delimitador especificado para identificar cada registro.
+Para empezar, cargue una muestra del registro personalizado.  El Asistente analizará y mostrará las entradas de este archivo para que las valide.  Azure Monitor usará el delimitador especificado para identificar cada registro.
 
 **Nueva línea** es el delimitador predeterminado y se utiliza para los archivos de registro que tienen una sola entrada por línea.  Si la línea empieza con una fecha y hora en uno de los formatos disponibles, puede especificar un delimitador de **marca de tiempo** que admita entradas que abarcan más de una línea.
 
-Si se usa un delimitador de marca de tiempo, la propiedad TimeGenerated de cada registro almacenada en Log Analytics se rellenará con la fecha y la hora especificadas para esa entrada en el archivo de registro.  Si se usa un delimitador de nueva línea, TimeGenerated se rellena con la fecha y hora en que Log Analytics recopila la entrada.
+Si se usa un delimitador de marca de tiempo, la propiedad TimeGenerated de cada registro almacenado en Azure Monitor se rellenará con la fecha y la hora especificadas para esa entrada en el archivo de registro.  Si se usa un delimitador de nueva línea, TimeGenerated se rellena con la fecha y hora en que Azure Monitor ha recopilado la entrada.
 
 
 1. Haga clic en **Browse** (Examinar) y vaya a un archivo de ejemplo.  Tenga en cuenta que este botón puede llamarse **Choose File** (Elegir archivo) en algunos exploradores.
@@ -99,19 +97,16 @@ El nombre que especifique se utilizará para el tipo de registro como se describ
 3. Haga clic en **Next** (Siguiente) para guardar la definición del registro personalizado.
 
 ### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>Paso 5. Comprobación de que se recopilan los registros personalizados
-Los datos iniciales de un nuevo registro personalizado pueden tardar hasta una hora en aparecer en Log Analytics.  Empezará a recopilar las entradas de los registros que se encuentran en la ruta de acceso que ha especificado a partir del punto que definió en el registro personalizado.  No mantendrá las entradas que ha cargado durante la creación de registro personalizado, pero recopilará entradas ya existentes en los archivos de registro que encuentra.
+Los datos iniciales de un nuevo registro personalizado pueden tardar hasta una hora en aparecer en Azure Monitor.  Empezará a recopilar las entradas de los registros que se encuentran en la ruta de acceso que ha especificado a partir del punto que definió en el registro personalizado.  No mantendrá las entradas que ha cargado durante la creación de registro personalizado, pero recopilará entradas ya existentes en los archivos de registro que encuentra.
 
-Una vez que Log Analytics empieza a recopilar del registro personalizado, sus registros estarán disponibles con una búsqueda de registros.  Utilice el nombre que asignó al registro personalizado como **Type** en la consulta.
+Una vez que Azure Monitor empieza a recopilar del registro personalizado, sus registros estarán disponibles con una búsqueda de registros.  Utilice el nombre que asignó al registro personalizado como **Type** en la consulta.
 
 > [!NOTE]
-> Si falta la propiedad RawData en la búsqueda, puede ser necesario cerrar y volver a abrir el explorador.
->
->
+> Si falta la propiedad RawData en la búsqueda, es posible que tenga que cerrar y volver a abrir el explorador.
+
 
 ### <a name="step-6-parse-the-custom-log-entries"></a>Paso 6. Análisis de las entradas del registro personalizado
-La entrada de registro completa se almacenará en una sola propiedad denominada **RawData**.  Probablemente, deseará separar las diferentes partes de información de cada entrada en propiedades individuales almacenadas en el registro.  Esto se hace mediante la característica [Campos personalizados](../../log-analytics/log-analytics-custom-fields.md) de Log Analytics.
-
-No se proporcionan aquí pasos detallados para analizar las entradas del registro personalizado.  Consulte la documentación de [campos personalizados](../../log-analytics/log-analytics-custom-fields.md) para ver esta información.
+La entrada de registro completa se almacenará en una sola propiedad denominada **RawData**.  Probablemente le interesará separar los diferentes fragmentos de información de cada entrada en propiedades individuales para cada registro. Consulte [Análisis de datos de texto en Azure Monitor](../log-query/parse-text.md) para obtener opciones de análisis de **RawData** en varias propiedades.
 
 ## <a name="removing-a-custom-log"></a>Eliminación de un registro personalizado
 Use el proceso siguiente en Azure Portal para eliminar un registro personalizado que haya definido anteriormente.
@@ -121,29 +116,19 @@ Use el proceso siguiente en Azure Portal para eliminar un registro personalizado
 
 
 ## <a name="data-collection"></a>Colección de datos
-Log Analytics recopilará nuevas entradas de cada registro personalizado aproximadamente cada 5 minutos.  El agente registrará su lugar en cada archivo de registro del que se recopila.  Si el agente queda sin conexión durante un período, Log Analytics recopilará entradas desde donde quedó, incluso si se crearon mientras el agente estaba sin conexión.
+Azure Monitor recopilará nuevas entradas de cada registro personalizado aproximadamente cada cinco minutos.  El agente registrará su lugar en cada archivo de registro del que se recopila.  Si el agente se desconecta durante un período de tiempo, Azure Monitor recopilará entradas a partir de donde lo haya dejado, incluso si se crearon mientras el agente estaba sin conexión.
 
-Todo el contenido de la entrada del registro se escribe en una sola propiedad denominada **RawData**.  Se pueden analizar en varias propiedades que se pueden analizar y buscar por separado mediante la definición de [campos personalizados](../../log-analytics/log-analytics-custom-fields.md) después de haber creado el registro personalizado.
+Todo el contenido de la entrada del registro se escribe en una sola propiedad denominada **RawData**.  Vea [Análisis de datos de texto en Azure Monitor](../log-query/parse-text.md) para obtener métodos con el fin de analizar cada entrada de registro importada en varias propiedades.
 
 ## <a name="custom-log-record-properties"></a>Propiedades de las entradas del registro personalizado
 Las entradas del registro personalizado tienen un tipo con el nombre del registro que asigne y las propiedades en la tabla siguiente.
 
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
-| TimeGenerated |Fecha y hora en las que Log Analytics recopiló el registro.  Si el registro usa un delimitador basado en el tiempo, es el tiempo recopilado en la entrada. |
+| TimeGenerated |Fecha y hora en las que Azure Monitor recopiló el registro.  Si el registro usa un delimitador basado en el tiempo, es el tiempo recopilado en la entrada. |
 | SourceSystem |Tipo de agente del que se recopiló el registro. <br> OpsManager: agente de Windows, ya sea una conexión directa o System Center Operations Manager <br>  Linux: todos los agentes de Linux. |
-| RawData |Texto completo de la entrada recopilada. |
+| RawData |Texto completo de la entrada recopilada. Probablemente le interesará [analizar estos datos en propiedades individuales](../log-query/parse-text.md). |
 | ManagementGroupName |Nombre del grupo de administración de agentes de System Center Operations Manager.  En el caso de los otros agentes, es AOI-\<id. de área de trabajo\>. |
-
-## <a name="log-searches-with-custom-log-records"></a>Búsquedas de registros con entradas de registros personalizados
-Las entradas de los registros personalizados se almacenan en el área de trabajo de Log Analytics de la misma forma que las entradas de cualquier otro origen de datos.  Tienen un tipo que coincide con el nombre proporcionado al definir el registro, por lo que puede utilizar la propiedad Type en la búsqueda para recuperar registros recopilados de un registro específico.
-
-La tabla siguiente proporciona distintos ejemplos de búsquedas de registros que recuperan entradas de los registros personalizados.
-
-| Consultar | DESCRIPCIÓN |
-|:--- |:--- |
-| MyApp_CL |Todos los eventos de un registro personalizado llamado MyApp_CL. |
-| MyApp_CL &#124; donde Severity_CF=="error" |Todos los eventos de un registro personalizado llamado MyApp_CL con el valor *error* en un campo personalizado llamado *Severity_CF*. |
 
 
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Ejemplo de tutorial de agregar un registro personalizado
@@ -181,5 +166,5 @@ Los campos personalizados se usan para definir los campos *EventTime* (Hora del 
 ![Consulta del registro con campos personalizados](media/data-sources-custom-logs/query-02.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Utilice [Campos personalizados](../../log-analytics/log-analytics-custom-fields.md) para analizar las entradas del registro personalizado en campos individuales.
-* Obtenga información acerca de las [búsquedas de registros](../../log-analytics/log-analytics-queries.md) para analizar los datos recopilados de soluciones y orígenes de datos.
+* Vea [Análisis de datos de texto en Azure Monitor](../log-query/parse-text.md) para obtener métodos con el fin de analizar cada entrada de registro importada en varias propiedades.
+* Obtenga información acerca de las [consultas de registros](../log-query/log-query-overview.md) para analizar los datos recopilados de soluciones y orígenes de datos.

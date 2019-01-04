@@ -1,6 +1,6 @@
 ---
-title: Diseño de un sistema de protección de contenido con DRM múltiple con control de acceso mediante Azure Media Services | Microsoft Docs
-description: Más información sobre cómo obtener licencias de Microsoft Smooth Streaming Client Porting Kit.
+title: Diseño de un sistema de protección de contenido con DRM múltiple y control de acceso mediante Azure Media Services | Microsoft Docs
+description: Más información sobre las licencias de Microsoft Smooth Streaming Client Porting Kit.
 services: media-services
 documentationcenter: ''
 author: willzhan
@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/08/2018
 ms.author: willzhan
-ms.openlocfilehash: d65007ed2a0ce5a827eadca31dd9df8704e2c905
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.custom: seodec18
+ms.openlocfilehash: ec354cc91b22905c399d7bb19107db1b94e9925f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958200"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136280"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Diseño del sistema de protección de contenido con DRM múltiple con control de acceso 
 
@@ -28,7 +29,7 @@ El diseño y la creación de un subsistema de administración de derechos digita
 
 Este documento va dirigido a ingenieros que trabajan en subsistemas DRM de soluciones OTT o soluciones de varias pantallas o streaming en línea, o a cualquier lector interesado en subsistemas DRM. Se supone que los lectores están familiarizados con al menos una de las tecnologías DRM del mercado, como PlayReady, Widevine, FairPlay o Adobe Access.
 
-En este debate, mediante DRM múltiple se incluyen los 3 DRM que Azure Media Services admite: Common Encryption (CENC) para PlayReady y Widevine, FairPlay y el cifrado de clave sin cifrado AES-128. Una tendencia importante en el streaming en línea y en la industria OTT es utilizar DRM nativas en diversas plataformas de cliente. Esta tendencia es un avance respecto a la anterior, que usa un único DRM y su cliente SDK para varias plataformas de cliente. Cuando se utiliza CENC con varias DRM nativas, tanto PlayReady como Widevine se cifran según la especificación [Cifrado común (ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/).
+En este debate, en multi-DRM se incluyen los 3 DRM admitidos por Azure Media Services: Cifrado común (CENC) de PlayReady y Widevine, FairPlay, así como claves sin cifrado AES-128. Una tendencia importante en el streaming en línea y en la industria OTT es utilizar DRM nativas en diversas plataformas de cliente. Esta tendencia es un avance respecto a la anterior, que usa un único DRM y su cliente SDK para varias plataformas de cliente. Cuando se utiliza CENC con varias DRM nativas, tanto PlayReady como Widevine se cifran según la especificación [Cifrado común (ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/).
 
 Las ventajas de usar varias DRM nativa para la protección de contenido son que:
 
@@ -118,11 +119,11 @@ Otro factor importante a tener en cuenta es el uso de licencias persistentes y n
 
 Si usa una nube pública para la entrega de licencias, las licencias persistentes y no persistentes tendrán un impacto directo en el costo de entrega de licencias. Los dos casos siguientes de distinto diseño sirven para mostrar lo siguiente:
 
-* Suscripción mensual: utiliza una licencia persistente y la asignación 1 a varios entre claves de contenido y recursos. Por ejemplo, para todas las películas de niños, usamos una única clave de contenido para el cifrado. En este caso:
+* Suscripción mensual: se usa una licencia persistente y la asignación 1 a varios entre claves de contenido y recursos. Por ejemplo, para todas las películas de niños, usamos una única clave de contenido para el cifrado. En este caso:
 
     Número total de licencias solicitadas para todas las películas o dispositivos de niños = 1
 
-* Suscripción mensual: utiliza una licencia no persistente y la asignación 1 a 1 entre claves de contenido y recursos. En este caso:
+* Suscripción mensual: se usa una licencia no persistente y la asignación 1 a 1 entre claves de contenido y recursos. En este caso:
 
     El número total de licencias solicitadas para todas las películas o dispositivos de niños = [numero de películas vistas] x [número de sesiones]
 
@@ -246,7 +247,7 @@ Utilice la siguiente información para solución de problemas para obtener ayuda
 
 * Otorgue privilegios de notificaciones de pertenencia a grupo. Asegúrese de que lo siguiente se encuentra en el archivo de manifiesto de aplicación de Azure AD: 
 
-    "groupMembershipClaims": "All",    (el valor predeterminado es nulo)
+    "groupMembershipClaims": "All"    (el valor predeterminado es null)
 
 * Establezca el valor adecuado de TokenType al crear los requisitos de restricción.
 
@@ -365,7 +366,7 @@ Hay dos tipos de claves de seguridad:
 > [!NOTE]
 > Si utiliza .NET Framework o C# como plataforma de desarrollo, el certificado X509 usado en una clave de seguridad asimétrica debe tener una longitud de clave de al menos 2048. Se trata de un requisito de la clase System.IdentityModel.Tokens.X509AsymmetricSecurityKey en .NET Framework. De lo contrario, se produce la siguiente excepción:
 
-> IDX10630: El valor 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' de la firma no puede ser inferior a '2048' bits.
+> IDX10630: el valor 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' para la firma no puede ser menor que 2048 bits.
 
 ## <a name="the-completed-system-and-test"></a>Finalización del sistema y prueba
 En esta sección permite recorrer los escenarios siguientes en el sistema de un extremo a otro completado para que se pueda tener una idea general del comportamiento antes de obtener una cuenta de inicio de sesión:
@@ -401,15 +402,15 @@ Las capturas de pantalla siguientes muestran diferentes páginas de inicio de se
 
 **Cuenta de dominio de inquilino de Azure AD personalizado**: la página de inicio de sesión personalizada del dominio de inquilino de Azure AD personalizado.
 
-![Cuenta de dominio de inquilino de Azure AD personalizado](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
+![Cuenta uno de dominio de inquilino de Azure AD personalizado](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
 
-**Cuenta de dominio de Microsoft con tarjeta inteligente**: la página de inicio de sesión personalizada por el responsable de TI corporativa de Microsoft con autenticación en dos fases.
+**Cuenta de dominio de Microsoft con tarjeta inteligente**: la página de inicio de sesión personalizada por el responsable de TI corporativo de Microsoft con autenticación en dos fases.
 
-![Cuenta de dominio de inquilino de Azure AD personalizado](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain2.png)
+![Cuenta dos de dominio de inquilino de Azure AD personalizado](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain2.png)
 
 **Cuenta Microsoft**: la página de inicio de sesión de la cuenta Microsoft para los consumidores.
 
-![Cuenta de dominio de inquilino de Azure AD personalizado](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
+![Cuenta tres de dominio de inquilino de Azure AD personalizado](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
 
 ### <a name="use-encrypted-media-extensions-for-playready"></a>Uso de extensiones multimedia cifradas para PlayReady
 En un explorador moderno con compatibilidad con las extensiones multimedia cifradas (EME) para PlayReady, como Internet Explorer 11 en Windows 8.1 o superior y el explorador de Microsoft Edge en Windows 10, PlayReady es la DRM subyacente para EME.

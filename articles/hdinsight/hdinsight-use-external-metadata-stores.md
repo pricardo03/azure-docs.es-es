@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 288ee46e9a5741a49ddcec1ef155c6f08b7b6cbc
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 9c35a4a811925abaf8dcb64d3e7060bbb1f91cce
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016187"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408330"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Uso de repositorios de metadatos externos en Azure HDInsight
 
-Hive Metastore en HDInsight es una parte fundamental de la arquitectura de Hadoop. Una tienda de metadatos es el repositorio del esquema central que otras herramientas de acceso de macrodatos pueden usar, como Spark, Interactive Query (LLAP), Presto o Pig. HDInsight utiliza una base de datos de Azure SQL Database como Hive Metastore.
+Apache Hive Metastore en HDInsight es una parte fundamental de la arquitectura de Apache Hadoop. Metastore es el repositorio del esquema central que otras herramientas de acceso de macrodatos pueden usar, como Apache Spark, Interactive Query (LLAP), Presto o Apache Pig. HDInsight utiliza una base de datos de Azure SQL Database como Hive Metastore.
 
 ![Arquitectura del repositorio de metadatos de Hive en HDInsight](./media/hdinsight-use-external-metadata-stores/metadata-store-architecture.png)
 
@@ -72,12 +72,12 @@ Estos son algunos procedimientos recomendados para Hive Metastore en HDInsight:
 - Cuando se crea una nueva versión de Azure HDInsight en una base de datos de tienda de metadatos personalizada ya existente, el sistema actualiza el esquema de la tienda de metadatos; esta acción es irreversible sin tener que restaurar la base de datos de la copia de seguridad.
 - Si comparte una misma tienda de metadatos entre varios clústeres, asegúrese de que todos ellos cuentan con la misma versión de HDInsight. Diferentes versiones de Hive utilizan diferentes esquemas de base de datos de tienda de metadatos. Por ejemplo, no se puede compartir una tienda de metadatos con los clústeres de las versiones Hive 1.2 y 2.1. 
 
-## <a name="oozie-metastore"></a>Oozie Metastore
+##  <a name="apache-oozie-metastore"></a>Metastore de Apache Oozie
 
 Apache Oozie es un sistema de coordinación de flujos de trabajo que administra trabajos de Hadoop.  Oozie es compatible con los trabajos de Hadoop para Apache MapReduce, Pig, Hive y otros.  Oozie utiliza una tienda de metadatos para almacenar los detalles acerca de los flujos de trabajo actuales y completados. Para aumentar el rendimiento al usar Oozie, puede utilizar una instancia de Azure SQL Database como tienda de metadatos personalizada. La tienda de metadatos también puede proporcionar acceso a datos de trabajo de Oozie después de eliminar el clúster.
 
-Para obtener instrucciones sobre cómo crear una tienda de metadatos de Oozie con Azure SQL Database, consulte este artículo sobre el [uso de Oozie para flujos de trabajo](hdinsight-use-oozie-linux-mac.md).
+Para obtener instrucciones sobre cómo crear un Metastore de Oozie con Azure SQL Database, consulte este artículo sobre el [uso de Apache Oozie para flujos de trabajo](hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Configuración de clústeres en HDInsight con Hadoop, Spark, Kafka, etc.](./hdinsight-hadoop-provision-linux-clusters.md)
+- [Configuración de clústeres en HDInsight con Apache Hadoop, Apache Spark, Apache Kafka, etc.](./hdinsight-hadoop-provision-linux-clusters.md)

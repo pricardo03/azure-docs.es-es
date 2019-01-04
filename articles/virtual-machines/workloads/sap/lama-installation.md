@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 17/07/2018
 ms.author: sedusch
-ms.openlocfilehash: 2f3b8371357403071e70dd2e351cd75dbd34f746
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 2a0934fa3bb46eebba02029a8292b9bee6b12c62
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40007584"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728232"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Conector de SAP LaMa para Azure
 
@@ -89,22 +89,22 @@ La entidad de servicio no tiene permiso para tener acceso a los recursos de Azur
 1. Vaya a https://portal.azure.com.
 1. Abra la hoja Grupos de recursos.
 1. Seleccione el grupo de recursos que quiere usar.
-1. Haga clic en Control de acceso (IAM).
-1. Haga clic en Agregar.
+1. Haga clic en Control de acceso (IAM)
+1. Haga clic en Agregar asignación de roles.
 1. Seleccione el rol Colaborador.
 1. Escriba el nombre de la aplicación que creó anteriormente
-1. Haga clic en Aceptar.
+1. Haga clic en Guardar
 1. Repita los pasos del 3 al 8 para todos los grupos de recursos que quiera usar en SAP LaMa.
 
 Abra el sitio web de SAP LaMa y navegue hasta la infraestructura. Vaya a la pestaña Cloud Managers (Administradores de nube) y haga clic en Add (Agregar). Seleccione el adaptador para la nube de Microsoft Azure y haga clic en Next (Siguiente). Escriba la siguiente información:
 
 * Etiqueta: elija un nombre para la instancia del conector.
-* Nombre de usuario: identificador de aplicación de la entidad de servicio.
+* Nombre de usuario: Id. de aplicación de la entidad de servicio
 * Contraseña: clave o contraseña de la entidad de servicio.
 * Dirección URL: mantenga el valor predeterminado https://management.azure.com/.
-* Intervalo de supervisión (segundos): debe ser de al menos 300.
-* Identificador de suscripción: el identificador de suscripción de Azure.
-* Identificador de inquilino de Azure Active Directory: identificador del inquilino de Active Directory.
+* Intervalo de supervisión (segundos): debe ser al menos 300.
+* Identificador de suscripción: Identificador de suscripción de Azure
+* Identificador del inquilino de Azure Active Directory: el identificador del inquilino de Active Directory.
 * Host de proxy: nombre de host del proxy si SAP LaMa necesita un proxy para conectarse a Internet.
 * Puerto de proxy: el puerto TCP del proxy.
 
@@ -182,7 +182,7 @@ Los componentes son necesarios para implementar la plantilla. La manera más fá
 
 Las plantillas tienen los siguientes parámetros:
 
-* sapSystemId: el identificador del sistema de SAP. Se usa para crear el diseño de disco (por ejemplo, /usr/sap/\<sapsid>).
+* sapSystemId: el identificador del sistema SAP. Se usa para crear el diseño de disco (por ejemplo, /usr/sap/\<sapsid>).
 
 * computerName: el nombre del equipo de la nueva máquina virtual. Este parámetro se usa también en SAP LaMa. Cuando se usa esta plantilla para aprovisionar una nueva máquina virtual como parte de una copia del sistema, SAP LaMa espera hasta que es posible la comunicación con el host que tiene este nombre de equipo.
 
@@ -208,7 +208,7 @@ Las plantillas tienen los siguientes parámetros:
 
 * sapacExtLocation: la ubicación de las extensiones adaptables de SAP. En la nota de SAP [2343511] se indica el nivel de revisión mínima necesario para Azure.
 
-* vcRedistLocation: la ubicación de tiempo de ejecución de VC que es necesaria para instalar las extensiones adaptables de SAP. Este parámetro solo es necesario para Windows.
+* vcRedistLocation: la ubicación del entorno en tiempo de ejecución de VC que es necesaria para instalar las extensiones adaptables de SAP. Este parámetro solo es necesario para Windows.
 
 * odbcDriverLocation: la ubicación del controlador ODBC que quiere instalar. Solo se admite el controlador ODBC de Microsoft para SQL Server.
 
@@ -218,7 +218,7 @@ Las plantillas tienen los siguientes parámetros:
 
 * sapsysGid: el identificador de grupo de Linux del grupo sapsys. No es necesario en Windows.
 
-* _artifactsLocation: el URI base, donde se encuentran los artefactos que necesita esta plantilla. Cuando la plantilla se implementa mediante los scripts complementarios, se usa una ubicación privada en la suscripción y este valor se genera automáticamente. Solo es necesario si no se implementa la plantilla desde GitHub.
+* _artifactsLocation: el identificador URI base, donde se encuentran los artefactos que necesita esta plantilla. Cuando la plantilla se implementa mediante los scripts complementarios, se usa una ubicación privada en la suscripción y este valor se genera automáticamente. Solo es necesario si no se implementa la plantilla desde GitHub.
 
 * _artifactsLocationSasToken: el valor de sasToken necesario para acceder a _artifactsLocation. Cuando la plantilla se implementa mediante los scripts complementarios, se genera automáticamente un valor de sasToken. Solo es necesario si no se implementa la plantilla desde GitHub.
 
@@ -237,7 +237,7 @@ Antes de iniciar SAP Software Provisioning Manager (SWPM), debe montar la direcc
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-ascs -n 255.255.255.128
 ```
 
-![Windows][Logo_Windows] Windows
+![ Windows][Logo_Windows]  Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
@@ -277,7 +277,7 @@ Antes de iniciar SAP Software Provisioning Manager (SWPM), debe montar la direcc
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-di-0 -n 255.255.255.128
 ```
 
-![Windows][Logo_Windows] Windows
+![ Windows][Logo_Windows]  Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
@@ -360,7 +360,7 @@ Use *as1-di-0* para *PAS Instance Host Name* (Nombre de host de la instancia de 
 
 * Se generó una excepción en la validación de userstore de HDB.  
   * Consulte el Visor de registros.  
-    com.sap.nw.lm.aci.monitor.api.validation.RuntimeValidationException: Excepción en el validador con id. 'RuntimeHDBConnectionValidator' (Validación: 'VALIDATION_HDB_USERSTORE'): No se pudo recuperar hdbuserstore  
+    com.sap.nw.lm.aci.monitor.api.validation.RuntimeValidationException: excepción de validador con el identificador "RuntimeHDBConnectionValidator" (validación: "VALIDATION_HDB_USERSTORE"): No se pudo recuperar el valor de hdbuserstore.  
     userstore de HANA no está en la ubicación correcta.
   * Solución  
     Asegúrese de que /usr/sap/AH1/hdbclient/install/installation.ini sea correcto.
@@ -373,19 +373,19 @@ Use *as1-di-0* para *PAS Instance Host Name* (Nombre de host de la instancia de 
     Realice una copia de seguridad de todas las bases de datos del sistema HANA de origen.
 
 * Paso *Start* (Inicio) de copia del sistema de la instancia de base de datos.
-  * Error en la operación del agente de host "000D3A282BC91EE8A1D76CF1F92E2944" (OperationException. FaultCode: "127", Mensaje: "Error al ejecutar el comando. : [Microsoft][ODBC SQL Server Driver][SQL Server]El usuario ni tiene permiso para modificar la base de datos "AS2", la base de datos no existe o no se encuentra en un estado que permita comprobaciones de acceso").
+  * Error en la operación del agente de host "000D3A282BC91EE8A1D76CF1F92E2944" (OperationException. FaultCode: "127". Mensaje: "Error al ejecutar el comando. : [Microsoft][ODBC SQL Server Driver][SQL Server]El usuario ni tiene permiso para modificar la base de datos "AS2", la base de datos no existe o no se encuentra en un estado que permita comprobaciones de acceso").
   * Solución  
     Asegúrese de que *NT AUTHORITY\SYSTEM* pueda acceder a SQL Server. Consulte la nota de SAP [2562184].
 
 ### <a name="errors-and-warnings-during-a-system-clone"></a>Errores y advertencias durante una clonación del sistema
 
 * Se produjo un error al intentar registrar el agente de instancia en el paso *Forced Register and Start Instance Agent* (Registro e inicio forzosos del agente de instancia) del servidor de aplicaciones o ASCS
-  * Se produjo un error al intentar registrar el agente de instancia. (RemoteException: "No se pudieron cargar los datos de instancia desde el perfil '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0': No se puede acceder al perfil '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0': No existe ese archivo o directorio").
+  * Se produjo un error al intentar registrar el agente de instancia. (RemoteException: "No se pudo cargar los datos de la instancia del perfil '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0':  No se puede acceder al perfil '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0': No se encontró el archivo o directorio").
   * Solución  
    Asegúrese de que el recurso compartido de sapmnt en ASCS/SCS tenga acceso completo para SAP_AS1_GlobalAdmin.
 
 * Error en el paso *Enable Startup Protection for Clone* (Habilitar protección de inicio para clon)
-  * No se pudo abrir el archivo '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0" Causa: no existe tal archivo o directorio.
+  * No se pudo abrir el archivo "\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0" Causa: No se encontró el archivo o directorio.
   * Solución  
     La cuenta de equipo del servidor de aplicaciones necesita acceso de escritura al perfil.
 
@@ -416,29 +416,29 @@ Use *as1-di-0* para *PAS Instance Host Name* (Nombre de host de la instancia de 
 ### <a name="errors-and-warnings-during-application-server-installation"></a>Errores y advertencias durante la instalación del servidor de aplicaciones
 
 * Error al ejecutar el paso SAPinst: getProfileDir
-  * ERROR: (último error notificado por el paso: se produjo una excepción ESAPinstException en la llamada del módulo: el validador del paso "|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_readProfileDir|ind|ind|ind|ind|readProfile|0|getProfileDir" notificó un error: Node \\\as1-ascs\sapmnt\AS1\SYS\perfil no existe. Inicie SAPinst en modo interactivo para resolver este problema)
+  * ERROR: (Último error notificado por el paso: se produjo la excepción ESAPinstException en la llamada del módulo: El validador del paso "|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_readProfileDir|ind|ind|ind|ind|readProfile|0|getProfileDir" notificó un error: El nodo \\\as1-ascs\sapmnt\AS1\SYS\profile no existe. Inicie SAPinst en modo interactivo para resolver este problema)
   * Solución  
     Asegúrese de que se está ejecutando SWPM con un usuario que tenga acceso al perfil. Este usuario se puede configurar en el Asistente para instalación del servidor de aplicaciones.
 
 * Error al ejecutar el paso SAPinst: askUnicode
-  * ERROR: (último error notificado por el paso: se produjo una excepción ESAPinstException en la llamada del módulo: el validador del paso "|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_getUnicode|ind|ind|ind|ind|unicode|0|askUnicode" notificó un error: Inicie SAPinst en modo interactivo para resolver este problema)
+  * ERROR: (Último error notificado por el paso: se produjo la excepción ESAPinstException en la llamada del módulo: El validador del paso "|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_getUnicode|ind|ind|ind|ind|unicode|0|askUnicode" notificó un error: Inicie SAPinst en modo interactivo para resolver este problema)
   * Solución  
     Si usa un kernel de SAP reciente, SWPM ya no puede determinar si el sistema es un sistema Unicode con el servidor de mensajes de ASCS. Consulte la nota de SAP [2445033] para más información.  
     Este problema se corregirá en un nuevo paquete o revisión de soporte técnico de SAP LaMa.  
     Para solucionar este problema, establezca el parámetro del perfil OS_UNICODE=uc en el perfil predeterminado de su sistema SAP.
 
 * Error al ejecutar el paso SAPinst: dCheckGivenServer
-  * Error al ejecutar el paso SAPinst: dCheckGivenServer" versión="1.0" ERROR: (Último error notificado por el paso: \<p> La instalación fue cancelada por el usuario. \</p>
+  * Error al ejecutar el paso SAPinst: dCheckGivenServer" version="1.0" ERROR: (Último error notificado por el paso: \<p> Instalación cancelada por el usuario. \</p>
   * Solución  
     Asegúrese de que se está ejecutando SWPM con un usuario que tenga acceso al perfil. Este usuario se puede configurar en el Asistente para instalación del servidor de aplicaciones.
 
 * Error al ejecutar el paso SAPinst: checkClient
-  * Error al ejecutar el paso SAPinst: checkClient" versión="1.0" ERROR: (Último error notificado por el paso: \<p> La instalación fue cancelada por el usuario. \</p>
+  * Error al ejecutar el paso SAPinst: checkClient" version="1.0" ERROR: (Último error notificado por el paso: \<p> Instalación cancelada por el usuario. \</p>
   * Solución  
     Asegúrese de que el controlador ODBC de Microsoft para SQL Server está instalado en la máquina virtual en la que quiere instalar el servidor de aplicaciones.
 
 * Error al ejecutar el paso SAPinst: copyScripts
-  * Último error notificado por el paso: error en la llamada del sistema. DETALLES: Error 13 (0x0000000d) (Permiso denegado) en la ejecución de la llamada del sistema "fopenU" con el parámetro (\\\as1-ascs/sapmnt/AS1/SYS/exe/uc/NTAMD64/strdbs.cmd, w), línea (494) en el archivo (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/filesystem/syxxcfstrm2.cpp), seguimiento de pila:  
+  * Último error notificado por el paso: error en la llamada del sistema. DETALLES: Error 13 (0x0000000d) (Permiso denegado) en la ejecución de la llamada del sistema "fopenU" con el parámetro (\\\as1-ascs/sapmnt/AS1/SYS/exe/uc/NTAMD64/strdbs.cmd, w), línea (494) en el archivo (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/filesystem/syxxcfstrm2.cpp), seguimiento de la pila:  
   CThrThread.cpp: 85: CThrThread::threadFunction()  
   CSiServiceSet.cpp: 63: CSiServiceSet::executeService()  
   CSiStepExecute.cpp: 913: CSiStepExecute::execute()  
@@ -456,7 +456,7 @@ Use *as1-di-0* para *PAS Instance Host Name* (Nombre de host de la instancia de 
     Asegúrese de que se está ejecutando SWPM con un usuario que tenga acceso al perfil. Este usuario se puede configurar en el Asistente para instalación del servidor de aplicaciones.
 
 * Error al ejecutar el paso SAPinst: askPasswords
-  * Último error notificado por el paso: error en la llamada del sistema. DETALLES: Error 5 (0x00000005) (Acceso denegado) en la ejecución de la llamada del sistema "NetValidatePasswordPolicy" con el parámetro (...), línea (359) en el archivo (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/account/synxcaccmg.cpp), seguimiento de pila:  
+  * Último error notificado por el paso: error en la llamada del sistema. DETALLES: Error 5 (0x00000005) (Acceso denegado) en la ejecución de la llamada del sistema "NetValidatePasswordPolicy" con el parámetro (...), línea (359) en el archivo (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/account/synxcaccmg.cpp), seguimiento de la pila:  
   CThrThread.cpp: 85: CThrThread::threadFunction()  
   CSiServiceSet.cpp: 63: CSiServiceSet::executeService()  
   CSiStepExecute.cpp: 913: CSiStepExecute::execute()  

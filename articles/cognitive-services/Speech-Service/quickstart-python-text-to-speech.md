@@ -1,7 +1,7 @@
 ---
-title: 'Inicio rápido: Conversión de texto a voz (Python) - Speech Service'
+title: 'Inicio rápido: Conversión de texto a voz (Python): servicios de Voz'
 titleSuffix: Azure Cognitive Services
-description: En este tutorial, obtendrá información sobre cómo convertir texto a voz con Python y la API de REST Texto a voz. El texto de ejemplo incluido en esta guía se estructura como lenguaje de marcado de síntesis de voz (SSML). De este modo, podrá elegir la voz y el idioma de la respuesta de voz. La API de REST también admite texto sin formato (ASCII o UTF-8), sin embargo, si se proporciona texto sin formato, se devolverá la respuesta en el idioma y la voz predeterminados de Speech Service.
+description: En este tutorial, obtendrá información sobre cómo convertir texto a voz con Python y la API de REST Texto a voz. El texto de ejemplo incluido en esta guía se estructura como lenguaje de marcado de síntesis de voz (SSML). Esto le permite elegir la voz y el idioma de la respuesta de voz.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -10,18 +10,19 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 11/16/2018
 ms.author: erhopf
-ms.openlocfilehash: 38bcd67dfb6d9b1a1955658872fee7b8b7a14a0c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: 7512c443c49f1518d6a6f7ace7e981d3508b1d7a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447476"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090064"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>Inicio rápido: Conversión de texto a voz con Python
 
 En este tutorial, obtendrá información sobre cómo convertir texto a voz con Python y la API de REST Texto a voz. El cuerpo de solicitud de esta guía se estructura como [lenguaje de marcado de síntesis de voz (SSML)](speech-synthesis-markup.md), que permite elegir la voz y el idioma de la respuesta.
 
-En esta guía de inicio rápido se requiere una [cuenta de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con un recurso de Speech Service. Si no tiene una cuenta, puede usar la [evaluación gratuita](get-started.md) para obtener una clave de suscripción.
+En esta guía de inicio rápido, se requiere una [cuenta de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con un recurso del servicio Voz. Si no tiene una cuenta, puede usar la [evaluación gratuita](get-started.md) para obtener una clave de suscripción.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -68,7 +69,7 @@ class TextToSpeech(object):
 
 ## <a name="get-an-access-token"></a>Obtención de un token de acceso
 
-La API de REST Texto a voz requiere un token de acceso para la autenticación. Para obtener un token de acceso, es necesario un intercambio. En este ejemplo se intercambia la clave de suscripción de Speech Service para obtener un token de acceso usando el punto de conexión `issueToken`.
+La API REST Texto a voz requiere un token de acceso para la autenticación. Para obtener un token de acceso, es necesario un intercambio. En este ejemplo se intercambia la clave de suscripción de Speech Service para obtener un token de acceso usando el punto de conexión `issueToken`.
 
 En este ejemplo se da por supuesto que su suscripción de Speech Service está en la región Oeste de EE. UU. Si usa una región diferente, actualice el valor de `fetch_token_url`. Para obtener una lista completa, consulte [Regiones](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 

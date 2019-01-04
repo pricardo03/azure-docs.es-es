@@ -5,24 +5,29 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.openlocfilehash: fab9d8639a81a4d5e7fbcddb36b975109ba636a7
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 13d1548e9b9c721d44c8d5af99bfdcc691c4866d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276642"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100623"
 ---
-# <a name="cloudyn-training-videos"></a>Vídeos de aprendizaje de Cloudyn
+# <a name="cloudyn-walk-through-training-videos"></a>Vídeos de aprendizaje paso a paso de Cloudyn
 
 Los siguientes vídeos proporcionan demostraciones que lo ayudan a iniciarse en el uso de las características de Cloudyn. Cloudyn admite el seguimiento y la optimización de los costos de varias nubes, lo que incluye Microsoft Azure, Amazon Web Services y Google Cloud Platform.
+
+## <a name="overview-video"></a>Vídeo de información general
 
 [Introducción a Cloudyn](https://youtu.be/NWIRny6Wpsk)
 
 >[!VIDEO https://www.youtube.com/embed/NWIRny6Wpsk]
+
+## <a name="walk-through-videos"></a>Vídeos paso a paso
 
 [Analyzing your cloud billing data vs. time with Cloudyn](https://youtu.be/7LsVPHglM0g) (Análisis de los datos frente al tiempo de facturación en la nube con Cloudyn)
 

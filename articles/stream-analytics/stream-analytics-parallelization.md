@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 83fbebc07be3a61d7fd54953f842a320a537a7ac
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 7a1577e3c352c24983cc3a586c11ad43c416acc4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985019"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091050"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Aprovechamiento de la paralelización de consultas en Azure Stream Analytics
 En este artículo se muestra cómo aprovechar la paralelización en Azure Stream Analytics. Aprenda a escalar los trabajos de Stream Analytics mediante la configuración de particiones de entrada y el ajuste de la definición de consultas de análisis.
@@ -51,7 +51,7 @@ Las salidas de PowerBI, SQL y SQL Data Warehouse no admiten la creación de part
 Para más información sobre las particiones, vea los siguientes artículos:
 
 * [Información general de las características de Event Hubs](../event-hubs/event-hubs-features.md#partitions)
-* [Creación de particiones de datos](https://docs.microsoft.com/azure/architecture/best-practices/data-partitioning#partitioning-azure-blob-storage)
+* [Creación de particiones de datos](https://docs.microsoft.com/azure/architecture/best-practices/data-partitioning)
 
 
 ## <a name="embarrassingly-parallel-jobs"></a>Trabajos embarazosamente paralelos
@@ -80,22 +80,26 @@ En las siguientes secciones se describen algunos escenarios de ejemplo que son e
 
 Consulta:
 
+```SQL
     SELECT TollBoothId
     FROM Input1 Partition By PartitionId
     WHERE TollBoothId > 100
+```
 
 Esta consulta es un filtro sencillo. Por consiguiente, no hay que preocuparse por crear particiones en la entrada que se envía al centro de eventos. Observe que la consulta incluye **PARTITION BY PartitionId**, por lo que cumple el requisito 2 mencionado. Para la salida, debemos configurar la salida de Event Hub en el trabajo para que la clave de partición esté establecida en **PartitionId**. Una última comprobación consiste en asegurarse de que el número de particiones de entrada es igual al número de particiones de salida.
 
 ### <a name="query-with-a-grouping-key"></a>Consulta con una clave de agrupación
 
 * Entrada: Event Hubs con ocho particiones
-* Salida: Blob Storage
+* Salida: Almacenamiento de blobs
 
 Consulta:
 
+```SQL
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+```
 
 Esta consulta tiene una clave de agrupación. Por lo tanto, los eventos agrupados en conjunto se deben enviar a la misma partición de Event Hub. Como en este ejemplo la agrupación se hizo por TollBoothID, debemos asegurarnos de que TollBoothID se usa como la clave de partición cuando los eventos se envían a Event Hub. A continuación, en ASA se puede usar **PARTITION BY PartitionId** para heredar desde este esquema de partición y habilitar la paralelización completa. Puesto que la salida es Blob Storage, no hay que preocuparse en configurar un valor de clave de partición, como estipula el requisito 4.
 
@@ -104,23 +108,24 @@ Esta consulta tiene una clave de agrupación. Por lo tanto, los eventos agrupado
 En la sección anterior, se han mostrado algunos escenarios embarazosamente paralelos. En esta sección se describen escenarios en los que no se cumplen todos los requisitos para que sean embarazosamente paralelos. 
 
 ### <a name="mismatched-partition-count"></a>Recuento de particiones no coincidente
-* Entrada: Event Hubs con ocho particiones
+* Entrada: Event Hubs con 8 particiones
 * Salida: Event Hubs con 32 particiones
 
 En este caso, no importa cuál es la consulta. Si el recuento de particiones de entrada no coincide con el recuento de particiones de salida, la topología no es embarazosamente paralela. Sin embargo, de todos modos podemos obtener cierto nivel de paralelización.
 
 ### <a name="query-using-non-partitioned-output"></a>Consulta con salida sin particiones
-* Entrada: Event Hubs con ocho particiones
+* Entrada: Event Hubs con 8 particiones
 * Salida: PowerBI
 
 La salida de PowerBI no admite en este momento la creación de particiones. Por consiguiente, este escenario no es embarazosamente paralelo.
 
 ### <a name="multi-step-query-with-different-partition-by-values"></a>Consulta de varios pasos con diferentes valores de PARTITION BY
-* Entrada: Event Hubs con ocho particiones
-* Salida: Event Hubs con ocho particiones
+* Entrada: Event Hubs con 8 particiones
+* Salida: Event Hubs con 8 particiones
 
 Consulta:
 
+```SQL
     WITH Step1 AS (
     SELECT COUNT(*) AS Count, TollBoothId, PartitionId
     FROM Input1 Partition By PartitionId
@@ -130,6 +135,7 @@ Consulta:
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1 Partition By TollBoothId
     GROUP BY TumblingWindow(minute, 3), TollBoothId
+```
 
 Como puede ver, el segundo paso utiliza **TollBoothId** como clave de partición. Este paso no es igual al primer paso y, por tanto, hay que seguir un orden aleatorio. 
 
@@ -143,6 +149,7 @@ Una consulta puede tener uno o varios pasos. Cada paso es una subconsulta defini
 
 Consulta:
 
+```SQL
     WITH Step1 AS (
         SELECT COUNT(*) AS Count, TollBoothId
         FROM Input1 Partition By PartitionId
@@ -151,6 +158,7 @@ Consulta:
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1
     GROUP BY TumblingWindow(minute,3), TollBoothId
+```
 
 Esta consulta tiene dos pasos.
 
@@ -182,20 +190,25 @@ Puede ver algunos **ejemplos** en la tabla a continuación.
 
 La siguiente consulta calcula el número de vehículos que pasan por una estación de peaje con tres cabinas de peaje en una ventana temporal de tres minutos. Esta consulta se puede escalar hasta seis unidades de streaming.
 
+```SQL
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+```
 
 Para usar más unidades de streaming en la consulta, el flujo de datos de entrada y la consulta deben estar particionados. Dado que la partición del flujo de datos está establecida en 3, la siguiente consulta modificada puede escalarse hasta 18 unidades de streaming:
 
+```SQL
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+```
 
 Cuando una consulta está particionada, se procesan los eventos de entrada y se agregan en grupos de particiones independientes. También se generan eventos de salida para cada uno de los grupos. La creación de particiones puede ocasionar algunos resultados inesperados cuando el campo **GROUP BY** no es la clave de partición del flujo de datos de entrada. Por ejemplo, el campo **TollBoothId** de la consulta anterior no es la clave de partición de **Input1**. El resultado es que los datos de la cabina de peaje 1 se pueden distribuir en varias particiones.
 
 Cada una de las particiones de **Input1** se procesará por separado en Stream Analytics. Por consiguiente, se crearán varios registros de recuento de vehículos para la misma cabina en la misma ventana de saltos de tamaño constante. Si la clave de partición de entrada no se puede cambiar, este problema se puede solucionar agregando un paso sin particiones para agregar valores entre las particiones, como en el ejemplo siguiente:
 
+```SQL
     WITH Step1 AS (
         SELECT COUNT(*) AS Count, TollBoothId
         FROM Input1 Partition By PartitionId
@@ -205,6 +218,7 @@ Cada una de las particiones de **Input1** se procesará por separado en Stream A
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1
     GROUP BY TumblingWindow(minute, 3), TollBoothId
+```
 
 Esta consulta se puede escalar hasta 24 unidades de streaming.
 

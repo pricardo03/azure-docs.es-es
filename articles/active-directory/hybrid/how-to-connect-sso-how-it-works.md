@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: funcionamiento del inicio de sesión único de conexión directa | Microsoft Docs'
+title: 'Azure AD Connect: Funcionamiento del inicio de sesión único de conexión directa | Microsoft Docs'
 description: En este artículo se describe el funcionamiento de la característica Inicio de sesión único de conexión directa de Azure Active Directory.
 services: active-directory
 keywords: qué es Azure AD Connect, instalar Active Directory, componentes necesarios para Azure AD, SSO, inicio de sesión único
@@ -15,20 +15,21 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6f93d7c4b76d635a221c2711ce9d4ef0de2286f6
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 54b614e49bc7c03325ebeada60232fca861874e0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687408"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193083"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Inicio de sesión único de conexión directa de Azure Active Directory: información técnica detallada
+# <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Inmersión técnica profunda
 
 En este artículo se proporcionan los detalles técnicos sobre cómo funciona la característica Inicio de sesión único de conexión directa (SSO de conexión directa) de Azure Active Directory.
 
 ## <a name="how-does-seamless-sso-work"></a>¿Cómo funciona SSO de conexión directa?
 
 Esta sección tiene tres partes:
+
 1. La configuración de la característica SSO de conexión directa.
 2. El funcionamiento de una transacción de inicio de sesión de usuario único en un explorador web con SSO de conexión directa.
 3. El funcionamiento de una transacción de inicio de sesión de usuario único en un cliente nativo con SSO de conexión directa.
@@ -36,6 +37,7 @@ Esta sección tiene tres partes:
 ### <a name="how-does-set-up-work"></a>¿Cómo funciona la configuración?
 
 SSO de conexión directa se habilita a través de Azure AD Connect tal como se muestra [aquí](how-to-connect-sso-quick-start.md). Cuando se habilita la característica, se producen los pasos siguientes:
+
 - Se crea una cuenta de equipo llamada `AZUREADSSOACC` (que representa a Azure AD) en la instancia local de Active Directory (AD) en cada bosque de AD.
 - La clave de descifrado de Kerberos de la cuenta de equipo se comparte de manera segura con Azure AD. Si hay varios bosques de AD, cada uno tendrá su propia clave de descifrado de Kerberos.
 - Además, se crean dos nombres de entidad de seguridad de servicio (SPN) de Kerberos que representan las dos direcciones URL que se usan en el inicio de sesión de Azure AD.
@@ -56,8 +58,8 @@ El flujo de inicio de sesión en un explorador web es el siguiente:
 2. Si el usuario todavía no inicia sesión, se le redirige a la página de inicio de sesión de Azure AD.
 3. El usuario escribe su nombre de usuario en la página de inicio de sesión de Azure AD.
 
-  >[!NOTE]
-  >Para [ciertas aplicaciones](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso), se omiten los pasos 2 y 3.
+   >[!NOTE]
+   >Para [ciertas aplicaciones](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso), se omiten los pasos 2 y 3.
 
 4. Con JavaScript en segundo plano, Azure AD desafía al explorador, a través de una respuesta 401 No autorizado, a que proporcione un vale de Kerberos.
 5. A su vez, el explorador solicita un vale desde Active Directory para la cuenta de equipo `AZUREADSSOACC` (que representa a Azure AD).

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6c1307fcb472f6c66a95b76ad3c1b1686ce4f998
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: cf037000a047b02f3874c3bccc9678f2ea18ecec
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308947"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011205"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Creación de clústeres de Apache HBase en HDInsight en Azure Virtual Network
 Aprenda a crear clústeres de Apache HBase de Azure HDInsight en [Azure Virtual Network][1].
@@ -37,11 +37,11 @@ En esta sección, crea un clúster de Apache HBase basado en Linux con la cuenta
 > [!NOTE]
 > Algunas propiedades se han codificado de forma rígida en la plantilla. Por ejemplo: 
 >
-> * **Ubicación**: este de EE. UU. 2
+> * **Ubicación**: Este de EE. UU. 2
 > * **Versión del clúster**: 3.6
 > * **Número de nodos de trabajo en el clúster**: 2
 > * **Nombre de la cuenta de almacenamiento predeterminada**: una cadena única
-> * **Nombre de la red virtual**: &lt;Nombre del clúster&gt;-vnet
+> * **Nombre de la red virtual**: &lt;Nombre del clúster>-vnet
 > * **Espacio de direcciones de red virtual**: 10.0.0.0/16
 > * **Nombre de subred**: subnet1
 > * **Intervalo de direcciones de subred**: 10.0.0.0/24
@@ -56,11 +56,11 @@ En esta sección, crea un clúster de Apache HBase basado en Linux con la cuenta
 2. En la hoja **Implementación personalizada**, escriba las propiedades siguientes:
 
    * **Suscripción**: seleccione una suscripción de Azure usada para crear el clúster de HDInsight, la cuenta de Storage dependiente y Azure Virtual Network.
-   * **Grupo de recursos**: seleccione **Crear nuevo** y especifique un nuevo nombre al grupo de recursos.
-   * **Ubicación**: seleccione una ubicación para el grupo de recursos.
+   * **Grupos de recursos**: seleccione **Crear nuevo** y especifique un nuevo nombre al grupo de recursos.
+   * **Ubicación**: Seleccione una ubicación para el grupo de recursos.
    * **ClusterName**: escriba un nombre para el clúster de Hadoop que se va a crear.
-   * **Nombre de inicio de sesión y contraseña de clúster**: el nombre de inicio de sesión predeterminado es **admin**.
-   * **Nombre de usuario y contraseña de SSH**: el nombre de usuario predeterminado es **sshuser**.  Puede cambiarlo.
+   * **Nombre de inicio de sesión y contraseña del clúster**: El nombre de inicio de sesión predeterminado es **admin**.
+   * **Nombre de usuario y contraseña de SSH**: El nombre de usuario predeterminado es **sshuser**.  Puede cambiarlo.
    * **Acepto los términos y condiciones indicados anteriormente**: (Seleccionar)
 3. Haga clic en **Comprar**. Tarda aproximadamente 20 minutos en crear un clúster. Una vez creado el clúster, puede hacer clic en la hoja del clúster en el portal para abrirlo.
 
@@ -71,7 +71,7 @@ Para comenzar a trabajar con el nuevo clúster de HBase, utilice los procedimien
 ## <a name="connect-to-the-apache-hbase-cluster-using-apache-hbase-java-rpc-apis"></a>Conexión al clúster de Apache HBase mediante las API de RPC de Java de Apache HBase
 1. Cree una máquina virtual de infraestructura como servicio (IaaS) en la misma red virtual de Azure y la misma subred. Para obtener instrucciones sobre cómo crear una nueva máquina virtual de IaaS consulte el tutorial sobre la [creación de una máquina virtual que ejecuta Windows Server](../../virtual-machines/windows/quick-create-portal.md). Al seguir los pasos descritos en este documento, tiene que usar los valores siguientes para la configuración de red:
 
-   * **Red virtual**: &lt;Nombre del clúster&gt;-vnet
+   * **Red virtual**: &lt;Nombre del clúster>-vnet
    * **Subred**: subnet1
 
    > [!IMPORTANT]
@@ -247,7 +247,7 @@ En este tutorial, ha aprendido a crear un clúster de Apache HBase. Para obtener
 * [Introducción al uso de Apache HBase con Apache Hadoop en HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [Información general sobre redes virtuales](../../virtual-network/virtual-networks-overview.md)
 
-[1]: http://azure.microsoft.com/services/virtual-network/
-[2]: http://technet.microsoft.com/library/ee176961.aspx
-[3]: http://technet.microsoft.com/library/hh847889.aspx
+[1]: https://azure.microsoft.com/services/virtual-network/
+[2]: https://technet.microsoft.com/library/ee176961.aspx
+[3]: https://technet.microsoft.com/library/hh847889.aspx
 

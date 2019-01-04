@@ -1,22 +1,24 @@
 ---
-title: Creación de una instancia de Load Balancer Estándar público con front-end para la dirección IP pública zonal mediante Azure Portal | Microsoft Docs
+title: Creación de una instancia de Standard Load Balancer con dirección IP de front-end zonal en Azure Portal
+titlesuffix: Azure Load Balancer
 description: Aprenda a crear una instancia de Load Balancer Estándar público con front-end para la dirección IP pública zonal mediante Azure Portal
 services: load-balancer
 documentationcenter: na
 author: KumudD
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: cc3d1e9f2d87da1ed7014674877212ea0be81bca
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e109504fe8657436d73870cc022ed4bc81c559f5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416773"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095343"
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zonal-public-ip-address-frontend-using-azure-portal"></a>Cree una instancia de Load Balancer Estándar público con front-end para la dirección IP pública zonal mediante Azure Portal
 

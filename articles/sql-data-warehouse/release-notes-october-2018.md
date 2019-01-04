@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 11/14/2018
+ms.date: 12/04/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 1edac9f7eac1f47974f4c94f3cae5bb3451f92fd
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: e67edf382a49839d890d2c1dec50c44bbb19705a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705385"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966830"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-october-2018"></a>¿Cuáles son las novedades de Azure SQL Data Warehouse? Octubre de 2018
 Continuamente se aplican mejoras a Azure SQL Data Warehouse. En este artículo se describen las nuevas características y los cambios que se han incluido en octubre de 2018.
@@ -62,6 +62,7 @@ Azure SQL Data Warehouse (SQL DW) ahora tiene integración nativa con Azure Data
 | **Errores de CETAS a Parquet en clases de recursos pequeñas en almacenes de datos de DW2000 y más** | Esta corrección identifica correctamente una referencia nula en la ruta de código de CREATE EXTERNAL TABLE AS SELECT a Parquet. |
 |**El valor de la columna de identidad puede perderse en alguna operación de CTAS** | El valor de una columna de identidad puede no conservarse durante una operación de CTAS a otra tabla. Notificado en un blog: [https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/](https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/). |
 | **Error interno en algunos casos, cuando se finaliza una sesión mientras todavía se está ejecutando una consulta** | Esta corrección desencadena una excepción InvalidOperationException si se finaliza una sesión cuando todavía se está ejecutando la consulta. |
+| **(Implementado en noviembre de 2018) Los clientes experimentaban un rendimiento subóptimo al intentar cargar varios archivos pequeños desde ADLS (Gen1) con Polybase.** | El rendimiento del sistema experimentaba cuellos de botella durante la validación del token de seguridad de AAD. Los problemas de rendimiento se mitigaron al habilitar el almacenamiento en caché de los tokens de seguridad. |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

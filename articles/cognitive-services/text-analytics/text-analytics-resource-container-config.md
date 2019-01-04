@@ -1,21 +1,22 @@
 ---
 title: Configuración de contenedores
-titlesuffix: Text Analytics - Cognitive Services - Azure
-description: Opciones de configuración de contenedores de Text Analytics.
+titlesuffix: Text Analytics - Azure Cognitive Services
+description: Text Analytics proporciona a cada contenedor un marco de configuración común, por lo que puede configurar y administrar fácilmente la configuración de almacenamiento, registro, telemetría y seguridad de los contenedores.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 0f6b8fa27d2db45be2c677a52c53cff5847acf4a
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 7e993b9ccc57359ac64186765b7b704535eb5a57
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634929"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086681"
 ---
 # <a name="configure-containers"></a>Configuración de contenedores
 
@@ -36,7 +37,7 @@ Las opciones de configuración de los contenedores de Text Analytics son jerárq
 
 Puede usar [variables de entorno](#configuration-settings-as-environment-variables) o [argumentos de la línea de comandos](#configuration-settings-as-command-line-arguments) para especificar las opciones de configuración al crear una instancia de contenedores de Text Analytics.
 
-Los valores de variable de entorno invalidan los valores de argumento de la línea de comandos, que a su vez invalidan los valores predeterminados para la imagen de contenedor. En otras palabras, si especifica valores diferentes en una variable de entorno y un argumento de la línea de comandos para la misma opción de configuración, tales como `Logging:Disk:LogLevel`, y, a continuación, crea una instancia de un contenedor, el valor de la variable de entorno se utiliza por el contenedor del que se creó una instancia.
+Los valores de variable de entorno invalidan los valores de argumento de la línea de comandos, que a su vez invalidan los valores predeterminados para la imagen de contenedor. En otras palabras, si especifica valores diferentes en una variable de entorno y un argumento de la línea de comandos para la misma opción de configuración, tales como `Logging:Disk:LogLevel`, y, a continuación, crea una instancia de un contenedor, el contenedor del que se creó la instancia usa el valor de la variable de entorno.
 
 ### <a name="configuration-settings-as-environment-variables"></a>Opciones de configuración como variables de entorno
 
@@ -72,7 +73,7 @@ La opción de configuración `ApiKey` especifica la clave de configuración del 
 
 ## <a name="applicationinsights-configuration-settings"></a>Opción de configuración ApplicationInsights
 
-Los valores de configuración de la sección `ApplicationInsights` le permiten agregar la compatibilidad de telemetría de [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) al contenedor. Azure Application Insights proporciona una supervisión detallada del contenedor hasta el nivel de código. Puede supervisar fácilmente la disponibilidad, el rendimiento y el uso del contenedor. También puede identificar y diagnosticar errores en el contenedor rápidamente sin tener que esperar a que un usuario informe de ellos.
+Los valores de configuración de la sección `ApplicationInsights` le permiten agregar la compatibilidad de telemetría con [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) al contenedor. Azure Application Insights proporciona una supervisión detallada del contenedor hasta el nivel de código. Puede supervisar fácilmente la disponibilidad, el rendimiento y el uso del contenedor. También puede identificar y diagnosticar errores en el contenedor rápidamente sin tener que esperar a que un usuario informe de ellos.
 
 En la tabla siguiente se describen las opciones de configuración compatibles en la sección `ApplicationInsights`.
 
@@ -92,7 +93,7 @@ En la tabla siguiente se describen las opciones de configuración compatibles en
 
 ## <a name="billing-configuration-setting"></a>Opción de configuración Billing
 
-La opción de configuración `Billing` especifica el URI del punto de conexión del recurso de Text Analytics en Azure que se usa para realizar un seguimiento de la información de facturación del contenedor. Debe especificar un valor para esta opción de configuración y el valor debe ser un URI de punto de conexión válido para un recurso de Text Analytics en Azure.
+La opción de configuración `Billing` especifica el identificador URI del punto de conexión del recurso de Text Analytics en Azure que se usa para medir la información de facturación del contenedor. Debe especificar un valor para esta opción de configuración y el valor debe ser un URI de punto de conexión válido para un recurso de Text Analytics en Azure.
 
 > [!IMPORTANT]
 > Las opciones de configuración [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) y [`Eula`](#eula-configuration-setting) se usan en conjunto, y debe proporcionar los valores válidos para las tres; en caso contrario, no se inicia el contenedor. Para obtener más información sobre el uso de estas opciones de configuración para crear instancias de un contenedor, consulte [Facturación](how-tos/text-analytics-how-to-install-containers.md#billing).
@@ -104,6 +105,8 @@ La opción de configuración `Eula` indica que ha aceptado la licencia del conte
 > [!IMPORTANT]
 > Las opciones de configuración [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) y [`Eula`](#eula-configuration-setting) se usan en conjunto, y debe proporcionar los valores válidos para las tres; en caso contrario, no se inicia el contenedor. Para obtener más información sobre el uso de estas opciones de configuración para crear instancias de un contenedor, consulte [Facturación](how-tos/text-analytics-how-to-install-containers.md#billing).
 
+Los contenedores de Cognitive Services tienen una licencia sujeta al [contrato](https://go.microsoft.com/fwlink/?linkid=2018657) que rige el uso de Azure. Si no tiene ningún contrato que rija el uso de Azure, acepta que el contrato que rige el uso de Azure es el [Contrato Microsoft Online Subscription](https://go.microsoft.com/fwlink/?linkid=2018755) (que incorpora los [Términos de Online Services](https://go.microsoft.com/fwlink/?linkid=2018760)). En el caso de las versiones preliminares, acepta también los [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://go.microsoft.com/fwlink/?linkid=2018815). Al usar el contenedor, acepta estos términos.
+
 ## <a name="fluentd-configuration-settings"></a>Opciones de configuración Fluentd
 
 La sección `Fluentd` administra las opciones de configuración de [Fluentd](https://www.fluentd.org), un recopilador de datos de código abierto para el registro unificado. Los contenedores de Text Analytics incluyen un proveedor de registro de Fluentd que permite que el contenedor escriba el registro y, opcionalmente, datos de métrica en un servidor de Fluentd.
@@ -112,7 +115,7 @@ En la tabla siguiente se describen las opciones de configuración compatibles en
 
 | NOMBRE | Tipo de datos | DESCRIPCIÓN |
 |------|-----------|-------------|
-| `Host` | Cadena | Dirección IP o nombre de host DNS del servidor de Fluentd. |
+| `Host` | string | Dirección IP o nombre de host DNS del servidor de Fluentd. |
 | `Port` | Entero | Puerto del servidor de Fluentd.<br/> El valor predeterminado es 24 224. |
 | `HeartbeatMs` | Entero | Intervalo de latidos (en milisegundos). Si no se envía ningún tráfico de evento antes de que este intervalo expire, se envía un latido al servidor de Fluentd. El valor predeterminado es 60 000 milisegundos (1 minuto). |
 | `SendBufferSize` | Entero | Espacio en búfer de red (en bytes) asignado para las operaciones de envío. El valor predeterminado es 32 768 bytes (32 kilobytes). |

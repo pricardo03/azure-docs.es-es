@@ -1,5 +1,5 @@
 ---
-title: 'Preparación de un cambio de dirección IP de SSL: Azure'
+title: 'Preparación de un cambio de dirección IP de SSL: Azure App Service'
 description: Si la dirección IP de SSL se va a cambiar, conozca qué debe hacer para que la aplicación continúe funcionando después del cambio.
 services: app-service\web
 author: cephalin
@@ -10,12 +10,13 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
-ms.openlocfilehash: e8558b4c3c7dafca8d4fff7e2aae0597a66c031d
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.custom: seodec18
+ms.openlocfilehash: 4de20ba46d3c16d6cd7bde8e17efb0a6212bc771
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576549"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270797"
 ---
 # <a name="how-to-prepare-for-an-ssl-ip-address-change"></a>Preparación de un cambio de dirección IP de SSL
 
@@ -31,7 +32,7 @@ Si recibe una notificación indicándole que se van a cambiar las direcciones IP
 
 4.  En el encabezado **Configuración**, haga clic en **Configuración de SSL** en el menú de navegación izquierdo.
 
-5. En la sección de enlaces de SSL, seleccione el registro de nombre de host. En el editor que se abre, elija **SNI SSL** en el menú desplegable **Tipo de SSL** y haga clic en **Agregar enlace**. Cuando aparezca un mensaje de finalización correcta de la operación, se habrá liberado la dirección IP existente.
+1. En la sección de enlaces de SSL, seleccione el registro de nombre de host. En el editor que se abre, elija **SNI SSL** en el menú desplegable **Tipo de SSL** y haga clic en **Agregar enlace**. Cuando aparezca un mensaje de finalización correcta de la operación, se habrá liberado la dirección IP existente.
 
 6.  En la sección **Enlaces SSL**, seleccione de nuevo el mismo registro de nombre de host con el certificado. En el editor que se abre, elija **SSL basada en IP** en el menú desplegable **Tipo de SSL** y haga clic en **Agregar enlace**. Cuando aparezca un mensaje de finalización correcta de la operación, habrá adquirido una nueva dirección IP existente.
 

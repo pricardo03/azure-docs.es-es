@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: 398472df7caf0f702f43bc9d025d1e6ad7dcdd7e
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: secdec18
+ms.openlocfilehash: 25a8057a1c547e29b209d87d9124a3e019957dd8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275086"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100861"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Configuración de cuentas de almacenamiento para Cloudyn
 
@@ -35,25 +35,25 @@ Si no tiene un cubo de servicio de almacenamiento simple (S3) de AWS, debe crear
 
 La configuración del almacenamiento de Azure para que lo use Cloudyn es sencilla. Recopile detalles sobre la cuenta de almacenamiento y cópielos en el portal de Cloudyn.
 
-1. Inicie sesión en Azure Portal en http://portal.azure.com.
+1. Inicie sesión en Azure Portal en https://portal.azure.com.
 2. Haga clic en **Todos los servicios**, seleccione **Cuentas de almacenamiento**, desplácese a la cuenta de almacenamiento que desea usar y selecciónela.
 3. En la página de la cuenta de almacenamiento, en **Configuración**, haga clic en **Claves de acceso**.
 4. Copie la información de los cuadros **Nombre de la cuenta de almacenamiento** y **Cadena de conexión** en Key1.  
-![Claves de acceso de almacenamiento de Azure](./media/storage-accounts/azure-storage-access-keys.png)  
+![Copia de la cadena de conexión y el nombre de la cuenta de almacenamiento](./media/storage-accounts/azure-storage-access-keys.png)  
 5. Abra el portal de Cloudyn desde Azure Portal o vaya a https://azure.cloudyn.com e inicie sesión.
 6. Haga clic en el símbolo de engranaje y seleccione **Administración de informes de almacenamiento**.
 7. Haga clic en **Agregar nuevo +** y asegúrese de que Microsoft Azure está seleccionado. Pegue el nombre de la cuenta de almacenamiento de Azure en el área **Nombre**. Pegue la **cadena de conexión** en el área correspondiente. Escriba un nombre de contenedor y haga clic en **Guardar**.  
-![Almacenamiento de Cloudyn configurado para Azure](./media/storage-accounts/azure-cloudyn-storage.png)
+![Pegado del nombre y la cadena de conexión de Azure Storage en el cuadro de texto Agregar un nuevo almacenamiento de informes](./media/storage-accounts/azure-cloudyn-storage.png)
 
   La nueva entrada de almacenamiento de informe de Azure aparece en la lista de cuentas de almacenamiento.  
-    ![Nuevo almacenamiento de informe de Azure en la lista](./media/storage-accounts/azure-storage-entry.png)
+    ![Nueva entrada de almacenamiento de informe de Azure en la lista](./media/storage-accounts/azure-storage-entry.png)
 
 
 Ahora puede guardar informes en el almacenamiento de Azure. En cualquier informe, haga clic en **Actions** (Acciones) y, a continuación, seleccione **Schedule report** (Programar informe). Asigne un nombre al informe y luego agregue su propia dirección URL o use la dirección URL creada automáticamente. Seleccione **Save to storage** (Guardar en el almacenamiento) y elija la cuenta de almacenamiento. Escriba un prefijo que se anexe al nombre de archivo del informe. Seleccione el formato de archivo CSV o JSON y guarde el informe.
 
 ## <a name="configure-an-aws-storage-bucket"></a>Configuración de un cubo de almacenamiento de AWS
 
-Cloudyn usa las credenciales de AWS existentes (usuario o rol) para guardar los informes en el cubo. Para probar el acceso, Cloudyn intenta guardar un archivo de texto pequeño en el cubo con el nombre de archivo _check-bucket-permission.txt_.
+Cloudyn usa las credenciales de AWS existentes: Usuario o rol, para guardar los informes en el cubo. Para probar el acceso, Cloudyn intenta guardar un archivo de texto pequeño en el cubo con el nombre de archivo _check-bucket-permission.txt_.
 
 Al cubo se le proporciona el rol o usuario de Cloudyn con el permiso PutObject. Luego, se usa un cubo existente o se crea uno nuevo para guardar los informes. Por último, decida cómo administrar la clase de almacenamiento, establezca reglas de ciclo de vida o quite los archivos innecesarios.
 
@@ -67,7 +67,7 @@ Al crear una nueva directiva, proporcione los permisos exactos necesarios para g
 4. Haga clic en la pestaña **JSON**.
 5. La siguiente directiva permite guardar un informe en un cubo S3. Copie el siguiente ejemplo de directiva y péguelo en la pestaña **JSON**. Reemplace &lt;bucketname&gt; por el nombre del cubo.
 
-  ```
+  ```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -86,7 +86,7 @@ Al crear una nueva directiva, proporcione los permisos exactos necesarios para g
 ```
 
 6. Haga clic en **Review policy** (Revisar directiva).  
-    ![Revisar directiva](./media/storage-accounts/aws-policy.png)  
+    ![Directiva JSON de AWS que muestra información de ejemplo](./media/storage-accounts/aws-policy.png)  
 7. En la página Review policy (Revisar directiva), escriba un nombre para la directiva. Por ejemplo, _CloudynSaveReport2S3_.
 8. Haga clic en **Create policy** (Crear directiva).
 
@@ -102,19 +102,19 @@ Para asociar la nueva directiva, abra la consola de AWS y edite el rol o usuario
   1. Haga clic en el nombre de rol de Cloudyn.
   2. En la pestaña **Permissions** (Permisos), haga clic en **Attach Policy** (Asociar directiva).
   3. Busque la directiva que ha creado, selecciónela y luego haga clic en **Attach Policy** (Asociar directiva).
-    ![AWS: Asociar directiva para un rol](./media/storage-accounts/aws-attach-policy-role.png)
+    ![Directiva de ejemplo conectada al rol de Cloudyn](./media/storage-accounts/aws-attach-policy-role.png)
 
 **Para usuarios:**
 
 1. Seleccione el usuario de Cloudyn.
 2. En la pestaña **Permissions** (Permisos), haga clic en **Add permissions** (Agregar permisos).
 3. En la sección **Grant Permission** (Conceder permiso), seleccione **Attach existing policies directly** (Asociar directivas existentes directamente).
-4. Busque la directiva que ha creado, selecciónela y luego haga clic en **Next: Review** (Siguiente: Revisar).
+4. Busque la directiva que ha creado, selecciónela y luego haga clic en **Next: Review** (Siguiente: revisar).
 5. En la página Add permissions to role name (Agregar permisos al nombre de rol), haga clic en **Add permissions** (Agregar permisos).  
-    ![AWS: Asociar directiva para un usuario](./media/storage-accounts/aws-attach-policy-user.png)
+    ![Directiva de ejemplo conectada al usuario de Cloudyn](./media/storage-accounts/aws-attach-policy-user.png)
 
 
-### <a name="optional-set-permission-with-bucket-policy"></a>Opcional: Establecimiento de permisos con directiva de cubo
+### <a name="optional-set-permission-with-bucket-policy"></a>Opcional: establecimiento de permisos con directiva de cubo
 
 También puede establecer permisos para crear informes en el cubo S3 mediante una directiva de cubo. En la vista clásica de S3:
 
@@ -152,11 +152,11 @@ También puede establecer permisos para crear informes en el cubo S3 mediante un
 2. Haga clic en el símbolo de engranaje y seleccione **Administración de informes de almacenamiento**.
 3. Haga clic en **Agregar nuevo +** y asegúrese de que AWS está seleccionado.
 4. Seleccione una cuenta y un cubo de almacenamiento. El nombre del cubo de almacenamiento de AWS se rellena automáticamente.  
-    ![Incorporación de almacenamiento de informes para el cubo de AWS](./media/storage-accounts/aws-cloudyn-storage.png)  
+    ![Información de ejemplo en el cuadro de texto Agregar un nuevo almacenamiento de informes](./media/storage-accounts/aws-cloudyn-storage.png)  
 5. Haga clic en **Guardar** y luego en **Aceptar**.
 
     La nueva entrada de almacenamiento de informe de AWS aparece en la lista de cuentas de almacenamiento.  
-    ![Nuevo almacenamiento de informe de AWS en la lista](./media/storage-accounts/aws-storage-entry.png)
+    ![Nueva entrada de almacenamiento de informes de AWS en la lista de cuentas de almacenamiento](./media/storage-accounts/aws-storage-entry.png)
 
 
 Ahora puede guardar informes en el almacenamiento de Azure. En cualquier informe, haga clic en **Actions** (Acciones) y, a continuación, seleccione **Schedule report** (Programar informe). Asigne un nombre al informe y luego agregue su propia dirección URL o use la dirección URL creada automáticamente. Seleccione **Save to storage** (Guardar en el almacenamiento) y elija la cuenta de almacenamiento. Escriba un prefijo que se anexe al nombre de archivo del informe. Seleccione el formato de archivo CSV o JSON y guarde el informe.

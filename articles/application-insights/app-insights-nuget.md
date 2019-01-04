@@ -7,16 +7,15 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: b6188bbf89d9aee842d7f8e232a820b59c4d9e31
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 76cdd4bd4d95c7c11906f9c02a0f5cfa2326390e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023260"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000774"
 ---
 # <a name="application-insights-nuget-packages"></a>Paquetes NuGet de Application Insights
 
@@ -71,7 +70,7 @@ A continuación se encuentra la lista actual de los paquetes NuGet de versión e
 | Microsoft.ApplicationInsights.Agent_x64 | 2.2.1 |  Habilita la recopilación de datos en tiempo de ejecución para aplicaciones x64 | [Descargar paquete](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x64/) |
 | Microsoft.ApplicationInsights.Agent_x86 | 2.2.1 |  Habilita la recopilación de datos en tiempo de ejecución para aplicaciones x86. | [Descargar paquete](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x86/) |
 
-Estos paquetes forman parte de la funcionalidad básica de la supervisión en tiempo de ejecución en [Monitor de estado](app-insights-monitor-performance-live-website-now.md). No necesita descargar estos paquetes directamente; use solo el instalador del Monitor de estado. Si desea obtener más información sobre cómo funcionan estos paquetes en segundo plato, esta [entrada de blog](http://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/) de uno de nuestros desarrolladores es un buen punto de partida.
+Estos paquetes forman parte de la funcionalidad básica de la supervisión en tiempo de ejecución en [Monitor de estado](app-insights-monitor-performance-live-website-now.md). No necesita descargar estos paquetes directamente; use solo el instalador del Monitor de estado. Si desea obtener más información sobre cómo funcionan estos paquetes en segundo plato, esta [entrada de blog](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/) de uno de nuestros desarrolladores es un buen punto de partida.
 
 ## <a name="additional-packages"></a>Paquetes adicionales
 

@@ -4,25 +4,25 @@ description: Obtenga información acerca de la solución de problemas con el age
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 12/14/2018
 ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 61ff50cda6ec523964ccf8f885f07c39020fbc88
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 4540de7acd89614152c7331b17ba752f4032bf1a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335153"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434773"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Información sobre los resultados de la comprobación del agente de Windows en Update Management
 
-Hay muchas razones por las que una máquina de Azure podría no mostrar un estado **Listo** en Azure Update Management. En Update Management, puede comprobar el estado de un agente de Hybrid Worker para determinar un problema subyacente. En este artículo se explica cómo ejecutar el solucionador de problemas de Update Management desde Azure Portal y en escenarios sin conexión.
+Puede haber muchas razones por las que el equipo no muestre el estado **Listo** en Update Management. En Update Management, puede comprobar el estado de un agente de Hybrid Worker para determinar el problema subyacente. En este artículo se explica cómo ejecutar el solucionador de problemas para máquinas de Azure desde Azure Portal y máquinas que son de Azure en [escenarios sin conexión](#troubleshoot-offline).
 
 ## <a name="start-the-troubleshooter"></a>Iniciar el solucionador de problemas
 
-En Azure Portal, la página **Solucionar problemas del Agente de actualización** muestra los problemas que hayan surgido con el agente. En la página, hay un vínculo a este artículo que le ayudará a resolver problemas. Para ir a la página **Solucionar problemas del Agente de actualización**, seleccione el vínculo de **solución de problemas** en la columna **Update Agent Readiness** (Preparación del Agente de actualización).
+Para las máquinas de Azure, al hacer clic en el vínculo **Solucionar problemas** en la columna **Preparación de actualizaciones del agente** del portal, se abre la página **Solucionar problemas del Agente de actualización**. Para las máquinas que no son de Azure, el vínculo le lleva a este artículo. Vea las [instrucciones sin conexión](#troubleshoot-offline) para solucionar problemas de una máquina que no es de Azure.
 
 ![Actualizar la lista de administración de máquinas virtuales](../media/update-agent-issues/vm-list.png)
 
@@ -82,7 +82,7 @@ Esta comprobación determina si Microsoft Monitoring Agent (`HealthService`) se 
 
 Para más información sobre cómo solucionar problemas del servicio, vea [No se está ejecutando Microsoft Monitoring Agent](hybrid-runbook-worker.md#mma-not-running).
 
-Para volver a instalar Microsoft Monitoring Agent, consulte [Instalación y configuración de Microsoft Monitoring Agent](../../log-analytics/log-analytics-quick-collect-windows-computer.md#install-the-agent-for-windows).
+Para volver a instalar Microsoft Monitoring Agent, consulte [Instalación y configuración de Microsoft Monitoring Agent](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
 ### <a name="monitoring-agent-service-events"></a>Supervisión de eventos de servicio del agente
 

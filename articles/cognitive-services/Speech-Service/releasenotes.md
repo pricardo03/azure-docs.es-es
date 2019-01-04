@@ -1,21 +1,22 @@
 ---
-title: Documentación del SDK del servicio Voz
+title: 'Notas de la versión: servicio de voz'
 titlesuffix: Azure Cognitive Services
-description: 'Notas de la versión: qué ha cambiado en las versiones más recientes'
+description: Consulte un registro de características, mejoras, correcciones de errores y problemas conocidos para los servicios de voz de Azure.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: ff09926d61d64294a4f12ccf959f6685910539f1
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec18
+ms.openlocfilehash: c99f1691618765e8997ef442a506c83b9a7bd4fa
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317898"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088313"
 ---
 # <a name="release-notes"></a>Notas de la versión
 
@@ -24,7 +25,7 @@ ms.locfileid: "52317898"
 **Nuevas características**
 
 * Compatibilidad con Android x86/x64.
-* Compatibilidad con el proxy: en el objeto SpeechConfig ahora puede llamar a una función para establecer la información del proxy (nombre de host, puerto, nombre de usuario y contraseña). Esta característica no está disponible aún en iOS.
+* Compatibilidad con proxy: en el objeto SpeechConfig ahora puede llamar a una función para establecer la información del proxy (nombre de host, puerto, nombre de usuario y contraseña). Esta característica no está disponible aún en iOS.
 * Mensajes y códigos de error mejorados. Si un reconocimiento devolvió un error, esto ya ha establecido `Reason` (en el evento cancelado) o `CancellationDetails` (en el resultado del reconocimiento) en `Error`. El evento cancelado ahora contiene dos miembros adicionales, `ErrorCode` y `ErrorDetails`. Si el servidor devolvió información de error adicional con el error notificado, ahora estará disponible en los nuevos miembros.
 
 **Mejoras**
@@ -58,13 +59,13 @@ Mejoras en la confiabilidad y correcciones de errores:
 * Corrección de un potencial error grave en el caso de propiedades sin establecer.
 * Comprobación adicional de errores y parámetros.
 * Objective-C: corrección de posibles errores graves causados por la invalidación de nombres en NSString.
-* Objective-C: ajuste de visibilidad en la API.
+* Objective-C: ajuste de visibilidad en la API
 * JavaScript: corrección con respecto a los eventos y sus cargas.
 * Mejoras en la documentación.
 
 Se ha agregado un nuevo ejemplo de Javascript en nuestro [repositorio de ejemplos](https://aka.ms/csspeech/samples).
 
-## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>SDK 1.0.0 de Voz de Cognitive Services: versión de septiembre de 2018
+## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>SDK de Voz 1.0.0 de Cognitive Services: Versión de septiembre de 2018
 
 **Nuevas características:**
 
@@ -76,14 +77,14 @@ Se ha agregado un nuevo ejemplo de Javascript en nuestro [repositorio de ejemplo
 * Con esta versión se presentan una serie de cambios importantes.
   Consulte [esta página](https://aka.ms/csspeech/breakingchanges_1_0_0) para más información.
 
-## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>SDK de Voz de Cognitive Services 0.6.0: versión de agosto de 2018
+## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>SDK de Voz 0.6.0 de Cognitive Services: Versión de agosto de 2018
 
 **Nuevas características:**
 
 * Ahora, las aplicaciones de UWP creadas con SDK de Voz superan el Kit para la certificación de aplicaciones en Windows (WACK).
   Consulte la [Guía de inicio rápido de UWP](quickstart-csharp-uwp.md).
 * Compatibilidad con .NET Standard 2.0 en Linux (Ubuntu 16.04 x64).
-* Experimental: Compatibilidad con Java 8 en Windows (64 bits) y Linux (Ubuntu 16.04 x 64).
+* Experimental: compatibilidad con Java 8 en Windows (64 bits) y Linux (Ubuntu 16.04 x 64).
   Consulte la [Guía de inicio rápido de Java Runtime Environment](quickstart-java-jre.md).
 
 **Cambios funcionales**
@@ -102,11 +103,11 @@ Se ha agregado un nuevo ejemplo de Javascript en nuestro [repositorio de ejemplo
 * Se ha corregido un problema por el que un proceso de reconocimiento de larga ejecución podía terminar en mitad de la transmisión.
 * Se ha corregido una condición de carrera en el proceso de apagado del reconocedor.
 
-## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>SDK de Voz de Cognitive Services 0.5.0: versión de julio de 2018
+## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>SDK de Voz 0.5.0 de Cognitive Services: Versión de julio de 2018
 
 **Nuevas características:**
 
-* Compatibilidad con la plataforma Android (API 23: Android 6.0 Marshmallow o superior). Consulte el [inicio rápido de Android](quickstart-java-android.md).
+* Compatibilidad con la plataforma Android (API 23: Android Marshmallow 6.0 o posterior). Consulte el [inicio rápido de Android](quickstart-java-android.md).
 * Compatibilidad con .NET Standard 2.0 en Windows. Consulte el [inicio rápido de .NET Core](quickstart-csharp-dotnetcore-windows.md).
 * Experimental: compatibilidad con UWP en Windows (versión 1709 o posterior).
   * Consulte la [Guía de inicio rápido de UWP](quickstart-csharp-uwp.md).
@@ -133,13 +134,13 @@ Se ha agregado un nuevo ejemplo de Javascript en nuestro [repositorio de ejemplo
 
 * Se han corregido los valores devueltos incorrectos cuando se agota el tiempo de espera de `RecognizeAsync()`.
 * Se ha eliminado la dependencia de las bibliotecas de Media Foundation en Windows. El SDK ahora usa las API de audio básicas.
-* Corrección de documentación: se ha agregado una página de [regiones](regions.md) para describir cuáles son las regiones admitidas.
+* Corrección de la documentación: se ha agregado una página de [regiones](regions.md) para describir cuáles son las regiones admitidas.
 
 **Problema conocido**
 
 * SDK de Voz para Android no informa de los resultados de la síntesis de voz para la traducción. Este problema se solucionará en la próxima versión.
 
-## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>SDK de Voz 0.4.0 de Cognitive Services: versión de junio de 2018
+## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>SDK de Voz 0.4.0 de Cognitive Services: Versión de junio de 2018
 
 **Cambios funcionales**
 
@@ -175,6 +176,6 @@ Se ha agregado un nuevo ejemplo de Javascript en nuestro [repositorio de ejemplo
 
 Se han agregado más ejemplos y se actualizan constantemente. Para obtener el conjunto más reciente de ejemplos, consulte el [repositorio de GitHub de ejemplos de SDK de Voz](https://aka.ms/csspeech/samples).
 
-## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>SDK de Voz de Cognitive Services 0.2.12733: versión de mayo de 2018
+## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>SDK de Voz 0.2.12733 de Cognitive Services: Versión de mayo de 2018
 
 Esta versión es la primera versión preliminar pública de SDK de Voz de Cognitive Services.

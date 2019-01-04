@@ -1,25 +1,19 @@
 ---
-title: Solucionar problemas de rendimiento de Azure Virtual Network | Microsoft Docs
+title: 'Solución de problemas de rendimiento de red virtual: Azure | Microsoft Docs'
 description: En esta página se proporciona un método de prueba normalizado del rendimiento de vínculos de red de Azure.
 services: expressroute
-documentationcenter: na
 author: tracsman
-manager: rossort
-editor: ''
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 12/20/2017
 ms.author: jonor
-ms.openlocfilehash: 56f011632a2aa3ef0632efd5ace472c0fc79a329
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.custom: seodec18
+ms.openlocfilehash: 2572ff3711fb86cda88a86744192980a5b2d5361
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2017
-ms.locfileid: "27318895"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277631"
 ---
 # <a name="troubleshooting-network-performance"></a>Solución de problemas de rendimiento de red
 ## <a name="overview"></a>Información general
@@ -136,7 +130,7 @@ Si dos redes virtuales (redes virtuales A y B en el diagrama) están conectadas 
 ### <a name="test-plan"></a>Plan de pruebas
 1. Ejecute la prueba Get-LinkPerformance entre VM1 y VM2. Esta prueba proporciona información sobre si el problema es local o no. Si la prueba genera resultados de latencia y ancho de banda aceptables, puede marcar la red virtual local como correcta.
 2. Suponiendo que el tráfico de la red virtual local es correcto, ejecute la prueba Get-LinkPerformance entre VM1 y VM3. Esta prueba establece la conexión a través de la red de Microsoft en orden descendente hasta llegar a MSEE y vuelve a Azure. Si la prueba genera resultados de latencia y ancho de banda aceptables, puede marcar la red de Azure como correcta.
-3. Si se descarta Azure, puede realizar una secuencia similar de pruebas en su red corporativa. Si estas pruebas también se realizan correctamente, es el momento de recurrir al proveedor de servicios o ISP para diagnosticar la conexión WAN. Ejemplo: ejecute esta prueba entre dos sucursales o entre su escritorio y el servidor de un centro de datos. Según lo que vaya a probar, busque puntos de conexión (servidores, equipos, etc.) que puedan probar esa ruta.
+3. Si se descarta Azure, puede realizar una secuencia similar de pruebas en su red corporativa. Si estas pruebas también se realizan correctamente, es el momento de recurrir al proveedor de servicios o ISP para diagnosticar la conexión WAN. Ejemplo: Ejecute esta prueba entre dos sucursales o entre su escritorio y el servidor de un centro de datos. Según lo que vaya a probar, busque puntos de conexión (servidores, equipos, etc.) que puedan probar esa ruta.
 
 >[!IMPORTANT]
 > Es fundamental que, para cada prueba, indique la hora del día a la que se debe ejecutar la prueba y que registre los resultados en una ubicación común (como OneNote o Excel). Cada serie de pruebas deben tener resultados idénticos para que pueda comparar los datos resultantes entre ejecuciones de pruebas y no tener "carencia" de datos. La coherencia entre varias pruebas es la razón principal por la que uso AzureCT para solucionar problemas. El *truco* no está en los escenarios de carga exactos que ejecuto, sino en el hecho de que obtengo un *resultado de pruebas y datos coherente* de cada prueba. Registrar la hora y disponer de datos coherentes de cada prueba resulta especialmente útil si más tarde descubre que el problema es esporádico. Sea minucioso con la recopilación anticipada de datos y, de esta forma, evitar horas de pruebas repetidas de los mismos escenarios (aprendí esta lección hace muchos años).
@@ -185,25 +179,25 @@ Configuración de la prueba:
 
 | | | | | | |
 |-|-|-|-|-|-|
-|ExpressRoute<br/>La ubicación|Azure<br/>Region|Estimación<br/>Distancia (km)|Latency|1 Sesión<br/>Ancho de banda|Máxima<br/>Ancho de banda|
+|ExpressRoute<br/>Ubicación|Azure<br/>Region|Estimación<br/>Distancia (km)|Latencia|1 Sesión<br/>Ancho de banda|Máxima<br/>Ancho de banda|
 | Seattle | Oeste de EE. UU. 2        |    191 km |   5 ms | 262,0 Mbits/s |  3,74 Gbits/s | 21
-| Seattle | Oeste de EE. UU          |  1094 km |  18 ms |  82,3 Mbits/s |  3,70 Gbits/s | 20 
-| Seattle | Central EE. UU:       |  2357 km |  40 ms |  38,8 Mbits/s |  2,55 Gbits/s | 17
+| Seattle | Oeste de EE. UU.          |  1094 km |  18 ms |  82,3 Mbits/s |  3,70 Gbits/s | 20
+| Seattle | Centro de EE. UU.       |  2357 km |  40 ms |  38,8 Mbits/s |  2,55 Gbits/s | 17
 | Seattle | Centro-Sur de EE. UU |  2877 km |  51 ms |  30,6 Mbits/s |  2,49 Gbits/s | 19
 | Seattle | Centro-Norte de EE. UU |  2792 km |  55 ms |  27,7 Mbits/s |  2,19 Gbits/s | 18
 | Seattle | Este de EE. UU. 2        |  3769 km |  73 ms |  21,3 Mbits/s |  1,79 Gbits/s | 16
 | Seattle | Este de EE. UU          |  3699 km |  74 ms |  21,1 Mbits/s |  1,78 Gbits/s | 15
 | Seattle | Este de Japón       |  7705 km | 106 ms |  14,6 Mbits/s |  1,22 Gbits/s | 28
-| Seattle | Sur del Reino Unido 2         |  7708 km | 146 ms |  10,6 Mbits/s |   896 Mbits/s | 24
+| Seattle | Sur de Reino Unido 2         |  7708 km | 146 ms |  10,6 Mbits/s |   896 Mbits/s | 24
 | Seattle | Europa occidental      |  7834 km | 153 ms |  10,2 Mbits/s |   761 Mbits/s | 23
-| Seattle | Australia Oriental   | 12 484 km | 165 ms |   9,4 Mbits/s |   794 Mbits/s | 26
+| Seattle | Este de Australia   | 12 484 km | 165 ms |   9,4 Mbits/s |   794 Mbits/s | 26
 | Seattle | Sudeste asiático   | 12 989 km | 170 ms |   9,2 Mbits/s |   756 Mbits/s | 25
 | Seattle | Sur de Brasil *   | 10 930 km | 189 ms |   8,2 Mbits/s |   699 Mbits/s | 22
 | Seattle | Sur de la India      | 12 918 km | 202 ms |   7,7 Mbits/s |   634 Mbits/s | 27
 
 \* La latencia de Brasil es un buen ejemplo de que la distancia lineal varía significativamente de la distancia del tenido de fibra. Esperaba que la latencia fuera de 160 ms aproximadamente, pero realmente es de 189 ms. Esta variación con lo que esperaba podría ser un indicio de que existe un problema de red en algún punto, pero lo más probable es que el tendido de fibra no llegue hasta Brasil en línea recta y que tenga una distancia de 1000 km o más para llegar a Brasil desde Seattle.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 1. Descargue Azure Connectivity Toolkit de GitHub en [http://aka.ms/AzCT][ACT]
 2. Siga las instrucciones para las [pruebas de rendimiento de los vínculos][Performance Doc]
 

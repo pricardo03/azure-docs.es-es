@@ -1,6 +1,6 @@
 ---
-title: Implementación y supervisión de módulos para Azure IoT Edge | Microsoft Docs
-description: Administración de los módulos que se ejecutan en dispositivos perimetrales
+title: 'Creación de implementaciones automáticas desde Azure Portal: Azure IoT Edge | Microsoft Docs'
+description: Uso de Azure Portal para crear implementaciones automáticas para grupos de dispositivos IoT Edge
 keywords: ''
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6ebd2a4e24a5f0bd9a9adad97bf26ae61219c8e0
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 20f50e286e30e32f066fe3d214bfc4c1a155776e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566252"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083927"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implementación y supervisión de módulos de IoT Edge a escala mediante Azure Portal
 
@@ -55,7 +56,7 @@ Hay cinco pasos para crear una implementación. En las siguientes secciones se a
 1. Agregue etiquetas para realizar un mejor seguimiento de las implementaciones. Las etiquetas son pares de **nombre** y **valor** que describen la implementación. Por ejemplo, `HostPlatform, Linux` o `Version, 3.0.1`.
 1. Seleccione **Siguiente** para ir al segundo paso. 
 
-### <a name="step-2-add-modules-optional"></a>Paso 2: Adición de módulos (opcional)
+### <a name="step-2-add-modules-optional"></a>Paso 2: Incorporación de módulos (opcional)
 
 Hay dos tipos de módulos que se pueden agregar a una implementación. El primero es un módulo basado en un servicio de Azure, como una cuenta de Storage o Stream Analytics. El segundo es un módulo basado en su propio código. Puede agregar varios módulos de cualquier tipo a una implementación. 
 
@@ -109,7 +110,7 @@ Como varias implementaciones pueden tener como destino el mismo dispositivo, deb
 1. Escriba una **condición de destino** para determinar qué dispositivos se dirigirán a esta implementación. La condición se basa en las etiquetas del dispositivo gemelo o en las propiedades notificadas del dispositivo gemelo y debe coincidir con el formato de expresión. Por ejemplo, `tags.environment='test'` o `properties.reported.devicemodel='4000x'`. 
 1. Seleccione **Siguiente** para pasar al último paso.
 
-### <a name="step-5-review-template"></a>Paso 5: Revisión de la plantilla
+### <a name="step-5-review-template"></a>Paso 5: Plantilla de revisión
 
 Revise la información de implementación y seleccione **Enviar**.
 

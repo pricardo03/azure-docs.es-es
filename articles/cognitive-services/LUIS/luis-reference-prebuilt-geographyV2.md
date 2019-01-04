@@ -1,23 +1,24 @@
 ---
-title: 'Entidad precompilada de GeographyV2: referencia de LUIS'
+title: Entidad precompilada GeographyV2
 titleSuffix: Azure Cognitive Services
 description: Este artículo contiene información sobre la entidad GeographyV2 de Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cjgronlund
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 3559bc02944f88f486104d4d9553f0c45a1f1754
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a81c97cf8883d2a3629d1eb1b9f6137609c6edda
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983419"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135107"
 ---
-# <a name="geographyv2-entity"></a>Entidad GeographyV2
+# <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>Entidad precompilada GeographyV2 para una aplicación de LUIS
 La entidad precompilada GeographyV2 detecta lugares. Dado que esta entidad ya está entrenada, no es necesario agregar expresiones de ejemplo que contengan la entidad GeographyV2 a las intenciones de la aplicación. La entidad GeographyV2 se admite en la [referencia cultural](luis-reference-prebuilt-entities.md) de inglés.
 
 ## <a name="subtypes"></a>Subtipos
@@ -35,7 +36,7 @@ Las ubicaciones geográficas tienen subtipos:
 ## <a name="resolution-for-geographyv2-entity"></a>Resolución de la entidad GeographyV2
 En el ejemplo siguiente se muestra la resolución de la entidad **builtin.geographyV2**.
 
-```JSON
+```json
 {
     "query": "Carol is visiting the sphinx in gizah egypt in africa before heading to texas",
     "topScoringIntent": {

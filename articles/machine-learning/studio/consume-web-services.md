@@ -1,12 +1,11 @@
 ---
-title: Cómo consumir un servicio web de Azure Machine Learning Studio | Microsoft Docs
+title: Consumir un servicio web - Azure Machine Learning Studio | Microsoft Docs
 description: Una vez implementado un servicio de aprendizaje automático desde Azure Machine Learning Studio, se puede consumir el servicio web RESTFul como servicio de solicitud-respuesta en tiempo real o como servicio de ejecución por lotes.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 804f8211-9437-4982-98e9-ca841b7edf56
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
-ms.openlocfilehash: df837c64cf0e40f3bfc1c596b2950a9d23c74a90
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: d7a48dcb56d2bed0e84714087bb9fda3fae65fc1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309113"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273789"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Cómo consumir un servicio web de Azure Machine Learning Studio
 
@@ -33,7 +32,7 @@ Puede encontrar más información sobre cómo crear e implementar un servicio we
 * Para obtener detalles sobre cómo implementar un servicio web, vea [Implementación de un servicio web Azure Machine Learning](publish-a-machine-learning-web-service.md).
 * Para obtener más información sobre Machine Learning, visite el [Centro de documentación de Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="overview"></a>Información general
 Con el servicio web Azure Machine Learning, una aplicación externa se comunica con un modelo de puntuación de flujo de trabajo de Machine Learning en tiempo real. Una llamada al servicio web Machine Learning devuelve resultados de predicción a una aplicación externa. Para llamar a un servicio web Machine Learning, se pasa una clave de API que se crea cuando se implementa una predicción. El servicio web Machine Learning se basa en REST, una opción popular de arquitectura para proyectos de programación web.
@@ -102,13 +101,13 @@ Para conectarse a un servicio web Machine Learning, se debe instalar el paquete 
 
 **Instalar Microsoft.AspNet.WebApi.Client NuGet en Visual Studio**
 
-1. Publique el conjunto de datos de descarga de UCI: Servicio web de conjunto de datos de clase de contenido para adultos 2.
+1. Publique el conjunto de datos de descarga de UCI: Servicio web del conjunto de datos de clase 2 de contenido para adultos.
 2. Haga clic en **Herramientas** > **Administrador de paquetes NuGet** > **Consola del administrador de paquetes**.
 3. Elija **Install-Package Microsoft.AspNet.WebApi.Client**.
 
 **Para ejecutar el ejemplo de código**
 
-1. Publique el experimento "Ejemplo 1: descargar el conjunto de datos de UCI: conjunto de datos de clase de contenido para adultos 2", que forma parte de la colección de ejemplos de Machine Learning.
+1. Publique "Ejemplo 1: descargar el conjunto de datos desde UCI: conjunto de datos de clase 2 de contenido para adultos", que forma parte de la colección de ejemplos de Machine Learning.
 2. Asigne una clave de API con la clave de un servicio web. Consulte el apartado anterior **Obtener una clave de autorización de Azure Machine Learning** .
 3. Asigne la URI de servicio a la URI de solicitud.
 
@@ -204,7 +203,7 @@ Para conectarse a un servicio web de Machine Learning, use la biblioteca **urlli
 
 **Para ejecutar el ejemplo de código**
 
-1. Publique el experimento "Ejemplo 1: descargar el conjunto de datos de UCI: conjunto de datos de clase de contenido para adultos 2", que forma parte de la colección de ejemplos de Machine Learning.
+1. Implemente: "Ejemplo 1: descargar el conjunto de datos desde UCI: conjunto de datos de clase 2 de contenido para adultos", que forma parte de la colección de ejemplos de Machine Learning.
 2. Asigne una clave de API con la clave de un servicio web. Vea la sección **Obtener una clave de autorización de Azure Machine Learning** casi al principio de este artículo.
 3. Asigne la URI de servicio a la URI de solicitud.
 

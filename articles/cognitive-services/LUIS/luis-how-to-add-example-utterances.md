@@ -1,21 +1,22 @@
 ---
-title: Adición de expresiones de ejemplo en las aplicaciones de LUIS
-titleSuffix: Azure Cognitive Services
-description: Obtenga información acerca de cómo agregar expresiones en las aplicaciones de Language Understanding (LUIS).
+title: Incorporación de expresiones de ejemplo
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Las expresiones de ejemplo son ejemplos de texto de preguntas de los usuarios o de comandos. Para entrenar el servicio Language Understanding (LUIS), debe agregar expresiones de ejemplo a una intención.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: caf8628569481149ee41e8253f4759e15e49150f
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 33c941f84952faca1961bb65687b4098b837a2fd
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139130"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139181"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Incorporación de una entidad a expresiones de ejemplo 
 
@@ -89,7 +90,7 @@ El nombre del empleado, John Smith, es una entidad [personName](luis-reference-p
 
 1. Escriba el nombre de la entidad compuesta en la lista desplegable.
 
-    ![Captura de pantalla de la especificación del nombre de la entidad](./media/luis-how-to-add-example-utterances/hr-create-composite-2.png)
+    ![Captura de pantalla de la especificación del nombre de la entidad compuesta en la lista desplegable](./media/luis-how-to-add-example-utterances/hr-create-composite-2.png)
 
     Cuando se encapsulan las entidades correctamente, aparece una línea verde debajo de toda la frase.
 
@@ -117,7 +118,7 @@ En la expresión `Move John Smith from Seattle to Cairo`, Seattle es la ubicaci�
 
 1. La palabra en la expresión se etiqueta con la entidad jerárquica primaria. Debe asignar la palabra a una entidad secundaria. Vuelva a la expresión en la página de detalles de la intención. Seleccione la palabra, a continuación, en la lista desplegable, elija el nombre de la entidad que ha creado y siga el menú a la derecha para elegir la entidad secundaria correcta.
 
-    ![Captura de pantalla de la página de detalles de intención, con la entidad ToLocation resaltada](./media/luis-how-to-add-example-utterances/hr-hier-3.png)
+    ![Captura de pantalla de la página de detalles de intenciones, donde deberá asignar la palabra a una entidad secundaria](./media/luis-how-to-add-example-utterances/hr-hier-3.png)
 
     >[!CAUTION]
     >Los nombres de entidad secundaria deben ser únicos en todas las entidades en una sola aplicación. Dos entidades jerárquicas diferentes no pueden contener entidades secundarias con el mismo nombre. 
@@ -134,7 +135,7 @@ Seleccione las palabras que se hayan subrayado en rojo en la expresión.
 
 El cuadro de la entidad muestra el **Estado de entidad** con un signo de exclamación rojo si hay una discrepancia de predicción. Para ver el Estado de entidad con información sobre la diferencia entre las entidades etiquetadas y previstas, seleccione **Estado de entidad** y seleccione el elemento a la derecha.
 
-![Captura de pantalla de la discrepancia de predicción del estado de entidad](./media/luis-how-to-add-example-utterances/entity-status.png)
+![Captura de pantalla de la selección del elemento correcto para corregir la discrepancia en la predicción](./media/luis-how-to-add-example-utterances/entity-status.png)
 
 La línea roja puede aparecer en cualquiera de los momentos siguientes:
 

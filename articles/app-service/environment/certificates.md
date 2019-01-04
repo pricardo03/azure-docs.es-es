@@ -1,5 +1,5 @@
 ---
-title: Certificados y App Service aislado
+title: 'Certificados y App Service Environment: Azure'
 description: Se explican los numerosos temas relacionados con los certificados en una instancia de App Service aislado.
 services: app-service
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: 3d417d560d8a88100f31def27c7db5f9b2493062
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.custom: seodec18
+ms.openlocfilehash: bcb0c806d916b9dff4461cad829a1d75e8df7cf6
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47167857"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271902"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificados y App Service aislado 
 
@@ -32,8 +33,8 @@ Si usa una instancia de App Service aislado externo, se establece contacto con l
 
 Hay dos opciones para configurar certificados con App Service aislado con ILB.  Puede establecer un certificado predeterminado de carácter comodín para App Service aislado con ILB o bien certificados en las aplicaciones web individuales de App Service aislado.  Independientemente de la opción que escoja, es necesario configurar correctamente los siguientes atributos del certificado:
 
-- **Firmante**: el valor de este atributo debe ser *.[su-dominio-raíz] en el caso de un certificado de App Service aislado con ILB de carácter comodín. Si crea el certificado para la aplicación, debe ser [appname].[su-dominio-raíz].
-- **Nombre alternativo del firmante**: este atributo debe incluir tanto *.[su-dominio-raíz] como *.scm.[su-dominio-raíz] para el certificado de App Service aislado con ILB de carácter comodín. Si crea el certificado para la aplicación, debe ser [appname].[su-dominio-raíz] y [appname].scm.[su-dominio-raíz].
+- **Firmante:** el valor de este atributo tiene que establecerse como *.[su-dominio-raíz] en el caso de un certificado de App Service Environment con ILB de carácter comodín. Si crea el certificado para la aplicación, debe ser [appname].[su-dominio-raíz].
+- **Nombre alternativo del firmante**: este atributo tiene que incluir tanto *.[su-dominio-raíz] como *.scm.[su-dominio-raíz] para el certificado de App Service Environment con ILB de carácter comodín. Si crea el certificado para la aplicación, debe ser [appname].[su-dominio-raíz] y [appname].scm.[su-dominio-raíz].
 
 Como tercera variante, puede crear un certificado de App Service aislado con ILB que incluya todos los nombres de las aplicaciones individuales del SAN del certificado en lugar de usar una referencia de carácter comodín. El problema con este método es que necesita conocer por adelantado los nombres de las aplicaciones que va a incluir en App Service aislado o mantener actualizado el certificado de App Service aislado con ILB.
 

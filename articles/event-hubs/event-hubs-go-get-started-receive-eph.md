@@ -1,20 +1,21 @@
 ---
-title: Recepción de eventos de Azure Event Hubs mediante Go | Microsoft Docs
-description: Introducción a la recepción de eventos de Event Hubs mediante Go
+title: Recepción de eventos mediante Go en Azure Event Hubs | Microsoft Docs
+description: En este artículo se ofrece un tutorial para crear una aplicación de Go que recibe eventos de Azure Event Hubs.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 07/23/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 0a8cb349be0ffefecb07bc705391684dc57f1b96
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: db952b82172928e42e951563d98bb32b275e8af7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239498"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084998"
 ---
 # <a name="receive-events-from-event-hubs-using-go"></a>Recepción de eventos de Event Hubs mediante Go
 
@@ -38,7 +39,7 @@ Para completar este tutorial, debe cumplir los siguientes requisitos previos:
 * Un centro de eventos existente (consulte la sección siguiente).
 * Una cuenta de almacenamiento y un contenedor existentes (consulte la sección posterior a la sección siguiente).
 
-### <a name="create-an-event-hub"></a>Crear un centro de eventos
+### <a name="create-an-event-hub"></a>Creación de un centro de eventos
 
 Este tutorial comienza con un centro de eventos y un espacio de nombres de Event Hubs existentes. Puede crear estas entidades siguiendo las instrucciones de [este artículo](event-hubs-create.md).
 
@@ -80,7 +81,7 @@ import (
 
 ## <a name="create-service-principal"></a>Creación de una entidad de servicio
 
-Cree una nueva entidad de servicio siguiendo las instrucciones que se indican en [Creación de una entidad de servicio de Azure con la CLI de Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli). Guarde las credenciales proporcionadas en su entorno con los siguientes nombres: tanto Azure SDK para Go como el paquete de Event Hubs están preconfigurados para buscar estos nombres de variable.
+Cree una nueva entidad de servicio siguiendo las instrucciones que se indican en [Creación de una entidad de servicio de Azure con la CLI de Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli). Guarde las credenciales proporcionadas en su entorno con los siguientes nombres: Los paquetes de Azure SDK para Go y de Event Hubs se han configurado previamente para buscar estos nombres de variables.
 
 ```bash
 export AZURE_CLIENT_ID=

@@ -1,5 +1,5 @@
 ---
-title: Ejemplos de consultas simplificadas para Azure Search | Microsoft Docs
+title: Ejemplos de consulta simplificadas con Azure Search
 description: Ejemplos de consultas simplificadas para búsqueda de texto completo, búsqueda filtrada, búsqueda geográfica, búsqueda por facetas y otras cadenas de consulta que se usan para consultar un índice de Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
-ms.openlocfilehash: 2d9e69a900f6665aa0ee3034cd6f9d7c394e8f0b
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.custom: seodec2018
+ms.openlocfilehash: 9697b88e23fea0cb06ab0c4a6197b5255e7076bf
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42143407"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316274"
 ---
 # <a name="simple-syntax-query-examples-for-building-queries-in-azure-search"></a>Ejemplos de sintaxis de consulta simplificada para la creación de consultas en Azure Search
 
@@ -70,9 +71,9 @@ Para las consultas interactivas, no tiene que especificar nada: la consulta simp
 
 ## <a name="example-1-field-scoped-query"></a>Ejemplo 1: Consulta de ámbito de campo
 
-En este primer ejemplo no es específico del analizador, pero sirve para introducir el primer concepto fundamental de consulta: la independencia. En este ejemplo se establece el ámbito de ejecución de consultas y la respuesta a unos pocos campos específicos. Es importante saber cómo estructurar una respuesta JSON legible cuando la herramienta es Postman o el Explorador de búsqueda. 
+El primer ejemplo no es específico del analizador, pero sirve para introducir el primer concepto fundamental de consulta: la independencia. En este ejemplo se establece el ámbito de ejecución de consultas y la respuesta a unos pocos campos específicos. Es importante saber cómo estructurar una respuesta JSON legible cuando la herramienta es Postman o el Explorador de búsqueda. 
 
-Por brevedad, la consulta tiene como destino únicamente el campo *business_title* y especifica que se devuelvan solo los puestos de empresa. La sintaxis es **searchFields** para restringir la ejecución de consultas al campo business_title y **select** para especificar qué campos se incluyen en la respuesta.
+Por brevedad, la consulta tiene como destino únicamente el campo *business_title* y especifica que se devuelvan solo los puestos de empresa. La sintaxis es **searchFields** para restringir la ejecución de consultas a solo el campo de business_title y **select** para especificar qué campos se incluyen en la respuesta.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&search=*
@@ -82,7 +83,7 @@ La respuesta de esta consulta debe tener un aspecto similar a la siguiente captu
 
   ![Respuesta de ejemplo de Postman](media/search-query-lucene-examples/postman-sample-results.png)
 
-Es posible que haya observado la puntuación de búsqueda en la respuesta. Las puntuaciones uniformes de 1 se producen cuando no hay ninguna clasificación, ya sea debido a que la búsqueda no era de texto completo o porque no se aplicara ningún criterio. Para la búsqueda de valores null sin ningún criterio, las filas vuelven en orden aleatorio. Al incluir criterios reales, verá que las clasificaciones de búsqueda evolucionan a valores significativos.
+Tal vez haya notado la puntuación de búsqueda en la respuesta. Las puntuaciones uniformes de 1 se producen cuando no hay ninguna clasificación, ya sea debido a que la búsqueda no era de texto completo o porque no se ha aplicado ningún criterio. Para la búsqueda de valores null sin ningún criterio, las filas vuelven en orden aleatorio. Al incluir criterios reales, verá que las puntuaciones de búsqueda evolucionan en valores significativos.
 
 ## <a name="example-2-look-up-by-id"></a>Ejemplo 2: Búsqueda por identificador
 
@@ -100,7 +101,7 @@ El ejemplo siguiente es una consulta de búsqueda que devuelve un documento espe
 https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2017-11-11&$count=true&search=*
  ```
 
-## <a name="example-3-filter-queries"></a>Ejemplo 3: Consulta de filtro
+## <a name="example-3-filter-queries"></a>Ejemplo 3: Consultas de filtro
 
 La [sintaxis de filtro](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) es una expresión de OData que se puede usar con la **búsqueda** o por sí sola. Un filtro independiente, sin parámetros de consulta, resulta útil cuando la expresión de filtro puede definir completamente los documentos de interés. Sin una cadena de consulta, no hay ningún análisis lingüístico ni léxico, ni puntuación (todas son 1), ni clasificación. Tenga en cuenta que la cadena de búsqueda está vacía.
 
@@ -179,7 +180,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 > [!NOTE]
 > El uso de facetas en intervalos de valores es un requisito habitual de las aplicaciones de búsqueda. Para más información y ejemplos sobre la compilación de filtros para estructuras de navegación de facetas, consulte ["Filtro basado en un intervalo" en *Procedimiento para implementar la navegación por facetas*](search-faceted-navigation.md#filter-based-on-a-range).
 
-## <a name="example-5-geo-search"></a>Ejemplo 5: Búsqueda geográfica
+## <a name="example-5-geo-search"></a>Ejemplo 5: Búsqueda georreferenciada
 
 El índice de ejemplo incluye un campo geo_location con las coordenadas de latitud y longitud. En este ejemplo se usa la [función geo.distance](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples), que filtra en documentos dentro de la circunferencia de un punto de partida, hasta la distancia arbitraria (en kilómetros) que proporcione. Puede ajustar el último valor en la consulta (4) para reducir o ampliar el área expuesta de la consulta.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: cb9058d4f68b2dc202edeeaa6cafb2eefa82470b
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c32612c411f275220f549eea79276fa5a7232fd0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284734"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52954619"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>No puede conectarse de forma remota a una VM porque el puerto RDP no está habilitado en NSG
 
@@ -26,7 +26,7 @@ En este artículo se explica cómo resolver un problema por el que no puede cone
 
 
 > [!NOTE] 
-> Azure cuenta con dos modelos de implementación para crear recursos y trabajar con ellos: [Resource Manager y el modelo clásico](../../azure-resource-manager/resource-manager-deployment-model.md). Se recomienda usar el modelo de implementación de Resource Manager, en lugar del modelo de implementación clásica para las nuevas implementaciones. 
+> Azure cuenta con dos modelos de implementación para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../azure-resource-manager/resource-manager-deployment-model.md). Se recomienda usar el modelo de implementación de Resource Manager, en lugar del modelo de implementación clásica para las nuevas implementaciones. 
 
 ## <a name="symptom"></a>Síntoma
 
@@ -49,7 +49,7 @@ Para habilitar el puerto RDP en un NSG, siga estos pasos:
     **Protocolo**: TCP </br>
     **Origen**: Cualquiera </br>
     **Destinos**: Cualquiera </br>
-    **Acción**: Permitir </br>
+    **Acción**: PERMITIR </br>
 
 Si especifica la dirección IP de origen, esta opción permite el tráfico solo desde una dirección IP específica o intervalo de direcciones IP para conectarse a la VM. Asegúrese de que el equipo que use para iniciar la sesión de RDP esté dentro del intervalo.
 

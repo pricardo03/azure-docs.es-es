@@ -1,5 +1,5 @@
 ---
-title: 'Configuración del modo de transporte de IPsec para hosts de Windows: emparejamiento privado de Azure ExpressRoute | Microsoft Docs'
+title: 'Configuración del modo de transporte de IPsec para el emparejamiento privado de hosts de Windows: ExpressRoute: Azure | Microsoft Docs'
 description: Cómo habilitar el modo de transporte de IPsec entre máquinas virtuales Windows de Azure y los hosts locales de Windows a través del emparejamiento privado de ExpressRoute mediante GPO y unidades organizativas.
 services: expressroute
 author: fabferri
@@ -7,12 +7,13 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: fabferri
-ms.openlocfilehash: 1b228f0238c678c0cea4a6be2a6c3e0b929ed4d6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.custom: seodec18
+ms.openlocfilehash: 39bbe8a0ec11b90d506ce0d1c0bad37ddba46a5d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394342"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139127"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Configuración del modo de transporte de IPsec para emparejamiento privado de ExpressRoute
 
@@ -42,15 +43,15 @@ Este diagrama muestra los túneles de IPsec en tránsito en el emparejamiento pr
 ### <a name="working-with-ipsec-policy"></a>Funcionamiento con directivas IPsec
 
 En Windows, el cifrado se asocia a la directiva IPsec. La directiva IPsec determina qué tráfico IP está protegido y el mecanismo de seguridad que se aplica a los paquetes IP.
-Las **directivas IPSec** están formadas por los siguientes elementos: **listas de filtros**, **acciones de filtrado** y **reglas de seguridad**.
+**Las directivas IPSec** están formadas por los siguientes elementos: **Listas de filtros**, **Acciones de filtrado** y **Reglas de seguridad**.
 
 Al configurar la directiva IPsec, es importante comprender la terminología siguiente de directiva IPsec:
 
-* **Directiva IPsec:** una colección de reglas. Solo puede haber una directiva activa ("asignada") en un momento dado. Cada directiva puede tener una o varias reglas, que pueden estar activas simultáneamente. Se puede asignar solo una directiva IPsec activa al mismo tiempo a un equipo. Sin embargo, dentro de la directiva IPsec, puede definir varias acciones que pueden tomarse en distintas situaciones. Cada conjunto de reglas de IPsec está asociado a una lista de filtros que afecta al tipo de tráfico de red al que se aplica la regla.
+* **Directiva de IPsec:** una colección de reglas. Solo puede haber una directiva activa ("asignada") en un momento dado. Cada directiva puede tener una o varias reglas, que pueden estar activas simultáneamente. Se puede asignar solo una directiva IPsec activa al mismo tiempo a un equipo. Sin embargo, dentro de la directiva IPsec, puede definir varias acciones que pueden tomarse en distintas situaciones. Cada conjunto de reglas de IPsec está asociado a una lista de filtros que afecta al tipo de tráfico de red al que se aplica la regla.
 
-* **Listas de filtros:** las listas de filtros son la agrupación de uno o varios filtros. Una lista puede incluir varios filtros. El filtro define si la comunicación está permitida, protegida o bloqueada según los intervalos de direcciones IP, los protocolos o incluso puertos de protocolo específicos. Cada filtro coincide con un determinado conjunto de condiciones; por ejemplo, los paquetes enviados desde una subred determinada a un equipo concreto en un puerto de destino específico. Cuando las condiciones de red coinciden con uno o varios de esos filtros, se activa la lista de filtros. Cada filtro se define dentro de una lista de filtros específicos. Los filtros no se pueden compartir entre listas de filtros. Sin embargo, una lista de filtros determinada se puede incorporar a varias directivas IPsec. 
+* **Listas de filtros:** son la agrupación de uno o varios filtros. Una lista puede incluir varios filtros. El filtro define si la comunicación está permitida, protegida o bloqueada según los intervalos de direcciones IP, los protocolos o incluso puertos de protocolo específicos. Cada filtro coincide con un determinado conjunto de condiciones; por ejemplo, los paquetes enviados desde una subred determinada a un equipo concreto en un puerto de destino específico. Cuando las condiciones de red coinciden con uno o varios de esos filtros, se activa la lista de filtros. Cada filtro se define dentro de una lista de filtros específicos. Los filtros no se pueden compartir entre listas de filtros. Sin embargo, una lista de filtros determinada se puede incorporar a varias directivas IPsec. 
 
-* **Acciones de filtrado:** un método de seguridad define un conjunto de algoritmos de seguridad, protocolos y la clave que ofrece un equipo durante las negociaciones de IKE. Las acciones de filtrado son listas de métodos de seguridad clasificados por orden de preferencia.  Cuando un equipo negocia una sesión de IPsec, acepta o envía propuestas en función de la configuración de seguridad almacenada en la lista de acciones de filtro.
+* **Acciones de filtrado:** un método de seguridad define un conjunto de algoritmos de seguridad, protocolos y la clave que un equipo ofrece durante las negociaciones de IKE. Las acciones de filtrado son listas de métodos de seguridad clasificados por orden de preferencia.  Cuando un equipo negocia una sesión de IPsec, acepta o envía propuestas en función de la configuración de seguridad almacenada en la lista de acciones de filtro.
 
 * **Reglas de seguridad:** las reglas determinan cómo y cuándo una directiva IPsec protege la comunicación. Usa la **lista de filtros** y las **acciones de filtrado** para crear una regla de IPsec para compilar la conexión IPsec. Cada directiva puede tener una o varias reglas, que pueden estar activas simultáneamente. Cada regla contiene una lista de filtros IP y una colección de acciones de seguridad que tienen lugar cuando se produce una coincidencia con esa lista de filtros:
   * Acciones de filtrado IP
@@ -169,7 +170,7 @@ Cree una lista de filtros que especifique el tráfico HTTP cifrado con el puerto
 5. Especifique la dirección de origen **Dirección IP o subred:** del tráfico IP y, a continuación, haga clic en **Siguiente**.
 
   [![28]][28]
-6. Especifique la dirección IP o subred **Dirección de destino:**. A continuación, haga clic en **Siguiente**.
+6. Especifique la **Dirección de destino:** dirección IP o subred. A continuación, haga clic en **Siguiente**.
 
   [![29]][29]
 7. En la página **Tipo de protocolo IP**, seleccione **TCP**. A continuación, haga clic en **Siguiente**.
@@ -251,7 +252,7 @@ Agregue a la directiva IPsec la **lista de filtros IP** y la **acción de filtra
 6. Seleccione la acción de filtrado **myEncryption** existente que creó anteriormente.
 
   [![46]][46]
-7. Windows admite cuatro tipos de autenticación diferentes: Kerberos, certificados, NTLMv2 y clave precompartida. Dado que trabajamos con hosts unidos a un dominio, seleccione **Valor predeterminado de Active Directory (protocolo Kerberos V5)** y, a continuación, haga clic en **Siguiente**.
+7. Windows admite cuatro tipos distintos de autenticaciones: Kerberos, certificados, NTLMv2 y clave previamente compartida. Dado que trabajamos con hosts unidos a un dominio, seleccione **Valor predeterminado de Active Directory (protocolo Kerberos V5)** y, a continuación, haga clic en **Siguiente**.
 
   [![47]][47]
 8. La nueva directiva crea la regla de seguridad: **azure-onpremises-HTTP8080**. Haga clic en **OK**.

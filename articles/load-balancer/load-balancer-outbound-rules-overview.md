@@ -1,5 +1,6 @@
 ---
-title: Reglas de salida de Azure Load Balancer | Microsoft Docs
+title: Reglas de salida de Azure Load Balancer
+titlesuffix: Azure Load Balancer
 description: Usar reglas de salida para definir traducciones de direcciones de red de salida
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: ab09eb939d760a0f06be758fdf83591565aaf7d0
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 3848e2caefbc8fdfb30f36272f1b13e120312a7c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219382"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185025"
 ---
 # <a name="load-balancer-outbound-rules"></a>Reglas de salida de Load Balancer
 
@@ -67,9 +69,9 @@ La versión de la API "2018-07-01" permite una definición de regla de salida qu
 
 Mientras una regla de salida se puede usar con una única dirección IP pública, las reglas de salida alivian la carga de configuración para escalar la NAT de salida. Puede usar varias direcciones IP para planear escenarios de gran escala y puede usar reglas de salida para mitigar los patrones con tendencia a [agotamiento de SNAT](load-balancer-outbound-connections.md#snatexhaust).  
 
-Cada dirección IP adicional que proporciona un front-end ofrece 64 000 puertos efímeros que Load Balancer puede usar como puertos SNAT. Mientras las reglas de equilibrio de carga o NAT de entrada tienen un único front-end, la regla de salida amplía la noción de front-end y permite varios front-ends por regla.  Con varios front-ends por regla, se multiplica la cantidad de puertos SNAT disponibles con cada dirección IP pública y se pueden admitir escenarios grandes.
+Cada dirección IP adicional que proporciona un front-end ofrece 51 200 puertos efímeros que Load Balancer puede usar como puertos SNAT. Mientras las reglas de equilibrio de carga o NAT de entrada tienen un único front-end, la regla de salida amplía la noción de front-end y permite varios front-ends por regla.  Con varios front-ends por regla, se multiplica la cantidad de puertos SNAT disponibles con cada dirección IP pública y se pueden admitir escenarios grandes.
 
-Además, puede usar un [prefijo de IP pública](https://aka.ms/lbpublicipprefix) directamente con una regla de salida.  El uso de un prefijo de dirección IP pública proporciona un escalado más fácil y una creación simplificada de listas de permitidos para los flujos que se originan en la implementación de Azure. Puede configurar una configuración de IP de front-end en el recurso de Load Balancer para hacer referencia directamente a un prefijo de dirección IP pública.  Esto permite el control exclusivo de Load Balancer sobre el prefijo IP público y la regla de salida usará automáticamente todas las direcciones IP públicas que contiene el prefijo de IP pública para las conexiones de salida.  Cada una de las direcciones IP dentro del intervalo del prefijo de IP pública proporciona 64 000 puertos efímeros por dirección IP que Load Balancer puede usar como puertos SNAT.   
+Además, puede usar un [prefijo de IP pública](https://aka.ms/lbpublicipprefix) directamente con una regla de salida.  El uso de un prefijo de dirección IP pública proporciona un escalado más fácil y una creación simplificada de listas de permitidos para los flujos que se originan en la implementación de Azure. Puede configurar una configuración de IP de front-end en el recurso de Load Balancer para hacer referencia directamente a un prefijo de dirección IP pública.  Esto permite el control exclusivo de Load Balancer sobre el prefijo IP público y la regla de salida usará automáticamente todas las direcciones IP públicas que contiene el prefijo de IP pública para las conexiones de salida.  Cada una de las direcciones IP dentro del intervalo del prefijo de IP pública proporciona 51 200 puertos efímeros por dirección IP que Load Balancer puede usar como puertos SNAT.   
 
 No se pueden crear recursos de dirección IP pública individuales a partir del prefijo de IP pública cuando se usa esta opción, ya que la regla de salida debe tener control total sobre el prefijo de IP pública.  Si necesita un control más específico, puede crear un recurso de dirección IP pública individual a partir del prefijo de IP pública y asignar varias direcciones IP públicas individualmente al front-end de una regla de salida.
 
@@ -82,7 +84,7 @@ Use el siguiente parámetro para asignar 10 000 puertos SNAT por VM (configuraci
 
           "allocatedOutboundPorts": 10000
 
-Cada dirección IP pública de todos los servidores front-end de una regla de salida aporta hasta 64 000 puertos efímeros para su uso como puertos SNAT.  Load Balancer asigna puertos SNAT en múltiplos de 8. Si proporciona un valor que no se puede dividir por 8, se rechaza la operación de configuración.  Si intenta asignar más puertos SNAT de los disponibles en función del número de direcciones IP públicas, se rechaza la operación de configuración.  Por ejemplo, si asigna 10 000 puertos por VM y 7 VM de un grupo de back-end tienen que compartir una única dirección IP pública, la configuración se rechaza (7 x 10 000 puertos SNAT > 64 000 puertos SNAT).  Puede agregar más direcciones IP públicas al front-end de la regla de salida para habilitar el escenario.
+Cada dirección IP pública de todos los servidores front-end de una regla de salida aporta hasta 51 200 puertos efímeros para su uso como puertos SNAT.  Load Balancer asigna puertos SNAT en múltiplos de 8. Si proporciona un valor que no se puede dividir por 8, se rechaza la operación de configuración.  Si intenta asignar más puertos SNAT de los disponibles en función del número de direcciones IP públicas, se rechaza la operación de configuración.  Por ejemplo, si asigna 10 000 puertos por VM y 7 VM de un grupo de back-end tienen que compartir una única dirección IP pública, la configuración se rechaza (7 x 10 000 puertos SNAT > 51 200 puertos SNAT).  Puede agregar más direcciones IP públicas al front-end de la regla de salida para habilitar el escenario.
 
 Puede volver a la [asignación de puertos SNAT automática basada en el tamaño del grupo de back-end](load-balancer-outbound-connections.md#preallocatedports). Para hacerlo, especifique 0 como número de puertos.
 
@@ -160,7 +162,7 @@ Si no quiere usar la regla de equilibrio de carga para la salida, debe [deshabil
 
 Puede utilizar reglas de salida para ajustar la [asignación de puertos de SNAT automática basada en el tamaño del grupo de back-end](load-balancer-outbound-connections.md#preallocatedports).
 
-Por ejemplo, si tiene dos máquinas virtuales que comparten una única dirección IP pública de NAT de salida, puede aumentar el número de puertos SNAT asignados a de los 1024 puertos predeterminados si experimenta agotamiento de SNAT. Cada dirección IP pública puede contribuir hasta a 64 000 puertos efímeros.  Si configura una regla de salida con un único front-end de dirección IP pública, puede distribuir un total de 64 000 puertos SNAT a VM del grupo de back-end.  Para dos VM, se puede asignar un máximo de 32 000 puertos SNAT con una regla de salida (2 x 32 000 = 64 000).
+Por ejemplo, si tiene dos máquinas virtuales que comparten una única dirección IP pública de NAT de salida, puede aumentar el número de puertos SNAT asignados a de los 1024 puertos predeterminados si experimenta agotamiento de SNAT. Cada dirección IP pública puede contribuir hasta a 51 200 puertos efímeros.  Si configura una regla de salida con un único front-end de dirección IP pública, puede distribuir un total de 51 200 puertos SNAT a VM del grupo de back-end.  Para dos VM, se puede asignar un máximo de 25 600 puertos SNAT con una regla de salida (2 x 25 600 = 51 200).
 
 Consulte las [conexiones de salida](load-balancer-outbound-connections.md) y los detalles sobre cómo se asignan y usan los puertos [SNAT](load-balancer-outbound-connections.md#snat).
 
@@ -202,7 +204,7 @@ Cuando se usa una instancia de Standard Load Balancer, la NAT de salida no está
 
 ## <a name="limitations"></a>Limitaciones
 
-- El número máximo de puertos efímeros posibles por dirección IP de front-end es 64 000.
+- El número máximo de puertos efímeros posibles por dirección IP de front-end es 51 200.
 - El intervalo de tiempo de espera de inactividad de salida que puede configurar oscila entre 4 y 66 minutos (de 240 a 4000 segundos).
 - Load Balancer no es compatible con ICMP para NAT de salida.
 - El portal no se puede usar para configurar ni para ver reglas de salida.  Use plantillas, API REST, Az CLI 2.0 o PowerShell en su lugar.

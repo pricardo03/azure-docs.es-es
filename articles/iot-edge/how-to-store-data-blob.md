@@ -1,5 +1,5 @@
 ---
-title: Azure Blob Storage en dispositivos de Azure IoT Edge | Microsoft Docs
+title: 'Almacenamiento de blob en bloques en los dispositivos: Azure IoT Edge | Microsoft Docs'
 description: Implementación de un módulo de Azure Blob Storage en un dispositivo de IoT Edge para almacenar datos en el perímetro.
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.date: 10/03/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fa88ff46b4fb93d55aa0087cca0e6184f3e087a0
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: e56d49208740686b51cdaef1bab778e2c08a9b58
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567288"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077927"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Almacene datos en el perímetro con Azure Blob Storage en IoT Edge (versión preliminar)
 
@@ -74,9 +75,9 @@ Elija una de las dos opciones para encontrar el módulo de almacenamiento de blo
 
 1. En la sección "Agregar módulos", en "Módulos de implementación", observará que ese módulo ya aparece con un nombre que comienza con "AzureBlobStorageonIoTEdge". 
 2. **Seleccione** el módulo de almacenamiento de blobs de la lista de "Módulos de implementación". Se abrirá el panel lateral de "Módulos personalizados de IoT Edge".
-3. **Nombre**: puede cambiar el nombre del módulo aquí.
-4. **URI de la imagen**: reemplace el URI por **mcr.microsoft.com/azure-blob-storage:latest**.
-5. **Opciones de creación del contenedor**: edite el archivo JSON siguiente con sus valores y reemplácelo por el código JSON en la página del portal:
+3. **Nombre**: puede cambiar el nombre del módulo aquí
+4. **URI de la imagen**: reemplace el identificador URI por **mcr.microsoft.com/azure-blob-storage:latest**
+5. **Opciones de creación del contenedor**: edite el código JSON siguiente con sus valores y reemplácelo por el código JSON en la página del portal:
    
    ```json
    {
@@ -105,7 +106,7 @@ Elija una de las dos opciones para encontrar el módulo de almacenamiento de blo
    > [!CAUTION]
    > No cambie los valores "/blobroot" en Linux y "C:/BlobRoot" en Windows para el **\<enlace del directorio de almacenamiento>**.
 
-    ![Actualizar valores de módulo](./media/how-to-store-data-blob/edit-module.png)
+    ![Opciones de creación del contenedor del módulo de actualización: portal](./media/how-to-store-data-blob/edit-module.png)
 
 6. **Guarde** los valores en "Módulos personalizados de IoT Edge".
 7. Haga clic en **Siguiente** en la sección "Establecer módulos".
@@ -121,7 +122,7 @@ Siga estos pasos para crear una nueva solución de IoT Edge con un módulo de Bl
 
 1. Seleccione **Ver** > **Paleta de comandos**. 
 
-2. En la paleta de comandos, escriba y ejecute el comando **Azure IoT Edge: New IoT Edge Solution** (Azure IoT Edge: nueva solución de IoT Edge). 
+2. En la paleta de comandos, escriba y ejecute el comando **Azure IoT Edge: New IoT Edge Solution** (Nueva solución de IoT Edge). 
 
 3. Siga las indicaciones para crear una solución: 
 
@@ -149,7 +150,7 @@ La plantilla de solución crea una plantilla de manifiesto de implementación qu
    {\"Env\": [\"LOCAL_STORAGE_ACCOUNT_NAME=$STORAGE_ACCOUNT_NAME\",\" LOCAL_STORAGE_ACCOUNT_KEY=$STORAGE_ACCOUNT_KEY\"],\"HostConfig\": {\"Binds\": [\"<storage directory bind>\"],\"PortBindings\": {\"11002/tcp\": [{\"HostPort\":\"11002\"}]}}}
    ```
 
-   ![Actualizar opciones de creación del módulo](./media/how-to-store-data-blob/create-options.png)
+   ![Actualización del módulo createOptions: VS Code](./media/how-to-store-data-blob/create-options.png)
 
 4. En el JSON de las opciones de creación, actualice `<storage directory bind>` en función del sistema operativo del contenedor. Especifique el nombre de un [volumen](https://docs.docker.com/storage/volumes/) o la ruta de acceso absoluta a un directorio del dispositivo de IoT Edge en el que desea que el módulo del blob almacene sus datos.  
 

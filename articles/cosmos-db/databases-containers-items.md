@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: d834b7f43d961400e2d5080a46cf921d719f3393
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 39de7453c9d3b0335748cd37e4b1eef91b64b207
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684865"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409548"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Trabajar con bases de datos, contenedores y artículos de Azure Cosmos.
 
@@ -26,10 +26,10 @@ Puede crear una o varias bases de datos de Azure Cosmos en su cuenta. Una base d
 
 | **Entidad de Azure Cosmos**  | **SQL API** | **Cassandra API** | **API de MongoDB** | **Gremlin API** | **Table API** |
 | --- | --- | --- | --- | --- | --- |
-|Base de datos de Azure Cosmos | Base de datos | Espacio de claves | Base de datos | N/D | N/D |
+|Base de datos de Azure Cosmos | Base de datos | Espacio de claves | Base de datos | Base de datos | N/D |
 
 > [!NOTE]
-> Con las cuentas de Gremlin API y Table API, cuando crea su primer gráfico o tabla también se crea automáticamente una base de datos predeterminada dentro de su cuenta de Azure Cosmos.
+> Con las cuentas de Table API, cuando crea su primera tabla también se crea automáticamente una base de datos predeterminada dentro de su cuenta de Azure Cosmos.
 
 ### <a name="operations-on-an-azure-cosmos-database"></a>Operaciones en una base de datos de Azure Cosmos
 
@@ -51,9 +51,9 @@ Al crear un contenedor de Azure Cosmos, debe configurar el rendimiento de uno de
 
 * Modo de **rendimiento aprovisionado dedicado**: el rendimiento aprovisionado en un contenedor está reservado exclusivamente para ese contenedor y lo respaldan los contratos de nivel de servicio. Para obtener más información, consulte [Aprovisionamiento del rendimiento de un contenedor de Azure Cosmos DB](how-to-provision-container-throughput.md).
 
-* Modo de **rendimiento aprovisionado compartido** : estos contenedores comparten el rendimiento aprovisionado con otros contenedores en la misma base de datos (excepto aquellos contenedores que han sido configurados con un rendimiento aprovisionado dedicado). En otras palabras, el rendimiento aprovisionado en la base de datos se comparte entre todos los contenedores "compartidos". Para obtener más información, consulte [how to configure provisioned throughput on an Azure Cosmos database](how-to-provision-database-throughput.md) (Cómo configurar el rendimiento aprovisionado en una base de datos de Azure Cosmos.
+* Modo de **rendimiento aprovisionado compartido**: estos contenedores comparten el rendimiento aprovisionado con otros contenedores en la misma base de datos (excepto aquellos contenedores que han sido configurados con un rendimiento aprovisionado dedicado). En otras palabras, el rendimiento aprovisionado en la base de datos se comparte entre todos los contenedores "compartidos". Para obtener más información, consulte [how to configure provisioned throughput on an Azure Cosmos database](how-to-provision-database-throughput.md) (Cómo configurar el rendimiento aprovisionado en una base de datos de Azure Cosmos.
 
-Un contenedor de Azure Cosmos puede escalarse elásticamente, sin importar si crea contenedores con modos de rendimiento aprovisionado "compartido" o "dedicado"; es decir, pueden tener almacenamiento ilimitado y rendimiento aprovisionado.  
+Un contenedor de Azure Cosmos puede escalarse elásticamente, sin importar si crea contenedores con modos de rendimiento aprovisionado "compartido" o "dedicado".
 
 Un contenedor de Azure Cosmos es un contenedor de elementos sin esquemas. Los elementos de un contenedor pueden tener esquemas arbitrarios. Por ejemplo, se pueden colocar en el mismo contenedor un elemento que representa a una persona y otro elemento que representa un automóvil. De forma predeterminada, todos los elementos que agregue a un contenedor se indexan automáticamente sin requerir ningún índice explícito o administración de esquema. Puede personalizar el comportamiento de la indexación configurando la directiva de indexación en un contenedor. 
 
@@ -69,13 +69,13 @@ Un contenedor de Azure Cosmos está especializado en entidades específicas de A
 
 | **Entidad de Azure Cosmos**  | **SQL API** | **Cassandra API** | **API de MongoDB** | **Gremlin API** | **Table API** |
 | --- | --- | --- | --- | --- | --- |
-|Contenedor de Azure Cosmos | Contenedor | Tabla | Colección | Grafo | Tabla |
+|Contenedor de Azure Cosmos | Colección | Tabla | Colección | Grafo | Tabla |
 
 ### <a name="properties-of-an-azure-cosmos-container"></a>Propiedades de un contenedor de Azure Cosmos
 
 Un contenedor de Azure Cosmos tiene un conjunto de propiedades que define el sistema. Según la API que elija, es posible que algunas de ellas no se expongan directamente. En la tabla siguiente se describe la lista de propiedades admitidas que define el sistema:
 
-| **Propiedad que define el sistema** | **Es el usuario o el sistema quien la configura** | **Propósito** | **SQL API** | **Cassandra API** | **API de MongoDB** | **Gremlin API** | **Table API** |
+| **Propiedad que define el sistema** | **Configurable por el usuario o generado por el sistema** | **Propósito** | **SQL API** | **Cassandra API** | **API de MongoDB** | **Gremlin API** | **Table API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |__rid | Generado por el sistema | Identificador único del contenedor | SÍ | No | No | No | Sin  |
 |__etag | Generado por el sistema | Etiqueta de entidad que se usa para el control de simultaneidad optimista | SÍ | No | No | No | Sin  |
@@ -103,30 +103,30 @@ Un contenedor de Azure Cosmos es compatible con las siguientes operaciones si se
 
 Según la elección de la API, un elemento de Azure Cosmos puede representar cualquier un documento en una colección, una fila en una tabla o un nodo o borde en un gráfico. En la tabla siguiente se muestra la asignación entre las entidades específicas de API para un elemento de Azure Cosmos:
 
-| **Entidad de Cosmos**  | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API** | **Table API** |
+| **Entidad de Cosmos**  | **SQL API** | **Cassandra API** | **API de MongoDB** | **Gremlin API** | **Table API** |
 | --- | --- | --- | --- | --- | --- |
-|Elemento de Azure Cosmos | Elemento | Fila | Documento | Nodo o borde | item |
+|Elemento de Azure Cosmos | Documento | Fila | Documento | Nodo o borde | item |
 
 ### <a name="properties-of-an-item"></a>Propiedades de un elemento
 
 Cada elemento de Azure Cosmos tiene las siguientes propiedades que define el sistema. Según la API que elija, es posible que algunas de ellas no se expongan directamente.
 
-|**Propiedad que define el sistema** | **Configurable por el usuario o generado por el sistema**| **Propósito** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API** | **Table API** |
+|**Propiedad que define el sistema** | **Configurable por el usuario o generado por el sistema**| **Propósito** | **SQL API** | **Cassandra API** | **API de MongoDB** | **Gremlin API** | **Table API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|__id | Generado por el sistema | Identificador único del elemento | Sí | No | No | No | No |
-|__etag | Generado por el sistema | Etiqueta de entidad que se usa para el control de simultaneidad optimista | Sí | No | No | No | No |
-|__ts | Generado por el sistema | Última actualización de la marca de tiempo del elemento | Sí | No | No | No | No |
-|__self | Generado por el sistema | URI direccionable del elemento | Sí | No | No | No | No |
-|id | Ambos | Nombre único que define el usuario en una partición lógica. Si el usuario no especifica el id., el sistema generará automáticamente uno. | SÍ | Sí | Sí | Sí | SÍ |
-|Propiedades arbitrarias que define el usuario | Definido por el usuario | Las propiedades que define el usuario se presentan en la representación de la API nativa (JSON, BSON, CQL, etc.). | SÍ | Sí | Sí | Sí | SÍ |
+|__id | Generado por el sistema | Identificador único del elemento | SÍ | No | No | No | Sin  |
+|__etag | Generado por el sistema | Etiqueta de entidad que se usa para el control de simultaneidad optimista | SÍ | No | No | No | Sin  |
+|__ts | Generado por el sistema | Última actualización de la marca de tiempo del elemento | SÍ | No | No | No | Sin  |
+|__self | Generado por el sistema | URI direccionable del elemento | SÍ | No | No | No | Sin  |
+|id | Es posible usar el | Nombre único que define el usuario en una partición lógica. Si el usuario no especifica el id., el sistema generará automáticamente uno. | SÍ | Sí | Sí | Sí | SÍ |
+|Propiedades arbitrarias que define el usuario | Definidas por el usuario | Las propiedades que define el usuario se presentan en la representación de la API nativa (JSON, BSON, CQL, etc.). | SÍ | Sí | Sí | Sí | SÍ |
 
 ### <a name="operations-on-items"></a>Operaciones en elementos
 
 Un elemento de Azure Cosmos es compatible con las siguientes operaciones que se pueden realizar si se usa cualquiera de las API de Azure Cosmos.
 
-| **Operación** | **CLI de Azure** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API** | **Table API** |
+| **operación** | **CLI de Azure** | **SQL API** | **Cassandra API** | **API de MongoDB** | **Gremlin API** | **Table API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Insertar, reemplazar, eliminar, upsert, leer | No | SÍ | Sí | Sí | Sí | SÍ |
+| Insertar, reemplazar, eliminar, upsert, leer | Sin  | SÍ | Sí | Sí | Sí | SÍ |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

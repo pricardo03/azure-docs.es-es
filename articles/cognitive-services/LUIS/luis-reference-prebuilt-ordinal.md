@@ -1,23 +1,24 @@
 ---
-title: 'Referencia de las entidades ordinal de LUIS precompiladas: Azure | Microsoft Docs'
+title: Entidad precompilada Ordinal
 titleSuffix: Azure
 description: Este artículo contiene información acerca de la entidad ordinal precompilada en Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: e80b9dc63accec43532116b81e6eb0b9bd52ee22
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 2565a799c5ac33644a06a942cddcc9eb4dad22dc
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335260"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162569"
 ---
-# <a name="ordinal-entity"></a>Entidad ordinal
+# <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>entidad precompilada Ordinal para una aplicación de LUIS
 Un número ordinal es una representación numérica de un objeto dentro de un conjunto: `first`, `second`, `third`. Dado que esta entidad ya está entrenada, no es necesario agregar expresiones de ejemplo que contengan ordinal a las intenciones de la aplicación. La entidad ordinal se admite en [muchas referencias culturales](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-ordinal"></a>Tipos de ordinales
@@ -26,7 +27,7 @@ La entidad ordinal se administra desde el repositorio de GitHub [Recognizers-Tex
 ## <a name="resolution-for-prebuilt-ordinal-entity"></a>Resolución de la entidad ordinal precompilada
 En el siguiente ejemplo, se muestra la resolución de la entidad **builtin.ordinal**.
 
-```JSON
+```json
 {
   "query": "Order the second option",
   "topScoringIntent": {

@@ -1,21 +1,22 @@
 ---
-title: Expresiones en aplicaciones de LUIS
-titleSuffix: Azure Cognitive Services
+title: Expresiones de ejemplo correctas
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Las expresiones son datos proporcionados por el usuario que la aplicación necesita interpretar. Recopile frases que crea que los usuarios pueden escribir. Incluya expresiones que signifiquen lo mismo, pero que se construyan de forma diferente tanto en longitud de palabras como en el orden de las palabras.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/03/2018
 ms.author: diberry
-ms.openlocfilehash: 2b21102a5416c1fd7e2abb35be677c48ffc63263
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 4f6bb367e706771707b65445c91619d439257207
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638085"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014844"
 ---
 # <a name="utterances-in-luis"></a>Expresiones en LUIS
 
@@ -44,7 +45,7 @@ Considere las siguientes expresiones de ejemplo:
 |Quiero obtener un equipo, ¿cómo lo hago?|
 |¿Cuándo puedo tener un equipo?| 
 
-En este caso, el término principal, "equipo", no varía. Se podría decir el equipo de escritorio, portátil, estación de trabajo o incluso simplemente máquina. LUIS deduce de forma inteligente los sinónimos a partir del contexto, pero cuando se crean expresiones para el entrenamiento, también es mejor variarlas.
+En este caso, el término principal, "equipo", no varía. Podría decirse "equipo de escritorio", "portátil", "estación de trabajo" o incluso simplemente "máquina". LUIS deduce de forma inteligente los sinónimos a partir del contexto, pero cuando se crean expresiones para el entrenamiento, también es mejor variarlas.
 
 ## <a name="example-utterances-in-each-intent"></a>Expresiones de ejemplo en cada intención
 Cada intención debe tener expresiones de ejemplo, al menos de 10 a 15. Si tiene una intención que no tiene ninguna expresión de ejemplo, no podrá entrenar a LUIS. Si dispone de una intención con una o muy pocas expresiones de ejemplo, LUIS no podrá predecirla con precisión. 
@@ -55,6 +56,10 @@ En cada iteración del modelo, no agregue una gran cantidad de expresiones. Agre
 LUIS compila modelos efectivos con expresiones seleccionadas cuidadosamente. Agregar demasiadas expresiones no resulta útil porque genera confusión.  
 
 Es mejor empezar con pocas expresiones y, luego, [revisar las expresiones del punto de conexión](luis-how-to-review-endoint-utt.md) para que la extracción de la entidad y la predicción de intención se realicen correctamente.
+
+## <a name="punctuation-marks"></a>Signos de puntuación
+
+De forma predeterminada, LUIS tiene en cuenta los signos de puntuación, ya que es posible que estos signos tengan una mayor importancia en algunas aplicaciones cliente. Asegúrese de que haya expresiones de ejemplo con y sin signos de puntuación ellos para que los dos estilos devuelvan los mismos resultados relativos. Si la puntuación no tiene un significado concreto en la aplicación cliente, considere la posibilidad de [omitir la puntuación](#ignoring-words-and-punctuation) mediante el uso de patrones. 
 
 ## <a name="ignoring-words-and-punctuation"></a>Omisión de palabras y puntuación
 Si quiere omitir palabras específicas o signos de puntuación en la expresión de ejemplo, use un [patrón](luis-concept-patterns.md#pattern-syntax) con la sintaxis _ignore_. 

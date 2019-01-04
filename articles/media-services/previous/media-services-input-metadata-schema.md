@@ -6,37 +6,37 @@ manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-ms.assetid: d72848e2-4b65-4c84-94bc-e2a90a6e7f47
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: juliako
-ms.openlocfilehash: 1f37dcd14c1b3e85c3fae3bbf7aa67c16b8a898d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3eea59eba9fc1fc79a6f72a61860ee7e66a7df5b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249023"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994279"
 ---
 # <a name="input-metadata"></a>Metadatos de entrada
+
 Un trabajo de codificación está asociado a un recurso (o recursos) de entrada donde desea realizar algunas tareas de codificación.  Tras la finalización de una tarea, se produce un recurso de salida.  El recurso de salida contiene vídeo, audio, miniaturas, un manifiesto, etc. El recurso de salida también contiene un archivo con metadatos sobre el recurso de entrada. El nombre del archivo XML de metadatos tiene el formato siguiente: &lt;id_de_recurso&gt;_metadata.xml (por ejemplo, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml), donde &lt;id_de_recurso&gt; es el valor AssetId del recurso de entrada.  
+
+Media Services no realiza un examen preventivo de los recursos de entrada para generar metadatos. Los metadatos de entrada se generan únicamente como artefactos cuando un recurso de entrada se procesa en un trabajo. Por tanto, estos artefactos se escriben en el recurso de salida. Para generar metadatos de los recursos de entrada y salida, se utilizan diferentes herramientas. Por tanto, los metadatos de entrada tienen un esquema ligeramente diferente al de los metadatos de salida.
 
 Si desea examinar el archivo de metadatos, puede crear un localizador **SAS** y descargar el archivo en el equipo local. Puede encontrar un ejemplo de cómo crear un localizador SAS y descargar un archivo [con extensiones del SDK de .NET de Media Services](media-services-dotnet-get-started.md).  
 
 En este artículo se describen los elementos y los tipos del esquema XML en que se basan los metadatos de entrada (&lt;id_de_recurso&gt;_metadata.xml).  Para información acerca del archivo que contiene metadatos sobre el recurso de salida, consulte [Output Metadata](media-services-output-metadata-schema.md) (Metadatos de salida).  
 
-> [!NOTE]
-> Puede encontrar el [código del esquema](media-services-input-metadata-schema.md#code) en un [ejemplo de XML](media-services-input-metadata-schema.md#xml) al final de este artículo.  
-> 
-> 
+Puede encontrar el [código del esquema](media-services-input-metadata-schema.md#code) en un [ejemplo de XML](media-services-input-metadata-schema.md#xml) al final de este artículo.  
+ 
 
 ## <a name="AssetFiles"></a> Elemento AssetFiles (elemento raíz)
 Contiene una colección de [elementos AssetFile](media-services-input-metadata-schema.md#AssetFile) para el trabajo de codificación.  
 
-Vea un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-services-input-metadata-schema.md#xml).  
+Consulte un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-services-input-metadata-schema.md#xml).  
 
 | NOMBRE | DESCRIPCIÓN |
 | --- | --- |
@@ -45,7 +45,7 @@ Vea un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-service
 ## <a name="AssetFile"></a> Elemento AssetFile
  Contiene atributos y elementos que describen un archivo de recursos.  
 
- Vea un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-services-input-metadata-schema.md#xml).  
+ Consulte un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributos
 | NOMBRE | Escriba | DESCRIPCIÓN |
@@ -73,7 +73,7 @@ Vea un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-service
 | **Metadata**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |Metadatos del archivo de recursos representados como cadenas de clave-valor. Por ejemplo: <br /><br /> **&lt;Metadata key="language" value="eng" /&gt;** |
 
 ## <a name="TrackType"></a> TrackType
-Vea un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-services-input-metadata-schema.md#xml).  
+Consulte un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributos
 | NOMBRE | Escriba | DESCRIPCIÓN |
@@ -102,7 +102,7 @@ Vea un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-service
 
  El tipo representa una determinada pista de audio en el archivo de recursos.  
 
- Vea un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-services-input-metadata-schema.md#xml).  
+ Consulte un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributos
 | NOMBRE | Escriba | DESCRIPCIÓN |
@@ -119,7 +119,7 @@ Vea un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-service
 
 El tipo representa una determinada pista de vídeo en el archivo de recursos.  
 
-Vea un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-services-input-metadata-schema.md#xml).  
+Consulte un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributos
 | NOMBRE | Escriba | DESCRIPCIÓN |
@@ -143,7 +143,7 @@ Vea un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-service
 ## <a name="MetadataType"></a> MetadataType
 **MetadataType** es un tipo complejo global que describe los metadatos de un archivo de recursos como cadenas de clave-valor. Por ejemplo, key=”language” y value=”eng”.  
 
-Vea un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-services-input-metadata-schema.md#xml).  
+Consulte un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributos
 | NOMBRE | Escriba | DESCRIPCIÓN |
@@ -167,7 +167,7 @@ Vea un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-service
 ## <a name="StreamDispositionType"></a> StreamDispositionType
 **StreamDispositionType** es un tipo complejo global que describe la transmisión.  
 
-Vea un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-services-input-metadata-schema.md#xml).  
+Consulte un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributos
 | NOMBRE | Escriba | DESCRIPCIÓN |
@@ -195,7 +195,7 @@ Elemento contenedor con varios elementos **Program**.
 ## <a name="VideoTracks"></a> Elemento VideoTracks
  Elemento contenedor con varios elementos **VideoTrack**.  
 
- Vea un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-services-input-metadata-schema.md#xml).  
+ Consulte un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="child-elements"></a>Elementos secundarios
 | NOMBRE | Escriba | DESCRIPCIÓN |
@@ -205,7 +205,7 @@ Elemento contenedor con varios elementos **Program**.
 ## <a name="AudioTracks"></a> Elemento AudioTracks
  Elemento contenedor con varios elementos **AudioTrack**.  
 
- Vea un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-services-input-metadata-schema.md#xml).  
+ Consulte un ejemplo de XML al final de este artículo: [Ejemplo de XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="elements"></a>Elementos
 | NOMBRE | Escriba | DESCRIPCIÓN |

@@ -1,5 +1,5 @@
 ---
-title: Selección de características en el proceso de ciencia de datos en equipos | Microsoft Docs
+title: Selección de características en el proceso de ciencia de datos en equipos
 description: Aquí se explica el propósito de la selección de características y ofrece ejemplos de su rol en el proceso de mejora de los datos del aprendizaje automático.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b439f7245dd09a2f8a7ffe5f3b3c5396786220af
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: de8070906f7b2470378fb631f2e94a96b4a2960d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442386"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138660"
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Selección de características en el proceso de ciencia de datos en equipos (TDSP)
 En este artículo se explican los propósitos de la selección de características y ofrece ejemplos de su rol en el proceso de mejora de los datos del aprendizaje automático. Estos ejemplos se extraen de Azure Machine Learning Studio. 
@@ -25,8 +25,8 @@ En este artículo se explican los propósitos de la selección de característic
 
 La ingeniería y la selección de características forman parte del proceso de ciencia de datos en equipos TDSP descrito en el artículo [¿Cuál es el ciclo de vida del TDSP?](overview.md). La selección y la ingeniería de características son partes del paso del **desarrollo de características** del TDSP.
 
-* **Diseño de características**: este proceso intenta crear características pertinentes adicionales a partir de características existentes sin procesar en los datos y mejorar la eficacia predictiva del algoritmo de aprendizaje.
-* **selección de características**: este proceso selecciona el subconjunto de claves de las características de datos originales en un intento por reducir la dimensionalidad del problema de entrenamiento.
+* **Diseño de características**: este proceso trata de crear más características pertinentes a partir de las que tengamos sin procesar en los datos, así como de mejorar la eficacia predictiva del algoritmo de aprendizaje.
+* **Selección de características**: este proceso selecciona el subconjunto de claves de las características de datos originales en un intento por reducir la dimensionalidad del problema de entrenamiento.
 
 Normalmente, la **ingeniería de características** se aplica primero para generar características adicionales y, a continuación, se realiza el paso de **selección de características** para eliminar características irrelevantes, redundantes o altamente correlacionadas.
 
@@ -42,21 +42,21 @@ Entre otros aspectos, una categoría ampliamente aplicada de los métodos de sel
 
 En Azure Machine Learning Studio, estos son los módulos proporcionados para la selección de características. Tal como se muestra en la figura siguiente, entre estos módulos se incluyen la [selección de características basada en filtro][filter-based-feature-selection] y el [análisis discriminante lineal de Fisher][fisher-linear-discriminant-analysis].
 
-![Ejemplo de selección de características](./media/select-features/feature-Selection.png)
+![Módulos de selección de características](./media/select-features/feature-Selection.png)
 
 Por ejemplo, considere el uso del módulo de [selección de características basada en filtro][filter-based-feature-selection]. Para mayor comodidad, continúe con el ejemplo de minería de datos de texto. Suponga que desea crear un modelo de regresión una vez creado un conjunto de 256 características mediante el módulo de [hash de características][feature-hashing] y que la variable de respuesta es la "Col1" y contiene una clasificación de las reseñas de un libro, que van desde 1 a 5. Defina el "Método de puntuación de características" en "Correlación de Pearson", la "Columna de destino" en "Col1" y el "Número de características deseadas" en 50. Seguidamente, el módulo de [Selección de características basada en filtro][filter-based-feature-selection] generará un conjunto de datos con 50 características, junto con el atributo de destino "Col1". La figura siguiente muestra el flujo de este experimento y los parámetros de entrada:
 
-![Ejemplo de selección de características](./media/select-features/feature-Selection1.png)
+![Propiedades del módulo de selección de características basándose en filtros](./media/select-features/feature-Selection1.png)
 
 La figura siguiente muestra los conjuntos de datos resultantes:
 
-![Ejemplo de selección de características](./media/select-features/feature-Selection2.png)
+![Conjunto de datos resultante para el módulo de selección de características basándose en filtros](./media/select-features/feature-Selection2.png)
 
 Cada características recibe una puntuación según la correlación de Pearson entre sí misma y el atributo de destino "Col1". Las características con las mayores puntuaciones se conservan.
 
 La figura siguiente muestra las puntuaciones correspondientes de las características seleccionadas:
 
-![Ejemplo de selección de características](./media/select-features/feature-Selection3.png)
+![Puntuaciones del módulo de selección de características basándose en filtros](./media/select-features/feature-Selection3.png)
 
 A través de la aplicación de este módulo de [selección de características basada en filtro][filter-based-feature-selection], se seleccionan 50 de las 256 características, debido a que tienen las características más correlacionadas con la variable de destino "Col1", según el método de puntuación "Correlación de Pearson".
 

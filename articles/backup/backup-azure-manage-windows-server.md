@@ -2,18 +2,18 @@
 title: Administración de almacenes y servidores de Azure Recovery Services
 description: Administración de trabajos y alertas en un almacén de Azure Recovery Services.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
-ms.author: markgal
-ms.openlocfilehash: c9b3b027a52a6847c566c385c304edc195f7fdda
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: raynew
+ms.openlocfilehash: 716ddcaf61c4d7db40821056dc759667f9376023
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250703"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871348"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Supervisión y administración de almacenes de Recovery Services
 
@@ -67,7 +67,7 @@ Haga clic en los iconos (excepto Almacenamiento de copia de seguridad) para abri
 
 ![Menú Alertas de copia de seguridad filtrado para alertas críticas](./media/backup-azure-manage-windows-server/critical-backup-alerts.png)
 
-El menú Alertas de copia de seguridad, en la imagen anterior, está filtrado por: Estado es Activo, Gravedad es Crítico y hora son las 24 horas anteriores.
+El menú Alertas de copia de seguridad, en la imagen anterior, se filtra por: estado activo, gravedad crítica y la hora es las 24 horas posteriores.
 
 ## <a name="manage-backup-alerts"></a>Administración de alertas de copia de seguridad
 
@@ -86,7 +86,7 @@ La lista de alertas de copia de seguridad muestra la información seleccionada d
 | Nivel de alerta | Eventos que generan alertas |
 | ----------- | ----------- |
 | Crítico | Se reciben alertas críticas cuando: se producen errores en trabajos de copia de seguridad o en trabajos de recuperación y cuando se detiene la protección de un servidor, pero se conservan los datos.|
-| Advertencia | Las alertas de advertencia se reciben cuando: los trabajos de copia de seguridad se completan con advertencias, por ejemplo cuando no se realiza la copia de seguridad de menos de 100 archivos por problemas de daños, o cuando se realiza una copia de seguridad de más de 1 000 000 archivos correctamente). |
+| Advertencia | Las alertas de advertencia se reciben cuando: los trabajos de copia de seguridad se completan con advertencias, por ejemplo cuando no se realiza la copia de seguridad de menos de 100 archivos por problemas de daños, o cuando se realiza una copia de seguridad de más de 1 000 000 archivos correctamente). |
 | Informativo | Actualmente, no hay alertas informativas en uso. |
 
 ### <a name="viewing-alert-details"></a>Visualización de los detalles de una alerta
@@ -281,9 +281,9 @@ R3. Sí. En las siguientes situaciones no se envían notificaciones.
 
 ## <a name="troubleshooting-monitoring-issues"></a>Solución de problemas de supervisión
 
-**Problema**: los trabajos y las alertas del agente de Azure Backup no aparecen en el portal.
+**Problema:** los trabajos y las alertas del agente de Azure Backup no aparecen en el portal.
 
-**Pasos para solucionar problemas:** el proceso ```OBRecoveryServicesManagementAgent```, envía los datos de alerta y del trabajo para al servicio de Azure Backup. En ocasiones este proceso puede quedar atascado o apagado.
+**Pasos para solucionar problemas**: el proceso ```OBRecoveryServicesManagementAgent``` envía los datos de alerta y del trabajo al servicio de Azure Backup. En ocasiones este proceso puede quedar atascado o apagado.
 
 1. Para comprobar que el proceso no se está ejecutando, abra el **Administrador de tareas** y compruebe si ```OBRecoveryServicesManagementAgent``` se está ejecutando.
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: d9ed140d404387b94428cea5d925911806b62552
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 129f77ec9ea4d4e2633e1ea0b02795bc0df26433
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705863"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834713"
 ---
 # <a name="what-is-the-myapps-portal"></a>¿Qué es el portal MyApps?
 
@@ -41,9 +41,9 @@ El portal Mis aplicaciones es independiente de Azure Portal. No es necesario ten
 
 ## <a name="access-the-myapps-portal"></a>Acceso al portal Mis aplicaciones
 
-Para acceder al portal Mis aplicaciones, vaya a `http://myapps.microsoft.com`.
+Para acceder al portal Mis aplicaciones, vaya a `https://myapps.microsoft.com`.
 
-Si la página de inicio de sesión está configurada con su marca personalizada, puede cargar la personalización de marca agregando el dominio de la organización a la dirección URL (por ejemplo, `http://myapps.microsoft.com/<your domain>.com`).
+Si la página de inicio de sesión está configurada con su marca personalizada, puede cargar la personalización de marca agregando el dominio de la organización a la dirección URL (por ejemplo, `https://myapps.microsoft.com/<your domain>.com`).
 
 Puede utilizar cualquier nombre de dominio activo o verificado que se haya configurado en Azure Portal, tal y como se muestra aquí: ![Nombre de dominio de Wingtip Toys][2]  
 
@@ -65,7 +65,7 @@ El instalador es específico para la arquitectura. Si hace clic en el vínculo d
 
 
 La extensión del portal Mis aplicaciones está actualmente disponible para:
-- **Microsoft Edge**: en Windows 10 Anniversary Edition, o cualquier versión posterior. 
+- **Edge**: en Windows 10 Anniversary Edition, o cualquier versión posterior. 
 - **Chrome**: en Windows 7 o versiones posteriores y en MacOS X o versiones posteriores.
 - **Firefox 26.0 o versiones posteriores**: en Windows XP SP2 o versiones posteriores y en Mac OS X 10.6 o versiones posteriores.
 - **Internet Explorer 11**: en Windows 7, o cualquier versión posterior (compatibilidad limitada).
@@ -79,11 +79,11 @@ Para poder iniciar sesión con el inicio de sesión único basado en contraseña
 - Puede usar direcciones URL internas de la empresa mientras se conecta de forma remota mediante el [proxy de la aplicación](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started)
 
 > [!NOTE]
-> Hay características adicionales disponibles solo para Microsoft Edge, Chrome y Firefox.
+> Hay características adicionales disponibles solo para Edge, Chrome y Firefox.
 >
 También puede descargar la extensión directamente desde los siguientes sitios:
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Microsoft Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
 - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 Si va utilizar una dirección URL de Mis aplicaciones que no sea `https://myapps.microsoft.com`, configure la dirección URL predeterminada siguiendo estos pasos:

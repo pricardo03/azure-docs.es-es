@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 12/11/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: faf8852df8b50c43affe32ede0f1e96d0bb80d3d
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 25ea4f41ac1fa36c7f9b6f64bc7c4eede4702f38
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821249"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315186"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Uso del servicio Azure Import/Export para exportar datos de Azure Blob Storage
 Este artículo proporciona instrucciones paso a paso sobre cómo usar el servicio Azure Import/Export para exportar de forma segura grandes cantidades de datos desde Azure Blob Storage. El servicio requiere que envíe unidades de disco vacías al centro de datos de Azure. El servicio exporta datos de la cuenta de almacenamiento a las unidades de disco y luego envía de vuelta las unidades de disco.
@@ -33,7 +33,7 @@ Antes de crear un trabajo de exportación para transferir datos fuera de Azure B
         - [Crear una cuenta de FedEX](https://www.fedex.com/en-us/create-account.html), o 
         - [Crear una cuenta de DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
-## <a name="step-1-create-an-export-job"></a>Paso 1: Creación de un trabajo de exportación
+## <a name="step-1-create-an-export-job"></a>Paso 1: Crear un trabajo de exportación
 
 Siga estos pasos para crear un trabajo de exportación en Azure Portal.
 
@@ -127,7 +127,7 @@ La exportación se ha terminado. En este momento, puede eliminar el trabajo o se
 
 Este paso *opcional* le ayuda a determinar el número de unidades necesarias para el trabajo de exportación. Realice este paso en un sistema de Windows que ejecute una [versión admitida del sistema operativo](storage-import-export-requirements.md#supported-operating-systems).
 
-1. [Descargar la versión 1 de WAImportExport](https://www.microsoft.com/en-us/download/details.aspx?id=42659) en el sistema de Windows. 
+1. [Descargar la versión 1 de WAImportExport](https://aka.ms/waiev1) en el sistema de Windows. 
 2. Descomprima en la carpeta predeterminada `waimportexportv1`. Por ejemplo, `C:\WaImportExportV1`.
 3. Abra una ventana de PowerShell o de línea de comandos con privilegios administrativos. Para cambiar el directorio a la carpeta descomprimida, ejecute el siguiente comando:
     

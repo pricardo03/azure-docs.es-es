@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: d77e5265349db2fc433d2bb9a42140a6a4209ba1
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5de0c975b21131b50155a6e86f5710f741a3c7f7
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317507"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344149"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Corregir las configuraciones de seguridad en Azure Security Center
 Azure Security Center analiza diariamente el sistema operativo (SO) de sus máquinas virtuales (VM) y equipos en busca de alguna configuración que pueda hacer que estos sean más vulnerables frente a los ataques. Security Center recomienda resolver las vulnerabilidades cuando la configuración del sistema operativo no coincida con las reglas de configuración de seguridad recomendadas y realizar cambios en la configuración para hacer frente a estas vulnerabilidades.
@@ -72,8 +72,8 @@ En este ejemplo, se examinará la recomendación "Corregir las configuraciones d
    - **Gravedad de la regla**: valor de CCE, que puede ser *Crítico*, *Importante* o *Advertencia*.
    - **Descripción completa**: descripción de la regla.
    - **Vulnerabilidad**: explicación de la vulnerabilidad o el riesgo si no se aplica la regla.
-   - **Posible impacto**: impacto empresarial cuando se aplica la regla.
-   - **Contramedida**: pasos de corrección.
+   - **Posible impacto**: impacto de negocio cuando se aplica la regla.
+   - **Contramedida**: pasos para la corrección.
    - **Valor esperado**: valor esperado cuando Security Center analiza la configuración del sistema operativo de la máquina virtual comparándola con la regla.
    - **Valor real**: valor devuelto después de analizar la configuración del sistema operativo de la máquina virtual comparándola con la regla.
    - **Funcionamiento de la regla**: cómo utiliza Security Center la regla durante el análisis de la configuración del sistema operativo de la máquina virtual en comparación con la regla.
@@ -101,7 +101,7 @@ Consulte la [lista de reglas de configuración recomendadas](https://gallery.tec
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
 * Para obtener una lista de máquinas virtuales de Windows y Linux compatibles, consulte [Plataformas compatibles con Azure Security Center](security-center-os-coverage.md).
-* Para aprender a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure, consulte [Establecimiento de directivas de seguridad en Azure Security Center](security-center-azure-policy.md).
+* Para aprender a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure, consulte [Establecimiento de directivas de seguridad en Azure Security Center](tutorial-security-policy.md).
 * Para saber qué recomendaciones pueden ayudarle a proteger los recursos de Azure, consulte [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md).
 * Para saber cómo supervisar el mantenimiento de los recursos de Azure, consulte [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md).
 * Para aprender a administrar y responder a alertas de seguridad, consulte [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md).

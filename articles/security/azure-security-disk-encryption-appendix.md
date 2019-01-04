@@ -1,20 +1,22 @@
 ---
-title: Azure Disk Encryption para máquinas virtuales IaaS con Linux y Windows| Microsoft Docs
+title: 'Apéndice: Azure Disk Encryption para VM de IaaS | Microsoft Docs'
 description: Este artículo es el apéndice de Microsoft Azure Disk Encryption para máquinas virtuales IaaS de Windows y Linux.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 11/12/2018
-ms.openlocfilehash: e5c7d51428c66bf9e6c245f28fb13b8d4a316d18
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.date: 12/12/2018
+ms.custom: seodec18
+ms.openlocfilehash: f10a3c02e98db5777b5231aec04951a7ed1ad9ad
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614683"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310687"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Apéndice de Azure Disk Encryption 
+
 Este artículo es un apéndice de [Azure Disk Encryption para máquinas virtuales IaaS](azure-security-disk-encryption-overview.md). Asegúrese de leer los artículos sobre Azure Disk Encryption para máquinas virtuales IaaS para entender el contexto. En este artículo se describe cómo preparar discos duros virtuales previamente cifrados y otras tareas.
 
 ## <a name="connect-to-your-subscription"></a>su suscripción
@@ -57,7 +59,7 @@ Antes de empezar, revise el artículo de [Requisitos previos](azure-security-dis
 
 ### <a name="bkmk_ConnectCLI"></a> Conexión a la suscripción con la CLI de Azure
 
-1. Inicie sesión en Azure con [az login](/cli/azure/authenticate-azure-cli#interactive-log-in). 
+1. Inicie sesión en Azure con [az login](/cli/azure/authenticate-azure-cli#sign-in-interactively). 
      
      ```azurecli
      az login
@@ -130,6 +132,20 @@ En la siguiente tabla se muestran los parámetros que se pueden usar en el scrip
  -  [Deshabilitar el cifrado en una máquina virtual Linux en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
     - La deshabilitación del cifrado solo se permite en volúmenes de datos de máquinas virtuales Linux.  
 
+### <a name="encrypt-or-decrypt-vm-scale-sets"></a>Cifrado o descifrado de VM Scale Sets
+
+- [Habilitar el cifrado de disco en un conjunto de escalado de máquinas virtuales Linux en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
+
+- [Habilitar el cifrado de disco en un conjunto de escalado de máquinas virtuales Windows en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
+
+ - [Implementar un conjunto de escalado de máquinas virtuales Linux con JumpBox y habilitar su cifrado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
+
+ - [Implementar un conjunto de escalado de máquinas virtuales Windows con JumpBox y habilitar su cifrado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
+
+- [Deshabilitar el cifrado de disco en un conjunto de escalado de máquinas virtuales Linux en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
+
+- [Deshabilitar el cifrado de disco en un conjunto de escalado de máquinas virtuales Windows en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
+
 ### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>Cifrado o descifrado de máquinas virtuales con aplicación de Azure AD (versión anterior) 
  
 - [Habilitar el cifrado de disco en máquinas virtuales IaaS de Windows existentes o en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm)
@@ -160,17 +176,7 @@ En la siguiente tabla se muestran los parámetros que se pueden usar en el scrip
 
 - [Habilitar el cifrado de disco en una máquina virtual Windows en ejecución mediante huella digital del certificado de cliente de Azure AD](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-aad-client-cert)
     
-- [Habilitar el cifrado de disco en un conjunto de escalado de máquinas virtuales Linux en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
 
-- [Habilitar el cifrado de disco en un conjunto de escalado de máquinas virtuales Windows en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
-
- - [Implementar un conjunto de escalado de máquinas virtuales Linux con JumpBox y habilitar su cifrado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
-
- - [Implementar un conjunto de escalado de máquinas virtuales Windows con JumpBox y habilitar su cifrado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
-
-- [Deshabilitar el cifrado de disco en un conjunto de escalado de máquinas virtuales Linux en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
-
-- [Deshabilitar el cifrado de disco en un conjunto de escalado de máquinas virtuales Windows en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 
 ## <a name="bkmk_preWin"></a> Preparación de un disco duro virtual previamente cifrado
 Las secciones siguientes son necesarias para preparar un VHD con Windows precifrado para implementarlo como VHD cifrado en IaaS de Azure. Utilice la información para preparar y arrancar una máquina virtual (VHD) con Windows nueva en Azure Site Recovery o Azure. Para más información sobre cómo preparar y cargar un disco duro virtual, consulte [Carga de un VHD generalizado y su uso para crear máquinas virtuales nuevas en Azure](../virtual-machines/windows/upload-generalized-managed.md).
@@ -189,7 +195,7 @@ Para Windows Server 2008 R2, utilice el siguiente comando:
 
     ServerManagerCmd -install BitLockers
 ### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>Preparación del volumen del sistema operativo para BitLocker mediante `bdehdcfg`
-Si es necesario, ejecute el comando [bdehdcfg](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-basic-deployment#using-bitlocker-to-encrypt-volumescommand) para comprimir la partición del sistema operativo y preparar la máquina para BitLocker:
+Si es necesario, ejecute el comando [bdehdcfg](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-basic-deployment) para comprimir la partición del sistema operativo y preparar la máquina para BitLocker:
 
     bdehdcfg -target c: shrink -quiet 
 
@@ -295,23 +301,23 @@ Configure el cifrado durante la instalación de la distribución; para ello, sig
 
 1. Seleccione **Configure encrypted volumes** (Configurar volúmenes cifrados) al realizar la partición de los discos.
 
- ![Instalación de Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig1.png)
+ ![Configuración de Ubuntu 16.04: configuración de volúmenes cifrados](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig1.png)
 
 2. Cree una unidad de arranque independiente, que no debe estar cifrada. Cifre la unidad raíz.
 
- ![Instalación de Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig2.png)
+ ![Configuración de Ubuntu 16.04: selección de dispositivos para cifrar](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig2.png)
 
 3. Proporcione una frase de contraseña. Se trata de la frase de contraseña que se carga en el almacén de claves.
 
- ![Instalación de Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig3.png)
+ ![Configuración de Ubuntu 16.04: suministro de la frase de contraseña](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig3.png)
 
 4. Finalice la partición.
 
- ![Instalación de Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig4.png)
+ ![Configuración de Ubuntu 16.04: finalización de la creación de particiones](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig4.png)
 
 5. Cuando arranque la máquina virtual y se le pida una frase de contraseña, utilice la frase de contraseña que especificó en el paso 3.
 
- ![Instalación de Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
+ ![Configuración de Ubuntu 16.04: suministro de la frase de contraseña en el arranque](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
 6. Prepare la máquina virtual para su carga en Azure con [estas instrucciones](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). No ejecute todavía el último paso (desaprovisionamiento de la máquina virtual).
 
@@ -377,7 +383,7 @@ Configure el cifrado para que funcione con Azure de esta manera:
 
 7. Ahora puede desaprovisionar la máquina virtual.
 
- ![Instalación de Ubuntu 16.04](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig6.png)
+ ![Configuración de Ubuntu 16.04: update-initramfs](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig6.png)
 
 8. Continúe con el paso siguiente y cargue el disco duro virtual en Azure.
 
@@ -385,11 +391,11 @@ Configure el cifrado para que funcione con Azure de esta manera:
 Para configurar el cifrado durante la instalación de distribución, siga estos pasos:
 1. Al crear particiones de los discos, seleccione **Encrypt Volume Group** (Cifrar el grupo de volúmenes) y, a continuación, escriba una contraseña. Esta es la contraseña que se cargará en el almacén de claves.
 
- ![Instalación de openSUSE 13.2](./media/azure-security-disk-encryption/opensuse-encrypt-fig1.png)
+ ![Configuración de openSUSE 13.2: cifrado del grupo de volúmenes](./media/azure-security-disk-encryption/opensuse-encrypt-fig1.png)
 
 2. Arranque la máquina virtual con la contraseña.
 
- ![Instalación de openSUSE 13.2](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
+ ![Configuración de openSUSE 13.2: suministro de la frase de contraseña en el arranque](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
 
 3. Prepare la máquina virtual para cargarla en Azure con las instrucciones de [Preparación de una máquina virtual SLES u openSUSE para Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). No ejecute todavía el último paso (desaprovisionamiento de la máquina virtual).
 
@@ -453,19 +459,19 @@ a:
 Para configurar el cifrado durante la instalación de distribución, siga estos pasos:
 1. Seleccione **Encrypt my data** (Cifrar mis datos) al crear particiones en discos.
 
- ![Instalación de centOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig1.png)
+ ![Configuración de CentOS 7: destino de la instalación](./media/azure-security-disk-encryption/centos-encrypt-fig1.png)
 
 2. Asegúrese de que **Encrypt** (Cifrar) está seleccionado para la partición raíz.
 
- ![Instalación de centOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig2.png)
+ ![Configuración de CentOS 7: selección del cifrado para la partición raíz](./media/azure-security-disk-encryption/centos-encrypt-fig2.png)
 
 3. Proporcione una frase de contraseña. Se trata de la frase de contraseña que va a cargar en el almacén de claves.
 
- ![Instalación de centOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig3.png)
+ ![Configuración de CentOS 7: suministro de la frase de contraseña](./media/azure-security-disk-encryption/centos-encrypt-fig3.png)
 
 4. Cuando arranque la máquina virtual y se le pida una frase de contraseña, utilice la frase de contraseña que especificó en el paso 3.
 
- ![Instalación de centOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
+ ![Configuración de CentOS 7: introducción de la frase de contraseña en el arranque](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
 
 5. Prepare la máquina virtual para cargarla en Azure con las instrucciones de "CentOS 7.0+" en [Preparación de una máquina virtual basada en CentOS para Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). No ejecute todavía el último paso (desaprovisionamiento de la máquina virtual).
 
@@ -526,7 +532,7 @@ to
     ```    
 5. Ejecute "/usr/sbin/dracut -f -v" para actualizar initrd.
 
-![Instalación de centOS 7](./media/azure-security-disk-encryption/centos-encrypt-fig5.png)
+![Configuración de CentOS 7: run /usr/sbin/dracut -f -v](./media/azure-security-disk-encryption/centos-encrypt-fig5.png)
 
 ## <a name="bkmk_UploadVHD"></a> Carga de un disco duro virtual cifrado en una cuenta de almacenamiento de Azure
 Cuando el cifrado de BitLocker o el cifrado DM-Crypt están habilitados, el VHD cifrado local cifrado tiene que cargarse en la cuenta de almacenamiento.

@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: qué es el módulo de PowerShell ADConnectivityTool | Microsoft Docs'
+title: 'Azure AD Connect: Qué es el módulo de PowerShell ADConnectivityTool | Microsoft Docs'
 description: En este documento se presenta el nuevo módulo de PowerShell ADConnectivity
 services: active-directory
 author: billmath
@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4020d754bd8c7728b43ef583aa7e7d8dbddcebec
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e6f85d327fff1ee32dca6dfb2231b28e6dc96c61
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669802"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965643"
 ---
 # <a name="what-is-the-adconnectivitytool-powershell-module"></a>¿Qué es el módulo de PowerShell ADConnectivityTool?
 
@@ -24,7 +24,7 @@ La herramienta ADConnectivity es un módulo de PowerShell que se usa en uno de l
 - Durante la instalación, cuando un problema de conectividad de red impide la correcta validación de las credenciales de Active Directory que el usuario proporcionó en el asistente.
 - Después de la instalación que realizó un usuario que llama a las funciones de una sesión de PowerShell.
 
-La herramienta se encuentra en: **C:\Program Files\Microsoft Azure Active Directory Connect\Tools\ ADConnectivityTool.psm1**. 
+La herramienta se encuentra en: **C:\Program Files\Microsoft Azure Active Directory Connect\Tools\ ADConnectivityTool.psm1** 
 
 ## <a name="adconnectivitytool-during-installation"></a>ADConnectivityTool durante la instalación
 
@@ -40,7 +40,7 @@ En la página **Connect your directories** (Conecte sus directorios) del asisten
 Cuando se encuentra alguno de estos problemas, se muestra un mensaje de error relacionado en el asistente de AADConnect:
 
 
-![Error](media\how-to-connect-adconnectivitytools\error1.png)
+![Error](media/how-to-connect-adconnectivitytools/error1.png)
 
 Por ejemplo, cuando intentamos agregar un directorio en la pantalla **Connect your directories** (Conecte sus directorios), Azure AD Connect necesita comprobar esta opción y espera poder comunicarse con un controlador de dominio a través del puerto 389.  Si no puede comunicarse con él, verá el error que se muestra en la captura de pantalla anterior.  
 

@@ -3,7 +3,7 @@ title: Administración de bases de datos escaladas horizontalmente en la nube | 
 description: Use el servicio Trabajo de Elastic Database para ejecutar un script a través de un grupo de bases de datos.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: f5878c510e048bea2ce1aedaf4e0e5dbb4611caf
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 9647522f4b3990d065f292f05934b8d19c691454
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242524"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865529"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Administración de bases de datos escaladas horizontalmente en la nube
 
@@ -81,8 +81,8 @@ Defina grupos personalizados de Azure SQL Database, así como programaciones par
 2. Use las API de PowerShell para tener acceso a otra funcionalidad, por ejemplo, crear colecciones de bases de datos personalizadas, agregar programaciones o recopilar conjuntos de resultados. Use el portal para instalar, crear y supervisar de manera sencilla los trabajos que se limiten a la ejecución de un **grupo elástico**.
 3. Cree credenciales cifradas para la ejecución de trabajos y [agregue el usuario (o rol) a cada base de datos del grupo](sql-database-security-overview.md).
 4. Cree un script de T-SQL idempotente que se pueda ejecutar en cada base de datos del grupo.
-5. Siga estos pasos para crear trabajos mediante Azure Portal: [Creación y administración de trabajos de Elastic Database](sql-database-elastic-jobs-create-and-manage.md).
-6. O bien use scripts de PowerShell: [Creación y administración de trabajos de base de datos elástica de SQL Database (vista previa)](sql-database-elastic-jobs-powershell.md).
+5. Siga estos pasos para crear trabajos en Azure Portal: [Creación y administración de trabajos de Elastic Database](sql-database-elastic-jobs-create-and-manage.md).
+6. También puede usar scripts de PowerShell: [Creación y administración de un grupo de instancias de SQL Database elásticas mediante PowerShell (versión preliminar)](sql-database-elastic-jobs-powershell.md).
 
 ## <a name="idempotent-scripts"></a>Scripts idempotentes
 
@@ -138,7 +138,7 @@ Los siguientes componentes funcionan conjuntamente para crear un servicio de nub
 2. Se obtiene acceso a la base de control mediante el **servicio de trabajos** para iniciar los trabajos que deben ejecutarse y hacerles el seguimiento.
 3. Dos roles diferentes se comunican con la base de datos de control:
    - Controlador: determina los trabajos que requieren tareas para realizar el trabajo solicitado y reintenta los trabajos con errores creando nuevas tareas de trabajo.
-   - Ejecución de tareas de trabajo: lleva a cabo las tareas de trabajo.
+   - Ejecución de tareas de trabajo: lleva a cabo las tareas del trabajo.
 
 ### <a name="job-task-types"></a>Tipos de tareas de trabajo
 

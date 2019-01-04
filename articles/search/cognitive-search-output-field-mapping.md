@@ -1,5 +1,5 @@
 ---
-title: Asignar campos de entrada enriquecidos de Cognitive Search a los campos de salida en los índices de Azure Search | Documentos de Microsoft
+title: 'Asignar campos de entrada enriquecidos de Cognitive Search a los campos de salida: Azure Search'
 description: Extraer y enriquecer los campos de datos de origen y asignarlos a los campos de salida de un índice de Azure Search.
 manager: pablocas
 author: luiscabrer
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 77e7a1cc725dc56ee20d3c1999cfb7cf0039d67f
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.custom: seodec2018
+ms.openlocfilehash: a662558deeeb09849a23a361aabea962eb633cd7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094483"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314676"
 ---
 # <a name="how-to-map-enriched-fields-to-a-searchable-index"></a>Cómo asignar campos enriquecidos a un índice de búsqueda
 

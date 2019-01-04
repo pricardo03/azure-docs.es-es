@@ -1,32 +1,25 @@
 ---
-title: 'Conexión de las puertas de enlace Azure VPN Gateway en varios dispositivos VPN locales basados en directivas: Azure Resource Manager: PowerShell | Microsoft Docs'
+title: 'Conexión de puertas de enlace Azure VPN Gateway a varios dispositivos VPN locales basados en directivas: Azure Resource Manager: PowerShell | Microsoft Docs'
 description: Configure una puerta de enlace VPN basada en rutas de Azure para varios dispositivos VPN basados en directivas con Azure Resource Manager y PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 11/30/2018
 ms.author: yushwang
-ms.openlocfilehash: dc2dc660262cec892270f8d6e70691fdd169a5c4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 46555bf121e674b82c0c7dd39f74ee3708fc4439
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31601940"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850657"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Conexión de puertas de enlace Azure VPN Gateway a varios dispositivos VPN locales basados en directivas con PowerShell
 
 Este artículo le ayuda a configurar una puerta de enlace de VPN basada en rutas de Azure para conectarse a varios dispositivos VPN locales basados en directivas al aprovechar las directivas IPsec/IKE personalizadas en las conexiones VPN de sitio a sitio.
 
-## <a name="about-policy-based-and-route-based-vpn-gateways"></a>Acerca de las puertas de enlace de VPN basadas en directivas y en rutas
+## <a name="about"></a>Acerca de las puertas de enlace de VPN basadas en directivas y en rutas
 
 Los dispositivos VPN basados en directivas *frente* a los basados en rutas se diferencian en la forma en la que se establecen los selectores de tráfico IPsec en una conexión:
 
@@ -64,7 +57,7 @@ El diagrama siguiente muestra por qué el enrutamiento del tránsito a través d
 
 Como se muestra en el diagrama, la puerta de enlace de VPN de Azure tiene selectores de tráfico desde la red virtual a cada prefijo de red local, pero no a los prefijos de conexión cruzada. Por ejemplo, los sitios 2, 3 y 4 locales pueden comunicarse con VNet1, pero no se pueden conectar entre sí a través de la puerta de enlace de VPN de Azure. El diagrama muestra los selectores de tráfico de conexión cruzada que no están disponibles en la puerta de enlace Azure VPN Gateway en esta configuración.
 
-## <a name="configure-policy-based-traffic-selectors-on-a-connection"></a>Configuración de los selectores de tráfico basados en directivas en una conexión
+## <a name="configurepolicybased"></a>Configuración de los selectores de tráfico basados en directivas en una conexión
 
 Las instrucciones de este artículo siguen el mismo ejemplo de [Configurar una directiva de IPsec o IKE para conexiones VPN de sitio a sitio o de red virtual a red virtual](vpn-gateway-ipsecikepolicy-rm-powershell.md) para establecer una conexión VPN de sitio a sitio. Se muestra en el diagrama siguiente:
 
@@ -76,16 +69,25 @@ El flujo de trabajo para habilitar esta conectividad:
 3. Aplique la directiva cuando se cree una conexión de sitio a sitio o de red virtual a red virtual, y **habilite los selectores de tráfico basados en directivas** en la conexión.
 4. Si ya se ha creado la conexión, puede aplicar la directiva a una conexión existente o actualizarla.
 
-## <a name="enable-policy-based-traffic-selectors-on-a-connection"></a>Habilitación de los selectores de tráfico basados en directivas en una conexión
+## <a name="before-you-begin"></a>Antes de empezar
+
+Compruebe que tiene una suscripción a Azure. Si todavía no la tiene, puede activar sus [ventajas como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial).
+
+[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
+
+## <a name="enablepolicybased"></a>Habilitación de los selectores de tráfico basados en directivas en una conexión
 
 Asegúrese de haber completado la [parte 3 del artículo Configurar una directiva de IPsec o IKE](vpn-gateway-ipsecikepolicy-rm-powershell.md) para esta sección. El ejemplo siguiente usa los mismos parámetros y pasos:
 
 ### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>Paso 1: crear la red virtual, la puerta de enlace de VPN y la puerta de enlace de red local
 
-#### <a name="1-declare-your-variables--connect-to-your-subscription"></a>1. Declaración de las variables y conexión a su suscripción
-Para este ejercicio, se empieza por declarar las variables. Asegúrese de reemplazar los valores por los suyos propios cuando realice la configuración para el entorno de producción.
+#### <a name="1-connect-to-your-subscription-and-declare-your-variables"></a>1. Conexión a la suscripción y declaración de variables
 
-```powershell
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps login.md)]
+
+Declare las variables. Para este ejercicio, usamos las siguientes variables:
+
+```azurepowershell-interactive
 $Sub1          = "<YourSubscriptionName>"
 $RG1           = "TestPolicyRG1"
 $Location1     = "East US 2"
@@ -109,20 +111,18 @@ $LNGPrefix61   = "10.61.0.0/16"
 $LNGPrefix62   = "10.62.0.0/16"
 $LNGIP6        = "131.107.72.22"
 ```
-Para usar los cmdlets de Resource Manager, asegúrese de cambiar al modo de PowerShell. Para obtener más información, consulte [Uso de Windows PowerShell con el Administrador de recursos](../powershell-azure-resource-manager.md).
 
-Abre la consola de PowerShell y conéctate a tu cuenta. Use el siguiente ejemplo para ayudarle a conectarse:
+#### <a name="2-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>2. Creación de la red virtual, la puerta de enlace de VPN y la puerta de enlace de red local
 
-```powershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionName $Sub1
+Cree un grupo de recursos.
+
+```azurepowershell-interactive
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```
 
-#### <a name="2-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>2. Creación de la red virtual, la puerta de enlace de VPN y la puerta de enlace de red local
-En el ejemplo siguiente se crea la red virtual, TestVNet1, con tres subredes y la puerta de enlace de VPN. Al reemplazar valores, es importante que siempre asigne el nombre "GatewaySubnet" a la subred de la puerta de enlace. Si usa otro, se produce un error al crear la puerta de enlace.
+Use el ejemplo siguiente para crear la red virtual TestVNet1, con tres subredes y la puerta de enlace de VPN. Si desea reemplazar los valores, es importante que siempre asigne el nombre GatewaySubnet a la subred de la puerta de enlace. Si usa otro, se produce un error al crear la puerta de enlace.
 
-```powershell
+```azurepowershell-interactive
 $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
 $besub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
 $gwsub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWSubPrefix1
@@ -147,17 +147,17 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 > Debe crear una directiva IPsec/IKE para habilitar la opción "UsePolicyBasedTrafficSelectors" en la conexión.
 
 El ejemplo siguiente crea una directiva IPsec/IKE con estos algoritmos y parámetros:
-* IKEv2: AES256, SHA384, DHGroup24
+* IKEv2: AES256, SHA384 y DHGroup24
 * IPsec: AES256, SHA256, PFS24, vigencia de SA de 3600 segundos y 2048 KB
 
-```powershell
+```azurepowershell-interactive
 $ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup PFS24 -SALifeTimeSeconds 3600 -SADataSizeKilobytes 2048
 ```
 
 #### <a name="2-create-the-s2s-vpn-connection-with-policy-based-traffic-selectors-and-ipsecike-policy"></a>2. Creación de una conexión VPN de sitio a sitio con selectores de tráfico basados en directivas y directiva IPsec/IKE
 Cree una conexión VPN de sitio a sitio y aplique la directiva IPsec/IKE creada en el paso anterior. Tenga en cuenta el parámetro adicional "-UsePolicyBasedTrafficSelectors $True", que habilita los selectores de tráfico basados en directivas en la conexión.
 
-```powershell
+```azurepowershell-interactive
 $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
 $lng6 = Get-AzureRmLocalNetworkGateway  -Name $LNGName6 -ResourceGroupName $RG1
 
@@ -172,7 +172,7 @@ La última sección muestra cómo actualizar la opción de selectores de tráfic
 ### <a name="1-get-the-connection"></a>1. Obtención de la conexión
 Obtenga el recurso de conexión.
 
-```powershell
+```azurepowershell-interactive
 $RG1          = "TestPolicyRG1"
 $Connection16 = "VNet1toSite6"
 $connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
@@ -181,35 +181,35 @@ $connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -
 ### <a name="2-check-the-policy-based-traffic-selectors-option"></a>2. Comprobación de la opción de selectores de tráfico basados en directivas
 La siguiente línea muestra si se usan los selectores de tráfico basados en directivas para la conexión:
 
-```powershell
+```azurepowershell-interactive
 $connection6.UsePolicyBasedTrafficSelectors
 ```
 
 Si la línea devuelve "**True**", los selectores de tráfico basados en directivas están configurados en la conexión; en caso contrario, devuelve "**False**".
 
-### <a name="3-update-the-policy-based-traffic-selectors-on-a-connection"></a>3. Actualización de los selectores de tráfico basados en directivas en una conexión
+### <a name="3-enabledisable-the-policy-based-traffic-selectors-on-a-connection"></a>3. Habilitar/Deshabilitar los selectores de tráfico basados en directivas en una conexión
 Una vez que obtenga el recurso de conexión, puede habilitar o deshabilitar la opción.
 
-#### <a name="disable-usepolicybasedtrafficselectors"></a>Deshabilitación de UsePolicyBasedTrafficSelectors
-En el ejemplo siguiente se deshabilita la opción de selectores de tráfico basados en directivas, pero se deja sin modificar la directiva IPsec/IKE:
-
-```powershell
-$RG1          = "TestPolicyRG1"
-$Connection16 = "VNet1toSite6"
-$connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
-
-Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -UsePolicyBasedTrafficSelectors $False
-```
-
-#### <a name="enable-usepolicybasedtrafficselectors"></a>Habilitación de UsePolicyBasedTrafficSelectors
+#### <a name="to-enable-usepolicybasedtrafficselectors"></a>Para habilitar UsePolicyBasedTrafficSelectors
 En el ejemplo siguiente se habilita la opción de selectores de tráfico basados en directivas y se deja sin modificar la directiva IPsec/IKE:
 
-```powershell
+```azurepowershell-interactive
 $RG1          = "TestPolicyRG1"
 $Connection16 = "VNet1toSite6"
 $connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
 
 Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -UsePolicyBasedTrafficSelectors $True
+```
+
+#### <a name="to-disable-usepolicybasedtrafficselectors"></a>Para deshabilitar UsePolicyBasedTrafficSelectors
+En el ejemplo siguiente se deshabilita la opción de selectores de tráfico basados en directivas, pero se deja sin modificar la directiva IPsec/IKE:
+
+```azurepowershell-interactive
+$RG1          = "TestPolicyRG1"
+$Connection16 = "VNet1toSite6"
+$connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
+
+Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -UsePolicyBasedTrafficSelectors $False
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

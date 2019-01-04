@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: d7f33bf0657ca2a6888387b7651706f9de537bb4
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: ce10e2c24e89140357df3fa6b724a1f89f389a50
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494363"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275489"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
 Administre clústeres de Service Fabric independientes.
@@ -63,18 +63,18 @@ Valide los parámetros de actualización de configuración suministrados e inici
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --cluster-config            [obligatorio] | La configuración del clúster que se aplicará al clúster. |
+| --cluster-config            [obligatorio] | La configuración de clúster. |
 | --application-health-policies | Diccionario codificado en JSON de pares de nombres de tipo de aplicación y porcentaje máximo con estado incorrecto antes de producirse el error. |
 | --delta-unhealthy-nodes | El porcentaje máximo permitido de degradación de mantenimiento delta durante la actualización. Los valores permitidos son enteros entre 0 y 100. |
-| --health-check-retry | El período de tiempo entre intentos para realizar comprobaciones de mantenimiento si la aplicación o el clúster no son correctos.  Valor predeterminado\: PT0H0M0S. |
-| --health-check-stable | El período de tiempo que la aplicación o el clúster debe permanecer en buen estado.  Valor predeterminado\: PT0H0M0S. |
+| --health-check-retry | El período de tiempo entre intentos para realizar comprobaciones de mantenimiento si la aplicación o el clúster no funcionan correctamente.  Valor predeterminado\: PT0H0M0S. |
+| --health-check-stable | La cantidad de tiempo que la aplicación o el clúster deben tener un estado correcto antes de que la actualización continúe con el siguiente dominio de actualización.  Valor predeterminado\: PT0H0M0S. <br><br> En primer lugar se interpreta como una cadena que representa una duración ISO 8601. Si se produce un error, se interpreta como un número que representa el total de milisegundos. |
 | --health-check-wait | El período de tiempo de espera después de completar un dominio de actualización antes de iniciar el proceso de comprobaciones de mantenimiento.  Valor predeterminado\: PT0H0M0S. |
 | --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
 | --unhealthy-applications | El porcentaje máximo permitido de aplicaciones en mal estado durante la actualización. Los valores permitidos son enteros entre 0 y 100. |
 | --unhealthy-nodes | El porcentaje máximo permitido de nodos en mal estado durante la actualización. Los valores permitidos son enteros entre 0 y 100. |
 | --upgrade-domain-delta-unhealthy-nodes | El porcentaje máximo permitido de degradación de mantenimiento delta de dominio de actualización durante la actualización. Los valores permitidos son enteros entre 0 y 100. |
-| --upgrade-domain-timeout | El tiempo de espera para el dominio de actualización.  Valor predeterminado\: PT0H0M0S. |
-| --upgrade-timeout | El tiempo de espera de actualización.  Valor predeterminado\: PT0H0M0S. |
+| --upgrade-domain-timeout | El período de tiempo del que dispone cada dominio de actualización para completarse antes de la ejecución de FailureAction.  Valor predeterminado\: PT0H0M0S. <br><br> En primer lugar se interpreta como una cadena que representa una duración ISO 8601. Si se produce un error, se interpreta como un número que representa el total de milisegundos. |
+| --upgrade-timeout | El período de tiempo en el que se debe completar la actualización general antes de que se ejecute FailureAction.  Valor predeterminado\: PT0H0M0S. <br><br> En primer lugar se interpreta como una cadena que representa una duración ISO 8601. Si se produce un error, se interpreta como un número que representa el total de milisegundos. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -88,7 +88,12 @@ Valide los parámetros de actualización de configuración suministrados e inici
 
 ### <a name="examples"></a>Ejemplos
 
-Iniciar una actualización de configuración de clúster sfctl sa-cluster config-upgrade --cluster-config <YOUR CLUSTER CONFIG> --application-health-policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"
+Iniciar una actualización de la configuración de clúster
+
+```
+sfctl sa-cluster config-upgrade --cluster-config <YOUR CLUSTER CONFIG> --application-health-
+policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"
+```
 
 ## <a name="sfctl-sa-cluster-upgrade-status"></a>sfctl sa-cluster upgrade-status
 Obtenga el estado de actualización de configuración de clúster de un clúster de Service Fabric independiente.

@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: asrastog
-ms.openlocfilehash: 77615705ade42a2afcc8e3a9f662b0551a2411fd
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: daf4a6142c0e30fa7b8534e5598cec39c69079c0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582461"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184056"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordenación de eventos de conexión de dispositivos de Azure IoT Hub mediante Azure Cosmos DB
 
@@ -200,11 +200,11 @@ En el flujo de trabajo de la aplicación lógica, las condiciones ayudan a ejecu
 
 2. Rellene la condición como se muestra a continuación para que solo se ejecute en caso de eventos de Dispositivo conectado y Dispositivo desconectado:
 
-  * Elija un valor: **eventType**
-  * Cambie "es igual a" por **termina con**
-  * Elija un valor: **nected**
+   * Elija un valor: **eventType**
+   * Cambie "es igual a" por **termina con**
+   * Elija un valor: **nected**
 
-   ![Rellenar condición](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
+     ![Rellenar condición](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
 
 3. Si la condición es true, haga clic en **Agregar una acción**.
   
@@ -248,13 +248,13 @@ En esta sección, va a configurar IoT Hube para publicar eventos cuando se produ
 
 4. Cree la suscripción de eventos con los siguientes valores: 
 
-   * **Tipo de evento**: desactive la opción Suscribirse a todos los tipos de evento y seleccione **Dispositivo conectado** y **Dispositivo desconectado** en el menú.
+   * **Tipo de evento**: Desactive la opción Suscribirse a todos los tipos de evento y seleccione **Dispositivo conectado** y **Dispositivo desconectado** en el menú.
 
-   * **Detalles de punto de conexión**: en Tipo de punto de conexión, seleccione **Webhook**, haga clic en Seleccionar punto de conexión y pegue la dirección URL que copió de la aplicación lógica y confirme la selección.
+   * **Detalles del punto de conexión**: En Tipo de punto de conexión, seleccione **Webhook**, haga clic en Seleccionar punto de conexión y pegue la dirección URL que copió de la aplicación lógica y confirme la selección.
 
        ![seleccionar dirección URL de punto de conexión](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
 
-   * **Detalles de suscripciones de eventos**: especifique un nombre descriptivo y seleccione **Esquema de Event Grid**.
+   * **Detalles de suscripciones de eventos**: Proporcione un nombre descriptivo y seleccione **Esquema de Event Grid**.
    El formulario es similar al del siguiente ejemplo: 
 
        ![Formulario de ejemplo de suscripción de eventos](./media/iot-hub-how-to-order-connection-state-events/subscription-form.png)

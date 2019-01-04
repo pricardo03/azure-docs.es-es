@@ -10,17 +10,15 @@ ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.component: ''
-ms.openlocfilehash: d818b4c045139eace88c3ef6b9675e5199c2ed4b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9f881071559eaba0f6b1c86e8827993d52470baf
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52429540"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186215"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de conectividad de servicio
 
@@ -97,7 +95,7 @@ En la vista **Nodos de prueba**, puede observar la conectividad de red desde cad
 
 Determine si el rendimiento de una aplicación es deficiente debido a la red o a un problema en el extremo del proveedor de la aplicación mediante la observación de la correlación entre el tiempo de respuesta de la aplicación y la latencia de red. 
 
-* **Problema de aplicación:** un pico en el tiempo de respuesta, pero coherencia en la latencia de red sugiere que la red funciona correctamente y el problema se debe a un error en el extremo de la aplicación. 
+* **Problema de la aplicación:** un pico en el tiempo de respuesta, pero coherencia en la latencia de red sugiere que la red funciona correctamente y el problema se debe a un error en el extremo de la aplicación. 
 
     ![Problema de aplicación del Monitor de conectividad de servicio](media/network-performance-monitor-service-endpoint/service-endpoint-application-issue.png)
 
@@ -131,4 +129,4 @@ Si observa un comportamiento anormal, siga estos pasos:
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Buscar registros](../../log-analytics/log-analytics-queries.md) para ver datos detallados de rendimiento de red.
+[Buscar registros](../../azure-monitor/log-query/log-query-overview.md) para ver datos detallados de rendimiento de red.

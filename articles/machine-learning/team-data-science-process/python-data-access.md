@@ -1,5 +1,5 @@
 ---
-title: Acceso a conjuntos de datos con la biblioteca de cliente de Python de Machine Learning | Microsoft Docs
+title: 'Acceso a conjuntos de datos con la biblioteca de cliente de Python: proceso de ciencia de datos en equipos'
 description: Instale y use la biblioteca de cliente de Python para tener acceso y administrar datos de Azure Machine Learning de forma segura desde un entorno local de Python.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 43812b68b10f9e4f8510d24cb08c8bb368b3b8f8
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 630961954a235efd5f0cef92dd6a2525ae316838
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445776"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140037"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Acceso a conjuntos de datos con Python mediante la biblioteca de cliente de Python de Azure Machine Learning
 La versión preliminar de la biblioteca de cliente de Python de Microsoft Azure Machine Learning puede permitir un acceso seguro a los conjuntos de datos de Azure Machine Learning desde un entorno local de Python, así como la creación y administración de conjuntos de datos en un área de trabajo.
@@ -61,7 +61,7 @@ Si tiene git instalado en su equipo, puede usar pip para instalar directamente d
 ## <a name="datasetAccess"></a>Utilizar fragmentos de código del Estudio para tener acceso a los conjuntos de datos
 La biblioteca de cliente de Python proporciona acceso mediante programación a los conjuntos de datos existentes de los experimentos que se han ejecutado.
 
-Desde la interfaz de web del Estudio, puede generar fragmentos de código que incluyen toda la información necesaria para descargar y deserializar los conjuntos de datos como objetos pandas DataFrame en el equipo de la ubicación.
+Desde la interfaz de web del Estudio, puede generar fragmentos de código que incluyen toda la información necesaria para descargar y deserializar los conjuntos de datos como objetos pandas DataFrame en la máquina local.
 
 ### <a name="security"></a>Seguridad de acceso a datos
 Los fragmentos de código proporcionados por el Estudio para su uso con la biblioteca de cliente de Python incluyen el identificador de área de trabajo y el token de autorización. Estos proporcionan acceso completo a su área de trabajo y se deben proteger, como una contraseña.
@@ -92,10 +92,10 @@ Los tokens de autorización se administran en la página **TOKENS DE AUTORIZACI�
     ![Conjuntos de datos][datasets]
 4. Seleccione el fragmento de código de la ventana que aparece y cópielo al Portapapeles.
    
-    ![Código de acceso][dataset-access-code]
+    ![Botón para generar código de acceso a datos][dataset-access-code]
 5. Pegue el código en el Bloc de notas de su aplicación local de Python.
    
-    ![Bloc de notas][ipython-dataset]
+    ![Pegar el código en el cuaderno][ipython-dataset]
 
 ## <a name="accessingIntermediateDatasets"></a>Obtener acceso a los conjuntos de datos intermedios de experimentos de Machine Learning
 Después de ejecutar un experimento en Machine Learning Studio, es posible tener acceso a los conjuntos de datos intermedios desde los nodos de salida de los módulos. Los conjuntos de datos intermedios son datos que se han creado y utilizado para pasos intermedios cuando se ha ejecutado una herramienta de modelo.
@@ -133,10 +133,10 @@ Los pasos siguientes muestran un ejemplo que crea un experimento, lo ejecuta y t
     ![Menú contextual][experiment]
 8. Seleccione el fragmento de código y cópielo en la ventana que se muestra.
    
-    ![Código de acceso][intermediate-dataset-access-code]
+    ![Generar el código de acceso desde el menú contextual][intermediate-dataset-access-code]
 9. Pegue el código en el Bloc de notas.
    
-    ![Bloc de notas][ipython-intermediate-dataset]
+    ![Pegar el código en el cuaderno][ipython-intermediate-dataset]
 10. Puede visualizar los datos con matplotlib. Esto se muestra en un histograma de la columna de tiempo:
     
     ![Histograma][ipython-histogram]

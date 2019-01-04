@@ -1,5 +1,5 @@
 ---
-title: 'Sincronización de Azure AD Connect: cambio de la cuenta del servicio de sincronización de Azure AD Connect | Microsoft Docs'
+title: 'Sincronización de Azure AD Connect:  Cambio de la cuenta del servicio de sincronización de Azure AD Connect | Microsoft Docs'
 description: En este documento del tema se describe la clave de cifrado y cómo abandonarla una vez cambiada la contraseña.
 services: active-directory
 keywords: Cuenta del servicio Sincronización de Azure AD, contraseña
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 331c536970445dacdb9afc9d3cfa5711b82bfbf0
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: a0cdaa54d0da58a02cbe9fcda36cbaff6b1fab4a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747259"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184906"
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Cambio de la contraseña de la cuenta del servicio de sincronización de Azure AD Connect
 Si cambia la contraseña de la cuenta del servicio de sincronización de Azure AD Connect, el servicio de sincronización no podrá iniciarse correctamente hasta que haya abandonado la clave de cifrado y reinicializado la contraseña de la cuenta del servicio de sincronización de Azure AD Connect. 
@@ -39,12 +39,12 @@ En primer lugar, tiene que cambiar la contraseña en el Administrador de control
 
 
 - Si intenta iniciar el servicio de sincronización en el Administrador de control de servicios de Windows, recibirá el error "**Windows no pudo iniciar el servicio Sincronización de Microsoft Azure AD en el equipo local**". **Error 1069: No se puede iniciar el servicio debido a un error en el inicio de sesión.**"
-- En el Visor de eventos de Windows, el registro de eventos del sistema contiene un error con **Id. de evento 7038** y el mensaje "**The ADSync service was unable to log on as with the currently configured password due to the following error (El servicio ADSync no puede iniciar sesión con la contraseña configurada actualmente debido al siguiente error): El nombre de usuario o la contraseña es incorrecto.**"
+- En el Visor de eventos de Windows, el registro de eventos del sistema contiene un error con el **identificador de evento 7038** y el mensaje "**The ADSync service was unable to log on as with the currently configured password due to the following error: The user name or password is incorrect.**" (El servicio ADSync no puede iniciar sesión con la contraseña configurada actualmente debido al siguiente error: El nombre de usuario o la contraseña es incorrecto).
 
 En segundo lugar, en determinadas condiciones, si la contraseña se actualiza, el servicio de sincronización ya no podrá recuperar la clave de cifrado a través de DPAPI. Sin la clave de cifrado, el servicio de sincronización no puede descifrar la contraseña necesaria para sincronizar con o desde AD y Azure AD locales.
 Verá errores como los siguientes:
 
-- En el Administrador de control de servicios de Windows, si intenta iniciar el servicio de sincronización y este no puede recuperar la clave de cifrado, se produce el error “**Windows no pudo iniciar el servicio Sincronización de Microsoft Azure AD en el equipo local.** Para más información, revise el registro de eventos del sistema. **Si este no es un servicio de Microsoft, póngase en contacto con el proveedor del servicio y haga referencia al código de error específico del servicio \*\*-21451857952**\*\*.”
+- En el Administrador de control de servicios de Windows, si intenta iniciar el servicio de sincronización y este no puede recuperar la clave de cifrado, se produce el error “<strong>Windows no pudo iniciar el servicio Sincronización de Microsoft Azure AD en el equipo local. Para más información, revise el registro de eventos del sistema. Si este no es un servicio de Microsoft, póngase en contacto con el proveedor del servicio y haga referencia al código de error específico del servicio -21451857952</strong>”.
 - En el Visor de eventos de Windows, el registro de eventos de la aplicación contiene un error con **Id. de evento 6028** y el mensaje de error *"**The server encryption key cannot be accessed.**"* (No se puede acceder a la clave de cifrado del servidor.)
 
 Para asegurarse de que no recibe estos errores, siga los procedimientos descritos en [Abandonar la clave de cifrado de sincronización de Azure AD Connect](#abandoning-the-azure-ad-connect-sync-encryption-key) al cambiar la contraseña.

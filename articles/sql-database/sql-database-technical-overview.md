@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 74e963abe5d2798f72bce8212c9f761f8f3297d1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e0a3f5239e9d0f16312894dee598c0fc490f1e73
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256942"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270015"
 ---
 # <a name="the-azure-sql-database-service"></a>Servicio Azure SQL Database
 
@@ -60,7 +60,7 @@ Con SQL Database, cada base de datos está aislada de las demás y es portátil,
 
 SQL Database ofrece un [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) o el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md).
 
-- El modelo de compra basado en DTU ofrece una combinación de proceso, memoria y recursos de E/S en tres niveles de servicio para admitir cargas de trabajo de base de datos de ligeras a pesadas: Básico, Estándar y Premium. Los tamaños de proceso de cada nivel ofrecen una combinación diferente de estos recursos, a los que puede agregar recursos de almacenamiento adicionales.
+- El modelo de compra basado en DTU ofrece una combinación de recursos de proceso, memoria y E/S en tres niveles de servicio para admitir cargas de trabajo de base de datos de ligeras a pesadas: Básico, Estándar y Premium. Los tamaños de proceso de cada nivel ofrecen una combinación diferente de estos recursos, a los que puede agregar recursos de almacenamiento adicionales.
 - El modelo de compra basado en núcleos virtuales le permite elegir el número de núcleos virtuales, la cantidad de memoria y la cantidad y velocidad del almacenamiento.
 
 La primera aplicación se puede compilar en una base de datos pequeña con un costo muy pequeño al mes en el nivel de servicio de uso general y, después, cambiar el nivel de servicio manualmente o mediante programación en cualquier momento al nivel de servicio crítico para la empresa para adecuarlo a las necesidades de su solución. El rendimiento se puede ajustar sin que la aplicación o los clientes sufran ningún tipo de inactividad. La escalabilidad dinámica permite que una base de datos responda transparentemente a los requisitos de recursos, que cambian con rapidez, y le permite pagar solo por los recursos que necesite cuando los necesite.
@@ -93,9 +93,9 @@ Pero, ¿cómo se puede comparar el rendimiento relativo de las bases de datos ú
 
 Además, SQL Database puede [emitir métricas y registros de diagnóstico](sql-database-metrics-diag-logging.md) para facilitar la supervisión. SQL Database se puede configurar para que almacene el uso de recursos, los trabajadores y sesiones, y la conectividad en uno de estos recursos de Azure:
 
-- **Azure Storage**: para archivar grandes cantidades de telemetría a un pequeño precio
-- **Azure Event Hub**: para integrar la telemetría de SQL Database con una solución de supervisión personalizada o canalizaciones activas
-- **Azure Log Analytics**: para la solución de supervisión integrada con funcionalidades de generación de informes, alertas y mitigación.
+- **Azure Storage**: Para archivar grandes cantidades de telemetría a un pequeño precio
+- **Azure Event Hub**: Para integrar la telemetría de SQL Database con una solución de supervisión personalizada o canalizaciones activas
+- **Azure Log Analytics**: Para la solución de supervisión integrada con funcionalidades de generación de informes, alertas y mitigación.
 
     ![arquitectura](./media/sql-database-metrics-diag-logging/architecture.png)
 
@@ -109,10 +109,10 @@ El contrato de nivel de servicio [(SLA)](https://azure.microsoft.com/support/leg
 - **[Restauraciones a un momento dado](sql-database-recovery-using-backups.md)**:
 
   SQL Database admite la recuperación a cualquier momento dado que esté dentro del período de retención de copia de seguridad automática.
-- **[Replicación geográfica activa](sql-database-geo-replication-overview.md)**:
+- **[Replicación geográfica activa](sql-database-active-geo-replication.md)**:
 
   SQL Database permite configurar hasta cuatro bases de datos secundarias legibles en los mismos centros de datos de Azure o en centros de datos distribuidos globalmente.  Por ejemplo, si tiene una aplicación SaaS con una base de datos de catálogos tiene un alto volumen de transacciones simultáneas de solo lectura, utilice la replicación geográfica activa para habilitar la escala de lectura global y quitar cuellos de botella en el servidor principal debidos a las cargas de trabajo de lectura.
-- **[Grupos de conmutación por error](sql-database-geo-replication-overview.md)**:
+- **[Grupos de conmutación por error automática](sql-database-auto-failover-group.md)**:
 
   SQL Database permite habilitar la alta disponibilidad y el equilibrio de carga a escala global, lo que incluye la replicación geográfica transparente y la conmutación por error de grandes conjuntos de bases de datos y grupos elásticos. Los grupos de conmutación por error y la replicación geográfica activa permiten la creación de aplicaciones SaaS distribuidas globalmente con una sobrecarga administrativa mínima que deja la supervisión compleja, el enrutamiento y la orquestación de la conmutación por error a SQL Database.
 - **[Bases de datos con redundancia de zona](sql-database-high-availability.md)**:
@@ -135,8 +135,8 @@ En la actualidad, muchos de nuestros asociados que ejecutan [aplicaciones SaaS m
 
 Hay dos aspectos del ajuste automático [disponibles en SQL Database](sql-database-automatic-tuning.md):
 
-- **Administración de índices automática**: identifica tanto los índices que se deben agregar a la base de datos como los que se deben quitar.
-- **Corrección automática de planes**: identifica planes problemáticos y corrige los problemas de rendimiento de los planes de SQL (próximamente, ya disponible en SQL Server 2017).
+- **Administración automática de índices**: Identifica tanto los índices que se deben agregar a la base de datos como los que se deben quitar.
+- **Corrección automática de planes**: Identifica planes problemáticos y corrige los problemas de rendimiento de los planes de SQL (próximamente, ya disponible en SQL Server 2017).
 
 ### <a name="adaptive-query-processing"></a>Procesamiento adaptable de consultas
 
@@ -197,10 +197,10 @@ SQL Database admite la compilación de aplicaciones con Python, Java, Node.js, P
 
 ## <a name="engage-with-the-sql-server-engineering-team"></a>Contactar con el equipo de ingeniería de SQL Server
 
-- [Cambio de pila de DBA](https://dba.stackexchange.com/questions/tagged/sql-server): formule preguntas sobre administración de base de datos
-- [Desbordamiento de pila](http://stackoverflow.com/questions/tagged/sql-server): formule preguntas sobre desarrollo
-- [Foros de MSDN](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): formule preguntas técnicas
-- [Comentarios](https://aka.ms/sqlfeedback): informe de errores y características de la solicitud
+- [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): formule preguntas sobre administración de base de datos
+- [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): formule preguntas sobre desarrollo
+- [Foros de MSDN](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): realice preguntas técnicas
+- [Comentarios](https://aka.ms/sqlfeedback): informe de errores y solicitud de características
 - [Reddit](https://www.reddit.com/r/SQLServer/): analice SQL Server
 
 ## <a name="next-steps"></a>Pasos siguientes

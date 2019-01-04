@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 13bb128836590fb43e0c6a2f7131f83a99a23eaf
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 871abffc07ee29df388205395110e89a85dd7344
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39507806"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017661"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promaster-by-inlogik"></a>Tutorial: Integración de Azure Active Directory con ProMaster (by Inlogik)
 
@@ -110,7 +110,8 @@ En esta sección habilitará el inicio de sesión único de Azure AD en Azure Po
 
     ![Información de dominio y direcciones URL de inicio de sesión único de ProMaster (by Inlogik)](./media/promaster-tutorial/tutorial_promaster_url1.png)
 
-    a. En el cuadro de texto **Identificador**, escriba la dirección URL con el siguiente patrón:
+     a. En el cuadro de texto **Identificador**, escriba la dirección URL con el siguiente patrón:
+
     | |
     | - |-|
     |  `https://secure.inlogik.com/<COMPANYNAME>`|
@@ -118,6 +119,7 @@ En esta sección habilitará el inicio de sesión único de Azure AD en Azure Po
     | |
 
     b. En el cuadro de texto **URL de respuesta**, escriba la dirección URL con el siguiente patrón:
+
     | |
     | - |-|
     | `https://secure.inlogik.com/<COMPANYNAME>/saml/acs`|
@@ -129,6 +131,7 @@ En esta sección habilitará el inicio de sesión único de Azure AD en Azure Po
     ![Información de dominio y direcciones URL de inicio de sesión único de ProMaster (by Inlogik)](./media/promaster-tutorial/tutorial_promaster_url2.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL con el siguiente patrón:
+
     | |
     | - |-|
     | `https://secure.inlogik.com/<COMPANYNAME>/saml/acs `|
@@ -172,7 +175,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/promaster-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -182,7 +185,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 ### <a name="create-a-promaster-by-inlogik-test-user"></a>Creación de un usuario de prueba de ProMaster (by Inlogik)
 
-En esta sección, creará un usuario llamado Britta Simon en ProMaster (by Inlogik). Trabaje con el [equipo de soporte técnico de ProMaster (by Inlogik)](mailto:michael.boldiston@inlogik.com) para agregar los usuarios en la plataforma ProMaster (by Inlogik). Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en ProMaster (by Inlogik). Trabaje con el  [equipo de soporte técnico de ProMaster (by Inlogik)](mailto:michael.boldiston@inlogik.com)  para agregar a los usuarios en la plataforma ProMaster (by Inlogik). Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 

@@ -1,5 +1,5 @@
 ---
-title: Creación de planos técnicos mediante parámetros en Azure Blueprint
+title: Uso de parámetros para crear planos técnicos dinámicos
 description: Conozca más información sobre los parámetros estáticos y dinámicos, y sobre como usarlos para crear planos técnicos dinámicos.
 services: blueprints
 author: DCtheGeek
@@ -8,12 +8,13 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: f6485b01c391ba336799ceb35ee67402b3603585
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 0eef85fe92682eb3a6fd1dbc036cf547b163db97
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093758"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310324"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creación de planos técnicos mediante parámetros
 
@@ -57,7 +58,7 @@ Un valor de parámetro definido en la definición de un plano técnico se denomi
 
 1. Haga clic en un plano técnico ya existente y, a continuación, haga clic en **Editar plano técnico** o en **+ Crear plano técnico** y rellene la información en la pestaña **Aspectos básicos**.
 
-1. Haga clic en **Siguiente: artefactos** o haga clic en la pestaña **Artefactos**.
+1. Haga clic en **Siguiente: Artefactos** o haga clic en la pestaña **Artefactos**.
 
 1. En los artefactos que se agregaron al plano técnico que tienen opciones de parámetro aparece **X of Y parameters populated** (X de Y parámetros rellenos) en la columna **Parámetros**. Haga clic en la fila del artefacto para editar los parámetros de este.
 

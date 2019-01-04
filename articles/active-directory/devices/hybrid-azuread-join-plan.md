@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: ebf5a23743d1fdd9553b391bb0518c2887ddb096
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: b22f79195a7246c87a8d5d5b4b5e012cc30a62dd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959994"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274571"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Planeamiento de la implementación de unión a Azure Active Directory híbrido
 
@@ -112,7 +112,6 @@ Si su organización requiere acceso a Internet a través de un servidor proxy sa
 
 La unión a Azure AD híbrido es un proceso para registrar automáticamente los dispositivos unidos al dominio en el entorno local con Azure AD. Hay casos en los que es mejor que no todos los dispositivos se registren automáticamente. Si esto es así, consulte [Control de la unión de los dispositivos híbridos a Azure AD](hybrid-azuread-join-control.md).
 
-
 ## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Revisión del control de la unión de dispositivos a Azure AD híbrido
 
 La unión a Azure AD híbrido es un proceso para registrar automáticamente los dispositivos unidos al dominio en el entorno local con Azure AD. Hay casos en los que es mejor que no todos los dispositivos se registren automáticamente. Esto es así, por ejemplo, durante el lanzamiento inicial para comprobar que todo funciona según lo previsto.
@@ -130,9 +129,9 @@ Puede configurar la unión a Azure AD híbrido para los escenarios siguientes:
 
 Si el entorno tiene dominios administrados, a unión a Azure AD híbrido admite:
 
-- Autenticación de paso a través (PTA) con inicio de sesión único (SSO) de conexión directa 
+- Autenticación de paso a través (PTA)
 
-- Sincronización de hash de contraseña (PHS) con inicio de sesión único (SSO) de conexión directa 
+- Sincronización de hash de contraseña (PHS)
 
 Desde la versión 1.1.819.0, Azure AD Connect proporciona un asistente para configurar la unión a Azure AD híbrido. El asistente permite simplificar considerablemente el proceso de configuración. Para más información, consulte:
 
@@ -145,7 +144,22 @@ Desde la versión 1.1.819.0, Azure AD Connect proporciona un asistente para conf
  Si no le es posible instalar la versión requerida de Azure AD Connect, consulte la información sobre [cómo configurar manualmente el registro de dispositivos](../device-management-hybrid-azuread-joined-devices-setup.md). 
 
 
+## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Compatibilidad con el identificador de inicio de sesión alternativo en la unión a Azure AD híbrido
 
+La unión a Azure AD híbrido para Windows 10 proporciona compatibilidad limitada para los [identificadores de inicio de sesión alternativos](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) dependiendo del tipo de identificador de inicio de sesión alternativo, [el método de autenticación](https://docs.microsoft.com/en-us/azure/security/azure-ad-choose-authn), el tipo de dominio y la versión de Windows 10. Hay dos tipos de identificadores de inicio de sesión alternativos que pueden existir en su entorno.
+
+ - Identificador de inicio de sesión alternativo enrutable: Un identificador de inicio de sesión alternativo enrutable tiene un dominio comprobado válido, que está registrado con un registrador de dominios. Por ejemplo, si contoso.com es el dominio principal, contoso.org y contoso.co.uk son dominios válidos que pertenezcan a Contoso y [están comprobados en Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain)
+ 
+ - Identificador de inicio de sesión alternativo no enrutable: Un identificador de inicio de sesión alternativo no enrutable no tiene un dominio comprobado. Es aplicable solo dentro de la red privada de su organización. Por ejemplo, si contoso.com es el dominio principal, contoso.local no es un dominio comprobable en Internet, pero se utiliza dentro de la red de Contoso.
+ 
+En la tabla siguiente se proporcionan detalles sobre la compatibilidad con cualquiera de estos identificadores de inicio de sesión alternativo en la unión a Azure AD híbrido para Windows 10
+
+|Tipo de identificador de inicio de sesión alternativo|Tipo de dominio|Versión de Windows 10|DESCRIPCIÓN|
+|-----|-----|-----|-----|
+|Enrutable|Federado |A partir de la versión 1703|Disponibilidad general|
+|Enrutable|Administrado|A partir de la versión 1709|Actualmente en versión preliminar privada. No admite SSPR de Azure AD |
+|No enrutable|Federado|A partir de la versión 1803|Disponibilidad general|
+|No enrutable|Administrado|No compatible||
 
 
 

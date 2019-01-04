@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 93478e5d13ef649b86ebc047f4e53f1486e2ff68
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: c2bb1c0147d38b4286e2cdfb2d161eaa0704e393
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493960"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271494"
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 Consulte y administre las particiones para cualquier servicio.
@@ -47,8 +47,9 @@ Consulte y administre las particiones para cualquier servicio.
 ## <a name="sfctl-partition-data-loss"></a>sfctl partition data-loss
 Esta API inducirá la pérdida de datos para la partición especificada.
 
-Desencadenará una llamada a la API OnDataLossAsync de la partición.  Esta API inducirá la pérdida de datos para la partición especificada. Desencadenará una llamada a la API OnDataLoss de la partición. La pérdida de datos real dependerá del elemento DataLossMode especificado. <br> PartialDataLoss: solo se quita un cuórum de réplicas y OnDataLoss se desencadena para la partición, pero la pérdida de datos real depende de la presencia de la replicación en curso. <br>FullDataLoss: todas las réplicas se quitan y, por tanto, se pierden todos los datos y se desencadena OnDataLoss. <br>Esta API solo debe llamarse con un servicio con estado como destino. No se recomienda llamar a esta API con un servicio de sistema como destino. 
-> [!NOTE]
+Desencadenará una llamada a la API OnDataLossAsync de la partición.  Esta API inducirá la pérdida de datos para la partición especificada. Desencadenará una llamada a la API OnDataLoss de la partición. La pérdida de datos real dependerá del elemento DataLossMode especificado.  <br> - PartialDataLoss: solo se quita un cuórum de réplicas y OnDataLoss se desencadena para la partición, pero la pérdida de datos real depende de la presencia de la replicación en curso.  <br> - FullDataLoss: todas las réplicas se quitan y, por tanto, se pierden todos los datos y se desencadena OnDataLoss. Esta API solo debe llamarse con un servicio con estado como destino. No se recomienda llamar a esta API con un servicio de sistema como destino.
+
+> [!NOTE] 
 > Una vez que se ha llamado a esta API, la acción no se puede revertir. Una llamada a CancelOperation solo detiene la ejecución y limpia el estado interno del sistema. No restaurará datos si el comando ha progresado lo suficiente para provocar la pérdida de datos. Llame a la API GetDataLossProgress con el mismo OperationId para devolver información sobre la operación iniciada con esta API.
 
 ### <a name="arguments"></a>Argumentos

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 016daa7ed57650a42b224df4e4173c7593893eb7
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 8165efaa10eb31410f00dfa9bfffb2c02d7396ae
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48250930"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872343"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---company-policy-and-compliance"></a>Gobierno de la infraestructura de Azure DevTest Labs: directiva de la empresa y cumplimiento
 En este artículo se proporciona orientación sobre la directiva de la empresa y el cumplimiento de la infraestructura de Azure DevTest Labs. 
@@ -42,10 +42,10 @@ El [repositorio de artefactos público](https://github.com/Azure/azure-devtestla
 ### <a name="answer"></a>Respuesta
 Como parte de la estrategia general de gobierno y administración de configuración de la organización, le recomendamos que utilice un repositorio centralizado. Cuando utiliza varios repositorios, pueden convertirse en silos de software no administrado con el tiempo. Con un repositorio central, múltiples equipos pueden consumir artefactos de este repositorio para sus proyectos. Impone la estandarización, la seguridad, la facilidad de administración y elimina la duplicación de esfuerzos. Como parte de la centralización, las siguientes acciones son procedimientos recomendados para la administración a largo plazo y la sostenibilidad:
 
-- Asocie los servicios de Visual Studio Team Services con el mismo inquilino de Azure Active Directory que la suscripción de Azure está utilizando para la autenticación y autorización.
+- Asocie los servicios de Azure Repos con el mismo inquilino de Azure Active Directory que la suscripción de Azure está utilizando para la autenticación y autorización.
 - Cree un grupo llamado **Todos los desarrolladores de DevTest Labs** en Azure Active Directory que se administre de forma centralizada. Cualquier desarrollador que contribuya al desarrollo de artefacto debe colocarse en este grupo.
-- El mismo grupo de Azure Active Directory puede usarse para proporcionar acceso al repositorio de Visual Studio Team Services y al laboratorio.
-- En Visual Studio Team Services, las ramificaciones o bifurcaciones deben utilizarse para separar un repositorio en desarrollo del repositorio de producción principal. El contenido solo se agrega a la rama maestra con una solicitud de incorporación de cambios después de una revisión apropiada del código. Una vez que el revisor de código aprueba el cambio, un desarrollador jefe, que es responsable del mantenimiento de la rama maestra, combina el código actualizado. 
+- El mismo grupo de Azure Active Directory puede usarse para proporcionar acceso al repositorio de Azure Repos y al laboratorio.
+- En Azure Repos, las ramificaciones o bifurcaciones deben utilizarse para separar un repositorio en desarrollo del repositorio de producción principal. El contenido solo se agrega a la rama maestra con una solicitud de incorporación de cambios después de una revisión apropiada del código. Una vez que el revisor de código aprueba el cambio, un desarrollador jefe, que es responsable del mantenimiento de la rama maestra, combina el código actualizado. 
 
 ## <a name="corporate-security-policies"></a>Directivas de seguridad corporativas
 

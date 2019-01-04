@@ -1,20 +1,19 @@
 ---
-title: Uso de la fuente de cambios de Azure Cosmos DB para visualizar análisis de datos en tiempo real | Microsoft Docs
+title: Uso de la fuente de cambios de Azure Cosmos DB para visualizar análisis de datos en tiempo real
 description: En este artículo se describe cómo una empresa minorista puede utilizar la fuente de cambios para reconocer patrones de usuario, realizar análisis de datos en tiempo real y obtener su visualización.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 03fb56125bcc4133dd87a1dc76d4d6811ebb8f40
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: e663a7b8f68c43ebf4c562dd67630db5d113e979
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685504"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090761"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Uso de la fuente de cambios de Azure Cosmos DB para visualizar análisis de datos en tiempo real
 
@@ -51,9 +50,9 @@ El siguiente diagrama representa el flujo de datos y los componentes implicados 
 
 5. **Centro de eventos:** el Centro de eventos de Azure almacena estos eventos y los envía a [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) para realizar análisis adicionales.  
 
-6. **Azure Stream Analytics:** define las consultas para procesar los eventos y realizar análisis de datos en tiempo real. Estos datos se envían luego a [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop).  
+6. **Azure Stream Analytics:** Azure Stream Analytics define las consultas para procesar los eventos y realizar análisis de datos en tiempo real. Estos datos se envían luego a [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop).  
 
-7. **Power BI:** se usa para visualizar los datos enviados por Azure Stream Analytics. Puede crear un panel para ver cómo cambian las métricas en tiempo real.  
+7. **Power BI:** Power BI se usa para visualizar los datos enviados por Azure Stream Analytics. Puede crear un panel para ver cómo cambian las métricas en tiempo real.  
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -95,13 +94,12 @@ Cree los recursos de Azure (cuenta de almacenamiento de Azure Cosmos DB, Centro 
 
 Ahora creará una colección que contenga los eventos de sitio de comercio electrónico. Cuando un usuario ve un artículo, agrega un artículo al carro o compra un artículo, la colección recibirá un registro que incluye la acción ("visto", "agregado" o "comprado"), el nombre del artículo implicado, el precio del artículo implicado y el número de identificación del carro de usuario implicado.
 
-1. Vaya a [Azure Portal](http://portal.azure.com/) y busque la **cuenta de Azure Cosmos DB** creada por la implementación de la plantilla.  
+1. Vaya a [Azure Portal](https://portal.azure.com/) y busque la **cuenta de Azure Cosmos DB** creada por la implementación de la plantilla.  
 
 2. En el panel **Explorador de datos**, seleccione **Nueva colección** y rellene el formulario con los datos siguientes:  
 
    * En el campo **Id. de base de datos**, seleccione **Crear nuevo** y escriba **changefeedlabdatabase**. Deje la casilla **Provision database throughput** (Aprovisionar rendimiento de la base de datos) sin activar.  
    * En el campo de identificador **Colección**, escriba **changefeedlabcollection**.  
-   * Como **Capacidad de almacenamiento**, seleccione **Sin límite**.  
    * En el campo **Clave de partición**, escriba **/Item**. Esta clave distingue mayúsculas de minúsculas, así que asegúrese de escribirlo correctamente.  
    * En el campo **Rendimiento**, escriba **10 000**.  
    * Seleccione el botón **Aceptar**.  
@@ -120,7 +118,7 @@ Ahora creará una colección que contenga los eventos de sitio de comercio elect
 
 ### <a name="get-the-azure-cosmos-db-connection-string"></a>Obtención de la cadena de conexión de Azure Cosmos DB
 
-1. Vaya a [Azure Portal](http://portal.azure.com/) y busque la **cuenta de Azure Cosmos DB** creada por la implementación de la plantilla.  
+1. Vaya a [Azure Portal](https://portal.azure.com/) y busque la **cuenta de Azure Cosmos DB** creada por la implementación de la plantilla.  
 
 2. Navegue al panel **Claves**, copie el valor PRIMARY CONNECTION STRING y péguelo en el Bloc de notas u otro documento al que tenga acceso en todo el laboratorio. Debe etiquetarla como **Cadena de conexión de Cosmos DB**. Más adelante tendrá que copiar la cadena en el código, así que anótela y recuerde dónde la almacena.
 
@@ -180,7 +178,7 @@ Para ver cómo la fuente de cambios procesa nuevas acciones en un sitio de comer
  
 6. Espere a que el programa se ejecute. Las estrellas indican que están llegando datos. Mantenga el programa en ejecución: es importante que se recopilen grandes cantidades de datos.  
 
-7. Si navega a [Azure Portal](http://portal.azure.com/), luego a la cuenta de Cosmos DB en su grupo de recursos y luego al **Explorador de datos**, verá los datos aleatorios importados en su  **changefeedlabcollection**.
+7. Si navega a [Azure Portal](https://portal.azure.com/), luego a la cuenta de Cosmos DB en su grupo de recursos y luego al **Explorador de datos**, verá los datos aleatorios importados en su  **changefeedlabcollection**.
  
    ![Datos generados en el portal](./media/changefeed-ecommerce-solution/data-generated-in-portal.png)
 
@@ -188,7 +186,7 @@ Para ver cómo la fuente de cambios procesa nuevas acciones en un sitio de comer
 
 Azure Stream Analytics es un servicio en la nube de procesamiento en tiempo real totalmente administrado. En este laboratorio, se utilizará Stream Analytics para procesar nuevos eventos del Centro de eventos (es decir, cada vez que un artículo se vea, se agregue a un carro o se compre), incorporar esos eventos al análisis de datos en tiempo real y enviarlos a Power BI para su visualización.
 
-1. Desde [Azure Portal](http://portal.azure.com/), navegue al grupo de recursos y luego a **streamjob1** (el trabajo de Stream Analytics que creó en el prelaboratorio).  
+1. Desde [Azure Portal](https://portal.azure.com/), navegue al grupo de recursos y luego a **streamjob1** (el trabajo de Stream Analytics que creó en el prelaboratorio).  
 
 2. Seleccione **Entradas** tal y como se muestra a continuación.  
 
@@ -323,11 +321,11 @@ Power BI es un conjunto de herramientas de análisis de negocios que sirve para 
 
 Ahora verá cómo puede usar la nueva herramienta de análisis de datos para conectarse con un sitio de comercio electrónico real. Para compilar el sitio de comercio electrónico, utilice una base de datos de Azure Cosmos DB para almacenar la lista de categorías de producto (Mujer, Hombre, Unisex), el catálogo de productos y una lista de los artículos más populares.
 
-1. Navegue de nuevo a [Azure Portal](http://portal.azure.com/), luego a su **cuenta de Cosmos DB** y luego al **Explorador de datos**.  
+1. Navegue de nuevo a [Azure Portal](https://portal.azure.com/), luego a su **cuenta de Cosmos DB** y luego al **Explorador de datos**.  
 
    Agregue dos colecciones en **changefeedlabdatabase** - **products** y **categories** con capacidad de almacenamiento fija.
 
-   Agregue otra colección en **changefeedlabdatabase** de nombre **topItems** con capacidad de almacenamiento **Sin límite**. Escriba **/Item** como clave de partición.
+   Agregue otra colección en **changefeedlabdatabase** denominada **topItems** y **/Item** como la clave de partición.
 
 2. Seleccione la colección **topItems** y, en **Escala y configuración**, establezca **Período de vida** como **30 segundos** para que la colección topItems se actualice cada 30 segundos.
 
@@ -393,7 +391,7 @@ Ahora verá cómo puede usar la nueva herramienta de análisis de datos para con
 
 ## <a name="delete-the-resources"></a>Eliminación de los recursos
 
-Para eliminar los recursos creados durante este laboratorio, navegue al grupo de recursos en [Azure Portal](http://portal.azure.com/), luego seleccione **Eliminar grupo de recursos** en el menú en la parte superior de la página y siga las instrucciones que se ofrecen.
+Para eliminar los recursos creados durante este laboratorio, navegue al grupo de recursos en [Azure Portal](https://portal.azure.com/), luego seleccione **Eliminar grupo de recursos** en el menú en la parte superior de la página y siga las instrucciones que se ofrecen.
 
 ## <a name="next-steps"></a>Pasos siguientes 
   

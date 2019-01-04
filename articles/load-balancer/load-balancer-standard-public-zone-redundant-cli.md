@@ -1,12 +1,11 @@
 ---
-title: Equilibrio de carga de máquinas virtuales con redundancia de zona mediante la CLI de Azure | Microsoft Docs
+title: Equilibrio de carga de máquinas virtuales con redundancia de zona mediante la CLI de Azure
+titlesuffix: Azure Load Balancer
 description: Aprenda a crear una instancia de Load Balancer Estándar público con front-end con redundancia de zona mediante la CLI de Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
@@ -15,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: dc8a0228c9b2a0c2ab54bc14dc911698593ba691
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 82bb0387d8f1603b4b436bfe70d75d19b88f28b1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948543"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250814"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Equilibrio de carga de máquinas virtuales en todas las zonas de disponibilidad con la CLI de Azure
 

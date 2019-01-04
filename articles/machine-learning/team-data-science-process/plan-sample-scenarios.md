@@ -1,5 +1,5 @@
 ---
-title: Identificación de escenarios de análisis avanzados para Azure Machine Learning | Microsoft Docs
+title: 'Identificación de escenarios de Azure Machine Learning: proceso de ciencia de datos en equipos'
 description: Seleccione los escenarios adecuados para el proceso de análisis predictivo avanzado con el proceso de ciencia de datos en equipos.
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 16d8457e5605ce0e3c10ed95296b5a883a4c602c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 88c3be12647bd73296c214390d3d2fb1fe79ccb4
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444841"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138898"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Escenarios para análisis avanzado en Azure Machine Learning
 En este artículo se describen los distintos escenarios de origen y destino de datos de ejemplo que se pueden administrar con el [proceso de ciencia de datos en equipos (TDSP)](overview.md). El TDSP proporciona un enfoque sistemático a los equipos que colaboran en la compilación de aplicaciones inteligentes. Los escenarios que se exponen aquí muestran las opciones disponibles en el flujo de trabajo de procesamiento de datos en función de las características de datos, las ubicaciones de origen y los repositorios de destino de Azure.
@@ -42,7 +42,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 ## <a name="smalllocal"></a>Escenario \#1: Conjunto de datos tabular de tamaño pequeño a medio de archivos locales
 ![Archivos locales de tamaño pequeño a medio][1]
 
-#### <a name="additional-azure-resources-none"></a>Recursos adicionales de Azure: ninguno
+#### <a name="additional-azure-resources-none"></a>Recursos adicionales de Azure: None
 1. Inicie sesión en [Azure Machine Learning Studio](https://studio.azureml.net/).
 1. Cargue un conjunto de datos.
 1. Cree un flujo de experimento de Azure Machine Learning comenzando con conjuntos de datos cargados.
@@ -50,7 +50,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 ## <a name="smalllocalprocess"></a>Escenario \#2: Conjunto de datos de tamaño pequeño a medio de archivos locales que requieren procesamiento
 ![Archivos locales de tamaño pequeño a medio con procesamiento][2]
 
-#### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>Recursos adicionales de Azure: Máquina virtual de Azure (servidor IPython Notebook)
+#### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>Recursos adicionales de Azure: Azure Virtual Machine (servidor IPython Notebook)
 1. Cree una máquina virtual de Azure que ejecute IPython Notebook.
 1. Cargue datos en un contenedor de almacenamiento de Azure.
 1. Preprocese y limpie datos en IPython Notebook obteniendo acceso desde el contenedor de almacenamiento de Azure.
@@ -63,7 +63,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 ## <a name="largelocal"></a>Escenario \#3: Conjunto de datos grande de archivos locales, con blobs de Azure como destino
 ![Archivos locales grandes][3]
 
-#### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>Recursos adicionales de Azure: Máquina virtual de Azure (servidor IPython Notebook)
+#### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>Recursos adicionales de Azure: Azure Virtual Machine (servidor IPython Notebook)
 1. Cree una máquina virtual de Azure que ejecute IPython Notebook.
 1. Cargue datos en un contenedor de almacenamiento de Azure.
 1. Preprocese y limpie datos en IPython Notebook obteniendo acceso desde blobs de Azure.
@@ -78,7 +78,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 ## <a name="smalllocaltodb"></a>Escenario \#4: Conjunto de datos de tamaño pequeño a medio de archivos locales, con SQL Server en una máquina virtual de Azure como destino
 ![Archivos locales de tamaño pequeño a medio a Base de datos SQL de Azure][4]
 
-#### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Recursos adicionales de Azure: Máquina virtual de Azure (AQL Server/servidor IPython Notebook)
+#### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Recursos adicionales de Azure: Azure Virtual Machine (servidor ISQL Server/IPython Notebook)
 1. Cree una máquina virtual de Azure que ejecute SQL Server + IPython Notebook.
 1. Cargue datos en un contenedor de almacenamiento de Azure.
 1. Preprocese y limpie datos en el contenedor de almacenamiento de Azure usando IPython Notebook.
@@ -86,7 +86,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 1. Guarde datos en archivos locales de máquina virtual (IPython Notebook se ejecuta en una máquina virtual; las unidades locales hacen referencia a unidades de máquina virtual).
 1. Cargue datos en la base de datos de SQL Server que se ejecuta en una máquina virtual de Azure.
    
-   Opción \#1: Mediante SQL Server Management Studio.
+   Opción \#1: Uso de SQL Server Management Studio.
    
    * Inicie sesión en la máquina virtual de SQL Server.
    * Ejecute SQL Server Management Studio.
@@ -108,7 +108,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 ## <a name="largelocaltodb"></a>Escenario \#5: Conjunto de datos grande de archivos locales, con SQL Server en una máquina virtual de Azure como destino
 ![Archivos locales grandes a Base de datos SQL de Azure][5]
 
-#### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Recursos adicionales de Azure: Máquina virtual de Azure (AQL Server/servidor IPython Notebook)
+#### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Recursos adicionales de Azure: Azure Virtual Machine (servidor ISQL Server/IPython Notebook)
 1. Cree una máquina virtual de Azure que ejecute SQL Server y el servidor IPython Notebook.
 1. Cargue datos en un contenedor de almacenamiento de Azure.
 1. (Opcional) Preprocese y limpie los datos.
@@ -149,7 +149,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 ## <a name="largedbtodb"></a>Escenario \#6: Conjunto de datos grande de archivos locales, con SQL Server en una máquina virtual de Azure como destino
 ![Base de datos SQL local a Base be datos SQL de Azure][6]
 
-#### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Recursos adicionales de Azure: Máquina virtual de Azure (AQL Server/servidor IPython Notebook)
+#### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Recursos adicionales de Azure: Azure Virtual Machine (servidor ISQL Server/IPython Notebook)
 1. Cree una máquina virtual de Azure que ejecute SQL Server y el servidor IPython Notebook.
 1. Use uno de los métodos de exportación de datos para exportar los datos desde SQL Server a archivos de volcado de memoria.
    
@@ -185,7 +185,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 ### <a name="alternate-method-to-copy-a-full-database-from-an-on-premises--sql-server-to-azure-sql-database"></a>Método alternativo para copiar una base de datos completa desde un servidor SQL Server local a Azure SQL Database
 ![Desasociación de base de datos local y asociación a Base de datos SQL de Azure][7]
 
-#### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Recursos adicionales de Azure: Máquina virtual de Azure (AQL Server/servidor IPython Notebook)
+#### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Recursos adicionales de Azure: Azure Virtual Machine (servidor ISQL Server/IPython Notebook)
 Para replicar toda la base de datos de SQL Server en la máquina virtual de SQL Server, debe copiar una base de datos desde una ubicación o  un servidor a otro, suponiendo que la base de datos se puede desconectar temporalmente. Esto se realiza en el Explorador de objetos de SQL Server Management Studio o mediante los comandos de Transact-SQL equivalentes.
 
 1. Desasocie la base de datos en la ubicación de origen. Para más información, consulte [Desasociar una base de datos](https://technet.microsoft.com/library/ms191491\(v=sql.110\).aspx).
@@ -194,10 +194,10 @@ Para replicar toda la base de datos de SQL Server en la máquina virtual de SQL 
 
 [Mover una base de datos mediante las opciones desasociación y asociación (Transact-SQL)](https://technet.microsoft.com/library/ms187858\(v=sql.110\).aspx)
 
-## <a name="largedbtohive"></a>Escenario \#7: Big Data de archivos locales, con base de datos de Hive como destino en clústeres de Hadoop de Azure HDInsight
+## <a name="largedbtohive"></a>Escenario \#7: Big Data de archivos locales, con base de datos de Hive como destino en clústeres de Azure HDInsight Hadoop
 ![Datos de gran tamaño en Hive de destino local][9]
 
-#### <a name="additional-azure-resources-azure-hdinsight-hadoop-cluster-and-azure-virtual-machine-ipython-notebook-server"></a>Recursos adicionales de Azure: Clúster de Hadoop de HDInsight de Azure y máquina virtual de Azure (servidor IPython Notebook)
+#### <a name="additional-azure-resources-azure-hdinsight-hadoop-cluster-and-azure-virtual-machine-ipython-notebook-server"></a>Recursos adicionales de Azure: Clúster de Azure HDInsight Hadoop y máquina virtual de Azure (servidor IPython Notebook)
 1. Cree una máquina virtual de Azure que ejecute el servidor IPython Notebook.
 1. Cree un clúster de Hadoop de HDInsight de Azure.
 1. (Opcional) Preprocese y limpie los datos.

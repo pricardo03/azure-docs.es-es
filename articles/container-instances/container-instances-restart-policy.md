@@ -1,18 +1,18 @@
 ---
-title: Ejecución de tareas en contenedores en Azure Container Instances con directivas de reinicio
+title: Uso directivas de reinicio con tareas en contenedores en Azure Container Instances
 description: Aprenda a usar Azure Container Instances para ejecutar tareas hasta su terminación, como compilaciones, pruebas o trabajos de representación de imágenes.
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 12/10/2018
 ms.author: danlep
-ms.openlocfilehash: c9e3fadd5164ca0d770f36ba95c30db933efcd39
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: b254adb050aa9826170c0849c3811380db6d9b38
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853902"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321040"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Ejecución de tareas en contenedores con directivas de reinicio
 
@@ -24,7 +24,7 @@ En los ejemplos presentados en este artículo se usa la CLI de Azure. Debe tener
 
 ## <a name="container-restart-policy"></a>Directiva de reinicio de contenedor
 
-Cuando se crea un contenedor en Azure Container Instances, se puede especificar una de tres configuraciones de directiva de reinicio.
+Cuando se crea un [grupo de contenedores](container-instances-container-groups.md) en Azure Container Instances, se puede especificar una de tres configuraciones de directiva de reinicio.
 
 | Directiva de reinicio   | DESCRIPCIÓN |
 | ---------------- | :---------- |
@@ -93,6 +93,24 @@ Salida:
 
 En este ejemplo se muestra la salida que el script envía a STDOUT. No obstante, puede que las tareas en contenedor escriban su salida en almacenamiento persistente para su posterior recuperación. Por ejemplo, en un [recurso compartido de archivos de Azure](container-instances-mounting-azure-files-volume.md).
 
+## <a name="manually-stop-and-start-a-container-group"></a>Detener e iniciar un grupo de contenedores manualmente
+
+Independientemente de la directiva de reinicio configurada para un [grupo de contenedores](container-instances-container-groups.md), puede que quiera detener o iniciar un grupo de contenedores de forma manual.
+
+* **Detener**: puede detener manualmente un grupo de contenedores en ejecución en cualquier momento: por ejemplo, mediante el comando [az container stop][az-container-stop]. En ciertas cargas de trabajo de contenedor puede que quiera detener un grupo de contenedores después de un período definido para ahorrar en costos. 
+
+  La detención de un grupo de contenedores finaliza y recicla los contenedores del grupo pero no conserva el estado de estos. 
+
+* **Iniciar**: cuando un grupo de contenedores está detenido, ya sea porque los contenedores finalizaron por sí mismos o porque usted detuvo manualmente el grupo, puede usar la [API de inicio de contenedores](/rest/api/container-instances/containergroups/start) o Azure Portal para iniciar manualmente los contenedores del grupo. Si se actualiza la imagen de contenedor de cualquier contenedor, se extrae una nueva imagen. 
+
+  Cuando se inicia un grupo de contenedores comienza una nueva implementación con la misma configuración de contenedor. Esta acción puede ayudarle a volver a utilizar rápidamente una configuración de grupo de contenedores conocida que funciona de la manera prevista. No tiene que crear un nuevo grupo de contenedores para ejecutar la misma carga de trabajo.
+
+* **Reiniciar**: puede reiniciar un grupo de contenedores mientras se está ejecutando. Puede hacerlo, por ejemplo, mediante el comando [az container restart][az-container-restart]. Esta acción permite reiniciar todos los contenedores del grupo. Si se actualiza la imagen de contenedor de cualquier contenedor, se extrae una nueva imagen. 
+
+  El reinicio de un grupo de contenedores es útil cuando desea solucionar un problema de implementación. Por ejemplo, si una limitación de recursos temporal impide que los contenedores se ejecuten correctamente, reiniciar el grupo puede solucionar el problema.
+
+Después de iniciar o reiniciar un grupo de contenedores manualmente, este se ejecuta según la configuración de la directiva de reinicio.
+
 ## <a name="configure-containers-at-runtime"></a>Configuración de los contenedores en tiempo de ejecución
 
 Cuando crea una instancia de contenedor, puede establecer sus **variables de entorno**, así como especificar que se ejecute una **línea de comandos** personalizada cuando se inicie el contenedor. Puede usar esta configuración en los trabajos por lotes para preparar cada contenedor con la configuración específica de la tarea.
@@ -103,9 +121,9 @@ Establezca variables de entorno en el contenedor para proporcionar configuració
 
 Por ejemplo, puede modificar el comportamiento del script en el contenedor de ejemplo mediante la especificación de las siguientes variables de entorno al crear la instancia de contenedor:
 
-*NumWords*: el número de palabras enviadas a STDOUT.
+*NumWords*: El número de palabras enviadas a STDOUT.
 
-*MinLength*: el número mínimo de caracteres en una palabra para que se tenga en cuenta. Un número mayor omite palabras comunes como "de" y "la".
+*MinLength*: El número mínimo de caracteres en una palabra para que se tenga en cuenta. Un número mayor omite palabras comunes como "de" y "la".
 
 ```azurecli-interactive
 az container create \
@@ -131,6 +149,8 @@ Salida:
  ('ROSENCRANTZ', 69),
  ('GUILDENSTERN', 54)]
 ```
+
+
 
 ## <a name="command-line-override"></a>Invalidación de la línea de comandos
 
@@ -174,5 +194,7 @@ Para más información acerca de cómo conservar la salida de los contenedores q
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az-container-logs
+[az-container-restart]: /cli/azure/container?view=azure-cli-latest#az-container-restart
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az-container-show
+[az-container-stop]: /cli/azure/container?view=azure-cli-latest#az-container-stop
 [azure-cli-install]: /cli/azure/install-azure-cli

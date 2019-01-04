@@ -1,5 +1,5 @@
 ---
-title: Configuración de la replicación de clúster de HBase en redes virtuales de Azure
+title: Configuración de la replicación de clúster de HBase en redes virtuales de Azure | Azure HDInsight
 description: Aprenda a configurar la replicación de HBase de una versión de HDInsight a otra para conseguir equilibrio de carga, alta disponibilidad, migración y actualizaciones sin tiempo de inactividad y recuperación ante desastres.
 services: hdinsight,virtual-network
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 44ed4075af290e3253b3d8f090c289ceba9750a6
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: b03cffe35337ee5720944dc4cfe88c17c3b5b748
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584186"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163843"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configuración de la replicación de clústeres de Apache HBase en redes virtuales de Azure
 
@@ -54,7 +54,7 @@ Este artículo trata sobre el escenario de replicación geográfica.
 
 Para ayudar a configurar los entornos, hemos creado algunas [plantillas de Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Si prefiere configurar los entornos mediante otros métodos, consulte:
 
-- [Creación de clústeres de Apache Hadoop en HDInsight.](../hdinsight-hadoop-provision-linux-clusters.md)
+- [Creación de clústeres de Apache Hadoop en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
 - [Creación de clústeres de Apache HBase en Azure Virtual Network](apache-hbase-provision-vnet.md)
 
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>Configuración de dos redes virtuales en dos regiones distintas
@@ -263,9 +263,9 @@ Cree un clúster de [Apache HBase](http://hbase.apache.org/) en cada una de las 
 - **Nombre del grupo de recursos**: use el mismo nombre del grupo de recursos que cuando creó las redes virtuales.
 - **Tipo de clúster**: HBase
 - **Versión**: HBase 1.1.2 (HDI 3.6)
-- **Ubicación**: seleccione la misma ubicación que la red virtual.  De forma predeterminada, para vnet1 es *Oeste de EE. UU.* y para vnet2 es *Este de EE. UU*.
+- **Ubicación**: use la misma ubicación que la de la red virtual.  De forma predeterminada, para vnet1 es *Oeste de EE. UU.* y para vnet2 es *Este de EE. UU*.
 - **Almacenamiento**: cree una nueva cuenta de almacenamiento para el clúster.
-- **Red virtual** (en Configuración avanzada en el portal): seleccione vnet1, la máquina virtual que creó en el último procedimiento.
+- **Red virtual** (en Configuración avanzada en el portal): seleccione la red vnet1 que creó en el último procedimiento.
 - **Subred**: el nombre predeterminado que se utiliza en la plantilla es **subnet1**.
 
 Para asegurarse de que el entorno está configurado correctamente, debe poder hacer ping en el FQDN del nodo principal entre los dos clústeres.
@@ -274,7 +274,7 @@ Para asegurarse de que el entorno está configurado correctamente, debe poder ha
 
 Al replicar un clúster, debe especificar las tablas que quere replicar. En esta sección, va a cargar algunos datos en el clúster de origen. En la siguiente sección, habilitará la replicación entre los dos clústeres.
 
-Para crear una tabla **Contacts** e insertar algunos datos en ella, siga las instrucciones que se indican en el [tutorial de HBase sobre la introducción al uso de Apache HBase en HDInsight](apache-hbase-tutorial-get-started-linux.md).
+Para crear una tabla **Contacts** e insertar algunos datos en ella, siga las instrucciones que se indican en el [Tutorial de HBase: Introducción a HBase Apache en HDInsight](apache-hbase-tutorial-get-started-linux.md).
 
 ## <a name="enable-replication"></a>Habilitar replicación
 
@@ -288,10 +288,10 @@ En los pasos siguientes se describe cómo llamar al script de acción de script 
 4. En la parte superior de la página, seleccione **Enviar nuevo**.
 5. Seleccione o escriba la siguiente información:
 
-  1. **Nombre** especifique **Enable replication** (Habilitar replicación).
-  2. **URL de script de Bash**: escriba **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
-  3.  **Principal**: asegúrese de que esta opción está seleccionada. Borre los demás tipos de nodo.
-  4. **Parámetros**: los siguientes parámetros de ejemplo permiten la replicación en todas las tablas existentes y copian todos los datos del clúster de origen al clúster de destino:
+  1. **Name** (Nombre): especifique **Enable replication** (Habilitar replicación).
+  2. **Bash Script URL** (Dirección URL de script de Bash): Escriba **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
+  3.  **Head** (Encabezado): asegúrese de que esta opción está seleccionada. Borre los demás tipos de nodo.
+  4. **Parameters** (Parámetros): los siguientes parámetros de ejemplo permiten la replicación en todas las tablas existentes y copian todos los datos del clúster de origen al clúster de destino:
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     

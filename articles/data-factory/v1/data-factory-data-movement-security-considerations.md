@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 222558a6596c676034e52812d3b2dd0c77e1466b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3c4bd08d2ba3aa4aeceb38a0ae498786f681d800
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046908"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960692"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory: consideraciones de seguridad para el movimiento de datos
 
@@ -66,7 +66,7 @@ El Cifrado de datos transparente (TDE) de Azure SQL Data Warehouse ayuda a prote
 #### <a name="azure-sql-database"></a>Azure SQL Database
 Azure SQL Database admite también el Cifrado de datos transparente (TDE), que ayuda a proteger frente a la amenaza de actividad malintencionada al realizar el cifrado y descifrado en tiempo real de los datos sin que haya que efectuar cambios en la aplicación. Este comportamiento es transparente para el cliente. Para más información, consulte [Transparent Data Encryption with Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database) (Cifrado de datos transparente con Azure SQL Database). 
 
-#### <a name="azure-data-lake-store"></a>Almacén de Azure Data Lake
+#### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 Azure Data Lake Store también ofrece el cifrado de los datos que se almacenan en la cuenta. Cuando se habilita, Data Lake Store cifrará automáticamente los datos antes de la persistencia y los descifrará antes de la recuperación, por lo que resulta un proceso completamente transparente para el cliente que accede a los datos. Para más información, consulte [Seguridad en Azure Data Lake Store](../../data-lake-store/data-lake-store-security-overview.md). 
 
 #### <a name="azure-blob-storage-and-azure-table-storage"></a>Azure Blob Storage y Azure Table Storage
@@ -166,7 +166,7 @@ En la tabla siguiente se proporcionan los requisitos del **puerto de entrada** p
 | ------------- | ----------- | 
 | 8050 (TCP) | Lo necesita la aplicación de administración de credenciales para establecer de forma segura las credenciales para los almacenes de datos locales en la puerta de enlace. | 
 
-![Requisitos de puerto de la puerta de enlace](media\data-factory-data-movement-security-considerations/gateway-port-requirements.png) 
+![Requisitos de puerto de la puerta de enlace](media/data-factory-data-movement-security-considerations/gateway-port-requirements.png)
 
 #### <a name="ip-configurations-whitelisting-in-data-store"></a>Configuraciones IP/lista de admitidos en el almacén de datos
 Algunos almacenes de datos en la nube también requieren listas de direcciones IP admitidas para que la máquina acceda a ellas. Asegúrese de que la dirección IP de la máquina con la puerta de enlace aparece en la lista o está configurada en el firewall correctamente.
@@ -184,11 +184,11 @@ Los siguientes almacenes de datos en la nube necesitan una lista de direcciones 
 **Pregunta:** ¿Se puede compartir la puerta de enlace entre factorías de datos diferentes?
 **Respuesta:** Aún no se admite esta característica. Estamos trabajando en ello.
 
-**Pregunta:** ¿Cuáles son los requisitos de puerto para que funciones la puerta de enlace?
+**Pregunta:** ¿Cuáles son los requisitos de puerto para que funcione la puerta de enlace?
 **Respuesta:** La puerta de enlace hace conexiones basadas en HTTP para abrir Internet. Los **puertos de salida 80 y 443** deben estar abiertos para que la puerta de enlace establezca la conexión. Abra el **puerto de entrada 8050** solo en la máquina (no en el nivel del firewall corporativo) para la aplicación de administración de credenciales. Si se utiliza Azure SQL Database o Azure SQL Data Warehouse como origen y destino, tendrá que abrir también el puerto **1433**. Para más información, consulte la sección [Configuraciones del firewall y lista de direcciones IP admitidas](#firewall-configurations-and-whitelisting-ip-address-of gateway). 
 
 **Pregunta:** ¿Cuáles son los certificados necesarios para la puerta de enlace?
-**Respuesta:** La puerta de enlace actual requiere un certificado que utiliza la aplicación de administración de credenciales para establecer las credenciales del almacén de datos de forma segura. Este certificado está autofirmado y se creó y configuró durante la instalación de la puerta de enlace. En su lugar, puede usar su propio certificado TLS / SSL. Para más información, consulte la sección sobre la [aplicación de administración de credenciales con un solo clic](#click-once-credentials-manager-app). 
+**Respuesta:** La puerta de enlace actual requiere un certificado que usa la aplicación de administración de credenciales para establecer las credenciales del almacén de datos de forma segura. Este certificado está autofirmado y se creó y configuró durante la instalación de la puerta de enlace. En su lugar, puede usar su propio certificado TLS / SSL. Para más información, consulte la sección sobre la [aplicación de administración de credenciales con un solo clic](#click-once-credentials-manager-app). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para información sobre el rendimiento de la actividad de copia, consulte la [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md).

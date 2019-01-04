@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 12/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 725bc41f96359d4bf0d9d570f73f91dba5da2cab
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d802af1d48405518f26f4b52ecc3023cbb15caff
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358241"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407361"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funciones de implementación para las plantillas de Azure Resource Manager 
 
@@ -86,6 +86,8 @@ Cuando el objeto se pasa como un vínculo, como cuando se usa el parámetro **-T
 }
 ```
 
+Al [implementar en una suscripción a Azure](deploy-to-subscription.md), en lugar de un grupo de recursos, el objeto devuelto incluye una propiedad `location`. La propiedad de ubicación se incluye al implementar una plantilla local o externa.
+
 ### <a name="remarks"></a>Comentarios
 
 Puede usar deployment() para establecer un vínculo con otra plantilla basada en el identificador URI de la plantilla primaria.
@@ -150,6 +152,8 @@ Para implementar esta plantilla de ejemplo con PowerShell, use:
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
 ```
 
+Para una plantilla de nivel de suscripción que usa la función de implementación, consulte [subscription deployment function](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json) (función de implementación de la suscripción). Se implementa con los comandos `az deployment create` o `New-AzureRmDeployment`.
+
 <a id="parameters" />
 
 ## <a name="parameters"></a>parameters
@@ -159,9 +163,9 @@ Devuelve un valor de parámetro. El nombre del parámetro especificado debe defi
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| parameterName |Sí |string |El nombre del parámetro que se va a devolver. |
+| parameterName |SÍ |string |El nombre del parámetro que se va a devolver. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -275,9 +279,9 @@ Devuelve el valor de variable. El nombre de la variable especificada debe defini
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN |
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| variableName |Sí |string |El nombre de la variable que se va a devolver. |
+| variableName |SÍ |string |El nombre de la variable que se va a devolver. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -372,5 +376,5 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 * Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, vea [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
 * Para combinar varias plantillas, vea [Uso de plantillas vinculadas con Azure Resource Manager](resource-group-linked-templates.md).
 * Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
-* Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla de Azure Resource Manager](resource-group-template-deploy.md).
+* Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con una plantilla de Azure Resource Manager](resource-group-template-deploy.md).
 

@@ -1,19 +1,19 @@
 ---
-title: Configuración de Global Reach de Azure ExpressRoute mediante la CLI de Azure | Microsoft Docs
+title: 'Configuración de ExpressRoute Global Reach: CLI de Azure | Microsoft Docs'
 description: Este artículo le ayudará a vincular los circuitos de ExpressRoute para realizar una red privada entre las redes locales y habilitar Global Reach.
-documentationcenter: na
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 12/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9d41ab26876d464187466f566bbfafc4861c799d
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.custom: seodec18
+ms.openlocfilehash: 9a8e0a5df9383d8e3d7159aa916b0e4fbfeea948
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333301"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384073"
 ---
 # <a name="configure-expressroute-global-reach-using-azure-cli-preview"></a>Configuración de Global Reach de ExpressRoute mediante la CLI de Azure (versión preliminar)
 Gracias a este artículo podrá configurar Global Reach de ExpressRoute con la CLI de Azure. Para más información, consulte [Global Reach de ExpressRoute](expressroute-global-reach.md).
@@ -55,24 +55,22 @@ Puede permitir Global Reach de ExpressRoute entre cualquiera de los dos circuito
 
 ## <a name="enable-connectivity-between-your-on-premises-networks"></a>Habilitación de la conectividad entre las redes locales
 
-Ejecute la siguiente CLI para conectar dos circuitos de ExpressRoute.
+Cuando ejecute el comando para habilitar la conectividad, tenga en cuenta los siguientes valores:
 
-> [!NOTE]
-> El valor de *peer-circuit* debe ser el id. de recurso completo; por ejemplo:
-> ```
-> */subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}*
-> ```
-> 
+* El valor de *peer-circuit* debe ser el id. de recurso completo. Por ejemplo:  
+
+  ```
+  /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
+  ```
+* *-AddressPrefix* debe ser una subred IPv4 /29, por ejemplo "10.0.0.0/29". Usaremos las direcciones IP de esta subred para establecer conectividad entre los dos circuitos ExpressRoute. No debe utilizar direcciones de esta subred en las redes virtuales de Azure ni en las redes locales.
+
+Ejecute la siguiente CLI para conectar dos circuitos de ExpressRoute. Use el siguiente comando de ejemplo:
 
 ```azurecli
 az network express-route peering connection create -g <ResourceGroupName> --circuit-name <Circuit1Name> --peering-name AzurePrivatePeering -n <ConnectionName> --peer-circuit <Circuit2ResourceID> --address-prefix <__.__.__.__/29>
 ```
 
-> [!IMPORTANT]
-> *-AddressPrefix* debe ser una subred IPv4 /29, por ejemplo "10.0.0.0/29". Usaremos las direcciones IP de esta subred para establecer conectividad entre los dos circuitos ExpressRoute. No debe utilizar direcciones de esta subred en las redes virtuales de Azure ni en las redes locales.
-> 
-
-El resultado de la CLI tendrá un aspecto similar al siguiente.
+La salida de la CLI tendrá un aspecto similar al siguiente:
 
 ```azurecli
 {

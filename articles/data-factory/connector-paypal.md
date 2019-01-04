@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 6d752eb5d638171aa510bbbf17a197eddd2b6f60
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 9abd567f629cf405a5e7414a23f43ea2fc613b72
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127217"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088090"
 ---
 # <a name="copy-data-from-paypal-using-azure-data-factory-preview"></a>Copiar datos de PayPal con Azure Data Factory (versión preliminar)
 
@@ -45,8 +45,8 @@ Las siguientes propiedades son compatibles con el servicio vinculado de PayPal:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **PayPal**. | SÍ |
-| host | Dirección URL de la instancia de PayPal (es decir, api.sandbox.paypal.com).  | SÍ |
+| Tipo | La propiedad type debe establecerse en: **PayPal** | SÍ |
+| host | Dirección URL de la instancia de PayPal. (es decir, api.sandbox.paypal.com).  | SÍ |
 | clientId | Id. de cliente asociado a la aplicación PayPal.  | SÍ |
 | clientSecret | Secreto de cliente asociado a la aplicación PayPal. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | SÍ |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin  |
@@ -76,7 +76,12 @@ Las siguientes propiedades son compatibles con el servicio vinculado de PayPal:
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). En esta sección se proporciona una lista de las propiedades que admite el conjunto de datos de PayPal.
 
-Para copiar datos desde PayPal, establezca la propiedad type del conjunto de datos en **PayPalObject**. No hay ninguna propiedad específica de tipo adicional en este tipo de conjunto de datos.
+Para copiar datos desde PayPal, establezca la propiedad type del conjunto de datos en **PayPalObject**. Se admiten las siguientes propiedades:
+
+| Propiedad | DESCRIPCIÓN | Obligatorio |
+|:--- |:--- |:--- |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **PayPalObject** | SÍ |
+| tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
 
@@ -88,7 +93,8 @@ Para copiar datos desde PayPal, establezca la propiedad type del conjunto de dat
         "linkedServiceName": {
             "referenceName": "<PayPal linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -97,14 +103,14 @@ Para copiar datos desde PayPal, establezca la propiedad type del conjunto de dat
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo sobre [canalizaciones](concepts-pipelines-activities.md). En esta sección se proporciona una lista de las propiedades que admite el origen de PayPal.
 
-### <a name="paypalsource-as-source"></a>PayPalSource como origen
+### <a name="paypal-as-source"></a>PayPal como origen
 
 Para copiar datos desde PayPal, establezca el tipo de origen de la actividad de copia en **PayPalSource**. Se admiten las siguientes propiedades en la sección **source** de la actividad de copia:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **PayPalSource**. | SÍ |
-| query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM Payment_Experience"`. | SÍ |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **PayPalSource** | SÍ |
+| query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM Payment_Experience"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**
 

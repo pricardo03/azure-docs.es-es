@@ -4,19 +4,21 @@ description: En este artículo se proporciona una introducción a los cálculos 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 04ae28ca566e97570ec64e78d3408ea8bd1e3d42
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 88dcc7110acaf42243d0ebb3c1ae25aa6d0bca46
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010327"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257984"
 ---
 # <a name="dependency-visualization"></a>Visualización de dependencia
 
 El servicio [Azure Migrate](migrate-overview.md) evalúa los grupos en las máquinas locales para su migración a Azure. Puede usar la característica de visualización de dependencias en Azure Migrate para crear grupos. En este artículo se proporciona información sobre esta característica.
 
+> [!NOTE]
+> La funcionalidad de visualización de dependencias no está disponible en Azure Government.
 
 ## <a name="overview"></a>Información general
 
@@ -31,7 +33,13 @@ Azure Migrate utiliza la solución [Service Map](../operations-management-suite/
 
     ![Asociar un área de trabajo de Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
 
-- Cuando se crea una nueva área de trabajo, hay que especificar un nombre para el área de trabajo. Después, se crea el área de trabajo en una región en la misma [ubicación geográfica de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que el proyecto de migración.
+- Al asociar un área de trabajo, obtendrá la opción de crear una o de conectar una existente:
+      - Cuando se crea una nueva área de trabajo, hay que especificar un nombre para el área de trabajo. Después, se crea el área de trabajo en una región en la misma [ubicación geográfica de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que el proyecto de migración.
+      - Al asociar un área de trabajo existente, puede elegir entre las disponibles en la misma suscripción del proyecto de migración. Tenga en cuenta que solo se enumeran las áreas de trabajo que se crearon en una región donde [se admita Service Map](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). Para poder asociar un área de trabajo, asegúrese de que tiene acceso de lectura a ella.
+
+  > [!NOTE]
+  > Una vez asociada el área de trabajo a un proyecto, no podrá cambiarla más adelante.
+
 - El área de trabajo asociada se etiqueta con la clave **Proyecto de migración** y el valor **Nombre del proyecto**, que se puede usar para buscar en Azure Portal.
 - Para navegar al área de trabajo asociada al proyecto, puede ir a la sección **Essentials** de la página **Introducción** del proyecto y acceder al área de trabajo.
 
@@ -63,7 +71,7 @@ Al eliminar el proyecto de Azure Migrate, el área de trabajo no se elimina con 
 
 ## <a name="how-do-i-manage-the-workspace"></a>¿Cómo administro el área de trabajo?
 
-Puede usar el área de trabajo de Log Analytics fuera de Azure Migrate. No se elimina si se elimina el proyecto de migración en el que se creó. Si ya no necesita el área de trabajo, [elimínelo](../log-analytics/log-analytics-manage-access.md) manualmente.
+Puede usar el área de trabajo de Log Analytics fuera de Azure Migrate. No se elimina si se elimina el proyecto de migración en el que se creó. Si ya no necesita el área de trabajo, [elimínelo](../azure-monitor/platform/manage-access.md) manualmente.
 
 No elimine el área de trabajo creado por Azure Migrate, a menos que elimine el proyecto de migración. Si lo hace, la característica de visualización de dependencias no funcionará según lo previsto.
 

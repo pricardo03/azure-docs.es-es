@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: spelluru
-ms.openlocfilehash: 047c4c37090db77f7a7a692604dd63c5effff9fa
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: c4899db41f9c60bf6efb40c4d53aaa35f22ad275
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409768"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312891"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Colas, temas y suscripciones de Service Bus
 
@@ -32,9 +32,9 @@ El uso de colas para intermediar entre los consumidores y productores de mensaje
 
 ### <a name="create-queues"></a>Creación de colas
 
-Puede crear colas mediante [Azure Portal](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), la [CLI](service-bus-quickstart-cli.md) o [plantillas de Resource Manager](service-bus-resource-manager-namespace-queue.md). Luego envía y recibe mensajes mediante un objeto [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient). 
+Puede crear colas mediante [Azure Portal](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), la [CLI](service-bus-quickstart-cli.md) o [plantillas de Resource Manager](service-bus-resource-manager-namespace-queue.md). Luego envía y recibe mensajes mediante un objeto [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient).
 
-Para información rápida sobre cómo crear una cola y luego enviar y recibir mensajes desde y hacia la cola, consulte los [inicios rápidos](service-bus-quickstart-portal.md) de cada método. Para un tutorial más detallado sobre cómo usar las colas, consulte [Introducción a las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md). 
+Para información rápida sobre cómo crear una cola y luego enviar y recibir mensajes desde y hacia la cola, consulte los [inicios rápidos](service-bus-quickstart-portal.md) de cada método. Para un tutorial más detallado sobre cómo usar las colas, consulte [Introducción a las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md).
 
 Para un ejemplo funcional, consulte el [ejemplo BasicSendReceiveUsingQueueClient](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) en GitHub.
 
@@ -56,9 +56,9 @@ Por medio de la comparación, la funcionalidad de envío de mensajes de una cola
 
 ### <a name="create-topics-and-subscriptions"></a>Creación de temas y suscripciones
 
-La creación de un tema es similar a la creación de una cola, como se describe en la sección anterior. Después puede enviar mensajes mediante la clase [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient). Para recibir mensajes, cree una o varias suscripciones al tema. Al igual que las colas, los mensajes se reciben de una suscripción mediante un objeto [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient), en lugar de un objeto [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient). Cree el cliente de la suscripción y pase el nombre del tema, el nombre de la suscripción y (opcionalmente) el modo de recepción como parámetros. 
+La creación de un tema es similar a la creación de una cola, como se describe en la sección anterior. Después puede enviar mensajes mediante la clase [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient). Para recibir mensajes, cree una o varias suscripciones al tema. Al igual que las colas, los mensajes se reciben de una suscripción mediante un objeto [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient), en lugar de un objeto [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient). Cree el cliente de la suscripción y pase el nombre del tema, el nombre de la suscripción y (opcionalmente) el modo de recepción como parámetros.
 
-Si desea ver un ejemplo funcional completo, consulte el [ejemplo BasicSendReceiveUsingTopicSubscriptionClient](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingTopicSubscriptionClient) en Github.
+Si desea ver un ejemplo funcional completo, consulte el [ejemplo BasicSendReceiveUsingTopicSubscriptionClient](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingTopicSubscriptionClient) en GitHub.
 
 ### <a name="rules-and-actions"></a>Reglas y acciones
 
@@ -66,14 +66,14 @@ En muchos escenarios, los mensajes que tienen características específicas debe
 
 Si desea ver un ejemplo funcional completo, consulte el [ejemplo TopicSubscriptionWithRuleOperationsSample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/TopicSubscriptionWithRuleOperationsSample) en GitHub.
 
-Para más información sobre los valores de filtro posibles, vea la documentación de las clases [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) y [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction). 
+Para más información sobre los valores de filtro posibles, vea la documentación de las clases [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) y [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información y ejemplos de cómo usar la mensajería de Service Bus, consulte estos temas avanzados:
 
 * [Introducción a la mensajería de Service Bus](service-bus-messaging-overview.md)
-* [Guía de inicio rápido: Envío y recepción de mensajes mediante Azure Portal y .NET](service-bus-quickstart-portal.md)
+* [Inicio rápido: Envío y recepción de mensajes mediante Azure Portal y .NET](service-bus-quickstart-portal.md)
 * [Tutorial: Actualización del inventario mediante Azure Portal y temas y suscripciones](service-bus-tutorial-topics-subscriptions-portal.md)
 
 

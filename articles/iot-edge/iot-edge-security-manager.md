@@ -1,5 +1,5 @@
 ---
-title: Administrador de seguridad de Azure IoT Edge | Microsoft Docs
+title: Información acerca de cómo el Administrador de seguridad protege los dispositivos y el software en Azure IoT Edge | Microsoft Docs
 description: Administra la posición de seguridad del dispositivo IoT Edge y la integridad de los servicios de seguridad.
 services: iot-edge
 keywords: seguridad, elemento seguro, enclave, TEE, IoT Edge
@@ -9,12 +9,13 @@ ms.author: eustacea
 ms.date: 07/30/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 6231f50134f7dcfd29e8754841847beb69570204
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: eda572c0f4abedd59c912dcf1de2cf3c6e226b5c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567696"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091931"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Administrador de seguridad de IoT Edge
 
@@ -33,7 +34,7 @@ Las responsabilidades del administrador de seguridad de IoT Edge incluyen (entre
 * Equipo selector de la raíz de confianza de hardware de dispositivo a través de servicios notariales.
 * Supervisión de la integridad de las operaciones de IoT Edge en el entorno de ejecución.
 
-El administrador de seguridad de IoT Edge consta de tres componentes principales:
+El administrador de seguridad de IoT Edge consta de tres componentes:
 
 * Demonio de seguridad de IoT Edge.
 * Capa de abstracción de plataforma del módulo de seguridad de hardware (HSM PAL).

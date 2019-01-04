@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 84c2faaf137e19d78e7e17527feb50baebf8041b
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: dbe234b3c6aaeed90f0b95e5118c1ff2f9e2bb24
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494581"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276883"
 ---
 # <a name="sfctl-service"></a>servicio de sfctl
 Cree, elimine y administre servicios, tipos de servicio y paquetes de servicio.
@@ -34,7 +34,7 @@ Cree, elimine y administre servicios, tipos de servicio y paquetes de servicio.
 | delete | Elimina un servicio existente de Service Fabric. |
 | deployed-type | Obtiene la información sobre un tipo de servicio especificado de la aplicación implementada en un nodo en un clúster de Service Fabric. |
 | deployed-type-list | Obtiene la lista que contiene información sobre los tipos de servicio desde las aplicaciones implementadas en un nodo en el clúster de Service Fabric. |
-| Descripción | Obtiene la descripción de un servicio de Service Fabric existente. |
+| description | Obtiene la descripción de un servicio de Service Fabric existente. |
 | get-container-logs | Obtiene los registros de contenedor para el contenedor implementado en un nodo de Service Fabric. |
 | health | Obtiene el estado del servicio de Service Fabric especificado. |
 | info | Obtiene la información sobre el servicio específico que pertenece a la aplicación de Service Fabric. |
@@ -520,7 +520,7 @@ Resuelve una partición de servicio de Service Fabric para obtener los puntos de
 | --- | --- |
 | --service-id [Obligatorio] | La identidad del servicio. Este suele ser el nombre completo del servicio sin el esquema de URI "fabric\:". A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre del servicio es "fabric\:/myapp/app1/svc1", la identidad del servicio sería "myapp\~app1\~svc1" en 6.0+ y "myapp/svc1/svc1" en las versiones anteriores. |
 | --partition-key-type | Tipo de clave para la partición. Este parámetro es obligatorio si el esquema de partición para el servicio es Int64Range o Named. Los valores posibles son los siguientes. -None (1): indica que no se especifica el parámetro PartitionKeyValue. Esto es válido para las particiones con el esquema de partición como Singleton. Este es el valor predeterminado. El valor es 1. -Int64Range (2): indica que el parámetro PartitionKeyValue es una clave de partición int64. Esto es válido para las particiones con el esquema de partición como Int64Range. El valor es 2. - Named (3): indica que el parámetro PartitionKeyValue es un nombre de la partición. Esto es válido para las particiones con el esquema de partición como Named. El valor es 3. |
-| --partition-key-value | Clave de partición. Es obligatorio si el esquema de partición para el servicio es Int64Range o Named. |
+| --partition-key-value | Clave de partición. Es obligatorio si el esquema de partición para el servicio es Int64Range o Named. Esto no es el identificador de partición, sino el valor de clave entero o el nombre del identificador de partición. Por ejemplo, si el servicio usa particiones por rangos de 0 a 10, PartitionKeyValue sería un entero en ese rango. Consulte la descripción del servicio para ver el rango o el nombre. |
 | --previous-rsp-version | El valor en el campo Versión de la respuesta que se recibió anteriormente. Es obligatorio si el usuario sabe que el resultado que se obtuvo anteriormente está obsoleto. |
 | --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
 

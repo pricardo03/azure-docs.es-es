@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/10/2018
+ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: 4d30cca0106e52706326bfd91a2d0dfb0a64ca04
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 74132c436670247f3eb84859216274d3e1363d07
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258466"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338709"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparación de un VHD o un VHDX de Windows antes de cargarlo en Azure
 Antes de cargar una máquina virtual Windows desde un entorno local en Microsoft Azure, debe preparar el disco duro virtual (VHD o VHDX). Azure admite **solo máquinas virtuales de generación 1** que estén en el formato de archivo VHD y tengan un disco de tamaño fijo. El tamaño máximo permitido para los discos duros virtuales es de 1023 GB. Puede convertir una máquina virtual de generación 1 del sistema de archivos VHDX a VHD y de un disco de expansión dinámica a uno de tamaño fijo. Sin embargo, no puede cambiar la generación de una máquina virtual. Para obtener más información, consulte [¿Debería crear una máquina virtual de generación 1 o 2 en Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
@@ -73,6 +73,16 @@ En la máquina virtual que tiene previsto cargar en Azure, ejecute todos los com
     ```PowerShell
     netsh winhttp reset proxy
     ```
+
+    Si la máquina virtual necesita trabajar con algún proxy concreto, debe agregar una excepción de proxy a la dirección IP de Azure ([168.63.129.16](https://blogs.msdn.microsoft.com/mast/2015/05/18/what-is-the-ip-address-168-63-129-16/
+)), con el fin de que la máquina virtual tenga conectividad con Azure:
+    ```
+    $proxyAddress="<your proxy server>"
+    $proxyBypassList="<your list of bypasses>;168.63.129.16"
+
+    netsh winhttp set proxy $proxyAddress $proxyBypassList
+    ```
+
 3. Configure la directiva SAN del disco como [Onlineall](https://technet.microsoft.com/library/gg252636.aspx):
    
     ```PowerShell
@@ -283,7 +293,7 @@ Asegúrese de que la siguiente configuración está establecida correctamente pa
     ```PowerShell
     winmgmt /verifyrepository
     ```
-    Si el repositorio está dañado, consulte [WMI: Repository Corruption, or Not?](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not) (WMI: ¿daños en el repositorio o no?).
+    Si el repositorio está dañado, consulte [WMI: Repository Corruption, or Not](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not) (WMI: daños en el repositorio, o no).
 
 5. Asegúrese de que ninguna otra aplicación está utilizando el puerto 3389. Este puerto se usa para el servicio RDP en Azure. Puede ejecutar **netstat -anob** para ver qué puertos se utilizan en la máquina virtual:
 
@@ -377,7 +387,7 @@ Para obtener más información sobre cómo crear una máquina virtual desde un d
 - [Creación de una máquina virtual a partir de un disco especializado](create-vm-specialized.md)
 - [Create a VM from a specialized VHD disk](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master) (Creación de una máquina virtual a partir de un disco duro virtual especializado)
 
-Si desea crear una imagen generalizada, debe ejecutar sysprep. Para obtener más información sobre Sysprep, consulte [Uso de Sysprep: Introducción](https://technet.microsoft.com/library/bb457073.aspx). 
+Si desea crear una imagen generalizada, debe ejecutar sysprep. Para más información acerca de Sysprep, consulte [Uso de Sysprep: Introducción](https://technet.microsoft.com/library/bb457073.aspx). 
 
 No todos los roles o aplicaciones instalados en un equipo basado en Windows admiten esta generalización. Así pues, antes de ejecutar este procedimiento, consulte el siguiente artículo para asegurarse de que sysprep admite el rol de ese equipo. Para obtener más información, consulte [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) (Compatibilidad de Sysprep con los roles de servidor).
 
@@ -409,7 +419,7 @@ Los siguientes valores de configuración no afectan a la carga de discos duros v
 *  Después de crearse la máquina virtual en Azure, recomendamos que ponga el archivo de paginación en el volumen "Unidad temporal" para mejorar el rendimiento. Puede configurar esto como se muestra a continuación:
 
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile" -Type MultiString -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
     ```
 Si hay algún disco de datos conectado a la máquina virtual, la letra de unidad del volumen Unidad temporal suele ser "D". Esta designación podría ser diferente, dependiendo del número de unidades disponibles y de la configuración creada.
 

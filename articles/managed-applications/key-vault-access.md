@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 07/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: f091ba44a3170dcc4141829f2f4105d6e7993cdf
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: dcfbb7f3b1d110d4c1fdf22863d795c85152ec35
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035296"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725019"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Acceso al secreto de Key Vault al implementar Azure Managed Applications
 
@@ -43,7 +43,7 @@ Cuando tiene que pasar un valor seguro (por ejemplo, una contraseña) como un pa
 
    ![Selección del control de acceso](./media/key-vault-access/access-control.png)
 
-1. Seleccione **Agregar**.
+1. Seleccione **Agregar asignación de roles**.
 
    ![Seleccione Agregar](./media/key-vault-access/add-access-control.png)
 

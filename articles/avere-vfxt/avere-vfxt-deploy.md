@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: d7c207f89b9cb50f940f071fbbf6ee81b4d44976
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 8e265f2bed480f7b40476e09ab8f442aedcc9dd4
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164330"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999451"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Implementación del clúster de vFXT
 
@@ -306,6 +306,15 @@ Cuando finalice el script, copie la dirección IP de administración, que es nec
 
 ![Resultado de la línea de comandos del script que muestra la dirección IP de administración cerca del final](media/avere-vfxt-mgmt-ip.png)
 
+> [!IMPORTANT] 
+> Si ha creado un nuevo contenedor de blobs, es posible que se cifre con una clave predeterminada que no se guarda fuera del clúster. Antes de almacenar datos en el contenedor, debe descargar el archivo de recuperación de claves o crear su propia clave de cifrado y guardar su archivo de recuperación en una ubicación persistente. 
+> 
+> Si usa la clave predeterminada sin descargar el archivo de recuperación, es posible perder el acceso a los datos cifrados en el archivador de núcleo de blobs si el clúster vFXT se destruye o se pierde.
+>
+> Si el script muestra mensajes `WARNING` como los que aparecen marcados en la captura de pantalla siguiente, siga las instrucciones de [Configurar el almacenamiento](avere-vfxt-add-storage.md) para descargar el archivo de clave o cree una nueva clave para su contenedor de blobs. Utilice la herramienta de configuración de clúster, Avere Control Panel.
+
+![Resultado de la línea de comandos del script que muestra mensajes de advertencia sobre cómo crear una nueva clave de cifrado](media/avere-vfxt-key-warning.png)
+
 ## <a name="next-step"></a>Paso siguiente
 
-Ahora que el clúster se está ejecutando y conoce la dirección IP de administración, puede [conectarse a la herramienta de configuración de clústeres](avere-vfxt-cluster-gui.md) para habilitar el soporte técnico y agregar almacenamiento si es necesario.
+Ahora que el clúster se está ejecutando y conoce la dirección IP de administración, puede [conectarse a la herramienta de configuración de clústeres](avere-vfxt-cluster-gui.md) para habilitar el soporte técnico, agregar almacenamiento si es necesario, o abordar la clave de cifrado predeterminada en su nuevo almacenamiento de blobs.

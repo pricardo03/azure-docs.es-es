@@ -10,39 +10,39 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/22/2017
+ms.date: 02/22/2017
 ms.author: cwatson
-ms.openlocfilehash: be74714667c2fed57a797a972ddcd7949cae5933
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 434f717d9590eff39df161a74931477bdf71bb67
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274677"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309573"
 ---
-# <a name="troubleshoot-enterprise-cost-views"></a>Solución de problemas de vistas de costos empresariales 
+# <a name="troubleshoot-enterprise-cost-views"></a>Solución de problemas de vistas de costos empresariales
 
-Dentro de las inscripciones empresariales, hay varias configuraciones que podrían provocar que los usuarios de la inscripción no pudieran ver los costos.  Estas configuraciones las administra el administrador de inscripciones o el asociado si la inscripción no se ha adquirido directamente con Microsoft.  Este artículo le ayuda a comprender cuáles son las configuraciones y de qué manera pueden afectar a la inscripción. Estas opciones son independientes de los [roles de RBAC de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal). 
-
+Dentro de las inscripciones empresariales, hay varias configuraciones que podrían provocar que los usuarios de la inscripción no pudieran ver los costos.  El administrador de inscripciones administra estas configuraciones. O bien, si la inscripción no se compró directamente a través de Microsoft, es el asociado quien administra las configuraciones.  Este artículo le ayuda a comprender cuáles son las configuraciones y de qué manera pueden afectar a la inscripción. Estas configuraciones son independientes de los roles de control de acceso basado en rol (RBAC) de Azure.
 
 ## <a name="enabling-access-to-costs"></a>Habilitación del acceso a los costos
 
-¿Aparece un mensaje de acceso no autorizado o que dice que *las vistas de costos están deshabilitadas en su inscripción?* cuando busca información de costos? ![no autorizado](media/billing-enterprise-mgmt-groups/unauthorized.png)
+¿Aparece un mensaje de acceso no autorizado o que dice que *las vistas de costos están deshabilitadas en su inscripción?* cuando busca información de costos?
+![Captura de pantalla que muestra "no autorizado" en el campo de costo actual de la suscripción.](media/billing-enterprise-mgmt-groups/unauthorized.png)
 
-Esto podría deberse a uno de los siguientes motivos:
+El motivo podría ser uno de los siguientes:
 
-1. Adquirió Azure a través de un asociado empresarial y dicho asociado todavía no ha publicado la información de los precios. Para liberar los precios, póngase en contacto con su asociado para actualizar la configuración dentro de [Enterprise portal](https://ea.azure.com).
-2. O bien, si es un cliente de directo de EA, hay un par de posibilidades:
-    * Es el propietario de la cuenta y su administrador de inscripción ha deshabilitado la opción para que el propietario de la cuenta vea los cargos.  
-    * Es el administrador del departamento y su administrador de inscripción ha deshabilitado la opción para que el administrador del departamento vea los cargos.
-    * Póngase en contacto con el administrador de inscripciones para acceder. El administrador de inscripciones puede visitar [Enterprise Portal](https://ea.azure.com/manage/enrollment) y actualizar la configuración tal y como se muestra aquí:
+1. Adquirió Azure a través de un asociado empresarial y el asociado no ha publicado aún los precios. Póngase en contacto con su asociado para que actualicen los precios en [Enterprise Portal](https://ea.azure.com).
+2. Si usted es cliente directo de EA, hay un par de posibilidades:
+    * Es el propietario de la cuenta y su administrador de inscripciones ha deshabilitado la opción para que el **propietario de la cuenta vea los cargos**.  
+    * Es el administrador del departamento y su administrador de inscripciones ha deshabilitado la opción para que el **administrador del departamento vea los cargos**.
+    * Póngase en contacto con el administrador de inscripciones para acceder. El administrador de inscripciones puede actualizar la configuración en [Enterprise Portal](https://ea.azure.com/manage/enrollment).
 
-![Configuración de Enterprise Portal](media/billing-enterprise-mgmt-groups/ea-portal-settings.png)
+      ![Captura de pantalla que muestra la configuración de Enterprise Portal para ver los cargos.](media/billing-enterprise-mgmt-groups/ea-portal-settings.png)
 
+## <a name="asset-is-unavailable"></a>Recurso no disponible
 
-## <a name="asset-is-unavailable"></a>¿No está disponible el recurso? 
-Si recibe el mensaje de error "Este recurso no está disponible" al intentar acceder a una suscripción o un grupo de administración, significa que no tiene el rol correcto para ver este elemento.  
+Si recibe el mensaje de error de que este recurso no está disponible al intentar acceder a una suscripción o un grupo de administración, significa que no tiene el rol correcto para ver este elemento.  
 
-![recurso no encontrado](media/billing-enterprise-mgmt-groups/asset-not-found.png)
+![Captura de pantalla que muestra el mensaje "recurso no disponible".](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
-Póngase en contacto con el administrador de la suscripción o de los grupos de administración para conseguir acceso.  
-* Para las suscripciones, consulte el documento [Uso del control de acceso basado en rol para administrar el acceso a los recursos de la suscripción de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) para obtener ayuda sobre qué rol se necesita.
+Pida acceso al administrador de suscripciones o al administrador del grupo de administración. Para saber más, vea [Administración del acceso mediante RBAC y Azure Portal](../role-based-access-control/role-assignments-portal.md).

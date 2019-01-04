@@ -1,20 +1,20 @@
 ---
-title: Entender cómo Azure Policy realiza auditorías dentro de una máquina virtual
+title: Información sobre cómo realizar auditorías en una máquina virtual
 description: Obtenga información sobre cómo Azure Policy usa Guest Configuration para auditar la configuración dentro de una máquina virtual de Azure.
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/24/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: ca96aea8f359f1df7da48f84a3317a2d8c7b52e4
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.custom: seodec18
+ms.openlocfilehash: 1ea87dc01048a2747a668db7a5b1f22b37ed9213
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47167818"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310069"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Información sobre Guest Configuration de Azure Policy
 
@@ -29,7 +29,7 @@ Para auditar la configuración dentro de una máquina virtual, se habilita una [
 
 ### <a name="register-guest-configuration-resource-provider"></a>Registrar proveedor de recursos de Guest Configuration
 
-Para poder usar Guest Configuration debe registrar el proveedor de recursos. Puede hacerlo a través de Azure Portal o a través de PowerShell.
+Para poder usar Guest Configuration debe registrar el proveedor de recursos. Puede registrarse mediante el portal o a través de PowerShell.
 
 #### <a name="registration---portal"></a>Registro: Portal
 
@@ -54,13 +54,13 @@ Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguratio
 
 ### <a name="validation-tools"></a>Herramientas de validación
 
-Dentro de la máquina virtual, el cliente de Guest Configuration usa herramientas locales para realizar la auditoría.
+Dentro de la máquina virtual, el cliente de Guest Configuration usa herramientas locales para ejecutar la auditoría.
 
 En la tabla siguiente se muestra una lista herramienta locales usada en cada sistemas operativos compatibles:
 
 |Sistema operativo|Herramienta de validación|Notas|
 |-|-|-|
-|Windows|[Microsoft Desired State Configuration](/powershell/dsc) v2| |
+| Windows|[Microsoft Desired State Configuration](/powershell/dsc) v2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| La extensión Guest Configuration instala Ruby y Python. |
 
 ### <a name="supported-client-types"></a>Tipos de cliente admitidos
@@ -90,23 +90,23 @@ En la tabla siguiente se enumeran los sistemas operativos no admitidos:
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisitos de definición de Guest Configuration
 
-Cada auditoría realizada por Guest Configuration requiere dos definiciones de directiva, **DeployIfNotExists** y **AuditIfNotExists**. **DeployIfNotExists** se utiliza para preparar la máquina virtual con el agente de Guest Configuration y otros componentes para admitir las [herramientas de validación](#validation-tools).
+Cada auditoría ejecutada por Guest Configuration requiere dos definiciones de directiva, **DeployIfNotExists** y **AuditIfNotExists**. **DeployIfNotExists** se utiliza para preparar la máquina virtual con el agente de Guest Configuration y otros componentes para admitir las [herramientas de validación](#validation-tools).
 
-La definición de directiva **DeployIfNotExists** valida y corrige los siguientes aspectos:
+La definición de directiva **DeployIfNotExists** valida y corrige los siguientes elementos:
 
-- Se asegura de que se ha asignado una configuración a la máquina virtual para evaluar. Si actualmente no hay ninguna asignación, obtiene la asignación y prepara la máquina virtual:
+- Comprueba que se ha asignado una configuración a la máquina virtual para evaluar. Si actualmente no hay ninguna asignación, obtiene la asignación y prepara la máquina virtual:
   - Autenticando la máquina virtual con una [identidad administrada](../../../active-directory/managed-identities-azure-resources/overview.md)
   - Instalando la versión más reciente de la extensión **Microsoft.GuestConfiguration**
   - Instalando las [herramientas de validación](#validation-tools) y dependencias, si es necesario
 
-Una vez que **DeployIfNotExists** es compatible, la definición de directiva **AuditIfNotExists** usa las herramientas de validación local para determinar si la asignación de configuración asignada es compatible o no compatible. La herramienta de validación proporciona los resultados al cliente de Guest Configuration, que los reenvía a Guest Extension para que esté disponible a través del proveedor de recursos de Guest Configuration.
+Una vez que **DeployIfNotExists** es compatible, la definición de directiva **AuditIfNotExists** usa las herramientas de validación local para determinar si la asignación de configuración asignada es compatible o no compatible. La herramienta de validación proporciona los resultados al cliente de Guest Configuration. El cliente envía los resultados a la extensión de Guest, que hace que estén disponibles a través del proveedor de recursos de Guest Configuration.
 
 Azure Policy usa la propiedad **complianceStatus** de los proveedores de recursos de Guest Configuration para notificar el cumplimiento en el nodo **Compliance**. Para más información, vea [Obtención de datos de cumplimiento](../how-to/getting-compliance-data.md).
 
 > [!NOTE]
 > Para cada definición de Guest Configuration, deben existir las definiciones de directiva **DeployIfNotExists** y **AuditIfNotExists**.
 
-Se incluyen todas las directivas integradas para Guest Configuration en una iniciativa para agrupar las definiciones para su uso en las asignaciones. La iniciativa integrada denominada *[Versión preliminar]: Configuración de seguridad de la contraseña de la auditoría dentro de máquinas virtuales Linux y Windows* contiene 18 directivas. Hay seis pares **DeployIfNotExists** y **AuditIfNotExists** para Windows y tres pares para Linux. En cada caso, la lógica dentro de la definición garantiza que sólo el sistema operativo de destino se evalúa según definición de la [regla de directiva](definition-structure.md#policy-rule).
+Se incluyen todas las directivas integradas para Guest Configuration en una iniciativa para agrupar las definiciones para su uso en las asignaciones. La iniciativa integrada denominada *[Versión preliminar]: Configuración de seguridad de la contraseña de la auditoría dentro de máquinas virtuales Linux y Windows* contiene 18 directivas. Hay seis pares **DeployIfNotExists** y **AuditIfNotExists** para Windows y tres pares para Linux. En cada caso, la lógica dentro de la definición valida que solo el sistema operativo de destino se evalúa según definición de la [regla de directiva](definition-structure.md#policy-rule).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -115,5 +115,5 @@ Se incluyen todas las directivas integradas para Guest Configuration en una inic
 - Consulte [Descripción de los efectos de directivas](effects.md)
 - Entender cómo se pueden [crear directivas mediante programación](../how-to/programmatically-create.md)
 - Obtenga información sobre cómo [obtener datos de cumplimiento](../how-to/getting-compliance-data.md)
-- Descubrir cómo se pueden [corregir recursos no compatibles](../how-to/remediate-resources.md)
+- Más información sobre cómo [corregir recursos no compatibles](../how-to/remediate-resources.md)
 - En [Organización de los recursos con grupos de administración de Azure](../../management-groups/index.md), obtendrá información sobre lo que es un grupo de administración.

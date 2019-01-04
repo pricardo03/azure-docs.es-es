@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: alkohli
-ms.openlocfilehash: 6978360769ba350d85a06116bfee6db9f80b0607
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: da22c09a227069af0eeb42ab67a59189ae494185
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157367"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256679"
 ---
 # <a name="azure-data-box-gateway-system-requirements-preview"></a>Requisitos del sistema de Azure Data Box Gateway
 
@@ -27,6 +27,19 @@ Los requisitos del sistema del dispositivo virtual de Data Box Gateway incluyen:
 > [!IMPORTANT]
 > Data Box Gateway está en versión preliminar. Revise los [términos de uso para la versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implementar esta solución. 
 
+## <a name="specifications-for-the-virtual-device"></a>Especificaciones para el dispositivo virtual
+
+El sistema host subyacente para Data Box Gateway puede dedicar los recursos siguientes para aprovisionar el dispositivo virtual:
+
+| Especificaciones                                          | DESCRIPCIÓN              |
+|---------------------------------------------------------|--------------------------|
+| Procesadores virtuales (núcleos)   | Cuatro como mínimo |            
+| Memoria  | 8 GB como mínimo|
+| Disponibilidad|Nodo único|
+| Discos| Disco del sistema operativo: 250 GB <br> Disco de datos: 2 TB como mínimo, con aprovisionamiento fino y debe estar basado en SSD|
+| Interfaces de red|Una o varias interfaces de red virtual|
+
+
 ## <a name="supported-os-for-clients-connected-to-device"></a>Sistema operativo compatible con los clientes conectados al dispositivo
 
 Esta es una lista de los sistemas operativos compatibles con los clientes o hosts conectados a Data Box Gateway.
@@ -34,7 +47,7 @@ Esta es una lista de los sistemas operativos compatibles con los clientes o host
 | **Sistema operativo o plataforma** | **Versiones** |
 | --- | --- |
 | Windows Server |2012 R2 <br> 2016 |
-| Windows |8, 10 |
+|  Windows |8, 10 |
 | SUSE Linux |Enterprise Server 12 (x86_64)|
 | Ubuntu |16.04.3 LTS|
 | CentOS | 7.0 |

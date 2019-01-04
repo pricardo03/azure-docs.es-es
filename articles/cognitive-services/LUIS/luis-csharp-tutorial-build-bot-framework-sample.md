@@ -1,23 +1,24 @@
 ---
-title: Bot de LUIS con C# - Bot de aplicación web - Bot Framework SDK 3.0
-titleSuffix: Azure Cognitive Services
+title: Bot - C# - v3
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Con C#, cree un bot de chat que se integre con la descripción de lenguaje (LUIS). Este bot de chat utiliza el dominio HomeAutomation creado previamente para implementar con rapidez una solución de bot.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 0ad95d5683ea10803c2f3986be97617051f191cf
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 74fec29c2e70f929b64a7a64bab2a525f4facbc6
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032281"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438734"
 ---
-# <a name="luis-bot-in-c"></a>Bot de LUIS en C#
+# <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Bot de LUIS en C# con Bot Framework 3.x y el bot de aplicación web de Azure
 
 Con C#, cree un bot de chat que se integre con la descripción de lenguaje (LUIS). Este bot de chat utiliza el dominio HomeAutomation creado previamente para implementar con rapidez una solución de bot. El bot se compila con Bot Framework 3.x y el bot de aplicación web de Azure.
 
@@ -36,11 +37,11 @@ Con C#, cree un bot de chat que se integre con la descripción de lenguaje (LUIS
 
 1. En [Azure Portal](https://portal.azure.com), haga clic en **Crear nuevo recurso** en el menú superior izquierdo.
 
-    ![Crear recurso](./media/luis-tutorial-cscharp-web-bot/bot-service-creation.png)
+    ![Creación de un recurso en Azure Portal](./media/luis-tutorial-cscharp-web-bot/bot-service-creation.png)
 
 2. En el cuadro de búsqueda, busque **Bot de aplicación web**. 
 
-    ![Crear recurso](./media/luis-tutorial-cscharp-web-bot/bot-service-selection.png)
+    ![Selección del bot de la aplicación web como tipo de recurso](./media/luis-tutorial-cscharp-web-bot/bot-service-selection.png)
 
 3. En la ventana del bot de aplicación web, haga clic en **Crear**.
 
@@ -167,10 +168,10 @@ Agregue las intenciones de LUIS y los cuadros de diálogo de Bot Service para co
 
 
 <!-- Links -->
-[Github-BotFramework-Emulator-Download]: https://aka.ms/bot-framework-emulator
-[Github-LUIS-Samples]: https://github.com/Microsoft/LUIS-Samples
-[Github-LUIS-Samples-cs-hotel-bot]: https://github.com/Microsoft/LUIS-Samples/tree/master/bot-integration-samples/hotel-finder/csharp
-[Github-LUIS-Samples-cs-hotel-bot-readme]: https://github.com/Microsoft/LUIS-Samples/blob/master/bot-integration-samples/hotel-finder/csharp/README.md
+[GitHub-BotFramework-Emulator-Download]: https://aka.ms/bot-framework-emulator
+[GitHub-LUIS-Samples]: https://github.com/Microsoft/LUIS-Samples
+[GitHub-LUIS-Samples-cs-hotel-bot]: https://github.com/Microsoft/LUIS-Samples/tree/master/bot-integration-samples/hotel-finder/csharp
+[GitHub-LUIS-Samples-cs-hotel-bot-readme]: https://github.com/Microsoft/LUIS-Samples/blob/master/bot-integration-samples/hotel-finder/csharp/README.md
 [BFPortal]: https://dev.botframework.com/
 [RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
 [BotFramework]: https://docs.microsoft.com/bot-framework/

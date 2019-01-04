@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: chmutali
-ms.openlocfilehash: 30354ddb010c22dabe5cd69373ae59daaf4a8b46
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 754c3278cb01e010718fa4d3cb257acf6ffe99c9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346752"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849860"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-preview"></a>Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios (versión preliminar)
 
@@ -68,7 +68,7 @@ Esta solución de aprovisionamiento de usuarios de Workday se encuentra actualme
 En esta sección se describe la arquitectura de la solución de aprovisionamiento de usuarios de un extremo a otro para entornos híbridos comunes. Hay dos flujos relacionados:
 
 * **Flujo de datos de RR.HH. relevante, desde Workday a Active Directory local:** en este flujo de trabajo (por ejemplo, nuevas contrataciones, transferencias o finalizaciones), los eventos se producen en primer lugar en el inquilino de la nube de RR.HH. de Workday y, a continuación, los datos de eventos fluyen hacia Active Directory local mediante Azure AD y el agente de aprovisionamiento. En función del evento, puede dar lugar a las operaciones de creación, actualización, habilitación o deshabilitación en AD.
-* **Flujo de escritura diferida de correo electrónico desde un entorno local de Active Directory a Workday:** una vez completada la creación de cuentas en Active Directory, se sincronizan con Azure AD mediante Azure AD Connect y el atributo de correo electrónico con origen en Active Directory puede escribirse de forma diferida en Workday.
+* **Flujo de la escritura diferida de correo electrónico: de local de Active Directory a Workday:** una vez completada la creación de cuentas en Active Directory, se sincronizan con Azure AD mediante Azure AD Connect y el atributo de correo electrónico con origen en Active Directory puede escribirse de forma diferida en Workday.
 
 ![Información general](./media/workday-inbound-tutorial/wd_overview.png)
 
@@ -251,7 +251,7 @@ En ese paso, concederá al grupo de seguridad los permisos de directiva "segurid
 
     ![Directivas de seguridad de dominio](./media/workday-inbound-tutorial/wd_isu_09.png "Directivas de seguridad de dominio")  
 
-4. En la página **Edit Domain Security Policy Permissions** (Editar permisos de directiva de seguridad de dominio), desplácese hacia abajo hasta la sección **Integration Permissions** (Permisos de integración). Haga clic en el signo "+" para agregar el grupo de sistema de integración a la lista de grupos de seguridad con los permisos de integración **Get** (obtención) y **Put** (colocación).
+4. En la página **Edit Domain Security Policy Permissions** (Editar permisos de directiva de seguridad de dominio), desplácese hacia abajo hasta la sección **Integration Permissions** (Permisos de integración). Haga clic en el signo "+" para agregar el grupo de sistema de integración a la lista de grupos de seguridad con los permisos de integración **Get** (Obtención) y **Put** (Colocación).
 
     ![Editar permiso](./media/workday-inbound-tutorial/wd_isu_10.png "Editar permiso")  
 
@@ -263,11 +263,11 @@ En ese paso, concederá al grupo de seguridad los permisos de directiva "segurid
 
    | Operación | Directiva de seguridad de dominio |
    | ---------- | ---------- | 
-   | Obtener y poner | Worker Data: Public Worker Reports |
+   | Obtener y poner | Worker Data: Public Worker Reports (Datos de empleado: informes de trabajadores públicos) |
    | Obtener y poner | Person Data: Work Contact Information (Datos personales: información de contacto de trabajo) |
-   | Obtener | Worker Data: All Positions |
-   | Obtener | Worker Data: Current Staffing Information |
-   | Obtener | Worker Data: Business Title on Worker Profile |
+   | Obtener | Worker Data: All Positions (Datos de empleado: todos los cargos) |
+   | Obtener | Worker Data: Current Staffing Information (Datos de empleado: información de plantilla actual) |
+   | Obtener | Worker Data: Business Title on Worker Profile (Datos de empleado: cargo empresarial en el perfil del trabajador) |
 
 ### <a name="configure-business-process-security-policy-permissions"></a>Configuración de los permisos de directiva de seguridad del proceso de negocio
 En ese paso, concederá permisos de directiva "seguridad de proceso de negocio" al grupo de seguridad para los datos de trabajo. Esto es necesario para configurar el conector de aplicaciones de escritura diferida de Workday. 
@@ -411,11 +411,11 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
 
 2.  En el campo **Ámbito de objeto de origen** puede seleccionar los conjuntos de usuarios de Workday que deben estar en el ámbito para el aprovisionamiento en AD; para ello debe definir un conjunto de filtros basados en atributos. El ámbito predeterminado es "Todos los usuarios de Workday". Filtros de ejemplo:
 
-   * Ejemplo: ámbito de los usuarios que tengan los id. de trabajador comprendidos entre 1 000 000 y 2 000 000
+   * Ejemplo: ámbito de los usuarios que tengan los id. de trabajador comprendidos entre 1000000 y 2000000
 
       * Atributo: WorkerID
 
-      * Operador: REGEX.COINCIDIR
+      * Operador: REGEX Match
 
       * Valor: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
@@ -423,7 +423,7 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
 
       * Atributo: EmployeeID
 
-      * Operador: NO ES NULO
+      * Operador: IS NOT NULL
 
 3.  En el campo **Acciones del objeto de destino**, puede filtrar de forma global las acciones permitidas en Active Directory. **Crear** y **Actualizar** son las más habituales.
 
@@ -498,7 +498,7 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
   
 
 
-### <a name="part-4-start-the-service"></a>Parte 4: inicio del servicio
+### <a name="part-4-start-the-service"></a>Parte 4: Inicie el servicio
 Una vez que las partes 1-3 se han completado, puede volver a iniciar el servicio de aprovisionamiento en Azure Portal.
 
 1.  En la pestaña **Aprovisionamiento**, establezca **Estado de aprovisionamiento** en **Activado**.
@@ -532,7 +532,7 @@ En las siguientes secciones se describe cómo configurar una conexión entre Wor
 > [!IMPORTANT]
 > Siga el siguiente procedimiento únicamente si tiene usuarios que solo están en la nube que se deban aprovisionar en Azure AD, y no en Active Directory local.
 
-### <a name="part-1-adding-the-azure-ad-provisioning-connector-app-and-creating-the-connection-to-workday"></a>Parte 1: agregación de la aplicación del conector de aprovisionamiento de Azure AD y creación de la conexión con Workday
+### <a name="part-1-adding-the-azure-ad-provisioning-connector-app-and-creating-the-connection-to-workday"></a>Parte 1: Agregación de la aplicación del conector de aprovisionamiento de Azure AD y creación de la conexión con Workday
 
 **Para configurar el aprovisionamiento de Workday en Azure Active Directory para los usuarios que solo están en la nube:**
 
@@ -572,11 +572,11 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
 
 2. En el campo **Ámbito de objeto de origen** puede seleccionar los conjuntos de usuarios de Workday que deben estar en el ámbito para el aprovisionamiento en Azure AD; para ello debe definir un conjunto de filtros basados en atributos. El ámbito predeterminado es "Todos los usuarios de Workday". Filtros de ejemplo:
 
-   * Ejemplo: ámbito de los usuarios que tengan los id. de trabajador comprendidos entre 1 000 000 y 2 000 000
+   * Ejemplo: ámbito de los usuarios que tengan los id. de trabajador comprendidos entre 1000000 y 2000000
 
       * Atributo: WorkerID
 
-      * Operador: REGEX.COINCIDIR
+      * Operador: REGEX Match
 
       * Valor: (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
@@ -584,7 +584,7 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
 
       * Atributo: ContingentID
 
-      * Operador: NO ES NULO
+      * Operador: IS NOT NULL
 
 3. En el campo **Acciones del objeto de destino**, puede filtrar de forma global las acciones permitidas en Azure AD. **Crear** y **Actualizar** son las más habituales.
 
@@ -619,7 +619,7 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
 
 6. Para guardar las asignaciones, haga clic en **Guardar** en la parte superior de la sección Asignación de atributos.
 
-### <a name="part-3-start-the-service"></a>Parte 3: inicio del servicio
+### <a name="part-3-start-the-service"></a>Parte 3: Inicie el servicio
 Después de las partes 1 y 2, puede iniciar el servicio de aprovisionamiento.
 
 1. En la pestaña **Aprovisionamiento**, establezca **Estado de aprovisionamiento** en **Activado**.
@@ -677,7 +677,7 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
 
 4. Para guardar las asignaciones, haga clic en **Guardar** en la parte superior de la sección Asignación de atributos.
 
-### <a name="part-3-start-the-service"></a>Parte 3: inicio del servicio
+### <a name="part-3-start-the-service"></a>Parte 3: Inicie el servicio
 Después de las partes 1 y 2, puede iniciar el servicio de aprovisionamiento.
 
 1. En la pestaña **Aprovisionamiento**, establezca **Estado de aprovisionamiento** en **Activado**.
@@ -725,7 +725,7 @@ Para ello, debe usar [Workday Studio](https://community.workday.com/studio-downl
 
     ```
     <?xml version="1.0" encoding="UTF-8"?>
-    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
       <env:Body>
         <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
           <wd:Request_References wd:Skip_Non_Existing_Instances="true">
@@ -758,15 +758,15 @@ Para ello, debe usar [Workday Studio](https://community.workday.com/studio-downl
 
     ![Workday Studio](./media/workday-inbound-tutorial/wdstudio3.png)
 
-14. En el árbol de archivos, desplácese por **/env:Envelope > env:Body > wd:Get_Workers_Response > wd:Response_Data > wd:Worker** para encontrar los datos del usuario. 
+14. En el árbol de archivos, desplácese a través de **/env: Envelope > env: Body > wd:Get_Workers_Response > wd:Response_Data > wd: Worker** para encontrar los datos del usuario. 
 
-15. En **wd:Worker**, busque el atributo que quiere agregar y selecciónelo.
+15. En **wd: Worker**, busque el atributo que quiere agregar y selecciónelo.
 
 16. Copie la expresión XPath del atributo seleccionado del campo **Document Path** (Ruta de acceso a documento).
 
 1. Quite el prefijo **/env:Envelope/env:Body/wd:Get_Workers_Response/wd:Response_Data/** de la expresión copiada.
 
-18. Si el último elemento de la expresión copiada es un nodo (ejemplo: "/wd:Birth_Date"), anexe **/text()** al final de la expresión. Esto no es necesario si el último elemento es un atributo (ejemplo: "/@wd: tipo").
+18. Si el último elemento de la expresión copiada es un nodo (ejemplo: "/ wd: Birth_Date"), anexe **/text()** al final de la expresión. Esto no es necesario si el último elemento es un atributo (ejemplo: "/@wd: tipo").
 
 19. El resultado debe ser similar a `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`. Esto es lo que copiará en Azure Portal.
 

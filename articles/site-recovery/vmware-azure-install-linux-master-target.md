@@ -4,14 +4,14 @@ description: Aprenda a configurar un servidor de destino maestro de Linux para l
 author: nsoneji
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 415b50b94052e7d428ddfa55d5288c8954a3ff1a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e35a8cf720fffa3a3b4c7d9f1b83c2323041b1c4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212376"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833319"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalación de un servidor de destino maestro de Linux para la conmutación por recuperación
 Después de conmutar por error las máquinas virtuales a Azure, puede conmutarlas por recuperación en el sitio local. Para ello, debe volver a proteger la máquina virtual de Azure en el sitio local. Para realizar este proceso, necesitará un servidor de destino maestro local que reciba el tráfico. 
@@ -38,10 +38,10 @@ Publique cualquier comentario o pregunta que tenga al final del artículo, o bie
 ## <a name="sizing-guidelines-for-creating-master-target-server"></a>Directrices de ajuste de tamaño para la creación del servidor de destino maestro
 
 Cree el destino maestro conforme a las siguientes directrices de ajuste de tamaño:
-- **RAM**: 6 GB o más
-- **Tamaño del disco del sistema operativo**: 100 GB o más (para instalar el sistema operativo)
-- **Tamaño adicional de disco para la unidad de retención**: 1 TB
-- **Núcleos de CPU**: 4 núcleos o más
+- **RAM**: 6 GB o más
+- **Tamaño de disco del SO**: 100 GB o más (para instalar el sistema operativo)
+- **Additional disk size for retention drive** (Tamaño adicional de disco para la unidad de retención): 1 TB
+- **CPU cores** (Núcleos de CPU): 4 núcleos o más
 
 Se admiten los siguientes kernels de Ubuntu.
 

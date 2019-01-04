@@ -1,23 +1,24 @@
 ---
-title: 'Colaboración de aplicaciones de LUIS: Language Understanding'
-titleSuffix: Azure Cognitive Services
-description: Las aplicaciones de LUIS necesitan un único propietario y colaboradores opcionales.
+title: Colaboración
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: Las aplicaciones de LUIS requieren un único propietario y colaboradores opcionales, lo que permite a varias personas crear una sola aplicación.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 9acc0b04cbfa074f888d785930f357eaf94f310b
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 8a3f0cb99dc714a6a0430d0a2ffb7c18583183e9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637330"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084556"
 ---
-# <a name="collaborating"></a>Colaborar
+# <a name="collaborating-with-other-authors"></a>Colaboración con otros creadores
 
 LUIS proporciona colaboración para permitir que un grupo de personas creen una aplicación.
 

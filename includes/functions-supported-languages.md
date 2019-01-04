@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 08/29/2018
 ms.author: tdykstra
 ms.custom: include file
-ms.openlocfilehash: 9407ba43dc154bcfaf4d0a3894a99bc3a3d52e92
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f62d14477daa820cf2b862f5854b763f8eaff753
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47019731"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52886428"
 ---
 |Idioma                                 |1.x         |2.x|
 |-----------------------------------------|------------|---|
@@ -22,7 +22,7 @@ ms.locfileid: "47019731"
 |[JavaScript](../articles/azure-functions/functions-reference-node.md)|Disponibilidad general (nodo 6)|Disponibilidad general (nodos 8 y 10)|
 |[F#](../articles/azure-functions/functions-reference-fsharp.md)|Disponibilidad general (.NET Framework 4.7)|Disponibilidad general (.NET Core 2)|
 |[Java](../articles/azure-functions/functions-reference-java.md)|N/D|Versión preliminar (Java 8)|
-|Python              |Experimental|N/D|
+|[Python](../articles/azure-functions/functions-reference-python.md)|Experimental|Versión preliminar (Python 3.6)|
 |TypeScript          |Experimental|Se admite mediante la transpilación de JavaScript|
 |PHP                 |Experimental|N/D|
 |Batch (.cmd, .bat)  |Experimental|N/D|

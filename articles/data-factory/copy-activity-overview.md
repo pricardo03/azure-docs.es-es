@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: df1fbcb09310985b7ca9d9fd2e7a987fc6e2b2dc
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 1958d694ab87d635624884b43486761269e37c37
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457106"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082653"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Actividad de copia en Azure Data Factory
 
@@ -173,6 +173,7 @@ Los detalles de la ejecución de la actividad de copia y las características de
 | dataRead | Tamaño de los datos leídos desde el origen | Valor Int64 en **bytes** |
 | dataWritten | Tamaño de los datos escritos en el receptor | Valor Int64 en **bytes** |
 | filesRead | Número de archivos que se copia al copiar datos desde el almacenamiento de archivos. | Valor Int64 (sin unidad) |
+| fileScanned | Número de archivos que se están examinando desde el almacenamiento de archivo de origen. | Valor Int64 (sin unidad) |
 | filesWritten | Número de archivos que se copia al copiar datos al almacenamiento de archivos. | Valor Int64 (sin unidad) |
 | rowsCopied | Número de filas que se copian (no se aplica a la copia binaria). | Valor Int64 (sin unidad) |
 | rowsSkipped | Número de filas incompatibles que se omiten. Puede establecer "enableSkipIncompatibleRow" en true para activar la característica. | Valor Int64 (sin unidad) |
