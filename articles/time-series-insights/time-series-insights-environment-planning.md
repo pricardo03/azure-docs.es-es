@@ -1,5 +1,5 @@
 ---
-title: 'Plan de Azure Time Series Insights: planificación de la escala del entorno Azure Time Series Insights | Microsoft Docs'
+title: Planeamiento de la escala del entorno Azure Time Series Insights | Microsoft Docs
 description: En este artículo se describe cómo seguir los procedimientos recomendados cuando se planea un entorno de Azure Time Series Insights, incluida la capacidad de almacenamiento, la retención de datos, la capacidad de entrada, la supervisión y la recuperación ante desastres de la empresa (BCDR).
 services: time-series-insights
 ms.service: time-series-insights
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.custom: seodec18
-ms.openlocfilehash: 6541363eb2ac19cfa4359fe85bde5fa39157055e
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ce31b22dcbf3fbe79192647e9a21983911e77a9c
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273772"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556040"
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Planee el entorno de Azure Time Series Insights
 

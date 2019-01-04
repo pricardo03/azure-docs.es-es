@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: d9d34441f36ea60141ed2659b3e33efdaac94ad3
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 351734ea394b8820e87799a6d9a87979dd9c3807
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497119"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604538"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Envío de trabajos desde Herramientas de R para Visual Studio
 
@@ -35,7 +35,7 @@ RTVS mejora el flujo de trabajo de R al ofrecer herramientas como la [ventana R 
 
 4. Instale [ML Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) en su máquina. ML Server proporciona las funciones [`RevoScaleR`](https://msdn.microsoft.com/microsoft-r/scaler/scaler) y `RxSpark`.
 
-5. Instale [PuTTY](http://www.putty.org/) para proporcionar un contexto de proceso para ejecutar funciones de `RevoScaleR` desde el cliente local hasta el clúster de HDInsight.
+5. Instale [PuTTY](https://www.putty.org/) para proporcionar un contexto de proceso para ejecutar funciones de `RevoScaleR` desde el cliente local hasta el clúster de HDInsight.
 
 6. Tiene la opción de aplicar la Configuración de ciencia de datos al entorno de Visual Studio, lo que proporciona un nuevo diseño para el área de trabajo de las herramientas de R.
     1. Para guardar la configuración actual de Visual Studio, use el comando **Herramientas > Importar y exportar configuraciones** y, luego, seleccione **Exportar la configuración de entorno seleccionada** y especifique un nombre de archivo. Para restaurar esa configuración, use el mismo comando y seleccione **Importar la configuración de entorno seleccionada**.
@@ -44,7 +44,7 @@ RTVS mejora el flujo de trabajo de R al ofrecer herramientas como la [ventana R 
 
         ![Configuración de ciencia de datos...](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > Mediante el enfoque del paso 1, también puede guardar y restaurar su diseño de ciencia de datos personalizado en lugar de repetir el comando **Configuración de ciencia de datos**.
 
 ## <a name="execute-local-r-methods"></a>Ejecución de métodos de R locales

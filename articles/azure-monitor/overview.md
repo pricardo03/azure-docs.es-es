@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: bwren
-ms.openlocfilehash: 160078787d28f43ef800d25c8b50fb316b38944f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: f1125c9d0ce543984393c99d70d511a3a162041e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436184"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975192"
 ---
 # <a name="azure-monitor-overview"></a>Introducción a Azure Monitor
 
@@ -39,9 +39,7 @@ En muchos recursos de Azure, los datos recopilados por Azure Monitor aparecen di
 
 ![Métricas](media/overview/metrics.png)
 
-<<<<<<< HEAD Los datos de registro recopilados por Azure Monitor se pueden analizar con [consultas](log-query/log-query-overview.md) que recuperan, consolidan y analizan rápidamente los datos recopilados.  Puede crear y probar consultas mediante el [análisis de registros](../log-analytics/log-analytics-log-search-portals.md) en Azure Portal y después analizar los datos directamente mediante estas herramientas o guardar las consultas para usarlas con las [visualizaciones](visualizations.md) o las [reglas de alertas](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
-======= Los datos de registro recopilados por Azure Monitor se guardan en Log Analytics, que cuenta con un [lenguaje de consulta avanzado](../azure-monitor/log-query/log-query-overview.md) para poder recuperar, consolidar y analizar rápidamente los datos recopilados.  Puede crear y probar consultas utilizando la [página de Log Analytics](../azure-monitor/log-query/portals.md) de Azure Portal y analizar después los datos directamente mediante estas herramientas o guardar las consultas para usarlas con las [visualizaciones](visualizations.md) o las [reglas de alertas](../azure-monitor/platform/alerts-overview.md).
->>>>>>> 98b6f1655e9ada6d4b6a408ada0f1e4c9ed727d2
+Los datos de registro recopilados por Azure Monitor se guardan en Log Analytics, que cuenta con un [lenguaje de consulta avanzado](../azure-monitor/log-query/log-query-overview.md) para poder recuperar, consolidar y analizar rápidamente los datos recopilados.  Puede crear y probar consultas utilizando la [página de Log Analytics](../azure-monitor/log-query/portals.md) de Azure Portal y analizar después los datos directamente mediante estas herramientas o guardar las consultas para usarlas con las [visualizaciones](visualizations.md) o las [reglas de alertas](../azure-monitor/platform/alerts-overview.md).
 
 Azure Monitor utiliza una versión del [lenguaje de consulta de Data Explorer](/azure/kusto/query/) adecuado para realizar búsquedas de registros simples, pero también dispone de funciones avanzadas, como agregaciones, combinaciones y análisis inteligentes. Puede aprender rápidamente el lenguaje de consulta con [diversas lecciones](log-query/get-started-queries.md).  Se proporciona orientación concreta a los usuarios que ya están familiarizados con [SQL](log-query/sql-cheatsheet.md) y [Splunk](log-query/splunk-cheatsheet.md).
 
@@ -56,11 +54,11 @@ Azure Monitor puede recopilar datos de diversos orígenes. Puede pensar en super
 - **Datos de supervisión de la suscripción de Azure**: datos sobre el funcionamiento y la administración de una suscripción de Azure, así como sobre el estado y el funcionamiento del propio Azure. 
 - **Datos de supervisión de inquilino de Azure**: datos sobre el funcionamiento de los servicios de Azure en el nivel del inquilino, como Azure Active Directory.
 
-En cuanto crea una suscripción a Azure y empieza a agregar recursos, como máquinas virtuales y aplicaciones web, Azure Monitor comienza a recopilar datos.  Los [registros de actividad](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) registran la creación y modificación de recursos. Las [métricas](../monitoring-and-diagnostics/monitoring-overview-metrics.md) indican cómo está funcionando un recurso y los recursos que consume. 
+En cuanto crea una suscripción a Azure y empieza a agregar recursos, como máquinas virtuales y aplicaciones web, Azure Monitor comienza a recopilar datos.  Los [registros de actividad](../azure-monitor/platform/activity-logs-overview.md) registran la creación y modificación de recursos. Las [métricas](../monitoring-and-diagnostics/monitoring-overview-metrics.md) indican cómo está funcionando un recurso y los recursos que consume. 
 
-Amplíe los datos que recopila y obtenga información sobre el funcionamiento real de los recursos [habilitando diagnósticos](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) y [agregando un agente](platform/agent-windows.md) a los recursos de proceso. De este modo, recopilará datos de telemetría sobre el funcionamiento interno de un recurso y podrá configurar diferentes [orígenes de datos](platform/agent-data-sources.md) para recopilar registros y métricas del sistema operativo invitado Windows y Linux. 
+Amplíe los datos que recopila y obtenga información sobre el funcionamiento real de los recursos [habilitando diagnósticos](../azure-monitor/platform/diagnostic-logs-overview.md) y [agregando un agente](platform/agent-windows.md) a los recursos de proceso. De este modo, recopilará datos de telemetría sobre el funcionamiento interno de un recurso y podrá configurar diferentes [orígenes de datos](platform/agent-data-sources.md) para recopilar registros y métricas del sistema operativo invitado Windows y Linux. 
 
-[Agregue un paquete de instrumentación a la aplicación](../application-insights/app-insights-azure-web-apps.md) para permitir que Application Insights recopile información detallada acerca de la aplicación, como vistas de página, solicitudes de aplicación y excepciones. Compruebe de forma más exhaustiva la disponibilidad de la aplicación configurando una [prueba de disponibilidad](../application-insights/app-insights-monitor-web-app-availability.md) para simular el tráfico de usuarios.
+[Agregue un paquete de instrumentación a la aplicación](../azure-monitor/app/azure-web-apps.md) para permitir que Application Insights recopile información detallada acerca de la aplicación, como vistas de página, solicitudes de aplicación y excepciones. Compruebe de forma más exhaustiva la disponibilidad de la aplicación configurando una [prueba de disponibilidad](../azure-monitor/app/monitor-web-app-availability.md) para simular el tráfico de usuarios.
 
 ### <a name="custom-sources"></a>Orígenes personalizados
 Azure Monitor puede recopilar datos de registro de cualquier cliente de REST mediante [Data Collector API](../azure-monitor/platform/data-collector-api.md). Esto permite crear escenarios de supervisión personalizados y ampliar la supervisión a los recursos que no exponen datos de telemetría en otros orígenes.
@@ -131,7 +129,7 @@ Las [vistas](../log-analytics/log-analytics-view-designer.md) representan visual
 A menudo, necesitará integrar Azure Monitor con otros sistemas y crear soluciones personalizadas que utilicen los datos de supervisión. Otros servicios de Azure funcionan con Azure Monitor para proporcionar esta integración.
 
 ### <a name="event-hub"></a>Centro de eventos
-[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) es una plataforma de streaming y un servicio de ingesta de eventos que puede transformar y almacenar los datos utilizando cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento de datos. Utilice Event Hubs para [transmitir datos de registro desde Azure Monitor](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) a herramientas de supervisión y administración de eventos e información de seguridad de asociados.
+[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) es una plataforma de streaming y un servicio de ingesta de eventos que puede transformar y almacenar los datos utilizando cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento de datos. Utilice Event Hubs para [transmitir datos de registro desde Azure Monitor](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) a herramientas de supervisión y administración de eventos e información de seguridad de asociados.
 
 > [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 

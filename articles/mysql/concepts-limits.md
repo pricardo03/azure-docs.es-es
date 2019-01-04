@@ -1,20 +1,17 @@
 ---
 title: Limitaciones en Azure Database for MySQL
 description: En este artículo se describen las limitaciones de Azure Database for MySQL como el número de conexiones o las opciones de motor de almacenamiento.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/6/2018
-ms.openlocfilehash: 89451122ff8cae33f1710fc1458fcd4277964e1f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 19fc20f21a57c2325254581c642b75c92c221fd9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090999"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536097"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitaciones en Azure Database for MySQL
 En las siguientes secciones se describen la capacidad, la compatibilidad del motor de almacenamiento, la compatibilidad de los privilegios, la compatibilidad de las instrucciones de manipulación de datos y los límites funcionales del servicio de base de datos. Consulte también las [limitaciones generales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) que se aplican al motor de base de datos MySQL.
@@ -39,7 +36,7 @@ El número máximo de conexiones por plan de tarifa y núcleos virtuales es el s
 |Memoria optimizada| 32| 10000|
 
 Si las conexiones superan el límite, puede que reciba el error siguiente:
-> ERROR 1040 (08004): Too many connections (Demasiadas conexiones)
+> ERROR 1040 (08004): Demasiadas conexiones
 
 ## <a name="storage-engine-support"></a>Compatibilidad del motor de almacenamiento
 

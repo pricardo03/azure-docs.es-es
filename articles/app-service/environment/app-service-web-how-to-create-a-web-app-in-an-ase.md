@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 84a8a0687a1da0eaf7842a9bf6115c1d0f5d3fd1
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 3e7db670a125f3c5f308107aabfbbab9301b7561
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338148"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718103"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Creación de una aplicación web en una instancia de App Service Environment v1
 
@@ -51,7 +51,7 @@ En este tutorial se supone que ha creado un entorno de App Service. Si no es as�
     *Los grupos de recursos* le permiten administrar los recursos de Azure relacionados como una unidad y resultan útiles al establecer las *reglas del control de acceso basado en rol* (RBAC) para las aplicaciones. Para más información, consulte [Información general de Azure Resource Manager][ResourceGroups]. 
 4. Seleccione o cree un plan de App Service.
    
-    Los *planes de App Service* son conjuntos administrados de aplicaciones web.  Normalmente, cuando se selecciona el precio, el precio que se cobra se aplica al plan de App Service y no a las aplicaciones individuales. En un ASE, paga por las instancias de proceso que se han asignado al ASE en lugar de lo que ha enumerado con su ASP.  Para escalar verticalmente el número de instancias de una aplicación web, escale verticalmente las instancias de su plan de App Service. Esto afecta a todas las aplicaciones web de ese plan.  Algunas características como las ranuras de sitio o la integración de la red virtual también tienen restricciones de cantidad dentro del plan.  Para obtener más información, consulte [Información general sobre los planes de Azure App Service](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
+    Los *planes de App Service* son conjuntos administrados de aplicaciones web.  Normalmente, cuando se selecciona el precio, el precio que se cobra se aplica al plan de App Service y no a las aplicaciones individuales. En un ASE, paga por las instancias de proceso que se han asignado al ASE en lugar de lo que ha enumerado con su ASP.  Para escalar verticalmente el número de instancias de una aplicación web, escale verticalmente las instancias de su plan de App Service. Esto afecta a todas las aplicaciones web de ese plan.  Algunas características como las ranuras de sitio o la integración de la red virtual también tienen restricciones de cantidad dentro del plan.  Para obtener más información, consulte [Información general sobre los planes de Azure App Service](../overview-hosting-plans.md)
    
     Puede identificar los planes de App Service de su ASE con solo mirar la ubicación que se indica bajo el nombre del plan.  
    
@@ -108,7 +108,7 @@ Después de crear la aplicación web y el plan de App Service, es una buena idea
 
 <!--Links-->
 [WhatisASE]: app-service-app-service-environment-intro.md
-[Appserviceplans]: ../azure-web-sites-web-hosting-plans-in-depth-overview.md
+[Appserviceplans]: ../overview-hosting-plans.md
 [HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [HowtoScale]: app-service-web-scale-a-web-app-in-an-app-service-environment.md
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md

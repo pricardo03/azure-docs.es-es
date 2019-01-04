@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: clemensv
-ms.openlocfilehash: 3e1bdcc9340cc6cf997bebcdf1567bf676521ea5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 87a89ffd627454752924bfc69e44da87b071b5e5
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276135"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651442"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Uso de puntos de conexión de servicio de Virtual Network con Azure Service Bus
 
@@ -38,8 +38,8 @@ El resultado es una relación privada y aislada entre las cargas de trabajo enla
 > - Azure IoT Device Explorer
 > - Explorador de datos de Azure
 >
-> Los siguientes servicios de Microsoft deben estar en una red virtual.
-> - Azure Web Apps
+> Los siguientes servicios de Microsoft deben estar en una red virtual
+> - Azure App Service
 > - Azure Functions
 
 > [!IMPORTANT]
@@ -72,11 +72,11 @@ La siguiente plantilla de Resource Manager permite agregar una regla de red virt
 Parámetros de plantilla:
 
 * **namespaceName**: Espacio de nombres de Service Bus.
-* **virtualNetworkingSubnetId**: Ruta de acceso completa de Resource Manager para la subred de la red virtual; por ejemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para la subred predeterminada de una red virtual.
+* **virtualNetworkingSubnetId**: ruta de acceso completa de Resource Manager para la subred de la red virtual; por ejemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para la subred predeterminada de una red virtual.
 
 > [!NOTE]
 > Si bien no hay reglas de denegación posibles, la plantilla de Azure Resource Manager tiene la acción predeterminada establecida en **"Permitir"**, lo que no restringe las conexiones.
-> Cuando se realizan las reglas de Virtual Network o de firewall, debemos cambiar el valor ***"defaultAction"***.
+> Cuando se realizan las reglas de Virtual Network o de firewall, es necesario cambiar el valor ***"defaultAction"***
 > 
 > De
 > ```json

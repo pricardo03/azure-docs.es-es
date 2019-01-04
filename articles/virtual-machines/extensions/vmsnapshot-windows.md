@@ -5,32 +5,25 @@ services: backup, virtual-machines-windows
 documentationcenter: ''
 author: trinadhk
 manager: jeconnoc
-editor: ''
-ms.assetid: 57759670-0baa-44db-ae14-8cdc00d3a906
 ms.service: backup, virtual-machines-windows
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
-ms.date: 3/26/2018
+ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: 8426a2472a28cf287dfe574cb80da56108394ae8
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 4d942e21afbf1d87ab67d79e90119a4122d889da
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944867"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632202"
 ---
 # <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Extensión de Windows de instantánea de máquina virtual para Azure Backup
 
-## <a name="overview"></a>Información general
-
 Azure Backup proporciona compatibilidad para realizar copias de seguridad de cargas de trabajo desde el entorno local a la nube y para realizar copias de seguridad de recursos en la nube en el almacén de Recovery Services. Azure Backup usa la extensión de instantánea de máquina virtual para realizar una copia de seguridad coherente con la aplicación de la máquina virtual de Azure sin necesidad de apagar la máquina virtual. Microsoft publica la extensión de instantánea de máquina virtual y es compatible con esta como parte del servicio de Azure Backup. Azure Backup instalará la extensión como parte de la primera copia de seguridad programada que se desencadene tras habilitar la copia de seguridad. En este documento se especifican las plataformas compatibles, configuraciones y opciones de implementación de la extensión de instantánea de máquina virtual.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="operating-system"></a>Sistema operativo
-Para obtener una lista de sistemas operativos compatibles, vea [Sistemas operativos compatibles con Azure Backup](../../backup/backup-azure-arm-vms-prepare.md#supported-operating-systems-for-backup).
+Para obtener una lista de sistemas operativos compatibles, vea [Sistemas operativos compatibles con Azure Backup](../../backup/backup-azure-arm-vms-prepare.md#before-you-start).
 
 ### <a name="internet-connectivity"></a>Conectividad de Internet
 

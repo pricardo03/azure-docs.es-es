@@ -3,27 +3,26 @@ title: Creación de una entidad de servicio de Azure Stack | Microsoft Docs
 description: Describe cómo crear una entidad de servicio que puede usarse con el control de acceso basado en roles en Azure Resource Manager para administrar el acceso a los recursos.
 services: azure-resource-manager
 documentationcenter: na
-author: sethmanheim
+author: mattbriggs
 manager: femila
-ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
-ms.author: sethm
+ms.date: 12/12/2018
+ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: a32327109bc71a41f871682936c5f27ed490975c
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 4c205055239b7bf16bbb73448c21818de419e623
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958321"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715841"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Otorgue a las aplicaciones acceso a los recursos de Azure Stack mediante la creación de entidades de servicio
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Puede permitir que una aplicación tenga acceso a los recursos de Azure Stack mediante la creación de un servicio principal que use Azure Resource Manager. Una entidad de servicio le permite delegar permisos específicos mediante el [control de acceso basado en roles](azure-stack-manage-permissions.md).
 
@@ -52,7 +51,7 @@ La manera en que ha configurado Active Directory para Azure Stack determina cóm
 
 Los pasos para asignar una entidad de servicio a un rol son los mismos para Azure AD y AD FS. Después de crear la entidad de servicio, puede [delegar permisos](azure-stack-create-service-principals.md#assign-role-to-service-principal) mediante la asignación a un rol.
 
-## <a name="create-a-service-principal-for-azure-ad"></a>Creación de una entidad de servicio para Azure AD
+## <a name="create-service-principal-for-azure-ad"></a>Crear una entidad de servicio para Azure AD
 
 Si Azure Stack usa Azure AD como almacén de identidades, puede crear una entidad de servicio con los mismos pasos que en Azure, mediante Azure Portal.
 
@@ -95,7 +94,7 @@ Si ha implementado Azure Stack mediante AD FS como almacén de identidades, pue
 * Asignar un rol a la entidad de servicio.
 * Iniciar sesión mediante la identidad de la entidad de servicio.
 
-Para obtener más información acerca de cómo crear la entidad de servicio, consulte [Crear una entidad de servicio para AD FS](../azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
+Para obtener más información acerca de cómo crear la entidad de servicio, consulte [Crear una entidad de servicio para AD FS](../azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
 
 ## <a name="assign-the-service-principal-to-a-role"></a>Asignación de un rol a la entidad de servicio
 
@@ -114,9 +113,7 @@ Siga estos pasos como guía para asignar un rol a una entidad de servicio.
 
 3. Seleccione **Control de acceso (IAM)** para la suscripción.
 
-     ![Selección de Control de acceso](./media/azure-stack-create-service-principal/image17.png)
-
-4. Seleccione **Agregar**.
+4. Seleccione **Agregar asignación de roles**.
 
 5. Seleccione el rol que quiere asignar a la aplicación.
 

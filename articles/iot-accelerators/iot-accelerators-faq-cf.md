@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: e9e88fc9aa3aad902c140ac176e31571b9e55ee3
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: ef55f25657d1decb09e438d443e7c289823f7d9d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353748"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605915"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Preguntas frecuentes sobre el acelerador de la solución de factoría conectada
 
@@ -27,7 +27,7 @@ El código fuente se almacena en el siguiente repositorios de GitHub:
 
 ### <a name="what-is-opc-ua"></a>¿Qué es OPC UA?
 
-OPC Unified Architecture (UA), publicado en 2008, es un estándar de interoperabilidad independiente de plataforma y orientado a servicios. OPC UA se usa en diversos sistemas industriales y dispositivos como equipos, PLC y sensores del sector. OPC UA integra la funcionalidad de las especificaciones de OPC Classic en un solo marco extensible con seguridad integrada. Es un estándar controlado por OPC Foundation. [OPC Foundation](http://opcfoundation.org/) es una organización sin ánimo de lucro con más de 440 miembros. El objetivo de la organización es usar la especificación OPC para facilitar la interoperabilidad multiproveedor, multiplataforma, segura y confiable gracias a lo siguiente:
+OPC Unified Architecture (UA), publicado en 2008, es un estándar de interoperabilidad independiente de plataforma y orientado a servicios. OPC UA se usa en diversos sistemas industriales y dispositivos como equipos, PLC y sensores del sector. OPC UA integra la funcionalidad de las especificaciones de OPC Classic en un solo marco extensible con seguridad integrada. Es un estándar controlado por OPC Foundation. [OPC Foundation](https://opcfoundation.org/) es una organización sin ánimo de lucro con más de 440 miembros. El objetivo de la organización es usar la especificación OPC para facilitar la interoperabilidad multiproveedor, multiplataforma, segura y confiable gracias a lo siguiente:
 
 * Infraestructura
 * Especificaciones
@@ -78,7 +78,7 @@ Si ha implementado la solución de www.azureiotsolutions.com, no puede iniciar s
 1. Para iniciar todos los contenedores de simulación:
     * Exporte una variable de shell con el nombre **IOTHUB_CONNECTIONSTRING**. Utilice el valor de la configuración **IotHubOwnerConnectionString** en el archivo `<name of your deployment>.config.user`. Por ejemplo: 
 
-        ```
+        ```sh
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"
         ```
 
@@ -142,7 +142,7 @@ Si ve que ningún dato se envía a IoT Hub, hay un problema con la simulación. 
 
 Para habilitar un mapa interactivo en la solución Connected Factory, debe tener una cuenta de Azure Maps.
 
-Cuando se implementa desde [www.azureiotsolutions.com](http://www.azureiotsolutions.com), el proceso de implementación agrega una cuenta de Azure Maps al grupo de recursos que contiene los servicios del acelerador de soluciones.
+Cuando se implementa desde [www.azureiotsolutions.com](https://www.azureiotsolutions.com), el proceso de implementación agrega una cuenta de Azure Maps al grupo de recursos que contiene los servicios del acelerador de soluciones.
 
 Al realizar la implementación mediante el script `build.ps1` del repositorio de GitHub de Connected Factory, establezca la variable de entorno `$env:MapApiQueryKey` de la ventana de compilación como la [clave de la cuenta de Azure Maps](../azure-maps/how-to-manage-account-keys.md). El mapa interactivo se habilita de manera automática.
 
@@ -174,15 +174,15 @@ Para enviar datos de telemetría desde dispositivos que no son de OPC UA a la fa
 
     ```json
     [
-      {
-        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
-        "DisplayName": "<name_of_the_datapoint>",
-        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
-        "Value": {
-          "Value": <datapoint_value>,
-          "SourceTimestamp": "<timestamp>"
-        }
-      }
+      {
+        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
+        "DisplayName": "<name_of_the_datapoint>",
+        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
+        "Value": {
+          "Value": <datapoint_value>,
+          "SourceTimestamp": "<timestamp>"
+        }
+      }
     ]
     ```
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: fb6efad1f1c06349adb877516f5323d8b9ee45e8
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ec33ac469d33a07d00f379beef2db9f4405e4679
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272242"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631132"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guía sobre el lenguaje de especificación de redes neuronales de Net# para Azure Machine Learning Studio
 
@@ -388,7 +388,7 @@ En el ejemplo se muestran algunos comandos básicos como los siguientes:
 
 + La primera línea define el nivel de entrada (denominado `Data`). Cuando se usa la palabra clave `auto`, la red neuronal incluye automáticamente todas las columnas de características en los ejemplos de entrada. 
 + La segunda línea crea la capa oculta. El nombre `H` se asigna a la capa oculta, que tiene 200 nodos. Esta capa está conectada por completo a la capa de entrada.
-+ La tercera línea define la capa de salida (denominada `O`), que contiene 10 nodos de salida. Si la red neuronal se usa para la clasificación, hay un nodo de salida por clase. La palabra clave **sigmoid** indica que la función de salida se aplica a la capa de salida.
++ La tercera línea define la capa de salida (denominada `Out`), que contiene 10 nodos de salida. Si la red neuronal se usa para la clasificación, hay un nodo de salida por clase. La palabra clave **sigmoid** indica que la función de salida se aplica a la capa de salida.
 
 ### <a name="define-multiple-hidden-layers-computer-vision-example"></a>Definición de varias capas ocultas: ejemplo de visión de equipo
 

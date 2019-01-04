@@ -10,12 +10,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 80e39e845ab631ad5cc3ae8af9e2e42f09b521bf
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 2da6795e938f1a0c0ed0495fb169007126501eea
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342197"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753667"
 ---
 # <a name="troubleshooting-bing-speech"></a>Solución de problemas de Bing Speech
 
@@ -52,7 +52,7 @@ Puede ejecutar el comando siguiente para la comprobación. Tenga en cuenta que d
 > [!NOTE]
 > Reemplace `YOUR_SUBSCRIPTION_KEY` por su propia clave de suscripción.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -88,7 +88,7 @@ Este paso solo es necesario si usa el token de autorización para la autenticaci
 > [!NOTE]
 > Reemplace `YOUR_AUDIO_FILE` por la ruta de acceso del archivo de audio grabado previamente y `YOUR_ACCESS_TOKEN` por el token de autorización devuelto en el paso anterior.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 

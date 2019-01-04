@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/20/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 8c114ed137089e70899e601ebdc1d4d39f562601
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: ab3d4cbe8a200e91d02177e49446065cd9c228df
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43383100"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53609079"
 ---
 ## <a name="create-a-consumer-group"></a>Creación de un grupo de consumidores
 
@@ -41,7 +41,7 @@ Los pasos siguientes utilizan la CLI de Azure en Azure Cloud Shell para crear el
 
 [Azure Time Series Insights](../articles/time-series-insights/time-series-insights-overview.md) es un servicio de análisis, almacenamiento y visualización totalmente administrado que permite administrar los datos de serie temporal a escala de IoT en la nube. Para crear un entorno de Time Series Insights:
 
-1. Inicie sesión en el [Azure Portal](http://portal.azure.com/).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 1. Seleccione **Crear un recurso** > **Internet de las cosas** > **Time Series Insights**.
 

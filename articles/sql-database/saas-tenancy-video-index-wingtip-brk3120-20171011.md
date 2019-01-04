@@ -9,22 +9,22 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
-ms.reviewer: billgib
+ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 05/14/2018
-ms.openlocfilehash: ec3f286791a3a2c7a3bebd84ba17a11571e389f8
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: ad1ae537038c84aac7bebe40a1db124521933f3d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163980"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608909"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Vídeo indexado y anotado para la aplicación SaaS multiinquilinos mediante Azure SQL Database
 
 Este artículo es un índice anotado en las ubicaciones de tiempo de un vídeo de 81 minutos sobre modelos o patrones de inquilinos de SaaS. Este artículo le permite avanzar o retroceder en el vídeo hasta la parte que le interese. El vídeo explica las opciones de diseño principales de una aplicación de base de datos multiinquilino en la base de datos de SQL Azure. El vídeo incluye demostraciones, tutoriales de código de administración y, a veces, una cantidad mayor de detalles fundamentados en la experiencia que los que pueden encontrarse en nuestra documentación escrita.
 
 El vídeo amplifica la información de nuestra documentación escrita, que se encuentra en: 
-- *Conceptual:* [Multi-tenant SaaS database tenancy patterns][saas-concept-design-patterns-563e] (Patrones de arrendamiento de base de datos SaaS multiinquilino)
+- *Conceptual:* Multi-tenant SaaS database tenancy patterns[saas-concept-design-patterns-563e] (Patrones de arrendamiento de base de datos SaaS multiinquilino)
 - *Tutoriales:* [Aplicación SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
 
 En el vídeo y los artículos se describen las diferentes fases de creación de una aplicación multiinquilino en Azure SQL Database en la nube. Las características especiales de Azure SQL Database facilitan el desarrollo y la implementación de aplicaciones multiinquilino que son fáciles de administrar y de rendimiento confiable.
@@ -294,7 +294,7 @@ Al hacer clic en cualquier imagen de captura de pantalla se le dirigirá a la ub
 
 - [Entrada de blog, 22 de mayo de 2017][resource-blog-saas-patterns-app-dev-sql-db-768h]
 
-- *Conceptual:* [Multi-tenant SaaS database tenancy patterns][saas-concept-design-patterns-563e] (Patrones de arrendamiento de base de datos SaaS multiinquilino)
+- *Conceptual:* Multi-tenant SaaS database tenancy patterns[saas-concept-design-patterns-563e] (Patrones de arrendamiento de base de datos SaaS multiinquilino)
 
 - *Tutoriales:* [Aplicación SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
 

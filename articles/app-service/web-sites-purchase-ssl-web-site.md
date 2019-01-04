@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ff2fd2c9b66cc9c80087ab5009ee65c0ba73714b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 78b7668dee892841ced1a06626ff09a534a88b69
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268723"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714307"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Compra y configuración de un certificado SSL para Azure App Service
 
@@ -35,7 +35,7 @@ En este tutorial se muestra cómo proteger su aplicación web mediante la creaci
 Para completar esta guía paso a paso, debe:
 
 - [Crear una aplicación de App Service](/azure/app-service/)
-- [Asignar un nombre de dominio a la aplicación web](app-service-web-tutorial-custom-domain.md) o [comprarlo y configurarlo en Azure](custom-dns-web-site-buydomains-web-app.md)
+- [Asignar un nombre de dominio a la aplicación web](app-service-web-tutorial-custom-domain.md) o [comprarlo y configurarlo en Azure](manage-custom-dns-buy-domain.md)
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
@@ -91,7 +91,7 @@ Seleccione **Comprobación de App Service**. Puesto que ya ha asignado el domini
 > Se admiten cuatro tipos de métodos de comprobación de dominio: 
 > 
 > - **App Service**: es la opción más conveniente cuando el dominio ya está asignado a una aplicación App Service de la misma suscripción. Se aprovecha de que la aplicación App Service ya ha comprobado la propiedad del dominio.
-> - **Dominio**: se comprueba un [dominio de App Service que haya adquirido a través de Azure](custom-dns-web-site-buydomains-web-app.md). Azure agrega automáticamente el registro TXT de comprobación en su lugar y completa el proceso.
+> - **Dominio**: se comprueba un [dominio de App Service que haya adquirido a través de Azure](manage-custom-dns-buy-domain.md). Azure agrega automáticamente el registro TXT de comprobación en su lugar y completa el proceso.
 > - **Correo electrónico**: se comprueba el dominio mediante el envío de un correo electrónico al administrador de dominio. Cuando selecciona la opción, se proporcionan instrucciones.
 > - **Manual**: se comprueba el dominio ya sea con una página HTML (solo los certificados **estándar**) o un registro TXT de DNS. Cuando selecciona la opción, se proporcionan instrucciones.
 

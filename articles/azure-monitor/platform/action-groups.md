@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 432f1a89979829bd43596d0d6a3ab7a2a3bfb996
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2b427669fe692704343d5a3c2096df92cffb8d76
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336489"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584000"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 ## <a name="overview"></a>Información general ##
@@ -98,7 +98,7 @@ Rangos de direcciones IP de origen
     - 13.106.38.148
     - 13.106.57.196
 
-Para recibir actualizaciones sobre los cambios a estas direcciones IP, se recomienda configurar una [alerta de estado del servicio](./../../monitoring-and-diagnostics/monitoring-service-notifications.md) que supervise las notificaciones informativas sobre el servicio de grupos de acciones.
+Para recibir actualizaciones sobre los cambios a estas direcciones IP, se recomienda configurar una [alerta de estado del servicio](./../../azure-monitor/platform/service-notifications.md) que supervise las notificaciones informativas sobre el servicio de grupos de acciones.
 
 
 ## <a name="next-steps"></a>Pasos siguientes ##

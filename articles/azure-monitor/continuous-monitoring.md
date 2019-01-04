@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: fa5c3d65daa86a678ec278bc49759e1de7da7f0c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 2d58a39efca8733902d157083489e59bf22ef161
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386543"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002287"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Supervisión continua con Azure Monitor
 
@@ -33,8 +33,8 @@ Para obtener observabilidad en todo su entorno, debe habilitar la supervisión e
 
 - [Azure DevOps Projects](../devops-project/overview.md) ofrece una experiencia simplificada con su código existente y el repositorio de Git, o elegir una de las aplicaciones de ejemplo para crear una canalización de integración continua (CI) y entrega continua (CD) en Azure.
 - [La supervisión continua en su canalización de versión de DevOps](../application-insights/app-insights-vsts-continuous-monitoring.md) le permite programar o revertir su implementación en función de los datos de supervisión.
-- [Monitor de estado](../application-insights/app-insights-monitor-performance-live-website-now.md) le permite instrumentar una aplicación de .NET activa en Windows con Azure Application Insights sin tener que modificar ni volver a implementar el código.
-- Si tiene acceso al código de su aplicación, habilite la supervisión completa con [Application Insights](../application-insights/app-insights-overview.md) instalando el SDK de Application Insights de Azure Monitor para [.NET](../application-insights/quick-monitor-portal.md), [Java](../application-insights/app-insights-java-quick-start.md), [Node.js](../application-insights/app-insights-nodejs-quick-start.md) o [cualquier otro lenguaje de programación](../application-insights/app-insights-platforms.md). Esto le permite especificar eventos, métricas o vistas de página personalizados que son pertinentes para su aplicación y su empresa.
+- [Monitor de estado](../azure-monitor/app/monitor-performance-live-website-now.md) le permite instrumentar una aplicación de .NET activa en Windows con Azure Application Insights sin tener que modificar ni volver a implementar el código.
+- Si tiene acceso al código de su aplicación, habilite la supervisión completa con [Application Insights](../application-insights/app-insights-overview.md) instalando el SDK de Application Insights de Azure Monitor para [.NET](../application-insights/quick-monitor-portal.md), [Java](../application-insights/app-insights-java-quick-start.md), [Node.js](../application-insights/app-insights-nodejs-quick-start.md) o [cualquier otro lenguaje de programación](../azure-monitor/app/platforms.md). Esto le permite especificar eventos, métricas o vistas de página personalizados que son pertinentes para su aplicación y su empresa.
 
 
 
@@ -56,7 +56,7 @@ La [infraestructura como código](/devops/learn/what-is-infrastructure-as-code) 
 ##  <a name="combine-resources-in-azure-resource-groups"></a>Combinación de recursos en los grupos de recursos de Azure
 Una aplicación típica en Azure hoy incluye varios recursos como máquinas virtuales y App Services o microservicios hospedados en Cloud Services, clústeres de AKS o Service Fabric. Estas aplicaciones suelen usar dependencias como Event Hubs, Storage, SQL y Service Bus.
 
-- Combine recursos en los grupos de recursos de Azure para obtener una visibilidad completa en todos sus recursos que constituyen sus diversas aplicaciones. [Azure Monitor para grupos de recursos](../monitoring-and-diagnostics/resource-group-insights.md) proporciona una forma sencilla de hacer un seguimiento del mantenimiento y el rendimiento de toda su aplicación de pila completa y permite profundizar en los respectivos componentes para la realización de cualquier investigación o depuración.
+- Combine recursos en los grupos de recursos de Azure para obtener una visibilidad completa en todos sus recursos que constituyen sus diversas aplicaciones. [Azure Monitor para grupos de recursos](../azure-monitor/insights/resource-group-insights.md) proporciona una forma sencilla de hacer un seguimiento del mantenimiento y el rendimiento de toda su aplicación de pila completa y permite profundizar en los respectivos componentes para la realización de cualquier investigación o depuración.
 
 ## <a name="ensure-quality-through-continuous-deployment"></a>Garantía de calidad a través de la implementación continua
 Tanto la integración continua como la implementación continua le permite integrar e implementar cambios de código automáticamente en su aplicación en función de los resultados de las pruebas automatizadas. Optimiza el proceso de implementación y garantiza la calidad de cualquier cambio antes de pasar a la fase de producción.
@@ -74,7 +74,7 @@ Un aspecto fundamental de supervisión informa de forma proactiva a los administ
 - Defina las acciones para que las alertas usen los medios más eficaces para informar a sus administradores. Las [acciones para la notificación](platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) disponibles son SMS, correos electrónicos, notificaciones push o llamadas de voz.
 - Use acciones más avanzadas para [conectarse a su herramienta de ITSM](platform/itsmc-overview.md) u otros sistemas de administración de alertas a través de [webhooks](platform/activity-log-alerts-webhook.md).
 - Corrija también situaciones identificadas en alertas con [runbooks de Azure Automation](../automation/automation-webhooks.md) o [Logic Apps](/connectors/custom-connectors/create-webhook-trigger) que se pueden iniciar a partir de una alerta con webhooks. 
-- Use el [escalado automático](../monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule.md) para aumentar y reducir de forma dinámica sus recursos de proceso en función de las métricas recopiladas.
+- Use el [escalado automático](../azure-monitor/learn/tutorial-autoscale-performance-schedule.md) para aumentar y reducir de forma dinámica sus recursos de proceso en función de las métricas recopiladas.
 
 ## <a name="prepare-dashboards-and-workbooks"></a>Preparación de paneles y libros
 Garantizar que su desarrollo y operaciones tengan acceso a la misma telemetría y herramientas les permite ver patrones en todo su entorno y minimizar sus instancias de Mean Time To Detect (MTTD) y Mean Time to Restore (MTTR).

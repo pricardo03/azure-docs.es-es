@@ -7,16 +7,14 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 20d3d3d755a35927550064ddfdf3b983348f93d3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1cc91f55d3895f06176875cb9ae620685dc09a26
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53111143"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605558"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para la administración y la protección de las imágenes de contenedor en Azure Kubernetes Service (AKS)
-
-A medida que desarrolla y ejecuta aplicaciones en Azure Kubernetes Service (AKS), es importante tener en cuenta la seguridad de los contenedores. Los contenedores que incluyen imágenes base obsoletas o entorno de ejecución de la aplicación presentan un riesgo de seguridad y un posible vector de ataque. Para minimizar estos riesgos, debe integrar herramientas que buscan y corrigen errores en los contenedores.
 
 A medida que desarrolla y ejecuta aplicaciones en Azure Kubernetes Service (AKS), es importante tener en cuenta la seguridad de los contenedores y de sus imágenes. Los contenedores que incluyen imágenes base obsoletas o entornos de ejecución de la aplicación sin revisiones presentan un riesgo de seguridad y un posible vector de ataque. Para minimizar estos riesgos, debe integrar herramientas que busquen y corrijan errores en los contenedores tanto en el momento de la compilación como en el momento de la ejecución. Cuanto más temprano en el proceso se detecte la vulnerabilidad o la imagen de base desactualizada, más seguro será el clúster. En este artículo, *contenedores* se refiere tanto a las imágenes de contenedor almacenadas en un registro de contenedor como a los contenedores en ejecución.
 

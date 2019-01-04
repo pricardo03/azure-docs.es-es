@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 6a9f3fcb372606e7f608b5137fb1ed15376d72d9
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 6f6dac37d1114e8a9faa16c07fd5c14a90a5b0fb
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407344"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976739"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guía para desarrolladores de Java para App Service en Linux
 
@@ -28,7 +28,7 @@ Esta guía incluye conceptos clave e instrucciones para los desarrolladores de J
 
 ## <a name="logging-and-debugging-apps"></a>Registro y depuración de aplicaciones
 
-Encontrará informes de rendimiento, visualizaciones de tráfico y comprobaciones de mantenimiento de cada aplicación a través de Azure Portal. Consulte [Introducción a los diagnósticos de Azure App Service](/azure/app-service/app-service-diagnostics) para obtener más información sobre cómo acceder a estas herramientas de diagnóstico y cómo usarlas.
+Encontrará informes de rendimiento, visualizaciones de tráfico y comprobaciones de mantenimiento de cada aplicación a través de Azure Portal. Consulte [Introducción a los diagnósticos de Azure App Service](/azure/app-service/overview-diagnostics) para obtener más información sobre cómo acceder a estas herramientas de diagnóstico y cómo usarlas.
 
 ## <a name="application-performance-monitoring"></a>Supervisión de rendimiento de aplicaciones
 
@@ -54,11 +54,11 @@ A continuación, transmita registros a la consola mediante `az webapp log tail`:
 az webapp log tail --name webappname --resource-group myResourceGroup
 ```
 
-Para obtener más información, consulte el apartado sobre el [streaming de registros con la CLI de Azure](../web-sites-enable-diagnostic-log.md#streaming-with-azure-cli).
+Para obtener más información, consulte el apartado sobre el [streaming de registros con la CLI de Azure](../troubleshoot-diagnostic-logs.md#streaming-with-azure-cli).
 
 ### <a name="app-logging"></a>Registro de aplicaciones
 
-Habilite el [registro de aplicaciones](/azure/app-service/web-sites-enable-diagnostic-log#enablediag) a través de Azure Portal o la [CLI de Azure](/cli/azure/webapp/log#az-webapp-log-config) para configurar App Service para que escriba los flujos de salida y de error de la consola estándar en el sistema de archivos local o en Azure Blob Storage. El registro en el sistema de archivos local de App Service se deshabilita 12 horas después de su configuración. Si necesita una retención más prolongada, configure la aplicación para escribir la salida en un contenedor de Blob Storage.
+Habilite el [registro de aplicaciones](/azure/app-service/troubleshoot-diagnostic-logs#enablediag) a través de Azure Portal o la [CLI de Azure](/cli/azure/webapp/log#az-webapp-log-config) para configurar App Service para que escriba los flujos de salida y de error de la consola estándar en el sistema de archivos local o en Azure Blob Storage. El registro en el sistema de archivos local de App Service se deshabilita 12 horas después de su configuración. Si necesita una retención más prolongada, configure la aplicación para escribir la salida en un contenedor de Blob Storage.
 
 Si la aplicación usa [Logback](https://logback.qos.ch/) o [Log4j](https://logging.apache.org/log4j) para el seguimiento, puede reenviar estos seguimientos para su revisión en Azure Application Insights mediante las instrucciones de configuración del marco de registro en [Exploración de los registros de seguimiento de Java en Application Insights](/azure/application-insights/app-insights-java-trace-logs). 
 
@@ -173,9 +173,6 @@ Para configurar Tomcat para que use Java Database Connectivity (JDBC) o Java Per
 
 O bien establecer las variables de entorno en la hoja "Configuración de la aplicación" de Azure Portal.
 
->[!NOTE]
-> Si usa Azure Database for Postgres, reemplace `ssl=true` por `sslmode=require` en la cadena de conexión de JDBC.
-
 A continuación, determine si el origen de datos debe estar disponible para una aplicación o para todas las aplicaciones que se ejecutan en el servlet de Tomcat.
 
 #### <a name="for-application-level-data-sources"></a>Para los orígenes de datos de nivel de aplicación: 
@@ -244,7 +241,7 @@ A continuación, determine si el origen de datos debe estar disponible para una 
 
 #### <a name="finally-place-the-driver-jars-in-the-tomcat-classpath-and-restart-your-app-service"></a>Por último, coloque los archivos JAR de controlador en la classpath de Tomcat y reinicie App Service: 
 
-1. Asegúrese de que los archivos del controlador JDBC estén disponibles para el cargador de clases de Tomcat. Para ello, colóquelos en el directorio `/home/tomcat/lib` (cree el directorio si no existe). Para cargar estos archivos en su instancia de App Service, realice los pasos siguientes:  
+1. Asegúrese de que los archivos del controlador JDBC estén disponibles para el cargador de clases de Tomcat. Para ello, colóquelos en el directorio `/home/tomcat/lib`. (cree el directorio si no existe). Para cargar estos archivos en su instancia de App Service, realice los pasos siguientes:  
     1. Instale la extensión webapp de Azure App Service:
 
       ```azurecli-interactive
@@ -259,7 +256,7 @@ A continuación, determine si el origen de datos debe estar disponible para una 
 
     3. Establezca la conexión al puerto de tunelización local con el cliente SFTP y cargue los archivos en la carpeta `/home/tomcat/lib`.
 
-    Como alternativa, puede usar un cliente FTP para cargar el controlador JDBC. Siga estas [instrucciones para obtener las credenciales de FTP](https://docs.microsoft.com/azure/app-service/app-service-deployment-credentials).
+    Como alternativa, puede usar un cliente FTP para cargar el controlador JDBC. Siga estas [instrucciones para obtener las credenciales de FTP](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
 
 2. Si ha creado un origen de datos de nivel de servidor, reinicie la aplicación App Service de Linux. Tomcat restablecerá `CATALINA_HOME` a `/home/tomcat/conf` y usará la configuración actualizadas.
 

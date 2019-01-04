@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: 3f88965e0d48a9ed3e9a91b4df42a79b83d2a79b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: a198fa7fe5e1ed81e30987990359f9ecedbe225b
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313333"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631556"
 ---
 # <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Creación de un índice para documentos en varios idiomas en Azure Search
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ A continuación, se muestran capturas de pantalla de las hojas de Azure Portal p
 ![][2]
 *Seleccione uno de los analizadores compatibles para cada campo*.
 
-De forma predeterminada, todos los campos en los que se puede buscar usan el [analizador Standard Lucene](http://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) , que no depende del idioma. Para ver la lista completa de los analizadores compatibles, consulte [Compatibilidad de idioma (API de REST de servicio Azure Search)](https://msdn.microsoft.com/library/azure/dn879793.aspx).
+De forma predeterminada, todos los campos en los que se puede buscar usan el [analizador Standard Lucene](https://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) , que no depende del idioma. Para ver la lista completa de los analizadores compatibles, consulte [Compatibilidad de idioma (API de REST de servicio Azure Search)](https://msdn.microsoft.com/library/azure/dn879793.aspx).
 
 Una vez que el analizador de idioma está activado para un campo, se usará con cada solicitud de búsqueda e indexación para ese campo. Cuando se emite una consulta en varios campos con diferentes analizadores, la consulta se procesará de manera independiente por los analizadores correctos para cada campo.
 
@@ -81,7 +81,7 @@ A veces se desconoce el idioma del agente que emite una consulta, en cuyo caso l
 
 `https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2017-11-11`
 
-Si es desarrollador de. NET, tenga en cuenta que puede configurar los analizadores de idioma mediante el [SDK de Azure Search para .NET](http://www.nuget.org/packages/Microsoft.Azure.Search). La última versión incluye compatibilidad con los analizadores de idioma de Microsoft.
+Si es desarrollador de. NET, tenga en cuenta que puede configurar los analizadores de idioma mediante el [SDK de Azure Search para .NET](https://www.nuget.org/packages/Microsoft.Azure.Search). La última versión incluye compatibilidad con los analizadores de idioma de Microsoft.
 
 <!-- Image References -->
 [1]: ./media/search-language-support/AnalyzerTab.png

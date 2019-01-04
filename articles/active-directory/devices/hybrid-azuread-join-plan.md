@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b22f79195a7246c87a8d5d5b4b5e012cc30a62dd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: c951d4f646fdaec9731ec4b6320e5f625ad91a42
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274571"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993301"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Planeamiento de la implementación de unión a Azure Active Directory híbrido
 
@@ -146,9 +146,9 @@ Desde la versión 1.1.819.0, Azure AD Connect proporciona un asistente para conf
 
 ## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Compatibilidad con el identificador de inicio de sesión alternativo en la unión a Azure AD híbrido
 
-La unión a Azure AD híbrido para Windows 10 proporciona compatibilidad limitada para los [identificadores de inicio de sesión alternativos](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) dependiendo del tipo de identificador de inicio de sesión alternativo, [el método de autenticación](https://docs.microsoft.com/en-us/azure/security/azure-ad-choose-authn), el tipo de dominio y la versión de Windows 10. Hay dos tipos de identificadores de inicio de sesión alternativos que pueden existir en su entorno.
+La unión a Azure AD híbrido para Windows 10 proporciona compatibilidad limitada para los [identificadores de inicio de sesión alternativos](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) dependiendo del tipo de identificador de inicio de sesión alternativo, [el método de autenticación](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), el tipo de dominio y la versión de Windows 10. Hay dos tipos de identificadores de inicio de sesión alternativos que pueden existir en su entorno.
 
- - Identificador de inicio de sesión alternativo enrutable: Un identificador de inicio de sesión alternativo enrutable tiene un dominio comprobado válido, que está registrado con un registrador de dominios. Por ejemplo, si contoso.com es el dominio principal, contoso.org y contoso.co.uk son dominios válidos que pertenezcan a Contoso y [están comprobados en Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain)
+ - Identificador de inicio de sesión alternativo enrutable: Un identificador de inicio de sesión alternativo enrutable tiene un dominio comprobado válido, que está registrado con un registrador de dominios. Por ejemplo, si contoso.com es el dominio principal, contoso.org y contoso.co.uk son dominios válidos que pertenezcan a Contoso y [están comprobados en Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
  
  - Identificador de inicio de sesión alternativo no enrutable: Un identificador de inicio de sesión alternativo no enrutable no tiene un dominio comprobado. Es aplicable solo dentro de la red privada de su organización. Por ejemplo, si contoso.com es el dominio principal, contoso.local no es un dominio comprobable en Internet, pero se utiliza dentro de la red de Contoso.
  

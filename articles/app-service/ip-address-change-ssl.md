@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4de20ba46d3c16d6cd7bde8e17efb0a6212bc771
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6c8c86ff6212acc31e961d6ae62836ca2b7b7380
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270797"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714226"
 ---
 # <a name="how-to-prepare-for-an-ssl-ip-address-change"></a>Preparación de un cambio de dirección IP de SSL
 
@@ -52,4 +52,4 @@ Si recibe una notificación indicándole que se van a cambiar las direcciones IP
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo se explica cómo preparar un cambio de dirección IP que Azure inició. Para más información sobre las direcciones IP en Azure App Service, consulte [direcciones IP de SSL en Azure App Service](app-service-ip-addresses.md).
+En este artículo se explica cómo preparar un cambio de dirección IP que Azure inició. Para más información sobre las direcciones IP en Azure App Service, consulte [direcciones IP de SSL en Azure App Service](overview-inbound-outbound-ips.md).

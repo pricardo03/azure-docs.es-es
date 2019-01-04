@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: e11c34b2587dcb7602161d36ba4deda1dca73c82
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 5e5a53027126f96c27a6a6f0abb8aeacb94d7c11
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720981"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000378"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Supervisar el rendimiento de aplicaciones web
 
@@ -32,11 +32,11 @@ En el lado del cliente, Application Insights puede obtener datos de telemetría 
 ## <a name="setup"></a>Configuración de la supervisión de rendimiento
 Si todavía no ha agregado Application Insights a un proyecto (es decir, si no dispone de ApplicationInsights.config), puede comenzar con uno de estos procedimientos:
 
-* [Aplicaciones web ASP.NET](app-insights-asp-net.md)
-  * [Agregar supervisión de excepciones](app-insights-asp-net-exceptions.md)
-  * [Agregar supervisión de dependencias](app-insights-monitor-performance-live-website-now.md)
-* [Aplicaciones web J2EE](app-insights-java-get-started.md)
-  * [Agregar supervisión de dependencias](app-insights-java-agent.md)
+* [Aplicaciones web ASP.NET](../azure-monitor/app/asp-net.md)
+  * [Agregar supervisión de excepciones](../azure-monitor/app/asp-net-exceptions.md)
+  * [Agregar supervisión de dependencias](../azure-monitor/app/monitor-performance-live-website-now.md)
+* [Aplicaciones web J2EE](../azure-monitor/app/java-get-started.md)
+  * [Agregar supervisión de dependencias](../azure-monitor/app/java-agent.md)
 
 ## <a name="view"></a>Exploración de las métricas de rendimiento
 En el [Portal de Azure](https://portal.azure.com), busque el recurso de Application Insights que configuró para la aplicación. La hoja de información general muestra los datos de rendimiento básicos:
@@ -152,14 +152,14 @@ La experiencia de investigación de rendimiento muestra conclusiones significati
 
 <!--Link references-->
 
-[availability]: app-insights-monitor-web-app-availability.md
-[diagnostic]: app-insights-diagnostic-search.md
-[greenbrown]: app-insights-asp-net.md
+[availability]: ../azure-monitor/app/monitor-web-app-availability.md
+[diagnostic]: ../azure-monitor/app/diagnostic-search.md
+[greenbrown]: ../azure-monitor/app/asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
-[redfield]: app-insights-monitor-performance-live-website-now.md
+[redfield]: ../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
-[livestream]: app-insights-live-stream.md
+[livestream]: ../azure-monitor/app/live-stream.md
 [snapshot]: app-insights-snapshot-debugger.md
 
 

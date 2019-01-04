@@ -15,12 +15,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: bbba7898329af9d9bca9d35883e3cb4097ca3de4
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 33e968ac608c393d65f69bfd6abbc0d205fb9bd9
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968619"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718884"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Trabajar con el SDK del servidor back-end de .NET para Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -140,7 +140,7 @@ Los siguientes paquetes de extensión basados en NuGet proporcionan diversas car
 * [Microsoft.Azure.Mobile.Server.Login] proporciona el método AppServiceLoginHandler.CreateToken(), que es un método estático usado en escenarios de autenticación personalizada.
 
 ## <a name="publish-server-project"></a>Instrucciones: Publicación del proyecto de servidor
-En esta sección se muestra cómo publicar el proyecto de back-end de .NET desde Visual Studio. También puede implementar el proyecto de back-end con [Git](../app-service/app-service-deploy-local-git.md) o con cualquiera de los demás métodos que están disponibles allí.
+En esta sección se muestra cómo publicar el proyecto de back-end de .NET desde Visual Studio. También puede implementar el proyecto de back-end con [Git](../app-service/deploy-local-git.md) o con cualquiera de los demás métodos que están disponibles allí.
 
 1. En Visual Studio, vuelva a generar el proyecto para restaurar los paquetes de NuGet.
 2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto y luego haga clic en **Publicar**. La primera vez que publique, debe definir un perfil de publicación. Si ya tiene un perfil definido, puede seleccionarlo y hacer clic en **Publicar**.
@@ -214,7 +214,7 @@ De forma predeterminada, Azure Mobile Apps devuelve 50 registros por solicitud. 
 
 Asegúrese de que el valor de PageSize sea igual o mayor que el tamaño solicitado por el cliente.  Consulte la documentación de procedimientos para obtener más información sobre cómo cambiar el tamaño de página de cliente.
 
-## <a name="how-to-define-a-custom-api-controller"></a>Instrucciones: Cómo definir un controlador de API personalizada
+## <a name="how-to-define-a-custom-api-controller"></a>Control de Cómo definir un controlador de API personalizada
 El controlador de API personalizada proporciona la funcionalidad más básica al back-end de la aplicación móvil mediante la exposición de un extremo. Puede registrar un controlador de API específico de dispositivos móviles con el atributo [MobileAppController]. El atributo `MobileAppController` registra la ruta, configura el serializador JSON de Mobile Apps y activa la [comprobación de la versión del cliente](app-service-mobile-client-and-server-versioning.md).
 
 1. En Visual Studio, haga clic con el botón derecho en la carpeta Controladores y, luego, haga clic en **Agregar** > **Controladores**, seleccione **Controlador de Web API 2&mdash;Vacío** y haga clic en **Agregar**.
@@ -237,7 +237,7 @@ El controlador de API personalizada proporciona la funcionalidad más básica al
 
 También puede utilizar el método de extensión `UseDefaultConfiguration()`, en lugar de `MapApiControllers()`. Los clientes pueden tener acceso a un controlador aunque este no tenga un elemento **MobileAppControllerAttribute** aplicado, pero puede que no lo consuman correctamente si usan un SDK de cliente de aplicación móvil.
 
-## <a name="how-to-work-with-authentication"></a>Instrucciones: Trabajar con la autenticación
+## <a name="how-to-work-with-authentication"></a>Control de Trabajar con la autenticación
 Azure Mobile Apps usa la autenticación o autorización de App Service para proteger su back-end móvil.  En esta sección se muestra cómo realizar las siguientes tareas relacionadas con la autenticación en el proyecto de servidor back-end. NET:
 
 * [Instrucciones: Cómo agregar autenticación a un proyecto de servidor](#add-auth)
@@ -432,15 +432,15 @@ Cuando se registre para notificaciones push desde un cliente autenticado, asegú
 Azure App Service proporciona varias técnicas de depuración y solución de problemas para las aplicaciones ASP.NET.
 
 * [Supervisión de un servicio de Azure App Service](../app-service/web-sites-monitor.md)
-* [Habilitación del registro de diagnóstico para aplicaciones web en Azure App Service](../app-service/web-sites-enable-diagnostic-log.md)
-* [Solución de problemas de Azure App Service en Visual Studio](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md)
+* [Habilitación del registro de diagnóstico para aplicaciones web en Azure App Service](../app-service/troubleshoot-diagnostic-logs.md)
+* [Solución de problemas de Azure App Service en Visual Studio](../app-service/troubleshoot-dotnet-visual-studio.md)
 
 ### <a name="logging"></a>Registro
 Puede escribir en registros de diagnóstico de App Service mediante la escritura de seguimiento estándar de ASP.NET. Antes de poder escribir en los registros, debe habilitar los diagnósticos en su back-end de aplicación móvil.
 
 Para habilitar los diagnósticos y escribir en los registros:
 
-1. Siga los pasos que se indican en [Habilitación de diagnósticos](../app-service/web-sites-enable-diagnostic-log.md#enablediag).
+1. Siga los pasos que se indican en [Habilitación de diagnósticos](../app-service/troubleshoot-diagnostic-logs.md#enablediag).
 2. Agregue la siguiente instrucción using en el archivo de código:
 
         using System.Web.Http.Tracing;
@@ -449,7 +449,7 @@ Para habilitar los diagnósticos y escribir en los registros:
         ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
         traceWriter.Info("Hello, World");
 4. Vuelva a publicar el proyecto de servidor y acceda al back-end de aplicación móvil para ejecutar la ruta de acceso del código con el registro.
-5. Descargue y evalúe los registros, como se describe en [Instrucciones: Descarga de registros](../app-service/web-sites-enable-diagnostic-log.md#download).
+5. Descargue y evalúe los registros, como se describe en [Instrucciones: Descarga de registros](../app-service/troubleshoot-diagnostic-logs.md#download).
 
 ### <a name="local-debug"></a>Depuración local con autenticación
 Puede ejecutar la aplicación localmente para probar los cambios antes de publicarlos en la nube. Para la mayoría de los servidores back-end de Azure Mobile Apps, presione *F5* mientras está en Visual Studio. Sin embargo, hay algunas consideraciones adicionales cuando se usa la autenticación.

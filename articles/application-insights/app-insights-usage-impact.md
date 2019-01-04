@@ -13,12 +13,12 @@ ms.date: 01/25/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 6bc18d73f66c1ede777d579b764127f034d9f0ca
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 9b987ccd17f2060eea125a5d384446cec24fb68a
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725733"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969172"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Análisis de impacto con Application Insights
 
@@ -35,7 +35,7 @@ Pero analizar el rendimiento es solo un subconjunto de las capacidades de Impact
 ![Captura de pantalla de la conversión por exploradores](./media/app-insights-usage-impact/0004-browsers.png)
 
 > [!NOTE]
-> El recurso de Application Insights debe contener vistas de páginas o eventos personalizados para poder utilizar la herramienta Impacto. [Aprenda a configurar la aplicación para que recopile vistas de página automáticamente con el SDK de JavaScript de Application Insights](app-insights-javascript.md). También es importante tener en cuenta que, puesto que va a analizar correlaciones, el tamaño del ejemplo importa.
+> El recurso de Application Insights debe contener vistas de páginas o eventos personalizados para poder utilizar la herramienta Impacto. [Aprenda a configurar la aplicación para que recopile vistas de página automáticamente con el SDK de JavaScript de Application Insights](../azure-monitor/app/javascript.md). También es importante tener en cuenta que, puesto que va a analizar correlaciones, el tamaño del ejemplo importa.
 >
 >
 

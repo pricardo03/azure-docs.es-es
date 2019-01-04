@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/12/2016
 ms.author: kasing
-ms.openlocfilehash: 942141fad09e6233efc7f850212a73f8a39c163c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b7fafa148417ba1667ec0277b414105f95e428ce
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "30918312"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971792"
 ---
 # <a name="manage-your-virtual-machines-by-using-azure-powershell"></a>Administración de las máquinas virtuales con Azure PowerShell
 > [!IMPORTANT] 
@@ -42,7 +42,7 @@ Es una tarea básica que utilizará a menudo. Utilícelo para obtener informaci�
 
 Para obtener información acerca de la máquina virtual, ejecute este comando y reemplace todo el contenido de las comillas, incluidos los caracteres < y >:
 
-     Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
+    Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 Para almacenar la salida en una variable $vm, ejecute:
 
@@ -54,7 +54,7 @@ Ejecute estos comandos:
 > [!NOTE]
 > Puede obtener el nombre de la máquina virtual y del servicio de nube en la presentación del comando **Get-AzureVM** .
 > 
-> $svcName = "<cloud service name>" $vmName = "<virtual machine name>" $localPath = "<ubicación de unidad y carpeta para almacenar el archivo RDP descargado, ejemplo: c:\temp >" $localFile = $localPath + "\" + $vmname + ".rdp" Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
+> $svcName = `"<cloud service name>"` $vmName = `"<virtual machine name>"` $localPath = `"<drive and folder location to store the downloaded RDP file, example: c:\temp >"` $localFile = $localPath + "\" + $vmname + ".rdp" Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
 > 
 > 
 
@@ -64,7 +64,7 @@ Ejecute este comando:
     Stop-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 > [!IMPORTANT]
-> Utilice este parámetro para mantener la IP virtual (VIP) del servicio de nube en caso de que sea la última máquina virtual en ese servicio en la nube. <br><br> Si utiliza el parámetro StayProvisioned, se le facturará por la máquina virtual.
+> Utilice este parámetro para mantener la IP virtual (VIP) del servicio de nube en caso de que sea la última máquina virtual en ese servicio en la nube. <br><br>  Si utiliza el parámetro StayProvisioned, se le facturará por la máquina virtual.
 > 
 > 
 

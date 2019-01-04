@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: e9309f8cb46b31ded46b705308465ac6f6c89204
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: c2827a4badd61aeb8de556795834dee39769e85e
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585193"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554510"
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>Habilitación de la CLI de Azure para usuarios de Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Puede proporcionar el certificado de CA raíz a los usuarios de Azure Stack para que puedan usar la CLI de Azure en sus equipos de desarrollo. Los usuarios necesitan el certificado para administrar recursos a través de la CLI.
 
@@ -38,7 +38,7 @@ En las secciones siguientes se explica cómo obtener estos valores.
 El certificado de CA raíz de Azure Stack se encuentra en el kit de desarrollo y en una máquina virtual del inquilino que se ejecuta en el entorno del kit de desarrollo. Para exportar el certificado raíz de Azure Stack en formato PEM, inicie sesión en el kit de desarrollo o la máquina virtual del inquilino y ejecute el script siguiente:
 
 ```powershell
-$label = "AzureStackSelfSignedRootCert"
+$label = "<Your Azure Stack CA root certificate name>"
 Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
 $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
 if (-not $root)

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: ce2391014eb5e15650c0a81ebb8e2fd4a08ca96b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 0a2ccdc6b02e9d348517bee95306ffc88d9ccd98
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139231"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599951"
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>Implementación de una puerta de enlace de perímetro en Windows o Linux para el acelerador de la solución de factoría conectada
 
@@ -70,7 +70,7 @@ Para más información, consulte la referencia del motor de Docker [Use volumes]
 
 Antes de instalar los componentes OPC, realice los pasos siguientes para preparar su entorno:
 
-1. Para realizar la implementación de la puerta de enlace, necesitará la cadena de conexión  **iothubowner**  de IoT Hub en la implementación de factoría conectada. En  [Azure Portal](http://portal.azure.com/), vaya a su instancia de IoT Hub en el grupo de recursos que creó cuando implementó la solución de factoría conectada. Haga clic en  **Directivas de acceso compartido** para acceder a la cadena de conexión  **iothubowner** :
+1. Para realizar la implementación de la puerta de enlace, necesitará la cadena de conexión  **iothubowner**  de IoT Hub en la implementación de factoría conectada. En  [Azure Portal](https://portal.azure.com/), vaya a su instancia de IoT Hub en el grupo de recursos que creó cuando implementó la solución de factoría conectada. Haga clic en  **Directivas de acceso compartido** para acceder a la cadena de conexión  **iothubowner** :
 
     ![Búsqueda de la cadena de conexión IoT Hub](./media/iot-accelerators-connected-factory-gateway-deployment/image2.png)
 

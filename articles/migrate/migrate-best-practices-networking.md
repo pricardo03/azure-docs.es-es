@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: raynew
-ms.openlocfilehash: 1493eb6978b00771aa8ed4d8cfc28c37a9dde5b6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c6a995c20beefb3a939aa1421eed537137037922
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139755"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994970"
 ---
 # <a name="best-practices-to-set-up-networking-for-workloads-migrated-to-azure"></a>Procedimientos recomendados para la configuración de redes para las cargas de trabajo migradas a Azure
 
@@ -118,7 +118,7 @@ Azure agrega un servidor DNS de forma predeterminada al implementar una red virt
 
 **Más información:**
 - [Obtenga más información sobre](https://docs.microsoft.com/azure/migrate/contoso-migration-infrastructure) la resolución de nombres al usar su propio servidor DNS.
-- [Obtenga más información sobre](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-subscriptions) las reglas y restricciones de nomenclatura DNS.
+- [Obtenga más información sobre](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-subscriptions) las reglas y restricciones de nomenclatura DNS.
 
 
 ## <a name="best-practice-set-up-availability-zones"></a>Procedimiento recomendado: Configuración de zonas de disponibilidad
@@ -336,7 +336,7 @@ Las etiquetas de servicio eliminan el trabajo manual de asignar una regla a grup
 
 **Más información:**
 
-- [Obtenga información sobre](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview) los grupos de seguridad de red (NSG).
+- [Obtenga información sobre](https://docs.microsoft.com/azure/virtual-network/security-overview) los grupos de seguridad de red (NSG).
 - [Revise](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) las etiquetas de servicio disponibles para los NSG.
 
 

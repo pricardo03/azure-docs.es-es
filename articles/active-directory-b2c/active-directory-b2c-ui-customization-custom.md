@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/18/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b0e24da86d253139a85e792bf3c59d777cf5db6a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: cc96da060a7a91e0e3118c436a93bdafca3b0372
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833954"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633017"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalización de la interfaz de usuario de la aplicación mediante una directiva personalizada en Azure Active Directory B2C
 
@@ -50,9 +50,6 @@ Puede crear contenido HTML con el nombre de la marca del producto en el título.
    </body>
    </html>
    ```
-
-   >[!NOTE]
-   >Por motivos de seguridad, el uso de JavaScript está bloqueado para la personalización.
 
 2. Pegue el fragmento de código copiado en un editor de texto y guarde el archivo como *customize-ui.html*.
 
@@ -124,7 +121,7 @@ Para configurar la personalización de la interfaz de usuario, se copia **Conten
 3. Abra el archivo de extensión. Por ejemplo, *TrustFrameworkExtensions.xml*. Busque el elemento **BuildingBlocks**. Si el elemento no existe, agréguelo.
 4. Pegue todo el contenido del elemento **ContentDefinitions** que ha copiado como elemento secundario del elemento **BuildingBlocks**. 
 5. Busque el elemento **ContentDefinition** que contenga `Id="api.signuporsignin"` en el XML que ha copiado.
-6. Cambie el valor de **LoadUri** a la dirección URL del archivo HTML que cargó en el almacenamiento. Por ejemplo: https://mystore1.azurewebsites.net/b2c/customize-ui.html.
+6. Cambie el valor de **LoadUri** a la dirección URL del archivo HTML que cargó en el almacenamiento. Por ejemplo, https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html.
     
     La directiva personalizada debería ser similar a la siguiente:
 

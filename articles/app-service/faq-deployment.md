@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 833b655246035fa3eb9a820316a95b73eed5b2bd
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 07d233ba50f4253b4ea3097748b9c58142e08a91
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388694"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53549435"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre la implementación en Web Apps en Azure
 
@@ -36,11 +36,11 @@ Aquí tiene algunas opciones para publicar código de aplicaciones web:
 *   Realice la implementación con Visual Studio. Si dispone de la solución de Visual Studio, haga clic con el botón derecho en el proyecto de aplicación web y seleccione **Publicar**.
 *   Realice la implementación mediante un cliente FTP. En Azure Portal, descargue el perfil de publicación para la aplicación web en la que quiere implementar el código. Después, cargue los archivos en \site\wwwroot con las mismas credenciales FTP del perfil de publicación.
 
-Para obtener más información, vea cómo [implementar la aplicación en App Service](app-service-deploy-local-git.md).
+Para obtener más información, vea cómo [implementar la aplicación en App Service](deploy-local-git.md).
 
 ## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this"></a>Veo un mensaje de error al intentar implementar desde Visual Studio. ¿Cómo se resuelve este problema?
 
-Si ve el mensaje siguiente, es posible que esté usando una versión anterior del SDK: “Error during deployment for resource 'YourResourceName' in resource group 'YourResourceGroup': MissingRegistrationForLocation: The subscription is not registered for the resource type 'components' in the location 'Central US'. Please re-register for this provider in order to have access to this location.” (Error al implementar el recurso "NombreDeSuRecurso" en el grupo de recursos "SuGrupoDeRecursos": MissingRegistrationForLocation: la suscripción no está registrada para el tipo de recurso "component" en la ubicación Centro de EE. UU. Vuelva a registrarse en este proveedor para tener acceso a esta ubicación.)" 
+Si ve el mensaje siguiente, es posible que esté usando una versión anterior del SDK: “Error during deployment for resource 'YourResourceName' in resource group 'YourResourceGroup': MissingRegistrationForLocation: The subscription is not registered for the resource type 'components' in the location 'Central US'. Vuelva a registrar este proveedor a fin de obtener acceso a esta ubicación". 
 
 Para resolver este error, actualice al [SDK más reciente](https://azure.microsoft.com/downloads/). Si ve este mensaje y tiene el SDK más reciente, envíe una solicitud de soporte técnico.
 
@@ -51,7 +51,7 @@ En el tutorial [Creación de una aplicación web ASP.NET en Azure](app-service-w
 
 ## <a name="what-are-the-different-types-of-deployment-credentials"></a>¿Cuáles son los distintos tipos de credenciales de implementación?
 
-App Service admite dos tipos de credenciales para la implementación de GIT local y la implementación FTP/S. Para obtener más información sobre cómo configurar las credenciales de implementación, vea [Configuración de credenciales de implementación para App Service](app-service-deployment-credentials.md).
+App Service admite dos tipos de credenciales para la implementación de GIT local y la implementación FTP/S. Para obtener más información sobre cómo configurar las credenciales de implementación, vea [Configuración de credenciales de implementación para App Service](deploy-configure-credentials.md).
 
 ## <a name="what-is-the-file-or-directory-structure-of-my-app-service-web-app"></a>¿Cuál es la estructura de archivos o directorios de mi aplicación web de App Service?
 
@@ -63,7 +63,7 @@ Si ve este mensaje, es probable que se haya topado con una cuota de disco en el 
 
 ## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a>¿Cómo se configura la implementación continua para la aplicación web de App Service?
 
-Puede configurar la implementación continua desde varios recursos, incluidos Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox y otros repositorios de GIT. Estas opciones están disponibles en el portal. El tutorial [Implementación continua en App Service](app-service-continuous-deployment.md) es un recurso muy útil en el que se explica cómo se configura la implementación continua.
+Puede configurar la implementación continua desde varios recursos, incluidos Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox y otros repositorios de GIT. Estas opciones están disponibles en el portal. El tutorial [Implementación continua en App Service](deploy-continuous-deployment.md) es un recurso muy útil en el que se explica cómo se configura la implementación continua.
 
 ## <a name="how-do-i-troubleshoot-issues-with-continuous-deployment-from-github-and-bitbucket"></a>¿Cómo se solucionan los problemas relacionados con la implementación continua desde GitHub y Bitbucket?
 
@@ -100,4 +100,4 @@ La implementación de código continua para ambas opciones depende de los flujos
 
 ## <a name="how-do-i-use-ftp-or-ftps-to-deploy-my-app-to-app-service"></a>¿Cómo se usa FTP o FTPS para implementar la aplicación en App Service?
 
-Para obtener información sobre el uso de FTP o FTPS para implementar la aplicación web en App Service, vea [Implementación de la aplicación en App Service mediante FTP/S](app-service-deploy-ftp.md).
+Para obtener información sobre el uso de FTP o FTPS para implementar la aplicación web en App Service, vea [Implementación de la aplicación en App Service mediante FTP/S](deploy-ftp.md).

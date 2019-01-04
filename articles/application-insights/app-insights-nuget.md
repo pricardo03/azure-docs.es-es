@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: reference
 ms.date: 10/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 76cdd4bd4d95c7c11906f9c02a0f5cfa2326390e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: d8d48a41f9100abc3bc8ba306c766d9511f80026
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000774"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972080"
 ---
 # <a name="application-insights-nuget-packages"></a>Paquetes NuGet de Application Insights
 
@@ -70,7 +70,7 @@ A continuación se encuentra la lista actual de los paquetes NuGet de versión e
 | Microsoft.ApplicationInsights.Agent_x64 | 2.2.1 |  Habilita la recopilación de datos en tiempo de ejecución para aplicaciones x64 | [Descargar paquete](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x64/) |
 | Microsoft.ApplicationInsights.Agent_x86 | 2.2.1 |  Habilita la recopilación de datos en tiempo de ejecución para aplicaciones x86. | [Descargar paquete](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x86/) |
 
-Estos paquetes forman parte de la funcionalidad básica de la supervisión en tiempo de ejecución en [Monitor de estado](app-insights-monitor-performance-live-website-now.md). No necesita descargar estos paquetes directamente; use solo el instalador del Monitor de estado. Si desea obtener más información sobre cómo funcionan estos paquetes en segundo plato, esta [entrada de blog](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/) de uno de nuestros desarrolladores es un buen punto de partida.
+Estos paquetes forman parte de la funcionalidad básica de la supervisión en tiempo de ejecución en [Monitor de estado](../azure-monitor/app/monitor-performance-live-website-now.md). No necesita descargar estos paquetes directamente; use solo el instalador del Monitor de estado. Si desea obtener más información sobre cómo funcionan estos paquetes en segundo plato, esta [entrada de blog](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/) de uno de nuestros desarrolladores es un buen punto de partida.
 
 ## <a name="additional-packages"></a>Paquetes adicionales
 
@@ -81,6 +81,6 @@ Estos paquetes forman parte de la funcionalidad básica de la supervisión en ti
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Supervisar [ASP.NET Core](app-insights-asp-net-core.md).
+- Supervisar [ASP.NET Core](../azure-monitor/app/asp-net-core.md).
 - Generar perfiles de [aplicaciones web con Linux en Azure](app-insights-profiler-aspnetcore-linux.md) para ASP.NET Core.
 - Depurar [instantáneas](app-insights-snapshot-debugger.md) de ASP.NET.
