@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 008e61841611f36c440bb4896ae5a85d0bf4d874
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 17c1cce5c20570f36505ce67a472280b03ef8f0e
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991689"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744542"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Inicio de la supervisión de la aplicación web ASP.NET Core
 
@@ -33,7 +33,7 @@ Para completar esta guía de inicio rápido:
 - [Instalación del SDK de .NET Core 2.0](https://www.microsoft.com/net/core)
 - Necesitará una suscripción de Azure y una aplicación web .NET Core existente.
 
-Si no tiene una aplicación web ASP.NET Core, puede usar nuestra guía detallada para [crear una aplicación ASP.NET Core y agregar Application Insights.](app-insights-asp-net-core.md)
+Si no tiene una aplicación web ASP.NET Core, puede usar nuestra guía detallada para [crear una aplicación ASP.NET Core y agregar Application Insights.](../azure-monitor/app/asp-net-core.md)
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -53,7 +53,7 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
 
     | Configuración        |  Valor           | DESCRIPCIÓN  |
    | ------------- |:-------------|:-----|
-   | **Name**      | Nombre único global | Nombre que identifica la aplicación que se está supervisando |
+   | **Nombre**      | Nombre único global | Nombre que identifica la aplicación que se está supervisando |
    | **Tipo de aplicación** | Aplicación web ASP.NET | Tipo de aplicación que se está supervisando |
    | **Grupo de recursos**     | myResourceGroup      | Nombre para el nuevo grupo de recursos que hospedará los datos de Application Insights |
    | **Ubicación** | Este de EE. UU | Elija una ubicación cerca de usted o de donde se hospeda la aplicación |

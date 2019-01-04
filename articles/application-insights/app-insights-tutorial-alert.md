@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 39e2f136e30ebb6dcfc003c435382f3384af1052
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 4b608f9237b9f7f98173168e055b5e83635bc2d7
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
-ms.locfileid: "23659348"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753768"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Supervise el estado de la aplicación y envíe alertas con Azure Application Insights.
 
@@ -34,11 +34,11 @@ Para completar este tutorial:
 - Instalar [Visual Studio 2017](https://www.visualstudio.com/downloads/) con las cargas de trabajo siguientes:
     - ASP.NET y desarrollo web
     - Desarrollo de Azure
-    - Implemente una aplicación de .NET en Azure y [habilite el SDK de Application Insights](app-insights-asp-net.md). 
+    - Implemente una aplicación de .NET en Azure y [habilite el SDK de Application Insights](../azure-monitor/app/asp-net.md). 
 
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
-Inicie sesión en Azure Portal desde [https://portal.azure.com](https://portal.azure.com).
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
+Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-availability-test"></a>Creación de una prueba de disponibilidad
 Las pruebas de disponibilidad en Application Insights le permiten probar automáticamente la aplicación desde diferentes ubicaciones de todo el mundo.   En este tutorial, llevará a cabo una prueba sencilla para asegurarse de que la aplicación está disponible.  También puede crear un tutorial completo para probar su funcionamiento detallado. 
@@ -88,7 +88,7 @@ Además de enviar alertas desde una prueba de disponibilidad, puede crear una al
 ## <a name="proactively-send-information"></a>Envío de información de forma proactiva
 Las alertas se crean como resultado de un conjunto determinado de problemas identificados en la aplicación, y normalmente se reservan alertas para las condiciones críticas que requieren atención inmediata.  Es posible recibir información proactiva sobre la aplicación con una instancia de Logic Apps que se ejecute automáticamente según una programación.  Por ejemplo, podría hacer que se enviara diariamente un mensaje a los administradores con información resumida que requiriese una mayor evaluación.
 
-Para obtener más información sobre cómo crear una instancia de Logic Apps con Application Insights, consulte [Automatización de procesos de Application Insights con Logic Apps](automate-with-logic-apps.md).
+Para obtener más información sobre cómo crear una instancia de Logic Apps con Application Insights, consulte [Automatización de procesos de Application Insights con Logic Apps](../azure-monitor/app/automate-with-logic-apps.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha aprendido cómo alertar sobre problemas, continúe con el siguiente tutorial para aprender a analizar el modo en que los usuarios interactúan con la aplicación.
