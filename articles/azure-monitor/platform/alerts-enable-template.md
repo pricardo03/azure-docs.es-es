@@ -7,20 +7,20 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 4/27/2018
 ms.author: johnkem
-ms.component: metric
-ms.openlocfilehash: 4fcde6773bcdfe7ac522c813151518785dc14e25
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.component: metrics
+ms.openlocfilehash: a5e38f1400b99c6030799121d37721c26e16649c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383568"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721145"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Creación de una alerta de métrica clásica con una plantilla de Resource Manager
 En este artículo se describe cómo se puede utilizar una [plantilla de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para configurar alertas de métrica de Azure. Esto permite configurar automáticamente las alertas en los recursos cuando se crean para asegurarse de que todos los recursos se supervisan correctamente.
 
 > [!NOTE]
 > 
-> En este artículo se describe cómo crear **alertas de métricas clásicas** mediante plantillas de Resource Manager. Si desea crear [alertas de métricas más recientes](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md) con plantillas, [este artículo](alerts-metric-create-templates.md) proporciona los detalles.
+> En este artículo se describe cómo crear **alertas de métricas clásicas** mediante plantillas de Resource Manager. Si desea crear [alertas de métricas más recientes](../../azure-monitor/platform/alerts-metric-near-real-time.md) con plantillas, [este artículo](alerts-metric-create-templates.md) proporciona los detalles.
 >
 
 

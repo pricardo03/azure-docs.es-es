@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: b03a0538e92ac126a50a1346eb1bf7fb003189f9
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: fb3358775881f102ecea62fbd20a1e4d85dda308
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966865"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001642"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutorial: Actualización del inventario mediante Azure Portal y temas y suscripciones
 
@@ -91,7 +91,7 @@ Para crear un tema de Service Bus, especifique el espacio de nombres en el que d
 
 ## <a name="create-filter-rules-on-subscriptions"></a>Creación de reglas de filtro en suscripciones
 
-Después de aprovisionar el espacio de nombres y los temas y suscripciones, y de tener las credenciales necesarias, está listo para crear reglas de filtro en las suscripciones y, posteriormente, enviar y recibir mensajes. Puede examinar el código en [esta carpeta de ejemplos de GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/GettingStarted/BasicSendReceiveTutorialwithFilters).
+Después de aprovisionar el espacio de nombres y los temas y suscripciones, y de tener las credenciales necesarias, está listo para crear reglas de filtro en las suscripciones y, posteriormente, enviar y recibir mensajes. Puede examinar el código en [esta carpeta de ejemplos de GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
 ### <a name="send-and-receive-messages"></a>Envío y recepción de mensajes
 

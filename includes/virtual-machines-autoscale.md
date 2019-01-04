@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 9ad161e3e19a1e546f30a17b38737fa88bc0953a
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 0ccb502cd5ae21468e52bdc4d56202a595cd19ef
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53399995"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53594310"
 ---
 Puede realizar fácilmente el [escalado automático](../articles/azure-monitor/platform/autoscale-best-practices.md) de sus [máquinas virtuales (VM)](../articles/virtual-machines/windows/overview.md) si usa los [conjuntos de escalado de máquinas virtuales](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) y la [característica de escalado automático de Azure Monitor](../articles/azure-monitor/platform/autoscale-overview.md). Las máquinas virtuales tienen que ser miembros del conjunto de escalado que se va a escalar automáticamente. Este artículo le proporciona información que le permitirá entender mejor cómo escalar las máquinas virtuales tanto vertical como horizontalmente mediante métodos automáticos y manuales.
 
@@ -29,7 +29,7 @@ Los conjuntos de escalado facilitan la implementación y administración de máq
 
 El escalado automático proporciona el número correcto de máquinas virtuales para administrar la carga en la aplicación. Permite agregar máquinas virtuales para controlar el aumento de la carga y ahorrar dinero mediante la eliminación de aquellas máquinas que estén inactivas. Puede especificar un número mínimo y máximo de máquinas virtuales en ejecución basado en un conjunto de reglas. Tener un mínimo garantiza la ejecución de la aplicación aunque no exista carga. Tener un valor máximo limita el posible costo total por hora.
 
-Puede habilitar el escalado automático cuando cree el conjunto de escalado mediante [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings) o la [CLI de Azure](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings). También puede habilitarlo una vez creado el conjunto de escalado. Puede crear un conjunto de escalado, instalar la extensión y configurar el escalado automático mediante una [plantilla de Azure Resource Manager](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md). En Azure Portal, habilite el escalado automático en Azure Monitor o habilítelo desde la configuración del conjunto de escalado.
+Puede habilitar el escalado automático cuando cree el conjunto de escalado mediante [Azure PowerShell](../articles/azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings) o la [CLI de Azure](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings). También puede habilitarlo una vez creado el conjunto de escalado. Puede crear un conjunto de escalado, instalar la extensión y configurar el escalado automático mediante una [plantilla de Azure Resource Manager](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md). En Azure Portal, habilite el escalado automático en Azure Monitor o habilítelo desde la configuración del conjunto de escalado.
 
 ![Habilitar escalado automático](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
  

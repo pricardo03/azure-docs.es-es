@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: f19d584932be6b6706d6f7b03622303f68f08f91
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 23003859b9a75fb986fe65f5528004f3dd150f9b
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312194"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633051"
 ---
 # <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>Actualización a la versión más reciente de la API REST de Azure Search Service
 Si usa la versión anterior de la [API REST del servicio Azure Search](https://docs.microsoft.com/rest/api/searchservice/), este artículo le ayudará a actualizar la aplicación para que use la versión más reciente de la API disponible con carácter general, 2017-11-11.
@@ -59,7 +59,7 @@ Si el código usa estas características, no podrá actualizar a 2017-11-11 sin 
 ## <a name="conclusion"></a>Conclusión
 Si necesita más información sobre el uso de API de REST del servicio Azure Search, vea la [Referencia de API](https://docs.microsoft.com/rest/api/searchservice/) recién actualizada en MSDN.
 
-Agradecemos sus comentarios sobre Azure Search. Si tiene algún problema, no dude en pedirnos ayuda en el [foro de MSDN sobre Azure Search](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) o [StackOverflow](http://stackoverflow.com/). Si va a hacer una pregunta sobre Azure Search en StackOverflow, asegúrese de etiquetarla con `azure-search`.
+Agradecemos sus comentarios sobre Azure Search. Si tiene algún problema, no dude en pedirnos ayuda en el [foro de MSDN sobre Azure Search](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) o [StackOverflow](https://stackoverflow.com/). Si va a hacer una pregunta sobre Azure Search en StackOverflow, asegúrese de etiquetarla con `azure-search`.
 
 Gracias por usar Azure Search.
 

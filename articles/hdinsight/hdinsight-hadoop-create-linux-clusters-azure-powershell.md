@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: af6915a522788f95aaac8ec1b690a7e53b31aac6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 54dbeeede58116b01f21db784b3e34970ace029f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863438"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792154"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Crear clústeres basados en Linux en HDInsight con Azure PowerShell
 
@@ -22,7 +22,7 @@ ms.locfileid: "52863438"
 
 Azure PowerShell es un eficaz entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus cargas de trabajo en Microsoft Azure. En este documento se ofrece información sobre cómo crear un clúster de HDInsight basado en Linux mediante Azure PowerShell. También se incluye un script de ejemplo.
 
-> [!NOTE]
+> [!NOTE]  
 > Azure PowerShell solo está disponible en clientes de Windows. Si usa un cliente de Linux, Unix o Mac OS X, consulte [Creación de clústeres basados en Linux en HDInsight con la CLI de Azure clásica](hdinsight-hadoop-create-linux-clusters-azure-cli.md) para más información acerca del uso de la CLI clásica para crear un clúster.
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -31,7 +31,7 @@ Antes de iniciar este procedimiento, debe tener lo siguiente:
 * Una suscripción de Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * [Azure PowerShell](/powershell/azure/install-azurerm-ps)
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > La compatibilidad con Azure PowerShell para administrar recursos de HDInsight mediante Azure Service Manager está **en desuso** y dejó de estar disponible por completo el 1 de enero de 2017. En los pasos descritos en este documento, se usan los nuevos cmdlets de HDInsight que funcionan con Azure Resource Manager.
     >
     > Para instalar la última versión de Azure PowerShell, siga los pasos descritos en [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Si tiene scripts que se deben modificar para usar los nuevos cmdlets que funcionan con Azure Resource Manager, consulte [Migrating to Azure Resource Manager-based development tools for HDInsight clusters](hdinsight-hadoop-development-using-azure-resource-manager.md) (Migración a herramientas de desarrollo basadas en Azure Resource Manager para clústeres de HDInsight) para más información.
@@ -55,7 +55,7 @@ Los valores que se especifican para el inicio de sesión de clúster se usan par
 
 Los valores que se especifican para el usuario SSH se usan para crear el usuario SSH para el clúster. Use esta cuenta para iniciar una sesión remota de SSH en el clúster y ejecutar trabajos. Para más información, vea el documento [Uso de SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Si tiene pensado usar más de 32 nodos de trabajo (en el momento de crear el clúster o cambiando el tamaño del clúster después de su creación), también debe especificar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM.
 >
 > Para obtener más información acerca de los tamaños de nodo y los costos asociados, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
@@ -70,7 +70,7 @@ El script siguiente crea un objeto de configuración para configurar un R Server
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster-with-config.ps1?range=59-98)]
 
-> [!WARNING]
+> [!WARNING]  
 > No se admite el uso de una cuenta de almacenamiento en una ubicación diferente a la del clúster de HDInsight. Cuando utilice este ejemplo, cree la cuenta de almacenamiento adicional en la misma ubicación que el servidor.
 
 ## <a name="customize-clusters"></a>Personalización de los clústeres
@@ -84,7 +84,7 @@ El script siguiente crea un objeto de configuración para configurar un R Server
 
 ## <a name="troubleshoot"></a>Solución de problemas
 
-Si experimenta problemas con la creación de clústeres de HDInsight, consulte los [requisitos de control de acceso](hdinsight-administer-use-portal-linux.md#create-clusters).
+Si experimenta problemas con la creación de clústeres de HDInsight, consulte los [requisitos de control de acceso](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -94,7 +94,7 @@ Ahora que ya ha creado con éxito un clúster de HDInsight, use los siguientes r
 
 * [Uso de Apache Hive con HDInsight](hadoop/hdinsight-use-hive.md)
 * [Uso de Apache Pig con HDInsight](hadoop/hdinsight-use-pig.md)
-* [Uso de MapReduce con Apache Hadoop en HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [Uso de MapReduce con HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Clústeres de Apache HBase
 

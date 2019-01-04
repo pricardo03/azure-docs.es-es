@@ -1,19 +1,18 @@
 ---
-title: Asociados para la migración de Azure Database for PostgreSQL | Microsoft Docs
+title: Asociados para la migración de Azure Database for PostgreSQL
 description: Listas de terceros asociados para la migración con soluciones compatibles con Azure Database for PostgreSQL.
-services: mysql
 author: HJToland3
 ms.author: jtoland
 manager: craigg
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2018
-ms.openlocfilehash: 11069e4e5ff9a6ad6b91fc554036955afa805443
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 63facf52531d1f58e4022085503da96a797f60df
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626461"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536243"
 ---
 # <a name="azure-database-for-postgresql-migration-partners"></a>Asociados para la migración de Azure Database for PostgreSQL
 Para lograr una compatibilidad extensa de la solución Azure Database for PostgreSQL, puede elegir entre una amplia variedad de asociados y herramientas de líderes del sector. En este artículo se destacan los asociados de Microsoft con soluciones de migración compatibles con Azure Database for PostgreSQL.

@@ -4,22 +4,22 @@ description: Más información sobre las licencias de Microsoft Smooth Streaming
 services: media-services
 documentationcenter: ''
 author: willzhan
-manager: femila
+manager: steveng
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: ec354cc91b22905c399d7bb19107db1b94e9925f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 7b3f6410e65e9a43578d50d6aacaec0ea4ec4684
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136280"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753496"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Diseño del sistema de protección de contenido con DRM múltiple con control de acceso 
 
@@ -119,11 +119,11 @@ Otro factor importante a tener en cuenta es el uso de licencias persistentes y n
 
 Si usa una nube pública para la entrega de licencias, las licencias persistentes y no persistentes tendrán un impacto directo en el costo de entrega de licencias. Los dos casos siguientes de distinto diseño sirven para mostrar lo siguiente:
 
-* Suscripción mensual: se usa una licencia persistente y la asignación 1 a varios entre claves de contenido y recursos. Por ejemplo, para todas las películas de niños, usamos una única clave de contenido para el cifrado. En este caso:
+* Suscripción mensual: Se usa una licencia persistente y la asignación de 1 a varios entre claves de contenido y recursos. Por ejemplo, para todas las películas de niños, usamos una única clave de contenido para el cifrado. En este caso:
 
     Número total de licencias solicitadas para todas las películas o dispositivos de niños = 1
 
-* Suscripción mensual: se usa una licencia no persistente y la asignación 1 a 1 entre claves de contenido y recursos. En este caso:
+* Suscripción mensual: Se usa una licencia no persistente y la asignación de 1 a 1 entre claves de contenido y recursos. En este caso:
 
     El número total de licencias solicitadas para todas las películas o dispositivos de niños = [numero de películas vistas] x [número de sesiones]
 
@@ -360,13 +360,13 @@ Cuando se utiliza un servicio de token de seguridad personalizado, se deben real
 
 Hay dos tipos de claves de seguridad:
 
-* Clave simétrica: la misma clave se usa para generar y comprobar un token JWT.
-* Clave asimétrica: se utiliza un par de claves pública-privada de un certificado X509 junto con la clave privada para cifrar o generar un token JWT y con la clave pública para comprobar el token.
+* Clave simétrica: La misma clave se usa para generar y verificar un token JWT.
+* Clave asimétrica: Se usa un par de claves público-privadas de un certificado X509 junto con la clave privada para cifrar o generar un token JWT y con la clave pública para verificar el token.
 
 > [!NOTE]
 > Si utiliza .NET Framework o C# como plataforma de desarrollo, el certificado X509 usado en una clave de seguridad asimétrica debe tener una longitud de clave de al menos 2048. Se trata de un requisito de la clase System.IdentityModel.Tokens.X509AsymmetricSecurityKey en .NET Framework. De lo contrario, se produce la siguiente excepción:
 
-> IDX10630: el valor 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' para la firma no puede ser menor que 2048 bits.
+> IDX10630: El valor 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' para la firma no puede ser menor que 2048 bits.
 
 ## <a name="the-completed-system-and-test"></a>Finalización del sistema y prueba
 En esta sección permite recorrer los escenarios siguientes en el sistema de un extremo a otro completado para que se pueda tener una idea general del comportamiento antes de obtener una cuenta de inicio de sesión:

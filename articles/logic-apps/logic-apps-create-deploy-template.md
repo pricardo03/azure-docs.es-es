@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: ffa619351ca4a4bfd3a812775ee7ff6cd71ddea4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c953d4635ce43ee05fe7c507076c5bd11e9d8c81
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089708"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000570"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Creación de plantillas de Azure Resource Manager para implementar aplicaciones lógicas
 
@@ -187,7 +187,7 @@ Hay un script de ejemplo en GitHub, en el proyecto [LogicAppConnectionAuth](http
 <a name="team-services"></a>
 ## <a name="azure-devops-azure-pipelines"></a>Azure Pipelines para Azure DevOps
 
-Un escenario común para implementar y administrar un entorno es usar una herramienta como Azure Pipelines en Azure DevOps con una plantilla de implementación de aplicación lógica. Azure DevOps incluye la tarea [Implementación de un grupo de recursos de Azure](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup), que se puede agregar a cualquier canalización de la compilación o versión. Es preciso tener una [entidad de servicio](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) para implementar la autorización y, a continuación, generar la canalización de la versión.
+Un escenario común para implementar y administrar un entorno es usar una herramienta como Azure Pipelines en Azure DevOps con una plantilla de implementación de aplicación lógica. Azure DevOps incluye la tarea [Implementación de un grupo de recursos de Azure](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2), que se puede agregar a cualquier canalización de la compilación o versión. Es preciso tener una [entidad de servicio](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) para implementar la autorización y, a continuación, generar la canalización de la versión.
 
 1. En Azure Pipelines, seleccione **Empty** (Vacía) para que pueda crear una canalización vacía.
 

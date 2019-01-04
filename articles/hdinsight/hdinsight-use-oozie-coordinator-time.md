@@ -10,15 +10,15 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/04/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 422ae24357290a782b05ab7e5580c09e8472ddf8
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 6e45dfbea9545c72d80a17e8ae144f4dacc70a63
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408670"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53995021"
 ---
 # <a name="use-time-based-apache-oozie-coordinator-with-apache-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Uso del coordinador de Apache Oozie basado en tiempo con Apache Hadoop en HDInsight para definir flujos de trabajo y coordinar trabajos
-En este artículo, aprenderá a definir flujos de trabajo y coordinadores, así como a desencadenar los trabajos del coordinador basados en el tiempo. Le resultará útil repasar el artículo [Uso de Apache Oozie con HDInsight][hdinsight-use-oozie] antes de leer este. Además de con Oozie, también puede programar trabajos usando Azure Data Factory. Para más información acerca de Azure Data Factory, consulte [Uso de Apache Pig y Apache Hive con Data Factory](../data-factory/transform-data.md).
+En este artículo, obtenga información sobre cómo definir los flujos de trabajo y los coordinadores, así como el modo de desencadenar los trabajos del coordinador basados en el tiempo. Le resultará útil repasar el artículo [Uso de Apache Oozie con HDInsight][hdinsight-use-oozie] antes de leer este. Además de con Oozie, también puede programar trabajos usando Azure Data Factory. Para más información acerca de Azure Data Factory, consulte [Uso de Apache Pig y Apache Hive con Data Factory](../data-factory/transform-data.md).
 
 > [!NOTE]  
 > En este artículo se requiere un clúster de HDInsight basado en Windows. Para obtener información sobre el uso de Oozie, incluidos los trabajos basados en tiempo, en un clúster basado en Linux, consulte [Uso de Oozie con Hadoop para definir y ejecutar un flujo de trabajo en HDInsight basado en Linux](hdinsight-use-oozie-linux-mac.md)
@@ -718,7 +718,7 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y un coordi
 * [Uso de Apache Pig con HDInsight][hdinsight-use-pig]
 * [Desarrollo de programas MapReduce de Java para HDInsight][hdinsight-develop-java-mapreduce]
 
-[hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
+[hdinsight-cmdlets-download]: https://go.microsoft.com/fwlink/?LinkID=325563
 
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
@@ -740,12 +740,12 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y un coordi
 [azure-management-portal]: https://portal.azure.com/
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
 
-[apache-hadoop]: http://hadoop.apache.org/
-[apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/
-[apache-oozie-332]: http://oozie.apache.org/docs/3.3.2/
+[apache-hadoop]: https://hadoop.apache.org/
+[apache-oozie-400]: https://oozie.apache.org/docs/4.0.0/
+[apache-oozie-332]: https://oozie.apache.org/docs/3.3.2/
 
 [powershell-download]: https://azure.microsoft.com/downloads/
-[powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
+[powershell-about-profiles]: https://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-start]: https://docs.microsoft.com/powershell/scripting/setup/starting-windows-powershell?view=powershell-6
 [powershell-script]: https://technet.microsoft.com/library/ee176949.aspx
@@ -756,4 +756,4 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y un coordi
 [img-preparation-output]: ./media/hdinsight-use-oozie-coordinator-time/HDI.UseOozie.Preparation.Output1.png
 [img-runworkflow-output]: ./media/hdinsight-use-oozie-coordinator-time/HDI.UseOozie.RunCoord.Output.png
 
-[technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+[technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx

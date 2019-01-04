@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: f82ac972e54dac6df5a913a8059417b701e2f7e0
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: c9b1f3570ae3f9b945c87c2ce316c3f72e32b4ad
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191587"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792057"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>Creación de clústeres de HDInsight mediante la CLI de Azure clásica
 
@@ -70,7 +70,7 @@ Los siguientes pasos deben realizarse desde una línea de comandos como PowerShe
 
     * Sustituya `storagename` por un nombre único para la cuenta de almacenamiento.
 
-        > [!NOTE]
+        > [!NOTE]  
         > Si desea obtener más información sobre los parámetros utilizados en este comando, use `azure storage account create -h` para ver la ayuda correspondiente.
 
 5. Recupere la clave utilizada para tener acceso a la cuenta de almacenamiento.
@@ -90,7 +90,7 @@ Los siguientes pasos deben realizarse desde una línea de comandos como PowerShe
 
     * Sustituya `Hadoop` por el tipo de clúster que quiere crear. Por ejemplo, `Hadoop`, `HBase`, `Kafka`, `Spark` o `Storm`.
 
-      > [!IMPORTANT]
+      > [!IMPORTANT]  
       > Los clústeres de HDInsight incluyen diversos tipos, que corresponden a la carga de trabajo o la tecnología para los que el clúster está optimizado. No hay ningún método admitido para crear un solo clúster que combine varios tipos, como Storm y HBase.
 
     * Sustituya `location` por la misma ubicación usada en pasos anteriores.
@@ -105,7 +105,7 @@ Los siguientes pasos deben realizarse desde una línea de comandos como PowerShe
 
     * Sustituya `sshuser` y `sshuserpassword` por el nombre de usuario y la contraseña que quiere usar en el acceso al clúster mediante SSH
 
-      > [!IMPORTANT]
+      > [!IMPORTANT]  
       > En este ejemplo se crea un clúster con dos nodos de trabajo. Si quiere cambiar el número de nodos de trabajo después de la creación del clúster, realice operaciones de escalado. Si planea usar más de 32 nodos de trabajo, tiene que seleccionar un tamaño de nodo principal con al menos 8 núcleos y 14 GB de RAM. Durante la creación del clúster, puede establecer el tamaño del nodo principal mediante el parámetro `--headNodeSize`.
       >
       > Para obtener más información acerca de los tamaños de nodo y los costos asociados, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
@@ -114,7 +114,7 @@ Los siguientes pasos deben realizarse desde una línea de comandos como PowerShe
 
 ## <a name="troubleshoot"></a>Solución de problemas
 
-Si experimenta problemas con la creación de clústeres de HDInsight, consulte los [requisitos de control de acceso](hdinsight-administer-use-portal-linux.md#create-clusters).
+Si experimenta problemas con la creación de clústeres de HDInsight, consulte los [requisitos de control de acceso](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -124,7 +124,7 @@ Una vez creado correctamente un clúster de HDInsight correctamente mediante la 
 
 * [Uso de Apache Hive con HDInsight](hadoop/hdinsight-use-hive.md)
 * [Uso de Apache Pig con HDInsight](hadoop/hdinsight-use-pig.md)
-* [Uso de MapReduce de Apache Hadoop con HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [Uso de MapReduce con HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Clústeres de Apache HBase
 

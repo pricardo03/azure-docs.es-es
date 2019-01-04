@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 1556c228aa2e00cf18f16cc26eefab4691f6de23
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 20246cfa5904c3c89ab9a14d11f2e61883b27344
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184957"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540271"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Recopilar y analizar los registros de actividad de Azure en Log Analytics
 
 ![Símbolo de registros de actividad de Azure](./media/collect-activity-logs/activity-log-analytics.png)
 
-La solución Activity Log Analytics ayuda a analizar y buscar en el [registro de actividad de Azure](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) de todas las suscripciones de Azure. El registro de actividad de Azure es un registro que proporciona información sobre las operaciones realizadas en los recursos de las suscripciones. Antes el registro de actividad se conocía como *Registros de auditoría* o *Registros operativos*, ya que notifica eventos de las suscripciones.
+La solución Activity Log Analytics ayuda a analizar y buscar en el [registro de actividad de Azure](../../azure-monitor/platform/activity-logs-overview.md) de todas las suscripciones de Azure. El registro de actividad de Azure es un registro que proporciona información sobre las operaciones realizadas en los recursos de las suscripciones. Antes el registro de actividad se conocía como *Registros de auditoría* o *Registros operativos*, ya que notifica eventos de las suscripciones.
 
 Con el registro de actividad se pueden determinar los interrogantes *qué*, *quién* y *cuándo* de las operaciones de escritura (PUT, POST, DELETE) realizadas para los recursos de la suscripción. También permite entender el estado de las operaciones y otras propiedades relevantes. El registro de actividad no incluye las operaciones de lectura (GET) ni las operaciones para los recursos que usan el modelo de implementación clásica.
 

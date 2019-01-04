@@ -8,24 +8,24 @@ ms.topic: include
 ms.date: 10/17/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 84bfec375878fe31e085f7de3cd4a41ace645c41
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 267234cb9ecea1dc097f13739bf98ee11206ad06
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458647"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53444355"
 ---
 Puede comprobar que la conexión se realizó correctamente mediante el uso del cmdlet "Get-AzureRmVirtualNetworkGatewayConnection", con o sin "-Debug". 
 
 1. Puede usar el siguiente ejemplo de cmdlet, configurando los valores para que coincidan con los tuyos. Cuando se le pida, seleccione "A" para ejecutar "todo". En el ejemplo, " -Name" hace referencia al nombre de la conexión que desea probar.
 
-  ```azurepowershell-interactive
-  Get-AzureRmVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1
-  ```
+   ```azurepowershell-interactive
+   Get-AzureRmVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1
+   ```
 2. Cuando el cmdlet haya finalizado, consulte los valores. En el ejemplo siguiente, el estado de conexión aparece como "Conectado" y pueden verse los bytes de entrada y salida.
    
-  ```
-  "connectionStatus": "Connected",
-  "ingressBytesTransferred": 33509044,
-  "egressBytesTransferred": 4142431
-  ```
+   ```
+   "connectionStatus": "Connected",
+   "ingressBytesTransferred": 33509044,
+   "egressBytesTransferred": 4142431
+   ```

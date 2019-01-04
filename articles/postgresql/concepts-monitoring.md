@@ -1,19 +1,17 @@
 ---
 title: Supervisión y ajuste en Azure Database for PostgreSQL
 description: En este artículo se describen las características de supervisión y ajuste en Azure Database for PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: b8d5526b258e70238bf8d5e4dc91ab02f403368e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c412ace453eb37646654375454d80a5c4e8dc3a6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843689"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540918"
 ---
 # <a name="monitor-and-tune"></a>Supervisión y ajuste
 La supervisión de los datos sobre los servidores le permite solucionar problemas y optimizar la carga de trabajo. Azure Database for PostgreSQL proporciona diversas opciones de supervisión para ofrecer información detallada sobre el comportamiento del servidor.

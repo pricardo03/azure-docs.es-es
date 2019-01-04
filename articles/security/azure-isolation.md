@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 4ef312ebd6c329028a556778c24c5e0e41706056
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 776771c6d10bc184e1a1a077e2dbfed70a3e0358
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311004"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974716"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Aislamiento en la nube pública de Azure
 ##  <a name="introduction"></a>Introducción
@@ -121,7 +121,7 @@ Los servicios de negocios con certificaciones auditadas como la ISO/IEC 27001 se
 
 Si se elimina algún dato, Microsoft Azure eliminará los datos, incluidas las copias en memoria caché y las copias de seguridad. Para los servicios incluidos en el ámbito, la eliminación se realizará 90 días después del final del período de retención. (Los servicios incluidos en el ámbito se definen en los términos del procesamiento de datos, en los [términos de los servicios en línea](https://aka.ms/Online-Services-Terms).)
 
-Si una unidad de disco utilizada para el almacenamiento sufre un error de hardware, se [borra o destruye](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data) de un modo seguro antes de que Microsoft la devuelva al fabricante para su reemplazo o reparación. Los datos de la unidad se sobrescriben para asegurarse de que no se puedan recuperar de ninguna forma.
+Si una unidad de disco utilizada para el almacenamiento sufre un error de hardware, se [borra o destruye](https://microsoft.com/trustcenter/privacy/you-own-your-data) de un modo seguro antes de que Microsoft la devuelva al fabricante para su reemplazo o reparación. Los datos de la unidad se sobrescriben para asegurarse de que no se puedan recuperar de ninguna forma.
 
 ## <a name="compute-isolation"></a>Aislamiento de proceso
 Microsoft Azure proporciona diversos servicios de computación en la nube que incluyen una amplia selección de instancias y servicios de proceso que se pueden escalar vertical y horizontalmente para satisfacer las necesidades de su aplicación o de su empresa. Estos servicios e instancias de proceso ofrecen aislamiento en varios niveles para proteger los datos, sin sacrificar la flexibilidad en la configuración que los clientes demandan.
@@ -238,7 +238,7 @@ Cifrado en tránsito es un mecanismo para proteger datos cuando se transmiten a 
 -   [Cifrado de cliente](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage), para cifrar los datos antes de transferirlos al almacenamiento y descifrarlos una vez transferidos desde este servicio.
 
 #### <a name="encryption-at-rest"></a>Cifrado en reposo
-Para muchas organizaciones, el [cifrado de los datos en reposo](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) es un paso obligatorio en lo que respecta a la privacidad de los datos, el cumplimiento y la soberanía de los datos. Hay tres características de Azure que proporcionan cifrado de datos "en reposo":
+Para muchas organizaciones, el [cifrado de los datos en reposo](https://docs.microsoft.com/azure/security/azure-isolation) es un paso obligatorio en lo que respecta a la privacidad de los datos, el cumplimiento y la soberanía de los datos. Hay tres características de Azure que proporcionan cifrado de datos "en reposo":
 
 -   [Cifrado del servicio Storage](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) permite solicitar que el servicio de almacenamiento cifre automáticamente los datos al escribirlos en Azure Storage.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: rkarlin
-ms.openlocfilehash: 8417b342dc032f46fddd6c57b82c402cc6c1a10d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 35868545c46acb65ba487c546b66d8834bcb81a7
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967732"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543196"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Administrar datos de usuario en Azure Security Center
 En este artículo se proporciona información sobre cómo administrar los datos de usuario en Azure Security Center. La administración de los datos de usuario incluye la capacidad de acceder, eliminar o exportar datos.
@@ -98,7 +98,7 @@ Los [datos Just-In-Time](security-center-just-in-time.md) se consideran datos no
 Los [datos de alertas](security-center-managing-and-responding-alerts.md) se consideran datos de seguridad y se conservan durante un período de dos años.
 
 ## <a name="auditing-and-reporting"></a>Informes y auditoría
-Los registros de auditoría de contacto de seguridad, Just-In-Time y las actualizaciones de alertas se mantienen en [los registros de actividad de Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Los registros de auditoría de contacto de seguridad, Just-In-Time y las actualizaciones de alertas se mantienen en [los registros de actividad de Azure](../azure-monitor/platform/activity-logs-overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre la administración de datos de usuario, vea [Manage user data found in an Azure Security Center investigation](security-center-investigation-user-data.md) (Administración de los datos de usuario encontrados en una investigación de Azure Security Center).

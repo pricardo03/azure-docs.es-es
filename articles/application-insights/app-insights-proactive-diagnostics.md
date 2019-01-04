@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: b884fc15770e91268d1033dc4bab9bf96766de94
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: af85975fce20a87af8365f8fe6ea73ed1e6e1416
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868950"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998921"
 ---
 # <a name="smart-detection-in-application-insights"></a>Detección inteligente en Application Insights
  La detección inteligente avisa automáticamente de posibles problemas de rendimiento en su aplicación web. Realiza un análisis proactivo de la telemetría que su aplicación envía a [Application Insights](app-insights-overview.md). Si hay un aumento repentino de las tasas de error o patrones de rendimiento anormales en el cliente o el servidor, recibirá una alerta. Esta característica no necesita ninguna configuración. Funciona si la aplicación envía suficiente telemetría.
@@ -54,12 +54,12 @@ Hay tres tipos de detección:
 ## <a name="next-steps"></a>Pasos siguientes
 Estas herramientas de diagnóstico lo ayudarán a inspeccionar los datos de telemetría de su aplicación:
 
-* [Explorador de métricas](app-insights-metrics-explorer.md)
-* [Explorador de búsqueda](app-insights-diagnostic-search.md)
+* [Explorador de métricas](../azure-monitor/app/metrics-explorer.md)
+* [Explorador de búsqueda](../azure-monitor/app/diagnostic-search.md)
 * [Analytics: Lenguaje de consulta eficaz](../azure-monitor/log-query/get-started-portal.md)
 
 La detección inteligente es completamente automática. Pero ¿quizás le gustaría configurar algunas alertas más?
 
-* [Alertas de métricas configuradas manualmente](app-insights-alerts.md)
-* [Pruebas web de disponibilidad](app-insights-monitor-web-app-availability.md) 
+* [Alertas de métricas configuradas manualmente](../azure-monitor/app/alerts.md)
+* [Pruebas web de disponibilidad](../azure-monitor/app/monitor-web-app-availability.md) 
 

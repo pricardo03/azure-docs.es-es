@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: b297be16110e24342b224f7f89c2a3c0c44229a9
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 5a09bd8db89f85c785d3d701a3b7180e4616e52c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341413"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713238"
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>Diagnóstico con Durable Functions (Azure Functions)
 
@@ -25,7 +25,7 @@ Existen varias opciones para diagnosticar problemas con [Durable Functions](dura
 
 [Application Insights](../../application-insights/app-insights-overview.md) es la manera recomendada para realizar el diagnóstico y la supervisión en Azure Functions. Lo mismo se aplica a Durable Functions. Para introducción al aprovechamiento de Application Insights en las aplicaciones de función, consulte [Supervisión de Azure Functions](../functions-monitoring.md).
 
-La extensión Azure Durable Functions también emite *eventos de seguimiento* que permiten realizar el seguimiento de la ejecución de un extremo de una orquestación al otro. Estos se pueden encontrar y consultar mediante la herramienta [Application Insights Analytics](../../application-insights/app-insights-analytics.md) de Azure Portal.
+La extensión Azure Durable Functions también emite *eventos de seguimiento* que permiten realizar el seguimiento de la ejecución de un extremo de una orquestación al otro. Estos se pueden encontrar y consultar mediante la herramienta [Application Insights Analytics](../../azure-monitor/app/analytics.md) de Azure Portal.
 
 ### <a name="tracking-data"></a>Datos de seguimiento
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 5ab2f1df72f04b6456f1083de6870fb86bad6616
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: e6292c97d3e7bbbe74477188586257b4fbf91218
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438306"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582718"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Supervisión de Azure Cache for Redis
 Azure Cache for Redis usa [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) para proporcionar varias opciones para la supervisión de instancias de caché. Puede ver las métricas, anclar los gráficos de métricas al panel de inicio, personalizar el intervalo de fecha y hora de los gráficos de supervisión, agregar y quitar métricas de los gráficos y establecer alertas cuando se cumplen determinadas condiciones. Estas herramientas permiten supervisar el estado de las instancias de Azure Cache for Redis y le ayudan a administrar sus aplicaciones de almacenamiento en caché.
@@ -79,7 +79,7 @@ Para configurar una cuenta de almacenamiento para las métricas de caché:
 >
 >
 
-Para acceder a las métricas, puede verlas en Azure Portal como ya se ha descrito en este mismo artículo, pero también puede acceder a ellas mediante la [API de REST de métricas de Azure Monitor](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
+Para acceder a las métricas, puede verlas en Azure Portal como ya se ha descrito en este mismo artículo, pero también puede acceder a ellas mediante la [API de REST de métricas de Azure Monitor](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 > [!NOTE]
 > Si cambia las cuentas de almacenamiento, los datos de la cuenta de almacenamiento configurada anteriormente siguen estando disponibles para su descarga, pero no se muestran en el Portal de Azure.  
@@ -142,7 +142,7 @@ Los registros de actividad proporcionan información sobre las operaciones lleva
 
 Para ver los registros de actividad de la memoria caché, haga clic en **Registros de actividad** en el **menú Recursos**.
 
-Para más información acerca de los registros de actividad, consulte [Información general sobre el registro de actividad de Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Para más información acerca de los registros de actividad, consulte [Información general sobre el registro de actividad de Azure](../azure-monitor/platform/activity-logs-overview.md).
 
 
 

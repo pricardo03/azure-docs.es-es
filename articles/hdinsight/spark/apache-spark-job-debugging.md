@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5e00c52c17eac92edc3273e2d765d6c5fd76f59b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1601663266f59668918e6799b5c4a7ff606431c4
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970693"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600019"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Depuración de trabajos de Apache Spark que se ejecutan en Azure HDInsight
 
@@ -32,10 +32,9 @@ Debe tener lo siguiente:
    
     ![Iniciar interfaz de usuario de YARN](./media/apache-spark-job-debugging/launch-yarn-ui.png)
    
-   > [!TIP]
-   > También puede iniciar la interfaz de usuario de YARN desde la de Ambari. Para iniciar la UI de Ambari, haga clic en **Inicio de Ambari** en **Paneles de clúster**. En la interfaz de usuario de Ambari, haga clic en **YARN**, en **Vínculos rápidos**, en la instancia activa de Resource Manager y luego en la **interfaz de usuario de Resource Manager**.    
-   > 
-   > 
+   > [!TIP]  
+   > También puede iniciar la interfaz de usuario de YARN desde la de Ambari. Para iniciar la UI de Ambari, haga clic en **Inicio de Ambari** en **Paneles de clúster**. En la interfaz de usuario de Ambari, haga clic en **YARN**, en **Vínculos rápidos**, en la instancia activa de Resource Manager y luego en la **interfaz de usuario de Resource Manager**. 
+
 2. Dado que se inició el trabajo de Spark mediante cuadernos de Jupyter Notebook, la aplicación se llama **remotesparkmagics** (este es el nombre de todas las aplicaciones que se inician desde los cuadernos). Haga clic en el identificador de la aplicación en lugar de en el nombre de la aplicación para más información sobre el trabajo. Esto inicia la vista de la aplicación.
    
     ![Buscar identificador de aplicación Spark](./media/apache-spark-job-debugging/find-application-id.png)
@@ -72,10 +71,9 @@ En la interfaz de usuario de Spark, puede explorar en profundidad los trabajos d
    
     Esto permite mostrar los eventos de Spark en forma de una escala de tiempo. La vista de la escala de tiempo está disponible en tres niveles: entre trabajos, dentro de un trabajo y dentro de una fase. La imagen anterior captura la vista de la escala de tiempo para una fase determinada.
    
-   > [!TIP]
+   > [!TIP]  
    > Si selecciona la casilla **Enable zooming** (Habilitar zoom), puede desplazarse a izquierda y derecha en la vista de escala de tiempo.
-   > 
-   > 
+
 6. Otras pestañas de la interfaz de usuario de Spark proporcionan también información útil acerca de la instancia de Spark.
    
    * Pestaña Storage (Almacenamiento): si la aplicación crea varios RDD, podrá encontrar información sobre estos en esta pestaña.
@@ -92,10 +90,9 @@ Cuando se completa un trabajo, se conserva la información sobre este en el serv
    
     ![Iniciar servidor de historial de Spark](./media/apache-spark-job-debugging/launch-spark-history-server.png)
    
-   > [!TIP]
+   > [!TIP]  
    > También puede iniciar la interfaz de usuario del servidor de historial de Spark desde la de Ambari. Para iniciar la UI de Ambari, en la hoja de información general, haga clic en **Inicio de Ambari** en **Paneles de clúster**. En la interfaz de usuario de Ambari, haga clic en **Spark**, en **Vínculos rápidos** y en **Spark History Server UI** (IU del servidor de historial de Spark).
-   > 
-   > 
+
 2. Aparecerá una lista de todas las aplicaciones completadas. Haga clic en un identificador de aplicación para explorar en profundidad una aplicación para obtener más información.
    
     ![Iniciar servidor de historial de Spark](./media/apache-spark-job-debugging/view-completed-applications.png)

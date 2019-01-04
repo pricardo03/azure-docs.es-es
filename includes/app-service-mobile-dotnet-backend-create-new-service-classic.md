@@ -4,19 +4,19 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 30b5ae499d29b8b78b5852074362841ac1ceb49f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: e087a1db008422aeec8fd4e073a7476eebe4d54b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50134027"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53729414"
 ---
 1. Inicie sesión en [Azure Portal].
 2. Seleccione **+NUEVO** > **Web y móvil** > **Aplicación móvil** y, después, proporcione un nombre para el back-end de Mobile Apps.
 3. En **Grupo de recursos**, seleccione un grupo de recursos existente o cree uno nuevo (con el mismo nombre que su aplicación). 
 4. Para **Plan de App Service**, se selecciona el plan predeterminado (en el [plan Estándar](https://azure.microsoft.com/pricing/details/app-service/)). También puede seleccionar otro plan o [crear uno](../articles/app-service/app-service-plan-manage.md#create-an-app-service-plan). 
 
-   La configuración del plan de App Service determina la [ubicación, las características, el costo y los recursos de proceso](https://azure.microsoft.com/pricing/details/app-service/) asociados con la aplicación. Para más información acerca de los planes de App Service y cómo crear un nuevo plan en un plan de tarifa diferente en la ubicación deseada, consulte [Introducción detallada a los planes de Azure App Service](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+   La configuración del plan de App Service determina la [ubicación, las características, el costo y los recursos de proceso](https://azure.microsoft.com/pricing/details/app-service/) asociados con la aplicación. Para más información acerca de los planes de App Service y cómo crear un nuevo plan en un plan de tarifa diferente en la ubicación deseada, consulte [Introducción detallada a los planes de Azure App Service](../articles/app-service/overview-hosting-plans.md).
    
 5. Seleccione **Crear**. Este paso crea el back-end de Mobile Apps. 
 6. En el panel **Configuración** del nuevo back-end de Mobile Apps, seleccione **Inicio rápido** > la plataforma de aplicaciones cliente > **Conectar a una base de datos**. 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 9a32ac1ae71cb7bd89c4252157c3a5cd395b2694
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4a18e009f7defc8d41846b867f9b7a65d2b853dd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842346"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993338"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-ongoing-replication-issues"></a>Solución de problemas de replicación de máquinas virtuales en curso de Azure a Azure
 
@@ -78,8 +78,8 @@ Esta opción solo es posible si la renovación de datos de disco tiene una veloc
 
 #### <a name="network-latency-to-cache-storage-account-"></a>Latencia de red en la cuenta de almacenamiento en caché:
  Site Recovery envía datos replicados a la cuenta de almacenamiento en caché. Este envío puede producirse si la velocidad de carga desde la máquina virtual hasta la cuenta de almacenamiento en caché es inferior a 4 MB cada 3 segundos. Para comprobar si hay algún problema relacionado con la latencia, utilice [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) para cargar datos desde la máquina virtual en la cuenta de almacenamiento en caché.<br>
-Si la latencia es alta, compruebe si está utilizando aplicaciones virtuales de red para controlar el tráfico que sale de las máquinas virtuales. Es posible que se genere un cuello de botella si todo el tráfico de replicación pasa por la aplicación virtual de red. Se recomienda crear un punto de conexión de servicio de red en la red virtual de "Storage" para que el tráfico de replicación no se dirija a la NVA. Consulte [Configuración de la aplicación virtual de red](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration).
+Si la latencia es alta, compruebe si está utilizando aplicaciones virtuales de red para controlar el tráfico que sale de las máquinas virtuales. Es posible que se genere un cuello de botella si todo el tráfico de replicación pasa por la aplicación virtual de red. Se recomienda crear un punto de conexión de servicio de red en la red virtual de "Storage" para que el tráfico de replicación no se dirija a la NVA. Consulte [Configuración de la aplicación virtual de red](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration).
 
 #### <a name="network-connectivity"></a>Conectividad de red
 Para que la replicación de Site Recovery funcione, la máquina virtual debe disponer de conectividad saliente a direcciones URL o intervalos IP específicos. Si la máquina virtual está detrás de un firewall o usa reglas de grupo de seguridad de red (NSG) para controlar la conectividad saliente, puede encontrarse alguno de estos problemas.</br>
-Consulte [Conectividad de salida para las direcciones URL de Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) para comprobar que todas las direcciones URL están conectadas. 
+Consulte [Conectividad de salida para las direcciones URL de Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) para comprobar que todas las direcciones URL están conectadas. 

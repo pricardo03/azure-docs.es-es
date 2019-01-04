@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 35493d9a7f47bda3344dbc8b0ea415d4492c5741
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 5431372abb9a1157b322a8af4a07ba5fa15d8e8e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340067"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720468"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Configuración de un nombre de dominio personalizado para una aplicación web en Azure App Service utilizando el Administrador de tráfico
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 [!INCLUDE [intro](../../includes/custom-dns-web-site-intro-traffic-manager.md)]
 
-En este artículo se ofrecen instrucciones generales para usar un nombre de dominio personalizado con una aplicación [App Service](app-service-web-overview.md) que se integra con [Traffic Manager](../traffic-manager/traffic-manager-overview.md) para el equilibrio de carga.
+En este artículo se ofrecen instrucciones generales para usar un nombre de dominio personalizado con una aplicación [App Service](overview.md) que se integra con [Traffic Manager](../traffic-manager/traffic-manager-overview.md) para el equilibrio de carga.
 
 [!INCLUDE [tmwebsitefooter](../../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
@@ -47,7 +47,7 @@ En este artículo se ofrecen instrucciones generales para usar un nombre de domi
 
 ## <a name="add-a-dns-record-for-your-custom-domain"></a>Incorporación de un registro DNS para el dominio personalizado
 > [!NOTE]
-> Si ha adquirido el dominio a través de Azure App Service Web Apps, omita los pasos siguientes y consulte el paso final del artículo [Comprar dominio para Web Apps](custom-dns-web-site-buydomains-web-app.md).
+> Si ha adquirido el dominio a través de Azure App Service Web Apps, omita los pasos siguientes y consulte el paso final del artículo [Comprar dominio para Web Apps](manage-custom-dns-buy-domain.md).
 > 
 > 
 

@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 50d2545d5145f1d93a1ea9fed3e4f98b474d41b2
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: a67f8c0f6be1c388c4138ee0269d7ad8b76d8c4c
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29178211"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744345"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Creación de paneles de indicadores clave de rendimiento (KPI) personalizados con Azure Application Insights
 
@@ -30,14 +30,14 @@ Puede crear varios paneles en Azure Portal de manera que cada uno incluya iconos
 
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial:
 
-- Implemente una aplicación de .NET en Azure y [habilite el SDK de Application Insights](app-insights-asp-net.md). 
+- Implemente una aplicación de .NET en Azure y [habilite el SDK de Application Insights](../azure-monitor/app/asp-net.md). 
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
-Inicie sesión en Azure Portal desde [https://portal.azure.com](https://portal.azure.com).
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
+Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-new-dashboard"></a>Creación de un nuevo panel
 Un solo panel puede contener recursos de varias aplicaciones, grupos de recursos y suscripciones.  Comience el tutorial creando un nuevo panel para la aplicación.  
@@ -163,7 +163,7 @@ Dado que Azure Applications Insights Analytics es un servicio independiente, deb
 5. Haga clic en **Publicar cambios** para confirmar los cambios del panel, que ahora incluye una serie de gráficos y visualizaciones de Application Insights.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha aprendido a crear paneles personalizados, eche un vistazo al resto de la documentación de Application Insights, que incluye un caso práctico.
 
 > [!div class="nextstepaction"]

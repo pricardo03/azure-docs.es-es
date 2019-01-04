@@ -80,5 +80,5 @@ Para iniciar sesión en Fivetran, escriba las credenciales que usa para acceder 
 * Host (el nombre del servidor)
 * Puerto
 * Base de datos
-* Usuario (el nombre de usuario debe ser **fivetran@_server_name_**, donde *server_name* es parte del URI de host de Azure: ***server_name*.database.windows.net**).
+* Usuario (el nombre de usuario debe ser **fivetran@_server_name_**, donde *server_name* es parte del URI de host de Azure: **server_name.database.windows.net**).
 * Password.

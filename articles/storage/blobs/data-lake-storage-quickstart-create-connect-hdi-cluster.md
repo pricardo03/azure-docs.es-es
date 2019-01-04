@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: f1c42a3e091bc4b3804edfe835e521a99fcee880
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 95aff0bb37a91c1e2ac117f2f3b90c726e9f88d8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52976708"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792897"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Inicio rápido: Configuración de clústeres en HDInsight
 
@@ -172,8 +172,8 @@ Al usar el portal de Azure para configurar el clúster, el tamaño del nodo est�
 
 Al implementar clústeres, elija los recursos de proceso en función de la solución que tenga previsto implementar. Las máquinas virtuales siguientes se usan para clústeres de HDInsight:
 
-* Máquinas virtuales de las series A y D1-4: [tamaños de máquina virtual Linux para uso general](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general)
-* Máquina virtual de serie D11-14: [Tamaños de máquinas virtuales Linux optimizados para memoria](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
+* Máquinas virtuales de las series A y D1-4: [Tamaños de máquinas virtuales Linux para uso general](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general)
+* Máquinas virtuales de la serie D11-14: [Tamaños de máquinas virtuales Linux optimizadas para memoria](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
 
 Para averiguar el valor que debe usar para especificar un tamaño de máquina virtual durante la creación de un clúster mediante los distintos SDK o mientras usa Azure PowerShell, vea [Tamaños de máquina virtual para clústeres de HDInsight](../../cloud-services/cloud-services-sizes-specs.md#size-tables). Use el valor de la columna **Tamaño** de las tablas de este artículo vinculado.
 
@@ -239,7 +239,7 @@ Para ver un ejemplo de cómo usar dos tipos de clúster en una red virtual de Az
 
 ## <a name="troubleshoot-access-control-issues"></a>Solución de problemas de control de acceso
 
-Si experimenta problemas con la creación de clústeres de HDInsight, consulte los [requisitos de control de acceso](../../hdinsight/hdinsight-administer-use-portal-linux.md#create-clusters).
+Si experimenta problemas con la creación de clústeres de HDInsight, consulte los [requisitos de control de acceso](../../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

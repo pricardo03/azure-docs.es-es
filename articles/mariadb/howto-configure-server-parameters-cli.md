@@ -1,21 +1,18 @@
 ---
 title: Configuración de los parámetros del servicio en Azure Database for MariaDB
 description: En este artículo se describe cómo configurar los parámetros del servicio en Azure Database for MariaDB mediante la utilidad de la línea de comandos de la CLI de Azure.
-services: mariadb
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 11/09/2018
-ms.openlocfilehash: 4e391ce56b31f35da67b3d975bbc1290c17cb139
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 4e0bf45f1c67a5e07d6ed632f6560d094b673c0a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516624"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547159"
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Personalización de los parámetros de configuración del servidor con la CLI de Azure
 Puede enumerar, mostrar y actualizar los parámetros de configuración de un servidor de Azure Database for MariaDB con la CLI de Azure, la utilidad de la línea de comandos de Azure. En el nivel del servidor, se expone y se puede modificar un subconjunto de las opciones de configuración del motor.

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: ace025f096b756259d25ca2adb347dd23a12a910
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 280d56951053870d5dc1bb8fba52cc089e842757
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409530"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743874"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>Uso de la tunelización SSH para tener acceso a la interfaz de usuario web de Apache Ambari, JobHistory, NameNode, Apache Oozie y otras interfaces de usuario web
 
@@ -47,7 +47,7 @@ La [tunelización Secure Shell (SSH) ](https://en.wikipedia.org/wiki/Tunneling_p
 
 * Un explorador web que se puede configurar para usar un proxy SOCKS5.
 
-    > [!WARNING]
+    > [!WARNING]  
     > La compatibilidad con el proxy SOCKS integrada en la configuración de Internet de Windows no es compatible con SOCKS5 y no funciona con los pasos descritos en este documento. Los siguientes exploradores se basan en la configuración de proxy de Windows y actualmente no funcionan con los pasos descritos en este documento:
     >
     > * Microsoft Edge
@@ -78,7 +78,7 @@ Una vez que se completa el comando, el tráfico enviado al puerto 9876 de la má
 
 ## <a name="useputty"></a>Creación de un túnel mediante PuTTY
 
-[PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) es un cliente SSH gráfico para Windows. Si no está familiarizado con PuTTY, consulte la [documentación de PuTTY ](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). Use los siguientes pasos para crear un túnel SSH con PuTTY:
+[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty) es un cliente SSH gráfico para Windows. Si no está familiarizado con PuTTY, consulte la [documentación de PuTTY ](https://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). Use los siguientes pasos para crear un túnel SSH con PuTTY:
 
 ### <a name="create-or-load-a-session"></a>Creación o carga de una sesión
 
@@ -120,7 +120,7 @@ Una vez que se completa el comando, el tráfico enviado al puerto 9876 de la má
    > [!NOTE]  
    > La selección de **DNS remoto** resuelve las solicitudes del sistema de nombres de dominio (DNS) mediante el uso del clúster de HDInsight. Esta configuración resuelve el DNS con el nodo principal del clúster.
 
-2. Compruebe que el túnel funciona; para ello, visite un sitio como [http://www.whatismyip.com/](http://www.whatismyip.com/). La dirección IP devuelta debe ser una que use el centro de datos de Microsoft Azure.
+2. Compruebe que el túnel funciona; para ello, visite un sitio como [https://www.whatismyip.com/](https://www.whatismyip.com/). La dirección IP devuelta debe ser una que use el centro de datos de Microsoft Azure.
 
 ## <a name="verify-with-ambari-web-ui"></a>Compruebe con la interfaz de usuario web de Ambari
 

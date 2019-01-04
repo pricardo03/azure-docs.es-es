@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 5657cfb40e9017918f5842c573895872940b307a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6d0c8f62d109d07a9f08e5190a5a2caa0d66a0c1
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273717"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579335"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Crear, ver y administrar las alertas del registro de actividad mediante Azure Monitor  
 
@@ -96,7 +96,7 @@ Utilice el siguiente procedimiento:
     Puede habilitar, deshabilitar, editar o eliminar una regla. [Obtenga más información](#view-and-manage-activity-log-alert-rules-in-azure-portal) acerca de cómo administrar las reglas del registro de actividad.
 
 
-Alternativamente, una simple analogía para comprender las condiciones en las que se pueden crear reglas de alertas en el registro de actividad, es explorar o filtrar eventos a través del [Registro de actividad en Azure Portal ](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#query-the-activity-log-in-the-azure-portal). En "Azure Monitor: registro de actividad", se puede filtrar o buscar un evento necesario y crear una alerta mediante el botón **Agregar alerta de registro de actividad**; a continuación, siga del paso 4 en adelante, tal como se indica en el tutorial anterior.
+Alternativamente, una simple analogía para comprender las condiciones en las que se pueden crear reglas de alertas en el registro de actividad, es explorar o filtrar eventos a través del [Registro de actividad en Azure Portal ](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal). En "Azure Monitor: registro de actividad", se puede filtrar o buscar un evento necesario y crear una alerta mediante el botón **Agregar alerta de registro de actividad**; a continuación, siga del paso 4 en adelante, tal como se indica en el tutorial anterior.
     
  ![ agregar alerta del registro de actividad](media/alerts-activity-log/add-activity-log.png)
     
@@ -223,4 +223,4 @@ El archivo *sampleActivityLogAlert.parameters.json* tiene los valores proporcion
 - [Esquema de webhook para los registros de actividad](../../azure-monitor/platform/activity-log-alerts-webhook.md)
 - [Información general sobre los registros de actividad](../../azure-monitor/platform/activity-log-alerts.md) 
 - Más información sobre los [grupos de acciones](../../azure-monitor/platform/action-groups.md).  
-- Más información acerca de las [Notificaciones del estado del servicio](../../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- Más información acerca de las [Notificaciones del estado del servicio](../../azure-monitor/platform/service-notifications.md).

@@ -15,17 +15,17 @@ ms.date: 07/07/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 2d035883534430e76d251b22dfc95d34e4eb03cd
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 8b0277d1e82e655edd9308f8b8afa7d6dcec434e
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723574"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754839"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Depure sus aplicaciones con Azure Application Insights en Visual Studio
 En Visual Studio (2015 y versiones posteriores), se pueden diagnosticar y analizar los problemas de rendimiento de las aplicaciones web, tanto en tiempo de depuración como en producción, mediante los datos de telemetría de [Azure Application Insights](app-insights-overview.md).
 
-Si ha creado la aplicación web de ASP.NET mediante Visual Studio 2017 o versiones posteriores, ya tiene el SDK de Application Insights. Si todavía no lo ha hecho, [agregue Application Insights a su aplicación](app-insights-asp-net.md).
+Si ha creado la aplicación web de ASP.NET mediante Visual Studio 2017 o versiones posteriores, ya tiene el SDK de Application Insights. Si todavía no lo ha hecho, [agregue Application Insights a su aplicación](../azure-monitor/app/asp-net.md).
 
 Para supervisar la aplicación cuando se encuentra activa en producción, normalmente verá la telemetría de Application Insights en [Azure Portal](https://portal.azure.com), donde puede establecer alertas y aplicar eficaces herramientas de supervisión. Pero para la depuración, también puede buscar y analizar la telemetría en Visual Studio. Puede usar Visual Studio para analizar la telemetría desde su sitio de producción y desde los procesos de depuración que se ejecutan en el equipo de desarrollo. En este caso, puede analizar los procesos de depuración aunque todavía no haya configurado el SDK para enviar telemetría a Azure Portal. 
 
@@ -60,7 +60,7 @@ También puede abrir los elementos relacionados para ayudar a diagnosticar las s
 ![En Detalles de la solicitud, desplácese hasta los elementos relacionados](./media/app-insights-visual-studio/41.png)
 
 ## <a name="view-exceptions-and-failed-requests"></a>Ver solicitudes con error y excepciones
-Informes de excepciones en la ventana de búsqueda. (En algunos tipos anteriores de aplicaciones de ASP.NET, tendrá que [configurar la supervisión de excepciones](app-insights-asp-net-exceptions.md) para ver las excepciones que el entorno administra).
+Informes de excepciones en la ventana de búsqueda. (En algunos tipos anteriores de aplicaciones de ASP.NET, tendrá que [configurar la supervisión de excepciones](../azure-monitor/app/asp-net-exceptions.md) para ver las excepciones que el entorno administra).
 
 Haga clic en una excepción para obtener un seguimiento de la pila. Si el código de la aplicación es abierto en Visual Studio, puede hacer clic para recorrer el seguimiento de la pila hasta dar con la línea correspondiente del código.
 
@@ -72,7 +72,7 @@ En la línea de Code Lens, encima de cada método de controlador, puede ver un r
 ![Seguimiento de la pila de excepción](./media/app-insights-visual-studio/21.png)
 
 > [!NOTE] 
-> Code Lens muestra los datos de Application Insights solo si tiene [configurada la aplicación para enviar telemetría al portal de Application Insights](app-insights-asp-net.md).
+> Code Lens muestra los datos de Application Insights solo si tiene [configurada la aplicación para enviar telemetría al portal de Application Insights](../azure-monitor/app/asp-net.md).
 >
 
 [Más información acerca de Application Insights en Code Lens](app-insights-visual-studio-codelens.md)
@@ -93,7 +93,7 @@ Para detectar anomalías en los datos, elija una de las opciones de anomalía en
 
 Esto es conveniente si ya ha publicado una versión anterior de la aplicación. No quiere que los datos de telemetría de las sesiones de depuración se mezclen con los datos de telemetría en el portal de Application Insights de la aplicación publicada.
 
-También es útil si tiene [datos de telemetría personalizados](app-insights-api-custom-events-metrics.md) que desea depurar antes de enviarlos al portal.
+También es útil si tiene [datos de telemetría personalizados](../azure-monitor/app/api-custom-events-metrics.md) que desea depurar antes de enviarlos al portal.
 
 * *En primer lugar, configuré totalmente Application Insights para enviar los datos de telemetría al portal. Pero ahora me gustaría ver los datos de telemetría solo en Visual Studio.*
   
@@ -104,6 +104,6 @@ También es útil si tiene [datos de telemetría personalizados](app-insights-ap
 ## <a name="next-steps"></a>Pasos siguientes
 |  |  |
 | --- | --- |
-| **[Incorporación de datos adicionales](app-insights-asp-net-more.md)**<br/>Supervise el uso, la disponibilidad, las dependencias y las excepciones. Integrar seguimientos de marcos de registro. Escribir telemetría personalizada. |![Visual Studio](./media/app-insights-visual-studio/64.png) |
-| **[Trabajo con el portal de Application Insights](app-insights-dashboards.md)**<br/>Consulte paneles, eficaces herramientas de diagnóstico y análisis, alertas, un mapa activo de dependencias de la aplicación y datos de telemetría exportados. |![Visual Studio](./media/app-insights-visual-studio/62.png) |
+| **[Incorporación de datos adicionales](../azure-monitor/app/asp-net-more.md)**<br/>Supervise el uso, la disponibilidad, las dependencias y las excepciones. Integrar seguimientos de marcos de registro. Escribir telemetría personalizada. |![Visual Studio](./media/app-insights-visual-studio/64.png) |
+| **[Trabajo con el portal de Application Insights](../azure-monitor/app/app-insights-dashboards.md)**<br/>Consulte paneles, eficaces herramientas de diagnóstico y análisis, alertas, un mapa activo de dependencias de la aplicación y datos de telemetría exportados. |![Visual Studio](./media/app-insights-visual-studio/62.png) |
 

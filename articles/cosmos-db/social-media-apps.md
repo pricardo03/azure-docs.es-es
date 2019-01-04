@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: maquaran
-ms.openlocfilehash: 669cfdc59fc0b2f509db704afa4867d8f55d86f8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 494566cc7d49d502fd0bd864e70b338b8d6e0788
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083978"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726789"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Redes sociales y Azure Cosmos DB
 
@@ -100,7 +100,7 @@ Para la creación de fuentes solo es necesario crear documentos que puedan conte
 
 Podría tener una secuencia "más recientes" con publicaciones ordenadas por fecha de creación. O bien podría tener una secuencia "más populares" con las publicaciones que han recibido más "me gusta" en las últimas 24 horas. Incluso podría implementar una secuencia personalizada para cada usuario según alguna lógica, como los seguidores e intereses. Aún así, sería una lista de publicaciones. Sin importar cómo cree estas listas, el rendimiento de lectura no se ve afectado. Una vez que se adquiere una de estas listas, se emite una consulta única a Cosmos DB con el [operador IN](how-to-sql-query.md#WhereClause) para obtener páginas de publicaciones cada vez.
 
-Los flujos de fuente se pueden generar mediante procesos en segundo plano de [Azure App Services](https://azure.microsoft.com/services/app-service/): [Trabajos web](../app-service/web-sites-create-web-jobs.md). Una vez que se crea una publicación, el procesamiento en segundo plano puede activarse mediante el uso de [Azure Storage](https://azure.microsoft.com/services/storage/) [Queues](../storage/queues/storage-dotnet-how-to-use-queues.md) y Webjobs desencadenados mediante el [SDK Azure Webjobs](https://github.com/Azure/azure-webjobs-sdk/wiki), implementando la propagación de publicaciones dentro de los flujos en función de nuestra lógica personalizada.
+Los flujos de fuente se pueden generar mediante procesos en segundo plano de [Azure App Services](https://azure.microsoft.com/services/app-service/): [Trabajos web](../app-service/webjobs-create.md). Una vez que se crea una publicación, el procesamiento en segundo plano puede activarse mediante el uso de [Azure Storage](https://azure.microsoft.com/services/storage/) [Queues](../storage/queues/storage-dotnet-how-to-use-queues.md) y Webjobs desencadenados mediante el [SDK Azure Webjobs](https://github.com/Azure/azure-webjobs-sdk/wiki), implementando la propagación de publicaciones dentro de los flujos en función de nuestra lógica personalizada.
 
 La puntuación y los "me gusta" de una publicación se pueden procesar de manera aplazada usando esta misma técnica para crear un entorno coherente.
 

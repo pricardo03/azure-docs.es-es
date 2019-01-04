@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 3c9514e39e061067b7332570e0eb6273924529e0
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: be86e961d04b600f112a173c041b60cbe50ea00d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339219"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725070"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas de registro mediante Azure Monitor  
 
@@ -23,7 +23,7 @@ En este artículo se muestra cómo configurar las alertas de registro con la int
 - Criterios: condición o lógica específicas que, cuando se señaliza la alerta, deben desencadenar una acción.
 - Acción: llamada específica enviada a un receptor de una notificación (correo electrónico, SMS, webhook, etc.).
 
-El término **Alertas de registro** se usa para describir las alertas cuya señal es una consulta personalizada basada en [Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) o [Application Insights](../../application-insights/app-insights-analytics.md). Obtenga más información acerca de la funcionalidad, la terminología y los tipos de [Alertas de registro: información general](../../azure-monitor/platform/alerts-unified-log.md).
+El término **Alertas de registro** se usa para describir las alertas cuya señal es una consulta personalizada basada en [Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) o [Application Insights](../../azure-monitor/app/analytics.md). Obtenga más información acerca de la funcionalidad, la terminología y los tipos de [Alertas de registro: información general](../../azure-monitor/platform/alerts-unified-log.md).
 
 > [!NOTE]
 > Ahora los datos de registro populares de [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) también están disponibles en la plataforma de métricas de Azure Monitor. Para obtener más detalles, consulte [Metric Alert for Logs](../../azure-monitor/platform/alerts-metric-logs.md) (Alerta de métrica de los registros)
@@ -245,6 +245,6 @@ Si la operación se realiza correctamente, se devolverá 201 para indicar que se
 
 * Más información sobre las [alertas de registro en las alertas de Azure](../../azure-monitor/platform/alerts-unified-log.md).
 * Conocer las [acciones de webhook para alertas de registro](../../azure-monitor/platform/alerts-log-webhook.md)
-* Más información sobre [Application Insights](../../application-insights/app-insights-analytics.md)
+* Más información sobre [Application Insights](../../azure-monitor/app/analytics.md)
 * Más información sobre [Log Analytics](../../azure-monitor/log-query/log-query-overview.md). 
 

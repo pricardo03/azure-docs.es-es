@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: fe186966dbddb5aa743e465f897aa5a1a0e07db1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 23cbdb4d72a6b88563d9d2c2bd0e4e3c8223377f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840221"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723678"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Uso de las Herramientas de Azure HDInsight para Visual Studio Code
 
@@ -30,7 +30,7 @@ Para completar los pasos de este artículo, se requieren los elementos siguiente
 
 - Un clúster de HDInsight. Para crear un clúster, vea la [introducción a HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx)
-- [Mono](http://www.mono-project.com/docs/getting-started/install/). Mono solo es obligatorio para Linux y macOS.
+- [Mono](https://www.mono-project.com/docs/getting-started/install/). Mono solo es obligatorio para Linux y macOS.
 
 ## <a name="install-the-hdinsight-tools"></a>Instalar Herramientas de HDInsight
    
@@ -87,7 +87,7 @@ Antes de poder enviar scripts a clústeres de HDInsight desde VS Code, debe cone
 
     Una vez establecida la conexión, el nombre de la cuenta de Azure se muestra en la barra de estado en la parte inferior izquierda de la ventana de VSCode. 
 
-    > [!NOTE]
+    > [!NOTE]  
     > Debido a un problema conocido de autenticación de Azure es preciso que abra un explorador en modo privado o incógnito. Si la cuenta de Azure tiene dos factores habilitados, se recomienda usar la autenticación de teléfono en lugar de la del PIN.
   
 
@@ -113,7 +113,7 @@ Puede vincular un clúster normal mediante un nombre de usuario administrado de 
    
    ![cuadro de diálogo de vinculación de clúster](./media/hdinsight-for-vscode/link-cluster-process.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > Si el clúster se registró en la suscripción de Azure y se vinculó, se usan el nombre de usuario y la contraseña vinculados. 
    
 3. Puede ver un clúster vinculado mediante el comando **List Cluster**. Ahora puede enviar un script a este clúster vinculado.
@@ -231,7 +231,7 @@ Con Herramientas de HDInsight para VS Code, puede enviar consultas de Hive inter
 
    ![Enviar resultado de trabajo de Python](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) El estado del envío aparece en la parte izquierda de la barra de estado inferior cuando se ejecutan consultas. No envíe otras consultas cuando el estado sea **PySpark Kernel (busy)** [Kernel de PySpark (ocupado)]. 
 
->[!NOTE]
+>[!NOTE]  
 >Los clústeres pueden mantener la información de la sesión. La variable definida, la función y los valores correspondientes se conservan en la sesión, con el fin de se pueda hacer referencia a ellos en varias llamadas de servicio para el mismo clúster. 
 
 ### <a name="to-disable-environment-check"></a>Para deshabilitar la comprobación del entorno
@@ -407,8 +407,8 @@ HDInsight para VS Code admite las siguientes características:
 
 ### <a name="scenarios"></a>Escenarios
 * [Apache Spark con BI: Análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](spark/apache-spark-use-bi-tools.md)
-* [Apache Spark con Machine Learning: Uso de Apache Spark en HDInsight para analizar la temperatura de edificios con los datos del sistema de acondicionamiento de aire](spark/apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark con Machine Learning: Uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark con Machine Learning: uso de Apache Spark en HDInsight para analizar la temperatura de edificios con los datos del sistema de acondicionamiento de aire](spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark con Machine Learning: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](spark/apache-spark-machine-learning-mllib-ipython.md)
 * [Análisis de registros de un sitio web mediante Apache Spark en HDInsight](spark/apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-running-applications"></a>Creación y ejecución de aplicaciones

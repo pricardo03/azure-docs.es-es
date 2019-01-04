@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 4b78675de2902736b90afa1df9ad66e2df2b0f77
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 8c63b97f9d4423bf57909da7716675915a5271ef
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386237"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994059"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Tutorial: Procedimiento para llamar a Cognitive Search API (versión preliminar)
 
@@ -59,7 +59,7 @@ En primer lugar, regístrese en el servicio Azure Search.
 
 1. En Grupo de recursos, cree un grupo de recursos en el que se incluirán todos los recursos que cree en este tutorial. De este modo, será más fácil limpiar los recursos tras finalizar el tutorial.
 
-1. En Ubicación, elija una de las [regiones admitidas](https://docs.microsoft.com/en-us/azure/search/cognitive-search-quickstart-blob#supported-regions) para Cognitive Search.
+1. En Ubicación, elija una de las [regiones admitidas](https://docs.microsoft.com/azure/search/cognitive-search-quickstart-blob#supported-regions) para Cognitive Search.
 
 1. En la opción Plan de tarifa, puede crear un servicio **Gratis** para completar tutoriales y guías de inicio rápido. Si quiere realizar una investigación detallada con sus propios datos, cree un [servicio de pago](https://azure.microsoft.com/pricing/details/search/) como **Básico** o **Estándar**. 
 
