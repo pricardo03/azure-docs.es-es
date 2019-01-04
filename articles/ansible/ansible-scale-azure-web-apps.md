@@ -8,15 +8,15 @@ manager: jeconnoc
 ms.author: kyliel
 ms.topic: tutorial
 ms.date: 12/08/2018
-ms.openlocfilehash: 4ec5a0691ce73a2ffebe07b316ce5b1dde8c2b49
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 740ff6d6a636377f9d58a5231692c87f935ae6d2
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249386"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601872"
 ---
 # <a name="scale-azure-app-service-web-apps-by-using-ansible"></a>Escalado de aplicaciones web de Azure App Service con Ansible
-[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (o simplemente Web Apps) hospeda aplicaciones web, API de REST y servidores back-end para dispositivos móviles. Puede desarrollar en su lenguaje preferido, ya sea .NET, .NET Core, Java, Ruby, Node.js, PHP o Python.
+[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/overview) (o simplemente Web Apps) hospeda aplicaciones web, API de REST y servidores back-end para dispositivos móviles. Puede desarrollar en su lenguaje preferido, ya sea .NET, .NET Core, Java, Ruby, Node.js, PHP o Python.
 
 Ansible permite automatizar la implementación y la configuración de recursos en el entorno. En este artículo se muestra cómo usar Ansible para escalar aplicaciones en Azure App Service.
 

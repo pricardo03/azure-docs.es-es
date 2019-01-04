@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 632393696274eaf6f876ea717b5fccf7d4fbea3f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f1151c845797d74bbb9a5e50feeeb288a4ab349b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965400"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714855"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Tutorial: Creación de una solución de aplicación distribuida geográficamente con Azure y Azure Stack
 
@@ -65,7 +65,7 @@ Antes de crear el entorno de una aplicación distribuida, resulta útil conocer 
 
 -   **Estrategia para escalar el entorno de la aplicación:** ¿se va a distribuir el entorno de la aplicación entre varias instancias de App Service Environment de una sola región? ¿Varias regiones? ¿Usamos una combinación de ambos enfoques? La decisión debería basarse en las expectativas de dónde se vaya a originar el tráfico del cliente, así como también en la medida en que el resto de la infraestructura de back-end de apoyo de una aplicación pueda escalarse. Por ejemplo, con una aplicación totalmente sin estado, se puede escalar una aplicación de forma masiva mediante una combinación de varias instancias de App Service Environment por región de Azure, multiplicadas por más instancias de App Service Environment implementadas en varias regiones de Azure. Con más de 15 regiones de Azure globales entre las que elegir, los clientes pueden realmente crear una superficie de aplicación de gran escala en todo el mundo. Para la aplicación de ejemplo usada en este artículo, se crearon tres entornos de App Service en una sola región de Azure (Centro y Sur de EE. UU.).
 
--   **Convención de nomenclatura para App Service Environment:** cada App Service Environment requiere un nombre único. Si existen más de uno o dos entornos de App Service Environment, resulta útil disponer de una convención de nomenclatura para ayudar a identificar cada uno. Para la aplicación de ejemplo, se usó una convención de nomenclatura sencilla. Los nombres de las tres instancias de App Service Environment son *fe1ase*, *fe2ase* y *fe3ase*.
+-   **Convención de nomenclatura para las instancias de App Service Environment:** cada App Service Environment requiere un nombre único. Si existen más de uno o dos entornos de App Service Environment, resulta útil disponer de una convención de nomenclatura para ayudar a identificar cada uno. Para la aplicación de ejemplo, se usó una convención de nomenclatura sencilla. Los nombres de las tres instancias de App Service Environment son *fe1ase*, *fe2ase* y *fe3ase*.
 
 -   **Convención de nomenclatura para las aplicaciones:** dado que se van a implementar varias instancias de la aplicación, se necesita un nombre para cada instancia de la aplicación implementada. Con App Service Environments, se puede usar el mismo nombre de aplicación en varios entornos de App Service Environments. Dado que cada uno tiene un sufijo de dominio único, los desarrolladores pueden reutilizar el mismo nombre de aplicación en cada entorno. Por ejemplo, un desarrollador podría asignar los siguientes nombres a las aplicaciones:*miapp.foo1.p.azurewebsites.net*, *miapp.foo2.p.azurewebsites.net*, *miapp.foo3.p.azurewebsites.net, etc*. Para la aplicación en este escenario, cada instancia de la aplicación tiene un nombre único. Los nombres de las instancias de aplicación usados son *webfrontend1*, *webfrontend2* y *webfrontend3*.
 
@@ -122,7 +122,7 @@ Configure la canalización de CI/CD híbrida para implementar la aplicación web
 
 ### <a name="create-web-app-deployment-in-both-clouds"></a>Creación de una implementación de aplicaciones web en ambas nubes
 
-1.  Edite el archivo **WebApplication.csproj**: Seleccione **Runtimeidentifier** y agregue **win10-x64**. (Consulte la documentación de [Implementaciones autocontenidas](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)).
+1.  Edite el archivo **WebApplication.csproj**: Seleccione Runtimeidentifier y agregue **win10-x64**. (Consulte la documentación de [Implementaciones autocontenidas](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)).
 
     ![Texto alternativo](media/azure-stack-solution-geo-distributed/image3.png)
 
@@ -242,7 +242,7 @@ Azure DevOps y Azure DevOps Server proporcionan una canalización con una gran c
 
 ## <a name="part-2-update-web-app-options"></a>Parte 2: Actualizar las opciones de la aplicación web
 
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático. 
+[Azure App Service](https://docs.microsoft.com/azure/app-service/overview) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático. 
 
 ![Texto alternativo](media/azure-stack-solution-geo-distributed/image27.png)
 
@@ -255,7 +255,7 @@ Azure DevOps y Azure DevOps Server proporcionan una canalización con una gran c
 > [!Note]  
 >  Se recomienda usar un CNAME para todos los nombres DNS personalizados, excepto un dominio raíz (por ejemplo, northwind.com).
 
-Para migrar un sitio en vivo y su nombre de dominio DNS a App Service, consulte [Migración de un nombre DNS activo a Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-custom-domain-name-migrate).
+Para migrar un sitio en vivo y su nombre de dominio DNS a App Service, consulte [Migración de un nombre DNS activo a Azure App Service](https://docs.microsoft.com/azure/app-service/manage-custom-dns-migrate-domain).
 
 ### <a name="prerequisites"></a>Requisitos previos
 
@@ -276,7 +276,7 @@ Actualice el archivo de zona DNS para el dominio. Azure AD comprobará la propie
 Por ejemplo, para agregar las entradas DNS fornorthwindcloud.comandwww.northwindcloud.com, establezca la configuración de DNS para el dominio raíz thenorthwindcloud.com.
 
 > [!Note]  
->  Un nombre de dominio puede adquirirse mediante [Azure Portal](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app).  
+>  Un nombre de dominio puede adquirirse mediante [Azure Portal](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).  
 > Para asignar un nombre DNS personalizado a una aplicación web, el [plan de App Service](https://azure.microsoft.com/pricing/details/app-service/) de dicha aplicación debe ser un nivel de pago (**Compartido**, **Básico**, **Estándar** o **Premium**).
 
 

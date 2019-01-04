@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: alerts
-ms.openlocfilehash: cf315718377210e13a6634c0eaf8caab158bcc4d
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 24d0965fa2a88bc844a81c7430d46c071a9b874b
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342228"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580049"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprender cómo funcionan las alertas de métricas en Azure Monitor
 
@@ -93,7 +93,7 @@ En cuanto a las alertas de métricas, normalmente recibirá una notificación en
 
 ## <a name="supported-resource-types-for-metric-alerts"></a>Tipos de recursos admitidos en las alertas métricas
 
-En este [artículo](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported) puede encontrar la lista completa de tipos de recursos admitidos.
+En este [artículo](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported) puede encontrar la lista completa de tipos de recursos admitidos.
 
 Si ya utiliza alertas de métricas clásicas y desea ver si las alertas de métricas admiten todos los tipos de recursos que usa, en la tabla siguiente se muestran los tipos de recursos compatibles con alertas de métricas clásicas y si son compatibles con las alertas de métricas actuales o no.
 

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: d7e5553ec48cfda858f2a463a2df0cc60f0e5c65
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 77cb60c1a459d7c3f98d902d82e5fef86e8c34f4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270406"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541630"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>Preguntas más frecuentes sobre SQL Database
 
@@ -51,11 +51,11 @@ Los modelos basados en DTU y en núcleos virtuales seguirán coexistiendo. Lanza
 
 ## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model"></a>¿Cómo tengo que elegir entre el modelo de compra basado en DTU y el modelo de compra basado en núcleos virtuales?
 
-La unidad de transacción de base de datos (DTU) se basa en una medida combinada de CPU, memoria, lecturas y escrituras. Los tamaños de proceso basados en DTU representan conjuntos preconfigurados de recursos que controlan distintos niveles de rendimiento de la aplicación. Los clientes que no desean preocuparse por los recursos subyacentes y prefieren la simplicidad de una agrupación preconfigurada y pagar una cantidad mensual fija, pueden encontrar que el modelo basado en DTU se ajusta mejor a sus necesidades. Sin embargo, para clientes que necesitan información detallada de los recursos subyacentes o escalarlos de manera independiente para lograr un rendimiento óptimo, el modelo basado en núcleos virtuales será el más adecuado.  Además, si el cliente tiene una licencia activa de Software Assurance (SA) para SQL Server, puede aprovechar su inversión actual y ahorrar hasta un 30 % con la [Ventaja híbrida de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Las opciones dentro de cada modelo de compra ofrecen las ventajas de un servicio administrado, tales como copias de seguridad automatizadas, revisiones y actualizaciones de software.
+La unidad de transacción de base de datos (DTU) se basa en una medida combinada de CPU, memoria, lecturas y escrituras. Los tamaños de proceso basados en DTU representan conjuntos preconfigurados de recursos que controlan distintos niveles de rendimiento de la aplicación. Los clientes que no desean preocuparse por los recursos subyacentes y prefieren la simplicidad de una agrupación preconfigurada y pagar una cantidad mensual fija, pueden encontrar que el modelo basado en DTU se ajusta mejor a sus necesidades. Sin embargo, para clientes que necesitan información detallada de los recursos subyacentes o escalarlos de manera independiente para lograr un rendimiento óptimo, el modelo basado en núcleos virtuales será el más adecuado.  Además, si el cliente tiene una licencia activa de Software Assurance (SA) para SQL Server, puede aprovechar su inversión actual y ahorrar hasta un 30 % con la [Ventaja híbrida de Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).  Las opciones dentro de cada modelo de compra ofrecen las ventajas de un servicio administrado, tales como copias de seguridad automatizadas, revisiones y actualizaciones de software.
 
 ## <a name="what-is-the-azure-hybrid-benefit-for-sql-server"></a>¿Qué es la Ventaja híbrida de Azure para SQL Server?
 
-La [Ventaja híbrida de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) permite maximizar el valor de sus inversiones actuales en licencias y acelerar el proceso de migración a la nube. Se trata de una ventaja basada en Azure que le permite usar las licencias de SQL Server con Software Assurance para pagar una tarifa reducida ("tasa base") en SQL Database. La Ventaja híbrida de Azure para SQL Server está disponible en la versión preliminar pública del modelo de compra basado en núcleos virtuales para bases de datos únicas y grupos elásticos de SQL Database. Puede solicitar esta ventaja aunque la SKU esté activa, pero tenga en cuenta que la tasa base se aplica desde el momento en que la seleccione en Azure Portal. No se emitirá ningún crédito con carácter retroactivo.
+La [Ventaja híbrida de Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) permite maximizar el valor de sus inversiones actuales en licencias y acelerar el proceso de migración a la nube. Se trata de una ventaja basada en Azure que le permite usar las licencias de SQL Server con Software Assurance para pagar una tarifa reducida ("tasa base") en SQL Database. La Ventaja híbrida de Azure para SQL Server está disponible en la versión preliminar pública del modelo de compra basado en núcleos virtuales para bases de datos únicas y grupos elásticos de SQL Database. Puede solicitar esta ventaja aunque la SKU esté activa, pero tenga en cuenta que la tasa base se aplica desde el momento en que la seleccione en Azure Portal. No se emitirá ningún crédito con carácter retroactivo.
 
 ## <a name="are-there-dual-use-rights-with-azure-hybrid-benefit-for-sql-server"></a>¿Hay derechos de doble uso con Ventaja híbrida de Azure para SQL Server?
 
@@ -127,13 +127,13 @@ Sí, puede convertir fácilmente su base de datos a cualquier objetivo de rendim
 
 ## <a name="can-i-upgrade-or-downgrade-between-the-general-purpose-and-business-critical-service-tiers"></a>¿Se puede actualizar o degradar entre los niveles de servicio “De uso general” y “Crítico para la empresa”?
 
-Sí, con algunas restricciones. La SKU de destino debe cumplir el tamaño máximo de base de datos o grupo elástico configurado para la implementación existente. Si usa la [Ventaja híbrida de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md), la SKU “Crítico para la empresa” solo está disponible para los clientes con licencias Enterprise Edition. Solo los clientes que migraron del entorno local al nivel de servicio De uso general mediante Ventaja híbrida de Azure para SQL Server con licencias Enterprise Edition pueden actualizarse al nivel Crítico para la empresa. Para obtener más información, vea [¿Cuáles son los derechos específicos de la Ventaja híbrida de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md)?
+Sí, con algunas restricciones. La SKU de destino debe cumplir el tamaño máximo de base de datos o grupo elástico configurado para la implementación existente. Si usa la [Ventaja híbrida de Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/), la SKU “Crítico para la empresa” solo está disponible para los clientes con licencias Enterprise Edition. Solo los clientes que migraron del entorno local al nivel de servicio De uso general mediante Ventaja híbrida de Azure para SQL Server con licencias Enterprise Edition pueden actualizarse al nivel Crítico para la empresa. Para obtener más información, vea [¿Cuáles son los derechos específicos de la Ventaja híbrida de Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/)?
 
 Esta conversión no produce tiempo de inactividad y se puede iniciar mediante Azure Portal, PowerShell, la CLI de Azure, T-SQL o la API de REST. Consulte [Administración de bases de datos únicas](sql-database-single-database-scale.md) y [Administración de grupos elásticos](sql-database-elastic-pool.md).
 
 ## <a name="i-am-using-a-premium-rs-database-that-will-not-be-generally-available---can-i-upgrade-it-to-a-new-tier-and-achieve-a-similar-priceperformance-benefit"></a>Uso una base de datos Premium RS que no estará disponible con carácter general. ¿Puedo actualizarla a un nuevo nivel y conseguir una ventaja similar de precio o rendimiento?
 
-Dado que el modelo de núcleos virtuales permite un control independiente sobre la cantidad de almacenamiento y proceso aprovisionados, puede administrar más eficazmente los costos resultantes, lo que lo convierte en un destino atractivo para las bases de datos Premium RS. Además, la [Ventaja híbrida de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) proporciona un descuento considerable cuando se usa el modelo basado en núcleos virtuales.
+Dado que el modelo de núcleos virtuales permite un control independiente sobre la cantidad de almacenamiento y proceso aprovisionados, puede administrar más eficazmente los costos resultantes, lo que lo convierte en un destino atractivo para las bases de datos Premium RS. Además, la [Ventaja híbrida de Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) proporciona un descuento considerable cuando se usa el modelo basado en núcleos virtuales.
 
 ## <a name="how-often-can-i-adjust-the-resources-per-pool"></a>¿Con qué frecuencia se pueden ajustar los recursos por grupo?
 

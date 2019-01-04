@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: 3fb68370f9b26aacc33d0e2e6090fe819010f468
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 0f72097ad9e8b8675d78654c07a62fb6baf90f4a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53283221"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582310"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks para alertas del registro de actividad de Azure
 Como parte de la definición de un grupo de acciones, se pueden configurar puntos de conexión de webhook para recibir notificaciones de alertas del registro de actividad. Los webhooks permiten enrutar estas notificaciones a otros sistemas para su procesamiento posterior o acciones personalizadas. Este artículo muestra el aspecto de la carga útil para HTTP POST a un webhook.
@@ -161,9 +161,9 @@ La carga útil JSON incluida en la operación POST difiere según el campo data.
 }
 ```
 
-Para obtener detalles del esquema específico sobre alertas del registro de actividad de notificaciones de mantenimiento del servicio, consulte [Notificaciones de mantenimiento del servicio](../../monitoring-and-diagnostics/monitoring-service-notifications.md). Además, puede obtener información acerca de cómo [configurar notificaciones webhook del estado del servicio con las soluciones de administración de problemas existentes](../../service-health/service-health-alert-webhook-guide.md).
+Para obtener detalles del esquema específico sobre alertas del registro de actividad de notificaciones de mantenimiento del servicio, consulte [Notificaciones de mantenimiento del servicio](../../azure-monitor/platform/service-notifications.md). Además, puede obtener información acerca de cómo [configurar notificaciones webhook del estado del servicio con las soluciones de administración de problemas existentes](../../service-health/service-health-alert-webhook-guide.md).
 
-Para obtener información del esquema específico en todas las otras alertas del registro de actividad, consulte [Información general sobre el registro de actividad de Azure](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Para obtener información del esquema específico en todas las otras alertas del registro de actividad, consulte [Información general sobre el registro de actividad de Azure](../../azure-monitor/platform/activity-logs-overview.md).
 
 | Nombre del elemento | DESCRIPCIÓN |
 | --- | --- |
@@ -193,10 +193,10 @@ Para obtener información del esquema específico en todas las otras alertas del
 | operationName |Nombre de la operación. |
 | propiedades |Propiedades del evento. |
 | status |String. Estado de la operación. Entre los valores habituales, se incluyen Started, In Progress, Succeeded, Failed, Active y Resolved. |
-| subStatus |Normalmente, incluye el código de estado HTTP de la llamada de REST correspondiente. También podría incluir otras cadenas que describen un subestado. Los valores de subestado comunes son Aceptar (código de estado HTTP: 200), Creado (código de estado HTTP: 201), Aceptado (código de estado HTTP: 202), Sin contenido (código de estado HTTP: 204), Solicitud incorrecta (código de estado HTTP: 400), No encontrado (código de estado HTTP: 404), Conflicto (código de estado HTTP: 409), Error interno del servidor (código de estado HTTP: 500), Servicio no disponible (código de estado HTTP: 503), Tiempo de espera agotado para la puerta de enlace (código de estado HTTP: 504). |
+| subStatus |Normalmente, incluye el código de estado HTTP de la llamada de REST correspondiente. También podría incluir otras cadenas que describen un subestado. Los valores de subestado comunes son Aceptar (código de estado HTTP: 200), Creado (código de estado HTTP: 201), Aceptado (código de estado HTTP: 202), Sin contenido (código de estado HTTP: 204), Solicitud incorrecta (código de estado HTTP: 400), No encontrado (código de estado HTTP): 404), Conflicto (código de estado HTTP: 409), Error interno del servidor (código de estado HTTP: 500), Servicio no disponible (código de estado HTTP: 503), Tiempo de espera agotado para la puerta de enlace (código de estado HTTP: 504). |
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Más información sobre el registro de actividad](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+* [Más información sobre el registro de actividad](../../azure-monitor/platform/activity-logs-overview.md).
 * [Ejecución de scripts de Azure Automation (runbooks) en alertas de Azure](https://go.microsoft.com/fwlink/?LinkId=627081).
 * [Uso de una aplicación lógica para enviar un SMS a través de Twilio desde una alerta de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Este ejemplo es para alertas de métrica, pero podría modificarse para funcionar con una alerta del registro de actividad.
 * [Uso de una aplicación lógica para enviar un mensaje de Slack desde una alerta de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Este ejemplo es para alertas de métrica, pero podría modificarse para funcionar con una alerta del registro de actividad.

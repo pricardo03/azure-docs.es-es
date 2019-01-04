@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 6dc66e551c1bce94b473a356cf4648e5c2353a2b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3f8e0e94cf3b63b3ea409b46cb9eec3d5d97eb6f
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271307"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580338"
 ---
 # <a name="configure-service-health-alerts-with-servicenow"></a>Configuración de alertas de estado del servicio con ServiceNow
 
@@ -202,5 +202,5 @@ Este artículo muestra cómo integrar las alertas de estado del servicio de Azur
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga información acerca de cómo [configurar notificaciones de webhook para los sistemas de administración de problemas existentes](service-health-alert-webhook-guide.md).
 - Revise el [Esquema de webhook de alertas del registro de actividad](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Más información acerca de las [Notificaciones del estado del servicio](../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- Más información acerca de las [Notificaciones del estado del servicio](../azure-monitor/platform/service-notifications.md).
 - Más información sobre los [grupos de acciones](../azure-monitor/platform/action-groups.md).

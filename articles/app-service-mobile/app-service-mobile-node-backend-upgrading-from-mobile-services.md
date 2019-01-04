@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 71be338aeb6d0234d22d412d6838e36a26797b20
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5a74097521cc7dceea2c47f78c1dbb2f17e292aa
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002127"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726687"
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>Actualización del servicio móvil de Azure de Node.js existente a App Service
 Aplicaciones móviles de App Service es una nueva forma de crear aplicaciones móviles con Microsoft Azure. Para más información, vea [¿Qué es Mobile Apps?].
@@ -98,7 +98,7 @@ Durante la implementación, deberá realizar estos pasos:
 2. Haga clic en **+NUEVO** > **Web y móvil** > **Aplicación móvil** y, después, proporcione un nombre para el back-end de la aplicación móvil.
 3. En **Grupo de recursos**, seleccione un grupo de recursos existente o cree uno nuevo (con el mismo nombre que su aplicación).
 
-    Puede seleccionar un plan de App Service ya existente o crear uno nuevo. Para más información acerca de los planes de App Service y cómo crear un nuevo plan en un plan de tarifa diferente en la ubicación deseada, consulte [Introducción detallada sobre los planes de Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+    Puede seleccionar un plan de App Service ya existente o crear uno nuevo. Para más información acerca de los planes de App Service y cómo crear un nuevo plan en un plan de tarifa diferente en la ubicación deseada, consulte [Introducción detallada sobre los planes de Azure App Service](../app-service/overview-hosting-plans.md).
 4. Para **plan de App Service**, se selecciona el plan predeterminado (en el [nivel estándar](https://azure.microsoft.com/pricing/details/app-service/)). También puede seleccionar otro plan o [crear uno](../app-service/app-service-plan-manage.md#create-an-app-service-plan). La configuración del plan de App Service determina la [ubicación, las características, el costo y los recursos de proceso](https://azure.microsoft.com/pricing/details/app-service/) asociados con la aplicación.
 
     Después de decidir el plan, haga clic en **Crear**. Esto crea el back-end de aplicación móvil
@@ -162,7 +162,7 @@ Cuando tenga la nueva versión de cliente lista, pruébela en el proyecto de ser
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [Precios de Servicio de aplicaciones]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Conceptos de autenticación]: ../app-service/app-service-authentication-overview.md
+[Conceptos de autenticación]: ../app-service/overview-authentication-authorization.md
 [inicio rápido de autenticación]: app-service-mobile-auth.md
 
 [Azure Portal]: https://portal.azure.com/

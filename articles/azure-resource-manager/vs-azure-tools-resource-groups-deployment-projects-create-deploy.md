@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: c5f1c5add069be99f7a6f467f6e3e2bd9c2b3535
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 082170d6f8bfb687195de87cde4247697571b0d6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543095"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715926"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Creación e implementación de grupos de recursos de Azure mediante Visual Studio
 Con Visual Studio, puede crear un proyecto que implementa su infraestructura y código en Azure. Por ejemplo, puede definir el host de web, el sitio web y la base de datos para una aplicación, e implementar esa infraestructura junto con el código. Visual Studio proporciona muchas plantillas de inicio diferentes para la implementación de escenarios comunes. En este artículo se implementa una aplicación web y SQL Database.  
@@ -132,7 +132,7 @@ Ahora está preparado para implementar el proyecto. Cuando implementa un proyect
     ![Botón Editar parámetros](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/edit-parameters.png)
 4. Proporcione valores para los parámetros vacíos y seleccione el botón **Guardar**. Los parámetros vacíos son **hostingPlanName**, **administratorLogin**, **administratorLoginPassword** y **databaseName**.
    
-    **hostingPlanName** especifica el nombre del [plan de App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) que se creará. 
+    **hostingPlanName** especifica el nombre del [plan de App Service](../app-service/overview-hosting-plans.md) que se creará. 
    
     **administratorLogin** especifica el nombre de usuario del administrador de SQL Server. No use nombres de administrador comunes como **sa** o **admin**. 
    

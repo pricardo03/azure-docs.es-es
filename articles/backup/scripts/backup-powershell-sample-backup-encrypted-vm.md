@@ -3,25 +3,24 @@ title: 'Ejemplo de script de Azure PowerShell: copia de seguridad de una máquin
 description: 'Ejemplo de script de Azure PowerShell: copia de seguridad de una máquina virtual de Azure'
 services: backup
 documentationcenter: ''
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 editor: ''
 tags: ''
 ms.assetid: ''
 ms.service: backup
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/07/2017
-ms.author: markgal
+ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 4376add4a2e51806bd5db228ad2fe2afcf2e4f57
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb22dc88c971e0ddc293fabd64bfd30145b2edd1
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22997530"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651391"
 ---
 # <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>Copia de seguridad de una máquina virtual de Azure cifrada con PowerShell
 
@@ -48,7 +47,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 Este script usa los siguientes comandos para crear la implementación. Cada elemento de la tabla incluye vínculos a la documentación específica del comando.
 
 
-| Comando | Notas | 
+| Get-Help | Notas | 
 |---|---| 
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Crea un grupo de recursos en el que se almacenan todos los recursos. | 
 | [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/New-AzureRmRecoveryServicesVault) | Crea un almacén de Recovery Services para almacenar las copias de seguridad. | 

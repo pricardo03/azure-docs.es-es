@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 962bc996a86340bb10a28b90ef6340a98c5d9275
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1c9161f6d31a3fcff8f8926c8bf188f1bdc14799
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430613"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725871"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Instrucciones sobre arquitectura de inserción empresarial
 En la actualidad, las empresas están pasando cada vez más hacia la creación de aplicaciones móviles para sus usuarios finales (externos) o para los empleados (internos). Disponen de sistemas back-end como grandes sistemas (mainframes) o algunas aplicaciones de línea de negocio (LoB) que deben estar integradas en la arquitectura de aplicaciones móviles. En esta guía se habla acerca de la mejor manera de realizar esta integración y recomendaremos soluciones posibles a escenarios comunes.
@@ -63,7 +63,7 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
 
 1. **EnterprisePushBackendSystem**
    
-    a. Este proyecto usa el paquete de NuGet *WindowsAzure.ServiceBus* y se basa en la [programación Pub/Sub de Service Bus].
+     a. Este proyecto usa el paquete de NuGet *WindowsAzure.ServiceBus* y se basa en la [programación Pub/Sub de Service Bus].
    
     b. Se trata de una aplicación de consola C# sencilla para simular un sistema LoB que inicia el mensaje que se entrega a la aplicación móvil.
    
@@ -126,7 +126,7 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
         }
 1. **ReceiveAndSendNotification**
    
-    a. Este proyecto usa los paquetes de NuGet *WindowsAzure.ServiceBus* y *Microsoft.Web.WebJobs.Publish* y se basa en la [programación Pub/Sub de Service Bus].
+     a. Este proyecto usa los paquetes de NuGet *WindowsAzure.ServiceBus* y *Microsoft.Web.WebJobs.Publish* y se basa en la [programación Pub/Sub de Service Bus].
    
     b. La siguiente aplicación de consola se ejecuta como un [trabajo web de Azure] dado que se tiene que ejecutar continuamente para escuchar mensajes de los sistemas LoB/back-end. Esta aplicación forma parte de su back-end móvil.
    
@@ -219,7 +219,7 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
     ![][4]
 1. **EnterprisePushMobileApp**
    
-    a. Se trata de una aplicación de la Tienda Windows que recibe notificaciones del sistema del trabajo web que se ejecuta como parte de su back-end móvil y las mostrará. Este código se basa en el [tutorial sobre Notification Hubs: Windows Universal].  
+     a. Se trata de una aplicación de la Tienda Windows que recibe notificaciones del sistema del trabajo web que se ejecuta como parte de su back-end móvil y las mostrará. Este código se basa en el [tutorial sobre Notification Hubs: Windows Universal].  
    
     b. Asegúrese de que su aplicación está habilitada para recibir notificaciones del sistema.
    
@@ -264,6 +264,6 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
 [Servicio móvil de Azure]: http://azure.microsoft.com/documentation/services/mobile-services/
 [Azure Service Bus]: http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
 [Programación Pub/Sub de Service Bus]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
-[trabajo web de Azure]: ../app-service/web-sites-create-web-jobs.md
+[trabajo web de Azure]: ../app-service/webjobs-create.md
 [Tutorial sobre Notification Hubs: Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Azure Portal]: https://portal.azure.com/

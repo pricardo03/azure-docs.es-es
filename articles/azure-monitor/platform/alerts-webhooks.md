@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: b1bea9b1a2bdb04a60fa6a8fa1d92bfbaf80c6d6
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 2df24cfe217a9955a3abb08d042836821b083946
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320836"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580644"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Cómo hacer que una alerta de métrica clásica notifique a un sistema que no es de Azure mediante un webhook
 Puede usar los webhooks para redirigir una notificación de alerta de Azure a otros sistemas para su procesamiento posterior o acciones personalizadas. Puede usar un webhook en una alerta para redirigirla a servicios que envían SMS, registran errores, notifican a un equipo mediante servicios de chat y mensajería o llevan a cabo otras acciones. 
@@ -27,7 +27,7 @@ Puede agregar o actualizar el URI de webhook, en [Azure Portal](https://portal.a
 
 ![Adición de un panel de regla de alerta](./media/alerts-webhooks/Alertwebhook.png)
 
-También puede configurar una alerta para enviarla a un URI de webhook mediante los [cmdlets de Azure PowerShell](../../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts), la [CLI multiplataforma](../../azure-monitor/platform/cli-samples.md#work-with-alerts) o la [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+También puede configurar una alerta para enviarla a un URI de webhook mediante los [cmdlets de Azure PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-metric-alerts), la [CLI multiplataforma](../../azure-monitor/platform/cli-samples.md#work-with-alerts) o la [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## <a name="authenticate-the-webhook"></a>Autenticación del webhook
 El webhook puede autenticarse mediante una autorización basada en token. El URI del webhook se guarda con un identificador de token. Por ejemplo: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`

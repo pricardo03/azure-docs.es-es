@@ -5,15 +5,15 @@ services: digital-twins
 author: alinamstanciu
 ms.service: digital-twins
 ms.topic: include
-ms.date: 11/13/2018
+ms.date: 12/17/2018
 ms.author: alinast
 ms.custom: include file
-ms.openlocfilehash: 216e2db82d5a07bd8e4cae8b9f357ac7dcee330a
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: e8027e16cc1f58fbadbb35ae241ab29010005586
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626411"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584787"
 ---
 1. En [Azure Portal](https://portal.azure.com), abra **Azure Active Directory** desde el panel izquierdo y, luego, abra el panel **Propiedades**. Copie el **identificador de directorio** en un archivo temporal. Usará este valor para configurar una aplicación de ejemplo en la sección siguiente.
 

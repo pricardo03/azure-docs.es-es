@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 36637137741aef6b34ab8e70109d692f5399043a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 12f9ed6d5b5d4c8dc7e5b0b68a0a394749cc72bd
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967068"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714617"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutorial: Implementación de aplicaciones en Azure y Azure Stack
 
@@ -72,7 +72,7 @@ En este tutorial se da por supuesto que tiene algunos conocimientos básicos de 
 ### <a name="azure-requirements"></a>Requisitos de Azure
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-* Cree una [aplicación web](https://docs.microsoft.com/azure/app-service/app-service-web-overview) en Azure. Tome nota de la dirección URL de la aplicación web, ya que la necesitará en el tutorial.
+* Cree una [aplicación web](https://docs.microsoft.com/azure/app-service/overview) en Azure. Tome nota de la dirección URL de la aplicación web, ya que la necesitará en el tutorial.
 
 ### <a name="azure-stack-requirements"></a>Requisitos de Azure Stack
 
@@ -180,9 +180,7 @@ Puede establecer el ámbito en el nivel de suscripción, grupo de recursos o rec
 
 3. En Visual Studio Enterprise, seleccione **Control de acceso (IAM)**.
 
-    ![Control de acceso (IAM)](media/azure-stack-solution-hybrid-pipeline/000_12.png)
-
-4. Seleccione **Agregar**.
+4. Seleccione **Agregar asignación de roles**.
 
     ![Sumar](media/azure-stack-solution-hybrid-pipeline/000_13.png)
 

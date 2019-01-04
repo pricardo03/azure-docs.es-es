@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: f7d6f34c75069f91e06d58c960249d040b2bda8a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 6e3ab097b08e3a15d012ccc644307bc8f4b281ab
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299210"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971689"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copia de datos de Azure Blob Storage a SQL Database mediante Azure Data Factory
 En este tutorial, creará una factoría de datos mediante la interfaz de usuario (UI) de Azure Data Factory. La canalización de esta factoría de datos copia los datos de Azure Blob Storage a Azure SQL Database. El patrón de configuración de este tutorial se aplica a la copia de un almacén de datos basado en archivos a un almacén de datos relacional. Para obtener una lista de los almacenes de datos que se admiten como orígenes y receptores, consulte la tabla de [almacenes de datos admitidos](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -74,7 +74,7 @@ Ahora, prepare su almacenamiento de blobs y su base de datos SQL para el tutoria
 
 1. Permita que los servicios de Azure accedan a SQL Server. Asegúrese de que **Permitir el acceso a servicios de Azure** esté **Activado** para SQL Server de forma que Data Factory pueda escribir datos en su instancia de SQL Server. Para comprobar y activar esta configuración, realice los siguientes pasos:
 
-    a. En el lado izquierdo, seleccione **Más servicios** > **Servidores SQL Server**.
+     a. En el lado izquierdo, seleccione **Más servicios** > **Servidores SQL Server**.
 
     b. Seleccione el servidor y, en **Configuración**, seleccione **Firewall**.
 
@@ -97,7 +97,7 @@ En este paso, creará una factoría de datos e iniciará la interfaz de usuario 
 1. Seleccione la **suscripción** de Azure en la que quiere crear la factoría de datos. 
 1. Para **Grupo de recursos**, realice uno de los siguientes pasos:
      
-    a. Seleccione en primer lugar **Usar existente**y después un grupo de recursos de la lista desplegable.
+     a. Seleccione en primer lugar **Usar existente**y después un grupo de recursos de la lista desplegable.
 
     b. Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos. 
          
@@ -188,7 +188,7 @@ En este tutorial, comenzará a crear la canalización. A continuación, creará 
     ![Servicio vinculado](./media/tutorial-copy-data-portal/new-azure-sql-database-linked-service-button.png)       
 1. En la ventana **New Linked Service** (Nuevo servicio vinculado), realice los pasos siguientes: 
 
-    a. En **Name** (Nombre), escriba **AzureSqlDatabaseLinkedService**.
+     a. En **Name** (Nombre), escriba **AzureSqlDatabaseLinkedService**.
 
     b. En **Server name** (Nombre del servidor), seleccione su instancia de SQL Server.
 
@@ -217,7 +217,7 @@ En este tutorial, comenzará a crear la canalización. A continuación, creará 
 
     ![Pestaña Pipeline (Canalización)](./media/tutorial-copy-data-portal/pipeline-tab-2.png)        
 
-### <a name="confugure-mapping"></a>Configuración de la asignación
+### <a name="configure-mapping"></a>Configuración de la asignación
 
 Vaya a la pestaña **Mapping** (Asignación) en la parte inferior de la ventana **Properties** (Propiedades) y seleccione **Import Schemas** (Importar esquemas). Tenga en cuenta que las columnas primera y segunda del archivo de origen se asignan a **FirstName** y **LastName** de la base de datos SQL.
 
@@ -264,7 +264,7 @@ En esta programación, creará un desencadenador de programación para la canali
     ![New button](./media/tutorial-copy-data-portal/add-trigger-new-button.png)
 1. En la ventana **New Trigger** (Nuevo desencadenador), lleve a cabo los siguientes pasos: 
 
-    a. En **Name** (Nombre), escriba **RunEveryMinute**.
+     a. En **Name** (Nombre), escriba **RunEveryMinute**.
 
     b. En **End** (Fin), seleccione **On Date** (El día).
 

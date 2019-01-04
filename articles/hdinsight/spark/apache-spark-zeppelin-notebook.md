@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 83adec0c3127e87da9871e294026fd467199c720
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 0571347b7b44d6f6836d4dec1ebcf9b752d8fa8f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012885"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634446"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Uso de cuadernos de Apache Zeppelin con un clúster Apache Spark en Azure HDInsight
 
@@ -28,12 +28,11 @@ Los clústeres Spark de HDInsight contienen cuadernos de [Apache Zeppelin](https
 ## <a name="launch-an-apache-zeppelin-notebook"></a>Inicio de un cuaderno de Apache Zeppelin
 1. En la hoja del clúster Spark, haga clic en **Panel de clúster** y en **Zeppelin Notebook**. Cuando se le pida, escriba las credenciales del clúster.
    
-   > [!NOTE]
+   > [!NOTE]  
    > También puede comunicarse con su equipo portátil ligero Zeppelin en el clúster si abre la siguiente dirección URL en el explorador. Reemplace **CLUSTERNAME** por el nombre del clúster.
    > 
    > `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
-   > 
-   > 
+
 1. Cree un nuevo notebook. En el panel de encabezado, haga clic en **Cuaderno** y luego en **Create New Note** (Crear nota).
    
     ![Creación de un nuevo cuaderno de Zeppeling](./media/apache-spark-zeppelin-notebook/hdinsight-create-zeppelin-notebook.png "Creación de un nuevo cuaderno de Zeppeling")
@@ -74,9 +73,8 @@ Los clústeres Spark de HDInsight contienen cuadernos de [Apache Zeppelin](https
    
     También puede proporcionar un título para cada párrafo. En la esquina derecha, haga clic en el icono **Configuración** y luego haga clic en **Mostrar título**.
 
-> [!NOTE]
+> [!NOTE]  
 > El intérprete %spark2 no se admite en los cuadernos de Zeppelin en todas las versiones de HDInsight y el intérprete %sh no se admite en HDInsight 4.0 y versiones posteriores.
->
 
 1. Ahora puede ejecutar instrucciones Spark SQL en la tabla **hvac** . Pegue la siguiente consulta en un nuevo párrafo. La consulta recupera el identificador del edificio y la diferencia entre la temperatura objetivo y la real para cada edificio en una fecha determinada. Presione **MAYÚS + ENTRAR**.
    
@@ -108,9 +106,9 @@ Los clústeres Spark de HDInsight contienen cuadernos de [Apache Zeppelin](https
     ![Reinicio del intérprete de Livy](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Reinicio del intérprete de Zeppeling")
 
 ## <a name="how-do-i-use-external-packages-with-the-notebook"></a>Uso de paquetes externos con el cuaderno
-Puede configurar el cuaderno de Zeppelin Notebook en un clúster Apache Spark de HDInsight (Linux) si desea usar paquetes externos aportados por la comunidad que no estén incluidos en el clúster. Puede buscar el [repositorio de Maven](http://search.maven.org/) para obtener una lista completa de los paquetes que están disponibles. También puede obtener una lista de paquetes disponibles de otras fuentes. Por ejemplo, dispone de la lista completa de los paquetes externos aportados por la comunidad en [Spark Packages](http://spark-packages.org/)(Paquetes Spark).
+Puede configurar el cuaderno de Zeppelin Notebook en un clúster Apache Spark de HDInsight (Linux) si desea usar paquetes externos aportados por la comunidad que no estén incluidos en el clúster. Puede buscar el [repositorio de Maven](https://search.maven.org/) para obtener una lista completa de los paquetes que están disponibles. También puede obtener una lista de paquetes disponibles de otras fuentes. Por ejemplo, dispone de la lista completa de los paquetes externos aportados por la comunidad en [Spark Packages](https://spark-packages.org/)(Paquetes Spark).
 
-En este artículo, aprenderá a utilizar el paquete [spark csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) con el cuaderno de Jupyter Notebook.
+En este artículo, aprenderá a utilizar el paquete [spark csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) con el cuaderno de Jupyter Notebook.
 
 1. Abra la configuración del intérprete. En la esquina superior derecha, haga clic en el nombre del usuario conectado y en **Interpreter** (Intérprete).
    
@@ -118,14 +116,14 @@ En este artículo, aprenderá a utilizar el paquete [spark csv](http://search.ma
 1. Desplácese hasta la configuración del intérprete de Livy y haga clic en **Edit** (Editar).
    
     ![Cambio de la configuración del intérprete](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png "Cambio de la configuración del intérprete")
-1. Agregue la nueva clave **livy.spark.jars.packages** y establezca su valor con el formato `group:id:version`. Por ejemplo, si desea usar el paquete [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar), debe establecer el valor de la clave en `com.databricks:spark-csv_2.10:1.4.0`.
+1. Agregue la nueva clave **livy.spark.jars.packages** y establezca su valor con el formato `group:id:version`. Por ejemplo, si desea usar el paquete [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar), debe establecer el valor de la clave en `com.databricks:spark-csv_2.10:1.4.0`.
    
     ![Cambio de la configuración del intérprete](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png "Cambio de la configuración del intérprete")
    
     Haga clic en **Save** (Guardar) y reinicie el intérprete de Livy.
 1. **Sugerencia**: Si desea saber cómo acceder al valor de la clave especificada anteriormente, siga estos pasos.
    
-     a. Busque el paquete en el repositorio de Maven. En este tutorial, hemos utilizado [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
+     a. Busque el paquete en el repositorio de Maven. En este tutorial, hemos utilizado [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
    
     b. En el repositorio, recopile los valores de **GroupId**, **ArtifactId** y **Version**.
    

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/11/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: 5ef9c15d4edf62ef63b16765f16971a9be5ca58b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e2497233ec97ffc88bf13797f62d601d4da373a1
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970712"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628500"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Cifrado del servicio Storage mediante claves administradas por el cliente en Azure Key Vault
 
@@ -32,6 +32,8 @@ SSE para Azure Blob Storage y Azure Files se integra con Azure Key Vault, de mod
 
 Para usar las claves administradas por el cliente con SSE, puede crear un almacén de claves y una clave nuevos, o bien puede usar un almacén de claves y una clave existentes. La cuenta de almacenamiento y el almacén de claves deben estar en la misma región, pero pueden estar en distintas suscripciones.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ### <a name="step-1-create-a-storage-account"></a>Paso 1: Crear una cuenta de almacenamiento
 
 En primer lugar, cree una cuenta de almacenamiento si todavía no tiene una. Para obtener más información, consulte [Creación de una cuenta de almacenamiento](storage-quickstart-create-account.md).
@@ -45,7 +47,7 @@ Si desea habilitar las claves administradas por el cliente para SSE mediante pro
 Para usar las claves administradas por el cliente con SSE, debe asignar una identidad de cuenta de almacenamiento a la cuenta de almacenamiento. Para establecer la identidad, ejecute el siguiente comando de PowerShell o de la CLI de Azure:
 
 ```powershell
-Set-AzureRmStorageAccount -ResourceGroupName \$resourceGroup -Name \$accountName -AssignIdentity
+Set-AzStorageAccount -ResourceGroupName \$resourceGroup -Name \$accountName -AssignIdentity
 ```
 
 ```azurecli-interactive
@@ -58,18 +60,18 @@ az storage account \
 Para habilitar las características Eliminación temporal y No purgar, ejecute los siguientes comandos de PowerShell o de la CLI de Azure:
 
 ```powershell
-($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName
 $vaultName).ResourceId).Properties | Add-Member -MemberType NoteProperty -Name
 enableSoftDelete -Value 'True'
 
-Set-AzureRmResource -resourceid $resource.ResourceId -Properties
+Set-AzResource -resourceid $resource.ResourceId -Properties
 $resource.Properties
 
-($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName
 $vaultName).ResourceId).Properties | Add-Member -MemberType NoteProperty -Name
 enablePurgeProtection -Value 'True'
 
-Set-AzureRmResource -resourceid $resource.ResourceId -Properties
+Set-AzResource -resourceid $resource.ResourceId -Properties
 $resource.Properties
 ```
 
@@ -121,11 +123,11 @@ También puede conceder acceso a través de Azure Portal yendo a Azure Key Vault
 Puede asociar la clave anterior con una cuenta de almacenamiento existente mediante los siguientes comandos de PowerShell:
 
 ```powershell
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
-$keyVault = Get-AzureRmKeyVault -VaultName "mykeyvault"
+$storageAccount = Get-AzStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
+$keyVault = Get-AzKeyVault -VaultName "mykeyvault"
 $key = Get-AzureKeyVaultKey -VaultName $keyVault.VaultName -Name "keytoencrypt"
-Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
-Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
+Set-AzKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
+Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
 ```
 
 ### <a name="step-5-copy-data-to-storage-account"></a>Paso 5: Copia de los datos en una cuenta de almacenamiento
@@ -154,7 +156,7 @@ Storage Service Encryption está disponible para Azure Managed Disks con claves 
 Azure Disk Encryption proporciona integración entre soluciones basadas en el sistema operativo, como BitLocker y DM-Crypt, y Azure Key Vault. Storage Service Encryption proporciona cifrado de forma nativa en la capa de la plataforma de almacenamiento de Azure, debajo de la máquina virtual.
 
 **¿Puedo revocar el acceso a las claves de cifrado?**
-Sí, puede revocar el acceso en cualquier momento. Hay varias maneras para revocar el acceso a las claves. Para más información, consulte [PowerShell de Azure Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) y la [CLI de Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault). La revocación del acceso bloqueará eficazmente el acceso a todos los blobs de la cuenta de almacenamiento, ya que Azure Storage no podrá acceder a la clave de cifrado de la cuenta.
+Sí, puede revocar el acceso en cualquier momento. Hay varias maneras para revocar el acceso a las claves. Para más información, consulte [PowerShell de Azure Key Vault](https://docs.microsoft.com/powershell/module/az.keyvault/) y la [CLI de Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault). La revocación del acceso bloqueará eficazmente el acceso a todos los blobs de la cuenta de almacenamiento, ya que Azure Storage no podrá acceder a la clave de cifrado de la cuenta.
 
 **¿Puedo crear una cuenta de almacenamiento y un clave en una región diferente?**  
 No, la cuenta de almacenamiento, Azure Key Vault y la clave deben estar en la misma región.

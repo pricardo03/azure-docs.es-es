@@ -3,7 +3,7 @@ title: El ejemplo de la CLI escala un grupo elástico de SQL en Azure SQL Databa
 description: Script de ejemplo de la CLI de Azure para escalar un grupo elástico de SQL en Azure SQL Database
 services: sql-database
 ms.service: sql-database
-ms.subservice: performance
+ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 2da2686d2d851856bae0841648dc27550c810112
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: af7af24497054f7868e373150eefae9141239ec6
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054462"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605040"
 ---
 # <a name="use-cli-to-scale-a-sql-elastic-pool-in-azure-sql-database"></a>Uso de la CLI para escalar un grupo elástico de SQL en Azure SQL Database
 
