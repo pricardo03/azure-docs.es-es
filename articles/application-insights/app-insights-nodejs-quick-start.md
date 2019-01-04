@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 8bc725a5d9e3e9cdf82a01693aed83bff1f16c04
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: c2202a194c3912bd9a8b8f534df792e6f1a3543b
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991696"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998700"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Inicio de la supervisión de la aplicación web Node.js
 
@@ -49,7 +49,7 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
 
     | Configuración        | Valor           | DESCRIPCIÓN  |
    | ------------- |:-------------|:-----|
-   | **Name**      | Nombre único global | Nombre que identifica la aplicación que se está supervisando |
+   | **Nombre**      | Nombre único global | Nombre que identifica la aplicación que se está supervisando |
    | **Tipo de aplicación** | Aplicación Node.js | Tipo de aplicación que se está supervisando |
    | **Grupo de recursos**     | myResourceGroup      | Nombre para el nuevo grupo de recursos que hospedará los datos de Application Insights |
    | **Ubicación** | Este de EE. UU | Elija una ubicación cerca de usted o de donde se hospeda la aplicación |
@@ -124,7 +124,7 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
 
    ![Gráfico de las métricas del servidor](./media/app-insights-nodejs-quick-start/009-Black.png)
 
-Para más información sobre la supervisión de Node.js, visite la [documentación adicional de Node.js con Application Insights](app-insights-nodejs.md).
+Para más información sobre la supervisión de Node.js, visite la [documentación adicional de Node.js con Application Insights](../azure-monitor/app/nodejs.md).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

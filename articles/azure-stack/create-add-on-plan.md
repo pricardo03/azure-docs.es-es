@@ -16,12 +16,12 @@ ms.custom: mvc
 ms.date: 07/30/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: f6b85d2197a4db9cdfc526e5857e4b6ce707beb2
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: e84e72157726311281994b0e287eda7dfc4b144a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49076798"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716761"
 ---
 # <a name="azure-stack-add-on-plans"></a>Planes complementarios de Azure Stack
 
@@ -32,7 +32,7 @@ Hay ocasiones en las que combinar todo en un único plan es la solución óptima
 Otra razón para usar los planes complementarios es ayudar a los usuarios a que tengan conciencia del uso que hacen de los recursos. Para ello, puede empezar con un plan base que incluye cuotas relativamente pequeñas (dependiendo de los servicios requeridos). Después, a medida que los usuarios vayan utilizando la capacidad disponible, se les avisaría de que han consumido la asignación de recursos en función a su plan asignado. A partir de ese momento, los usuarios pueden seleccionar un plan complementario que proporcione los recursos adicionales.
 
 > [!NOTE]
-> Cuando no desee usar un plan complementario para ampliar una cuota, también puede elegir a [editar la configuración original de la cuota](azure-stack-quota-types.md#to-edit-a-quota). 
+> Cuando no desee usar un plan complementario para ampliar una cuota, también puede elegir a [editar la configuración original de la cuota](azure-stack-quota-types.md#edit-a-quota). 
 
 Cuando un usuario agrega un plan complementario a una suscripción de oferta existente, los recursos adicionales pueden tardar hasta una hora en aparecer. 
 

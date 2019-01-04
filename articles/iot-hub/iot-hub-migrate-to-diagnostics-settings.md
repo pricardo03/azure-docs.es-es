@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 236adb45ec6663ad361df1afbf6389a449f2a529
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 4a1517c1d5bb0f34c0f1b0ec81d074f8ec39aff5
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52159906"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546592"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>Migración de la supervisión de operaciones de IoT Hub a la configuración de diagnóstico
 
-Los clientes que usan la [supervisión de operaciones](iot-hub-operations-monitoring.md) para realizar un seguimiento del estado de las operaciones en IoT Hub pueden migrar dicho flujo de trabajo a la [configuración de diagnóstico de Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md), una característica de Azure Monitor. La configuración de diagnóstico proporciona información de diagnóstico a nivel de recurso para muchos servicios de Azure.
+Los clientes que usan la [supervisión de operaciones](iot-hub-operations-monitoring.md) para realizar un seguimiento del estado de las operaciones en IoT Hub pueden migrar dicho flujo de trabajo a la [configuración de diagnóstico de Azure](../azure-monitor/platform/diagnostic-logs-overview.md), una característica de Azure Monitor. La configuración de diagnóstico proporciona información de diagnóstico a nivel de recurso para muchos servicios de Azure.
 
 La funcionalidad de la supervisión de operaciones de IoT Hub está en desuso y, por tanto, se quitará en el futuro. En este artículo se explican los pasos para migrar las cargas de trabajo de la supervisión de operaciones a la configuración de diagnóstico. Para más información sobre la escala de tiempo de desuso, consulte [Monitor your Azure IoT solutions with Azure Monitor and Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/) (Supervisión de las soluciones de Azure IoT con Azure Monitor y Azure Resource Health).
 

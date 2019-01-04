@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: c453998eea2a747b2cb608482f0ef9c1ee197ee0
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b07e21131d9560a49d99644525835ac5ee3bac9e
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185438"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606799"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>Integración de datos de la SIM en la solución de supervisión remota
 
 A menudo, los dispositivos IoT se conectan a la nube con una tarjeta SIM que les permite enviar flujos de datos desde cualquier lugar. La solución de supervisión remota de Azure IoT permite la integración de los datos de la conectividad administrada de IoT para que los operadores también puedan realizar un seguimiento del mantenimiento del dispositivo mediante los datos proporcionados por la SIM de IoT.
 
-La supervisión remota proporciona integración lista para usar con conectividad de IoT de Telefónica, lo que permite a los clientes usar la plataforma de conectividad de IoT para sincronizar los datos de conectividad de las SIM de dispositivo con las soluciones. Esta solución puede ampliarse para ofrecer compatibilidad con otros proveedores de conectividad de IoT mediante el [repositorio](http://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) de GitHub.
+La supervisión remota proporciona integración lista para usar con conectividad de IoT de Telefónica, lo que permite a los clientes usar la plataforma de conectividad de IoT para sincronizar los datos de conectividad de las SIM de dispositivo con las soluciones. Esta solución puede ampliarse para ofrecer compatibilidad con otros proveedores de conectividad de IoT mediante el [repositorio](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) de GitHub.
 
 En este tutorial, aprenderá a:
 

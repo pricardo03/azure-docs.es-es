@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 05/18/2018
 ms.author: anwestg
 ms.reviewer: sethm
-ms.openlocfilehash: 9f320f508fd45b6ad70b1357e873663796825621
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: f40d88df7a46c73981b6f20bee0b119743c08257
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078807"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714498"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>Notas de la versión de App Service en la actualización 2 de Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Estas notas de la versión describen las mejoras y correcciones de la actualización 2 de Azure App Service en Azure Stack y todos los problemas conocidos. Los problemas conocidos se dividen en aquellos que están relacionados directamente con el proceso de actualización y aquellos que están relacionados con la compilación (posteriores a la instalación).
 
@@ -66,7 +66,7 @@ La actualización 2 de Azure App Service en Azure Stack incluye las siguientes c
   - Se actualizaron los componentes .Net Core para que sean consistentes con Azure App Service en la nube pública.
   - Kudu actualizado
 
-- Característica Intercambio automático de ranuras de implementación habilitada: [configuración de intercambio automático](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing#configure-auto-swap)
+- Característica Intercambio automático de ranuras de implementación habilitada: [configuración de intercambio automático](https://docs.microsoft.com/azure/app-service/deploy-staging-slots#configure-auto-swap)
 
 - Característica Testing in Production habilitada: [introducción a Testing in Production](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
 
@@ -86,10 +86,10 @@ Si decide realizar una implementación en una red virtual existente y en una dir
  * Origen: Cualquiera
  * Intervalo de puertos de origen: *
  * Destino: Direcciones IP
- * Intervalo de direcciones IP de destino: intervalo de direcciones IP del servidor de archivos
+ * Intervalo de direcciones IP de destino: Intervalo de direcciones IP del servidor de archivos
  * Intervalo de puertos de destino: 445
  * Protocolo: TCP
- * Acción: Permitir
+ * Acción: PERMITIR
  * Prioridad: 700
  * Nombre: Outbound_Allow_SMB445
 

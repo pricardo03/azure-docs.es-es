@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 310a349aad4e6626033ca2f378e7c1b0ffa96560
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 47a957453bf5962f59518719895edc0f13fe7dc8
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388644"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584384"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introducción a roles, permisos y seguridad con Azure Monitor
 Muchos equipos necesitan regular estrictamente el acceso a los datos y la configuración de supervisión. Por ejemplo, si tiene miembros del equipo que trabajan exclusivamente en la supervisión (ingenieros de soporte técnico o ingenieros de operaciones de desarrollo) o si usa un proveedor de servicios administrados, puede concederles acceso solo a datos de supervisión, mientras restringe su capacidad para crear, modificar o eliminar recursos. En este artículo se explica cómo aplicar rápidamente un rol RBAC de supervisión integrado a un usuario en Azure o crear un rol personalizado propio para un usuario que necesita permisos de supervisión limitados. Después se describen las consideraciones de seguridad para los recursos relacionados con Azure Monitor y cómo puede limitar el acceso a los datos que contienen.
@@ -26,10 +26,10 @@ Las personas asignadas al rol Lector de supervisión pueden ver todos los datos 
 
 * Ver paneles de supervisión en el portal y crear sus propios paneles de supervisión privados.
 * Ver las reglas de alerta definidas en [Alertas de Azure](../../azure-monitor/platform/alerts-overview.md)
-* Consultar métricas con la [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), los [cmdlets de PowerShell](../../monitoring-and-diagnostics/insights-powershell-samples.md) o la [CLI multiplataforma](../../azure-monitor/platform/cli-samples.md).
+* Consultar métricas con la [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), los [cmdlets de PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md) o la [CLI multiplataforma](../../azure-monitor/platform/cli-samples.md).
 * Consultar el registro de actividades a través del portal, la API de REST de Azure Monitor, los cmdlets de PowerShell o la CLI multiplataforma.
-* Ver la [configuración de diagnóstico](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) de un recurso.
-* Ver el [perfil de registro](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) de una suscripción.
+* Ver la [configuración de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) de un recurso.
+* Ver el [perfil de registro](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) de una suscripción.
 * Consultar la configuración de escalado automático.
 * Consultar la configuración y actividad de alertas.
 * Acceder a datos de Application Insights y ver los datos en AI Analytics.
@@ -49,8 +49,8 @@ Las personas asignadas al rol Lector de supervisión pueden ver todos los datos 
 Las personas asignadas al rol Colaborador de supervisión pueden ver todos los datos de supervisión en una suscripción y crear o modificar la configuración de supervisión, pero no pueden modificar los demás recursos. Este rol es un superconjunto del rol Lector de supervisión y es adecuado para los miembros del equipo de supervisión de una administración o los proveedores de servicios administrados que, además de los permisos anteriores, también necesitan tener la capacidad de:
 
 * Publicar paneles de supervisión como un panel compartido.
-* Determinar la [configuración de diagnóstico](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) de un recurso.*
-* Establecer el [perfil de registro](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) de una suscripción.*
+* Determinar la [configuración de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) de un recurso.*
+* Establecer el [perfil de registro](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) de una suscripción.*
 * Establecer la configuración y la actividad de las reglas de alertas a través de [Alertas de Azure](../../azure-monitor/platform/alerts-overview.md).
 * Crear componentes y pruebas web de Application Insights.
 * Mostrar las claves compartidas del área de trabajo de Log Analytics.

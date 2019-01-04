@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: 8ca9fe72e4bd5272a5303b3bacd8c0960504789d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: dedfc7db6aef6d55fd50c94a217bdc489b9615f3
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315819"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633868"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Cómo funciona la búsqueda de texto completo en Azure Search
 
@@ -385,7 +385,7 @@ En este artículo se ha analizado la búsqueda de texto completo en el contexto 
 
 + Generar el índice de ejemplo, probar distintas consultas y revisar los resultados. Para obtener instrucciones, vea [Creación y consulta de un índice en el portal](search-get-started-portal.md#query-index).
 
-+ Probar la sintaxis de consulta adicional de la sección de ejemplo [Buscar documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents#examples) o desde [Sintaxis de consulta simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) en el explorador de búsqueda en el portal.
++ Probar la sintaxis de consulta adicional de la sección de ejemplo [Buscar documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) o desde [Sintaxis de consulta simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) en el explorador de búsqueda en el portal.
 
 + Revisar los [perfiles de puntuación](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) si desea ajustar la clasificación en la aplicación de búsqueda.
 
@@ -393,7 +393,7 @@ En este artículo se ha analizado la búsqueda de texto completo en el contexto 
 
 + [Configurar los analizadores personalizados](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) para un procesamiento mínimo o especializado en campos específicos.
 
-+ [Comparar el analizador estándar y el analizador de inglés](http://alice.unearth.ai/) en paralelo en este sitio web de demostración. 
++ [Comparar el analizador estándar y el analizador de inglés](https://alice.unearth.ai/) en paralelo en este sitio web de demostración. 
 
 ## <a name="see-also"></a>Otras referencias
 

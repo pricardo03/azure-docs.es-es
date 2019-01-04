@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: ee1e70e58c2f6dd15ae48c15373d4b1dc58f9328
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 383c870148193f4831f06d75aba241e827af9006
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384996"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543366"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Registros de diagnóstico de un grupo de seguridad de red
 
@@ -31,7 +31,7 @@ Los grupos de seguridad de red (NSG) incluyen reglas que permiten o deniegan el 
 
 Los registros de diagnóstico solo están disponibles para los NSG implementados a través del modelo de implementación de Azure Resource Manager. No se puede habilitar el registro de diagnóstico para los NSG implementados a través del modelo de implementación clásica. Para entender mejor los dos modelos, consulte [Descripción de los modelos de implementación de Azure](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-El registro de diagnóstico se habilita por separado para *cada* grupo de seguridad de red para el que desee recopilar datos. Si lo que interesa son los registros de operaciones o de actividades, consulte el [registro de actividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure.
+El registro de diagnóstico se habilita por separado para *cada* grupo de seguridad de red para el que desee recopilar datos. Si lo que interesa son los registros de operaciones o de actividades, consulte el [registro de actividades](../azure-monitor/platform/activity-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure.
 
 ## <a name="enable-logging"></a>Habilitación del registro
 
@@ -88,7 +88,7 @@ Set-AzureRmDiagnosticSetting `
   -Enabled $true
 ```
 
-Si solo desea registrar los datos en una de las dos categorías, en lugar de en ambas, agregue la opción `-Categories` al comando anterior, seguida de *NetworkSecurityGroupEvent* o *NetworkSecurityGroupRuleCounter*. Si desea realizar el registro en un [destino](#log-destinations) que no sea un área de trabajo de Log Analytics, utilice los parámetros adecuados para una [cuenta de almacenamiento](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o un [centro de eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure.
+Si solo desea registrar los datos en una de las dos categorías, en lugar de en ambas, agregue la opción `-Categories` al comando anterior, seguida de *NetworkSecurityGroupEvent* o *NetworkSecurityGroupRuleCounter*. Si desea realizar el registro en un [destino](#log-destinations) que no sea un área de trabajo de Log Analytics, utilice los parámetros adecuados para una [cuenta de almacenamiento](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o un [centro de eventos](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure.
 
 Vea y analice los registros. Para más información, consulte [Visualización y análisis de los registros](#view-and-analyze-logs).
 
@@ -123,7 +123,7 @@ az monitor diagnostic-settings create \
 
 Si no tiene ningún área de trabajo existente, puede crear una mediante [Azure Portal](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [PowerShell](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace). Existen dos categorías de registro para las que se pueden habilitar registros. 
 
-Si solo desea registrar los datos de una categoría o la otra, quite la categoría para la que no desea registrar los datos en el comando anterior. Si desea realizar el registro en un [destino](#log-destinations) que no sea un área de trabajo de Log Analytics, utilice los parámetros adecuados para una [cuenta de almacenamiento](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o un [centro de eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure.
+Si solo desea registrar los datos de una categoría o la otra, quite la categoría para la que no desea registrar los datos en el comando anterior. Si desea realizar el registro en un [destino](#log-destinations) que no sea un área de trabajo de Log Analytics, utilice los parámetros adecuados para una [cuenta de almacenamiento](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o un [centro de eventos](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure.
 
 Vea y analice los registros. Para más información, consulte [Visualización y análisis de los registros](#view-and-analyze-logs).
 
@@ -131,7 +131,7 @@ Vea y analice los registros. Para más información, consulte [Visualización y 
 
 Los datos de diagnóstico se pueden:
 - [Escribir en una cuenta de Azure Storage](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), para auditarlos o para comprobarlos manualmente. El tiempo de retención (en días) se puede especificar en la configuración del diagnóstico de recursos.
-- [Transmitir en secuencias a un centro de eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para que los ingiera un servicio de terceros o una solución de análisis personalizada, como PowerBI.
+- [Transmitir en secuencias a un centro de eventos](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para que los ingiera un servicio de terceros o una solución de análisis personalizada, como PowerBI.
 - [Escribir en Azure Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics)
 
 ## <a name="log-categories"></a>Categorías de registro
@@ -198,7 +198,7 @@ El contador de reglas contiene información acerca de todas las reglas que se ap
 
 ## <a name="view-and-analyze-logs"></a>Visualización y análisis de los registros
 
-Para aprender a ver los datos del registro de diagnóstico, consulte [Introducción a los registros de diagnóstico de Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Si envía datos de diagnóstico a:
+Para aprender a ver los datos del registro de diagnóstico, consulte [Introducción a los registros de diagnóstico de Azure](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Si envía datos de diagnóstico a:
 - **Log Analytics**: puede usar la solución de [análisis de grupos de seguridad de red](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-log-analytics
 ) para obtener una información más detallada. La solución ofrece visualizaciones para de las reglas de NSG que permiten o deniegan el tráfico, por dirección MAC, de la interfaz de red de una máquina virtual.
 - **Cuenta de Azure Storage**: los datos se escriben en el archivo PT1H.json. Puede encontrar el:
@@ -207,7 +207,7 @@ Para aprender a ver los datos del registro de diagnóstico, consulte [Introducci
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información acerca del [registro de actividades](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), anteriormente conocido como registros de auditoría o de operaciones. El registro de actividades está habilitado de forma predeterminada para los grupo de seguridad de red creados a través de cualquier modelo de implementación de Azure. Para determinar qué operaciones se completaron en los NSG del registro de actividad, busque las entradas que contengan los siguientes tipos de recursos:
+- Obtenga más información acerca del [registro de actividades](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), anteriormente conocido como registros de auditoría o de operaciones. El registro de actividades está habilitado de forma predeterminada para los grupo de seguridad de red creados a través de cualquier modelo de implementación de Azure. Para determinar qué operaciones se completaron en los NSG del registro de actividad, busque las entradas que contengan los siguientes tipos de recursos:
     - Microsoft.ClassicNetwork/networkSecurityGroups
     - Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
     - Microsoft.Network/networkSecurityGroups

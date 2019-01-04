@@ -8,17 +8,17 @@ ms.subservice: migration
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: douglaslMS
+ms.author: douglasl
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: e87f8a0d168db02bf0e93216991767f5a9be584c
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 89cf69ba8bc88a40582ea795b6a17fab4f286d64
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863523"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651987"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migración de una base de datos de SQL Server a Azure SQL Database
 
@@ -35,7 +35,7 @@ En ambos casos, debe asegurarse de que la base de datos de origen sea compatible
 
 ## <a name="method-1-migration-with-downtime-during-the-migration"></a>Método 1: Migración con tiempo de inactividad
 
- Use este método para migrar a una base de datos única o agrupada si puede permitirse algún tiempo de inactividad o si va a realizar una migración de prueba de una base de datos de producción para una migración posterior. Para consultar un tutorial, vea [Migración de una base de datos de SQL Server](sql-database-migrate-your-sql-server-database.md).
+ Use este método para migrar a una base de datos única o agrupada si puede permitirse algún tiempo de inactividad o si va a realizar una migración de prueba de una base de datos de producción para una migración posterior. Para consultar un tutorial, vea [Migración de una base de datos de SQL Server](../dms/tutorial-sql-server-to-azure-sql.md).
 
 En la lista siguiente se describe el flujo de trabajo general para una migración de base de datos de SQL Server de una base de datos única o agrupada con este método. Para información sobre la migración a una Instancia administrada, consulte el artículo sobre [migración a una Instancia administrada](sql-database-managed-instance-migrate.md).
 

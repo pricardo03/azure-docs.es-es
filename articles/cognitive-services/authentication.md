@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: 327bc964f8dedeee03220e7cd7db1ef7c1e00de6
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 11259b99ea9d2486c8c0afde21398710ccc6ccd8
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435776"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726297"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticación de solicitudes en Azure Cognitive Services
 
@@ -34,7 +34,7 @@ Revisemos rápidamente los encabezados de autenticación disponibles para su uso
 
 | Encabezado | DESCRIPCIÓN |
 |--------|-------------|
-| Ocp-Apim-Subscription-Key | Utilice este encabezado para autenticarse con una clave de suscripción para un servicio específico o una clave de suscripción a varios servicios. Si utiliza una clave de suscripción a varios servicios, se debe proporcionar la región de la suscripción como encabezado `Ocp-Apim-Subscription-Region`. |
+| Ocp-Apim-Subscription-Key | Utilice este encabezado para autenticarse con una clave de suscripción para un servicio específico o una clave de suscripción a varios servicios. |
 | Ocp-Apim-Subscription-Region | Este encabezado solo es necesario cuando se utiliza una clave de suscripción multiservicio con la [Translator Text API](./Translator/reference/v3-0-reference.md). Utilice este encabezado para especificar la región de la suscripción. |
 | Autorización | Utilice este encabezado si está usando un token de autenticación. En las secciones siguientes se describen los pasos necesarios para realizar un intercambio de tokens. El valor proporcionado sigue este formato: `Bearer <TOKEN>`. |
 

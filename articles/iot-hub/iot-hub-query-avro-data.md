@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: asrastog
-ms.openlocfilehash: a5b8ce8cd753ee294a8d61ba8a3dfed872f0f31a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 69c890cfc3db04fe625ed7ad008f545c01844834
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956340"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993491"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Consulta de datos de Avro con Azure Data Lake Analytics
 
@@ -21,7 +21,7 @@ En este artículo se explica cómo consultar los datos de Avro para enrutar de f
 
 La dificultad radica en que cuando Azure IoT Hub enruta los mensajes a Azure Blob Storage, IoT Hub escribe el contenido en formato Avro, que tiene propiedades de mensaje y de cuerpo de mensaje. IoT Hub solo admite la escritura de datos en Blob Storage en formato de datos de Avro, y este formato no se usa para ningún otro punto de conexión. Para más información, consulte un artículo sobre cómo usar los contenedores de Azure Storage. Aunque el formato Avro es muy útil para la conservación de datos y mensajes, es difícil de usar para consultar datos. En comparación, es mucho más fácil consultar datos en formato JSON o CSV.
 
-<!-- https://review.docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-d2c?branch=pr-en-us-51566#azure-blob-storage  NEW LINK FOR 'WHEN USING STORAGE CONTAINERS' -->
+<!-- https://review.docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c?branch=pr-en-us-51566#azure-blob-storage  NEW LINK FOR 'WHEN USING STORAGE CONTAINERS' -->
 
 Para atender las necesidades y los formatos de los macrodatos no relacionales y superar esta dificultad, puede usar muchos de los patrones de macrodatos para transformar y escalar datos. Uno de los modelos, "pago por consulta", es propio de Azure Data Lake Analytics, que es en lo que se basa este artículo. Aunque puede ejecutar fácilmente la consulta en Hadoop o en otras soluciones, Data Lake Analytics con frecuencia es más conveniente para el enfoque de "pago por consulta". 
 
@@ -171,8 +171,8 @@ En esta sección, se consultan datos de Avro y se exportan a un archivo CSV en A
 
 En este tutorial, ha aprendido a consultar los datos de Avro para enrutar de manera eficaz los mensajes de Azure IoT Hub a servicios de Azure.
 
-Para ver ejemplos de soluciones completas que usen IoT Hub, consulte la [Documentación sobre los aceleradores de soluciones de IoT](../iot-accelerators/index.yml).
+Para ver ejemplos de soluciones completas que usen IoT Hub, consulte la [Documentación sobre los aceleradores de soluciones de IoT](/azure/iot-accelerators).
 
-Para obtener más información sobre cómo desarrollar soluciones con IoT Hub, consulte la [Guía del desarrollador de IoTHub de Azure](iot-hub-devguide.md).
+Para obtener más información sobre cómo desarrollar soluciones con IoT Hub, consulte la [Guía para desarrolladores de IoT Hub](iot-hub-devguide.md).
 
 Para más información sobre el enrutamiento de mensajes en IoT Hub, consulte [Envío y recepción de mensajes con IoT Hub](iot-hub-devguide-messaging.md).

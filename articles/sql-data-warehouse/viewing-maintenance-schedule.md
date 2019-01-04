@@ -10,12 +10,12 @@ ms.component: design
 ms.date: 11/27/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 3c683d5819ded4eb3d286969b8c3fc3f0bd42865
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 6e4a4c01ee73bab3cb4e66a06c0ba0655e3066a0
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497511"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993253"
 ---
 # <a name="view-a-maintenance-schedule"></a>Vista de una programación de mantenimiento 
 
@@ -34,7 +34,7 @@ Para ver la programación de mantenimiento que se ha aplicado al almacenamiento 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Obtenga más información](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage) sobre cómo crear, ver y administrar alertas mediante Azure Monitor.
 - [Obtenga más información](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) sobre las acciones del webhook para las reglas de alerta de registro.
-- [Obtenga más información](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups) sobre la creación y administración de grupos de acciones.
+- [Obtenga más información](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) sobre la creación y administración de grupos de acciones.
 - [Obtenga más información](https://docs.microsoft.com/azure/service-health/service-health-overview) acerca de Azure Service Health.
 
 

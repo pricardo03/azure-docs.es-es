@@ -1,20 +1,17 @@
 ---
 title: Restauración de un servidor en Azure Database for PostgreSQL
 description: En este artículo se describe cómo restaurar un servidor en Azure Database for PostgreSQL mediante Azure Portal.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: b4fe1151337dc6f5874e6ad102c6e905e90fd963
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 26959425ec42870ec084146380c376d76e7029f3
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31412763"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542652"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Copia de seguridad y restauración de un servidor en Azure Database for PostgreSQL mediante Azure Portal
 
@@ -61,8 +58,8 @@ Los siguientes pasos restauran el servidor de ejemplo a un momento dado:
 3. Rellene el formulario Restaurar con la información necesaria:
 
    ![Azure Database for PostgreSQL - Información sobre restauración ](./media/howto-restore-server-portal/3-restore.png)
-  - **Punto de restauración**: seleccione el momento que desea restaurar.
-  - **Servidor de destino**: especifique el nombre del nuevo servidor.
+  - **Punto de restauración**: seleccione el momento al que desea restaurar.
+  - **Servidor de destino:**: proporcione un nombre para el nuevo servidor.
   - **Ubicación**: no se puede seleccionar la región. De manera predeterminada, es el mismo que el del servidor de origen.
   - **Plan de tarifa**: estos parámetros no se pueden cambiar al realizar una restauración a un momento dado. Es el mismo que el del servidor de origen. 
 
@@ -81,7 +78,7 @@ Si ha configurado el servidor para copias de seguridad con redundancia geográfi
    ![Opción "Azure Database for PostgreSQL"](./media/howto-restore-server-portal/1-navigate-to-postgres.png)
 
 2. En el menú desplegable **Seleccionar origen** del formulario, elija **Copia de seguridad**. Esta acción carga una lista de servidores que tienen habilitadas copias de seguridad con redundancia geográfica. Seleccione una de las copias de seguridad como origen del nuevo servidor.
-   ![Seleccionar origen: Copia de seguridad y lista de copias de seguridad con redundancia geográfica](./media/howto-restore-server-portal/2-georestore.png)
+   ![Seleccionar origen: Azure Backup y lista de copias de seguridad con redundancia geográfica](./media/howto-restore-server-portal/2-georestore.png)
 
    > [!NOTE]
    > Al crear por primera vez un servidor, puede que no esté disponible para la restauración geográfica inmediatamente. Los metadatos pueden tardar unas horas en rellenarse.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 3a106b0fe570fe44f96529d830271dfe4912437f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 4aa6f8fdf4eaa8e439c1a8c8c0202cf49a04433c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336500"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584316"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas de métricas mediante Azure Monitor
 
@@ -33,7 +33,7 @@ En el siguiente procedimiento se describe cómo crear una regla de alertas de m�
 
 3. Haga clic en **Seleccionar destino**, en el panel de contexto que se carga, y seleccione un recurso de destino que quiera modificar. Use los menús desplegables **Suscripción** y **Tipo de recurso** para buscar el recurso que quiere supervisar. También puede utilizar la barra de búsqueda para buscar su recurso.
 
-4. Si el recurso seleccionado tiene métricas para las que puede crear alertas, la sección **Available signals** (Señales disponibles) de la parte inferior derecha incluirá métricas. Puede ver la lista completa de tipos de recursos compatibles con las alertas de métricas en este [artículo](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported)
+4. Si el recurso seleccionado tiene métricas para las que puede crear alertas, la sección **Available signals** (Señales disponibles) de la parte inferior derecha incluirá métricas. Puede ver la lista completa de tipos de recursos compatibles con las alertas de métricas en este [artículo](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)
 
 5. Una vez haya seleccionado un recurso de destino, haga clic en **Agregar criterios**.
 
@@ -130,4 +130,4 @@ En las secciones anteriores se describía cómo crear, ver y administrar las reg
 
 - [Creación de alertas de métricas con plantillas de Azure Resource Manager](../../azure-monitor/platform/alerts-enable-template.md).
 - [Comprender cómo funcionan las alertas de métricas](alerts-metric-overview.md).
-- [Comprender el esquema de webhook para las alertas de métricas](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#payload-schema)
+- [Comprender el esquema de webhook para las alertas de métricas](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)

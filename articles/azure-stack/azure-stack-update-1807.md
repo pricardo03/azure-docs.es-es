@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: ce74d12e4ea91d8c230218081461bc375e250ce4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7f87f93ebc739d75c796859c7091d4cf62a820a0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260591"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714992"
 ---
 # <a name="azure-stack-1807-update"></a>Actualización de Azure Stack 1807
 
-*Se aplica a: sistemas integrados de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack*
 
 En este artículo se describe el contenido de la actualización 1807. Esta actualización incluye mejoras, correcciones y problemas conocidos de esta versión de Azure Stack y dónde debe descargarse la actualización. Los problemas conocidos se dividen en aquellos que están directamente relacionados con el proceso de actualización y aquellos que están relacionados con la compilación (posteriores a la instalación).
 
@@ -162,9 +162,8 @@ Para más información acerca de estos puntos vulnerables, haga clic en los vín
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-- Antes de aplicar la actualización de Azure Stack 1807, instale la [actualización 1805](azure-stack-update-1805.md).  No había actualización 1806.  
-
-- Instale la [actualización o revisión para la versión 1805](azure-stack-update-1805.md#post-update-steps) más reciente disponible.  
+- Antes de aplicar la actualización de Azure Stack 1807, instale la [actualización 1805](azure-stack-update-1805.md). No había actualización 1806.  
+ 
   > [!TIP]  
   > Suscríbase a las siguientes fuentes *RRS* o *Atom* para mantenerse al día con las revisiones de Azure Stack:
   > - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … 
@@ -244,14 +243,14 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 - Es posible que vea alertas del componente **Controlador de mantenimiento** con los siguientes detalles:  
 
    Alerta 1:
-   - NOMBRE: rol de infraestructura incorrecto
-   - GRAVEDAD: advertencia
+   - NOMBRE:  rol de infraestructura incorrecto
+   - GRAVEDAD: Advertencia
    - COMPONENTE: controlador de mantenimiento
    - DESCRIPCIÓN: el controlador de mantenimiento Heartbeat Scanner no está disponible. Esto puede afectar a los informes y a las métricas de mantenimiento.  
 
   Alerta 2:
-   - NOMBRE: rol de infraestructura incorrecto
-   - GRAVEDAD: advertencia
+   - NOMBRE:  rol de infraestructura incorrecto
+   - GRAVEDAD: Advertencia
    - COMPONENTE: controlador de mantenimiento
    - DESCRIPCIÓN: el controlador de mantenimiento Fault Scanner no está disponible. Esto puede afectar a los informes y a las métricas de mantenimiento.
 
@@ -262,7 +261,7 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 - Es posible que vea una alerta para el componente **Storage** con los siguientes detalles:
 
    - NOMBRE: error de comunicación interna del servicio Storage  
-   - GRAVEDAD: crítica  
+   - GRAVEDAD: Crítico  
    - COMPONENTE: Storage  
    - DESCRIPCIÓN: se produjo un error de comunicación interna del servicio Storage al enviar solicitudes a los nodos siguientes.  
 
@@ -272,16 +271,16 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 - Operador de Azure Stack: si recibe una alerta de memoria insuficiente y no se pueden implementar las máquinas virtuales del inquilino debido a un **error de creación de máquina virtual de Fabric**, es posible que la marca de Azure Stack supere la memoria disponible. Use la [herramienta de planeamiento de capacidad de Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) para comprender mejor la capacidad disponible para las cargas de trabajo.
 
 
-### <a name="compute"></a>Compute
+### <a name="compute"></a>Proceso
 
 <!-- 2724873 - IS --> 
 - Al usar los cmdlets de PowerShell **Start-AzsScaleUnitNode** o **Stop-AzsScaleunitNode** para administrar las unidades de escalado, el primer intento para iniciar o detener la unidad de escalado podría producir un error. Si se produce un error en el cmdlet en la primera ejecución, ejecute el cmdlet una segunda vez. La segunda ejecución debe ser correcta para completar la operación. 
 
 <!-- 2494144 - IS, ASDK --> 
-- Al seleccionar un tamaño de máquina virtual para una implementación, algunos tamaños de la serie F no aparecen en el selector de tamaño al crear una máquina virtual. Los siguientes tamaños de máquinas virtuales no aparecen en el selector: *F8s_v2*, *F16s_v2*, *F32s_v2* y *F64s_v2*.  
+- Al seleccionar un tamaño de máquina virtual para una implementación, algunos tamaños de la serie F no aparecen en el selector de tamaño al crear una máquina virtual. Los siguientes tamaños de máquina virtual no aparecen en el selector: *F8s_v2*, *F16s_v2*, *F32s_v2* y *F64s_v2*.  
   Como alternativa, utilice uno de los métodos siguientes para implementar una máquina virtual. En cada método, debe especificar el tamaño de máquina virtual que desea utilizar.
 
-  - **Plantilla de Azure Resource Manager:** cuando utilice una plantilla, establezca *vmSize* en la plantilla de modo que sea igual al tamaño deseado de la máquina virtual. Por ejemplo, se utiliza la siguiente entrada para implementar una máquina virtual que utiliza el tamaño *F32s_v2*:  
+  - **Plantilla de Azure Resource Manager:** cuando utilice una plantilla, establezca el valor de *vmSize* de la plantilla en el tamaño de máquina virtual que desee usar. Por ejemplo, se utiliza la siguiente entrada para implementar una máquina virtual que utiliza el tamaño *F32s_v2*:  
 
     ```
         "properties": {
@@ -289,9 +288,9 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
                 "vmSize": "Standard_F32s_v2"
         },
     ```  
-  - **CLI de Azure:** puede utilizar el comando [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) y especificar el tamaño de máquina virtual como parámetro, de forma similar a `--size "Standard_F32s_v2"`.
+  - **CLI de Azure:** puede utilizar el comando [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) y especificar el tamaño de la máquina virtual como parámetro; por ejemplo, `--size "Standard_F32s_v2"`.
 
-  - **PowerShell:** con PowerShell, puede usar [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) con el parámetro que especifica el tamaño de la máquina virtual, de forma similar a `-VMSize "Standard_F32s_v2"`.
+  - **PowerShell:** con PowerShell, puede usar [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) con el parámetro que especifica el tamaño de la máquina virtual; por ejemplo, `-VMSize "Standard_F32s_v2"`.
 
 
 <!-- TBD - IS ASDK --> 

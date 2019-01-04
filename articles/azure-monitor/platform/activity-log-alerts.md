@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 412ec0a7d2cd8574aadf6e9f104407792ddb29ed
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a09dcfbffb6daa2ae2514c608e88c8dc475c9676
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341532"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581443"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas de registro de actividad 
 
@@ -28,11 +28,11 @@ Por lo general, se crean alertas del registro de actividad para recibir notifica
 * Se produzcan operaciones específicas en los recursos de la suscripción de Azure, que abarcan normalmente grupos de recursos o recursos en particular. Por ejemplo, si quiere que le notifiquen cuando se elimine alguna máquina virtual de myProductionResourceGroup. O, podría querer recibir una notificación si se asigna algún rol nuevo a un usuario de la suscripción.
 * Se produce un evento de mantenimiento del servicio. Los eventos de mantenimiento del servicio incluyen la notificación de incidentes y eventos de mantenimiento que se aplican a recursos de la suscripción.
 
-Una simple analogía para comprender las condiciones en las que se pueden crear reglas de alertas en el registro de actividad, es explorar o filtrar eventos a través del [Registro de actividad en Azure Portal ](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#query-the-activity-log-in-the-azure-portal). En "Azure Monitor: registro de actividad", se puede filtrar o buscar un evento necesario y crear una alerta mediante el botón **Agregar alerta de registro de actividad**.
+Una simple analogía para comprender las condiciones en las que se pueden crear reglas de alertas en el registro de actividad, es explorar o filtrar eventos a través del [Registro de actividad en Azure Portal ](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal). En "Azure Monitor: registro de actividad", se puede filtrar o buscar un evento necesario y crear una alerta mediante el botón **Agregar alerta de registro de actividad**.
 
 En cualquier caso, una alerta del registro de actividad solo supervisa eventos de la suscripción en la que se ha creado la alerta.
 
-Puede configurar una alerta del registro de actividad según las propiedades de nivel superior del objeto JSON de un evento del registro de actividad. Para más información, consulte [Información general sobre el registro de actividad de Azure](./../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#categories-in-the-activity-log). Para más información acerca de los eventos de mantenimiento del servicio, consulte [Recibir alertas del registro de actividad con las notificaciones del servicio](./../../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
+Puede configurar una alerta del registro de actividad según las propiedades de nivel superior del objeto JSON de un evento del registro de actividad. Para más información, consulte [Información general sobre el registro de actividad de Azure](./../../azure-monitor/platform/activity-logs-overview.md#categories-in-the-activity-log). Para más información acerca de los eventos de mantenimiento del servicio, consulte [Recibir alertas del registro de actividad con las notificaciones del servicio](./../../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
 
 Las alertas del registro de actividad tienen algunas opciones en común:
 
@@ -64,5 +64,5 @@ Para más información sobre los grupos de acciones, consulte [Creación y admin
 - Obtener una [Introducción a las alertas](../../azure-monitor/platform/alerts-overview.md).
 - Obtenga información sobre la [creación y modificación de las alertas del registro de actividad](../../azure-monitor/platform/alerts-activity-log.md).
 - Revise el [Esquema de webhook de alertas del registro de actividad](activity-log-alerts-webhook.md).
-- Más información acerca de las [Notificaciones del estado del servicio](../../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- Más información acerca de las [Notificaciones del estado del servicio](../../azure-monitor/platform/service-notifications.md).
 

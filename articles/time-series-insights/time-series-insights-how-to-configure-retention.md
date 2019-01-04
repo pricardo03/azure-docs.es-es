@@ -1,5 +1,5 @@
 ---
-title: 'Configuración de Azure Time Series Insights: cómo configurar la retención de datos en el entorno de Azure Time Series Insights | Microsoft Docs'
+title: Configuración de la retención en el entorno de Azure Time Series Insights | Microsoft Docs
 description: En este artículo se describe cómo configurar la retención en el entorno de Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2822f99b950a2adca5e097cfa937b7fd68e04a3e
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 7c45b0581a03e280c7dbd6d998059f1e4bff5345
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277920"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556057"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Configuración de la retención en Time Series Insights
 En este artículo se describe cómo configurar el **Tiempo de retención de datos** y el **Comportamiento correspondiente a un exceso del límite de almacenamiento** en Azure Time Series Insights.

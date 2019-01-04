@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 1d9b0e356f0f65be44a533fe098282084b900d89
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: f7e63fa75f473d5da911fbf845f0662d8eec5c70
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249641"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717405"
 ---
 # <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>Configuración de una aplicación de Python para Azure App Service en Linux
 
@@ -132,4 +132,4 @@ Si el servicio de aplicación no encuentra un comando personalizado, una aplicac
 - **Ve el mensaje "Servicio no disponible" en el explorador.** El explorador ha superado el tiempo de espera mientras esperaba una respuesta de App Service, lo cual indica que App Service ha iniciado el servidor Gunicorn, pero los argumentos que especifica el código de la aplicación son incorrectos.
   - Actualice el explorador, especialmente si usa los planes de tarifa más bajos en su plan de App Service. Por ejemplo, la aplicación puede tardar más en iniciarse si usa niveles gratis, por ejemplo, y comienza a tener capacidad de respuesta después de actualizar el explorador.
   - Compruebe que la aplicación está estructurada como espera App Service para [Django](#django-app) o [Flask](#flask-app), o use un [comando de inicio personalizado](#custom-startup-command).
-  - Use SSH o la consola de Kudu para conectarse a App Service y, después, examine los registros de diagnóstico almacenados en la carpeta *LogFiles*. Para más información sobre los registros, consulte [Habilitación del registro de diagnóstico para aplicaciones web en Azure App Service](../web-sites-enable-diagnostic-log.md).
+  - Use SSH o la consola de Kudu para conectarse a App Service y, después, examine los registros de diagnóstico almacenados en la carpeta *LogFiles*. Para más información sobre los registros, consulte [Habilitación del registro de diagnóstico para aplicaciones web en Azure App Service](../troubleshoot-diagnostic-logs.md).

@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5bb70bf56efac28029401b69ee4f87c2738c52e3
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 28e21180fde50d19154830694cd4959795ae9d5c
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721857"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789390"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Generación de perfiles de servicios activos en la nube de Azure con Application Insights
 
 También puede implementar Application Insights Profiler en estos servicios:
-* [Azure Web Apps](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Azure App Service](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Aplicaciones de Service Fabric](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas virtuales](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
@@ -30,7 +30,7 @@ Application Insights Profiler se instala con la extensión de Windows Azure Diag
 
 ## <a name="enable-profiler-for-your-azure-cloud-service"></a>Habilitación del generador de perfiles para Azure Cloud Services
 1. Compruebe que está utilizando [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) o una versión posterior.  Es suficiente con confirmar que los archivos *ServiceConfiguration.\*.cscfg* tienen un valor de `osFamily` de "5" o posterior.
-1. Agregue [el SDK de Application Insights a Cloud Services](app-insights-cloudservices.md?toc=/azure/azure-monitor/toc.json).
+1. Agregue [el SDK de Application Insights a Cloud Services](../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 1. Realice un seguimiento de las solicitudes con Application Insights:
 
     Para los roles web de ASP.Net, Application Insights puede realizar un seguimiento de las solicitudes automáticamente.
@@ -63,7 +63,7 @@ Application Insights Profiler se instala con la extensión de Windows Azure Diag
       </WadCfg>
       ```
 
-    >   **NOTA:** Si el archivo *diagnostics.wadcfgx* también contiene otro receptor de tipo `ApplicationInsights`, las tres claves de instrumentación siguientes deben coincidir:  
+    >   **NOTA:** Si el archivo diagnostics.wadcfgx* también contiene otro receptor de tipo `ApplicationInsights`, las tres claves de instrumentación siguientes deben coincidir:  
     >  * La clave que usa la aplicación.  
     >  * La clave que usa el receptor `ApplicationInsights`.  
     >  * La clave que usa el receptor `ApplicationInsightsProfiler`.  

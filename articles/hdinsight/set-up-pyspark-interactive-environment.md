@@ -9,17 +9,16 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: 82aebd780b7b821675a6ee891cc81e2b1c6fdafb
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: bf47915ba93a4a3a7dec338395cfe0ce6aa3cdf6
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437221"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993848"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Configuración del entorno interactivo de PySpark para Visual Studio Code
 
 En los pasos siguientes se muestra cómo instalar paquetes de Python mediante la ejecución de **HDInsight: PySpark interactivo**.
-
 
 ## <a name="set-up-the-pyspark-interactive-environment-on-macos-and-linux"></a>Configuración del entorno interactivo de PySpark en macOS y Linux
 Si usa **python 3.x**, debe usar el comando **pip3** para los pasos siguientes:

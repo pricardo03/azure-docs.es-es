@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 999b5ca1f229677b9e11068f4beaa6e2704afd3d
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 62056b27669f334f1d8007d5284979ac4701f9d9
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012579"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650514"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Uso de la API de REST de Apache Spark para enviar trabajos remotos a un clúster Spark de HDInsight
 
-Obtenga información sobre cómo usar [Apache Livy](https://livy.incubator.apache.org/), la API REST de [Apache Spark](https://spark.apache.org/), que se usa para enviar trabajos remotos a un clúster de Azure HDInsight Spark. Para obtener documentación detallada, consulte [http://livy.incubator.apache.org/](http://livy.incubator.apache.org/).
+Obtenga información sobre cómo usar [Apache Livy](https://livy.incubator.apache.org/), la API REST de [Apache Spark](https://spark.apache.org/), que se usa para enviar trabajos remotos a un clúster de Azure HDInsight Spark. Para obtener documentación detallada, consulte [https://livy.incubator.apache.org/](https://livy.incubator.apache.org/).
 
 Puede usar Livy para ejecutar shells de Spark interactivos o enviar trabajos por lotes que se ejecutarán en Spark. Este artículo trata acerca de cómo utilizar Livy para enviar trabajos por lotes. Los fragmentos de código de este artículo usan cURL para realizar llamadas de la API de REST al punto de conexión de Livy Spark.
 
@@ -182,7 +182,7 @@ Estos son algunos de los problemas que pueden surgir a la hora de utilizar Livy 
 
 ## <a name="next-step"></a>Paso siguiente
 
-* [Documentación de la API REST de Apache Livy](http://livy.incubator.apache.org/docs/latest/rest-api.html)
+* [Documentación de la API REST de Apache Livy](https://livy.incubator.apache.org/docs/latest/rest-api.html)
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Seguimiento y depuración de trabajos que se ejecutan en un clúster de Apache Spark en HDInsight)](apache-spark-job-debugging.md)
 

@@ -6,17 +6,17 @@ ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: mashamsft
+ms.author: mathoma
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/11/2018
-ms.openlocfilehash: 919a3326c009d660959fb75cfdbcf46d523fa016
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: deaf5c9180841f8c5b2d21a820f2ab2362dc2453
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863880"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600731"
 ---
 # <a name="accelerated-database-recovery-preview"></a>Recuperación de base de datos acelerada (versión preliminar)
 
@@ -50,7 +50,7 @@ La recuperación de bases de datos de SQL Server sigue el modelo de recuperació
 
 - **Fase de reversión**
 
-  Por cada transacción activa en el momento del bloqueo, recorre el registro hacia atrás y deshace las operaciones realizadas por esta transacción.
+  Para cada transacción activa en el momento del bloqueo, recorre el registro hacia atrás y deshace las operaciones realizadas por esta transacción.
 
 En función de este diseño, el tiempo que tarda el motor de base de datos SQL en recuperarse de un reinicio inesperado es (aproximadamente) proporcional al tamaño de la transacción activa más larga del sistema en el momento del bloqueo. La recuperación requiere una reversión de todas las transacciones incompletas. El período de tiempo necesario es proporcional al trabajo que ha realizado la transacción y al tiempo que ha estado activa. Por lo tanto, el proceso de recuperación de SQL Server puede tardar mucho en presencia de transacciones de ejecución prolongada (por ejemplo, operaciones de inserción masivas de gran tamaño u operaciones de compilación de índices en una tabla grande).
 
@@ -62,7 +62,7 @@ Además, el motor de base de datos SQL no puede truncar el registro de transacci
 
 ADR aborda los problemas anteriores al rediseñar por completo el proceso de recuperación del motor de base de datos SQL para:
 
-- Que sea constante o instantánea al evitar el análisis del registro desde o hacia el principio de la transacción activa más antigua. Con ADR, el registro de transacciones solo se procesa desde el último punto de comprobación correcto (o un número de secuencia de registro (LSN) de página desfasada más antiguo). Como resultado, el tiempo de recuperación no se ve afectado por las transacciones de ejecución prolongada.
+- Que sea constante o instantáneo al evitar el análisis del registro desde o hacia el principio de la transacción activa más antigua. Con ADR, el registro de transacciones solo se procesa desde el último punto de comprobación correcto (o un número de secuencia de registro (LSN) de página desfasada más antiguo). Como resultado, el tiempo de recuperación no se ve afectado por las transacciones de ejecución prolongada.
 - Minimizar el espacio de registro de transacciones necesario, ya que ya no es necesario procesar el registro de toda la transacción. Como resultado, se puede truncar el registro de transacciones de forma agresiva a medida que se producen los puntos de comprobación y las copias de seguridad.
 
 En general, ADR consigue la recuperación rápida de bases de datos al controlar las versiones de todas las modificaciones de bases de datos físicas y deshacer únicamente las operaciones lógicas, que están limitadas y se pueden deshacer casi al instante. Cualquier transacción que estuviera activa en el momento de un bloqueo se marca como anulada y, por lo tanto, las consultas de usuario simultáneas pueden pasar por alto las versiones generadas por estas transacciones.

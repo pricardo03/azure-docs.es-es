@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 787da07c5b8d8610e264963f81d858fce98d304f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 175fdcc1bf8d28c0eeb6eeccaa54c996c837ef81
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436167"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744452"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Uso de una canalización de análisis de datos
 
@@ -551,7 +551,7 @@ Como puede ver, la mayor parte del coordinador consiste simplemente en el paso d
     <coordinator-app ... start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" ...>
     ```
 
-    Un coordinador es responsable de programar acciones dentro del intervalo de fechas `start` y `end`, según el intervalo especificado en el atributo `frequency`. Cada acción programada, a su vez, ejecuta el flujo de trabajo según la configuración. En la definición de coordinador anterior, el coordinador está configurado para ejecutar acciones desde el 1 de enero de 2017 hasta el 5 de enero de 2017. En el [lenguaje de expresiones de Oozie](http://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation), la expresión `${coord:days(1)}` establece la frecuencia en 1 día. Como resultado, el coordinador programa una acción (y por lo tanto, el flujo de trabajo) una vez al día. Para intervalos de fechas que se encuentran en el pasado, como en este ejemplo, la acción se programará para que se ejecute sin retraso. La fecha de inicio para la que se ha programado la ejecución de una acción se llama *hora nominal*. Por ejemplo, para procesar los datos el 1 de enero de 2017, el coordinador programará una acción con una hora nominal de 2017-01-01T00:00:00 GMT.
+    Un coordinador es responsable de programar acciones dentro del intervalo de fechas `start` y `end`, según el intervalo especificado en el atributo `frequency`. Cada acción programada, a su vez, ejecuta el flujo de trabajo según la configuración. En la definición de coordinador anterior, el coordinador está configurado para ejecutar acciones desde el 1 de enero de 2017 hasta el 5 de enero de 2017. En el [lenguaje de expresiones de Oozie](https://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation), la expresión `${coord:days(1)}` establece la frecuencia en 1 día. Como resultado, el coordinador programa una acción (y por lo tanto, el flujo de trabajo) una vez al día. Para intervalos de fechas que se encuentran en el pasado, como en este ejemplo, la acción se programará para que se ejecute sin retraso. La fecha de inicio para la que se ha programado la ejecución de una acción se llama *hora nominal*. Por ejemplo, para procesar los datos el 1 de enero de 2017, el coordinador programará una acción con una hora nominal de 2017-01-01T00:00:00 GMT.
 
 * Punto 2: dentro del intervalo de fechas del flujo de trabajo, el elemento `dataset` especifica dónde buscar los datos de un intervalo de fechas determinado en HDFS y configura el modo en que Oozie determina si los datos están disponibles aún para su procesamiento.
 
@@ -651,6 +651,6 @@ Para ejecutar la canalización con un coordinador, proceda de forma similar a la
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Documentación de Apache Oozie](http://oozie.apache.org/docs/4.2.0/index.html)
+* [Documentación de Apache Oozie](https://oozie.apache.org/docs/4.2.0/index.html)
 
 <!-- * Build the same pipeline [using Azure Data Factory](tbd.md).  -->

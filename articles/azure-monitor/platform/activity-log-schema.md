@@ -7,16 +7,16 @@ ms.service: azure-monitor
 ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
-ms.component: activitylog
-ms.openlocfilehash: 9129ccdd66b07fc53fe46aa64317f7f064eb7e0c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.component: logs
+ms.openlocfilehash: 64b92a758d3d5f713b58a5e310a897ac1f11024d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388751"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714838"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de eventos del registro de actividad de Azure
-El **registro de actividad de Azure** es un registro que proporciona información de los eventos de nivel de suscripción que se han producido en Azure. En este artículo se describe el esquema de eventos por categoría de datos. El esquema de los datos es diferente en función de si va a leer los datos en el portal, PowerShell, la CLI o directamente mediante la API REST en comparación con la [transmisión de datos a Storage o Event Hubs mediante un perfil de registro](./../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). Los ejemplos siguientes muestran el esquema puesto a disposición por el portal, PowerShell, la CLI y la API REST. Al final del artículo se proporciona una asignación de estas propiedades al [esquema de registros de diagnóstico de Azure](./tutorial-dashboards.md).
+El **registro de actividad de Azure** es un registro que proporciona información de los eventos de nivel de suscripción que se han producido en Azure. En este artículo se describe el esquema de eventos por categoría de datos. El esquema de los datos es diferente en función de si va a leer los datos en el portal, PowerShell, la CLI o directamente mediante la API REST en comparación con la [transmisión de datos a Storage o Event Hubs mediante un perfil de registro](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Los ejemplos siguientes muestran el esquema puesto a disposición por el portal, PowerShell, la CLI y la API REST. Al final del artículo se proporciona una asignación de estas propiedades al [esquema de registros de diagnóstico de Azure](./tutorial-dashboards.md).
 
 ## <a name="administrative"></a>Administrativo
 Esta categoría contiene el registro de todas las operaciones de creación, actualización, eliminación y acción realizadas a través de Resource Manager. Los ejemplos de los tipos de eventos que aparecen en esta categoría incluyen "crear máquina virtual" y "eliminar grupo de seguridad de red". Cada acción realizada por un usuario o una aplicación mediante Resource Manager se modela como una operación en un tipo de recurso determinado. Si el tipo de operación es Write, Delete o Action, los registros de inicio y corrección o error de esa operación se registran en la categoría Administrativo. La categoría Administrativo también incluye los cambios realizados en el control de acceso basado en roles de una suscripción.
@@ -191,7 +191,7 @@ Esta categoría contiene el registro de los incidentes de estado del servicio qu
   }
 }
 ```
-Consulte el artículo sobre las [notificaciones de estado de servicio](./../../monitoring-and-diagnostics/monitoring-service-notifications.md) para la documentación sobre los valores de las propiedades.
+Consulte el artículo sobre las [notificaciones de estado de servicio](./../../azure-monitor/platform/service-notifications.md) para la documentación sobre los valores de las propiedades.
 
 ## <a name="resource-health"></a>Estado de los recursos
 Esta categoría contiene el registro de los eventos de estado del servicio que se han producido en los recursos de Azure. Un ejemplo del tipo de evento que aparece en esta categoría es "El estado de mantenimiento de la máquina virtual se cambió a No disponible". Los eventos de mantenimiento de recursos pueden representar uno de los cuatro estados de mantenimiento siguientes: Disponible, No disponible, Degradado y Desconocido. Además, los eventos de mantenimiento de recursos se pueden clasificar como iniciados por la plataforma o por el usuario.
@@ -676,5 +676,5 @@ Al realizar la transmisión del registro de actividad de Azure a una cuenta de a
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Más información sobre el registro de actividad (antes, Registros de auditoría)](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
-* [Transmisión del registro de actividad de Azure a Event Hubs](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
+* [Más información sobre el registro de actividad (antes, Registros de auditoría)](../../azure-monitor/platform/activity-logs-overview.md)
+* [Transmisión del registro de actividad de Azure a Event Hubs](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)

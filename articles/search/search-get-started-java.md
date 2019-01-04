@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
 ms.custom: seodec2018
-ms.openlocfilehash: d74c9c30932bd2db9059738c8dfbc21e4b1b046a
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d16f20e3c2dfa3d670006e44f0072a3871d41c3f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316978"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629909"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Introducción a Azure Search en Java
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ Hemos usado el siguiente software para compilar y probar este ejemplo:
 * [Apache Tomcat 8.5.33](https://tomcat.apache.org/download-80.cgi#8.5.33)
 
 ## <a name="about-the-data"></a>Acerca de los datos
-Esta aplicación de ejemplo usa los datos del [Servicio geológico de Estados Unidos (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtrados por el estado de Rhode Island para reducir el tamaño del conjunto de datos. Vamos a usar estos datos para crear una aplicación de búsqueda que devuelva edificios de referencia como hospitales y escuelas, además de características geológicas como ríos, lagos y montes.
+Esta aplicación de ejemplo usa los datos del [Servicio geológico de Estados Unidos (USGS)](https://geonames.usgs.gov/domestic/download_data.htm), filtrados por el estado de Rhode Island para reducir el tamaño del conjunto de datos. Vamos a usar estos datos para crear una aplicación de búsqueda que devuelva edificios de referencia como hospitales y escuelas, además de características geológicas como ríos, lagos y montes.
 
 En esta aplicación, el programa **SearchServlet.java** compila y carga el índice utilizando un constructo de [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) y obtiene el conjunto de datos filtrado de USGS desde una instancia pública de Azure SQL Database. En el código del programa se proporcionan credenciales predefinidas e información de conexión al origen de datos en línea. En términos de acceso a datos, no es necesario realizar ninguna otra configuración.
 
@@ -87,7 +87,7 @@ Todas las modificaciones y las instrucciones de ejecución subsiguientes se real
 ## <a name="configure-the-service-url-and-api-key"></a>Configuración de la dirección URL del servicio y api-key
 1. En **Project Explorer** (Explorador de proyectos), haga doble clic en **config.properties** para editar los valores de configuración que contienen el nombre del servidor y la clave de API.
 2. Consulte los pasos anteriores de este artículo, donde encontró la dirección URL del servicio y la clave de API en el [Azure Portal](https://portal.azure.com), para obtener los valores que va a especificar en **config.properties**.
-3. En **config.properties**, reemplace "Api Key" con la clave de API del servicio. A continuación, el nombre de servicio (el primer componente de la dirección URL http://servicename.search.windows.net) reemplaza "nombre de servicio" en el mismo archivo.
+3. En **config.properties**, reemplace "Api Key" con la clave de API del servicio. A continuación, el nombre de servicio (el primer componente de la dirección URL https://servicename.search.windows.net) reemplaza "nombre de servicio" en el mismo archivo.
    
     ![][5]
 

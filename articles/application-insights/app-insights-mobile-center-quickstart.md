@@ -11,12 +11,12 @@ ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 040e54b02161386dcc16b943956f39b86b264303
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 77fafb3f3a4c834c5a7f185d129a1c651db58089
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950529"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719854"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Comience a analizar la aplicación móvil con App Center y Application Insights.
 
@@ -126,7 +126,7 @@ Application Insights puede consultar, segmentar, filtrar y analizar la telemetr�
    1. Seleccione la consulta haciendo clic en cualquier parte de la consulta en el editor de texto.
    2. Después haga clic en **Ir** para ejecutar la consulta. 
 
-   Obtenga más información sobre [Analytics en Application Insights](app-insights-analytics.md) y el [lenguaje de consulta de Log Analytics](https://aka.ms/LogAnalyticsLanguageReference).
+   Obtenga más información sobre [Analytics en Application Insights](../azure-monitor/app/analytics.md) y el [lenguaje de consulta de Log Analytics](https://aka.ms/LogAnalyticsLanguageReference).
 
 
 2. **Segmente y filtre la telemetría de eventos personalizados.** En la página de **información general** de Application Insights, seleccione **Usuarios** en la tabla de contenido.

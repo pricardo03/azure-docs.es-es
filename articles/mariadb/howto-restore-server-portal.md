@@ -3,17 +3,15 @@ title: Restauración de un servidor en Azure Database for MariaDB
 description: En este artículo se describe cómo restaurar un servidor en Azure Database for MariaDB mediante Azure Portal.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 899f0bfa3075c92ac31e2b4f5fab9093a1dc6806
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cf6d0399c790a42eaf74b3ec339bf8cf67495fb3
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999057"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548772"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Copia de seguridad y restauración de un servidor en Azure Database for MariaDB mediante Azure Portal
 
@@ -66,8 +64,8 @@ Los siguientes pasos restauran el servidor de ejemplo a un momento dado:
 3. Rellene el formulario Restaurar con la información necesaria:
 
    ![Azure Database for MariaDB - Información sobre restauración ](./media/howto-restore-server-portal/3-restore.png)
-  - **Punto de restauración**: seleccione el momento que desea restaurar.
-  - **Servidor de destino**: especifique el nombre del nuevo servidor.
+  - **Punto de restauración**: seleccione el momento al que desea restaurar.
+  - **Servidor de destino:**: proporcione un nombre para el nuevo servidor.
   - **Ubicación**: no se puede seleccionar la región. De manera predeterminada, es el mismo que el del servidor de origen.
   - **Plan de tarifa**: estos parámetros no se pueden cambiar al realizar una restauración a un momento dado. Es el mismo que el del servidor de origen. 
 
@@ -86,7 +84,7 @@ Si ha configurado el servidor para copias de seguridad con redundancia geográfi
    ![La opción Azure Database for MariaDB](./media/howto-restore-server-portal/2_navigate-to-mariadb.png)
 
 2. En el menú desplegable **Seleccionar origen** del formulario, elija **Copia de seguridad**. Esta acción carga una lista de servidores que tienen habilitadas copias de seguridad con redundancia geográfica. Seleccione una de las copias de seguridad como origen del nuevo servidor.
-   ![Seleccionar origen: Copia de seguridad y lista de copias de seguridad con redundancia geográfica](./media/howto-restore-server-portal/2-georestore.png)
+   ![Seleccionar origen: Azure Backup y lista de copias de seguridad con redundancia geográfica](./media/howto-restore-server-portal/2-georestore.png)
 
    > [!NOTE]
    > Al crear por primera vez un servidor, puede que no esté disponible para la restauración geográfica inmediatamente. Los metadatos pueden tardar unas horas en rellenarse.

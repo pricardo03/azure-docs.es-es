@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: 763e1d20f707a1db1f559661089b55093f93a632
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: bb1616c7cbf5c9c4620aed3e31896e32fe0163f9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999922"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606221"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Compatibilidad con metadatos de OpenAPI 2.0 en Azure Functions (versión preliminar)
 La compatibilidad con metadatos de OpenAPI 2.0 (anteriormente Swagger) en Azure Functions es una característica en versión preliminar que puede usar para escribir una definición de OpenAPI 2.0 dentro de una aplicación de función. A continuación, puede hospedar ese archivo mediante la aplicación de función.
@@ -23,7 +23,7 @@ La compatibilidad con metadatos de OpenAPI 2.0 (anteriormente Swagger) en Azure 
 > [!IMPORTANT]
 > La característica en versión preliminar de OpenAPI solo está disponible actualmente en el entorno de ejecución 1.x. Puede encontrar información sobre cómo crear una aplicación de función 1.x [aquí](./functions-versions.md#creating-1x-apps).
 
-[Los metadatos de OpenAPI](https://swagger.io/) permiten que una función que hospede una API de REST pueda ser consumida por una gran variedad de software. Este software incluye ofertas de Microsoft como PowerApps y la [característica API Apps de Azure App Service](../app-service/app-service-web-overview.md), herramientas de desarrollo de terceros, como [Postman](https://www.getpostman.com/docs/importing_swagger) y [muchos otros paquetes](https://swagger.io/tools/).
+[Los metadatos de OpenAPI](https://swagger.io/) permiten que una función que hospede una API de REST pueda ser consumida por una gran variedad de software. Este software incluye ofertas de Microsoft como PowerApps y la [característica API Apps de Azure App Service](../app-service/overview.md), herramientas de desarrollo de terceros, como [Postman](https://www.getpostman.com/docs/importing_swagger) y [muchos otros paquetes](https://swagger.io/tools/).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 

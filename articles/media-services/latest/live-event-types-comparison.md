@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: juliako
-ms.openlocfilehash: 2dbc2b4e316155e880d3baa900196d5cdd31be72
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 3ed38ce75e5ee7c9f05533d64b28171482bfec51
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011783"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725939"
 ---
 # <a name="liveevent-types-comparison"></a>Comparación de tipos de objetos LiveEvent
 
@@ -28,7 +28,7 @@ En Azure Media Services, un objeto [LiveEvent](https://docs.microsoft.com/rest/a
 
 En la tabla siguiente se comparan las características de dos tipos de objetos LiveEvent.
 
-| Característica | LiveEvent con paso a través | LiveEvent estándar (básico) |
+| Característica | LiveEvent con paso a través | LiveEvent estándar |
 | --- | --- | --- |
 | La entrada de velocidad de bits única se codifica en varias velocidades de bits en la nube |Sin  |SÍ |
 | Resolución de vídeo máxima para la fuente de contribución |4 K (4096 x 2160 en 60 fotogramas por segundo) |1080 p (1920 x 1088 en 30 fotogramas por segundo)|
