@@ -24,7 +24,7 @@ ms.locfileid: "53082653"
 
 ## <a name="overview"></a>Información general
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio de Data Factory que está utilizando:"]
 > * [Versión 1](v1/data-factory-data-movement-activities.md)
 > * [Versión actual](copy-activity-overview.md)
 
