@@ -21,7 +21,7 @@ ms.lasthandoff: 12/08/2018
 ms.locfileid: "53084080"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la actividad de copia
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio de Data Factory que está utilizando:"]
 > * [Versión 1](v1/data-factory-copy-activity-performance.md)
 > * [Versión actual](copy-activity-performance.md)
 
