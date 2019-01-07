@@ -21,7 +21,7 @@ ms.lasthandoff: 10/31/2018
 ms.locfileid: "50418350"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolerancia a errores de la actividad de copia en Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio de Data Factory que está utilizando:"]
 > * [Versión 1](v1/data-factory-copy-activity-fault-tolerance.md)
 > * [Versión actual](copy-activity-fault-tolerance.md)
 
