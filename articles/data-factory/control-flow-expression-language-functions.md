@@ -21,7 +21,7 @@ ms.lasthandoff: 07/14/2018
 ms.locfileid: "39055022"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expresiones y funciones de Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio de Data Factory que está utilizando:"]
 > * [Versión 1](v1/data-factory-functions-variables.md)
 > * [Versión actual](control-flow-expression-language-functions.md)
 
