@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: azfuncdf, glenga
-ms.openlocfilehash: acbba991e6dcce56fad7f27c45f85214cc8fc707
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: a79faa1dc5a28e5e2ac37ea164c341b855b3bb80
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637010"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339729"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Creación de Durable Functions mediante Azure Portal
 
@@ -24,17 +24,43 @@ La extensión [Durable Functions](durable-functions-overview.md) para Azure Func
 >[!NOTE]
 >
 >* Si está desarrollando Durable Functions en C#, debería tener en cuenta el [desarrollo de Visual Studio 2017](durable-functions-create-first-csharp.md).
-* Si está desarrollando Durable Functions en JavaScript, debería tener en cuenta el **desarrollo de Visual Studio Code**.
->
->La creación de Durable Functions mediante JavaScript todavía no se admite en el portal. Use Visual Studio Code en su lugar.
+* Si está desarrollando Durable Functions en JavaScript, debería tener en cuenta el [desarrollo de Visual Studio Code](./quickstart-js-vscode.md).
 
 ## <a name="create-a-function-app"></a>Creación de una aplicación de función
 
-Debe tener una aplicación de función para hospedar la ejecución de cualquier función. Una aplicación de función permite agrupar las funciones como una unidad lógica para facilitar la administración, la implementación y el uso compartido de recursos. Debe crear una aplicación de función en C#, ya que las plantillas de JavaScript aún no se admiten para Durable Functions.  
+Debe tener una aplicación de función para hospedar la ejecución de cualquier función. Una aplicación de función permite agrupar las funciones como una unidad lógica para facilitar la administración, la implementación y el uso compartido de recursos. Puede crear una aplicación .NET o JavaScript.
 
 [!INCLUDE [Create function app Azure portal](../../../includes/functions-create-function-app-portal.md)]
 
-De forma predeterminada, la aplicación de función creada utiliza la versión 2.x del entorno de ejecución de Azure Functions. La extensión de Durable Functions funciona en ambas versiones 1.x y 2.x del entorno de ejecución de Azure Functions. Sin embargo, las plantillas solo están disponibles cuando la versión del entorno de ejecución de destino es la 2.x.
+De forma predeterminada, la aplicación de función creada utiliza la versión 2.x del entorno de ejecución de Azure Functions. La extensión de Durable Functions funciona en ambas versiones 1.x y 2.x del entorno de ejecución de Azure Functions en C# y en la versión 2.x de JavaScript. Sin embargo, las plantillas solo están disponibles cuando la versión del entorno de ejecución de destino es la 2.x, con independencia del lenguaje elegido.
+
+## <a name="install-the-durable-functions-npm-package-javascript-only"></a>Instalación del paquete npm de Durable Functions (solo para JavaScript)
+
+Si va a crear Durable Functions de JavaScript, deberá instalar el [`durable-functions`paquete npm](https://www.npmjs.com/package/durable-functions).
+
+1. Seleccione el nombre de la aplicación de función, seguido de **Características de la plataforma** y después de **Herramientas avanzadas (Kudu)**.
+
+   ![Selección de Kudu en las características de la plataforma de funciones](./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png)
+
+2. En la consola de Kudu, seleccione **Consola de depuración** y, a continuación, **CMD**.
+
+   ![Consola de depuración de Kudu](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
+
+3. Debería aparecer la estructura de directorios de archivos de la aplicación de funciones. Vaya a la carpeta `site/wwwroot`. Desde allí, puede cargar un archivo `package.json` al arrastrarlo y colocarlo en la ventana del directorio de archivo. A continuación se muestra el ejemplo `package.json`:
+
+    ```json
+    {
+      "dependencies": {
+        "durable-functions": "^1.1.2"
+      }
+    }
+    ```
+
+   ![package.json cargado en Kudu](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
+
+4. Una vez cargado el archivo `package.json`, ejecute el comando `npm install` en la consola de ejecución remota de Kudu.
+
+   ![Ejecución de la instalación de npm en Kudu](./media/durable-functions-create-portal/kudu-npm-install.png)
 
 ## <a name="create-an-orchestrator-function"></a>Creación de una función de orquestador
 
@@ -92,7 +118,7 @@ De forma predeterminada, la aplicación de función creada utiliza la versión 2
         }
     ```
 
-1. Continúe con la llamada al punto de conexión `statusQueryGetUri` hasta que el estado cambie a **Completado**, y verá una respuesta similar al ejemplo siguiente: 
+1. Continúe con la llamada al punto de conexión `statusQueryGetUri` hasta que el estado cambie a **Completado**, y verá una respuesta similar al ejemplo siguiente:
 
     ```json
     {
@@ -113,4 +139,4 @@ La primera función duradera ahora está en funcionamiento en Azure.
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Obtenga información sobre los patrones comunes de funciones duraderas](durable-functions-overview.md)
+> [Más información sobre los patrones comunes de funciones durables](durable-functions-overview.md)
