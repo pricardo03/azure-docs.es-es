@@ -21,7 +21,7 @@ ms.lasthandoff: 06/27/2018
 ms.locfileid: "37054422"
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Movimiento de datos de un servidor FTP mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio de Data Factory que está utilizando:"]
 > * [Versión 1](data-factory-sftp-connector.md)
 > * [Versión 2 (versión actual)](../connector-sftp.md)
 
