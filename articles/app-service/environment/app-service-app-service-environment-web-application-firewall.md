@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: seodec18
-ms.openlocfilehash: 6bc354ef3451862e3567adbe5ff8ee6da0eacaf6
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 4681dad55807705a2ce8e9908cbd3ee53fb3c32e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314880"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631505"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Configuración de un firewall de aplicaciones web (WAF) para entornos de App Service
 ## <a name="overview"></a>Información general
@@ -74,12 +74,12 @@ Tras iniciar sesión, debe aparecer un panel de información como el de la image
 
 ![Panel de administración][ManagementDashboard]
 
-Al hacer clic en la pestaña **Servicios**, podrá configurar el WAF para los servicios que protege. Para obtener más información sobre cómo configurar Barracuda WAF, puede consultar [su documentación](https://techlib.barracuda.com/waf/getstarted1). En el ejemplo siguiente, se ha configurado una aplicación web de Azure que atiende el tráfico en HTTP y HTTPS.
+Al hacer clic en la pestaña **Servicios**, podrá configurar el WAF para los servicios que protege. Para obtener más información sobre cómo configurar Barracuda WAF, puede consultar [su documentación](https://techlib.barracuda.com/waf/getstarted1). En el ejemplo siguiente, se ha configurado una aplicación de App Service que atiende el tráfico en HTTP y HTTPS.
 
 ![Administración de agregar servicios][ManagementAddServices]
 
 > [!NOTE]
-> En función de cómo se configuran las aplicaciones y qué características se utilizan en el entorno de App Service, deberá reenviar el tráfico para los puertos TCP distintos del 80 y el 443, por ejemplo, si ha configurado SSL de IP para una aplicación web. Para obtener una lista de los puertos de red usados en entornos de App Service, vea la sección dedicada a los puertos de red en la [documentación del control del tráfico de entrada](app-service-app-service-environment-control-inbound-traffic.md).
+> En función de cómo se configuran las aplicaciones y qué características se utilizan en App Service Environment, deberá reenviar el tráfico para los puertos TCP distintos del 80 y el 443, por ejemplo, si ha configurado SSL de IP para una aplicación de App Service. Para obtener una lista de los puertos de red usados en entornos de App Service, vea la sección dedicada a los puertos de red en la [documentación del control del tráfico de entrada](app-service-app-service-environment-control-inbound-traffic.md).
 > 
 > 
 

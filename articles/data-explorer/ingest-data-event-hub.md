@@ -1,6 +1,6 @@
 ---
-title: 'Guía de inicio rápido: Ingesta de datos desde el centro de eventos en el Explorador de datos de Azure'
-description: En esta guía de inicio rápido, obtendrá información sobre cómo ingerir (cargar) datos en el Explorador de datos de Azure desde el centro de eventos.
+title: 'Inicio rápido: Ingesta de datos del centro de eventos a Azure Data Explorer'
+description: En esta guía de inicio rápido obtendrá información sobre cómo ingerir (cargar) datos en el Explorador de datos de Azure desde el centro de eventos.
 services: data-explorer
 author: orspod
 ms.author: v-orspod
@@ -8,28 +8,26 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 3350c222cced036af6319cee166c53da0b14f2a9
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 563b171177b491037e34dce891b565ea0943feda
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210455"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53654111"
 ---
-# <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Guía de inicio rápido: Ingesta de datos desde el centro de eventos en el Explorador de datos de Azure
+# <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Inicio rápido: Ingesta de datos del centro de eventos a Azure Data Explorer
 
-El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. El Explorador de datos de Azure ofrece ingesta (carga de datos) de Event Hubs, una plataforma de streaming de macrodatos y un servicio de ingesta de eventos. Event Hubs puede procesar millones de eventos por segundo prácticamente en tiempo real. En esta guía de inicio rápido, creará un centro de eventos, se conectará a él desde el Explorador de datos de Azure y verá el flujo de datos a través del sistema.
-
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
+El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. El Explorador de datos de Azure ofrece ingesta (carga de datos) de Event Hubs, una plataforma de streaming de macrodatos y un servicio de ingesta de eventos. Event Hubs puede procesar millones de eventos por segundo prácticamente en tiempo real. En esta guía de inicio rápido creará un centro de eventos, se conectará a él desde el Explorador de datos de Azure y verá el flujo de datos a través del sistema.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Además de una suscripción de Azure, necesita lo siguiente para completar esta guía de inicio rápido:
+* Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 
 * [Base de datos y clúster de prueba](create-cluster-database-portal.md)
 
 * [Una aplicación de ejemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) que genera los datos y los envía a un centro de eventos
 
-* [Visual studio 2017, versión 15.3.2 o superior](https://www.visualstudio.com/vs/) para ejecutar la aplicación de ejemplo
+* [Visual Studio 2017, versión 15.3.2 o superior](https://www.visualstudio.com/vs/) para ejecutar la aplicación de ejemplo
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
@@ -37,7 +35,7 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-an-event-hub"></a>Crear un centro de eventos
 
-En esta guía de inicio rápido, generará datos de ejemplo y los enviará a un centro de eventos. El primer paso es crear un centro de eventos. Para hacerlo, utilice una plantilla de Azure Resource Manager en Azure Portal.
+En esta guía de inicio rápido generará datos de ejemplo y los enviará a un centro de eventos. El primer paso es crear un centro de eventos. Para hacerlo, utilice una plantilla de Azure Resource Manager en Azure Portal.
 
 1. Use el botón siguiente para iniciar la implementación. Se recomienda abrir el vínculo en otra pestaña o ventana, para que pueda seguir el resto de los pasos de este artículo.
 
@@ -61,8 +59,8 @@ En esta guía de inicio rápido, generará datos de ejemplo y los enviará a un 
     |---|---|---|
     | Subscription | Su suscripción | Seleccione la suscripción de Azure que quiere usar para el centro de eventos.|
     | Grupos de recursos | *test-hub-rg* | Cree un nuevo grupo de recursos. |
-    | Ubicación | *Oeste de EE. UU.* | Seleccione *Oeste de EE. UU.* para esta guía de inicio rápido. En un sistema de producción, seleccione la región que mejor cubra sus necesidades.
-    | Nombre de espacio de nombres | Nombre de espacio de nombres único | Elija un nombre único que identifique el espacio de nombres. Por ejemplo, *mytestnamespace*. El nombre de dominio *servicebus.windows.net* se anexa al nombre que proporcione. El nombre solo puede contener letras, números y guiones. El nombre debe comenzar y terminar con una letra o un número. El valor debe tener entre 6 y 50 caracteres.
+    | Ubicación | *Oeste de EE. UU.* | Seleccione *Oeste de EE. UU.* para esta guía de inicio rápido. En un sistema de producción, seleccione la región que mejor se adapte a sus necesidades. Cree el espacio de nombres del centro de eventos en la misma ubicación que el clúster de Kusto para mejorar el rendimiento (más importante para espacios de nombres de centro de eventos con alto rendimiento).
+    | Nombre del espacio de nombres | Nombre único del espacio de nombres | Elija un nombre único que identifique el espacio de nombres. Por ejemplo, *mytestnamespace*. El nombre de dominio *servicebus.windows.net* se anexa al nombre que proporcione. El nombre solo puede contener letras, números y guiones. El nombre debe comenzar y terminar con una letra o un número. El valor debe tener entre 6 y 50 caracteres.
     | Nombre del centro de eventos | *test-hub* | El centro de eventos se encuentra bajo el espacio de nombres, que proporciona un contenedor de ámbito único. El nombre del centro de eventos tiene que ser único dentro del espacio de nombres. |
     | Nombre del grupo de consumidores | *test-group* | Los grupos de consumidores permiten consumir varias aplicaciones y que cada una tenga una vista independiente del flujo de eventos. |
     | | |
@@ -87,7 +85,7 @@ Ahora creará una tabla en el Explorador de datos de Azure, al que Event Hubs en
     .create table TestTable (TimeStamp: datetime, Name: string, Metric: int, Source:string)
     ```
 
-    ![Ejecución de crear consulta](media/ingest-data-event-hub/run-create-query.png)
+    ![Ejecución de creación de una consulta](media/ingest-data-event-hub/run-create-query.png)
 
 1. Copie el siguiente comando en la ventana y seleccione **Ejecutar**.
 
@@ -117,7 +115,7 @@ Ahora puede conectarse al centro de eventos desde Azure Data Explorer. Cuando se
     **Configuración** | **Valor sugerido** | **Descripción del campo**
     |---|---|---|
     | Nombre de la conexión de datos | *test-hub-connection* | Nombre de la conexión que desea crear en el Explorador de datos de Azure.|
-    | Espacio de nombres del centro de eventos | Nombre de espacio de nombres único | Nombre elegido anteriormente que identifica el espacio de nombres. |
+    | Espacio de nombres del centro de eventos | Nombre único del espacio de nombres | Nombre elegido anteriormente que identifica el espacio de nombres. |
     | Centro de eventos | *test-hub* | El centro de eventos que creó. |
     | Grupo de consumidores | *test-group* | Grupo de consumidores de eventos definido en el centro de eventos que creó. |
     | Tabla de destino | Deje **Mis datos incluyen información de enrutamiento** sin seleccionar. | Hay dos opciones para el enrutamiento: *estático* y *dinámico*. En esta guía de inicio rápido usará el enrutamiento estático (predeterminado), en el que se especifican el nombre de la tabla, el formato de archivo y la asignación. También puede usar el enrutamiento dinámico, en el que los datos incluyen la información de enrutamiento necesaria. |
@@ -160,7 +158,7 @@ Ahora que están conectados Azure Data Explorer y el centro de eventos, use la [
 
 Con la aplicación de generación de datos, ahora puede ver el flujo de datos desde el centro de eventos a la tabla del clúster.
 
-1. En Azure Portal, bajo el centro de eventos, verá el pico de actividad cuando se ejecuta la aplicación.
+1. En Azure Portal, bajo el centro de eventos, verá el pico de actividad cuando la aplicación se está ejecutando.
 
     ![Gráfico del centro de eventos](media/ingest-data-event-hub/event-hub-graph.png)
 
@@ -193,11 +191,11 @@ Si no piensa volver a usar el centro de eventos, limpie **test-hub-rg** para evi
 
    ![Selección del grupo de recursos que se eliminará](media/ingest-data-event-hub/delete-resources-select.png)
 
-1. Bajo **test-resource-group**, seleccione **Eliminar grupo de recursos**.
+1. En **test-resource-group**, seleccione **Eliminar grupo de recursos**.
 
 1. En la nueva ventana, escriba el nombre del grupo de recursos que quiere eliminar (*test-hub-rg*) y seleccione **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Quickstart: Query data in Azure Data Explorer](web-query-data.md) (Guía de inicio rápido: Consulta de datos en el Explorador de datos de Azure)
+> [Inicio rápido: Consulta de datos en Azure Data Explorer](web-query-data.md)

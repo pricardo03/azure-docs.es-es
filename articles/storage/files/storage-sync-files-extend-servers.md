@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: cc34411cc27870dbd9c707a34ebf34b96c7253dc
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 3ebf450f4e84fed572307a18f20f36013e32c7a5
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986124"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630706"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Tutorial: Extensión de servidores de archivos de Windows con Azure File Sync
 En este tutorial, mostraremos los pasos básicos para ampliar la capacidad de almacenamiento de un servidor con Windows Server mediante Azure File Sync. Aunque para el tutorial se va a usar una máquina virtual de Azure con Windows Server, lo habitual es realizar este proceso para servidores locales. Si está listo para implementar Azure File Sync en su propio entorno, vaya al artículo [Implementación de Azure File Sync](storage-sync-files-deployment-guide.md).
@@ -163,14 +163,14 @@ En la máquina virtual de **Windows Server 2016 Datacenter**, el **Administrador
 
 1. Cierre el **Explorador** y el **Administrador del servidor**.
 
-### <a name="download-the-azurerm-powershell-module"></a>Descarga del módulo AzureRM PowerShell
-A continuación, en la máquina virtual con **Windows Server 2016 Datacenter**, instale el **módulo AzureRM PowerShell** en el servidor.
+### <a name="download-the-azure-powershell-module"></a>Descarga del módulo Azure PowerShell
+A continuación, en la máquina virtual con **Windows Server 2016 Datacenter**, instale el **módulo Azure PowerShell** en el servidor.
 
 1. En la máquina virtual, abra una ventana de PowerShell con privilegios elevados
 1. Ejecute el siguiente comando:
 
    ```powershell
-   Install-Module -Name AzureRM -AllowClobber
+   Install-Module -Name Az -AllowClobber
    ```
 
    > [!NOTE]
@@ -189,7 +189,7 @@ A continuación, en la máquina virtual con **Windows Server 2016 Datacenter**, 
 
 1. Responda `Yes` o `Yes to All` para continuar con la instalación.
 
-El módulo `AzureRM` es un módulo acumulativo para los cmdlets de Azure PowerShell. Al instalarlo, se descargan todos los módulos disponibles de Azure Resource Manager y hace que sus cmdlets estén disponibles para su uso.
+El módulo `Az` es un módulo acumulativo para los cmdlets de Azure PowerShell. Al instalarlo, se descargan todos los módulos disponibles de Azure Resource Manager y hace que sus cmdlets estén disponibles para su uso.
 
 Ya ha terminado de configurar el entorno para el tutorial y está listo para empezar a implementar el **servicio de sincronización de almacenamiento**.
 
@@ -237,7 +237,7 @@ Ha implementado el servicio de sincronización de Azure e instalado el agente en
 ## <a name="register-windows-server"></a>Registro de Windows Server
 El registro del servidor Windows Server con un servicio de sincronización de almacenamiento establece una relación de confianza entre el servidor (o clúster) y el servicio de sincronización de almacenamiento. Un servidor solo se puede registrar en un servicio de sincronización de almacenamiento y puede sincronizarse con otros servidores y recursos compartidos de archivos de Azure asociados con el mismo servicio de sincronización de almacenamiento.
 
-Tras la instalación del **agente de Azure File Sync**, la interfaz de usuario de Registro del servidor se debe abrir automáticamente. Si no es así, puede abrirla manualmente desde la ubicación del archivo: C:\Archivos de programa\Azure\StorageSyncAgent\ServerRegistration.exe.
+Tras la instalación del **agente de Azure File Sync**, la interfaz de usuario de Registro del servidor se debe abrir automáticamente. Si no es así, puede abrirla manualmente desde su ubicación de archivo: C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.
 
 1. Cuando la interfaz de usuario de Registro del servidor se abra en la máquina virtual, haga clic en **Aceptar**.
 1. Haga clic en **Iniciar sesión** para comenzar.

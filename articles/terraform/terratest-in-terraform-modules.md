@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/19/2018
-ms.openlocfilehash: cff7d0dea27dd21ac4f7bb133e297e4f5928d2c2
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 8ef4e9917623f43e5c9900150deb22d62169c836
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680606"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555972"
 ---
 # <a name="test-terraform-modules-in-azure-by-using-terratest"></a>Prueba de módulos de Terraform en Azure con Terratest
 
@@ -35,10 +35,10 @@ Este artículo práctico es independiente de la plataforma. Puede ejecutar los e
 
 Antes de comenzar, instale el software siguiente:
 
-- **Lenguaje de programación Go**: los casos de prueba de Terraform se escriben en [Go](https://golang.org/dl/).
+- **Lenguaje de programación Go**: los casos de prueba de Terraform están escritos en [Go](https://golang.org/dl/).
 - **dep**: [dep](https://github.com/golang/dep#installation) es una herramienta de administración de dependencias para Go.
 - **CLI de Azure**: la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) es una herramienta de línea de comandos que puede utilizar para administrar los recursos de Azure. (Terraform admite la autenticación en Azure mediante una entidad de servicio o [la CLI de Azure](https://www.terraform.io/docs/providers/azurerm/authenticating_via_azure_cli.html)).
-- **mage**: usamos el [ejecutable mage](https://github.com/magefile/mage/releases) para mostrarle cómo simplificar la ejecución de casos de Terratest. 
+- **Mage**: usamos el [ejecutable mage](https://github.com/magefile/mage/releases) para mostrarle cómo simplificar la ejecución de los casos de Terratest. 
 
 ## <a name="create-a-static-webpage-module"></a>Creación de un módulo de la página web estática
 
@@ -95,8 +95,8 @@ output "homepage_url" {
 La lógica principal del módulo aprovisiona cuatro recursos:
 - **grupo de recursos**: el nombre del grupo de recursos es la entrada `website_name` seguida de `-staging-rg`.
 - **cuenta de almacenamiento**: el nombre de la cuenta de almacenamiento es la entrada `website_name` seguida de `data001`. Para cumplir las limitaciones de nomenclatura de la cuenta de almacenamiento, el módulo quita todos los caracteres especiales y usa letras minúsculas en el nombre de cuenta de almacenamiento.
-- **contenedor de nombre fijo**: el contenedor se llama `wwwroot` y se crea en la cuenta de almacenamiento.
-- **archivo HTML único**: el archivo HTML se lee de la entrada `html_path` y se carga en `wwwroot/index.html`.
+- **contenedor de nombres corregidos**: el contenedor se llama `wwwroot` y se crea en la cuenta de almacenamiento.
+- **archivo HTML único**: el único archivo HTML se lee en la entrada `html_path` y se carga en `wwwroot/index.html`.
 
 La lógica del módulo de la página web estática se implementa en `./main.tf`:
 
@@ -267,7 +267,7 @@ El resultado de la prueba de Go tradicional se devuelve en aproximadamente un mi
 
 A diferencia de las pruebas unitarias, las pruebas de integración deben aprovisionar recursos en un entorno real para una perspectiva de un extremo a otro. Terratest hace un buen trabajo con este tipo de tareas. 
 
-Los procedimientos recomendados para los módulos de Terraform incluyen la instalación de la carpeta `examples`. La carpeta `examples` contiene algunos ejemplos de un extremo a otro. Para evitar el trabajo con datos reales, ¿por qué no probar esos ejemplos como pruebas de integración? En esta sección, nos centramos en los tres archivos que están marcados con un asterisco `(*)` en la estructura de carpetas siguiente:
+Entre los procedimientos recomendados para los módulos de Terraform se incluye la instalación de la carpeta `examples`. La carpeta `examples` contiene algunos ejemplos de un extremo a otro. Para evitar el trabajo con datos reales, ¿por qué no probar esos ejemplos como pruebas de integración? En esta sección, nos centramos en los tres archivos que están marcados con un asterisco `(*)` en la estructura de carpetas siguiente:
 
 ```
  📁 GoPath/src/staticwebpage
@@ -298,7 +298,7 @@ Comencemos con los ejemplos. Se crea una nueva carpeta de ejemplo llamada `hello
 </head>
 <body>
     <h1>Hi, Terraform Module</h1>
-    <p>This is a sample webpage to demostrate Terratest.</p>
+    <p>This is a sample webpage to demonstrate Terratest.</p>
 </body>
 </html>
 ```
@@ -365,7 +365,7 @@ func TestIT_HelloWorldExample(t *testing.T) {
     http_helper.HttpGetWithCustomValidation(t, homepage, func(status int, content string) bool {
         return status == 200 &&
             strings.Contains(content, "Hi, Terraform Module") &&
-            strings.Contains(content, "This is a sample web page to demostrate Terratest.")
+            strings.Contains(content, "This is a sample web page to demonstrate Terratest.")
     })
 }
 ```
@@ -504,7 +504,7 @@ Puede usar los siguientes comandos para ejecutar un conjunto de pruebas completo
 $ cd [Your GoPath]/src/staticwebpage
 GoPath/src/staticwebpage$ dep init    # Run only once for this folder
 GoPath/src/staticwebpage$ dep ensure  # Required to run if you imported new packages in magefile or test cases
-GoPath/src/staticwebpage$ go fmt      # Only requied when you change the magefile
+GoPath/src/staticwebpage$ go fmt      # Only required when you change the magefile
 GoPath/src/staticwebpage$ az login    # Required when no service principal environment variables are present
 GoPath/src/staticwebpage$ mage
 ```

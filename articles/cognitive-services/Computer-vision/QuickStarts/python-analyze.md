@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Análisis de imágenes remotas en REST y Python con Computer Vision'
+title: 'Inicio rápido: Análisis de imágenes remotas (REST, Python)'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, analizará una imagen remota mediante Computer Vision API con Python.
 services: cognitive-services
@@ -10,16 +10,17 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: daad35129c99deb37b44e4a98e0c228963d99840
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.custom: seodec18
+ms.openlocfilehash: f60a3c3c2ab586bdf1eb44cf1e81a9adb87584b0
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854159"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583943"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-python-in-computer-vision"></a>Guía de inicio rápido: Análisis de imágenes remotas mediante API REST y Python en Computer Vision
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-python-in-computer-vision"></a>Inicio rápido: Análisis de imágenes remotas mediante API REST y Python en Computer Vision
 
-En esta guía de inicio rápido, analizará una imagen remota almacenada para extraer características visuales con la API REST de Computer Vision. Con el [método de análisis de imagen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), puede extraer características visuales basadas en el contenido de una imagen.
+En esta guía de inicio rápido, analizará una imagen remota almacenada para extraer características visuales con la API de REST Computer Vision. Con el [método de análisis de imagen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), puede extraer características visuales basadas en el contenido de una imagen.
 
 Puede ejecutar esta guía de inicio rápido paso a paso mediante un cuaderno de Jupyter en [MyBinder](https://mybinder.org). Para iniciar Binder, seleccione el botón siguiente:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplo: Llamada a Computer Vision API'
+title: 'Ejemplo: Llamar a la API de imagen Analyze - Computer Vision'
 titlesuffix: Azure Cognitive Services
 description: Obtenga información sobre cómo llamar a Computer Vision API mediante REST en Azure Cognitive Services.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
-ms.openlocfilehash: e8297fbe59ebe2dea9caf112ebea4517447cf9e0
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.custom: seodec18
+ms.openlocfilehash: 9520d4bcec0e170700aacc5ef4bc69100e333af1
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981752"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581715"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>Ejemplo: Cómo llamar a Computer Vision API
 
@@ -26,10 +27,10 @@ En esta guía se explica cómo llamar a Computer Vision API con REST. Los ejempl
 
 ### <a name="Prerequisites">Requisitos previos</a> 
 Dirección URL de la imagen o ruta de acceso a la imagen almacenada localmente.
-  * Métodos de entrada admitidos: binarios de imagen RAW en forma de application/octet-stream o URL de imagen
-  * Formatos de imagen admitidos: JPEG, PNG, GIF y BMP
-  * Tamaño del archivo de imagen: menor que 4 MB
-  * Dimensión de la imagen: más de 50 x 50 píxeles
+  * Métodos de entrada admitidos: binarios de imagen RAW en forma de application/octet-stream o URL de imagen.
+  * Formatos de imagen admitidos: JPEG, PNG, GIF, BMP
+  * Tamaño del archivo de imagen: menos de 4 MB
+  * Dimensión de la imagen: mayor que 50 x 50 píxeles.
   
 En los ejemplos siguientes, se muestran las siguientes características:
 
@@ -38,10 +39,10 @@ En los ejemplos siguientes, se muestran las siguientes características:
 
 Las características se dividen en:
 
-  * **Opción uno:** Análisis con ámbito: se analiza solo un modelo determinado
-  * **Opción dos:** Análisis mejorado: análisis para ofrecer detalles adicionales con una [taxonomía de 86 categorías](../Category-Taxonomy.md)
+  * **Opción uno:** Análisis con ámbito. Se analiza solo un modelo determinado
+  * **Opción dos:** Análisis mejorado. Se analiza para ofrecer detalles adicionales con una [taxonomía de 86 categorías](../Category-Taxonomy.md)
   
-### <a name="Step1">Paso 1: Autorizar la llamada de API</a> 
+### <a name="Step1">Paso 1: Autorización de la llamada a la API</a> 
 Cada llamada a Computer Vision API requiere una clave de suscripción. Esta clave se debe pasar a través de un parámetro de cadena de consulta o se debe especificar en el encabezado de la solicitud. 
 
 Para obtener una clave de suscripción, vea [Cómo obtener las claves de suscripción](../Vision-API-How-to-Topics/HowToSubscribe.md
@@ -59,12 +60,12 @@ Para obtener una clave de suscripción, vea [Cómo obtener las claves de suscrip
 
 ```var visionClient = new VisionServiceClient(“Your subscriptionKey”);```
 
-### <a name="Step2">Paso 2: Cargar una imagen en el servicio Computer Vision API y obtener las etiquetas, descripciones y celebridades</a>
+### <a name="Step2">Paso 2: Cargar una imagen en el servicio Computer Vision API y obtener las etiquetas, descripciones y celebridades</a>
 La forma básica para realizar la llamada Computer Vision API es cargar directamente una imagen. Para esto, se envía una solicitud "POST" con el tipo de contenido application/octet-stream junto con los datos leídos de la imagen. Para "Etiquetas" y "Descripción", este método de carga será el mismo para todas las llamadas Computer Vision API. La única diferencia radicará en los parámetros de consulta que el usuario especifica. 
 
 Aquí le mostramos cómo obtener "Etiquetas" y "Descripción" para una imagen determinada:
 
-**Opción uno:** obtener la lista de "Etiquetas" y una "Descripción"
+**Opción uno:** Obtener la lista de "Etiquetas" y una "Descripción"
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
 ```
@@ -99,7 +100,7 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 ```
 ### <a name="here-is-how-to-get-domain-specific-analysis-in-our-case-for-celebrities"></a>Aquí le mostramos cómo obtener un análisis específico de dominio (en nuestro caso, para las celebridades).
 
-**Opción uno:** Análisis con ámbito: se analiza solo un modelo determinado
+**Opción uno:** Análisis con ámbito. Se analiza solo un modelo determinado
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/models/celebrities/analyze
 var celebritiesResult = await visionClient.AnalyzeImageInDomainAsync(url, "celebrities");
@@ -109,7 +110,7 @@ Para esta opción, todos los demás parámetros de consulta {visualFeatures, det
 GET https://westus.api.cognitive.microsoft.com/vision/v2.0/models 
 var models = await visionClient.ListModelsAsync();
 ```
-**Opción dos:** Análisis mejorado: análisis para ofrecer detalles adicionales con una [taxonomía de 86 categorías](../Category-Taxonomy.md)
+**Opción dos:** Análisis mejorado. Se analiza para ofrecer detalles adicionales con una [taxonomía de 86 categorías](../Category-Taxonomy.md)
 
 Para aplicaciones donde desea obtener un análisis genérico de imágenes adicional a los detalles de uno o más modelos específicos del dominio, ampliamos la API v1 con el parámetro de consulta de modelos.
 ```
@@ -119,7 +120,7 @@ Cuando se invoca este método, se llamará primero al clasificador de 86 categor
 
 Todos los parámetros de consulta v1 se comportarán igual en este caso.  Si no se especifica visualFeatures=categories, se habilitará de forma implícita.
 
-### <a name="Step3">Paso 3: Recuperar y describir la salida JSON para analyze&visualFeatures=Tags, Description</a>
+### <a name="Step3">Paso 3: Recuperar y describir la salida JSON para analyze&visualFeatures=Tags, Description</a>
 
 Este es un ejemplo:
 ```
@@ -159,9 +160,9 @@ description.tags[] |    string  | Lista de etiquetas.  Si la confianza es insufi
 description.captions[].text | string    | Una frase que describe la imagen
 description.captions[].confidence   | número    | Confianza para la frase
 
-### <a name="Step4">Paso 4: Recuperar y describir la salida JSON de modelos específicos del dominio</a>
+### <a name="Step4">Paso 4: Recuperar y describir la salida JSON de modelos específicos del dominio</a>
 
-**Opción uno:** Análisis con ámbito: se analiza solo un modelo determinado
+**Opción uno:** Análisis con ámbito. Se analiza solo un modelo determinado
 
 El resultado será una matriz de etiquetas; un ejemplo será similar a este ejemplo:
 ```
@@ -179,7 +180,7 @@ El resultado será una matriz de etiquetas; un ejemplo será similar a este ejem
   }
 ```
 
-**Opción dos:** Análisis mejorado: análisis para ofrecer detalles adicionales con una taxonomía de 86 categorías
+**Opción dos:** Análisis mejorado. Se analiza para ofrecer detalles adicionales con una taxonomía de 86 categorías
 
 Para modelos específicos del dominio con la opción dos (análisis mejorado), el tipo de devolución de categorías se amplía. A continuación, encontrará un ejemplo:
 ```

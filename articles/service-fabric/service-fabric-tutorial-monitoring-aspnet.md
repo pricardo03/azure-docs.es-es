@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9bbff92b7706fd207894616b83580c4ddf85e5eb
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: a130351131f59511ef4f60b579197da96f9334e6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444791"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720738"
 ---
-# <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Tutorial: Supervisión y diagnóstico de una aplicación de ASP.NET Core de Service Fabric mediante Application Insights
+# <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Tutorial: Supervisión y diagnóstico de una aplicación de ASP.NET Core en Service Fabric mediante Application Insights
 
 Este tutorial es la parte quinta de una serie. Describe los pasos necesarios para configurar la supervisión y el diagnóstico de una aplicación ASP.NET Core que se ejecuta en un clúster de Service Fabric con Application Insights. Recopilaremos datos de telemetría de la aplicación desarrollada en la primera parte del tutorial, [Crear una aplicación de .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md).
 
@@ -181,7 +181,7 @@ Vaya al recurso de Application Insights en Azure Portal.
 Haga clic en **Introducción** para volver a la página principal del recurso. A continuación, haga clic en **Buscar** en la parte superior para ver los seguimientos entrantes. Los seguimientos tardan unos minutos en aparecer en Application Insights. En caso de no ver ninguno, espere un momento y seleccione el botón **Actualizar** en la parte superior.
 ![Ver los seguimientos de AI](./media/service-fabric-tutorial-monitoring-aspnet/ai-search.png)
 
-Al desplazarse hacia abajo desde la ventana *Buscar*, se mostrarán todos los datos de telemetría entrantes que obtiene de forma predeterminada Application Insights. Para cada acción que haya realizado en la aplicación Voting, debería haber una solicitud PUT saliente desde *VotingWeb* (PUT Votes/Put [nombre]) y una solicitud PUT entrante desde *VotingData* (PUT VoteData/Put [nombre]), seguidas de un par de solicitudes GET para actualizar los datos que se muestran. También habrá un seguimiento de la dependencia de HTTP en localhost, puesto que se trata de solicitudes HTTP. A continuación se incluye un ejemplo de lo que verá sobre cómo se agrega un voto: ![seguimiento de solicitud de ejemplo de AI](./media/service-fabric-tutorial-monitoring-aspnet/sample-request.png)
+Al desplazarse hacia abajo desde la ventana *Buscar*, se mostrarán todos los datos de telemetría entrantes que obtiene de forma predeterminada Application Insights. Para cada acción que haya realizado en la aplicación Voting, debería haber una solicitud PUT saliente desde *VotingWeb* (PUT Votes/Put [nombre]) y una solicitud PUT entrante desde *VotingData* (PUT VoteData/Put [nombre]), seguidas de un par de solicitudes GET para actualizar los datos que se muestran. También habrá un seguimiento de la dependencia de HTTP en localhost, puesto que se trata de solicitudes HTTP. Este es un ejemplo de lo que verá sobre cómo se agrega un voto: ![Seguimiento de solicitud de ejemplo de AI](./media/service-fabric-tutorial-monitoring-aspnet/sample-request.png)
 
 Puede hacer clic en uno de los seguimientos para ver más detalles sobre este. Application Insights proporciona información útil acerca de la solicitud, como el *Tiempo de respuesta* y la *URL de solicitud*. Además, puesto que agregó un paquete de NuGet específico de Service Fabric, también obtendrá datos sobre la aplicación en el contexto de un clúster de Service Fabric en la sección *Datos personalizados* más adelante. Esto incluye el contexto de servicio, para que pueda ver los datos de *PartitionID* y *ReplicaId* del origen de la solicitud y localizar mejor problemas al diagnosticar errores en la aplicación.
 
@@ -191,11 +191,11 @@ Además, puede hacer clic en *Mapa de aplicación* en el menú de la izquierda d
 
 ![Detalles de seguimiento de AI](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
 
-El Mapa de la aplicación le puede ayudar a entender mejor la topología de la aplicación, especialmente a medida que empiece a agregar distintos servicios que funcionan juntos. También proporciona datos básicos sobre los índices de éxito de las solicitudes, y puede ayudarle a diagnosticar solicitudes con error y a comprender qué salió mal. Para obtener más información sobre el Mapa de la aplicación, consulte [Mapa de aplicación en Application Insights](../application-insights/app-insights-app-map.md).
+El Mapa de la aplicación le puede ayudar a entender mejor la topología de la aplicación, especialmente a medida que empiece a agregar distintos servicios que funcionan juntos. También proporciona datos básicos sobre los índices de éxito de las solicitudes, y puede ayudarle a diagnosticar solicitudes con error y a comprender qué salió mal. Para obtener más información sobre el Mapa de la aplicación, consulte [Mapa de aplicación en Application Insights](../azure-monitor/app/app-map.md).
 
 ## <a name="add-custom-instrumentation-to-your-application"></a>Agregar instrumentación personalizada a la aplicación
 
-Aunque Application Insights proporciona una gran cantidad de datos de telemetría de forma predeterminada, puede agregar una instrumentación más personalizada. Se puede basar en las necesidades empresariales o en mejorar el diagnóstico cuando hay algún problema en la aplicación. Application Insights tiene una API para ingerir métricas y eventos personalizados. Puede obtener más información [aquí](../application-insights/app-insights-api-custom-events-metrics.md).
+Aunque Application Insights proporciona una gran cantidad de datos de telemetría de forma predeterminada, puede agregar una instrumentación más personalizada. Se puede basar en las necesidades empresariales o en mejorar el diagnóstico cuando hay algún problema en la aplicación. Application Insights tiene una API para ingerir métricas y eventos personalizados. Puede obtener más información [aquí](../azure-monitor/app/api-custom-events-metrics.md).
 
 A continuación, agregaremos algunos eventos personalizados a *VoteDataController.cs* (en *VotingData* > *Controllers*) para realizar el seguimiento de cuándo se agregan y eliminan votos del elemento *votesDictionary* subyacente.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial para buscar datos semiestructurados en el almacenamiento en la nube de Azure: Azure Search | Microsoft Docs'
+title: Tutorial para la búsqueda de JSON en Azure Blob Storage - Azure Search
 description: En este tutorial, aprenderá a buscar datos semiestructurados de blobs de Azure con Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/12/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5608495ff2975cabefdb83e5794a7d92b318b5a5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: ba9b34dbd9d0959e79c755abc8dad9fe1d358a50
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313833"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632949"
 ---
 # <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>Tutorial: Búsqueda de datos semiestructurados en el almacenamiento en la nube de Azure
 
@@ -60,7 +60,7 @@ En esta muestra también se incluyen archivos JSON de ejemplo, que eran original
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en el [Azure Portal](http://portal.azure.com).
+Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
 ## <a name="upload-the-sample-data"></a>Cargar los datos de ejemplo
 

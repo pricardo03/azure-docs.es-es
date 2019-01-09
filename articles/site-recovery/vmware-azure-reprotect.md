@@ -5,14 +5,14 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/17/2018
 ms.author: rajanaki
-ms.openlocfilehash: e965848b0c3c009444762dafdf42acc080b6915e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 06337e205c472d26024289222dc8876d23b4184f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834974"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791887"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Reprotección y conmutación por recuperación de máquinas en un sitio local después de la conmutación por error en Azure
 
@@ -61,8 +61,8 @@ Para implementar un servidor de procesos en Azure:
 
 El servidor de destino maestro recibe los datos de conmutación por recuperación. De forma predeterminada, el servidor de destino maestro se ejecuta en el servidor de configuración local. Sin embargo, según el volumen de tráfico conmutado por recuperación, puede que deba crear un servidor de destino principal distinto para esta operación. Aquí se muestra cómo crear uno:
 
-* [Cree un servidor de destino maestro de Linux](vmware-azure-install-linux-master-target.md) para la conmutación por recuperación de las máquinas virtuales Linux. Este es un paso necesario.
-* Opcionalmente, puede crear un servidor de destino maestro independiente para la conmutación por recuperación de las máquinas virtuales Windows. Para ello, ejecute de nuevo la instalación unificada y seleccione crear un servidor de destino maestro. [Más información](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers).
+* [Cree un servidor de destino maestro de Linux](vmware-azure-install-linux-master-target.md) para la conmutación por recuperación de las máquinas virtuales Linux. Este es un paso necesario. Tenga en cuenta que, el servidor de destino maestro no se admite en LVM.
+* Opcionalmente, puede crear un servidor de destino maestro independiente para la conmutación por recuperación de las máquinas virtuales Windows. Para ello, ejecute de nuevo la instalación unificada y seleccione crear un servidor de destino maestro. [Más información](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers). 
 
 Después de crear un servidor de destino maestro, haga las tareas siguientes:
 

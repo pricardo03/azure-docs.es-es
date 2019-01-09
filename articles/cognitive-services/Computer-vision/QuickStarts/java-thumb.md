@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Generación de una miniatura (REST y Java) en Computer Vision'
+title: 'Inicio rápido: Generación de una miniatura (REST, Java)'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, generará una miniatura de una imagen mediante Computer Vision API con Java.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: d30d6d073ad1e18aa2acb4c4a73c21c0d7243536
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 43c78acb89180cda5c0eb4df18bab00d47ee1174
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972042"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583500"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-java-in-computer-vision"></a>Inicio rápido: Generación de una miniatura mediante la API REST y Java en Computer Vision
 

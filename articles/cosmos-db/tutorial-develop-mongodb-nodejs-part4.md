@@ -1,5 +1,5 @@
 ---
-title: Aplicación de Node.Js, Angular con la API de MongoB (parte 4)
+title: 'Creación de una aplicación de Angular con la API de Azure Cosmos DB para MongoDB: Creación de una cuenta de Cosmos'
 titleSuffix: Azure Cosmos DB
 description: Parte 4 de la serie de tutoriales en la que se explica cómo crear una aplicación de MongoDB con Angular y Node en Azure Cosmos DB utilizando las mismas API que para MongoDB
 author: johnpapa
@@ -10,22 +10,22 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: jopapa
 ms.custom: seodec18
-ms.openlocfilehash: d6119186bd8ffbda4fa3bb2c432dd58d851992ea
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d85183f0104d9066f93adc73c09c76406128700d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136229"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787807"
 ---
-# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-4-create-an-azure-cosmos-db-account"></a>Creación de una aplicación de MongoDB con Angular y Azure Cosmos DB (parte 4): Creación de una cuenta de Azure Cosmos DB
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-cosmos-account"></a>Creación de una aplicación de Angular con la API de Azure Cosmos DB para MongoDB: Creación de una cuenta de Cosmos
 
-En este tutorial de varias partes se muestra cómo crear una nueva aplicación de la [API de MongoDB](mongodb-introduction.md) escrita en Node.js con Express, Angular y la base de datos de Azure Cosmos DB.
+En este tutorial de varias partes se muestra cómo crear una nueva aplicación escrita en Node.js con Express y Angular y cómo conectarla a la [cuenta de Cosmos configurada con la API de Cosmos DB para MongoDB](mongodb-introduction.md).
 
 La parte 4 del tutorial se basa en la [parte 3](tutorial-develop-mongodb-nodejs-part3.md) y aborda las tareas siguientes:
 
 > [!div class="checklist"]
 > * Creación de un grupo de recursos de Azure con la CLI de Azure
-> * Creación de una cuenta de Azure Cosmos DB mediante la CLI de Azure
+> * Creación de una cuenta de Cosmos con la CLI de Azure
 
 ## <a name="video-walkthrough"></a>Tutorial en vídeo
 

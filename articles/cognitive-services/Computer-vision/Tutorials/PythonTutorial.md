@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Computer Vision API para Python'
+title: 'Tutorial: Realización de operaciones de imagen - Python'
 titlesuffix: Azure Cognitive Services
 description: Obtenga información sobre cómo usar Computer Vision API con Python utilizando Jupyter Notebook. Visualice los resultados mediante bibliotecas populares.
 services: cognitive-services
@@ -8,24 +8,25 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: tutorial
-ms.date: 11/6/2018
+ms.date: 11/06/2018
 ms.author: kefre
-ms.openlocfilehash: 16054d19c1ce6f211ebd3e2f0bbc4d152a255dda
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.custom: seodec18
+ms.openlocfilehash: 55e5168c36eb16944142c2deaae9bc94d60d2fe4
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51276974"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582021"
 ---
 # <a name="tutorial-computer-vision-api-python"></a>Tutorial: Computer Vision API para Python
 
-En este tutorial se muestra cómo usar Computer Vision API en Python y cómo visualizar los resultados mediante algunas bibliotecas conocidas. Usará Jupyter para realizar el tutorial. Para información sobre cómo empezar a trabajar con cuadernos interactivos de Jupyter, consulte la [documentación de Jupyter](http://jupyter.readthedocs.io/en/latest/index.html).
+En este tutorial se muestra cómo usar Computer Vision API en Python y cómo visualizar los resultados mediante algunas bibliotecas conocidas. Usará Jupyter para realizar el tutorial. Para información sobre cómo empezar a trabajar con cuadernos interactivos de Jupyter, consulte la [documentación de Jupyter](https://jupyter.readthedocs.io/en/latest/index.html).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - [Python 2.7+ o 3.5+](https://www.python.org/downloads/)
 - Herramienta [pip](https://pip.pypa.io/en/stable/installing/)
-- [Jupyter Notebook](http://jupyter.org/install) instalado
+- [Jupyter Notebook](https://jupyter.org/install) instalado
 
 ## <a name="open-the-tutorial-notebook-in-jupyter"></a>Apertura del cuaderno del tutorial en Jupyter 
 

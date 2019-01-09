@@ -10,32 +10,32 @@ ms.component: content-moderator
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: ce90c5f691a0a8a333161f3135856d720d1de310
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 6409011c1a7c125dd03bb706f49ccad1a1fd49a4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226592"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538878"
 ---
-# <a name="quickstart-create-reviews-using-net"></a>Inicio rápido: Creación de revisiones con .NET
+# <a name="quickstart-create-reviews-using-net"></a>Inicio rápido: Crear revisiones con .NET
 
 En este artículo se proporciona información y ejemplos de código que le ayudarán a empezar a usar el [SDK de Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para:
  
 - Crear un conjunto de revisiones para moderadores humanos.
 - Obtener el estado de las revisiones existentes para moderadores humanos.
 
-Por lo general, el contenido pasa por alguna moderación automatizada antes de programarse para la revisión humana. Este artículo solo abarca la creación de la revisión para la moderación humana. Para un escenario más completo, consulte [Facebook content moderation](facebook-post-moderation.md) (Moderación de contenido en Facebook) y [eCommerce catalog moderation](ecommerce-retail-catalog-moderation.md) (Moderación del catálogo en el comercio electrónico).
+Por lo general, el contenido pasa por alguna moderación automatizada antes de programarse para la revisión humana. Este artículo solo abarca la creación de la revisión para la moderación humana. Para un escenario más completo, consulte [Moderación de contenido de Facebook](facebook-post-moderation.md) y [Moderación de imágenes de productos de comercio electrónico](ecommerce-retail-catalog-moderation.md).
 
 En este artículo se da por supuesto que ya está familiarizado con Visual Studio y C#.
 
-## <a name="sign-up-for-content-moderator"></a>Suscribirse a Content Moderator
+## <a name="sign-up-for-content-moderator"></a>Registro en Content Moderator
 
 Antes de poder usar los servicios de Content Moderator mediante la API REST o el SDK, necesita una clave de suscripción.
 Consulte el [inicio rápido](quick-start.md) para más información sobre cómo puede obtener la clave.
 
-## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Suscribirse a una cuenta de la herramienta de revisión si no se ha completado el paso anterior
+## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Registro para obtener una cuenta de la herramienta de revisión, si no lo ha hecho en el paso anterior
 
-Si ha obtenido Content Moderator desde Azure Portal, [suscríbase también a la cuenta de la herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/) y cree un equipo de revisión. Necesita el identificador de equipo y la herramienta de revisión para llamar a la API de revisión para iniciar un trabajo y ver las revisiones en la herramienta de revisión.
+Si ha obtenido Content Moderator desde Azure Portal, [regístrese también para obtener la cuenta de la herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/) y cree un equipo de revisión. Necesita el identificador de equipo y la herramienta de revisión para llamar a la API de revisión para iniciar un trabajo y ver las revisiones en la herramienta de revisión.
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Garantizar que la clave de API puede llamar a la API de revisión para la creación de revisiones
 

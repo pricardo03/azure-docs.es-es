@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
-ms.date: 10/29/2018
+ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: 9853e84ffd2de8a1dfd6d9c4f32f58bb36b16403
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 581c47d84466f37d7c7c3ad3e98ae1749f8d9524
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164439"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608654"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>Tutorial: Creación de una base de conocimiento y posterior respuesta a una pregunta mediante el portal de QnA Maker
 
@@ -83,9 +83,9 @@ Este tutorial requiere que exista un [servicio QnA Maker](../How-To/set-up-qnama
 
 1. Seleccione la última página de preguntas y respuestas en la parte inferior de la tabla. La página muestra preguntas y respuestas de la personalidad de la charla. 
 
-1. En la barra de herramientas que hay encima de la lista de preguntas y respuestas, seleccione el icono del engranaje. Muestra los filtros de cada pregunta y respuesta. Las preguntas de la charla tienen el filtro **editorial: chit chat** ya establecido. Este filtro se devuelve a la aplicación cliente junto con la respuesta seleccionada. La aplicación cliente, como un bot de chat, puede usar este filtro para determinar las interacciones con el usuario o un procesamiento adicional.
+1. En la barra de herramientas que hay encima de la lista de preguntas y respuestas, seleccione el icono de los metadatos. Muestra las etiquetas de metadatos de cada pregunta y respuesta. Las preguntas de la charla tienen los metadatos **editorial: chit chat** ya establecido. Estos metadatos se devuelven a la aplicación cliente junto con la respuesta seleccionada. La aplicación cliente, como un bot de chat, puede usar estos metadatos filtrados para determinar un procesamiento adicional o las interacciones con el usuario.
 
-    ![Ver filtros](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
+    ![Visualización de etiquetas de metadatos](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
 
 1. Seleccione **Save and train** (Guardar y entrenar) en la barra de menús superior.
 
@@ -171,7 +171,7 @@ Una vez publicada la base de conocimiento, se muestra el punto de conexión
    
     ```
 
-    Dado que la pregunta de `Thank you` coincidía exactamente con una pregunta de charla, QnA Maker está completamente seguro con la puntuación de 100. QnA Maker también ha devuelto todas las preguntas relacionadas, así como la propiedad metadata que contiene la información del filtro de charla.  
+    Dado que la pregunta de `Thank you` coincidía exactamente con una pregunta de charla, QnA Maker está completamente seguro con la puntuación de 100. QnA Maker también ha devuelto todas las preguntas relacionadas, así como la propiedad metadata que contiene la información de la etiqueta de metadatos de charla.  
 
 ## <a name="use-curl-to-query-for-the-default-answer"></a>Uso de curl para consultar la respuesta predeterminada
 

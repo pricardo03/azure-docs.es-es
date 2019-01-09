@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: consulta de datos mediante la biblioteca de Python del Explorador de datos de Azure'
+title: 'Inicio rápido: Consulta de datos mediante la biblioteca de Python de Azure Data Explorer'
 description: Con esta guía de inicio rápido, obtendrá información sobre cómo utilizar Python para consultar datos en el Explorador de datos de Azure.
 services: data-explorer
 author: orspod
@@ -8,14 +8,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
-ms.openlocfilehash: 14049df1116205ec5e95b052049f53738dcf50b4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f3a8dd001f4d1d930c700847f0725e00b7c29ecf
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863421"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715127"
 ---
-# <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>Inicio rápido: consulta de datos mediante la biblioteca de Python del Explorador de datos de Azure
+# <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>Inicio rápido: Consulta de datos mediante la biblioteca de Python de Azure Data Explorer
 
 El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. El Explorador de datos de Azure proporciona un [biblioteca de cliente de datos para Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Esta biblioteca permite consultar los datos desde el código. En esta guía de inicio rápido, se conecta a una tabla en el *clúster de ayuda* que hemos configurado para facilitar el aprendizaje. A continuación, consulta una tabla en ese clúster, que devuelve los resultados.
 
@@ -66,7 +66,7 @@ KUSTO_CLUSTER = "https://help.kusto.windows.net/"
 KUSTO_DATABASE  = "Samples"
 ```
 
-Ahora, cree la cadena de conexión. En este ejemplo se utiliza la autenticación de dispositivos para acceder al clúster. También puede usar el certificado de la aplicación de AAD, la clave de aplicación de AAD y el usuario y la contraseña de AAD.
+Ahora, cree la cadena de conexión. En este ejemplo se utiliza la autenticación de dispositivos para acceder al clúster. También puede usar el [certificado de la aplicación de AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24), la [clave de aplicación de AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20) y el [usuario y la contraseña de AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34).
 
 ```python
 KCSB = KustoConnectionStringBuilder.with_aad_device_authentication(KUSTO_CLUSTER)
@@ -75,7 +75,7 @@ KCSB.authority_id = AAD_TENANT_ID
 
 ## <a name="connect-to-azure-data-explorer-and-execute-a-query"></a>Conectarse al Explorador de datos de Azure y ejecutar una consulta
 
-Ejecute una consulta en el clúster y almacene el resultado en un marco de datos. Cuando se ejecuta este código, devuelve un mensaje similar al siguiente: *Para iniciar sesión, use un explorador web para abrir la página https://microsoft.com/devicelogin y escriba el código F3W4VWZDM para autenticarse*. Siga los pasos para iniciar sesión y después vuelva a ejecutar el siguiente bloque de código.
+Ejecute una consulta en el clúster y almacene el resultado en un marco de datos. Cuando se ejecuta este código, devuelve un mensaje similar al siguiente: *Para iniciar sesión, use un explorador web para abrir la página https://microsoft.com/devicelogin y escriba el código F3W4VWZDM para realizar la autenticación*. Siga los pasos para iniciar sesión y después vuelva a ejecutar el siguiente bloque de código.
 
 ```python
 KUSTO_CLIENT  = KustoClient(KCSB)
@@ -98,4 +98,4 @@ Debe ver los diez primeros resultados de la tabla StormEvents.
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Guía de inicio rápido: Ingesta de datos mediante la biblioteca de Python de Azure Data Explorer](python-ingest-data.md)
+> [Inicio rápido: Ingesta de datos mediante la biblioteca de Python de Azure Data Explorer](python-ingest-data.md)

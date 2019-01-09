@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 7c1e07d73d110d5ef7f681486479ec65ff436b19
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 0c2b8b205229ec1ef180e52372f75d06c83f1cc7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408861"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716419"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutorial: Autenticación y autorización de usuarios de extremo a extremo en Azure App Service
 
-[Azure App Service](app-service-web-overview.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático. Además, App Service incluye compatibilidad integrada con la [autenticación y autorización de usuarios](app-service-authentication-overview.md). En este tutorial se muestra cómo proteger las aplicaciones con la autenticación y autorización de App Service. Se usa una aplicación de ASP.NET Core con un front-end Angular.js, pero solo como ejemplo. La autenticación y autorización de App Service admiten entornos de ejecución de todos los lenguajes; en este tutorial, aprenderá a aplicarlas a su lenguaje preferido.
+[Azure App Service](overview.md) proporciona un servicio de hospedaje web muy escalable y con aplicación de revisiones de un modo automático. Además, App Service incluye compatibilidad integrada con la [autenticación y autorización de usuarios](overview-authentication-authorization.md). En este tutorial se muestra cómo proteger las aplicaciones con la autenticación y autorización de App Service. Se usa una aplicación de ASP.NET Core con un front-end Angular.js, pero solo como ejemplo. La autenticación y autorización de App Service admiten entornos de ejecución de todos los lenguajes; en este tutorial, aprenderá a aplicarlas a su lenguaje preferido.
 
 En este tutorial se usa la aplicación de ejemplo para mostrarle cómo proteger una aplicación independiente (en [Habilitación de la autenticación y autorización en una aplicación de back-end](#enable-authentication-and-authorization-for-back-end-app)).
 
@@ -105,7 +105,7 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 
 ### <a name="push-to-azure-from-git"></a>Inserción en Azure desde Git
 
-De nuevo en la _ventana de terminal local_, ejecute los siguientes comandos de Git para implementar la aplicación de back-end. Reemplace _&lt;deploymentLocalGitUrl-of-back-end-app>_ por la dirección URL del repositorio Git remoto que guardó en [Creación de recursos de Azure](#create-azure-resources). Cuando el administrador de credenciales de Git le solicite las credenciales, asegúrese de especificar sus [credenciales de implementación](app-service-deployment-credentials.md), y no las usadas para iniciar sesión en Azure Portal.
+De nuevo en la _ventana de terminal local_, ejecute los siguientes comandos de Git para implementar la aplicación de back-end. Reemplace _&lt;deploymentLocalGitUrl-of-back-end-app>_ por la dirección URL del repositorio Git remoto que guardó en [Creación de recursos de Azure](#create-azure-resources). Cuando el administrador de credenciales de Git le solicite las credenciales, asegúrese de especificar sus [credenciales de implementación](deploy-configure-credentials.md), y no las usadas para iniciar sesión en Azure Portal.
 
 ```bash
 git remote add backend <deploymentLocalGitUrl-of-back-end-app>
@@ -119,7 +119,7 @@ git remote add frontend <deploymentLocalGitUrl-of-front-end-app>
 git push frontend master
 ```
 
-### <a name="browse-to-the-azure-web-apps"></a>Navegación hasta las aplicaciones web de Azure
+### <a name="browse-to-the-apps"></a>Navegación hasta las aplicaciones
 
 Use un explorador para ir a las siguientes direcciones URL y ver las dos aplicaciones en funcionamiento.
 
@@ -446,4 +446,4 @@ Este comando puede tardar varios segundos en ejecutarse.
 Vaya al siguiente tutorial para aprender a asignar un nombre DNS personalizado a una aplicación web.
 
 > [!div class="nextstepaction"]
-> [Asignar un nombre DNS personalizado a Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+> [Asignación de un nombre DNS personalizado existente a Azure App Service](app-service-web-tutorial-custom-domain.md)

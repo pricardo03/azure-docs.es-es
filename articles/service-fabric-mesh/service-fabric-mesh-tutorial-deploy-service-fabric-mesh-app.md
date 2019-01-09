@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 467484824ec3a3ceffb6dfa692953406ed6acc1b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ec282bc1159e8a8cf21b88b8430bbf3067686528
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963328"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788637"
 ---
-# <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Tutorial: Implementación de una aplicación de Service Fabric Mesh
+# <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Tutorial: Implementación de una aplicación Service Fabric Mesh
 
 Este tutorial es la tercera parte de una serie y muestra cómo publicar una aplicación web de Azure Service Fabric Mesh directamente desde Visual Studio.
 
@@ -38,7 +38,7 @@ En esta serie de tutoriales, se aprende a:
 > * [Depurar una aplicación de Service Fabric Mesh que se ejecuta en el clúster de desarrollo local](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
 > * Implementación de una aplicación de Service Fabric Mesh
 > * [Actualización de una aplicación de Service Fabric Mesh](service-fabric-mesh-tutorial-upgrade.md)
-> * [Limpieza de recursos de Service Fabric Mesh](service-fabric-mesh-tutorial-cleanup-resources.md)
+> * [Limpiar los recursos de Service Fabric Mesh](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -113,10 +113,10 @@ Puede usar Azure Cloud Shell o una instalación local de la CLI de Azure para el
 
 En este momento, se ha implementado la aplicación. También puede comprobar el estado mediante el uso del comando `app show`. 
 
-El nombre de la aplicación para la aplicación del tutorial es `ServiceMeshApp`. Recopile los detalles sobre la aplicación con el siguiente comando:
+El nombre de la aplicación para la aplicación del tutorial es `todolistapp`. Recopile los detalles sobre la aplicación con el siguiente comando:
 
 ```azurecli-interactive
-az mesh app show --resource-group $rg --name ServiceMeshApp
+az mesh app show --resource-group $rg --name todolistapp
 ```
 
 ## <a name="see-all-applications-currently-deployed-to-your-subscription"></a>Consulta de todas las aplicaciones implementadas actualmente en la suscripción
@@ -137,6 +137,6 @@ En esta parte del tutorial, ha aprendido a:
 
 Avance hasta el siguiente tutorial:
 > [!div class="nextstepaction"]
-> [Actualización de una aplicación de Service Fabric Mesh](service-fabric-mesh-tutorial-upgrade.md)
+> [Actualizar una aplicación de Service Fabric Mesh](service-fabric-mesh-tutorial-upgrade.md)
 
 [azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest

@@ -3,20 +3,18 @@ title: Conexión a Azure Database for MariaDB desde MySQL Workbench
 description: En esta guía de inicio rápido se proporcionan los pasos para usar MySQL Workbench para conectarse a Azure Database for MariaDB y consultar datos en este servicio.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 45c1207ab6ab2a7a649efcd355bcab06ea79e149
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 121766a312db1970981b7ffb1c718f27c9f5d3d1
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49317609"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538760"
 ---
-# <a name="azure-database-for-mariadb-use-mysql-workbench-to-connect-and-query-data"></a>Azure Database for MariaDB: uso de MySQL Workbench para conectarse y consultar datos
+# <a name="azure-database-for-mariadb-use-mysql-workbench-to-connect-and-query-data"></a>Azure Database for MariaDB: Uso de MySQL Workbench para conectarse a los datos y consultarlos
 
 En esta guía de inicio rápido se muestra cómo conectarse a una instancia de Azure Database for MariaDB mediante MySQL Workbench. 
 
@@ -60,7 +58,7 @@ Para conectarse a un servidor de Azure Database for MariaDB mediante MySQL Workb
     | Nombre de host. | *nombre del servidor* | Especifique el valor del nombre de servidor que usó al crear la instancia de Azure Database for MariaDB. El servidor de ejemplo es **mydemoserver.mariadb.database.azure.com**. Use el nombre de dominio completo (\*.mariadb.database.azure.com) como se muestra en el ejemplo. Si no recuerda el nombre del servidor, siga los pasos de la sección anterior para obtener la información de conexión.  |
     | Port | **3306** | Utilice siempre el puerto 3306 para conectarse a Azure Database for MariaDB. |
     | Nombre de usuario |  *nombre de inicio de sesión del administrador del servidor* | Escriba el valor del nombre de usuario de inicio de sesión del administrador que usó al crear la instancia de Azure Database for MariaDB. El nombre de usuario del ejemplo es **myadmin@mydemoserver**. Si no recuerda el nombre de inicio de sesión del administrador del servidor, siga los pasos de la sección anterior para obtener la información de conexión. El formato es *username@servername*.
-    | Contraseña | *la contraseña* | Para guardar la contraseña, seleccione **Store in Vault** (Almacenar en el almacén). |
+    | Contraseña | *La contraseña* | Para guardar la contraseña, seleccione **Store in Vault** (Almacenar en el almacén). |
 
     ![Configuración de una nueva conexión](./media/connect-workbench/2-setup-new-connection.png)
 

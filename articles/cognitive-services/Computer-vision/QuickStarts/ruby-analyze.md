@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Análisis de imágenes remotas - REST, Ruby - Computer Vision'
+title: 'Inicio rápido: Análisis de imágenes remotas (REST, Ruby)'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, analizará una imagen mediante Computer Vision API con Ruby.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: a00b7d8fd56c28edd220d90f85df76892a54db6a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: c40f611ad1789a1de6413a02d662d975113354a4
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341586"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582854"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-ruby-in-computer-vision"></a>Guía de inicio rápido: Análisis de imágenes remotas mediante la API de REST y Ruby en Computer Vision
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-ruby-in-computer-vision"></a>Inicio rápido: Análisis de imágenes remotas mediante la API REST y Ruby en Computer Vision
 
 En esta guía de inicio rápido, analizará una imagen remota almacenada para extraer características visuales con la API de REST Computer Vision. Con el [método de análisis de imagen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), puede extraer características visuales basadas en el contenido de una imagen.
 

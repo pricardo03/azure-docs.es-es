@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Detección de anomalías en una solución de Azure mediante IoT Edge | Microsoft Docs'
+title: Tutorial de la detección de anomalías en el perímetro en una solución de Azure | Microsoft Docs
 description: En este tutorial aprenderá a supervisar los dispositivos de IoT Edge mediante el acelerador de soluciones de supervisión remota.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 51c19447e115426bd39d39fedc86193c8f091df1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2f6e8b40907d02e62ede95a44fa10168f7590bd5
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843315"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606255"
 ---
-# <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Tutorial: Detección de anomalías mediante IoT Edge con el acelerador de soluciones de supervisión remota
+# <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Tutorial: Detección de anomalías en el perímetro con el acelerador de soluciones de supervisión remota
 
 En este tutorial aprenderá a configurar la solución de supervisión remota para dar respuesta a las anomalías que detecta un dispositivo IoT Edge. Los dispositivos IoT Edge le permiten procesar datos de telemetría en el perímetro para reducir el volumen de telemetría que se envía a la solución y para permitir una respuesta más rápida a los eventos de los dispositivos. Para más información sobre las ventajas del procesamiento con IoT Edge, consulte [¿Qué es Azure IoT Edge?](../iot-edge/about-iot-edge.md).
 

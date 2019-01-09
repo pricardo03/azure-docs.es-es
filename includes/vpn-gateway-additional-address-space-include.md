@@ -5,29 +5,27 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 67904c1e487387f7ed99ba1c0e8d7ebf03e3dc06
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cc17df68280c342f863e69e6a253788d20caeba8
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30196994"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53444376"
 ---
 ### <a name="to-add-additional-address-space"></a>Para agregar un espacio de direcciones adicional
 
-1. Para agregar un espacio de direcciones adicional, en la sección **Configuración** de la página de la red virtual, haga clic en **Espacio de direcciones** para abrir la página Espacio de direcciones.
-2. Agregue el espacio de direcciones adicional y haga clic en **Guardar** en la parte superior de la página.
+1. Para agregar intervalos de direcciones adicionales al espacio de direcciones, en la sección **Configuración** de la página de la red virtual, seleccione en **Espacio de direcciones**. Se abre la página **Espacio de direcciones**.
+2. Agregue el intervalo de direcciones adicional y seleccione **Guardar** en la parte superior de la página.
 
-  ![Adición de espacio de direcciones](./media/vpn-gateway-additional-address-space-include/address_space.png)
+   ![Adición de espacio de direcciones](./media/vpn-gateway-additional-address-space-include/address_space.png)
 
 ### <a name="to-create-additional-subnets"></a>Para crear subredes adicionales
 
-1. Para crear subredes, en la sección **Configuración** de la página de la red virtual, haga clic en **Subredes** para abrir la página **Subredes**. 
-2. En la página Subredes, haga clic en **+Subred** para abrir la página **Agregar subred**. Asigne un nombre a la nueva subred y especifique el intervalo de direcciones.
+1. Para crear subredes, en la sección **Configuración** de la página de la red virtual, seleccione **Subredes**. Se muestra la página **Subredes**. 
+2. Seleccione **Subred** para abrir la página **Agregar subred**. Especifique los valores de **Nombre** e **Intervalo de direcciones** para la nueva subred.
 
-  ![Configuración de subred](./media/vpn-gateway-additional-address-space-include/add_subnet.png)
-3. Para guardar los cambios, haga clic en **Aceptar** en la parte inferior de la página.
-
-  ![Configuración de subred](./media/vpn-gateway-additional-address-space-include/ok.png)
+   ![Configuración de subred](./media/vpn-gateway-additional-address-space-include/add_subnet.png)
+3. Para guardar los cambios, seleccione **Aceptar** en la parte inferior de la página.

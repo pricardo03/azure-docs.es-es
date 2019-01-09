@@ -1,21 +1,19 @@
 ---
-title: 'Guía de inicio rápido: Creación de un servidor de Azure Database for MariaDB mediante la CLI de Azure'
+title: 'Inicio rápido: Creación de un servidor de Azure Database for MariaDB mediante la CLI de Azure'
 description: En esta guía de inicio rápido se describe cómo usar la CLI de Azure para crear un servidor de Azure Database for MariaDB en un grupo de recursos de Azure.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: bc32cde7e4b4cf68b12b100eb402237098459aae
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 19c1952a25e6a6db9b81b74f79bdcd2970cb2c78
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566455"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538759"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Creación de un servidor de Azure Database for MariaDB mediante la CLI de Azure
 
@@ -52,14 +50,14 @@ Configuración | Valor de ejemplo | DESCRIPCIÓN
 Nombre | **mydemoserver** | Escriba un nombre único que identifique el servidor de Azure Database for MariaDB. El nombre del servidor solo puede contener letras minúsculas, números y el carácter de guion (-). Debe contener entre 3 y 63 caracteres.
 resource-group | **myresourcegroup** | Escriba el nombre del grupo de recursos de Azure.
 sku-name | **GP_Gen5_2** | El nombre de la SKU. Sigue la convención *plan de tarifa*\_*generación de procesos*\_*núcleos virtuales* en forma abreviada. Para más información acerca del parámetro **sku-name**, consulte la sección que sigue a esta tabla.
-backup-retention | **7** | Cuánto tiempo deben conservarse las copias de seguridad. La unidad es días. Rango: 7 a 35. 
-geo-redundant-backup | **Deshabilitada** | Si se deben habilitar las copias de seguridad con redundancia geográfica en este servidor o no. Valores permitidos: **Enabled**, **Disabled**.
+backup-retention | **7** | Cuánto tiempo deben conservarse las copias de seguridad. La unidad es días. Intervalo: de 7 a 35. 
+geo-redundant-backup | **Deshabilitada** | Si se deben habilitar las copias de seguridad con redundancia geográfica en este servidor o no. Valores permitidos: **Enabled** (Habilitada), **Disabled** (Deshabilitada).
 location | **westus** | La ubicación de Azure para el servidor.
-ssl-enforcement | **Enabled** | Si se debe habilitar SSL, o no, en este servidor. Valores permitidos: **Enabled**, **Disabled**.
+ssl-enforcement | **Enabled** | Si se debe habilitar SSL, o no, en este servidor. Valores permitidos: **Enabled** (Habilitada), **Disabled** (Deshabilitada).
 storage-size | **51200** | La capacidad de almacenamiento del servidor (la unidad es megabytes). Los tamaños válidos de almacenamiento son a partir de 5120 MB con aumentos de 1024 MB. Consulte los [planes de tarifa](./concepts-pricing-tiers.md) para más información acerca de los límites de tamaño de almacenamiento. 
 version | **10.2** | La versión del motor principal de MariaDB.
 admin-user | **myadmin** | El nombre del usuario del inicio de sesión del administrador. El parámetro **admin-user** no puede ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ni **public**.
-admin-password | *La contraseña* | La contraseña del usuario administrador. Debe tener entre 8 y 128 caracteres. La contraseña debe contener caracteres de tres de las siguientes categorías: letras en mayúsculas del alfabeto inglés, letras en minúscula del alfabeto inglés, números y caracteres no alfanuméricos.
+admin-password | *La contraseña* | La contraseña del usuario administrador. Debe tener entre 8 y 128 caracteres. Debe contener caracteres de tres de las siguientes categorías: Letras del alfabeto inglés mayúsculas y minúsculas, números y caracteres no alfanuméricos.
 
 El valor del parámetro **sku-name** sigue la convención *plan de tarifa*\_*generación de proceso*\_*núcleos virtuales* como en los ejemplos siguientes:
 + `--sku-name B_Gen5_4` se asigna al plan de tarifa básico, la generación de procesos Gen 5 y 4 núcleos virtuales.

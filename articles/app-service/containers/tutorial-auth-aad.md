@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 65c503c96305cf23b97511dd06a56b5eb6fcc1be
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 8ebaab260d38a3fe4f492f2545c5ec8b07990235
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409425"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715246"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Tutorial: Autenticación y autorización de usuarios de un extremo a otro extremo en Azure App Service en Linux
 
-[App Service en Linux](app-service-linux-intro.md) proporciona un servicio de hospedaje web muy escalable y con aplicación automática de revisiones utilizando el sistema operativo Linux. Además, App Service incluye compatibilidad integrada con la [autenticación y autorización de usuarios](../app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json). En este tutorial se muestra cómo proteger las aplicaciones con la autenticación y autorización de App Service. Se usa una aplicación de ASP.NET Core con un front-end Angular.js, pero solo como ejemplo. La autenticación y autorización de App Service admiten entornos de ejecución de todos los lenguajes; en este tutorial, aprenderá a aplicarlas a su lenguaje preferido.
+[App Service en Linux](app-service-linux-intro.md) proporciona un servicio de hospedaje web muy escalable y con aplicación automática de revisiones utilizando el sistema operativo Linux. Además, App Service incluye compatibilidad integrada con la [autenticación y autorización de usuarios](../overview-authentication-authorization.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json). En este tutorial se muestra cómo proteger las aplicaciones con la autenticación y autorización de App Service. Se usa una aplicación de ASP.NET Core con un front-end Angular.js, pero solo como ejemplo. La autenticación y autorización de App Service admiten entornos de ejecución de todos los lenguajes; en este tutorial, aprenderá a aplicarlas a su lenguaje preferido.
 
 En este tutorial se usa la aplicación de ejemplo para mostrarle cómo proteger una aplicación independiente (en [Habilitación de la autenticación y autorización en una aplicación de back-end](#enable-authentication-and-authorization-for-back-end-app)).
 
@@ -86,7 +86,7 @@ En este paso, implementará el proyecto en dos aplicaciones de App Service. Una 
 
 ### <a name="create-azure-resources"></a>Creación de recursos de Azure
 
-En Cloud Shell, ejecute los siguientes comandos para crear dos aplicaciones web. Reemplace _&lt;nombre\_aplicación\_front\_end>_ y _&lt;nombre\_aplicación\_back\_end>_ por dos nombres de aplicación globalmente únicos (los caracteres válidos son `a-z`, `0-9` y `-`). Para más información sobre cada comando, consulte [Creación de una aplicación web de .NET Core en App Service en Linux](quickstart-dotnetcore.md).
+En Cloud Shell, ejecute los siguientes comandos para crear dos aplicaciones de App Service. Reemplace _&lt;nombre\_aplicación\_front\_end>_ y _&lt;nombre\_aplicación\_back\_end>_ por dos nombres de aplicación globalmente únicos (los caracteres válidos son `a-z`, `0-9` y `-`). Para más información sobre cada comando, consulte [Creación de una aplicación .NET Core en App Service en Linux](quickstart-dotnetcore.md).
 
 ```azurecli-interactive
 az group create --name myAuthResourceGroup --location "West Europe"
@@ -129,7 +129,7 @@ git commit -m "add CORS to back end"
 
 ### <a name="push-to-azure-from-git"></a>Inserción en Azure desde Git
 
-En la ventana de terminal local, ejecute los siguientes comandos de Git para realizar la implementación en la aplicación de back-end. Reemplace _&lt;deploymentLocalGitUrl-of-back-end-app>_ por la dirección URL del repositorio Git remoto que guardó en [Creación de recursos de Azure](#create-azure-resources). Cuando el administrador de credenciales de Git le solicite las credenciales, asegúrese de especificar sus [credenciales de implementación](../app-service-deployment-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), y no las usadas para iniciar sesión en Azure Portal.
+En la ventana de terminal local, ejecute los siguientes comandos de Git para realizar la implementación en la aplicación de back-end. Reemplace _&lt;deploymentLocalGitUrl-of-back-end-app>_ por la dirección URL del repositorio Git remoto que guardó en [Creación de recursos de Azure](#create-azure-resources). Cuando el administrador de credenciales de Git le solicite las credenciales, asegúrese de especificar sus [credenciales de implementación](../deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), y no las usadas para iniciar sesión en Azure Portal.
 
 ```bash
 git remote add backend <deploymentLocalGitUrl-of-back-end-app>
@@ -143,7 +143,7 @@ git remote add frontend <deploymentLocalGitUrl-of-front-end-app>
 git push frontend master
 ```
 
-### <a name="browse-to-the-azure-web-apps"></a>Navegación hasta las aplicaciones web de Azure
+### <a name="browse-to-the-azure-apps"></a>Navegación hasta las aplicaciones de Azure
 
 Use un explorador para ir a las siguientes direcciones URL y ver las dos aplicaciones en funcionamiento.
 
@@ -453,7 +453,7 @@ Este comando puede tardar varios segundos en ejecutarse.
 > * Uso de tokens de acceso desde el código de servidor
 > * Uso de tokens de acceso desde el código de cliente (explorador)
 
-Vaya al siguiente tutorial para aprender a asignar un nombre DNS personalizado a una aplicación web.
+Vaya al siguiente tutorial para aprender a asignar un nombre DNS personalizado a una aplicación.
 
 > [!div class="nextstepaction"]
-> [Asignar un nombre DNS personalizado a Azure Web Apps](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+> [Asignación de un nombre DNS personalizado existente a Azure App Service](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)

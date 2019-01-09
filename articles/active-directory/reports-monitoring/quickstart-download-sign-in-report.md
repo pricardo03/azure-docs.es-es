@@ -16,14 +16,14 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0e6e72424530d18b55f68077ba7c3328d9a2e549
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3e20af1c90f0e8a7a582d2d01dc4218a14496c40
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621436"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653295"
 ---
-# <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Guía de inicio rápido: Descarga de un informe de inicio de sesión mediante Azure Portal
+# <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Inicio rápido: Descarga de un informe de inicio de sesión mediante Azure Portal
 
 En esta guía de inicio rápido, obtendrá información sobre cómo descargar los datos de inicio de sesión para el inquilino durante las 24 últimas horas.
 
@@ -31,10 +31,10 @@ En esta guía de inicio rápido, obtendrá información sobre cómo descargar lo
 
 Necesita:
 
-* Un inquilino de Azure Active Directory, con una licencia Premium para ver el informe actividad de inicio de sesión. 
+* Un inquilino de Azure Active Directory, con una licencia Premium para ver el informe actividad de inicio de sesión. Consulte [Introducción a Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para actualizar la edición de Azure Active Directory.
 * Un usuario, que tenga el rol **Administrador de seguridad**, **Lector de seguridad**, **Lector de informes** o **Administrador global** del inquilino. Además, cualquier usuario del inquilino puede acceder a sus propios inicios de sesión.
 
-## <a name="quickstart-download-a-sign-in-report"></a>Guía de inicio rápido: Descarga de un informe de inicio de sesión
+## <a name="quickstart-download-a-sign-in-report"></a>Inicio rápido: Descarga de un informe de inicio de sesión
 
 1. Acceda a [Azure Portal](https://portal.azure.com).
 2. Seleccione **Azure Active Directory** desde el panel de navegación izquierdo y use el botón **Cambiar directorio** para seleccionar su directorio activo.

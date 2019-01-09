@@ -1,104 +1,105 @@
 ---
-title: Comprobación de errores de nodos y grupos de Batch
-description: Errores que se deben comprobar y cómo evitarlos al crear los grupos y nodos
+title: 'Comprobación de errores de grupo y de nodo: Azure Batch'
+description: Errores que se deben comprobar y cómo evitarlos al crear grupos y nodos
 services: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 9/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: bc09089fa9984e9042166938da19499afca21509
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 4e1e645c25d2f1e49e222e39ecd719a414e1404e
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435845"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790476"
 ---
-# <a name="checking-for-pool-and-node-errors"></a>Comprobación de errores de grupo y de nodo
+# <a name="check-for-pool-and-node-errors"></a>Comprobación de errores de grupo y de nodo
 
-Al crear y administrar grupos de Batch, hay operaciones que se realizan de inmediato y hay operaciones asincrónicas que no son inmediatas, se ejecutan en segundo plano y pueden tardar varios minutos en completarse.
+Al crear y administrar grupos de Azure Batch, algunas operaciones se realizan de inmediato. Sin embargo, otras son asincrónicas y se ejecutan en segundo plano. Pueden tardar varios minutos en completarse.
 
-Detectar errores para las operaciones que tienen lugar de inmediato es sencillo, ya que la API, la CLI o la interfaz de usuario devolverán errores al instante.
+Detectar errores de las operaciones que tienen lugar de inmediato es sencillo, porque la API, la CLI o la interfaz de usuario devuelven los errores al instante.
 
-En este artículo se tratan las operaciones en segundo plano que pueden tener lugar para los grupos y los nodos de grupo: especifica cómo se pueden detectar los errores y cómo se pueden evitar.
+En este artículo se tratan las operaciones en segundo plano que pueden realizarse para grupos y nodos de grupo. Se especifica cómo puede detectar y evitar errores.
 
 ## <a name="pool-errors"></a>Errores de grupo
 
 ### <a name="resize-timeout-or-failure"></a>Cambiar el tamaño del tiempo de espera o error
 
-Cuando se crea un nuevo grupo o se cambia el tamaño de uno existente, se especifica el número de nodos de destino.  La operación finalizará inmediatamente, pero la asignación real de los nodos nuevos o la eliminación de nodos existentes se realiza en segundo plano en un plazo que puede llevar varios minutos.  Se especifica un tiempo de espera del cambio de tamaño en las API [create](https://docs.microsoft.com/rest/api/batchservice/pool/add) o [resize](https://docs.microsoft.com/rest/api/batchservice/pool/resize): si no se puede obtener el número de destino de nodos en el período de tiempo de espera del cambio de tamaño, se detendrá la operación y el grupo pasará a un estado estable con errores de cambio de tamaño.
+Cuando crea un nuevo grupo o cambia el tamaño de uno existente, especifica el número de nodos de destino.  La operación se completa inmediatamente, pero la asignación real de nuevos nodos o la eliminación de nodos existentes podrían tardar varios minutos.  El tiempo de expiración de cambio de tamaño se especifica en la API [create](https://docs.microsoft.com/rest/api/batchservice/pool/add) o [resize](https://docs.microsoft.com/rest/api/batchservice/pool/resize). Si Batch no puede obtener el número de nodos de destino durante el período de tiempo de expiración de cambio de tamaño, detiene la operación. El grupo entra en un estado estable e informa de errores de cambio de tamaño.
 
-La propiedad [ResizeError](https://docs.microsoft.com/rest/api/batchservice/pool/get#resizeerror) notifica que se agotó el tiempo de espera del cambio de tamaño para la última evaluación, que enumera uno o varios errores que se produjeron.
+La propiedad [ResizeError](https://docs.microsoft.com/rest/api/batchservice/pool/get#resizeerror) de la evaluación más reciente informa de un tiempo de expiración de cambio de tamaño e indica los errores producidos.
 
 Las causas comunes de los tiempos de espera del cambio de tamaño son:
+
 - El tiempo de espera del cambio de tamaño es demasiado corto
-  - El tiempo de espera predeterminado es 15 minutos, que es normalmente tiempo suficiente para asignar o quitar los nodos de grupo.
-  - Cuando se asigna un gran número de nodos (más de 1000 nodos de una imagen de Marketplace o más de 300 desde una imagen personalizada) durante la creación o cambio de tamaño del grupo, se recomienda un tiempo de espera de 30 minutos.
+  - En la mayoría de las circunstancias, el tiempo de expiración predeterminado de 15 minutos es suficiente para asignar o quitar nodos del grupo.
+  - Si asigna un gran número de nodos, se recomienda establecer el tiempo de expiración de cambio de tamaño en 30 minutos. Por ejemplo, cuando cambie el tamaño a más de 1 000 nodos de una imagen de Azure Marketplace o a más de 300 nodos de una imagen de máquina virtual personalizada.
 - Cuota de núcleos insuficiente
-  - Una cuenta de Batch tiene una cuota para el número de núcleos que se asignan a todos los grupos.  Batch no asignará nodos cuando se alcance esa cuota.  La cuota de núcleos [puede aumentarse](https://docs.microsoft.com/azure/batch/batch-quota-limit) para habilitar la asignación de más nodos.
+  - Una cuenta de Batch tiene un número límite de núcleos que puede asignar en todos los grupos. Batch dejará de asignar nodos cuando se alcance esa cuota. [Puede aumentar](https://docs.microsoft.com/azure/batch/batch-quota-limit) la cuota de núcleos para que Batch pueda asignar más nodos.
 - Direcciones IP de subred insuficientes cuando un [grupo está en una red virtual](https://docs.microsoft.com/azure/batch/batch-virtual-network)
-  - Una subred de red virtual debe tener suficientes direcciones IP sin asignar para asignárselas a todos los nodos de grupo que se solicitan, en caso contrario no se podrán crear los nodos.
+  - Una subred de red virtual debe tener suficientes direcciones IP sin asignar que pueda asignar a cada nodo del grupo solicitado. En caso contrario, los nodos no se pueden crear.
 - Recursos insuficientes cuando un [grupo está en una red virtual](https://docs.microsoft.com/azure/batch/batch-virtual-network)
-  - Los recursos como los equilibradores de carga, las direcciones IP públicas y los NSG se crean en la suscripción usada para crear la cuenta de Batch.  Las cuotas de suscripción para estos recursos deben ser suficientes.
-- Usar una imagen de máquina virtual personalizada para grupos grandes
-  - Los grupos grandes que usan imágenes personalizadas pueden tardar más tiempo en asignarse y pueden agotar el tiempo de espera para el cambio de tamaño.  Se proporcionan recomendaciones de límites y de configuración en un [artículo específico](https://docs.microsoft.com/azure/batch/batch-custom-images). 
+  - Puede crear recursos, como equilibradores de carga, direcciones IP públicas y grupos de seguridad de red, en la misma suscripción que la cuenta de Batch. Compruebe que las cuotas de suscripción sean suficientes para estos recursos.
+- Grupos de gran tamaño con imágenes de máquina virtual personalizadas
+  - Los grupos grandes que usan imágenes de máquina virtual personalizadas pueden tardar más tiempo en asignarse y pueden producirse tiempos de expiración de cambio de tamaño.  Consulte [Uso de una imagen personalizada para crear un grupo de máquinas virtuales](https://docs.microsoft.com/azure/batch/batch-custom-images) para las recomendaciones sobre los límites y la configuración.
 
-### <a name="auto-scale-failures"></a>Errores de escalado automático
+### <a name="automatic-scaling-failures"></a>Errores de escalado automático
 
-En lugar de establecer explícitamente el número de destino de nodos para un grupo al crear o cambiar el tamaño de un grupo, se puede escalar automáticamente el número de nodos de un grupo.  [Se puede crear una fórmula de escalado automático para un grupo](https://docs.microsoft.com/azure/batch/batch-automatic-scaling), que se evaluará en un intervalo periódico configurable para establecer el número de destino de nodos para el grupo.  Los siguientes tipos de problemas pueden producirse y detectarse:
+También puede establecer Azure Batch para escalar automáticamente el número de nodos de un grupo. Se definen los parámetros para la [fórmula de escalado automático para un grupo](https://docs.microsoft.com/azure/batch/batch-automatic-scaling). El servicio Batch usa la fórmula para evaluar periódicamente el número de nodos del grupo y establecer un nuevo número de destino. Pueden producirse los siguientes tipos de problemas:
 
-- La evaluación de escalado automático puede producir un error.
-- La operación de cambio de tamaño resultante puede producir un error y agotar el tiempo de espera.
-- Puede haber un problema con la fórmula de escalado automático, dando lugar a valores de destino de nodo incorrectos, lo que llevará a que se agote el tiempo de espera para el cambio de tamaño en proceso.
+- Error de la evaluación de escalado automático.
+- La operación de cambio de tamaño resultante produce un error y agota el tiempo de expiración.
+- Un problema con la fórmula de escalado automático da lugar a valores incorrectos de destino de nodo. El cambio de tamaño funciona o agota el tiempo de expiración.
 
-La información acerca de la última evaluación de escalado automático se obtiene mediante la propiedad [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/pool/get#autoscalerun), que informa sobre el momento de la evaluación, los valores y el resultado de la evaluación, además de los errores producidos al realizar la evaluación.
+Puede obtener información sobre la última evaluación de escalado automático mediante la propiedad [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/pool/get#autoscalerun). Esta propiedad informa del tiempo de evaluación y el resultado, así como de los errores de rendimiento.
 
-Un [evento completo de cambio de tamaño de grupo](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event) captura automáticamente información acerca de todas las evaluaciones.
+Un [evento completo de cambio de tamaño de grupo](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event) captura información sobre todas las evaluaciones.
 
 ### <a name="delete"></a>Eliminar
 
-Suponiendo que hay nodos en un grupo, una operación de eliminación de grupo lleva a que se eliminen primero los nodos y después el propio objeto de grupo.  Los nodos del grupo pueden tardar unos minutos en eliminar.
+Cuando se elimina un grupo que contiene nodos, Batch elimina los nodos en primer lugar. A continuación, elimina el propio objeto de grupo. Los nodos del grupo pueden tardar unos minutos en eliminar.
 
-El [estado del grupo](https://docs.microsoft.com/rest/api/batchservice/pool/get#poolstate) se establecerá en “deleting” durante el proceso de eliminación.  La aplicación que realiza la llamada puede detectar si la eliminación del grupo está tardando demasiado tiempo mediante las propiedades “state” y “stateTransitionTime”.
+Batch establece el [estado del grupo](https://docs.microsoft.com/rest/api/batchservice/pool/get#poolstate) en **deleting** durante el proceso de eliminación. La aplicación que realiza la llamada puede detectar si la eliminación del grupo está tardando demasiado tiempo mediante las propiedades **state** y **stateTransitionTime**.
 
 ## <a name="pool-compute-node-errors"></a>Errores de nodo de proceso de grupo
 
-Los nodos pueden asignarse correctamente en un grupo, pero varios problemas pueden llevar a que los nodos estén en mal estado y no puedan utilizarse.  Una vez que se asignan los nodos en un grupo, incurren en gastos y, por tanto, es importante detectar problemas para evitar pagar por los nodos que no se pueden usar.
+Aun cuando Batch asigne correctamente los nodos de un grupo, distintos problemas pueden provocar que algunos de los nodos sean incorrectos e inutilizables. Estos nodos generan cargos. Es importante detectar problemas para no pagar por nodos inutilizables.
 
 ### <a name="start-task-failure"></a>Error de la tarea de inicio
 
-Puede especificarse una [tarea de inicio](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask) opcional para un grupo.  Al igual que con cualquier tarea, se pueden especificar una línea de comandos y archivos de recursos para descargar desde el almacenamiento.  La tarea de inicio se especifica para el grupo, pero se ejecuta para cada nodo: una vez que se inició cada nodo, se ejecuta la tarea de inicio.  Una propiedad adicional de la [tarea de inicio](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask), “waitForSuccess”, especifica si el lote debe esperar a que la tarea de inicio se complete correctamente antes de programar las tareas de un nodo.
+Es posible que desee especificar una [tarea de inicio](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask) opcional para un grupo. Al igual que con cualquier tarea, se puede usar una línea de comandos y archivos de recursos para descargar desde el almacenamiento. La tarea de inicio se ejecuta para cada nodo después de iniciarse. La propiedad **waitForSuccess** especifica si Batch espera hasta que la tarea de inicio se complete correctamente antes de programar las tareas para un nodo.
 
-Si se produce un error en una tarea de inicio y la configuración de la tarea de inicio especifica que se debe esperar a la finalización correcta, no se podrá usar el nodo y se seguirán generando cargos.
+¿Qué ocurre si ha configurado el nodo para esperar la finalización correcta de la tarea de inicio, pero se produce un error en ella? En ese caso, el nodo es inutilizable, pero genera cargos.
 
-Se pueden detectar errores de tarea de inicio mediante las propiedades [result](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskexecutionresult) y [failureInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskfailureinformation) de la propiedad de nodo [startTaskInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#starttaskinformation) de nivel superior.
+Se pueden detectar los errores de la tarea de inicio mediante las propiedades [result](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskexecutionresult) y [failureInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskfailureinformation) de la propiedad de nodo [startTaskInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#starttaskinformation) de nivel superior.
 
-Además, una tarea de inicio con error lleva a que el [estado](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) del nodo se establezca en “starttaskfailed”, pero solo si se ha establecido “waitForSuccess” en “true”.
+Una tarea de inicio con errores también hace que Batch establezca el nodo [state](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) en **starttaskfailed**, si estableció **waitForSuccess** en **true**.
 
-Al igual que con cualquier tarea, puede haber varias causas para que se produzcan errores en la tarea de inicio.  Para solucionar problemas, deben comprobarse los archivos de registro stdout, stderr y cualquier archivo de registro adicional específico de la tarea.
+Al igual que con cualquier tarea, puede haber varias causas para que se produzcan errores en la tarea de inicio.  Para solucionar problemas, compruebe los archivos stdout, stderr y cualquier otro archivo de registro específico de la tarea.
 
 ### <a name="application-package-download-failure"></a>Error al descargar el paquete de aplicación
 
-Uno o varios paquetes de aplicación pueden especificarse opcionalmente para un grupo, y se descargarán los archivos de paquete especificado en cada nodo sin comprimir después de que se inicie el nodo, pero antes de que se programan las tareas.  Es habitual usar una línea de comandos de tarea de inicio, junto con paquetes de aplicación, para copiar archivos en una ubicación diferente o ejecutar el programa de instalación, por ejemplo.
+Puede especificar uno o varios paquetes de aplicación para un grupo. Batch descarga los archivos de paquete especificados en cada nodo y descomprime los archivos después de que se haya iniciado el nodo, pero antes de que se programen las tareas. Es habitual usar una línea de comandos de tarea de inicio junto con los paquetes de aplicación. Por ejemplo, para copiar archivos en una ubicación diferente o para ejecutar la configuración.
 
-La propiedad [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) del nodo notificará un error al descargar y descomprimir un paquete de aplicación.  El estado del nodo se establecerá en “unusable”.
+La propiedad [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) del nodo notifica un error al descargar y descomprimir un paquete de aplicación. Batch establece el estado del nodo en **unusable**.
 
 ### <a name="node-in-unusable-state"></a>Nodo en estado unusable
 
-El [estado del nodo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) puede establecerse en “unusable” por diversos motivos.  Cuando está “unusable”, no se pueden programar tareas en el nodo, pero el nodo seguirá generando cargos.
+Azure Batch puede establecer el [estado del nodo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) en **unusable** por diversos motivos. Con el estado del nodo establecido en **unusable**, no se pueden programar tareas para el nodo, pero sigue generando cargos.
 
-Batch siempre intentará recuperar nodos inutilizables, pero la recuperación puede o no ser posible, dependiendo de la causa.
+Batch siempre intenta recuperar los nodos inutilizables, pero la recuperación puede ser posible o no, en función de la causa.
 
-En los casos en los que se pueda determinar la causa, la propiedad [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) la notificará.
+Si Batch puede determinar la causa, la propiedad [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) del nodo la notifica.
 
-Algunos otros ejemplos de las causas de los nodos “unusable”:
+Otros ejemplos de causas de nodos **unusable** incluyen:
 
-- Imagen personalizada no válida; porque no se ha preparado correctamente, por ejemplo.
-- Error de infraestructura o actualización de bajo nivel que lleva a que la máquina virtual subyacente se mueva; Batch recuperará el nodo.
+- Una imagen de máquina virtual personalizada no es válida. Por ejemplo, una imagen que no está preparada correctamente.
+- Se mueve una máquina virtual debido a un error de infraestructura o una actualización de bajo nivel. Batch recupera el nodo.
 
 ### <a name="node-agent-log-files"></a>Archivos de registro del agente de nodo
 
-Si es necesario ponerse en contacto con el soporte técnico debido a un problema de nodo de grupo, se pueden obtener los archivos de registro del proceso de agente de Batch que se ejecuta en cada nodo de grupo.  Se pueden cargar los archivos de registro para un nodo a través de Azure Portal, Batch Explorer o una [API](https://docs.microsoft.com/rest/api/batchservice/computenode/uploadbatchservicelogs).  Cargar y guardar los archivos de registro puede ser muy útil ya que el nodo o grupo se puede eliminar para reducir el costo de los nodos en ejecución.
+El proceso de agente Batch que se ejecuta en cada nodo del grupo puede proporcionar archivos de registro que resulten útiles si necesita ponerse en contacto con el soporte técnico sobre un problema de nodo de grupo. Los archivos de registro para un nodo se pueden cargar a través de Azure Portal, Batch Explorer o una [API](https://docs.microsoft.com/rest/api/batchservice/computenode/uploadbatchservicelogs). Es útil cargar y guardar los archivos de registro. A continuación, puede eliminar el nodo o el grupo para ahorrar el coste de los nodos en ejecución.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Asegúrese de que la aplicación ha implementado la comprobación de errores completa, especialmente para las operaciones asincrónicas, para que se puedan detectar y diagnosticar problemas rápidamente.
+Compruebe que ha establecido la aplicación para implementar la comprobación de errores exhaustiva, especialmente para las operaciones asincrónicas. Puede ser crítico detectar y diagnosticar problemas con prontitud.

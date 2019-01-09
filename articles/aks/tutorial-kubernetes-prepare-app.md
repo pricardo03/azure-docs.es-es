@@ -3,18 +3,17 @@ title: 'Tutorial de Kubernetes en Azure: Preparación de una aplicación'
 description: En este tutorial de Azure Kubernetes Service (AKS) aprenderá a preparar y compilar una aplicación con varios contenedor con Docker Compose que se puede implementar en AKS.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 20a57a0d528fa6a291aa66f91ff6ddd71053f478
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: b529af1db6d72d87abc25eb37f2f1c39216a0ba4
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297067"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724171"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Tutorial: Preparación de una aplicación para Azure Kubernetes Service (AKS)
 
@@ -29,7 +28,7 @@ Tras finalizar, la siguiente aplicación se ejecuta en su entorno de desarrollo 
 
 ![Imagen del clúster de Kubernetes en Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
-En los tutoriales posteriores, la imagen de contenedor se carga en una instancia de Azure Container Registry y después se implementa en un clúster de AKS.
+En tutoriales adicionales, la imagen de contenedor se carga en una instancia de Azure Container Registry y después se implementa en un clúster de AKS.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -49,7 +48,7 @@ Use [git][] para clonar la aplicación en su entorno de desarrollo:
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 ```
 
-Cambie los directorios para trabajar desde el directorio clonado.
+Cambie al directorio clonado.
 
 ```console
 cd azure-voting-app-redis

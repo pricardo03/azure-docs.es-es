@@ -9,18 +9,36 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: b6d800705509edc31b410d1e9cd30f8b53702010
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8b66895e1ae37947c995ffc643505d466c42b93b
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094413"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753122"
 ---
-# <a name="tutorial-4-extract-contextually-related-patterns"></a>Tutorial 4: Extracción de patrones relacionados contextualmente
+# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Tutorial: Extracción de patrones relacionados contextualmente mediante roles
 
 En este tutorial, use un patrón para extraer datos de una expresión de plantilla con el formato correcto. En la expresión de plantilla se usa una entidad sencilla y roles para extraer datos relacionados como las ubicaciones de origen y destino.  Al usar patrones, se necesitan menos expresiones de ejemplo para la intención.
+
+
+**En este tutorial, aprenderá a:**
+
+> [!div class="checklist"]
+> * Importar la aplicación de ejemplo
+> * Creación de entidades nuevas
+> * Creación de una intención nueva
+> * Train
+> * Publicar
+> * Obtener intenciones y entidades del punto de conexión
+> * Crear un patrón con roles
+> * Crear una lista de frases de ciudades
+> * Obtener intenciones y entidades del punto de conexión
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="using-roles-in-patterns"></a>Uso de roles en patrones
 
 El propósito de los roles es extraer las entidades relacionadas contextualmente de una expresión. En la expresión, `Move new employee Robert Williams from Sacramento and San Francisco`, los valores de ciudad de origen y ciudad de destino se relacionan entre sí y usan un lenguaje común para denotar cada ubicación. 
 
@@ -37,27 +55,12 @@ Dado que la expresión de ejemplo `Move new employee Robert Williams from Sacram
 
 Si tiene dificultades con la detección de la entidad simple porque se trata de un nombre como una ciudad, considere la posibilidad de agregar una lista de frases de valores similares. Esto ayuda a la detección del nombre de la ciudad al proporcionar a LUIS una señal adicional sobre ese tipo de palabra o frase. Las listas de frases solo ayudan al patrón al contribuir a la detección de la entidad, algo necesario para que el patrón coincida. 
 
-**En este tutorial, aprenderá a:**
-
-> [!div class="checklist"]
-> * Usar la aplicación del tutorial existente
-> * Creación de entidades nuevas
-> * Creación de una intención nueva
-> * Train
-> * Publicar
-> * Obtener intenciones y entidades del punto de conexión
-> * Crear un patrón con roles
-> * Crear una lista de frases de ciudades
-> * Obtener intenciones y entidades del punto de conexión
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="use-existing-app"></a>Usar una aplicación existente
+## <a name="import-example-app"></a>Importar la aplicación de ejemplo
 Continúe con la aplicación creada en el último tutorial, denominada **HumanResources**. 
 
-Si no tiene la aplicación HumanResources del tutorial anterior, siga estos pasos:
+Para ello, siga los pasos que se describen a continuación:
 
-1.  Descargue y guarde el [archivo JSON de la aplicación](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
+1.  Descargue y guarde el [archivo JSON de la aplicación](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
 
 2. Importe el archivo JSON en una aplicación nueva.
 

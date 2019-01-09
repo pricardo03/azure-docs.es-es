@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Generación de una miniatura (REST y Ruby) en Computer Vision'
+title: 'Inicio rápido: Generación de una miniatura (REST, Ruby)'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, generará una miniatura de una imagen mediante Computer Vision API con Ruby.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 2ddd2417a1e2a7548be641eca8e72b7967ace685
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: e666c9371b4f38f20c5835b06d7b9959ad5718ad
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958626"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53578723"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-ruby-in-computer-vision"></a>Inicio rápido: Generación de una miniatura mediante la API de REST y Ruby en Computer Vision
 

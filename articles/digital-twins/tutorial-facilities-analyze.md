@@ -1,18 +1,19 @@
 ---
-title: Análisis de eventos desde la configuración de Azure Digital Twins | Microsoft Docs
+title: 'Tutorial: Análisis de eventos desde la configuración de Azure Digital Twins | Microsoft Docs'
 description: Siga los pasos de este tutorial para aprender a visualizar y analizar eventos de los espacios de Azure Digital Twins con Azure Time Series Insights.
 services: digital-twins
 author: dsk-2015
+ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: b7c44184d0a0d8d5a8f1fbd80b053230f2c1ae84
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f233efc93fa07cc7fc7c904336f01348f4da3f82
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582027"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554527"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Tutorial: Visualización y análisis de eventos de los espacios de Azure Digital Twins mediante Time Series Insights
 
@@ -40,7 +41,7 @@ En este tutorial se supone que ha [configurado](tutorial-facilities-setup.md) y 
 ## <a name="stream-data-by-using-event-hubs"></a>Transmisión de datos mediante Event Hubs
 Puede usar el servicio [Event Hubs](../event-hubs/event-hubs-about.md) para crear una canalización para transmitir sus datos. En esta sección se muestra cómo crear un centro de eventos como conector entre las instancias de Azure Digital Twins y Time Series Insights.
 
-### <a name="create-an-event-hub"></a>Crear un centro de eventos
+### <a name="create-an-event-hub"></a>Creación de un centro de eventos
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 

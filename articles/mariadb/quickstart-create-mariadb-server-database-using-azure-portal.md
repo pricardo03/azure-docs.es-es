@@ -1,20 +1,18 @@
 ---
-title: 'Guía de inicio rápido: creación de un servidor de Azure Database for MariaDB mediante Azure Portal'
+title: 'Inicio rápido: Creación de un servidor de Azure Database for MariaDB (Azure Portal)'
 description: Este artículo muestra cómo usar Azure Portal para crear rápidamente un servidor de Azure Database for MariaDB de ejemplo en unos cinco minutos.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 721cd87dcf58a2b5a7a8fd32fdfa8b2d65453b24
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: fb02cfd2419d1c98a92d1eae8b59256499d017a8
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321944"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541394"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Creación de un servidor de Azure Database for MariaDB mediante Azure Portal
 
@@ -49,7 +47,7 @@ Creación de un servidor de Azure Database for MariaDB:
     Grupos de recursos | **myresourcegroup** | Escriba un nuevo nombre de grupo de recursos o seleccione uno existente. 
     Seleccionar origen | **En blanco** | Seleccione **En blanco** para crear un nuevo servidor desde el principio. (Seleccione **Copia de seguridad** si va a crear un servidor a partir de una copia de seguridad con replicación geográfica de un servidor de Azure Database for MariaDB existente).
     Inicio de sesión de administrador de servidor | **myadmin** | Una cuenta de inicio de sesión para usarla al conectarse al servidor. El nombre de inicio de sesión de administrador no puede ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ni **public**.
-    Contraseña | *la que elija* | Escriba una nueva contraseña para la cuenta de administrador del servidor. Debe tener entre 8 y 128 caracteres. La contraseña debe contener caracteres de tres de las siguientes categorías: letras en mayúsculas del alfabeto inglés, letras en minúscula del alfabeto inglés, números (0-9) y caracteres no alfanuméricos (!, $, #, %, etc.).
+    Contraseña | *la que elija* | Escriba una nueva contraseña para la cuenta de administrador del servidor. Debe tener entre 8 y 128 caracteres. La contraseña debe contener caracteres de tres de las siguientes categorías: Letras del alfabeto inglés mayúsculas y minúsculas, números (0-9) y caracteres no alfanuméricos (!, $, #, %, etc.).
     Confirmar contraseña | *la que elija*| Confirme la contraseña de la cuenta de administrador.
     Ubicación | *la región más cercana a los usuarios*| Elija la ubicación más cercana a los usuarios o a sus otras aplicaciones de Azure.
     Versión | *la versión más reciente*| La versión más reciente (a menos que tenga requisitos específicos para el uso de una versión diferente).
@@ -129,7 +127,7 @@ Primero usaremos la herramienta de la línea de comandos [mysql](https://dev.mys
     ---|---|---
     --host | *nombre del servidor* | Valor del nombre de servidor que usó al crear el servidor de Azure Database for MariaDB. El servidor de ejemplo es **mydemoserver.mariadb.database.azure.com**. Use el nombre de dominio completo (**\*.mariadb.database.azure.com**) como se muestra en el ejemplo. Si no recuerda el nombre del servidor, siga los pasos de la sección anterior para obtener la información de conexión.
     --user | *nombre de inicio de sesión del administrador del servidor* |Valor del nombre de usuario de inicio de sesión del administrador del servidor que usó al crear el servidor de Azure Database for MariaDB. Si no recuerda el nombre de usuario, siga los pasos de la sección anterior para obtener la información de conexión. El formato es *username@servername*.
-    -p | *la contraseña*<br>(espere hasta que se le pida) |Cuando se le solicite, escriba la contraseña que usó para crear el servidor. Los caracteres que escriba de la contraseña no se muestran en el símbolo del sistema de Bash al escribirlos. Después de escribir la contraseña, presione Entrar.
+    -p | *La contraseña*<br>(espere hasta que se le pida) |Cuando se le solicite, escriba la contraseña que usó para crear el servidor. Los caracteres que escriba de la contraseña no se muestran en el símbolo del sistema de Bash al escribirlos. Después de escribir la contraseña, presione Entrar.
 
    Con la utilidad mysql conectada se muestra un aviso `mysql>`. Puede escribir comandos en el aviso. 
 
@@ -154,7 +152,7 @@ Primero usaremos la herramienta de la línea de comandos [mysql](https://dev.mys
     > [!TIP]
     > Si el firewall no está configurado para permitir la dirección IP de la instancia de Azure Cloud Shell, aparece el siguiente error:
     >
-    >   ERROR 2003 (28000): no está permitido que el cliente con la dirección IP 123.456.789.0 acceda al servidor.
+    >   ERROR 2003 (28000): No está permitido que el cliente con la dirección IP 123.456.789.0 acceda al servidor.
     >
     > Para resolver el error, asegúrese de que la configuración del servidor coincida con los pasos descritos en [Configuración de una regla de firewall a nivel de servidor](#configure-firewall-rule).
 
@@ -205,7 +203,7 @@ Conexión al servidor con MySQL Workbench:
     Nombre de host. | *nombre del servidor* | Valor del nombre de servidor que usó al crear el servidor de Azure Database for MariaDB. El servidor de ejemplo es **mydemoserver.mariadb.database.azure.com**. Use el nombre de dominio completo (**\*.mariadb.database.azure.com**) como se muestra en el ejemplo. Si no recuerda el nombre del servidor, siga los pasos anteriores de este artículo para obtener la información de conexión.|
      Port | 3306 | Puerto que se usará para la conexión al servidor de Azure Database for MariaDB. |
     Nombre de usuario |  *nombre de inicio de sesión del administrador del servidor* | Información de inicio de sesión del administrador del servidor que usó al crear el servidor de Azure Database for MariaDB. El nombre de usuario del ejemplo es **myadmin@mydemoserver**. Si no recuerda el nombre de usuario, siga los pasos anteriores de este artículo para obtener la información de conexión. El formato es *username@servername*.
-    Contraseña | *la contraseña* | Para guardar la contraseña, seleccione **Store in Vault** (Almacenar en el almacén). |
+    Contraseña | *La contraseña* | Para guardar la contraseña, seleccione **Store in Vault** (Almacenar en el almacén). |
 
 4. Para comprobar si todos los parámetros están configurados correctamente, seleccione **Test Connection** (Probar conexión). Luego, seleccione **Aceptar** para guardar la conexión. 
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 12/27/2018
 ms.author: alkohli
-ms.openlocfilehash: 957100e042da1d41fb7c8fa27a5663cf99a41c20
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: af7bcf2a83259b9d883a824b05312316f9f1f4f8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093942"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794012"
 ---
 # <a name="azure-data-box-system-requirements"></a>Requisitos del sistema de Azure Data Box
 
@@ -36,7 +36,7 @@ Aquí se proporciona una lista de los sistemas operativos compatibles para la op
 | **Sistema operativo** | **Versiones** | 
 | --- | --- | 
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 | 
-| Windows |7, 8, 10 | 
+|  Windows |7, 8, 10 | 
 |Linux    |         |
 
 ### <a name="supported-file-systems-for-linux-clients"></a>Sistemas de archivos compatibles para clientes de Linux
@@ -55,6 +55,9 @@ Aquí se proporciona una lista de los tipos de almacenamiento compatibles con el
 | Clásico | Estándar |
 | Uso general  |Estándar; se admiten V1 y V2. |
 | Blob |Se admiten frecuentes y esporádicos. |
+
+>[!NOTE]
+> No se admiten las cuentas de Azure Data Lake Storage Gen 2.
 
 
 ### <a name="supported-storage-types"></a>Tipos de almacenamiento admitidos

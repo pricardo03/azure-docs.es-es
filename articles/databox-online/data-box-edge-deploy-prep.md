@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 10/08/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 35ac28d687c8bc6636a7d8e10f54ffb5b219a776
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 25f68b011d1fcba450903e9a691b98dfe9e87281
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167473"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726126"
 ---
-# <a name="tutorial-prepare-to-deploy-azure-data-box-edge-preview"></a>Tutorial: Preparación de la implementación de Azure Data Box Edge (versión preliminar)
+# <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Tutorial: Preparación para la implementación de Azure Data Box Edge  
 
 
-Este es el primer tutorial de la serie de tutoriales de implementación necesarios para implementar completamente Azure Data Box Edge. En este tutorial se describe cómo preparar Azure Portal para implementar recursos de Data Box Edge. 
+Este es el primer tutorial de la serie de tutoriales de implementación necesarios para implementar completamente Azure Data Box Edge. En este tutorial se describe cómo preparar Azure Portal para implementar un recurso de Data Box Edge. 
 
 Para completar el proceso de instalación y configuración se necesitan privilegios de administrador. La preparación del portal dura menos de 10 minutos.
 
@@ -33,7 +33,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 
 > [!IMPORTANT]
-> Data Box Edge se encuentra en versión preliminar. Antes de solicitar e implementar esta solución revise los [términos del servicio de Azure para la versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> Data Box Edge se encuentra en versión preliminar. Antes de solicitar e implementar esta solución, revise los [términos del servicio de Azure para la versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).  
 
 ### <a name="get-started"></a>Introducción
 
@@ -51,7 +51,7 @@ Ya puede empezar a configurar Azure Portal.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Aquí encontrará los requisitos previos para configurar su recurso de Data Box Edge, el dispositivo Data Box Edge y la red de centros de datos.
+A continuación, encontrará los requisitos previos para configurar su recurso de Data Box Edge, el dispositivo Data Box Edge y la red de centros de datos.
 
 ### <a name="for-the-data-box-edge-resource"></a>Para el recurso de Data Box Edge
 
@@ -63,10 +63,9 @@ Antes de comenzar, asegúrese de que:
 ### <a name="for-the-data-box-edge-device"></a>Para el dispositivo de Data Box Edge
 
 Antes de implementar un dispositivo físico, asegúrese de que:
-
 - Tiene una ranura 1 U disponible en un bastidor estándar de 19" en su centro de datos para montar el dispositivo. 
-- Asegúrese de que tiene acceso a una superficie de trabajo plana, estable y nivelada en la que el dispositivo pueda apoyarse con seguridad.
-- Compruebe que la ubicación en la que desea efectuar la instalación del dispositivo dispone de alimentación de CA estándar de una fuente independiente o una unidad de distribución de energía (PDU) en bastidor con una fuente de alimentación ininterrumpida (UPS).
+- Tiene acceso a una superficie de trabajo plana, estable y nivelada en la que el dispositivo pueda apoyarse con seguridad.
+- La ubicación en la que desea efectuar la instalación del dispositivo dispone de corriente alterna estándar de una fuente independiente o una unidad de distribución de energía (PDU) en bastidor con un sistema de alimentación ininterrumpida (UPS).
 - Tiene acceso a un dispositivo físico.
 
 
@@ -84,11 +83,11 @@ Realice los siguientes pasos para crear un nuevo recurso de Data Box Edge.
 
 Si ya tiene un recurso de Data Box Edge para administrar el dispositivo físico, omita este paso y vaya a [Obtención de la clave de activación](#get-the-activation-key).
 
-Siga estos pasos en Azure Portal para crear un recurso de Data Box.
+Siga estos pasos en Azure Portal para crear un recurso de Data Box Edge.
 
 1. Use sus credenciales de Microsoft Azure para iniciar sesión en el Portal de vista previa de Azure, en esta dirección URL: [https://aka.ms/databox-edge](https://aka.ms/databox-edge). 
 
-2. Seleccione la suscripción que desea usar para la versión preliminar de Data Box Edge. Seleccione la región donde desea implementar el recurso Data Box Edge. En la opción de **Data Box Edge**, haga clic en **Crear**.
+2. Seleccione la suscripción que desea usar para la versión preliminar de Data Box Edge. Seleccione la región donde desea implementar el recurso Data Box Edge. En la opción **Data Box Edge**, haga clic en **Crear**.
 
     ![Búsqueda del servicio Data Box Edge](media/data-box-edge-deploy-prep/data-box-edge-sku.png)
 
@@ -96,25 +95,25 @@ Siga estos pasos en Azure Portal para crear un recurso de Data Box.
     
     |Configuración  |Valor  |
     |---------|---------|
-    |Nombre del recurso   | Nombre descriptivo que identifique el recurso.<br>El nombre del recurso tiene entre 2 y 50 caracteres que contiene letras, números y guiones.<br> El nombre comienza y termina con una letra o un número.        |
+    |Nombre del recurso   | Nombre descriptivo que identifique el recurso.<br>El nombre del recurso tiene entre 2 y 50 caracteres y contiene letras, números y guiones.<br> El nombre comienza y termina con una letra o un número.        |
     |Subscription    |La suscripción está vinculada a la cuenta de facturación. |
     |Grupos de recursos  |Cree un nuevo grupo o seleccione uno existente.<br>Más información sobre los [grupos de recursos de Azure](../azure-resource-manager/resource-group-overview.md).     |
     |Ubicación     |En esta versión están disponibles Europa Occidental, Este de EE. UU., Oeste de EE.UU. 2, Sudeste Asiático y Europa Occidental. <br> Elija la ubicación más cercana a la región geográfica donde quiera implementar el dispositivo.|
     
     ![Creación de un recurso de Data Box Edge](media/data-box-edge-deploy-prep/data-box-edge-resource.png)
     
-4. Haga clic en **OK**.
+4. Seleccione **Aceptar**.
  
-Se tarda unos minutos en crear el recurso. Recibirá una apropiada cuando el servicio se cree correctamente.
+Se tarda unos minutos en crear el recurso. Recibirá una notificación apropiada cuando el servicio se cree correctamente.
 
 
 ## <a name="get-the-activation-key"></a>Obtención de la clave de activación
 
 Cuando el recurso de Data Box Edge esté en funcionamiento, deberá obtener la clave de activación. Esta clave se utiliza para activar y conectar el dispositivo de Data Box Edge con el recurso. Puede obtener esta clave ahora mientras está en Azure Portal.
 
-1. Haga clic en el recurso que ha creado y, a continuación, haga clic en **Información general**.
+1. Seleccione el recurso que ha creado y, a continuación, seleccione **Información general**.
 
-2. Haga clic en **Generar clave** para crear una nueva clave de activación. Haga clic en el icono de copia para copiar la clave y guárdela para su uso posterior.
+2. Haga clic en **Generar clave** para crear una nueva clave de activación. Seleccione el icono de copia para copiar la clave y guárdela para su uso posterior.
 
     ![Obtención de la clave de activación](media/data-box-edge-deploy-prep/get-activation-key.png)
 
@@ -127,13 +126,13 @@ Cuando el recurso de Data Box Edge esté en funcionamiento, deberá obtener la c
 En este tutorial, ha obtenido información acerca de varios temas relacionados con Data Box Edge, como:
 
 > [!div class="checklist"]
-> * Crear un nuevo recurso
+> * Creación de un nuevo recurso
 > * Obtención de la clave de activación
 
 En el siguiente tutorial aprenderá a instalar un dispositivo de Data Box Edge. 
 
 > [!div class="nextstepaction"]
-> [Instalación de un dispositivo de Data Box Edge](./data-box-edge-deploy-install.md)
+> [Instalación de Data Box Edge](./data-box-edge-deploy-install.md)
 
 
 

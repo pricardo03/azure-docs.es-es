@@ -3,18 +3,16 @@ title: 'Tutorial: Diseño de una base de datos de Azure Database for MariaDB con
 description: En este tutorial se explica cómo crear y administrar un servidor y una base de datos de Azure Database for MariaDB con Azure Portal.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: 20714bed5c36cd93d11cb4ade6640798775f5055
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 23af00b8a8e061056e9b7ad8ea2c999414783ad6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322063"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538113"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Tutorial: Diseño de una base de datos de Azure Database for MariaDB con Azure Portal
 
@@ -56,7 +54,7 @@ Se crea un servidor de Azure Database for MariaDB con un conjunto definido de [r
     Grupos de recursos | **myresourcegroup** | Escriba un nuevo nombre de grupo de recursos o seleccione uno existente.
     Seleccionar origen | **En blanco** | Seleccione **En blanco** para crear un servidor. (Si va a crear un servidor a partir de una copia de seguridad geográfica de un servidor de Azure Database for MariaDB existente, seleccione **Backup**).
     Inicio de sesión de administrador de servidor | **myadmin** | Una cuenta de inicio de sesión para usar al conectarse al servidor. El nombre de inicio de sesión de administrador no puede ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ni **public**.
-    Contraseña | *la que elija* | Escriba una nueva contraseña para la cuenta de administrador del servidor. Debe tener entre 8 y 128 caracteres. La contraseña debe contener caracteres de tres de las siguientes categorías: letras en mayúsculas del alfabeto inglés, letras en minúscula del alfabeto inglés, números (0-9) y caracteres no alfanuméricos (!, $, #, %, etc.).
+    Contraseña | *la que elija* | Escriba una nueva contraseña para la cuenta de administrador del servidor. Debe tener entre 8 y 128 caracteres. La contraseña debe contener caracteres de tres de las siguientes categorías: Letras del alfabeto inglés mayúsculas y minúsculas, números (0-9) y caracteres no alfanuméricos (!, $, #, %, etc.).
     Confirmar contraseña | *la que elija*| Confirme la contraseña de la cuenta de administrador.
     Ubicación | *la región más cercana a los usuarios*| Elija la ubicación más cercana a los usuarios o a sus otras aplicaciones de Azure.
     Versión | *la versión más reciente*| La versión más reciente (a menos que tenga requisitos específicos para el uso de una versión diferente).
@@ -172,7 +170,7 @@ Imagine que ha eliminado por accidente una tabla de base de datos importante y n
    ![Formulario de restauración](./media/tutorial-design-database-using-portal/2-restore-form.png)
    
    - **Punto de restauración**: seleccione un momento dado al que quiera restaurar, en el período de tiempo que aparece. Asegúrese de que convertir la zona horaria local a UTC.
-   - **Restaurar en el servidor nuevo**: escriba un nuevo nombre de servidor en el que restaurar.
+   - **Restaurar en el servidor nuevo**: escriba un nuevo nombre de servidor donde se realizará la restauración.
    - **Ubicación**: la región es la misma que la del servidor de origen y no se puede cambiar.
    - **Plan de tarifa**: es el mismo que el del servidor de origen y no se puede cambiar.
    

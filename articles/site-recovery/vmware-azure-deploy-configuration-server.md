@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: mayg
-ms.openlocfilehash: 58d45036cac6ad985b7b1ffb2736a500fdcb5ce2
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 1efbd6bfb6f3bc3e5deae058b542f665b3153cdb
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251035"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794361"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar un servidor de configuración
 
@@ -97,7 +97,7 @@ Si desea agregar una NIC adicional al servidor de configuración, hágalo antes 
 
 ### <a name="configure-settings"></a>Definición de la configuración
 
-1. En el asistente para la administración del servidor de configuración, seleccione **Configurar conectividad** y, a continuación, seleccione la NIC que el servidor de procesos usará para recibir el tráfico de replicación de las VM. Después, seleccione **Guardar**. Una vez configurada, esta opción no se puede cambiar.
+1. En el asistente para la administración del servidor de configuración, seleccione **Configurar conectividad** y, a continuación, seleccione la NIC que el servidor de procesos usará para recibir el tráfico de replicación de las VM. Después, seleccione **Guardar**. Una vez configurada, esta opción no se puede cambiar. Es absolutamente recomendable no cambiar la dirección IP de un servidor de configuración. Asegúrese de que la dirección IP asignada al servidor de configuración sea una dirección IP ESTÁTICA y no una dirección IP de DHCP.
 2. En **Seleccionar almacén de Recovery Services**, inicie sesión en Microsoft Azure, seleccione la suscripción de Azure y el grupo de recursos y almacén correspondientes.
 
     > [!NOTE]
@@ -150,7 +150,11 @@ Para evitar interrupciones en la replicación en curso, asegúrese de que la dir
     En **Almacén de Recovery Services**,**Administrar** > **Infraestructura de Site Recovery** > **Servidores de configuración**. En Servidores, seleccione **Descargar clave de registro** para descargar el archivo de credenciales de almacén.
 8. ¿Puedo clonar un servidor de configuración existente y usarlo para la orquestación de replicación?
 
-    **No**, no se admite el uso de componentes del servidor de configuración clonados. 
+    **No**, no se admite el uso de componentes del servidor de configuración clonados.
+
+9. ¿Puedo cambiar la dirección IP del servidor de configuración?
+
+    **No**, es absolutamente recomendable no cambiar la dirección IP de un servidor de configuración. Asegúrese de que todas las direcciones IP asignadas al servidor de configuración sean direcciones IP estáticas y no direcciones IP de DHCP.
 
 ## <a name="troubleshoot-deployment-issues"></a>Solución de problemas de implementación
 

@@ -1,5 +1,5 @@
 ---
-title: Prueba de una solución en Azure para administrar los dispositivos IoT industriales | Microsoft Docs
+title: Prueba de una solución para administrar los dispositivos IoT industriales en Azure | Microsoft Docs
 description: En este inicio rápido, va a implementar el acelerador de soluciones Connected Factory de Azure IoT, y va a iniciar sesión y usar el panel de soluciones.
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 8cb604aee39f651770cb708f8dd92b6fbc0921f5
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: d02e72a46e2bec69792eacef673c779310561f83
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139032"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602654"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Inicio rápido: Prueba de una solución basada en la nube para administrar los dispositivos IoT industriales
 
@@ -76,7 +76,7 @@ Un panel **Eficiencia general del equipo** muestra los valores de OEE de toda la
 
 [![Eficiencia general del equipo](./media/quickstart-connected-factory-deploy/oee-inline.png)](./media/quickstart-connected-factory-deploy/oee-expanded.png#lightbox)
 
-OEE evalúa la eficiencia del proceso de fabricación mediante parámetros de operaciones clave relacionados con la producción. OEE es una medida estándar de la industria que se calcula multiplicando la tasa de disponibilidad, la tasa de rendimiento y la tasa de calidad: OEE = disponibilidad x rendimiento x calidad.
+OEE evalúa la eficiencia del proceso de fabricación mediante parámetros de operaciones clave relacionados con la producción. OEE es una medida estándar del sector que se calcula multiplicando la tasa de disponibilidad, la tasa de rendimiento y la tasa de calidad: OEE = disponibilidad x rendimiento x calidad.
 
 Puede analizar más a fondo los valores de OEE de cualquier nivel de datos de la jerarquía. Haga clic en la esfera de OEE, disponibilidad, rendimiento o porcentaje de calidad. Aparece un panel contextual con visualizaciones que muestran datos a lo largo de diferentes escalas de tiempo:
 

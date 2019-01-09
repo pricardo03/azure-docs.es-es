@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.openlocfilehash: 1c2a61ba936fa86bb3acb560909b29cda762693c
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 44ad80732d1e874ccec4ecc376b9ce9b513a3aa9
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166581"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652378"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Tutorial: Uso de Apache Storm con Apache Kafka en HDInsight
 
@@ -37,9 +37,9 @@ En este tutorial, aprenderá a:
 
 * Debe estar familiarizado con la creación de temas de Kafka. Para más información, consulte el documento [Inicio de Apache Kafka en HDInsight](./kafka/apache-kafka-get-started.md).
 
-* Debe estar familiarizado con la compilación e implementación de soluciones (topologías) de Storm. En concreto, las topologías que utiliza el marco [Flux](https://storm.apache.org/releases/current/flux.html). Para más información, consulte el documento [Crear una topología de Apache Storm en Java](./storm/apache-storm-develop-java-topology.md).
+* Debe estar familiarizado con la compilación e implementación de soluciones (topologías) de Storm. En concreto, las topologías que usan el marco [Flux para Apache Storm](https://storm.apache.org/releases/current/flux.html). Para más información, consulte el documento [Crear una topología de Apache Storm en Java](./storm/apache-storm-develop-java-topology.md).
 
-* [Java JDK 1.8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) o versiones posteriores. HDInsight 3.5 y versiones posteriores requieren Java 8.
+* [Java JDK 1.8](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) o versiones posteriores. HDInsight 3.5 y versiones posteriores requieren Java 8.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -54,7 +54,7 @@ Pueden establecer las siguientes variables de entorno al instalar Java y el JDK 
     * `JAVA_HOME\bin` (o la ruta de acceso equivalente).
     * Directorio en el que esté instalado Maven.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Los pasos que se describen en este documento requieren un grupo de recursos de Azure que contiene un clúster Storm en HDInsight y un clúster Kafka en HDInsight. Estos dos clústeres se encuentran en una instancia de Azure Virtual Network, lo que permite al clúster Storm comunicarse directamente con el clúster Kafka.
 > 
 > Para su comodidad, este documento está vinculado con una plantilla que puede crear todos los recursos de Azure necesarios. 
@@ -124,7 +124,7 @@ Se proporcionan dos topologías con este tutorial:
 
 * Kafka-reader: lee los datos de Kafka y, luego, los almacena en el almacén de archivos compatible con HDFS para el clúster de Storm.
 
-    > [!WARNING] 
+    > [!WARNING]  
     > Para permitir que Storm funcione con el almacenamiento compatible con HDFS que usa HDInsight, se necesita una acción de script. El script instala varios archivos jar en la ruta `extlib` para Storm. La plantilla de este tutorial usará automáticamente el script durante la creación del clúster.
     >
     > Si no utiliza la plantilla de este documento para crear el clúster de Storm, debe aplicar manualmente la acción del script en el clúster.
@@ -141,7 +141,7 @@ Los siguientes parámetros se establecen en tiempo de ejecución para estas topo
 
 * `${kafka.zookeeper.hosts}`: los hosts donde se ejecuta Zookeeper en el clúster de Kafka.
 
-* `${hdfs.url}`: la dirección URL del sistema de archivos para el componente HDFSBolt. Indica si los datos se escriben en una cuenta de Azure Storage o en Azure Data Lake Store.
+* `${hdfs.url}`: la dirección URL del sistema de archivos para el componente HDFSBolt. Indica si los datos se escriben en una cuenta de Azure Storage o en Azure Data Lake Storage.
 
 * `${hdfs.write.dir}`: el directorio en el que se escriben los datos.
 
@@ -373,7 +373,7 @@ El proyecto contiene un archivo denominado `dev.properties` que se utiliza para 
 | `kafka.broker.hosts` | Los hosts de agente de Kafka (nodos de trabajo). |
 | `kafka.topic` | El tema de Kafka que usan las topologías. |
 | `hdfs.write.dir` | El directorio en el que escribe la topología Kafka-reader. |
-| `hdfs.url` | El sistema de archivos que usa el clúster de Storm. Para las cuentas de Azure Storage, use un valor de `wasb:///`. Para las cuentas de Azure Data Lake Store, use un valor de `adl:///`. |
+| `hdfs.url` | El sistema de archivos que usa el clúster de Storm. Para las cuentas de Azure Storage, use un valor de `wasb:///`. Para Azure Data Lake Storage, use un valor de `adl:///`. |
 
 ## <a name="create-the-clusters"></a>Creación de los clústeres
 
@@ -383,7 +383,7 @@ En el diagrama siguiente, se muestra cómo fluye la comunicación entre Storm y 
 
 ![Diagrama de clústeres Storm y Kafka en una red virtual de Azure](./media/hdinsight-apache-storm-with-kafka/storm-kafka-vnet.png)
 
-> [!NOTE]
+> [!NOTE]  
 > Se puede tener acceso a otros servicios del clúster, como SSH y [Apache Ambari](https://ambari.apache.org/), a través de Internet. Para más información sobre los puertos públicos disponibles en HDInsight, consulte [Puertos e identificadores URI usados en HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
 Para crear una instancia de Azure Virtual Network y, posteriormente, crear clústeres de Kafka y Storm dentro de ella, siga estos pasos:
@@ -400,7 +400,7 @@ Para crear una instancia de Azure Virtual Network y, posteriormente, crear clús
     * Kafka en HDInsight versión 3.6 (tres nodos de trabajo)
     * Storm en HDInsight versión 3.6 (tres nodos de trabajo)
 
-  > [!WARNING]
+  > [!WARNING]  
   > Para garantizar la disponibilidad de Kafka en HDInsight, el clúster debe contener al menos tres nodos de trabajo. Esta plantilla crea un clúster de Kafka que contiene tres nodos de trabajo.
 
 2. Utilice la guía siguiente para rellenar las entradas de la sección **Implementación personalizada**:
@@ -425,7 +425,7 @@ Para crear una instancia de Azure Virtual Network y, posteriormente, crear clús
 
 4. Por último, active **Anclar al panel** y seleccione **Adquirir**.
 
-> [!NOTE]
+> [!NOTE]  
 > Los clústeres pueden tardar hasta 20 minutos en crearse.
 
 ## <a name="build-the-topology"></a>Generación de la topología
@@ -463,7 +463,7 @@ Para crear una instancia de Azure Virtual Network y, posteriormente, crear clús
     ($brokerHosts -join ":9092,") + ":9092"
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > En el siguiente ejemplo de Bash se da por supuesto que `$CLUSTERNAME` contiene el nombre del clúster de __Kafka__. También se supone que está instalado [jq](https://stedolan.github.io/jq/) versión 1.5 o posterior. Cuando se le solicite, escriba la contraseña de la cuenta de inicio de sesión del clúster.
 
     ```bash
@@ -474,7 +474,7 @@ Para crear una instancia de Azure Virtual Network y, posteriormente, crear clús
 
         wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Aunque puede haber más de dos hosts de agente para el clúster, no es necesario proporcionar una lista completa de los hosts a los clientes. Con uno o dos es suficiente.
 
 2. Use uno de los métodos siguientes para detectar los hosts de agente de Zookeeper para __Kafka__ en el clúster de HDInsight:
@@ -490,7 +490,7 @@ Para crear una instancia de Azure Virtual Network y, posteriormente, crear clús
     ($zookeeperHosts -join ":2181,") + ":2181"
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > En el siguiente ejemplo de Bash se da por supuesto que `$CLUSTERNAME` contiene el nombre del clúster de __Kafka__. También se supone que [jq](https://stedolan.github.io/jq/) está instalado. Cuando se le solicite, escriba la contraseña de la cuenta de inicio de sesión del clúster.
 
     ```bash
@@ -501,7 +501,7 @@ Para crear una instancia de Azure Virtual Network y, posteriormente, crear clús
 
         zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Aunque haya más de dos nodos de Zookeeper, no es necesario proporcionar una lista completa de los hosts a los clientes. Con uno o dos es suficiente.
 
     Guarde este valor, porque se usará más adelante.
@@ -512,8 +512,8 @@ Para crear una instancia de Azure Virtual Network y, posteriormente, crear clús
         kafka.broker.hosts: wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
         kafka.topic: stormtopic
 
-    > [!IMPORTANT]
-    > La entrada `hdfs.url` está configurada para un clúster que usa una cuenta de Azure Storage. Para usar esta topología con un clúster de Storm que utiliza Data Lake Store, cambie este valor de `wasb` a `adl`.
+    > [!IMPORTANT]  
+    > La entrada `hdfs.url` está configurada para un clúster que usa una cuenta de Azure Storage. Para usar esta topología con un clúster de Storm que emplea Data Lake Storage, cambie este valor de `wasb` a `adl`.
 
 4. Guarde el archivo `dev.properties` y, después, use el siguiente comando para cargarlo en el clúster de **Storm**:
 
@@ -630,7 +630,7 @@ Para quitar el grupo de recursos mediante Azure Portal:
 2. Busque el grupo de recursos que desea eliminar y haga clic con el botón derecho en __Más__ (...) en el lado derecho de la lista.
 3. Seleccione __Eliminar grupo de recursos__ y confirme la elección.
 
-> [!WARNING]
+> [!WARNING]  
 > La facturación del clúster de HDInsight se inicia una vez creado el clúster y solo se detiene cuando se elimina. Se facturan por minuto realizando una prorrata, por lo que siempre debe eliminar aquellos que ya no se estén utilizando.
 > 
 > Al eliminar un clúster de Kafka en HDInsight se eliminan todos los datos almacenados en Kafka.

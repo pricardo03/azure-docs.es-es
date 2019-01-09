@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 78e56286e0dec3307c7481a6097c53a1362f57cc
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: fb2ec4802ad2ecf25a8fca031553c8209dc4267d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427529"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791326"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutorial: Cableado y conexión de un dispositivo Azure Data Box
 
@@ -29,7 +29,7 @@ En este tutorial, aprenderá a:
 
 Antes de comenzar, asegúrese de que:
 
-1. Ha completado el [Tutorial: Pedido de Azure Data Box](data-box-deploy-ordered.md).
+1. Ha completado el [Tutorial: Realización de pedidos de Azure Data Box](data-box-deploy-ordered.md).
 2. Ha recibido su dispositivo Data Box y el estado del pedido en el portal se actualiza a **Delivered** (Entregado). 
     - Hay una etiqueta de envío en el bolsillo transparente adherida al dispositivo bajo la etiqueta actual. Manténgala en un lugar seguro, ya que la usará para el envío de devolución.
     - Algunas regiones de Europa pueden recibir el dispositivo empaquetado en una caja. Asegúrese de desempaquetar el dispositivo y guarde la caja para posibles devoluciones.
@@ -69,7 +69,7 @@ Realice los pasos siguientes para cablear el dispositivo.
 Realice los pasos siguientes para configurar el dispositivo mediante la interfaz de usuario web local y la interfaz de usuario del portal.
 
 1. Configure el adaptador Ethernet en portátil que usa para conectarse al dispositivo con la dirección IP estática 192.168.100.5 y la subred 255.255.255.0. 
-2. Conéctese al puerto MGMT del dispositivo y acceda a la interfaz de usuario web local en https://192.168.100.10. Esto puede tardar hasta 5 minutos tras encender el dispositivo.
+2. Conéctese al puerto MGMT del dispositivo y acceda a la interfaz de usuario web local en https\://192.168.100.10. Esto puede tardar hasta 5 minutos tras encender el dispositivo.
 3. Haga clic en **Details** (Detalles) y haga clic en **Go on to the webpage** (Continuar a la página web).
 
    ![Conexión a la interfaz de usuario web local](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png) 

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 349298ba30de5540d5c86c81f483a1bd344dba9c
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a896c949e1f05a5d9ee179fa475150ad8da34283
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497268"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792788"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Uso del servidor de historial de Apache Spark extendido para depurar y diagnosticar las aplicaciones de Spark
 
@@ -26,7 +26,7 @@ El servidor de historial de Apache Spark es la interfaz de usuario web para apli
 
 ### <a name="open-the-apache-spark-history-server-web-ui-from-azure-portal"></a>Apertura de la interfaz de usuario web del servidor de historial de Apache Spark desde Azure Portal
 
-1. En [Azure Portal](https://portal.azure.com/), abra el clúster de Spark. Para obtener más información, consulte [Enumeración y visualización de clústeres](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+1. En [Azure Portal](https://portal.azure.com/), abra el clúster de Spark. Para obtener más información, consulte [Enumeración y visualización de clústeres](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. En **Vínculos rápidos**, haga clic en **Panel de clúster** y después en **Servidor de historial de Spark**. Cuando se le pida, escriba las credenciales de administrador del clúster Spark. 
 
     ![Servidor de historial de Spark](./media/apache-azure-spark-history-server/launch-history-server.png "Servidor de historial de Spark")
@@ -106,11 +106,11 @@ Seleccione el identificador del trabajo y haga clic en **Graph** (Gráfico) en e
 
 + Haga clic en el botón **Playback** (Reproducir) para reproducir el trabajo o en Stop (Detener) para detenerlo en cualquier momento. La visualización de tareas en color para mostrar diferentes estados durante la reproducción:
 
-    + Verde para correcto: el trabajo se ha completado correctamente.
-    + Naranja para reintento: instancias de tareas que no se pudieron realizar pero que no afectan al resultado final del trabajo. Estas tareas tenían instancias duplicadas o que se volvieron a intentar que podrían completarse con éxito más tarde.
-    + Azul para en ejecución: la tarea está en ejecución.
-    + Blanco para omisión o en espera: la tarea está esperando a ejecutarse o se ha omitido la fase.
-    + Rojo para error: la tarea ha generado errores.
+    + Verde para correcto: El trabajo se completó correctamente.
+    + Naranja para reintentado: Las instancias de tareas que no se pudieron realizar pero que no afectan al resultado final del trabajo. Estas tareas tenían instancias duplicadas o que se volvieron a intentar que podrían completarse con éxito más tarde.
+    + Azul para en ejecución: La tarea se está ejecutando.
+    + Blanco para en espera u omitido: La tarea está esperando a ejecutarse o se ha omitido la fase.
+    + Rojo para error: Error en la tarea.
 
     ![Ejemplo de color de gráfico: en ejecución](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
  
@@ -119,7 +119,7 @@ Seleccione el identificador del trabajo y haga clic en **Graph** (Gráfico) en e
 
     ![Ejemplo de color de gráfico: en ejecución: error](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
  
-    > [!NOTE]
+    > [!NOTE]  
     > Se permite la reproducción de cada trabajo. No se admite la reproducción de un trabajo incompleto.
 
 
@@ -132,8 +132,8 @@ Seleccione el identificador del trabajo y haga clic en **Graph** (Gráfico) en e
     ![información sobre herramientas del gráfico](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
 
 + En la pestaña del gráfico del trabajo, las fases tendrán información sobre herramientas y un icono pequeño si tienen tareas que cumplen las siguientes condiciones:
-    + Asimetría de datos: tamaño de lectura de datos > tamaño promedio de lectura de datos de todas las tareas de esta fase * 2 y tamaño de lectura de datos > 10 MB
-    + Desfase horario: tiempo de ejecución > tiempo de ejecución promedio de todas las tareas de esta fase * 2 y tiempo de ejecución > 2 minutos
+    + Asimetría de datos: tamaño de lectura de datos > tamaño promedio de lectura de datos de todas las tareas de esta fase * 2 y tamaño de lectura de datos > 10 MB.
+    + Desfase horario: tiempo de ejecución > tiempo de ejecución promedio de todas las tareas de esta fase * 2 y tiempo de ejecución > 2 minutos.
 
     ![icono de desfase de gráfico](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
@@ -147,10 +147,10 @@ Seleccione el identificador del trabajo y haga clic en **Graph** (Gráfico) en e
     + Recuento de filas: la suma de registros de entrada, registros de salida, registros de lectura aleatorios y registros de escritura aleatorios.
     + Progreso.
 
-    > [!NOTE]
+    > [!NOTE]  
     > De forma predeterminada, el nodo del gráfico de trabajos muestra información desde el último intento de cada fase (excepto el tiempo de ejecución de la fase), pero durante el nodo del gráfico de reproducción muestra información de cada intento.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Para el tamaño de los datos de lectura y escritura se usa 1 MB = 1000 KB = 1000 * 1000 bytes.
 
 + Haga clic en **Provide us feedback** (Proporcione sus comentarios) para enviar comentarios sobre problemas.
@@ -168,7 +168,7 @@ Seleccione el identificador del trabajo y haga clic en **Diagnosis** (Diagnósti
 ### <a name="data-skew"></a>Asimetría de datos
 Haga clic en la pestaña **Data Skew** (Asimetría de datos) para mostrar las tareas con desfase según los parámetros especificados. 
 
-+ **Specify Parameters** (Especificar parámetros): la primera sección muestra los parámetros que se usan para detectar la asimetría de datos. La regla integrada es: datos de lectura de la tarea es mayor que 3 veces el promedio de datos de lectura y datos de lectura de la tarea es mayor que 10MB. Si desea definir su propia regla para las tareas con desfase, puede elegir los parámetros y las secciones **Skewed Stage** (Fase sesgada) y **Skew Chart** (Gráfico de desfase) se actualizarán según corresponda.
++ **Specify Parameters** (Especificar parámetros): la primera sección muestra los parámetros que se usan para detectar la asimetría de datos. La regla integrada es: La lectura de datos de tarea es 3 veces mayor que la lectura de datos de tarea promedio y la lectura de datos de tarea es mayor que 10MB. Si desea definir su propia regla para las tareas con desfase, puede elegir los parámetros y las secciones **Skewed Stage** (Fase sesgada) y **Skew Chart** (Gráfico de desfase) se actualizarán según corresponda.
 
 + **Skewed Stage** (Fase sesgada): la segunda sección muestra las fases que tienen tareas con desfase que cumplen los criterios especificados anteriormente. Si hay más de una tarea con desfase en una fase, la tabla de fases sesgadas muestra solo la tarea más sesgada (por ejemplo, los datos más grandes con asimetría de datos).
 

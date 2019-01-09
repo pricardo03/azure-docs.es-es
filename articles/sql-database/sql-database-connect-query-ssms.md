@@ -4,7 +4,7 @@ description: Aprenda a conectarse a SQL Database en Azure con SQL Server Managem
 keywords: conexión a base de datos sql,sql server management studio
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: ''
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -13,16 +13,16 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: b3342164aec49967e819c316827dca9a65f2674f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 636adcf15479fe8e072b833b59ddc78b5f820550
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098964"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745081"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Guía de inicio rápido: uso de SQL Server Management Studio para conectarse a una base de datos de Azure SQL Database y realizar consultas en ella
 
-Puede usar [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) para administrar cualquier infraestructura de SQL, desde SQL Server a SQL Database para Microsoft Windows. En esta guía de inicio rápido se muestra cómo usar SSMS para conectarse a una base de datos de Azure SQL Database y después ejecutar instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos. 
+En este inicio rápido usará [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) para conectarse a una instancia de Azure SQL Database. Después, usará instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos. Puede usar SSMS para administrar cualquier infraestructura de SQL, desde SQL Server a SQL Database para Microsoft Windows.  
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -75,11 +75,11 @@ En SMSS, conéctese al servidor de Azure SQL Database.
 
 ## <a name="query-data"></a>Datos de consulta
 
-Use el código Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) siguiente para consultar los 20 primeros productos por categoría.
+Ejecute el código Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) para consultar los 20 primeros productos por categoría.
 
-1. En el Explorador de objetos, haga clic con el botón derecho en **mySampleDatabase** y seleccione **Nueva consulta**. Se abre una ventana de consulta en blanco que está conectada a la base de datos.
+1. En el Explorador de objetos, haga clic con el botón derecho en **mySampleDatabase** y seleccione **Nueva consulta**. Se abre una ventana de consulta conectada a la base de datos.
 
-1. En la ventana de consulta, pegue esta consulta SQL.
+2. En la ventana de consulta, pegue esta consulta SQL.
 
    ```sql
    SELECT pc.Name as CategoryName, p.name as ProductName
@@ -94,9 +94,9 @@ Use el código Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189499
 
 ## <a name="insert-data"></a>Insertar datos
 
-Use el siguiente código Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) para crear un nuevo producto en la tabla `SalesLT.Product`.
+Ejecute el código Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) para crear un nuevo producto en la tabla `SalesLT.Product`.
 
-1. Reemplace la consulta anterior por esta.
+1. Reemplace la consulta anterior por esta otra.
 
    ```sql
    INSERT INTO [SalesLT].[Product]
@@ -117,11 +117,11 @@ Use el siguiente código Transact-SQL [INSERT](https://msdn.microsoft.com/librar
            ,GETDATE() );
    ```
 
-2. Seleccione **Ejecutar** para insertar una nueva fila en la tabla de productos. El panel **Mensajes** muestra **(1 fila afectada)**.
+2. Seleccione **Ejecutar** para insertar una nueva fila en la tabla `Product`. El panel **Mensajes** muestra **(1 fila afectada)**.
 
 ## <a name="view-the-result"></a>Visualización del resultado
 
-1. Reemplace la consulta anterior por esta.
+1. Reemplace la consulta anterior por esta otra.
 
    ```sql
    SELECT * FROM [SalesLT].[Product] 
@@ -134,7 +134,7 @@ Use el siguiente código Transact-SQL [INSERT](https://msdn.microsoft.com/librar
  
 ## Update data
 
-Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify the new product you just added.
+Run this [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify your new product.
 
 1. Replace the previous query with this one.
 
@@ -144,20 +144,20 @@ Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Tra
    WHERE Name = 'myNewProduct';
    ```
 
-2. Seleccione **Ejecutar** para actualizar la fila especificada en la tabla de productos. El panel **Mensajes** muestra **(1 fila afectada)**.
+2. Seleccione **Ejecutar** para actualizar la fila especificada en la tabla `Product`. El panel **Mensajes** muestra **(1 fila afectada)**.
 
 ## <a name="delete-data"></a>Eliminación de datos
 
-Use el código Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) siguiente para quitar el producto nuevo que agregó anteriormente.
+Ejecute el código Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) para eliminar el nuevo producto.
 
-1. Reemplace la consulta anterior por esta.
+1. Reemplace la consulta anterior por esta otra.
 
    ```sql
    DELETE FROM [SalesLT].[Product]
    WHERE Name = 'myNewProduct';
    ```
 
-2. Seleccione **Ejecutar** para eliminar la fila especificada en la tabla de productos. El panel **Mensajes** muestra **(1 fila afectada)**.
+2. Seleccione **Ejecutar** para eliminar la fila especificada en la tabla `Product`. El panel **Mensajes** muestra **(1 fila afectada)**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

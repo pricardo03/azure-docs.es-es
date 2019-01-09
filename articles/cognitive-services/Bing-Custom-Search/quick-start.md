@@ -1,7 +1,7 @@
 ---
-title: 'Guía de inicio rápido: Creación de una primera instancia de Bing Custom Search'
+title: 'Inicio rápido: Creación de la primera instancia de Bing Custom Search | Microsoft Docs'
 titlesuffix: Azure Cognitive Services
-description: Para usar Bing Custom Search, debe crear una instancia de búsqueda personalizada que defina la vista o el segmento de la web. La instancia contiene valores que especifican los dominios públicos, subsitios y páginas web que desee que busque Bing, así como los ajustes en la clasificación.
+description: Use este artículo para crear una instancia personalizada de Bing que pueda buscar en los dominios y las páginas web que defina.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,37 +10,46 @@ ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2017
 ms.author: aahi
-ms.openlocfilehash: c9b37486d664920bbc4b85a0715ce7f5ea910365
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: ba1444b3115ffd2c73e1773aa926d11fed81f830
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161556"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556125"
 ---
-# <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Guía de inicio rápido: Creación de la primera instancia de Bing Custom Search
-Para usar Bing Custom Search, debe crear una instancia de búsqueda personalizada que defina la vista o el segmento de la web. La instancia contiene valores que especifican los dominios públicos, sitios web y páginas web que desee que busque Bing, así como los ajustes en la clasificación. Para crear la instancia, utilice el [portal](https://customsearch.ai) de Bing Custom Search. 
+# <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Inicio rápido: Creación de la primera instancia de Bing Custom Search
+
+Para usar Bing Custom Search, debe crear una instancia de búsqueda personalizada que defina la vista o el segmento de la web. La instancia contiene valores que especifican los dominios públicos, sitios web y páginas web donde desea que Bing busque, así como los ajustes en la clasificación. 
+
+Para crear la instancia, utilice el [portal de Bing Custom Search](https://customsearch.ai). 
+
+![Imagen del portal de Bing Custom Search](media/blockedCustomSrch.png)
+
+## <a name="prerequisites"></a>Requisitos previos
+
+[!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
 ## <a name="create-a-custom-search-instance"></a>Creación de una instancia de búsqueda personalizada
 
 Para crear una instancia de Bing Custom Search:
 
-1.  Obtenga una clave para Custom Search API. Consulte [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
-2.  Haga clic en el botón **Iniciar sesión** e inicie sesión en el portal mediante una cuenta de Microsoft (MSA). 
-    - Si no tiene una MSA, haga clic en **Creación de una cuenta Microsoft**. El portal solicita permisos para tener acceso a los datos. Haga clic en **Sí**.
-    - Acepte los términos de Cognitive Services. Active **Acepto** y haga clic en **Acepto**.  
-3.  Después de iniciar sesión, haga clic en **Nueva instancia** y ponga un nombre a la instancia. Utilice un nombre que sea significativo y describa el tipo de contenido que devuelve la búsqueda. Puede cambiar el nombre en cualquier momento. 
-4.  En la pestaña **Activo** de **Experiencia de búsqueda**, escriba la dirección URL de uno o varios sitios web que quiera incluir en la búsqueda.
-5.  Para confirmar que la instancia devuelve resultados, escriba una consulta en el panel de vista previa de la derecha. Si no hay ningún resultado, especifique un nuevo sitio web. Bing devuelve resultados solo de sitios web públicos que se han indexado.
-6.  Haga clic en **Publicar** para publicar los cambios de configuración en producción. Cuando se le solicite, haga clic en **Publicar** para confirmar.
-7.  Haga clic en **Producción** > **Punto de conexión** y copie el valor de **Custom Configuration ID** (Id. de configuración personalizada). Necesita este identificador para llamar a Custom Search API.
+1. Haga clic en **Introducción** en el [portal de Bing Custom Search](https://customsearch.ai) e inicie sesión con su cuenta Microsoft.
+
+2. Haga clic en **New Instance** (Nueva instancia) y escriba un nombre descriptivo. Puede cambiar el nombre en cualquier momento.
+ 
+3. En la pestaña **Activo** de **Experiencia de búsqueda**, escriba la dirección URL de uno o varios sitios web que quiera incluir en la búsqueda. 
+
+    > [!NOTE]
+    > Las instancias de Bing Custom Search solo devolverán los resultados de los dominios y las páginas web que son públicos y Bing haya indexado.
+
+4. Puede usar el lado derecho del portal de Bing Custom Search para escribir una consulta y examinar los resultados de búsqueda que devuelve su instancia de búsqueda. Si no se devuelve ningún resultado, pruebe a escribir una dirección URL diferente.  
+
+5. Haga clic en **Publish** (Publicar) para publicar los cambios en el entorno de producción y actualizar los puntos de conexión de la instancia.
+
+6.  Haga clic en la pestaña **Production** (Producción), en **Endpoints**, (Puntos de conexión) y copie el valor de **Custom Configuration ID** (Id. de configuración personalizada). Necesitará este identificador para anexarlo al parámetro de consulta `customconfig=` en las llamadas de consulta a Custom Search API.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Siga trabajando con la instancia de búsqueda personalizada que acaba de crear siguiendo las instrucciones de estas guías de procedimientos:
-
-- [Configure your custom search experience](./define-your-custom-view.md) (Configuración de la experiencia de búsqueda personalizada)
-- [Call your custom search](./search-your-custom-view.md) (Llamada a la búsqueda personalizada)
-- [Share your custom search](./share-your-custom-search.md) (Uso compartido de la búsqueda personalizada)
-- [Configuración de la experiencia de interfaz de usuario hospedada](./hosted-ui.md)
-- [Uso de marcadores de decoración para resaltar texto](./hit-highlighting.md)
-- [Paginación de páginas web](./page-webpages.md)
+> [!div class="nextstepaction"]
+> [Inicio rápido: Llamada a un punto de conexión de Bing Custom Search](./call-endpoint-csharp.md)

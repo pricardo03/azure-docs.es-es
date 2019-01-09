@@ -1,7 +1,7 @@
 ---
 title: Revisión de expresiones de punto de conexión
 titleSuffix: Azure Cognitive Services
-description: Mejore las predicciones de aplicaciones mediante la comprobación o corrección de las expresiones recibidas mediante el punto de conexión HTTP de LUIS de las que LUIS no está seguro. Algunas expresiones puede que se comprueben para la intención y otras puede que necesiten comprobarse para la entidad. Debe revisar las expresiones de punto de conexión como una parte convencional del mantenimiento programado de LUIS.
+description: Mejore las predicciones de aplicaciones mediante la comprobación o corrección de las expresiones recibidas mediante el punto de conexión HTTP de LUIS de las que LUIS no está seguro. Algunas expresiones puede que se comprueben para la intención y otras puede que necesiten comprobarse para la entidad.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: bc641732d74dac4f566420ada6338362932df4d7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6cbeb44e5dfca84bc85a6be4c4b44cb59bad783a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080459"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53755128"
 ---
-# <a name="tutorial-1-fix-unsure-predictions"></a>Tutorial 1: Corrección de predicciones no seguras
+# <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrección de predicciones poco seguras mediante la revisión de las expresiones del punto de conexión
 En este tutorial, va a mejorar las predicciones de aplicaciones mediante la comprobación o corrección de las expresiones recibidas mediante el punto de conexión HTTPS de LUIS de las que LUIS no está seguro. Algunas expresiones puede que tengan que comprobarse para la intención y otras puede que necesiten comprobarse para la entidad. Debe revisar las expresiones de punto de conexión como una parte convencional del mantenimiento programado de LUIS. 
 
 Este proceso de revisión es otra forma de que LUIS aprenda el dominio de aplicación. LUIS seleccionó las expresiones que aparecen en la lista de revisión. Esta lista:
@@ -33,7 +33,7 @@ Al revisar las expresiones de punto de conexión, debe comprobar o corregir la i
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Usar la aplicación del tutorial existente
+> * Importar la aplicación de ejemplo
 > * Revisar las expresiones de punto de conexión
 > * Actualización de la lista de frases
 > * Entrenamiento de la aplicación
@@ -42,19 +42,19 @@ Al revisar las expresiones de punto de conexión, debe comprobar o corregir la i
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Usar una aplicación existente
+## <a name="import-example-app"></a>Importar la aplicación de ejemplo
 
 Continúe con la aplicación creada en el último tutorial, denominada **HumanResources**. 
 
-Si no tiene la aplicación HumanResources del tutorial anterior, siga estos pasos:
+Para ello, siga los pasos que se describen a continuación:
 
-1.  Descargue y guarde el [archivo JSON de la aplicación](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
+1.  Descargue y guarde el [archivo JSON de la aplicación](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
 
 2. Importe el archivo JSON en una aplicación nueva.
 
 3. Desde la sección **Manage** (Administrar), en la pestaña **Versions** (Versiones), clone la versión y asígnele el nombre `review`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. Dado que el nombre de la versión se usa como parte de la ruta de la dirección URL, el nombre no puede contener ningún carácter que no sea válido en una dirección URL.
 
-    Si utiliza este tutorial como una nueva aplicación importada, también tendrá que entrenar, publicar y, después, agregar las expresiones al punto de conexión con un [script](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) o desde el punto de conexión en un explorador. Las expresiones que se van a agregar son las siguientes:
+    Si utiliza este tutorial como una nueva aplicación importada, también tendrá que entrenar, publicar y, después, agregar las expresiones al punto de conexión con un [script](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) o desde el punto de conexión en un explorador. Las expresiones que se van a agregar son las siguientes:
 
    [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
 

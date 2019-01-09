@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: 8319376c597f16a5bfe1a357d74c59453b797e51
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: cb959bd74322534573f83c2b3258ff28d4c324ff
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495128"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584163"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Tutorial: Streams API de Apache Kafka
 
@@ -22,7 +22,7 @@ Aprenda a crear una aplicación que use Apache Kafka Streams API y ejecútela co
 
 La aplicación que se usa en este tutorial es un recuento de palabras de streaming. Lee datos de texto de un tema de Kafka, extrae las palabras individuales y, a continuación, almacena el recuento de palabras en otro tema de Kafka.
 
-> [!NOTE]
+> [!NOTE]  
 > El procesamiento de flujos de Kafka a menudo se realiza con Apache Spark o Apache Storm. Streams API se incluyó por primera vez en la versión 0.10.0 de Kafka (en HDInsight 3.5 y 3.6). Esta API le permite transformar flujos de datos entre los temas de entrada y de salida. En algunos casos, esta puede ser una alternativa a la creación de una solución de streaming de Spark o Storm. 
 >
 > Para más información sobre Kafka Streams, consulte la documentación de [introducción a Kafka Streams](https://kafka.apache.org/10/documentation/streams/) en Apache.org.
@@ -30,7 +30,7 @@ La aplicación que se usa en este tutorial es un recuento de palabras de streami
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Configuración de su entorno de desarrollo
+> * Configurado su entorno de desarrollo
 > * Comprendiendo el código
 > * Compilar e implementar la aplicación
 > * Configurar temas de Kafka
@@ -42,13 +42,13 @@ En este tutorial, aprenderá a:
 
 * Complete los pasos que se indican en el documento [Producer API y Consumer API de Apache Kafka](apache-kafka-producer-consumer-api.md). Los pasos de este documento utilizan la aplicación y los temas de ejemplo que creó en este tutorial.
 
-## <a name="set-up-your-development-environment"></a>Configuración de su entorno de desarrollo
+## <a name="set-up-your-development-environment"></a>Configurado su entorno de desarrollo
 
 Debe tener los siguientes componentes instalados en el entorno de desarrollo:
 
 * [Java JDK 8](https://aka.ms/azure-jdks) o equivalente, como OpenJDK.
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 * Un cliente de SSH y el comando `scp`. Para más información, vea el documento [Uso de SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -63,7 +63,7 @@ La aplicación de ejemplo se encuentra en [https://github.com/Azure-Samples/hdin
 
 Esto es lo más importante que hay que saber del archivo `pom.xml`:
 
-* Dependencias: este proyecto utiliza Streams API de Kafka que la proporciona el paquete `kafka-clients`. El siguiente código XML define esta dependencia:
+* Dependencias: este proyecto utiliza Streams API de Kafka, que el paquete `kafka-clients` proporciona. El siguiente código XML define esta dependencia:
 
     ```xml
     <!-- Kafka client for producer/consumer operations -->
@@ -74,7 +74,7 @@ Esto es lo más importante que hay que saber del archivo `pom.xml`:
     </dependency>
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > La entrada `${kafka.version}` se declara en la sección `<properties>..</properties>` de `pom.xml` y está configurada para la versión Kafka del clúster de HDInsight.
 
 * Complementos: los complementos de Maven proporcionan varias funcionalidades. En este proyecto, se utilizan los siguientes complementos:
@@ -184,7 +184,7 @@ Use los siguientes pasos para compilar e implementar el proyecto en el clúster 
 
 4. Para crear los temas que emplea la operación de streaming, use los siguientes comandos:
 
-    > [!NOTE]
+    > [!NOTE]  
     > Puede recibir un error que indica que el tema `test` ya existe. Esto es normal, ya que puede que lo haya creado en el tutorial sobre Producer y Consumer API.
 
     ```bash
@@ -202,9 +202,9 @@ Use los siguientes pasos para compilar e implementar el proyecto en el clúster 
     * `test`: este es el tema en el que se reciben los registros. La aplicación de streaming los lee de aquí.
     * `wordcounts`: este es el tema en el que la aplicación de streaming almacena su salida.
     * `RekeyedIntermediateTopic`: este tema se usa para volver a particionar los datos a medida que el operador `countByKey` actualiza el recuento.
-    * `wordcount-example-Counts-changelog`: este tema es un almacén de estados que usa la operación `countByKey`
+    * `wordcount-example-Counts-changelog`: este tema es un almacén de estados que la operación `countByKey` usa.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Kafka en HDInsight se puede también configurar para que cree temas automáticamente. Para más información, consulte el documento [Configure automatic topic creation](apache-kafka-auto-create-topics.md) (Configuración de la creación automática de temas).
 
 ## <a name="run-the-code"></a>Ejecución del código
@@ -215,8 +215,8 @@ Use los siguientes pasos para compilar e implementar el proyecto en el clúster 
     java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS &
     ```
 
-    > [!NOTE]
-    > Puede recibir una advertencia sobre log4j. Puede pasarla por alto.
+    > [!NOTE]  
+    > Puede recibir una advertencia sobre log4j de Apache. Puede pasarla por alto.
 
 2. Para enviar registros al tema `test`, use el comando siguiente para iniciar la aplicación de producción:
 
@@ -230,7 +230,7 @@ Use los siguientes pasos para compilar e implementar el proyecto en el clúster 
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer --from-beginning
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > Los parámetros `--property` indican al consumidor de consola que imprima la clave (palabra) junto con el número (valor). Este parámetro también configura el deserializador que se utilizará al leer estos valores de Kafka.
 
     La salida será similar al siguiente texto:
@@ -248,7 +248,7 @@ Use los siguientes pasos para compilar e implementar el proyecto en el clúster 
         jumped  13640
         jumped  13641
    
-    > [!NOTE]
+    > [!NOTE]  
     > El parámetro `--from-beginning` configura el consumidor para que empiece por el primero de los registros almacenados en el tema. El recuento se incrementa cada vez que se encuentra una palabra, por lo que el tema contiene varias entradas para cada palabra, con un recuento creciente.
 
 7. Use __Ctrl + C__ para salir del productor. Siga usando __Ctrl + C__ para salir de la aplicación y del consumidor.

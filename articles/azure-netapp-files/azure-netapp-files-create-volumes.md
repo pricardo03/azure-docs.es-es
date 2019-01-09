@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/13/2018
+ms.date: 12/17/2018
 ms.author: b-juche
-ms.openlocfilehash: 8fc76c33055f7131444a073d2f8560e136c0701d
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 937ff9cf4c099f229df28070be07ba76339704e0
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413258"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584010"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Creación de un volumen de Azure NetApp Files
 
@@ -62,7 +62,7 @@ Debe haber una subred delegada en Azure NetApp Files.
         Especifique la subred que desea usar para el volumen.  
         La red virtual que especifique debe estar delegada en Azure NetApp Files. 
         
-        Si no ha delegado una subred, haga clic en **Crear nuevo** en el volumen de creación de un volumen. A continuación, en la página de creación de la subred, especifique la información de la subred y seleccione **Microsoft.NetApp/volumes** para delegar la subred para Azure NetApp Files.    
+        Si no ha delegado una subred, haga clic en **Crear nuevo** en el volumen de creación de un volumen. A continuación, en la página de creación de la subred, especifique la información de la subred y seleccione **Microsoft.NetApp/volumes** para delegar la subred para Azure NetApp Files. Tenga en cuenta que, en cada red virtual, solo puede delegarse una subred a Azure NetApp Files.   
  
         ![Nuevo volumen](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     

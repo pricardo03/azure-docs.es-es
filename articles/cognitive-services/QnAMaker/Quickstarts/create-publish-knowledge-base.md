@@ -7,14 +7,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/19/2018
+ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: c57edd897797d4352706283072aa19444948436b
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 4b4f208524f18b98d44dc3d34e05359445fb2f17
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49644792"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598317"
 ---
 # <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>Creación, entrenamiento y publicación de la base de conocimiento de QnA Maker
 
@@ -57,9 +57,7 @@ Puede crear una base de conocimiento (KB) de QnA Maker a partir de contenido pro
 
 11. En la esquina superior derecha, haga clic en **Save and train** (Guardar y entrenar) para guardar las modificaciones y entrenar el modelo de QnA Maker. Las modificaciones no se conservan a menos que se guarden.
 
-   ![Guardar y entrenar](../media/qnamaker-quickstart-kb/add-qna-pair2.png)
-
-12. En la esquina superior derecha, haga clic en **Test** (Probar) para comprobar que los cambios realizados han surtido efecto. Escriba **hi there** (hola) en el cuadro y presione Entrar. Debería ver la respuesta que creó como respuesta.
+12. En la esquina superior derecha, haga clic en **Test** (Probar) para comprobar que los cambios realizados han surtido efecto. Escriba `hi there` (hola) en el cuadro y seleccione Entrar. Debería ver la respuesta que creó como respuesta.
 
 13. Haga clic en **Inspect** (Inspeccionar) para examinar la respuesta con más detalle. La ventana de prueba se usa para probar los cambios realizados en la base de conocimiento antes de que se publiquen.
 

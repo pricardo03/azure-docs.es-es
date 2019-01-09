@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: 1a9034d7cbc276f35c5f01b06f6973553222d1c4
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f2a1cd79a99e16460c96d28ebeb0a2bd68975361
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722384"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794250"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Información sobre la configuración de la copia de seguridad periódica en Azure Service Fabric
 
@@ -138,6 +138,9 @@ Una directiva de copia de seguridad consta de las siguientes configuraciones:
         }
         ```
 
+> [!IMPORTANT]
+> Debido a un problema en el entorno en tiempo de ejecución, debe asegurarse de que la duración de la retención en la directiva de retención se configure para que sea inferior a 24 días, o bien provocará que en el servicio de restauración de copia de seguridad se produzca una pérdida de cuórum posterior a la conmutación por error de la réplica.
+
 ## <a name="enable-periodic-backup"></a>Habilitación de la copia de seguridad periódica
 Después de definir la directiva de copia de seguridad para satisfacer los requisitos de copia de seguridad de datos, la directiva de copia de seguridad debe asociarse correctamente con una _aplicación_, _servicio_ o _partición_.
 
@@ -214,6 +217,11 @@ Cuando ya no sea necesaria la suspensión, la copia de seguridad de datos perió
 * Si se aplicó la suspensión en un _servicio_, se debe reanudar mediante la API para [reanudar copia de seguridad de servicio](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeservicebackup).
 
 * Si se aplicó la suspensión en una _partición_, se debe reanudar mediante la API para [reanudar copia de seguridad de partición](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup).
+
+### <a name="difference-between-suspend-and-disable-backups"></a>Diferencia entre suspender y deshabilitar copias de seguridad
+Deshabilitar copias de seguridad debe usarse cuando las copias de seguridad ya no sean necesarias para una determinada aplicación, servicio o partición. De hecho, se puede invocar la solicitud de deshabilitar copias de seguridad junto con el parámetro de limpiar copias de seguridad establecido en verdadero, lo que significaría que también se eliminarían todas las copias de seguridad existentes. Sin embargo, suspender debe usarse en escenarios donde se desea desactivar las copias de seguridad temporalmente, como cuando se llena el disco local o se producen errores al cargar la copia de seguridad debido a un problema de red conocido. 
+
+Mientras la deshabilitación solo se puede invocar en el nivel en el que la copia de seguridad se había habilitado explícitamente; sin embargo, la suspensión se puede aplicar en cualquier nivel en el que esté habilitada la copia de seguridad ya sea directamente o a través de herencia o jerarquía. Por ejemplo, si está habilitada la copia de seguridad en nivel de aplicación, la deshabilitación se puede invocar solo en el nivel de la aplicación; sin embargo, la suspensión se puede invocar en la aplicación, cualquier servicio o partición de esa aplicación. 
 
 ## <a name="auto-restore-on-data-loss"></a>Restaurar automáticamente en caso de pérdida de datos
 La partición de servicio puede perder datos debido a errores inesperados. Por ejemplo, el disco de dos de las tres réplicas de una partición (incluida la réplica principal) sufre daños o se borra.

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 8/2/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b0d920c1a41ff679c3dedcb6745e250b77cb769a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f07bcf3cb1b489ad7ec06dff1437e49d83748998
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878341"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631174"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Introducción a las características de Azure Backup
 Azure Backup es el servicio de Azure que puede usar para realizar una copia de seguridad de los datos (protegerlos) y recuperarlos en la nube de Microsoft. Reemplaza su solución de copia de seguridad local o remota existente por una solución confiable, segura y rentable basada en la nube. Azure Backup ofrece varios componentes que se descargan e implementan en el equipo o servidor adecuados, o en la nube. El componente, o agente, que se implemente depende de lo que quiera proteger. Todos los componentes de Azure Backup (sin importar si va a proteger los datos de forma local o en la nube) se pueden usar para realizar una copia de seguridad de datos en un almacén de Azure Recovery Services. Para más información sobre qué componente usar para proteger datos, aplicaciones o cargas de trabajo específicos, consulte la [tabla de componentes de Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (más adelante en este artículo).
@@ -80,15 +80,15 @@ En la tabla siguiente se proporciona una matriz de los datos y las cargas de tra
 ## <a name="linux-support"></a>Linux Support
 En la siguiente tabla se muestran los componentes de Azure Backup que son compatibles con Linux.  
 
-| Componente | Linux Support (reconocido por Azure) |
-| --- | --- |
-| Agente de Azure Backup (MARS) |No (solo agente basado en Windows) |
-| System Center DPM |<li> Copia de seguridad coherente con archivo de máquinas virtuales invitadas de Linux en Hyper-V y VMWare<br/> <li> Restauración de máquinas virtuales invitadas de Linux en Hyper-V y VMWare </br> </br>  *Copia de seguridad coherente con archivo no disponible para la máquina virtual de Azure* <br/> |
-| Servidor de Azure Backup |<li>Copia de seguridad coherente con archivo de máquinas virtuales invitadas de Linux en Hyper-V y VMWare<br/> <li> Restauración de máquinas virtuales invitadas de Linux en Hyper-V y VMWare </br></br> *Copia de seguridad coherente con archivo no disponible para la máquina virtual de Azure*  |
-| Copia de seguridad de máquina virtual de IaaS de Azure |Copia de seguridad coherente con la aplicación mediante un [marco de scripts previos y posteriores](backup-azure-linux-app-consistent.md)<br/> [Recuperación de archivos pormenorizada](backup-azure-restore-files-from-vm.md)<br/> [Restauración de todos los discos de máquina virtual](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [Restauración de máquina virtual](backup-azure-arm-restore-vms.md#create-a-new-vm-from-a-restore-point) |
+**Componente** | **Linux (reconocido por Azure)**
+--- | --- 
+Agente de Azure Backup (MARS) | No (solo agente basado en Windows) 
+System Center DPM | Copia de seguridad coherente con archivo de máquinas virtuales invitadas de Linux en Hyper-V y VMWare<br/><br/> Restauración de máquinas virtuales invitadas de Linux en Hyper-V y VMWare</br></br> Copia de seguridad coherente con archivo no disponible para las máquinas virtuales de Azure
+Servidor de Azure Backup | Copia de seguridad coherente con archivo de máquinas virtuales invitadas de Linux en Hyper-V y VMWare<br/><br/> Restauración de máquinas virtuales invitadas de Linux en Hyper-V y VMWare</br></br> Copia de seguridad coherente con archivo no disponible para las máquinas virtuales de Azure 
+Copia de seguridad de máquina virtual de IaaS de Azure | Copia de seguridad coherente con la aplicación mediante un [plataforma de scripts previos y posteriores](backup-azure-linux-app-consistent.md)<br/><br/> [Recuperación de nivel de archivo](backup-azure-restore-files-from-vm.md)<br/><br/> [Creación de una máquina virtual a partir de discos restaurados](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [Creación de una máquina virtual a partir de un punto de recuperación](backup-azure-arm-restore-vms.md#create-new-create-a-vm)
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Uso de máquinas virtuales de Premium Storage con Azure Backup
-Azure Backup protege las máquinas virtuales de Premium Storage. Azure Premium Storage es almacenamiento basado en unidades de estado sólido (SSD) diseñado para admitir cargas de trabajo de E/S intensivas. Premium Storage es adecuado para cargas de trabajo de máquina virtual (VM). Para más información sobre Premium Storage, consulte el artículo [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../virtual-machines/windows/premium-storage.md).
+Azure Backup protege las máquinas virtuales de Premium Storage. Azure Premium Storage es almacenamiento basado en unidades de estado sólido (SSD) diseñado para admitir cargas de trabajo de E/S intensivas. Premium Storage es adecuado para cargas de trabajo de máquina virtual (VM). Para más información sobre Premium Storage, consulte el artículo [Premium Storage: Almacenamiento de alto rendimiento para cargas de trabajo de la máquina virtual de Azure](../virtual-machines/windows/premium-storage.md).
 
 ### <a name="back-up-premium-storage-vms"></a>Copia de seguridad de máquinas virtuales de Premium Storage
 Durante la copia de seguridad de máquinas virtuales de Premium Storage, el servicio Backup crea una ubicación de ensayo temporal, llamada "AzureBackup-" en la cuenta de Premium Storage. El tamaño de la ubicación de ensayo equivale al de la instantánea del punto de recuperación. Asegúrese de que haya espacio disponible suficiente en la cuenta de Premium Storage para dar cabida a la ubicación de ensayo temporal. Para más información, consulte las [limitaciones de Premium Storage](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets). Una vez finalizado el trabajo de copia de seguridad, se elimina la ubicación de ensayo. El precio del almacenamiento utilizado para la ubicación de ensayo es coherente con todos los [precios de Premium Storage](../virtual-machines/windows/premium-storage.md#pricing-and-billing).
@@ -209,7 +209,7 @@ Una instancia protegida es una referencia genérica a un equipo de Windows, un s
 Algunos ejemplos comunes de instancias protegidas son máquinas virtuales, servidores de aplicaciones, bases de datos y equipos personales que ejecutan el sistema operativo Windows. Por ejemplo: 
 
 * Una máquina virtual que ejecuta el tejido de hipervisor de Hyper-V o IaaS de Azure. Los sistemas operativos invitados de la máquina virtual puede ser Windows Server o Linux.
-* Un servidor de aplicaciones: el servidor de aplicaciones puede ser una máquina física o virtual con Windows Server y las cargas de trabajo con los datos de los que es necesario realizar copias de seguridad. Las cargas de trabajo habituales son las siguientes: Microsoft SQL Server, Microsoft Exchange Server, Microsoft SharePoint Server y el rol Servidor de archivos en Windows Server. Para realizar copias de seguridad de estas cargas de trabajo se necesita System Center Data Protection Manager (DPM) o Azure Backup Server.
+* Un servidor de aplicaciones: puede ser una máquina física o virtual con Windows Server y las cargas de trabajo con los datos de los que es necesario realizar copias de seguridad. Las cargas de trabajo habituales son las siguientes: Microsoft SQL Server, Microsoft Exchange Server, Microsoft SharePoint Server y el rol Servidor de archivos en Windows Server. Para realizar copias de seguridad de estas cargas de trabajo se necesita System Center Data Protection Manager (DPM) o Azure Backup Server.
 * Un equipo personal, estación de trabajo o portátil con el sistema operativo Windows.
 
 

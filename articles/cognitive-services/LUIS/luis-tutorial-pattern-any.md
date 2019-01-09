@@ -9,18 +9,32 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 4551968cc446bb949d0b18cb77211808169cb907
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 58a62a5a882c6883c6fed31a7b95d949247e1bf1
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103479"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752612"
 ---
-# <a name="tutorial-5-extract-free-form-data"></a>Tutorial 5: Extracción de datos de forma libre
+# <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>Tutorial: Extracción de datos de forma libre con una entidad Pattern.any
 
 En este tutorial, use la entidad Pattern.any para extraer datos de expresiones con el formato correcto y donde el final de los datos se puede confundir fácilmente con el resto de las palabras de la expresión. 
+
+**En este tutorial, aprenderá a:**
+
+> [!div class="checklist"]
+> * Importar la aplicación de ejemplo
+> * Agregar expresiones de ejemplo a la intención existente
+> * Crear la entidad Pattern.any
+> * Crear el patrón
+> * Train
+> * Probar el patrón nuevo
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="using-patternany-entity"></a>Uso de la entidad Pattern.any
 
 La entidad Pattern.any permite buscar datos de forma libre en los que la redacción de la entidad dificulte determinar el final de la entidad del resto de la expresión. 
 
@@ -50,24 +64,12 @@ La diferencia de longitud incluye palabras que pueden confundir a LUIS con respe
 |¿Quién ha creado {NombreDelFormulario}[?]|
 |¿{NombreDelFormulario} se ha publicado en francés[?]|
 
-**En este tutorial, aprenderá a:**
-
-> [!div class="checklist"]
-> * Usar la aplicación del tutorial existente
-> * Agregar expresiones de ejemplo a la intención existente
-> * Crear la entidad Pattern.any
-> * Crear el patrón
-> * Train
-> * Probar el patrón nuevo
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="use-existing-app"></a>Uso de una aplicación existente
+## <a name="import-example-app"></a>Importar la aplicación de ejemplo
 Continúe con la aplicación creada en el último tutorial, denominada **HumanResources**. 
 
-Si no tiene la aplicación HumanResources del tutorial anterior, siga estos pasos:
+Para ello, siga los pasos que se describen a continuación:
 
-1.  Descargue y guarde el [archivo JSON de la aplicación](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-roles-HumanResources.json).
+1.  Descargue y guarde el [archivo JSON de la aplicación](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json).
 
 2. Importe el archivo JSON en una aplicación nueva.
 

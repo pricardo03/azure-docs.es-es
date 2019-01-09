@@ -13,20 +13,20 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/01/2018
 ms.author: rogarana
-ms.openlocfilehash: 58e2275398216f29764d54d1a230959e86eda0b6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2c83526ac5fd6fb6c757bffab08414d940694998
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253268"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635432"
 ---
 # <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>Migración de blobs entre cuentas de almacenamiento mediante AzCopy en Windows
 
 Este ejemplo copia todos los objetos blob de una cuenta de almacenamiento de origen proporcionada por el usuario en una cuenta de almacenamiento de destino proporcionada por el usuario. 
 
-Esto se consigue haciendo uso del comando `Get-AzureStorageContainer`, que enumera todos los contenedores en una cuenta de almacenamiento. A continuación, el ejemplo emite comandos de AzCopy, copiando cada contenedor de la cuenta de almacenamiento de origen a la cuenta de almacenamiento de destino. Si se produce algún error, el ejemplo vuelve a intentar $retryTimes (el valor predeterminado es 3 y puede modificarse con el parámetro `-RetryTimes`). Si se produce un error en cada reintento, el usuario puede volver a ejecutar el script proporcionando el ejemplo con el último contenedor que se haya copiado correctamente mediante el parámetro `-LastSuccessContainerName`. El ejemplo continúa copiando contenedores desde ese punto.
+Esto se consigue haciendo uso del comando `Get-AzStorageContainer`, que enumera todos los contenedores en una cuenta de almacenamiento. A continuación, el ejemplo emite comandos de AzCopy, copiando cada contenedor de la cuenta de almacenamiento de origen a la cuenta de almacenamiento de destino. Si se produce algún error, el ejemplo vuelve a intentar $retryTimes (el valor predeterminado es 3 y puede modificarse con el parámetro `-RetryTimes`). Si se produce un error en cada reintento, el usuario puede volver a ejecutar el script proporcionando el ejemplo con el último contenedor que se haya copiado correctamente mediante el parámetro `-LastSuccessContainerName`. El ejemplo continúa copiando contenedores desde ese punto.
 
-Este ejemplo requiere la versión **4.0.2** del módulo de almacenamiento de Azure PowerShell, o cualquier versión posterior. Puede comprobar la versión instalada mediante `Get-Module -ListAvailable Azure.storage`. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Para realizar este ejemplo se requiere la versión **0.7** del módulo de almacenamiento de Azure PowerShell, o cualquier versión posterior. Puede comprobar la versión instalada mediante `Get-Module -ListAvailable Az.storage`. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](/powershell/azure/install-Az-ps). 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -68,8 +68,8 @@ Este script usa los siguientes comandos para copiar datos de una cuenta de almac
 
 | Get-Help | Notas |
 |---|---|
-| [Get-AzureStorageContainer](/powershell/module/azure.storage/Get-AzureStorageContainer) | Devuelve los contenedores de almacenamiento asociados con esta cuenta de Storage. |
-| [New-AzureStorageContext](/powershell/module/azure.storage/New-AzureStorageContext) | Crea un contexto de Azure Storage. |
+| [Get-AzStorageContainer](/powershell/module/azure.storage/Get-AzStorageContainer) | Devuelve los contenedores de almacenamiento asociados con esta cuenta de Storage. |
+| [New-AzStorageContext](/powershell/module/azure.storage/New-AzStorageContext) | Crea un contexto de Azure Storage. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

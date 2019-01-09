@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: db4a9a43a971f66870c2079762b9c62802122baa
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 33b47d33262a4968a0eafb9ec70ef73e50975735
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093330"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602824"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Tutorial: Adición de Azure CDN a una aplicación web de Azure App Service
 
-Este tutorial muestra cómo agregar [Azure Content Delivery Network (CDN)](cdn-overview.md) a una [aplicación web de Azure App Service](../app-service/app-service-web-overview.md). Web Apps es un servicio para hospedar aplicaciones web, API de REST y back-ends para dispositivos móviles. 
+Este tutorial muestra cómo agregar [Azure Content Delivery Network (CDN)](cdn-overview.md) a una [aplicación web de Azure App Service](../app-service/overview.md). Web Apps es un servicio para hospedar aplicaciones web, API de REST y back-ends para dispositivos móviles. 
 
 Esta es la página de inicio del ejemplo del sitio HTML estático que se utilizará:
 

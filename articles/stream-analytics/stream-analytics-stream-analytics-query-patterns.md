@@ -3,18 +3,17 @@ title: Patrones de consulta comunes en Azure Stream Analytics
 description: En este artículo se describe una serie de patrones de consulta comunes y diseños que son útiles en los trabajos de Azure Stream Analytics.
 services: stream-analytics
 author: jseb225
-manager: kfile
 ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 7f171fa1eb8c91b55119d0308b57fe3d3e70261b
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: ffcf81ee8637c2ce01b3a7822d179609bd9dbfaa
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578898"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794539"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Ejemplos de consulta para patrones de uso comunes de Stream Analytics
 
@@ -30,8 +29,8 @@ Azure Stream Analytics admite eventos de procesamiento en formatos de datos CSV,
 Tanto JSON como Avro pueden contener tipos complejos como objetos anidados (registros) o matrices. Para trabajar con estos tipos de datos complejos, consulte el artículo [Parsing JSON and AVRO data](stream-analytics-parsing-json.md) (Análisis de datos de JSON y AVRO).
 
 
-## <a name="query-example-convert-data-types"></a>Ejemplo de consulta: conversión de tipos de datos
-**Descripción**: defina los tipos de propiedades en el flujo de entrada.
+## <a name="query-example-convert-data-types"></a>Ejemplo de consulta: Convertir tipos de datos
+**Descripción**: Defina los tipos de propiedades en el flujo de entrada.
 Por ejemplo, el peso del vehículo se incorpora al flujo de entrada como cadena y se debe convertir en **INT** para realizar la operación **SUM**.
 
 **Entrada**:
@@ -49,6 +48,7 @@ Por ejemplo, el peso del vehículo se incorpora al flujo de entrada como cadena 
 
 **Solución**:
 
+```SQL
     SELECT
         Make,
         SUM(CAST(Weight AS BIGINT)) AS Weight
@@ -57,11 +57,12 @@ Por ejemplo, el peso del vehículo se incorpora al flujo de entrada como cadena 
     GROUP BY
         Make,
         TumblingWindow(second, 10)
+```
 
-**Explicación**: use una instrucción **CAST** en el campo **Weight** (Peso) para especificar su tipo de datos. Vea la lista de tipos de datos admitidos en [Data types (Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835065.aspx) [Tipos de datos (Azure Stream Analytics)].
+**Explicación**: Use una instrucción **CAST** en el campo **Peso** para especificar su tipo de datos. Vea la lista de tipos de datos admitidos en [Data types (Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835065.aspx) [Tipos de datos (Azure Stream Analytics)].
 
-## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>Ejemplo de consulta: uso de Like/Not like para realizar la coincidencia de patrones
-**Descripción**: compruebe que el valor de un campo del evento coincide con un patrón determinado.
+## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>Ejemplo de consulta: Uso de Similar/No similar para realizar la coincidencia de patrones
+**Descripción**: Compruebe que el valor de un campo del evento coincide con un patrón determinado.
 Por ejemplo, compruebe que el resultado devuelve las matrículas que empiezan por A y terminan en nueve.
 
 **Entrada**:
@@ -81,17 +82,19 @@ Por ejemplo, compruebe que el resultado devuelve las matrículas que empiezan po
 
 **Solución**:
 
+```SQL
     SELECT
         *
     FROM
         Input TIMESTAMP BY Time
     WHERE
         LicensePlate LIKE 'A%9'
+```
 
-**Explicación**: use la instrucción **LIKE** para comprobar el valor del campo **LicensePlate**. Debe comenzar con una A, seguida de cualquier cadena de ceros o más caracteres y terminar en nueve. 
+**Explicación**: Use la instrucción **LIKE** para comprobar el valor del campo **LicensePlate**. Debe comenzar con una A, seguida de cualquier cadena de ceros o más caracteres y terminar en nueve. 
 
-## <a name="query-example-specify-logic-for-different-casesvalues-case-statements"></a>Ejemplo de consulta: especificación de la lógica para los distintos casos/valores (instrucciones CASE)
-**Descripción**: proporcione un cálculo diferente para un campo en función de un criterio concreto.
+## <a name="query-example-specify-logic-for-different-casesvalues-case-statements"></a>Ejemplo de consulta: Especificación de la lógica para los distintos casos/valores (instrucciones CASE)
+**Descripción**: Proporcione un cálculo diferente para un campo en función de un criterio concreto.
 Por ejemplo, proporcione una descripción de cadena para el número de vehículos que han pasado de la misma marca, con un caso especial para 1.
 
 **Entrada**:
@@ -111,6 +114,7 @@ Por ejemplo, proporcione una descripción de cadena para el número de vehículo
 
 **Solución**:
 
+```SQL
     SELECT
         CASE
             WHEN COUNT(*) = 1 THEN CONCAT('1 ', Make)
@@ -122,11 +126,12 @@ Por ejemplo, proporcione una descripción de cadena para el número de vehículo
     GROUP BY
         Make,
         TumblingWindow(second, 10)
+```
 
-**Explicación**: la expresión **CASE** compara una expresión con un conjunto de expresiones sencillas para determinar el resultado. En este ejemplo, las marcas de vehículos con un recuento de 1 han devuelto una descripción de cadena diferente de la de las marcas de vehículos con un recuento distinto a 1. 
+**Explicación**: La expresión **CASE** compara una expresión con un conjunto de expresiones simples para determinar el resultado. En este ejemplo, las marcas de vehículos con un recuento de 1 han devuelto una descripción de cadena diferente de la de las marcas de vehículos con un recuento distinto a 1. 
 
-## <a name="query-example-send-data-to-multiple-outputs"></a>Ejemplo de consulta: envío de datos a varias salidas
-**Descripción**: envíe datos a varios destinos de salida desde un único trabajo.
+## <a name="query-example-send-data-to-multiple-outputs"></a>Ejemplo de consulta: Envío de datos a varias salidas
+**Descripción**: Envíe datos a varios destinos de salida desde un único trabajo.
 Por ejemplo, analice los datos para una alerta de umbral y archive todos los eventos en Blob Storage.
 
 **Entrada**:
@@ -157,6 +162,7 @@ Por ejemplo, analice los datos para una alerta de umbral y archive todos los eve
 
 **Solución**:
 
+```SQL
     SELECT
         *
     INTO
@@ -177,14 +183,16 @@ Por ejemplo, analice los datos para una alerta de umbral y archive todos los eve
         TumblingWindow(second, 10)
     HAVING
         [Count] >= 3
+```
 
-**Explicación**: la cláusula **INTO** indica a Stream Analytics en cuál de las salidas se escribirán los datos de esta instrucción.
+**Explicación**: La cláusula **INTO** indica a Stream Analytics en cuál de las salidas se escribirán los datos de esta instrucción.
 La primera consulta es una transferencia de los datos recibidos en una salida denominada **ArchiveOutput**.
 La segunda consulta hace una agregación y un filtrado simples y envía los resultados a un sistema de alertas descendente.
 
 Tenga en cuenta que también puede reutilizar los resultados de las expresiones de tabla comunes (CTE), como las instrucciones **WITH**, en varias instrucciones de salida. Esta opción ofrece el beneficio adicional de la apertura de algunos lectores para el origen de entrada.
 Por ejemplo:  
 
+```SQL
     WITH AllRedCars AS (
         SELECT
             *
@@ -195,9 +203,10 @@ Por ejemplo:
     )
     SELECT * INTO HondaOutput FROM AllRedCars WHERE Make = 'Honda'
     SELECT * INTO ToyotaOutput FROM AllRedCars WHERE Make = 'Toyota'
+```
 
-## <a name="query-example-count-unique-values"></a>Ejemplo de consulta: recuento de valores únicos
-**Descripción**: cuente el número de valores de campo únicos que aparecen en el flujo durante una ventana de tiempo determinada.
+## <a name="query-example-count-unique-values"></a>Ejemplo de consulta: Recuento de valores únicos
+**Descripción**: Cuente el número de valores de campo únicos que aparecen en el flujo durante un período de tiempo determinado.
 Por ejemplo, ¿cuántas marcas de vehículos únicas pasan a través de la cabina de peaje en un intervalo de dos segundos?
 
 **Entrada**:
@@ -219,21 +228,21 @@ Por ejemplo, ¿cuántas marcas de vehículos únicas pasan a través de la cabin
 
 **Solución:**
 
-````
+```SQL
 SELECT
      COUNT(DISTINCT Make) AS CountMake,
      System.TIMESTAMP AS TIME
 FROM Input TIMESTAMP BY TIME
 GROUP BY 
      TumblingWindow(second, 2)
-````
+```
 
 
 **Explicación:**
 **COUNT(DISTINCT Make)** devuelve la cantidad de valores distintos de la columna **Make** dentro de una ventana de tiempo.
 
-## <a name="query-example-determine-if-a-value-has-changed"></a>Ejemplo de consulta: determinar si un valor ha cambiado
-**Descripción**: busque un valor anterior para determinar si es diferente del valor actual.
+## <a name="query-example-determine-if-a-value-has-changed"></a>Ejemplo de consulta: Determinar si un valor ha cambiado
+**Descripción**: Busque un valor anterior para determinar si es diferente del valor actual.
 Por ejemplo, ¿el vehículo anterior de la autopista de peaje es de la misma marca que el actual?
 
 **Entrada**:
@@ -251,6 +260,7 @@ Por ejemplo, ¿el vehículo anterior de la autopista de peaje es de la misma mar
 
 **Solución**:
 
+```SQL
     SELECT
         Make,
         Time
@@ -258,11 +268,12 @@ Por ejemplo, ¿el vehículo anterior de la autopista de peaje es de la misma mar
         Input TIMESTAMP BY Time
     WHERE
         LAG(Make, 1) OVER (LIMIT DURATION(minute, 1)) <> Make
+```
 
-**Explicación**: use **LAG** para revisar en el flujo de entrada de un evento anterior y obtener el valor **Marca**. A continuación, compárelo con el de la **marca** del evento actual y genere la salida del evento si son distintos.
+**Explicación**: Use **LAG** para revisar en el flujo de entrada un evento anterior y obtener el valor **Make**. A continuación, compárelo con el de la **marca** del evento actual y genere la salida del evento si son distintos.
 
-## <a name="query-example-find-the-first-event-in-a-window"></a>Ejemplo de consulta: búsqueda del primer evento en una ventana
-**Descripción**: ¿desea buscar el primer vehículo en un intervalo de cada diez minutos?
+## <a name="query-example-find-the-first-event-in-a-window"></a>Ejemplo de consulta: Búsqueda del primer evento en una ventana
+**Descripción**: Busque el primer vehículo en un intervalo de cada diez minutos.
 
 **Entrada**:
 
@@ -285,6 +296,7 @@ Por ejemplo, ¿el vehículo anterior de la autopista de peaje es de la misma mar
 
 **Solución**:
 
+```SQL
     SELECT 
         LicensePlate,
         Make,
@@ -293,6 +305,7 @@ Por ejemplo, ¿el vehículo anterior de la autopista de peaje es de la misma mar
         Input TIMESTAMP BY Time
     WHERE 
         IsFirst(minute, 10) = 1
+```
 
 Ahora se va a cambiar el problema y se va a buscar el primer vehículo de una marca concreta en un intervalo de cada diez minutos.
 
@@ -306,6 +319,7 @@ Ahora se va a cambiar el problema y se va a buscar el primer vehículo de una ma
 
 **Solución**:
 
+```SQL
     SELECT 
         LicensePlate,
         Make,
@@ -314,9 +328,10 @@ Ahora se va a cambiar el problema y se va a buscar el primer vehículo de una ma
         Input TIMESTAMP BY Time
     WHERE 
         IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
+```
 
-## <a name="query-example-find-the-last-event-in-a-window"></a>Ejemplo de consulta: búsqueda del último evento en una ventana
-**Descripción**: busque el último vehículo en un intervalo de cada diez minutos.
+## <a name="query-example-find-the-last-event-in-a-window"></a>Ejemplo de consulta: Búsqueda del último evento en una ventana
+**Descripción**: Busque el último vehículo en un intervalo de cada diez minutos.
 
 **Entrada**:
 
@@ -339,6 +354,7 @@ Ahora se va a cambiar el problema y se va a buscar el primer vehículo de una ma
 
 **Solución**:
 
+```SQL
     WITH LastInWindow AS
     (
         SELECT 
@@ -357,11 +373,12 @@ Ahora se va a cambiar el problema y se va a buscar el primer vehículo de una ma
         INNER JOIN LastInWindow
         ON DATEDIFF(minute, Input, LastInWindow) BETWEEN 0 AND 10
         AND Input.Time = LastInWindow.LastEventTime
+```
 
-**Explicación**: hay dos pasos en la consulta. El primero consiste en buscar la última marca de tiempo en ventanas de diez minutos. El segundo paso combina los resultados de la primera consulta con el flujo original para buscar eventos que coinciden con las últimas marcas de tiempo en cada ventana. 
+**Explicación**: Hay dos pasos en la consulta. El primero consiste en buscar la última marca de tiempo en ventanas de diez minutos. El segundo paso combina los resultados de la primera consulta con el flujo original para buscar eventos que coinciden con las últimas marcas de tiempo en cada ventana. 
 
-## <a name="query-example-detect-the-absence-of-events"></a>Ejemplo de consulta: detectar la ausencia de eventos
-**Descripción**: compruebe que un flujo no tiene ningún valor que cumpla un criterio determinado.
+## <a name="query-example-detect-the-absence-of-events"></a>Ejemplo de consulta: Detección de la ausencia de eventos
+**Descripción**: Compruebe que un flujo no tiene ningún valor que cumpla un criterio determinado.
 Por ejemplo, ¿han entrado dos vehículos consecutivos de la misma marca en la autopista de peaje durante los últimos noventa segundos?
 
 **Entrada**:
@@ -381,6 +398,7 @@ Por ejemplo, ¿han entrado dos vehículos consecutivos de la misma marca en la a
 
 **Solución**:
 
+```SQL
     SELECT
         Make,
         Time,
@@ -391,11 +409,12 @@ Por ejemplo, ¿han entrado dos vehículos consecutivos de la misma marca en la a
         Input TIMESTAMP BY Time
     WHERE
         LAG(Make, 1) OVER (LIMIT DURATION(second, 90)) = Make
+```
 
-**Explicación**: use **LAG** para revisar en el flujo de entrada de un evento anterior y obtener el valor **Marca**. Compárelo con el valor **MARCA** del evento actual y después genere la salida del evento en caso de que los valores sean los mismos. También puede usar **LAG** para obtener datos sobre el vehículo anterior.
+**Explicación**: Use **LAG** para revisar en el flujo de entrada un evento anterior y obtener el valor **Make**. Compárelo con el valor **MARCA** del evento actual y después genere la salida del evento en caso de que los valores sean los mismos. También puede usar **LAG** para obtener datos sobre el vehículo anterior.
 
-## <a name="query-example-detect-the-duration-between-events"></a>Ejemplo de consulta: detección de la duración entre eventos
-**Descripción**: busque la duración de un evento determinado. Por ejemplo, dada una secuencia de clics de web, determine el tiempo invertido en una característica.
+## <a name="query-example-detect-the-duration-between-events"></a>Ejemplo de consulta: Detección de la duración entre eventos
+**Descripción**: Busque la duración de un evento determinado. Por ejemplo, dada una secuencia de clics de web, determine el tiempo invertido en una característica.
 
 **Entrada**:  
 
@@ -412,18 +431,18 @@ Por ejemplo, ¿han entrado dos vehículos consecutivos de la misma marca en la a
 
 **Solución**:
 
-````
+```SQL
     SELECT
         [user], feature, DATEDIFF(second, LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'), Time) as duration
     FROM input TIMESTAMP BY Time
     WHERE
         Event = 'end'
-````
+```
 
-**Explicación**: use la función **LAST** para recuperar el último valor **TIME** en el que el tipo de evento era **Start**. La función **LAST** usa **PARTITION BY [user]** para indicar que el resultado se calcula por usuario único. La consulta tiene un umbral máximo de una hora para el intervalo de tiempo entre eventos **Start** y **Stop**, pero se puede configurar según sea necesario **(LIMIT DURATION(hour, 1)**.
+**Explicación**: Use la función **LAST** para recuperar el último valor **TIME** en el que el tipo de evento era **Start**. La función **LAST** usa **PARTITION BY [user]** para indicar que el resultado se calcula por usuario único. La consulta tiene un umbral máximo de una hora para el intervalo de tiempo entre eventos **Start** y **Stop**, pero se puede configurar según sea necesario **(LIMIT DURATION(hour, 1)**.
 
-## <a name="query-example-detect-the-duration-of-a-condition"></a>Ejemplo de consulta: detección de la duración de una condición
-**Descripción**: averigüe la duración de una condición.
+## <a name="query-example-detect-the-duration-of-a-condition"></a>Ejemplo de consulta: Detección de la duración de una condición
+**Descripción**: Averigüe la duración de una condición.
 Por ejemplo, supongamos que por error todos los vehículos tienen un peso incorrecto (por encima de 20 000 libras), y debe calcularse la duración del error.
 
 **Entrada**:
@@ -447,7 +466,7 @@ Por ejemplo, supongamos que por error todos los vehículos tienen un peso incorr
 
 **Solución**:
 
-````
+```SQL
     WITH SelectPreviousEvent AS
     (
     SELECT
@@ -464,12 +483,12 @@ Por ejemplo, supongamos que por error todos los vehículos tienen un peso incorr
     WHERE
         [weight] < 20000
         AND previousWeight > 20000
-````
+```
 
-**Explicación**: use **LAG** para ver el flujo de entrada que se produjo durante veinticuatro horas y busque instancias donde**StartFault** y **StopFault** superan el peso de &lt;20 000.
+**Explicación**: Use **LAG** para ver el flujo de entrada que se produjo durante 24 horas y buscar instancias donde**StartFault** y **StopFault** superan el peso de < 20 000.
 
-## <a name="query-example-fill-missing-values"></a>Ejemplo de consulta: rellenar los valores que faltan
-**Descripción**: para la transmisión de eventos con valores que faltan, genere una transmisión de eventos con intervalos regulares.
+## <a name="query-example-fill-missing-values"></a>Ejemplo de consulta: Rellenar valores que faltan
+**Descripción**: Para el flujo de eventos con valores que faltan, genere un flujo de eventos con intervalos regulares.
 Por ejemplo, genere un evento cada cinco segundos que notifique el punto de datos visto más recientemente.
 
 **Entrada**:
@@ -500,19 +519,20 @@ Por ejemplo, genere un evento cada cinco segundos que notifique el punto de dato
 
 **Solución**:
 
+```SQL
     SELECT
         System.Timestamp AS windowEnd,
         TopOne() OVER (ORDER BY t DESC) AS lastEvent
     FROM
         input TIMESTAMP BY t
     GROUP BY HOPPINGWINDOW(second, 300, 5)
+```
+
+**Explicación**: Esta consulta genera eventos cada cinco segundos y genera como resultado el último evento que se recibió anteriormente. La duración de la [ventana de salto](https://msdn.microsoft.com/library/dn835041.aspx "ventana de salto - Azure Stream Analytics") determina hasta cuándo se remontará la consulta para encontrar el evento más reciente (en este ejemplo, trescientos segundos).
 
 
-**Explicación**: esta consulta genera eventos cada cinco segundos y genera como resultado el último evento que se recibió anteriormente. La duración de la [ventana de salto](https://msdn.microsoft.com/library/dn835041.aspx "ventana de salto - Azure Stream Analytics") determina hasta cuándo se remontará la consulta para encontrar el evento más reciente (en este ejemplo, trescientos segundos).
-
-
-## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>Ejemplo de consulta: correlacionar dos tipos de evento dentro del mismo flujo
-**Descripción**: a veces, es necesario generar alertas basadas en varios tipos de eventos que se produjeron en un intervalo de tiempo determinado.
+## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>Ejemplo de consulta: Correlacionar dos tipos de evento dentro del mismo flujo
+**Descripción**: A veces, es necesario generar alertas basadas en varios tipos de eventos que se produjeron en un intervalo de tiempo determinado.
 Por ejemplo, en un escenario de IoT de hornos domésticos, se debe generar una alerta cuando la temperatura del ventilador sea inferior a 40 y la potencia máxima durante los últimos 3 minutos sea inferior a 10.
 
 **Entrada**:
@@ -546,7 +566,7 @@ Por ejemplo, en un escenario de IoT de hornos domésticos, se debe generar una a
 
 **Solución**:
 
-````
+```SQL
 WITH max_power_during_last_3_mins AS (
     SELECT 
         System.TimeStamp AS windowTime,
@@ -580,12 +600,12 @@ WHERE
     t1.sensorName = 'temp'
     AND t1.value <= 40
     AND t2.maxPower > 10
-````
+```
 
-**Explicación**: la primera consulta `max_power_during_last_3_mins`, usa la [ventana deslizante](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) para encontrar el valor máximo del sensor de potencia para cada dispositivo, durante los últimos 3 minutos. La segunda consulta se combina con la primera para encontrar el valor de potencia en la ventana más reciente relacionada con el evento actual. Y entonces, siempre que se cumplan las condiciones, se genera una alerta para el dispositivo.
+**Explicación**: La primera consulta `max_power_during_last_3_mins`, usa la [ventana deslizante](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) para encontrar el valor máximo del sensor de potencia para cada dispositivo, durante los últimos tres minutos. La segunda consulta se combina con la primera para encontrar el valor de potencia en la ventana más reciente relacionada con el evento actual. Y entonces, siempre que se cumplan las condiciones, se genera una alerta para el dispositivo.
 
-## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>Ejemplo de consulta: procesar los eventos de manera independiente del sesgo de reloj del dispositivo (subtransmisiones)
-**Descripción**: los eventos pueden llegar tarde o desordenados debido a sesgos de reloj entre los productores de eventos, a sesgos de reloj entre particiones o a la latencia de red. En el ejemplo siguiente, el reloj del dispositivo para TollID 2 va diez segundos atrasado respecto a TollID 1 y el reloj del dispositivo para TollID 3 va diez segundos atrasado respecto a TollID 1. 
+## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>Ejemplo de consulta: Procesar los eventos de manera independiente del sesgo de reloj del dispositivo (subflujos)
+**Descripción**: Los eventos pueden llegar tarde o desordenados debido a sesgos de reloj entre los productores de eventos, a sesgos de reloj entre particiones o a la latencia de red. En el ejemplo siguiente, el reloj del dispositivo para TollID 2 va diez segundos atrasado respecto a TollID 1 y el reloj del dispositivo para TollID 3 va diez segundos atrasado respecto a TollID 1. 
 
 
 **Entrada**:
@@ -612,18 +632,62 @@ WHERE
 
 **Solución**:
 
-````
+```SQL
 SELECT
       TollId,
       COUNT(*) AS Count
 FROM input
       TIMESTAMP BY Time OVER TollId
 GROUP BY TUMBLINGWINDOW(second, 5), TollId
+```
 
-````
+**Explicación**: La cláusula [TIMESTAMP BY OVER](https://msdn.microsoft.com/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) examina la escala de tiempo de cada dispositivo por separado mediante subflujos. Los eventos de salida para cada TollID se generan a medida que se calculan, lo que significa que los eventos están en orden con respecto a cada TollID en lugar de que se vuelvan a ordenar como si todos los dispositivos estuvieran en el mismo reloj.
 
-**Explicación**: la cláusula [TIMESTAMP BY OVER](https://msdn.microsoft.com/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) examina la escala de tiempo de cada dispositivo por separado mediante subtransmisiones. Los eventos de salida para cada TollID se generan a medida que se calculan, lo que significa que los eventos están en orden con respecto a cada TollID en lugar de que se vuelvan a ordenar como si todos los dispositivos estuvieran en el mismo reloj.
+## <a name="query-example-remove-duplicate-events-in-a-window"></a>Ejemplo de consulta: Quitar eventos duplicados de una ventana
+**Descripción**: Al realizar una operación, como calcular promedios de eventos en un período de tiempo determinado, se deben filtrar los eventos duplicados.
 
+**Entrada**:  
+
+| deviceId | Hora | Atributo | Valor |
+| --- | --- | --- | --- |
+| 1 |2018-07-27T00:00:01.0000000Z |Temperatura |50 |
+| 1 |2018-07-27T00:00:01.0000000Z |Temperatura |50 |
+| 2 |2018-07-27T00:00:01.0000000Z |Temperatura |40 |
+| 1 |2018-07-27T00:00:05.0000000Z |Temperatura |60 |
+| 2 |2018-07-27T00:00:05.0000000Z |Temperatura |50 |
+| 1 |2018-07-27T00:00:10.0000000Z |Temperatura |100 |
+
+**Salida**:  
+
+| AverageValue | deviceId |
+| --- | --- |
+| 70 | 1 |
+|45 | 2 |
+
+**Solución**:
+
+```SQL
+With Temp AS (
+    SELECT
+        COUNT(DISTINCT Time) AS CountTime,
+        Value,
+        DeviceId
+    FROM
+        Input TIMESTAMP BY Time
+    GROUP BY
+        Value,
+        DeviceId,
+        SYSTEM.TIMESTAMP
+)
+
+SELECT
+    AVG(Value) AS AverageValue, DeviceId
+INTO Output
+FROM Temp
+GROUP BY DeviceId,TumblingWindow(minute, 5)
+```
+
+**Explicación**: [COUNT(DISTINCT Time)](https://docs.microsoft.com/en-us/stream-analytics-query/count-azure-stream-analytics) devuelve el número de valores distintos de la columna Time dentro de una ventana de tiempo. A continuación, puede usar la salida de este paso para calcular el promedio por dispositivo descartando los duplicados.
 
 ## <a name="get-help"></a>Obtención de ayuda
 Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).

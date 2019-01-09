@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 5f76d18662105df6d278e09e047baa13773ab4ac
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 98e69c7759f736c132601305156290f7a43eeaf9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319360"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537586"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implementación en Azure App Service mediante el complemento de Jenkins 
 
@@ -55,7 +55,7 @@ Para implementar en Web App for Containers, instale Docker en el servidor maestr
 Se necesita una entidad de servicio de Azure para implementar en Azure. 
 
 
-1. Use la [CLI de Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) o [Azure Portal](/azure/azure-resource-manager/resource-group-create-service-principal-portal) para crear una entidad de servicio de Azure.
+1. Use la [CLI de Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) o [Azure Portal](/azure/azure-resource-manager/resource-group-create-service-principal-portal) para crear una entidad de servicio de Azure.
 2. En el panel de Jenkins, seleccione **Credentials** (Credenciales) > **System**(Sistema). A continuación, haga clic en **Global credentials(unrestricted)** (Credenciales globales [sin restricción]).
 3. Para agregar una entidad de servicio de Microsoft Azure, seleccione **Add Credentials** (Agregar credenciales). Proporcione valores en los campos **Subscription ID** (Id. de suscripción), **Client ID** (Id. de cliente), **Client Secret** (Secreto de cliente) y **OAuth 2.0 Token Endpoint** (Punto de conexión de token de OAuth 2.0). Configure el campo **ID** (Identificador) con el valor **mySp**. Utilizaremos este identificador en pasos posteriores de este artículo.
 
@@ -64,9 +64,9 @@ Se necesita una entidad de servicio de Azure para implementar en Azure.
 
 Para implementar el proyecto en Web Apps, puede cargar los artefactos de compilación mediante la carga de archivos. Azure App Service admite varias opciones de implementación. El complemento de Jenkins de Azure App Service simplifica las cosas y deriva de la opción de implementación según el tipo de archivo. 
 
-* Para las aplicaciones de Java EE se usa la [implementación de un archivo WAR](/azure/app-service/app-service-deploy-zip#deploy-war-file).
-* Para las aplicaciones de Java SE se usa la [implementación de un archivo ZIP](/azure/app-service/app-service-deploy-zip#deploy-zip-file).
-* Para otros lenguajes se utiliza la [implementación de Git](/azure/app-service/app-service-deploy-local-git).
+* Para las aplicaciones de Java EE se usa la [implementación de un archivo WAR](/azure/app-service/deploy-zip#deploy-war-file).
+* Para las aplicaciones de Java SE se usa la [implementación de un archivo ZIP](/azure/app-service/deploy-zip#deploy-zip-file).
+* Para otros lenguajes se utiliza la [implementación de Git](/azure/app-service/deploy-local-git).
 
 Antes de configurar el trabajo en Jenkins, necesitará un plan de Azure App Service y una aplicación web para ejecutar la aplicación de Java.
 
@@ -206,7 +206,7 @@ Para el valor de **Docker registry URL** (Dirección URL de registro del Docker)
     Sun Jun 17 16:39:10 UTC 2017
     ```
 
-3. Vaya a http://&lt;nombre_de_su_aplicación>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Reemplace &lt;x> e &lt;y> por cualquier número para obtener la suma de x+y. La calculadora muestra la suma: ![Calculadora: sumar](./media/execute-cli-jenkins-pipeline/calculator-add.png)
+3. Vaya a http://&lt;nombre_de_su_aplicación>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Reemplace &lt;x> e &lt;y> por cualquier número para obtener la suma de x+y. La calculadora muestra la suma: ![Calculadora: suma](./media/execute-cli-jenkins-pipeline/calculator-add.png)
 
 ### <a name="for-azure-app-service-on-linux"></a>Para Azure App Service en Linux
 

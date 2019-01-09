@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Análisis de imágenes remotas - REST, PHP - Computer Vision'
+title: 'Inicio rápido: Análisis de imágenes remotas (REST, PHP)'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, analizará una imagen mediante Computer Vision API con PHP.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: pafarley
-ms.openlocfilehash: d9e65b5fa42cc9026f8b1e3f18901f988c38cc46
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 8af75c05d3c30fd8a3f2808cf81de840b7df2d6c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341011"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584305"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-php-in-computer-vision"></a>Guía de inicio rápido: Análisis de imágenes remotas mediante la API de REST y PHP en Computer Vision
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-php-in-computer-vision"></a>Inicio rápido: Análisis de imágenes remotas mediante la API REST y PHP en Computer Vision
 
 En esta guía de inicio rápido, analizará una imagen remota almacenada para extraer características visuales con la API de REST Computer Vision. Con el [método de análisis de imagen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), puede extraer características visuales basadas en el contenido de una imagen.
 
@@ -33,7 +34,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para crear y ejecutar el ejemplo, siga estos pasos:
 
-1. Instalación del paquete [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2) de PHP5.
+1. Instalación del paquete [`HTTP_Request2`](https://pear.php.net/package/HTTP_Request2) de PHP5.
    1. Abra una ventana del símbolo del sistema como administrador.
    1. Ejecute el siguiente comando:
 

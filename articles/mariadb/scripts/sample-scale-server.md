@@ -1,21 +1,19 @@
 ---
 title: 'Script de la CLI de Azure: escalado de un servidor de Azure Database for MariaDB'
 description: Este script de la CLI de ejemplo escala el servidor de Azure Database for MariaDB a otro nivel de rendimiento después de consultar las métricas.
-services: mariadb
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 11/28/2018
-ms.openlocfilehash: e5f6364992987e5aeb6cb1ccd2055823efae607e
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: ef01c38dddee0a74477ef331f935bda2787866df
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585255"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546376"
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mariadb-server-using-azure-cli"></a>Supervisión y escalado de un servidor de Azure Database for MariaDB mediante la CLI de Azure
 Este script de la CLI de ejemplo escala un servidor individual de Azure Database for MariaDB a otro nivel de rendimiento después de consultar las métricas.
@@ -42,6 +40,6 @@ Este script usa los comandos que se describen en la tabla siguiente:
 | [az group delete](/cli/azure/group#az-group-delete) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Para más información sobre la CLI de Azure: [Documentación de la CLI de Azure](/cli/azure).
-- Pruebe otros scripts: [Ejemplos de la CLI de Azure para Azure Database for MariaDB](../sample-scripts-azure-cli.md).
+- Para más información sobre la CLI de Azure, consulte: [Documentación de la CLI de Azure](/cli/azure).
+- Pruebe otros scripts adicionales: [Ejemplos de la CLI de Azure para Azure Database for MariaDB](../sample-scripts-azure-cli.md)
 - Para más información acerca del escalado, consulte [Niveles de precios] (../concepts-pricing-tiers.md.

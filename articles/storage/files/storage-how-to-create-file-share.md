@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 83829264f16fb295a1f5fa4f2efc74d8b35ec6eb
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 318ecf03853e151040622ef0863f4c6986a96bd2
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309198"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628517"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Creación de un recurso compartido de archivos en Azure Files
 Puede crear recursos compartidos de archivos de Azure mediante  [Azure Portal](https://portal.azure.com/), los cmdlets de PowerShell de Azure Storage, las bibliotecas de cliente de Azure Storage o la API de REST de Azure Storage. En este tutorial, aprenderá a:
@@ -34,14 +34,17 @@ Para crear un recurso compartido de Azure Files, puede usar una cuenta de almace
 3. **Proporcione el nombre y la cuota. El valor máximo actual de la cuota es de 5 TiB**:    
     ![Proporcione el nombre y cuota deseada para el nuevo recurso compartido de archivos](./media/storage-how-to-create-file-share/create-file-share-portal3.png)
 
-4. **Ver el nuevo recurso compartido de archivos**: ![ver el nuevo recurso compartido de archivos](./media/storage-how-to-create-file-share/create-file-share-portal4.png)
+4. **Visualice un nuevo recurso compartido de archivos**:  ![Visualización de un nuevo recurso compartido de archivos](./media/storage-how-to-create-file-share/create-file-share-portal4.png)
 
-5. **Cargar un archivo**: ![Cargar un archivo](./media/storage-how-to-create-file-share/create-file-share-portal5.png)
+5. **Carga de un archivo**:  ![Carga de un archivo](./media/storage-how-to-create-file-share/create-file-share-portal5.png)
 
-6. **Explorar el recurso compartido de archivos y administrar los directorios y archivos**: ![Explorar el recurso compartido de archivos](./media/storage-how-to-create-file-share/create-file-share-portal6.png)
+6. **Examine el recurso compartido de archivos y administre los directorios y archivos**:  ![Exploración del recurso compartido de archivos](./media/storage-how-to-create-file-share/create-file-share-portal6.png)
 
 
 ## <a name="create-file-share-through-powershell"></a>Creación de un recurso compartido de archivos mediante PowerShell
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Para prepararse para usar PowerShell, descargue e instale los cmdlets de Azure PowerShell. Consulte  [Instalación y configuración de Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)  para obtener instrucciones sobre el punto de instalación y la instalación.
 
 > [!Note]  
@@ -50,13 +53,13 @@ Para prepararse para usar PowerShell, descargue e instale los cmdlets de Azure P
 1. **Creación de un contexto para la cuenta de almacenamiento y la clave** El contexto encapsula la clave de cuenta y el nombre de la cuenta de almacenamiento. Para obtener instrucciones acerca de la copia de la clave de cuenta desde  [Azure Portal](https://portal.azure.com/), consulte la sección  [Claves de acceso de almacenamiento](../common/storage-account-manage.md#access-keys).
 
     ```powershell
-    $storageContext = New-AzureStorageContext <storage-account-name> <storage-account-key>
+    $storageContext = New-AzStorageContext <storage-account-name> <storage-account-key>
     ```
     
 2. **Creación de un nuevo recurso compartido de archivos**:    
     
     ```powershell
-    $share = New-AzureStorageShare logs -Context $storageContext
+    $share = New-AzStorageShare logs -Context $storageContext
     ```
 
 > [!Note]  

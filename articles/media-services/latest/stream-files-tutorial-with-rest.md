@@ -1,6 +1,6 @@
 ---
-title: 'Carga, codificación y transmisión con Azure Media Services: REST | Microsoft Docs'
-description: Siga los pasos de este tutorial para cargar un archivo, codificar el vídeo y transmitir su contenido con Azure Media Services mediante REST.
+title: 'Codificación de un archivo remoto en función de la dirección URL y transmisión con Azure Media Services: REST | Microsoft Docs'
+description: Siga los pasos de este tutorial para codificar un archivo según una dirección URL y transmitir su contenido con Azure Media Services mediante REST.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -10,20 +10,20 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/11/2018
+ms.date: 12/19/2018
 ms.author: juliako
-ms.openlocfilehash: 67a0b6ced771519bd97934f8914ba420ee3119ce
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: cd020566b61dac7da37b24f10eebfc69b19073cb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615779"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720958"
 ---
-# <a name="tutorial-upload-encode-and-stream-videos-with-rest"></a>Tutorial: Carga, codificación y transmisión de vídeos con REST
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutorial: Codificación de un archivo remoto según una dirección URL y transmisión del vídeo: REST
 
 Azure Media Services permite codificar los archivos multimedia en formatos que se pueden reproducir en una gran variedad de exploradores y dispositivos. Por ejemplo, puede que quiera transmitir su contenido en los formatos HLS o MPEG DASH de Apple. Antes de la transmisión, primero debe codificar su archivo de medios digitales de alta calidad. Para obtener instrucciones acerca de la codificación, consulte [El concepto de codificación](encoding-concept.md).
 
-En este tutorial se muestra cómo cargar, codificar y transmitir archivos de vídeo con Azure Media Services utilizando REST. 
+En este tutorial se muestra cómo codificar un archivo según una dirección URL y transmitir el vídeo con Azure Media Services mediante REST. 
 
 ![Reproducción del vídeo](./media/stream-files-tutorial-with-api/final-video.png)
 
@@ -111,7 +111,7 @@ En esta sección se enviarán solicitudes que son significativas para codificar 
 
 ### <a name="get-azure-ad-token"></a>Obtención del token de Azure AD 
 
-1. En la ventana izquierda de Postman, seleccione "Step 1: Get AAD Auth token" (Paso 1: Obtención del token de autenticación de AAD).
+1. En la ventana izquierda de Postman, seleccione "Step 1: Get AAD Auth token" (Paso 1: Obtención del token de autorización de AAD).
 2. A continuación, seleccione "Get Azure AD Token for Service Principal Authentication" (Obtener token de Azure AD para la autenticación de la entidad de servicio).
 3. Presione **Enviar**.
 
@@ -174,7 +174,7 @@ Puede usar un valor de EncoderNamedPreset integrado o valores preestablecidos pe
         ```json
         {
             "properties": {
-                "description": "Basic Transform using an Adaptive Streaming encoding preset from the libray of built-in Standard Encoder presets",
+                "description": "Standard Transform using an Adaptive Streaming encoding preset from the library of built-in Standard Encoder presets",
                 "outputs": [
                     {
                     "onError": "StopProcessingJob",
@@ -228,7 +228,7 @@ En este ejemplo, la entrada del trabajo se basa en una dirección URL HTTPS ("ht
 
 El trabajo tarda algún tiempo en completarse y cuando lo hace querrá recibir una notificación. Para ver el progreso del trabajo, se recomienda usar Event Grid. Event Grid está diseñado para conseguir alta disponibilidad, rendimiento coherente y escalado dinámico. Con Event Grid, sus aplicaciones pueden escuchar y reaccionar a eventos de casi todos los servicios de Azure y de orígenes personalizados. El control de eventos sencillo y reactivo basado en HTTP le ayuda a crear soluciones eficaces con filtrado y enrutamiento de eventos inteligente.  Consulte [Enrutamiento de eventos a un punto de conexión web personalizado](job-state-events-cli-how-to.md).
 
-El **trabajo** normalmente pasa por los siguientes estados: **Programado**, **En cola**, **Procesando**, **Finalizado** (el estado final). Si el trabajo ha encontrado un error, obtendrá el estado **Error**. Si el trabajo está en proceso de cancelación, obtendrá **Cancelando** y **Cancelado** cuando haya terminado.
+El **trabajo** pasa normalmente por los siguientes estados: **Programado**, **En cola**, **Procesando**, **Finalizado** (el estado final). Si el trabajo ha encontrado un error, obtendrá el estado **Error**. Si el trabajo está en proceso de cancelación, obtendrá **Cancelando** y **Cancelado** cuando haya terminado.
 
 ### <a name="create-a-streaming-locator"></a>Creación de un localizador de streaming
 

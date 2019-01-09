@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 7f57e75f90511ace45198d7516a5d2550123d9be
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 19b485add894dbe99a524d16f891d001991c1ec7
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075121"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558386"
 ---
-# <a name="enable-capturing-of-events-streaming-through-azure-event-event-hubs"></a>Habilitación de la captura de eventos que se transmiten en secuencias a través de Azure Event Hubs
+# <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Habilitación de la captura de eventos que se transmiten por streaming mediante Azure Event Hubs
 
 Azure [Event Hubs Capture][capture-overview] le permite ofrecer automáticamente los datos de streaming de Event Hubs a una cuenta de [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) o de [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) que prefiera.
 

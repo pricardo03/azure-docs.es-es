@@ -5,18 +5,19 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 12/17/2018
 ms.author: ramamill
-ms.openlocfilehash: ae2f32a02005bc015d2521e576ea5625bef2d377
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1c37b764b47856d3a369228d3f224f2a464029bb
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846018"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790663"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Solución de problemas de replicación de máquinas virtuales de VMware y de servidores físicos
 
 Puede recibir un mensaje de error específico al proteger sus máquinas virtuales de VMware o servidores físicos con Azure Site Recovery. En este artículo se describen algunos problemas comunes que pueden surgir al replicar máquinas virtuales de VMware locales y servidores físicos en Azure mediante [Azure Site Recovery](site-recovery-overview.md).
+
 
 ## <a name="initial-replication-issues"></a>Problemas de replicación inicial
 
@@ -33,7 +34,7 @@ Si no se puede conectar, habilite el puerto de entrada 9443 en el servidor de pr
 
 * Compruebe el estado del servicio `InMage Scout VX Agent – Sentinel/OutpostStart` si no está en ejecución y compruebe si el problema persiste.   
 
-## <a name="verify-the-process-server"></a>Verificación del servidor de procesos
+### <a name="verify-the-process-server"></a>Verificación del servidor de procesos
 
 * **Compruebe si el servidor de proceso inserta datos en Azure de un modo activo**
 
@@ -87,6 +88,19 @@ Busque Microsoft Azure Backup
 
 
 * **Compruebe si la limitación de ancho de banda no está restringida en el servidor de proceso**:  aumente el ancho de banda y compruebe si el problema persiste.
+
+## <a name="source-machine-to-be-protected-through-site-recovery-is-not-listed-on-azure-portal"></a>La máquina de origen que se debe proteger mediante Site Recovery no aparece en Azure Portal
+
+Al tratar de elegir la máquina de origen para permitir la replicación a través de Azure Site Recovery, si la máquina no está disponible para poder continuar puede ser debido a los siguientes motivos
+
+* Si hay dos máquinas virtuales en vCenter con la misma UUID de instancia, en el portal se muestra la primera máquina virtual detectada por el servidor de configuración. Para solucionarlo, asegúrese de que no haya dos máquinas virtuales que tengan la misma UUID de instancia.
+* Asegúrese de que ha agregado las credenciales correctas de vCenter durante la configuración a través de la plantilla de OVF o la configuración unificada. Para comprobar las credenciales agregadas, consulte las instrucciones compartidas [aquí](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery).
+* Si los permisos proporcionados para tener acceso a vCenter no tienen privilegios suficientes, podría provocar un error en la detección de máquinas virtuales. Asegúrese de que los permisos proporcionados [aquí](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) se agregan a la cuenta de usuario de vCenter.
+* Si la máquina virtual ya está protegida mediante Site Recovery, no estará disponible para la protección. Asegúrese de que la máquina virtual que está buscando en el portal aún no esté protegida por ningún otro usuario o en otras suscripciones.
+
+## <a name="protected-virtual-machines-are-greyed-out-in-the-portal"></a>Las máquinas virtuales protegidas aparecen atenuadas en el portal
+
+Las máquinas virtuales que se replican en Site Recovery aparecen atenuadas si hay entradas duplicadas en el sistema. Consulte las directrices proporcionadas [aquí](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx) para eliminar las entradas obsoletas y resolver el problema.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si necesita más ayuda, puede enviar una consulta al [foro de Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). Contamos con una comunidad activa y uno de nuestros ingenieros podrá ayudarle.

@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Generación de una miniatura (REST y PHP) en Computer Vision'
+title: 'Inicio rápido: Generación de una miniatura (REST, PHP)'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, generará una miniatura de una imagen mediante Computer Vision API con PHP.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 171893dd3017d46c405d2269506fe37896155e55
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 1527f57a1d300f730222d100bc9caf2001098fea
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964516"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579352"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-php-in-computer-vision"></a>Inicio rápido: Generación de una miniatura mediante la API de REST y PHP en Computer Vision
 
@@ -33,7 +34,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para crear y ejecutar el ejemplo, siga estos pasos:
 
-1. Instalación del paquete [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2) de PHP5.
+1. Instalación del paquete [`HTTP_Request2`](https://pear.php.net/package/HTTP_Request2) de PHP5.
    1. Abra una ventana del símbolo del sistema como administrador.
    1. Ejecute el siguiente comando:
 

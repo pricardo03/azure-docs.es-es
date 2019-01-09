@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Computer Vision API para Java'
+title: 'Tutorial: Realización de operaciones de imagen (Java)'
 titlesuffix: Azure Cognitive Services
 description: Explore una aplicación básica de Java Swing que usa Computer Vision API en Azure Cognitive Services. Realice OCR, cree miniaturas y trabaje con características visuales en una imagen.
 services: cognitive-services
@@ -9,13 +9,14 @@ ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: tutorial
 ms.author: kefre
+ms.custom: seodec18
 ms.date: 09/21/2017
-ms.openlocfilehash: 36a8a49ee49636d186ca217ae223b1eebf9bb54b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f039e85ab3fccfc36b704f06d9fcfa3b4cfed758
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340263"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584554"
 ---
 # <a name="tutorial-computer-vision-api-java"></a>Tutorial: Computer Vision API para Java
 

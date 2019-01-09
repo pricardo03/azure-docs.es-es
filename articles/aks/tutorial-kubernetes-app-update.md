@@ -3,22 +3,21 @@ title: 'Tutorial de Kubernetes en Azure: Actualización de una aplicación'
 description: En este tutorial de Azure Kubernetes Service (AKS), aprenderá a actualizar la implementación de una aplicación existente a AKS con una nueva versión del código de la aplicación.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b2dd52fec112b879e072d3ac5598dd7978e68cbc
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: ed4a65e9e4e579277866bdafda67eb577a76bbfe
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41918651"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714821"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Tutorial: Actualización de una aplicación en Azure Kubernetes Service (AKS)
 
-Después de implementar una aplicación en Kubernetes, se puede actualizar especificando una nueva imagen de contenedor o la versión de la imagen. Si lo hace, la actualización se preconfigura para que solo una parte de la implementación se actualice simultáneamente. Esta actualización preconfigurada permite que la aplicación siga ejecutándose durante la actualización. También proporciona un mecanismo de reversión si se produce un error de implementación.
+Después de implementar una aplicación en Kubernetes, se puede actualizar especificando una nueva imagen de contenedor o la versión de la imagen. Una actualización se preconfigura para que solo una parte de la implementación se actualice al mismo tiempo. Esta actualización preconfigurada permite que la aplicación siga ejecutándose durante la actualización. También proporciona un mecanismo de reversión si se produce un error de implementación.
 
 En este tutorial, la sección seis de siete, se actualiza la aplicación de ejemplo de Azure Vote. Aprenderá a:
 
@@ -30,21 +29,21 @@ En este tutorial, la sección seis de siete, se actualiza la aplicación de ejem
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En los tutoriales anteriores se ha empaquetado una aplicación en una imagen de contenedor, esta se ha cargado en Azure Container Registry (ACR) y se ha creado un clúster de Kubernetes. La aplicación se ejecutó después en el clúster de Kubernetes.
+En los tutoriales anteriores se empaquetó una aplicación en una imagen de contenedor. Esta imagen se cargó en Azure Container Registry y se creó un clúster de AKS. Luego la aplicación se implementó en el clúster de AKS.
 
-También se clonó un repositorio de aplicaciones que incluye el código fuente de la aplicación y un archivo de Docker Compose creado previamente que se usa en este tutorial. Confirme que ha creado un clon del repositorio y que ha cambiado los directorios en el repositorio clonado. Si no ha finalizado estos pasos y desea continuar, vuelva al [Tutorial 1: Creación de las imágenes de contenedor][aks-tutorial-prepare-app].
+También se clonó un repositorio de aplicaciones que incluye el código fuente de la aplicación y un archivo de Docker Compose creado previamente que se usa en este tutorial. Confirme que ha creado un clon del repositorio y que ha cambiado los directorios en el repositorio clonado. Si no ha finalizado estos pasos y desea continuar, comience con el [Tutorial 1: Creación de imágenes de contenedor][aks-tutorial-prepare-app].
 
-Para realizar este tutorial es necesario disponer de la versión 2.0.44, o superior, de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli-install].
+Para realizar este tutorial es necesario ejecutar la versión 2.0.53, o superior, de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli-install].
 
 ## <a name="update-an-application"></a>Actualización de una aplicación
 
-Vamos a realizar un cambio en la aplicación de ejemplo y, después, a actualizar la versión ya implementada en el clúster de AKS. El código fuente de la aplicación de ejemplo se puede encontrar en el directorio *azure-vote*. Abra el archivo *config_file.cfg* con un editor, como `vi`:
+Vamos a realizar un cambio en la aplicación de ejemplo y, después, a actualizar la versión ya implementada en el clúster de AKS. Asegúrese de que está en el directorio clonado *azure-voting-app-redis*. El código fuente de la aplicación de ejemplo se puede encontrar en el directorio *azure-vote*. Abra el archivo *config_file.cfg* con un editor, como `vi`:
 
 ```console
 vi azure-vote/azure-vote/config_file.cfg
 ```
 
-Cambie los valores de *VOTE1VALUE* y *VOTE2VALUE* a otros colores. El ejemplo siguiente muestra los valores de color actualizados:
+Cambie los valores de *VOTE1VALUE* y *VOTE2VALUE* por otros diferentes, como colores. En el ejemplo siguiente se muestran los valores actualizados:
 
 ```
 # UI Configurations
@@ -54,7 +53,7 @@ VOTE2VALUE = 'Purple'
 SHOWHOST = 'false'
 ```
 
-Guarde y cierre el archivo.
+Guarde y cierre el archivo. En `vi`, use `:wq`.
 
 ## <a name="update-the-container-image"></a>Actualización de la imagen del contenedor
 
@@ -70,7 +69,7 @@ Para comprobar que la imagen de contenedor actualizada muestra los cambios, abra
 
 ![Imagen del clúster de Kubernetes en Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
-Los valores de color actualizados que se proporcionan en el archivo *config_file.cfg* se muestran en la aplicación en ejecución.
+Los valores actualizados que se proporcionan en el archivo *config_file.cfg* se muestran en la aplicación en ejecución.
 
 ## <a name="tag-and-push-the-image"></a>Etiquetado e inserción de la imagen
 
@@ -86,7 +85,7 @@ Use [docker tag][docker-tag] para etiquetar la imagen. Reemplace `<acrLoginServe
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-Ahora use [docker push][docker-push] para cargar la imagen en el registro. Reemplace `<acrLoginServer>` por el nombre del servidor de inicio de sesión de ACR. Si experimenta problemas al insertar el registro ACR, asegúrese de que ha ejecutado el comando [az acr login][az-acr-login].
+Ahora use [docker push][docker-push] para cargar la imagen en el registro. Reemplace `<acrLoginServer>` por el nombre del servidor de inicio de sesión de ACR. Si experimenta problemas al realizar inserciones en el registro de ACR, asegúrese de que ha ejecutado el comando [az acr login][az-acr-login].
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2
@@ -94,7 +93,7 @@ docker push <acrLoginServer>/azure-vote-front:v2
 
 ## <a name="deploy-the-updated-application"></a>Implementación de la aplicación actualizada
 
-Para garantizar el tiempo máximo de actividad, se deben ejecutar varias instancias de pod de la aplicación. Compruebe el número de instancias de front-end en ejecución con el comando [kubectl get pods][kubectl-get]:
+Para proporcionar el tiempo máximo de actividad, se deben ejecutar varias instancias del pod de aplicación. Compruebe el número de instancias de front-end en ejecución con el comando [kubectl get pods][kubectl-get]:
 
 ```
 $ kubectl get pods
@@ -106,7 +105,7 @@ azure-vote-front-233282510-dhrtr   1/1       Running   0          10m
 azure-vote-front-233282510-pqbfk   1/1       Running   0          10m
 ```
 
-Si no tiene varios pods de front-end, escale la implementación de *azure-vote-front*.
+Si no tiene varios pods de front-end, escale la implementación de *azure-vote-front* de la manera siguiente:
 
 ```console
 kubectl scale --replicas=3 deployment/azure-vote-front
@@ -144,13 +143,13 @@ Para ver la aplicación actualizada, obtenga primero la dirección IP externa de
 kubectl get service azure-vote-front
 ```
 
-Ahora abra un explorador web en la dirección IP.
+Ahora, abra un explorador web local en la dirección IP del servicio:
 
 ![Imagen del clúster de Kubernetes en Azure](media/container-service-kubernetes-tutorials/vote-app-updated-external.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, actualiza una aplicación y se implanta esta actualización en un clúster de Kubernetes. Ha aprendido a:
+En este tutorial, ha actualizado una aplicación y ha implementado esta actualización en el clúster de AKS. Ha aprendido a:
 
 > [!div class="checklist"]
 > * Actualizar el código de la aplicación de front-end

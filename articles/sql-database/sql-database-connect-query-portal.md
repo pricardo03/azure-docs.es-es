@@ -13,16 +13,16 @@ ms.author: ayolubek
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/05/2018
-ms.openlocfilehash: fa46260fdd5623ba32da9979aaea8470139096b8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 86120e65ad6a3b7fab2a5db78a338bed0e277cb8
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091397"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651954"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Inicio rápido: Uso del Editor de consultas SQL de Azure Portal para conectarse a datos y consultarlos
 
-El Editor de consultas SQL es una herramienta del explorador de Azure Portal que proporciona una manera fácil de ejecutar consultas SQL en Azure SQL Database o Azure SQL Data Warehouse. Este inicio rápido muestra cómo usar el Editor de consultas para conectarse a una base de datos SQL y ejecutar instrucciones Transact-SQL para realizar consultas, insertar datos, actualizarlos y eliminarlos.
+El Editor de consultas SQL es una herramienta del explorador de Azure Portal que proporciona una manera fácil de ejecutar consultas SQL en Azure SQL Database o Azure SQL Data Warehouse. En este inicio rápido, usará el editor de consultas para conectarse a una base de datos SQL y ejecutar instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -92,7 +92,7 @@ La configuración de un administrador de Active Directory (AD) le permite usar u
 
 ## <a name="insert-data"></a>Insertar datos
 
-Use la siguiente instrucción Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) para agregar un nuevo producto en la tabla `SalesLT.Product`.
+Ejecute la siguiente instrucción Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) para agregar un nuevo producto en la tabla `SalesLT.Product`.
 
 1. Reemplace la consulta anterior por esta otra.
 
@@ -117,12 +117,12 @@ Use la siguiente instrucción Transact-SQL [INSERT](https://msdn.microsoft.com/l
    ```
 
 
-2. Seleccione **Ejecutar** para insertar una nueva fila en la tabla de productos. El panel **Mensajes** muestra **Consulta realizada correctamente: Filas afectadas: 1**.
+2. Seleccione **Ejecutar** para insertar una nueva fila en la tabla `Product`. El panel **Mensajes** muestra **Consulta realizada correctamente: Filas afectadas: 1**.
 
 
 ## <a name="update-data"></a>Actualización de datos
 
-Use la siguiente instrucción Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) para modificar el nuevo producto.
+Ejecute la siguiente instrucción Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) para modificar el nuevo producto.
 
 1. Reemplace la consulta anterior por esta otra.
 
@@ -132,20 +132,20 @@ Use la siguiente instrucción Transact-SQL [UPDATE](https://msdn.microsoft.com/l
    WHERE Name = 'myNewProduct';
    ```
 
-2. Seleccione **Ejecutar** para actualizar la fila especificada en la tabla de productos. El panel **Mensajes** muestra **Consulta realizada correctamente: Filas afectadas: 1**.
+2. Seleccione **Ejecutar** para actualizar la fila especificada en la tabla `Product`. El panel **Mensajes** muestra **Consulta realizada correctamente: Filas afectadas: 1**.
 
 ## <a name="delete-data"></a>Eliminación de datos
 
-Use la siguiente instrucción Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) para quitar el nuevo producto.
+Ejecute la siguiente instrucción Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) para quitar el nuevo producto.
 
-1. Reemplace la consulta anterior por esta otra:
+1. Reemplace la consulta anterior por esta:
 
    ```sql
    DELETE FROM [SalesLT].[Product]
    WHERE Name = 'myNewProduct';
    ```
 
-2. Seleccione **Ejecutar** para eliminar la fila especificada en la tabla de productos. El panel **Mensajes** muestra **Consulta realizada correctamente: Filas afectadas: 1**.
+2. Seleccione **Ejecutar** para eliminar la fila especificada en la tabla `Product`. El panel **Mensajes** muestra **Consulta realizada correctamente: Filas afectadas: 1**.
 
 
 ## <a name="query-editor-considerations"></a>Consideraciones acerca del Editor de consultas
@@ -156,7 +156,7 @@ Hay algunos aspectos que debe conocer al trabajar con el Editor de consultas.
 
 * Al presionar F5, se actualiza la página del Editor de consultas y se perderá cualquier consulta en la que se esté trabajando.
 
-* El Editor de consultas no puede conectarse a una base de datos maestra.
+* El editor de consultas no puede conectarse a una base de datos `master`.
 
 * La ejecución de consultas tienen un tiempo de expiración de 5 minutos.
 

@@ -1,5 +1,5 @@
 ---
-title: Tutorial sobre detección de dispositivos en una solución de supervisión remota basada en Azure | Microsoft Docs
+title: Tutorial sobre detección de dispositivos en una solución de supervisión remota en Azure | Microsoft Docs
 description: En este tutorial, se muestra cómo usar reglas y acciones para detectar automáticamente problemas de los dispositivos basados en el umbral en la solución de supervisión remota.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 7ebe81565bc6bd28747f3a251b39a3c010493307
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 91ee5087e5f41cda3648c2ecadcfcf16fd32a249
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819107"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598691"
 ---
-# <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Tutorial: Detección de problemas con los dispositivos conectados a una solución de supervisión
+# <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Tutorial: Detección de problemas de dispositivos conectados a la solución de supervisión
 
 En este tutorial, configurará el acelerador de soluciones de supervisión remota para detectar problemas de los dispositivos de IoT conectados. Para detectar problemas con los dispositivos, agregue reglas que generen alertas en el panel de la solución.
 

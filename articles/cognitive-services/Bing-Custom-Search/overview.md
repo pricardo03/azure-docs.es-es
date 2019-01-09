@@ -1,7 +1,7 @@
 ---
-title: ¿Qué es Bing Custom Search?
+title: ¿Qué es Bing Custom Search API?
 titlesuffix: Azure Cognitive Services
-description: Proporciona una descripción general de Bing Custom Search.
+description: Bing Custom Search API le permite crear experiencias de búsqueda a medida de los temas que le interesan.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,48 +10,42 @@ ms.component: bing-custom-search
 ms.topic: overview
 ms.date: 09/29/2017
 ms.author: aahi
-ms.openlocfilehash: 2be1d76cc37de2ce2965cc08c116b37286bd8b52
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 8dae58b1ae58a634ca6a566424a7c2d3fcf6add2
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163252"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554612"
 ---
-# <a name="what-is-bing-custom-search"></a>¿Qué es Bing Custom Search?
+# <a name="what-is-the-bing-custom-search-api"></a>¿Qué es Bing Custom Search API?
 
-Bing Custom Search le permite crear experiencias de búsqueda a medida de los temas que le interesan. Por ejemplo, si tiene un sitio web que proporciona una experiencia de búsqueda, puede especificar los dominios, sitios web y páginas web en los que busca Bing. Los usuarios ven los resultados de búsqueda a la medida del contenido que les interesa en lugar de recorrer las páginas de los resultados de búsqueda que pueden contener contenido carente de interés.
+Bing Custom Search API le permite crear experiencias de búsqueda a medida sin anuncios de los temas que le interesan. Puede especificar los dominios y las páginas web donde buscará Bing, así como anclar y aumentar o disminuir el nivel de contenido específico para crear una vista personalizada de la Web y ayudar a los usuarios a encontrar rápidamente los resultados de búsqueda apropiados. 
 
-Para crear la vista personalizada de la web, use el [portal](https://customsearch.ai) de Bing Custom Search. El portal le permite crear una instancia de búsqueda personalizada que especifique los dominios, los sitios web y las páginas web en los que quiere que busque Bing, y aquellos sitios web en los que no quiere que busque. Además de especificar las direcciones URL del contenido que conoce, también puede usar el portal para buscar contenido pertinente que quizás quiera agregar.
+## <a name="features"></a>Características
 
-El portal también le permite anclar una página web a la parte superior del resultado de búsqueda si el usuario escribe un término de búsqueda específico. 
+|Característica  |DESCRIPCIÓN  |
+|---------|---------|
+|[Sugerencias de búsqueda en tiempo real personalizadas](define-custom-suggestions.md)     | Proporciona sugerencias de búsqueda que pueden mostrarse como una lista desplegable a medida que los usuarios escriben.       | 
+|[Experiencias personalizadas de búsqueda de imágenes](get-images-from-instance.md)     | Permita que los usuarios busquen imágenes en los dominios y los sitios web especificados en su instancia de búsqueda personalizada.        |        
+|[Experiencias personalizadas de búsqueda de vídeos](get-videos-from-instance.md)     | Permita que los usuarios busquen vídeos en los dominios y los sitios especificados en su instancia de búsqueda personalizada.        |    
+|[Uso compartido de la instancia de búsqueda personalizada](share-your-custom-search.md)     | Comparta su instancia de búsqueda con los miembros del equipo y colabore para editarla y probarla.        | 
+|[Configuración de una interfaz de usuario para sus aplicaciones y sitios web](hosted-ui.md)     | Comparta su instancia de búsqueda con los miembros del equipo y colabore para editarla y probarla.        | 
+## <a name="workflow"></a>Flujo de trabajo
 
-Después de definir la instancia, puede integrar la búsqueda personalizada en su aplicación móvil, aplicación de escritorio o sitio web mediante una llamada a Custom Search API. Si tiene una aplicación o sitio basado en web, puede permitir que la interfaz de usuario hospedada represente la interfaz de búsqueda automáticamente.
+Puede crear una instancia de búsqueda personalizada con el [portal de Bing Custom Search](https://customsearch.ai). El portal le permite crear una instancia de búsqueda personalizada que especifique los dominios, los sitios web y las páginas web en los que quiere que busque Bing, y aquellos en los que no quiere que busque. También puede usar el portal para mostrar una vista previa de la experiencia de búsqueda, ajustar las clasificaciones de búsqueda que la API proporciona y, opcionalmente, configurar una interfaz de usuario que permite búsquedas para mostrarla en sus aplicaciones y sitios web.
 
-La siguiente imagen muestra la simplicidad de la integración de la búsqueda personalizada.
+Una vez creada, puede integrar la instancia de búsqueda (y, opcionalmente, una interfaz de usuario) en su aplicación o sitio web mediante una llamada a Bing Custom Search API:
 
-![imagen alt](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/cognitive-services/Bing-Custom-Search/media/BCS-Overview.png "Funcionamiento de Bing Custom Search")
+![Imagen que muestra que puede conectar con Bing Custom Search mediante la API](media/BCS-Overview.png "Cómo funciona Bing Custom Search").
 
-## <a name="adding-custom-search-box-suggestions"></a>Agregar sugerencias personalizadas del cuadro de búsqueda
-
-Puede enriquecer su experiencia de búsqueda personalizada gracias a las sugerencias personalizadas del cuadro de búsqueda. Esta característica le permite proporcionar sugerencias de búsqueda personalizadas que sean relevantes para su experiencia de búsqueda. Cuando el usuario escribe algo en el cuadro de búsqueda, la lista desplegable que se muestra contiene las cadenas de consulta sugeridas en función de la cadena de consulta parcial del usuario. Puede especificar si desea devolver solo sugerencias personalizadas o también incluir las sugerencias de Bing. [Más información](define-custom-suggestions.md).
-
-## <a name="adding-custom-image-search-experience"></a>Agregar la experiencia personalizada de búsqueda de imágenes
-
-Puede enriquecer su experiencia de búsqueda personalizada con imágenes. De forma similar a los resultados web, la búsqueda personalizada permite buscar imágenes en la lista de sitios web de su instancia. [Más información](get-images-from-instance.md).
-
-## <a name="adding-custom-video-search-experience"></a>Agregar la experiencia personalizada de búsqueda de vídeos
-
-Puede enriquecer su experiencia de búsqueda personalizada con vídeos. De forma similar a los resultados web, la búsqueda personalizada permite buscar vídeos en la lista de sitios web de su instancia. [Más información](get-videos-from-instance.md).
-
-## <a name="sharing-your-custom-search-instance-with-others"></a>Compartir la instancia de búsqueda personalizada con otros usuarios
-
-Puede permitir fácilmente la edición y prueba colaborativas de la instancia al compartirla con miembros del equipo. [Más información](share-your-custom-search.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para iniciar rápidamente, consulte [Create your first Bing Custom Search instance](quick-start.md) (Creación de la primera instancia de Bing Custom Search).
 
 Para obtener más información sobre cómo personalizar su instancia de búsqueda, consulte [Define a custom search instance](define-your-custom-view.md) (Definir una instancia de búsqueda personalizada).
+
+Consulte los [requisitos de visualización y uso de Bing](./use-and-display-requirements.md) para usar los resultados de búsqueda en sus aplicaciones y servicios.
 
 Familiarícese con el contenido de referencia de cada uno de los puntos de conexión de búsqueda personalizada. La referencia contiene los puntos de conexión, los encabezados y los parámetros de consulta que se utilizan para solicitar los resultados de la búsqueda. También incluye definiciones de los objetos de respuesta.
 
@@ -60,5 +54,3 @@ Familiarícese con el contenido de referencia de cada uno de los puntos de conex
 - [Custom Video API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference)
 - [Custom Autosuggest API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference)
 
-
-No olvide leer los [Requisitos de visualización y uso de Bing](./use-and-display-requirements.md) para evitar infringir alguna de las reglas sobre el uso de los resultados de búsqueda.

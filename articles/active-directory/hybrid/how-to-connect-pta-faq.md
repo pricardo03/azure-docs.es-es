@@ -1,5 +1,5 @@
 ---
-title: 'Autenticación de paso a través de Azure AD Connect: Preguntas más frecuentes | Microsoft Docs'
+title: 'Azure AD Connect: Autenticación de paso a través: preguntas más frecuentes | Microsoft Docs'
 description: Respuestas a las preguntas más frecuentes sobre la autenticación de paso a través de Azure Active Directory.
 services: active-directory
 keywords: Autenticación de paso a través de Azure AD Connect, instalación de Active Directory, componentes necesarios para Azure AD, SSO, inicio de sesión único
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 77872ab809f4375523a91f4ebc9b24f8606e6c94
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: fdb316f5f5c1f67dbb92fe8847c0ffacce46ae07
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619831"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789099"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticación de paso a través de Azure Active Directory: Preguntas más frecuentes
 
@@ -62,7 +62,7 @@ Para que esta característica funcione, necesita la versión 1.1.750.0 o posteri
 
 Si ha configurado la [escritura diferida de contraseñas](../authentication/concept-sspr-writeback.md) para un usuario concreto y, si el usuario inicia sesión mediante la autenticación de paso a través, puede cambiar o restablecer su contraseña. La contraseña se volverá a escribir en la instancia local de Active Directory, tal como cabría esperar.
 
-Si no ha configurado la escritura diferida de contraseñas para un usuario determinado o si este no tiene una licencia válida de Azure AD asignada, el usuario no podrá actualizar la contraseña en la nube. El usuario no puede actualizar la contraseña incluso aunque haya expirado. En su lugar, verá el siguiente mensaje: "La organización no le permite actualizar la contraseña en este sitio. Actualícela de acuerdo con el método que recomienda la organización o, si necesita ayuda, póngase en contacto con el administrador". El usuario o el administrador debe restablecer su contraseña en la instancia de Active Directory local.
+Si no ha configurado la escritura diferida de contraseñas para un usuario determinado o si este no tiene una licencia válida de Azure AD asignada, el usuario no podrá actualizar la contraseña en la nube. El usuario no puede actualizar la contraseña incluso aunque haya expirado. En su lugar, el usuario ve este mensaje: "La organización no le permite actualizar la contraseña en este sitio. Actualícela de acuerdo con el método que recomienda la organización o, si necesita ayuda, póngase en contacto con el administrador". El usuario o el administrador debe restablecer su contraseña en la instancia de Active Directory local.
 
 ## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>¿Cómo protege la autenticación de paso a través frente a ataques de contraseña por fuerza bruta?
 
@@ -83,7 +83,7 @@ Sí. Si la Detección automática de proxy web (WPAD) está habilitada en el ent
 Si no tiene WPAD en el entorno, puede agregar información de proxy (tal como se muestra a continuación) para permitir que un agente de autenticación de paso a través se comunique con Azure AD:
 - Configure la información del proxy en Internet Explorer antes de instalar el agente de autenticación de paso a través en el servidor. Esto le permitirá completar la instalación del agente de autenticación, pero seguirá apareciendo como **Inactivo** en el portal de administración.
 - En el servidor, vaya a "C:\Program Files\Microsoft Azure AD Connect Authentication Agent".
-- Edite el archivo de configuración "AzureADConnectAuthenticationAgentService" y agregue las siguientes líneas (reemplace "http://contosoproxy.com:8080" con su dirección proxy real):
+- Edite el archivo de configuración "AzureADConnectAuthenticationAgentService" y agregue las siguientes líneas (reemplace "http\://contosoproxy.com:8080" por su dirección proxy real):
 
 ```
    <system.net>
@@ -171,13 +171,13 @@ Los inquilinos creados después del 15 de junio de 2015 tienen el comportamiento
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Limitaciones actuales](how-to-connect-pta-current-limitations.md): conozca qué escenarios son compatibles y cuáles no.
-- [Inicio rápido](how-to-connect-pta-quick-start.md): poner en marcha la autenticación de paso a través de Azure AD.
+- [Limitaciones actuales](how-to-connect-pta-current-limitations.md): Obtenga información sobre los escenarios que se admiten y los que no.
+- [Inicio rápido](how-to-connect-pta-quick-start.md): ponga en marcha la autenticación de paso a través de Azure AD.
 - [Migración de AD FS a la autenticación de paso a través](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true): una guía detallada para migrar desde AD FS (u cualquier otra tecnología de federación) a la autenticación de paso a través.
-- [Bloqueo inteligente](../authentication/howto-password-smart-lockout.md): obtenga información sobre cómo configurar la funcionalidad de bloqueo inteligente en el inquilino para proteger las cuentas de usuario.
-- [Profundización técnica](how-to-connect-pta-how-it-works.md): conozca cómo funciona la característica de autenticación de paso a través.
-- [Solución de problemas](tshoot-connect-pass-through-authentication.md): obtenga información sobre cómo resolver problemas comunes relacionados con la característica de autenticación de paso a través.
-- [Análisis a fondo de la seguridad](how-to-connect-pta-security-deep-dive.md): obtenga información técnica sobre la característica de autenticación de paso a través.
-- [SSO de conexión directa de Azure AD](how-to-connect-sso.md): obtenga más información sobre esta característica complementaria.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): use el foro de Azure Active Directory para solicitar nuevas características.
+- [Bloqueo inteligente](../authentication/howto-password-smart-lockout.md): Obtenga información sobre cómo configurar la funcionalidad de bloqueo inteligente en el inquilino para proteger las cuentas de usuario.
+- [Profundización técnica](how-to-connect-pta-how-it-works.md): Conozca cómo funciona la característica de autenticación de paso a través.
+- [Solución de problemas](tshoot-connect-pass-through-authentication.md): Obtenga información sobre cómo resolver problemas comunes relacionados con la característica de autenticación de paso a través.
+- [Análisis a fondo de la seguridad](how-to-connect-pta-security-deep-dive.md): Obtenga información técnica detallada sobre la característica de autenticación de paso a través.
+- [SSO de conexión directa de Azure AD](how-to-connect-sso.md): Más información sobre esta característica complementaria.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Use el foro de Azure Active Directory para solicitar nuevas características.
 

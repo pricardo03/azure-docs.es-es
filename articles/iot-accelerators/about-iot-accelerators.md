@@ -1,5 +1,5 @@
 ---
-title: Introducción a los aceleradores de soluciones de Azure IoT | Microsoft Docs
+title: Introducción a los aceleradores de soluciones de Azure IoT en Azure | Microsoft Docs
 description: Información acerca de los aceleradores de soluciones de IoT de Azure. Los aceleradores de soluciones de IoT son elementos completos y preparados para implementar soluciones de IoT.
 author: dominicbetts
 ms.author: dobett
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 6fed0c5e3f24fbcefec427cf56a625d1d8d7aba2
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 79c8f0f1c987de6320770416641300f3b8bb7c1d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824547"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607210"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>¿Qué son los aceleradores de soluciones de Azure IoT?
 
@@ -34,7 +34,7 @@ Actualmente, hay cuatro aceleradores de soluciones disponibles para implementar:
 
 ### <a name="remote-monitoring"></a>Supervisión remota
 
-Use este acelerador de soluciones para recopilar datos de telemetría procedentes de dispositivos remotos y para controlarlos. Algunos dispositivos de ejemplo serían los sistemas de refrigeración instalados en las instalaciones de los clientes o las válvulas instaladas en estaciones de bombeo remotas.
+Use el [acelerador de soluciones de supervisión remota](iot-accelerators-remote-monitoring-sample-walkthrough.md) para recopilar datos de telemetría procedentes de dispositivos remotos y para controlarlos. Algunos dispositivos de ejemplo serían los sistemas de refrigeración instalados en las instalaciones de los clientes o las válvulas instaladas en estaciones de bombeo remotas.
 
 Puede usar el panel de supervisión remota para ver los datos de telemetría de los dispositivos conectados, aprovisionar nuevos dispositivos o actualizar el firmware de los dispositivos conectados:
 
@@ -42,7 +42,7 @@ Puede usar el panel de supervisión remota para ver los datos de telemetría de 
 
 ### <a name="connected-factory"></a>Fábrica conectada
 
-Use este acelerador de soluciones para recopilar datos de telemetría de recursos industriales con una interfaz [OPC Unified Architecture](https://opcfoundation.org/about/opc-technologies/opc-ua/) y para controlarlos. Los recursos industriales podrían incluir estaciones de prueba y ensamblado en una línea de producción de una fábrica.
+Use el [acelerador de soluciones Factoría conectada](iot-accelerators-connected-factory-sample-walkthrough.md) para recopilar datos de telemetría de recursos industriales con una interfaz de [OPC Unified Architecture](https://opcfoundation.org/about/opc-technologies/opc-ua/) y para controlarlos. Los recursos industriales podrían incluir estaciones de prueba y ensamblado en una línea de producción de una fábrica.
 
 Puede utilizar el panel de fábrica conectada para supervisar y administrar sus dispositivos industriales:
 
@@ -50,7 +50,7 @@ Puede utilizar el panel de fábrica conectada para supervisar y administrar sus 
 
 ### <a name="predictive-maintenance"></a>Mantenimiento predictivo
 
-Use este acelerador de soluciones para predecir cuándo se espera que un dispositivo remoto sufra un error, de modo que pueda realizar tareas de mantenimiento antes de que se produzca un error en el dispositivo. Este acelerador de soluciones utiliza algoritmos de aprendizaje automático para predecir los errores de la telemetría de los dispositivos. Algunos dispositivos de ejemplo podrían ser los motores de un avión o los ascensores.
+Use el [acelerador de soluciones de mantenimiento predictivo](iot-accelerators-predictive-walkthrough.md) para predecir cuándo se espera que un dispositivo remoto sufra un error, de modo que pueda realizar tareas de mantenimiento antes de que ocurra. Este acelerador de soluciones utiliza algoritmos de aprendizaje automático para predecir los errores de la telemetría de los dispositivos. Algunos dispositivos de ejemplo podrían ser los motores de un avión o los ascensores.
 
 Puede utilizar el panel de mantenimiento predictivo para ver el análisis de mantenimiento predictivo:
 
@@ -58,7 +58,7 @@ Puede utilizar el panel de mantenimiento predictivo para ver el análisis de man
 
 ### <a name="device-simulation"></a>Simulación de dispositivo
 
-Use este acelerador de soluciones para ejecutar dispositivos simulados que generan datos de telemetría realistas. Puede utilizar este acelerador de soluciones para probar el comportamiento de los demás aceleradores de soluciones o para probar sus propias soluciones personalizadas de IoT.
+Use el [acelerador de soluciones Simulación de dispositivos](iot-accelerators-device-simulation-overview.md) para ejecutar dispositivos simulados que generan datos de telemetría realistas. Puede utilizar este acelerador de soluciones para probar el comportamiento de los demás aceleradores de soluciones o para probar sus propias soluciones personalizadas de IoT.
 
 Puede usar la aplicación web de simulación de dispositivos para configurar y ejecutar simulaciones:
 
@@ -85,7 +85,7 @@ Los aceleradores de soluciones originales se escribieron con .NET usando una arq
 | Fábrica conectada      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
 | Simulación de dispositivo      | Microservicios | [.NET](https://github.com/Azure/device-simulation-dotnet)          |
 
-Para más información sobre las arquitecturas de microservicios, consulte [.NET Application Architecture](https://www.microsoft.com/net/learn/architecture) (Arquitectura de la aplicación .NET) y [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Microservicios: una revolución de aplicaciones con la tecnología de la nube).
+Para más información sobre la arquitectura de microservicios, consulte [Introducción a la arquitectura de referencia de Azure IoT](iot-accelerators-architecture-overview.md).
 
 ## <a name="deployment-options"></a>Opciones de implementación
 

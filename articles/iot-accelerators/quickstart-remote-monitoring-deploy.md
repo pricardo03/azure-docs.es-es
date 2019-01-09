@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2018
 ms.author: dobett
-ms.openlocfilehash: 4071770a74d205570cee082d9af0c0fb7c77e203
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 3f30b46138fc7753a1a4282497cbb06b6a4defbc
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824785"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608364"
 ---
-# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Guía de inicio rápido: Prueba de una solución de supervisión remota basada en la nube
+# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Inicio rápido: Prueba de una solución de supervisión remota basada en la nube
 
 En esta guía de inicio rápido se muestra cómo implementar el acelerador de soluciones de supervisión remota de Azure IoT. En esta solución basada en la nube, se usa la página **Panel** para visualizar los dispositivos simulados en un mapa y la página **Mantenimiento** para responder a una alerta de presión de un dispositivo refrigerador simulado. Puede utilizar este acelerador de soluciones como punto de partida de su propia implementación o como una herramienta de aprendizaje.
 
@@ -142,4 +142,4 @@ En esta guía de inicio rápido, ha implementado el acelerador de soluciones de 
 Para más información sobre el acelerador de soluciones con dispositivos simulados, consulte el tutorial siguiente.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Supervisión de los dispositivos de IoT](iot-accelerators-remote-monitoring-monitor.md)
+> [Tutorial: Supervisión de los dispositivos IoT](iot-accelerators-remote-monitoring-monitor.md)

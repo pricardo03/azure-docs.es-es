@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 12/27/2018
 ms.author: alkohli
-ms.openlocfilehash: d10ca5d704892ae0a1494d729b46abf0fc06aa64
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 5debc14a6a20c42b62b9a7b2c524e36e94302221
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092259"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792873"
 ---
 # <a name="azure-data-box-disk-system-requirements-preview"></a>Requisitos del sistema de Azure Data Box Disk (versión preliminar)
 
@@ -32,7 +32,7 @@ Aquí se proporciona una lista de los sistemas operativos compatibles para la op
 | **Sistema operativo** | **Versiones probadas** |
 | --- | --- |
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
-| Windows |7, 8, 10 |
+|  Windows |7, 8, 10 |
 |Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04, 16.04, 18.04 <br> 8.11, 9 <br> 7.0 <br> 6.5, 6.9, 7.0, 7.5 |  
 
 ## <a name="other-required-software-for-windows-clients"></a>Otro software necesario para los clientes Windows
@@ -61,6 +61,9 @@ Aquí se proporciona una lista de los tipos de almacenamiento compatibles para D
 | --- | --- |
 | Clásico | Estándar |
 | Uso general  |Estándar; se admiten V1 y V2. Se admiten niveles frecuentes y esporádicos. |
+
+>[!NOTE]
+> No se admiten las cuentas de Azure Data Lake Storage Gen 2.
 
 
 ## <a name="supported-storage-types"></a>Tipos de almacenamiento admitidos

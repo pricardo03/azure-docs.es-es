@@ -10,20 +10,20 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 9cbf0e60382ef17d68aab47cf5f24ea9b8434f13
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0d2cca335206ee59b922a31ed3cf3ba24ef4ecd7
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381751"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790782"
 ---
 # <a name="what-is-conversation-learner"></a>¿Qué es Conversation Learner?
 
 Conversation Learner permite compilar y entrenar interfaces de conversación que aprenden de las interacciones de ejemplo. 
 
-A diferencia de los enfoques tradicionales, Conversation Learner considera el contexto de un extremo a otro de un diálogo para mejorar las respuestas y ofrecer experiencias de usuario más atractivas. Con la extensión de un amplio conjunto de casos de uso orientados a tareas, Conversation Learner aplica el aprendizaje automático en segundo plano para que haya menos probabilidades de que los bots y los agentes inteligentes se frustren, incurran en costes de servicio de cliente adicionales y ofrezcan una interacción más intuitiva.
+A diferencia de los enfoques tradicionales, Conversation Learner considera el contexto de un extremo a otro de un diálogo para mejorar las respuestas y ofrecer experiencias de usuario más atractivas. Con la extensión de un amplio conjunto de casos de uso orientados a tareas, Conversation Learner aplica el aprendizaje automático en segundo plano para que haya menos probabilidades de que los bots y los agentes inteligentes frustren a los usuarios, incurran en costes de servicio de cliente adicionales e inciten a una interacción más intuitiva.
 
-Para empezar, el desarrollador introduce diálogos prototípicos que se desean imitar. Mientras más diálogos se introducen, el modelo se actualiza continuamente, y el desarrollador puede ver el grado de generalización del modelo. Una vez que el modelo está funcionando bien, el bot puede implementarse a los usuarios finales. Conversation Learner registra las conversaciones con los usuarios, y el desarrollador puede revisarlas. Si se detectan errores, el desarrollador puede hacer una corrección inmediata, y el modelo se conserva y se mantiene disponible para su uso inmediato.
+Los desarrolladores comienzan por introducir diálogos prototípicos que desean imitar. El modelo aprende a medida que se introducen más diálogos. Una vez que el modelo funcione bien, puede implementarse el bot para los usuarios finales. Conversation Learner registra las conversaciones con los usuarios, y el desarrollador puede revisarlas. Si se detectan errores, el desarrollador puede hacer una corrección inmediata, y el modelo se conserva y se mantiene disponible para su uso inmediato.
 
 Este enfoque reduce la codificación manual de la lógica de control de diálogos y permite a los propietarios de empresas o a los expertos en la materia contribuir a una interfaz de conversación sin un conocimiento previo de aprendizaje automático. Si se implementa como parte de un bot, de un dispositivo inteligente o de un agente inteligente, Conversation Learner puede iterar rápidamente nuevas aptitudes, comportamientos o competencias y mejorar rápidamente su calidad. 
 

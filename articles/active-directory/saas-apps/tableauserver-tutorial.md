@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 12/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 84ea1d999a26ce0ce1d548da92549c6a718d5978
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c727cddf41c269c214b541134cd9f688017ee687
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850370"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789728"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Tutorial: Integración de Azure Active Directory con Tableau Server
 
@@ -86,13 +86,14 @@ Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el u
 
 Para configurar y probar el inicio de sesión único de Azure AD con Tableau Server, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de Tableau Server](#creating-a-tableau-server-test-user)** : para tener un homólogo de Britta Simon en Tableau Server vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Tableau Server](#configure-tableau-server-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Creación de un usuario de prueba de Tableau Server](#create-tableau-server-test-user)**: para tener un homólogo de Britta Simon en Cisco Umbrella que esté vinculado a su representación en Azure AD.
+5. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y configurará el inicio de sesión único en la aplicación Tableau Server.
 
@@ -112,9 +113,9 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 4. En la sección **Notificaciones del usuario** del cuadro de diálogo **User Attributes & Claims** (Atributos y notificaciones del usuario), configure el atributo token SAML como se muestra en la imagen anterior y realice los siguientes pasos:
     
-    | Nombre del atributo | Valor de atributo |
-    | ---------------| --------------- |    
-    | nombre de usuario | user.userprincipalname |
+    | Nombre del atributo | Valor de atributo | Espacio de nombres |
+    | ---------------| --------------- | ----------- |   
+    | nombre de usuario | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
 
      a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
@@ -151,33 +152,41 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 7. En la página **Certificado de firma de SAML**, en la sección **Certificado de firma de SAML**, haga clic **Descargar** para descargar el **archivo XML de metadatos de federación** y, luego, guarde el archivo de certificado en el equipo.
 
-    ![Vínculo de descarga del certificado](./media/tableauserver-tutorial/tutorial-tableauserver-certificate.png) 
+    ![Vínculo de descarga del certificado](./media/tableauserver-tutorial/tutorial-tableauserver-certificate.png)
 
-8. Para configurar SSO para la aplicación, debe iniciar sesión en su inquilino de Tableau Server como administrador.
+### <a name="configure-tableau-server-single-sign-on"></a>Configuración del inicio de sesión único de Tableau Server 
 
-9. En la página **Configuración de Tableau Server**, realice estos pasos:
-   
-    ![Configurar inicio de sesión único](./media/tableauserver-tutorial/tutorial-tableauserver-001.png)
+1. Para configurar SSO para la aplicación, debe iniciar sesión en su inquilino de Tableau Server como administrador.
 
-     a. En la configuración de Tableau Server, haga clic en la pestaña **SAML** . 
-  
-    b. Active la casilla de **Use SAML for single sign-on**(Usar SAML para inicio de sesión único).
-   
+2. En la pestaña **CONFIGURACIÓN**, seleccione **User Identity & Access** (Identidad de usuario y acceso) y, a continuación, seleccione la pestaña del método de **Autenticación**.
+
+    ![Configurar inicio de sesión único](./media/tableauserver-tutorial/tutorial-tableauserver-auth.png)
+
+3. En la página **CONFIGURACIÓN**, realice los siguientes pasos:
+
+    ![Configurar inicio de sesión único](./media/tableauserver-tutorial/tutorial-tableauserver-config.png)
+
+     a. Como **Authentication Method** (Método de autenticación), seleccione SAML.
+    
+    b. Seleccione la casilla **Enable SAML Authentication for the server**(Habilitar autenticación SAML para el servidor).
+
     c. Dirección URL de retorno de Tableau Server: dirección URL a la que accederán los usuarios de Tableau Server; por ejemplo, http://tableau_server. No se recomienda usar http://localhost. No se permiten las direcciones URL que tienen una barra diagonal al final; por ejemplo, http://tableau_server/). Copie el valor de **Tableau Server return URL** (URL de retorno de Tableau Server) y péguelo en el cuadro de texto **URL de inicio de sesión** de la sección **Tableau Server Domain and URLs** (Dominio y direcciones URL de Tableau Server) de Azure AD.
-   
+
     d. SAML entity ID (Id. de entidad SAML): el identificador de entidad identifica de forma exclusiva la instalación de Tableau Server en el IdP. Aquí, si quiere, puede especificar de nuevo la dirección URL de Tableau Server, pero no tiene que ser esa misma URL. Copie el valor de **SAML entity ID** (Id. de entidad SAML) y péguelo en el cuadro de texto **Identificador** de la sección **Tableau Server Domain and URLs** (Dominio y direcciones URL de Tableau Server) de Azure AD.
-     
-    e. Haga clic en **Export Metadata File** (Exportar archivo de metadatos) y ábralo en la aplicación del editor de texto. Busque la URL del Servicio de consumidor de aserciones con Http Post e índice 0 y copie la URL. Ahora, péguelo en el cuadro de texto **URL de respuesta** de la sección **Tableau Server Domain and URLs** (Dominio y direcciones URL de Tableau Server) de Azure AD.
-   
+
+    e. Haga clic en **Download XML Metadata File** (Descargar archivo de metadatos XML) y ábralo en la aplicación del editor de texto. Busque la URL del Servicio de consumidor de aserciones con Http Post e índice 0 y copie la URL. Ahora, péguelo en el cuadro de texto **URL de respuesta** de la sección **Tableau Server Domain and URLs** (Dominio y direcciones URL de Tableau Server) de Azure AD.
+
     f. Busque el archivo de metadatos de federación descargado desde Azure Portal y cárguelo en el **SAML Idp metadata file**(Archivo de metadatos del proveedor de identidades SAML).
-   
-    g. Haga clic en el botón **Aceptar** de la página de configuración de Tableau Server.
-   
+
+    g. Escriba los nombres de los atributos que el proveedor de identidades usa para contener los nombres de usuario, los nombres para mostrar y las direcciones de correo electrónico.
+
+    h. Haga clic en **Guardar**
+
     >[!NOTE] 
     >El cliente tiene que cargar los certificados en la configuración de SSO de SAML de Tableau Server para que se omitan en el flujo de SSO.
-    >Si necesita ayuda para configurar SAML en Tableau Server, vea el artículo [Configuración de SAML](https://onlinehelp.tableau.com/current/server/en-us/config_saml.htm).
+    >Si necesita ayuda para configurar SAML en Tableau Server, vea el artículo [Configuración de SAML](https://onlinehelp.tableau.com/v2018.2/server/en-us/saml_config_steps_tsm_ui.htm).
 
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
@@ -202,7 +211,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     d. Seleccione **Crear**.
   
-### <a name="creating-a-tableau-server-test-user"></a>Crear un usuario de prueba de Tableau Server
+### <a name="create-tableau-server-test-user"></a>Crear usuario de prueba de Tableau Server
 
 El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en Tableau Server. Debe aprovisionar todos los usuarios en el servidor de Tableau. 
 
@@ -211,7 +220,7 @@ Tenga en cuenta que el nombre de usuario debe coincidir con el valor que ha conf
 >[!NOTE]
 >Si necesita crear un usuario manualmente, póngase en contacto con el administrador de Tableau Server de su organización.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Tableau Server.
 
@@ -235,7 +244,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 6. En el cuadro de diálogo **Agregar asignación**, seleccione el botón **Asignar**.
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 914dcf6d19ca0791c5914e7d605e48f15a610d62
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d093dbe50cb76faedc463603edc459b22dda4fba
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099518"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628245"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Guía de inicio rápido: Creación de una cuenta de almacenamiento de Azure Data Lake Storage Gen2
 
@@ -116,21 +116,11 @@ Luego, actualice el módulo de PowerShell, inicie sesión en la suscripción de 
 
 ### <a name="upgrade-your-powershell-module"></a>Actualización del módulo de Powershell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Para interactuar con Data Lake Storage Gen2 mediante PowerShell, deberá instalar la versión **0.7** o posterior de Az.Storage del módulo.
 
 Para empezar, abra una sesión de PowerShell con permisos elevados.
-
-Luego, determine si tiene instalado el módulo AzureRM.Storage.
-
-```powershell
-Get-Module -ListAvailable AzureRM.Storage
-```
-
-Si aparece un módulo, desinstálelo.
-
-```powershell
-Uninstall-Module AzureRM.Storage -Force
-```
 
 Instalación del módulo Az.Storage
 
@@ -138,28 +128,20 @@ Instalación del módulo Az.Storage
 Install-Module Az.Storage -Repository PSGallery -RequiredVersion 0.7.0 -AllowPrerelease -AllowClobber -Force
 ```
 
-Habilite el modo de compatibilidad de AzureRM.
-
-```powershell
-Enable-AzureRMAlias
-```
-
-El modo de compatibilidad significa que todo scripts que use el módulo AzureRM.Storage seguirá funcionando incluso aunque haya desinstalado el módulo AzureRM.Storage.
-
 > [!NOTE]
-> Los módulos Az de Azure PowerShell son los módulos preferidos para trabajar con los servicios de Azure en PowerShell. Para más información, consulte [Presentación del nuevo módulo Az de Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azurermps-6.13.0).
+> Los módulos Az de Azure PowerShell son los módulos preferidos para trabajar con los servicios de Azure en PowerShell. Para más información, consulte [Presentación del nuevo módulo Az de Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
 
 ### <a name="log-in-to-your-azure-subscription"></a>Inicio de sesión en la suscripción de Azure
 
-Use el comando `Login-AzureRmAccount` y siga las instrucciones en pantalla para realizar la autenticación.
+Use el comando `Login-AzAccount` y siga las instrucciones en pantalla para realizar la autenticación.
 
 ```powershell
-Login-AzureRmAccount
+Login-AzAccount
 ```
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Para crear un grupo de recursos con PowerShell, use el comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup): 
+Para crear un grupo de recursos con PowerShell, use el comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup): 
 
 > [!NOTE]
 > El espacio de nombres jerárquico está actualmente disponible en todas las regiones pública. No está disponible actualmente en las nubes soberanas.
@@ -169,17 +151,17 @@ Para crear un grupo de recursos con PowerShell, use el comando [New-AzureRmResou
 # without hardcoding it repeatedly
 $resourceGroup = "storage-quickstart-resource-group"
 $location = "westus2"
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
 ### <a name="create-a-general-purpose-v2-storage-account"></a>Creación de una cuenta de almacenamiento de uso general v2
 
-Para crear una cuenta de almacenamiento de uso general v2 en PowerShell con LRS (almacenamiento con redundancia local), use el comando [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount):
+Para crear una cuenta de almacenamiento de uso general v2 en PowerShell con almacenamiento con redundancia local (LRS), use el comando [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount):
 
 ```powershell
 $location = "westus2"
 
-New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name "storagequickstart" `
   -Location $location `
   -SkuName Standard_LRS `
@@ -189,10 +171,10 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 
 ### <a name="clean-up-resources"></a>Limpieza de recursos
 
-Para quitar el grupo de recursos y sus recursos asociados, incluida la nueva cuenta de almacenamiento, use el comando [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup): 
+Para quitar el grupo de recursos y sus recursos asociados, incluida la nueva cuenta de almacenamiento, use el comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup): 
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="create-an-account-using-azure-cli"></a>Creación de una cuenta con la CLI de Azure

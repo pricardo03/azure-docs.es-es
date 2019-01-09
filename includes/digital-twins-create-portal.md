@@ -5,15 +5,15 @@ services: digital-twins
 author: dsk-2015
 ms.service: digital-twins
 ms.topic: include
-ms.date: 09/17/2018
+ms.date: 12/17/2018
 ms.author: dkshir
 ms.custom: include file
-ms.openlocfilehash: e5e015c1e12e68f54ae7fd32082faed1abfebe74
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: f286676cba3d1333db52fb1125279772d518dd88
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51626405"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584805"
 ---
 1. Inicie sesión en el [Azure Portal](http://portal.azure.com).
 
@@ -33,8 +33,8 @@ ms.locfileid: "51626405"
 
 1. Abra el panel **Información general** de la instancia de Digital Twins. Observe el vínculo situado bajo **Management API**.
 
-   La dirección URL de **Management API** tiene el formato siguiente: _https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger_. Esta dirección URL le lleva a la documentación de la API REST de Azure Digital Twins que se aplica a la instancia. Lea [Uso de Azure Digital Twins Swagger](../articles/digital-twins/how-to-use-swagger.md) para aprender a leer y usar esta documentación de API.
+   La dirección URL de **Management API** tiene el formato siguiente: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger`. Esta dirección URL le lleva a la documentación de la API REST de Azure Digital Twins que se aplica a la instancia. Lea [Uso de Azure Digital Twins Swagger](../articles/digital-twins/how-to-use-swagger.md) para aprender a leer y usar esta documentación de API.
 
-    Modifique la dirección URL de **Management API** para que tenga este formato: _https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/_. La aplicación usará la dirección URL modificada como dirección URL base para acceder a la instancia. Copie esta dirección URL modificada en un archivo temporal. La necesitará en la siguiente sección.
+    Modifique la dirección URL de **Management API** para que tenga este formato: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. La aplicación usará la dirección URL modificada como dirección URL base para acceder a la instancia. Copie esta dirección URL modificada en un archivo temporal. La necesitará en la siguiente sección.
 
     ![API de administración](./media/create-digital-twins-portal/digital-twins-management-api.png)

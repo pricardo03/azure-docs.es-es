@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/11/2018
 ms.author: victorh
-ms.openlocfilehash: b58237f25a51438f0255243f960cc2a6aed2b0ca
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 6badfabb3ad20b5c17b3bb2bf09ae13f63568d05
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679178"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714759"
 ---
 # <a name="what-is-azure-application-gateway"></a>¿Qué es Azure Application Gateway?
 
@@ -106,10 +106,18 @@ Application Gateway proporciona compatibilidad nativa con los protocolos Websock
 
 Los protocolos WebSocket y HTTP/2 permiten una comunicación dúplex completa entre un servidor y un cliente a través de una conexión TCP de larga duración. Esto permite una comunicación más interactiva entre el servidor web y el cliente, que puede ser bidireccional sin necesidad de realizar sondeos como en las implementaciones basadas en HTTP. Estos protocolos tienen, a diferencia de HTTP, una sobrecarga reducida y pueden reutilizar la misma conexión TCP para varias solicitudes y respuestas, con lo que se utilizan los recursos de una manera más eficaz. Estos protocolos están diseñados para utilizarse a través de los puertos HTTP tradicionales 80 y 443.
 
+## <a name="rewrite-http-headers-public-preview"></a>Reescritura de los encabezados HTTP (versión preliminar pública)
+
+Los encabezados HTTP permiten que el cliente y el servidor pasen información adicional con la solicitud o la respuesta. La reescritura de estos encabezados HTTP ayuda con varios escenarios importantes, por ejemplo, agregar campos de encabezado relacionados con la seguridad, como HSTS/X-XSS-Protection o quitar campos de encabezado de respuesta que pueden revelar información confidencial, como el nombre del servidor back-end. 
+
+Application Gateway admite ahora la capacidad de reescribir los encabezados de las solicitudes HTTP entrantes, así como las respuestas HTTP salientes. Podrá agregar, quitar o actualizar los encabezados de solicitud y respuesta HTTP mientras los paquetes de solicitud/respuesta se mueven entre los grupos de back-end y de cliente. Puede reescribir tanto campos de encabezado estándar (definidos en [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)), como no estándar.  
+
+Para más información sobre esta característica en versión preliminar pública, consulte [Reescritura de encabezados HTTP](rewrite-http-headers.md).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Según los requisitos y el entorno, puede crear una puerta de enlace de aplicaciones de prueba mediante Azure Portal, Azure PowerShell o la CLI de Azure:
 
-- [Guía de inicio rápido: Dirección del tráfico web con Azure Application Gateway: Azure Portal](quick-create-portal.md).
-- [Guía de inicio rápido: Dirección del tráfico web con Azure Application Gateway: Azure PowerShell](quick-create-powershell.md).
-- [Guía de inicio rápido: Dirección del tráfico web con Azure Application Gateway: CLI de Azure](quick-create-cli.md).
+- [Inicio rápido: Dirección del tráfico web con Azure Application Gateway: Azure Portal](quick-create-portal.md)
+- [Inicio rápido: Dirección del tráfico web con Azure Application Gateway: Azure PowerShell](quick-create-powershell.md)
+- [Inicio rápido: Dirección del tráfico web con Azure Application Gateway: CLI de Azure](quick-create-cli.md)

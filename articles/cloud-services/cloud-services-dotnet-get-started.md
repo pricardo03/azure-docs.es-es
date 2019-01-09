@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 04c68308739f641e892a335832725ba87e36f7af
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 59354b7f4a1a82d1fa2fd105bd743ecb73526434
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242133"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716113"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introducción a Azure Cloud Services y ASP.NET
 
@@ -35,8 +35,8 @@ La aplicación es un tablón de anuncios publicitario. Los usuarios crean un anu
 
 La aplicación usa el [patrón de trabajo centrado en colas](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) para descargar el trabajo de uso intensivo de CPU de creación de miniaturas y pasarlo a un proceso back-end.
 
-## <a name="alternative-architecture-web-apps-and-webjobs"></a>Arquitectura alternativa: Web Apps y WebJobs
-En este tutorial se muestra cómo ejecutar un front-end y un back-end en un servicio en la nube de Azure. Una alternativa es ejecutar el front-end en [Azure Web Apps](/azure/app-service/) y usar la característica [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) para el back-end. Para ver un tutorial en el que se utiliza WebJobs, consulte [Introducción al SDK de Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki). Para obtener información sobre cómo elegir los servicios que mejor se adapten a su escenario, consulte [Comparación entre Azure Websites, Cloud Services y Virtual Machines](../app-service/choose-web-site-cloud-service-vm.md).
+## <a name="alternative-architecture-app-service-and-webjobs"></a>Arquitectura alternativa: App Service y WebJobs
+En este tutorial se muestra cómo ejecutar un front-end y un back-end en un servicio en la nube de Azure. Una alternativa es ejecutar el front-end en [Azure App Service](/azure/app-service/) y usar la característica [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) para el back-end. Para ver un tutorial en el que se utiliza WebJobs, consulte [Introducción al SDK de Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki). Para información sobre cómo elegir los servicios que mejor se adapten a su escenario, consulte [Comparación de Azure App Service, Cloud Services y Virtual Machines](../app-service/overview-compare.md).
 
 ## <a name="what-youll-learn"></a>Temas que se abordarán
 * Habilitar su equipo para desarrollar contenido de Azure mediante la instalación del SDK de Azure.
@@ -232,7 +232,7 @@ Las cadenas de conexión de la cuenta de almacenamiento de Azure tanto para el p
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en **ContosoAdsWeb** debajo de **Roles** en el proyecto **ContosoAdsCloudService** y después haga clic en **Propiedades**.
 
     ![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)
-2. Haga clic en la pestaña **Configuración** . En el cuadro desplegable Configuración del servicio, seleccione **Nube**.
+2. Haga clic en la pestaña **Configuración** . En el cuadro desplegable **Configuración del servicio**, seleccione **Nube**.
 
     ![Cloud configuration](./media/cloud-services-dotnet-get-started/sccloud.png)
 3. Seleccione la entrada **StorageConnectionString** y verá un botón con unos puntos suspensivos (**...**) al final de la línea. Haga clic en el botón de puntos suspensivos para abrir el cuadro de diálogo **Crear cadena de conexión de cuenta de almacenamiento** .
@@ -391,7 +391,7 @@ En esta sección configurará Azure Storage y cadenas de conexión de SQL para p
 8. Todavía en la ventana de propiedades **ContosoAdsWorker [Rol]** , agregue otra cadena de conexión:
 
    * Nombre: ContosoAdsDbConnectionString
-   * Tipo: String
+   * Escriba:  string
    * Valor: pegue la misma cadena de conexión que usó para el proyecto de rol web. (En el ejemplo siguiente es para Visual Studio 2013. No olvide cambiar el origen de datos si copia este ejemplo y va a usar Visual Studio 2015 o una versión superior).
 
        ```
@@ -775,7 +775,7 @@ Para ver un vídeo introductorio de los procedimientos y modelos recomendados de
 
 Para obtener más información, consulte los siguientes recursos:
 
-* [Azure Cloud Services, parte 1: Introducción](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
+* [Azure Cloud Services Part 1 (Azure Cloud Services, parte 1): Introducción](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Administración de Cloud Services](cloud-services-how-to-manage-portal.md)
 * [Azure Storage](https://docs.microsoft.com/azure/storage/)
 * [Cómo se elige un proveedor de servicios en la nube](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/08/2018
+ms.date: 12/28/2018
 ms.author: juliako
-ms.openlocfilehash: 7863f007093b5a86fb5095ee8bf1e14fc01d0348
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 858c062c2b3d61b38247e323bf70d2768d33b257
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613399"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969342"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Tutorial: Streaming en directo con Media Services v3 mediante las API
 
@@ -89,7 +89,7 @@ Para empezar a usar las API de Media Services con. NET, debe crear un objeto **A
 
 ### <a name="create-a-live-event"></a>Creación de un evento en directo
 
-En esta sección se muestra cómo crear un tipo de **paso a través** del objeto LiveEvent (LiveEventEncodingType establecido en None). Si desea crear un objeto LiveEvent habilitado para la codificación en directo, establezca LiveEventEncodingType en Basic. 
+En esta sección se muestra cómo crear un tipo de **paso a través** del objeto LiveEvent (LiveEventEncodingType establecido en None). Si desea crear un objeto LiveEvent habilitado para la codificación en directo, establezca LiveEventEncodingType en Estándar. 
 
 Algunos de los aspectos que podría especificar al crear el evento en directo son:
 
@@ -107,7 +107,7 @@ Al crear el evento, puede especificar que se inicie automáticamente.
 
 ### <a name="get-ingest-urls"></a>Obtención de direcciones URL de introducción
 
-Una vez creado el canal, obtendrá direcciones URL de introducción que se proporcionarán al codificador en directo. El codificador usa estas direcciones URL para introducir una secuencia en vivo.
+Una vez creado LiveEvent, obtendrá direcciones URL de ingesta, que serán las que especificará en el codificador en directo. El codificador usa estas direcciones URL para introducir una secuencia en vivo.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#GetIngestURL)]
 

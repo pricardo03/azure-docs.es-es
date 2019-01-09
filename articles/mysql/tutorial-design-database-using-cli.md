@@ -1,24 +1,21 @@
 ---
-title: 'Tutorial: Diseño de Azure Database for MySQL mediante la CLI de Azure'
+title: 'Tutorial: Diseño de una base de datos de Azure Database for MySQL con la CLI de Azure'
 description: Este tutorial explica cómo crear y administrar servidores y bases de datos de Azure Database for MySQL mediante la CLI de Azure desde la línea de comandos.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 60cfb5e1c5fa44952ca6a5e6fc411f4a6ab0e8be
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 352444dcb3beace0e1618aadba50b56cdcd9d003
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966986"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545797"
 ---
-# <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Tutorial: Diseño de Azure Database for MySQL mediante la CLI de Azure
+# <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Tutorial: Diseño de una base de datos de Azure Database for MySQL con la CLI de Azure
 
 Azure Database for MySQL es un servicio de base de datos relacional de Microsoft Cloud basado en el motor de base de datos de MySQL Community Edition. En este tutorial, usa la CLI (interfaz de la línea de comandos) de Azure y otras utilidades para aprender a hacer lo siguiente:
 
@@ -175,8 +172,8 @@ Imagine que eliminó accidentalmente esta tabla. No se puede recuperar con facil
 
 Para realizar la restauración, necesita la información siguiente:
 
-- Punto de restauración: seleccione el momento antes de que se modificara la base de datos. Debe ser mayor o igual que el valor de la copia de seguridad más antigua de la base de datos de origen.
-- Servidor de destino: especifique el nombre del nuevo servidor donde desea restaurar
+- Punto de restauración: seleccione el momento antes de que se modificara el servidor. Debe ser mayor o igual que el valor de la copia de seguridad más antigua de la base de datos de origen.
+- Servidor de destino: especifique el nombre del nuevo servidor donde desea restaurar.
 - Servidor de origen: especifique el nombre del servidor desde donde desea restaurar
 - Ubicación: no se puede seleccionar la región; de forma predeterminada, es la misma que la del servidor de origen
 
@@ -185,9 +182,9 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 ```
 
 El comando `az mysql server restore` necesita los parámetros siguientes:
-| Configuración | Valor sugerido | DESCRIPCIÓN  |
+| Configuración | Valor sugerido | DESCRIPCIÓN  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Grupo de recursos en el que existe el servidor de origen.  |
+| resource-group |  myresourcegroup |  Grupo de recursos en el que existe el servidor de origen.  |
 | Nombre | mydemoserver-restored | Nombre del nuevo servidor que se crea mediante el comando de restauración. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | Seleccione un momento dado en el que quiere restaurar. Esta fecha y hora debe estar dentro del período de retención de copia de seguridad del servidor de origen. Use el formato de fecha y hora ISO8601. Por ejemplo, puede usar su propia zona horaria local, como `2017-04-13T05:59:00-08:00`, o usar el formato de hora Zulú UTC `2017-04-13T13:59:00Z`. |
 | source-server | mydemoserver | Nombre o identificador del servidor de origen desde el que se va a restaurar. |

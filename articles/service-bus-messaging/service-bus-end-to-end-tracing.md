@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: 4584104e9c9833b5f3f586581dd5a58f420fe0bd
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 12f9f55544f46bc9c88cab7234f78ad7ee7de2d2
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165346"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790901"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Seguimiento y correlación distribuidos del servicio de mensajería de Service Bus
 
@@ -45,9 +45,9 @@ La instrumentación permite realizar un seguimiento de todas las llamadas al ser
 [Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/) proporciona funcionalidades de supervisión de alto rendimiento entre las que se incluyen las solicitudes automágicas o el seguimiento de dependencias.
 
 Dependiendo del tipo de proyecto, instale el SDK de Application Insights:
-- [ASP.NET](../application-insights/app-insights-asp-net.md): instale la versión 2.5-beta2 o superior.
-- [ASP.NET Core](../application-insights/app-insights-asp-net-core.md): instale la versión 2.2.0-beta2 o superior.
-Estos vínculos proporcionan detalles sobre la instalación del SDK, la creación de recursos y la configuración del SDK (si fuera necesario). Para aplicaciones que no sean de ASP.NET, consulte el artículo [Azure Application Insights for Console Applications](../application-insights/application-insights-console.md) (Azure Application Insights para las aplicaciones de consola).
+- [ASP.NET](../azure-monitor/app/asp-net.md): instale la versión 2.5-beta2 o superior.
+- [ASP.NET Core](../azure-monitor/app/asp-net-core.md): instale la versión 2.2.0-beta2 o superior.
+Estos vínculos proporcionan detalles sobre la instalación del SDK, la creación de recursos y la configuración del SDK (si fuera necesario). Para aplicaciones que no sean de ASP.NET, consulte el artículo [Azure Application Insights for Console Applications](../azure-monitor/app/console.md) (Azure Application Insights para las aplicaciones de consola).
 
 Si usa un [patrón de controlador de mensajes](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) para procesar mensajes, ya ha terminado: se realizará el seguimiento automático de todas las llamadas de Service Bus que se hayan hecho mediante el servicio y se correlacionarán con otros elementos de telemetría. En caso contrario, consulte el siguiente ejemplo para saber cómo realizar el seguimiento manual del procesamiento de mensajes.
 
@@ -83,7 +83,7 @@ async Task ProcessAsync(Message message)
 En este ejemplo, `RequestTelemetry` se notifica en cada mensaje procesado e indica la marca de tiempo, la duración y el resultado (correcto). La telemetría también tiene un conjunto de propiedades de correlación.
 Igualmente, los seguimientos anidados y las excepciones que se notifican durante el procesamiento de mensajes también se marcan con propiedades de correlación que se representan como "elementos secundarios" de `RequestTelemetry`.
 
-Si realiza llamadas a componentes externos compatibles durante el procesamiento de mensajes, también se seguirán y correlacionarán de forma automática. Consulte [Seguimiento de las operaciones personalizadas con el SDK de .NET para Application Insights](../application-insights/application-insights-custom-operations-tracking.md), si quiere obtener más información sobre el seguimiento y la correlación manuales.
+Si realiza llamadas a componentes externos compatibles durante el procesamiento de mensajes, también se seguirán y correlacionarán de forma automática. Consulte [Seguimiento de las operaciones personalizadas con el SDK de .NET para Application Insights](../azure-monitor/app/custom-operations-tracking.md), si quiere obtener más información sobre el seguimiento y la correlación manuales.
 
 ### <a name="tracking-without-tracing-system"></a>Realizar seguimientos sin sistema de seguimiento
 Si el sistema de seguimiento no admite el seguimiento automático de llamadas de Service Bus, puede examinar la posibilidad de añadir dicha compatibilidad a un sistema de seguimiento o a su aplicación. En esta sección se describen los eventos de diagnóstico que envió el cliente .NET de Service Bus.  
@@ -227,6 +227,6 @@ Cuando hay varios agentes de escucha `DiagnosticSource` en el mismo origen, un s
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Correlación de Application Insights](../application-insights/application-insights-correlation.md)
-* [Dependencias de supervisión de Application Insights](../application-insights/app-insights-asp-net-dependencies.md) para ver si REST, SQL u otros recursos externos le están ralentizando.
-* [Realizar el seguimiento de operaciones personalizadas con el SDK de .NET para Application Insights](../application-insights/application-insights-custom-operations-tracking.md)
+* [Correlación de Application Insights](../azure-monitor/app/correlation.md)
+* [Dependencias de supervisión de Application Insights](../azure-monitor/app/asp-net-dependencies.md) para ver si REST, SQL u otros recursos externos le están ralentizando.
+* [Realizar el seguimiento de operaciones personalizadas con el SDK de .NET para Application Insights](../azure-monitor/app/custom-operations-tracking.md)

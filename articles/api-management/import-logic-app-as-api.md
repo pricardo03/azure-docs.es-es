@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 4b5f884fe6e1f1fdc12d7993418f7a10614a4cbe
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 76a509c1cb9277ac72f99ec9ebfc239bfd71390c
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602962"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969189"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importación de una aplicación lógica como API
 
@@ -31,10 +31,10 @@ En este artículo, aprenderá a:
 > * Prueba de la API en Azure Portal
 > * Pruebe la API en el Portal para desarrolladores
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
-+ Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
-+ Asegúrese de que hay una aplicación lógica en su suscripción. Para obtener más información, [cree su primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Complete el siguiente inicio rápido: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
+* Asegúrese de que hay alguna aplicación lógica en su suscripción que expone un punto de conexión HTTP. Para más información, consulte el artículo acerca del [desencadenamiento de flujos de trabajo con puntos de conexión HTTP](../logic-apps/logic-apps-http-endpoint.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -44,7 +44,7 @@ En este artículo, aprenderá a:
 2. Seleccione **Aplicación lógica** en la lista **Add a new API** (Agregar una nueva API).
 
     ![Aplicación lógica](./media/import-logic-app-as-api/logic-app-api.png)
-3. Presione **Examinar** para ver la lista de aplicaciones Logic Apps en su suscripción.
+3. Presione **Examinar** para ver la lista de aplicaciones Logic Apps a las que se puede llamar en su suscripción.
 4. Seleccione la aplicación. APIM busca el swagger asociado a la aplicación seleccionada, lo captura y lo importa. 
 5. Agregue un sufijo URL de API. El sufijo es un nombre que identifica esta API concreta en esta instancia de APIM. Debe ser exclusivo en esta instancia de APIM.
 6. Publique la API asociándola a un producto. En este caso, se usa el producto "*Unlimited*".  Si desea que la API se publique y esté disponible para los desarrolladores, agréguela a un producto. Puede hacerlo durante la creación de la API o configurarla más adelante.

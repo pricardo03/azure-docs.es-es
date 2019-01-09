@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: 45efaebb9539c4c0e2542966df6ab890b64d12ee
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: fa0adef58ae1eda8604cefc9c3d7e3a4c32d63d0
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023837"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793546"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Pruebas de ancho de banda y rendimiento (NTTTCP)
 
@@ -29,10 +29,11 @@ Copie la herramienta en dos máquinas virtuales de Azure del mismo tamaño. Una 
 
 #### <a name="deploying-vms-for-testing"></a>Implementación de máquinas virtuales para pruebas
 Para los fines de esta prueba, las dos máquinas virtuales deben tener el mismo servicio en la nube o el mismo conjunto de disponibilidad para que podamos usar sus direcciones IP internas y excluir los equilibradores de carga de la prueba. Es posible realizar pruebas con la dirección VIP, pero este tipo de pruebas está fuera del ámbito de este documento.
- 
+
 Tome nota de la dirección IP del DESTINATARIO. Vamos a llamar a esa dirección IP "a.b.c.r".
 
-Tome nota del número de núcleos de la máquina virtual. Llamémoslo "\#num\_cores"  
+Tome nota del número de núcleos de la máquina virtual. Llamémoslo "\#num\_cores".
+
 Ejecute la prueba NTTTCP durante 300 segundos (o 5 minutos) en la máquina virtual del remitente y en la del receptor.
 
 Sugerencia: Al configurar esta prueba por primera vez, puede probar un período de prueba más corto para obtener antes comentarios. Una vez que la herramienta funciona según lo esperado, amplíe el período de prueba en 300 segundos para obtener resultados más precisos.

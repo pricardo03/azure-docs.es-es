@@ -1,24 +1,21 @@
 ---
-title: 'Tutorial: Diseño de una instancia de Azure Database for PostgreSQL con la CLI de Azure'
+title: 'Tutorial: Diseño de una base de datos de Azure Database for PostgreSQL con la CLI de Azure'
 description: En este tutorial se muestra cómo crear, configurar y consultar el primer servidor de Azure Database for PostgreSQL con la CLI de Azure.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/01/2018
-ms.openlocfilehash: c04eede63df50359af55f3956041df10fa2d075e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 03c9d647c98122b63b81baa453e0cccdf951901a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982348"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547327"
 ---
-# <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Tutorial: Diseño de una instancia de Azure Database for PostgreSQL con la CLI de Azure 
+# <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Tutorial: Diseño de una base de datos de Azure Database for PostgreSQL con la CLI de Azure 
 En este tutorial, usa la CLI (interfaz de la línea de comandos) de Azure y otras utilidades para aprender a hacer lo siguiente:
 > [!div class="checklist"]
 > * Creación de un servidor de Azure Database for PostgreSQL
@@ -195,9 +192,9 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 ```
 
 El comando `az postgres server restore` necesita los parámetros siguientes:
-| Configuración | Valor sugerido | DESCRIPCIÓN  |
+| Configuración | Valor sugerido | DESCRIPCIÓN  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Grupo de recursos en el que existe el servidor de origen.  |
+| resource-group |  myresourcegroup |  Grupo de recursos en el que existe el servidor de origen.  |
 | Nombre | mydemoserver-restored | Nombre del nuevo servidor que se crea mediante el comando de restauración. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | Seleccione un momento dado en el que quiere restaurar. Esta fecha y hora debe estar dentro del período de retención de copia de seguridad del servidor de origen. Use el formato de fecha y hora ISO8601. Por ejemplo, puede usar su propia zona horaria local, como `2017-04-13T05:59:00-08:00`, o usar el formato de hora Zulú UTC `2017-04-13T13:59:00Z`. |
 | source-server | mydemoserver | Nombre o identificador del servidor de origen desde el que se va a restaurar. |
@@ -218,4 +215,4 @@ En este tutorial, aprendió a usar la CLI (interfaz de la línea de comandos) de
 > * Actualización de datos
 > * Restauración de datos
 
-A continuación, obtenga información sobre cómo usar Azure Portal para hacer tareas simulares en el tutorial [Diseño de la primera base de datos de Azure Database for PostgreSQL con Azure Portal](tutorial-design-database-using-azure-portal.md)
+Después, para aprender a usar Azure Portal para realizar tareas similares, consulte este tutorial: [Diseño de la primera base de datos de Azure Database for PostgreSQL con Azure Portal](tutorial-design-database-using-azure-portal.md)

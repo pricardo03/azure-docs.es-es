@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: tutorial
 ms.date: 10/16/2017
 ms.author: aahi
-ms.openlocfilehash: d39ec856d628a8a607c6a8ea214f5dd9fbd63a9c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0c98f75417bbcba13e179502eb1c8b4488b17d78
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427368"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558029"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutorial: Creación de una página web de Custom Search
 
@@ -79,7 +79,7 @@ Para excluir resultados de direcciones URL o sitios web específicos, agréguelo
 
 ## <a name="add-pinned-entries"></a>Agregar entradas ancladas
 
-Para anclar una página web específica a la parte superior de los resultados de búsqueda, agregue la página web y el término de consulta a la pestaña **Pinned** (Anclado). La pestaña **Pinned** (Anclado) contiene una lista de pares de término de consulta y página web que especifican la página web que aparece como mejor resultado para una consulta específica. La página web se ancla solo si la cadena de consulta del usuario coincide con la cadena de consulta del ancla en función de la condición de coincidencia del ancla. En las búsquedas solo se mostrarán las páginas web indexadas. Para más información, consulte [Definición de una vista personalizada](../define-your-custom-view.md#pin-to-top).
+Para anclar una página web específica a la parte superior de los resultados de búsqueda, agregue la página web y el término de consulta a la pestaña **Pinned** (Anclado). La pestaña **Pinned** (Anclado) contiene una lista de pares de término de consulta y página web que especifican la página web que aparece como mejor resultado para una consulta específica. La página web se ancla solo si la cadena de consulta del usuario coincide con la cadena de consulta del ancla en función de la condición de coincidencia del ancla. En las búsquedas solo se mostrarán las páginas web indexadas. Para más información, consulte [Definición de una vista personalizada](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results).
 
 1. En la página **Configuración**, haga clic en la pestaña **Anclados** y escriba el término de consulta y de página web de la página web que desee que se devuelva como el primer resultado.  
   
@@ -130,7 +130,7 @@ Hay dos maneras de consumir la interfaz de usuario hospedada.
 - Opción 1: Integrar el fragmento de código de JavaScript proporcionado en la aplicación.
 - Opción 2: Usar el punto de conexión HTML proporcionado.
 
-En el resto del tutorial se ilustra la **Opción 1: Fragmento de código Javascript**.  
+En el resto del tutorial, se ilustra la **Opción 1: Fragmento de código Javascript**.  
 
 ## <a name="set-up-your-visual-studio-solution"></a>Configuración de la solución de Visual Studio
 

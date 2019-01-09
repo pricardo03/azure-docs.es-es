@@ -4,15 +4,15 @@ description: Use este artículo para planear la capacidad y el escalado cuando c
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.date: 12/11/2018
+ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: f724837e8cce733680b98a5df5690e6a8dfbf6ee
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 6f644416a9e56009aadd0f8e1b217402d625af84
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53258855"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788742"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planeamiento de la capacidad y escalado para la recuperación ante desastres de VMware en Azure
 
@@ -20,7 +20,7 @@ Use este artículo para averiguar cómo planear la capacidad y el escalado cuand
 
 ## <a name="how-do-i-start-capacity-planning"></a>¿Cómo se puede iniciar el planeamiento de la capacidad?
 
-Recopile información sobre el entorno de replicación ejecutando [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc) para la replicación de VMware. [Más información](site-recovery-deployment-planner.md) sobre esta herramienta. Podrá recopilar información sobre máquinas virtuales compatibles e incompatibles, discos por máquina virtual y la actividad de datos por disco. Esta herramienta también se encarga de los requisitos de ancho de banda de red y de la infraestructura de Azure necesaria para una replicación y conmutación por error de prueba correctas.
+Para conocer los requisitos de la infraestructura de Azure Site Recovery, recopile información sobre el entorno de replicación ejecutando [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc) para la replicación de VMware. [Más información](site-recovery-deployment-planner.md) sobre esta herramienta. Esta herramienta proporciona un informe con toda la información sobre las máquinas virtuales compatibles e incompatibles, los discos por máquina virtual y la actividad de datos por disco. También resume los requisitos de ancho de banda de red para satisfacer el RPO de destino y la infraestructura de Azure necesaria para una replicación y conmutación por error de prueba correctas.
 
 ## <a name="capacity-considerations"></a>Consideraciones de capacidad
 
@@ -30,45 +30,59 @@ Recopile información sobre el entorno de replicación ejecutando [Azure Site Re
 **Servidor de configuración** | El servidor de configuración debe poder controlar la capacidad de tasa de cambios diaria en todas las cargas de trabajo que se ejecutan en máquinas protegidas, y necesita el ancho de banda suficiente para realizar una replicación continua de los datos en el Azure Storage.<br/><br/> Como procedimiento recomendado, localice el servidor de configuración en la misma red y mismo segmento de LAN que las máquinas que desea proteger. De todos modos, puede estar en una red distinta, pero las máquinas que desea proteger deben contar con la visibilidad de red de nivel L3 en ella.<br/><br/> En la tabla de la siguiente sección se resumen las recomendaciones de tamaño para el servidor de configuración.
 **Servidor de proceso** | El primer servidor de procesos está instalado en el servidor de configuración de forma predeterminada. Puede implementar servidores de procesos adicionales para escalar el entorno. <br/><br/> El servidor de procesos recibe datos de replicación provenientes de las máquinas protegidas y los optimiza con almacenamiento en caché, compresión y cifrado. A continuación, envía los datos a Azure. La máquina del servidor de procesos debe tener los recursos suficientes para realizar estas tareas.<br/><br/> El servidor de procesos utiliza una caché basada en disco. Utilice un disco de caché independiente con 600 GB o más de capacidad para controlar los cambios en los datos almacenados ante la eventualidad de una interrupción o un cuello de botella en la red.
 
-## <a name="size-recommendations-for-the-configuration-server"></a>Recomendaciones de tamaño del servidor de configuración
+## <a name="size-recommendations-for-the-configuration-serverin-built-process-server"></a>Recomendaciones para el tamaño del servidor de configuración o el servidor de procesos integrado
+
+Cada servidor de configuración implementado a través de la [plantilla OVF](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template) tiene un servidor de procesos integrado. Los recursos del servidor de configuración, como la CPU, la memoria y el espacio libre, se usan a una tasa diferente cuando se utiliza el servidor de procesos integrado para proteger las máquinas virtuales. Por lo tanto, los requisitos varían cuando se utiliza el servidor de procesos integrado.
+Un servidor de configuración en el que se utiliza el servidor de procesos integrado para proteger la carga de trabajo puede administrar hasta 200 máquinas virtuales en función de las siguientes configuraciones
 
 **CPU** | **Memoria** | **Tamaño del disco de caché** | **Frecuencia de cambio de datos** | **Máquinas protegidas**
 --- | --- | --- | --- | ---
 8 vCPU (2 sockets * 4 núcleos \@ 2,5 gigahercios [GHz]) | 16 GB | < 300 GB | 500 GB o menos | Replicar menos de 100 máquinas.
 12 vCPU (2 sockets * 6 núcleos \@ 2,5 GHz) | 18 GB | 600 GB | 500 GB a 1 TB | Replicar entre 100 y 150 máquinas.
 16 vCPU (2 sockets * 8 núcleos \@ 2,5 GHz) | 32 GB | 1 TB | 1 TB a 2 TB | Replicar entre 150 y 200 máquinas.
-Implementar otro servidor de procesos | | | 2 TB | Implemente servidores de procesos adicionales si replica más de 200 máquinas o si la tasa de cambios de datos diaria supera los 2 TB.
+Implementar otro servidor de configuración a través de la [plantilla OVF](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template) | | | | Implementar un nuevo servidor de configuración si se van a replicar más de 200 máquinas.
+Implementar otro [servidor de procesos](vmware-azure-set-up-process-server-scale.md#download-installation-file) | | | >2 TB| Implementar un nuevo servidor de procesos de escalabilidad horizontal si la tasa de cambios de datos diaria global supera los 2 TB.
 
 Donde:
 
 * Cada máquina de origen está configurada con 3 discos de 100 GB cada una.
 * Usamos almacenamiento de pruebas comparativas de 8 unidades SAS de 10 K RPM con RAID 10 para las mediciones de disco de caché.
 
+## <a name="size-recommendations-for-the-configuration-server"></a>Recomendaciones de tamaño del servidor de configuración
+
+Si no tiene previsto usar el servidor de configuración como servidor de procesos, siga la configuración que se indica a continuación para controlar hasta 650 máquinas virtuales.
+
+**CPU** | **RAM** | **Tamaño de disco del SO** | **Frecuencia de cambio de datos** | **Máquinas protegidas**
+--- | --- | --- | --- | ---
+24 vCPU (2 sockets * 12 núcleos \@ 2,5 gigahercios [GHz])| 32 GB | 80 GB | No aplicable | Hasta 650 máquinas virtuales
+
+Donde cada máquina de origen está configurada con 3 discos de 100 GB cada uno.
+
+Puesto que no se usa la funcionalidad de servidor de procesos, la velocidad de cambio de datos no es aplicable. Para mantener la capacidad anterior, puede cambiar la carga de trabajo del servidor de procesos integrado a otro proceso de escalabilidad horizontal, siguiendo las directrices que encontrará [aquí](vmware-azure-manage-process-server.md#balance-the-load-on-process-server).
+
 ## <a name="size-recommendations-for-the-process-server"></a>Recomendaciones de tamaño para el servidor de procesos
 
-Si necesita proteger más de 200 máquinas, o si la tasa de cambios diaria es mayor que 2 TB, puede agregar servidores de procesos para controlar la carga de replicación. Para escalar horizontalmente, puede:
+El servidor de procesos es el componente que controla el proceso de replicación de datos en Azure Site Recovery. Si la tasa de cambios diaria es mayor que 2 TB, necesita agregar servidores de procesos de escalabilidad horizontal para controlar la carga de replicación. Para escalar horizontalmente, puede:
 
-* Aumentar el número de servidores de configuración. Por ejemplo, puede proteger hasta 400 máquinas con dos servidores de configuración.
-* Agregar más servidores de procesos y utilizarlos para controlar el tráfico en lugar (o además) del servidor de configuración.
+* Incrementar el número de servidores de configuración mediante la implementación a través de la [plantilla OVF](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template). Por ejemplo, puede proteger hasta 400 máquinas con dos servidores de configuración.
+* Agregar [servidores de procesos de escalabilidad horizontal](vmware-azure-set-up-process-server-scale.md#download-installation-file) y utilizarlos para controlar el tráfico de replicación en lugar (o además) del servidor de configuración.
 
 La tabla siguiente describe un escenario en el cual:
 
-* No pretende utilizar el servidor de configuración como un servidor de procesos.
-* Ha configurado un servidor de procesos adicional.
-* Ha configurado máquinas virtuales protegidas para utilizar el servidor de procesos adicional.
+* Ha configurado un servidor de procesos de escalabilidad horizontal.
+* Ha configurado máquinas virtuales protegidas para utilizar el servidor de procesos de escalabilidad horizontal.
 * Cada máquina de origen protegida está configurada con tres discos de 100 GB cada uno.
 
-**Servidor de configuración** | **Servidores de procesos adicionales** | **Tamaño del disco de caché** | **Frecuencia de cambio de datos** | **Máquinas protegidas**
---- | --- | --- | --- | ---
-8 vCPU (2 sockets * 4 núcleos \@ 2,5 GHz), 16 GB de memoria | 4 vCPU (2 sockets * 2 núcleos \@ 2,5 GHz), 8 GB de memoria | < 300 GB | 250 GB o menos | Replicar 85 máquinas o menos.
-8 vCPU (2 sockets * 4 núcleos \@ 2,5 GHz), 16 GB de memoria | 8 vCPU (2 sockets * 4 núcleos \@ 2,5 GHz), 12 GB de memoria | 600 GB | 250 GB a 1 TB | Replicar entre 85 y 150 máquinas.
-12 vCPU (2 sockets * 6 núcleos \@ 2,5 GHz), 18 GB de memoria | 12 vCPU (2 sockets * 6 núcleos \@ 2,5 GHz), 24 GB de memoria | 1 TB | 1 TB a 2 TB | Replicar entre 150 y 225 máquinas.
+**Servidores de procesos adicionales** | **Tamaño del disco de caché** | **Frecuencia de cambio de datos** | **Máquinas protegidas**
+--- | --- | --- | ---
+4 vCPU (2 sockets * 2 núcleos \@ 2,5 GHz), 8 GB de memoria | < 300 GB | 250 GB o menos | Replicar 85 máquinas o menos.
+8 vCPU (2 sockets * 4 núcleos \@ 2,5 GHz), 12 GB de memoria | 600 GB | 250 GB a 1 TB | Replicar entre 85 y 150 máquinas.
+12 vCPU (2 sockets * 6 núcleos \@ 2,5 GHz), 24 GB de memoria | 1 TB | 1 TB a 2 TB | Replicar entre 150 y 225 máquinas.
 
-La manera en la que escalará los servidores depende de su preferencia con respecto a un modelo de escalado vertical u horizontal.  Puede escalar verticalmente con la implementación de algunos servidores de procesos y de configuración de alto nivel, mientras que, para escalar horizontalmente, debe implementar más servidores con menos recursos. Por ejemplo, si necesita proteger 220 máquinas, podría elegir una de las siguientes opciones:
+La manera en la que escalará los servidores depende de su preferencia con respecto a un modelo de escalado vertical u horizontal.  Puede escalar verticalmente con la implementación de algunos servidores de procesos y de configuración de alto nivel, mientras que, para escalar horizontalmente, debe implementar más servidores con menos recursos. Por ejemplo, si necesita proteger 200 máquinas con una frecuencia de cambios de datos global de 1,5 TB, podría elegir una de las siguientes opciones:
 
-* Configurar el servidor de configuración con 12 vCPU, 18 GB de memoria y un servidor de procesos adicional con 12 vCPU, 24 GB de memoria. Configurar máquinas protegidas para que utilicen solo el servidor de procesos adicional.
-* Configurar dos servidores de configuración (2 x 8 vCPU, 16 GB de RAM) y dos servidores de procesos adicionales (1 x 8 vCPU y 4 vCPU x 1 para controlar 135 + 85 [220] máquinas). Configurar máquinas protegidas para que utilicen solo servidores de procesos adicionales.
-
+* Configurar un único servidor de procesos con 16 vCPU y 24 GB de RAM.
+* Configurar dos servidores de procesos (2 x 8 vCPU y 2 * 12 GB de RAM).
 
 ## <a name="control-network-bandwidth"></a>Ancho de banda de red de control
 
@@ -104,6 +118,16 @@ También puede utilizar el cmdlet [Set-OBMachineSetting](https://technet.microso
    * Para influir en el ancho de banda para el tráfico de conmutación por recuperación de Azure, modifique el valor de **DownloadThreadsPerVM**.
 2. El valor predeterminado es 4. En una red "sobreaprovisionada", se deben cambiar los valores predeterminados de estas claves de registro. El valor máximo es 32. Supervise el tráfico para optimizar el valor.
 
+## <a name="setup-azure-site-recovery-infrastructure-to-protect-more-than-500-virtual-machines"></a>Configurar la infraestructura de Azure Site Recovery para proteger más de 500 máquinas virtuales
+
+Antes de configurar la infraestructura de Azure Site Recovery, deberá tener acceso al entorno para medir los factores siguientes: las máquinas virtuales compatibles, la frecuencia de cambio de datos diaria, el ancho de banda de red necesario para el RPO deseado, el número componentes para la recuperación del sitio de Azure, el tiempo necesario para completar la replicación inicial, etcétera.
+
+1. Para medir estos parámetros, asegúrese de ejecutar la herramienta Deployment Planner en el entorno, con ayuda de las directrices compartidas [aquí](site-recovery-deployment-planner.md).
+2. Implemente un servidor de configuración con los requisitos que se mencionan [aquí](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server). Si la carga de trabajo de producción supera 650 máquinas virtuales, implemente otro servidor de configuración.
+3. Según la tasa de cambios de datos diaria medida, implemente [servidores de procesos de escalabilidad horizontal](vmware-azure-set-up-process-server-scale.md#download-installation-file) con ayuda de las directrices de tamaño que se indican [aquí](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-process-server).
+4. Si espera que la tasa de cambios de datos para una máquina virtual de disco va a ser superior a 2 MBps, asegúrese de [configurar una cuenta de almacenamiento premium](tutorial-prepare-azure.md#create-a-storage-account). Puesto que la herramienta Deployment Planner se ejecuta durante un período de tiempo concreto, puede que los picos de tasa de cambios de datos durante otros períodos de tiempo no se capturen en el informe.
+5. Según el RPO deseado, [establezca el ancho de banda de red](site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
+6. Después de la configuración de la infraestructura, siga las directrices que se publican en la sección de [procedimientos](vmware-azure-set-up-source.md) para habilitar la recuperación ante desastres en la carga de trabajo.
 
 ## <a name="deploy-additional-process-servers"></a>Implementar servidores de procesos adicionales
 

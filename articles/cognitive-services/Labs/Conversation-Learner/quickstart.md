@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: b98b528d2d78d2285977dec49da18081df47e9d6
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 3d029c91debfc8ed3ac24e831224426a2780b763
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166139"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791085"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Creación de un modelo de Conversation Learner mediante Node.js
 
@@ -112,14 +112,11 @@ Las instrucciones anteriores le permitieron iniciar el robot vacío genérico.  
   npm run demo-password
   npm run demo-pizza
   npm run demo-storage
-  npm run demo-vrapp
   ```
 
 4. Si aún no lo ha hecho, cambie a la interfaz de usuario web de Conversation Learner en Chrome; para ello, debe cargar http://localhost:5050/home. 
 
-5. Haga clic en "Importar tutoriales" (solo debe hacerse una vez).  Esto llevará aproximadamente un minuto y copiará los modelos de Conversation Learner de todos los tutoriales en su cuenta de Conversation Learner.
-
-6. Haga clic en el modelo de demostración en la interfaz de usuario de Conversation Learner que corresponde a la demostración que inició.
+5. Haga clic en "Import tutorials" y seleccione el modelo de demostración en la interfaz de usuario de Conversation Learner que corresponde a la demostración que inició.
 
 Los archivos de origen de las demostraciones están en `cl-bot-01/src/demos`.
 
@@ -181,4 +178,4 @@ Este proyecto ha adoptado el [Microsoft Open Source Code of Conduct](https://ope
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Hello world](./tutorials/1-hello-world.md)
+> [Hello world](./tutorials/01-hello-world.md)

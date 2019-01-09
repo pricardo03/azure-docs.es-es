@@ -9,22 +9,22 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 4/05/2018
-ms.openlocfilehash: bbd06ae8927e6c21607ac1c997f1e5cf37f092bf
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: a85e7c46aa41309bc031f59ed841dc8149d878b3
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667243"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723967"
 ---
 # <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Aprovisionamiento de una infraestructura con espacios de implementación de Azure con Terraform
 
-Puede usar [espacios de implementación de Azure](/azure/app-service/web-sites-staged-publishing) para cambiar de una versión de la aplicación a otra. Esa capacidad ayuda a minimizar el impacto de las implementaciones rotas. 
+Puede usar [espacios de implementación de Azure](/azure/app-service/deploy-staging-slots) para cambiar de una versión de la aplicación a otra. Esa capacidad ayuda a minimizar el impacto de las implementaciones rotas. 
 
 Este artículo muestra un ejemplo del uso de las ranuras de implementación, en el que se le guía a través de la implementación de dos aplicaciones mediante GitHub y Azure. Una aplicación se hospeda en un espacio de producción. La segunda aplicación se hospeda en un espacio de ensayo. (los nombres "producción" y "ensayo" son arbitrarios y pueden ser cualesquiera otros que desee que representen el escenario). Una vez configurados los espacios de implementación, puede usar Terraform para cambiar de uno a otro según sea necesario.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- **Suscripción de Azure**: si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
+- **Suscripción de Azure**: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
 
 - **Cuenta de GitHub**: se necesita una cuenta de [GitHub](http://www.github.com) para bifurcar y usar el repositorio de GitHub de prueba.
 
