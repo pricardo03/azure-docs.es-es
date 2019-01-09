@@ -120,10 +120,16 @@ items:
       href: job-state-events-cli-how-to.md
   - name: Proteger contenido
     items:
-    - name: 'Con AES-128: .NET'
+    - name: 'Cifrado dinámico AES-128: .NET'
       href: protect-with-aes128.md
-    - name: 'Con DRM: .NET'
+    - name: 'Cifrado dinámico DRM: .NET'
       href: protect-with-drm.md
+    - name: FairPlay sin conexión para iOS
+      href: offline-fairplay-for-ios.md
+    - name: Widevine sin conexión para Android
+      href: offline-widevine-for-android.md
+    - name: PlayReady sin conexión para Windows 10
+      href: offline-plaready-streaming-for-windows-10.md
   - name: Creación de filtros
     items:
     - name: Con .NET
@@ -192,9 +198,9 @@ items:
     href: release-notes.md
   - name: Preguntas más frecuentes
     href: frequently-asked-questions.md
-ms.openlocfilehash: 2ea45acd19909c6bcdcca7a68b9dce45fa272f08
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: c168b5d2097e8fe1d6e79e271f8ff84af48cb049
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034988"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121641"
