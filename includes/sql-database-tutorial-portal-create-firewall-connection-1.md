@@ -2,113 +2,91 @@
 author: MightyPen
 ms.service: sql-database
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 12/10/2018
 ms.author: genemi
-ms.openlocfilehash: a999a18ccd504d6928a5eb1e209fbf55cb8506f5
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: ab31ee82e8035fe888fa70b5796aef2c2b2939b2
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52272311"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728568"
 ---
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+Inicie sesión en el [Portal de Azure](https://portal.azure.com/)
 
 ## <a name="create-a-blank-sql-database"></a>Crear una instancia en blanco en SQL Database
 
-Se crea una instancia de Azure SQL Database con un conjunto definido de [recursos de proceso y almacenamiento](../articles/sql-database/sql-database-service-tiers-dtu.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../articles/azure-resource-manager/resource-group-overview.md) y en un [servidor lógico de Azure SQL Database](../articles/sql-database/sql-database-features.md). 
+Hay una instancia de Azure SQL Database con un conjunto definido de [recursos de proceso y almacenamiento](../articles/sql-database/sql-database-service-tiers-dtu.md). La base de datos se encuentra dentro de un [grupo de recursos de Azure](../articles/azure-resource-manager/resource-group-overview.md) y de un [servidor lógico de Azure SQL Database](../articles/sql-database/sql-database-features.md).
 
-Siga estos pasos para crear una instancia en blanco de SQL Database. 
+Siga estos pasos para crear una instancia en blanco de SQL Database.
 
 1. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 
-2. Seleccione **Bases de datos** en la página **Nuevo** y seleccione **Crear** en **SQL Database** en la página **Nuevo**.
+1. En la página **Nuevo**, haga clic en **Bases de datos** > **SQL Database**.
 
    ![crear una base de datos en blanco](../articles/sql-database/media/sql-database-design-first-database/create-empty-database.png)
 
-3. Rellene el formulario de SQL Database con la siguiente información, como se muestra en la imagen anterior:   
+1. En el panel **SQL Database**, escriba o seleccione los valores siguientes:
 
-   | Configuración       | Valor sugerido | DESCRIPCIÓN | 
-   | ------------ | ------------------ | ------------------------------------------------- | 
-   | **Nombre de la base de datos** | mySampleDatabase | Para conocer los nombres de base de datos válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos). | 
-   | **Suscripción** | Su suscripción  | Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions). |
-   | **Grupos de recursos** | myResourceGroup | Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). |
+   | Configuración       | Valor sugerido | DESCRIPCIÓN |
+   | ------------ | ------------------ | ------------------------------------------------- |
+   | **Nombre de la base de datos** | *yourDatabase* | Para conocer los nombres de base de datos válidos, consulte [Identificadores de base de datos](/sql/relational-databases/databases/database-identifiers). |
+   | **Suscripción** | *yourSubscription*  | Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions). |
+   | **Grupos de recursos** | *yourResourceGroup* | Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Naming conventions](/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). |
    | **Seleccionar origen** | Base de datos en blanco | Especifica que se debe crear una base de datos en blanco. |
 
-4. Haga clic en **Servidor** para crear y configurar un servidor nuevo para la nueva base de datos. Rellene el **formulario de servidor nuevo** con la siguiente información: 
+   ![crear base de datos](../articles/sql-database/media/sql-database-design-first-database/create-database.png)
 
-   | Configuración       | Valor sugerido | DESCRIPCIÓN | 
-   | ------------ | ------------------ | ------------------------------------------------- | 
-   | **Nombre del servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). | 
-   | **Inicio de sesión del administrador del servidor** | Cualquier nombre válido | Para conocer los nombres de inicio de sesión válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos).|
-   | **Contraseña** | Cualquier contraseña válida | La contraseña debe tener un mínimo de 8 caracteres y debe contener caracteres de tres de las siguientes categorías: caracteres en mayúsculas, caracteres en minúsculas, números y caracteres no alfanuméricos. |
-   | **Ubicación** | Cualquier ubicación válida | Para obtener información acerca de las regiones, consulte [Regiones de Azure](https://azure.microsoft.com/regions/). |
+   1. Seleccione **Servidor** con el fin de configurar un servidor para la nueva base de datos. Luego, escriba o seleccione los valores siguientes:
 
-   ![create database-server](../articles/sql-database/media/sql-database-design-first-database/create-database-server.png)
+      | Configuración       | Valor sugerido | DESCRIPCIÓN |
+      | ------------ | ------------------ | ------------------------------------------------- |
+      | **Nombre del servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). |
+      | **Inicio de sesión del administrador del servidor** | Cualquier nombre válido | Para conocer los nombres de inicio de sesión válidos, consulte [Identificadores de base de datos](/sql/relational-databases/databases/database-identifiers).|
+      | **Contraseña** | Cualquier contraseña válida | La contraseña debe tener un mínimo de 8 caracteres y usar caracteres de tres de las siguientes categorías: caracteres en mayúsculas, caracteres en minúsculas, números y caracteres no alfanuméricos. |
+      | **Ubicación** | Cualquier ubicación válida | Para obtener información sobre las regiones, consulte [Regiones de Azure](https://azure.microsoft.com/regions/). |
 
-5. Haga clic en **Seleccionar**.
+      Elija **Seleccionar**.
 
-6. Haga clic en **Plan de tarifa** para especificar el nivel de servicio, el número de DTU y la cantidad de almacenamiento. Explore las opciones de cantidad de almacenamiento y de DTU que están a su disposición para cada nivel de servicio. 
+      ![create database-server](../articles/sql-database/media/sql-database-design-first-database/create-database-server.png)
 
-7. Para este tutorial, seleccione el nivel de servicio **Estándar** y, a continuación, utilice el control deslizante para seleccionar **100 DTU (S3)** y **400** GB de almacenamiento.
+   1. Seleccione **Plan de tarifa** para especificar el nivel de servicio, el número de DTU y la cantidad de almacenamiento. Explore las opciones de almacenamiento y de DTU que están a su disposición para cada nivel de servicio.
 
-   ![create database-s1](../articles/sql-database/media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
+      Después de seleccionar el nivel del servidor, el número de DTU y la cantidad de almacenamiento, seleccione **Aplicar**.
 
-8. Acepte los términos de la versión preliminar para usar la opción de **almacenamiento de complementos**. 
+   1. Introduzca una **intercalación** para la base de datos en blanco (para este tutorial, use el valor predeterminado). Para obtener más información sobre las intercalaciones, vea [COLLATE (Transact-SQL)](/sql/t-sql/statements/collations).
 
-   > [!IMPORTANT]
-   > \* Los tamaños de almacenamiento mayores que la cantidad de almacenamiento incluida están en su versión preliminar y pueden generar costos adicionales. Para obtener información detallada, vea [Precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
-   >
-   >\* En el nivel Premium, actualmente está disponible más de 1 TB de almacenamiento en las siguientes regiones: Centro de Canadá, Sste de Canadá, Centro de Francia, Centro de Alemania, Este de Japón, Centro de Corea, Centro y Sur de EE. UU., Asia Suroriental, Aste de EE. UU. 2, Oeste de EE. UU., Virginia Gob. EE. UU. y Europa Occidental. Consulte [Limitaciones actuales P11-P15](../articles/sql-database/sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-   > 
+1. Una vez completado el formulario de **SQL Database**, seleccione **Crear** para crear la base de datos. Este paso puede tardar hasta un minuto y medio en completarse.
 
-9. Después de seleccionar el nivel del servidor, el número de DTU y la cantidad de almacenamiento, haga clic en **Aplicar**.  
+1. En la barra de herramientas, haga clic en **Notificaciones** para supervisar el proceso de implementación.
 
-10. Seleccione una **intercalación** para la base de datos en blanco (para este tutorial, use el valor predeterminado). Para más información sobre las intercalaciones, vea [Collations](https://docs.microsoft.com/sql/t-sql/statements/collations) (Intercalaciones)
+     ![notificación](../articles/sql-database/media/sql-database-design-first-database/notification.png)
 
-11. Haga clic en **Create** (Crear) para realizar el aprovisionamiento de la base de datos. El aprovisionamiento tarda un minuto y medio aproximadamente en completarse. 
+## <a name="create-a-firewall-rule"></a>Creación de una regla de firewall
 
-12. En la barra de herramientas, haga clic en **Notificaciones** para supervisar el proceso de implementación.
-    
-     ![notificación](../articles/sql-database/media/sql-database-get-started-portal/notification.png)
-
-## <a name="create-a-server-level-firewall-rule"></a>Crear una regla de firewall de nivel de servidor
-
-El servicio SQL Database crea un firewall en el nivel de servidor, lo que impide que herramientas y aplicaciones externas se conecten al servidor o a las bases de datos del servidor, a menos que se cree una regla de firewall para abrir el firewall para direcciones IP concretas. Siga estos pasos para crear una [regla de firewall de nivel de servidor de SQL Database](../articles/sql-database/sql-database-firewall-configure.md) para la dirección IP de su cliente y habilite la conectividad externa a través de dicho firewall solo para su dirección IP. 
+El servicio SQL Database crea un firewall en el nivel de servidor, lo que impide que herramientas y aplicaciones externas se conecten al servidor o a las bases de datos del servidor. Siga estos pasos para crear una [regla de firewall de nivel de servidor de SQL Database](../articles/sql-database/sql-database-firewall-configure.md) para la dirección IP del cliente. Este proceso permite la conectividad externa a través del firewall de SQL Database solo para su dirección IP.
 
 > [!NOTE]
-> SQL Database se comunica a través del puerto 1433. Si intenta conectarse desde dentro de una red corporativa, es posible que el firewall de la red no permita el tráfico de salida a través del puerto 1433. En ese caso, no puede conectarse al servidor de Azure SQL Database, salvo que el departamento de TI abra el puerto 1433.
->
+> SQL Database se comunica a través del puerto 1433. Si intenta conectarse desde dentro de una red corporativa, es posible que el firewall de la red no permita el tráfico de salida a través del puerto 1433. En ese caso, no puede conectarse al servidor de Azure SQL Database, salvo que el administrador abra el puerto 1433.
 
-1. Cuando se haya finalizado la implementación, haga clic en **Bases de datos SQL** en el menú de la izquierda y, después, haga clic en **mySampleDatabase** en la página **Bases de datos SQL**. Se abre la página de información general de la base de datos, que muestra el nombre completo del servidor (por ejemplo, **mynewserver20170824.database.windows.net**) y proporciona opciones para configurarlo aún más. 
+1. Cuando se haya finalizado la implementación, seleccione **Bases de datos SQL** en el menú de la izquierda y, después, elija *yourDatabase* en la página **Bases de datos SQL**. Se abre la página de **información general** de la base de datos, que muestra el nombre del servidor completo (por ejemplo, *suservidor.database.windows.net*) y proporciona opciones para otras configuraciones.
 
-2. Copie este nombre para conectarse a su servidor y a sus bases de datos en los inicios rápidos posteriores. 
+1. Copie este nombre del servidor completo para conectarse al servidor y a sus bases de datos en los pasos posteriores.
 
-   ![nombre del servidor](../articles/sql-database/media/sql-database-get-started-portal/server-name.png) 
+   ![nombre del servidor](../articles/sql-database/media/sql-database-design-first-database/server-name.png)
 
-3. Haga clic en **Establecer el firewall del servidor** en la barra de herramientas. Se abrirá la página **Configuración del firewall** del servidor de SQL Database. 
+1. Seleccione **Establecer el firewall del servidor** en la barra de herramientas. Se abrirá la página **Configuración del firewall** del servidor de SQL Database.
 
-   ![regla de firewall del servidor](../articles/sql-database/media/sql-database-get-started-portal/server-firewall-rule.png) 
+   ![regla de firewall del servidor](../articles/sql-database/media/sql-database-design-first-database/server-firewall-rule.png)
 
-4. Haga clic en **Agregar IP de cliente** en la barra de herramientas para agregar la dirección IP actual a la nueva regla de firewall. La regla de firewall puede abrir el puerto 1433 para una única dirección IP o un intervalo de direcciones IP.
+   1. Seleccione **Agregar IP de cliente** en la barra de herramientas para agregar la dirección IP actual a la nueva regla de firewall. La regla de firewall puede abrir el puerto 1433 para una única dirección IP o un intervalo de direcciones IP.
 
-5. Haga clic en **Save**(Guardar). Se crea una regla de firewall de nivel de servidor para el puerto 1433 de la dirección IP actual en el servidor lógico.
+   1. Elija **Guardar**. Se crea una regla de firewall de nivel de servidor para el puerto 1433 de la dirección IP actual en el servidor lógico.
 
-6. Haga clic en **Aceptar** y después cierre la página **Configuración de firewall**.
+   1. Seleccione **Aceptar** y después cierre la página **Configuración de firewall**.
 
-Ahora puede conectarse al servidor de SQL Database y a sus bases de datos mediante SQL Server Management Studio o cualquier otra herramienta que elija desde esta dirección IP usando la cuenta de administrador del servidor creada con anterioridad.
-
+Su dirección IP ahora puede atravesar el firewall y conectarse al servidor de SQL Database y sus bases de datos mediante SSMS u otra herramienta que elija. Asegúrese de usar la cuenta de administrador del servidor que creó anteriormente.
 
 > [!IMPORTANT]
-> De forma predeterminada, el acceso a través del firewall de SQL Database está habilitado para todos los servicios de Azure. Haga clic en **OFF** en esta página para deshabilitar todos los servicios de Azure.
-
-## <a name="sql-server-connection-information"></a>Información de conexión de SQL server
-
-Obtenga el nombre completo del servidor de Azure SQL Database en Azure Portal. Utilice el nombre completo del servidor para conectarse al servidor mediante SQL Server Management Studio.
-
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
-2. Seleccione **SQL Database** en el menú de la izquierda y haga clic en la base de datos en la página **SQL Database**. 
-3. En el panel **Essentials** de la página de Azure Portal de la base de datos, busque y copie el **nombre del servidor**.
-
-   ![información sobre la conexión](../articles/sql-database/media/sql-database-get-started-portal/server-name.png)
+> De forma predeterminada, el acceso a través del firewall de SQL Database está habilitado para todos los servicios de Azure. Seleccione **DESACTIVAR** en esta página para deshabilitar todos los servicios de Azure.

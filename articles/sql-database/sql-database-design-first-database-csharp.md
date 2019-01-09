@@ -4,20 +4,18 @@ description: Aprenda a diseñar la primera base de datos de SQL Azure Dabatase y
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
-ms.devlang: ''
 ms.topic: tutorial
 author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
 manager: craigg-msft
-ms.date: 11/01/2018
-ms.openlocfilehash: 82cf0303019d2cbb620c442fd6f750f733930f84
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/10/2018
+ms.openlocfilehash: cf180f6e2970ac4435602f1cceeb98a4dd9e8724
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912346"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727173"
 ---
 # <a name="tutorial-design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Tutorial: Diseño de una base de datos de SQL Azure Database y conexión con C&#x23; y ADO.NET
 
@@ -35,7 +33,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Una instalación de [Visual Studio Community 2017, Visual Studio Professional 2017 o Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/).
+Una instalación de [Visual Studio 2017](https://www.visualstudio.com/downloads/)
 
 <!-- The following included .md, sql-database-tutorial-portal-create-firewall-connection-1.md, is long.
 And it starts with a ## H2.
@@ -51,16 +49,16 @@ And it starts with a ## H2.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial ha aprendido las tareas básicas de una base de datos, como crear una base de datos y tablas, cargar y consultar datos, y restaurar la base de datos a un momento anterior en el tiempo. Ha aprendido a:
+En este tutorial, aprendió tareas básicas de las bases de datos como crear una base de datos y tablas, conectarse a la base de datos, cargar datos y ejecutar consultas. Ha aprendido a:
+
 > [!div class="checklist"]
 > * Creación de una base de datos
 > * Configurar una regla de firewall
 > * Conectarse a la base de datos con [Visual Studio y C#](sql-database-connect-query-dotnet-visual-studio.md)
 > * Cree las tablas.
-> * Insertar, actualizar y eliminar datos
-> * Datos de consulta
+> * Insertar, actualizar, eliminar y consultar los datos
 
-Vaya al siguiente tutorial para más información sobre la migración de los datos.
+Prosiga con el tutorial siguiente para aprender sobre la migración de datos.
 
 > [!div class="nextstepaction"]
-> [Migración de una base de datos SQL Server a Azure SQL Database](sql-database-migrate-your-sql-server-database.md)
+> [Migración de SQL Server a Azure SQL Database sin conexión mediante DMS](../dms/tutorial-sql-server-to-azure-sql.md)

@@ -12,16 +12,16 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 471d2b0b8d98651d4b9ef4e88df0e863715b0c88
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 5f2c8c2a9a2b21a15aa997ff0cc98860ceec76cc
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341786"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744843"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Guía de inicio rápido: Uso de .NET Core (C#) para consultar una instancia de Azure SQL Database
 
-En esta guía de inicio rápido se muestra cómo usar [.NET Core](https://www.microsoft.com/net/) y el código de C# para conectarse a una base de datos de Azure SQL Database y ejecutar una instrucción Transact-SQL para consultar los datos.
+En este tutorial de inicio rápido, usará código de C# y [.NET Core](https://www.microsoft.com/net/) para conectarse a una instancia de Azure SQL Database. Luego, ejecutará una instrucción Transact-SQL para consultar los datos.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -53,14 +53,14 @@ En este tutorial, necesitará:
   
 ## <a name="create-a-new-net-core-project"></a>Creación de un proyecto de .NET Core
 
-1. Abra un símbolo del sistema y cree una carpeta denominada **sqltest**. Vaya a esta carpeta y ejecute el comando siguiente.
+1. Abra un símbolo del sistema y cree una carpeta denominada **sqltest**. Vaya a esta carpeta y ejecute este comando.
 
     ```cmd
     dotnet new console
     ```
-    Con esto se crean nuevos archivos de proyecto de aplicaciones, incluido un archivo de código de C# inicial (**Program.cs**), un archivo de configuración XML (**sqltest.csproj**) y los archivos binarios necesarios.
+    Con este comando se crean nuevos archivos de proyecto de aplicaciones, incluido un archivo de código de C# inicial (**Program.cs**), un archivo de configuración XML (**sqltest.csproj**) y los archivos binarios necesarios.
 
-2. En un editor de texto, abra **sqltest.csproj** y pegue el XML siguiente entre las etiquetas `<Project>`. De este modo, `System.Data.SqlClient` se agrega como dependencia.
+2. En un editor de texto, abra **sqltest.csproj** y pegue el XML siguiente entre las etiquetas `<Project>`. Este XML agrega `System.Data.SqlClient` como dependencia.
 
     ```xml
     <ItemGroup>
@@ -173,7 +173,7 @@ namespace sqltest
 
    Done. Press enter.
    ```
-3. Presione **ENTRAR** para cerrar la ventana de la aplicación.
+3. Elija **ENTRAR** para cerrar la ventana de la aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

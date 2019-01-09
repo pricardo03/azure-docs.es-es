@@ -1,244 +1,224 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Innovation Hub | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory e Innovation Hub.
+title: 'Tutorial: Integración de Azure Active Directory con Innoverse | Microsoft Docs'
+description: Obtenga información sobre cómo configurar el inicio de sesión único entre Azure Active Directory e Innoverse.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: d72e4da0-0123-409b-96c2-e613f3f83fb1
-ms.service: active-directory
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/20/2018
+ms.topic: tutorial
+ms.date: 12/14/2018
 ms.author: jeedes
-ms.openlocfilehash: 6486c43ed9eaf1e829598cfc9177a96e0bed9fe1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 293c08a81ba675d42cd0e9f715e988b2186deb3d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437556"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794080"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-innovation-hub"></a>Tutorial: Integración de Azure Active Directory con Innovation Hub
+# <a name="tutorial-azure-active-directory-integration-with-innoverse"></a>Tutorial: Integración de Azure Active Directory con Innoverse
 
-En este tutorial, obtendrá información sobre cómo integrar Innovation Hub con Azure Active Directory (Azure AD).
+En este tutorial, obtendrá información sobre cómo integrar Innoverse con Azure Active Directory (Azure AD).
+La integración de Innoverse con Azure AD proporciona las siguientes ventajas:
 
-La integración de Innovation Hub con Azure AD proporciona las siguientes ventajas:
+* Puede controlar en Azure AD quién tiene acceso a Innoverse.
+* Puede permitir que los usuarios inicien sesión automáticamente en Innoverse (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-- Puede controlar en Azure AD quién tiene acceso a Innovation Hub.
-- Puede permitir que los usuarios inicien sesión automáticamente en Innovation Hub (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: Azure Portal.
-
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para configurar la integración de Azure AD con Innovation Hub, necesita los siguientes elementos:
+Para configurar la integración de Azure AD con Innoverse, necesita los siguientes elementos:
 
-- Una suscripción de Azure AD
-- Una suscripción habilitada para el inicio de sesión único en Innovation Hub
-
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-
-Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
-
-- No use el entorno de producción, salvo que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
+* Una suscripción habilitada para el inicio de sesión único en Innoverse
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
-1. Adición de Innovation Hub desde la galería
-1. Configuración y comprobación del inicio de sesión único de Azure AD
+En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-## <a name="adding-innovation-hub-from-the-gallery"></a>Adición de Innovation Hub desde la galería
-Para configurar la integración de Innovation Hub en Azure AD, será preciso agregar Innovation Hub desde la galería a la lista de aplicaciones SaaS administradas.
+* Innoverse admite SSO iniciado por **SP e IDP**
+* Innoverse admite el aprovisionamiento de usuarios **Just-In-Time**
 
-**Para agregar Innovation Hub desde la galería, siga estos pasos:**
+## <a name="adding-innoverse-from-the-gallery"></a>Incorporación de Innoverse desde la galería
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+Para configurar la integración de Innoverse en Azure AD, deberá agregar Innoverse desde la galería a la lista de aplicaciones SaaS administradas.
 
-    ![Botón Azure Active Directory][1]
+**Para agregar Innoverse desde la galería, siga estos pasos:**
 
-1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
-    ![Hoja Aplicaciones empresariales][2]
-    
-1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+    ![Botón Azure Active Directory](common/select_azuread.png)
 
-    ![Botón Nueva aplicación][3]
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
-1. En el cuadro de búsqueda, escriba **Innovation Hub**, seleccione **Innovation Hub** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+    ![Hoja Aplicaciones empresariales](common/enterprise_applications.png)
 
-    ![Innovation Hub en la lista de resultados](./media/innovationhub-tutorial/tutorial_innovationhub_addfromgallery.png)
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+
+    ![Botón Nueva aplicación](common/add_new_app.png)
+
+4. En el cuadro de búsqueda, escriba **Innoverse**, seleccione **Innoverse** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+
+     ![Innoverse en la lista de resultados](common/search_new_app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, configurará y probará el inicio de sesión único de Azure AD con Innovation Hub con una usuaria de prueba llamada "Britta Simon".
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Innoverse con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Innoverse.
 
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo en Innovation Hub para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Innovation Hub.
-
-Para configurar y probar el inicio de sesión único de Azure AD con Innovation Hub, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con Innoverse, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **[Creación de un usuario de prueba de Innovation Hub](#create-an-innovation-hub-test-user)**: para tener un homólogo de Britta Simon en Innovation Hub que esté vinculado a la representación del usuario en Azure AD.
-1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-1. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+2. **[Configuración del inicio de sesión único de Innoverse](#configure-innoverse-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Creación de un usuario de prueba de Innoverse](#create-innoverse-test-user)** : para tener un homólogo de Britta Simon en Innoverse que esté vinculado a la representación del usuario en Azure AD.
+5. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación Innovation Hub.
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-**Para configurar el inicio de sesión único de Azure AD con Innovation Hub, realice los pasos siguientes:**
+Para configurar el inicio de sesión único de Azure AD con Innoverse, realice los pasos siguientes:
 
-1. En la página de integración de la aplicación **Innovation Hub** de Azure Portal, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Innoverse**, seleccione **Inicio de sesión único**.
 
-    ![Vínculo Configurar inicio de sesión único][4]
+    ![Vínculo Configurar inicio de sesión único](common/select_sso.png)
 
-1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
-    ![Cuadro de diálogo Inicio de sesión único](./media/innovationhub-tutorial/tutorial_innovationhub_samlbase.png)
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
-1. En la sección de **dominio y direcciones URL de Innovation Hub**, lleve a cabo los pasos siguientes:
+    ![Modo de selección de inicio de sesión único](common/select_saml_option.png)
 
-    ![Información sobre dominio y direcciones URL de inicio de sesión único de Innovation Hub](./media/innovationhub-tutorial/tutorial_innovationhub_url.png)
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<domainname>.innohb.com/auth/saml2/login`.
+    ![Edición de la configuración básica de SAML](common/edit_urls.png)
 
-    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<domainname>.innohb.com`
+4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
+    ![Información de dominio y direcciones URL de inicio de sesión único de Innoverse](common/idp_intiated.png)
+
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<domainname>.innover.se`
+
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<domainname>.innover.se/auth/saml2/login`
+
+5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
+
+    ![Información de dominio y direcciones URL de inicio de sesión único de Innoverse](common/metadata_upload_additional_signon.png)
+
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<domainname>.innover.se/auth/saml2/login`
+    
     > [!NOTE]
-    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte de cliente de Innovation Hub](mailto:support@readify.net) para obtener estos valores.
+    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Para obtener estos valores, póngase en contacto con el [equipo de soporte técnico de clientes de Innoverse](mailto:support@readify.net). También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. La aplicación Innovation Hub espera las aserciones de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección "**Atributos de usuario**" de la página de integración de aplicaciones. La siguiente captura de pantalla le muestra un ejemplo de esto.
+6. La aplicación Innoverse espera las instrucciones de aserción de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **Atributos de usuario** de la página de integración de aplicaciones. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
 
-    ![Configurar inicio de sesión único](./media/innovationhub-tutorial/attribute.png)
+    ![imagen](./media/innovationhub-tutorial/tutorial-innovationhub-attribute.png)
 
-1. En la sección **Atributos de usuario**, active la casilla **Ver y editar todos los demás atributos de usuario** para expandir los atributos. Realice los pasos siguientes en cada uno de los atributos mostrados:
+7. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, configure el atributo Token SAML como muestra la imagen anterior y realice los siguientes pasos:
 
-    | Nombre del atributo | Valor de atributo | Valor de espacio de nombres|
-    | ---------------| --------------- |----------------|
-    | displayname | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-    | | |
+    | NOMBRE | Atributo de origen| Espacio de nombres |
+    | ---------------| --------- | ----------------|
+    | displayname | `user.userprincipalname` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
 
-    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
-    ![Configurar inicio de sesión único](./media/innovationhub-tutorial/tutorial_attribute_04.png)
+    ![imagen](common/new_save_attribute.png)
 
-    ![Configurar inicio de sesión único](./media/innovationhub-tutorial/tutorial_attribute_05.png)
+    ![imagen](common/new_attribute_details.png)
 
     b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
 
-    c. En la lista **Valor**, seleccione el atributo que se muestra para esa fila.
+    c. Escriba el **Espacio de nombres**.
 
-    d. En la lista **Namespace Value** (Valor de espacio de nombres), escriba el valor del espacio de nombres que se muestra para esa fila.
+    d. Seleccione **Atributo** como origen.
 
-    e. Haga clic en **Aceptar**.
+    e. En la lista **Atributo de origen**, escriba el valor de atributo que se muestra para esa fila.
 
-1. En la sección **Certificado de firma de SAML**, haga clic en el botón Copiar para copiar la **dirección URL de metadatos de federación de la aplicación** y péguela en el Bloc de notas.
+    f. Haga clic en **Aceptar**.
 
-    ![Vínculo de descarga del certificado](./media/innovationhub-tutorial/tutorial_innovationhub_certificate.png)
+    g. Haga clic en **Save**(Guardar).
 
-1. Haga clic en el botón **Guardar** .
+8. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el icono de **copia** para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 
-    ![Botón Configurar inicio de sesión único](./media/innovationhub-tutorial/tutorial_general_400.png)
+    ![Vínculo de descarga del certificado](common/copy_metadataurl.png)
 
-1. Para configurar el inicio de sesión único en **Innovation Hub**, tiene que enviar la **dirección URL de metadatos de federación** copiada al [equipo de soporte técnico de Innovation Hub](mailto:support@readify.net). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+### <a name="configure-innoverse-single-sign-on"></a>Configuración del inicio de sesión único de Innoverse
+
+Para configurar el inicio de sesión único en **Innoverse**, tiene que enviar la **dirección URL de metadatos de federación** copiada al [equipo de soporte técnico de Innoverse](mailto:support@readify.net). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-   ![Creación de un usuario de prueba de Azure AD][100]
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
-1. En el panel izquierdo de Azure Portal, haga clic en el botón **Azure Active Directory**.
+2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
-    ![Botón Azure Active Directory](./media/innovationhub-tutorial/create_aaduser_01.png)
+    ![Botón Nuevo usuario](common/new_user.png)
 
-1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
+3. En las propiedades Usuario, siga estos pasos.
 
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/innovationhub-tutorial/create_aaduser_02.png)
+    ![Cuadro de diálogo Usuario](common/user_properties.png)
 
-1. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
+     a. En el campo **Nombre**, escriba **BrittaSimon**.
 
-    ![Botón Agregar](./media/innovationhub-tutorial/create_aaduser_03.png)
+    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**.  
+    Por ejemplo: BrittaSimon@contoso.com
 
-1. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
-
-    ![Cuadro de diálogo Usuario](./media/innovationhub-tutorial/create_aaduser_04.png)
-
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
-
-    b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
-
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
     d. Haga clic en **Create**(Crear).
- 
-### <a name="create-an-innovation-hub-test-user"></a>Creación de un usuario de prueba de Innovation Hub
-
-El objetivo de esta sección es crear una usuaria llamada Britta Simon en Innovation Hub. Innovation Hub admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Durante un intento de acceder a Innovation Hub, se crea un usuario, en caso de que no exista.
->[!Note]
->Si necesita crear manualmente un usuario, póngase en contacto con el [equipo de soporte técnico de Innovation Hub](mailto:support@readify.net).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Innovation Hub.
+En esta sección, concederá acceso a Britta Simon a Innoverse para que use el inicio de sesión único de Azure.
 
-![Asignación de rol de usuario][200] 
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**, **Innoverse**.
 
-**Para asignar Britta Simon a Innovation Hub, realice los pasos siguientes:**
+    ![Hoja Aplicaciones empresariales](common/enterprise_applications.png)
 
-1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
+2. En la lista de aplicaciones, escriba y seleccione **Innoverse**.
 
-    ![Asignar usuario][201] 
+    ![Vínculo a Innoverse en la lista de aplicaciones](common/all_applications.png)
 
-1. En la lista de aplicaciones, seleccione **Innovation Hub**.
+3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
-    ![Vínculo a Innovation Hub en la lista de aplicaciones](./media/innovationhub-tutorial/tutorial_innovationhub_app.png)  
+    ![Vínculo "Usuarios y grupos"](common/users_groups_blade.png)
 
-1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
-    ![Vínculo "Usuarios y grupos"][202]
+    ![Panel Agregar asignación](common/add_assign_user.png)
 
-1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-    ![Panel Agregar asignación][203]
+6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+### <a name="create-innoverse-test-user"></a>Creación de un usuario de prueba de Innoverse
 
-1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+En esta sección, se crea un usuario llamado a Britta Simon en Innoverse. Innoverse admite el **aprovisionamiento Just-In-Time**, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si el usuario ya no existe en Innoverse, se crea uno nuevo cuando se intenta acceder a Innoverse.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Innovation Hub en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Innovation Hub.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Al hacer clic en el icono de Innoverse en el panel de acceso y debería iniciar sesión automáticamente en la versión de Innoverse para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-<!--Image references-->
+- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-[1]: ./media/innovationhub-tutorial/tutorial_general_01.png
-[2]: ./media/innovationhub-tutorial/tutorial_general_02.png
-[3]: ./media/innovationhub-tutorial/tutorial_general_03.png
-[4]: ./media/innovationhub-tutorial/tutorial_general_04.png
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[100]: ./media/innovationhub-tutorial/tutorial_general_100.png
-
-[200]: ./media/innovationhub-tutorial/tutorial_general_200.png
-[201]: ./media/innovationhub-tutorial/tutorial_general_201.png
-[202]: ./media/innovationhub-tutorial/tutorial_general_202.png
-[203]: ./media/innovationhub-tutorial/tutorial_general_203.png
-
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0aa7b7f3558bab7f3553527e03c44d71dd5a87ac
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 60ecf08d7f0c40a04472b3e2bf5ef739e51c32e8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833149"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794437"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configuración de la recuperación ante desastres para las máquinas virtuales de Azure en una región secundaria de Azure
 
@@ -148,12 +148,12 @@ Site Recovery crea la configuración predeterminada y la directiva de replicaci�
       >Si usa la cuenta de almacenamiento en caché con firewall habilitado, asegúrese de seleccionar "Permitir servicios de Microsoft de confianza". [Más información.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
       >
 
-    - **Cuentas de almacenamiento de destino (si la VM de origen no usa discos administrados)**: de forma predeterminada, Site Recovery crea una nueva cuenta de almacenamiento en la región de destino, para reflejar la cuenta de almacenamiento de la máquina virtual de origen.
+    - **Cuentas de almacenamiento de destino (si la máquina virtual de origen no usa discos administrados)**: de forma predeterminada, Site Recovery crea una nueva cuenta de almacenamiento en la región de destino para reflejar la cuenta de almacenamiento de la máquina virtual de origen.
       >[!NOTE]
       >Si usa una cuenta de almacenamiento de origen o destino con firewall habilitado, asegúrese de seleccionar "Permitir servicios de Microsoft de confianza". [Más información.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
       >
 
-    - **Discos administrados de réplica (si la VM de origen utiliza discos administrados)**: de manera predeterminada, Site Recovery crea discos administrados de réplica en la región de destino para crear el reflejo de discos administrados de la máquina virtual de origen con el mismo tipo de almacenamiento (Standard o Premium) que el disco administrado de la VM de origen.
+    - **Discos administrados de réplica (si la máquina virtual de origen usa discos administrados)**: de forma predeterminada, Site Recovery crea discos administrados de réplica en la región de destino para reflejar los discos administrados de la máquina virtual de origen con el mismo tipo de almacenamiento (Standard o Premium) que el disco administrado de la máquina virtual de origen.
     - **Conjuntos de disponibilidad de destino**: de forma predeterminada, Azure Site Recovery crea un conjunto de disponibilidad en la región de destino con un nombre con el sufijo "asr" para la parte de máquina virtual de un conjunto de disponibilidad de la región de origen. En caso de que el conjunto de disponibilidad que cree Azure Site Recovery ya exista, se vuelve a usar.
     - **Zonas de disponibilidad de destino**: de forma predeterminada, Site Recovery asigna el mismo número de zona que la región de origen en la región de destino si esta admite zonas de disponibilidad. 
 
@@ -165,9 +165,9 @@ Site Recovery crea la configuración predeterminada y la directiva de replicaci�
 
 4. Para personalizar la configuración de la directiva de replicación, haga clic en **Personalizar** junto a **Directiva de replicación** y modifique los siguientes valores según sea necesario:
 
-    - **Nombre de la directiva de replicación**: Nombre de la directiva.
-    - **Retención del punto de recuperación**: de forma predeterminada, Site Recovery conserva los puntos de recuperación durante 24 horas. Puede configurar un valor entre 1 y 72 horas.
-    - **Frecuencia de instantáneas coherentes con la aplicación**: de forma predeterminada, Site Recovery toma una instantánea coherente con la aplicación cada cuatro horas. Puede configurar cualquier valor entre 1 y 12 horas. Una instantánea coherente con la aplicación es una instantánea en un momento dado de los datos de la aplicación dentro de la máquina virtual. El Servicio de instantáneas de volumen (VSS) garantiza que la aplicación en la máquina virtual se encuentre en un estado coherente cuando se toma la instantánea.
+    - **Nombre de la directiva de replicación**: nombre de la directiva.
+    - **Retención de punto de recuperación**: de forma predeterminada, Site Recovery conserva los puntos de recuperación durante 24 horas. Puede configurar un valor entre 1 y 72 horas.
+    - **Frecuencia de las instantáneas coherentes con la aplicación**: de forma predeterminada, Site Recovery toma una instantánea coherente con la aplicación cada 4 horas. Puede configurar cualquier valor entre 1 y 12 horas. Una instantánea coherente con la aplicación es una instantánea en un momento dado de los datos de la aplicación dentro de la máquina virtual. El Servicio de instantáneas de volumen (VSS) garantiza que la aplicación en la máquina virtual se encuentre en un estado coherente cuando se toma la instantánea.
     - **Grupo de replicación**: si la aplicación necesita coherencia de múltiples máquinas virtuales entre varias máquinas virtuales, puede crear un grupo de replicación para estas máquinas virtuales. De forma predeterminada, las máquinas virtuales seleccionadas no forman parte de ningún grupo de replicación.
 
 5. En **Personalizar**, seleccione **Sí** para lograr coherencia entre varias máquinas virtuales si desea agregar máquinas virtuales a un grupo de replicación nuevo o existente. para que las máquinas virtuales formen parte de un grupo de replicación. A continuación, haga clic en **Aceptar**.

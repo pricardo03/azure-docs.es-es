@@ -14,16 +14,16 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 1f41172a493f3e5e1b98cbba32b0180cee16c072
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: eab4365b6b86a82f29dbd1a79d4fda6dc9b30e0e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53018958"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971331"
 ---
 # <a name="what-is-azure-cache-for-redis"></a>¿Qué es Azure Redis Cache?
 
-Azure Redis Cache se basa en la conocida solución [Azure Redis Cache](https://redis.io/) de código fuente abierto. Normalmente se usa como una memoria caché para mejorar el rendimiento y la escalabilidad de aquellos sistemas que dependen mucho de almacenes de datos back-end. La mejora del rendimiento se logra mediante la copia de los datos a los que se accede con mayor frecuencia en un almacenamiento rápido ubicado cerca de la aplicación. Con [Azure Redis Cache](https://redis.io/), este almacenamiento rápido se coloca en la memoria con Azure Redis Cache en lugar de que una base de datos lo cargue desde el disco.
+Azure Cache for Redis se basa en el popular software [Redis](https://redis.io/). Normalmente se usa como una memoria caché para mejorar el rendimiento y la escalabilidad de aquellos sistemas que dependen mucho de almacenes de datos back-end. La mejora del rendimiento se logra mediante la copia de los datos a los que se accede con mayor frecuencia en un almacenamiento rápido ubicado cerca de la aplicación. Con [Azure Redis Cache](https://redis.io/), este almacenamiento rápido se coloca en la memoria con Azure Redis Cache en lugar de que una base de datos lo cargue desde el disco.
 
 Azure Redis Cache también puede usarse como almacén de estructura de datos en memoria, base de datos no relacional distribuida y agente de mensajes. El rendimiento de las aplicaciones mejora porque se aprovecha de la baja latencia y alto rendimiento del motor Redis.
 

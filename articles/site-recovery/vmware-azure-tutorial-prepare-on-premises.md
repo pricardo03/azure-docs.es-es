@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: da5643f707a2f891fcf6663ec88f5a5dff40ac86
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 505acdde07c23654ddd3875fa600046a67e04aea
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846647"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970821"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparar servidores de VMware locales para la recuperación ante desastres en Azure
 
@@ -67,8 +67,8 @@ Prepare la cuenta como se indica a continuación:
 
 Prepare un dominio o cuenta local con permisos para instalar en la máquina virtual.
 
-- **Máquinas virtuales Windows**: para instalar en máquinas virtuales Windows, si no usa una cuenta de dominio, deshabilite el control Acceso de usuarios remotos en la máquina local. Para ello, en el Registro, en **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, agregue la entrada DWORD **LocalAccountTokenFilterPolicy** con un valor de 1.
-- **Máquinas virtuales Linux**: para instalar en máquinas virtuales Linux, prepare una cuenta raíz en el servidor Linux de origen.
+- **Máquinas virtuales Windows**: Para instalar en máquinas virtuales Windows, si no usa una cuenta de dominio, deshabilite el control Acceso de usuarios remotos en la máquina local. Para ello, en el Registro, en **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, agregue la entrada DWORD **LocalAccountTokenFilterPolicy** con un valor de 1.
+- **Máquinas virtuales Linux**: Para instalar en máquinas virtuales Linux, prepare una cuenta raíz en el servidor Linux de origen.
 
 
 ## <a name="check-vmware-requirements"></a>Comprobación de los requisitos de VMware
@@ -80,6 +80,7 @@ Asegúrese de que los servidores y las máquinas virtuales de VMware cumplen los
 3. Compruebe la compatibilidad de [red](vmware-physical-azure-support-matrix.md#network) y [almacenamiento](vmware-physical-azure-support-matrix.md#storage) local. 
 4. Compruebe lo que es compatible para [redes Azure](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [almacenamiento](vmware-physical-azure-support-matrix.md#azure-storage), y [proceso](vmware-physical-azure-support-matrix.md#azure-compute), después de la conmutación por error.
 5. Las máquinas virtuales locales que replique en Azure tienen que cumplir los [requisitos de máquina virtual de Azure](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
+6. En las máquinas virtuales Linux, el nombre de dispositivo o el nombre de punto de montaje debe ser único. Asegúrese de que los nombres de dos dispositivos o puntos de montaje no solo se diferencien en las mayúsculas y minúsculas. Por ejemplo, no puede asignarle a dos dispositivos de la misma máquina virtual el nombre *device1* y *Device1*.
 
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparación para la conexión a las máquinas virtuales de Azure después de la conmutación por error

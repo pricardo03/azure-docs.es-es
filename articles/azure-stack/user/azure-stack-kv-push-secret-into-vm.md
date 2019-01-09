@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 12/27/2018
 ms.author: sethm
-ms.openlocfilehash: aef706d18d558f5fe321735c7f93361a5ef50606
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 0723d0e2a60c0f43633e5e5ca771ccfe88d2db68
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "43050420"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808067"
 ---
 # <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>Creación de una máquina virtual e instalación de un certificado recuperado de un almacén de claves de Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
-Aprenda a crear una máquina virtual (VM) de Azure Stack con un certificado de almacén de claves instalado.
+Aprenda a crear una máquina virtual (VM) de Azure Stack con un certificado Key Vault instalado.
 
 ## <a name="overview"></a>Información general
 
@@ -41,7 +41,7 @@ Los pasos siguientes describen el proceso necesario para insertar un certificado
 
 1. Cree un secreto de almacén de claves.
 2. Actualice el archivo azuredeploy.parameters.json.
-3. Implementación de la plantilla
+3. Implemente la plantilla.
 
 > [!NOTE]
 > Puede seguir estos pasos desde el Kit de desarrollo de Azure Stack o desde un cliente externo, si se conecta a través de VPN.
@@ -49,8 +49,8 @@ Los pasos siguientes describen el proceso necesario para insertar un certificado
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Debe suscribirse a una oferta que incluya el servicio Key Vault.
-* [Instale PowerShell para Azure Stack.](azure-stack-powershell-install.md)
-* [Configuración del entorno de PowerShell del usuario de Azure Stack](azure-stack-powershell-configure-user.md)
+* [Instale PowerShell para Azure Stack](azure-stack-powershell-install.md).
+* [Configure el entorno de PowerShell del usuario de Azure Stack](azure-stack-powershell-configure-user.md).
 
 ## <a name="create-a-key-vault-secret"></a>Creación de un secreto de almacén de claves
 
@@ -60,7 +60,6 @@ El script siguiente crea un certificado con el formato .pfx, crea un almacén de
 > Debe usar el parámetro `-EnabledForDeployment` cuando cree el almacén de datos. Este parámetro garantiza que se puede hacer referencia al almacén de claves desde las plantillas de Azure Resource Manager.
 
 ```powershell
-
 # Create a certificate in the .pfx format
 New-SelfSignedCertificate `
   -certstorelocation cert:\LocalMachine\My `
@@ -117,16 +116,15 @@ Set-AzureKeyVaultSecret `
   -VaultName $vaultName `
   -Name $secretName `
    -SecretValue $secret
-
 ```
 
-Cuando se ejecuta el script anterior, la salida incluye el identificador URI del secreto. Anote este URI. Tendrá que hacer referencia a él en la [inserción de certificado en la plantilla de Resource Manager de Windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Descargue la carpeta de la [plantilla vm-push-certificate-windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) en el equipo de desarrollo. Esta carpeta contiene los archivos `azuredeploy.json` y `azuredeploy.parameters.json` que necesitará en los pasos siguientes.
+Cuando se ejecuta el script anterior, la salida incluye el identificador URI del secreto. Anote este URI. Tendrá que hacer referencia a él en la [inserción de certificado en la plantilla de Resource Manager de Windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Descargue la carpeta de la plantilla [vm-push-certificate-windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) en el equipo de desarrollo. Esta carpeta contiene los archivos `azuredeploy.json` y `azuredeploy.parameters.json` que necesitará en los pasos siguientes.
 
-Modificar el archivo `azuredeploy.parameters.json` según los valores del entorno. Los parámetros de especial interés son el nombre del almacén, el grupo de recursos del almacén y el identificador URI del secreto (que se generó en el script anterior). El archivo siguiente es un ejemplo de un archivo de parámetros:
+Modificar el archivo `azuredeploy.parameters.json` según los valores del entorno. Los parámetros de especial interés son el nombre del almacén, el grupo de recursos del almacén y el identificador URI del secreto (que se generó en el script anterior). En la sección siguiente se ofrece un ejemplo de un archivo de parámetros.
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>Actualice el archivo azuredeploy.parameters.json
 
-Actualice el archivo azuredeploy.parameters.json con los valores de vaultName (nombre del almacén), URI del secreto, VmName (nombre de la máquina virtual) y otros valores según el entorno. El siguiente archivo JSON muestra un ejemplo del archivo de parámetros de plantilla:
+Actualice el archivo `azuredeploy.parameters.json` con los elementos `vaultName`, URI del secreto, `VmName` y otros valores según el entorno. El siguiente archivo JSON muestra un ejemplo del archivo de parámetros de plantilla:
 
 ```json
 {
@@ -180,8 +178,8 @@ Cuando la plantilla se ha implementado correctamente, se producen en la siguient
 
 Azure Stack inserta el certificado en la máquina virtual durante la implementación. La ubicación del certificado depende del sistema operativo de la máquina virtual:
 
-* En Windows, el certificado se agrega a la ubicación de certificados LocalMachine, con el almacén de certificados que el usuario proporcionó.
-* En Linux, el certificado se coloca en el directorio /var/lib/waagent, con el nombre de archivo &lt;UppercaseThumbprint&gt;.crt para el archivo de certificado X509 y &lt;UppercaseThumbprint&gt;.prv para la clave privada.
+* En Windows, el certificado se agrega a la ubicación de certificados **LocalMachine**, con el almacén de certificados que el usuario proporcionó.
+* En Linux, el certificado se coloca en el directorio `/var/lib/waagent directory`, con el nombre de archivo &lt;UppercaseThumbprint.crt&gt; para el archivo de certificado X509 y &lt;UppercaseThumbprint.prv&gt; para la clave privada.
 
 ## <a name="retire-certificates"></a>Retirada de certificados
 

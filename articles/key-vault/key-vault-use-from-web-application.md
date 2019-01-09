@@ -1,5 +1,5 @@
 ---
-title: Tutorial Uso de Azure Key Vault desde una aplicación web | Microsoft Docs
+title: Tutorial Uso de Azure Key Vault desde una aplicación web - Azure Key Vault | Microsoft Docs
 description: Use este tutorial para ayudarle a aprender a usar Azure Key Vault desde una aplicación web.
 services: key-vault
 author: barclayn
@@ -9,14 +9,14 @@ ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/09/2018
+ms.date: 01/02/2019
 ms.author: barclayn
-ms.openlocfilehash: b66c9912ba0b6508c2beb786d2327efa779c6645
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 79bccbcbcf78de18504c5cb0235e29930d90ede8
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079470"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999312"
 ---
 # <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>Tutorial: Uso de Azure Key Vault desde una aplicación web
 
@@ -40,9 +40,9 @@ Para realizar este tutorial, necesitará los siguientes elementos:
 * Un Id. de cliente y un secreto de cliente para una aplicación web registrada en Azure Active Directory que tenga acceso a su almacén de claves.
 * Una aplicación web. En este tutorial se muestran los pasos para una aplicación ASP.NET MVC implementada en Azure como una aplicación web.
 
-Complete los pasos que aparecen en [Introducción a Azure Key Vault](key-vault-get-started.md) para obtener el URI a un secreto, el identificador de cliente, el secreto de cliente y registrar la aplicación. La aplicación web accederá al almacén y tendrá que estar registrada en Azure Active Directory. También debe tener derechos de acceso a Key Vault. Si no es así, vuelva al apartado sobre cómo registrar una aplicación del tutorial de introducción y repita los pasos enumerados. Para más información sobre cómo crear instancias de Azure Web Apps, consulte [Información general de Web Apps](../app-service/app-service-web-overview.md).
+Complete los pasos que aparecen en [Introducción a Azure Key Vault](key-vault-get-started.md) para obtener el URI a un secreto, el identificador de cliente, el secreto de cliente y registrar la aplicación. La aplicación web accederá al almacén y tendrá que estar registrada en Azure Active Directory. También debe tener derechos de acceso a Key Vault. Si no es así, vuelva al apartado sobre cómo registrar una aplicación del tutorial de introducción y repita los pasos enumerados. Para más información sobre cómo crear instancias de Azure Web Apps, consulte [Información general de Web Apps](../app-service/overview.md).
 
-Este ejemplo depende del aprovisionamiento manual de identidades de Azure Active Directory. Pero debe usar [Identidades administradas de recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md) en su lugar, que aprovisiona automáticamente identidades de Azure AD. Para más información, consulte el [ejemplo en GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) y el [tutorial de App Service y Functions](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). También puede examinar el artículo [Configuración de una aplicación web de Azure para que lea un secreto desde el almacén de claves](tutorial-web-application-keyvault.md) específico de Key Vault.
+Este ejemplo depende del aprovisionamiento manual de identidades de Azure Active Directory. Pero debe usar [Identidades administradas de recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md) en su lugar, que aprovisiona automáticamente identidades de Azure AD. Para más información, consulte el [ejemplo en GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) y el [tutorial de App Service y Functions](https://docs.microsoft.com/azure/app-service/overview-managed-identity). También puede examinar el artículo [Configuración de una aplicación web de Azure para que lea un secreto desde el almacén de claves](tutorial-web-application-keyvault.md) específico de Key Vault.
 
 ## <a id="packages"></a>Incorporación de paquetes NuGet
 
@@ -71,8 +71,6 @@ Hay tres configuraciones de aplicaciones que deben agregarse al archivo web.conf
     <add key="SecretUri" value="secreturi" />
     <!-- If you aren't hosting your app as an Azure Web App, then you should use the actual ClientId, Client Secret, and Secret URI values -->
 ```
-
-
 
 ## <a id="gettoken"></a>Incorporación del método para obtener un token de acceso
 
@@ -159,7 +157,7 @@ Export-PfxCertificate -cert $Cert -FilePath $PFXFilePath -Password $SecStringPw
 Export-Certificate -cert $Cert -FilePath $CerFilePath 
 ```
 
-Anote la fecha de finalización y la contraseña del archivo .pfx (en este ejemplo: 15 de mayo de 2019 y MyPassword). Necesitará esta información en el script siguiente. 
+Tome nota de la fecha de finalización y la contraseña del archivo .pfx (en este ejemplo: 15 de mayo de 2019 y MyPassword). Necesitará esta información en el script siguiente. 
 ### <a name="associate-the-certificate-with-an-azure-ad-application"></a>Asociar el certificado a una aplicación de Azure AD
 
 Ahora que tiene un certificado, tendrá que asociarlo a una aplicación de Azure AD. La asociación se puede completar mediante PowerShell. Ejecute los siguientes comandos para asociar el certificado con la aplicación de Azure AD:
@@ -188,11 +186,11 @@ Después de ejecutar estos comandos, podrá ver la aplicación en Azure AD. Cuan
 
 Ahora agregaremos código a Web App para tener acceso al certificado y usarlo para la autenticación. 
 
-En primer lugar, este es el código para tener acceso al certificado. Observe que StoreLocation es CurrentUser y no LocalMachine. Fíjese también en que usamos "false" en el método Find, ya que usamos un certificado de prueba.
+En primer lugar, este es el código para tener acceso al certificado. La ubicación de almacenamiento es CurrentUser y no LocalMachine. Fíjese también en que usamos "false" en el método Find, ya que usamos un certificado de prueba.
 
 ```cs
 //Add this using statement
-using System.Security.Cryptography.X509Certificates;  
+using System.Security.Cryptography.X509Certificates;  
 
 public static class CertificateHelper
 {

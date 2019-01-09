@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: acc926151e5abd1d6f9d0992591575198d1fdf44
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: f5d74c2283d25d5774bd46bb9fe94795ff98fe9b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890541"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720587"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-python"></a>Tutorial: Uso de Azure Key Vault con una máquina virtual Linux de Azure en Python
 
 Azure Key Vault ayuda a proteger secretos como las claves de API, las cadenas de conexión de base de datos necesarias para acceder a las aplicaciones, los servicios y los recursos de TI.
 
-En este tutorial, siga los pasos necesarios para conseguir que una aplicación web de Azure lea información de Azure Key Vault mediante identidades administradas para los recursos de Azure. Este tutorial se basa en [Azure Web Apps](../app-service/app-service-web-overview.md). A continuación aprenderá a:
+En este tutorial, siga los pasos necesarios para conseguir que una aplicación web de Azure lea información de Azure Key Vault mediante identidades administradas para los recursos de Azure. A continuación aprenderá a:
 
 > [!div class="checklist"]
 > * Cree un almacén de claves.
@@ -80,9 +80,9 @@ El grupo de recursos que acaba de crear se utiliza en todo este artículo.
 
 A continuación, creará un almacén de claves en el grupo de recursos creado en el paso anterior. Proporcione la siguiente información:
 
-* Nombre del almacén de claves: el nombre debe ser una cadena de 3 a 24 caracteres y solo puede incluir alguno de estos caracteres: 0-9, a-z, A-Z y "-".
+* Nombre del almacén de claves: el nombre debe ser una cadena de entre 3 y 24 caracteres y solo debe contener alguno de estos caracteres: 0-9, a-z, A-Z y "-".
 * Nombre del grupo de recursos.
-* Ubicación: **Oeste de EE. UU**.
+* Ubicación: **Oeste de EE. UU.**.
 
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
@@ -160,7 +160,7 @@ Puede seguir este [tutorial](https://docs.microsoft.com/azure/virtual-machines/w
 
 ## <a name="create-and-run-sample-python-app"></a>Creación y ejecución de la aplicación de Python de ejemplo
 
-El siguiente no es más que un archivo de ejemplo llamado "Sample.py". Usa la biblioteca [requests](http://docs.python-requests.org/master/) para realizar llamadas HTTP GET.
+El siguiente no es más que un archivo de ejemplo llamado "Sample.py". Usa la biblioteca [requests](https://pypi.org/project/requests/2.7.0/) para realizar llamadas HTTP GET.
 
 ## <a name="edit-samplepy"></a>Edición de Sample.py
 Después de crear Sample.py ábralo y copie el siguiente código

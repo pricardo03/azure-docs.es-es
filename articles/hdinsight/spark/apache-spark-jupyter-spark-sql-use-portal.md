@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Creación de un clúster de Spark en HDInsight con Azure Portal'
+title: 'Inicio rápido: Creación de un clúster de Spark en HDInsight con Azure Portal'
 description: Este inicio rápido muestra cómo usar Azure Portal para crear un clúster de Apache Spark en Azure HDInsight y ejecutar Spark SQL.
 services: hdinsight
 author: hrasheed-msft
@@ -9,26 +9,26 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.custom: mvc
-ms.openlocfilehash: 370503cc463fd3683f47fe0b573ad83daa0b9d14
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 5833571bc1c1ac2674723abf286437c3e5e0a5ae
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584560"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791876"
 ---
-# <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-the-azure-portal"></a>Guía de inicio rápido: Creación de un clúster de Apache Spark en HDInsight con Azure Portal
-Aprenda cómo crear clústeres de Apache Spark en Azure HDInsight y cómo ejecutar consultas de Spark SQL en tablas de Hive. Apache Spark permite el análisis rápido de datos y procesamiento de clústeres con el procesamiento en memoria. Para obtener información sobre Spark en HDInsight, consulte [Introducción a Apache Spark en HDInsight de Azure](apache-spark-overview.md).
+# <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-the-azure-portal"></a>Inicio rápido: Creación de un clúster de Apache Spark en HDInsight con Azure Portal
+Aprenda cómo crear clústeres de Apache Spark en Azure HDInsight y cómo ejecutar consultas de Spark SQL en tablas de Hive. Apache Spark permite el análisis rápido de datos y procesamiento de clústeres con el procesamiento en memoria. Para información sobre Spark en HDInsight, consulte [Introducción a Apache Spark en Azure HDInsight](apache-spark-overview.md).
 
 En esta guía de inicio rápido, usará Azure Portal para crear un clúster de Spark de HDInsight. El clúster usa Azure Storage Blob como almacenamiento de clústeres. Para más información sobre el uso de Data Lake Storage Gen2, consulte [Guía de inicio rápido: Configuración de clústeres en HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > La facturación de los clústeres de HDInsight se prorratea por minuto, tanto si se usan como si no. Por consiguiente, es aconsejable eliminar el clúster al terminar de usarlo. Para obtener más información, consulte la sección [Limpieza de recursos](#clean-up-resources) de este artículo.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="create-an-hdinsight-spark-cluster"></a>Creación de un clúster de Spark en HDInsight
 
-1. En Azure Portal, seleccione **Crear un recurso** > **Datos y análisis** > **HDInsight**. 
+1. En Azure Portal, seleccione **Crear un recurso** > **Analytics** > **HDInsight**. 
 
     ![HDInsight en Azure Portal](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster.png "HDInsight en Azure Portal")
 2. En **Datos básicos**, proporcione los valores siguientes:
@@ -37,7 +37,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
     |---------|---------|
     |**Nombre del clúster**     | Asigne un nombre al clúster de Spark de HDInsight. El nombre del clúster usado para esta guía de inicio rápido es **myspark20180403**.|
     |**Suscripción**     | En el menú desplegable, seleccione una suscripción de Azure usada para este clúster. La suscripción usada para este inicio rápido es **&lt;suscripción de Azure**. |
-    |**Tipo de clúster**| Expanda el elemento y, a continuación, seleccione **Spark** como tipo de clúster. Especifique la versión de clúster de Spark. <br/> <img src="./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-type.png" alt = "Slect HDInsight clsuter type" /> |
+    |**Tipo de clúster**| Expanda el elemento y, a continuación, seleccione **Spark** como tipo de clúster. Especifique la versión de clúster de Spark. <br/> <img src="./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-type.png" alt = "Select HDInsight cluster type" /> |
     |**Nombre de usuario de inicio de sesión del clúster**| Escriba el nombre de usuario de inicio de sesión del clúster.  El nombre predeterminado es *admin*. Use esta cuenta para iniciar sesión en Jupyter Notebook más adelante en la guía de inicio rápido. |
     |**Contraseña de inicio de sesión del clúster**| Escriba la contraseña de inicio de sesión del clúster. |
     |**Nombre de usuario de Secure Shell (SSH)**| Escriba el nombre de usuario de SSH. El nombre de usuario de SSH usado para este inicio rápido es **sshuser**. De manera predeterminada, esta cuenta comparte la contraseña con la cuenta de *nombre de usuario de inicio de sesión del clúster*. |
@@ -53,7 +53,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
     ![Crear configuraciones de almacenamiento de clústeres de Spark de HDInsight](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-storage.png "Crear configuraciones de almacenamiento de clústeres de Spark en HDInsight")
 
-    > [!NOTE] 
+    > [!NOTE]  
     > En la captura de pantalla, muestra **Seleccionar existente**. El vínculo cambia entre **Crear nuevo** y **Seleccionar existente**.
 
     El **contenedor predeterminado** tiene un nombre predeterminado.  Si quiere, puede cambiar el nombre.
@@ -63,7 +63,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 3. En **Resumen**, seleccione **Crear**. La creación del clúster tarda aproximadamente 20 minutos. El clúster debe crearse para poder pasar a la siguiente sesión.
 
-Si surge un problema con la creación de clústeres de HDInsight, podría deberse a que no tiene los permisos adecuados para hacerlo. Para más información, consulte [Requisitos de control de acceso](../hdinsight-administer-use-portal-linux.md#create-clusters).
+Si surge un problema con la creación de clústeres de HDInsight, podría deberse a que no tiene los permisos adecuados para hacerlo. Para más información, consulte [Requisitos de control de acceso](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="create-a-jupyter-notebook"></a>Creación de un cuaderno de Jupyter
 

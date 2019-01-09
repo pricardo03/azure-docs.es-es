@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Reconocimiento de voz .NET Core (Windows) (Speech Service)'
+title: 'Inicio rápido: Reconocimiento de voz, C# (.NET Core en Windows): servicios de Voz'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a reconocer la voz en C# con .NET Core para Windows mediante el SDK de Speech Service
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 10/12/2018
+ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: e82e39eb3fc6c7ebaf4798ad10038bfd2fa9a41b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a5a04fdede498d404a00d666e4042337b4dc675b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085491"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727843"
 ---
-# <a name="quickstart-recognize-speech-in-c-under-net-core-on-windows-by-using-the-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en C# en .NET Core en Windows mediante el SDK de Voz
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>Inicio rápido: Reconocimiento de voz con el SDK de Voz para .NET Core
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -28,37 +28,19 @@ En este artículo, creará una aplicación de consola de C# para .NET Core en Wi
 
 Necesita una clave de suscripción del servicio de Voz para completar este inicio rápido. Puede obtener una gratis. Para más detalles, consulte [Prueba gratuita del servicio Voz](get-started.md).
 
+## <a name="prerequisites"></a>Requisitos previos
+
+Esta guía de inicio rápido requiere:
+
+* [SDK de .NET Core](https://dotnet.microsoft.com/download)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* Una clave de suscripción de Azure para el servicio Voz. [Obtenga una gratis](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Creación de un proyecto de Visual Studio
 
-1. Inicie Visual Studio 2017.
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-dotnetcore-create-proj.md)]
 
-1. Asegúrese de que la carga de trabajo de **Desarrollo multiplataforma de .NET Core** esté disponible. Elija **Herramientas** > **Get Tools and Features (Obtener herramientas y características)** desde la barra de menús de Visual Studio para abrir el instalador de Visual Studio. Si esta carga de trabajo ya está habilitada, cierre el cuadro de diálogo.
-
-    ![Captura de pantalla del instalador de Visual Studio, con la pestaña Workloads (Cargas de trabajo) resaltada](media/sdk/vs-enable-net-core-workload.png)
-
-    En caso contrario, active la casilla junto a **Desarrollo multiplataforma de .NET Core** y elija **Modificar** en la esquina inferior derecha del cuadro de diálogo. La instalación de la nueva característica tardará un momento.
-
-1. Cree una nueva aplicación de consola de .NET Core en Visual C#. En el cuadro de diálogo **Nuevo proyecto**, en el panel izquierdo, expanda **Instalado** > **Visual C#** > **.NET Core**. Luego, seleccione **Aplicación de consola (.NET Framework)**. Para el nombre del proyecto, escriba *helloworld*.
-
-    ![Captura de pantalla del cuadro de diálogo Nuevo proyecto](media/sdk/qs-csharp-dotnetcore-windows-01-new-console-app.png "Crear aplicación de consola de C# de Visual Studio (.NET Core)")
-
-1. Instale y haga referencia al [paquete NuGet del SDK de Voz](https://aka.ms/csspeech/nuget). En el Explorador de soluciones, haga clic con el botón derecho en la solución y seleccione **Manage NuGet Packages for Solution** (Administrar paquetes de NuGet para la solución).
-
-    ![Captura de pantalla del Explorador de soluciones, con la opción Administrar paquetes NuGet para la solución resaltada](media/sdk/qs-csharp-dotnetcore-windows-02-manage-nuget-packages.png "Administrar paquetes NuGet para la solución resaltada")
-
-1. En la esquina superior derecha, en el campo **Origen del paquete**, seleccione **nuget.org**. Busque el paquete `Microsoft.CognitiveServices.Speech` e instálelo en el proyecto **helloworld**.
-
-    ![Captura de pantalla del cuadro de diálogo de administrar paquetes para la solución](media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-1.0.0.png "Instalación de paquete de NuGet")
-
-1. Acepte la licencia que aparece para comenzar la instalación del paquete de NuGet.
-
-    ![Captura de pantalla de cuadro de diálogo de aceptación de licencia](media/sdk/qs-csharp-dotnetcore-windows-04-nuget-license.png "Acepte la licencia")
-
-Después de instalar el paquete, aparecerá una confirmación en la consola del Administrador de paquetes.
-
-
-## <a name="add-sample-code"></a>Adición de un código de ejemplo
+## <a name="add-sample-code"></a>Incorporación de código de ejemplo
 
 1. Abra `Program.cs` y reemplace todo el código que contiene por lo siguiente.
 
@@ -84,16 +66,14 @@ Después de instalar el paquete, aparecerá una confirmación en la consola del 
 
     ![Captura de pantalla de la salida de la consola después de un reconocimiento correcto](media/sdk/qs-csharp-dotnetcore-windows-07-console-output.png "Salida de la consola después de un reconocimiento correcto")
 
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Busque este ejemplo en la carpeta `quickstart/csharp-dotnetcore-windows`.
-
 ## <a name="next-steps"></a>Pasos siguientes
 
+Se pueden encontrar ejemplos adicionales, por ejemplo, cómo leer voz desde un archivo de audio, en GitHub.
+
 > [!div class="nextstepaction"]
-> [Reconocimiento de intenciones a partir de contenido de voz con el SDK de Voz para C#](how-to-recognize-intents-from-speech-csharp.md)
+> [Exploración de ejemplos de C# en GitHub](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Otras referencias
 
-- [Traducción de voz](how-to-translate-speech-csharp.md)
 - [Personalización de modelos acústicos](how-to-customize-acoustic-models.md)
 - [Personalización de modelos de lenguaje](how-to-customize-language-model.md)

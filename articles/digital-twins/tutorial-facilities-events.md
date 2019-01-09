@@ -1,18 +1,19 @@
 ---
-title: Captura de eventos de un espacio de Azure Digital Twins | Microsoft Docs
+title: 'Tutorial: Captura de eventos de un espacio de Azure Digital Twins | Microsoft Docs'
 description: Si sigue los pasos de este tutorial, aprenderá a recibir notificaciones de los espacios de mediante la integración de Azure Digital Twins con Logic Apps.
 services: digital-twins
 author: dsk-2015
+ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: bf41be4a3a4856302a054e5767b3d7b5ba423c60
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: a52a3be8c3023893569e95b566a18c032be26459
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583268"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556023"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Tutorial: Recepción de notificaciones de los espacios de Azure Digital Twins mediante Logic Apps
 
@@ -174,7 +175,7 @@ Puede usar el servicio [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
 
    c. En el cuadro **Para**, escriba su identificador de correo electrónico para recibir notificaciones. En **Asunto**, escriba el texto **Notificación de Digital Twins sobre mala calidad del aire en un espacio**. A continuación, seleccione **TopologyObjectId** desde la lista **Contenido dinámico** para **Análisis del archivo JSON**.
 
-   d. En el campo **Cuerpo** de la misma ventana, escriba un texto similar al siguiente: **Se ha detectado aire de baja calidad en la sala y es necesario ajustar la temperatura**. Si lo cree necesario utilice elementos de la lista **Contenido dinámico**.
+   d. En **Cuerpo**, en la misma ventana, escriba un texto similar al siguiente: **Se ha detectado que la calidad del aire en una sala es deficiente y la temperatura debe ajustarse**. Si lo cree necesario utilice elementos de la lista **Contenido dinámico**.
 
    ![Selecciones para el envío de un correo electrónico de Logic Apps](./media/tutorial-facilities-events/logic-app-send-email.png)
 

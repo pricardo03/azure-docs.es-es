@@ -1,6 +1,6 @@
 ---
 title: Comparativa de Flow, Logic Apps, Functions y WebJobs en Azure
-description: 'Comparativa de los servicios en la nube de Microsoft optimizados para las tareas de integración: Flow, Logic Apps, Functions y WebJobs.'
+description: 'Comparativa de los servicios en la nube de Microsoft optimizados para las tareas de integración:  Flow, Logic Apps, Functions y WebJobs.'
 services: functions, logic-apps
 documentationcenter: na
 author: ggailey777
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: c22d75b4eb058942da5a3b0699cbb4a23eec42f3
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: ec2c7a25c5108ee3c6f861defd8403ff40113075
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634938"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722224"
 ---
 # <a name="compare-flow-logic-apps-functions-and-webjobs"></a>Comparativa de Flow, Logic Apps, Functions y WebJobs
 
@@ -26,7 +26,7 @@ En este artículo se comparan los siguientes servicios en la nube de Microsoft:
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
-* [Azure App Service](../app-service/web-sites-create-web-jobs.md)
+* [Azure App Service](../app-service/webjobs-create.md)
 
 Todos estos servicios pueden solucionar problemas de integración y automatizar procesos empresariales. Todos pueden definir entradas, acciones, condiciones y salidas. Todos se pueden ejecutar según una programación o un desencadenador. Sin embargo, cada servicio tiene unas ventajas únicas y este artículo explica las diferencias.
 
@@ -47,7 +47,7 @@ La tabla siguiente le ayuda a determinar qué es lo mejor para una integración 
 | Herramienta de diseño |En el explorador y aplicación móvil, solo UI |En el explorador y [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [visualización del código](../logic-apps/logic-apps-author-definitions.md) disponible |
 | Administración del ciclo de vida de las aplicaciones (ALM) |Diseño y pruebas en entornos no destinados a producción, paso a producción cuando sea posible. |DevOps: control del código fuente, pruebas, soporte técnico, automatización y facilidad de administración en [Azure Resource Management](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
 | Experiencia del administrador |Administración de directivas de prevención de pérdida de datos (DLP) y entornos de flujo, seguimiento de licencias [https://admin.flow.microsoft.com](https://admin.flow.microsoft.com) |Administración de grupos de recursos, conexiones, administración de acceso y registro [https://portal.azure.com](https://portal.azure.com) |
-| Seguridad |Registros de auditoría de Seguridad y cumplimiento de Office 365, Prevención de pérdida de datos (DLP), [cifrado en reposo](https://wikipedia.org/wiki/Data_at_rest#Encryption) para datos confidenciales, etcétera. |Garantía de seguridad de Azure: [Seguridad de Azure](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [registros de auditoría](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/), y mucho más. |
+| Seguridad |Registros de auditoría de Seguridad y cumplimiento de Office 365, Prevención de pérdida de datos (DLP), [cifrado en reposo](https://wikipedia.org/wiki/Data_at_rest#Encryption) para datos confidenciales, etcétera. |Garantía de seguridad de Azure: [Seguridad de Azure](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [registros de auditoría](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) y mucho más. |
 
 ## <a name="compare-azure-functions-and-azure-logic-apps"></a>Comparativa entre Azure Functions y Azure Logic Apps
 
@@ -70,7 +70,7 @@ Puede mezclar y combinar servicios cuando crea una orquestación, puede llamar a
 
 ## <a name="compare-functions-and-webjobs"></a>Comparativa entre Functions y WebJobs
 
-Al igual que Azure Functions, Azure App Service WebJobs con el SDK de WebJobs es un servicio de integración de tipo *código primero* que está diseñado para desarrolladores. Ambos se basan en [Azure App Service](../app-service/app-service-web-overview.md) y admiten características como la [integración del control de código fuente](../app-service/app-service-continuous-deployment.md), la [autenticación](../app-service/app-service-authentication-overview.md) y la [supervisión con integración de Application Insights](functions-monitoring.md).
+Al igual que Azure Functions, Azure App Service WebJobs con el SDK de WebJobs es un servicio de integración de tipo *código primero* que está diseñado para desarrolladores. Ambos se basan en [Azure App Service](../app-service/overview.md) y admiten características como la [integración del control de código fuente](../app-service/deploy-continuous-deployment.md), la [autenticación](../app-service/overview-authentication-authorization.md) y la [supervisión con integración de Application Insights](functions-monitoring.md).
 
 ### <a name="webjobs-and-the-webjobs-sdk"></a>WebJobs y el SDK de WebJobs
 

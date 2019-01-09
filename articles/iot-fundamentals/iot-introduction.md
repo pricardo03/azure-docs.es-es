@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
-ms.openlocfilehash: ca99f9ac36281ecddf41bcc228440adcad90412b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 2480aa92dec8d8e8879db813b1cfcddc26f77b7e
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582435"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792533"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>¿Qué es Internet de las cosas (IoT) de Azure?
 
@@ -109,7 +109,7 @@ Hay varios servicios relacionados con IoT en Azure y puede resultar confuso aver
 
 3. [**IoT Hub**](/azure/iot-hub/): este servicio le permite conectarse desde los dispositivos a un centro de IoT y supervisar y controlar miles de millones de dispositivos IoT. Es especialmente útil si necesita comunicación bidireccional entre los dispositivos IoT y el back-end. Se trata del servicio subyacente de IoT Central y los aceleradores de soluciones IoT. 
 
-4. [**Servicio IoT Hub Device Provisioning Service**](/azure/iot-dps/): se trata de un servicio auxiliar de IoT Hub que puede usar para aprovisionar dispositivos en el centro de IoT de forma segura. Con este servicio, se pueden aprovisionar fácilmente millones de dispositivos con rapidez, en lugar de aprovisionarlos de uno en uno. 
+4. [**IoT Hub Device Provisioning Service**](/azure/iot-dps/): se trata de un servicio auxiliar de IoT Hub que puede usar para aprovisionar dispositivos en el centro de IoT de forma segura. Con este servicio, se pueden aprovisionar fácilmente millones de dispositivos con rapidez, en lugar de aprovisionarlos de uno en uno. 
 
 5. [**IoT Edge**](/azure/iot-edge/): este servicio se basa en IoT Hub. Se puede usar para analizar los datos en los dispositivos IoT en lugar de en la nube. Al mover partes de la carga de trabajo al perímetro, es necesario enviar menos mensajes a la nube. 
 

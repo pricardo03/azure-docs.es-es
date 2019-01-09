@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: 814d558efee4a72a25d956828e0db237424cab24
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.date: 12/17/2018
+ms.openlocfilehash: aea95c245b86905b7bef0a35ffaa6c5e00567111
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409775"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558641"
 ---
 # <a name="tutorial-secure-a-single-database-in-azure-sql-database"></a>Tutorial: Protección de una base de datos única en Azure SQL Database
 
@@ -136,6 +136,9 @@ Aprovisione un administrador de Azure Active Directory para el servidor Azure SQ
     ![elegir ad](./media/sql-database-aad-authentication/8choose-ad.png)
 
 2. En la página **SQL Server**, seleccione **Administrador de Active Directory**, y en la página **Administrador de Active Directory**, seleccione **Establecer administrador** ![Seleccionar Active Directory](./media/sql-database-aad-authentication/select-active-directory.png).  
+
+   > [!IMPORTANT]
+   > Debe ser "Administrador de empresa" o "Administrador global" para realizar esta tarea.
 
 3. En la página **Agregar administrador**, busque un usuario, seleccione el usuario o grupo que convertirá en administrador y después haga clic en **Seleccionar**. En la hoja Administrador de Active Directory se muestran todos los miembros y grupos de Active Directory. No se pueden seleccionar los usuarios o grupos que aparecen atenuados porque no se admiten como administradores de Azure AD. (Consulte la lista de administradores admitidos en la sección **Características y limitaciones de Azure AD** de [Uso de la autenticación de Azure Active Directory con SQL Database o SQL Data Warehouse](sql-database-aad-authentication.md)). El control de acceso basado en rol (RBAC) se aplica solo al portal y no se propaga a SQL Server.
     ![Seleccionar administrador](./media/sql-database-aad-authentication/select-admin.png)  

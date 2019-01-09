@@ -9,23 +9,23 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 346d8a83661c487a1d9a11e4da7d7bb67843e0b4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 05af52ab492fcfe509b547efdd182a366642b9ed
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075529"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754414"
 ---
-# <a name="tutorial-3-add-common-utterance-formats"></a>Tutorial 3: Incorporación de formatos comunes de expresiones
+# <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Tutorial: Incorporación de formatos comunes de expresión de plantilla de patrón
 
 En este tutorial se usan patrones para aumentar la predicción de intención y entidad a la vez que se proporcionan menos expresiones de ejemplo. El patrón se proporciona por medio de un ejemplo de expresión de plantilla, que incluye la sintaxis para identificar las entidades y el texto que se puede pasar por alto. Un patrón es una combinación de coincidencia de expresión y aprendizaje automático.  El ejemplo de expresión de plantilla junto con las expresiones de intención permiten que LUIS comprenda mejor qué expresiones se ajustan a la intención. 
 
 **En este tutorial, aprenderá a:**
 
 > [!div class="checklist"]
-> * Usar la aplicación del tutorial existente 
+> * Importar la aplicación de ejemplo 
 > * Crear intención
 > * Train
 > * Publicar
@@ -37,13 +37,13 @@ En este tutorial se usan patrones para aumentar la predicción de intención y e
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Usar una aplicación existente
+## <a name="import-example-app"></a>Importar la aplicación de ejemplo
 
 Continúe con la aplicación creada en el último tutorial, denominada **HumanResources**. 
 
-Si no tiene la aplicación HumanResources del tutorial anterior, siga estos pasos:
+Para ello, siga los pasos que se describen a continuación:
 
-1.  Descargue y guarde el [archivo JSON de la aplicación](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json).
+1.  Descargue y guarde el [archivo JSON de la aplicación](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json).
 
 2. Importe el archivo JSON en una aplicación nueva.
 

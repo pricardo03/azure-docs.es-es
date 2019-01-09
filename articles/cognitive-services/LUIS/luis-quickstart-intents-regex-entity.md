@@ -9,19 +9,34 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: d4deeec2c5af5047fa16a2d80f0992409d517910
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 58fa0c36f8c3f630ae7f349bd0f54a497a38f19d
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135583"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976790"
 ---
-# <a name="tutorial-3-extract-well-formatted-data"></a>Tutorial 3: Extracción de datos con formato correcto
-En este tutorial, modifique la aplicación de recursos humanos para extraer datos con formato de forma coherente desde una expresión con la entidad **Expresión regular**.
+# <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Tutorial: Obtención de datos con formato correcto a partir de la expresión
+En este tutorial va a crear una aplicación para extraer datos con formato de forma coherente a partir de una expresión con la entidad de **expresión regular**.
 
-El propósito de una entidad es extraer datos importantes contenidos en la expresión. El uso de la aplicación de la entidad de expresión regular es extraer los números del formulario de Recursos humanos con formato desde una expresión. Aunque la intención de la expresión siempre se determina con el aprendizaje automático, este tipo específico de entidad no se aprende de manera automática. 
+**En este tutorial, aprenderá a:**
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Creación de una nueva aplicación 
+> * Agregar intención
+> * Incorporación de entidades de expresiones regulares 
+> * Train
+> * Publicar
+> * Obtener intenciones y entidades del punto de conexión
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="regular-expression-entities"></a>Entidades de expresión regular
+
+El uso que hace la aplicación de la entidad de expresión regular consiste en extraer números del formulario de Recursos humanos con formato correcto a partir de una expresión. Aunque la intención de la expresión siempre se determina con el aprendizaje automático, este tipo específico de entidad no se aprende de manera automática. 
 
 **Las expresiones de ejemplo incluyen:**
 
@@ -37,41 +52,22 @@ Una expresión regular es una buena opción para este tipo de datos cuando:
 
 * los datos tienen el formato correcto.
 
-**En este tutorial, aprenderá lo siguiente:**
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Usar la aplicación del tutorial existente
-> * Adición de la intención FindForm
-> * Incorporación de entidades de expresiones regulares 
-> * Train
-> * Publicar
-> * Obtener intenciones y entidades del punto de conexión
+## <a name="create-a-new-app"></a>Creación de una nueva aplicación
 
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
 
-## <a name="use-existing-app"></a>Usar una aplicación existente
-Continúe con la aplicación creada en el último tutorial, denominada **HumanResources**. 
-
-Si no tiene la aplicación HumanResources del tutorial anterior, siga estos pasos:
-
-1. Descargue y guarde el [archivo JSON de la aplicación](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-prebuilts-HumanResources.json).
-
-2. Importe el archivo JSON en una aplicación nueva.
-
-3. Desde la sección **Manage** (Administrar), en la pestaña **Versions** (Versiones), clone la versión y asígnele el nombre `regex`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. Dado que el nombre de la versión se usa como parte de la ruta de la dirección URL, el nombre no puede contener ningún carácter que no sea válido en una dirección URL. 
-
-## <a name="findform-intent"></a>Intención FindForm
+## <a name="create-intent-for-finding-form"></a>Creación de una intención para buscar el formulario
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. Haga clic en **Create new intent** (Crear intención). 
+1. Haga clic en **Create new intent** (Crear intención). 
 
-3. Escriba `FindForm` en el cuadro de diálogo emergente y seleccione **Done** (Listo). 
+1. Escriba `FindForm` en el cuadro de diálogo emergente y seleccione **Done** (Listo). 
 
     ![Captura de pantalla del cuadro de diálogo de creación de nueva intención con las utilidades en el cuadro de búsqueda](./media/luis-quickstart-intents-regex-entity/create-new-intent-ddl.png)
 
-4. Agregue expresiones de ejemplo a la intención.
+1. Agregue expresiones de ejemplo a la intención.
 
     |Expresiones de ejemplo|
     |--|
@@ -88,11 +84,9 @@ Si no tiene la aplicación HumanResources del tutorial anterior, siga estos paso
 
     [ ![Captura de pantalla de la página Intent (Intención) con nuevas expresiones resaltadas](./media/luis-quickstart-intents-regex-entity/findform-intent.png) ](./media/luis-quickstart-intents-regex-entity/findform-intent.png#lightbox)
 
-    La aplicación tiene una entidad de número creada previamente agregada del tutorial anterior, por lo que cada número de formulario está etiquetado. Esto puede ser suficiente para la aplicación cliente, pero el número no se etiquetará con el tipo de número. La creación de una nueva entidad con un nombre apropiado permite a la aplicación cliente procesar la entidad apropiadamente cuando se devuelve desde LUIS.
-
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
-## <a name="regular-expression-entity"></a>Entidad de expresión regular 
+## <a name="use-the-regular-expression-entity-for-well-formatted-data"></a>Uso de la entidad de expresión regular para datos con formato correcto
 La entidad de expresión regular para que coincida con el número de formulario es `hrf-[0-9]{6}`. Esta expresión regular coincide con los caracteres literales `hrf-` pero omite variantes de mayúsculas y minúsculas y la referencia cultural. Coincide exactamente con dígitos de 0 a 9, para 6 dígitos exactamente.
 
 HRF significa `human resources form`.
@@ -103,27 +97,31 @@ Cree una entidad de expresión regular para decirle a LUIS qué es un formato de
 
 1. Seleccione **Entities** (Entidades) en el panel izquierdo.
 
-2. Seleccione **Create new entity** (Crear nueva entidad) en la página Entities (Entidades). 
+1. Seleccione **Create new entity** (Crear nueva entidad) en la página Entities (Entidades). 
 
-3. En el cuadro de diálogo emergente, introduzca el nombre de la nueva entidad `HRF-number`, seleccione **RegEx** como tipo de entidad, especifique `hrf-[0-9]{6}` como el valor **Regex** y, después, seleccione **Done** (Listo).
+1. En el cuadro de diálogo emergente, introduzca el nombre de la nueva entidad `HRF-number`, seleccione **RegEx** como tipo de entidad, especifique `hrf-[0-9]{6}` como el valor **Regex** y, después, seleccione **Done** (Listo).
 
     ![Captura de pantalla del cuadro de diálogo emergente que establece las propiedades de la nueva entidad](./media/luis-quickstart-intents-regex-entity/create-regex-entity.png)
 
-4. Seleccione **Intents** (Intenciones) en el menú de la izquierda, después la intención **FindForm** para ver la expresión regular etiquetada en la expresiones. 
+1. Seleccione **Intents** (Intenciones) en el menú de la izquierda, después la intención **FindForm** para ver la expresión regular etiquetada en la expresiones. 
 
     [![Captura de pantalla de la expresión de etiqueta con la entidad existente y el patrón de la expresión regular](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-entity.png)](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-entity.png#lightbox)
 
-    Debido a que la entidad no es una entidad que se aprende automáticamente, la etiqueta se aplica a las expresiones y se muestra en el sitio web de LUIS tan pronto como se crea.
+    Dado que la entidad no es una entidad que se aprende de manera automática, se aplica a las expresiones y se muestra en el sitio web de LUIS en cuanto se crea.
 
-## <a name="train"></a>Train
+## <a name="add-example-utterances-to-the-none-intent"></a>Incorporación de expresiones de ejemplo a la intención None 
+
+[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
+
+## <a name="train-the-app-before-testing-or-publishing"></a>Entrenamiento de la aplicación antes de las pruebas o la publicación
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish"></a>Publicar
+## <a name="publish-the-app-to-query-from-the-endpoint"></a>Publicación de la aplicación en la consulta desde el punto de conexión
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Obtención de intenciones y entidades del punto de conexión
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Obtención de intención y predicción de entidad desde el punto de conexión
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -134,63 +132,19 @@ Cree una entidad de expresión regular para decirle a LUIS qué es un formato de
       "query": "When were HRF-123456 and hrf-234567 published in the last year?",
       "topScoringIntent": {
         "intent": "FindForm",
-        "score": 0.9993477
+        "score": 0.9988884
       },
       "intents": [
         {
           "intent": "FindForm",
-          "score": 0.9993477
-        },
-        {
-          "intent": "ApplyForJob",
-          "score": 0.0206110049
-        },
-        {
-          "intent": "GetJobInformation",
-          "score": 0.00533067342
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 0.004215215
-        },
-        {
-          "intent": "Utilities.Help",
-          "score": 0.00209096959
+          "score": 0.9988884
         },
         {
           "intent": "None",
-          "score": 0.0017655947
-        },
-        {
-          "intent": "Utilities.Stop",
-          "score": 0.00109490135
-        },
-        {
-          "intent": "Utilities.Confirm",
-          "score": 0.0005704638
-        },
-        {
-          "intent": "Utilities.Cancel",
-          "score": 0.000525338168
+          "score": 0.00204812363
         }
       ],
       "entities": [
-        {
-          "entity": "last year",
-          "type": "builtin.datetimeV2.daterange",
-          "startIndex": 53,
-          "endIndex": 61,
-          "resolution": {
-            "values": [
-              {
-                "timex": "2017",
-                "type": "daterange",
-                "start": "2017-01-01",
-                "end": "2018-01-01"
-              }
-            ]
-          }
-        },
         {
           "entity": "hrf-123456",
           "type": "HRF-number",
@@ -202,35 +156,24 @@ Cree una entidad de expresión regular para decirle a LUIS qué es un formato de
           "type": "HRF-number",
           "startIndex": 25,
           "endIndex": 34
-        },
-        {
-          "entity": "-123456",
-          "type": "builtin.number",
-          "startIndex": 13,
-          "endIndex": 19,
-          "resolution": {
-            "value": "-123456"
-          }
-        },
-        {
-          "entity": "-234567",
-          "type": "builtin.number",
-          "startIndex": 28,
-          "endIndex": 34,
-          "resolution": {
-            "value": "-234567"
-          }
         }
       ]
     }
     ```
 
-    Los números en la expresión se devuelven dos veces, una como la nueva entidad `hrf-number` y otra como una entidad creada previamente, `number`. Una expresión puede tener más de una entidad, y más de una del mismo tipo de entidad, como muestra este ejemplo. Mediante el uso de una entidad de expresión regular, LUIS extrae datos con nombre, lo que es más útil desde el punto de vista de programación para la aplicación cliente que recibe la respuesta de JSON.
+    Mediante el uso de una entidad de expresión regular, LUIS extrae datos con nombre, lo que es más útil desde el punto de vista de programación para la aplicación cliente que recibe la respuesta de JSON.
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+
+## <a name="related-information"></a>Información relacionada
+
+* Conceptos de entidad de [expresión regular](luis-concept-entity-types.md#regular-expression-entity)
+* [Cómo se realiza el entrenamiento](luis-how-to-train.md)
+* [Publicación](luis-how-to-publish-app.md)
+* [Cómo realizar pruebas en el portal de LUIS](luis-interactive-test.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Este tutorial se creó una nueva intención, se agregaron expresiones de ejemplo y luego se creó una entidad de expresión regular para extraer los datos con formato correcto en las expresiones. Después del aprendizaje y de la publicación de la aplicación, una consulta al punto de conexión identificó la intención y devolvió los datos extraídos.

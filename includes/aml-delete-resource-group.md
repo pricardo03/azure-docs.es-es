@@ -8,18 +8,18 @@ ms.topic: include
 author: j-martens
 ms.author: jmartens
 ms.date: 12/04/2018
-ms.openlocfilehash: de24478a39b656c1326bc53825aab317e652d672
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 6af620f54acb3bf782f05b81f12aca2103cddf47
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53007942"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53654930"
 ---
 >[!IMPORTANT]
 >Los recursos que creó pueden usarse como requisitos previos para otros tutoriales y artículos de procedimientos del servicio Azure Machine Learning. 
 
 
-Si no va a usar los recursos creados de aquí, elimínelos para no incurrir en cargos.
+Si no va a usar los recursos creados, elimínelos para no incurrir en cargos:
 
 1. En Azure Portal, seleccione **Grupos de recursos** a la izquierda del todo.
  
@@ -29,4 +29,4 @@ Si no va a usar los recursos creados de aquí, elimínelos para no incurrir en c
 
 1. Seleccione **Eliminar grupo de recursos**.
 
-1. Escriba el nombre del grupo de recursos y, a continuación, seleccione **Eliminar**.
+1. Escriba el nombre del grupo de recursos. A continuación, seleccione **Eliminar**.

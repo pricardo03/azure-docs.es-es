@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2018
+ms.date: 12/10/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: ec73083d1bb66e7c7735a2bee8e89eeb56cf7620
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 70bbade2877b62c3d211600f69e1825677f12040
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282507"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721876"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Descarga de elementos de Marketplace desde Azure a Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Los operadores en la nube pueden descargar elementos de Azure Marketplace y hacer que estén disponibles en Azure Stack. Dichos elementos se pueden elegir en una lista de elementos de Azure Marketplace que se han probados con anterioridad y se sabe que son compatibles con Azure Stack. Con frecuencia se agregan nuevos elementos a esta lista, así que es aconsejable consultar periódicamente si tiene contenido nuevo. 
 
@@ -90,6 +90,8 @@ Este escenario tiene dos partes:
 
 - La herramienta de redifusión de Marketplace se descarga en el primer procedimiento. 
 
+- Puede instalar [AzCopy](../storage/common/storage-use-azcopy.md) para que la descarga se realice de forma óptima, pero no es necesario.
+
 ### <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>Uso de la herramienta de redifusión de Marketplace para descargar elementos de Marketplace
 
 1. En un equipo con conexión a Internet, abra una consola de PowerShell como administrador.
@@ -126,10 +128,7 @@ Este escenario tiene dos partes:
    ```PowerShell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
-   Sync-AzSOfflineMarketplaceItem 
-      -Destination "Destination folder path in quotes" `
-      -AzureTenantID $AzureContext.Tenant.TenantId ` 
-      -AzureSubscriptionId $AzureContext.Subscription.Id 
+   Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes" 
    ```
 
 6. Cuando la herramienta se ejecuta, debe ver una pantalla similar a la de la siguiente imagen, con la lista de elementos disponibles en Marketplace:
@@ -144,7 +143,35 @@ Este escenario tiene dos partes:
 
 9. El tiempo que tarda la descarga depende del tamaño del elemento. Una vez que se completa la descarga, el elemento está disponible en la carpeta que se especificó en el script. La descarga incluye un archivo VHD (para máquinas virtuales) o un archivo .zip (para extensiones de máquina virtual). También puede incluir un paquete de galería en el formato *.azpkg*, que es simplemente un archivo .zip.
 
-### <a name="import-the-download-and-publish-to-azure-stack-marketplace"></a>Importación de la descarga y su publicación en Azure Stack Marketplace
+10. Si se produce un error en la descarga, puede intentarlo de nuevo volviendo a ejecutar el siguiente cmdlet de PowerShell:
+
+    ```powershell
+    Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes”
+    ```
+
+    Antes de volver a intentarlo, quite la carpeta de producto en la que se produjo el error de descarga. Por ejemplo, si se produce un error en el script de descarga al descargar en `D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1`, quite la carpeta `D:\downloadFolder\microsoft.customscriptextension-arm-1.9.1` y, a continuación, vuelva a ejecutar el cmdlet.
+ 
+### <a name="import-the-download-and-publish-to-azure-stack-marketplace-1811-and-higher"></a>Importación de la descarga y su publicación en Azure Stack Marketplace (1811 y versiones posteriores)
+
+1. Debe mover los archivos que [descargó anteriormente](#use-the-marketplace-syndication-tool-to-download-marketplace-items) de forma local para que estén disponibles en su entorno de Azure Stack. La herramienta de redifusión de Marketplace debe estar disponible también en su entorno de Azure Stack, ya que necesita utilizar la herramienta para realizar la operación de importación.
+
+   En la siguiente imagen muestra un ejemplo de estructura de carpeta. `D:\downloadfolder` contiene todos los elementos de Marketplace descargados. Cada subcarpeta es un elemento de Marketplace (por ejemplo, `microsoft.custom-script-linux-arm-2.0.3`) y tienen como nombre el identificador del producto. Dentro de cada subcarpeta se encuentra el contenido descargado del elemento de Marketplace.
+
+   [ ![Estructura de directorio de descarga de Marketplace](media/azure-stack-download-azure-marketplace-item/mp1sm.png "Marketplace download directory structure") ](media/azure-stack-download-azure-marketplace-item/mp1.png#lightbox)
+
+2. Siga las instrucciones de [este artículo](azure-stack-powershell-configure-admin.md) para configurar la sesión de PowerShell para un operador de Azure Stack. 
+
+3. Importe el módulo de redifusión e inicie la herramienta de redifusión de Marketplace mediante la ejecución del script siguiente:
+
+   ```PowerShell
+   $credential = Get-Credential -Message "Enter the azure stack operator credential:"
+   Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -armendpoint "Environment Arm Endpoint" -AzsCredential $credential
+   ```
+   El `-AzsCredential` es opcional. Sirve para renovar el token de acceso, si ha expirado. Si el parámetro `-AzsCredential` no se especifica y el token expira, se le pide que escriba las credenciales del operador.
+
+4. Después de que el script se complete correctamente, el elemento debe estar disponible en Azure Stack Marketplace.
+
+### <a name="import-the-download-and-publish-to-azure-stack-marketplace-1809-and-lower"></a>Importación de la descarga y su publicación en Azure Stack Marketplace (1809 y versiones posteriores)
 
 1. Los archivos de las imágenes de máquina virtual o plantillas de solución que haya [descargado con anterioridad](#use-the-marketplace-syndication-tool-to-download-marketplace-items) deben estar disponibles localmente para su entorno de Azure Stack.  
 
@@ -168,10 +195,10 @@ Este escenario tiene dos partes:
 
    Los valores *publisher*, *offer* y *sku* de la imagen se pueden obtener en el archivo de texto que se descarga junto con el archivo AZPKG. El archivo de texto se almacena en la ubicación de destino. El valor de *versión* es el valor que anotó al descargar el elemento de Azure en el procedimiento anterior. 
  
-   En el siguiente script de ejemplo, se usan los valores de la máquina virtual Windows Server 2016 Datacenter - Server Core. El valor de *-Osuri* es una ruta de acceso de ejemplo a la ubicación de almacenamiento de blobs del elemento. 
+   En el siguiente script de ejemplo, se usan los valores de la máquina virtual Windows Server 2016 Datacenter - Server Core. El valor de *-Osuri* es una ruta de acceso de ejemplo a la ubicación de almacenamiento de blobs del elemento.
 
    Como alternativa a este script, puede usar el [procedimiento descrito en este artículo](azure-stack-add-vm-image.md#add-a-vm-image-through-the-portal) para importar la imagen .VHD mediante Azure Portal.
- 
+
    ```PowerShell  
    Add-AzsPlatformimage `
     -publisher "MicrosoftWindowsServer" `
@@ -181,12 +208,12 @@ Este escenario tiene dos partes:
     -Version "2016.127.20171215" `
     -OsUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.vhd"  
    ```
-   
-   **Acerca de las plantillas de solución:** algunas plantillas pueden incluir un pequeño archivo .VHD de 3 MB llamado **fixed3.vhd**. Dicho archivo no es preciso que se importe en Azure Stack. Fixed3.vhd.  Este archivo se incluye con algunas plantillas de solución para cumplir requisitos de publicación de Azure Marketplace.
+
+   **Sobre las plantillas de solución:** algunas plantillas pueden incluir un pequeño archivo .VHD de 3 MB llamado **fixed3.vhd**. Dicho archivo no es preciso que se importe en Azure Stack. Fixed3.vhd.  Este archivo se incluye con algunas plantillas de solución para cumplir requisitos de publicación de Azure Marketplace.
 
    Vea la descripción de las plantillas y descargue e importe los requisitos adicionales, como los discos duros virtuales, necesarios para trabajar con la plantilla de solución.  
    
-   **Acerca de las extensiones:** cuando trabaje con las extensiones de imágenes de máquinas virtuales, use los parámetros siguientes:
+   **Sobre las extensiones:** cuando trabaje con las extensiones de imágenes de máquinas virtuales, use los parámetros siguientes:
    - *Publicador*
    - *Tipo*
    - *Versión*  

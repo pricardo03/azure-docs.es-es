@@ -5,19 +5,19 @@ services: virtual-machines-linux
 author: rothja
 ms.author: jroth
 manager: jhubbard
-ms.date: 05/11/2018
+ms.date: 12/5/2018
 ms.topic: hero-article
 tags: azure-service-management
 ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.technology: database-engine
-ms.openlocfilehash: b86dd47c112c38bc65c045158787d19b470899a0
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: cc2f094417d8710a1fdabaf850a8ced185de1ad7
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34071732"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632762"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Aprovisionamiento de una máquina virtual Linux con SQL Server en Azure Portal
 
@@ -27,14 +27,14 @@ ms.locfileid: "34071732"
 
 En este tutorial de inicio rápido, se usa Azure Portal para crear una máquina virtual Linux con SQL Server 2017 instalado.
 
-En este tutorial, aprenderá lo siguiente:
+En este tutorial, aprenderá a:
 
 * [Crear una máquina virtual Linux con SQL desde la Galería](#create)
 * [Conectarse a la nueva máquina virtual con SSH](#connect)
 * [Cambiar la contraseña de SA](#password)
 * [Realizar la configuración para conexiones remotas](#remote)
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar.
 
@@ -42,17 +42,17 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
-1. En el panel izquierdo, haga clic en **Crear un recurso**.
+1. En el panel izquierdo, seleccione **Crear un recurso**.
 
-1. En el panel **Crear un recurso**, haga clic en **Proceso**.
+1. En el panel **Crear un recurso**, seleccione **Proceso**.
 
-1. Haga clic en **See all** (Ver todos) junto al encabezado **Featured** (Destacados).
+1. Seleccione **See all** (Ver todos) junto al encabezado **Featured** (Destacados).
 
    ![Ver todas las imágenes de máquina virtual](./media/provision-sql-server-linux-virtual-machine/azure-compute-blade.png)
 
-1. En el cuadro de búsqueda, escriba **SQL Server 2017** y presione **Entrar** para iniciar la búsqueda.
+1. En el cuadro de búsqueda, escriba **SQL Server 2017** y seleccione **Entrar** para iniciar la búsqueda.
 
-1. Haga clic en el icono **Filtro**, limite la búsqueda a las imágenes **basadas en Linux** de **Microsoft** y haga clic en **Hecho**.
+1. Para limitar los resultados de la búsqueda, seleccione **Sistema operativo** > **Redhat**. Luego, en **Editor**, elija **Microsoft**.
 
     ![Filtro de búsqueda para imágenes de máquina virtual con SQL Server 2017](./media/provision-sql-server-linux-virtual-machine/searchfilter.png)
 
@@ -61,33 +61,50 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
    > [!TIP]
    > La edición Developer permite probar o desarrollar con las características de la edición Enterprise, pero sin los costos de licencia de SQL Server. Solo se paga el costo de ejecutar la máquina virtual Linux.
 
-1. Haga clic en **Create**(Crear).
+1. En **Seleccionar un modelo de implementación**, elija un modelo de implementación que se adapte a sus necesidades de carga de trabajo.
 
-1. En la ventana **Fundamentos**, rellene los detalles de la máquina virtual Linux. 
+    > [!Note]
+    > Para nuevas cargas de trabajo, use **Resource Manager**. Para conectarse a una red virtual existente, seleccione el método de implementación de la red virtual para la carga de trabajo. Para más información sobre los modelos de implementación, consulte el artículo sobre los [modelos de implementación clásicos y de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model).
+
+1. Seleccione **Crear**.
+
+### <a name="set-up-your-linux-vm"></a>Configuración de la máquina virtual Linux
+
+1. En la pestaña **Fundamentos**, seleccione la **suscripción** y el **grupo de recursos**. 
 
     ![Ventana Fundamentos](./media/provision-sql-server-linux-virtual-machine/basics.png)
 
-    > [!Note]
-    > Para la autenticación, puede una clave pública SSH o una contraseña. La opción de SSH es más segura. Para obtener instrucciones acerca de cómo generar una clave SSH, consulte [Creación y uso de un par de claves SSH pública y privada para máquinas virtuales Linux en Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
-
-1. Haga clic en **OK**.
-
-1. En la ventana **Tamaño**, elija el tamaño de la máquina. Para más información acerca de los tamaños de máquina virtual, consulte [Tamaños de las máquinas virtuales Linux en Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
+1. En **Nombre de la máquina virtual**, escriba un nombre para la nueva máquina virtual Linux.
+1. Luego, escriba o seleccione estos valores:
+    * **Región**: Seleccione la región de Azure adecuada para usted.
+    * **Opciones de disponibilidad**: Elija la mejor opción de disponibilidad y redundancia para sus aplicaciones y datos.
+    * **Cambiar el tamaño**: Seleccione esta opción para elegir un tamaño de máquina y, cuando termine, elija **Seleccionar**. Para más información acerca de los tamaños de máquina virtual, consulte [Tamaños de las máquinas virtuales Linux en Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
 
     ![Selección del tamaño de la máquina virtual](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
 
    > [!TIP]
-   > Para el desarrollo y las pruebas funcionales, se recomienda un tamaño de memoria virtual **DS2**, o superior. Para las pruebas de rendimiento, use **DS13**, o un tamaño superior.
+   > Para el desarrollo y las pruebas funcionales, use un tamaño de máquina virtual de **DS2** o superior. Para las pruebas de rendimiento, use **DS13**, o un tamaño superior.
 
-1. Haga clic en **Seleccionar**.
+    * **Tipo de autenticación**: Seleccione **Clave pública SSH**.
 
-1. En la ventana **Configuración**, seleccione el puerto **SSH (22)** en la lista **Select public inbound ports** (Seleccionar puertos de entrada públicos). Este paso es necesario en esta guía de inicio rápido para conectarse a SQL Server y completar la configuración. Si quiere conectarse de forma remota a SQL Server, seleccione también **MS SQL (1433)** para abrir el puerto 1433 para las conexiones a través de Internet.
+    > [!Note]
+    > Para la autenticación, puede una clave pública SSH o una contraseña. La opción de SSH es más segura. Para obtener instrucciones acerca de cómo generar una clave SSH, consulte [Creación y uso de un par de claves SSH pública y privada para máquinas virtuales Linux en Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
+
+    * **Nombre de usuario**: Escriba el nombre del administrador de la máquina virtual.
+    * **Clave pública SSH**: Escriba la clave pública RSA.
+    * **Puertos de entrada públicos**: Elija **Permitir los puertos seleccionados** y elija el puerto **SSH (22)** en la lista **Seleccionar puertos de entrada públicos**. En este inicio rápido, este paso es necesario para conectarse y completar la configuración de SQL Server. Si quiere conectarse de forma remota a SQL Server, seleccione también **MS SQL (1433)** para abrir el puerto 1433 para las conexiones a través de Internet.
 
    ![Puertos de entrada](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
 
-1. Puede realizar cambios en otros valores de configuración o mantener la configuración predeterminada. A continuación, haga clic en **Aceptar**.
+1. Haga los cambios que quiera en la configuración en las pestañas adicionales siguientes o mantenga la configuración predeterminada.
+    * **Discos**
+    * **Redes**
+    * **Administración**
+    * **Configuración de invitado**
+    * **Etiquetas**
 
-1. En la página **Resumen**, haga clic en **Comprar** para crear la máquina virtual.
+1. Seleccione **Revisar + crear**.
+1. En el panel **Revisar + crear**, seleccione **Crear**.
 
 ## <a id="connect"></a>Conexión a la máquina virtual Linux
 
@@ -101,7 +118,7 @@ La dirección IP de cualquier máquina virtual se puede encontrar en Azure Porta
 
 ![Dirección IP en Azure Portal](./media/provision-sql-server-linux-virtual-machine/vmproperties.png)
 
-Si utiliza Windows y no tiene un shell de BASH, puede instalar un cliente de SSH, como PuTTY.
+Si utiliza Windows y no tiene un shell de BASH, instale un cliente de SSH, como PuTTY.
 
 1. [Descargue e instale PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
@@ -109,13 +126,16 @@ Si utiliza Windows y no tiene un shell de BASH, puede instalar un cliente de SSH
 
 1. En la pantalla de configuración de PuTTY, escriba la dirección IP pública de la máquina virtual.
 
-1. Haga clic en Abrir y escriba el nombre de usuario y contraseña en los cuadros.
+1. Seleccione **Abrir** y escriba el nombre de usuario y la contraseña en los cuadros.
 
 Para más información acerca de cómo conectarse a máquinas virtuales Linux, consulte [Creación de máquinas virtuales Linux con Azure Portal](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal#ssh-to-the-vm).
 
+> [!Note]
+> Si ve una alerta de seguridad de PuTTY que indique que la clave de host del servidor no se almacena en la caché del registro, elija entre las opciones siguientes. Si confía en este host, seleccione **Sí** para agregar la clave a la caché de PuTTY y siga conectándose. Si quiere conectarse solo una vez, sin agregar la clave a la caché, seleccione **No**. Si no confía en este host, seleccione **Cancelar** para abandonar la conexión.
+
 ## <a id="password"></a>Cambio de la contraseña de SA
 
-La máquina virtual nueva instala SQL Server con una contraseña de SA aleatoria. Dicha contraseña se debe restablecer para poder conectarse a SQL Server con el inicio de sesión de SA.
+La máquina virtual nueva instala SQL Server con una contraseña de SA aleatoria. Restablezca esta contraseña antes de conectarse a SQL Server con el inicio de sesión de SA.
 
 1. Después de conectarse a su máquina virtual Linux, abra un terminal de comandos nuevo.
 
@@ -154,10 +174,8 @@ Si necesita conectarse remotamente a SQL Server en la máquina virtual de Azure,
 > Si ha seleccionado el puerto de entrada **MS SQL (1433)** en la configuración durante el aprovisionamiento, estos cambios se han realizado automáticamente. Puede pasar a la siguiente sección sobre cómo configurar el firewall.
 
 1. En el portal, seleccione **Máquinas virtuales**y, luego, seleccione su máquina virtual de SQL Server.
-
-1. En la lista de propiedades, seleccione **Redes**.
-
-1. En la ventana **Redes** ventana, haga clic en el botón **Agregar** situado bajo **Reglas de puerto de entrada**.
+1. En el panel de navegación de la izquierda, en **Configuración**, seleccione **Redes**.
+1. En la ventana Redes, seleccione **Agregar puerto de entrada** en **Reglas de puerto de entrada**.
 
    ![Reglas de puerto de entrada](./media/provision-sql-server-linux-virtual-machine/networking.png)
 
@@ -184,6 +202,6 @@ Este tutorial le ha indicado que cree una máquina virtual de Red Hat Enterprise
 
 Ahora que tiene una máquina virtual con SQL Server 2017 en Azure, puede conectarse localmente con **sqlcmd** para ejecutar consultas Transact-SQL.
 
-Si ha configurado la máquina virtual de Azure para conexiones remotas con SQL Server, también debería poder conectarse de forma remota. Para ver un ejemplo de cómo conectarse de forma remota a SQL Server en Linux desde Windows, consulte [Usar SQL Server Management Studio (SSMS) de Windows para conectarse a SQL Server en Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-ssms). Para conectar con Visual Studio Code, consulte [Usar Visual Studio Code para crear y ejecutar scripts de Transact-SQL para SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode)
+Si ha configurado la máquina virtual de Azure para conexiones remotas con SQL Server, debería poder conectarse de forma remota. Para ver un ejemplo de cómo conectarse de forma remota a SQL Server en Linux desde Windows, consulte [Usar SQL Server Management Studio (SSMS) de Windows para conectarse a SQL Server en Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-ssms). Para conectar con Visual Studio Code, consulte [Usar Visual Studio Code para crear y ejecutar scripts de Transact-SQL para SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode)
 
-Para obtener información general acerca de SQL Server en Linux, consulte [Información general de SQL Server de 2017 en Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview). Para más información acerca de cómo usar máquinas virtuales Linux con SQL Server 2017, consulte [Overview of SQL Server 2017 virtual machines on Azure](sql-server-linux-virtual-machines-overview.md) (Introducción a las máquinas virtuales con SQL Server 2017 en Azure).
+Para información general sobre SQL Server en Linux, consulte [Información general de SQL Server de 2017 en Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview). Para más información acerca de cómo usar máquinas virtuales Linux con SQL Server 2017, consulte [Overview of SQL Server 2017 virtual machines on Azure](sql-server-linux-virtual-machines-overview.md) (Introducción a las máquinas virtuales con SQL Server 2017 en Azure).

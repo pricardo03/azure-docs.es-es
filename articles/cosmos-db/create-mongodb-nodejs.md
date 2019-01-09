@@ -1,22 +1,22 @@
 ---
 title: Conexión de una aplicación de MongoDB en Node.js a Azure Cosmos DB
 description: En este inicio rápido se muestra cómo conectar una aplicación de MongoDB existente escrita en Node.js a Azure Cosmos DB.
-author: SnehaGunda
-ms.author: sngun
+author: rimman
+ms.author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 12/06/2018
-ms.custom: seodec18
-ms.openlocfilehash: d9754cf66b05059c986c7ffbff94290e207f706a
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.custom: quickstart
+ms.openlocfilehash: 954be5699bb039f9eeaae827e6564fea6dfe70ff
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141387"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788684"
 ---
-# <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB: Migración de una aplicación web de MongoDB existente en Node.js 
+# <a name="migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>Migración de una aplicación web actual Node.js de MongoDB a Azure Cosmos DB 
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -27,11 +27,11 @@ ms.locfileid: "53141387"
 > * [Golang](create-mongodb-golang.md)
 >  
 
-Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y grafos, y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Azure Cosmos DB. 
+Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y grafos, y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Cosmos DB. 
 
-En esta guía de inicio rápido se muestra cómo se usa una aplicación existente MongoDB escrita en Node.js y cómo se conecta a la base de datos de Azure Cosmos DB, que es compatible con conexiones de cliente de MongoDB mediante la [API de MongoDB](mongodb-introduction.md). En otras palabras, la aplicación Node.js solo sabe que se está conectando a una base de datos mediante API de MongoDB. Para la aplicación resulta transparente que los datos se almacenan en Azure Cosmos DB.
+En esta guía de inicio rápido se muestra cómo se usa una aplicación existente MongoDB escrita en Node.js y cómo se conecta a la base de datos de Cosmos, que es compatible con el cliente de MongoDB. En otras palabras, para la aplicación resulta transparente que los datos se almacenan en una base de datos de Cosmos.
 
-Cuando haya terminado, tendrá una aplicación MEAN (MongoDB, Express, Angular y Node.js) que se ejecuta en [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
+Cuando haya terminado, tendrá una aplicación MEAN (MongoDB, Express, Angular y Node.js) que se ejecuta en [Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 
 ![Aplicación MEAN.js que se ejecuta en Azure App Service](./media/create-mongodb-nodejs/meanjs-in-azure.png)
 
@@ -109,9 +109,9 @@ az group create --name myResourceGroup --location "West Europe"
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Creación de una cuenta de Azure Cosmos DB
 
-Cree una cuenta de Azure Cosmos DB con el comando [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create).
+Cree una cuenta de Cosmos con el comando [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create).
 
-En el comando siguiente, sustituya su propio nombre único de la cuenta de Azure Cosmos DB donde vea el marcador de posición `<cosmosdb-name>`. Este nombre único se usará como parte del punto de conexión de Azure Cosmos DB (`https://<cosmosdb-name>.documents.azure.com/`), por lo que debe ser único entre todas las cuentas de Azure Cosmos DB de Azure. 
+En el comando siguiente, sustituya su propio nombre único de la cuenta de Cosmos donde vea el marcador de posición `<cosmosdb-name>`. Este nombre único se usará como parte del punto de conexión de Cosmos DB (`https://<cosmosdb-name>.documents.azure.com/`), por lo que debe ser único entre todas las cuentas de Cosmos de Azure. 
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB
@@ -158,14 +158,14 @@ DB/databaseAccounts/<cosmosdb-name>",
 
 ## <a name="connect-your-nodejs-application-to-the-database"></a>Conexión de la aplicación Node.js a la base de datos
 
-En este paso, conectará la aplicación de ejemplo MEAN.js a la base de datos de Azure Cosmos DB que acaba de crear mediante una cadena de conexión de MongoDB. 
+En este paso, conectará la aplicación de ejemplo MEAN.js a la base de datos Cosmos que acaba de crear. 
 
 <a name="devconfig"></a>
 ## <a name="configure-the-connection-string-in-your-nodejs-application"></a>Configuración de la cadena de conexión en la aplicación Node.js
 
 En el repositorio de MEAN.js, abra `config/env/local-development.js`.
 
-Reemplace el contenido de este archivo por el código siguiente. No olvide reemplazar los dos marcadores de posición `<cosmosdb-name>` con el nombre de la cuenta de Azure Cosmos DB.
+Reemplace el contenido de este archivo por el código siguiente. No olvide reemplazar los dos marcadores de posición `<cosmosdb-name>` por el nombre de la cuenta de Cosmos.
 
 ```javascript
 'use strict';
@@ -179,7 +179,7 @@ module.exports = {
 
 ## <a name="retrieve-the-key"></a>Recuperar la clave
 
-Para conectarse a una base de datos de Azure Cosmos DB, necesita la clave de base de datos. Use el comando [az cosmosdb list-keys](/cli/azure/cosmosdb#az-cosmosdb-list-keys) para recuperar la clave principal.
+Para conectarse a una base de datos de Cosmos, necesita la clave de base de datos. Use el comando [az cosmosdb list-keys](/cli/azure/cosmosdb#az-cosmosdb-list-keys) para recuperar la clave principal.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"
@@ -213,18 +213,18 @@ La aplicación de ejemplo MEAN.js almacena datos de usuario en la base de datos.
 
 ## <a name="view-data-in-data-explorer"></a>Ver datos en el Explorador de datos
 
-Los datos almacenados por Azure Cosmos DB están disponibles para ver, consultar y ejecutar lógica de negocios en Azure Portal.
+Los datos almacenados en una base de datos de Cosmos se pueden ver y consultar en Azure Portal.
 
 Para ver y consultar los datos de usuario creados en el paso anterior y trabajar con ellos, inicie sesión en [Azure Portal](https://portal.azure.com) en el explorador web.
 
-En el cuadro de búsqueda superior, escriba Azure Cosmos DB. Cuando se abra la hoja de la cuenta de Cosmos DB, seleccione su cuenta de Cosmos DB. En el panel de navegación izquierdo, haga clic en el Explorador de datos. Expanda la colección en el panel Colecciones. Ahora puede ver los documentos de la colección, consultar los datos e incluso crear y ejecutar procedimientos almacenados, desencadenadores y UDF. 
+En el cuadro de búsqueda superior, escriba Azure Cosmos DB. Cuando se abra la hoja de la cuenta de Cosmos, seleccione su cuenta de Cosmos. En el panel de navegación izquierdo, haga clic en el Explorador de datos. Expanda la colección en el panel Colecciones. Ahora puede ver los documentos de la colección, consultar los datos e incluso crear y ejecutar procedimientos almacenados, desencadenadores y UDF. 
 
 ![Explorador de datos en Azure Portal](./media/create-mongodb-nodejs/cosmosdb-connect-mongodb-data-explorer.png)
 
 
 ## <a name="deploy-the-nodejs-application-to-azure"></a>Implementación de la aplicación Node.js en Azure
 
-En este paso, implementará la aplicación Node.js conectada a MongoDB en Azure Cosmos DB.
+En este paso, implementará la aplicación Node.js en Cosmos DB.
 
 Probablemente habrá observado que el archivo de configuración que cambió anteriormente está pensado para el entorno de desarrollo (`/config/env/local-development.js`). Al implementar la aplicación en App Service, se ejecutará en el entorno de producción de forma predeterminada. Por esta razón, ahora debe realizar el mismo cambio en el archivo de configuración correspondiente.
 
@@ -237,7 +237,7 @@ En el objeto `db`, reemplace el valor de `uri` como se muestra en el ejemplo sig
 ```
 
 > [!NOTE] 
-> La opción `ssl=true` es importante porque [Azure Cosmos DB necesita SSL](connect-mongodb-account.md#connection-string-requirements). 
+> La opción `ssl=true` es importante porque [Cosmos DB necesita SSL](connect-mongodb-account.md#connection-string-requirements). 
 >
 >
 
@@ -253,7 +253,7 @@ git commit -m "configured MongoDB connection string"
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha aprendido a crear una cuenta de Azure Cosmos DB y a crear una colección de MongoDB mediante el Explorador de datos. Ahora puede migrar los datos de MongoDB a Azure Cosmos DB.  
+En este inicio rápido, ha aprendido a crear una cuenta de Cosmos, crear una colección y ejecutar una aplicación de consola. Ahora puede importar datos adicionales en la base de datos de Cosmos. 
 
 > [!div class="nextstepaction"]
 > [Importación de datos de MongoDB a Azure Cosmos DB](mongodb-migrate.md)

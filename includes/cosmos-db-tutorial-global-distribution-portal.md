@@ -2,25 +2,19 @@
 title: Distribución global de Azure Cosmos DB
 description: Aprenda a replicar datos globalmente con Azure Cosmos DB en Azure Portal
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 03/26/2018
-ms.author: sngun
+ms.date: 12/26/2018
+ms.author: rimman
 ms.custom: include file
-ms.openlocfilehash: fb9418d47d2888467e1c1c40862833029111b75b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 751571820d52c003a7e740bd63af8c9d9e071c7a
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38747556"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53796120"
 ---
-Puede aprender sobre la distribución global de Azure Cosmos DB en el siguiente vídeo, donde Andrew Liu, jefe de programas de Azure Cosmos DB, le lleva en un recorrido por la funcionalidad de distribución global.
-
->[!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
-
-Para más información sobre cómo funciona la replicación global de bases de datos en Azure Cosmos DB, vea [Distribución de datos global con Cosmos DB](../articles/cosmos-db/distribute-data-globally.md).
-
 ## <a id="addregion"></a>Incorporación de regiones a la base de datos global mediante Azure Portal
 Azure Cosmos DB está disponible en todas las [regiones de Azure][azureregions] de todo el mundo. Tras seleccionar el nivel de coherencia predeterminado para la cuenta de base de datos, puede asociar una o varias regiones (según la elección del nivel de coherencia y las necesidades de distribución global).
 

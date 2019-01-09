@@ -2,25 +2,18 @@
 title: Copia de seguridad de bases de datos de SQL Server en Azure | Microsoft Docs
 description: Este tutorial explica cómo realizar una copia de seguridad de SQL Server en Azure. En este tutorial también se explica cómo se realiza la recuperación de SQL Server.
 services: backup
-documentationcenter: ''
 author: rayne-wiselman
 manager: carmonm
-editor: ''
-keywords: ''
-ms.assetid: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 08/02/2018
-ms.author: anuragm
-ms.custom: ''
-ms.openlocfilehash: e2e6742fb3eda0523c7333451e836beb069e57ca
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.topic: tutorial
+ms.date: 12/21/2018
+ms.author: raynew
+ms.openlocfilehash: 50085336c59f2284f357e32b875eae08ff90d30f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410370"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790181"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Copia de seguridad de bases de datos de SQL Server en Azure
 
@@ -44,9 +37,9 @@ Los elementos siguientes son las limitaciones conocidas de la versión prelimina
 - La máquina virtual SQL requiere conectividad a Internet para acceder a direcciones IP públicas de Azure. Para más información, consulte [Establecimiento de conectividad de red](backup-azure-sql-database.md#establish-network-connectivity).
 - Proteja hasta 2000 bases de datos SQL en un almacén de Recovery Services. Las bases de datos SQL adicionales deben almacenarse en un almacén de Recovery Services independiente.
 - [Las copias de seguridad de grupos de disponibilidad distribuidos tienen limitaciones](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017).
-- No se admiten las instancias de clústeres de conmutación por error (FCI) de los grupos de disponibilidad Always On de SQL Server.
+- No se admiten las instancias de clústeres de conmutación por error (FCI) de los grupos de disponibilidad Always On de SQL Server para las copias de seguridad.
 - Use Azure Portal para configurar Azure Backup para proteger las bases de datos SQL Server. Actualmente no se admite Azure PowerShell, ni la CLI de Azure ni las API REST.
-- No se admiten las operaciones de copia de seguridad/restauración para bases de datos reflejadas, instantáneas de bases de datos y bases de datos en FCI.
+- No se admiten las operaciones de copia de seguridad o restauración para bases de datos reflejadas, instantáneas de bases de datos y bases de datos en FCI.
 - No se puede proteger la base de datos con un gran número de archivos. El número máximo de archivos admitidos no es un número muy determinístico, ya que no solo depende del número de archivos sino también de la longitud de la ruta de los archivos. Sin embargo, estos casos son menos frecuentes. Estamos creando una solución para tratar esto.
 
 Consulte la [sección de preguntas frecuentes](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq) para más información sobre los escenarios admitidos y no admitidos.
@@ -136,7 +129,7 @@ Los inconvenientes entre las opciones son: capacidad de administración, control
 
 ## <a name="set-permissions-for-non-marketplace-sql-vms"></a>Definición de permisos para máquinas virtuales SQL no incluidas en el catálogo de soluciones
 
-Para hacer una copia de seguridad de una máquina virtual, Azure Backup requiere la instalación de la extensión **AzureBackupWindowsWorkload**. Si usa máquinas virtuales de Azure Marketplace, siga en [Detección de bases de datos SQL Server](backup-azure-sql-database.md#discover-sql-server-databases). Si no se crea la máquina virtual que hospeda las bases de datos SQL desde Azure Marketplace, complete el siguiente procedimiento para instalar la extensión y establecer los permisos apropiados. Además de la extensión **AzureBackupWindowsWorkload**, Azure Backup requiere privilegios de administrador del sistema de SQL para proteger las bases de datos SQL. Para detectar las bases de datos en la máquina virtual, Azure Backup crea la cuenta **NT Service\AzureWLBackupPluginSvc**. Esta cuenta se utiliza para realizar copias de seguridad y restauraciones, y debe tener permiso del administrador del sistema SQL. Además, Azure Backup aprovechará la cuenta **NT AUTHORITYSYSTEM** para la detección o consulta de la base de datos, por lo que esta cuenta debe ser un inicio de sesión público en SQL.
+Para hacer una copia de seguridad de una máquina virtual, Azure Backup requiere la instalación de la extensión **AzureBackupWindowsWorkload**. Si usa máquinas virtuales de Azure Marketplace, siga en [Detección de bases de datos SQL Server](backup-azure-sql-database.md#discover-sql-server-databases). Si no se crea la máquina virtual que hospeda las bases de datos SQL desde Azure Marketplace, complete el siguiente procedimiento para instalar la extensión y establecer los permisos apropiados. Además de la extensión **AzureBackupWindowsWorkload**, Azure Backup requiere privilegios de administrador del sistema de SQL para proteger las bases de datos SQL. Para detectar las bases de datos en la máquina virtual, Azure Backup crea la cuenta **NT SERVICE\AzureWLBackupPluginSvc**. Esta cuenta se utiliza para realizar copias de seguridad y restauraciones, y debe tener permiso del administrador del sistema SQL. Además, Azure Backup aprovechará la cuenta **NT AUTHORITYSYSTEM** para la detección o consulta de la base de datos, por lo que esta cuenta debe ser un inicio de sesión público en SQL.
 
 Para configurar permisos:
 
@@ -182,7 +175,7 @@ Durante el proceso de instalación, si ve el error `UserErrorSQLNoSysadminMember
 
     ![En el cuadro de diálogo Inicio de sesión - Nuevo, seleccionar Buscar](./media/backup-azure-sql-database/new-login-search.png)
 
-3. La cuenta de servicio virtual de Windows **NT Service\AzureWLBackupPluginSvc** se creó durante las fases de registro de la máquina virtual y de detección de SQL. Escriba el nombre de la cuenta como se muestra en el cuadro **Escriba el nombre del objeto que desea seleccionar**. Seleccione **Comprobar nombres** para resolver el nombre.
+3. La cuenta de servicio virtual de Windows **NT SERVICE\AzureWLBackupPluginSvc** se creó durante las fases de registro de la máquina virtual y de detección de SQL. Escriba el nombre de la cuenta como se muestra en el cuadro **Escriba el nombre del objeto que desea seleccionar**. Seleccione **Comprobar nombres** para resolver el nombre.
 
     ![Seleccionar Comprobar nombres para resolver el nombre de servicio desconocido](./media/backup-azure-sql-database/check-name.png)
 

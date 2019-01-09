@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 12/31/2018
 ms.author: tamram
 ms.custom: seodec18
-ms.openlocfilehash: d007f7f1aeee2b4397e5b9e68c0e48108772fb32
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: eb472465c0d35150f2a13563058905751219411d
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110430"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976467"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
@@ -78,7 +78,7 @@ A continuación, cree una página web de Hola mundo con Visual Studio Code e imp
     ```
 
 1. Cree el archivo de error predeterminado y asígnele el nombre *404.html*.
-1. Abra *error.html* en el editor, pegue el siguiente texto en el archivo y guárdelo:
+1. Abra *404.html* en el editor, pegue el siguiente texto en el archivo y guárdelo:
 
     ```
     <h1>404</h1>

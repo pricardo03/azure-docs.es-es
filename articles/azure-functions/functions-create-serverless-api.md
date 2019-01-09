@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 9a35c1205c0b564c8d0db1fbd0535d41bb9c84a0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9f96b4cbe95d918a94ea0d02f9b8fdd8f663eeec
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989913"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001471"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Creación de una API sin servidor mediante Azure Functions
 
@@ -46,7 +46,7 @@ De forma predeterminada, la función desencadenada por HTTP está configurada pa
     | Métodos HTTP permitidos | Métodos seleccionados | Determina qué métodos HTTP se pueden usar para invocar esta función. |
     | Métodos HTTP seleccionados | GET | Permite que solo se usen los métodos HTTP seleccionados para invocar esta función. |
     | Plantilla de ruta | /hello | Determina qué ruta se utiliza para invocar esta función. |
-    | Nivel de autorización | Anónimas | Opcional: hace que la función sea accesible sin una clave de API |
+    | Nivel de autorización | Anónimas | Opcional: Hace que la función sea accesible sin una clave de API |
 
     > [!NOTE] 
     > Observe que no se incluye el prefijo de ruta de acceso base `/api` en la plantilla de ruta, ya que esto se controla mediante una configuración global.
@@ -71,7 +71,7 @@ En la siguiente sección, expondrá la API a través de un servidor proxy. Azure
 
 Un servidor proxy puede apuntar a cualquier recurso HTTP, como:
 - Azure Functions 
-- Aplicaciones de API en [Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
+- Aplicaciones de API en [Azure App Service](https://docs.microsoft.com/azure/app-service/overview)
 - Contenedores de Docker en [App Service en Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)
 - Cualquier otra API hospedada
 
@@ -104,7 +104,7 @@ Repita los pasos de [Creación de una aplicación de función](https://docs.micr
     | Campo | Valor de ejemplo | DESCRIPCIÓN |
     |---|---|---|
     | NOMBRE | HelloProxy | Un nombre descriptivo que se usa solo para la administración |
-    | Plantilla de ruta | /api/hello | Determina qué ruta se utiliza para invocar este proxy. |
+    | Plantilla de ruta | /api/remotehello | Determina qué ruta se utiliza para invocar este proxy. |
     | Dirección URL de back-end | https://%HELLO_HOST%/api/hello | Especifica el punto de conexión al que la solicitud debe remitir a través del proxy. |
     
 1. Tenga en cuenta que en Servidores proxy no se proporciona el prefijo de ruta de acceso base `/api`, y esto debe incluirse en la plantilla de ruta.
@@ -112,9 +112,9 @@ Repita los pasos de [Creación de una aplicación de función](https://docs.micr
 1. Haga clic en **Create**(Crear).
 1. Puede probar el nuevo proxy; para ello, copie la dirección URL del proxy y pruébela en el explorador o con su cliente HTTP favorito.
     1. Para una función anónima, utilice:
-        1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?name="Proxies"`
+        1. `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?name="Proxies"`
     1. Para una función con autorización, use:
-        1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?code=YOURCODE&name="Proxies"`
+        1. `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?code=YOURCODE&name="Proxies"`
 
 ## <a name="create-a-mock-api"></a>Creación de una API simulada
 
@@ -132,7 +132,7 @@ Si ha seguido los pasos hasta ahora, su archivo proxies.json debería parecerse 
     "proxies": {
         "HelloProxy": {
             "matchCondition": {
-                "route": "/api/hello"
+                "route": "/api/remotehello"
             },
             "backendUri": "https://%HELLO_HOST%/api/hello"
         }
@@ -148,7 +148,7 @@ A continuación, va a agregar su API simulada. Reemplace su archivo proxies.json
     "proxies": {
         "HelloProxy": {
             "matchCondition": {
-                "route": "/api/hello"
+                "route": "/api/remotehello"
             },
             "backendUri": "https://%HELLO_HOST%/api/hello"
         },

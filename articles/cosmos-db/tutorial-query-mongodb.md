@@ -1,29 +1,29 @@
 ---
-title: 'Azure Cosmos DB: ¿cómo realizar consultas mediante la API para MongoDB?'
-description: Aprenda a realizar consultas con la API de MongoDB para Azure Cosmos DB
+title: Consulta de los datos con la API de Azure Cosmos DB para MongoDB
+description: Obtenga información sobre cómo consultar los datos con la API de Azure Cosmos DB para MongoDB.
 services: cosmos-db
-author: SnehaGunda
-ms.author: sngun
+author: rimman
+ms.author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/29/2018
-ms.openlocfilehash: 8c865ab7fa997b169e481612ce791d960688da56
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/26/2018
+ms.openlocfilehash: b2bfc48fa0ba8aab0bbdf19e1b127155633e2271
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841513"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793213"
 ---
-# <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>Tutorial: Consulta de Azure Cosmos DB mediante MongoDB API
+# <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Consulta de los datos con la API de Azure Cosmos DB para MongoDB
 
-La [API para MongoDB](mongodb-introduction.md) de Azure Cosmos DB admite las [consultas de shell de MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/). 
+La [API de Azure Cosmos DB para MongoDB](mongodb-introduction.md) admite las [consultas de MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/). 
 
 En este artículo se tratan las tareas siguientes: 
 
 > [!div class="checklist"]
-> * Consulta de datos con MongoDB
+> * Consulta de los datos almacenados en la base de datos de Cosmos mediante el shell de MongoDB
 
 Puede empezar a trabajar con los ejemplos de este documento y ver el vídeo [Consulta de Azure Cosmos DB con el shell de MongoDB](https://azure.microsoft.com/resources/videos/query-azure-cosmos-db-data-by-using-the-mongodb-shell/).
 
@@ -303,7 +303,7 @@ No se ha devuelto ningún resultado ya que no hay familias con más de dos hijos
 En este tutorial, ha hecho lo siguiente:
 
 > [!div class="checklist"]
-> * Ha obtenido información sobre cómo realizar consultas con MongoDB 
+> * Aprendió a consultar mediante la API de Cosmos DB para MongoDB
 
 Ahora puede continuar con el tutorial siguiente para obtener información sobre cómo distribuir sus datos globalmente.
 

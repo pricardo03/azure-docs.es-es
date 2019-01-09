@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cd3229773b19b9f6c4d9ff76402f1841a4810bc7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 24503a821445bbf1610588d7f69ec87948a812b9
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851135"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793077"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migración de máquinas virtuales de Amazon Web Services (AWS) a Azure
 
@@ -113,7 +113,7 @@ Seleccione los valores siguientes en la página **Objetivo de protección**:
 
 Cuando haya terminado, seleccione **Aceptar** para continuar con la siguiente sección.
 
-### <a name="2-prepare-source"></a>2: Preparación del origen
+### <a name="2-prepare-source"></a>2. Preparación del origen
 
 En la página **Preparar origen**, seleccione **+Servidor de configuración**.
 
@@ -179,7 +179,7 @@ Habilite la replicación para cada una de las máquinas virtuales que quiera mig
     |Tipo de máquina: | Seleccione **Máquinas físicas**.|
     | Servidor de proceso: | seleccione el servidor de configuración en la lista desplegable.|
 
-    - 2: Configuración del destino
+    - 2. Configuración del destino
 
     |  |  |
     |-----|-----|

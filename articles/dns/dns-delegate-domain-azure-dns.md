@@ -3,32 +3,31 @@ title: 'Tutorial: Hospedaje del dominio y los subdominios en Azure DNS'
 description: Este tutorial le muestra cómo configurar Azure DNS para hospedar las zonas DNS.
 services: dns
 author: vhorne
-manager: jeconnoc
 ms.service: dns
 ms.topic: tutorial
-ms.date: 6/13/2018
+ms.date: 10/30/2018
 ms.author: victorh
-ms.openlocfilehash: ea0dc257d691326bc073b4cbff37e847a6990f02
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: a952eb679810f36008425ae5daacc4261db50c77
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452313"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999624"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Tutorial: Hospedaje del dominio en Azure DNS
 
-Puede usar Azure DNS para hospedar el dominio DNS y administrar los registros correspondientes. Al hospedar dominios en Azure, puede administrar los registros DNS con las mismas credenciales, API, herramientas y facturación que con los demás servicios de Azure. 
+Puede usar Azure DNS para hospedar el dominio DNS y administrar los registros correspondientes. Al hospedar dominios en Azure, puede administrar los registros de DNS con las mismas credenciales, API, herramientas y facturación que con los demás servicios de Azure. 
 
-Suponga que adquiere el dominio contoso.net de un registrador de nombres de dominio y que crea una zona con el nombre contoso.net en Azure DNS. Como es el propietario del dominio, el registrador le ofrecerá la opción de configurar los registros del servidor de nombres (NS) del dominio. El registrador almacena los registros NS en la zona principal, .net. A los usuarios de Internet de todo el mundo se les remitirá entonces al dominio en cuestión en la zona de Azure DNS al tratar de resolver registros DNS en contoso.net.
+Suponga que adquiere el dominio contoso.net de un registrador de nombres de dominio y que crea una zona con el nombre contoso.net en Azure DNS. Como es el propietario del dominio, el registrador le ofrecerá la opción de configurar los registros del servidor de nombres (NS) del dominio. El registrador almacena los registros NS en la zona principal, .net. A los usuarios de Internet de todo el mundo se les remitirá entonces al dominio en cuestión en la zona de Azure DNS cuando tratan de resolver registros DNS en contoso.net.
 
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Creación de una zona DNS
-> * Recuperar una lista de servidores de nombres
-> * Delegación del dominio
-> * Comprobar que la delegación funciona
+> * Crear una zona DNS.
+> * Recuperar una lista de servidores de nombres.
+> * Delegar el dominio.
+> * Comprobar que la delegación funciona.
 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
@@ -46,11 +45,8 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
    |---|---|---|
    |**Nombre**|[el nombre de dominio] |El nombre de dominio que compró. Este tutorial usa como ejemplo contoso.net.|
    |**Suscripción**|[Su suscripción]|Seleccione una suscripción en la que crear la zona.|
-   |**Grupos de recursos**|**Crear nuevo:** contosoRG|Cree un grupo de recursos. El nombre del grupo de recursos debe ser único dentro de la suscripción que ha seleccionado. |
+   |**Grupos de recursos**|**Crear nuevo:** contosoRG|Cree un grupo de recursos. El nombre del grupo de recursos debe ser único dentro de la suscripción que ha seleccionado.<br>La ubicación del grupo de recursos no tiene efecto alguno sobre la zona DNS. La ubicación de la zona DNS siempre es "global" y no se muestra.|
    |**Ubicación**|Este de EE. UU||
-
-> [!NOTE]
-> La ubicación del grupo de recursos no tiene efecto alguno sobre la zona DNS. La ubicación de la zona DNS siempre es "global" y no se muestra.
 
 ## <a name="retrieve-name-servers"></a>Recuperación de los servidores de nombres
 
@@ -64,49 +60,52 @@ Antes de poder delegar la zona DNS a Azure DNS, primero debe conocer el servidor
 
 Azure DNS crea automáticamente los registros NS autoritativos en la zona para los servidores de nombres asignados.
 
-
 ## <a name="delegate-the-domain"></a>Delegación del dominio
 
-Ahora que se crea la zona DNS y que tiene los servidores de nombres, debe actualizar el dominio primario con los servidores de nombres de Azure DNS. Cada registrador dispone de sus propias herramientas de administración de DNS para cambiar los registros de servidores de nombres de un dominio. En la página de administración de DNS del registrador, edite los registros NS y reemplácelos por los servidores de nombres de Azure DNS.
+Ahora que se crea la zona DNS y que tiene los servidores de nombres, debe actualizar el dominio primario con los servidores de nombres de Azure DNS. Cada registrador dispone de sus propias herramientas de administración de DNS para cambiar los registros de servidores de nombres de un dominio. 
 
-Al delegar un dominio a Azure DNS, debe usar los servidores de nombres proporcionados por Azure DNS. Recomendamos usar siempre los cuatro servidores de nombres, independientemente del nombre de su dominio. La delegación de dominios no requiere que el servidor de nombres use el mismo dominio de primer nivel que su dominio.
+1. En la página de administración de DNS del registrador, edite los registros NS y reemplácelos por los servidores de nombres de Azure DNS.
+
+1. Cuando delega un dominio a Azure DNS, debe usar los servidores de nombres proporcionados por Azure DNS. Use los cuatro servidores de nombres, independientemente del nombre de su dominio. La delegación de dominios no requiere que el servidor de nombres use el mismo dominio de primer nivel que su dominio.
 
 > [!NOTE]
-> Cuando copie cada dirección del servidor de nombres, asegúrese de copiar el punto final al final de la dirección. El punto indica el final de un nombre de dominio completo. Algunos registradores pueden anexar el punto si el nombre NS no lo tiene al final. Pero para cumplir con la RFC de DNS, debe incluir el período de seguimiento, ya que no puede asumir que cada registrador lo anexe automáticamente.
+> Cuando copie cada dirección del servidor de nombres, asegúrese de copiar el punto final al final de la dirección. El punto indica el final de un nombre de dominio completo. Algunos registradores anexan el punto si el nombre NS no lo tiene al final. Para cumplir con la RFC de DNS, incluya el período de seguimiento.
 
 De momento, no se admiten en Azure DNS las delegaciones que usan servidores de nombres en su propia zona (a veces denominados *servidores DNS personalizados*).
 
-## <a name="verify-that-the-delegation-is-working"></a>Comprobar que la delegación funciona
+## <a name="verify-the-delegation"></a>Comprobación de la delegación
 
 Cuando finalice la delegación, puede comprobar que funciona mediante una herramienta como *nslookup* para consultar el registro Inicio de autoridad (SOA) para su zona. El registro SOA se crea automáticamente cuando se crea la zona. Puede que necesite esperar 10 minutos o más después de completar la delegación para poder comprobar correctamente que funciona. Puede que los cambios tarden unos minutos en propagarse por el sistema DNS.
 
 No es necesario especificar los servidores de nombres de Azure DNS. Si la delegación está configurada correctamente, el proceso de resolución DNS normal busca automáticamente los servidores de nombres.
 
-En un símbolo del sistema, escriba un comando nslookup similar al siguiente:
+1. Desde un símbolo del sistema, escriba un comando nslookup similar al ejemplo siguiente:
 
-```
-nslookup -type=SOA contoso.net
-```
+   ```
+   nslookup -type=SOA contoso.net
+   ```
 
-Esta es una respuesta de ejemplo del comando anterior:
+1. Compruebe que su respuesta sea similar a la salida del comando nslookup siguiente:
 
-```
-Server: ns1-04.azure-dns.com
-Address: 208.76.47.4
+   ```
+   Server: ns1-04.azure-dns.com
+   Address: 208.76.47.4
 
-contoso.net
-primary name server = ns1-04.azure-dns.com
-responsible mail addr = msnhst.microsoft.com
-serial = 1
-refresh = 900 (15 mins)
-retry = 300 (5 mins)
-expire = 604800 (7 days)
-default TTL = 300 (5 mins)
-```
+   contoso.net
+   primary name server = ns1-04.azure-dns.com
+   responsible mail addr = msnhst.microsoft.com
+   serial = 1
+   refresh = 900 (15 mins)
+   retry = 300 (5 mins)
+   expire = 604800 (7 days)
+   default TTL = 300 (5 mins)
+   ```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Puede conservar el grupo de recursos **contosoRG** si va a realizar el tutorial siguiente. De lo contrario, elimine el grupo de recursos **contosoRG** para eliminar los recursos creados en este tutorial. Para ello, haga clic en el grupo de recursos **contosoRG** y luego haga clic en **Eliminar grupo de recursos**. 
+Puede conservar el grupo de recursos **contosoRG** si va a realizar el tutorial siguiente. De lo contrario, elimine el grupo de recursos **contosoRG** para eliminar los recursos creados en este tutorial.
+
+- Seleccione el grupo de recursos **contosoRG** y, luego, **Eliminar grupo de recursos**. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

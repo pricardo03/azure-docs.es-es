@@ -1,7 +1,7 @@
 ---
 title: análisis de opiniones
 titleSuffix: Azure Cognitive Services
-description: En este tutorial va a crear una aplicación que muestra cómo extraer opiniones positivas, negativas y neutrales de expresiones. Las opiniones se determinan a partir de la expresión completa.
+description: En este tutorial va a crear una aplicación que muestra cómo obtener opiniones positivas, negativas y neutrales de expresiones. Las opiniones se determinan a partir de la expresión completa.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,56 +9,64 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: d93c7619bb670a81372ab83359836a78b8956b09
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ee50907d7965a66d09dc57113e87edecb1932083
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098948"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754295"
 ---
-# <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>Tutorial 9:  Extracción de opiniones de expresión global
-En este tutorial va a crear una aplicación que muestra cómo extraer opiniones positivas, negativas y neutrales de expresiones. Las opiniones se determinan a partir de la expresión completa.
+# <a name="tutorial--get-sentiment-of-utterance"></a>Tutorial:  Obtención de opiniones de expresión
 
-El análisis de opiniones es la capacidad para determinar si la expresión de un usuario es positiva, negativa o neutral. 
+En este tutorial va a crear una aplicación que muestra cómo determinar opiniones positivas, negativas y neutrales de expresiones. Las opiniones se determinan a partir de la expresión completa.
+
+**En este tutorial, aprenderá a:**
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Creación de una nueva aplicación
+> * Agregar análisis de opiniones como configuración de publicación
+> * Entrenamiento de la aplicación
+> * Publicación de aplicación
+> * Obtener las opiniones de expresión del punto de conexión
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="sentiment-analysis-is-a-publish-setting"></a>Análisis de sentimiento es una opción de publicación
 
 Las expresiones siguientes muestran ejemplos de opiniones:
 
 |Opinión|Score|Expresión|
 |:--|:--|:--|
 |positiva|0,91 |John W. Smith hizo un gran trabajo en la presentación en París.|
-|positiva|0.84 |jill-jones@mycompany.com realizó un trabajo fabuloso en el discurso de ventas de Parker.|
+|positiva|0,84 |Los ingenieros de Seattle realizaron un excelente trabajo en el discurso de ventas de Parker.|
 
-El análisis de opiniones es una configuración de publicación que se aplica a cada expresión. No es necesario encontrar las palabras que indican opinión en la expresión y etiquetarlas porque el análisis de sentimiento se aplica a toda la expresión. 
+El análisis de opiniones es una configuración de publicación que se aplica a cada expresión. No es necesario buscar las palabras que indican la opinión en la expresión y marcarlas. 
 
 Dado que es una configuración de publicación, no lo ve en las páginas de entidades o intenciones. Puede verlo en el panel de [prueba interactiva](luis-interactive-test.md#view-sentiment-results) o cuando se prueba en la dirección URL del punto de conexión. 
 
-**En este tutorial, aprenderá a:**
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Usar la aplicación del tutorial existente 
-> * Agregar análisis de opiniones como configuración de publicación
-> * Train
-> * Publicar
-> * Obtener las opiniones de expresión del punto de conexión
+## <a name="create-a-new-app"></a>Creación de una nueva aplicación
 
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
 
-## <a name="use-existing-app"></a>Uso de una aplicación existente
+## <a name="add-personname-prebuilt-entity"></a>Incorporación de la entidad precompilada PersonName 
 
-Continúe con la aplicación creada en el último tutorial, denominada **HumanResources**. 
 
-Si no tiene la aplicación HumanResources del tutorial anterior, siga estos pasos:
+1. Seleccione **Entities** (Entidades) en el menú de navegación izquierdo.
 
-1.  Descargue y guarde el [archivo JSON de la aplicación](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-keyphrase-HumanResources.json).
+1. Seleccione el botón **Add prebuilt entity** (Agregar entidad creada previamente).
 
-2. Importe el archivo JSON en una aplicación nueva.
+1. Seleccione la siguiente entidad de la lista de entidades precompiladas y luego seleccione **Done** (Listo):
 
-3. Desde la sección **Manage** (Administrar), en la pestaña **Versions** (Versiones), clone la versión y asígnele el nombre `sentiment`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. Dado que el nombre de la versión se usa como parte de la ruta de la dirección URL, el nombre no puede contener ningún carácter que no sea válido en una dirección URL.
+    * **[PersonName](luis-reference-prebuilt-person.md)** 
 
-## <a name="employeefeedback-intent"></a>Intención EmployeeFeedback 
+    ![Captura de pantalla del cuadro de diálogo de la selección de número en entidades creadas previamente](./media/luis-quickstart-intent-and-sentiment-analysis/add-personname-prebuilt-entity.png)
+
+## <a name="create-an-intent-to-determine-employee-feedback"></a>Creación de una intención para determinar los comentarios de los empleados
+
 Agregue una nueva intención para capturar los comentarios de los miembros de la empresa. 
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
@@ -71,122 +79,66 @@ Agregue una nueva intención para capturar los comentarios de los miembros de la
 
 4. Agregue varias expresiones que indiquen que un empleado está haciendo algo bien o un área que necesita mejorar:
 
-    Recuerde que en esta aplicación de Recursos Humanos, los empleados se definen en la entidad de lista, `Employee`, por nombre, correo electrónico, número de extensión telefónica, número de teléfono móvil y su número del seguro social federal de Estados Unidos. 
-
     |Grabaciones de voz|
     |--|
-    |425-555-1212 hizo un buen trabajo al darle la bienvenida a una compañera de trabajo después del permiso de maternidad.|
-    |234-56-7891 hizo un gran trabajo al consolar a un compañero de trabajo en momentos de dolor.|
-    |jill-jones@mycompany.com no tenía todas las facturas necesarias para los trabajos administrativos.|
-    |john.w.smith@mycompany.com entregó los formularios necesarios con un mes de retraso y sin firmas.|
-    |x23456 no llegó a la importante reunión de marketing fuera de las instalaciones.|
-    |x12345 se perdió la reunión para las revisiones de junio.|
-    |Jill Jones fue la estrella de las ventas en Harvard.|
-    |John W. Smith hizo un gran trabajo en la presentación en Stanford.|
+    |John Smith realizó un buen trabajo al darle la bienvenida a una compañera de trabajo después del permiso de maternidad.|
+    |Jill Jones realizó un gran trabajo al consolar a un compañero de trabajo en momentos de dolor.|
+    |Bob Barnes no tenía todas las facturas necesarias para los trámites.|
+    |Todd Thomas entregó los formularios necesarios con un mes de retraso y sin firmas.|
+    |Katherine Kelly no asistió a la importante reunión de marketing fuera de las instalaciones.|
+    |Denise Dillard se perdió la reunión para las revisiones de junio.|
+    |Mark Mathews fue la estrella de las ventas en Harvard.|
+    |Walter Williams realizó un gran trabajo en la presentación en Stanford.|
 
     [ ![Captura de pantalla de la aplicación de LUIS con expresiones de ejemplo en la intención EmployeeFeedback](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
-## <a name="train"></a>Train
+## <a name="add-example-utterances-to-the-none-intent"></a>Incorporación de expresiones de ejemplo a la intención None 
+
+[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
+
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Entrenamiento de la aplicación para probar los cambios en la intención 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="configure-app-to-include-sentiment-analysis"></a>Configuración de la aplicación para que incluya el análisis de opiniones
+
 1. Seleccione **Manage** (Administrar) en la navegación superior derecha y luego seleccione **Publish settings** (Publicar configuración) en el menú izquierdo.
 
-2. Cambie el conmutador **Sentiment Analysis** (Análisis de sentimiento) para habilitar esta configuración. 
+1. Seleccione **Análisis de sentimiento** para habilitar esta opción. 
 
     ![Activación del Análisis de sentimiento como configuración de publicación](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
-## <a name="publish"></a>Publicar
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publicación de la aplicación para que se pueda consultar al modelo entrenado desde el punto de conexión
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-sentiment-of-utterance-from-endpoint"></a>Obtener las opiniones de expresión del punto de conexión
+## <a name="get-the-sentiment-of-an-utterance-from-the-endpoint"></a>Obtención de la opinión de una expresión desde el punto de conexión
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Vaya al final de la dirección URL en la dirección y escriba `Jill Jones work with the media team on the public portal was amazing`. El último parámetro de la cadena de consulta es `q`, la expresión **query**. Esta expresión no es la misma que cualquiera de las expresiones etiquetadas, por lo que es una buena prueba y debería devolver la intención `EmployeeFeedback` con el análisis de sentimiento extraído.
+1. Vaya al final de la dirección URL en la dirección y escriba `Jill Jones work with the media team on the public portal was amazing`. El último parámetro de la cadena de consulta es `q`, la expresión **query**. Esta expresión no es la misma que cualquiera de las expresiones etiquetadas, por lo que es una buena prueba y debería devolver la intención `EmployeeFeedback` con el análisis de sentimiento extraído.
     
     ```json
     {
       "query": "Jill Jones work with the media team on the public portal was amazing",
       "topScoringIntent": {
         "intent": "EmployeeFeedback",
-        "score": 0.4983256
+        "score": 0.9616192
       },
       "intents": [
         {
           "intent": "EmployeeFeedback",
-          "score": 0.4983256
-        },
-        {
-          "intent": "MoveEmployee",
-          "score": 0.06617523
-        },
-        {
-          "intent": "GetJobInformation",
-          "score": 0.04631853
-        },
-        {
-          "intent": "ApplyForJob",
-          "score": 0.0103248553
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 0.007531875
-        },
-        {
-          "intent": "FindForm",
-          "score": 0.00344597152
-        },
-        {
-          "intent": "Utilities.Help",
-          "score": 0.00337914471
-        },
-        {
-          "intent": "Utilities.Cancel",
-          "score": 0.0026357458
+          "score": 0.9616192
         },
         {
           "intent": "None",
-          "score": 0.00214573368
-        },
-        {
-          "intent": "Utilities.Stop",
-          "score": 0.00157622492
-        },
-        {
-          "intent": "Utilities.Confirm",
-          "score": 7.379545E-05
+          "score": 0.09347677
         }
       ],
       "entities": [
         {
           "entity": "jill jones",
-          "type": "Employee",
-          "startIndex": 0,
-          "endIndex": 9,
-          "resolution": {
-            "values": [
-              "Employee-45612"
-            ]
-          }
-        },
-        {
-          "entity": "media team",
-          "type": "builtin.keyPhrase",
-          "startIndex": 25,
-          "endIndex": 34
-        },
-        {
-          "entity": "public portal",
-          "type": "builtin.keyPhrase",
-          "startIndex": 43,
-          "endIndex": 55
-        },
-        {
-          "entity": "jill jones",
-          "type": "builtin.keyPhrase",
+          "type": "builtin.personName",
           "startIndex": 0,
           "endIndex": 9
         }
@@ -198,11 +150,19 @@ Agregue una nueva intención para capturar los comentarios de los miembros de la
     }
     ```
 
-    El análisis de sentimiento es positivo con una puntuación de 0,86. 
+    El análisis de sentimiento es positivo con una puntuación de 86 %. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+
+## <a name="related-information"></a>Información relacionada
+
+* [Text Analytics](../Text-Analytics/index.yml) de Cognitive Services ofrece Análisis de sentimiento. La característica está restringida a los [idiomas admitidos](luis-language-support.md##languages-supported) por Text Analytics.
+* [Cómo se realiza el entrenamiento](luis-how-to-train.md)
+* [Publicación](luis-how-to-publish-app.md)
+* [Cómo realizar pruebas en el portal de LUIS](luis-interactive-test.md)
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 Este tutorial agrega el análisis de opiniones como una configuración de publicación para extraer los valores de las opiniones de la expresión en su conjunto.

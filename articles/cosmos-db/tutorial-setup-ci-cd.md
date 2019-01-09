@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
-ms.openlocfilehash: 8b64142a7d693e8e48e1739a61978abbab740e3d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 83178abab84679dcfb36a361950097f9224eda81
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875219"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810651"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configuración de una canalización de CI/CD con la tarea de compilación del emulador de Azure Cosmos DB en Azure DevOps
 
@@ -81,7 +81,7 @@ A continuación encontrará un ejemplo de un archivo **.runsettings** que define
 </RunSettings>
 ```
 
-Si va a configurar una canalización de CI/CD para una aplicación que utiliza la API de MongoDB de Azure Cosmos DB, la cadena de conexión de MongoDB incluye de forma predeterminada el número de puerto 10255. Sin embargo, este puerto no está abierto actualmente. Como alternativa, debe usar el puerto 10250 para establecer la conexión. La cadena de conexión de la API de MongoDB permanece igual, salvo que el número de puerto admitido es 10250 en lugar de 10255.
+Si va a configurar una canalización de CI/CD para una aplicación que utiliza la API de Azure Cosmos DB para MongoDB, la cadena de conexión incluye de forma predeterminada el número de puerto 10255. Sin embargo, este puerto no está abierto actualmente. Como alternativa, debe usar el puerto 10250 para establecer la conexión. La cadena de conexión de la API de Azure Cosmos DB para MongoDB permanece igual, salvo que el número de puerto admitido es 10250 en lugar de 10255.
 
 A los parámetros `TestRunParameters` se les hace referencia mediante una propiedad `TestContext` en el proyecto de prueba de la aplicación. Este es un ejemplo de una prueba que se ejecuta en Cosmos DB.
 

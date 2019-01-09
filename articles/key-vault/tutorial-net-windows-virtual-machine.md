@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Uso de Azure Key Vault con una máquina virtual Windows de Azure en .NET | Microsoft Docs'
+title: 'Tutorial: Uso de Azure Key Vault con una máquina virtual Windows de Azure en .NET: Azure Key Vault | Microsoft Docs'
 description: Tutorial de configuración de una aplicación ASP.NET Core para que lea un secreto de Key Vault
 services: key-vault
 documentationcenter: ''
@@ -9,21 +9,21 @@ ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: key-vault
 ms.topic: tutorial
-ms.date: 09/05/2018
+ms.date: 01/02/2019
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: d1f24c8bebc8740f47dc0f02089db1091c22f597
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: f12d73904b547da6531e24a899277eca7dd46660
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711334"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998768"
 ---
-# <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-net"></a>Tutorial: Uso de Azure Key Vault con una máquina virtual Windows en .NET
+# <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-net"></a>Tutorial: Uso de Azure Key Vault con una máquina virtual Windows de Azure en .NET
 
 Azure Key Vault ayuda a proteger secretos como las claves de API, las cadenas de conexión de base de datos necesarias para acceder a las aplicaciones, los servicios y los recursos de TI.
 
-En este tutorial, seguirá los pasos necesarios para conseguir que una aplicación de consola lea información de Azure Key Vault mediante Managed Identities for Azure Resources. Este tutorial se basa en [Azure Web Apps](../app-service/app-service-web-overview.md). A continuación aprenderá a:
+En este tutorial, seguirá los pasos necesarios para conseguir que una aplicación de consola lea información de Azure Key Vault mediante identidades administradas para recursos de Azure. A continuación aprenderá a:
 
 > [!div class="checklist"]
 > * Cree un almacén de claves.
@@ -34,7 +34,7 @@ En este tutorial, seguirá los pasos necesarios para conseguir que una aplicaci�
 > * Conceder los permisos necesarios para que la aplicación de consola lea datos del almacén de claves.
 > * Recuperar secretos del almacén de claves.
 
-Antes de que sigamos avanzando, conozca los [conceptos básicos](key-vault-whatis.md#basic-concepts).
+Antes de avanzar, lea los [conceptos básicos](key-vault-whatis.md#basic-concepts).
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Todas las plataformas:
@@ -45,6 +45,7 @@ Antes de que sigamos avanzando, conozca los [conceptos básicos](key-vault-whati
 En este tutorial se hace uso de Managed Service Identity
 
 ## <a name="what-is-managed-service-identity-and-how-does-it-work"></a>¿Qué es Managed Service Identity y cómo funciona?
+
 Antes de continuar vamos a entender cómo funciona MSI. Azure Key Vault puede almacenar las credenciales de forma segura para que no estén en el código, pero debe autenticarse en Azure Key Vault para recuperarlas. Para autenticarse en Key Vault, necesita una credencial. Un problema clásico de arranque. Mediante la magia de Azure y Azure AD, MSI proporciona una "identidad de arranque" que facilita mucho el inicio.
 
 Aquí le mostramos cómo funciona. Al habilitar MSI para un servicio de Azure, como Virtual Machines, App Service o Functions, Azure crea una [entidad de servicio](key-vault-whatis.md#basic-concepts) para la instancia del servicio en Azure Active Directory e inserta las credenciales de la primera en la segunda. 
@@ -54,7 +55,7 @@ Aquí le mostramos cómo funciona. Al habilitar MSI para un servicio de Azure, c
 A continuación, el código llama a un servicio local de metadatos disponible en el recurso de Azure para obtener un token de acceso.
 El código usa el token de acceso que obtiene del MSI_ENDPOINT local para autenticar una instancia del servicio Azure Key Vault. 
 
-## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 Para iniciar sesión en Azure mediante la CLI de Azure, escriba:
 
@@ -80,9 +81,9 @@ El grupo de recursos que acaba de crear se utiliza en todo este artículo.
 
 A continuación, creará un almacén de claves en el grupo de recursos creado en el paso anterior. Proporcione la siguiente información:
 
-* Nombre del almacén de claves: el nombre debe ser una cadena de 3 a 24 caracteres y solo puede incluir alguno de estos caracteres: 0-9, a-z, A-Z y "-".
+* Nombre del almacén de claves: el nombre debe ser una cadena de entre 3 y 24 caracteres y solo debe contener alguno de estos caracteres: 0-9, a-z, A-Z y "-".
 * Nombre del grupo de recursos.
-* Ubicación: **Oeste de EE. UU**.
+* Ubicación: **Oeste de EE. UU.**.
 
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
@@ -131,7 +132,7 @@ Ahora se puede conceder el permiso de identidad creado al almacén de claves med
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-## <a name="login-to-the-virtual-machine"></a>Inicio de sesión en la máquina virtual
+## <a name="sign-in-to-the-virtual-machine"></a>Inicio de sesión en la máquina virtual
 
 Puede seguir este [tutorial](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon)
 
@@ -161,8 +162,9 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 ```
-Luego, cambie el archivo de clase para que contenga el siguiente código. Este es un proceso de 2 pasos. 
-1. Capture un token del punto de conexión del MSI local de la máquina virtual que, a su vez, captura un token de Azure Active Directory
+Luego, cambie el archivo de clase para que contenga el siguiente código. Este es un proceso de 2 pasos.
+
+1. Capturar un token del punto de conexión del MSI local de la máquina virtual que, a su vez, captura un token de Azure Active Directory
 2. Pase el token a Key Vault y capture el secreto 
 
 ```
@@ -211,7 +213,7 @@ Luego, cambie el archivo de clase para que contenga el siguiente código. Este e
 ```
 
 
-El código anterior muestra cómo realizar operaciones con Azure Key Vault en una máquina virtual Linux de Azure. 
+El código anterior muestra cómo realizar operaciones con Azure Key Vault en una máquina virtual Windows de Azure. 
 
 
 

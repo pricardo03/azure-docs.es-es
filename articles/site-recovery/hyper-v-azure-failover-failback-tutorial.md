@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ea372b4363ce506b926a37686b85cb36e51546eb
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 03b8dd9bd0a7acc63fdae66330904142384429a8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833471"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794216"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Conmutar por error y conmutar por recuperación máquinas virtuales de Hyper-V replicadas en Azure
 
@@ -39,9 +39,9 @@ Asegúrese de que no hay instantáneas en la máquina virtual y de que la máqui
 
 La conmutación por error y la conmutación por recuperación constan de tres etapas:
 
-1. **Conmutación por error a Azure**: conmutar por error máquinas virtuales de Hyper-V desde el sitio local a Azure.
-2. **Conmutación por recuperación a un sitio local**: conmutar por error máquinas virtuales de Azure al sitio local, cuando esté disponible. Inicia la sincronización de datos de Azure en el entorno local y, al finalizar, muestra las máquinas virtuales en el entorno local.  
-3. **Replicación inversa en máquinas virtuales locales**: después de la conmutación por recuperación a un entorno local, realice replicación inversa en las máquinas virtuales locales para que comiencen a replicarse en Azure.
+1. **Conmutación por error a Azure**: Conmute por error máquinas virtuales de Hyper-V del sitio local a Azure.
+2. **Conmutación por recuperación al entorno local**: conmute por error máquinas virtuales de Azure al sitio local cuando este esté disponible. Inicia la sincronización de datos de Azure en el entorno local y, al finalizar, muestra las máquinas virtuales en el entorno local.  
+3. **Replicación inversa en máquinas virtuales locales**: Cuando haya conmutado por recuperación a un entorno local, realice replicación inversa en las máquinas virtuales locales para que comiencen a replicarse en Azure.
 
 ## <a name="verify-vm-properties"></a>Comprobar las propiedades de la máquina virtual
 
@@ -65,7 +65,7 @@ En **Elementos protegidos**, haga clic en **Elementos replicados** > VM.
 4. Una vez verificada la conmutación por error, haga clic en **Confirmar**. Así se eliminan los puntos de recuperación disponibles.
 
 > [!WARNING]
-> **No cancele una conmutación por error en curso**: si cancela una conmutación por error en curso, esta se detiene, pero la máquina virtual no se volverá a replicar.
+> **No cancele una conmutación por error en curso**: Si se cancela una conmutación por error en curso, la conmutación por error se detiene, pero no se replica la máquina virtual de nuevo.
 
 ## <a name="failback-azure-vm-to-on-premises-and-reverse-replicate-the-on-premises-vm"></a>Conmutación por recuperación de una máquina virtual de Azure a un entorno local y replicación inversa de la máquina virtual local
 

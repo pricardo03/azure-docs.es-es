@@ -1,0 +1,209 @@
+---
+title: 'Tutorial: Aprovisionamiento de un servidor de Azure Database for MySQL mediante las plantillas de Azure Resource Manager'
+description: En este tutorial se explica cómo aprovisionar y automatizar las implementaciones de servidores de Azure Database for MySQL mediante las plantillas de Azure Resource Manager.
+author: savjani
+ms.author: pariks
+ms.service: mysql
+ms.devlang: json
+ms.topic: tutorial
+ms.date: 12/21/2018
+ms.custom: mvc
+ms.openlocfilehash: 45a4a43ae95b42174f368122f89831a356410f2b
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54004084"
+---
+# <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-templates"></a>Tutorial: Aprovisionamiento de un servidor de Azure Database for MySQL mediante las plantillas de Azure Resource Manager
+
+La [API de REST de Azure Database for MySQL](https://docs.microsoft.com/en-us/rest/api/mysql/) permite a los ingenieros de DevOps automatizar e integrar el aprovisionamiento, la configuración y las operaciones de las bases de datos y los servidores MySQL administrados en Azure.  Además, con dicha API se pueden crear, enumerar, administrar y eliminar bases de datos y servidores MySQL en el servicio Azure Database for MySQL.
+
+Las plantillas de Azure Resource Manager aprovechan la API de REST para declarar y programar los recursos de Azure requeridos para las implementaciones a escala, de tal modo que se alineen con la infraestructura como concepto de código. La plantilla parametriza la configuración, el firewall, la red, la SKU y el nombre del recurso de Azure, lo que permite que se creen una vez y se utilicen varias.  Las plantillas de Azure Resource Manager se pueden crear fácilmente mediante [Azure Portal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) o [Visual Studio Code](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI). Estas permiten automatizar la implementación, la estandarización y el empaquetado de aplicaciones, que se pueden integrar en la canalización de CI/CD de DevOps.  Por ejemplo, si desea implementar rápidamente una aplicación web con el servidor back-end de Azure Database for MySQL, puede realizar la implementación integral mediante esta [plantilla de inicio rápido](https://azure.microsoft.com/en-us/resources/templates/101-webapp-managed-mysql/) de la galería de GitHub.
+
+En este tutorial, usará las plantillas de Azure Resource Manager y otras utilidades para aprender a hacer lo siguiente:
+
+> [!div class="checklist"]
+> * Crear un servidor de Azure Database for MySQL con el punto de conexión de servicio de red virtual mediante la plantilla de Azure Resource Manager
+> * Uso de la [herramienta de línea de comandos mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) para crear una base de datos
+> * Carga de datos de ejemplo
+> * Datos de consulta
+> * Actualización de datos
+
+## <a name="create-an-azure-database-for-mysql-server-with-vnet-service-endpoint-using-azure-resource-manager-template"></a>Creación de un servidor de Azure Database for MySQL con el punto de conexión de servicio de red virtual mediante la plantilla de Azure Resource Manager
+
+Para obtener la referencia de la plantilla JSON de un servidor de Azure Database for MySQL, vaya a la referencia de la plantilla de servidores Microsoft.DBforMySQL (https://docs.microsoft.com/en-us/azure/templates/microsoft.dbformysql/servers). A continuación, se encuentra la plantilla JSON de ejemplo que puede usarse para crear un servidor que ejecuta Azure Database for MySQL con el punto de conexión de servicio de red virtual.
+```json
+{
+  "apiVersion": "2017-12-01",
+  "type": "Microsoft.DBforMySQL/servers",
+  "name": "string",
+  "location": "string",
+  "tags": "string",
+  "properties": {
+    "version": "string",
+    "sslEnforcement": "string",
+    "administratorLogin": "string",
+    "administratorLoginPassword": "string",
+    "storageProfile": {
+      "storageMB": "string",
+      "backupRetentionDays": "string",
+      "geoRedundantBackup": "string"
+    }
+  },
+  "sku": {
+    "name": "string",
+    "tier": "string",
+    "capacity": "string",
+    "family": "string"
+  },
+  "resources": [
+    {
+      "name": "AllowSubnet",
+      "type": "virtualNetworkRules",
+      "apiVersion": "2017-12-01",
+      "properties": {
+        "virtualNetworkSubnetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnetName'))]",
+        "ignoreMissingVnetServiceEndpoint": true
+      },
+      "dependsOn": [
+        "[concat('Microsoft.DBforMySQL/servers/', parameters('serverName'))]"
+      ]
+    }
+  ]
+}
+```
+En esta solicitud, los valores que deben personalizarse son los siguientes:
++   `name`: especifique el nombre del servidor MySQL (sin el nombre de dominio).
++   `location`: especifique una región del centro de datos de Azure válida para el servidor MySQL. Por ejemplo, westus2.
++   `properties/version`: especifique la versión del servidor MySQL para implementar. Por ejemplo, 5.6 o 5.7.
++   `properties/administratorLogin`: especifique los datos de inicio de sesión del administrador de MySQL para el servidor. El nombre de inicio de sesión del administrador no puede ser azure_superuser, admin, administrator, root, guest o public.
++   `properties/administratorLoginPassword`: especifique la contraseña del usuario administrador de MySQL establecida anteriormente.
++   `properties/sslEnforcement`: especifique Enabled (Habilitado) o Disabled (Deshabilitado) para habilitar o deshabilitar sslEnforcement.
++   `storageProfile/storageMB`: especifique el tamaño máximo de almacenamiento aprovisionado necesario para el servidor en megabytes. Por ejemplo, 5120.
++   `storageProfile/backupRetentionDays`: especifique el período de retención de copia de seguridad en días. Por ejemplo, 7. 
++   `storageProfile/geoRedundantBackup`: especifique Enabled (Habilitado) o Disabled (Deshabilitado) según los requisitos de Geo-DR.
++   `sku/tier`: especifique el nivel Basic (Básico), GeneralPurpose (De uso general) o MemoryOptimized (Optimizada para memoria) de la implementación.
++   `sku/capacity`: especifique la capacidad del núcleo virtual. Los valores posibles son 2, 4, 8, 16, 32 o 64.
++   `sku/family`: especifique Gen4 o Gen5 para elegir la generación de hardware de la implementación de servidores.
++   `sku/name`: especifique TierPrefix_family_capacity. Por ejemplo, B_Gen4_1, GP_Gen5_16 o MO_Gen5_32. Para comprender cuáles son los valores válidos por región y nivel, consulte la documentación sobre [planes de tarifa](./concepts-pricing-tiers.md).
++   `resources/properties/virtualNetworkSubnetId`: especifique el identificador de Azure de la subred en la red virtual donde se debe colocar el servidor MySQL de Azure. 
++   `tags(optional)`: especifique las etiquetas opcionales; los pares clave-valor que usaría para clasificar los recursos para fines de facturación, etc.
+
+Si desea crear una plantilla de Azure Resource Manager con el fin de automatizar las implementaciones de Azure Database for MySQL para su organización, la recomendación sería empezar desde el ejemplo [Plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet) de la galería de GitHub de inicio rápido de Azure y crearlas a partir de esta. 
+
+Si no está familiarizado con las plantillas de Azure Resource Manager y le gustaría probarlas, puede empezar siguiendo estos pasos:
++   Clone o descargue la [plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet) de ejemplo de la galería de inicio rápido de Azure.  
++   Modifique azuredeploy.parameters.json para actualizar los valores de parámetro según sus preferencias y guarde el archivo. 
++   Use la CLI de Azure para crear el servidor MySQL de Azure mediante los siguientes comandos:
+
+Puede usar Azure Cloud Shell en el explorador o instalar la CLI de Azure en su propio equipo para ejecutar los bloques de código de este tutorial.
+
+[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+
+```azurecli-interactive
+az login
+az group create -n ExampleResourceGroup  -l “West US2”
+az group deployment create -g $ ExampleResourceGroup   --template-file $ {templateloc} --parameters $ {parametersloc}
+```
+
+## <a name="get-the-connection-information"></a>Obtención de la información de conexión
+Para conectarse al servidor, debe proporcionar las credenciales de acceso y la información del host.
+```azurecli-interactive
+az mysql server show --resource-group myresourcegroup --name mydemoserver
+```
+
+El resultado está en formato JSON. Tome nota de los valores de **fullyQualifiedDomainName** y **administratorLogin**.
+```json
+{
+  "administratorLogin": "myadmin",
+  "administratorLoginPassword": null,
+  "fullyQualifiedDomainName": "mydemoserver.mysql.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/mydemoserver",
+  "location": "westus2",
+  "name": "mydemoserver",
+  "resourceGroup": "myresourcegroup",
+ "sku": {
+    "capacity": 2,
+    "family": "Gen4",
+    "name": "GP_Gen4_2",
+    "size": null,
+    "tier": "GeneralPurpose"
+  },
+  "sslEnforcement": "Enabled",
+  "storageProfile": {
+    "backupRetentionDays": 7,
+    "geoRedundantBackup": "Disabled",
+    "storageMb": 5120
+  },
+  "tags": null,
+  "type": "Microsoft.DBforMySQL/servers",
+  "userVisibleState": "Ready",
+  "version": "5.7"
+}
+```
+
+## <a name="connect-to-the-server-using-mysql"></a>Conexión al servidor con MySQL
+Use la [herramienta de línea de comandos mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) para establecer una conexión con el servidor de Azure Database for MySQL. En este ejemplo, el comando es:
+```cmd
+mysql -h mydemoserver.database.windows.net -u myadmin@mydemoserver -p
+```
+
+## <a name="create-a-blank-database"></a>Crear una base de datos en blanco
+Una vez conectado al servidor, cree una base de datos vacía.
+```sql
+mysql> CREATE DATABASE mysampledb;
+```
+
+En el símbolo del sistema, ejecute el comando siguiente para cambiar la conexión a esta base de datos recién creada:
+```sql
+mysql> USE mysampledb;
+```
+
+## <a name="create-tables-in-the-database"></a>Creación de tablas en la base de datos
+Ahora que sabe cómo conectarse a la base de datos de Azure Database for MySQL, complete algunas tareas básicas.
+
+En primer lugar, cree una tabla y cárguela con algunos datos. Vamos a crear una tabla que almacena la información del inventario.
+```sql
+CREATE TABLE inventory (
+    id serial PRIMARY KEY, 
+    name VARCHAR(50), 
+    quantity INTEGER
+);
+```
+
+## <a name="load-data-into-the-tables"></a>Carga de datos en las tablas
+Ahora que tiene una tabla, inserte algunos datos en ella. En la ventana de símbolo del sistema abierta, ejecute la consulta siguiente para insertar algunas filas de datos.
+```sql
+INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
+INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
+```
+
+Ahora tiene dos filas de datos de ejemplo en la tabla que creó anteriormente.
+
+## <a name="query-and-update-the-data-in-the-tables"></a>Consulta y actualización de los datos en las tablas
+Ejecute la consulta siguiente para recuperar información de la tabla de base de datos.
+```sql
+SELECT * FROM inventory;
+```
+
+También puede actualizar los datos en las tablas.
+```sql
+UPDATE inventory SET quantity = 200 WHERE name = 'banana';
+```
+
+La fila se actualiza en consecuencia cuando se recuperan los datos.
+```sql
+SELECT * FROM inventory;
+```
+
+## <a name="next-steps"></a>Pasos siguientes
+En este tutorial aprendió lo siguiente:
+> [!div class="checklist"]
+> * Creación de un servidor de Azure Database for MySQL con el punto de conexión de servicio de red virtual mediante la plantilla de Azure Resource Manager
+> * Uso de la [herramienta de línea de comandos mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) para crear una base de datos
+> * Carga de datos de ejemplo
+> * Datos de consulta
+> * Actualización de datos
+
+> [Conexión de aplicaciones a Azure Database for MySQL](./howto-connection-string.md)

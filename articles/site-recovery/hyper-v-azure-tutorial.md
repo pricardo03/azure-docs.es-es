@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 44b5702aa765b0e821850f6a390432563126482d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6e0cff6725db52601b4639ad638216370dd3cfda
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839915"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810702"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurar la recuperación ante desastres de máquinas virtuales de Hyper-V locales en Azure
 
@@ -81,8 +81,24 @@ Ejecute el archivo de instalación del proveedor (AzureSiteRecoveryProvider.exe)
 5. En **Configuración de proxy**, seleccione **Conectar directamente con Azure Site Recovery sin un servidor proxy**.
 6. En **Registro**, una vez que el servidor se haya registrado en el almacén, haga clic en **Finalizar**.
 
-Los metadatos del servidor de Hyper-V se recuperan mediante Azure Site Recovery y el servidor se muestra en **Site Recovery Infrastructure** > **Hyper-V Hosts** (Infraestructura de Site Recovery > Hosts de Hyper-V). Este proceso puede tardar hasta 30 minutos.
+Los metadatos del servidor de Hyper-V se recuperan mediante Azure Site Recovery y el servidor se muestra en **Site Recovery Infrastructure** > **Hyper-V Hosts** (Infraestructura de Site Recovery > Hosts de Hyper-V). Este proceso puede tardar hasta 30 minutos.        
 
+En caso de que use un servidor central de Hyper-V, siga los pasos siguientes una vez que descargue las credenciales de proveedor y almacén, como se menciona [aquí](#set-up-the-source-environment).
+
+1. Para extraer los archivos de AzureSiteRecoveryProvider.exe, ejecute
+
+    ``AzureSiteRecoveryProvider.exe /x:. /q``
+ 
+    De este modo, los archivos se extraerán al directorio local.
+ 
+2.  Ejecute ``.\setupdr.exe /i ``
+
+    Los resultados se registrarán en %Programdata%\ASRLogs\DRASetupWizard.log
+
+3.  Registre el servidor mediante el comando:
+
+``cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved" ``
+ 
 
 ## <a name="set-up-the-target-environment"></a>Configuración del entorno de destino
 
