@@ -22,7 +22,7 @@ ms.lasthandoff: 11/07/2018
 ms.locfileid: "51260574"
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Movimiento de datos de Sybase mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio de Data Factory que está utilizando:"]
 > * [Versión 1](data-factory-onprem-sybase-connector.md)
 > * [Versión 2 (versión actual)](../connector-sybase.md)
 
