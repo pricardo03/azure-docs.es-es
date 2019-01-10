@@ -12,20 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/21/2018
+ms.date: 01/04/2018
 ms.author: b-juche
-ms.openlocfilehash: ff28429ba81a97ca85364364a2a432e39aaad380
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 0a5483cd5a6316cb5d6cba3a110ca757eb2171c8
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53414295"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104002"
 ---
 # <a name="register-for-azure-netapp-files"></a>Registro en Azure NetApp Files
 Antes de usar Azure NetApp Files, debe enviar una solicitud para inscribirse en el servicio.  Después de la inscripción, podrá registrarse para usar el servicio.
 
 ## <a name="request-to-enroll-in-the-service"></a>Solicitud para inscribirse en el servicio
-Tiene que formar parte del programa de la versión preliminar pública y figurar en la lista blanca para acceder al proveedor de recursos de Microsoft.NetApp. Para conocer más detalles sobre cómo unirse al programa de versión preliminar pública, visite la [página de registro en la versión preliminar pública de Azure NetApp Files](http://aka.ms/anfsignup). 
+Tiene que formar parte del programa de la versión preliminar pública y figurar en la lista blanca para acceder al proveedor de recursos de Microsoft.NetApp. Para conocer más detalles sobre cómo unirse al programa de versión preliminar pública, visite la [página de registro en la versión preliminar pública de Azure NetApp Files](https://aka.ms/nfspublicpreview). 
 
 
 ## <a name="register-the-netapp-resource-provider"></a>Registro del proveedor de recursos de NetApp

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: e6292c97d3e7bbbe74477188586257b4fbf91218
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: b6264d47c7627d72b8746c79e7e050fd468171de
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582718"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105124"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Supervisión de Azure Cache for Redis
 Azure Cache for Redis usa [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) para proporcionar varias opciones para la supervisión de instancias de caché. Puede ver las métricas, anclar los gráficos de métricas al panel de inicio, personalizar el intervalo de fecha y hora de los gráficos de supervisión, agregar y quitar métricas de los gráficos y establecer alertas cuando se cumplen determinadas condiciones. Estas herramientas permiten supervisar el estado de las instancias de Azure Cache for Redis y le ayudan a administrar sus aplicaciones de almacenamiento en caché.
 
-Las métricas de las instancias de Azure Cache for Redis se recopilan mediante el comando [INFO](http://redis.io/commands/info) de Redis aproximadamente dos veces por minuto y se almacenan automáticamente durante 30 días [consulte [Export cache metrics](#export-cache-metrics) (Exportación de métricas de caché) para configurar una directiva de retención diferente] por lo que se pueden mostrar en los gráficos de métricas y las pueden evaluar las reglas de alerta. Para obtener más información sobre los distintos valores INFO que se utilizan para las métricas de caché, consulte [Métricas disponibles e intervalos de informes](#available-metrics-and-reporting-intervals).
+Las métricas de las instancias de Azure Cache for Redis se recopilan mediante el comando [INFO](https://redis.io/commands/info) de Redis aproximadamente dos veces por minuto y se almacenan automáticamente durante 30 días [consulte [Export cache metrics](#export-cache-metrics) (Exportación de métricas de caché) para configurar una directiva de retención diferente] por lo que se pueden mostrar en los gráficos de métricas y las pueden evaluar las reglas de alerta. Para obtener más información sobre los distintos valores INFO que se utilizan para las métricas de caché, consulte [Métricas disponibles e intervalos de informes](#available-metrics-and-reporting-intervals).
 
 <a name="view-cache-metrics"></a>
 
@@ -98,7 +98,7 @@ Cada métrica incluye dos versiones. Una métrica mide el rendimiento de toda la
 
 | Métrica | DESCRIPCIÓN |
 | --- | --- |
-| Aciertos de caché |El número de búsquedas de claves correctas durante el intervalo de informes. Este valor se asigna a `keyspace_hits` desde el comando [INFO](http://redis.io/commands/info) de Redis. |
+| Aciertos de caché |El número de búsquedas de claves correctas durante el intervalo de informes. Este valor se asigna a `keyspace_hits` desde el comando [INFO](https://redis.io/commands/info) de Redis. |
 | Latencia de caché (versión preliminar) | Latencia de la memoria caché calculada a partir de la latencia entre nodos de la memoria caché. Esta métrica se mide en microsegundos y tiene tres dimensiones: "Promedio", "Mín." y "Máx.", que representan la latencia promedio, mínima y máxima de la memoria caché, respectivamente, durante el intervalo de informes especificado. |
 | Errores de caché |El número de búsquedas de claves incorrectas durante el intervalo de informes. Este valor se asigna a `keyspace_misses` desde el comando INFO de Redis. Los errores de caché no significan necesariamente que haya un problema con la memoria caché. Por ejemplo, cuando se utiliza el modelo de programación cache-aside, una aplicación busca un elemento en primer lugar en la memoria caché. Si el elemento no está allí (error de caché), se recupera de la base de datos y se agrega a la caché para la próxima vez. Los errores de caché son un comportamiento normal del modelo de programación cache-aside. Si el número de errores de caché es mayor de lo esperado, examine la lógica de aplicación que rellena y lee de la memoria caché. Si se expulsan los elementos de la memoria caché debido a la presión de memoria, puede haber algunos errores de caché; una métrica mejor para supervisar la presión de memoria sería `Used Memory` o `Evicted Keys`. |
 | Lectura de caché |La cantidad de datos que se leen de la memoria caché en megabytes por segundo (MB/s) durante el intervalo de informes especificado. Este valor se deriva de las tarjetas de interfaz de red que admiten la máquina virtual que hospeda la caché y no es específica de Redis. **Este valor corresponde al ancho de banda de red que emplea esta caché. Si desea configurar alertas para los límites de ancho de banda de red del lado servidor, hágalo mediante este contador `Cache Read`. Consulte [esta tabla](cache-faq.md#cache-performance) para conocer los límites de ancho de banda de los diferentes tamaños y planes de tarifa de caché.** |

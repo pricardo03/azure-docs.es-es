@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 3ed4039ae17828959f00de27c839454b63a7be6d
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: fe63813220d526536a31efb48b6ec29b6ae383e8
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998275"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121148"
 ---
 # <a name="set-alerts-in-application-insights"></a>Definición de alertas en Application Insights
 [Azure Application Insights][start] puede avisarle sobre los cambios en las métricas de rendimiento o de uso de la aplicación web. 
@@ -29,7 +29,7 @@ Hay tres tipos de alertas:
 
 * **Alertas de métricas** le avisan cuando una métrica cruza un valor de umbral durante un período determinado: por ejemplo, tiempos de respuesta, recuentos de excepciones, uso de la CPU o vistas de página. 
 * [**Pruebas web**][availability] le informan de que el sitio no está disponible en Internet o responde lentamente. [Más información][availability].
-* [**Diagnósticos proactivos**](../../application-insights/app-insights-proactive-diagnostics.md) se configuran automáticamente para que le notifiquen acerca de patrones de rendimiento no habituales.
+* [**Diagnósticos proactivos**](../../azure-monitor/app/proactive-diagnostics.md) se configuran automáticamente para que le notifiquen acerca de patrones de rendimiento no habituales.
 
 Nos centraremos en las alertas de métricas en este artículo.
 
@@ -41,7 +41,7 @@ Abra la hoja Reglas de alerta y, a continuación, utilice el botón Agregar.
 * Establezca el recurso antes de las demás propiedades. **Elija el recurso "(components)"** si desea establecer alertas sobre métricas de rendimiento o de uso.
 * El nombre que asigne a la alerta debe ser único dentro del grupo de recursos (no solo en la aplicación).
 * Asegúrese de tener en cuenta las unidades en las que se le pide que escriba el valor de umbral.
-* Si activa la casilla "Enviar correo electrónico a propietarios, colaboradores y lectores", las alertas se envían por correo electrónico a todos los usuarios con acceso a este grupo de recursos. Para expandir dicho conjunto de usuarios, agréguelos al [grupo de recursos o suscripción](../../application-insights/app-insights-resources-roles-access-control.md) (no al recurso).
+* Si activa la casilla "Enviar correo electrónico a propietarios, colaboradores y lectores", las alertas se envían por correo electrónico a todos los usuarios con acceso a este grupo de recursos. Para expandir dicho conjunto de usuarios, agréguelos al [grupo de recursos o suscripción](../../azure-monitor/app/resources-roles-access-control.md) (no al recurso).
 * Si especifica "Correos electrónicos adicionales", las alertas se envían a esos usuarios o grupos (independientemente de que haya activado la casilla anterior). 
 * Establezca una [dirección de webhook](../../azure-monitor/platform/alerts-webhooks.md) si ha configurado una aplicación web para responder a las alertas. Se llamará a esta dirección cuando la alerta se active y cuando se haya resuelto. (Pero tenga en cuenta que, en la actualidad, los parámetros de consulta no se pasan como propiedades de webhook).
 * Puede habilitar o deshabilitar la alerta: consulte los botones de la parte superior de la hoja.
@@ -51,7 +51,7 @@ Abra la hoja Reglas de alerta y, a continuación, utilice el botón Agregar.
 * ¿Está usando una cuenta de organización? Puede establecer alertas si tiene acceso de propietario o colaborador a este recurso de aplicación. Eche un vistazo a la hoja Access Control. [Más información sobre el control de acceso][roles].
 
 > [!NOTE]
-> En la hoja de alertas, verá que ya hay una alerta configurada: [Proactive Diagnostics](../../application-insights/app-insights-proactive-failure-diagnostics.md) La alerta automática supervisa una métrica determinada: el índice de errores de las solicitudes. A menos que decida deshabilitar esta opción, no es necesario establecer su propio índice de errores de las solicitudes. 
+> En la hoja de alertas, verá que ya hay una alerta configurada: [Proactive Diagnostics](../../azure-monitor/app/proactive-failure-diagnostics.md) La alerta automática supervisa una métrica determinada: el índice de errores de las solicitudes. A menos que decida deshabilitar esta opción, no es necesario establecer su propio índice de errores de las solicitudes. 
 > 
 > 
 
@@ -89,7 +89,7 @@ Las alertas más populares son:
 * **Tiempo de respuesta del servidor** para las aplicaciones web del lado servidor. Además de configurar alertas, eche un vistazo a esta métrica para ver si varía desproporcionadamente con tasas de solicitud altas: la variación puede indicar que la aplicación se está quedando sin recursos. 
 * **Excepciones de servidor** : para verlas, deberá realizar alguna [configuración adicional](../../azure-monitor/app/asp-net-exceptions.md).
 
-No olvide que los [diagnósticos proactivos de frecuencia de errores](../../application-insights/app-insights-proactive-failure-diagnostics.md) permiten supervisar automáticamente la velocidad a la que la aplicación responde a solicitudes con códigos de error. 
+No olvide que los [diagnósticos proactivos de frecuencia de errores](../../azure-monitor/app/proactive-failure-diagnostics.md) permiten supervisar automáticamente la velocidad a la que la aplicación responde a solicitudes con códigos de error. 
 
 ## <a name="automation"></a>Automation
 * [Uso de PowerShell para automatizar la configuración de alertas](../../azure-monitor/app/powershell-alerts.md)
@@ -102,13 +102,13 @@ No olvide que los [diagnósticos proactivos de frecuencia de errores](../../appl
 ## <a name="see-also"></a>Otras referencias
 * [Pruebas web de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Use PowerShell to set alerts in Application Insights (Uso de PowerShell para definir alertas en Application Insights)](../../azure-monitor/app/powershell-alerts.md)
-* [Proactive diagnostics](../../application-insights/app-insights-proactive-diagnostics.md) 
+* [Proactive diagnostics](../../azure-monitor/app/proactive-diagnostics.md) 
 
 <!--Link references-->
 
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [client]: ../../azure-monitor/app/javascript.md
 [platforms]: ../../azure-monitor/app/platforms.md
-[roles]: ../../application-insights/app-insights-resources-roles-access-control.md
-[start]: ../../application-insights/app-insights-overview.md
+[roles]: ../../azure-monitor/app/resources-roles-access-control.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 

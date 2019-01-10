@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: f733a321470321b5b0f8bce48b4ac7978027fab7
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 095ecdccde930db20ee858bfce7fc0811163cdd9
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973475"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038269"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtro y preprocesamiento de la telemetría en el SDK de Application Insights
 
 
 Puede escribir y configurar complementos para el SDK de Application Insights con el fin de personalizar cómo se captura y se procesa la telemetría antes de enviarla al servicio de Application Insights.
 
-* [muestreo](../../application-insights/app-insights-sampling.md) reduce el volumen de la telemetría sin que ello influya en las estadísticas. Mantiene juntos los puntos de datos relacionados para que pueda navegar entre ellos a la hora de diagnosticar un problema. En el portal, se multiplican los recuentos totales para compensar el muestreo.
+* [muestreo](../../azure-monitor/app/sampling.md) reduce el volumen de la telemetría sin que ello influya en las estadísticas. Mantiene juntos los puntos de datos relacionados para que pueda navegar entre ellos a la hora de diagnosticar un problema. En el portal, se multiplican los recuentos totales para compensar el muestreo.
 * El filtrado con procesadores de telemetría [para ASP.NET](#filtering) o [Java](../../azure-monitor/app/java-filter-telemetry.md) permite seleccionar o modificar la telemetría en el SDK antes de enviarla al servidor. Por ejemplo, para reducir el volumen de la telemetría puede excluir las solicitudes de robots. Sin embargo, el filtro constituye un enfoque más básico que el muestreo para reducir el tráfico. Permite ejercer más control sobre lo que se transmite, pero debe tener en cuenta que se verán afectadas las estadísticas: por ejemplo, si filtra todas las solicitudes correctas.
 * [inicializadores de telemetría agregan propiedades](#add-properties) a cualquier telemetría enviada desde la aplicación, incluida la de los módulos estándar. Por ejemplo, puede agregar valores calculados o números de versión para filtrar los datos en el portal.
 * [API del SDK](../../azure-monitor/app/api-custom-events-metrics.md) se usa para enviar métricas y eventos personalizados.
@@ -43,7 +43,7 @@ Para filtrar la telemetría, escriba un procesador de telemetría y regístrelo 
 > [!WARNING]
 > El filtrado de la telemetría enviada desde el SDK usando procesadores puede sesgar las estadísticas que se ven en el portal, y dificultar el seguimiento de elementos relacionados.
 >
-> En su lugar, puede efectuar un [muestreo](../../application-insights/app-insights-sampling.md).
+> En su lugar, puede efectuar un [muestreo](../../azure-monitor/app/sampling.md).
 >
 >
 
@@ -371,5 +371,5 @@ Puede agregar tantos inicializadores como desee.
 
 ## <a name="next"></a>Pasos siguientes
 * [Búsqueda de eventos y registros](../../azure-monitor/app/diagnostic-search.md)
-* [Muestreo](../../application-insights/app-insights-sampling.md)
-* [Solución de problemas](../../application-insights/app-insights-troubleshoot-faq.md)
+* [Muestreo](../../azure-monitor/app/sampling.md)
+* [Solución de problemas](../../azure-monitor/app/troubleshoot-faq.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: magoedte
-ms.openlocfilehash: 5a43e14401861ee33789054a8dcd48289dbbcc88
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9c62f4c58742c2c3247ff19b76575d1ca11499cb
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187184"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101640"
 ---
 # <a name="delete-an-azure-log-analytics-workspace-with-the-azure-portal"></a>Eliminación de una área de trabajo de Azure Log Analytics con Azure Portal
 En este tema se muestra cómo usar Azure Portal para eliminar un área de trabajo de Log Analytics que ya no necesite. 
@@ -38,7 +38,7 @@ Los agentes y grupos de administración de System Center Operations Manager conf
  
 Si es administrador y hay varios usuarios asociados al área de trabajo, se interrumpirá la asociación entre los usuarios y el área de trabajo. Si los usuarios están asociados a otras áreas de trabajo, podrán seguir utilizando Log Analytics con esas otras áreas de trabajo. Sin embargo, si no están asociados a otras áreas de trabajo, deberán crear un área de trabajo para poder usar Log Analytics. 
 
-1. Inicie sesión en el [Portal de Azure](http://portal.azure.com). 
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com). 
 2. En Azure Portal, haga clic en **Más servicios**, en la esquina inferior izquierda. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.
 3. En el panel de suscripciones de Log Analytics, seleccione un área de trabajo y, a continuación, haga clic en **Eliminar** desde la parte superior del panel intermedio.<br><br> ![Opción Eliminar desde el panel de propiedades del área de trabajo](media/delete-workspace/log-analytics-delete-workspace.png)<br>  
 4. Cuando aparezca de la ventana de mensaje de confirmación que le solicite que confirme la eliminación del área de trabajo, haga clic en **Sí**.<br><br> ![Confirmación de la eliminación del área de trabajo](media/delete-workspace/log-analytics-delete-workspace-confirm.png)

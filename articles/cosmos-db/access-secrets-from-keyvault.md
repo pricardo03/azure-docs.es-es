@@ -1,19 +1,20 @@
 ---
 title: Uso de Key Vault para almacenar claves de Azure Cosmos DB y acceder a ellas
 description: Use Azure Key Vault para almacenar claves, URI y cadenas de conexión de Azure Cosmos DB y acceder a ellos.
-services: cosmos-db
 author: rafats
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: rafats
-ms.openlocfilehash: f5d494006ebafab37bd10591ad02671e192d73e8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.reviewer: sngun
+ms.openlocfilehash: c80f555a3789a12420cef0dc91ef7accc6a4388d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837399"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036195"
 ---
 # <a name="use-key-vault-to-store-and-access-azure-cosmos-db-keys"></a>Uso de Key Vault para almacenar claves de Azure Cosmos DB y acceder a ellas
 

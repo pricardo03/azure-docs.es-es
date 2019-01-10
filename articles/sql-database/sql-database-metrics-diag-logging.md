@@ -11,28 +11,28 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 138368c8e79d68a9a9c5a711b99d8926da7dc68d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/03/2019
+ms.openlocfilehash: 49c411487a29a7faa5a6cec5087a85d472309a4b
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601566"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044576"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas y registros de diagnóstico de Azure SQL Database
 
 Azure SQL Database, los grupos elásticos, Instancia administrada y las bases de datos de Instancia administrada pueden transmitir métricas y registros de diagnóstico para facilitar la supervisión del rendimiento. Puede configurar una base de datos para optimizar el uso de recursos, los trabajos y sesiones, y la conectividad en uno de los siguientes recursos de Azure:
 
-* **Azure SQL Analytics**: para obtener supervisión inteligente de sus bases de datos de Azure que incluye informes de rendimiento, alertas y recomendaciones de mitigación.
-* **Azure Event Hubs**: para integrar la telemetría de SQL Database con una solución de supervisión personalizada o canalizaciones activas.
-* **Azure Storage**: para archivar grandes cantidades de telemetría por una fracción del precio.
+- **Azure SQL Analytics**: para obtener supervisión inteligente de sus bases de datos de Azure que incluye informes de rendimiento, alertas y recomendaciones de mitigación.
+- **Azure Event Hubs**: para integrar la telemetría de SQL Database con una solución de supervisión personalizada o canalizaciones activas.
+- **Azure Storage**: para archivar grandes cantidades de telemetría por una fracción del precio.
 
     ![Arquitectura](./media/sql-database-metrics-diag-logging/architecture.png)
 
 Para más información sobre las métricas y las categorías de registro admitidas por los diversos servicios de Azure, consulte:
 
-* [Información general sobre las métricas en Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-* [Información general de los registros de diagnóstico de Azure](../azure-monitor/platform/diagnostic-logs-overview.md)
+- [Información general sobre las métricas en Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
+- [Información general de los registros de diagnóstico de Azure](../azure-monitor/platform/diagnostic-logs-overview.md)
 
 En este artículo se proporciona orientación para ayudarle a habilitar telemetría de diagnósticos para bases de datos, grupos elásticos e Instancia administrada. También puede ayudarle a saber cómo configurar Azure SQL Analytics como una herramienta de supervisión que permita visualizar los datos de telemetría de diagnóstico de las bases de datos.
 
@@ -101,7 +101,6 @@ Para habilitar el streaming de telemetría de diagnóstico para Azure SQL Databa
 
 > [!NOTE]
 > Los registros de auditoría de seguridad no se pueden habilitar en la configuración de diagnóstico de la base de datos. Para habilitar el streaming de registros de auditoría, consulte [Configuración de la auditoría para su base de datos](sql-database-auditing.md#subheading-2) y [SQL Audit logs in Azure Log Analytics and Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/) (Registros de auditoría de SQL en Azure Log Analytics y Azure Event Hubs).
-
 > [!TIP]
 > Repita estos pasos para cada instancia de Azure SQL Database que quiera supervisar.
 
@@ -112,17 +111,17 @@ Para habilitar el streaming de telemetría de diagnóstico para Azure SQL Databa
 Para habilitar el streaming de telemetría de diagnóstico para bases de datos de Instancia administrada, siga estos pasos:
 
 1. Vaya a la base de datos de Instancia administrada.
-1. Seleccione **Configuración de diagnóstico**.
-1. Seleccione **Activar diagnóstico** si no existe ninguna configuración anterior o **Editar configuración** para editar una configuración anterior.
+2. Seleccione **Configuración de diagnóstico**.
+3. Seleccione **Activar diagnóstico** si no existe ninguna configuración anterior o **Editar configuración** para editar una configuración anterior.
    - Se pueden crear hasta tres (3) conexiones paralelas para hacer streaming de la telemetría de diagnóstico.
    - Seleccione **+Agregar configuración de diagnóstico** para configurar el streaming en paralelo de diagnóstico a varios recursos.
 
    ![Habilitación de diagnósticos en una base de datos de Instancia Administrada](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
 
-1. Escriba un nombre de configuración para su propia referencia.
-1. Seleccione un recurso de destino para los datos de diagnóstico de streaming: **Archivar en una cuenta de almacenamiento**, **Transmitir en secuencias a un centro de eventos** o **Enviar a Log Analytics**.
-1. Active las casillas para la telemetría de diagnóstico de base de datos: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** y **Errores**.
-1. Seleccione **Guardar**.
+4. Escriba un nombre de configuración para su propia referencia.
+5. Seleccione un recurso de destino para los datos de diagnóstico de streaming: **Archivar en una cuenta de almacenamiento**, **Transmitir en secuencias a un centro de eventos** o **Enviar a Log Analytics**.
+6. Active las casillas para la telemetría de diagnóstico de base de datos: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** y **Errores**.
+7. Seleccione **Guardar**.
 
    ![Configuración de diagnósticos en una base de datos de Instancia Administrada](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
 
@@ -170,7 +169,7 @@ Puede configurar un recurso de Instancia administrada para recopilar los siguien
 
 | Recurso | Telemetría de supervisión |
 | :------------------- | ------------------- |
-| **Instancia administrada** | [ResourceUsageStats](sql-database-metrics-diag-logging.md#resource-usage-stats): contiene el número de núcleos virtuales, el porcentaje medio de CPU, las solicitudes de E/S, los bytes leídos y escritos, el espacio de almacenamiento reservado y el espacio de almacenamiento utilizado. |
+| **Instancia administrada** | [ResourceUsageStats](sql-database-metrics-diag-logging.md#logs-for-managed-instance): contiene el número de núcleos virtuales, el porcentaje medio de CPU, las solicitudes de E/S, los bytes leídos y escritos, el espacio de almacenamiento reservado y el espacio de almacenamiento utilizado. |
 
 Para habilitar el streaming de telemetría de diagnóstico de un recurso de Instancia administrada, siga estos pasos:
 
@@ -338,11 +337,11 @@ Una vez que los datos seleccionados se transmiten a los Event Hubs, está un pas
 
 Puede usar las métricas transmitidas en Event Hubs para:
 
-* **Visualización del estado del servicio mediante la transmisión de datos de ruta de acceso activa a Power BI**. Con Event Hubs, Stream Analytics y Power BI, puede transformar fácilmente las métricas y los datos de diagnóstico en información prácticamente en tiempo real sobre los servicios de Azure. Para obtener información general sobre cómo configurar un centro de Event Hubs, procesar datos con Stream Analytics y usar Power BI como salida, vea [Stream Analytics y Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md).
+- **Visualización del estado del servicio mediante la transmisión de datos de ruta de acceso activa a Power BI**. Con Event Hubs, Stream Analytics y Power BI, puede transformar fácilmente las métricas y los datos de diagnóstico en información prácticamente en tiempo real sobre los servicios de Azure. Para obtener información general sobre cómo configurar un centro de Event Hubs, procesar datos con Stream Analytics y usar Power BI como salida, vea [Stream Analytics y Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md).
 
-* **Transmisión de registros a registros de terceros y flujos de telemetría**. Con la transmisión de Event Hubs puede enviar las métricas y los registros de diagnóstico a distintas soluciones de supervisión y análisis de registros de terceros.
+- **Transmisión de registros a registros de terceros y flujos de telemetría**. Con la transmisión de Event Hubs puede enviar las métricas y los registros de diagnóstico a distintas soluciones de supervisión y análisis de registros de terceros.
 
-* **Creación de una plataforma personalizada de registro y telemetría**. ¿Tiene ya una plataforma de telemetría personalizada o está pensando en crear una? La naturaleza de suscribir a publicación altamente escalable de Event Hubs le permite ingerir registros de diagnóstico de forma flexible. Vea la [guía de Dan Rosanova para usar Event Hubs en una plataforma de telemetría de escala global](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
+- **Creación de una plataforma personalizada de registro y telemetría**. ¿Tiene ya una plataforma de telemetría personalizada o está pensando en crear una? La naturaleza de suscribir a publicación altamente escalable de Event Hubs le permite ingerir registros de diagnóstico de forma flexible. Vea la [guía de Dan Rosanova para usar Event Hubs en una plataforma de telemetría de escala global](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
 ## <a name="stream-into-storage"></a>Transmisión a Storage
 
@@ -386,7 +385,7 @@ Si usa Azure SQL Analytics, puede supervisar el consumo de ingesta de datos en l
 
 ## <a name="metrics-and-logs-available"></a>Métricas y registros disponibles
 
-Los datos de telemetría de supervisión recopilados pueden utilizarse para realizar su propio _análisis personalizado_ y su propio _desarrollo de aplicaciones_ utilizando el [lenguaje de SQL Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries). 
+Los datos de telemetría de supervisión recopilados pueden utilizarse para realizar su propio _análisis personalizado_ y su propio _desarrollo de aplicaciones_ utilizando el [lenguaje de SQL Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
 
 ## <a name="all-metrics"></a>Todas las métricas
 
@@ -690,12 +689,12 @@ Obtenga más información sobre el [formato de registro de Intelligent Insights]
 
 Para aprender a habilitar el registro y comprender las métricas y las categorías de registro admitidas por los diferentes servicios de Azure, vea lo siguiente:
 
-* [Información general sobre las métricas en Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-* [Información general de los registros de diagnóstico de Azure](../azure-monitor/platform/diagnostic-logs-overview.md)
+- [Información general sobre las métricas en Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
+- [Información general de los registros de diagnóstico de Azure](../azure-monitor/platform/diagnostic-logs-overview.md)
 
 Para obtener información sobre Event Hubs, lea lo siguiente:
 
-* [¿Qué es Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
-* [Introducción a Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+- [¿Qué es Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
+- [Introducción a Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 Para obtener más información acerca de Azure Storage, vea [cómo descargar métricas y registros de diagnóstico desde Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).

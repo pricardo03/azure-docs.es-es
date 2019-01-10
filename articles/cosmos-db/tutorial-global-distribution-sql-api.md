@@ -1,20 +1,18 @@
 ---
 title: Tutorial de distribución global de Azure Cosmos DB para API de SQL
 description: Obtenga información sobre cómo configurar la distribución global de Azure Cosmos DB con SQL API.
-services: cosmos-db
-keywords: distribución global
-author: rafats
+author: rimman
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 05/10/2017
-ms.author: rafats
-ms.custom: mvc
-ms.openlocfilehash: 8bef38aca9c14dbddb30b57871267490bc03e00f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.author: rimman
+ms.reviewer: sngun
+ms.openlocfilehash: 19e0dd8a60155272f2e338c760db409d20a9f755
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863489"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157248"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Configuración de la distribución global de Azure Cosmos DB con SQL API
 
@@ -94,7 +92,7 @@ Los puntos de conexión de lectura y escritura actuales están disponibles en Do
 
 A continuación, se muestra un ejemplo de código para JavaScript y NodeJS. Python y Java siguen el mismo patrón.
 
-```java
+```JavaScript
 // Creating a ConnectionPolicy object
 var connectionPolicy = new DocumentBase.ConnectionPolicy();
 
