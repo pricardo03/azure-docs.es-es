@@ -9,21 +9,21 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: e448b367e574b044762fb1ee7eaa30e1bb3e1f8b
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: a6c17ad8d4af568d910597da4b44f09676d1c36a
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011749"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652497"
 ---
-# <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Uso de Sqoop con Hadoop en HDInsight
+# <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Uso de Apache Sqoop con Hadoop en HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
 Aprenda a utilizar Apache Sqoop en HDInsight para importar y exportar elementos entre un clúster de HDInsight y una base de datos de SQL Server o la base de datos SQL de Azure.
 
 A pesar de que Apache Hadoop es una opción natural para procesar datos no estructurados y datos semiestructurados, como registros y archivos, es posible que también sea necesario procesar datos estructurados almacenados en bases de datos relacionales.
 
-[Apache Sqoop][sqoop-user-guide-1.4.4] es una herramienta diseñada para transferir datos entre clústeres de Hadoop y las bases de datos relacionales. Puede usarla para importar datos desde un sistema de administración de bases de datos relacionales (RDBMS) como SQL Server, MySQL u Oracle en el sistema de archivos distribuidos Hadoop (HDFS), transformar los datos de Hadoop con MapReduce o Hive y, a continuación, exportar los datos en un RDBMS. En este tutorial, usará una base de datos de SQL Server como base de datos relacional.
+[Apache Sqoop][sqoop-user-guide-1.4.4] es una herramienta diseñada para transferir datos entre clústeres de Hadoop y las bases de datos relacionales. Puede usarla para importar datos desde un sistema de administración de bases de datos relacionales (RDBMS) como SQL Server, MySQL u Oracle en el sistema de archivos distribuidos Hadoop (HDFS), transformar los datos de Hadoop con MapReduce o Apache Hive y, a continuación, exportar los datos en un RDBMS. En este tutorial, usará una base de datos de SQL Server como base de datos relacional.
 
 Para ver las versiones de Sqoop compatibles con los clústeres de HDInsight, consulte [Novedades en las versiones de clústeres proporcionadas por HDInsight][hdinsight-versions].
 
@@ -31,7 +31,7 @@ Para ver las versiones de Sqoop compatibles con los clústeres de HDInsight, con
 
 El clúster de HDInsight incluye algunos datos de ejemplo. Utilice los dos ejemplos siguientes:
 
-* Un archivo registro log4j, ubicado en */example/data/sample.log*. Los registros siguientes se extraen del archivo:
+* Un archivo registro de Apache Log4j, ubicado en */example/data/sample.log*. Los registros siguientes se extraen del archivo:
   
         2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
@@ -65,7 +65,7 @@ En esta sección se muestra cómo crear un clúster, una instancia de SQL Databa
 
 Si prefiere usar Azure PowerShell para crear el clúster y SQL Database; consulte el [Apéndice A](#appendix-a---a-powershell-sample).
 
-> [!NOTE]
+> [!NOTE]  
 > La importación mediante Azure Portal solo admite la importación de un archivo BACPAC desde Azure Blob Storage.
 
 **Configurar el entorno con una plantilla de administración de recursos**
@@ -101,32 +101,29 @@ Si opta por usar la base de datos SQL de Azure existente o Microsoft SQL Server
 
 * **Azure SQL Database**: debe configurar una regla de firewall para que el servidor de Azure SQL Database permita el acceso desde la estación de trabajo. Para obtener instrucciones sobre cómo crear una base de datos SQL de Azure y configurar el firewall, consulte [Introducción al uso de Azure SQL Database][sqldatabase-get-started]. 
   
-  > [!NOTE]
+  > [!NOTE]  
   > De forma predeterminada, una base de datos SQL de Azure permite realizar conexiones desde servicios de Azure, como HDInsight de Azure. Si la configuración del firewall está deshabilitada, debe habilitarla en Azure Portal. Para obtener instrucciones sobre la creación de una base de datos de Azure SQL Database y la configuración de las reglas de firewall, consulte [Creación y configuración de SQL Database][sqldatabase-create-configure].
-  > 
-  > 
+
 * **SQL Server**: si el clúster de HDInsight se encuentra en la misma red virtual de Azure que un SQL Server, puede seguir los pasos indicados en este artículo para importar y exportar datos a una base de datos de SQL Server.
   
-  > [!NOTE]
+  > [!NOTE]  
   > HDInsight solo admite redes virtuales basadas en la ubicación y actualmente no funciona con redes virtuales basadas en grupos de afinidad.
-  > 
-  > 
+
   
   * Para crear y configurar una red virtual, consulte [Creación de una red virtual mediante Azure Portal](../../virtual-network/quick-create-portal.md).
     
     * Cuando use SQL Server en el centro de datos, debe configurar la red virtual como de *sitio a sitio* o de *punto a sitio*.
       
-      > [!NOTE]
+      > [!NOTE]  
       > En el caso de las redes virtuales de **punto a sitio**, SQL Server debe ejecutarse en la aplicación de configuración de clientes VPN, que se encuentra disponible en el **Panel** de la configuración de red virtual de Azure.
-      > 
-      > 
+
+
     * Si usa SQL Server en una máquina virtual de Azure, se puede usar cualquier configuración de red virtual si la máquina virtual que hospeda SQL Server es miembro de la misma red virtual que HDInsight.
-  * Para crear un clúster de HDInsight en una red virtual, consulte [Creación de clústeres de Hadoop basados en Windows en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
+  * Para crear un clúster de HDInsight en una red virtual, consulte [Creación de clústeres de Apache Hadoop basados en Windows en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
     
-    > [!NOTE]
+    > [!NOTE]  
     > SQL Server también debe permitir la autenticación. Debe usar un inicio de sesión de SQL Server para completar los pasos de este artículo.
-    > 
-    > 
+
 
 **Validar la configuración**
 
@@ -158,8 +155,8 @@ HDInsight puede ejecutar trabajos de Sqoop mediante una variedad de métodos. Us
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 
-* [Uso de Hive con HDInsight](../hdinsight-use-hive.md)
-* [Uso de Pig con HDInsight](../hdinsight-use-pig.md)
+* [Uso de Apache Hive con HDInsight](../hdinsight-use-hive.md)
+* [Uso de Apache Pig con HDInsight](../hdinsight-use-pig.md)
 * [Carga de datos en HDInsight][hdinsight-upload-data]: busque otros métodos para cargar datos en HDInsight o Azure Blob Storage.
 
 ## <a name="appendix-a---a-powershell-sample"></a>Apéndice A - un ejemplo de PowerShell
@@ -211,7 +208,7 @@ El ejemplo de PowerShell lleva a cabo los siguientes pasos:
    
     El archivo de origen es tutorials/usesqoop/data/sample.log. La tabla donde se exportan los datos se denomina log4jlogs.
    
-   > [!NOTE]
+   > [!NOTE]  
    > Aparte de la información de la cadena de conexión, los pasos indicados en esta sección deben funcionar para una base de datos SQL de Azure o para SQL Server. Estos pasos se probaron con la siguiente configuración:
    > 
    > * **Configuración de punto a sitio de la red virtual de Azure**: red virtual que conecta el clúster de HDInsight a SQL Server en un centro privado de datos. Para obtener más información, consulte [Configuración de una VPN de punto a sitio en el Portal de administración](../../vpn-gateway/vpn-gateway-point-to-site-create.md) .
@@ -260,7 +257,7 @@ $sqlDatabaseConnectionString = "Data Source=$sqlDatabaseServerName.database.wind
 $sqlDatabaseMaxSizeGB = 10
 
 # Used for retrieving external IP address and creating firewall rules
-$ipAddressRestService = "http://bot.whatismyipaddress.com"
+$ipAddressRestService = "https://bot.whatismyipaddress.com"
 $fireWallRuleName = "UseSqoop"
 
 # Used for creating tables and clustered indexes

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: b5083a2af335bd40dc55f7f325ac0a4ad125b682
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 03b4cc919086ff2a8eb038ad9c4f45200e9a6246
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384238"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715122"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Administración de clústeres de HDInsight mediante la API REST de Apache Ambari
 
@@ -26,7 +26,7 @@ Apache Ambari simplifica la administración y la supervisión de un clúster de 
 
 ## <a id="whatis"></a>¿Qué es Apache Ambari?
 
-[Apache Ambari](http://ambari.apache.org) proporciona una interfaz de usuario web que puede usarse para administrar y supervisar clústeres de Hadoop. Los desarrolladores pueden integrar estas funcionalidades en sus aplicaciones mediante el uso de las [API de REST de Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+[Apache Ambari](https://ambari.apache.org) proporciona una interfaz de usuario web que puede usarse para administrar y supervisar clústeres de Hadoop. Los desarrolladores pueden integrar estas funcionalidades en sus aplicaciones mediante el uso de las [API de REST de Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 De manera predeterminada, Ambari viene con los clústeres de HDInsight basado en Linux.
 
@@ -232,7 +232,7 @@ foreach($item in $respObj.items) {
 
 ## <a name="example-get-the-default-storage"></a>Ejemplo: obtener el almacenamiento predeterminado
 
-Cuando crea un clúster de HDInsight, debe usar una cuenta de Azure Storage o Data Lake Store como el almacenamiento predeterminado para el clúster. Puede usar Ambari para recuperar esta información una vez creado el clúster. Por ejemplo, si desea leer y escribir datos en el contenedor fuera de HDInsight.
+Cuando crea un clúster de HDInsight, debe usar una cuenta de Azure Storage o Data Lake Storage como el almacenamiento predeterminado para el clúster. Puede usar Ambari para recuperar esta información una vez creado el clúster. Por ejemplo, si desea leer y escribir datos en el contenedor fuera de HDInsight.
 
 En los ejemplos siguientes se recupera la configuración de almacenamiento predeterminada del clúster:
 
@@ -255,9 +255,9 @@ El valor devuelto es similar a uno de los ejemplos siguientes:
 
 * `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net`: este valor indica que el clúster usa una cuenta de Azure Storage para el almacenamiento predeterminado. El valor `ACCOUNTNAME` es el nombre de la cuenta de almacenamiento. La parte `CONTAINER` es el nombre del contenedor de blobs de la cuenta de almacenamiento. El contenedor es la raíz del almacenamiento HDFS compatible del clúster.
 
-* `adl://home`: este valor indica que el clúster usa Azure Data Lake Store como almacenamiento predeterminado.
+* `adl://home`: este valor indica que el clúster usa Azure Data Lake Storage como almacenamiento predeterminado.
 
-    Para buscar el nombre de cuenta de Data Lake Store, utilice los siguientes ejemplos:
+    Para buscar el nombre de cuenta de Data Lake Storage, utilice los siguientes ejemplos:
 
     ```bash
     curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
@@ -271,9 +271,9 @@ El valor devuelto es similar a uno de los ejemplos siguientes:
     $respObj.items.configurations.properties.'dfs.adls.home.hostname'
     ```
 
-    El valor devuelto es similar a `ACCOUNTNAME.azuredatalakestore.net`, donde `ACCOUNTNAME` es el nombre de la cuenta de Data Lake Store.
+    El valor devuelto es similar a `ACCOUNTNAME.azuredatalakestore.net`, donde `ACCOUNTNAME` es el nombre de la cuenta de Data Lake Storage.
 
-    Para encontrar el directorio en Data Lake Store que contiene el almacenamiento para el clúster, use los siguientes ejemplos:
+    Para encontrar el directorio en Data Lake Storage que contiene el almacenamiento para el clúster, use los siguientes ejemplos:
 
     ```bash
     curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
@@ -287,7 +287,7 @@ El valor devuelto es similar a uno de los ejemplos siguientes:
     $respObj.items.configurations.properties.'dfs.adls.home.mountpoint'
     ```
 
-    El valor devuelto es similar a `/clusters/CLUSTERNAME/`. Este valor es una ruta de acceso dentro de la cuenta de Data Lake Store. Esta ruta de acceso es la raíz del sistema de archivos HDFS compatible para el clúster. 
+    El valor devuelto es similar a `/clusters/CLUSTERNAME/`. Este valor es una ruta de acceso dentro de la cuenta de Data Lake Storage. Esta ruta de acceso es la raíz del sistema de archivos HDFS compatible para el clúster. 
 
 > [!NOTE]  
 > El cmdlet `Get-AzureRmHDInsightCluster` proporcionado por [Azure PowerShell](/powershell/azure/overview) también devuelve la información de almacenamiento para el clúster.

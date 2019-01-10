@@ -4,19 +4,19 @@ description: Información acerca de problemas conocidos y limitaciones de migrac
 services: database-migration
 author: HJToland3
 ms.author: scphang
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/22/2018
-ms.openlocfilehash: b83c889e72acb320c308c3ad5ee6243e715fd523
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: ec91eec9baba1f337f18e1927a87971bf1499040
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282883"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724154"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Problemas conocidos y limitaciones de migración con las migraciones en línea a Azure DB for PostgreSQL
 
@@ -78,7 +78,7 @@ Los problemas conocidos y las limitaciones relacionadas con las migraciones en l
 
 - **Limitación**: si hay un tipo de datos ENUM en la base de datos PostgreSQL de origen, se producirá un error en la migración durante la sincronización continua.
 
-    **Solución alternativa**: modificar el tipo de datos ENUM a character varying en Azure Database for PostgreSQL.
+    **Solución alternativa**: modificar el tipo de datos ENUM a "character varying" en Azure Database for PostgreSQL.
 
 - **Limitación**: si no hay ninguna clave principal en las tablas, se producirá un error en la sincronización continua.
 
@@ -91,7 +91,7 @@ Las columnas de objetos grandes (LOB) son columnas que pueden alcanzar un tamañ
 
     **Solución alternativa**: reemplazar la clave principal por otros tipos de datos o columnas que no sean de LOB.
 
-- **Limitación**: si la longitud de columna de objetos grandes (LOB) es mayor que 32 KB, es posible que se trunquen los datos en el destino. Puede comprobar la longitud de columna de LOB mediante esta consulta:
+- **Limitación**: Si la longitud de columna de objetos grandes (LOB) es mayor que 32 KB, es posible que se trunquen los datos en el destino. Puede comprobar la longitud de columna de LOB mediante esta consulta:
 
     ```
     SELECT max(length(cast(body as text))) as body FROM customer_mail

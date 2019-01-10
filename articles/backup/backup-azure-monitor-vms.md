@@ -8,17 +8,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: raynew
-ms.openlocfilehash: 0cfbb258364ed684ff38b2be9f998d8ff0656251
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a7f09341c1362850409a940810a4e2dd20aa7f74
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864543"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745047"
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Supervisión de alertas de copias de seguridad de máquinas virtuales de Azure
+
 Las alertas son las respuestas del servicio que indican que se ha alcanzado o superado un umbral de evento. Saber cuándo comenzaron los problemas puede ser vital para reducir los costos del negocio. Las alertas no se producen de forma programada por lo general, por lo que resulta útil conocerlas tan pronto como se produjeron. Por ejemplo, cuando se produce un error en un trabajo de copia de seguridad o de restauración, se produce una alerta en los cinco minutos siguientes al error. En el panel del almacén, el icono Alertas de copias de seguridad muestra eventos de nivel crítico y de advertencia. En la configuración de Alertas de copias de seguridad, puede ver todos los eventos. Pero, ¿qué hacer si se produce una alerta cuando está trabajando en otro asunto? Si no sabe cuándo se produce la alerta, esto puede ser un inconveniente secundario o puede llegar incluso a comprometer los datos. Para asegurarse de que las personas adecuadas se enteran de una alerta cuando esta se produce, configure el servicio para enviar notificaciones de alerta por correo electrónico. Para más información acerca de cómo configurar las notificaciones por correo electrónico, consulte [Configuración de notificaciones](backup-azure-monitor-vms.md#configure-notifications).
 
 ## <a name="how-do-i-find-information-about-the-alerts"></a>¿Cómo se puede encontrar información sobre las alertas?
+
 Para ver información sobre el evento que generó una alerta, debe abrir la sección Alertas de copias de seguridad. Hay dos maneras de abrir la sección Alertas de copias de seguridad: mediante el icono de Alertas de copias de seguridad del panel del almacén o mediante la sección Alertas y eventos.
 
 Para abrir la hoja Alertas de copias de seguridad desde el icono correspondiente:
@@ -43,6 +45,7 @@ Para abrir la hoja Alertas de copias de seguridad desde la sección Alertas y ev
     Para personalizar los atributos mostrados en la lista, consulte [Visualización de atributos adicionales de eventos](backup-azure-monitor-vms.md#view-additional-event-attributes)
 
 ## <a name="configure-notifications"></a>Configuración de notificaciones
+
  Puede configurar el servicio para que envíe notificaciones de correo electrónico para las alertas que se produjeron durante la última hora o cuando se producen determinados tipos de eventos.
 
 Configuración de notificaciones de correo electrónico para alertas
@@ -62,14 +65,16 @@ Configuración de notificaciones de correo electrónico para alertas
 5. En el cuadro de diálogo **Gravedad** , elija los niveles que desee que desencadenen notificaciones de correo electrónico.
 6. Haga clic en **Save**(Guardar).
 
-   ### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Tipos de alerta disponibles para la copia de seguridad de máquinas virtuales de IaaS de Azure
+### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Tipos de alerta disponibles para la copia de seguridad de máquinas virtuales de IaaS de Azure
+
    | Nivel de alerta | Alertas enviadas |
    | --- | --- |
    | Crítico | Error de copia de seguridad, error de recuperación |
    | Advertencia | Para trabajos de copia de seguridad realizados correctamente con advertencias (por ejemplo, se produjo un error en algunos escritores al crear una instantánea) |
    | Informativo | Actualmente, no hay alertas informativas disponibles para la copia de seguridad de máquinas virtuales de Azure |
 
-### <a name="are-there-situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>¿Existen situaciones en las que no se envía ningún correo electrónico incluso si las notificaciones se configuran?
+### <a name="situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Situaciones en las que no se envía ningún correo electrónico incluso si se configuran las notificaciones
+
 En efecto, hay situaciones en las que no se envía ninguna alerta aunque las notificaciones se hayan configurado correctamente. Para evitar ruido de alertas, no se envían notificaciones por correo electrónico en las situaciones siguientes:
 
 * Si las notificaciones están configuradas mediante la opción Resumen cada hora y se genera una alerta y esta se resuelve en menos de una hora.
@@ -79,9 +84,13 @@ En efecto, hay situaciones en las que no se envía ninguna alerta aunque las not
 
 ## <a name="using-activity-logs-to-get-notifications-for-successful-backups"></a>Uso de registros de actividad para obtener notificaciones de copias de seguridad correctas
 
+> [!NOTE]
+> Hemos pasado a un nuevo modelo de suministro de los registros de actividad a partir de Azure Backup en almacenes de Recovery Services. Lamentablemente, esto ha afectado a la generación de registros de actividad en las nubes soberanas de Azure. Si los usuarios de nubes soberanas de Azure crean y configuran alertas de registros de actividad a través de Azure Monitor, como se menciona aquí, no se desencadenarían. En ese caso, aconsejaríamos a estos usuarios que usen la configuración de diagnóstico y el área de trabajo de LA o bien la [solución de informes de Power BI](backup-azure-configure-reports.md) para obtener la información pertinente. Además, en todas las regiones públicas de Azure, si un usuario está recopilando los registros de actividad de Recovery Services en un área de trabajo de Log Analytics, como se menciona [aquí](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity), estos registros también podrían no aparecer.
+
 Si desea que se le notifique que las copias de seguridad se han realizado correctamente, puede usar las alertas creadas en los [registros de actividad](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) del almacén.
 
 ### <a name="login-into-azure-portal"></a>Inicio de sesión en Azure Portal
+
 Inicie sesión en Azure Portal y vaya al almacén de Azure Recovery Services que le interese. Haga clic en la sección "Registro de actividad" en las propiedades.
 
 ### <a name="identify-appropriate-log"></a>Identificación del registro apropiado
@@ -98,9 +107,7 @@ A continuación, haga clic en "Agregar alerta de registro de actividad" para gen
 
 Al hacer clic en "Agregar alerta de registro de actividad" se muestra una pantalla, tal y como se ilustra a continuación:
 
-![Alerta de registro de actividad](./media/backup-azure-monitor-vms/activity-logs-alerts-successful.png)
-    
-La suscripción y el grupo de recursos se usan para almacenar la alerta. Los criterios se rellenan previamente. Asegúrese de que todos los valores son pertinentes para sus necesidades.
+![Alerta del registro de actividad](./media/backup-azure-monitor-vms/activity-logs-alerts-successful.png) La suscripción y el grupo de recursos se usan para almacenar la alerta. Los criterios se rellenan previamente. Asegúrese de que todos los valores son pertinentes para sus necesidades.
 
 Cuando las copias de seguridad son correctas, el nivel está marcado como "Informativo" y el estado como "Correcto".
 
@@ -112,18 +119,19 @@ Use el grupo de recursos para definir la acción tras generar una alerta. Puede 
 
 ![Grupo de acciones del registro de actividad](./media/backup-azure-monitor-vms/activity-logs-alerts-action-group.png)
 
-
 Una vez que se hace clic en Aceptar, se genera una alerta de registro de actividad y los sucesivos registros de actividad anotados por copias de seguridad correctas activan la acción definida en el grupo de acciones.
 
 ### <a name="limitations-on-alerts"></a>Limitaciones de las alertas
+
 Las alertas basadas en eventos están sometidas a las siguientes limitaciones:
 
 1. Las alertas se activan en todas las máquinas virtuales del almacén de Recovery Services. No se puede personalizar la alerta para un subconjunto de máquinas virtuales en un almacén de Recovery Services.
 2. Las alertas se envían desde "alerts-noreply@mail.windowsazure.com". Actualmente, no se puede modificar el remitente de correo electrónico.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Para información sobre cómo volver a crear una máquina virtual a partir de un punto de recuperación, consulte [Restauración de máquinas virtuales en Azure](backup-azure-arm-restore-vms.md).
 
-Si necesita información sobre la protección de las máquinas virtuales, consulte [Primer análisis: Copia de seguridad de máquinas virtuales de Azure en almacenes de Recovery Services](backup-azure-vms-first-look-arm.md). 
+Si necesita información sobre la protección de las máquinas virtuales, consulte [Primer análisis: Copia de seguridad de máquinas virtuales de Azure en almacenes de Recovery Services](backup-azure-vms-first-look-arm.md).
 
 Aprenda más sobre las tareas de administración de las copias de seguridad de máquina virtual en el artículo [Administración de copias de seguridad de máquinas virtuales de Azure](backup-azure-manage-vms.md).

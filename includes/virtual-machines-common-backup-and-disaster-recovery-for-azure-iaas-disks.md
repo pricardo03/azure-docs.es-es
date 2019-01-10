@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: luywang
 ms.custom: include file
-ms.openlocfilehash: 7f093a1878bc3cf7e91cc14ec7a68b1a84764a49
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5c7c9938b6a0b3d2e6050940154a8dc3f114341e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39486011"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53638823"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Copia de seguridad y recuperación ante desastres para discos IaaS de Azure
 
@@ -144,7 +144,7 @@ Use los pasos siguientes para habilitar las copias de seguridad de las máquinas
 
 1.  Creación de un almacén de servicios de recuperación para una máquina virtual:
 
-    a. En [Azure Portal](https://portal.azure.com/), examine **Todos los recursos** y busque **Almacenes de Recovery Services**.
+     a. En [Azure Portal](https://portal.azure.com/), examine **Todos los recursos** y busque **Almacenes de Recovery Services**.
 
     b. En el menú **Almacenes de Recovery Services**, haga clic en **Agregar** y siga estos pasos para crear otro almacén en la misma región que la máquina virtual. Por ejemplo, si la máquina virtual se encuentra en la región del oeste de EE. UU, elija Oeste de EE. UU. para el almacén.
 
@@ -152,7 +152,7 @@ Use los pasos siguientes para habilitar las copias de seguridad de las máquinas
 
 1.  Configure la directiva de copia de seguridad y seleccione la máquina virtual en la misma interfaz de usuario.
 
-1.  Asegúrese de que Backup Agent está instalado en la máquina virtual. Si la máquina virtual se crea con una imagen de la galería de Azure, ya tiene instalado el agente de copia de seguridad. En caso contrario (es decir, si usa una imagen personalizada), siga las instrucciones para [instalar el agente de VM en una máquina virtual](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
+1.  Asegúrese de que Backup Agent está instalado en la máquina virtual. Si la máquina virtual se crea con una imagen de la galería de Azure, ya tiene instalado el agente de copia de seguridad. En caso contrario (es decir, si usa una imagen personalizada), siga las instrucciones para [instalar el agente de VM en una máquina virtual](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent).
 
 1.  Asegúrese de que la máquina virtual permite la conectividad de red para que funcione el servicio Backup. Siga las instrucciones para la [conectividad de red](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
@@ -172,7 +172,7 @@ Para más información, consulte las instrucciones para [usar Azure Portal para 
 
 También puede usar PowerShell para [restaurar una máquina virtual](../articles/backup/backup-azure-arm-restore-vms.md#restore-a-vm-during-an-azure-datacenter-disaster) o para [crear una máquina virtual a partir de discos restaurados](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
-## <a name="alternative-solution-consistent-snapshots"></a>Solución alternativa: instantáneas coherentes
+## <a name="alternative-solution-consistent-snapshots"></a>Soluciones alternativas: Instantáneas coherentes
 
 Si no puede usar Azure Backup, puede implementar su propio mecanismo de copia de seguridad con instantáneas. Resulta complicado crear las instantáneas coherentes para todos los discos usados que usa una máquina virtual y luego replicar esas instantáneas en otra región. Por esta razón, Azure considera mejor opción usar el servicio Backup que compilar una solución personalizada. 
 

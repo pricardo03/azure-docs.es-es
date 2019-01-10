@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: e62910cc760a200abba6d56e4fa1eb87973285ec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 748a9c0c583d4e1af9626527a440b19900898b87
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963602"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600314"
 ---
-# <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glosario de Microsoft Azure: un diccionario de terminología de la nube sobre la plataforma Azure
+# <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glosario de Microsoft Azure: un diccionario de terminología de la nube sobre la plataforma de Azure
 
 El glosario de Microsoft Azure es un breve diccionario de terminología de la nube para la plataforma Azure. Consulte también:
 
@@ -37,7 +37,7 @@ Consulte [Registrarse para obtener una suscripción de Azure con su cuenta de Of
 Otro nombre para [aplicación de App Service](#app-service-app).
 
 ## <a name="app-service-app"></a>Aplicación de App Service
-Los recursos de proceso que [Azure App Service](app-service/app-service-web-overview.md) proporciona para hospedar un sitio o aplicación web, API web o [back-end de aplicación móvil](app-service-mobile/app-service-mobile-value-prop.md). Las aplicaciones de App Service también se conocen como *servicios de aplicaciones*, *aplicaciones web*, *aplicaciones de API* y *aplicaciones móviles*.
+Los recursos de proceso que [Azure App Service](app-service/overview.md) proporciona para hospedar un sitio o aplicación web, API web o [back-end de aplicación móvil](app-service-mobile/app-service-mobile-value-prop.md). Las aplicaciones de App Service también se conocen como *servicios de aplicaciones*, *aplicaciones web*, *aplicaciones de API* y *aplicaciones móviles*.
 
 ## <a name="availability-set"></a>conjunto de disponibilidad
 Una colección de máquinas virtuales que se administran de forma conjunta para proporcionar confiabilidad y redundancia a las aplicaciones. El uso de un conjunto de disponibilidad garantiza que durante un evento de mantenimiento planeado o no planeado, al menos una máquina virtual estará disponible.  
@@ -70,7 +70,7 @@ Consulte [Replicación geográfica activa para Azure SQL Database](sql-database/
 <!-- The meaning of "geo" in this term seems to be different than the meaning provided in the "geo" entry -->
 
 ## <a name="image"></a>imagen
-Un archivo que contiene la configuración del sistema operativo y la aplicación que puede utilizarse para crear cualquier cantidad de máquinas virtuales. En Azure existen dos tipos de imágenes: imagen de máquina virtual e imagen de sistema operativo. Una imagen de máquina virtual incluye un sistema operativo y todos los discos conectados a una máquina virtual cuando se crea la imagen. Una imagen de sistema operativo contiene solo un sistema operativo generalizado sin configuraciones de disco de datos.  
+Un archivo que contiene la configuración del sistema operativo y la aplicación que puede utilizarse para crear cualquier cantidad de máquinas virtuales. En Azure existen dos tipos de imágenes: Imagen de máquina virtual e imagen del sistema operativo. Una imagen de máquina virtual incluye un sistema operativo y todos los discos conectados a una máquina virtual cuando se crea la imagen. Una imagen de sistema operativo contiene solo un sistema operativo generalizado sin configuraciones de disco de datos.  
 Vea [Navegación y selección de las imágenes de máquina virtual Windows en Azure con Powershell o la CLI](virtual-machines/windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="limits"></a>límites
@@ -112,7 +112,7 @@ Vea [Información general del Azure Resource Manager](azure-resource-manager/res
 
 ## <a name="role"></a>role
 Un medio para controlar el acceso que se puede asignar a usuarios, grupos y servicios. Los roles pueden realizar acciones como crear, administrar y leer en recursos de Azure.  
-Vea [RBAC: roles integrados](role-based-access-control/built-in-roles.md)
+Consulte [RBAC: roles integrados](role-based-access-control/built-in-roles.md)
 
 ## <a name="sla"></a>contrato de nivel de servicio (SLA)
 El contrato que describe los compromisos de Microsoft en cuanto a tiempo de actividad y conectividad. Cada servicio de Azure tiene un acuerdo de nivel de servicio específico.  

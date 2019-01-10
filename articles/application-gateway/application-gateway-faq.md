@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/6/2018
 ms.author: victorh
-ms.openlocfilehash: 0187ef3d3b6853c1d1225fc9f208f2508372978d
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9cb14e5076379e5095ca88dc749a954e9e5d5aa4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425734"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994868"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
@@ -49,7 +49,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 ### <a name="what-resources-are-supported-today-as-part-of-backend-pool"></a>¿Qué recursos son compatibles actualmente como parte del grupo de back-end?
 
-Los grupos de back-end pueden constar de NIC, conjuntos de escalado de máquinas virtuales, direcciones IP públicas e internas, nombres de dominio completos (FQDN) y servidores back-end multiinquilino como Azure Web Apps. Los miembros del grupo de back-end de Application Gateway no están asociados a un conjunto de disponibilidad. Los miembros de grupos de back-end pueden estar repartidos entre clústeres, centros de datos o fuera de Azure siempre y cuando dispongan de conectividad IP.
+Los grupos de back-end pueden constar de NIC, conjuntos de escalado de máquinas virtuales, direcciones IP públicas e internas, nombres de dominio completos (FQDN) y servidores back-end multiinquilino como Azure App Service. Los miembros del grupo de back-end de Application Gateway no están asociados a un conjunto de disponibilidad. Los miembros de grupos de back-end pueden estar repartidos entre clústeres, centros de datos o fuera de Azure siempre y cuando dispongan de conectividad IP.
 
 ### <a name="what-regions-is-the-service-available-in"></a>¿En qué regiones está disponible el servicio?
 
@@ -88,9 +88,11 @@ Solo se admite una dirección IP pública en una puerta de enlace de aplicacione
 Application Gateway consume una dirección IP privada por instancia, más otra dirección IP privada si se establece una configuración de dirección IP de front-end privada. Además, Azure reserva las cuatro primeras direcciones IP y la última de cada subred para uso interno.
 Por ejemplo, si una puerta de enlace de aplicaciones está establecida en tres instancias y ninguna dirección IP de front-end privada, se necesita un tamaño de subred /29 o mayor. En este caso, la puerta de enlace de aplicaciones usa tres direcciones IP. Si tiene tres instancias y una dirección IP para la configuración de dirección IP de front-end privada, se necesitará un tamaño de subred de /28 o mayor dado que hacen falta cuatro direcciones IP.
 
-### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>P: ¿Puedo implementar más de un recurso de Application Gateway para una sola subred?**
+### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>P: ¿Puedo implementar más de un recurso de Application Gateway para una sola subred?
 
 Sí, además de tener varias instancias de una determinada implementación de Application Gateway, puede aprovisionar otro recurso de Application Gateway único para una subred existente que contenga un recurso de Application Gateway diferente.
+
+No se admite la combinación de Application Gateway Standard y Standard_v2 en la misma subred. Además, si está habilitado el escalado automático, una subred puede tener solo una puerta de enlace de aplicaciones.
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>¿Admite Application Gateway encabezados x-forwarded-for?
 
@@ -103,6 +105,8 @@ Application Gateway también inserta el encabezado X-Original-Host que contiene 
 Las nuevas implementaciones de SKU v1 de Application Gateway pueden tardar hasta 20 minutos en aprovisionarse. Los cambios de tamaño y recuento de instancias no provocan interrupciones, y la puerta de enlace permanece activa durante este tiempo.
 
 Las implementaciones de SKU V2 pueden tardar unos cinco o seis minutos en aprovisionarse.
+
+¿Admite Application Gateway encabezados x-forwarded-for?
 
 ## <a name="configuration"></a>Configuración
 
@@ -316,9 +320,9 @@ WAF se supervisa a través del registro de diagnóstico. Puede encontrar más in
 
 No, el modo de detección solo registra el tráfico, que desencadenó una regla de WAF.
 
-### <a name="how-do-i-customize-waf-rules"></a>¿Cómo se personalizan las reglas de WAF?
+### <a name="can-i-customize-waf-rules"></a>¿Se pueden personalizan las reglas de WAF?
 
-Sí, las reglas de WAF son personalizables. Para más información sobre cómo personalizarlas, consulte [Personalización de reglas y grupos de reglas de WAF](application-gateway-customize-waf-rules-portal.md).
+Sí, las reglas de WAF son personalizables. Para más información, consulte [Personalización de reglas de firewall de aplicaciones web mediante Azure Portal](application-gateway-customize-waf-rules-portal.md).
 
 ### <a name="what-rules-are-currently-available"></a>¿Qué reglas están disponibles actualmente?
 

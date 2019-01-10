@@ -12,18 +12,29 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/18/2018
 ms.author: sethm
 ms.reviewer: harik
-ms.openlocfilehash: 0bbe2ee7436cc03a3780da096a498769d66eb505
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 1865b4fa03f774fb4cbe69a5c8b17b096981ebc8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277943"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632796"
 ---
 # <a name="azure-stack-servicing-policy"></a>Directiva de mantenimiento de Azure Stack
+
 En este artículo se describe la directiva de mantenimiento para sistemas integrados de Azure Stack y lo que debe hacer para mantener el sistema en un estado admitido. 
+
+## <a name="download-update-packages-for-integrated-systems"></a>Descarga de actualizaciones para sistemas integrados
+
+Microsoft lanzará actualizaciones mensuales completas, así como revisiones, para tratar problemas específicos. 
+
+Las actualizaciones mensuales se hospedan en un punto de conexión seguro de Azure. Puede descargarlas manualmente mediante la [herramienta de descarga de actualizaciones de Azure Stack](http://aka.ms/azurestackupdatedownload). Si la unidad de escalado está conectada, la actualización aparece automáticamente en el portal del administrador como **Actualización disponible**. Las actualizaciones mensuales completas están bien documentadas en cada versión. Para más información acerca de cada versión, puede hacer clic en cualquier versión de la sección [Ritmo de lanzamiento de las actualizaciones](#update-package-release-cadence) de este artículo.
+
+Las actualizaciones de revisiones se hospedan en el mismo punto de conexión seguro de Azure. Puede descargarlas manualmente mediante los vínculos insertados en cada uno de los artículos correspondientes de Knowledge Base de revisiones; por ejemplo, [Revisión de Azure Stack 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Al igual que con las actualizaciones mensuales completas, los operadores de Azure Stack pueden descargar archivos .xml, .bin y .exe e importarlos mediante el procedimiento descrito en [Aplicación de actualizaciones en Azure Stack](azure-stack-apply-updates.md). Los operadores de Azure Stack con unidades de escalado conectadas verán que las revisiones aparecen automáticamente en el portal del administrador con el mensaje **Actualización disponible**.
+
+Si la unidad de escalado no está conectada y le gustaría recibir notificaciones acerca de cada versión de revisión, suscríbase a las fuentes [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … ) o [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …) indicadas en cada versión.  
 
 ## <a name="update-package-types"></a>Tipos de actualizaciones
 
@@ -51,7 +62,7 @@ Las revisiones se descargan e instalan del mismo modo que las actualizaciones co
 
 
 ## <a name="keep-your-system-under-support"></a>Mantenimiento del sistema dentro del soporte técnico
-Para continuar recibiendo soporte técnico, debe mantener actualizada la implementación de Azure Stack. La directiva de aplazamiento de actualizaciones dice que, para que Azure Stack permanezca dentro del soporte técnico, debe ejecutar la versión de actualización más reciente o una de las dos versiones de actualización anteriores. Las revisiones no se consideran versiones de actualización importantes. Si a la nube de Azure Stack se retrasa en *más de dos actualizaciones*, se considera fuera de cumplimiento y debe actualizarse con, al menos, la versión mínima admitida para recibir soporte técnico. 
+Para continuar recibiendo soporte técnico, debe mantener actualizada la implementación de Azure Stack. La directiva de aplazamiento para actualizaciones es: Para que la implementación de Azure Stack permanezca dentro del soporte técnico, debe ejecutar la versión de actualización más reciente o una de las dos versiones de actualización anteriores. Las revisiones no se consideran versiones de actualización importantes. Si a la nube de Azure Stack se retrasa en *más de dos actualizaciones*, se considera fuera de cumplimiento y debe actualizarse con, al menos, la versión mínima admitida para recibir soporte técnico. 
 
 Por ejemplo, si la versión de actualización disponible más reciente es la 1805 y las dos actualizaciones anteriores eran las versiones 1804 y 1803, ambas permanecen dentro del soporte técnico. Sin embargo, la 1802 queda fuera del soporte técnico. La directiva es válida cuando no hay ninguna versión durante uno o dos meses. Por ejemplo, si la versión actual es la 1805 y no hubo ninguna versión 1804, las dos actualizaciones anteriores de 1803 y 1802 permanecen dentro del soporte técnico.
 

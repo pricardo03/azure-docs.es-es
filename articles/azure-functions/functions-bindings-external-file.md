@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: cshoe
-ms.openlocfilehash: 39036f17b8ceafebbe3660f2074e2a6c84c4df03
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 765eab8dfc1163c4d9e0337a1af840278ae1a82c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248700"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546273"
 ---
 # <a name="azure-functions-external-file-bindings-experimental"></a>Enlaces de archivo externo de Azure Functions (experimental)
 En este artículo se muestra cómo manipular archivos de distintos proveedores de SaaS (como Dropbox o Google Drive) en Azure Functions. Azure Functions admite enlaces de desencadenador, entrada y salida para archivos externos. Estos enlaces crean conexiones de API para los proveedores de SaaS o usan conexiones de API existentes del grupo de recursos de Function App.
@@ -31,7 +31,7 @@ En este artículo se muestra cómo manipular archivos de distintos proveedores d
 |:-----|:---:|:---:|:---:|
 |[Box](https://www.box.com)|x|x|x
 |[Dropbox](https://www.dropbox.com)|x|x|x
-|[FTP](https://docs.microsoft.com/azure/app-service/app-service-deploy-ftp)|x|x|x
+|[FTP](https://docs.microsoft.com/azure/app-service/deploy-ftp)|x|x|x
 |[OneDrive](https://onedrive.live.com)|x|x|x
 |[OneDrive para la Empresa](https://onedrive.live.com/about/business/)|x|x|x
 |[SFTP](https://docs.microsoft.com/azure/connectors/connectors-create-api-sftp)|x|x|x

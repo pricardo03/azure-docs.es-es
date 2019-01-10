@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: f0f0308233334e2662704e818c765c625a80019d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 1d013f2cdd9f33f55d579638386355e5cbaccb7e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878342"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714957"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Informática de base de datos sin servidor con Azure Cosmos DB y Azure Functions
 
@@ -29,7 +29,7 @@ Azure Cosmos DB y Azure Functions permite integrar las aplicaciones sin servidor
 * Enlace una función a un contenedor de Azure Cosmos DB mediante un **enlace de salida**. Los enlaces de salida escriben datos en un contenedor cuando se completa una función.
 
 > [!NOTE]
-> Actualmente, el desencadenador, los enlaces de entrada y los enlaces de salida de Azure Cosmos DB solo se admiten para su uso con la API de SQL. Para todas las demás API de Azure Cosmos DB, debe acceder a la base de datos de la función mediante el cliente estático de la API, lo que incluye MongoDB API, Cassandra API, Gremlin API y Table API.
+> Actualmente, el desencadenador, los enlaces de entrada y los enlaces de salida de Azure Cosmos DB solo se admiten para su uso con la API de SQL. En todas las demás API de Azure Cosmos DB, debe acceder a la base de datos desde la función utilizando el cliente estático de la API.
 
 
 En el diagrama siguiente se muestran cada una de estas tres integraciones: 

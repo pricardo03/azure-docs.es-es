@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 12/22/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 7979bbafda6373c7f25c6e9c7d5cd997fbf5c3eb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 86f4e99401278d13a17f40c4c021060e8bd15f8a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098107"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754550"
 ---
 # <a name="azure-stack-1808-update"></a>Actualización de Azure Stack 1808
 
@@ -253,7 +253,6 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 <!-- 2368581 - IS. ASDK --> 
 - Operador de Azure Stack: si recibe una alerta de memoria insuficiente y no se pueden implementar las máquinas virtuales del inquilino debido a un **error de creación de máquina virtual de Fabric**, es posible que la marca de Azure Stack supere la memoria disponible. Use la [herramienta de planeamiento de capacidad de Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) para comprender mejor la capacidad disponible para las cargas de trabajo.
 
-
 ### <a name="compute"></a>Proceso
 
 <!-- 3164607 – IS, ASDK -->
@@ -315,7 +314,7 @@ Los informes de uso que generan las API de uso de Azure Stack muestran las canti
 
    Para buscar el gráfico Porcentaje de CPU para la máquina virtual, vaya a la hoja **Métrica** y muestre todas las métricas de invitado de las máquinas virtuales de Windows admitidas.
 
-
+- Una máquina virtual de Ubuntu 18.04 creada con la autorización de SSH habilitada no le permitirá usar las claves SSH para iniciar sesión. Como alternativa, utilice el acceso a la VM para la extensión de Linux a fin de implementar las claves SSH después del aprovisionamiento o utilice la autenticación basada en contraseña.
 
 ### <a name="networking"></a>Redes  
 
@@ -361,8 +360,10 @@ Los informes de uso que generan las API de uso de Azure Stack muestran las canti
 
 
 ## <a name="download-the-update"></a>Descarga de la actualización
-Puede descargar el paquete de actualización de Azure Stack 1808 desde [aquí](https://aka.ms/azurestackupdatedownload).
-  
+
+Puede descargar el paquete de actualización de Azure Stack 1808 desde [aquí](https://aka.ms/azurestackupdatedownload). 
+
+Únicamente en los escenarios en los que estén conectadas, las implementaciones de Azure Stack comprueban periódicamente un punto de conexión seguro y le notifican automáticamente si una actualización está disponible para la nube. Para obtener más información, consulte la [administración de actualizaciones de Azure Stack](azure-stack-updates.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Para revisar la directiva de servicio de los sistemas integrados de Azure Stack y lo que debe hacer para mantener el sistema en un estado admitido, consulte [Directiva de servicio de Azure Stack](azure-stack-servicing-policy.md).  

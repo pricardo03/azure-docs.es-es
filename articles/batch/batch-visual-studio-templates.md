@@ -1,9 +1,9 @@
 ---
-title: 'Creación de soluciones de Batch con plantillas de proyecto de Visual Studio: Azure | Microsoft Docs'
+title: 'Creación de soluciones con plantillas de Visual Studio: Azure Batch | Microsoft Docs'
 description: Descubra cómo las plantillas de proyecto de Visual Studio pueden ayudarlo a implementar y ejecutar cargas de trabajo de proceso intensivo en Azure Batch.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a44c249a957050afb500decd094183c71d6ca5e
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 085bfa582b676f34a02e4c1c5ae7e69c49e5cb4e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114103"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538130"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Uso de plantillas de proyecto de Visual Studio para empezar a crear soluciones de Batch
 
@@ -62,7 +62,7 @@ Para utilizar las plantillas de Batch, necesita lo siguiente:
     
     * Administrador de trabajos de Azure Batch con separador de trabajos
     * Procesador de tareas de Azure Batch
-  * Descargue las plantillas de la galería en línea para Visual Studio: [plantillas de proyecto de Microsoft Azure Batch][vs_gallery_templates]
+  * Descargue las plantillas de la galería en línea para Visual Studio: [Plantillas de proyecto de Microsoft Azure Batch][vs_gallery_templates]
 * Si piensa utilizar la característica [Paquetes de aplicación](batch-application-packages.md) para implementar el administrador de trabajos y el procesador de tareas en los nodos de proceso de Batch, debe vincular una cuenta de almacenamiento a la cuenta de Batch.
 
 ## <a name="preparation"></a>Preparación
@@ -123,8 +123,8 @@ En el resto de esta sección se describen los diferentes archivos y su estructur
 
 **Archivos de proyecto de línea de comandos de .NET estándar**
 
-* `App.config`: archivo de configuración de la aplicación. NET estándar.
-* `Packages.config`: archivo de dependencia de paquetes NuGet estándar.
+* `App.config`: archivo de configuración de la aplicación .NET estándar.
+* `Packages.config`: archivo de dependencias de paquetes de NuGet estándar.
 * `Program.cs`: contiene el punto de entrada del programa y el control de excepciones de nivel superior.
 
 ### <a name="implementing-the-job-splitter"></a>Implementación del separador de trabajos
@@ -297,8 +297,8 @@ En el resto de esta sección se describen los diferentes archivos y su estructur
 
 **Archivos de proyecto de línea de comandos de .NET estándar**
 
-* `App.config`: archivo de configuración de la aplicación. NET estándar.
-* `Packages.config`: archivo de dependencia de paquetes NuGet estándar.
+* `App.config`: archivo de configuración de la aplicación .NET estándar.
+* `Packages.config`: archivo de dependencias de paquetes de NuGet estándar.
 * `Program.cs`: contiene el punto de entrada del programa y el control de excepciones de nivel superior.
 
 ## <a name="implementing-the-task-processor"></a>Implementación del procesador de tareas

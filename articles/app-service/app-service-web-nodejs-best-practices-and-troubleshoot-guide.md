@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: 5a8760bc67125f857998f23ca33733a62a0d8fb5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: db412d3fd0af84d528ad0c83d86cc5d055359914
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315730"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632694"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Guía de procedimientos recomendados y solución de problemas para aplicaciones Node en Azure App Service de Windows
 
-En este artículo, aprenderá los procedimientos recomendados y los pasos de solución de problemas de las [aplicaciones de Node](app-service-web-get-started-nodejs.md) que se ejecutan en Azure Web Apps (con [iisnode](https://github.com/azure/iisnode)).
+En este artículo, aprenderá los procedimientos recomendados y los pasos de solución de problemas de las [aplicaciones Node](app-service-web-get-started-nodejs.md) que se ejecutan en Azure App Service (con [iisnode](https://github.com/azure/iisnode)).
 
 > [!WARNING]
 > Tenga cuidado cuando aplique los pasos para solucionar problemas en el sitio de producción. Se recomienda solucionar los problemas de la aplicación en una configuración que no sea de producción (por ejemplo, su espacio de ensayo) y, una vez corregido el problema, cambiar el espacio de ensayo por el de producción.
@@ -44,18 +44,18 @@ Esta configuración controla la ruta de acceso al proceso node.exe. Puede establ
 
 ### <a name="maxconcurrentrequestsperprocess"></a>maxConcurrentRequestsPerProcess
 
-Esta configuración controla el número máximo de solicitudes simultáneas enviadas por iisnode a cada proceso node.exe. En Azure Web Apps, el valor predeterminado es Infinito. Cuando no se hospeda en Azure Web Apps, el valor predeterminado es 1024. Puede definir este valor en función de la cantidad de solicitudes que reciba la aplicación y de la velocidad con que la aplicación procese cada una.
+Esta configuración controla el número máximo de solicitudes simultáneas enviadas por iisnode a cada proceso node.exe. En Azure App Service, el valor predeterminado es Infinito. Puede definir este valor en función de la cantidad de solicitudes que reciba la aplicación y de la velocidad con que la aplicación procese cada una.
 
 ### <a name="maxnamedpipeconnectionretry"></a>maxNamedPipeConnectionRetry
 
-Esta configuración controla el número máximo de veces que iisnode volverá a intentar establecer conexión en la canalización con nombre para enviar la solicitud a node.exe. Esta configuración, combinada con namedPipeConnectionRetryDelay, determina el tiempo de espera total de cada solicitud dentro de iisnode. El valor predeterminado es 200 en Azure Web Apps. Tiempo de espera total en segundos = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
+Esta configuración controla el número máximo de veces que iisnode volverá a intentar establecer conexión en la canalización con nombre para enviar la solicitud a node.exe. Esta configuración, combinada con namedPipeConnectionRetryDelay, determina el tiempo de espera total de cada solicitud dentro de iisnode. El valor predeterminado es 200 en Azure App Service. Tiempo de espera total en segundos = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
 
 ### <a name="namedpipeconnectionretrydelay"></a>namedPipeConnectionRetryDelay
 
 Esta configuración controla la cantidad de tiempo (en milisegundos) que iisnode esperará entre cada reintento de enviar la solicitud a node.exe a través de la canalización con nombre. El valor predeterminado es 250 ms.
 Tiempo de espera total en segundos = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
 
-De forma predeterminada, el tiempo de espera total de iisnode en Azure Web Apps es de 200 \* 250 ms = 50 segundos.
+De forma predeterminada, el tiempo de espera total de iisnode en Azure App Service es de 200 \* 250 ms = 50 segundos.
 
 ### <a name="logdirectory"></a>logDirectory
 
@@ -128,7 +128,7 @@ Lea el artículo de [depuración de aplicaciones node.js en Windows](https://tom
 
 Muchas aplicaciones van a establecer conexiones salientes como parte de su funcionamiento normal. Por ejemplo, cuando llega una solicitud, la aplicación Node va a establecer contacto con una API de REST en otro lugar y así obtener información para procesar la solicitud. Debería utilizar un agente de conexión persistente al realizar llamadas HTTP o HTTPS. Podría utilizar el módulo agentKeepAlive como agente de conexión persistente al realizar estas llamadas salientes.
 
-El módulo agentKeepAlive garantiza que los sockets se reutilizan en la máquina virtual de Azure Web Apps. Al crear un nuevo socket en cada solicitud saliente se sobrecarga la aplicación. Hacer que la aplicación reutilice los sockets para las solicitudes salientes garantiza que esta no supera el límite maxSockets asignado por máquina virtual. La recomendación para Azure Web Apps es establecer el valor maxSockets de agentKeepAlive en un total de 160 sockets por máquina virtual (4 instancias de node.exe \* 40 maxSockets/instancia).
+El módulo agentKeepAlive garantiza que los sockets se reutilizan en la máquina virtual de Azure Web Apps. Al crear un nuevo socket en cada solicitud saliente se sobrecarga la aplicación. Hacer que la aplicación reutilice los sockets para las solicitudes salientes garantiza que esta no supera el límite maxSockets asignado por máquina virtual. La recomendación para Azure App Service es establecer el valor maxSockets de agentKeepAlive en un total de 160 sockets por máquina virtual (4 instancias de node.exe \* 40 maxSockets/instancia).
 
 Ejemplo de configuración de [agentKeepALive](https://www.npmjs.com/package/agentkeepalive):
 
@@ -147,10 +147,10 @@ var keepaliveAgent = new Agent({
 
 #### <a name="my-node-application-is-consuming-too-much-cpu"></a>Mi aplicación Node consume demasiada CPU
 
-Puede recibir una recomendación de Azure Web Apps en el portal sobre consumo de CPU elevado. También puede configurar monitores para inspeccionar determinadas [métricas](web-sites-monitor.md). Al comprobar el uso de la CPU en el [panel de Azure Portal](../application-insights/app-insights-web-monitor-performance.md), compruebe los valores MAX de la CPU para que no pase por alto los valores máximos.
+Puede recibir una recomendación de Azure App Service en el portal sobre consumo de CPU elevado. También puede configurar monitores para inspeccionar determinadas [métricas](web-sites-monitor.md). Al comprobar el uso de la CPU en el [panel de Azure Portal](../application-insights/app-insights-web-monitor-performance.md), compruebe los valores MAX de la CPU para que no pase por alto los valores máximos.
 Si cree que su aplicación consume demasiada CPU y no puede explicar por qué, genere un perfil de la aplicación Node para averiguarlo.
 
-#### <a name="profiling-your-node-application-on-azure-web-apps-with-v8-profiler"></a>Generación del perfil de su aplicación Node en Azure Web Apps con V8-Profiler
+#### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>Generación del perfil de su aplicación Node en Azure App Service con V8-Profiler
 
 Por ejemplo, supongamos que tiene una aplicación "Hola mundo" cuyo perfil desea generar, como se muestra a continuación:
 
@@ -220,7 +220,7 @@ Puede ver que el 95 % del tiempo lo consumió la función WriteConsoleLog. La sa
 
 ### <a name="my-node-application-is-consuming-too-much-memory"></a>Mi aplicación Node consume demasiada memoria.
 
-Si la aplicación está consumiendo demasiada memoria, aparece un aviso de Azure Web Apps en el portal que indica un consumo elevado de memoria. Puede configurar monitores para inspeccionar determinadas [métricas](web-sites-monitor.md). Al comprobar el uso de la memoria en el [panel de Azure Portal](../application-insights/app-insights-web-monitor-performance.md), asegúrese de comprobar los valores MAX de la memoria, para que no pase por alto los valores máximos.
+Si la aplicación está consumiendo demasiada memoria, aparece un aviso de Azure App Service en el portal que indica un consumo elevado de memoria. Puede configurar monitores para inspeccionar determinadas [métricas](web-sites-monitor.md). Al comprobar el uso de la memoria en el [panel de Azure Portal](../application-insights/app-insights-web-monitor-performance.md), asegúrese de comprobar los valores MAX de la memoria, para que no pase por alto los valores máximos.
 
 #### <a name="leak-detection-and-heap-diff-for-nodejs"></a>Detección de fugas y comparación de montones para node.js
 
@@ -249,12 +249,12 @@ La aplicación inicia excepciones no detectadas. Compruebe el archivo `d:\\home\
 
 ### <a name="my-node-application-takes-too-much-time-to-start-cold-start"></a>Mi aplicación Node tarda demasiado tiempo en iniciarse (arranque en frío)
 
-La causa común de las demoras en el tiempo de inicio de aplicaciones es un gran número de archivos en node\_modules. La aplicación intenta cargar la mayoría de estos archivos al iniciarse. De forma predeterminada, puesto que los archivos están almacenados en el recurso compartido de red en Azure Web Apps, se puede tardar bastante tiempo en cargar muchos archivos.
+La causa común de las demoras en el tiempo de inicio de aplicaciones es un gran número de archivos en node\_modules. La aplicación intenta cargar la mayoría de estos archivos al iniciarse. De forma predeterminada, puesto que los archivos están almacenados en el recurso compartido de red en Azure App Service, se puede tardar bastante tiempo en cargar muchos archivos.
 Algunas soluciones para que este proceso sea más rápido son:
 
 1. Asegúrese de tener una estructura de dependencias plana y sin dependencias duplicadas; para ello, use npm3 para instalar los módulos.
 2. Pruebe a cargar node\_modules en diferido y a no cargar todos los módulos durante el inicio de la aplicación. Para la carga en diferido de módulos, la llamada de necesidad ("module") debe realizarse cuando necesite realmente el módulo de la función antes de la primera ejecución del código de este.
-3. Azure Web Apps ofrece una característica denominada caché local. Esta característica copia el contenido del recurso compartido de red en el disco local de la máquina virtual. Como los archivos son locales, el tiempo de carga de node\_modules es mucho menor.
+3. Azure App Service ofrece una característica denominada caché local. Esta característica copia el contenido del recurso compartido de red en el disco local de la máquina virtual. Como los archivos son locales, el tiempo de carga de node\_modules es mucho menor.
 
 ## <a name="iisnode-http-status-and-substatus"></a>Estado y subestado HTTP de IISNODE
 
@@ -274,7 +274,7 @@ Habilite FREB para la aplicación a fin de ver el código de error win32 (asegú
 | 503 |1002 |Compruebe la verdadera razón en el código de error win32; no se pudo enviar la solicitud a un proceso node.exe. |
 | 503 |1003 |Canalización con nombre demasiado ocupada: verifique si node.exe consume una cantidad excesiva de CPU |
 
-NODE.exe tiene una configuración denominada `NODE_PENDING_PIPE_INSTANCES`. De forma predeterminada, cuando no se implementa en Azure Web Apps, este valor es 4. Esto significa que node.exe solo puede aceptar cuatro solicitudes a la vez en la canalización con nombre. En Azure Web Apps, este valor se establece en 5000. Este valor debería bastar para la mayoría de las aplicaciones Node que se ejecutan en Azure Web Apps. No debería ver 503.1003 en Azure Web Apps, ya que el valor de `NODE_PENDING_PIPE_INSTANCES` es elevado.
+NODE.exe tiene una configuración denominada `NODE_PENDING_PIPE_INSTANCES`. En Azure App Service, este valor se establece en 5000. Esto significa que node.exe puede aceptar 5000 solicitudes a la vez en la canalización con nombre. Este valor debería bastar para la mayoría de las aplicaciones Node que se ejecutan en Azure App Service. No debería ver 503.1003 en Azure App Service, ya que el valor de `NODE_PENDING_PIPE_INSTANCES` es elevado.
 
 ## <a name="more-resources"></a>Más recursos
 

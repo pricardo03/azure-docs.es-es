@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 5573c7f122360b3bd3adeb9dcca1c827a1933f70
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 07cacc4a127c333e4c19c4979b7520226919c14b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959468"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722403"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Implementación de Kubernetes en Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 > [!Note]  
 > Kubernetes en Azure Stack está en versión preliminar.
@@ -101,7 +101,7 @@ Dé a la entidad de servicio acceso a su suscripción para que la entidad pueda 
 
 1. Seleccione la suscripción creada por el operador para usar el clúster de Kubernetes.
 
-1. Seleccione **Control de acceso (IAM)** > seleccione **+ Agregar**.
+1. Seleccione **Control de acceso (IAM)** > **Agregar asignación de roles**.
 
 1. Seleccione el rol **Colaborador**.
 

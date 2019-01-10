@@ -7,12 +7,12 @@ author: kanshiG
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.openlocfilehash: 8461797e0c3b8d92466c37c5564df895e494ce74
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: afc3b9dbb1965ea28995d67f8f5e174721d73197
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957596"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999448"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Supervisión y depuración con métricas de Azure Cosmos DB
 
@@ -38,7 +38,7 @@ Una distribución de rendimiento desigual puede provocar particiones *activas*, 
 
 ## <a name="determine-the-storage-distribution-across-partitions"></a>Determinación de la distribución de almacenamiento en las particiones
 
-Tener una buena cardinalidad de la partición es esencial para cualquier aplicación escalable. Para determinar la distribución de rendimiento de cualquier contenedor particionado dividido en particiones, vaya a la hoja Métricas en [Azure Portal](https://portal.azure.com). En la pestaña Rendimiento, se muestra el desglose de almacenamiento en el gráfico Máximo de RU/segundo consumidas por cada partición física. En el siguiente gráfico se ilustra una distribución deficiente de los datos como lo evidencia la partición sesgada en el extremo izquierdo.
+Tener una buena cardinalidad de la partición es esencial para cualquier aplicación escalable. Para determinar la distribución de almacenamiento de cualquier contenedor particionado dividido en particiones, vaya a la hoja Métricas en [Azure Portal](https://portal.azure.com). En la pestaña Almacenamiento, el desglose del almacenamiento se muestra en el gráfico Almacenamiento de datos e índice consumido por las principales claves de partición. En el siguiente gráfico se ilustra una distribución deficiente del almacenamiento de datos como lo evidencia la partición sesgada en el extremo izquierdo.
 
 ![Ejemplo de distribución de datos deficiente](media/use-metrics/metrics-07.png)
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: fb8e2b11ce6178c10fb9dc7d13c5c7d817ece821
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2a88b130c92f7b9074fd248afc97f0ea6b4c13bb
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344115"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042145"
 ---
 # <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>Ejemplos de consultas SQL para consultar datos de Azure Cosmos DB
 
@@ -1736,7 +1736,7 @@ En primer lugar, para el sistema de tipos, admitimos todos los tipos primitivos 
 La siguiente es una lista de los operadores LINQ admitidos en el proveedor LINQ, incluido en el SDK de .NET de SQL.
 
 * **Select**: Las proyecciones se traducen en la instrucción SQL SELECT, incluida la construcción de objetos.
-* **Where**: Los filtros se traducen a la instrucción SQL WHERE y admiten la traducción entre &amp;&amp; , || y ! a los operadores SQL.
+* **Where**: Los filtros se traducen a la instrucción SQL WHERE y admiten la traducción entre &&amp;amp; , || y ! a los operadores SQL.
 * **SelectMany**: Permite desenredar las matrices a la cláusula SQL JOIN. Se puede usar para encadenar/anidar expresiones para filtrar los elementos de la matriz.
 * **OrderBy y OrderByDescending**: Se traduce a ORDER BY ascendente o descendente
 * Los operadores **Count**, **Sum**, **Min**, **Max** y **Average** para la agregación y sus equivalentes asincrónicos **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** y **AverageAsync**.

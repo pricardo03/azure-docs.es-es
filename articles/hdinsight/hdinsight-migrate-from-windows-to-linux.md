@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: bcaf59e1d9b36dfbb17f1e0b8089cd88e626e2b9
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: ea808609add942c5cac36e7f0306e4a27ac3bb3a
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437136"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743653"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Migración desde un clúster de HDInsight basado en Windows a un clúster basado en Linux
 
@@ -119,7 +119,7 @@ Esta sección ofrece información sobre las diferencias en la creación de clús
 
 ### <a name="ssh-user"></a>Usuario de SSH
 
-Los clústeres de HDInsight basados en Linux usan el protocolo **Secure Shell (SSH)** para proporcionar acceso remoto a los nodos del clúster. A diferencia de Escritorio remoto para clústeres basados en Windows, la mayoría de clientes de SSH no ofrece experiencia de usuario gráfica. En su lugar, los clientes de SSH ofrecen una línea de comandos que le permite ejecutar comandos en el clúster. Algunos clientes (como [MobaXterm](http://mobaxterm.mobatek.net/)) ofrecen un explorador gráfico del sistema de archivos, además de una línea de comandos remota.
+Los clústeres de HDInsight basados en Linux usan el protocolo **Secure Shell (SSH)** para proporcionar acceso remoto a los nodos del clúster. A diferencia de Escritorio remoto para clústeres basados en Windows, la mayoría de clientes de SSH no ofrece experiencia de usuario gráfica. En su lugar, los clientes de SSH ofrecen una línea de comandos que le permite ejecutar comandos en el clúster. Algunos clientes (como [MobaXterm](https://mobaxterm.mobatek.net/)) ofrecen un explorador gráfico del sistema de archivos, además de una línea de comandos remota.
 
 Durante la creación del clúster, debe especificar un usuario SSH y una **contraseña**, o bien un **certificado de clave pública** para la autenticación.
 
@@ -199,7 +199,7 @@ El gráfico siguiente ofrece orientación sobre cómo migrar las cargas de traba
 | `set hive.execution.engine=tez;` para habilitar Tez |Apache Tez es el motor de ejecución predeterminado para clústeres basados en Linux, por lo que ya no se necesita la instrucción set. |
 | Funciones definidas por el usuario de C# | Para obtener información sobre cómo validar los componentes de C# con HDInsight basado en Linux, consulte [Migración de soluciones .​NE​T para HDInsight basado en ​Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | Scripts o archivos CMD en el servidor que se invoca como parte de un trabajo de Hive |se usan scripts de Bash |
-| `hive` desde Escritorio remoto |Uso de [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) o [Apache Hive desde una sesión de SSH](hdinsight-hadoop-use-hive-ssh.md) |
+| `hive` desde Escritorio remoto |Uso de [Apache Hive Beeline](hadoop/apache-hadoop-use-hive-beeline.md) o [Apache Hive desde una sesión de SSH](hdinsight-hadoop-use-hive-ssh.md) |
 
 ### <a name="pig"></a>Pig
 
@@ -220,7 +220,7 @@ El gráfico siguiente ofrece orientación sobre cómo migrar las cargas de traba
 > [!IMPORTANT]  
 > Si utiliza una tienda de metadatos de Oozie externa, debe hacer una copia de seguridad de la tienda de metadatos antes de usarla con HDInsight basado en Linux. HDInsight basado en Linux está disponible con las versiones más recientes de Oozie, lo que puede provocar incompatibilidades con las tiendas de metadatos creadas con versiones anteriores.
 
-Los flujos de trabajo de Oozie permiten acciones de shell. Las acciones de shell usan el shell predeterminado del sistema operativo para ejecutar comandos de línea de comandos. Si tiene flujos de trabajo de Oozie que se basan en el shell de Windows, debe volver a escribir los flujos de trabajo para que se basen en el entorno de shell de Linux (Bash). Para obtener más información sobre el uso de acciones de shell con Oozie, consulte [Oozie shell action extension](http://oozie.apache.org/docs/3.3.0/DG_ShellActionExtension.html) (Extensión de la acción del shell de Oozie).
+Los flujos de trabajo de Oozie permiten acciones de shell. Las acciones de shell usan el shell predeterminado del sistema operativo para ejecutar comandos de línea de comandos. Si tiene flujos de trabajo de Oozie que se basan en el shell de Windows, debe volver a escribir los flujos de trabajo para que se basen en el entorno de shell de Linux (Bash). Para obtener más información sobre el uso de acciones de shell con Oozie, consulte [Oozie shell action extension](https://oozie.apache.org/docs/3.3.0/DG_ShellActionExtension.html) (Extensión de la acción del shell de Oozie).
 
 Si tiene un flujo de trabajo que utiliza una aplicación de C#, valide estas aplicaciones en un entorno Linux. Para obtener más información, consulte [Migración de soluciones .​NE​T para HDInsight basado en ​Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md).
 

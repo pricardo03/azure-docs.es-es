@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: bcf33538479a18d1849515f00e9a0d02ef77dba2
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 5596675d428fcf8403d001a8f807507ab1e42e43
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54005194"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117289"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Creación de recursos de Application Insights mediante PowerShell
-Este artículo muestra cómo automatizar la creación y actualización de los recursos de [Application Insights](../../application-insights/app-insights-overview.md) automáticamente mediante Azure Resource Management. Puede hacerlo, por ejemplo, como parte de un proceso de compilación. Junto con el recurso básico de Application Insights, puede crear [pruebas web de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md), [configurar alertas](../../azure-monitor/app/alerts.md), establecer el [esquema de precios](pricing.md) y crear otros recursos de Azure.
+Este artículo muestra cómo automatizar la creación y actualización de los recursos de [Application Insights](../../azure-monitor/app/app-insights-overview.md) automáticamente mediante Azure Resource Management. Puede hacerlo, por ejemplo, como parte de un proceso de compilación. Junto con el recurso básico de Application Insights, puede crear [pruebas web de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md), [configurar alertas](../../azure-monitor/app/alerts.md), establecer el [esquema de precios](pricing.md) y crear otros recursos de Azure.
 
 La clave para crear estos recursos es las plantillas JSON para el [Administrador de recursos de Azure](../../azure-resource-manager/powershell-azure-resource-manager.md). En pocas palabras, el procedimiento es: descargar las definiciones JSON de los recursos existentes; parametrizar determinados valores como los nombres; y luego ejecutar la plantilla siempre que se quiera crear un nuevo recurso. Puede empaquetar varios recursos juntos para crearlos todos en un solo paso, por ejemplo, un monitor de aplicaciones con pruebas de disponibilidad, alertas y almacenamiento para la exportación continua. Existen algunos matices a algunas de las parametrizaciones automáticas, que se explican aquí.
 

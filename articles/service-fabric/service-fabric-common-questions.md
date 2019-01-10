@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 0a78405dc6293a7debd599e0e44754dc59d8af7e
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 54ce1d9ab6216f1d757d7076cb95362d55ea9d9c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164655"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537637"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Preguntas frecuentes sobre Service Fabric
 
@@ -64,9 +64,16 @@ Actualmente, hay otros problemas con los conjuntos de escalado grandes de máqui
 
 ### <a name="what-is-the-minimum-size-of-a-service-fabric-cluster-why-cant-it-be-smaller"></a>¿Cuál es el tamaño mínimo de un clúster de Service Fabric? ¿Por qué no puede ser menor?
 
-El tamaño mínimo admitido para un clúster de Service Fabric que ejecute cargas de trabajo de producción es cinco nodos. Para escenarios de desarrollo y prueba, se admiten los nodos de tres clústeres.
+El tamaño mínimo admitido para un clúster de Service Fabric que ejecute cargas de trabajo de producción es cinco nodos. Para escenarios de desarrollo, se admite un nodo (optimizado para la experiencia de desarrollo rápido de Visual Studio) y clústeres de cinco nodos.
 
-Estos mínimos existen porque el clúster de Service Fabric ejecuta un conjunto de servicios de sistema con estado, incluidos el servicio de nomenclatura y el administrador de conmutación por error. Estos servicios, que realizan un seguimiento de qué servicios se han implementado en el clúster y en dónde se hospedan en la actualidad, dependen de la existencia de una fuerte coherencia. Esta fuerte coherencia depende a su vez de la capacidad de obtener *cuórum* para cualquier actualización del estado de esos servicios, en donde un cuórum representa una mayoría estricta de las réplicas (N/2 + 1) para un servicio dado.
+Se necesita un clúster de producción que tenga al menos 5 nodos debido a las tres razones siguientes:
+1. Incluso cuando no hay servicios de usuario en ejecución, un clúster de Service Fabric ejecuta un conjunto de servicios del sistema con estado, incluidos el servicio de nomenclatura y el administrador de conmutación por error. Estos servicios del sistema son esenciales para que el clúster siga estando operativo.
+2. Siempre se coloca una réplica de un servicio por nodo, por lo que el tamaño del clúster es el límite superior del número de réplicas que puede tener un servicio (en realidad una partición).
+3. Puesto que una actualización del clúster desactivará al menos un nodo y querremos tener un búfer de al menos un nodo, un clúster de producción deberá tener al menos dos nodos *además* del mínimo. El mínimo es el tamaño del cuórum de un servicio del sistema, como se explica a continuación.  
+
+Queremos que el clúster esté disponible en el caso de error simultáneo de dos nodos. Para que un clúster de Service Fabric esté disponible, los servicios del sistema deben estar disponibles. Los servicios del sistema con estado, como el servicio de nomenclatura y el administrador de conmutación por error, que realizan un seguimiento de qué servicios se han implementado en el clúster y en dónde se hospedan en la actualidad, dependen de la existencia de una fuerte coherencia. Esta fuerte coherencia depende a su vez de la capacidad de obtener *cuórum* para cualquier actualización del estado de esos servicios, en donde un cuórum representa una mayoría estricta de las réplicas (N/2 + 1) para un servicio dado. Por lo tanto, si queremos que sea resistente contra la pérdida simultánea de dos nodos (por lo tanto, pérdida simultánea de dos réplicas de un servicio de sistema), debemos tener TamañoDelClúster - TamañoDelCuórum > = 2, lo que fuerza el tamaño mínimo a cinco. Para ver esto, considere que el clúster tiene N nodos y hay N réplicas de un servicio del sistema: una en cada nodo. El tamaño del cuórum para un servicio del sistema es (N/2 + 1). La desigualdad anterior se parece a N - (N/2 + 1) > = 2. Hay dos casos a tener en cuenta: cuando N es par y cuando N es impar. Si N es par, digamos N = 2\*m, donde m > = 1, la desigualdad se parece a 2\*m - (2\*m/2 + 1) > = 2 o m > = 3. El valor mínimo para N es 6 y se logra cuando m = 3. Por otro lado, si N es impar, por ejemplo, N = 2\*m + 1, donde m > = 1, la desigualdad se parece a 2\*m+1 - ((2\*m+1) / 2 + 1) > = 2 o 2\*m+1 - (m+1) > = 2 o m > = 2. El valor mínimo para N es 5 y se logra cuando m = 2. Por lo tanto, entre todos los valores de N que satisfacen la desigualdad TamañoDelClúster - TamañoDelCuórum > = 2, el valor mínimo es 5.
+
+Tenga en cuenta que en el argumento anterior se asume que todos los nodos tienen una réplica de un servicio del sistema, por lo tanto el tamaño del cuórum se calcula en función del número de nodos del clúster. Sin embargo, al cambiar *TargetReplicaSetSize*, podríamos hacer el tamaño del cuórum menor que (N/2+1), lo que podría dar la impresión de que podríamos tener un clúster menor de 5 nodos y que todavía tiene 2 nodos adicionales por encima del tamaño del cuórum. Por ejemplo, en un clúster de 4 nodos, si se establece el valor de TargetReplicaSetSize en 3, el tamaño del cuórum según el valor de TargetReplicaSetSize es (3/2 + 1) o 2, por lo tanto, tenemos TamañoDelClúster - TamañoDelCuórum = 4-2 > = 2. Sin embargo, no podemos garantizar que el servicio del sistema estará en o por encima del cuórum si se pierde cualquier par de nodos al mismo tiempo; es posible que los dos nodos que hemos perdido hospedaran dos réplicas, por lo que el servicio del sistema pasará a pérdida de cuórum (con solo una única réplica restante) y dejará de estar disponible.
 
 Con esta información, examinemos algunas posibles configuraciones de clúster:
 
@@ -74,9 +81,13 @@ Con esta información, examinemos algunas posibles configuraciones de clúster:
 
 **Dos nodos**: un cuórum para un servicio implementado en dos nodos (N = 2) is 2 (2/2 + 1 = 2). Cuando se pierde una réplica, es imposible crear un cuórum. Teniendo en cuenta que realizar una actualización del servicio requiere desconectar una réplica, esta no es una configuración útil.
 
-**Tres nodos**: con tres nodos (N=3), el requisito para crear un cuórum es aún dos nodos (3/2 + 1 = 2). Esto significa que se puede perder un solo nodo y continuar manteniendo el cuórum.
+**Tres nodos**: con tres nodos (N=3), el requisito para crear un cuórum es aún dos nodos (3/2 + 1 = 2). Esto significa que puede perder un solo nodo y mantener el cuórum, pero un error simultáneo de dos nodos llevará los servicios del sistema a pérdida de cuórum y hará que el clúster deje de estar disponible.
 
-La configuración de clúster de tres nodos se admite en desarrollo y pruebas porque puede realizar actualizaciones de forma segura y sobrevivir a fallos de nodos individuales, siempre y cuando no ocurran a la vez. Para cargas de trabajo de producción, es necesario que haya resistencia para soportar fallos simultáneos, y por ello se necesitan cinco nodos.
+**Cuatro nodos**: con cuatro nodos (N=4), el requisito para crear un cuórum es tres nodos (4/2 + 1 = 3). Esto significa que puede perder un solo nodo y mantener el cuórum, pero un error simultáneo de dos nodos llevará los servicios del sistema a pérdida de cuórum y hará que el clúster deje de estar disponible.
+
+**Cinco nodos**: con cinco nodos (N=5), el requisito para crear un cuórum es aún de tres nodos (5/2 + 1 = 3). Esto significa que puede perder dos nodos al mismo tiempo y continuar manteniendo el cuórum para los servicios del sistema.
+
+Para cargas de trabajo de producción, debe ser resistente a errores simultáneos de al menos dos nodos (por ejemplo, uno debido a una actualización del clúster y uno por otras razones), por lo que se necesitan cinco nodos.
 
 ### <a name="can-i-turn-off-my-cluster-at-nightweekends-to-save-costs"></a>¿Puedo apagar mi clúster por la noche o los fines de semana para ahorrar costos?
 

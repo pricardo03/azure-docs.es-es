@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5994abaf0276d915553494b7272d2a8abed451bb
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: da6435c6e3ea5fe88b605bd65c5d0e10f1772450
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498615"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717473"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Uso de nodos perimetrales vacíos en clústeres de Apache Hadoop en HDInsight
 
@@ -57,15 +57,15 @@ El tamaño de la máquina virtual del nodo perimetral debe cumplir con los requi
 
 Después de haber creado un nodo perimetral, puede conectarse a él mediante SSH y ejecutar herramientas de cliente para acceder al clúster de Hadoop en HDInsight.
 
-> [!WARNING] 
+> [!WARNING]   
 > Los componentes personalizados que se instalan en el nodo perimetral reciben un soporte técnico de Microsoft comercialmente razonable. Esto podría suponer que disponga de su ayuda en los problemas que pueda encontrar. O bien, puede remitirse a los recursos de la comunidad para obtener más asistencia. Los siguientes son algunos de los sitios más activos donde puede obtener ayuda de la comunidad de usuarios:
 >
 > * [Foro de MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)
-> * [http://stackoverflow.com](http://stackoverflow.com).
+> * [https://stackoverflow.com](https://stackoverflow.com).
 >
-> Si usa una tecnología de Apache, es posible que encuentre asistencia a través de los sitios de los proyectos de Apache en [http://apache.org](http://apache.org), por ejemplo, en el sitio de [Apache Hadoop](http://hadoop.apache.org/).
+> Si usa una tecnología de Apache, es posible que encuentre asistencia a través de los sitios de los proyectos de Apache en [https://apache.org](https://apache.org), por ejemplo, en el sitio de [Apache Hadoop](https://hadoop.apache.org/).
 
-> [!NOTE]
+> [!NOTE]  
 > Del mismo modo que los nodos de clústeres, los nodos perimetrales también se administran mediante revisiones.  Para más información, consulte [Aplicación de revisión del SO para HDInsight](./hdinsight-os-patching.md).
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Adición de un nodo perimetral a un clúster existente
@@ -82,12 +82,12 @@ En esta sección, usará una plantilla de Resource Manager para agregar un nodo 
    * **Grupo de recursos**: seleccione el grupo de recursos que se usa para el clúster de HDInsight existente.
    * **Ubicación**: seleccione la ubicación del clúster de HDInsight existente.
    * **Nombre del clúster**: escriba el nombre de un clúster de HDInsight existente.
-   * **Tamaño de nodo perimetral**: seleccione uno de los tamaños de máquina virtual. El tamaño de la máquina virtual debe cumplir los requisitos de tamaño para máquinas virtuales de nodos de trabajador. Para conocer los tamaños recomendados para máquinas virtuales de nodos de trabajador, consulte [Creación de clústeres de Apache Hadoop en HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
-   * **Prefijo de nodo perimetral**: el valor predeterminado es **new**.  Usando el valor predeterminado, el nombre del nodo perimetral es **new-edgenode**.  Puede personalizar el prefijo desde el portal. También puede personalizar el nombre completo desde la plantilla.
+   * **Tamaño del nodo perimetral**: seleccione uno de los tamaños de máquina virtual. El tamaño de la máquina virtual debe cumplir los requisitos de tamaño para máquinas virtuales de nodos de trabajador. Para conocer los tamaños recomendados para máquinas virtuales de nodos de trabajador, consulte [Creación de clústeres de Apache Hadoop en HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
+   * **Prefijo del nodo perimetral**: el valor predeterminado es **new**.  Usando el valor predeterminado, el nombre del nodo perimetral es **new-edgenode**.  Puede personalizar el prefijo desde el portal. También puede personalizar el nombre completo desde la plantilla.
 
 4. Seleccione **Acepto los términos y condiciones indicadas anteriormente** y, después, haga clic en **Comprar** para crear el nodo perimetral.
 
->[!IMPORTANT]
+>[!IMPORTANT]  
 > Asegúrese de seleccionar el grupo de recursos de Azure para el clúster de HDInsight existente.  De lo contrario, obtendrá el mensaje de error "No se puede llevar a cabo la operación solicitada en el recurso anidado. No se encontró el recurso primario "&lt;ClusterName>"".
 
 ## <a name="add-an-edge-node-when-creating-a-cluster"></a>Adición de un nodo perimetral al crear un clúster
@@ -103,15 +103,15 @@ En esta sección, usará una plantilla de Resource Manager para crear un clúste
    
    * **Suscripción**: seleccione la suscripción de Azure usada para crear este clúster.
    * **Grupo de recursos**: cree un nuevo grupo de recursos para el clúster.
-   * **Ubicación**: seleccione una ubicación para el grupo de recursos.
+   * **Ubicación**: Seleccione una ubicación para el grupo de recursos.
    * **Nombre del clúster**: escriba un nombre para el nuevo clúster que se va a crear.
    * **Nombre de usuario de inicio de sesión del clúster**: escriba el nombre de usuario HTTP de Hadoop.  El nombre predeterminado es **admin**.
-   * **Contraseña de inicio de sesión de clúster**: escriba la contraseña de usuario HTTP de Hadoop.
-   * **Nombre de usuario SSH**: escriba el nombre de usuario SSH. El nombre predeterminado es **sshuser**.
-   * **Contraseña SSH**: escriba la contraseña de usuario SSH.
+   * **Contraseña de inicio de sesión del clúster**: escriba la contraseña de usuario HTTP de Hadoop.
+   * **Nombre de usuario de SSH**: escriba el nombre de usuario de SSH. El nombre predeterminado es **sshuser**.
+   * **Contraseña de SSH**: escriba la contraseña del usuario de SSH.
    * **Instalar acción de script**: mantenga el valor predeterminado para realizar este tutorial.
      
-     Algunas propiedades han sido codificadas de forma rígida en la plantilla: tipo de clúster, número de nodos de trabajo del clúster, tamaño del nodo perimetral y nombre del nodo perimetral.
+     Algunas propiedades se han codificado de forma rígida en la plantilla: tipo de clúster, número de nodos de trabajo de clúster, tamaño del nodo perimetral y nombre del nodo perimetral.
 4. Seleccione **Acepto los términos y condiciones indicadas anteriormente** y, después, haga clic en **Comprar** para crear el clúster con el nodo perimetral.
 
 ## <a name="add-multiple-edge-nodes"></a>Agregar varios nodos perimetrales
@@ -158,7 +158,7 @@ En este artículo, ha aprendido a agregar un nodo perimetral y a acceder a él. 
 * [Instalación de aplicaciones de HDInsight](hdinsight-apps-install-applications.md): aprenda a instalar una aplicación de HDInsight en sus clústeres.
 * [Instalación de aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md): aprenda a implementar en HDInsight una aplicación de HDInsight no publicada.
 * [Publicación de aplicaciones de HDInsight en Azure Marketplace](hdinsight-apps-publish-applications.md): aprenda a publicar aplicaciones de HDInsight personalizadas en Azure Marketplace.
-* [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx)(MSDN: instalación de una aplicación de HDInsight): aprenda a definir aplicaciones de HDInsight.
+* [MSDN: Instalación de una aplicación HDInsight](https://msdn.microsoft.com/library/mt706515.aspx): Obtenga información sobre cómo definir las aplicaciones de HDInsight.
 * [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md): aprenda a usar acciones de script para instalar otras aplicaciones.
 * [Creación de clústeres de Apache Hadoop basados en Linux en HDInsight con plantillas de Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md): aprenda a llamar a plantillas de Resource Manager para crear clústeres de HDInsight.
 

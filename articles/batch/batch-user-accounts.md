@@ -1,8 +1,8 @@
 ---
-title: Ejecución de tareas en cuentas de usuario en Azure Batch | Microsoft Docs
+title: 'Ejecución de tareas en cuentas de usuario: Azure Batch | Microsoft Docs'
 description: Configure cuentas de usuario para ejecutar tareas en Azure Batch
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 tags: ''
@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: danlep
-ms.openlocfilehash: d5ec76a62b56769ee3065cac3542f5a94df4a1c6
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: b59bb835c9858c6e47b8bb3a3518086e887d0d84
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133508"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542839"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Ejecución de tareas en cuentas de usuario en Batch
 
@@ -58,8 +59,8 @@ Para más información sobre cómo acceder a archivos y directorios desde una ta
 
 El nivel de elevación de la cuenta de usuario indica si una tarea se ejecuta con acceso con privilegios elevados. Tanto las cuentas de usuario automático como las de usuario con nombre se pueden ejecutar con acceso con privilegios elevados. Las dos opciones para el nivel de elevación son:
 
-- **NonAdmin:** la tarea se ejecuta como usuario estándar sin acceso con privilegios elevados. El nivel de elevación predeterminado para una cuenta de usuario de Batch es siempre **NonAdmin**.
-- **Admin:** la tarea se ejecuta como usuario con acceso con privilegios elevados y funciona con permisos de administrador completos. 
+- **NonAdmin:** la tarea se ejecuta como un usuario estándar sin acceso con privilegios elevados. El nivel de elevación predeterminado para una cuenta de usuario de Batch es siempre **NonAdmin**.
+- **Admin:** la tarea se ejecuta como un usuario con acceso con privilegios elevados y funciona con permisos de administrador completos. 
 
 ## <a name="auto-user-accounts"></a>Cuentas de usuario automático
 

@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/9/2018
 ms.author: patricka
-ms.openlocfilehash: 32c268c1e4a0ff4d17c5b03f0ffd33b0ddf5b927
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 8b478c1ba60df679d69d5fced660836c16079e6a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901488"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727096"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Posición de seguridad de la infraestructura de Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack*
 
 Entre los principales factores que determinan el uso de nubes híbridas están las consideraciones de seguridad y las regulaciones de conformidad. Azure Stack está diseñado para estos escenarios. En este artículo se explican los controles de seguridad que hay para Azure Stack.
 
@@ -40,7 +40,7 @@ Dado que la infraestructura se ejecuta en hardware y software bien definidos, Az
 Como Azure Stack se proporciona como un sistema integrado, la posición de seguridad de la infraestructura de Azure Stack la define Microsoft. Al igual que en Azure, los inquilinos son responsables de definir la posición de seguridad de sus cargas de trabajo de inquilino. En este documento se proporciona conocimiento básico sobre la posición de seguridad de la infraestructura de Azure Stack.
 
 ## <a name="data-at-rest-encryption"></a>Cifrado de datos en reposo
-Todos los datos de la infraestructura de Azure Stack y de los inquilinos se cifran en reposo mediante Bitlocker. Este cifrado protege contra la pérdida física o el robo de componentes de almacenamiento de Azure Stack. 
+Todos los datos de la infraestructura de Azure Stack y de los inquilinos se cifran en reposo mediante Bitlocker. Este cifrado protege contra la pérdida física o el robo de componentes de almacenamiento de Azure Stack. Para más información, consulte [Cifrado de datos en reposo en Azure Stack](azure-stack-security-bitlocker.md).
 
 ## <a name="data-in-transit-encryption"></a>Cifrado de los datos en tránsito
 Los componentes de la infraestructura de Azure Stack se comunican mediante canales cifrados con TLS 1.2. Los certificados de cifrado se administran automáticamente en la infraestructura. 

@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: eeb1ae2904a9b132ed1de8e66cad83d5ff5144b8
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 12/20/2018
+ms.openlocfilehash: 62e4171a6895f2f425d67b9d1143fe9d3999a9b9
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435725"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715909"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitectura de conectividad de Azure SQL
 
@@ -26,7 +26,7 @@ En este artículo se explica la arquitectura de conectividad de Azure SQL Databa
 > [!IMPORTANT]
 > **[Cambio próximo] Para las conexiones de punto de conexión de servicio a los servidores Azure SQL, un comportamiento de conectividad `Default` cambia a `Redirect`.**
 >
-> El cambio entrará en vigor el 10 de noviembre de 2019 para las regiones del sur de Brasil y Europa Occidental. Para todas las demás regiones el cambio entrará en vigor a partir del 2 de enero de 2019.
+> El cambio entrará en vigor el 10 de noviembre de 2018 para las regiones del sur de Brasil y Europa Occidental. Para todas las demás regiones el cambio entrará en vigor a partir del 2 de enero de 2019.
 >
 > Para evitar que la conectividad a través de un punto de conexión de servicio se interrumpa en los entornos existentes a causa de este cambio, utilizamos telemetría para lo siguiente:
 > - Para los servidores cuyo acceso a través de puntos de conexión de servicio hemos detectado antes del cambio, cambiamos el tipo de conexión a `Proxy`.

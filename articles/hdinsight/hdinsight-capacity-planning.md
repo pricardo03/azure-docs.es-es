@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: hrasheed
-ms.openlocfilehash: c8ca936220bf1f4d7f38858c0e09e332cd474077
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7eb18b5560e849796770ce9d24574d7a3d0db262
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193865"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716147"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planeamiento de la capacidad de los clústeres de HDInsight
 
@@ -38,17 +38,17 @@ HDInsight está disponible en muchas regiones de Azure. Para buscar la región m
 
 ### <a name="location-of-default-storage"></a>Ubicación del almacenamiento predeterminado
 
-El almacenamiento predeterminado, ya sea una cuenta de Azure Storage o Azure Data Lake Store, debe estar en la misma ubicación que el clúster. Azure Storage está disponible en todas las ubicaciones. Data Lake Store Gen1 está disponible en algunas regiones: vea la disponibilidad actual de Data Lake Store en *Storage* en [Productos disponibles por región](https://azure.microsoft.com/regions/services/).
+El almacenamiento predeterminado, ya sea una cuenta de Azure Storage o Azure Data Lake Storage, debe estar en la misma ubicación que el clúster. Azure Storage está disponible en todas las ubicaciones. Data Lake Storage Gen1 está disponible en algunas regiones: vea la disponibilidad actual de Data Lake Storage en *Storage* en [Productos disponibles por región](https://azure.microsoft.com/regions/services/).
 
 ### <a name="location-of-existing-data"></a>Ubicación de los datos existentes
 
-Si ya tiene una cuenta de almacenamiento o un recurso de Data Lake Store que contiene los datos y desea usar dichos almacenamiento como el predeterminado para el clúster, entonces debe implementar el clúster en esa misma ubicación.
+Si ya tiene una cuenta de almacenamiento o un recurso de Data Lake Storage que contiene los datos y desea usar dicho almacenamiento como el predeterminado para el clúster, entonces debe implementar el clúster en esa misma ubicación.
 
 ### <a name="storage-size"></a>Tamaño de almacenamiento
 
-Una vez que un clúster de HDInsight ya está implementado, puede adjuntar cuentas adicionales de Azure Storage o acceder a recursos de Data Lake Store. Todas las cuentas de almacenamiento deben residir en la misma ubicación que el clúster. Un almacén de Data Lake Store puede estar en una ubicación distinta, aunque esto puede ocasionar algo de latencia de lectura y escritura de datos.
+Una vez que un clúster de HDInsight ya está implementado, puede adjuntar cuentas adicionales de Azure Storage o acceder a recursos de Data Lake Storage. Todas las cuentas de almacenamiento deben residir en la misma ubicación que el clúster. Un almacén de Data Lake Storage puede estar en una ubicación distinta, aunque esto puede ocasionar algo de latencia de lectura y escritura de datos.
 
-Azure Storage tiene algunos [límites de capacidad](../azure-subscription-service-limits.md#storage-limits), mientras que Data Lake Store Gen1 tiene una capacidad prácticamente ilimitada.
+Azure Storage tiene algunos [límites de capacidad](../azure-subscription-service-limits.md#storage-limits), mientras que Data Lake Storage Gen1 tiene una capacidad prácticamente ilimitada.
 
 Un clúster puede acceder a una combinación de distintas cuentas de almacenamiento. Estos son ejemplos típicos:
 
@@ -75,7 +75,7 @@ El tamaño y el tipo de máquina virtual los determinan la capacidad de procesam
 
 * RAM: el tamaño de la máquina virtual también determina la cantidad de RAM disponible en la máquina virtual. Para las cargas de trabajo que almacenan los datos en memoria para el procesamiento, en lugar de leer desde el disco, asegúrese de que los nodos de trabajo tienen suficiente memoria para almacenar los datos.
 
-* Red: para la mayoría de los tipos de clúster, los datos procesados por el clúster no están en el disco local, sino en un servicio de almacenamiento externo como Data Lake Store o Azure Storage. Tenga en cuenta el ancho de banda de red y el rendimiento entre la máquina virtual del nodo y el servicio de almacenamiento. El ancho de banda de red disponible en una máquina virtual suele aumentar con tamaños más grandes. Para obtener información detallada, vea la [información general sobre los tamaños de las máquinas virtuales](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+* Red: para la mayoría de los tipos de clúster, los datos procesados por el clúster no están en el disco local, sino en un servicio de almacenamiento externo como Data Lake Storage o Azure Storage. Tenga en cuenta el ancho de banda de red y el rendimiento entre la máquina virtual del nodo y el servicio de almacenamiento. El ancho de banda de red disponible en una máquina virtual suele aumentar con tamaños más grandes. Para obtener información detallada, vea la [información general sobre los tamaños de las máquinas virtuales](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
 
 ## <a name="choose-the-cluster-scale"></a>Elección de la escala del clúster
 
@@ -89,7 +89,7 @@ Puede escalar horizontalmente el clúster para satisfacer los picos de demandas 
 
 Se le cobra en función de la duración del clúster. Si solo necesita que el clúster funcione en momentos específicos, puede [crear clústeres a petición mediante Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). También puede crear scripts de PowerShell que aprovisionen y eliminen el clúster y después programar dichos scripts con [Azure Automation](https://azure.microsoft.com/services/automation/).
 
-> [!NOTE]
+> [!NOTE]  
 > Cuando se elimina un clúster, su instancia de Hive Metastore predeterminada también se elimina. Para conservar Metastore para volver a crear el siguiente clúster, use un repositorio de metadatos externo, como Azure Database u [Apache Oozie](https://oozie.apache.org/).
 <!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
@@ -120,7 +120,7 @@ Después de determinar el tamaño, la escala y el tipo de la máquina virtual de
 1. Haga clic en **Siguiente: Review + create** (Revisar y crear).
 1. En la pestaña **Review + create** (Revisar y crear), haga clic en **Create** (Crear).
 
-> [!Note]
+> [!NOTE]  
 > Si necesita aumentar la cuota de núcleos de HDInsight en una región privada, [envíe una solicitud de lista de permitidos](https://aka.ms/canaryintwhitelist).
 
 Puede [ponerse en contacto con el servicio de soporte técnico para solicitar un aumento de la cuota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).

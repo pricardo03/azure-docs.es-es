@@ -1,24 +1,21 @@
 ---
-title: 'Primer análisis: protección de máquina virtuales de Azure con un almacén de Recovery Services'
-description: Copia de seguridad de máquinas virtuales de Azure con ARM en un almacén de Servicios de recuperación. Use copias de seguridad de máquinas virtuales implementadas con Resource Manager, máquinas virtuales implementadas con el modelo clásico, máquinas virtuales con Premium Storage, máquinas virtuales cifradas y máquinas virtuales en instancias de Managed Disks para proteger los datos. Cree y registre un almacén de Servicios de recuperación. Registre máquinas virtuales, cree directivas y proteja máquinas virtuales en Azure.
+title: Realización de copias de seguridad de máquinas virtuales de Azure con el servicio Azure Backup
+description: Aprenda a realizar copias de seguridad de máquinas virtuales de Azure con el servicio Azure Backup
 services: backup
 author: rayne-wiselman
 manager: carmonm
-keyword: backups; vm backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 12/17/2018
 ms.author: raynew
-ms.custom: H1Hack27Feb2017
-keywords: copias de seguridad; copia de seguridad de máquina virtual
-ms.openlocfilehash: 2c6b881e5717c0f4600b4e3c2f47c19b5d2dae51
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 0c394a92bff3ace210ee0db156f47bb8912bf45d
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869935"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631590"
 ---
-# <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Copia de seguridad de máquinas virtuales de Azure en almacenes de Recovery Services
+# <a name="back-up-azure-vms-with-the-azure-backup-service"></a>Realización de copias de seguridad de máquinas virtuales de Azure con el servicio Azure Backup
 
 En este artículo se explica cómo configurar la protección de una máquina virtual desde el menú de operaciones de máquinas virtuales o el almacén de Recovery Services. Los almacenes de Recovery Services protegen:
 
@@ -32,7 +29,7 @@ En este artículo se explica cómo configurar la protección de una máquina vir
 
 Para más información sobre la protección de máquinas virtuales de Premium Storage, consulte el artículo sobre la [copia de seguridad y la restauración de máquinas virtuales de Premium Storage](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Para más información sobre la compatibilidad con máquinas virtuales de disco administrado, consulte el artículo sobre la [copia de seguridad y la restauración de máquinas virtuales en discos administrados](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Para más información acerca de los marcos previo y posterior al script para copias de seguridad de máquinas virtuales Linux, consulte [Copias de seguridad coherentes con la aplicación de las máquinas virtuales Linux de Azure](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
-Para obtener más información sobre qué copias de seguridad que se pueden realizar, vea [Preparación del entorno para la copia de seguridad de máquinas virtuales implementadas según el modelo de Resource Manager](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
+Para obtener más información sobre qué copias de seguridad que se pueden realizar, vea [Preparación del entorno para la copia de seguridad de máquinas virtuales implementadas según el modelo de Resource Manager](backup-azure-arm-vms-prepare.md#before-you-start).
 
 > [!NOTE]
 > El servicio Backup crea un grupo de recursos diferente al de la máquina virtual para guardar la colección de puntos de restauración. Es conveniente que los clientes no bloqueen el grupo de recursos que se ha creado para que lo utilice el servicio Backup.
@@ -337,7 +334,9 @@ El servicio Backup instalará la extensión de la copia de seguridad, incluso si
 Si tiene problemas para realizar cualquiera de las tareas de este artículo, consulte la [guía de solución de problemas](backup-azure-vms-troubleshoot.md).
 
 ## <a name="pricing"></a>Precios
-El costo de la copia de seguridad de máquinas virtuales de Azure se basa en el número de instancias protegidas. Para obtener una definición de una instancia protegida, consulte [Descripción de una instancia protegida](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Para obtener un ejemplo de cálculo del costo de copia de seguridad de una máquina virtual, consulte [¿Cómo se calculan las instancias protegidas?](backup-azure-vms-introduction.md#calculating-the-cost-of-protected-instances). Consulte la página de precios de Azure Backup para obtener información acerca de los [precios de Backup](https://azure.microsoft.com/pricing/details/backup/).
+El costo de la copia de seguridad de máquinas virtuales de Azure se basa en el número de instancias protegidas. Para obtener una definición de una instancia protegida, consulte [Descripción de una instancia protegida](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Consulte la página de precios de Azure Backup para obtener información acerca de los [precios de Backup](https://azure.microsoft.com/pricing/details/backup/).
 
-## <a name="questions"></a>¿Tiene preguntas?
-Si tiene alguna pregunta o hay alguna característica que le gustaría que se incluyera, [envíenos sus comentarios](https://aka.ms/azurebackup_feedback).
+## <a name="next-steps"></a>Pasos siguientes
+
+[Administración](backup-azure-manage-vms.md) de copias de seguridad.
+

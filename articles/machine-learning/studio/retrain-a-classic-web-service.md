@@ -15,35 +15,35 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: a012798f71b0e3c14ab9982fd41bce6f0fa098e5
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 5aa52805afcd50ebf7a9ac0ddcae95f21dd329f1
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257614"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554765"
 ---
 # <a name="retrain-a-classic-azure-machine-learning-studio-web-service"></a>Repetición del entrenamiento de un servicio web clásico en Azure Machine Learning Studio
-El servicio web predictivo que implementó es el punto de conexión de puntuación predeterminado. Los puntos de conexión predeterminados se mantienen sincronizados con los experimentos de entrenamiento y puntuación originales y, por tanto, el modelo entrenado de un punto de conexión predeterminado no se puede reemplazar. Para reciclar el servicio web, debe agregar un nuevo punto de conexión al servicio web. 
+El servicio web predictivo que implementó es el punto de conexión de puntuación predeterminado. Los puntos de conexión predeterminados se mantienen sincronizados con los experimentos de entrenamiento y puntuación originales y, por tanto, el modelo entrenado de un punto de conexión predeterminado no se puede reemplazar. Para reciclar el servicio web, debe agregar un nuevo punto de conexión al servicio web.
 
 ## <a name="prerequisites"></a>Requisitos previos
-Debe haber configurado un experimento de entrenamiento y un experimento predictivo tal como se muestra en los [modelos de reciclaje de Machine Learning mediante programación](retrain-models-programmatically.md). 
+Debe haber configurado un experimento de entrenamiento y un experimento predictivo tal como se muestra en los [modelos de reciclaje de Machine Learning mediante programación](retrain-models-programmatically.md).
 
 > [!IMPORTANT]
-> El experimento predictivo debe implementarse como un servicio web Machine Learning clásico. 
-> 
-> 
+> El experimento predictivo debe implementarse como un servicio web Machine Learning clásico.
+>
+>
 
 Para obtener más información sobre la implementación de servicios web, vea el artículo sobre [implementación de un servicio web Azure Machine Learning](publish-a-machine-learning-web-service.md).
 
 ## <a name="add-a-new-endpoint"></a>Adición de un punto de conexión nuevo
-El servicio web predictivo que implementó contiene un punto de conexión de puntuación predeterminado que se mantiene sincronizado con la formación original y el modelo entrenado de experimentos de puntuación. Para actualizar el servicio web a un nuevo modelo entrenado, debe crear un nuevo punto de conexión para la puntuación. 
+El servicio web predictivo que implementó contiene un punto de conexión de puntuación predeterminado que se mantiene sincronizado con la formación original y el modelo entrenado de experimentos de puntuación. Para actualizar el servicio web a un nuevo modelo entrenado, debe crear un nuevo punto de conexión para la puntuación.
 
 Para crear un nuevo punto de conexión de puntuación, en el servicio web predictivo que se puede actualizar con el modelo entrenado:
 
 > [!NOTE]
 > Asegúrese de agregar el punto de conexión al servicio web predictivo y no al de entrenamiento. Si ha implementado correctamente un servicio web predictivo y otro de entrenamiento, debería ver dos servicios web independientes. El servicio web predictivo debe terminar con "[predictive exp.]".
-> 
-> 
+>
+>
 
 Hay dos formas en que puede agregar un nuevo punto de conexión a un servicio web:
 

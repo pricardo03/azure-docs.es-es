@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2018
+ms.date: 12/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 308ab9d35e07c8376fb183c794fcad77a74a1df9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 39d0813eab49f526842eec171e3355326bd13c44
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295570"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727809"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Definición del orden de implementación de recursos en plantillas de Azure Resource Manager
 Antes de proceder a la implementación de un recurso determinado, es posible que deban existir otros recursos. Por ejemplo, debe existir un servidor SQL para intentar implementar una base de datos SQL. Esta relación se define al marcar un recurso como dependiente del otro. Una dependencia se define con el elemento **dependsOn** o mediante la función **reference**. 
@@ -145,16 +145,7 @@ Puede usar este elemento o el elemento dependsOn para especificar las dependenci
 
 Para más información, consulte [función reference](resource-group-template-functions-resource.md#reference).
 
-## <a name="recommendations-for-setting-dependencies"></a>Recomendaciones para configurar las dependencias
-
-A la hora de decidir qué dependencias establecer, use las siguientes directrices:
-
-* Establezca el menor número de dependencias posible.
-* Establezca un recurso secundario como dependiente de su recurso principal.
-* Use la función **reference** y pase el nombre del recurso para establecer dependencias implícitas entre los recursos que deben compartir una propiedad. No agregue una dependencia explícita (**dependsOn**) cuando ya haya definido una dependencia implícita. Este enfoque reduce el riesgo de que se tengan dependencias innecesarias. 
-* Establezca una dependencia cuando no se pueda **crear** un recurso sin la funcionalidad de otro recurso. No establezca una dependencia si los recursos solo interactúan después de la implementación.
-* Permita dependencias en cascada sin establecerlas explícitamente. Por ejemplo, la máquina virtual depende de una interfaz de red virtual y la interfaz de red virtual depende de una red virtual y las direcciones IP públicas. Por lo tanto, la máquina virtual se implementa después de los tres recursos, pero no se establece explícitamente la máquina virtual como dependiente de los tres recursos. Este enfoque aclara el orden de dependencia y facilita el cambio de la plantilla más adelante.
-* Si no se puede determinar un valor antes de la implementación, intente implementar el recurso sin una dependencia. Por ejemplo, si un valor de configuración necesita el nombre de otro recurso, quizás no necesite una dependencia. Esta guía no siempre funciona porque algunos recursos comprueban la existencia de los otros. Si recibe un error, agregue una dependencia. 
+## <a name="circular-dependencies"></a>Dependencias circulares
 
 Resource Manager identifica dependencias circulares durante la validación de plantillas. Si recibe un error que indica que existe una dependencia circular, evalúe la plantilla para ver si algunas dependencias no son necesarias y se pueden quitar. Si no es suficiente con quitar dependencias, puede evitar dependencias circulares moviendo algunas operaciones de implementación a recursos secundarios que se implementan después de los recursos que tienen la dependencia circular. Por ejemplo, suponga que va a implementar dos máquinas virtuales pero debe establecer propiedades en cada una que hagan referencia a la otra. Puede implementarlas en el orden siguiente:
 
@@ -168,6 +159,7 @@ Para información sobre cómo evaluar el orden de implementación y resolver err
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para seguir los pasos de un tutorial, consulte [Tutorial: Creación de plantillas de Azure Resource Manager con recursos dependientes](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
+* Para obtener recomendaciones al establecer las dependencias, consulte [Procedimientos recomendados de plantilla de Azure Resource Manager](template-best-practices.md).
 * Para aprender a solucionar los problemas de dependencias durante la implementación, consulte [Solución de errores comunes de implementación de Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Para más información sobre la creación de plantillas del Administrador de recursos de Azure, consulte [Creación de plantillas](resource-group-authoring-templates.md). 
 * Para obtener una lista de las funciones disponibles en una plantilla, consulte [Funciones de plantilla](resource-group-template-functions.md).

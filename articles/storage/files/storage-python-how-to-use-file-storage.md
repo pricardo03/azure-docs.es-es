@@ -6,15 +6,15 @@ author: wmgries
 ms.service: storage
 ms.devlang: python
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 12/14/2018
 ms.author: tamram
 ms.component: files
-ms.openlocfilehash: 4082352c8c9814b8e6533d3f64b18450a6cf416d
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: f1ebc059c66615ecf21054e85472b2a6d86dfce6
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53165579"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743194"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Desarrollo para Azure Files con Python
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -33,7 +33,7 @@ Este tutorial mostrará los aspectos básicos del uso de Python para desarrollar
 
 ## <a name="download-and-install-azure-storage-sdk-for-python"></a>Descarga e instalación del SDK de Azure Storage para Python
 
-El SDK de Azure Storage para Python requiere Python 2.7, 3.3, 3.4, 3.5 o 3.6, y viene en cuatro paquetes diferentes: `azure-storage-blob`, `azure-storage-file`, `azure-storage-table` y `azure-storage-queue`. En este tutorial se usará el paquete `azure-storage-file`.
+El [SDK de Azure Storage para Python](https://github.com/azure/azure-storage-python) requiere Python 2.7, 3.3, 3.4, 3.5 o 3.6.
  
 ## <a name="install-via-pypi"></a>Instalación mediante PyPi
 
@@ -43,13 +43,15 @@ Para realizar la instalación mediante el índice de paquetes de Python (PyPI), 
 pip install azure-storage-file
 ```
 
-
 > [!NOTE]
-> Si va a actualizar desde el SDK de Azure Storage para la versión de Python 0.36 o anterior, primero deberá desinstalarlo mediante `pip uninstall azure-storage` dado que ya no se publica el SDL de Storage para Python en un único paquete.
-> 
-> 
+> Si va a actualizar desde el SDK de Azure Storage para Python 0.36 o una versión anterior, desinstale el SDK anterior mediante `pip uninstall azure-storage` antes de instalar el paquete más reciente.
 
 Si quiere conocer métodos de instalación alternativos, consulte el [SDK de Azure Storage para Python en GitHub](https://github.com/Azure/azure-storage-python/).
+
+## <a name="view-the-sample-application"></a>Visualización de la aplicación de ejemplo
+Para ver y ejecutar una aplicación de ejemplo que muestra cómo usar Python con Azure Files, consulte [Azure Storage: Getting Started with Azure Files in Python](https://github.com/Azure-Samples/storage-file-python-getting-started) (Azure Storage: Introducción a Azure Files en Python). 
+
+Para ejecutar la aplicación de ejemplo, asegúrese de que ha instalado los paquetes `azure-storage-file` y `azure-storage-common`.
 
 ## <a name="set-up-your-application-to-use-azure-files"></a>Configuración de la aplicación para usar Azure Files
 Agregue lo siguiente cerca de la parte superior de todo archivo de origen de Python en el que desee acceder a Azure Storage mediante programación.

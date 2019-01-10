@@ -15,12 +15,12 @@ ums.workload: na
 ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 2f97a2e8ad38bb3c78333cc2c8eedad8f520e68a
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: a6bbc61afcc1ed25d5eac8673b9abfa59e72dba9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036809"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602195"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure Log Integration en registros de Azure Diagnostics y reenvío de eventos de Windows
 
@@ -151,9 +151,9 @@ Después de completar la configuración básica, está listo para realizar los p
 En este paso, configurará la máquina que ejecuta el servicio Azure Log Integration para conectarse a la cuenta de almacenamiento que contiene los archivos de registro.
 
 Antes de realizar este paso, se necesitan varios elementos:  
-* **FriendlyNameForSource:** se trata de un nombre descriptivo que se puede aplicar a la cuenta de almacenamiento configurada para que la máquina virtual almacene en ella información de Azure Diagnostics.
-* **StorageAccountName:** se trata del nombre de la cuenta de almacenamiento especificada al configurar Azure Diagnostics.  
-* **StorageKey:** se trata de la clave de almacenamiento de la cuenta de almacenamiento en la que se almacena la información de Azure Diagnostics para esta máquina virtual.  
+* **FriendlyNameForSource**: nombre descriptivo que se puede aplicar a la cuenta de almacenamiento configurada para que la máquina virtual almacene en ella información de Azure Diagnostics.
+* **StorageAccountName**: nombre de la cuenta de almacenamiento especificada al configurar Azure Diagnostics.  
+* **StorageKey**: clave de almacenamiento de la cuenta de almacenamiento en la que se almacena la información de Azure Diagnostics para esta máquina virtual.  
 
 Realice los pasos siguientes para obtener la clave de almacenamiento:
 1. Vaya a [Azure Portal](http://portal.azure.com).
@@ -198,7 +198,7 @@ En el siguiente vídeo se tratan los pasos anteriores:<br /><br />
 ## <a name="if-data-isnt-showing-up-in-the-forwarded-events-folder"></a>¿Qué ocurre si los datos no aparecen en la carpeta Eventos reenviados?
 Si después de una hora los datos no aparecen en la carpeta Eventos reenviados, realice los pasos siguientes:
 
-1. Compruebe la máquina que ejecuta el servicio Azure Log Integration. Confirme que puede acceder a Azure. Para probar la conectividad en un explorador, intente acceder a [Azure Portal](http://portal.azure.com).
+1. Compruebe la máquina que ejecuta el servicio Azure Log Integration. Confirme que puede acceder a Azure. Para probar la conectividad en un explorador, intente acceder a [Azure Portal](https://portal.azure.com).
 2. Asegúrese de que la cuenta de usuario AzLog tiene permiso de escritura en la carpeta users\Azlog.
   1. Abra el Explorador de archivos.
   2. Vaya a C:\users.
@@ -243,7 +243,7 @@ También puede abrir una [solicitud de soporte técnico](../azure-supportability
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre Azure Log Integration, vea los siguientes artículos: antes de intentar seguir los pasos descritos en este artículo, debe revisar el artículo de introducción y completar los pasos que ahí se describen.
+Para más información sobre Azure Log Integration, consulte los siguientes artículos: Debe revisar el artículo Introducción y completar los pasos descritos antes de intentar seguir los pasos de este artículo.
 
 * [Azure Log Integration para registros de Azure](https://www.microsoft.com/download/details.aspx?id=53324). El Centro de descarga proporciona información, requisitos del sistema e instrucciones de instalación de Azure Log Integration.
 * [Introducción a Azure Log Integration](security-azure-log-integration-overview.md). Este artículo es una introducción a Azure Log Integration, sus principales funcionalidades y cómo funciona.

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2018
 ms.author: rafats
-ms.openlocfilehash: 1d1bc011de579588567fac3debe9d0b4af5d29f7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c203334b0ea1b47aa1884155f477e34bd8f2e1db
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878355"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724766"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Protección del acceso a los datos de Azure Cosmos DB
 En este artículo se proporciona información general sobre la protección del acceso a los datos almacenados en [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
@@ -188,7 +188,7 @@ Para agregar acceso de lectura en la cuenta de Azure Cosmos DB a su cuenta de us
 La entidad ahora puede leer los recursos de Azure Cosmos DB.
 
 ## <a name="delete-or-export-user-data"></a>Eliminación o exportación de datos de usuario
-Azure Cosmos DB le permite buscar, seleccionar, modificar y eliminar cualquier dato personal ubicado en la base de datos o en colecciones. Azure Cosmos DB proporciona API para buscar y eliminar datos personales; sin embargo, es su responsabilidad usar las API y definir la lógica requerida para borrar los datos personales. Cada API multimodelo (API de SQL, API de MongoDB, API de Gremlin, Cassandra API, Table API) proporcionan SDK de diferentes lenguajes que contienen métodos para buscar y eliminar datos personales. También puede habilitar la característica [período de vida (TTL)](time-to-live.md) para eliminar datos automáticamente después de un período especificado, sin incurrir en ningún costo adicional.
+Azure Cosmos DB le permite buscar, seleccionar, modificar y eliminar cualquier dato personal ubicado en la base de datos o en colecciones. Azure Cosmos DB proporciona API para buscar y eliminar datos personales; sin embargo, es su responsabilidad usar las API y definir la lógica requerida para borrar los datos personales. Cada API multimodelo (SQL, MongoDB, Gremlin, Cassandra, Table) proporciona SDK de diferentes lenguajes que contienen métodos para buscar y eliminar datos personales. También puede habilitar la característica [período de vida (TTL)](time-to-live.md) para eliminar datos automáticamente después de un período especificado, sin incurrir en ningún costo adicional.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 

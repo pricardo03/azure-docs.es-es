@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/24/2018
+ms.date: 12/202018
 ms.author: jingwang
-ms.openlocfilehash: 1f3e9be3a0048c4bf2e87ac23cbdc76b1aaa649f
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 61ac0eeeb177ffccbe10d4ab049d3541ac6aeb60
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166413"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810430"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copia de datos desde un punto de conexión HTTP mediante Azure Data Factory
 
@@ -27,6 +27,12 @@ ms.locfileid: "49166413"
 > * [Versión actual](connector-http.md)
 
 En este artículo se explica el uso de la actividad de copia de Azure Data Factory para copiar datos desde un punto de conexión HTTP. El artículo se basa en [Actividad de copia en Azure Data Factory](copy-activity-overview.md), en el que se ofrece información general acerca de la actividad de copia.
+
+Las diferencias entre este conector HTTP, el [conector REST](connector-rest.md) y el [conector de tabla web](connector-web-table.md) son:
+
+- El **conector REST** admite específicamente la copia de datos desde API RESTful. 
+- El **conector HTTP** es genérico y puede recuperar datos desde cualquier punto de conexión HTTP, por ejemplo, para descargar archivos. Antes de que esté disponible el conector REST, puede usar el conector HTTP para copiar datos de la API RESTful, lo cual se admite, pero es menos funcional en comparación con el conector REST.
+- El **conector de tabla web** extrae contenido de la tabla de una página web HTML.
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
@@ -37,8 +43,6 @@ Puede usar este conector HTTP para:
 - Recuperar datos desde un punto de conexión HTTP o HTTPS mediante los métodos HTTP **GET** o **POST**.
 - Recuperar datos con uno de los siguientes tipos de autenticación: **Anónima**, **Básica**, **Implícita**, **Windows** o **ClientCertificate**.
 - Copiar la respuesta HTTP tal cual, o bien analizarla con los [códecs de compresión y los formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md).
-
-La diferencia entre este conector y el de [tabla web](connector-web-table.md) es que el último se usa para extraer contenido de la tabla desde una página web HTML.
 
 > [!TIP]
 > Para probar una solicitud HTTP para la recuperación de datos antes de configurar el conector HTTP en Data Factory, obtenga información acerca de la especificación de API para los requisitos del cuerpo y del encabezado. Puede usar herramientas como Postman o un explorador web para validar.
@@ -111,7 +115,7 @@ Si utiliza **certThumbprint** para la autenticación y el certificado está inst
 3. Haga clic con el botón derecho en el certificado del almacén personal y seleccione **Todas las tareas** > **Administrar claves privadas**.
 3. En la pestaña **Seguridad**, agregue la cuenta de usuario en que se ejecuta el servicio de host del entorno Integration Runtime (DIAHostService) con acceso de lectura al certificado.
 
-**Ejemplo 1: Uso de certThumbprint**
+**Ejemplo 1: Uso de certThumbprint**
 
 ```json
 {
@@ -131,7 +135,7 @@ Si utiliza **certThumbprint** para la autenticación y el certificado está inst
 }
 ```
 
-**Ejemplo 2: Uso de embeddedCertData**
+**Ejemplo 2: Uso de embeddedCertData**
 
 ```json
 {
@@ -171,12 +175,12 @@ Para copiar datos desde HTTP, establezca la propiedad **type** del conjunto de d
 | additionalHeaders | Encabezados de solicitud HTTP adicionales. | Sin  |
 | requestBody | Cuerpo de la solicitud HTTP. | Sin  |
 | formato | Si desea recuperar datos tal cual desde el punto de conexión HTTP sin analizarlos y, después, copiarlos en un almacén basado en archivos, ignore la sección de **formato** de las definiciones de los conjuntos de datos de entrada y salida.<br/><br/>Si desea analizar el contenido de la respuesta HTTP durante la copia, se admiten los siguientes tipos de formato de archivos: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. En **formato**, establezca la propiedad **type** de formato en uno de los siguientes valores. Para obtener más información, consulte las secciones sobre [formato JSON](supported-file-formats-and-compression-codecs.md#json-format), [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [formato Orc](supported-file-formats-and-compression-codecs.md#orc-format) y [formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |Sin  |
-| compresión | Especifique el tipo y el nivel de compresión de los datos. Para más información, consulte el artículo sobre [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Tipos admitidos: **GZip**, **Deflate**, **BZip2** y **ZipDeflate**.<br/>Niveles admitidos: **Optimal** y **Fastest**. |Sin  |
+| compresión | Especifique el tipo y el nivel de compresión de los datos. Para más información, consulte el artículo sobre [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Tipos admitidos: **GZip**, **Deflate**, **BZip2** y **ZipDeflate**.<br/>Niveles que se admiten:  **Optimal** y **Fastest**. |Sin  |
 
 > [!NOTE]
 > El tamaño de carga de la solicitud HTTP admitido es aproximadamente 500 KB. Si el que desea pasar al punto de conexión web supera los 500 KB, considere la posibilidad de agrupar la carga en fragmentos menores.
 
-**Ejemplo 1: Uso del método Get (valor predeterminado)**
+**Ejemplo 1: Uso del método Get (valor predeterminado)**
 
 ```json
 {
@@ -195,7 +199,7 @@ Para copiar datos desde HTTP, establezca la propiedad **type** del conjunto de d
 }
 ```
 
-**Ejemplo 2: Uso del método POST**
+**Ejemplo 2: Uso del método POST**
 
 ```json
 {

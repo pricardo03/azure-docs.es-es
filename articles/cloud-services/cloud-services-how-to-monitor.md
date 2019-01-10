@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: jeconnoc
-ms.openlocfilehash: e9fbe59c40fe55218429a3b479ddbbec7220c66a
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 844fef9a87c1db06c6415c59d4be26caf928382b
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42143918"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789475"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introducción a la supervisión de servicios en la nube
 
-Puede supervisar las métricas de rendimiento claves de cualquier servicio en la nube. Cada rol de servicio en la nube recopila datos mínimos: uso de CPU, uso de red y uso de disco. Si el servicio en la nube tiene la extensión `Microsoft.Azure.Diagnostics` aplicada a un rol, este último puede recopilar puntos de datos adicionales. En este artículo se ofrece una introducción a Azure Diagnostics para Cloud Services.
+Puede supervisar las métricas de rendimiento claves de cualquier servicio en la nube. Cada rol de servicio en la nube recopila datos mínimos: el uso de la CPU, el uso de la red y el uso del disco. Si el servicio en la nube tiene la extensión `Microsoft.Azure.Diagnostics` aplicada a un rol, este último puede recopilar puntos de datos adicionales. En este artículo se ofrece una introducción a Azure Diagnostics para Cloud Services.
 
 Con la supervisión básica, los datos del contador de rendimiento de las instancias de rol se muestrean y recopilan en intervalos de tres minutos. Los datos de la supervisión básica no se almacenan en la cuenta de almacenamiento y, por tanto, no tienen ningún costo adicional asociado.
 
@@ -93,13 +93,13 @@ Lo más probable es que tenga dos archivos de configuración **.cscfg**, uno den
 
 ## <a name="use-application-insights"></a>Uso de Application Insights
 
-Si publica el servicio en la nube desde Visual Studio, se le ofrece la opción de enviar datos de diagnóstico a Application Insights. Puede crear el recurso de Azure Application Insights en cualquier momento o enviar los datos a un recursos existente de Azure. Application Insights puede supervisar la disponibilidad, el rendimiento, los errores y el uso del servicio en la nube. Se pueden agregar gráficos personalizados a Application Insights, para poder ver los datos que más interesan. Los datos de instancias de rol pueden recopilarse con el SDK de Application Insights en el proyecto del servicio en la nube. Para más información sobre cómo integrar Application Insights, vea [Application Insights para Azure Cloud Services](../application-insights/app-insights-cloudservices.md).
+Si publica el servicio en la nube desde Visual Studio, se le ofrece la opción de enviar datos de diagnóstico a Application Insights. Puede crear el recurso de Azure Application Insights en cualquier momento o enviar los datos a un recursos existente de Azure. Application Insights puede supervisar la disponibilidad, el rendimiento, los errores y el uso del servicio en la nube. Se pueden agregar gráficos personalizados a Application Insights, para poder ver los datos que más interesan. Los datos de instancias de rol pueden recopilarse con el SDK de Application Insights en el proyecto del servicio en la nube. Para más información sobre cómo integrar Application Insights, vea [Application Insights para Azure Cloud Services](../azure-monitor/app/cloudservices.md).
 
 Tenga en cuenta que, aunque puede usar Application Insights para mostrar los contadores de rendimiento (y otra configuración) especificados mediante la extensión de Microsoft Azure Diagnostics, solo podrá disfrutar de una experiencia mejorada con la integración del SDK de Application Insights en los roles web y de trabajo.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Información sobre Application Insights con Cloud Services](../application-insights/app-insights-cloudservices.md)
+- [Información sobre Application Insights con Cloud Services](../azure-monitor/app/cloudservices.md)
 - [Configuración de contadores de rendimiento](diagnostics-performance-counters.md)
 

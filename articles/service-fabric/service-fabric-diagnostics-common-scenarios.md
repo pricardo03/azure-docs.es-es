@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 146ea6431516f7b78d23cd4b36aff43110639e83
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: e91ca12c06a1582b9bb715031a9c379b1a47b04b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633102"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713466"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnóstico de escenarios comunes con Service Fabric
 
-En este artículo se muestran escenarios comunes que los usuarios se encuentran en el área de supervisión y diagnóstico con Service Fabric. Los escenarios presentados abarcan las 3 capas de Service Fabric: aplicación, clúster e infraestructura. Cada solución utiliza Application Insights y Log Analytics, las herramientas de supervisión de Azure, para completar cada escenario. Los pasos en cada solución proporcionan a los usuarios una introducción sobre cómo usar Application Insights y Log Analytics en el contexto de Service Fabric.
+En este artículo se muestran escenarios comunes que los usuarios se encuentran en el área de supervisión y diagnóstico con Service Fabric. Los escenarios presentados cubren los 3 niveles de Service Fabric: aplicación, clúster e infraestructura. Cada solución utiliza Application Insights y Log Analytics, las herramientas de supervisión de Azure, para completar cada escenario. Los pasos en cada solución proporcionan a los usuarios una introducción sobre cómo usar Application Insights y Log Analytics en el contexto de Service Fabric.
 
 ## <a name="prerequisites-and-recommendations"></a>Requisitos previos y recomendaciones
 
@@ -56,7 +56,7 @@ Las soluciones en este artículo utilizan las siguientes herramientas. Se recomi
 
     ![Hoja de Mapa de aplicación de AI](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![AI App Map](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
 
-    Para más información sobre el mapa de aplicación, consulte la [documentación de Mapa de aplicación](../application-insights/app-insights-app-map.md)
+    Para más información sobre el mapa de aplicación, consulte la [documentación de Mapa de aplicación](../azure-monitor/app/app-map.md)
 
 ## <a name="how-do-i-create-an-alert-when-a-node-goes-down"></a>Cómo puedo crear una alerta cuando un nodo deja de funcionar
 
@@ -139,7 +139,7 @@ Consulte estos vínculos para obtener la lista completa de contadores de rendimi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Definición de alertas en Application Insights](../application-insights/app-insights-alerts.md) para recibir notificaciones sobre los cambios de rendimiento o de uso
+* [Definición de alertas en Application Insights](../azure-monitor/app/alerts.md) para recibir notificaciones sobre los cambios de rendimiento o de uso
 * [Detección inteligente en Application Insights](../application-insights/app-insights-proactive-diagnostics.md), donde se realiza un análisis proactivo de la telemetría enviada a AI para avisar de problemas de rendimiento potenciales
 * Obtenga más información sobre las [alertas](../log-analytics/log-analytics-alerts.md) de Log Analytics como ayuda para la detección y diagnóstico.
 * Si se trata de clústeres locales, Log Analytics ofrece una puerta de enlace (proxy de reenvío HTTP) que puede usarse para enviar datos a Log Analytics. Obtenga más información en [Conexión de equipos sin acceso a mediante OMS Gateway](../azure-monitor/platform/gateway.md).

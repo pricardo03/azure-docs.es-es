@@ -1,5 +1,5 @@
 ---
-title: Introducción a Azure Key Vault | Microsoft Docs
+title: 'Introducción a Azure Key Vault: Azure Key Vault | Microsoft Docs'
 description: Use este tutorial para empezar a trabajar con Azure Key Vault para crear un contenedor reforzado en Azure en el que almacenar y administrar las claves criptográficas y los secretos en Azure.
 services: key-vault
 documentationcenter: ''
@@ -12,17 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 01/02/2019
 ms.author: barclayn
-ms.openlocfilehash: bb4ef826ed29187209b28c349445ca0eb5ffe9bb
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 72e17d5628be307d6c73cd2bba7576d0e734af15
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864913"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999074"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Introducción a Azure Key Vault
+
 Este artículo sirve de ayuda para empezar a trabajar con Azure Key Vault mediante PowerShell y guía a través de las actividades siguientes:
+
 - Procedimiento para crear un contenedor protegido (un almacén) en Azure.
 - Procedimiento para usar KeyVault para almacenar y administrar las claves criptográficas y los secretos en Azure.
 - Procedimiento para que una aplicación use esa clave o contraseña.
@@ -32,6 +34,7 @@ Azure Key Vault está disponible en la mayoría de las regiones. Para obtener m�
 Para obtener instrucciones acerca de la interfaz de la línea de comandos para todas las plataformas, consulte [este tutorial equivalente](key-vault-manage-with-cli2.md).
 
 ## <a name="requirements"></a>Requisitos
+
 Antes de continuar, compruebe que tiene lo siguiente:
 
 - **Una suscripción de Azure**. Si no tiene, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/).
@@ -59,6 +62,7 @@ También puede leer los siguientes artículos para familiarizarse con el modelo 
 * [Uso de Azure PowerShell con el Administrador de recursos](../powershell-azure-resource-manager.md)
 
 ## <a id="connect"></a>Conexión a las suscripciones
+
 Inicie una sesión de PowerShell de Azure e inicie sesión en su cuenta de Azure con el siguiente comando:  
 
 ```PowerShell
@@ -88,6 +92,7 @@ Set-AzureRmContext -SubscriptionId <subscription ID>
 Para obtener más información sobre cómo configurar PowerShell de Azure, consulte [Instalación y configuración de PowerShell de Azure](/powershell/azure/overview).
 
 ## <a id="resource"></a>Creación de un nuevo grupo de recursos
+
 Cuando se utiliza el Administrador de recursos de Azure, todos los recursos relacionados se crean dentro de un grupo de recursos. Crearemos un nuevo grupo de recursos denominado **ContosoResourceGroup** para este tutorial:
 
 ```powershell
@@ -95,6 +100,7 @@ New-AzureRmResourceGroup –Name 'ContosoResourceGroup' –Location 'East US'
 ```
 
 ## <a id="vault"></a>Creación de un Almacén de claves
+
 Use el cmdlet [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault) para crear una instancia de Key Vault. Este cmdlet tiene tres parámetros obligatorios: el **nombre del grupo de recursos**, el **nombre del Almacén de claves** y la **ubicación geográfica**.
 
 Por ejemplo, si utiliza:
@@ -122,6 +128,7 @@ Su cuenta de Azure ahora está autorizada para realizar operaciones en este Alma
 >
 
 ## <a id="add"></a>Adición de una clave o un secreto al Almacén de claves
+
 Hay un par de maneras distintas en que puede que necesite interactuar con el almacén de claves y las claves o secretos.
 
 ### <a name="azure-key-vault-generates-a-software-protected-key"></a>Azure Key Vault genera una clave protegida por software
@@ -204,6 +211,7 @@ Para ver el valor contenido en el secreto como texto sin formato:
 Ahora, el almacén de claves y la clave o el secreto están listos para que los usen las aplicaciones. Debe conceder autorización a las aplicaciones para que puedan usarlos.  
 
 ## <a id="register"></a>Registro de una aplicación con Azure Active Directory
+
 Este paso lo haría normalmente un programador en un equipo independiente. No es específico para Azure Key Vault. Para obtener instrucciones detalladas sobre cómo registrar una aplicación con Azure Active Directory, revise el artículo titulado [Integración de aplicaciones con Azure Active Directory](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) o [Uso del portal para crear una aplicación de Azure Active Directory y la entidad de servicio que puede acceder a los recursos](../active-directory/develop/howto-create-service-principal-portal.md).
 
 > [!IMPORTANT]
@@ -222,8 +230,10 @@ Para registrar la aplicación en Azure Active Directory:
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Haga clic en **Registros de aplicaciones** en la parte izquierda. Si no ve los registros de aplicaciones, haga clic en **Más servicios**.  
-    > [!NOTE]
-    > Debe seleccionar el mismo directorio que contiene la suscripción de Azure con la que creó la instancia de Key Vault. 
+
+> [!NOTE]
+> Debe seleccionar el mismo directorio que contiene la suscripción de Azure con la que creó la instancia de Key Vault.
+
 3. Haga clic en **Nuevo registro de aplicaciones**.
 4. En la hoja **Crear**, proporcione un nombre para la aplicación y, después, seleccione **APLICACIÓN WEB Y/O API WEB** (valor predeterminado) y especifique la **DIRECCION URL DE INICIO DE SESIÓN** para su aplicación web. Si no dispone de esta información, puede inventársela para este paso (por ejemplo, podría especificar http://test1.contoso.com). No importa si los sitios existen. 
 
@@ -240,9 +250,11 @@ Para registrar la aplicación en Azure Active Directory:
 10. En el paso siguiente, usará la información del **id. de aplicación** y la **clave** para establecer permisos en el almacén.
 
 ## <a id="authorize"></a>Autorización de la aplicación para que use la clave o el secreto
+
 Hay dos formas de autorizar el acceso de la aplicación a la clave o al secreto del almacén.
 
 ### <a name="using-powershell"></a>Con PowerShell
+
 Para utilizar PowerShell, use el cmdlet [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy).
 
 Por ejemplo, si el nombre del almacén es **ContosoKeyVault** y la aplicación que quiere autorizar tiene el identificador de cliente 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed y desea que la aplicación tenga autorización para descifrar y firmar con claves en el almacén, ejecute el cmdlet siguiente:
@@ -256,7 +268,9 @@ Si desea autorizar a esa misma aplicación para leer los secretos en el almacén
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
 ```
+
 ### <a name="using-the-azure-portal"></a>Uso de Azure Portal
+
 Para cambiar la autorización de una aplicación para usar las claves o los secretos:
 1. Seleccione **Directivas de acceso** en la hoja de recursos de Key Vault
 2. Haga clic en el botón [+ Agregar nueva] en la parte superior de la hoja
@@ -265,6 +279,7 @@ Para cambiar la autorización de una aplicación para usar las claves o los secr
 5. En la lista desplegable **Permisos de secretos**, seleccione "Obtener" para permitir que la aplicación lea los secretos del almacén
 
 ## <a id="HSM"></a>Trabajo con un módulo de seguridad de hardware (HSM)
+
 Para obtener seguridad adicional, puede importar o generar claves en módulos de seguridad de hardware (HSM) que no se salen nunca del límite de los HSM. Los HSM tienen la validación FIPS 140-2 de nivel 2. Si este requisito no es relevante para usted, omita esta sección y vaya al paso [Eliminación del Almacén de claves junto con las claves y secretos asociados](#delete).
 
 Para crear estas claves protegidas con HSM, debe utilizar el [nivel de servicio Premium de Azure Key Vault para admitir claves protegidas con HSM](https://azure.microsoft.com/pricing/details/key-vault/). Además, tenga en cuenta que esta funcionalidad no está disponible para Azure China.
@@ -274,7 +289,6 @@ Cuando cree Key Vault, agregue el parámetro **-SKU**:
 ```powershell
 New-AzureRmKeyVault -Name 'ContosoKeyVaultHSM' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US' -SKU 'Premium'
 ```
-
 
 Puede agregar claves protegidas mediante software (como se ha mostrado anteriormente) y claves protegidas con HSM a Key Vault. Para crear una clave protegida con HSM, establezca el parámetro **-Destination** en 'HSM':
 
@@ -297,6 +311,7 @@ $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstH
 Para obtener instrucciones detalladas sobre cómo generar el paquete BYOK, consulte [Generación y transferencia de claves protegidas con HSM para Azure Key Vault](key-vault-hsm-protected-keys.md).
 
 ## <a id="delete"></a>Eliminación del Almacén de claves junto con las claves y secretos asociados
+
 Si ya no necesita la instancia de Key Vault, ni la clave y el secreto que contiene, puede eliminarlo mediante el cmdlet [Remove-AzureRmKeyVault](/powershell/module/azurerm.keyvault/remove-azurermkeyvault):
 
 ```powershell
@@ -310,6 +325,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName 'ContosoResourceGroup'
 ```
 
 ## <a id="other"></a>Otros cmdlets de Azure PowerShell
+
 Estos son otros comandos que pueden resultar útiles para administrar Azure Key Vault.
 
 - `$Keys = Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'`: este comando ofrece una presentación tabular de todas las claves y las propiedades seleccionadas.

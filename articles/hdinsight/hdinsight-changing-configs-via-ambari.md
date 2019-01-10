@@ -8,16 +8,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: ashish
-ms.openlocfilehash: abb80bb0877f99dfb1623e320078e935f581d833
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 14b634e610fb0da71c5f0d742a250b18cea70dc7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498664"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722930"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Uso de Apache Ambari para optimizar configuraciones de clúster de HDInsight
 
-HDInsight proporciona clústeres de [Apache Hadoop](https://hadoop.apache.org/) para aplicaciones de procesamiento de datos a gran escala. La administración, la supervisión y la optimización de estos clústeres complejos de varios nodos pueden ser un reto. [Apache Ambari](http://ambari.apache.org/) es una interfaz web para administrar y supervisar clústeres de HDInsight Linux.  Para los clústeres de Windows, use la [API REST de Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
+HDInsight proporciona clústeres de [Apache Hadoop](https://hadoop.apache.org/) para aplicaciones de procesamiento de datos a gran escala. La administración, la supervisión y la optimización de estos clústeres complejos de varios nodos pueden ser un reto. [Apache Ambari](https://ambari.apache.org/) es una interfaz web para administrar y supervisar clústeres de HDInsight Linux.  Para los clústeres de Windows, use la [API REST de Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 Para una introducción al uso de la interfaz de usuario web de Ambari, consulte [Administración de clústeres de HDInsight con la interfaz de usuario web de Apache Ambari](hdinsight-hadoop-manage-ambari.md).
 
@@ -68,7 +68,7 @@ En las siguientes secciones se describen las opciones de configuración para opt
 
 ### <a name="set-the-hive-execution-engine"></a>Establecer el motor de ejecución de Hive
 
-Hive proporciona dos motores de ejecución: [MapReduce de Apache Hadoop](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) y [Apache Tez](https://tez.apache.org/). Tez es más rápido que MapReduce. Tez es el motor de ejecución predeterminado de los clústeres de HDInsight Linux. Para cambiar el motor de ejecución:
+Hive proporciona dos motores de ejecución: [MapReduce de Apache Hadoop](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) y [Apache TEZ](https://tez.apache.org/). Tez es más rápido que MapReduce. Tez es el motor de ejecución predeterminado de los clústeres de HDInsight Linux. Para cambiar el motor de ejecución:
 
 1. En la pestaña **Configs** (Configuraciones) de Hive, escriba **motor de ejecución** en el cuadro de filtro.
 
@@ -82,8 +82,8 @@ Hive proporciona dos motores de ejecución: [MapReduce de Apache Hadoop](https:/
 
 Hadoop intenta dividir (*asignar*) un único archivo en varios archivos y procesar los archivos resultantes en paralelo. El número de asignadores depende del número de divisiones. Los siguientes dos parámetros de configuración controlan el número de divisiones del motor de ejecución Tez:
 
-* `tez.grouping.min-size`: límite inferior en el tamaño de una división agrupada, con un valor predeterminado de 16 MB (16.777.216 bytes).
-* `tez.grouping.max-size`: límite inferior en el tamaño de una división agrupada, con un valor predeterminado de 1 GB (1 073 741 824 bytes).
+* `tez.grouping.min-size`: límite inferior en el tamaño de una división agrupada, con un valor predeterminado de 16 MB (16 777 216 bytes).
+* `tez.grouping.max-size`: límite superior en el tamaño de una división agrupada, con un valor predeterminado de 1 GB (1 073 741 824 bytes).
 
 Como regla general de rendimiento, disminuya estos dos parámetros para mejorar la latencia y aumentar el rendimiento.
 
@@ -189,7 +189,7 @@ Como norma general, es importante tener un método de compresión divisible, ya 
 
     ![Compresión de ejecución de Hive intermedia](./media/hdinsight-changing-configs-via-ambari/hive-exec-compress-intermediate.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > Para comprimir archivos intermedios, elija un códec de compresión con un costo de CPU más bajo, aunque el códec no tenga una salida de compresión alta.
 
 1. Para establecer el códec de compresión intermedio, agregue la propiedad personalizada `mapred.map.output.compression.codec` al archivo `hive-site.xml` o `mapred-site.xml`.
@@ -210,7 +210,7 @@ Como norma general, es importante tener un método de compresión divisible, ya 
 
     Esta propiedad comprimirá el archivo intermedio mediante la compresión Snappy. Una vez agregada, la propiedad aparece en el panel Custom hive-site (Sitio de Hive personalizado).
 
-    > [!NOTE]
+    > [!NOTE]  
     > Este procedimiento modifica el archivo `$HADOOP_HOME/conf/hive-site.xml`.
 
 ### <a name="compress-final-output"></a>Comprimir la salida final
@@ -299,7 +299,7 @@ Las propiedades de [Apache Pig](https://pig.apache.org/) se pueden modificar des
 
     ![Propiedades de Pig avanzadas](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
  
-> [!NOTE]
+> [!NOTE]  
 > Cualquier configuración de nivel de sesión reemplaza los valores de propiedad en el archivo `pig.properties`.
 
 ### <a name="tune-execution-engine"></a>Optimizar el motor de ejecución
@@ -408,7 +408,7 @@ El parámetro `hbase.client.scanner.caching` define el número de filas leídas 
 
 ![Número de filas recuperadas de HBase](./media/hdinsight-changing-configs-via-ambari/hbase-num-rows-fetched.png)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > No establezca el valor de modo que el tiempo transcurrido entre la invocación del método siguiente en un escáner sea mayor que el tiempo de espera del escáner. La duración del tiempo de espera del escáner se define mediante la propiedad `hbase.regionserver.lease.period`.
 
 

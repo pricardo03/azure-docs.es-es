@@ -11,12 +11,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
 ms.custom: seodec2018
-ms.openlocfilehash: 80759394ac920907c74f67cf9ee6dfcb52bfd9a8
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 99f19f6595f2e3105c4b30a7c2e7ef1e296fad6e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311820"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724881"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Conexión de Cosmos DB con Azure Search mediante indexadores
 
@@ -38,7 +38,7 @@ En el siguiente vídeo, Andrew Liu, administrador de programas de Azure Cosmos D
 <a name="supportedAPIs"></a>
 ## <a name="supported-api-types"></a>Tipos admitidos de API
 
-Aunque Azure Cosmos DB admite una amplia variedad de modelos de datos y API, la compatibilidad de producción del indexador de Azure Search se extiende solamente a SQL API. La compatibilidad con la API de MongoDB está actualmente en versión preliminar pública.  
+Aunque Azure Cosmos DB admite una amplia variedad de modelos de datos y API, la compatibilidad de producción del indexador de Azure Search se extiende solamente a SQL API. La compatibilidad de Azure Cosmos DB con la API de MongoDB está actualmente en versión preliminar pública.  
 
 Próximamente estará disponible la compatibilidad con API adicionales. Para ayudarnos priorizar cuáles admitir en primer lugar, vaya al sitio web UserVoice y vote su opción:
 

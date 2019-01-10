@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 0a4d5cf4731932ed72e0dc38c13a5f855a937864
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 21f8d8ad63e8ea7c134477a6171155c40a2b4dc8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317515"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792023"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Enlaces de Azure Service Bus en Azure Functions
 
@@ -331,6 +331,9 @@ El desencadenador de Service Bus proporciona varias [propiedades de metadatos](f
 |`Label`|`string`|Etiqueta específica de la aplicación.|
 |`CorrelationId`|`string`|Identificador de correlación.|
 |`UserProperties`|`IDictionary<String,Object>`|Las propiedades de mensaje específicas de la aplicación.|
+
+> [!NOTE]
+> Actualmente, el desencadenador solo funciona con colas y suscripciones que no usan sesiones. Realice un seguimiento de [este elemento de la característica](https://github.com/Azure/azure-functions-host/issues/563) para comprobar si hay actualizaciones relacionadas con ella. 
 
 Consulte los [ejemplos de código](#trigger---example) que utilizan estas propiedades más arriba en este artículo.
 

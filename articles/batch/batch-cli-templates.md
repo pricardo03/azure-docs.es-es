@@ -1,22 +1,23 @@
 ---
-title: Ejecución de trabajos de Azure Batch mediante plantillas | Microsoft Docs
+title: 'Ejecución de un extremo a otro de trabajos mediante plantillas: Azure Batch | Microsoft Docs'
 description: Cree, grupos, trabajos y tareas de Batch con archivos de plantilla y la CLI de Azure.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 08/02/2018
-ms.author: danlep
-ms.openlocfilehash: 753a36eb6fb7a0c007c62bbab7fe7390e706b1f5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 12/07/2018
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 5e592845f96cb0734daf3c9e07d60005de260386
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964299"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547684"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Uso de plantillas y transferencia de archivos de la CLI de Azure Batch
 
@@ -37,7 +38,7 @@ Las plantillas de Batch se basan en el [soporte de Batch existente en la CLI de 
 
 Los trabajos normalmente usan archivos de datos de entrada y generan archivos de datos de salida. Una cuenta de almacenamiento se asocia, de manera predeterminada, con cada cuenta de Batch. Transfiera archivos a y desde esta cuenta de almacenamiento mediante la CLI, sin codificación ni credenciales de almacenamiento.
 
-Por ejemplo, [ffmpeg](http://ffmpeg.org/) es una aplicación popular que procesa archivos de audio y video. Estos son los pasos para usar la CLI de Azure Batch a fin de invocar ffmpeg para transcodificar los archivos de vídeo de origen para diferentes resoluciones.
+Por ejemplo, [ffmpeg](https://ffmpeg.org/) es una aplicación popular que procesa archivos de audio y video. Estos son los pasos para usar la CLI de Azure Batch a fin de invocar ffmpeg para transcodificar los archivos de vídeo de origen para diferentes resoluciones.
 
 -   Cree una plantilla de grupos. El usuario que crea la plantilla sabe cómo llamar a la aplicación ffmpeg y sus requisitos. Especifica el sistema operativo adecuado, el tamaño de la máquina virtual, cómo está instalado ffmpeg (por ejemplo, de un paquete de aplicación o mediante un administrador de paquetes) y otros valores de propiedad del grupo. Los parámetros se crean para que cuando se use la plantilla, solo deban especificarse el identificador del grupo y el número de máquinas virtuales.
 

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 37748aaa7f34a51d24091ee04608496ebd45fa90
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4496a0fd3ec220d03c4cc279876234b503b0dbb6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231641"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720873"
 ---
-# <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Procedimientos recomendados y arquitecturas de referencia para Azure DDoS Protection
+# <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS Protection: procedimientos recomendados y arquitecturas de referencia
 
 Este artículo está destinado a los responsables de decisiones de TI y al personal de seguridad. Se presupone que está familiarizado con las redes y la seguridad de Azure.
 
@@ -81,7 +81,7 @@ Es de vital importancia garantizar que una aplicación sea lo suficientemente re
 
 La escalabilidad representa el grado en que un sistema puede controlar el aumento de la carga. Debe diseñar sus aplicaciones para que se puedan [escalar horizontalmente](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) para satisfacer la demanda de una carga mayor, específicamente en caso de un ataque de DDoS. Si la aplicación depende de una única instancia de un servicio, crea un único punto de error. El aprovisionamiento de varias instancias hace que el sistema sea más resistente y más escalable.
 
-Para [Azure App Service](../app-service/app-service-value-prop-what-is.md), seleccione un [Plan de App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) que ofrezca varias instancias. Para Azure Cloud Services, configure cada uno de los roles para utilizar [varias instancias](../cloud-services/cloud-services-choose-me.md). En el caso de [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), asegúrese de que la arquitectura de las máquinas virtuales incluya más de una máquina virtual y que cada una de ellas se incluya en un [conjunto de disponibilidad](../virtual-machines/virtual-machines-windows-manage-availability.md). Se recomienda usar [conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para contar con funcionalidades de escalado automático.
+Para [Azure App Service](../app-service/app-service-value-prop-what-is.md), seleccione un [Plan de App Service](../app-service/overview-hosting-plans.md) que ofrezca varias instancias. Para Azure Cloud Services, configure cada uno de los roles para utilizar [varias instancias](../cloud-services/cloud-services-choose-me.md). En el caso de [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), asegúrese de que la arquitectura de las máquinas virtuales incluya más de una máquina virtual y que cada una de ellas se incluya en un [conjunto de disponibilidad](../virtual-machines/virtual-machines-windows-manage-availability.md). Se recomienda usar [conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para contar con funcionalidades de escalado automático.
 
 ### <a name="defense-in-depth"></a>Defensa en profundidad
 
@@ -96,7 +96,7 @@ Con frecuencia vemos ataques a los recursos locales de un cliente, además de a 
 
 ## <a name="azure-offerings-for-ddos-protection"></a>Ofertas de Azure para protección contra DDoS
 
-Azure tiene dos ofertas de servicio de DDoS que proporcionan protección frente a ataques de la red (niveles 3 y 4): DDoS Protection Basic y DDoS Protection Standard. 
+Azure tiene dos ofertas de servicio de DDoS que proporcionan protección frente a ataques de red (niveles 3 y 4): DDoS Protection Basic y DDoS Protection Standard. 
 
 ### <a name="ddos-protection-basic"></a>DDoS Protection Basic
 

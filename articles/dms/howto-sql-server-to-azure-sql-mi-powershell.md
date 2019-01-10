@@ -4,19 +4,19 @@ description: Aprenda a migrar de SQL Server local a Instancia administrada de Az
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 64d77a17241c44c9d450b9e7602222cdb89482b7
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: c4ccbe8a6f1e1923e83d2bdcbeb2d61429083aee
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247172"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724205"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-managed-instance-using-azure-powershell"></a>Migración de SQL Server local a Instancia administrada de Azure SQL Database mediante Azure PowerShell
 En este artículo, migrará la base de datos **Adventureworks2012** restaurada en una instancia local de SQL Server 2005 o superior a una Instancia administrada de Azure SQL Database mediante Microsoft Azure PowerShell. Puede migrar bases de datos desde una instancia de SQL Server local a Instancia administrada de Azure SQL Database mediante el módulo `AzureRM.DataMigration` en Microsoft Azure PowerShell.
@@ -176,7 +176,7 @@ $blobSasUri="https://mystorage.blob.core.windows.net/test?st=2018-07-13T18%3A10%
 ```
 
 ### <a name="select-logins"></a>Selección de inicios de sesión
-Cree la lista de inicios de sesión que se va a migrar tal y como se muestra en el ejemplo siguiente: tenga en cuenta que DMS solo admite actualmente la migración de inicios de sesión SQL. 
+Cree la lista de inicios de sesión del agente que se va a migrar tal y como se muestra en el ejemplo siguiente:  Tenga en cuenta que, actualmente, DMS solo admite la migración de los inicios de sesión SQL. 
 
 ```powershell
 $selectedLogins = @("user1", "user2")

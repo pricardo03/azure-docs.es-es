@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
-ms.openlocfilehash: 1c99b7a3eecdd7938b4813647afb9e48fb0173a0
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 67bbad7e73f33d73d4c3f1d4f7e5599d2ef914e3
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739284"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791054"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Consideraciones de diseño para conjuntos de escalado
 En este artículo se analizan consideraciones de diseño de Virtual Machine Scale Sets. Para información sobre qué son los conjuntos de escalado de máquinas virtuales, consulte [Información general de conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-overview.md).
@@ -71,7 +71,7 @@ Un conjunto de escalado basado en una imagen de Marketplace (que también se con
 
 Un conjunto de escalado configurado con cuentas de almacenamiento administradas por el usuario actualmente tiene un límite de 100 VM (y se recomiendan 5 cuentas de almacenamiento para esta escala).
 
-Un conjunto de escalado basado en una imagen personalizada (que usted haya creado) puede tener una capacidad de hasta 300 VM cuando está configurado con Azure Managed Disks. Si el conjunto de escalado está configurado con cuentas de almacenamiento administradas por el usuario, debe crear todos los VHD del disco del SO dentro de una cuenta de almacenamiento. Como resultado, el número máximo recomendado de VM de un conjunto de escalado basado en una imagen personalizada y en el almacenamiento administrado por el usuario es 20. Si se desactiva el aprovisionamiento en exceso, puede aumentar la cifra hasta 40.
+Un conjunto de escalado basado en una imagen personalizada (que usted haya creado) puede tener una capacidad de hasta 600 máquinas virtuales cuando está configurado con Azure Managed Disks. Si el conjunto de escalado está configurado con cuentas de almacenamiento administradas por el usuario, debe crear todos los VHD del disco del SO dentro de una cuenta de almacenamiento. Como resultado, el número máximo recomendado de VM de un conjunto de escalado basado en una imagen personalizada y en el almacenamiento administrado por el usuario es 20. Si se desactiva el aprovisionamiento en exceso, puede aumentar la cifra hasta 40.
 
 Para poder tener más máquinas virtuales que las que permiten estos límites, debe implementar varios conjuntos de escalado, tal como se muestra en [esta plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale).
 

@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: 3932ad18ceedb36a4a8c1f9fc78eb8aef27a8a4f
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: e979930ed504dafe330b774725f4193f1c15ed17
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51301023"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793995"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Enlaces de Microsoft Graph para Azure Functions
 
@@ -63,7 +63,7 @@ Si utiliza Visual Studio, puede obtener las extensiones mediante la instalación
 
 ### <a name="configuring-authentication--authorization"></a>Configuración de autenticación o autorización
 
-Los enlaces que se describen en este artículo requieren una identidad para usarlos. Esto permite que Microsoft Graph aplique permisos y audite interacciones. La identidad puede ser el acceso de un usuario a la aplicación o la propia aplicación. Para configurar esta identidad, configure [Autenticación o autorización de App Service](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) con Azure Active Directory. También deberá solicitar los permisos del recurso que requieren sus funciones.
+Los enlaces que se describen en este artículo requieren una identidad para usarlos. Esto permite que Microsoft Graph aplique permisos y audite interacciones. La identidad puede ser el acceso de un usuario a la aplicación o la propia aplicación. Para configurar esta identidad, configure [Autenticación o autorización de App Service](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) con Azure Active Directory. También deberá solicitar los permisos del recurso que requieren sus funciones.
 
 > [!Note] 
 > La extensión de Microsoft Graph solo admite la autenticación de Azure AD. Los usuarios deben iniciar sesión con una cuenta profesional o educativa.
@@ -226,7 +226,8 @@ El enlace mismo no requiere ningún permiso de Azure AD, pero, según cómo se u
 
 El token se presenta siempre al código como una cadena.
 
-
+> [!Note]
+> Al desarrollar localmente con las opciones `userFromId`, `userFromToken` o `userFromRequest`, se puede [obtener manualmente](https://github.com/Azure/azure-functions-microsoftgraph-extension/issues/54#issuecomment-392865857) el token necesario y especificarse en el encabezado de solicitud `X-MS-TOKEN-AAD-ID-TOKEN` desde una aplicación cliente que realiza la llamada.
 
 
 <a name="excel-input"></a>

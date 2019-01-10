@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2018
 ms.author: kumud
-ms.openlocfilehash: f9ada3518c4354b112e9e288da89ee9659629b1c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 51d781f331bcbc08642dc32c21baa150e9e5eee6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435130"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538692"
 ---
 # <a name="load-balancer-health-probes"></a>Sondeos de estado de Load Balancer
 
@@ -201,7 +201,7 @@ Si en las directivas de firewall no se permite la [dirección IP de origen](#pro
 
 Para que el sondeo de estado de Load Balancer marque la instancia como activa, se **debe** permitir esta dirección IP en todos los [grupos de seguridad de red](../virtual-network/security-overview.md) de Azure y en las directivas de firewall locales.  De forma predeterminada, todos los grupos de seguridad de red incluyen la [etiqueta de servicio](../virtual-network/security-overview.md#service-tags) AzureLoadBalancer para permitir el tráfico de sondeo de estado.
 
-Si quiere probar un error de un sondeo de estado o marcar como inactiva una instancia individual, puede usar un [grupo de seguridad de red](../virtual-network/security-overview.md) para bloquear de forma explícita el sondeo de estado (puerto de destino o [dirección IP de origen](#probesource)) y simular el error del sondeo.
+Si quiere probar un error de un sondeo de mantenimiento o marcar como inactiva una instancia individual, puede usar un [grupo de seguridad de red](../virtual-network/security-overview.md) para bloquear de forma explícita el sondeo de mantenimiento (puerto de destino o [dirección IP de origen](#probesource)) y simular el error del sondeo.
 
 No configure la red virtual con el intervalo de direcciones IP propiedad de Microsoft que contiene 168.63.129.16.  Esas configuraciones entrarán en conflicto con la dirección IP del sondeo de estado y pueden provocar un error en el escenario.
 

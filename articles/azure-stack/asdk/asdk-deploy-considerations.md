@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/12/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 10ae943711fcd7516b0fdbe982fd5d9e09227bdc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 4bcb71829b2fb5f35398f36dee36d4e98c5a609b
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864985"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106740"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Consideraciones de planeación de la implementación de Azure Stack
 Antes de implementar el Kit de desarrollo de Azure Stack (ASDK), asegúrese de que el equipo host del kit de desarrollo cumple los requisitos que se describen en este artículo.
@@ -29,12 +29,12 @@ Antes de implementar el Kit de desarrollo de Azure Stack (ASDK), asegúrese de q
 ## <a name="hardware"></a>Hardware
 | Componente | Mínima | Recomendado |
 | --- | --- | --- |
-| Unidades de disco: Sistema operativo |Un disco del sistema operativo con un mínimo de 200 GB disponibles para la partición del sistema (SSD o HDD) |Un disco del sistema operativo con un mínimo de 200 GB disponibles para la partición del sistema (SSD o HDD) |
-| Unidades de disco: datos generales del kit de desarrollo<sup>*</sup>  |Cuatro discos. Cada disco proporciona un mínimo de 140 GB de capacidad (SSD o HDD). Se utilizan todos los discos disponibles. |Cuatro discos. Cada disco proporciona un mínimo de 250 GB de capacidad (SSD o HDD). Se utilizan todos los discos disponibles. |
-| Proceso: CPU |Socket dual: 12 núcleos físicos (total) |Socket dual: 16 núcleos físicos (total) |
-| Proceso: Memoria |96 GB de RAM |128 GB de RAM (Este es el mínimo para admitir proveedores de recursos de PaaS.)|
+| Unidades de disco: Sistema operativo |1 disco de sistema operativo con un mínimo de 200 GB disponibles para la partición del sistema (SSD o HDD) |Un disco del sistema operativo con un mínimo de 200 GB disponibles para la partición del sistema (SSD o HDD) |
+| Unidades de disco: datos generales del kit de desarrollo<sup>*</sup>  |Cuatro discos. Cada disco proporciona un mínimo de 240 GB de capacidad (SSD o HDD). Se utilizan todos los discos disponibles. |Cuatro discos. Cada disco proporciona un mínimo de 400 GB de capacidad (SSD o HDD). Se utilizan todos los discos disponibles. |
+| Proceso: CPU |Socket dual: 16 núcleos físicos (total) |Socket dual: 20 núcleos físicos (total) |
+| Proceso: Memoria |192 GB de RAM |256 GB de RAM |
 | Proceso: BIOS |Hyper-V habilitado (con compatibilidad para SLAT) |Hyper-V habilitado (con compatibilidad para SLAT) |
-| Red: NIC |Certificación de Windows Server 2012 R2 necesaria para NIC; no se necesitan características especializadas |Certificación de Windows Server 2012 R2 necesaria para NIC; no se necesitan características especializadas |
+| Red: NIC |Certificación de Windows Server 2012 R2. No se necesitan características especializadas |Certificación de Windows Server 2012 R2. No se necesitan características especializadas |
 | Certificación del logotipo de hardware |[Certificado para Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certificado para Windows Server 2016](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
 <sup>*</sup>Si tiene previsto agregar muchos de los [elementos de Marketplace](asdk-marketplace-item.md) desde Azure, necesitará más capacidad de la que se recomienda.
@@ -82,7 +82,7 @@ Si implementa mediante la opción de AD FS, debe volver a implementar Azure Stac
 ### <a name="azure-active-directory-accounts"></a>Cuentas de Azure Active Directory
 Para implementar Azure Stack mediante una cuenta de Azure AD, debe preparar una cuenta de Azure AD antes de ejecutar el script de PowerShell de implementación. Esta cuenta se convierte en el administrador global para el inquilino de Azure AD. Se utiliza para aprovisionar y delegar aplicaciones y entidades de servicio para todos los servicios de Azure Stack que interactúan con Azure Active Directory y Graph API. También se utiliza como el propietario de la suscripción de proveedor predeterminada (que puede cambiar más adelante). Puede iniciar sesión en el portal del administrador del sistema de Azure Stack mediante el uso de esta cuenta.
 
-1. Cree una cuenta de Azure AD que sea el administrador de directorios de al menos una instancia de Azure AD. Si ya tiene una, puede usarla. En caso contrario, puede crearla de forma gratuita en [https://azure.microsoft.com/free/](https://azure.microsoft.com/pricing/free/) (en China, visite <http://go.microsoft.com/fwlink/?LinkID=717821>). Si tiene previsto más adelante [registrar Azure Stack en Azure](asdk-register.md), también debe tener una suscripción en la cuenta recién creada.
+1. Cree una cuenta de Azure AD que sea el administrador de directorios de al menos una instancia de Azure AD. Si ya tiene una, puede usarla. En caso contrario, puede crearla de forma gratuita en [https://azure.microsoft.com/free/](https://azure.microsoft.com/pricing/free/) (en China, visite <https://go.microsoft.com/fwlink/?LinkID=717821>). Si tiene previsto más adelante [registrar Azure Stack en Azure](asdk-register.md), también debe tener una suscripción en la cuenta recién creada.
    
     Guarde dichas credenciales para usarlas como administrador del servicio. Esta cuenta puede configurar y administrar recursos en la nube, cuentas de usuario, planes de inquilinos, cuotas y precios. En el portal, pueden crear nubes de sitios web, nubes privadas de máquinas virtuales, crear planes y administrar suscripciones de usuario.
 1. Cree al menos una cuenta de usuario de prueba en Azure AD para que pueda iniciar sesión en el kit de desarrollo como un inquilino.

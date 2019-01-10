@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 2b1dc0ad28a6608e3a46087d31a3d077e9291a3d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 27fd02503881ef1f0587ccb0301f8490101d5bcb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841683"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720652"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Cambio de secretos en Azure Stack
 
@@ -32,20 +32,24 @@ Todos los certificados, contraseñas, cadenas seguras y claves que usa la infrae
 
 - **Secretos externos**  
 Certificados de servicio de infraestructura para servicios de uso externo que proporciona el operador de Azure Stack. Esto incluye los certificados para los siguientes servicios: 
-    - Administrator Portal 
-    - Public Portal 
-    - Administrator Azure Resource Manager 
-    - Global Azure Resource Manager 
-    - Administrator Keyvault 
-    - Keyvault 
-    - ACS (incluido Blob Storage, Table Storage y Queue Storage) 
-    - ADFS<sup>*</sup>
-    - Graph<sup>*</sup>
+  - Administrator Portal  
+  - Public Portal  
+  - Administrator Azure Resource Manager  
+  - Global Azure Resource Manager  
+  - Administrator Keyvault  
+  - Keyvault  
+  - Host de extensiones de administración  
+  - ACS (incluido Blob Storage, Table Storage y Queue Storage)  
+  - ADFS *  
+  - Graph *  
 
-   <sup>*</sup> Solo es aplicable si el proveedor de identidades del entorno son los Servicios de federación de Active Directory (AD FS).
+\* Solo es aplicable si el proveedor de identidades del entorno es los Servicios de federación de Active Directory (AD FS).
 
-> [!NOTE]  
+> [!Note]  
 > Todas las demás claves y cadenas seguras, incluyendo BMC, las contraseñas de cambio y las contraseñas de cuentas de usuario y administrador aún las actualiza manualmente el administrador. 
+
+> [!Note]  
+> A partir de la versión 1811 de Azure Stack, el cambio de secretos se ha separado para los certificados internos y externos. 
 
 Para mantener la integridad de la infraestructura de Azure Stack, los operadores necesitan la capacidad de poder cambiar periódicamente los secretos de la infraestructura con una frecuencia que sea coherente con los requisitos de seguridad de su organización.
 
@@ -65,7 +69,7 @@ Azure Stack admite el cambio de secretos con certificados externos desde una nue
 |De pública<sup>*</sup>|A autofirmado|No compatible||
 |De pública<sup>*</sup>|A pública<sup>*</sup>|Compatible|1803 y posterior|
 
-<sup>*</sup> Aquí, las entidades de certificación públicas son aquellas que forman parte del programa de raíz de confianza de Windows. Puede ver la lista completa en el artículo [Microsoft Trusted Root Certificate Program: Participants (as of June 27, 2017)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca) [Programa de certificados raíz de confianza de Microsoft: participantes (a partir del 27 de junio de 2017)].
+<sup>*</sup>Indica que las entidades de certificación públicas son aquellas que forman parte del programa de raíz de confianza de Windows. Puede ver la lista completa en el artículo [Microsoft Trusted Root Certificate Program: Participants (as of June 27, 2017)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca) [Programa de certificados raíz de confianza de Microsoft: participantes (a partir del 27 de junio de 2017)].
 
 ## <a name="alert-remediation"></a>Corrección de alertas
 
@@ -77,26 +81,35 @@ Cuando faltan menos de 30 días para la expiración de los secretos, se generan 
 
 Si ejecuta el cambio de secretos mediante las instrucciones que aparecen a continuación se corregirán estas alertas.
 
+> [!Note]  
+> Los entornos de Azure Stack en versiones anteriores a la 1811 pueden ver alertas para las expiraciones de certificados o secretos internos pendientes. Estas alertas son inexactas y deben omitirse sin ejecutar el cambio de secretos interno. Las alertas de expiración de los secretos internos inexactas son un problema conocido que se resuelve en la versión 1811: los secretos internos no expiran a menos que el entorno haya estado activo durante dos años. 
+
 ## <a name="pre-steps-for-secret-rotation"></a>Pasos previos para el cambio de secretos
 
    > [!IMPORTANT]  
-   > Asegúrese de que la rotación de secretos no se haya ejecutado correctamente en el entorno. Si ya se ha realizado la rotación de secretos, actualice Azure Stack a la versión 1807 o posterior antes de ejecutar la rotación de secretos. 
+   > Si ya se ha realizado el cambio de secretos en su entorno de Azure Stack, debe actualizar el sistema a la versión 1811 o posterior antes de ejecutar nuevamente el cambio de secretos. El cambio de secretos se debe ejecutar a través del [punto de conexión con privilegios](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint) y requiere credenciales de operador de Azure Stack. Si los operadores de su entorno de Azure Stack no saben si se ha ejecutado el cambio de secretos en el entorno, actualice a la versión 1811 antes de ejecutar el nuevo cambio de secretos.
 
-1.  Los operadores pueden notar que las alertas se abren y cierran automáticamente durante la rotación de los secretos de Azure Stack.  Este comportamiento es el esperado y puede hacerse caso omiso de las alertas.  Los operadores pueden comprobar la validez de estas alertas mediante la ejecución de Test-AzureStack.  Para los operadores que usan SCOM para supervisar los sistemas de Azure Stack, poner un sistema en modo de mantenimiento evitará que estas alertas lleguen a sus sistemas ITSM, pero continuarán alertando si no se puede acceder al sistema de Azure Stack. 
-2. Avise a los usuarios de cualquier operación de mantenimiento. Programe ventanas de mantenimiento normales, en la medida de lo posible, durante horas no laborables. Las operaciones de mantenimiento pueden afectar tanto a las cargas de trabajo del usuario como a las operaciones del portal.
-    > [!note]  
+1. Se recomienda encarecidamente que actualice la instancia de Azure Stack a la versión 1811.
+
+    > [!Note] 
+    > Para las versiones anteriores a 1811 no es necesario cambiar los secretos para agregar certificados de host de extensiones. Debe seguir las instrucciones del artículo [Preparación de un host de extensiones de Azure Stack](azure-stack-extension-host-prepare.md) para agregar certificados de un host de extensiones.
+
+2.  Los operadores pueden notar que las alertas se abren y cierran automáticamente durante la rotación de los secretos de Azure Stack.  Este comportamiento es el esperado y puede hacerse caso omiso de las alertas.  Los operadores pueden comprobar la validez de estas alertas mediante la ejecución de **Test-AzureStack**.  Para los operadores que usan SCOM para supervisar los sistemas de Azure Stack, poner un sistema en modo de mantenimiento evitará que estas alertas lleguen a sus sistemas ITSM, pero continuarán alertando si no se puede acceder al sistema de Azure Stack. 
+3. Avise a los usuarios de cualquier operación de mantenimiento. Programe ventanas de mantenimiento normales, en la medida de lo posible, durante horas no laborables. Las operaciones de mantenimiento pueden afectar tanto a las cargas de trabajo del usuario como a las operaciones del portal.
+
+    > [!Note]  
     > Los pasos siguientes solo se aplican al cambiar secretos externos de Azure Stack.
 
-3. Ejecute **[Test-AzureStack](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test)** y compruebe que todos los resultados de prueba están en buen estado antes cambiar los secretos.
-4. Prepare un nuevo conjunto de certificados externos de reemplazo. El nuevo conjunto coincide con las especificaciones de certificado que se describen en [Requisitos de certificados de infraestructura de clave pública de Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
-5.  Guarde una copia de seguridad de los certificados usados para el cambio en una ubicación segura. Si se ejecuta el cambio y, después, se produce un error, reemplace los certificados del recurso compartido de archivos por las copias de seguridad antes de volver a ejecutar el cambio. Conserve las copias de seguridad en la ubicación segura.
-6.  Cree un recurso compartido de archivos al que pueda acceder desde las máquinas virtuales de ERCS. El recurso compartido de archivos debe ser de lectura y escritura para la identidad **CloudAdmin**.
-7.  Abra una consola de PowerShell ISE desde un equipo que tenga acceso al recurso compartido de archivos. Vaya al recurso compartido de archivos. 
-8.  Ejecute **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** para crear los directorios necesarios para los certificados externos.
+4. Ejecute **[Test-AzureStack](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test)** y compruebe que todos los resultados de prueba están en buen estado antes cambiar los secretos.
+5. Prepare un nuevo conjunto de certificados externos de reemplazo. El nuevo conjunto coincide con las especificaciones de certificado que se describen en [Requisitos de certificados de infraestructura de clave pública de Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs). Puede generar una solicitud de firma de certificados (CSR) para comprar o crear nuevos certificados mediante los pasos descritos en [Generación de certificados PKI](https://docs.microsoft.com/azure/azure-stack/azure-stack-get-pki-certs) y prepararlos para usarse en su entorno de Azure Stack mediante los pasos de [Preparación de certificados PKI](https://docs.microsoft.com/azure/azure-stack/azure-stack-prepare-pki-certs). No olvide validar los certificados que prepare con los pasos descritos en [Validación de certificados PKI](https://docs.microsoft.com/azure/azure-stack/azure-stack-validate-pki-certs). 
+6.  Guarde una copia de seguridad de los certificados usados para el cambio en una ubicación segura. Si se ejecuta el cambio y, después, se produce un error, reemplace los certificados del recurso compartido de archivos por las copias de seguridad antes de volver a ejecutar el cambio. Conserve las copias de seguridad en la ubicación segura.
+7.  Cree un recurso compartido de archivos al que pueda acceder desde las máquinas virtuales de ERCS. El recurso compartido de archivos debe ser de lectura y escritura para la identidad **CloudAdmin**.
+8.  Abra una consola de PowerShell ISE desde un equipo que tenga acceso al recurso compartido de archivos. Vaya al recurso compartido de archivos. 
+9.  Ejecute **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** para crear los directorios necesarios para los certificados externos.
 
-## <a name="rotating-external-and-internal-secrets"></a>Cambio de secretos externos e internos
+## <a name="rotating-external-secrets"></a>Cambio de secretos externos
 
-Para cambiar los secretos externos e internos:
+Para cambiar los secretos externos:
 
 1. En el directorio **/Certificates** recién creado en los pasos previos, coloque el nuevo conjunto de certificados externos de reemplazo en la estructura de directorios según el formato descrito en la sección Certificados obligatorios de [Requisitos de certificados de infraestructura de clave pública de Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates).
 2. Cree una sesión de PowerShell con el [punto de conexión con privilegios](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint) mediante la cuenta **CloudAdmin** y almacene las sesiones como una variable. Utilizará esta variable como parámetro en el paso siguiente.
@@ -112,10 +125,14 @@ Para cambiar los secretos externos e internos:
     Un objeto PSCredential con las credenciales del recurso compartido. 
     - **CertificatePassword**  
     Una cadena segura de la contraseña usada para todos los archivos de certificados pfx creados.
-4. Espere mientras cambian los secretos.  
-Cuando se complete correctamente el cambio de secretos, la consola mostrará el mensaje **Overall action status: Success** (Estado global de la acción: correcto). 
-    > [!note]  
-    > Si se produce un error en la rotación de secretos, siga las instrucciones del mensaje de error y vuelva a ejecutar Start-SecretRotation con el parámetro **-Rerun**. Póngase en contacto con soporte técnico si la rotación de secretos falla en reiteradas ocasiones. 
+4. Espere mientras cambian los secretos. El cambio de secretos externo normalmente tarda aproximadamente una hora. Cuando se complete correctamente el cambio de secretos, la consola mostrará el mensaje **Overall action status: Success** (Estado global de la acción: correcto). 
+    > [!Note]  
+    > Si se produce un error en el cambio de secretos, siga las instrucciones del mensaje de error y vuelva a ejecutar **start-secretrotation** con el parámetro **-Rerun**. 
+
+    ```PowerShell  
+    Start-SecretRotation -Rerun
+    ```
+    Póngase en contacto con soporte técnico si la rotación de secretos falla en reiteradas ocasiones.
 5. Después de la finalización correcta del cambio de secretos, quite los certificados del recurso compartido creado en el paso anterior y almacénelos en la ubicación segura de copia de seguridad. 
 
 ## <a name="walkthrough-of-secret-rotation"></a>Guía detallada sobre cambio de secretos
@@ -129,23 +146,36 @@ $PEPCreds = Get-Credential
 $PEPsession = New-PSSession -computername <IPofERCSMachine> -Credential $PEPCreds -ConfigurationName PrivilegedEndpoint 
 
 #Run Secret Rotation
-$CertPassword = ConvertTo-SecureString "Certpasswordhere" -AsPlainText -Force
+$CertPassword = ConvertTo-SecureString "Certpasswordhere" -Force
 $CertShareCred = Get-Credential 
 $CertSharePath = "<NetworkPathofCertShare>"
 Invoke-Command -session $PEPsession -ScriptBlock { 
 Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCred -CertificatePassword $using:CertPassword }
 Remove-PSSession -Session $PEPSession
 ```
+
 ## <a name="rotating-only-internal-secrets"></a>Cambio solo de secretos internos
+
+> [!Note]  
+> El cambio de secretos internos solo debe realizarse si sospecha que un secreto interno se ha visto comprometido por una entidad malintencionada o si ha recibido una alerta (en la compilación 1811 o posterior) que indica que los certificados internos van a expirar. Los entornos de Azure Stack en versiones anteriores a la 1811 pueden ver alertas para las expiraciones de certificados o secretos internos pendientes. Estas alertas son inexactas y deben omitirse sin ejecutar el cambio de secretos interno. Las alertas de expiración de los secretos internos inexactas son un problema conocido que se resuelve en la versión 1811: los secretos internos no expiran a menos que el entorno haya estado activo durante dos años.
 
 Para cambiar solo los secretos internos de Azure Stack:
 
 1. Cree una sesión de PowerShell con el [punto de conexión con privilegios](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 2. En la sesión del punto de conexión con privilegios, ejecute **Start-SecretRotation** sin argumentos.
+
+    > [!Note]  
+    > Los entornos de Azure Stack en versiones anteriores a 1811 no requerirán la marca **-Internal**. **Start-SecretRotation** cambiará solo los secretos internos.
+
 3. Espere mientras cambian los secretos.  
 Cuando se complete correctamente el cambio de secretos, la consola mostrará el mensaje **Overall action status: Success** (Estado global de la acción: correcto). 
-    > [!note]  
-    > Si se produce un error en la rotación de secretos, siga las instrucciones del mensaje de error y vuelva a ejecutar Start-SecretRotation con el parámetro **-Rerun**. Póngase en contacto con soporte técnico si la rotación de secretos falla en reiteradas ocasiones. 
+    > [!Note]  
+    > Si se produce un error en el cambio de secretos, siga las instrucciones del mensaje de error y vuelva a ejecutar **start-secretrotation** con los parámetros **-Internal** y  **-Rerun**.  
+
+    ```PowerShell  
+    Start-SecretRotation -Internal -Rerun
+    ```
+    Póngase en contacto con soporte técnico si la rotación de secretos falla en reiteradas ocasiones.
 
 ## <a name="start-secretrotation-reference"></a>Referencia de Start-SecretRotation
 
@@ -153,15 +183,32 @@ Permite cambiar los secretos de un sistema de Azure Stack. Solo se ejecuta en el
 
 ### <a name="syntax"></a>Sintaxis
 
-Ruta de acceso (valor predeterminado)
+#### <a name="for-external-secret-rotation"></a>Para el cambio de secretos externos
 
-```powershell
+```Powershell  
 Start-SecretRotation [-PfxFilesPath <string>] [-PathAccessCredential] <PSCredential> [-CertificatePassword <SecureString>]  
 ```
 
+#### <a name="for-internal-secret-rotation"></a>Para el cambio de secretos internos 
+
+```Powershell  
+Start-SecretRotation [-Internal]  
+```
+
+#### <a name="for-external-secret-rotation-rerun"></a>Para volver a ejecutar el cambio de secretos externos 
+
+```Powershell  
+Start-SecretRotation [-Rerun]
+```
+
+#### <a name="for-internal-secret-rotation-rerun"></a>Para volver a ejecutar el cambio de secretos internos 
+
+```Powershell  
+Start-SecretRotation [-Rerun] [-Internal]
+```
 ### <a name="description"></a>DESCRIPCIÓN
 
-El cmdlet Start-SecretRotation permite cambiar los secretos de la infraestructura de un sistema de Azure Stack. De forma predeterminada, cambia todos los secretos expuestos a la infraestructura de red interna y, con la entrada del usuario, también permite cambiar los certificados de todos los puntos de conexión de la infraestructura de red externa. Al cambiar los puntos de conexión de la infraestructura de red externa, Start-SecretRotation se debe ejecutar mediante un bloque de script Invoke-Command con la sesión del punto de conexión con privilegios del entorno de Azure Stack pasada como el parámetro de la sesión.
+El cmdlet **Start-SecretRotation** permite cambiar los secretos de la infraestructura de un sistema de Azure Stack. De forma predeterminada, se cambian solo los certificados de todos los puntos de conexión de la infraestructura de red externa. Si se usa con la marca -Internal, se cambian los secretos de infraestructura interna. Al cambiar los puntos de conexión de la infraestructura de red externa, **Start-SecretRotation** se debe ejecutar con un bloque de script **Invoke-Command** con la sesión del punto de conexión con privilegios del entorno de Azure Stack pasada como el parámetro de la sesión.
  
 ### <a name="parameters"></a>Parámetros
 
@@ -169,18 +216,33 @@ El cmdlet Start-SecretRotation permite cambiar los secretos de la infraestructur
 | -- | -- | -- | -- | -- | -- |
 | PfxFilesPath | string  | False  | con nombre  | None  | La ruta de acceso del recurso compartido de archivos al directorio **\Certificates** que contiene todos los certificados del punto de conexión de la red externa. Solo se necesita al rotar secretos externos o todos los secretos. El directorio final debe ser **\Certificates**. |
 | CertificatePassword | SecureString | False  | con nombre  | None  | La contraseña de todos los certificados que se proporcionan en -PfXFilesPath. Valor obligatorio si se proporciona PfxFilesPath al cambiar secretos internos y externos. |
+| Interno | string | False | con nombre | None | La marca Internal se debe utilizar cada vez que un operador de Azure Stack quiera cambiar los secretos de infraestructura interna. |
 | PathAccessCredential | PSCredential | False  | con nombre  | None  | La credencial de PowerShell para el recurso compartido de archivos al directorio **\Certificates** que contiene todos los certificados del punto de conexión de la red externa. Solo se necesita al rotar secretos externos o todos los secretos.  |
-| Rerun | SwitchParameter | False  | con nombre  | None  | Rerun se debe usar en cualquier momento en que se vuelva a intentar la rotación de secretos después de un intento fallido. |
+| Rerun | SwitchParameter | False  | con nombre  | None  | Rerun se debe usar en cualquier momento en que se vuelva a intentar el cambio de secretos después de un intento fallido. |
 
 ### <a name="examples"></a>Ejemplos
  
-**Solo cambio de secretos de infraestructura interna**
+#### <a name="rotate-only-internal-infrastructure-secrets"></a>Cambio de solo los secretos de infraestructura interna
+
+Esto se debe ejecutar a través del [punto de conexión con privilegios del entorno](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint) de Azure Stack.
 
 ```powershell  
-PS C:\> Start-SecretRotation  
+PS C:\> Start-SecretRotation  -Internal
 ```
 
-Este comando permite cambiar todos los secretos de la infraestructura expuesta a la red interna de Azure Stack. Start-SecretRotation cambia todos los secretos generados por Stack, pero dado que no se han proporcionado certificados, los certificados de punto de conexión externos no se cambiarán.  
+Este comando permite cambiar todos los secretos de la infraestructura expuesta a la red interna de Azure Stack. 
+
+#### <a name="rotate-only-external-infrastructure-secrets"></a>Cambio de solo los secretos de infraestructura externa  
+
+```powershell  
+PS C:\> Invoke-Command -session $PEPSession -ScriptBlock {  
+
+Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCred -CertificatePassword $using:CertPassword }  
+
+Remove-PSSession -Session $PEPSession
+```
+
+Este comando cambia los certificados TLS que se usan para los puntos de conexión de infraestructura de red externa de Azure Stack.   
 
 **Cambio de secretos de la infraestructura interna y externa**
   
@@ -193,24 +255,26 @@ Remove-PSSession -Session $PEPSession
 Este comando cambia todos los secretos de la infraestructura expuestos a la red interna de Azure Stack, así como los certificados TLS que se usan para los puntos de conexión de la infraestructura de red externa de Azure Stack. Start-SecretRotation cambia todos los secretos generados por Stack, y dado que se han proporcionado certificados, los certificados de punto de conexión externos también se cambiarán.  
 
 
-## <a name="update-the-baseboard-management-controller-bmc-password"></a>Actualización de la contraseña del controlador de administración de placa base (BMC)
+## <a name="update-the-baseboard-management-controller-bmc-credential"></a>Actualización de la credencial del controlador de administración de placa base (BMC)
 
-El controlador de administración de placa base (BMC) supervisa el estado físico de sus servidores. Las especificaciones e instrucciones para actualizar la contraseña de BMC varían según el proveedor de hardware del fabricante de equipos originales (OEM). Debe actualizar regularmente las contraseñas de los componentes de Azure Stack.
+El controlador de administración de placa base (BMC) supervisa el estado físico de sus servidores. Las especificaciones e instrucciones para actualizar el nombre de la cuenta de usuario y contraseña de BMC varían según el proveedor de hardware del fabricante de equipos originales (OEM). Debe actualizar regularmente las contraseñas de los componentes de Azure Stack.
 
-1. Actualice el BMC en los servidores físicos de Azure Stack siguiendo las instrucciones del OEM. La contraseña para cada BMC de su entorno debe ser la misma.
+1. Actualice el BMC en los servidores físicos de Azure Stack con las instrucciones del OEM. El nombre de la cuenta de usuario y la contraseña para cada BMC de su entorno deben ser los mismos.
 2. Abra un punto de conexión con privilegios en sesiones de Azure Stack. Para obtener instrucciones, consulte [Uso del punto de conexión con privilegios en Azure Stack](azure-stack-privileged-endpoint.md).
-3. Cuando el símbolo del sistema de PowerShell cambie a **[IP address or ERCS VM name]: PS >** o a **[azs-ercs01]: PS >**, en función del entorno, ejecute `Set-BmcPassword` mediante `invoke-command`. Pase la variable de sesión del punto de conexión con privilegios como parámetro. Por ejemplo: 
+3. Cuando el símbolo del sistema de PowerShell cambie a **[IP address or ERCS VM name]: PS >** o a **[azs-ercs01]: PS >**, en función del entorno, ejecute `Set-BmcCredemtial` mediante `invoke-command`. Pase la variable de sesión del punto de conexión con privilegios como parámetro. Por ejemplo: 
 
     ```powershell
     # Interactive Version
     $PEip = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
     $PECred = Get-Credential "<Domain>\CloudAdmin" -Message "PE Credentials" 
-    $NewBMCpwd = Read-Host -Prompt "Enter New BMC password" -AsSecureString 
+    $NewBMCpwd = Read-Host -Prompt "Enter New BMC password" -AsSecureString
+    $NewBMCuser = Read-Host -Prompt "Enter New BMC user name"
 
     $PEPSession = New-PSSession -ComputerName $PEip -Credential $PECred -ConfigurationName "PrivilegedEndpoint" 
 
     Invoke-Command -Session $PEPSession -ScriptBlock {
-        Set-Bmcpassword -bmcpassword $using:NewBMCpwd
+        # Parameter BMCPassword is mandatory, while the BMCUser parameter is optional.
+        Set-Bmccredential -bmcpassword $using:NewBMCpwd -bmcuser $using:NewBMCuser
     }
     Remove-PSSession -Session $PEPSession
     ```
@@ -221,14 +285,15 @@ El controlador de administración de placa base (BMC) supervisa el estado físic
     # Static Version
     $PEip = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
     $PEUser = "<Privileged Endpoint user for example Domain\CloudAdmin>"
-    $PEpwd = ConvertTo-SecureString "<Privileged Endpoint Password>" -AsPlainText -Force
+    $PEpwd = ConvertTo-SecureString "<Privileged Endpoint Password>" -Force
     $PECred = New-Object System.Management.Automation.PSCredential ($PEUser, $PEpwd) 
-    $NewBMCpwd = ConvertTo-SecureString "<New BMC Password>" -AsPlainText -Force 
+    $NewBMCpwd = ConvertTo-SecureString "<New BMC Password>" -Force
+    $NewBMCuser = "<New BMC User name>" 
 
     $PEPSession = New-PSSession -ComputerName $PEip -Credential $PECred -ConfigurationName "PrivilegedEndpoint" 
 
     Invoke-Command -Session $PEPSession -ScriptBlock {
-        Set-Bmcpassword -bmcpassword $using:NewBMCpwd
+        Set-Bmccredential -bmcpassword $using:NewBMCpwd -bmcuser $using:NewBMCuser
     }
     Remove-PSSession -Session $PEPSession
     ```

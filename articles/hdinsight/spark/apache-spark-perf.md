@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: dc1fe8a3d9a1f0da0a190275b4fbb8bd18fff610
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a6ab4d751be74b66d9e75a37f88bc8d441f9b003
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499144"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653737"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Optimización de trabajos de Apache Spark
 
@@ -27,41 +27,41 @@ En las siguientes secciones se describen las recomendaciones y optimizaciones co
 Spark 1.x usa RDD para abstraer datos y luego con Spark 2.x se introdujeron DataFrames y DataSets. Tenga en cuenta las siguientes ventajas relativas:
 
 * **DataFrames**
-    * Mejor opción en la mayoría de los casos
-    * Proporciona optimización de consultas gracias a Catalyst
-    * Generación de código whole stage
-    * Acceso directo a memoria
-    * Baja sobrecarga de recolección de elementos no utilizados (GC)
-    * No es tan sencillo para los desarrolladores como DataSets, dado que no hay comprobaciones de tiempo de compilación ni programación de objetos de dominio
+    * La mejor opción en la mayoría de los casos.
+    * Proporciona optimización de consultas gracias a Catalyst.
+    * Generación de código en tiempo de ejecución.
+    * Acceso directo a memoria.
+    * Baja sobrecarga de recolección de elementos no utilizados (GC).
+    * No es tan sencillo para los desarrolladores como DataSets, dado que no hay comprobaciones en tiempo de compilación ni programación de objetos de dominio.
 * **DataSets**
-    * Adecuado en canalizaciones ETL complejas en las que el impacto sobre el rendimiento es aceptable
-    * No adecuado en agregaciones donde el impacto sobre el rendimiento puede ser considerable
-    * Proporciona optimización de consultas gracias a Catalyst
-    * Es sencillo de usar para los programadores al proporcionar programación de objetos de dominio y comprobaciones de tiempo de compilación
-    * Agrega sobrecarga de serialización/deserialización
-    * Gran sobrecarga de GC
-    * Interrumpe la generación de código whole stage
+    * Adecuado en canalizaciones ETL complejas en las que el impacto sobre el rendimiento es aceptable.
+    * No adecuado en agregaciones donde el impacto sobre el rendimiento puede ser considerable.
+    * Proporciona optimización de consultas gracias a Catalyst.
+    * Es sencillo de usar para los programadores al proporcionar programación de objetos de dominio y comprobaciones de tiempo de compilación.
+    * Agrega sobrecarga de serialización/deserialización.
+    * Gran sobrecarga de GC.
+    * Interrumpe la generación de código en tiempo de ejecución.
 * **RDD**
-    * En Spark 2.x, no es necesario usar RDD, a menos que deba crear un nuevo RDD personalizado
-    * Sin optimización de consultas mediante Catalyst
-    * Sin generación de código whole stage
-    * Gran sobrecarga de GC
-    * Se deben usar las API heredadas de Spark 1.x
+    * En Spark 2.x no es necesario usar los RDD, a menos que deba crear un nuevo RDD personalizado.
+    * Sin optimización de consultas mediante Catalyst.
+    * Sin generación de código en tiempo de ejecución.
+    * Gran sobrecarga de GC.
+    * Se deben usar las API heredadas de Spark 1.x.
 
 ## <a name="use-optimal-data-format"></a>Uso del formato de datos óptimo
 
-Spark admite muchos formatos, como csv, json, xml, parquet, orc y avro. Spark se puede ampliar para la compatibilidad con muchos más formatos con orígenes de datos externos; para más información, consulte [Spark Packages](https://spark-packages.org).
+Spark admite muchos formatos, como csv, json, xml, parquet, orc y avro. Spark se puede ampliar para la compatibilidad con muchos más formatos con orígenes de datos externos; para más información, consulte los [paquetes de Apache Spark](https://spark-packages.org).
 
 El mejor formato para el rendimiento es parquet con *compresión eficiente*, que es el valor predeterminado en Spark 2.x. Parquet almacena datos en formato de columnas y está muy optimizado en Spark.
 
 ## <a name="select-default-storage"></a>Selección del almacenamiento predeterminado
 
-Cuando se crea un nuevo clúster de Spark, tiene la opción de seleccionar Azure Blob Storage o Azure Data Lake Store como almacenamiento predeterminado del clúster. Ambas opciones le ofrecen la ventaja de almacenamiento a largo plazo para clústeres transitorios, así los datos no se eliminan automáticamente al eliminar el clúster. Puede volver a crear un clúster transitorio y seguir teniendo acceso a los datos.
+Cuando se crea un nuevo clúster de Spark, tiene la opción de seleccionar Azure Blob Storage o Azure Data Lake Storage como almacenamiento predeterminado del clúster. Ambas opciones le ofrecen la ventaja de almacenamiento a largo plazo para clústeres transitorios, así los datos no se eliminan automáticamente al eliminar el clúster. Puede volver a crear un clúster transitorio y seguir teniendo acceso a los datos.
 
 | Tipo de almacén | Sistema de archivos | Velocidad | Transitorio | Casos de uso |
 | --- | --- | --- | --- | --- |
 | Azure Blob Storage | **wasb:**//url/ | **Estándar** | SÍ | Clúster transitorio |
-| Azure Data Lake Store | **adl:**//url/ | **Más rápido** | SÍ | Clúster transitorio |
+| Azure Data Lake Storage | **adl:**//url/ | **Más rápido** | SÍ | Clúster transitorio |
 | HDFS local | **hdfs:**//url/ | **El más rápido** | Sin  | Clúster 24/7 interactivo |
 
 ## <a name="use-the-cache"></a>Uso de la caché
@@ -73,7 +73,7 @@ Spark proporciona sus propios mecanismos nativos de almacenamiento, que se puede
     * No funciona con la creación de particiones; sin embargo, esto puede cambiar en futuras versiones de Spark
 
 * Almacenamiento en caché de capas de almacenamiento (recomendado)
-    * Se puede implementar mediante [Alluxio](http://www.alluxio.org/)
+    * Se puede implementar mediante [Alluxio](https://www.alluxio.org/)
     * Se usa en el almacenamiento en caché SSD y en memoria
 
 * HDFS local (recomendado)
@@ -119,9 +119,9 @@ Crear depósitos es parecido a crear particiones de datos, pero cada depósito p
 
 Algunas características avanzadas de creación de depósitos son:
 
-* Optimización de consultas basada en la creación de depósitos de información de metadatos
-* Agregaciones optimizadas
-* Combinaciones optimizadas
+* Optimización de consultas basada en la creación de depósitos de información de metadatos.
+* Agregaciones optimizadas.
+* Combinaciones optimizadas.
 
 Puede usar creación de particiones y creación de depósitos al mismo tiempo.
 
@@ -202,7 +202,7 @@ Supervise el rendimiento de las consultas en busca de valores atípicos u otros 
 Supervise los trabajos en ejecución con regularidad en busca de problemas de rendimiento. Si necesita más información sobre determinados problemas, podría usar una de las siguientes herramientas de generación de perfiles de rendimiento:
 
 * [Intel PAL Tool](https://github.com/intel-hadoop/PAT) supervisa el uso de CPU, almacenamiento y ancho de banda de red.
-* [Oracle Java 8 Mission Control](http://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html) crea perfiles del código de Spark y del ejecutor.
+* [Oracle Java 8 Mission Control](https://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html) crea perfiles del código de Spark y del ejecutor.
 
 Esencial para el rendimiento de consultas de Spark 2.x es el motor de Tungsten, que depende de la generación de código whole stage. En algunos casos, se puede deshabilitar la generación de código whole stage. Por ejemplo, si se usa un tipo no mutable (`string`) en la expresión de agregación, aparece `SortAggregate` en lugar de `HashAggregate`. Por ejemplo, para mejorar el rendimiento, pruebe lo siguiente y, a continuación, habilite de nuevo la generación de código:
 

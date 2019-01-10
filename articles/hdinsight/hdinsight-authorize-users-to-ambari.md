@@ -9,20 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: d2e7077e1196ab862d9f610f242fe30dde18ded4
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 976bb44ae81a6c002d2503407a4d74d513a76042
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496879"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725276"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Autorización de usuarios para Apache Ambari Views
 
 Los [clústeres de HDInsight habilitados con Enterprise Security Package (ESP)](./domain-joined/apache-domain-joined-introduction.md) proporcionan funcionalidades empresariales, incluida la autenticación basada en Azure Active Directory. Puede [sincronizar los usuarios nuevos](hdinsight-sync-aad-users-to-cluster.md) agregados a los grupos de Azure AD a los que se ha proporcionado acceso al clúster y permitir que esos usuarios específicos realicen determinadas acciones. El trabajo con usuarios, grupos y permisos en [Apache Ambari](https://ambari.apache.org/) es compatible tanto con clústeres de HDInsight ESP como con clústeres de HDInsight estándar.
 
-Los usuarios de Active Directory pueden iniciar sesión en los nodos del clúster con sus credenciales de dominio. También pueden usar sus credenciales de dominio para autenticar las interacciones del clúster con otros puntos de conexión aprobados como [Hue](http://gethue.com/), Ambari Views, ODBC, JDBC, PowerShell y las API REST.
+Los usuarios de Active Directory pueden iniciar sesión en los nodos del clúster con sus credenciales de dominio. También pueden usar sus credenciales de dominio para autenticar las interacciones del clúster con otros puntos de conexión aprobados como [Hue](https://gethue.com/), Ambari Views, ODBC, JDBC, PowerShell y las API REST.
 
-> [!WARNING]
+> [!WARNING]  
 > No cambie la contraseña del guardián Ambari (hdinsightwatchdog) en el clúster de HDInsight basado en Linux. El cambio de la contraseña impide usar acciones de script o realizar operaciones de escalado con el clúster.
 
 Si no lo ha hecho aún, siga [estas instrucciones](./domain-joined/apache-domain-joined-configure.md) para aprovisionar un nuevo clúster ESP.
@@ -100,7 +100,7 @@ Para ver la lista de permisos concedidos a cada rol, haga clic en el signo de in
 
 ![Vínculo del menú de roles](./media/hdinsight-authorize-users-to-ambari/roles-permissions.png)
 
-En esta página, hay dos vistas diferentes que puede usar para administrar roles para los usuarios y grupos: Block (Bloque) y List (Lista).
+En esta página, hay dos vistas diferentes que puede usar para administrar roles para los usuarios y los grupos: Block (bloque) y List (lista).
 
 ### <a name="block-view"></a>Vista de bloque
 

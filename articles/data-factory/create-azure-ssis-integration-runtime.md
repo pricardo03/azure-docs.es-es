@@ -1,6 +1,6 @@
 ---
-title: Creación de un entorno de ejecución de SSIS en Azure en Azure Data Factory | Microsoft Docs
-description: Obtenga información sobre cómo crear un entorno de ejecución de integración de Azure SSIS en Azure Data Factory para que pueda implementar y ejecutar paquetes SSIS en Azure.
+title: Creación una instancia de Azure-SSIS Integration Runtime en Azure Data Factory | Microsoft Docs
+description: Aprenda a crear una instancia de Azure-SSIS Integration Runtime en Azure Data Factory para que pueda implementar y ejecutar paquetes SSIS en Azure.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -8,69 +8,69 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 12/26/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 75b5246b83106b7d331ad3d467de2005e8d1f854
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f5305c2d077f909a4b6c7c5e6905376d655dd60d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279111"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794573"
 ---
-# <a name="create-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Creación de una instancia de Integration Runtime de SSIS de Azure en Azure Data Factory
-En este artículo se describen los pasos necesarios para aprovisionar una instancia de Integration Runtime de SSIS de Azure en Azure Data Factory. Posteriormente, podrá usar SQL Server Data Tools (SSDT) o SQL Server Management Studio (SSMS) para implementar y ejecutar paquetes de SQL Server Integration Services (SSIS) en este entorno de ejecución de Azure. 
+# <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Creación de una instancia de Azure-SSIS Integration Runtime en Azure Data Factory
+En este artículo se proporcionan los pasos para aprovisionar una instancia de Azure-SSIS Integration Runtime (IR) en Azure Data Factory (ADF). Posteriormente, puede usar SQL Server Data Tools (SSDT) o SQL Server Management Studio (SSMS) para implementar y ejecutar paquetes de SQL Server Integration Services (SSIS) en este entorno de ejecución de integración de Azure. 
 
-El tutorial: [Implementación de paquetes de SQL Server Integration Services en Azure](tutorial-create-azure-ssis-runtime-portal.md) muestra cómo crear una instancia de Integration Runtime (IR) de SSIS de Azure mediante Azure SQL Database para hospedar el catálogo de SSIS. Este artículo permite ampliar el tutorial y muestra cómo hacer lo siguiente: 
+En el [Tutorial: Implementación de paquetes SSIS en Azure](tutorial-create-azure-ssis-runtime-portal.md) se muestra cómo crear una instancia de Azure-SSIS IR mediante el servidor de Azure SQL Database para hospedar la base de datos de catálogo de SSIS (SSISDB). Este artículo permite ampliar el tutorial y muestra cómo hacer lo siguiente: 
 
-- De manera opcional, puede usar Azure SQL Database con puntos de conexión de servicio de red virtual / Instancia administrada de Azure SQL Database como el servidor de base de datos para hospedar el catálogo de SSIS (base de datos SSISDB). Para obtener directrices sobre cómo elegir el tipo de servidor de base de datos para hospedar la SSISDB, consulte [Comparación entre servidor lógico de SQL Database e Instancia administrada de SQL Database](create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance). Como requisito previo, debe unir la instancia de Integration Runtime para la integración de SSIS en Azure a una red virtual y configurar los permisos y valores de la red virtual según sea necesario. Consulte [Unión de la instancia de Integration Runtime para la integración de SSIS en Azure a una red virtual](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). 
+- Opcionalmente, use el servidor de Azure SQL Database con puntos de conexión de servicio de red virtual o Instancia administrada para hospedar SSISDB. Para obtener directrices sobre cómo elegir el tipo de servidor de base de datos para hospedar la SSISDB, consulte [Comparación entre el servidor y la instancia administrada de Azure SQL Database](create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance). Como requisito previo, debe unir la instancia de Azure-SSIS IR a una red virtual y configurar los permisos y valores de la red virtual según sea necesario. Consulte [Unión de la instancia de Integration Runtime para la integración de SSIS en Azure a una red virtual](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). 
 
-- De manera opcional, puede usar la autenticación de Azure Active Directory (AAD) con la identidad administrada de su instancia de Azure Data Factory para conectarse al servidor de bases de datos. Como requisito previo, deberá agregar la identidad administrada de su ADF a un grupo de AAD con permisos de acceso al servidor de bases de datos. Para ello, consulte [Habilitación de la autenticación de AAD para la instancia de Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
+- De manera opcional, puede usar la autenticación de Azure Active Directory (AAD) con la identidad administrada de ADF para conectarse al servidor de bases de datos. Como requisito previo, debe agregar la identidad administrada de su ADF como un usuario de base de datos independiente capaz de crear SSISDB en su servidor o instancia administrada de Azure SQL Database. Para ello, consulte [Habilitar la autenticación de AAD para Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
 
 ## <a name="overview"></a>Información general
-En este artículo se muestran diferentes maneras de aprovisionar un entorno de ejecución de SSIS en Azure: 
+En este artículo se muestran diferentes maneras de aprovisionar Azure-SSIS IR: 
 
 - [Azure Portal](#azure-portal) 
 - [Azure PowerShell](#azure-powershell) 
 - [Plantilla de Azure Resource Manager](#azure-resource-manager-template) 
 
-Al crear una instancia de Azure-SSIS IR, el servicio Data Factory se conecta a la instancia de Azure SQL Database para preparar la base de datos de catálogo de SSIS (SSISDB). También configura los permisos y los valores de la red virtual, si se especifica, y une la nueva instancia del entorno de ejecución de integración de Azure SSIS a la red virtual. 
+Cuando se crea una instancia de Azure-SSIS IR, el servicio ADF se conecta al servidor o a la instancia administrada de Azure SQL Database para preparar SSISDB. También configura los permisos o los valores de la red virtual, si se especifica, y une la instancia de Azure-SSIS IR a la red virtual. 
 
-Al aprovisionar una instancia del entorno de ejecución para la integración de SSIS en Azure, también se instala el paquete de características de Azure para SSIS y el acceso redistribuible. Estos componentes proporcionan conectividad a los archivos de Excel y Access, y a diversos orígenes de datos de Azure, además de los admitidos por los componentes integrados. También puede instalar componentes adicionales. Para más información, consulte [Custom setup for the Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md) (Instalación personalizada de la instancia de Integration Runtime para la integración de SSIS en Azure). 
+Al aprovisionar Azure-SSIS IR, también se instala el paquete de características de Azure para SSIS y el acceso redistribuible. Estos componentes proporcionan conectividad a los archivos de Excel y Access, y a diversos orígenes de datos de Azure, además de los admitidos por los componentes integrados. También puede instalar componentes adicionales. Para más información, consulte [Custom setup for the Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md) (Instalación personalizada de la instancia de Integration Runtime para la integración de SSIS en Azure). 
 
 ## <a name="prerequisites"></a>Requisitos previos 
-- **Suscripción de Azure**. Si no tiene ninguna suscripción, puede crear una [cuenta de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/). 
+- **Suscripción de Azure**. Si no tiene una suscripción, puede crear una [cuenta de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/). 
 
-- **Servidor lógico o Instancia administrada de Azure SQL Database**. Si aún no tiene un servidor de bases de datos, cree uno en Azure Portal antes de empezar. Este servidor va a hospedar la base de datos del catálogo de SSIS (SSISDB). Le recomendamos que cree el servidor de bases de datos en la misma región de Azure que el entorno de ejecución de integración. Esta configuración permite que el entorno de ejecución de integración escriba registros de ejecución en SSISDB sin traspasar regiones de Azure. En función del servidor de bases de datos seleccionado, la SSISDB puede crearse en su nombre como base de datos única, como parte de un grupo elástico o en una instancia administrada y estar accesible desde la red pública o mediante la unión a una red virtual. Para una lista de los planes de tarifa admitidos para Azure SQL Database, consulte [Límites de recursos de SQL Database](../sql-database/sql-database-resource-limits.md). 
+- **Servidor o instancia administrada de Azure SQL Database**. Si aún no tiene un servidor de bases de datos, puede crear uno en Azure Portal antes de empezar. Este servidor hospedará la SSISDB. Le recomendamos que cree el servidor de bases de datos en la misma región de Azure que el entorno de ejecución de integración. Esta configuración permite que el entorno de ejecución de integración escriba registros de ejecución en SSISDB sin traspasar regiones de Azure. En función del servidor de bases de datos seleccionado, SSISDB puede crearse en su nombre como base de datos única, como parte de un grupo elástico o en una instancia administrada y estar accesible en la red pública o mediante la unión a una red virtual. Para una lista de los planes de tarifa admitidos para Azure SQL Database, consulte [Límites de recursos de SQL Database](../sql-database/sql-database-resource-limits.md). 
 
-    Asegúrese de que el servidor lógico o Instancia administrada de Azure SQL Database no tienen ya un catálogo de SSIS (base de datos SSIDB). El aprovisionamiento de entornos de ejecución de SSIS en Azure no admite el uso de un catálogo de SSIS existente. 
+    Asegúrese de que el servidor o la instancia administrada de Azure SQL Database no tengan ya una SSISDB. El aprovisionamiento de Azure-SSIS IR no admite el uso de una SSISDB existente. 
 
-- **Red virtual de Azure Resource Manager o clásica (opcional)**. Debe tener una instancia de Azure Virtual Network si se cumple al menos una de las siguientes condiciones: 
-    - Hospeda la base de datos de catálogo de SSIS en Azure SQL Database con puntos de conexión de servicio de red virtual / Instancia administrada de Azure SQL Database que está dentro de una red virtual. 
-    - Quiere conectarse a almacenes de datos locales desde paquetes de SSIS que se ejecutan en una instancia de Integration Runtime de SSIS de Azure. 
+- **Red virtual de Azure Resource Manager (opcional)**. Debe tener una red virtual de Azure Resource Manager si se cumple al menos una de las siguientes condiciones: 
+    - Va a hospedar SSISDB en el servidor de Azure SQL Database con puntos de conexión de servicio de red virtual o en una instancia administrada que está dentro de una red virtual. 
+    - Quiere conectarse a almacenes de datos locales desde paquetes SSIS que se ejecutan en una instancia de Azure-SSIS IR. 
 
-- **Azure PowerShell**. Siga las instrucciones de [Procedimiento de instalación y configuración de Azure PowerShell](/powershell/azure/install-azurerm-ps) si usa PowerShell para ejecutar un script para aprovisionar una instancia de Integration Runtime de SSIS de Azure que ejecuta paquetes de SSIS en la nube. 
+- **Azure PowerShell**. Siga las instrucciones que se indican en [Instalación y configuración de Azure PowerShell](/powershell/azure/install-azurerm-ps), si quiere ejecutar un script de PowerShell para aprovisionar Azure-SSIS IR. 
 
 ### <a name="region-support"></a>Regiones admitidas
-Para ver una lista de regiones de Azure en las que Data Factory y Azure-SSIS Integration Runtime están actualmente disponibles, consulte [Disponibilidad de ADF + SSIS IR por región](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 
+Para ver una lista de regiones de Azure en las que ADF y Azure-SSIS IR están actualmente disponibles, consulte [Disponibilidad de ADF + SSIS IR por región](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 
 
 ### <a name="compare-sql-database-logical-server-and-sql-database-managed-instance"></a>Comparación entre servidor lógico de SQL Database e instancia administrada de SQL Database
 
-En la siguiente tabla se comparan determinadas características del servidor lógico de SQL Database e Instancia administrada en su relación con el entorno de ejecución de integración de SSIS en Azure:
+En la tabla siguiente se comparan determinadas características del servidor y la instancia administrada de Azure SQL Database y su relación con Azure SSIR IR:
 
-| Característica | Servidor lógico de SQL Database| Instancia administrada de SQL Database |
+| Característica | Servidor de Azure SQL Database| Instancia administrada |
 |---------|--------------|------------------|
-| **Programación** | El agente SQL Server no está disponible.<br/><br/>Consulte [Schedule a package as part of an Azure Data Factory pipeline](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity) (Programación de un paquete como parte de una canalización de Azure Data Factory).| El agente de Instancia administrada está disponible. |
-| **Autenticación** | Puede crear una base de datos con una cuenta de usuario de base de datos independiente que representa a cualquier usuario de Azure Active Directory del rol **dbmanager**.<br/><br/>Consulte [Habilitación de Azure AD en Azure SQL Database](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | No puede crear una base de datos con una cuenta de usuario de base de datos independiente que represente a cualquier usuario de Azure Active Directory que no sea un administrador de Azure AD. <br/><br/>Consulte [Habilitación de Azure AD en Instancia administrada de Azure SQL Database](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
-| **Nivel de servicio** | Cuando crea la instancia de Integration Runtime para la integración de SSIS en Azure en SQL Database, puede seleccionar el nivel de servicio para SSISDB. Hay varios niveles de servicio. | Cuando crea la instancia de Integration Runtime para la integración de SSIS en una instancia administrada, no puede seleccionar el nivel de servicio para SSISDB. Todas las bases de datos en la misma instancia administrada comparten el mismo recurso asignado a esa instancia. |
-| **Red virtual** | Admite la unión de su instancia de Azure-SSIS IR a las redes virtuales clásica y de Azure Resource Manager si usa Azure SQL Database con puntos de conexión de servicio de red virtual o necesita acceso a los datos locales. | Solo admite la unión de Azure-SSIS IR a la red virtual de Azure Resource Manager. Se requiere la red virtual.<br/><br/>Si une la instancia de Integration Runtime para la integración de SSIS en Azure a la misma red virtual que una instancia administrada, asegúrese de que ambas instancias se encuentran en subredes diferentes. Si une la instancia de Integration Runtime para la integración de SSIS en Azure a una red virtual diferente de aquella de la instancia administrada, le recomendamos realizar un emparejamiento de redes virtuales (que se limita a la misma región) o una conexión de red virtual a red virtual. Consulte [Conexión de la aplicación a Instancia administrada de Azure SQL Database](../sql-database/sql-database-managed-instance-connect-app.md). |
-| **Transacciones distribuidas** | Compatible mediante transacciones distribuidas. No se admiten las transacciones del Coordinador de transacciones distribuidas de Microsoft (MSDTC). Si los paquetes SSIS usan MSDTC para coordinar las transacciones distribuidas, considere la posibilidad de migrar a transacciones elásticas de SQL Database. Para más información, consulte [Transacciones distribuidas en bases de datos en la nube](../sql-database/sql-database-elastic-transactions-overview.md). | No compatible. |
+| **Programación** | El agente SQL Server no está disponible.<br/><br/>Consulte [Programar una ejecución de paquetes en una canalización de ADF](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity).| El agente de Instancia administrada está disponible. |
+| **Autenticación** | Puede crear SSISDB con un usuario de base de datos independiente que represente cualquier grupo de AAD con la identidad administrada de ADF como miembro del rol **db_owner**.<br/><br/>Consulte [Habilitación de la autenticación de Azure AD para crear SSISDB en el servidor de Azure SQL Database](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | Puede crear SSISDB con un usuario de base de datos independiente que represente la identidad administrada de ADF. <br/><br/>Consulte [Habilitación de la autenticación de Azure AD para crear SSISDB en Instancia administrada de Azure SQL Database](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
+| **Nivel de servicio** | Al crear una instancia de Azure-SSIS IR con el servidor de Azure SQL Database, puede seleccionar el nivel de servicio de SSISDB. Hay varios niveles de servicio. | Cuando crea una instancia de Azure-SSIS IR con su instancia administrada, no puede seleccionar el nivel de servicio de SSISDB. Todas las bases de datos de la instancia administrada comparten el mismo recurso asignado a esa instancia. |
+| **Red virtual** | Solo admite la unión de Azure-SSIS IR a redes virtuales de Azure Resource Manager si usa el servidor de Azure SQL Database con puntos de conexión de servicio de red virtual o necesita acceso a almacenes de datos locales. | Solo admite la unión de Azure-SSIS IR a redes virtuales de Azure Resource Manager. La red virtual siempre es necesaria.<br/><br/>Si une su instancia de Azure-SSIS IR a la misma red virtual que su instancia administrada, asegúrese de que ambas instancias se encuentran en subredes diferentes. Si une la instancia de Azure-SSIS IR a una red virtual diferente de aquella de la instancia administrada, se recomienda realizar un emparejamiento de redes virtuales o una conexión de red virtual a red virtual. Consulte [Conexión de la aplicación a Instancia administrada de Azure SQL Database](../sql-database/sql-database-managed-instance-connect-app.md). |
+| **Transacciones distribuidas** | Compatible mediante transacciones distribuidas. No se admiten las transacciones del Coordinador de transacciones distribuidas de Microsoft (MSDTC). Si los paquetes SSIS usan MSDTC para coordinar las transacciones distribuidas, considere la posibilidad de migrar a transacciones elásticas de Azure SQL Database. Para más información, consulte [Transacciones distribuidas en bases de datos en la nube](../sql-database/sql-database-elastic-transactions-overview.md). | No compatible. |
 | | | |
 
 ## <a name="azure-portal"></a>Azure Portal
-En esta sección, se usa Azure Portal, y en concreto la interfaz de usuario de Data Factory, para crear un entorno de ejecución de SSIS en Azure. 
+En esta sección, usará Azure Portal, en concreto, la interfaz de usuario de ADF, para crear Azure-SSIS IR. 
 
 ### <a name="create-a-data-factory"></a>Crear una factoría de datos 
 1. Inicie el explorador web **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome. 
@@ -99,7 +99,7 @@ En esta sección, se usa Azure Portal, y en concreto la interfaz de usuario de D
 1. Seleccione la **ubicación** de Data Factory. En la lista solo se muestran las ubicaciones que se admiten para la creación de factorías de datos. 
 1. Seleccione **Anclar al panel**. 
 1. Haga clic en **Create**(Crear). 
-1. En el panel, verá el icono siguiente con el estado: **Implementando factoría de datos**. 
+1. En el panel, verá el icono siguiente con el estado: **Deploying data factory** (Implementación de la factoría de datos). 
 
     ![icono implementando factoría de datos](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
 
@@ -128,7 +128,7 @@ En esta sección, se usa Azure Portal, y en concreto la interfaz de usuario de D
 
     e. En **Node Number** (Número de nodos), seleccione el número de nodos del clúster del entorno de ejecución de integración. Se muestran solo los números de nodos admitidos. Seleccione un clúster de gran tamaño con muchos nodos (escalado horizontal), si desea ejecutar muchos paquetes en paralelo. 
 
-    f. En **Edition/License** (Edición o licencia), seleccione la edición o licencia de SQL Server para el entorno de ejecución de integración: Estándar o Enterprise. Seleccione Enterprise, si desea utilizar las características avanzadas o premium en el entorno de ejecución de integración. 
+    f. En **Edition/License** (Edición o licencia), seleccione la edición o licencia de SQL Server para el entorno de ejecución de integración: Standard o Enterprise. Seleccione Enterprise, si desea utilizar las características avanzadas o premium en el entorno de ejecución de integración. 
 
     g. En **Save Money** (Ahorrar dinero), seleccione la opción Azure Hybrid Benefit (AHB) (Ventaja híbrida de Azure [AHB]) para el entorno de ejecución de integración: Sí o No. Seleccione Sí si desea hacer que su propia licencia de SQL Server con Software Assurance se beneficie de ahorros con el uso híbrido. 
 
@@ -150,7 +150,7 @@ En esta sección, se usa Azure Portal, y en concreto la interfaz de usuario de D
 
     f. En **Admin Password** (Contraseña del administrador), escriba la contraseña de la autenticación de SQL del servidor de bases de datos que va a hospedar SSISDB. 
 
-    g. En **Catalog Database Service Tier** (Nivel de servicio de base de datos de catálogo), seleccione el nivel de servicio del servidor de bases de datos que va a hospedar SSISDB: Básico, Estándar o Premium o el nombre del grupo elástico. 
+    g. En **Catalog Database Service Tier** (Nivel de servicio de bases de datos de catálogo), seleccione el nivel de servicio del servidor de bases de datos para hospedar SSISDB: Nivel Básico, Estándar o Premium o el nombre del grupo elástico. 
 
     h. Haga clic en **Test Connection** (Probar conexión) y si esta se realiza correctamente, haga clic en **Next** (Siguiente). 
 
@@ -166,11 +166,11 @@ En esta sección, se usa Azure Portal, y en concreto la interfaz de usuario de D
 
    ![Configuración avanzada con una red virtual](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-vnet.png)
 
-    a. En **Subscription** (Suscripción), seleccione la suscripción de Azure que tiene la red virtual. 
+     a. En **Subscription** (Suscripción), seleccione la suscripción de Azure que tiene la red virtual. 
 
     b. En **Location** (Ubicación), está seleccionada la misma ubicación del entorno de ejecución de integración. 
 
-    c. En **Type** (Tipo), seleccione el tipo de red virtual: red virtual de Azure Resource Manager o clásica. Se recomienda que seleccione red virtual de Azure Resource Manager, puesto que la red virtual clásica dejará de utilizarse pronto. 
+    c. En **Type** (Tipo), seleccione el tipo de la red virtual: clásica o Azure Resource Manager. Se recomienda que seleccione red virtual de Azure Resource Manager, puesto que la red virtual clásica dejará de utilizarse pronto. 
 
     d. En **VNet Name** (Nombre de red virtual), seleccione el nombre de la red virtual. Esta red virtual debe ser la misma red virtual que se utiliza para Azure SQL Database con puntos de conexión de servicio de red virtual / Instancia administrada de Azure SQL Database para hospedar SSISDB o la que está conectada a la red del entorno local. 
 
@@ -599,7 +599,7 @@ En esta sección, se utiliza una plantilla de Azure Resource Manager para crear 
     ``` 
 
 ## <a name="deploy-ssis-packages"></a>Implementación de paquetes de SSIS
-Luego, use SQL Server Data Tools (SSDT) o SQL Server Management Studio (SSMS) para implementar los paquetes de SSIS en Azure. Conéctese al servidor de bases de datos que hospeda el catálogo de SSIS (SSISDB). El nombre del servidor de base de datos está en el formato: &lt;nombre del servidor de Azure SQL Database&gt;.database.windows.net o &lt;nombre de instancia administrada.prefijo DNS&gt;.database.windows.net. Vea el artículo [Implementación de paquetes](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server) para obtener instrucciones. 
+Luego, use SQL Server Data Tools (SSDT) o SQL Server Management Studio (SSMS) para implementar los paquetes de SSIS en Azure. Conéctese al servidor de bases de datos que hospeda el catálogo de SSIS (SSISDB). El nombre del servidor de bases de datos tiene el formato: &lt;nombre del servidor de Azure SQL Database&gt;.database.windows.net o &lt;nombre de instancia administrada.prefijo DNS&gt;.database.windows.net. Vea el artículo [Implementación de paquetes](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server) para obtener instrucciones. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los restantes temas sobre instancias de Integration Runtime de SSIS de Azure en esta documentación: 

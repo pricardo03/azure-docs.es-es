@@ -1,5 +1,5 @@
 ---
-title: Métricas, alertas y registros de diagnóstico para Azure Batch | Microsoft Docs
+title: 'Métricas, alertas y registros de diagnóstico: Azure Batch | Microsoft Docs'
 description: Registre y analice los eventos de registro de diagnóstico de los recursos de la cuenta de Azure Batch como tareas y grupos.
 services: batch
 documentationcenter: ''
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: danlep
-ms.custom: ''
-ms.openlocfilehash: 8efa8088bca3eb6221c49ec5f14334342149795d
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.custom: seodec18
+ms.openlocfilehash: cd3e671a00f7f8b0a13ed95bfd43795a24244a66
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438445"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537110"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas, alertas y registros de Batch para evaluación de diagnóstico y supervisión
 
  
-En este artículo se explica cómo supervisar una cuenta de Batch con las características de [Azure Monitor](../azure-monitor/overview.md). Azure Monitor recopila [métricas](../azure-monitor/platform/data-collection.md#metrics) y [registros de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) de recursos en la cuenta de Batch. Recopile y consuma estos datos de diversas maneras para supervisar la cuenta de Batch y diagnosticar problemas. También puede configurar [alertas de métricas](../azure-monitor/platform/alerts-overview.md) para recibir notificaciones cuando una métrica alcance un valor especificado. 
+En este artículo se explica cómo supervisar una cuenta de Batch con las características de [Azure Monitor](../azure-monitor/overview.md). Azure Monitor recopila [métricas](../azure-monitor/platform/data-collection.md#metrics) y [registros de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md) de recursos en la cuenta de Batch. Recopile y consuma estos datos de diversas maneras para supervisar la cuenta de Batch y diagnosticar problemas. También puede configurar [alertas de métricas](../azure-monitor/platform/alerts-overview.md) para recibir notificaciones cuando una métrica alcance un valor especificado. 
 
 ## <a name="batch-metrics"></a>Métricas de Batch
 
@@ -109,7 +109,7 @@ Otros destinos opcionales de los registros de diagnóstico:
 
     ![Diagnóstico de Batch](media/batch-diagnostics/diagnostics-portal.png)
 
-Otras opciones para habilitar la recopilación de registros son: usar Azure Monitor en el portal para configurar el diagnóstico, usar una [plantilla de Resource Manager](../azure-monitor/platform/diagnostic-logs-stream-template.md) o usar Azure PowerShell o la CLI de Azure. Consulte [Recopilación y uso de los datos de registro provenientes de los recursos de Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs).
+Otras opciones para habilitar la recopilación de registros son: usar Azure Monitor en el portal para configurar el diagnóstico, usar una [plantilla de Resource Manager](../azure-monitor/platform/diagnostic-logs-stream-template.md) o usar Azure PowerShell o la CLI de Azure. Consulte [Recopilación y uso de los datos de registro provenientes de los recursos de Azure](../azure-monitor/platform/diagnostic-logs-overview.md#how-to-enable-collection-of-diagnostic-logs).
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Acceso a los registros de diagnóstico en el almacenamiento

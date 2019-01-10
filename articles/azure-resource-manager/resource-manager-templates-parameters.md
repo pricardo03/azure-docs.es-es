@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2018
+ms.date: 12/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 83ba1b94413990c0eb8dff42c49d46456a658d5a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: fd6fcff6ac556abe3b2d34c7e8b1b0290208f5b0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417776"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722149"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Sección de parámetros de plantillas de Azure Resource Manager
 En la sección de parámetros de la plantilla, especifique los valores que el usuario puede introducir al implementar los recursos. Estos valores de parámetros permiten personalizar la implementación al proporcionar valores que son específicos para un entorno concreto (por ejemplo, desarrollo, prueba y producción). No tiene que especificar parámetros en la plantilla, pero sin parámetros la plantilla implementaría siempre los mismos recursos con los mismos nombres, ubicaciones y propiedades.
@@ -91,8 +91,8 @@ El ejemplo anterior mostraba solo algunas de las propiedades que puede utilizar 
 | allowedValues |Sin  |Matriz de valores permitidos para el parámetro para asegurarse de que se proporciona el valor correcto. |
 | minValue |Sin  |El valor mínimo de parámetros de tipo int, este valor es inclusivo. |
 | maxValue |Sin  |El valor máximo de parámetros de tipo int, este valor es inclusivo. |
-| minLength |Sin  |La longitud mínima de los parámetros de tipo cadena, secureString y matriz; este valor es inclusivo. |
-| maxLength |Sin  |La longitud máxima de los parámetros de tipo cadena, secureString y matriz; este valor es inclusivo. |
+| minLength |Sin  |Longitud mínima de los parámetros de tipo cadena, cadena segura y matriz; este valor es inclusivo. |
+| maxLength |Sin  |Longitud máxima de los parámetros de tipo cadena, cadena segura y matriz; este valor es inclusivo. |
 | description |Sin  |Descripción del parámetro que se muestra a los usuarios a través del portal. |
 
 ## <a name="template-functions-with-parameters"></a>Funciones de plantilla con parámetros
@@ -188,74 +188,6 @@ Después, haga referencia a las subpropiedades del parámetro con el operador pu
 ]
 ```
 
-## <a name="recommendations"></a>Recomendaciones
-La información siguiente puede ser útil cuando se trabaja con parámetros:
-
-* Minimice el uso de los parámetros. Siempre que sea posible, use una variable o un valor literal. Solo use parámetros en estos escenarios:
-   
-   * La configuración que desea para usar variaciones de la misma según el entorno (SKU, tamaño, capacidad).
-   * Nombres de recurso que desea especificar para facilitar la identificación.
-   * Valores que usa con frecuencia para completar otras tareas (como un nombre de usuario administrador).
-   * Secretos (como contraseñas).
-   * El número o matriz de valores que se usarán cuando cree más de una instancia de un tipo de recurso.
-* Use una mezcla de mayúsculas y minúsculas para los nombres de parámetro.
-* Proporcione una descripción de cada parámetro en los metadatos:
-
-   ```json
-   "parameters": {
-       "storageAccountType": {
-           "type": "string",
-           "metadata": {
-               "description": "The type of the new storage account created to store the VM disks."
-           }
-       }
-   }
-   ```
-
-* Defina los valores predeterminados de los parámetros (excepto en el caso de las contraseñas y claves SSH). Al especificar un valor predeterminado, el parámetro se convierte en opcional durante la implementación. El valor predeterminado puede ser una cadena vacía. 
-   
-   ```json
-   "parameters": {
-        "storageAccountType": {
-            "type": "string",
-            "defaultValue": "Standard_GRS",
-            "metadata": {
-                "description": "The type of the new storage account created to store the VM disks."
-            }
-        }
-   }
-   ```
-
-* Utilice **securestring** en todas las contraseñas y todos los secretos. Si pasa datos confidenciales en un objeto JSON, use el tipo **secureObject**. No se pueden leer los parámetros con los tipos secureString o secureObject después de la implementación de recursos. 
-   
-   ```json
-   "parameters": {
-       "secretValue": {
-           "type": "securestring",
-           "metadata": {
-               "description": "The value of the secret to store in the vault."
-           }
-       }
-   }
-   ```
-
-* Use un parámetro para especificar la ubicación y comparta el valor de ese parámetro al máximo con los recursos que probablemente estén en la misma ubicación. Con este enfoque se minimiza la cantidad de veces que se les pide a los usuarios que proporcionen información de ubicación. Si un tipo de recurso solo se admite en un número limitado de ubicaciones, puede que quiera especificar una ubicación válida directamente en la plantilla o agregar otro parámetro de ubicación. Cuando una organización limita las regiones permitidas para sus usuarios, la expresión **resourceGroup ().location** podría impedir que un usuario pudiera implementar la plantilla. Por ejemplo, un usuario crea un grupo de recursos en una región. Un segundo usuario debe realizar una implementación en ese grupo de recursos, pero no tiene acceso a la región. 
-   
-   ```json
-   "resources": [
-     {
-         "name": "[variables('storageAccountName')]",
-         "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-01-01",
-         "location": "[parameters('location')]",
-         ...
-     }
-   ]
-   ```
-    
-* Evite usar un parámetro o una variable en la versión de API de un tipo de recurso. Las propiedades y los valores de los recursos pueden variar en función del número de la versión. La función IntelliSense en un editor de código no puede determinar el esquema correcto si la versión de API se establece como un parámetro o una variable. En lugar de ello, debe codificar de forma rígida la versión de la API en la plantilla.
-* Evite especificar un nombre de parámetro en la plantilla que coincida con un parámetro del comando de implementación. Resource Manager resuelve este conflicto de nomenclatura agregando el postfijo **FromTemplate** al parámetro de plantilla. Por ejemplo, si incluye un parámetro llamado **ResourceGroupName** en la plantilla, entra en conflicto con el parámetro **ResourceGroupName** del cmdlet [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment). Durante la implementación, se le pide que proporcione un valor para **ResourceGroupNameFromTemplate**.
-
 ## <a name="example-templates"></a>Plantillas de ejemplo
 
 Estas plantillas de ejemplo muestran algunos escenarios para usar los parámetros. Impleméntelos para probar cómo se controlan los parámetros en diferentes escenarios.
@@ -269,5 +201,5 @@ Estas plantillas de ejemplo muestran algunos escenarios para usar los parámetro
 
 * Para ver plantillas completas de muchos tipos diferentes de soluciones, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/).
 * Para más información acerca de cómo especificar los valores de los parámetros durante la implementación, consulte [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md)(Implementación de aplicaciones con la plantilla de Azure Resource Manager). 
-* Para obtener información detallada sobre las funciones que se pueden usar dentro de una plantilla, consulte [Funciones de plantilla de Azure Resource Manager](resource-group-template-functions.md).
+* Para más recomendaciones sobre creación de platillas, consulte [Azure Resource Manager template best practices](template-best-practices.md) (Procedimientos recomendados para plantillas de Azure Resource Manager).
 * Para obtener información sobre el uso de un objeto de parámetro, consulte [Uso de un objeto como parámetro en una plantilla de Azure Resource Manager](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).

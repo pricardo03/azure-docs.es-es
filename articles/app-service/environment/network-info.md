@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d9a0ab84e133863092f68cc949c2b7933bc5da31
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3939d8dce641d066a2470612068df7102b317a70
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271018"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630468"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Consideraciones de red para una instancia de App Service Environment #
 
@@ -151,7 +151,7 @@ Todas estas direcciones IP son fácilmente visibles en un ASEv2 en Azure Portal 
 
 ### <a name="app-assigned-ip-addresses"></a>Direcciones IP asignadas a la aplicación ###
 
-Con un ASE externo, puede asignar direcciones IP a las aplicaciones individuales. No puede hacer eso con un ASE de ILB. Para más información acerca de cómo configurar la aplicación para que tenga su propia dirección IP, consulte [Enlace de un certificado SSL personalizado a Azure Web Apps](../app-service-web-tutorial-custom-ssl.md).
+Con un ASE externo, puede asignar direcciones IP a las aplicaciones individuales. No puede hacer eso con un ASE de ILB. Para más información acerca de cómo configurar la aplicación para que tenga su propia dirección IP, consulte [Enlace de un certificado SSL personalizado a Azure App Service](../app-service-web-tutorial-custom-ssl.md).
 
 Cuando una aplicación tiene su propia dirección SSL basada en IP, el ASE reserva dos puertos para asignar a esa dirección IP. Un puerto es para el tráfico HTTP y el otro es para HTTPS. Estos puertos se muestran en la interfaz de usuario de ASE en la sección de direcciones IP. El tráfico tiene que poder conectar con esos puertos desde la dirección IP virtual o las aplicaciones no serán accesibles. Es importante recordar este requisito al configurar grupos de seguridad de red (NSG).
 

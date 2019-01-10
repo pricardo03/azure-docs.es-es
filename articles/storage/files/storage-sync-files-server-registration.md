@@ -8,17 +8,19 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 1aa1bd085a312e379dc996a860c7f97b2e0dfe73
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: a296576d3d7983b710727923043091f5660b693d
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918883"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002559"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Administración de servidores registrados con Azure File Sync
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Para ello, transforma los servidores de Windows Server en una caché rápida del recurso compartido de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para tener acceso a los datos localmente (incluidos SMB, NFS y FTPS) y puede tener tantas cachés según sea necesario en todo el mundo.
 
 En el artículo siguiente se ilustra cómo registrar y administrar un servidor con un servicio de sincronización de almacenamiento. Para más información sobre cómo implementar Azure File Sync de un extremo a otro, vea [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md) (Implementación de Azure Files Sync).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>Registro y anulación del registro de un servidor con el servicio de sincronización de almacenamiento
 Al registrar un servidor con Azure File Sync se establece una relación de confianza entre Windows Server y Azure. A continuación, se puede usar esta relación para crear *puntos de conexión de servidor* en el servidor, que representan carpetas concretas que deben sincronizarse con un recurso compartido de archivos de Azure (también conocido como *punto de conexión de nube*). 
@@ -33,10 +35,10 @@ Para registrar un servidor con un servicio de sincronización de almacenamiento,
     
     ![Interfaz de usuario del Administrador del servidor con la configuración de seguridad mejorada de IE resaltada](media/storage-sync-files-server-registration/server-manager-ie-config.png)
 
-* Asegúrese de que el módulo AzureRM de PowerShell esté instalado en el servidor. Si el servidor es miembro de un clúster de conmutación por error, todos los nodos del clúster necesitarán el módulo de AzureRM. Pueden encontrar más detalles sobre cómo instalar el módulo AzureRM en [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell).
+* Asegúrese de que el módulo Azure PowerShell esté instalado en el servidor. Si el servidor es miembro de un clúster de conmutación por error, todos los nodos del clúster necesitarán el módulo Az. Se pueden encontrar más detalles sobre cómo instalar el módulo Az en [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
     > [!Note]  
-    > Se recomienda usar la versión más reciente del módulo AzureRM de PowerShell para registrar o anular el registro de un servidor. Si el paquete de AzureRM se ha instalado anteriormente en este servidor (y la versión de PowerShell en este servidor es 5.* o superior), puede usar el cmdlet `Update-Module` para actualizar este paquete. 
+    > Se recomienda usar la versión más reciente del módulo Azure PowerShell para registrar o anular el registro de un servidor. Si el paquete Az se ha instalado anteriormente en este servidor (y la versión de PowerShell en este servidor es 5.* o superior), puede usar el cmdlet `Update-Module` para actualizar este paquete. 
 * Si utiliza un servidor proxy de red en su entorno, configure el proxy en el servidor para que lo utilice el agente de sincronización.
     1. Determine la dirección IP y el número de puerto del proxy.
     2. Edite estos dos archivos:
@@ -135,8 +137,8 @@ Esta acción también se puede realizar con un script simple de PowerShell:
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 
-$accountInfo = Connect-AzureRmAccount
-Login-AzureRmStorageSync -SubscriptionId $accountInfo.Context.Subscription.Id -TenantId $accountInfo.Context.Tenant.Id -ResourceGroupName "<your-resource-group>"
+$accountInfo = Connect-AzAccount
+Login-AzStorageSync -SubscriptionId $accountInfo.Context.Subscription.Id -TenantId $accountInfo.Context.Tenant.Id -ResourceGroupName "<your-resource-group>"
 
 $StorageSyncService = "<your-storage-sync-service>"
 

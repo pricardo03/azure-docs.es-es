@@ -5,25 +5,28 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 08/08/2018
+ms.date: 12/19/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: e590500dd622988226c592352b0b86f16d54a9d4
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 08fed2206d7d74d9ab6cb7f1462388486f999987
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983070"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718799"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>¿Cómo pueden los usuarios de la organización invitar a usuarios invitados a una aplicación?
 
-Una vez que se haya agregado un usuario invitado al directorio en Azure AD, un propietario de aplicación puede enviar a este un vínculo directo a la aplicación que desea compartir. Los administradores de Azure AD también pueden configurar la administración autoservicio para que los propietarios de aplicaciones puedan administrar sus propios usuarios invitados, incluso aunque los usuarios invitados no se hayan agregado al directorio aún. Si una aplicación está configurada para el autoservicio, el propietario de la aplicación usa su panel de acceso para invitar a un usuario invitado a una aplicación o para agregar un usuario invitado a un grupo que tiene acceso a la aplicación. La administración autoservicio de una aplicación requiere algo de configuración inicial por parte de un administrador. El siguiente es un resumen de los pasos de configuración (para obtener instrucciones detalladas, consulte [Requisitos previos](#prerequisites) más adelante en esta página):
+Una vez que se haya agregado un usuario invitado al directorio en Azure AD, un propietario de aplicación puede enviar a este un vínculo directo a la aplicación que desea compartir. Los administradores de Azure AD también pueden configurar la administración autoservicio para la galería o las aplicaciones basadas en SAML en su inquilino de Azure AD. De esta forma, los propietarios de aplicaciones puedan administrar sus propios usuarios invitados, incluso aunque los usuarios invitados no se hayan agregado al directorio aún. Si una aplicación está configurada para el autoservicio, el propietario de la aplicación usa su panel de acceso para invitar a un usuario invitado a una aplicación o para agregar un usuario invitado a un grupo que tiene acceso a la aplicación. La administración autoservicio de una galería o aplicación basada en SAML requiere algo de configuración inicial por parte de un administrador. El siguiente es un resumen de los pasos de configuración (para obtener instrucciones detalladas, consulte [Requisitos previos](#prerequisites) más adelante en esta página):
 
  - Habilite la administración de grupos de autoservicio para el inquilino
  - Cree un grupo para asignar a la aplicación y hacer que el usuario sea un propietario
  - Configure la aplicación para el autoservicio y asigne el grupo a la aplicación
+
+> [!NOTE]
+> En este artículo se describe cómo configurar la administración autoservicio para la galería y las aplicaciones basadas en SAML que ha agregado al inquilino de Azure AD. También puede [configurar grupos de autoservicio de Office 365](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management) para que los usuarios puedan administrar el acceso a sus propios grupos de Office 365. Para conocer más formas en las que los usuarios pueden compartir sus archivos y aplicaciones, consulte [Acceso de invitado en Grupos de Office 365](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) y [Compartir archivos de SharePoint o carpetas](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
 
 ## <a name="invite-a-guest-user-to-an-app-from-the-access-panel"></a>Invitación a un usuario invitado a una aplicación desde el panel de acceso
 
@@ -102,6 +105,7 @@ La administración de autoservicio de aplicaciones requiere algo de configuraci�
 4. En la lista de aplicaciones, busque y abra la aplicación.
 5. En **Administrar**, seleccione **Inicio de sesión único** y configure la aplicación para el inicio de sesión único. (Para más información, consulte [Administración del inicio de sesión único para aplicaciones empresariales](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-portal)).
 6. En **Administrar**, seleccione **Autoservicio** y configure el acceso a la aplicación de autoservicio. (Para más información, consulte [Uso del acceso de autoservicio a las aplicaciones](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to)). 
+
     > [!NOTE]
     > En la opción **¿A qué grupo se deberían agregar los usuarios asignados?** seleccione el grupo que creó en la sección anterior.
 7. En **Administrar**, seleccione **Usuarios y grupos** y compruebe que el grupo de autoservicio que creó aparece en la lista.
@@ -111,7 +115,7 @@ La administración de autoservicio de aplicaciones requiere algo de configuraci�
 
 Consulte los siguientes artículos sobre la colaboración de B2B de Azure AD:
 
-- [¿Qué es la colaboración de Azure AD B2B?](what-is-b2b.md)
+- [¿Qué es la colaboración B2B de Azure AD?](what-is-b2b.md)
 - [¿Cómo agregan los administradores de Azure Active Directory usuarios de colaboración B2B?](add-users-administrator.md)
 - [Canje de invitación de colaboración B2B](redemption-experience.md)
 - [Concesión de licencias de colaboración B2B de Azure AD](licensing-guidance.md)

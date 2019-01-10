@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/26/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 084d5e9453ea5a55bdeeff839e4c70890575c83d
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 40ff05e9fbc00747145c653878010ad9da0c37ec
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53258022"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653397"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Hybrid Connections de Azure App Service #
 
@@ -177,7 +177,7 @@ El Administrador de conexiones híbridas se actualiza periódicamente para soluc
 
 ## <a name="adding-a-hybrid-connection-to-your-app-programmatically"></a>Incorporación de una conexión híbrida a su aplicación mediante programación ##
 
-Las API que se indican a continuación pueden utilizarse directamente para administrar las conexiones híbridas conectadas a las aplicaciones web. 
+Las API que se indican a continuación pueden utilizarse directamente para administrar las conexiones híbridas conectadas a las aplicaciones. 
 
     /subscriptions/[subscription name]/resourceGroups/[resource group name]/providers/Microsoft.Web/sites/[app name]/hybridConnectionNamespaces/[relay namespace name]/relays/[hybrid connection name]?api-version=2016-08-01
 
@@ -198,7 +198,7 @@ El objeto JSON asociado con una conexión híbrida tiene el siguiente aspecto:
       }
     }
 
-Una forma de usar esta información es con ARMClient, que se puede obtener del proyecto de GitHub [ARMClient][armclient]. Este es un ejemplo sobre cómo adjuntar una conexión híbrida existente a una aplicación web. Cree un archivo JSON siguiendo el esquema anterior como:
+Una forma de usar esta información es con ARMClient, que se puede obtener del proyecto de GitHub [ARMClient][armclient]. Este es un ejemplo acerca de cómo vincular una conexión híbrida existente con una aplicación. Cree un archivo JSON siguiendo el esquema anterior como:
 
     {
       "name": "relay-demo-hc",
@@ -230,7 +230,7 @@ En App Service, es posible invocar la herramienta tcpping desde la consola de he
 
 ## <a name="biztalk-hybrid-connections"></a>Conexiones híbridas de BizTalk ##
 
-La forma temprana de esta característica se llamó Conexiones híbridas de BizTalk. Esta funcionalidad llegó al final d su ciclo de vida el 31 de mayo de 2018 y haya dejado de funcionar. Las conexiones híbridas de BizTalk se han quitado de todas las aplicaciones web y no son accesibles a través del portal o de la API. Si aún tiene estas conexiones anteriores configuradas en el Administrador de conexiones híbridas, verá que tienen un estado Interrumpido y que en la parte inferior aparece una nota de final del ciclo de vida.
+La forma temprana de esta característica se llamó Conexiones híbridas de BizTalk. Esta funcionalidad llegó al final d su ciclo de vida el 31 de mayo de 2018 y haya dejado de funcionar. Las conexiones híbridas de BizTalk se han quitado de todas las aplicaciones y no se puede obtener acceso a ellas mediante el portal ni la API. Si aún tiene estas conexiones anteriores configuradas en el Administrador de conexiones híbridas, verá que tienen un estado Interrumpido y que en la parte inferior aparece una nota de final del ciclo de vida.
 
 ![Conexiones híbridas de BizTalk en el Administrador de conexiones híbridas][12]
 

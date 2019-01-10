@@ -1,6 +1,6 @@
 ---
 title: Acciones de los nodos de unidad de escalado en Azure Stack | Microsoft Docs
-description: Aprenda a ver el estado de los nodos y usar las acciones de nodo para encender, apagar, purgar y reanudar en un sistema integrado de Azure Stack.
+description: Aprenda a ver el estado de los nodos y a usar las acciones de nodo para conectar, desconectar, deshabilitar y reanudar en un sistema integrado de Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -9,143 +9,144 @@ editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: a792bc083c3a2c78b24d5895c34420b86b0863bb
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ced6e2edb570e12b17d14e0552030902161b5d53
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959774"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725259"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Acciones de los nodos de unidad de escalado en Azure Stack
 
 *Se aplica a: Sistemas integrados de Azure Stack*
 
-Este artículo describe cómo ver el estado de una unidad de escalado y sus nodos asociados, y cómo usar las acciones de nodo disponibles. Las acciones de nodo son encender, apagar, purgar, reanudar y reparar. Normalmente, estas acciones de nodo se utilizan durante el reemplazo de componentes, o en escenarios de recuperación de nodos.
+En este artículo se describe cómo ver el estado de una unidad de escalado. Puede ver los nodos de la unidad. Puede ejecutar acciones de nodo, como son conectar, desconectar, apagar, purgar, reanudar y reparar. Normalmente, estas acciones de nodo se utilizan durante el reemplazo de componentes o para ayudar a recuperar un nodo.
 
 > [!Important]  
-> Todas las acciones de nodo que se describen en este artículo solo deben señalar a un nodo cada vez.
-
+> Todas las acciones de nodo que se describen en este artículo deben destinarse a un nodo cada vez.
 
 ## <a name="view-the-node-status"></a>Ver el estado del nodo
 
-En el portal de administrador, puede ver fácilmente el estado de una unidad de escalado y sus nodos asociados.
+En el portal de administrador, puede ver el estado de una unidad de escalado y sus nodos asociados.
 
 Para ver el estado de una unidad de escalado:
 
 1. En el icono **Administración de regiones**, seleccione la región.
 2. A la izquierda, bajo **Infrastructure resources** (Recursos de infraestructura), seleccione **Scale units** (Unidades de escalado).
 3. En los resultados, seleccione la unidad de escalado.
- 
-En este caso, puede ver la información siguiente:
+4. En el lado izquierdo, bajo **General**, seleccione **Nodos**.
 
-- Nombre de la región. Se hace referencia al nombre de la región con **-Location** en el módulo de PowerShell.
-- Tipo de sistema
-- Número total de núcleos lógicos
-- Memoria total
-- La lista de nodos individuales y su estado: **En ejecución** o **Detenido**.
+  Vea la siguiente información:
 
-![Icono de la unidad de escalado que muestra el estado En ejecución para cada nodo](media/azure-stack-node-actions/ScaleUnitStatus.PNG)
+  - La lista de nodos individuales
+  - El estado operativo (consulte la lista siguiente)
+  - El estado de encendido (p. ej., en funcionamiento o detenido)
+  - Modelo de servidor
+  - dirección IP del controlador de administración de placa base (BMC)
+  - Número total de núcleos
+  - Cantidad total de memoria
 
-## <a name="view-node-information"></a>Ver la información del nodo
+![estado de una unidad de escalado](media/azure-stack-node-actions/multinodeactions.png)
 
-Si selecciona un nodo individual, puede ver la información siguiente:
+### <a name="node-operational-states"></a>Estados operativos de nodo
 
-- Nombre de la región
-- Modelo de servidor
-- dirección IP del controlador de administración de placa base (BMC)
-- Estado operativo
-- Número total de núcleos
-- Cantidad total de memoria
- 
-![Icono de la unidad de escalado que muestra el estado En ejecución para cada nodo](media/azure-stack-node-actions/NodeActions.PNG)
-
-También puede realizar acciones de nodo de unidad de escalado desde aquí.
+| Status | DESCRIPCIÓN |
+|----------------------|-------------------------------------------------------------------|
+| En ejecución | El nodo está participando activamente en la unidad de escalado. |
+| Stopped | El nodo no está disponible. |
+| Agregando | El nodo se está agregando activamente a la unidad de escalado. |
+| Reparando | El nodo se está reparando activamente. |
+| Mantenimiento  | El nodo está en pausa y no se está ejecutando ninguna carga de trabajo de usuario activa. |
+| Requiere corrección | Se detectó un error que requiere que el nodo se repare. |
 
 ## <a name="scale-unit-node-actions"></a>Acciones de nodo de unidad de escalado
 
 Al ver la información sobre un nodo de la unidad de escalado, también puede realizar acciones de nodo como:
-
-- Purgado y reanudación
-- Reparación
+ - Iniciar y detener (según el estado actual de energía)
+ - Deshabilitar y reanudar (según el estado de las operaciones)
+ - Reparación
+ - Shutdown
 
 El estado operativo del nodo determina qué opciones están disponibles.
 
-### <a name="power-off"></a>Apagado
+Deberá instalar los módulos de PowerShell de Azure Stack. Estos cmdlets están en el módulo **Azs.Fabric.Admin**. Para instalar o comprobar la instalación de PowerShell para Azure Stack, consulte [Instalación de PowerShell para Azure Stack](azure-stack-powershell-install.md).
 
-La acción de **apagado** desactiva el nodo. Es lo mismo que si se presiona el botón de encendido. **No** envía una señal de cierre al sistema operativo. Para las operaciones de apagado planeadas, asegúrese de que purga un nodo de la unidad de escalado en primer lugar.
+## <a name="stop"></a>Stop
+
+La acción **Detener** desactiva el nodo. Es lo mismo que si se presiona el botón de encendido. No envía una señal de apagado al sistema operativo. Para las operaciones de detención planeadas, intente siempre llevar a cabo la operación de apagado primero. 
 
 Esta acción se utiliza normalmente cuando un nodo está en un estado bloqueado y ya no responde a las solicitudes.
 
-> [!Important] 
-> Esta funcionalidad solo está disponible a través de PowerShell. Estará disponible en el portal del administrador de Azure Stack de nuevo más adelante.
+Para ejecutar la acción de detención, abra un símbolo de sistema de PowerShell con privilegios elevados y ejecute el siguiente cmdlet:
 
-
-Para ejecutar la acción de apagado a través de PowerShell:
-
-````PowerShell
+```PowerShell  
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
-```` 
+```
 
-En el caso poco probable de que la acción de apagado no funcione, utilice en su lugar la interfaz web BMC.
+En el improbable caso de que la acción de detención no funcione, vuelva a intentar la operación y, si produce un error una segunda vez, use la interfaz web de BMC en su lugar.
 
-### <a name="power-on"></a>Encendido
+Para más información, consulte [Stop-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/stop-azsscaleunitnode).
 
-La acción de **encendido** activa el nodo. Es lo mismo que si se presiona el botón de encendido. 
+## <a name="start"></a>Iniciar
 
-> [!Important] 
-> Esta funcionalidad solo está disponible a través de PowerShell. Estará disponible en el portal del administrador de Azure Stack de nuevo más adelante.
+La acción de **inicio** activa el nodo. Es lo mismo que si se presiona el botón de encendido. 
+ 
+Para ejecutar la acción de inicio, abra un símbolo de sistema de PowerShell con privilegios elevados y ejecute el siguiente cmdlet:
 
-Para ejecutar la acción de encendido a través de PowerShell:
-
-````PowerShell
+```PowerShell  
   Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
-````
+```
 
-En el caso poco probable de que la acción de encendido no funcione, utilice en su lugar la interfaz web BMC.
+En el improbable caso de que la acción de inicio no funcione, vuelva a intentar la operación y, si produce un error una segunda vez, use la interfaz web de BMC en su lugar.
 
-### <a name="drain"></a>Purga
+Para más información, consulte [Start-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/start-azsscaleunitnode).
 
-La acción de **purga** evacua todas las cargas de trabajo activas distribuyéndolas entre los nodos restantes de esa unidad de escalado concreta.
+## <a name="drain"></a>Purga
+
+La acción de **purga** mueve todas las cargas de trabajo activas a los nodos restantes de esa unidad de escalado concreta.
 
 Esta acción se suele utilizar durante el reemplazo de diversos componentes, por ejemplo de un nodo completo.
 
-> [!IMPORTANT]  
-> Asegúrese de purgar un nodo solo durante un período de mantenimiento planeado, del cual se haya notificado a los usuarios. En determinadas condiciones, las cargas de trabajo activas pueden experimentar interrupciones.
+> [!Important]
+> Asegúrese de que la operación de purga se realiza en un nodo durante un período de mantenimiento planeado del cual se haya notificado a los usuarios. En determinadas condiciones, las cargas de trabajo activas pueden experimentar interrupciones.
 
-Para ejecutar la acción de purga a través de PowerShell:
+Para ejecutar la acción de purga, abra un símbolo de sistema de PowerShell con privilegios elevados y ejecute el siguiente cmdlet:
 
-  ````PowerShell
+```PowerShell  
   Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
-  ````
+```
 
-### <a name="resume"></a>Reanudación
+Para más información, consulte [Disable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/disable-azsscaleunitnode).
 
-La acción de **reanudación** reanuda un nodo purgado y lo marca como activo para la colocación de cargas de trabajo. Las cargas de trabajo anteriores que se estuvieran ejecutando en el nodo no conmutan por recuperación. (Si purga un nodo y, a continuación, lo apaga, al encenderlo de nuevo, no se marca como activo para la colocación de cargas de trabajo. Cuando esté listo, debe usar la acción de reanudación para marcar el nodo como activo).
+## <a name="resume"></a>Reanudación
 
-Para ejecutar la acción de reanudación a través de PowerShell:
+La acción de **reanudación** reanuda un nodo deshabilitado y lo marca como activo para la colocación de cargas de trabajo. Las cargas de trabajo anteriores que se estuvieran ejecutando en el nodo no conmutan por recuperación. (Si realiza una operación de purga en un nodo, asegúrese de desconectarlo. Al encenderlo de nuevo, no se marca como activo para la colocación de cargas de trabajo. Cuando esté listo, debe usar la acción de reanudación para marcar el nodo como activo).
 
-  ````PowerShell
+Para reanudar la acción de purga, abra un símbolo de sistema de PowerShell con privilegios elevados y ejecute el siguiente cmdlet:
+
+```PowerShell  
   Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
-  ````
+```
 
-### <a name="repair"></a>Reparación
+Para más información, consulte [Enable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/enable-azsscaleunitnode).
 
-La acción de **reparación** repara un nodo. Úsela solamente para alguno de los escenarios siguientes:
+## <a name="repair"></a>Reparación
 
-- Al reemplazar un nodo completo (con o sin discos de datos nuevos)
-- Después del error de un componente de hardware y de su reemplazo (si se recomienda en la documentación de la unidad reemplazable de campo [FRU]).
+La acción **Reparar** repara un nodo. Úsela solamente para alguno de los escenarios siguientes:
+ - Al reemplazar un nodo completo (con o sin discos de datos nuevos)
+ - Después del error de un componente de hardware y de su reemplazo (si se recomienda en la documentación de la unidad reemplazable de campo [FRU]).
 
-> [!IMPORTANT]  
-> Consulte la documentación de la FRU de su proveedor de hardware OEM para conocer los pasos exactos cuando necesite reemplazar un nodo o componentes de hardware individuales. La documentación de la FRU especificará si tiene que ejecutar la acción de reparación después de reemplazar un componente de hardware.  
+> [!Important]  
+> Consulte la documentación de la FRU de su proveedor de hardware OEM para conocer los pasos exactos cuando necesite reemplazar un nodo o componentes de hardware individuales. La documentación de la FRU especificará si tiene que ejecutar la acción de reparación después de reemplazar un componente de hardware. 
 
 Al ejecutar la acción de reparación, debe especificar la dirección IP de BMC. 
 
-Para ejecutar la acción de reparación a través de PowerShell:
+Para reanudar la acción de reparación, abra un símbolo de sistema de PowerShell con privilegios elevados y ejecute el siguiente cmdlet:
 
   ````PowerShell
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>

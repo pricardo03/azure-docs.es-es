@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/21/2018
+ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 73d4ecec2665e238236de4a778d6cdd43642c87b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 8a680f1c745bed7745691ad337ed887cc4fc05c5
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310402"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716623"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Guía de migración para mover de Media Services v2 a v3
 
@@ -83,11 +83,11 @@ La API v3 tiene las siguientes carencias de características con respecto a la A
     * Superposiciones
     * Recorte
     * Sprites de miniaturas
-* Los objetos LiveEvents con transcodificación actualmente no admiten la secuencia intermedia de la inserción de careta, los valores preestablecidos personalizados o la inserción de anuncios mediante la llamada API. 
+* Los objetos LiveEvents con transcodificación actualmente no admiten la inserción de careta durante la transmisión y la inserción de anuncios mediante la llamada API. 
 
 > [!NOTE]
 > Marque este artículo y siga buscando actualizaciones.
-
+ 
 ## <a name="code-differences"></a>Diferencias de código
 
 En la tabla siguiente se muestran las diferencias de código entre v2 y v3 para escenarios comunes.
@@ -108,7 +108,7 @@ En la tabla siguiente se muestran las diferencias de código entre v2 y v3 para 
     * Los canales y programas creados con v2 (que se asignan a LiveEvents y LiveOutputs en v3) no se pueden continuar administrando con v3. La recomendación es cambiar a LiveEvents y LiveOutputs en v3 con una detención de canal cómoda.<br/>Actualmente, no puede migrar continuamente los canales en ejecución.  
 
 > [!NOTE]
-> Marque este artículo y siga buscando actualizaciones.
+> Se hará el mantenimiento de esta página, ya que el equipo de Media Services realiza mejoras continuas de las API v3 y aborda las deficiencias entre las versiones.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
-ms.openlocfilehash: 9898a56991a44f3ac87fde4c34676943b1ab8341
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 1d9a7caa7ab70ef1f0da41e1ec3f30780f93536a
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581908"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53649728"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>Creación de trabajos de Apache Spark Streaming de alta disponibilidad con YARN
 
@@ -122,6 +122,6 @@ Para resumir, con los puntos de comprobación + el registro de escritura previa 
 
 * [Introducción a Apache Spark Streaming](apache-spark-streaming-overview.md)
 * [Creación de trabajos de Apache Spark Streaming con el procesamiento de eventos de tipo "exactamente una vez"](apache-spark-streaming-exactly-once.md)
-* [Long-running Apache Spark Streaming Jobs on YARN](http://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) (Trabajos de Apache Spark Streaming de larga duración en YARN) 
-* [Structured Streaming: Fault Tolerant Semantics](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics) (Structured Streaming: semántica tolerante a errores)
+* [Long-running Apache Spark Streaming Jobs on YARN](https://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) (Trabajos de Apache Spark Streaming de larga duración en YARN) 
+* [Structured Streaming: Fault Tolerant Semantics](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics) (Structured Streaming: semántica tolerante a errores)
 * [Discretized Streams: A Fault-Tolerant Model for Scalable Stream Processing](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf) (Flujos discretizados: modelo tolerante a errores para el procesamiento de flujo escalable)

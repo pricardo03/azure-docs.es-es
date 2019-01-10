@@ -11,20 +11,20 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: d4957efa151a0f992d098b2d6355b03f336e3738
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 12/20/2018
+ms.openlocfilehash: 33e0b66541e5ead5f3c05d2310ecc07e8a62324c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438598"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728132"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Uso de reglas y puntos de conexión del servicio Virtual Network para Azure SQL
 
 Las *reglas de red virtual* son una característica de firewall que controla si el servidor de Azure [SQL Database](sql-database-technical-overview.md) o [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) acepta las comunicaciones que se envían desde subredes específicas en redes virtuales. En este artículo se explica por qué la característica de regla de red virtual a veces es la mejor opción para permitir la comunicación de forma segura con Azure SQL Database y SQL Data Warehouse.
 
-> [!NOTE]
-> Este tema se aplica al servidor de Azure SQL y tanto a las bases de datos de SQL Database como a SQL Data Warehouse que se crean en el servidor de Azure SQL. Para simplificar, SQL Database se utiliza cuando se hace referencia tanto a SQL Database como a SQL Data Warehouse.
+> [!IMPORTANT]
+> Este tema se aplica al servidor de Azure SQL y tanto a las bases de datos de SQL Database como a SQL Data Warehouse que se crean en el servidor de Azure SQL. Para simplificar, SQL Database se utiliza cuando se hace referencia tanto a SQL Database como a SQL Data Warehouse. Este artículo *no* es válido para las **instancias administradas de Azure SQL Database**.
 
 Para crear una regla de red virtual, primero debe existir un [punto de conexión de servicio de red virtual] [ vm-virtual-network-service-endpoints-overview-649d] para la regla a la que hacer referencia.
 
@@ -64,9 +64,8 @@ Para recuperar la opción de IP, puede obtener una dirección IP *estática* par
 
 Sin embargo, el enfoque de IP estática puede resultar difícil de administrar, y es costoso si se realiza a escala. Las reglas de red virtual son más sencillas de establecer y administrar.
 
-### <a name="c-cannot-yet-have-sql-database-on-a-subnet"></a>C. Aún no se puede disponer de SQL Database en una subred
-
-Si su servidor de Azure SQL Database fuera un nodo de una subred de la red virtual, todos los nodos de la red virtual podrían comunicarse con su instancia de SQL Database. En este caso, las máquinas virtuales podrían comunicarse con SQL Database sin necesitar ninguna regla IP ni regla de red virtual.
+> [!NOTE]
+> Aún no se puede disponer de SQL Database en una subred. Si su servidor de Azure SQL Database fuera un nodo de una subred de la red virtual, todos los nodos de la red virtual podrían comunicarse con su instancia de SQL Database. En este caso, las máquinas virtuales podrían comunicarse con SQL Database sin necesitar ninguna regla IP ni regla de red virtual.
 
 No obstante, a partir de septiembre de 2017, el servicio de Azure SQL Database aún no se encuentra entre los servicios que se pueden asignar a una subred.
 

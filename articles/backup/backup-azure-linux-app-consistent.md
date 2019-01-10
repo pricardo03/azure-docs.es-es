@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/12/2018
 ms.author: anuragm
-ms.openlocfilehash: 027fc4098e7760de276a8548453bb83599ed0521
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a81c0b9c87db85771fcecab87c6b9ac88dcbd472
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605219"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581865"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Copias de seguridad coherentes con la aplicación de las máquinas virtuales Linux de Azure
 
@@ -36,10 +36,10 @@ Los scripts anteriores invocan las API nativas de la aplicación, que ponen en m
 
 4. Asegúrese de proporcionar los siguientes permisos para estos archivos:
 
-   - **VMSnapshotScriptPluginConfig.json**: permiso "600". Por ejemplo, solo el usuario "raíz" debe tener permisos de "lectura" y "escritura" para este archivo, ningún usuario debe tener permisos de "ejecución".
+   - **VMSnapshotScriptPluginConfig.json**: Permiso "600". Por ejemplo, solo el usuario "raíz" debe tener permisos de "lectura" y "escritura" para este archivo, ningún usuario debe tener permisos de "ejecución".
 
-   - **Archivo de script anterior**: permiso "700".  Por ejemplo, solo el usuario "raíz" debe tener permisos de "lectura", "escritura" y "ejecución" para este archivo.
-  
+   - **Archivo de script previo**: Permiso "700".  Por ejemplo, solo el usuario "raíz" debe tener permisos de "lectura", "escritura" y "ejecución" para este archivo.
+
    - **Script posterior**: permiso "700". Por ejemplo, solo el usuario "raíz" debe tener permisos de "lectura", "escritura" y "ejecución" para este archivo.
 
    > [!Important]
@@ -48,21 +48,21 @@ Los scripts anteriores invocan las API nativas de la aplicación, que ponen en m
    >
 
 5. Configure **VMSnapshotPluginConfig.json** como se describe a continuación:
-    - **pluginName**: deje este campo como está ya que, de lo contrario, los scripts podrían no funcionar según lo previsto.
+    - **pluginName**: deje este campo como está o los scripts podrían no funcionar según lo previsto.
 
-    - **preScriptLocation**: proporcione la ruta de acceso completa del script anterior en la máquina virtual de la que se va a realizar la copia de seguridad.
+    - **preScriptLocation**: proporcione la ruta de acceso completa del script previo en la máquina virtual de la que se va a realizar la copia de seguridad.
 
     - **postScriptLocation**: proporcione la ruta de acceso completa del script posterior en la máquina virtual de la que se va a realizar la copia de seguridad.
 
-    - **preScriptParams**: proporcione los parámetros opcionales que se deban pasar al script anterior. Todos los parámetros deben estar entre comillas. Si usa varios parámetros, separe los parámetros con una coma.
+    - **preScriptParams**: proporcione los parámetros opcionales que se deban pasar al script previo. Todos los parámetros deben estar entre comillas. Si usa varios parámetros, separe los parámetros con una coma.
 
     - **postScriptParams**: proporcione los parámetros opcionales que se deban pasar al script posterior. Todos los parámetros deben estar entre comillas. Si usa varios parámetros, separe los parámetros con una coma.
 
-    - **preScriptNoOfRetries**: establezca el número de veces que el script anterior se debe volver a intentar si se produce cualquier error antes de finalizar. Cero significa que hay solo un intento y ningún reintento en caso de error.
+    - **preScriptNoOfRetries**: establezca el número de veces que se debe volver a intentar el script previo si se produce cualquier error antes de finalizar. Cero significa que hay solo un intento y ningún reintento en caso de error.
 
-    - **postScriptNoOfRetries**: establezca el número de veces que el script posterior se debe volver a intentar si se produce cualquier error antes de finalizar. Cero significa que hay solo un intento y ningún reintento en caso de error.
-    
-    - **timeoutInSeconds**: especifique los tiempos de espera individuales para el script anterior y el posterior.
+    - **postScriptNoOfRetries**:  establezca el número de veces que se debe volver a intentar el script posterior si se produce cualquier error antes de finalizar. Cero significa que hay solo un intento y ningún reintento en caso de error.
+
+    - **timeoutInSeconds**: especifique los tiempos de espera individuales para el script previo y el posterior (el valor máximo es 1 800).
 
     - **continueBackupOnFailure**: establezca este valor en **true** si desea que Azure Backup revierta a una copia de seguridad coherente con el sistema de archivos o coherente frente a bloqueos en caso de que el script anterior o posterior sufran un error. Si se establece en **false**, se producirá un error de la copia de seguridad en caso de error del script (excepto en el caso de una máquina virtual de un solo disco, en el que se revertirá a una copia de seguridad coherente frente a bloqueos independientemente de este valor).
 

@@ -2,25 +2,21 @@
 title: Trabajo con servidores proxy locales existentes y Azure AD | Microsoft Docs
 description: Se explica cómo trabajar con servidores proxy locales existentes.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.custom: it-pro
-ms.openlocfilehash: 06df705aabce06c37f04de3fb5046d822f9f981e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 6409b9313aa9b036e24ea50435659b3653ac01e0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404960"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720108"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabajo con servidores proxy locales existentes
 
@@ -107,15 +103,16 @@ Hay cuatro aspectos que se deben tener en cuenta en el servidor proxy saliente:
 * La inspección de SSL
 
 #### <a name="proxy-outbound-rules"></a>Las reglas de salida del proxy
-Permita el acceso a los siguientes puntos de conexión para servicio de conector:
+Permita el acceso a las siguientes direcciones URL:
 
-* *.msappproxy.net
-* *.servicebus.windows.net
+| URL | Cómo se usa |
+| --- | --- |
+| \*.msappproxy.net<br>\*.servicebus.windows.net | Comunicación entre el conector y el servicio en la nube del proxy de aplicación |
+| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure utiliza estas direcciones URL para verificar los certificados. |
+| login.windows.net<br>login.microsoftonline.com | El conector utiliza estas direcciones URL durante el proceso de registro. |
 
-Para el registro inicial, permita el acceso a los siguientes puntos de conexión:
+Si el firewall o el proxy permiten la creación de listas blancas con DNS, puede incluir en una de ellas las conexiones a \*.msappproxy.net y \*.servicebus.windows.net. Si no, deberá permitir el acceso a los [intervalos IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653). Los intervalos IP se actualizan cada semana.
 
-* login.windows.net
-* login.microsoftonline.com
 
 Si no puede permitir la conectividad mediante el FQDN y debe especificar intervalos de direcciones IP en su lugar, use estas opciones:
 

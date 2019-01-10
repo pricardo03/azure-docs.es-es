@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 872e700842ce69ca955035120d4e09ec9facf7ec
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 12/16/2018
+ms.openlocfilehash: 3e807033b109b8281057f6881a315f5c1c783a22
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165558"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536379"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>Enmascaramiento dinámico de datos de SQL Database
 
@@ -31,7 +31,7 @@ Por ejemplo, un representante de servicio de un centro de llamadas podría ident
 Para configurar una directiva de enmascaramiento dinámico de datos en Azure Portal, se selecciona la operación de enmascaramiento dinámico de datos en la hoja de configuración de SQL Database.
 
 ### <a name="dynamic-data-masking-permissions"></a>Permisos de enmascaramiento de datos dinámicos
-El enmascaramiento de datos dinámicos puede configurarse mediante el administrador de Base de datos de Azure, el administrador del servidor o los roles de autoridad de seguridad.
+El enmascaramiento dinámico de datos se puede configurar mediante el administrador de la base de datos de Azure, el administrador del servidor o los roles de [Administrador de seguridad de SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager).
 
 ### <a name="dynamic-data-masking-policy"></a>Directiva de enmascaramiento de datos dinámicos
 * **Usuarios de SQL excluidos del enmascaramiento**: conjunto de usuarios de SQL o identidades de AAD que obtendrán datos sin máscara en los resultados de consulta SQL. Los usuarios con privilegios de administrador se excluirán siempre del enmascaramiento y verán los datos originales sin ninguna máscara.

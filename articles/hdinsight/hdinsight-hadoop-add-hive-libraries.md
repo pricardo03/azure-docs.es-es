@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 79ee129390c6b364ec65e8ae1e893e98f358751e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4eb4db9a4057d072f348de48bee2f746f77cbb84
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497109"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715348"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Incorporación de bibliotecas personalizadas de Apache Hive al crear el clúster de HDInsight
 
@@ -26,7 +26,7 @@ Al crear un clúster, puede usar una acción de script para modificar los nodos 
 
 Durante la creación del clúster, el script enumera los archivos, los copia en el directorio `/usr/lib/customhivelibs/` de los nodos principal y de trabajo y luego los agrega a la propiedad `hive.aux.jars.path` en el archivo `core-site.xml`. En los clústeres basados en Linux, también actualiza el archivo `hive-env.sh` con la ubicación de los archivos.
 
-> [!NOTE]
+> [!NOTE]  
 > El uso de las acciones de script de este artículo permite que las bibliotecas estén disponibles en las situaciones siguientes:
 >
 > * **HDInsight basado en Linux**: cuando se usa un cliente de Hive, **WebHCat** y **HiveServer2**.
@@ -40,7 +40,7 @@ Para **clústeres basados en Linux**: [https://hdiconfigactions.blob.core.window
 
 Para **clústeres basados en Windows**: [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 **Requisitos**
@@ -53,14 +53,14 @@ Para **clústeres basados en Windows**: [https://hdiconfigactions.blob.core.wind
 
 * La ruta de acceso de WASB al contenedor debe especificarse como un parámetro para la acción de script. Por ejemplo, si los archivos JAR se almacenan en un contenedor llamado **libs** en una cuenta de almacenamiento llamada **mystorage**, el parámetro sería **wasb://libs@mystorage.blob.core.windows.net/**.
 
-  > [!NOTE]
+  > [!NOTE]  
   > En este documento se supone que ha creado ya una cuenta de almacenamiento, contenedora de blobs, y ha cargado los archivos en ella.
   >
-  > Si no ha creado una cuenta de almacenamiento, puede hacerlo a través de [Azure Portal](https://portal.azure.com). Después, puede usar una utilidad como el [Explorador de Azure Storage](http://storageexplorer.com/) para crear un contenedor en la cuenta y cargar archivos en él.
+  > Si no ha creado una cuenta de almacenamiento, puede hacerlo a través de [Azure Portal](https://portal.azure.com). Después, puede usar una utilidad como el [Explorador de Azure Storage](https://storageexplorer.com/) para crear un contenedor en la cuenta y cargar archivos en él.
 
 ## <a name="create-a-cluster-using-the-script"></a>Creación de un clúster mediante el script
 
-> [!NOTE]
+> [!NOTE]  
 > Al seguir estos pasos, se crea un clúster de HDInsight basado en Linux. Para crear un clúster basado en Windows, seleccione **Windows** como sistema operativo del clúster en el momento de su creación y use el script de Windows (PowerShell) en lugar del script de Bash.
 >
 > También puede usar Azure PowerShell o el SDK de .NET para HDInsight para crear un clúster mediante este script. Para obtener más información sobre el uso de estos métodos, consulte [Personalización de clústeres de HDInsight mediante acciones de script](hdinsight-hadoop-customize-cluster-linux.md).
@@ -69,15 +69,15 @@ Para **clústeres basados en Windows**: [https://hdiconfigactions.blob.core.wind
 
 2. En la sección **Configuración opcional**, seleccione **Acciones de script** y proporcione la información siguiente:
 
-   * **NOMBRE**: escriba un nombre sencillo para la acción de script.
+   * **NOMBRE**: escriba un nombre descriptivo para la acción de script.
 
-   * **URI DE SCRIPT**: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
+   * **URI DE SCRIPT**: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh.
 
    * **PRINCIPAL**: active esta opción.
 
-   * **TRABAJADOR**: active esta opción.
+   * **TRABAJO**: active esta opción.
 
-   * **ZOOKEEPER**: déjelo en blanco.
+   * **ZOOKEEPER**: Déjelo en blanco.
 
    * **PARÁMETROS**: escriba la dirección WASB que dirige al contenedor y la cuenta de almacenamiento que contiene los archivos JAR. Por ejemplo, **wasb://libs@mystorage.blob.core.windows.net/**.
 

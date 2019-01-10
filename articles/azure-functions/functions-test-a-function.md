@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: cshoe
-ms.openlocfilehash: 90eac2fda46dc5fbfff791e1fc0afb9858aa27a4
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 19a5dee53bee20438098d1aaeb773ebf08f252d4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408041"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993457"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estrategias para probar el código en Azure Functions
 
@@ -43,8 +43,9 @@ Para configurar el entorno, cree una función y pruebe la aplicación. Los pasos
 1. [Cree una nueva aplicación de Functions](./functions-create-first-azure-function.md) y asígnele el nombre *Functions*.
 2. [Cree una función HTTP a partir de la plantilla](./functions-create-first-azure-function.md) y asígnele el nombre *HttpTrigger*.
 3. [Cree una función de temporizador a partir de la plantilla](./functions-create-scheduled-function.md) y asígnele el nombre *TimerTrigger*.
-4. [Cree una aplicación de prueba de xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) y asígnele el nombre *Functions.Test*.
-5. [Haga referencia a la aplicación *Functions*](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) desde la aplicación *Functions.Test*.
+4. [Cree la aplicación de prueba de xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) en Visual Studio, para lo que debe hacer clic en **Archivo > Nuevo > Proyecto > Visual C# > .NET Core > Proyecto de prueba de xUnit**  y asígnele el nombre *Functions.Test*. 
+5. Use Nuget para agregar referencias desde la aplicación de prueba a [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/) y [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
+6. [Haga referencia a la aplicación *Functions*](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) desde la aplicación *Functions.Test*.
 
 ### <a name="create-test-classes"></a>Crear clases de prueba
 
@@ -203,7 +204,7 @@ namespace Functions.Tests
         public async void Http_trigger_should_return_known_string()
         {
             var request = TestFactory.CreateHttpRequest("name", "Bill");
-            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
+            var response = (OkObjectResult)await HttpTrigger.Run(request, logger);
             Assert.Equal("Hello, Bill", response.Value);
         }
 
@@ -212,7 +213,7 @@ namespace Functions.Tests
         public async void Http_trigger_should_return_known_string_from_member_data(string queryStringKey, string queryStringValue)
         {
             var request = TestFactory.CreateHttpRequest(queryStringKey, queryStringValue);
-            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
+            var response = (OkObjectResult)await HttpTrigger.Run(request, logger);
             Assert.Equal($"Hello, {queryStringValue}", response.Value);
         }
 
@@ -220,7 +221,7 @@ namespace Functions.Tests
         public void Timer_should_log_message()
         {
             var logger = (ListLogger)TestFactory.CreateLogger(LoggerTypes.List);
-            TimerFunction.Run(null, logger);
+            TimerTrigger.Run(null, logger);
             var msg = logger.Logs[0];
             Assert.Contains("C# Timer trigger function executed at", msg);
         }

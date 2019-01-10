@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: 9175ed0b4f362a40e1d29a20a8378854b5f4cc81
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 7a009d310fe29ce67a16d48edb86a7e652088ac6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310393"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727928"
 ---
 # <a name="tutorial-set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>Tutorial: Configuración de SQL Data Sync para sincronizar datos entre Azure SQL Database e instancias locales de SQL Server
 
@@ -31,6 +31,9 @@ Para obtener ejemplos completos de PowerShell que muestren cómo configurar SQL 
 
 - [Uso de PowerShell para sincronizar varias bases de datos SQL de Azure](scripts/sql-database-sync-data-between-sql-databases.md)
 - [Uso de PowerShell para realizar la sincronización entre Azure SQL Database y una base de datos de SQL Server local](scripts/sql-database-sync-data-between-azure-onprem.md)
+
+> [!IMPORTANT]
+> Azure SQL Data Sync **no** admite en este momento Instancia administrada de Azure SQL Database.
 
 ## <a name="step-1---create-sync-group"></a>Paso 1: Creación de un grupo de sincronización
 

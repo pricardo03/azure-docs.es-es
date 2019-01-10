@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 35929d820ac6f72b83d6c3f25547255ca3423fc8
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 1edb4818ff7fda170d123ea8b81e6df9d620f354
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138453"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713580"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Referencia del servicio Infrastructure Backup
 
 ## <a name="azure-backup-infrastructure"></a>Infraestructura de copia de seguridad de Azure
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Azure Stack consta de muchos servicios entre los que figuran el portal, Azure Resource Manager y la experiencia de administración de la infraestructura. La experiencia de administración de Azure Stack, similar a la de un dispositivo, se centra en reducir la complejidad expuesta al operador de la solución.
 
@@ -87,9 +87,16 @@ Estos requisitos son:
 
 Infrastructure Backup Controller realizará una copia de datos a petición. La recomendación es realizar una copia de seguridad por lo menos dos veces al día y guardar como máximo siete días de copias de seguridad. 
 
+**1811 y versiones posteriores**
 | Escala del entorno | Tamaño previsto de copia de seguridad | Cantidad total de espacio necesario |
 |-------------------|--------------------------|--------------------------------|
-| 4 a 16 nodos        | 10 GB                     | 140 GB                          |
+| 4 a 16 nodos        | 20 GB                    | 280 GB                        |
+| ASDK              | 10 GB                    | 140 GB                        |
+
+**Versiones anteriores a 1811**
+| Escala del entorno | Tamaño previsto de copia de seguridad | Cantidad total de espacio necesario |
+|-------------------|--------------------------|--------------------------------|
+| 4-16 nodos, ASDK  | 10 GB                     | 140 GB                        |
 
 ### <a name="network-requirements"></a>Requisitos de red
 | Ubicación de almacenamiento                                                                 | Detalles                                                                                                                                                                                 |
@@ -109,7 +116,7 @@ Tenga en cuenta estos límites a medida que planee, implemente y maneje las inst
 | Identificador de límites                                                 | Límite        | Comentarios                                                                                                                                    |
 |------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Tipo de copia de seguridad                                                      | Solo completa    | Infrastructure Backup Controller solo admite copias de seguridad completas. Las copias de seguridad incrementales no se admiten.                                          |
-| Copias de seguridad programadas                                                | Solo manual  | Backup Controller actualmente solo admite copias de seguridad a petición                                                                                 |
+| Copias de seguridad programadas                                                | Programadas y manuales  | El controlador de copia de seguridad es compatible con las copias de seguridad programadas y a petición                                                                                 |
 | Número máximo de trabajos de copia de seguridad simultáneos                                   | 1            | Se admite solo un trabajo de copia de seguridad activo por instancia de Backup Controller.                                                                  |
 | Configuración del conmutador de red                                     | Fuera del ámbito | El administrador debe hacer una copia de seguridad de la configuración del conmutador de red con herramientas de OEM. Consulte la documentación para Azure Stack proporcionada por cada proveedor de OEM. |
 | Host de ciclo de vida de hardware                                          | Fuera del ámbito | El administrador debe hacer una copia del host de ciclo de vida de hardware mediante herramientas de OEM. Consulte la documentación para Azure Stack proporcionada por cada proveedor de OEM.      |

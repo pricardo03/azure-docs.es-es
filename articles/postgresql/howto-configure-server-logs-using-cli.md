@@ -1,21 +1,18 @@
 ---
 title: Configuración y acceso a los registros del servidor para PostgreSQL con la CLI de Azure
 description: En este artículo se describe cómo configurar los registros de servidor de Azure Database for PostgreSQL, y obtener acceso a ellos, mediante la línea de comandos de la CLI de Azure.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: af5a0843acced4611b219088b7662f9ea4b32beb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 938aadaa1d17135808cbeb34adac5139bd61f833
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969593"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545029"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configuración y acceso a los registros del servidor con la CLI de Azure
 Puede descargar los registros de error del servidor de PostgreSQL mediante la interfaz de la línea de comandos (CLI de Azure). Sin embargo, no se admite el acceso a los registros de transacciones. 
@@ -28,7 +25,7 @@ Para seguir esta guía, necesitará:
 ## <a name="configure-logging-for-azure-database-for-postgresql"></a>Configuración del registro para Azure Database for PostgreSQL
 Puede configurar el servidor para tener acceso a los registros de consulta y los registros de error. Los registros de error pueden contener información de vaciado automático, de conexión y de puntos de comprobación.
 1. Active el registro.
-2. Para habilitar el registro de consultas, actualice **log\_statement** y **log\_min\_duration\_statement**.
+2. Para habilitar el registro de consultas, actualice **log\_statement**  y  **log\_min\_duration\_statement**.
 3. Actualice el período de retención.
 
 Para obtener más información, consulte cómo [Personalización de los parámetros de configuración del servidor con la CLI de Azure](howto-configure-server-parameters-using-cli.md).

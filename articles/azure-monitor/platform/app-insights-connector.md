@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 684fa85749bc131b21ef12070055841ff7d3d169
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 6b725d7912fa4b0d6b46acb35eda80ae66e4a38c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726235"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121420"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Solución de administración de Application Insights Connector (versión preliminar)
 
@@ -27,7 +27,7 @@ ms.locfileid: "53726235"
 >[!NOTE]
 > Con el soporte técnico de [consultas entre recursos](../../azure-monitor/log-query/cross-workspace-query.md), la solución de administración Application Insights Connector ya no es necesaria y dejará de utilizarse. A partir de julio, no podrán vincularse los nuevos recursos de Application Insights a áreas de trabajo de Log Analytics. Los paneles de información y los vínculos existentes seguirán funcionando hasta noviembre de 2018. Para obtener más información, consulte [Traslado del portal de OMS a Azure](../../azure-monitor/platform/oms-portal-transition.md).
 
-La solución Applications Insights Connector le permite diagnosticar problemas de rendimiento y comprender lo que los usuarios hacen con su aplicación cuando se supervisa mediante [Application Insights](../../application-insights/app-insights-overview.md). En Log Analytics, hay disponibles vistas de la misma telemetría de aplicación que los desarrolladores ven en Application Insights. Sin embargo, cuando se integran las aplicaciones de Application Insights con Log Analytics, la visibilidad de las aplicaciones aumenta debido a que los datos de operación y de aplicación están en el mismo lugar. Tener las mismas vistas le permite colaborar con los desarrolladores de aplicaciones. Las vistas comunes pueden ayudar a disminuir el tiempo para detectar y resolver problemas tanto de aplicaciones como de plataformas.
+La solución Applications Insights Connector le permite diagnosticar problemas de rendimiento y comprender lo que los usuarios hacen con su aplicación cuando se supervisa mediante [Application Insights](../../azure-monitor/app/app-insights-overview.md). En Log Analytics, hay disponibles vistas de la misma telemetría de aplicación que los desarrolladores ven en Application Insights. Sin embargo, cuando se integran las aplicaciones de Application Insights con Log Analytics, la visibilidad de las aplicaciones aumenta debido a que los datos de operación y de aplicación están en el mismo lugar. Tener las mismas vistas le permite colaborar con los desarrolladores de aplicaciones. Las vistas comunes pueden ayudar a disminuir el tiempo para detectar y resolver problemas tanto de aplicaciones como de plataformas.
 
 Cuando usa la solución, puede:
 
@@ -142,7 +142,7 @@ Para hacer lo último, haga clic en los tres puntos suspensivos (**…**) que ap
 
 ### <a name="sample-corrected-data"></a>Datos de ejemplo corregidos
 
-Application Insights proporciona *[corrección de muestreo](../../application-insights/app-insights-sampling.md)* para ayudar a disminuir el tráfico de telemetría. Cuando se habilita el muestreo en la aplicación de Application Insights, obtiene un número reducido de entradas almacenadas en Application Insights y en Log Analytics. Si bien la coherencia de los datos se conserva en las perspectivas y en la página **Application Insights Connector**, debe corregir manualmente los datos muestreados para las consultas personalizadas.
+Application Insights proporciona *[corrección de muestreo](../../azure-monitor/app/sampling.md)* para ayudar a disminuir el tráfico de telemetría. Cuando se habilita el muestreo en la aplicación de Application Insights, obtiene un número reducido de entradas almacenadas en Application Insights y en Log Analytics. Si bien la coherencia de los datos se conserva en las perspectivas y en la página **Application Insights Connector**, debe corregir manualmente los datos muestreados para las consultas personalizadas.
 
 A continuación, se muestra un ejemplo de una corrección de muestreo en una consulta de búsqueda de registros:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: d670b90404d441876727336fc50a848965082de5
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: baa86fe70c394aaea31a6fa775073bb26d062c49
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232502"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002406"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Recopilación y agregación de eventos con Azure Diagnostics de Windows
 > [!div class="op_single_selector"]
@@ -65,7 +65,7 @@ Ahora que agrega eventos a Azure Storage, [configure Log Analytics](service-fabr
 ## <a name="deploy-the-diagnostics-extension-through-azure-resource-manager"></a>Implementación de la extensión de Diagnostics mediante Azure Resource Manager
 
 ### <a name="create-a-cluster-with-the-diagnostics-extension"></a>Creación de un clúster con la extensión de Diagnostics
-Para crear un clúster mediante el Resource Manager, tiene que agregar el JSON de la configuración de Diagnostics a la plantilla de Resource Manager completa antes de crear el clúster. Dentro de los ejemplos de plantillas del Administrador de recursos, proporcionamos una plantilla de ejemplo del Administrador de recursos de clúster de cinco máquinas virtuales con la configuración de Diagnósticos añadida. Puede verlo en: [Ejemplo de plantilla de clúster de cinco nodos con el Administrador de recursos de Diagnósticos](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/)en la galería de ejemplos de Azure.
+Para crear un clúster mediante el Resource Manager, tiene que agregar el JSON de la configuración de Diagnostics a la plantilla de Resource Manager completa. Dentro de los ejemplos de plantillas del Administrador de recursos, proporcionamos una plantilla de ejemplo del Administrador de recursos de clúster de cinco máquinas virtuales con la configuración de Diagnósticos añadida. Puede verlo en esta ubicación en la galería de ejemplos de Azure: [Clúster de cinco nodos con el ejemplo de Diagnósticos en la plantilla de Resource Manager](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
 
 Para ver la configuración de Diagnósticos en la plantilla de Resource Manager, abra el archivo azuredeploy.json y busque **IaaSDiagnostics**. Para crear un clúster con esta plantilla, presione el botón **Deploy to Azure** (Implementar en Azure) disponible en el vínculo anterior.
 
@@ -196,12 +196,12 @@ Como las tablas que rellena la extensión aumentan hasta que se alcanza la cuota
 ## <a name="log-collection-configurations"></a>Configuraciones de recopilación de registros
 Los registros de los canales adicionales también están disponibles para la recopilación, estas son algunas de las configuraciones más comunes que puede realizar en la plantilla para los clústeres que se ejecutan en Azure.
 
-* Canal operativo, básico: operaciones de alto nivel, habilitadas de manera predeterminada, que realiza Service Fabric y el clúster, incluidos eventos para un nodo próximo, una nueva aplicación que se implementa o la reversión de una actualización, etc. Para obtener una lista de eventos, consulte los [eventos de canal operativo](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
+* Canal operativo, básico: Habilitadas de forma predeterminada, las operaciones de alto nivel que realizan Service Fabric y el clúster, incluidos eventos para un nodo próximo, una nueva aplicación que se implementa o la reversión de una actualización, etc. Para obtener una lista de eventos, consulte los [eventos de canal operativo](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
   
 ```json
       scheduledTransferKeywordFilter: "4611686018427387904"
   ```
-* Canal operativo, detallado: esto incluye informes de estado y decisiones de equilibrio de carga, además de todos los elementos de canal operativo básico. Estos eventos son generados por el sistema o por el código mediante las API de generación de informes de estado de mantenimiento o carga, como [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) o [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Para ver estos eventos en el Visor de eventos de diagnóstico de Visual Studio, agregue "Microsoft-ServiceFabric:4:0x4000000000000008" a la lista de proveedores de ETW.
+* Canal operativo, detallado: incluye informes de estado y decisiones de equilibrio de carga, además de todos los elementos de canal operativo básico. Estos eventos son generados por el sistema o por el código mediante las API de generación de informes de estado de mantenimiento o carga, como [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) o [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Para ver estos eventos en el Visor de eventos de diagnóstico de Visual Studio, agregue "Microsoft-ServiceFabric:4:0x4000000000000008" a la lista de proveedores de ETW.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387912"

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: ashish
-ms.openlocfilehash: 3e664fc83fde937b26a4726f997da4c0cb4d8f8a
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 30f96c54dd916188296ca0245d4095a32ae0bbe4
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407888"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742888"
 ---
 # <a name="scale-hdinsight-clusters"></a>Escalabilidad de clústeres de HDInsight
 
@@ -152,7 +152,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
 ![Modo seguro desactivado](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
 
 > [!NOTE]  
-> El conmutador `-D` es necesario porque el sistema de archivos predeterminado de HDInsight es Azure Storage o Azure Data Lake Store. `-D` especifica que los comandos se ejecuten en el sistema de archivos HDFS local.
+> El conmutador `-D` es necesario porque el sistema de archivos predeterminado de HDInsight es Azure Storage o Azure Data Lake Storage. `-D` especifica que los comandos se ejecuten en el sistema de archivos HDFS local.
 
 A continuación, puede consultar un informe en que se muestran los detalles del estado de HDFS:
 

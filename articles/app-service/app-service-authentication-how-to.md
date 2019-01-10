@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 931c1bc68c4e357432081dbfa2df685fcf9fc96d
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: f3e30309b230ec44ddf39648b943f3f76dc7805d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409758"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722658"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avanzado de la autenticación y autorización en Azure App Service
 
-En este artículo se muestra cómo personalizar la [autenticación y autorización integradas en App Service](app-service-authentication-overview.md) y cómo administrar la identidad desde la aplicación. 
+En este artículo se muestra cómo personalizar la [autenticación y autorización integradas en App Service](overview-authentication-authorization.md) y cómo administrar la identidad desde la aplicación. 
 
 Para comenzar inmediatamente, consulte uno de los siguientes tutoriales:
 
@@ -37,13 +37,13 @@ Para comenzar inmediatamente, consulte uno de los siguientes tutoriales:
 
 ## <a name="use-multiple-sign-in-providers"></a>Uso de varios proveedores de inicio de sesión
 
-La configuración del portal no ofrece una manera preparada para presentar varios proveedores de inicio de sesión a los usuarios (por ejemplo, Facebook y Twitter). Sin embargo, no es difícil agregar la funcionalidad a la aplicación web. A continuación se describen los pasos necesarios:
+La configuración del portal no ofrece una manera preparada para presentar varios proveedores de inicio de sesión a los usuarios (por ejemplo, Facebook y Twitter). Sin embargo, no es difícil agregar la funcionalidad a la aplicación. A continuación se describen los pasos necesarios:
 
 Primero, en la página **Autenticación / Autorización** de Azure Portal, configure cada uno de los proveedores de identidades que desea habilitar.
 
 En **Action to take when request is not authenticated** (Acción necesaria cuando la solicitud no está autenticada), seleccione **Allow Anonymous requests (no action)** (Permitir solicitudes anónimas (sin acción)).
 
-En la página de inicio de sesión, en la barra de navegación o en cualquier otra ubicación de la aplicación web, agregue un vínculo de inicio de sesión a cada uno de los proveedores que se ha habilitado (`/.auth/login/<provider>`). Por ejemplo: 
+En la página de inicio de sesión, en la barra de navegación o en cualquier otra ubicación de la aplicación, agregue un vínculo de inicio de sesión a cada uno de los proveedores que ha habilitado (`/.auth/login/<provider>`). Por ejemplo: 
 
 ```HTML
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -63,7 +63,7 @@ Para redirigir al usuario después del inicio de sesión a una dirección URL pe
 
 ## <a name="validate-tokens-from-providers"></a>Validar los tokens de los proveedores
 
-En un inicio de sesión que dirige el cliente, la aplicación consigue de forma manual que el cliente inicie sesión en el proveedor y envía el token de autenticación a App Service para su validación (consulte el [flujo de autenticación](app-service-authentication-overview.md#authentication-flow)). Esta validación en sí misma no le otorga acceso a los recursos de aplicación que quiere, pero una validación exitosa le dará un token de sesión que puede usar para obtener acceso a los recursos de la aplicación. 
+En un inicio de sesión que dirige el cliente, la aplicación consigue de forma manual que el cliente inicie sesión en el proveedor y envía el token de autenticación a App Service para su validación (consulte el [flujo de autenticación](overview-authentication-authorization.md#authentication-flow)). Esta validación en sí misma no le otorga acceso a los recursos de aplicación que quiere, pero una validación exitosa le dará un token de sesión que puede usar para obtener acceso a los recursos de la aplicación. 
 
 Para validar el token del proveedor, la aplicación App Service debe configurarse primero con el proveedor que quiera usar. En el entorno de ejecución, después de recuperar el token de autenticación de su proveedor, publique el token en `/.auth/login/<provider>` para su validación. Por ejemplo:  
 
@@ -186,15 +186,15 @@ Cuando el token de acceso del proveedor expira, debe volver a autenticar el usua
 - **Cuenta Microsoft**: cuando [defina la configuración de autenticación de Cuenta Microsoft](configure-authentication-provider-microsoft.md), seleccione el ámbito `wl.offline_access`.
 - **Azure Active Directory**: en [https://resources.azure.com](https://resources.azure.com), siga estos pasos:
     1. En la parte superior de la página, seleccione **Lectura y escritura**.
-    1. En el explorador de la izquierda, desplácese hasta **subscriptions** > **_\<nombre\_suscripción_** > **resourceGroups** > _**\<nombre\_grupo\_recursos>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<nombre\_aplicación>**_ > **config** > **authsettings**. 
-    1. Haga clic en **Editar**.
-    1. Modifique la siguiente propiedad. Reemplace _\<app\_id>_ por el identificador de aplicación de Azure Active Directory del servicio al que desea acceder.
+    2. En el explorador de la izquierda, desplácese hasta **subscriptions** > **_\<nombre\_suscripción_** > **resourceGroups** > _**\<nombre\_grupo\_recursos>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<nombre\_aplicación>**_ > **config** > **authsettings**. 
+    3. Haga clic en **Editar**.
+    4. Modifique la siguiente propiedad. Reemplace _\<app\_id>_ por el identificador de aplicación de Azure Active Directory del servicio al que desea acceder.
 
         ```json
         "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
         ```
 
-    1. Haga clic en **Put**. 
+    5. Haga clic en **Put**. 
 
 Una vez configurado el proveedor, puede [buscar el token de actualización y el tiempo de expiración para el token de acceso](#retrieve-tokens-in-app-code) en el almacén de tokens. 
 

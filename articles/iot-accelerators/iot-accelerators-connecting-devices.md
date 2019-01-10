@@ -8,20 +8,22 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: dobett
-ms.openlocfilehash: 55c8ff799ba3ff7fe9691d46dc90a00d5182d390
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 729ba19153eeb9767961d099e7a37c10a38b1286
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829417"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634723"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-windows"></a>Conectar el dispositivo al acelerador de la solución Supervisión remota (Windows)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-En este tutorial se muestra cómo conectar un dispositivo físico al acelerador de la solución de supervisión remota.
+En este tutorial se muestra cómo conectar un dispositivo real al acelerador de soluciones de supervisión remota.
 
 Como sucede con la mayoría de aplicaciones insertadas que se ejecutan en dispositivos restringidos, el código cliente para la aplicación del dispositivo está escrito en C. En este tutorial, se crea la aplicación cliente del dispositivo en una máquina Windows.
+
+Si prefiere simular un dispositivo, consulte [Crear y probar un nuevo dispositivo simulado](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -33,7 +35,7 @@ El [código de ejemplo](https://github.com/Azure/azure-iot-sdk-c/tree/master/sam
 
 ### <a name="download-the-source-code-and-prepare-the-project"></a>Descarga del código fuente y preparación del proyecto
 
-Para preparar el proyecto, clone o descargue el [repositorio de SDK de C para Azure IoT](https://github.com/Azure/azure-iot-sdk-c) en GitHub.
+Para preparar el proyecto, [clone el repositorio de SDK de C para Azure IoT](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#set-up-a-windows-development-environment) en GitHub.
 
 El ejemplo se encuentra en la carpeta **samples/solutions/remote_monitoring_client**.
 

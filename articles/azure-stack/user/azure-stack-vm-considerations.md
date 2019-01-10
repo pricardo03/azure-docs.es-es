@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 12/19/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 9d6bb8d4327b428bb47d1d44422d816e7b20ed87
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8a9fc299f620c7df87544b467cf52535addfe313
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847531"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651510"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Consideraciones sobre el uso de máquinas virtuales en Azure Stack
 
@@ -39,6 +39,7 @@ Las máquinas virtuales de Azure Stack proporcionan recursos informáticos escal
 | Almacenamiento de máquina virtual | Admite [discos administrados](../../virtual-machines/windows/managed-disks-overview.md). | Los discos administrados se admiten en Azure Stack con la versión 1808 y versiones posteriores. |
 | Rendimiento de los discos de la máquina virtual | Depende del tamaño y tipo de disco. | En función del tamaño de la máquina virtual a la cual se asocian los discos, consulte el artículo [Tamaños de máquinas virtuales admitidos en Azure Stack](azure-stack-vm-sizes.md).
 | Versiones de API | Azure tiene siempre las últimas versiones de API para todas las características de la máquina virtual. | Azure Stack es compatible con servicios específicos de Azure y versiones de API específicas para estos servicios. Para ver la lista de versiones de API compatibles, consulte la sección [versiones de API](#api-versions) de este artículo. |
+| Servicio de metadatos de instancia de Azure | El servicio de metadatos de instancia de Azure proporciona información sobre instancias de máquina virtual en ejecución que pueden usarse para administrar y configurar las máquinas virtuales.  | Instance Metadata Service no es compatible con Azure Stack. |
 |Conjuntos de disponibilidad de máquinas virtuales|Varios dominios de error (2 o 3 por región)<br>Varios dominios de actualización<br>Compatible con el disco administrado|Varios dominios de error (2 o 3 por región)<br>Varios dominios de actualización (hasta 20)<br>No compatible con el disco administrado|
 |Conjuntos de escalado de máquinas virtuales|Compatible con escalado automático|No compatible con escalado automático<br>Agregar más instancias a un conjunto de escalado con el portal, las plantillas de Resource Manager o PowerShell.
 

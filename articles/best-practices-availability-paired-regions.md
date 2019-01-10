@@ -4,14 +4,14 @@ description: Conozca más sobre el emparejamiento de regiones de Azure para aseg
 author: rayne-wiselman
 ms.service: multiple
 ms.topic: article
-ms.date: 07/03/2018
+ms.date: 12/23/2018
 ms.author: raynew
-ms.openlocfilehash: 983a551da26e08797b2a65f609cff17954a52828
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d27db03977b84002b59d58327af7d14fbdc713c2
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954827"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792329"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure
 
@@ -19,7 +19,7 @@ ms.locfileid: "49954827"
 
 Azure funciona en varias ubicaciones geográficas del mundo. Una ubicación geográfica de Azure es un área definida del mundo que contiene al menos una región de Azure. Una región de Azure es un área dentro de una ubicación geográfica que contiene uno o varios centros de datos.
 
-Cada región de Azure se empareja con otra región de la misma zona geográfica, que juntas forman un emparejamiento regional. La excepción es el Sur de Brasil, ya que se trata de una región emparejada con otra que se encuentra fuera de su ubicación geográfica. Por los pares de regiones, Azure serializará las actualizaciones de la plataforma (mantenimiento planeado) para que solo se actualice una región emparejada a la vez. Además, si se produce una interrupción que afecte a varias regiones, se dará prioridad a la recuperación de al menos una región de cada par.
+Cada región de Azure se empareja con otra región de la misma zona geográfica, que juntas forman un emparejamiento regional. La excepción es el Sur de Brasil, ya que se trata de una región emparejada con otra que se encuentra fuera de su ubicación geográfica. Por los pares de regiones, Azure serializa las actualizaciones de la plataforma (mantenimiento planeado) de forma que solo se actualiza una región emparejada a la vez. Si se produce una interrupción que afecte a varias regiones, se dará prioridad a la recuperación de al menos una región de cada par.
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
@@ -30,15 +30,15 @@ Figura 1: Parejas regionales de Azure
 | Asia |Asia oriental |Sudeste asiático |
 | Australia |Este de Australia |Sudeste de Australia |
 | Australia |Centro de Australia |Centro de Australia 2 |
-| Brasil |Sur de Brasil 2 |Centro-Sur de EE. UU |
+| Brasil |Sur de Brasil |Centro-Sur de EE. UU |
 | Canadá |Centro de Canadá |Este de Canadá |
 | China |Norte de China |Este de China|
-| China |China North 2 |Este de China 2|
+| China |Norte de China 2 |Este de China 2|
 | Europa |Europa del Norte |Europa occidental |
 | Francia |Centro de Francia|Sur de Francia|
 | Alemania |Centro de Alemania |Noreste de Alemania |
 | India |India Central |Sur de la India |
-| India |Oeste de la India (1) |Sur de la India |
+| India |Oeste de la India |Sur de la India |
 | Japón |Este de Japón |Oeste de Japón |
 | Corea |Corea Central |Corea del Sur |
 | Norteamérica |Este de EE. UU |Oeste de EE. UU. |
@@ -48,15 +48,15 @@ Figura 1: Parejas regionales de Azure
 | Reino Unido |Oeste de Reino Unido |Sur de Reino Unido 2 |
 | Departamento de Defensa de Estados Unidos |Departamento de Defensa de EE. UU. Este |Departamento de Defensa de EE. UU. Centro |
 | Gobierno de Estados Unidos |Gobierno de EE. UU.: Arizona |Gobierno de EE. UU.: Texas |
-| Gobierno de Estados Unidos |Iowa Gob. EE. UU. (3) |Gobierno de EE. UU. - Virginia |
-| Gobierno de Estados Unidos |Virginia Gob. EE. UU. (4) |Gobierno de EE. UU.: Texas |
+| Gobierno de Estados Unidos |US Gov Iowa |Gobierno de EE. UU. - Virginia |
+| Gobierno de Estados Unidos |Gobierno de EE. UU. - Virginia |Gobierno de EE. UU.: Texas |
 
 Tabla 1: Asignación de las parejas regionales de Azure
 
-- (1) Oeste de la India es diferente porque se empareja con otra región en una sola dirección. La región secundaria del Oeste de la India es Sur de la India, pero la región secundaria esta última es India Central.
-- (2) Sur de Brasil es un caso único porque se empareja con una región fuera de su propia ubicación geográfica. La región secundaria del Sur de Brasil es Centro y Sur de EE. UU., pero la región secundaria de esta última no es el Sur de Brasil.
-- (3) La región secundaria de Iowa Gob. EE. UU. es Virginia Gob. EE. UU., pero la región secundaria de Virginia Gob. EE. UU. no es Iowa Gob. EE. UU.
-- (4) La región secundaria de Virginia Gob. EE. UU. es Texas Gob. EE. UU., pero la región secundaria de Texas Gob. EE. UU. no es Virginia Gob. EE. UU.
+- Oeste de la India es diferente porque se empareja con otra región en una sola dirección. La región secundaria del Oeste de la India es Sur de la India, pero la región secundaria esta última es India Central.
+- Sur de Brasil es un caso único porque se empareja con una región fuera de su propia ubicación geográfica. La región secundaria del Sur de Brasil es Centro y Sur de EE. UU., pero la región secundaria de esta última no es el Sur de Brasil.
+- La región secundaria de US Gov Iowa es US Gov Virginia, pero la región secundaria de US Gov Virginia no es US Gov Iowa.
+- La región secundaria de US Gov Virginia es US Gov Texas, pero la región secundaria de US Gov Texas no es US Gov Virginia.
 
 
 Se recomienda que configure la continuidad empresarial y recuperación ante desastres entre las parejas regionales para beneficiarse de las directivas de aislamiento y disponibilidad de Azure. Para aplicaciones que admiten varias regiones activas, recomendamos utilizar, siempre que sea posible, ambas regiones en un par de regiones. Esto asegurará una disponibilidad óptima para las aplicaciones y minimizará el tiempo de recuperación en caso de desastre. 
@@ -77,7 +77,7 @@ Como se indica en la ilustración 2.
 
 ![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL Database**: con la replicación geográfica de SQL Database, puede configurar la replicación asincrónica de las transacciones en cualquier región del mundo; sin embargo, se recomienda implementar estos recursos en una región emparejada para la mayoría de los escenarios de recuperación ante desastres. Para más información, consulte [Replicación geográfica en Azure SQL Database](sql-database/sql-database-geo-replication-overview.md).
 
-![Resource Manager](./media/best-practices-availability-paired-regions/4Green.png)**Azure Resource Manager**: Azure Resource Manager proporciona de forma inherente aislamiento lógico para los componentes de administración de servicios entre regiones. Esto significa que es menos probable que los errores lógicos de una región afecten a otra.
+![Resource Manager](./media/best-practices-availability-paired-regions/4Green.png)**Azure Resource Manager**: Resource Manager proporciona de forma inherente aislamiento lógico de los componentes entre regiones. Esto significa que es menos probable que los errores lógicos de una región afecten a otra.
 
 ## <a name="benefits-of-paired-regions"></a>Ventajas de las regiones emparejadas
 Como se indica en la ilustración 2.  

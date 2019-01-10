@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 3416d257a23e94460199a1ddfe63302ff55ad5a5
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 58e853a3e9df0c3ba78b41f0c62e37bbcc3cdb5a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285057"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754040"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Windows en el clúster de Service Fabric
 
@@ -157,11 +157,11 @@ El comportamiento de la aplicación de orquestación de revisiones puede configu
 | WUOperationTimeOutInMinutes | int <br>(Valor predeterminado: 90)                   | Especifica el tiempo de espera para cualquier operación de Windows Update (buscar, descargar o instalar). Si la operación no se realiza en el tiempo de espera especificado, se anula.       |
 | WURescheduleCount     | int <br> (Valor predeterminado: 5)                  | El número máximo de veces que el servicio vuelve a programar la actualización de Windows en caso de error de la operación de forma persistente.          |
 | WURescheduleTimeInMinutes | int <br>(Valor predeterminado: 30) | El intervalo en el que el servicio vuelve a programar la actualización de Windows en caso de que el error persista. |
-| WUFrequency           | Cadena separada por comas (Valor predeterminado: "Weekly, Wednesday, 7:00:00")     | Frecuencia para la instalación de actualizaciones de Windows. El formato y los valores posibles son: <br>- Monthly, DD,HH:MM:SS, por ejemplo, Monthly, 5,12:22:32. <br> - Weekly, DÍA,HH:MM:SS, por ejemplo, Weekly, martes, 12:22:32.  <br> -   Daily, HH:MM:SS, por ejemplo, Daily, 12:22:32.  <br> -  None indica que no debe realizarse Windows Update.  <br><br> Tenga en cuenta que las horas están en formato UTC.|
+| WUFrequency           | Cadena separada por comas (valor predeterminado: "Weekly, Wednesday, 7:00:00")     | Frecuencia para la instalación de actualizaciones de Windows. El formato y los valores posibles son: <br>- Monthly, DD,HH:MM:SS, por ejemplo, Monthly, 5,12:22:32. <br> - Weekly, DÍA,HH:MM:SS, por ejemplo, Weekly, martes, 12:22:32.  <br> -   Daily, HH:MM:SS, por ejemplo, Daily, 12:22:32.  <br> -  None indica que no debe realizarse Windows Update.  <br><br> Tenga en cuenta que las horas están en formato UTC.|
 | AcceptWindowsUpdateEula | boolean <br>(Valor predeterminado: true) | Al establecer esta marca, la aplicación acepta el contrato de licencia del usuario final para Windows Update en nombre del propietario del equipo.              |
 
 > [!TIP]
-> Si quiere que Windows Update se ejecute de forma inmediata, establezca `WUFrequency` en relación con la hora de implementación de la aplicación. Por ejemplo, suponga que tiene un clúster de prueba de cinco nodos y planea implementar la aplicación aproximadamente a las 17:00 UTC. Si asume que la implementación o actualización de la aplicación tarda 30 minutos como máximo, establezca WUFrequency como "Daily, 17:30:00".
+> Si quiere que Windows Update se ejecute de forma inmediata, establezca `WUFrequency` en relación con la hora de implementación de la aplicación. Por ejemplo, suponga que tiene un clúster de prueba de cinco nodos y planea implementar la aplicación aproximadamente a las 17:00 UTC. Si supone que la implementación o actualización de la aplicación tarda 30 minutos como máximo, establezca WUFrequency como "Daily, 17:30:00".
 
 ## <a name="deploy-the-app"></a>Implementar la aplicación
 
@@ -316,7 +316,7 @@ Si el clúster puede tolerar la ejecución en un número N-1 de dominios de actu
 
 P: **¿Cuánto se tarda en aplicar revisiones a un nodo?**
 
-A. La aplicación de revisiones a un nodo puede tardar minutos (por ejemplo: [actualizaciones de definiciones de Windows Defender](https://www.microsoft.com/wdsi/definitions)) u horas (por ejemplo: [actualizaciones acumulativas de Windows](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). El tiempo necesario para aplicar revisiones en un nodo depende, principalmente, de 
+A. La aplicación de revisiones a un nodo puede tardar minutos (por ejemplo: [Actualizaciones de definiciones de Windows Defender](https://www.microsoft.com/wdsi/definitions)) a horas (por ejemplo: [Actualizaciones acumulativas de Windows](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). El tiempo necesario para aplicar revisiones en un nodo depende, principalmente, de 
  - El tamaño de las actualizaciones
  - El número de actualizaciones, que deben aplicarse en un periodo de revisión
  - El tiempo necesario para instalar las actualizaciones, reiniciar el nodo (si es necesario) y completar los pasos de instalación posteriores al reinicio
@@ -327,7 +327,7 @@ P: **¿Cuánto se tarda en aplicar revisiones a todo un clúster?**
 A. El tiempo necesario para aplicar revisiones a todo un clúster depende de los siguientes factores:
 
 - Tiempo necesario para aplicar revisiones a un nodo.
-- La directiva del servicio Coordinator Service. La directiva predeterminada, `NodeWise`, provoca que se apliquen las revisiones en un nodo a la vez, lo que puede tardar más que `UpgradeDomainWise`. Por ejemplo: si la aplicación de revisiones a un nodo tarda, aproximadamente, una hora, para aplicar revisiones en un clúster de 20 nodos (mismo tipo de nodos) con 5 dominios de actualización que contienen, cada uno, cuatro nodos,
+- La directiva del servicio Coordinator Service. La directiva predeterminada, `NodeWise`, provoca que se apliquen las revisiones en un nodo a la vez, lo que puede tardar más que `UpgradeDomainWise`. Por ejemplo:  si la aplicación de revisiones a un nodo tarda, aproximadamente, una hora, para aplicar revisiones en un clúster de 20 nodos (mismo tipo de nodos) con 5 dominios de actualización que contienen, cada uno, 4 nodos,
     - se tardaría, aproximadamente, 20 horas en aplicar revisiones a todo el clúster, si la directiva es `NodeWise`
     - Si la directiva es `UpgradeDomainWise`, se tardarían unas cinco horas
 - Carga de clúster: cada operación de revisión requiere cambiar la ubicación de la carga de trabajo del cliente a otros nodos disponibles en el clúster. El nodo al que se aplicaría la revisión tendría el estado [deshabilitado](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) durante este tiempo. Si el clúster se ejecuta cerca de la carga máxima, el proceso de deshabilitación podría tardar más. Por lo tanto, el proceso general de aplicación de revisiones puede parecer lento en estas condiciones.

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: a12f2f3775808edb2045be5a1d955280f515ff7d
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3e6a11a8c225afb220f290cee2db39c36750b401
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39530425"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632151"
 ---
 # <a name="enabling-azure-storage-metrics-and-viewing-metrics-data"></a>Habilitar las métricas de Azure Storage y ver sus datos
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../../includes/storage-selector-portal-enable-and-view-metrics.md)]
@@ -37,7 +37,10 @@ Siga estos pasos para habilitar las métricas en [Azure Portal](https://portal.a
 [Azure Portal](https://portal.azure.com) no permite actualmente configurar métricas por minuto en su cuenta de almacenamiento; debe habilitar las métricas por minuto con PowerShell o mediante programación.
 
 ## <a name="how-to-enable-metrics-using-powershell"></a>Cómo habilitar las métricas mediante PowerShell
-Puede usar PowerShell en el equipo local para configurar las Métricas de almacenamiento en su cuenta de almacenamiento con el cmdlet Get-AzureStorageServiceMetricsProperty de Azure PowerShell para recuperar la configuración actual y el cmdlet Set-AzureStorageServiceMetricsProperty para cambiar la configuración actual.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Puede usar PowerShell en la máquina local para configurar las Métricas de almacenamiento en su cuenta de almacenamiento con los cmdlets de Azure PowerShell Get-AzStorageServiceMetricsProperty para recuperar la configuración actual y Set-AzStorageServiceMetricsProperty para cambiar la configuración actual.
 
 Los cmdlets que controlan las Métricas de almacenamiento usan los siguientes parámetros:
 
@@ -48,16 +51,16 @@ Los cmdlets que controlan las Métricas de almacenamiento usan los siguientes pa
 Por ejemplo, el siguiente comando activa las métricas por minuto para Blob service en su cuenta de almacenamiento predeterminada con un período de retención establecido en cinco días:
 
 ```powershell
-Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5`
+Set-AzStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5`
 ```
 
 El comando siguiente recupera el nivel de métricas por hora actual y los días de retención para el servicio BLOB en su cuenta de almacenamiento predeterminada:
 
 ```powershell
-Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob
+Get-AzStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob
 ```
 
-Para obtener información sobre cómo configurar los cmdlets de Azure PowerShell para que funcionen con su suscripción de Azure y cómo seleccionar la cuenta de almacenamiento predeterminada que quiere usar, vea: [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview).
+Para más información sobre cómo configurar los cmdlets de Azure PowerShell para que funcionen con su suscripción de Azure y cómo seleccionar la cuenta de almacenamiento predeterminada que quiere usar, vea: [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="how-to-enable-storage-metrics-programmatically"></a>Cómo habilitar las Métricas de almacenamiento mediante programación
 El siguiente fragmento de C# muestra cómo habilitar el registro y las métricas para Blob service mediante la biblioteca del cliente de almacenamiento de .NET:

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 7a233a5effb804ec3cc22727b46846509032d214
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: d91c1e99a04f6fdbc6422aa18504625471d0f0d1
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438513"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810498"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Registro de diagnóstico de Azure Cosmos DB 
 
@@ -81,7 +81,7 @@ Para habilitar el registro de diagnóstico en Azure Portal, siga estos pasos:
     * **Transmitir a un centro de eventos**: para usar esta opción, necesita un espacio de nombres de Event Hubs y un centro de eventos al que conectarse. Para crear un espacio de nombres de Event Hubs, consulte [Creación de un espacio de nombres de Event Hubs y un centro de eventos con Azure Portal](../event-hubs/event-hubs-create.md). Luego, vuelva a esta página en el portal para seleccionar el espacio de nombres de Event Hubs y el nombre de la directiva.
     * **Enviar a Log Analytics**: para usar esta opción, utilice un área de trabajo existente o cree un área de trabajo de Log Analytics siguiendo los pasos necesarios para [crear un área de trabajo](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) en el portal. Para más información sobre cómo ver los registros de Log Analytics, consulte [Visualización de los registros de Log Analytics](#view-in-loganalytics).
     * **Registrar DataPlaneRequests**: seleccione esta opción para registrar las solicitudes de back-end procedentes de la plataforma distribuida de Azure Cosmos DB subyacente para cuentas de SQL, Graph, MongoDB, Cassandra y Table API. Si va a archivar en una cuenta de almacenamiento, puede seleccionar el período de retención para los registros de diagnóstico. Los registros se eliminan automáticamente una vez expira el período de retención.
-    * **Registrar MongoRequests**: seleccione esta opción para registrar las solicitudes iniciadas por el usuario procedentes del front-end de Azure Cosmos DB para cuentas de la API de MongoDB. Si va a archivar en una cuenta de almacenamiento, puede seleccionar el período de retención para los registros de diagnóstico. Los registros se eliminan automáticamente una vez expira el período de retención.
+    * **Registrar MongoRequests**: seleccione esta opción para registrar las solicitudes iniciadas por el usuario procedentes del front-end de Azure Cosmos DB para cuentas de Cosmos configuradas con la API de Azure Cosmos DB para MongoDB. Si va a archivar en una cuenta de almacenamiento, puede seleccionar el período de retención para los registros de diagnóstico. Los registros se eliminan automáticamente una vez expira el período de retención.
     * **Solicitudes de métricas**: seleccione esta opción para almacenar los datos detallados en [Métricas de Azure](../azure-monitor/platform/metrics-supported.md). Si va a archivar en una cuenta de almacenamiento, puede seleccionar el período de retención para los registros de diagnóstico. Los registros se eliminan automáticamente una vez expira el período de retención.
 
 3. Seleccione **Guardar**.
@@ -459,7 +459,7 @@ En la tabla siguiente se describe el contenido de cada entrada del registro.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para comprender cómo habilitar el registro y también las categorías de métricas y registro que admiten los distintos servicios de Azure, lea los artículos [Información general sobre las métricas en Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) e [Información general sobre los registros de diagnóstico de Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+- Para comprender cómo habilitar el registro y también las categorías de métricas y registro que admiten los distintos servicios de Azure, lea los artículos [Información general sobre las métricas en Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) e [Información general sobre los registros de diagnóstico de Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 - Lea estos artículos para obtener información sobre Event Hubs:
    - [¿Qué es Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
    - [Introducción a Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)

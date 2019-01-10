@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d810b8be496bbfd1c5bd88d8221e77dd5b76c889
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 16026adc2eb0179cd2b42f449494cbbc6547b946
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622979"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651459"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Uso del paquete de contenido de Power BI de Azure Active Directory
 
@@ -32,7 +32,7 @@ El paquete de contenido de Power BI para Azure Active Directory (Azure AD) conti
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para usar el paquete de contenido necesita una licencia Premium de Azure AD (P1 y P2). 
+Para usar el paquete de contenido necesita una licencia Premium de Azure AD (P1 y P2). Consulte [Introducción a Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para actualizar la edición de Azure Active Directory.
 
 ## <a name="install-the-content-pack"></a>Instalación del paquete de contenido
 
@@ -42,7 +42,7 @@ Consulte la [guía de inicio rápido](quickstart-install-power-bi-content-pack.m
 
 Los informes siguientes se incluyen en el paquete de contenido de Power BI de Azure AD. Los informes contienen datos de los **últimos 30 días**.
 
-**Informe de uso y tendencias de las aplicaciones**: este informe le proporciona información detallada sobre las aplicaciones que se usan en su organización. Puede obtener una lista de las aplicaciones más populares, o comprender cómo se usa una aplicación que recientemente se ha implementado en su organización. Esto le permite realizar un seguimiento del uso y mejorarlo con el tiempo.
+**Informe de uso y tendencias de las aplicaciones**:  este informe le proporciona información detallada sobre las aplicaciones que se usan en su organización. Puede obtener una lista de las aplicaciones más populares, o comprender cómo se usa una aplicación que recientemente se ha implementado en su organización. Esto le permite realizar un seguimiento del uso y mejorarlo con el tiempo.
 
 **Inicios de sesión por ubicación y usuarios**: este informe proporciona datos sobre todos los inicios de sesión realizados mediante la identidad de Azure. Con este informe, puede explorar en profundidad los inicios de sesión individuales y responder a preguntas como:
 
@@ -52,7 +52,7 @@ Los informes siguientes se incluyen en el paquete de contenido de Power BI de Az
  
 También puede filtrar los resultados mediante la selección de una fecha o ubicación específicas.
 
-**Usuarios únicos por aplicación**: este informe proporciona una vista de todos los usuarios únicos que usan una aplicación determinada. Solo se incluyen los usuarios que han iniciado sesión "*correctamente*" en una aplicación.
+**Usuarios únicos por aplicación**:  este informe proporciona una vista de todos los usuarios únicos que usan una aplicación determinada. Solo se incluyen los usuarios que han iniciado sesión "*correctamente*" en una aplicación.
 
 **Inicios de sesión de dispositivo**: este informe le ayuda a comprender los diversos perfiles de dispositivo usados dentro de su organización y a determinar las directivas de dispositivo según el uso. Se proporcionan datos sobre el tipo de sistema operativo y los exploradores usados para iniciar sesión en las aplicaciones, junto con información detallada sobre los usuarios, por ejemplo:
 
@@ -65,17 +65,17 @@ También puede filtrar los resultados mediante la selección de una fecha o ubic
 
 ## <a name="customize-azure-ad-activity-content-pack"></a>Personalizar el paquete de contenido de actividad de Azure AD
 
-**Cambio de la visualización**: para cambiar la visualización de un informe, haga clic en **Editar informe** y seleccione la visualización que desee.
+**Cambio de la visualización**:  para cambiar la visualización de un informe, haga clic en **Editar informe** y seleccione la visualización que desee.
  
 ![Paquete de contenido de Power BI de Azure Active Directory](./media/howto-power-bi-content-pack/09.png) 
  
 ![Paquete de contenido de Power BI de Azure Active Directory](./media/howto-power-bi-content-pack/10.png) 
 
-**Inclusión de campos adicionales**: puede agregar un campo al informe o quitarlo seleccionando el objeto visual que desea agregar o quitar en el campo. Por ejemplo, puede agregar el campo "estado de inicio de sesión" a la vista de tabla, tal como se muestra a continuación. 
+**Inclusión de campos adicionales**:  puede agregar un campo al informe o quitarlo seleccionando el objeto visual que desea agregar o quitar en el campo. Por ejemplo, puede agregar el campo "estado de inicio de sesión" a la vista de tabla, tal como se muestra a continuación. 
  
 ![Paquete de contenido de Power BI de Azure Active Directory](./media/howto-power-bi-content-pack/11.png) 
 
-**Anclar visualizaciones al panel**: puede personalizar el panel. Así, puede incluir sus propias visualizaciones en el informe y anclar este informe al panel. 
+**Anclado de visualizaciones al panel**:  puede personalizar el panel. Así, puede incluir sus propias visualizaciones en el informe y anclar este informe al panel. 
 
 ![Paquete de contenido de Power BI de Azure Active Directory](./media/howto-power-bi-content-pack/13.png) 
  

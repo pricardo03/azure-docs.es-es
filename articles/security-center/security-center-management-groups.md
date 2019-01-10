@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
+ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: cb70c99d56cb1d09e561a44a90fd6c007ea9b59f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f05c0469dffa074501a301802412901ead3d1e69
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964124"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720822"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtención de visibilidad de todos los inquilinos en Azure Security Center
 Este artículo le ayuda con la realización de varias acciones que maximizan las ventajas que proporciona Azure Security Center. La realización de estas acciones le permite obtener visibilidad en todas las suscripciones de Azure que están vinculadas al inquilino de Azure Active Directory y administrar de un modo eficaz la posición de seguridad de la organización a escala mediante la aplicación de directivas de seguridad en varias suscripciones de forma agregada.
@@ -71,19 +71,19 @@ Un administrador de inquilino de Azure Active Directory no tiene acceso directo 
 
    ![Propiedades de Azure AD, captura de pantalla](./media/security-center-management-groups/aad-properties.png)
 
-3. En **El administrador global puede administrar las suscripciones a Azure y los grupos de administración**, seleccione **Sí**.
+3. En **Access management for Azure resources** (Administración de acceso a recursos de Azure), establezca el modificador en **Sí**.
 
    ![El administrador global puede gestionar las suscripciones s Azure y los grupos de administración (captura de pantalla)](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
 
-   - Si selecciona **Sí**, se agrega la cuenta de administrador global (usuario conectado actualmente) al rol de administrador de accesos de usuario en RBAC de Azure en el ámbito raíz (`/`), que le concede acceso para ver e informar sobre todas las suscripciones a Azure asociadas al inquilino de Azure AD.
+   - Al establecer el modificador en Sí, se le asigna el rol de administrador de acceso de usuario en Azure RBAC en el ámbito raíz (/). Esto le concede permiso para asignar roles en todas las suscripciones de Azure y los grupos de administración asociados a este directorio de Azure AD. Este modificador solo está disponible para los usuarios que tienen asignado el rol de administrador global de Azure AD.
 
-   - Si selecciona **No**, se quita la cuenta de administrador global (usuario conectado actualmente) del rol de administrador de accesos de usuario en RBAC de Azure. No se pueden ver todas las suscripciones a Azure asociadas con el inquilino de Azure AD. Solo se pueden ver y administrar las suscripciones a Azure a las que se le ha concedido acceso.
+  - Al establecer el modificador en No, se quita el rol de administrador de acceso de usuario en Azure RBAC de su cuenta de usuario. Ya no puede asignar roles en todas las suscripciones de Azure y los grupos de administración asociados a este directorio de Azure AD. Puede ver y administrar solo las suscripciones de Azure y los grupos de administración a los que se le ha concedido acceso.
 
 4. Haga clic en **Guardar** para guardar la configuración.
 
     - Esta configuración no es una propiedad global y se aplica solo al usuario que tiene la sesión iniciada.
 
-5. Realice las tareas que debe realizar con privilegios de acceso elevados. Cuando haya terminado, establezca el conmutador de nuevo en **No**.
+5. Realice las tareas que debe realizar al tener privilegios elevados de acceso. Cuando haya terminado, establezca el conmutador de nuevo en **No**.
 
 
 ### <a name="assign-rbac-roles-to-users"></a>Asignación de roles de RBAC a los usuarios

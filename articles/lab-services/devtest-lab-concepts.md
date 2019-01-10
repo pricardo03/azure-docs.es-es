@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: ce0c51a3b97c57095a336128919c5e27f860905b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1e35513d5a5a799b1f5e45cf9a5aa97c083e2087
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38676477"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725208"
 ---
 # <a name="devtest-labs-concepts"></a>Conceptos de DevTest Labs
 ## <a name="overview"></a>Información general
@@ -29,16 +29,16 @@ La lista siguiente contiene las definiciones y los conceptos clave de DevTest La
 Un laboratorio es la infraestructura que abarca un grupo de recursos, como máquinas virtuales (VM), que permite una mejor administración de esos recursos especificando límites y cuotas.
 
 ## <a name="virtual-machine"></a>Máquina virtual
-Una máquina virtual de Azure es uno de los distintos tipos de [recursos informáticos a petición y escalables](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm) que ofrece Azure. Las máquinas virtuales de Azure proporcionan la flexibilidad de virtualización sin necesidad de comprar y mantener el hardware físico que la ejecuta, aunque todavía es necesario mantener la máquina virtual mediante la realización de ciertas tareas, como configurar, aplicar revisiones e instalar el software que se ejecuta en la máquina virtual.
+Una máquina virtual de Azure es uno de los distintos tipos de [recursos informáticos a petición y escalables](https://docs.microsoft.com/azure/app-service/overview-compare) que ofrece Azure. Las máquinas virtuales de Azure proporcionan la flexibilidad de virtualización sin necesidad de comprar y mantener el hardware físico que la ejecuta, aunque todavía es necesario mantener la máquina virtual mediante la realización de ciertas tareas, como configurar, aplicar revisiones e instalar el software que se ejecuta en la máquina virtual.
 
 [Información general sobre las máquinas virtuales Windows en Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview) proporciona información sobre lo que se debe considerar antes de crear una máquina virtual, cómo crearla y cómo administrarla.
 
 ## <a name="claimable-vm"></a>Creación de máquinas virtuales reclamables
-Una máquina virtual reclamable de Azure Claimable es una que está disponible para que pueda usarla cualquier usuario de laboratorio con permisos. Un administrador de laboratorio puede preparar las máquinas virtuales con los artefactos y las imágenes base específicas, y guardarlas en un grupo compartido. Luego, un usuario de laboratorio puede solicitar una máquina virtual de trabajo del grupo cuando necesite una con esa configuración concreta.
+Una máquina virtual reclamable de Azure Claimable es una que está disponible para que pueda usarla cualquier usuario de laboratorio con permisos. Un administrador de laboratorio puede preparar las máquinas virtuales con los artefactos y las imágenes base específicas y guardarlas en un grupo compartido. Luego, un usuario de laboratorio puede solicitar una máquina virtual de trabajo del grupo cuando necesite una con esa configuración concreta.
 
 Una máquina virtual reclamable no se asigna inicialmente a ningún usuario concreto, pero se mostrará en la lista de todos los usuarios en "Claimable virtual machines" (Máquinas virtuales reclamables). Después de que un usuario reclame una máquina virtual, se mueve hasta su área "Mis máquinas virtuales" y ya no podrá reclamarla otro usuario.
 
-## <a name="environment"></a>Environment
+## <a name="environment"></a>Entorno
 En DevTest Labs, un entorno hace referencia a una colección de recursos de Azure en un laboratorio. [Esta entrada de blog](https://blogs.msdn.microsoft.com/devtestlab/2016/11/16/connect-2016-news-for-azure-devtest-labs-azure-resource-manager-template-based-environments-vm-auto-shutdown-and-more/) describe cómo crear entornos de varias máquinas virtuales a partir de las plantillas de Azure Resource Manager.
 
 ## <a name="base-images"></a>Imágenes base

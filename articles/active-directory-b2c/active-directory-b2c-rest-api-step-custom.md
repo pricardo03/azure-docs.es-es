@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dddb42f53d4bb59113df937799bd4de10d31491c
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 5102f2b43819c279d0087754b29a616812e5a5f2
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338786"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556567"
 ---
-# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Tutorial: Integración de intercambios de notificaciones de API de REST en los recorridos de usuario de Azure AD B2C como un paso de orquestación
+# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Tutorial: Integración de intercambios de notificaciones de API REST en los recorridos de usuario de Azure AD B2C como un paso de orquestación
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -33,7 +33,7 @@ El IEF envía datos en notificaciones y recibe los datos en notificaciones. El i
 
 Puede usar las notificaciones recibidas posteriormente para cambiar el flujo de ejecución.
 
-También puede diseñar la interacción como un perfil de validación. Para obtener más información, vea [Tutorial: Integración de intercambios de notificaciones de API de REST en los recorridos de usuario de Azure AD B2C como validación en entradas de usuario](active-directory-b2c-rest-api-validation-custom.md).
+También puede diseñar la interacción como un perfil de validación. Para más información, consulte [Tutorial: Integración de intercambios de notificaciones de API REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario](active-directory-b2c-rest-api-validation-custom.md).
 
 La situación es que cuando un usuario realiza una edición de perfil, nos gustaría:
 
@@ -45,9 +45,9 @@ La situación es que cuando un usuario realiza una edición de perfil, nos gusta
 
 - Configuración de un inquilino de Azure AD B2C para completar el registro o inicio de sesión de una cuenta local como se describe en [Introducción](active-directory-b2c-get-started-custom.md).
 - Un punto de conexión de API de REST con el que interactuar. Este tutorial usa como ejemplo un webhook simple de la aplicación de función de Azure.
-- *Recomendado*: realice el [tutorial sobre el intercambio de notificaciones de API de REST como paso de validación](active-directory-b2c-rest-api-validation-custom.md).
+- *Recomendaciones*: siga el [Tutorial sobre el intercambio de notificaciones de API REST como paso de validación](active-directory-b2c-rest-api-validation-custom.md).
 
-## <a name="step-1-prepare-the-rest-api-function"></a>Paso 1: Preparación de la función de API de REST
+## <a name="step-1-prepare-the-rest-api-function"></a>Paso 1: Preparación de la función de API REST
 
 > [!NOTE]
 > La configuración de funciones de la API de REST está fuera del ámbito de este artículo. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) proporciona un excelente conjunto de herramientas para crear servicios de RESTful en la nube.
@@ -79,7 +79,7 @@ return request.CreateResponse<ResponseContent>(
 
 Una aplicación de función de Azure facilita la obtención de la dirección URL de la función, lo que incluye el identificador de la función específica. En este caso, la dirección URL es: https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==. Puede usarla para realizar pruebas.
 
-## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>Paso 2: Configuración del intercambio de notificaciones de API de RESTful como perfil técnico en el archivo TrustFrameworkExtensions.xml
+## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>Paso 2: Configuración del intercambio de notificaciones de API RESTful como perfil técnico en el archivo TrustFrameworkExtensions.xml
 
 Un perfil técnico es la configuración completa del intercambio deseado con el servicio RESTful. Abra el archivo TrustFrameworkExtensions.xml y agregue el siguiente fragmento de código XML dentro del elemento `<ClaimsProvider>`.
 
@@ -97,6 +97,7 @@ Un perfil técnico es la configuración completa del intercambio deseado con el 
                 <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==</Item>
                 <Item Key="AuthenticationType">None</Item>
                 <Item Key="SendClaimsIn">Body</Item>
+                <Item Key="AllowInsecureAuthInProduction">true</Item>
             </Metadata>
             <InputClaims>
                 <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="email" />
@@ -114,7 +115,7 @@ El elemento `<InputClaims>` define las notificaciones que se enviarán desde el 
 
 El elemento `<OutputClaims>` define las notificaciones que esperará el IEF del servicio REST. Independientemente del número de notificaciones que se reciban, el IEF solo usa las identificadas aquí. En este ejemplo, una notificación recibida como `city` se asignará a una notificación del IEF denominada `city`.
 
-## <a name="step-3-add-the-new-claim-city-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>Paso 3: Adición de la nueva notificación `city` al esquema de su archivo TrustFrameworkExtensions.xml
+## <a name="step-3-add-the-new-claim-city-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>Paso 3: Incorporación de la nueva notificación `city` al esquema del archivo TrustFrameworkExtensions.xml
 
 La notificación `city` todavía no se ha definido en ninguna parte de nuestro esquema. Por lo tanto, debe agregar una definición dentro del elemento `<BuildingBlocks>`. Encontrará dicho elemento al principio del archivo TrustFrameworkExtensions.xml.
 
@@ -232,8 +233,8 @@ Después de agregar la nueva notificación, el perfil técnico tendrá el siguie
 
 Sobrescriba las versiones existentes de la directiva.
 
-1.  (Opcional) Guarde la versión existente (mediante descarga) del archivo de extensiones antes de continuar. Para mantener baja la complejidad inicial, se recomienda no cargar varias versiones del archivo de extensiones.
-2.  (Opcional) Cambie el nombre de la nueva versión del identificador de directiva del archivo de edición de directiva. Para ello, cambie `PolicyId="B2C_1A_TrustFrameworkProfileEdit"`.
+1.  (Opcional): guarde la versión existente (mediante descarga) del archivo de extensiones antes de continuar. Para mantener baja la complejidad inicial, se recomienda no cargar varias versiones del archivo de extensiones.
+2.  (Opcional): cambie el nombre de la nueva versión del identificador de directiva del archivo de edición de directiva; para ello, cambie `PolicyId="B2C_1A_TrustFrameworkProfileEdit"`.
 3.  Cargue el archivo de extensiones.
 4.  Cargue el archivo de RP de edición de directiva.
 5.  Use **Ejecutar ahora** para probar la directiva. Revise el token devuelto por el IEF a la aplicación.

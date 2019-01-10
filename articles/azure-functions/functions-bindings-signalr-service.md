@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/23/2018
 ms.author: cshoe
-ms.openlocfilehash: 74092f57b3531a037aee71d433c33dddf8c2b694
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7a7063b9177774c5207746283dc7cd25e3dd5793
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001794"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721893"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Enlaces de SignalR Service para Azure Functions
 
@@ -62,7 +62,7 @@ public static SignalRConnectionInfo GetSignalRInfo(
 
 #### <a name="authenticated-tokens"></a>Tokens autenticados
 
-Si la función la desencadena un cliente autenticado, puede agregar una notificación del identificador de usuario al token generado. Puede agregar fácilmente la autenticación a una aplicación de función mediante [Autenticación de App Service] (../app-service/app-service-authentication-overview.md).
+Si la función la desencadena un cliente autenticado, puede agregar una notificación del identificador de usuario al token generado. Puede agregar fácilmente la autenticación a una aplicación de función mediante la [Autenticación de App Service] (../app-service/overview-authentication-authorization.md).
 
 Autenticación de App Service establece encabezados HTTP denominados `x-ms-client-principal-id` y `x-ms-client-principal-name` que contienen el identificador y el nombre de la entidad de seguridad de cliente del usuario autenticado, respectivamente. Puede establecer la propiedad `UserId` del enlace en el valor de cualquiera de los encabezados mediante una [expresión de enlace](functions-triggers-bindings.md#binding-expressions-and-patterns): `{headers.x-ms-client-principal-id}` o `{headers.x-ms-client-principal-name}`. 
 
@@ -108,7 +108,7 @@ module.exports = function (context, req, connectionInfo) {
 
 #### <a name="authenticated-tokens"></a>Tokens autenticados
 
-Si la función la desencadena un cliente autenticado, puede agregar una notificación del identificador de usuario al token generado. Puede agregar fácilmente la autenticación a una aplicación de función mediante [Autenticación de App Service] (../app-service/app-service-authentication-overview.md).
+Si la función la desencadena un cliente autenticado, puede agregar una notificación del identificador de usuario al token generado. Puede agregar fácilmente la autenticación a una aplicación de función mediante la [Autenticación de App Service] (../app-service/overview-authentication-authorization.md).
 
 Autenticación de App Service establece encabezados HTTP denominados `x-ms-client-principal-id` y `x-ms-client-principal-name` que contienen el identificador y el nombre de la entidad de seguridad de cliente del usuario autenticado, respectivamente. Puede establecer la propiedad `userId` del enlace en el valor de cualquier encabezado mediante una [expresión de enlace](functions-triggers-bindings.md#binding-expressions-and-patterns): `{headers.x-ms-client-principal-id}` o `{headers.x-ms-client-principal-name}`. 
 

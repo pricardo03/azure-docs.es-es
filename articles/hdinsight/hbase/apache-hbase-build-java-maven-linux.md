@@ -9,30 +9,30 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.openlocfilehash: dbcb031b49c529bc2b2524cd0984bbef1945d485
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 1eab8b248fd8ad42adf8c0a747565fed9bbc14e8
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164065"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652564"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Compilar aplicaciones Java para Apache HBase
 
-Aprenda a crear una aplicación [HBase de Apache](http://hbase.apache.org/) en Java. Luego, use esa aplicación con HBase en Azure HDInsight.
+Aprenda a crear una aplicación [HBase de Apache](https://hbase.apache.org/) en Java. Luego, use esa aplicación con HBase en Azure HDInsight.
 
 En los pasos descritos en este documento se usa [Apache Maven](https://maven.apache.org/) para crear y compilar el proyecto. Maven es una herramienta de administración y comprensión de proyectos de software que le permite compilar software, documentación e informes para proyectos Java.
 
-> [!NOTE]
+> [!NOTE]  
 > Los pasos descritos en este documento se han probado recientemente con HDInsight 3.6.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Los pasos descritos en este documento requieren un clúster de HDInsight que use Linux. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="requirements"></a>Requisitos
 
 * [JDK de la plataforma Java 8](https://aka.ms/azure-jdks) o posterior.
 
-    > [!NOTE]
+    > [!NOTE]  
     > HDInsight 3.5 y las versiones posteriores necesitan Java 8. Las versiones anteriores de HDInsight requieren Java 7.
 
 * [Apache Maven](https://maven.apache.org/)
@@ -49,14 +49,14 @@ En los pasos descritos en este documento se usa [Apache Maven](https://maven.apa
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > Si va a usar PowerShell, deberá poner comillas dobles alrededor de los parámetros `-D`.
     >
     > `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=hbaseapp" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`
 
     Esta acción crea un directorio con el mismo nombre que el parámetro **artifactID** (**hbaseapp** en este ejemplo). Este directorio raíz contiene los siguientes elementos:
 
-   * **pom.xml**:  el modelo de objetos de proyectos ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contiene la información y los detalles de configuración usados para compilar el proyecto.
+   * **pom.xml**:  el modelo de objetos de proyectos ([POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contiene la información y los detalles de configuración usados para compilar el proyecto.
    * **src**: directorio que a su vez contiene el directorio **main\java\com\microsoft\examples**, donde creará la aplicación.
 
 3. Elimine el archivo `src/test/java/com/microsoft/examples/apptest.java`. No lo vamos a usar en este ejemplo.
@@ -78,9 +78,9 @@ En los pasos descritos en este documento se usa [Apache Maven](https://maven.apa
     </dependency>
    ```
 
-    En esta sección se indica que el proyecto necesita los componentes **hbase-client** y **phoenix-core**. En tiempo de compilación, estas dependencias se descargan del repositorio de Maven predeterminado. Puede usar la [búsqueda del repositorio central de Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) para ver más información sobre esta dependencia.
+    En esta sección se indica que el proyecto necesita los componentes **hbase-client** y **phoenix-core**. En tiempo de compilación, estas dependencias se descargan del repositorio de Maven predeterminado. Puede usar la [búsqueda del repositorio central de Maven](https://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) para ver más información sobre esta dependencia.
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > El número de versión de hbase-client debe coincidir con la versión de Apache HBase que se proporciona con el clúster de HDInsight. Utilice la siguiente tabla para buscar el número de versión correcto.
 
    | Versión del clúster de HDInsight | Versión de Apache HBase que se va a utilizar |
@@ -88,7 +88,7 @@ En los pasos descritos en este documento se usa [Apache Maven](https://maven.apa
    | 3.2 |0.98.4-hadoop2 |
    | 3.3, 3.4, 3.5 y 3.6 |1.1.2 |
 
-    Para obtener más información sobre las versiones de HDInsight y los componentes, consulte [¿Cuáles son los diferentes componentes de Hadoop disponibles con HDInsight?](../hdinsight-component-versioning.md)
+    Para más información sobre las versiones y componentes de HDInsight, consulte [¿Cuáles son los diferentes componentes de Hadoop disponibles con HDInsight?](../hdinsight-component-versioning.md)
 
 3. Agregue el siguiente código al archivo **pom.xml**. Este texto debe estar dentro de las etiquetas `<project>...</project>` en el archivo; por ejemplo, entre `</dependencies>` y `</project>`.
 
@@ -139,10 +139,10 @@ En los pasos descritos en este documento se usa [Apache Maven](https://maven.apa
 
     Esta sección configura un recurso (`conf/hbase-site.xml`) que contiene información de configuración de HBase.
 
-   > [!NOTE]
+   > [!NOTE]  
    > También puede establecer los valores de configuración mediante código. Vea los comentarios en el ejemplo `CreateTable`.
 
-    Esta sección también configura [Maven Compiler Plugin](http://maven.apache.org/plugins/maven-compiler-plugin/) y [Maven Shade Plugin](http://maven.apache.org/plugins/maven-shade-plugin/). El complemento compiler se usa para compilar la topología. El complemento shade se usa para evitar la duplicación de licencias en el paquete JAR compilado por Maven. Este complemento se usa para evitar errores por "archivos de licencia duplicados" en tiempo de ejecución en el clúster de HDInsight. El uso del complemento maven-shade-plugin con la implementación de `ApacheLicenseResourceTransformer` evita este error.
+    Esta sección también configura los complementos [Apache Maven Compiler](https://maven.apache.org/plugins/maven-compiler-plugin/) y [Apache Maven Shade](https://maven.apache.org/plugins/maven-shade-plugin/). El complemento compiler se usa para compilar la topología. El complemento shade se usa para evitar la duplicación de licencias en el paquete JAR compilado por Maven. Este complemento se usa para evitar errores por "archivos de licencia duplicados" en tiempo de ejecución en el clúster de HDInsight. El uso del complemento maven-shade-plugin con la implementación de `ApacheLicenseResourceTransformer` evita este error.
 
     El complemento maven-shade-plugin también producirá un uberjar, que contiene todas las dependencias que necesita la aplicación.
 
@@ -357,7 +357,7 @@ En los pasos descritos en este documento se usa [Apache Maven](https://maven.apa
 
 2. Cuando el comando finalice, el directorio `hbaseapp/target` contendrá un archivo denominado `hbaseapp-1.0-SNAPSHOT.jar`.
 
-   > [!NOTE]
+   > [!NOTE]  
    > El archivo `hbaseapp-1.0-SNAPSHOT.jar` es un archivo uber-jar. Contiene todas las dependencias necesarias para ejecutar la aplicación.
 
 

@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/1/2018
 ms.author: victorh
-ms.openlocfilehash: c0084580a2e4860f24aecd37232f38da2e55ccc8
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 8e5f48e42a2a677622dae0b733f9d5af484d1c51
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578439"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605813"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends"></a>Compatibilidad de Application Gateway con servidores back-end multiinquilino
 
-Azure Application Gateway admite conjuntos de escalado de máquinas virtuales, interfaces de red, IP públicas/privadas o nombres de dominio completos (FQDN) como parte de sus grupos de servidores back-end. De forma predeterminada, la puerta de enlace de aplicaciones no cambia el encabezado del host HTTP de entrada del cliente y lo envía sin alterar al back-end. Hay muchos servicios, como [Azure Web Apps](../app-service/app-service-web-overview.md) que son multiinquilino por naturaleza y dependen de un encabezado de host específico o de una extensión SNI para resolverse en el punto de conexión correcto. Application Gateway admite ahora la posibilidad de que los usuarios sobrescriban el encabezado del host HTTP de entrada en función de la configuración de HTTP del back-end. Esta funcionalidad permite la compatibilidad con servidores back-end multiinquilino, Azure Web Apps y API Management. Esta funcionalidad está disponible para las SWU estándar y WAF. La compatibilidad con servidores back-end multiinquilino también funciona con escenarios de terminación de SSL y de SSL de extremo a extremo.
+Azure Application Gateway admite conjuntos de escalado de máquinas virtuales, interfaces de red, IP públicas/privadas o nombres de dominio completos (FQDN) como parte de sus grupos de servidores back-end. De forma predeterminada, la puerta de enlace de aplicaciones no cambia el encabezado del host HTTP de entrada del cliente y lo envía sin alterar al back-end. Hay muchos servicios, como [Azure App Service](../app-service/overview.md) que son multiinquilino por naturaleza y dependen de un encabezado de host específico o de una extensión SNI para resolverse en el punto de conexión correcto. Application Gateway admite ahora la posibilidad de que los usuarios sobrescriban el encabezado del host HTTP de entrada en función de la configuración de HTTP del back-end. Esta funcionalidad permite la compatibilidad con servidores back-end multiinquilino, Azure Web Apps y API Management. Esta funcionalidad está disponible para las SWU estándar y WAF. La compatibilidad con servidores back-end multiinquilino también funciona con escenarios de terminación de SSL y de SSL de extremo a extremo.
 
 > [!NOTE]
 > La configuración del certificado de autenticación no es necesaria para servicios de Azure de confianza, como Azure Web Apps.
@@ -36,4 +36,4 @@ Con esta funcionalidad, los clientes especifican las opciones en la configuraci�
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para aprender a configurar una puerta de enlace de aplicaciones con una aplicación web como miembro del grupo de servidores back-end, visite [Configuración de App Service Web Apps con Application Gateway](application-gateway-web-app-powershell.md).
+Para aprender a configurar una puerta de enlace de aplicaciones con una aplicación web como miembro del grupo de servidores de back-end, visite: [Configuración de aplicaciones web de App Service con Application Gateway](application-gateway-web-app-powershell.md)

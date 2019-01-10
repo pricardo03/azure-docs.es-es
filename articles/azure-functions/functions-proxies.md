@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 18398326e21ac6f3d64e43a577cf7d57cfb23438
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 413decee89e99b8120d271e2e87e703d4d362c33
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139527"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999295"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Uso de Azure Functions Proxies
 
@@ -161,7 +161,7 @@ Puede deshabilitar servidores proxy individuales añadiendo `"disabled": true` a
             "matchCondition": {
                 "route": "/example"
             },
-            "backendUri": "www.example.com"
+            "backendUri": "https://<AnotherApp>.azurewebsites.net/api/<FunctionName>"
         }
     }
 }
@@ -176,12 +176,13 @@ El comportamiento del proxy puede controlarse mediante varias opciones de config
 
 ### <a name="reservedChars"></a> Caracteres reservados (formato de cadena)
 
-Los servidores proxy leen todas las cadenas sin interpretación, a excepción de llaves y barras diagonales.
+Los proxies leen todas las cadenas en la notación de cadena C#, mediante \\\\\\ como símbolo de escape. Los proxies también interpretan las llaves. Consulte a continuación un conjunto completo de ejemplos.
 
 |Character|Carácter de escape|Ejemplo|
 |-|-|-|
 |{ o }|{{ o }}|`{{ example }}` --> `{ example }`
-|/|///| `example.com///text.html` --> `example.com/text.html`
+| \ | \\\\\\\\ | `example.com\\\text.html` --> `example.com\text.html`
+|"|\\\\\\"| `\\\"example\\\"` --> `"example"`
 
 ### <a name="requestOverrides"></a>Definición de un objeto requestOverrides
 

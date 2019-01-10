@@ -11,19 +11,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 1/08/2019
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 67e1e22bc5569e7d6e20332ee86ffe4c7dd6a354
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 6d28eea434b081602f0e2455b22fcc58022a800e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343850"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117120"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Administración del registro de inquilinos en Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack*
 
 En este artículo se incluye información acerca de las operaciones de registro. Puede usar estas operaciones para:
 - Administrar el registro de inquilinos
@@ -59,7 +59,7 @@ Para más información sobre los perfiles de la API y Azure Stack, consulte [Adm
 
 ### <a name="powershell"></a>PowerShell
 
-Utilice el cmdlet New-AzureRmResource para actualizar el recurso de registro. Inicie sesión en Azure (`Add-AzureRmAccount`) con la cuenta que ha usado para el registro inicial. Este es un ejemplo de cómo agregar un inquilino:
+Utilice el cmdlet New-AzureRmResource para actualizar el recurso de registro. Este es un ejemplo de cómo agregar un inquilino:
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -67,7 +67,7 @@ Utilice el cmdlet New-AzureRmResource para actualizar el recurso de registro. In
 
 ### <a name="api-call"></a>Llamada a la API
 
-**Operación**: PUT  
+**Operation**: PUT  
 **URI de solicitud**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
 {customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
 **Respuesta**: 201 Creado  
@@ -100,7 +100,7 @@ Use el cmdlet Get-AzureRmResource para enumerar todos los inquilinos registrados
 
 Puede obtener una lista de todas las asignaciones de inquilinos mediante la operación GET.
 
-**Operación**: GET  
+**Operation**: GET  
 **URI de solicitud**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
 /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?  
 api-version=2017-06-01 HTTP/1.1`  
@@ -149,11 +149,11 @@ Puede quitar un inquilino que se haya agregado a un registro. Si ese inquilino t
 
 Se pueden quitar las asignaciones de inquilinos mediante la operación DELETE.
 
-**Operación**: DELETE  
+**Operation**: DELETE  
 **URI de solicitud**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
 /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
 {customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
-**Respuesta**: 204 Sin contenido  
+**Respuesta**: 204 No Content  
 **Cuerpo de respuesta**: Vacío
 
 ## <a name="next-steps"></a>Pasos siguientes

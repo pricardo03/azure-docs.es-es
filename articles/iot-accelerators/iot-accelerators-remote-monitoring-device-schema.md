@@ -2,24 +2,27 @@
 title: 'Esquema de dispositivos en una solución de supervisión remota: Azure | Microsoft Docs'
 description: En este artículo se describe el esquema JSON que define un dispositivo simulado en la solución de supervisión remota.
 author: dominicbetts
-manager: timlt
+manager: philmea
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 01/29/2018
+ms.date: 12/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: f312f29e14c371e7b500f3eee6471151e3544513
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 54e21e0b5f522b226ec1abb71a1c5ab5b245df05
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338862"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635534"
 ---
 # <a name="understand-the-device-model-schema"></a>Descripción del esquema de modelo del dispositivo
 
-Puede usar dispositivos simulados en la solución Supervisión remota para probar su comportamiento. Al implementar la solución Supervisión remota, se aprovisiona automáticamente una colección de dispositivos simulados. Puede personalizar los dispositivos simulados existentes o crear los suyos propios.
+Puede usar dispositivos simulados en la solución Supervisión remota para probar su comportamiento. La solución Supervisión remota incluye un servicio de simulación de dispositivos para ejecutar dispositivos simulados. Al implementar la solución Supervisión remota, se aprovisiona automáticamente una colección de dispositivos simulados. Puede personalizar los dispositivos simulados existentes o crear los suyos propios.
 
 En este artículo se describe el esquema de modelo del dispositivo que especifica las características y el comportamiento de un dispositivo simulado. El modelo del dispositivo se almacena en un archivo JSON.
+
+> [!NOTE]
+> El esquema de este modelo de dispositivo es solo para dispositivos simulados que se hospedan en el servicio de simulación del dispositivo. Si quiere crear un dispositivo físico, consulte [Conectar el dispositivo al acelerador de la solución Supervisión remota](iot-accelerators-connecting-devices.md).
 
 Los siguientes artículos están relacionadas con el artículo actual:
 

@@ -10,20 +10,20 @@ ms.component: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: scottwhi
-ms.openlocfilehash: 40b9685c56dd494e82c05bff9ed75f425a3006ff
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 39468a4a143d184fcc964ae88f82ad7254e4f3b0
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886634"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53741749"
 ---
 # <a name="examples-of-bing-insights-usage"></a>Ejemplos del uso de la información de Bing
 
-Esta sección contiene ejemplos de cómo Bing puede mostrar información en Bing.com.
+Este artículo contiene ejemplos de cómo Bing puede mostrar y usar información de imágenes en Bing.com.
 
 ## <a name="pagesincluding-insight-example"></a>Ejemplo de páginas que incluyen la información
 
-A continuación se muestra cómo Bing puede mostrar páginas web que incluyan la imagen. En el ejemplo se muestra un vínculo a la primera página web y permite al usuario expandir y contraer la lista de otras páginas web que incluyen la imagen.
+En el ejemplo siguiente se muestra un vínculo a la primera página web y el usuario puede expandir y contraer la lista de otras páginas web que incluyen la imagen.
 
 ![Páginas expandidas con información](./media/pages-including.PNG)
 
@@ -83,9 +83,7 @@ Las etiquetas no predeterminadas incluyen el rectángulo delimitador que identif
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para revisar el código JSON detrás de estos ejemplos, consulte la [información predeterminada](default-insights-tag.md) y la [respuesta JSON](overview.md#the-response).
-
-Para empezar a trabajar rápidamente con la primera solicitud, consulte las guías de inicio rápido sobre [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)
+Para empezar a trabajar rápidamente con la primera solicitud, consulte los artículos de inicio rápido: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
 
 
 

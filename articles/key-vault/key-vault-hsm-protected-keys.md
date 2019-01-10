@@ -1,5 +1,5 @@
 ---
-title: Cómo generar y transferir claves protegidas con HSM para Azure Key Vault | Microsoft Docs
+title: 'Generación y transferencia de claves protegidas con HSM para Azure Key Vault: Azure Key Vault | Microsoft Docs'
 description: Use este artículo para ayudarle a planear, generar y, a continuación, transfiera sus propias claves protegidas con HSM para utilizar con Azure Key Vault. También se denomina BYOK o "traiga su propia clave".
 services: key-vault
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 01/02/2019
 ms.author: barclayn
-ms.openlocfilehash: 2294e65a552b0bf0a428e5272610abc1f63229e6
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 44c1406c8ecd8c5ff103fed4d105ecd64d16c358
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308297"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002474"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Generación y transferencia de claves protegidas con HSM para Azure Key Vault
 
@@ -46,7 +46,7 @@ Obtenga más información acerca de cómo generar y transferir una clave protegi
 
 Thales e-Security es uno de los principales proveedores mundiales de soluciones de cifrado de datos y ciberseguridad para servicios financieros, tecnología punta, industria manufacturera, gobierno y sectores tecnológicos. Las soluciones de Thales cuentan con una trayectoria de 40 años en la protección de información corporativa y gubernamental, y las usan cuatro de las cinco mayores compañías de los sectores energético y aeroespacial. También las utilizan 22 países de la OTAN y protegen más del 80 por ciento de las transacciones de pago mundiales.
 
-Microsoft ha colaborado con Thales para mejorar la tecnología de vanguardia de los HSM. Estas mejoras te permiten obtener los beneficios típicos de los servicios hospedados sin tener que renunciar al control de las claves. En concreto, estas mejoras permiten que Microsoft administre los HSM para que no lo tengan que hacer sus usuarios. Al ser un servicio en la nube, Azure Key Vault se escala verticalmente en muy poco tiempo para cubrir los picos de uso de cualquier organización. Al mismo tiempo, la clave está protegida dentro de los HSM de Microsoft y se conserva el control sobre su ciclo de vida, ya que es el usuario el que genera la clave y la transfiere a los HSM de Microsoft.
+Microsoft ha colaborado con Thales para mejorar la tecnología de vanguardia de los HSM. Estas mejoras te permiten obtener los beneficios típicos de los servicios hospedados sin tener que renunciar al control de las claves. En concreto, estas mejoras permiten que Microsoft administre los HSM para que no lo tengan que hacer sus usuarios. Al ser un servicio en la nube, Azure Key Vault se escala verticalmente en muy poco tiempo para cubrir los picos de uso de cualquier organización. Al mismo tiempo, la clave está protegida dentro de los HSM de Microsoft: El usuario conserva el control sobre el ciclo de vida de la clave ya que es el que genera la clave y la transfiere a los HSM de Microsoft.
 
 ## <a name="implementing-bring-your-own-key-byok-for-azure-key-vault"></a>Implementación del método Aportar tu propia clave (BYOK) en Azure Key Vault
 
@@ -58,32 +58,32 @@ En la tabla siguiente puede ver una lista de los requisitos previos del método 
 
 | Requisito | Más información |
 | --- | --- |
-| Una suscripción a Azure |Para crear un almacén de claves de Azure, se necesita una suscripción a Azure: [Regístrese para obtener la versión de prueba gratuita](https://azure.microsoft.com/pricing/free-trial/) |
+| Una suscripción a Azure |Para crear una instancia de Azure Key Vault, se necesita una suscripción a Azure: [Suscríbase ahora para disfrutar de una prueba gratis](https://azure.microsoft.com/pricing/free-trial/). |
 | Nivel de servicio Premium de Azure Key Vault, que admita claves protegidas con HSM |Para obtener más información sobre los niveles de servicio y las funcionalidades de Azure Key Vault, consulte el sitio web [Precios de Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) . |
 | HSM de Thales, tarjetas inteligentes y software compatible |Debe tener acceso al módulo de seguridad de hardware de Thales y al conocimiento operacional básico de los HSM de Thales. Para ver la lista de modelos compatibles o comprar un HSM, consulte [Módulo de seguridad de hardware de Thales](https://www.thales-esecurity.com/msrms/buy) . |
-| El siguiente hardware y software:<ol><li>Una estación de trabajo x64 sin conexión con un sistema operativo Windows 7 y software Thales nShield versión 11.50 o superior.<br/><br/>Si esta estación de trabajo ejecuta Windows 7, debe [instalar Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Una estación de trabajo conectada a Internet y con un sistema operativo Windows 7 como mínimo y [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.7.0) **con al menos la versión 1.1.0** instalada.</li><li>Una unidad USB u otro dispositivo de almacenamiento portátil con al menos 16 MB de espacio libre.</li></ol> |Por seguridad, se recomienda que la primera estación de trabajo no esté conectada a una red. Sin embargo, esta recomendación no es de obligado cumplimiento.<br/><br/>Tenga en cuenta que en las instrucciones siguientes, esta estación de trabajo se conoce como la desconectada.</p></blockquote><br/>Además, si la clave de inquilino es para una red de producción, se recomienda usar una segunda estación de trabajo independiente para descargar el conjunto de herramientas y cargar la clave de inquilino. Sin embargo, para la prueba puede usar la misma estación de trabajo que la primera.<br/><br/>Tenga en cuenta que en las instrucciones siguientes, la segunda estación de trabajo se conoce como la que está conectada a Internet.</p></blockquote><br/> |
+| El siguiente hardware y software:<ol><li>Una estación de trabajo x64 sin conexión con un sistema operativo Windows 7 y software Thales nShield versión 11.50 o superior.<br/><br/>Si esta estación de trabajo ejecuta Windows 7, debe [instalar Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Una estación de trabajo conectada a Internet y con un sistema operativo Windows 7 como mínimo y [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.7.0) **con al menos la versión 1.1.0** instalada.</li><li>Una unidad USB u otro dispositivo de almacenamiento portátil con al menos 16 MB de espacio libre.</li></ol> |Por seguridad, se recomienda que la primera estación de trabajo no esté conectada a una red. Sin embargo, esta recomendación no es de obligado cumplimiento.<br/><br/>En las instrucciones siguientes, esta estación de trabajo se conoce como la desconectada.</p></blockquote><br/>Además, si la clave de inquilino es para una red de producción, se recomienda usar una segunda estación de trabajo independiente para descargar el conjunto de herramientas y cargar la clave de inquilino. Sin embargo, para la prueba puede usar la misma estación de trabajo que la primera.<br/><br/>En las instrucciones siguientes, la segunda estación de trabajo se conoce como la que está conectada a Internet.</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>Generación y transferencia de una clave a un HSM de Azure Key Vault
 
 Los cinco pasos siguientes sirven para generar y transferir la clave a un HSM de Azure Key Vault:
 
-* [Paso 1: preparación de la estación de trabajo conectada a Internet](#step-1-prepare-your-internet-connected-workstation)
-* [Paso 2: preparación de la estación de trabajo desconectada](#step-2-prepare-your-disconnected-workstation)
-* [Paso 3: generación de la clave](#step-3-generate-your-key)
-* [Paso 4: preparación de la clave para la transferencia](#step-4-prepare-your-key-for-transfer)
-* [Paso 5: transferencia de la clave a Azure Key Vault](#step-5-transfer-your-key-to-azure-key-vault)
+* [Paso 1: Preparación de la estación de trabajo conectada a Internet](#step-1-prepare-your-internet-connected-workstation)
+* [Paso 2: Preparación de la estación de trabajo desconectada](#step-2-prepare-your-disconnected-workstation)
+* [Paso 3: Generación de la clave](#step-3-generate-your-key)
+* [Paso 4: Preparación de la clave para la transferencia](#step-4-prepare-your-key-for-transfer)
+* [Paso 5: Transferencia de la clave a Azure Key Vault](#step-5-transfer-your-key-to-azure-key-vault)
 
-## <a name="step-1-prepare-your-internet-connected-workstation"></a>Paso 1: preparación de la estación de trabajo conectada a Internet
+## <a name="step-1-prepare-your-internet-connected-workstation"></a>Paso 1: Preparación de la estación de trabajo conectada a Internet
 
 En este primer paso, realice los siguientes procedimientos en la estación de trabajo conectada a Internet.
 
-### <a name="step-11-install-azure-powershell"></a>Paso 1.1: instalación de Azure PowerShell
+### <a name="step-11-install-azure-powershell"></a>Paso 1.1: Instalar Azure Powershell
 
 Desde la estación de trabajo conectada a Internet, descargue e instale el módulo de Azure PowerShell que incluye los cmdlets para administrar Azure Key Vault. Esto requiere una versión mínima de 0.8.13.
 
 Para ver las instrucciones de instalación, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview).
 
-### <a name="step-12-get-your-azure-subscription-id"></a>Paso 1.2: especificación del identificador de la suscripción a Azure
+### <a name="step-12-get-your-azure-subscription-id"></a>Paso 1.2: Obtención del identificador de la suscripción a Azure
 
 Inicie una sesión de Azure PowerShell e inicie sesión en su cuenta de Azure con el siguiente comando:
 
@@ -99,7 +99,7 @@ En la salida, busque el identificador de la suscripción que va a utilizar para 
 
 No cierre la ventana de Azure PowerShell.
 
-### <a name="step-13-download-the-byok-toolset-for-azure-key-vault"></a>Paso 1.3: descarga del conjunto de herramientas BYOK para Azure Key Vault
+### <a name="step-13-download-the-byok-toolset-for-azure-key-vault"></a>Paso 1.3: Descarga del conjunto de herramientas BYOK para Azure Key Vault
 
 Vaya al Centro de descarga de Microsoft y [descargue el conjunto de herramientas de BYOK para Azure Key Vault](https://www.microsoft.com/download/details.aspx?id=45345) de su región geográfica o instancia de Azure. Utilice la siguiente información para identificar el nombre del paquete para descargar y su hash de paquete SHA-256 correspondiente:
 
@@ -219,11 +219,11 @@ El conjunto de herramientas incluye:
 
 Copie el paquete en una unidad USB u otro dispositivo de almacenamiento portátil.
 
-## <a name="step-2-prepare-your-disconnected-workstation"></a>Paso 2: preparación de la estación de trabajo desconectada
+## <a name="step-2-prepare-your-disconnected-workstation"></a>Paso 2: Preparación de la estación de trabajo desconectada
 
 En este segundo paso, realice los siguientes procedimientos en la estación de trabajo que no está conectada a una red (Internet o la red interna).
 
-### <a name="step-21-prepare-the-disconnected-workstation-with-thales-hsm"></a>Paso 2.1: preparación de la estación de trabajo desconectada con HSM de Thales
+### <a name="step-21-prepare-the-disconnected-workstation-with-thales-hsm"></a>Paso 2.1: Preparación de la estación de trabajo desconectada con HSM de Thales
 
 Instale el software nCipher (Thales) en un equipo de Windows y, a continuación, adjunte un HSM de Thales a dicho equipo.
 
@@ -235,7 +235,7 @@ Asegúrese de que las herramientas de Thales estén en su ruta de acceso (**%nfa
 
 Para obtener más información, consulte el Manual del usuario que se incluye en el HSM de Thales.
 
-### <a name="step-22-install-the-byok-toolset-on-the-disconnected-workstation"></a>Paso 2.2: instalación del conjunto de herramientas BYOK en la estación de trabajo desconectada
+### <a name="step-22-install-the-byok-toolset-on-the-disconnected-workstation"></a>Paso 2.2: Instalación del conjunto de herramientas BYOK en la estación de trabajo desconectada
 
 Copie el paquete del conjunto de herramientas BYOK de la unidad USB, u otro dispositivo de almacenamiento portátil, y, a continuación, haga lo siguiente:
 
@@ -243,16 +243,16 @@ Copie el paquete del conjunto de herramientas BYOK de la unidad USB, u otro disp
 2. En esa carpeta, ejecute vcredist_x64.exe.
 3. Siga las instrucciones para instalar los componentes de tiempo de ejecución de Visual C++ para Visual Studio 2013.
 
-## <a name="step-3-generate-your-key"></a>Paso 3: generación de la clave
+## <a name="step-3-generate-your-key"></a>Paso 3: Generación de la clave
 
 En el tercer paso, realice los siguientes procedimientos en la estación de trabajo desconectada. Para completar este paso, HSM debe estar en modo de inicialización. 
 
 
-### <a name="step-31-change-the-hsm-mode-to-i"></a>Paso 3.1: cambio del modo HSM a "I"
+### <a name="step-31-change-the-hsm-mode-to-i"></a>Paso 3.1: Cambio del modo HSM a "I"
 
 Si está usando Thales nShield Edge, para cambiar el modo: 1. Use el botón de modo para resaltar el modo requerido. 2. Después de un momento, mantenga presionado el botón Borrar durante un par de segundos. Si el modo cambia, el LED del nuevo modo deja de parpadear y permanece encendido. El LED del estado puede parpadear irregularmente durante algunos segundos y, luego, parpadea regularmente cuando el dispositivo está listo. En caso contrario, el dispositivo permanece en el modo actual, con el modo correspondiente de LED encendido.
 
-### <a name="step-32-create-a-security-world"></a>Paso 3.2: creación de un espacio de seguridad
+### <a name="step-32-create-a-security-world"></a>Paso 3.2: Creación de un espacio de seguridad
 
 Inicie un símbolo del sistema y ejecute el programa new-world de Thales.
 
@@ -266,11 +266,11 @@ A continuación, haga lo siguiente:
 
 * Realice una copia de seguridad del archivo del espacio. Proteja dicho archivo, las tarjetas de administrador y sus PIN, y asegúrese de que nadie tiene acceso a más de una tarjeta.
 
-### <a name="step-33-change-the-hsm-mode-to-o"></a>Paso 3.3: cambio del modo HSM a "O"
+### <a name="step-33-change-the-hsm-mode-to-o"></a>Paso 3.3: Cambio del modo HSM a "O"
 
 Si está usando Thales nShield Edge, para cambiar el modo: 1. Use el botón de modo para resaltar el modo requerido. 2. Después de un momento, mantenga presionado el botón Borrar durante un par de segundos. Si el modo cambia, el LED del nuevo modo deja de parpadear y permanece encendido. El LED del estado puede parpadear irregularmente durante algunos segundos y, luego, parpadea regularmente cuando el dispositivo está listo. En caso contrario, el dispositivo permanece en el modo actual, con el modo correspondiente de LED encendido.
 
-### <a name="step-34-validate-the-downloaded-package"></a>Paso 3.4: validación del paquete descargado
+### <a name="step-34-validate-the-downloaded-package"></a>Paso 3.4: Validación del paquete descargado
 
 Este paso es opcional, pero se recomienda realizarlo para poder validar estos elementos:
 
@@ -338,7 +338,7 @@ Este script valida la cadena del firmante hasta la clave raíz de Thales. El has
 
 Ya está listo para crear una nueva clave.
 
-### <a name="step-35-create-a-new-key"></a>Paso 3.5: creación de una nueva clave
+### <a name="step-35-create-a-new-key"></a>Paso 3.5: Creación de una nueva clave
 
 Genere una clave con el programa **generatekey** de Thales.
 
@@ -363,11 +363,11 @@ Realice una copia del archivo tokenizado en una ubicación segura.
 
 Ya está listo para transferir la clave a Azure Key Vault.
 
-## <a name="step-4-prepare-your-key-for-transfer"></a>Paso 4: preparación de la clave para la transferencia
+## <a name="step-4-prepare-your-key-for-transfer"></a>Paso 4: Preparación de la clave para la transferencia
 
 En este paso, realice los siguientes procedimientos en la estación de trabajo desconectada.
 
-### <a name="step-41-create-a-copy-of-your-key-with-reduced-permissions"></a>Paso 4.1: creación de una copia de la clave con menos permisos
+### <a name="step-41-create-a-copy-of-your-key-with-reduced-permissions"></a>Paso 4.1: Creación de una copia de la clave con permisos reducidos
 
 Abra un nuevo símbolo del sistema y cambie el directorio actual a la ubicación en la que descomprimió el archivo zip de BYOK. Para reducir los permisos en su clave, desde un símbolo del sistema, ejecute uno de los siguientes comandos, en función de su región geográfica o instancia de Azure:
 
@@ -414,7 +414,7 @@ Abra un nuevo símbolo del sistema y cambie el directorio actual a la ubicación
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UK-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UK-1
 
-Cuando ejecute este comando, reemplace *contosokey* por el valor que especificó en el **Paso 3.5: creación de una nueva clave** del paso [Generación de la clave](#step-3-generate-your-key).
+Cuando ejecute este comando, reemplace *contosokey* por el valor que especificó en el **Paso 3.5: Creación de una nueva clave** del paso [Generación de la clave](#step-3-generate-your-key).
 
 Se le pedirá que conecte sus tarjetas de administrador del espacio de seguridad.
 
@@ -428,9 +428,9 @@ Puede inspeccionar ACLS mediante los comandos siguientes utilizando las herramie
 * kmfile-dump.exe:
 
         "%nfast_home%\bin\kmfile-dump.exe" "%NFAST_KMDATA%\local\key_xferacld_contosokey"
-  Cuando ejecute estos comandos, reemplace contosokey por el mismo valor que especificó en el **Paso 3.5: creación de una nueva clave** del paso [Generación de la clave](#step-3-generate-your-key) .
+  Cuando ejecute estos comandos, reemplace contosokey por el mismo valor que especificó en el **Paso 3.5: Creación de una nueva clave** del paso [Generación de la clave](#step-3-generate-your-key).
 
-### <a name="step-42-encrypt-your-key-by-using-microsofts-key-exchange-key"></a>Paso 4.2: cifrado de la clave mediante la clave de intercambio de claves de Microsoft
+### <a name="step-42-encrypt-your-key-by-using-microsofts-key-exchange-key"></a>Paso 4.2: Cifrado de la clave mediante la clave de intercambio de claves de Microsoft
 
 Ejecute uno de los comandos siguientes, dependiendo de su región geográfica o la instancia de Azure:
 
@@ -479,13 +479,13 @@ Ejecute uno de los comandos siguientes, dependiendo de su región geográfica o 
 
 Cuando ejecute este comando, siga estas instrucciones:
 
-* Reemplace *contosokey* por el identificador que usó para generar la clave en el **Paso 3.5: creación de una nueva clave** del paso [Generación de la clave](#step-3-generate-your-key) .
-* Reemplace *SubscriptionID* por el identificador de la suscripción de Azure con Key Vault. Este valor lo recuperó anteriormente, en el **paso 1.2: especificación del identificador de la suscripción de Azure** del paso de [preparación de la estación de trabajo conectada a Internet](#step-1-prepare-your-internet-connected-workstation).
+* Reemplace *contosokey* por el identificador que usó para generar la clave en el **Paso 3.5: Creación de una nueva clave** del paso [Generación de la clave](#step-3-generate-your-key).
+* Reemplace *SubscriptionID* por el identificador de la suscripción de Azure con Key Vault. Este valor lo recuperó anteriormente, en el **Paso 1.2: Obtención del identificador de la suscripción de Azure** del paso [Preparación de la estación de trabajo conectada a Internet](#step-1-prepare-your-internet-connected-workstation).
 * Reemplace *ContosoFirstHSMKey* por una etiqueta que se usará para el nombre del archivo de salida.
 
-Cuando la operación se complete correctamente, se mostrará **Result: SUCCESS** y habrá un nuevo archivo en la carpeta actual que tendrá el siguiente nombre: KeyTransferPackage-*ContosoFirstHSMkey*.byok.
+Cuando se complete correctamente, muestra **Result: SUCCESS** y hay un nuevo archivo en la carpeta actual que tiene el siguiente nombre: KeyTransferPackage-*ContosoFirstHSMkey*.byok
 
-### <a name="step-43-copy-your-key-transfer-package-to-the-internet-connected-workstation"></a>Paso 4.3: copia del paquete de transferencia de claves a la estación de trabajo conectada a Internet
+### <a name="step-43-copy-your-key-transfer-package-to-the-internet-connected-workstation"></a>Paso 4.3: Copia del paquete de transferencia de claves a la estación de trabajo conectada a Internet
 
 Utilice una unidad USB u otro dispositivo de almacenamiento portátil para copiar el archivo de salida del paso anterior (KeyTransferPackage-ContosoFirstHSMkey.byok) a la estación de trabajo conectada a Internet.
 

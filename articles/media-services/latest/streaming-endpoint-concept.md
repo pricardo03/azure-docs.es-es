@@ -9,22 +9,22 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/20/2018
 ms.author: juliako
-ms.openlocfilehash: 9d3aad92f5b0130f83e3023a2fdca5710d544311
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8f3bcc3c631f17880c66e482234effcc4ea6424d
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256058"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744558"
 ---
 # <a name="streaming-endpoints"></a>Extremos de streaming
 
-En Microsoft Azure Media Services (AMS), la entidad [Puntos de conexión de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) representa un servicio de streaming que puede entregar contenido directamente a una aplicación de reproducción cliente o a una red Content Delivery Network (CDN) para la distribución posterior. La secuencia de salida del servicio de punto de conexión de streaming puede ser streaming en vivo o un recurso de vídeo a petición en la cuenta de Media Services. Cuando se crea una cuenta de Media Services, se genera automáticamente un punto de conexión de streaming **predeterminado** en estado detenido. No se puede eliminar el punto de conexión de streaming predeterminado. Es posible crear puntos de conexión de streaming adicionales en la cuenta. Para iniciar el streaming de vídeos, debe iniciar el punto de conexión de streaming. 
+En Microsoft Azure Media Services (AMS), la entidad [Puntos de conexión de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) representa un servicio de streaming que puede entregar contenido directamente a una aplicación de reproducción cliente o a una red Content Delivery Network (CDN) para la distribución posterior. La secuencia de salida del servicio de punto de conexión de streaming puede ser streaming en vivo o un recurso de vídeo a petición en la cuenta de Media Services. Cuando se crea una cuenta de Media Services, se genera automáticamente un punto de conexión de streaming **predeterminado** en estado detenido. No se puede eliminar el punto de conexión de streaming **predeterminado**. Es posible crear puntos de conexión de streaming adicionales en la cuenta. Para iniciar el streaming de vídeos, debe iniciar el punto de conexión de streaming desde el cual quiere reproducir el vídeo. 
 
 ## <a name="streamingendpoint-types"></a>Tipos de StreamingEndpoint  
 
-Existen dos tipos de **StreamingEndpoint**: **estándar** y **premium**. El tipo se define por el número de unidades de escalado (`scaleUnits`) que se asignan para el punto de conexión de streaming. 
+Existen dos tipos de **StreamingEndpoint**: **Estándar** y **Premium**. El tipo se define por el número de unidades de escalado (`scaleUnits`) que se asignan para el punto de conexión de streaming. 
 
 En la tabla se describen los tipos:  
 
@@ -49,7 +49,7 @@ En esta sección se proporcionan detalles sobre algunas de las propiedades de St
 
 |Propiedad|DESCRIPCIÓN|  
 |--------------|----------|
-|`accessControl`|Se usa para configurar las siguientes opciones de seguridad para el punto de conexión de streaming: claves de autenticación de encabezado de firma de Akamai y direcciones IP que pueden conectarse a este punto de conexión.<br />Esta propiedad se puede establecer cuando la propiedad `cdnEnabled` se establece en false.|  
+|`accessControl`|Se usa para configurar las siguientes opciones de seguridad para este punto de conexión de streaming: Claves de autenticación de encabezado de firma de Akamai y direcciones IP que puedan conectarse a este punto de conexión.<br />Esta propiedad se puede establecer cuando la propiedad `cdnEnabled` se establece en false.|  
 |`cdnEnabled`|Indica si la integración de Azure CDN para este punto de conexión de streaming está habilitada (está deshabilitada de forma predeterminada).<br /><br /> Si establece la propiedad `cdnEnabled` en true, se deshabilitarán las siguientes configuraciones: `customHostNames` y `accessControl`.<br /><br />No todos los centros de datos admiten la integración de Azure CDN. Para comprobar si su centro de datos tiene disponible la integración de la red Azure CDN, haga lo siguiente:<br /><br /> - Pruebe de establecer el valor de `cdnEnabled` en true.<br /><br /> - Compruebe el resultado devuelto de `HTTP Error Code 412` (PreconditionFailed) con el mensaje "Streaming endpoint CdnEnabled property cannot be set to true as CDN capability is not available in the current region" (La propiedad CdnEnabled de punto de conexión de streaming no se puede establecer en true ya que la capacidad de red CDN no está disponible en la región actual).<br /><br /> Si recibe este error, el centro de datos no la admite. Debe probar otro centro de datos.|  
 |`cdnProfile`|Cuando la propiedad `cdnEnabled` está establecida en true, también puede pasar valores `cdnProfile`. El valor `cdnProfile` es el nombre del perfil CDN donde se creará el punto de conexión CDN. Puede proporcionar un cdnProfile existente o usar uno nuevo. Si el valor es NULL y `cdnEnabled` es true, se utiliza el valor predeterminado "AzureMediaStreamingPlatformCdnProfile". Si el valor `cdnProfile` proporcionado ya existe, se crea un punto de conexión debajo de él. Si el perfil no existe, se crea un nuevo perfil automáticamente.|
 |`cdnProvider`|Cuando la red CDN está habilitada, también se pueden pasar valores `cdnProvider`. El valor `cdnProvider` controla qué proveedor se utilizará. Actualmente, se admiten tres valores: "StandardVerizon", "PremiumVerizon" y "StandardAkamai". Si no se proporciona ningún valor y la propiedad `cdnEnabled` es true, se utiliza "StandardVerizon" (es decir, es el valor predeterminado).|

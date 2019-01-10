@@ -4,93 +4,120 @@ description: Respuestas a preguntas habituales sobre cómo funciona la copia de 
 services: backup
 author: trinadhk
 manager: shreeshd
-keywords: copia de seguridad de máquinas virtuales de azure, restauración de máquinas virtuales de azure, directiva de copia de seguridad
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: ff97d164ee8b2059e1b46377067041d6c381052b
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.openlocfilehash: 6ec178a8cb457973f39ea2dd929a3486a7696c55
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50753974"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972199"
 ---
-# <a name="questions-about-the-azure-vm-backup-service"></a>Preguntas sobre el servicio de copia de seguridad de Azure Virtual Machines
-En este artículo se incluyen respuestas a preguntas habituales para ayudarle a comprender rápidamente los componentes del servicio Backup de Azure Virtual Machines. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. También se pueden publicar preguntas sobre el servicio Azure Backup en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+# <a name="frequently-asked-questions-azure-backup"></a>Preguntas más frecuentes sobre Azure Backup
 
-## <a name="configure-backup"></a>Configuración de la copia de seguridad
-### <a name="do-recovery-services-vaults-support-classic-vms-or-resource-manager-based-vms-br"></a>¿Admiten los almacenes de Recovery Services máquinas virtuales implementadas con el modelo clásico o máquinas virtuales implementadas con Resource Manager? <br/>
-Los almacenes de Recovery Services admiten ambos modelos.  Puede realizar copias de seguridad de una VM clásica o una VM de Resource Manager en un almacén de Recovery Services.
+En este artículo se responde a preguntas habituales sobre el servicio [Azure Backup](backup-introduction-to-azure-backup.md).
 
-### <a name="what-configurations-are-not-supported-by-azure-vm-backup"></a>¿Qué configuraciones no se admiten en la copia de seguridad de máquinas virtuales de Azure?
-Consulte los [sistemas operativos admitidos](backup-azure-arm-vms-prepare.md#supported-operating-systems-for-backup) y las [limitaciones de la copia de seguridad de máquinas virtuales](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
+## <a name="general-questions"></a>Preguntas generales
 
-### <a name="why-cant-i-see-my-vm-in-configure-backup-wizard"></a>¿Por qué no aparece mi máquina virtual en el Asistente para configuración de la copia de seguridad?
-En el Asistente para configuración de la copia de seguridad, Azure Backup solo muestra máquinas virtuales con los siguientes criterios:
-  * No están aún protegidas: para comprobar el estado de copia de seguridad de una máquina virtual, vaya a la hoja de la máquina virtual y compruebe el estado en el menú Configuración. Aprenda más sobre cómo [comprobar el estado de copia de seguridad de una máquina virtual](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-operations-menu).
-  * Pertenece a la misma región que la máquina virtual
+
+### <a name="what-azure-vms-can-you-back-up-using-azure-backup"></a>¿De qué máquinas virtuales de Azure puede realizar copias de seguridad mediante Azure Backup?
+[Revise](backup-azure-arm-vms-prepare.md#before-you-start) los sistemas operativos compatibles y las limitaciones.
+
+
 
 ## <a name="backup"></a>Copia de seguridad
-### <a name="will-on-demand-backup-job-follow-same-retention-schedule-as-scheduled-backups"></a>¿Seguirá el trabajo de copia de seguridad a petición la misma programación de retención que las copias de seguridad programadas?
-No. Para un trabajo de copia de seguridad a petición debe especificar el intervalo de retención. De forma predeterminada, se conservará durante 30 días cuando se desencadene desde el portal.
+
+### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>¿Usa un trabajo de copia de seguridad a petición la misma programación de retención que las copias de seguridad programadas?
+ No. Para un trabajo de copia de seguridad a petición debe especificar el intervalo de retención. De forma predeterminada, se conservará durante 30 días si se desencadena desde el portal.
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>Recientemente habilité Azure Disk Encryption en algunas máquinas virtuales. ¿Seguirán funcionando mis copias de seguridad?
-Para acceder a Key Vault, debe conceder permisos para el servicio Azure Backup. Puede proporcionar estos permisos en PowerShell mediante los pasos que se indican en la sección sobre *cómo habilitar Backup* de la documentación de [PowerShell](backup-azure-vms-automation.md).
+Para acceder a Key Vault, debe conceder permisos para el servicio Azure Backup. Especifique los permisos en PowerShell como se indica en la sección **Habilitar copia de seguridad** de la documentación sobre [PowerShell de Azure Backup](backup-azure-vms-automation.md).
 
-### <a name="i-migrated-disks-of-a-vm-to-managed-disks-will-my-backups-continue-to-work"></a>Migré los discos de una máquina virtual a discos administrados. ¿Seguirán funcionando mis copias de seguridad?
-Sí, las copias de seguridad funcionan a la perfección y sin necesidad de volver a configurar la copia de seguridad.
+### <a name="i-migrated-vm-disks-to-managed-disks-will-my-backups-continue-to-work"></a>Migré los discos de una máquina virtual a discos administrados. ¿Seguirán funcionando mis copias de seguridad?
+Sí, las copias de seguridad funcionan sin problemas. No hay necesidad de volver a configurar nada.
+
+### <a name="why-cant-i-see-my-vm-in-the-configure-backup-wizard"></a>¿Por qué no aparece mi máquina virtual en el asistente para configuración de la copia de seguridad?
+El asistente solo muestra las máquinas virtuales que están en la misma región que el almacén y de las que no se está realizando copia de seguridad.
+
 
 ### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>Mi máquina virtual está apagada. ¿Funcionará un trabajo de copia de seguridad a petición o programado?
-Sí. Incluso cuando una máquina virtual está apagada, las copias de seguridad funcionan y se marca el punto de recuperación como coherente frente a bloqueos. Para más información, consulte la sección de coherencia de datos en [este artículo](backup-azure-vms-introduction.md#how-does-azure-back-up-virtual-machines)
+Sí. Las copias de seguridad se ejecutan cuando una máquina está apagada. El punto de recuperación se marca como coherente frente a bloqueos.
 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>¿Puedo cancelar un trabajo de copia de seguridad en curso?
-Sí. Puede cancelar el trabajo de copia de seguridad si se encuentra en la fase denominada "Tomando instantánea". **No puede cancelar un trabajo si la transferencia de datos de la instantánea está en curso**.
+Sí. Puede cancelar el trabajo de copia de seguridad si se encuentra en el estado **Tomando instantánea**. No puede cancelar un trabajo si la transferencia de datos desde la instantánea está en curso.
 
 ### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>Habilité el bloqueo de grupo de recursos en las máquinas virtuales de mi disco administrado con copia de seguridad. ¿Seguirán funcionando mis copias de seguridad?
-Si el usuario bloquea el grupo de recursos, el servicio de Backup no puede eliminar los puntos de restauración anteriores. Debido a esto, las copias de seguridad nuevas comienzan a presentar errores debido a que hay un límite de 18 puntos de restauración que impone el back-end. Si las copias de seguridad presentan un error interno después del bloqueo de grupo de recursos, siga estos [pasos para quitar la colección de puntos de restauración](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal).
+Si bloquea el grupo de recursos, el servicio Azure Backup no podrá eliminar los puntos de restauración anteriores.
+- Como hay un límite máximo de 18 puntos de restauración, las nuevas copias de seguridad comienzan a generar error.
+- Si las copias de seguridad presentan un error interno después del bloqueo, [siga estos pasos](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) para quitar la colección de puntos de restauración.
 
-### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>¿Tiene en cuenta la directiva de copia de seguridad el horario de verano?
-No. Tenga en cuenta que la fecha y la hora de su equipo se muestran en la hora local y con la diferencia del horario de verano actual. Por lo tanto, la hora de las copias de seguridad programadas puede diferir de la hora local debido al horario de verano.
+### <a name="does-the-backup-policy-consider-daylight-saving-time-dst"></a>¿Tiene la directiva de copia de seguridad en cuenta el horario de verano (DST)?
+ No. La fecha y hora del equipo local tiene el valor local actualizado con el horario de verano actual aplicado. Puede que el establecimiento de la hora de las copias de seguridad programadas difiera de la hora local debido al horario de verano.
 
-### <a name="maximum-of-how-many-data-disks-can-i-attach-to-a-vm-to-be-backed-up-by-azure-backup"></a>¿Cuántos discos de datos se pueden conectar como máximo a una máquina virtual para realizar copias de seguridad con Azure Backup?
-Azure Backup admite ahora la copia de seguridad de máquinas virtuales con hasta 16 discos. Para obtener la compatibilidad con 16 discos, [actualice a la versión 2 de la pila de Azure VM Backup](backup-upgrade-to-vm-backup-stack-v2.md). A partir del 24 de septiembre de 2018 se admitirán todas las máquinas virtuales que habiliten la protección.
+### <a name="how-many-data-disks-can-i-attach-to-a-vm-backed-up-by-azure-backup"></a>¿Cuántos discos de datos se pueden conectar a una máquina virtual de la cual Azure Backup ha realizado una copia de seguridad?
+Azure Backup puede realizar una copia de seguridad de máquinas virtuales con hasta 16 discos. Se proporciona compatibilidad con 16 discos en la [versión 2 más reciente](backup-upgrade-to-vm-backup-stack-v2.md) de la pila de copia de seguridad de máquinas virtuales de Azure.
 
-### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>¿Azure Backup admite las instancias SSD estándar de Managed Disks?
-Azure Backup admite las [instancias SSD estándar de Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/), un nuevo tipo de almacenamiento duradero para Microsoft Azure Virtual Machines. Es compatible con discos administrados en la [versión 2 de la pila de copia de seguridad de máquinas virtuales de Azure](backup-upgrade-to-vm-backup-stack-v2.md).
+### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>¿Admite Azure Backup los discos administrados SSD estándar?
+Azure Backup admite los [discos administrados SSD estándar](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). Estos discos proporcionan un nuevo tipo de almacenamiento duradero para las máquinas virtuales de Azure. Se proporciona compatibilidad con los discos administrados SSD en la [versión 2 más reciente](backup-upgrade-to-vm-backup-stack-v2.md) de la pila de copia de seguridad de máquinas virtuales de Azure.
+
+### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>¿Podemos realizar copias de seguridad de una máquina virtual con un disco habilitado para el Acelerador de escritura?
+No se pueden tomar instantáneas en un disco habilitado para el Acelerador de escritura. No obstante, el servicio Azure Backup puede excluir este tipo de disco de la copia de seguridad. La exclusión de discos habilitados para el Acelerador de escritura de las máquinas virtuales solo se admite en las suscripciones actualizadas de la versión 2 de la pila de copia de seguridad de máquinas virtuales de Azure. Para actualizar a la versión 2 de la pila de copia de seguridad de máquinas virtuales de Azure, consulte este [artículo](backup-upgrade-to-vm-backup-stack-v2.md). Esta característica está actualmente disponible en las regiones Este de Japón, Europa del Norte, Sudeste Asiático, Este de EE. UU., Oeste de EE. UU. 2, Europa occidental y Este de EE. UU. 2.
+
+
+### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Tengo una máquina virtual con discos habilitados para el Acelerador de escritura (WA) y SAP HANA instalada. ¿Cómo puedo realizar la copia de seguridad?
+Azure Backup no puede realizar la copia de seguridad de un disco habilitado para el Acelerador de escritura pero puede excluirlo de la copia. Sin embargo, la copia de seguridad no proporcionará coherencia de base de datos ya que no se ha realizado la copia de seguridad de la información contenida en este disco. Puede realizar copias de seguridad de discos con esta configuración si desea realizar la copia de seguridad de un disco de sistema operativo y la copia de seguridad de aquellos discos que no estén habilitados para el Acelerador de escritura.
+
+Tenemos una versión preliminar privada para una copia de seguridad de SAP HANA con un RPO de 15 minutos. Se ha creado de modo similar a la copia de seguridad de bases de datos SQL y usa la interfaz backInt para soluciones de terceros certificadas por SAP HANA. Si está interesado en la versión preliminar privada, envíenos un correo electrónico a ` AskAzureBackupTeam@microsoft.com ` con el asunto **Suscripción a la versión preliminar privada de la copia de seguridad de SAP HANA en máquinas virtuales de Azure**.
+
 
 ## <a name="restore"></a>Restauración
-### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>¿Cómo decido entre la restauración de discos frente a restauración completa de máquinas virtuales?
-Considere la restauración completa de máquinas virtuales de Azure como una opción de creación rápida. La opción de restauración de máquinas virtuales cambia los nombres de los discos, los contenedores usados por esos discos, las direcciones IP públicas y los nombres de las interfaces de red. El cambio es obligatorio para mantener la exclusividad de los recursos creados durante la creación de máquinas virtuales. Pero no permitirá agregar la máquina virtual al conjunto de disponibilidad.
 
-Use discos de restauración para:
-  * Personalizar la máquina virtual que se crea a partir de la configuración de restauración a un momento dado, como cambiar el tamaño
-  * Agregar configuraciones que no están presentes en el momento de la copia de seguridad
-  * Controlar la convención de nomenclatura para los recursos que se crean
-  * Agregar una máquina virtual al conjunto de disponibilidad
-  * Para cualquier configuración que solo se puede lograr mediante PowerShell o una definición de plantilla declarativa
+### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>¿Cómo decidir si es necesario restaurar solo los discos o una máquina virtual completa?
+Considere la restauración de máquinas virtuales como una opción de creación rápida para una máquina virtual de Azure. Esta opción cambia los nombres de los discos, los contenedores usados por esos discos, las direcciones IP públicas y los nombres de las interfaces de red. El cambio conserva recursos exclusivos cuando se crea una máquina virtual. La máquina virtual no se agrega a un conjunto de disponibilidad.
 
-### <a name="can-i-use-backups-of-unmanaged-disk-vm-to-restore-after-i-upgrade-my-disks-to-managed-disks"></a>¿Puedo usar copias de seguridad de la VM de disco no administrada que se va a restaurar una vez que actualice mis discos a discos administrados?
-Sí, puede usar las copias de seguridad tomadas antes de migrar los discos de no administrados a administrados. De forma predeterminada, al restaurarse un trabajo de máquina virtual se creará una máquina virtual con discos no administrados. Puede usar la funcionalidad de restauración de discos para restaurar discos y usarlos para crear una máquina virtual en los discos administrados.
+Elija la opción de restauración de disco si desea:
+  * Personalizar la máquina virtual que se crea. Por ejemplo, para cambiar el tamaño.
+  * Agregar opciones de configuración que no existían en el momento de la copia de seguridad
+  * Controlar la convención de nomenclatura para los recursos que se crean.
+  * Agregar la máquina virtual a un conjunto de disponibilidad.
+  * Agregar cualquier otro valor que se deba configurar mediante PowerShell o una plantilla.  w
 
-### <a name="what-is-the-procedure-to-restore-a-vm-to-a-restore-point-taken-before-the-conversion-from-unmanaged-to-managed-disks-was-done-for-a-vm"></a>¿Cuál es el procedimiento para restaurar una máquina virtual a un punto de restauración creado antes de que se realizara la conversión de discos no administrados a administrados para una máquina virtual?
-En este escenario, de forma predeterminada, al restaurar un trabajo de máquina virtual se creará una máquina virtual con discos no administrados. Para crear una máquina virtual con discos administrados:
-1. [Restaure a discos no administrados](tutorial-restore-disk.md#restore-a-vm-disk)
-2. [Convierta los discos restaurados en discos administrados](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk)
-3. [Cree una máquina virtual con discos administrados](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk) <br>
-Para cmdlets de Powershell, consulte [aquí](backup-azure-vms-automation.md#restore-an-azure-vm).
+### <a name="can-i-restore-backups-of-unmanaged-vm-disks-after-i-upgrade-to-managed-disks"></a>¿Puedo restaurar las copias de seguridad de discos de máquinas virtuales no administrados después de actualizar a discos administrados?
+Sí, puede usar las copias de seguridad tomadas antes de migrar los discos de no administrados a administrados.
+- De forma predeterminada, un trabajo de restauración de máquina virtual crea una máquina virtual no administrada.
+- Sin embargo, puede restaurar discos y usarlos para crear una máquina virtual administrada.
 
-### <a name="can-i-restore-the-vm-if-my-vm-is-deleted"></a>¿Puedo restaurar la VM si se ha eliminado la VM?
-Sí. El ciclo de vida de la VM y su correspondiente elemento de copia de seguridad son diferentes. Por lo tanto, incluso si elimina la VM, puede ir al elemento de copia de seguridad correspondiente en el almacén de Recovery Services y desencadenar una restauración con uno de los puntos de recuperación.
+### <a name="how-do-i-restore-a-vm-to-a-restore-point-before-the-vm-was-migrated-to-managed-disks"></a>¿Cómo restauro una máquina virtual a un punto de restauración anterior a la migración de la máquina virtual a discos administrados?
+De forma predeterminada, un trabajo de restauración de máquina virtual se crea una máquina virtual con discos no administrados. Para crear una máquina virtual con discos administrados:
+1. [Restaure a discos no administrados](tutorial-restore-disk.md#restore-a-vm-disk).
+2. [Convierta los discos restaurados en discos administrados](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk).
+3. [Cree una máquina virtual con discos administrados](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk).
+
+[Más información](backup-azure-vms-automation.md#restore-an-azure-vm) sobre cómo hacer esto en PowerShell.
+
+### <a name="can-i-restore-the-vm-thats-been-deleted"></a>¿Puedo restaurar la máquina virtual que se ha eliminado?
+Sí. Incluso si elimina la máquina virtual, puede ir al elemento de la copia de seguridad correspondiente en el almacén y realizar la restauración desde un punto de recuperación.
+
+### <a name="how-to-restore-a-vm-to-the-same-availability-sets"></a>¿Cómo restaurar una máquina virtual en los mismos conjuntos de disponibilidad?
+Para una máquina virtual de Azure con discos administrados, se puede habilitar la restauración en los conjuntos de disponibilidad proporcionando una opción en una plantilla mientras se restaura como discos administrados. Esta plantilla tiene el parámetro de entrada denominado **Conjuntos de disponibilidad**.
+
+### <a name="how-do-we-get-faster-restore-performances"></a>¿Cómo se consiguen rendimientos de restauración más rápidos?
+Para mejorar el rendimiento de restauración, se recomienda actualizar a la versión 2 de la pila de copia de seguridad de máquinas virtuales y usar la [característica Instant RP](backup-upgrade-to-vm-backup-stack-v2.md).
 
 ## <a name="manage-vm-backups"></a>Administrar copias de seguridad de máquina virtual
-### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>¿Qué ocurre cuando se cambia una directiva de copia de seguridad en las máquinas virtuales?
-Cuando se aplica una nueva directiva en las máquinas virtuales, se sigue la programación y retención de la nueva directiva. Si se amplía la retención, los puntos de recuperación existentes se marcarán para mantenerlos de acuerdo con la nueva directiva. Si se reduce la retención, se marcan para eliminarse y, posteriormente, se eliminan en el siguiente trabajo de limpieza.
 
-### <a name="how-can-i-move-a-vm-enrolled-in-azure-backup-between-resource-groups"></a>¿Cómo puedo mover una máquina virtual inscrita en Azure Backup entre grupos de recursos?
-Siga los pasos que aparecen a continuación para mover correctamente la máquina virtual de la que se ha realizado la copia de seguridad al grupo de recursos de destino.
-1. Detenga temporalmente la copia de seguridad y conserve los datos de esta
-2. Traslade la máquina virtual al grupo de recursos de destino
-3. Vuelva a protegerla con el mismo almacén u otro nuevo
+### <a name="what-happens-if-i-modify-a-backup-policy"></a>¿Qué ocurre si se modifica una directiva de copia de seguridad?
+Se realiza la configuración de la máquina virtual con los valores de programación y retención de la directiva nueva o modificada.
 
-Los usuarios pueden restaurar desde los puntos de restauración disponibles creados antes de la operación de traslado.
+- Si se amplía la retención, los puntos de recuperación existentes se marcarán para mantenerlos de acuerdo con la nueva directiva.
+- Si se reduce la retención, se marcarán para eliminarse y, posteriormente, se eliminarán en el siguiente trabajo de limpieza.
+
+### <a name="how-do-i-move-a-vm-backed-up-by-azure-backup-to-a-different-resource-group"></a>¿Cómo se puede mover una máquina virtual de la que Azure Backup ha realizado una copia de seguridad a un grupo de recursos diferente?
+
+1. Detenga temporalmente la copia de seguridad y conserve los datos de esta.
+2. Traslade la máquina virtual al grupo de recursos de destino.
+3. Vuelva a habilitar la copia de seguridad en el mismo almacén o en otro nuevo.
+
+Puede restaurar la máquina virtual desde los puntos de restauración disponibles creados antes de la operación de traslado.

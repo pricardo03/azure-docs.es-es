@@ -11,19 +11,19 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 630961954a235efd5f0cef92dd6a2525ae316838
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f53233edd17fa7097dde67bbce16b1ece668c721
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140037"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554867"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Acceso a conjuntos de datos con Python mediante la biblioteca de cliente de Python de Azure Machine Learning
 La versión preliminar de la biblioteca de cliente de Python de Microsoft Azure Machine Learning puede permitir un acceso seguro a los conjuntos de datos de Azure Machine Learning desde un entorno local de Python, así como la creación y administración de conjuntos de datos en un área de trabajo.
 
 Este tema proporciona instrucciones sobre cómo realizar las siguientes acciones:
 
-* instalar la biblioteca de cliente de Python de Machine Learning; 
+* instalar la biblioteca de cliente de Python de Machine Learning;
 * obtener acceso y cargar conjuntos de datos, con instrucciones sobre cómo obtener autorización para el acceso a conjuntos de datos de Azure Machine Learning desde el entorno local de Python;
 * obtener acceso a los conjuntos de datos intermedios de experimentos;
 * usar la biblioteca de cliente de Python para enumerar conjuntos de datos, obtener acceso a los metadatos, leer el contenido de un conjunto de datos, crear nuevos conjuntos de datos y actualizar conjuntos de datos existentes.
@@ -49,7 +49,7 @@ La biblioteca cliente de Python de Azure Machine Learning también debe instalar
 
     pip install azureml
 
-Como alternativa, puede descargar e instalar desde los orígenes de [github](https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python).
+Como alternativa, puede descargar e instalar desde los fuentes en [GitHub](https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python).
 
     python setup.py install
 
@@ -74,11 +74,11 @@ Si su rol no está establecido como **Propietario**, puede solicitar que se le v
 
 Para obtener el token de autorización, puede realizar una de las acciones siguientes:
 
-* Solicite un token a un propietario. Los propietarios pueden tener acceso a sus tokens de autorización en la página Configuración de su área de trabajo en el Estudio. Seleccione **Configuración** en el panel izquierdo y haga clic en **TOKENS DE AUTORIZACIÓN** para ver los tokens primarios y secundarios.  Aunque se pueden utilizar los tokens de autorización principales y secundarios, se recomienda que los propietarios solo compartan los tokens de autorización secundarios.
+* Solicite un token a un propietario. Los propietarios pueden tener acceso a sus tokens de autorización en la página Configuración de su área de trabajo en el Estudio. Seleccione **Configuración** en el panel izquierdo y haga clic en **TOKENS DE AUTORIZACIÓN** para ver los tokens primarios y secundarios. Aunque se pueden utilizar los tokens de autorización principales y secundarios, se recomienda que los propietarios solo compartan los tokens de autorización secundarios.
 
 ![Tokens de autorización](./media/python-data-access/ml-python-access-settings-tokens.png)
 
-* Pida que le amplíen al rol de propietario.  Para ello, un propietario actual del área de trabajo debe quitarle primero del área de trabajo y, a continuación, volver a invitarle como propietario.
+* Pida que le amplíen al rol de propietario. Para ello, un propietario actual del área de trabajo debe quitarle primero del área de trabajo y, a continuación, volver a invitarle como propietario.
 
 Cuando los desarrolladores hayan obtenido el identificador de área de trabajo y el token de autorización, podrán acceder al área de trabajo usando el fragmento de código independientemente de su rol.
 

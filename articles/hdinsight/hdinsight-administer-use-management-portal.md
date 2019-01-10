@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 378f52f0418c8c99e9ce6ca393ca10a77504698d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4210528003cdb1f584bec3dea80c1aa1db2f86df
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499582"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632032"
 ---
 # <a name="manage-windows-based-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Administración de clústeres de Apache Hadoop basados en Windows en HDInsight mediante la utilización de Azure Portal
 
@@ -55,12 +55,10 @@ HDInsight trabaja con una amplia gama de componentes de Apache Hadoop. Para ver 
 * Use los parámetros de personalización de clústeres de .NET SDK de HDInsight o de Azure PowerShell durante la creación de los clústeres. Estos cambios de configuración se conservan durante toda la vida del clúster y no se ven afectados por el restablecimiento de imágenes de nodos del clúster que la plataforma Azure realiza periódicamente para su mantenimiento. Para obtener más información acerca del uso de los parámetros de personalización de clústeres, consulte [Creación de clústeres de HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 * Algunos de los componentes nativos de Java, como [Apache Mahout](https://mahout.apache.org/) y [Cascading](https://www.cascading.org/), se pueden ejecutar en el clúster como archivos JAR. Estos archivos JAR se pueden distribuir al almacenamiento de blobs de Azure y enviarse a los clústeres de HDInsight usando los mecanismos de envío de trabajo de Hadoop. Para más información, consulte [Envío de trabajos de Apache Hadoop mediante programación](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
-  > [!NOTE]
+  > [!NOTE]  
   > Si tiene problemas con la implementación de los archivos JAR en los clústeres de HDInsight o con la llamada de los archivos JAR en los clústeres de HDInsight, póngase en contacto con [Soporte técnico de Microsoft](https://azure.microsoft.com/support/options/).
   >
   > La presentación en cascada no se admite en HDInsight, y no puede optar a recibir soporte técnico de Microsoft. Para ver las listas de los componentes compatibles, consulte [Novedades en las versiones de clústeres proporcionadas por HDInsight](hdinsight-component-versioning.md).
-  >
-  >
 
 La instalación de software personalizado en el clúster mediante la Conexión a Escritorio remoto no es compatible. Debe evitar el almacenamiento de cualquier archivo en las unidades del nodo principal, debido a que se perderán si necesita volver a crear los clústeres. Recomendamos almacenar los archivos en el almacenamiento de blobs de Azure. El almacenamiento de blobs es persistente.
 
@@ -75,25 +73,22 @@ La instalación de software personalizado en el clúster mediante la Conexión a
     ![Azure Portal: aspectos básicos del clúster de HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-essentials.png)
 
    * Para personalizar el menú, haga clic con el botón derecho en el menú y, después, haga clic en **Personalizar**.
-   * **Configuración** y **Toda la configuración**: Muestra la hoja **Configuración** del clúster, que permite obtener acceso a información de configuración detallada para el clúster.
+   * **Configuración** y **Todas las configuraciones**: muestra la hoja **Configuración** del clúster, que permite obtener acceso a información de configuración detallada para el clúster.
    * **Panel**, **Panel de clúster** y **Dirección URL**: todas son formas de acceder al panel del clúster, que es la web de Ambari para clústeres basados en Linux.
    * **Secure Shell**: muestra las instrucciones para conectarse al clúster mediante la conexión de Secure Shell (SSH).
-   * **Escalar clúster**: Permite cambiar el número de nodos de trabajo para este clúster.
+   * **Escalar clúster**: permite cambiar el número de nodos de trabajo para este clúster.
    * **Eliminar**: elimina el clúster.
    * **Inicio rápido**: muestra información que le ayudará a empezar a usar HDInsight.
    * **Usuarios**: permite establecer permisos para la *administración del portal* de este clúster para otros usuarios de la suscripción de Azure.
 
-     > [!IMPORTANT]
+     > [!IMPORTANT]  
      > Esto *solo* afecta al acceso y a los permisos para este clúster en el Portal de Azure, y no tiene ningún efecto sobre quién puede conectarse o enviar trabajos al clúster de HDInsight.
-     >
-     >
-   * **Etiquetas**: las etiquetas permiten establecer pares clave-valor para definir una taxonomía personalizada de sus Cloud Services. Por ejemplo, puede crear una clave denominada **proyecto**y luego usar un valor común para todos los servicios asociados a un proyecto específico.
-   * **Vistas de Ambari**: se trata de vínculos a la página web de Ambari.
 
-     > [!IMPORTANT]
+   * **Etiquetas**: las etiquetas permiten establecer pares clave-valor para definir una taxonomía personalizada de sus Cloud Services. Por ejemplo, puede crear una clave denominada **proyecto**y luego usar un valor común para todos los servicios asociados a un proyecto específico.
+   * **Vistas de Ambari**: vínculos a la web de Ambari.
+
+     > [!IMPORTANT]  
      > Para administrar los servicios que proporciona el clúster de HDInsight, debe usar la web de Ambari o la API de REST de Ambari. Para más información sobre el uso de Ambari, consulte [Administración de clústeres de HDInsight con Apache Ambari](hdinsight-hadoop-manage-ambari.md).
-     >
-     >
 
      **Uso**
 
@@ -107,27 +102,26 @@ La instalación de software personalizado en el clúster mediante la Conexión a
    * **Claves de Azure Storage**: consulte la cuenta de almacenamiento predeterminada y su clave. La cuenta de almacenamiento se configura durante el proceso de creación del clúster.
    * **Inicio de sesión de clúster**: cambie el nombre de usuario y la contraseña HTTP del clúster.
    * **Tiendas de metadatos externas**: consulte las tiendas de metadatos de [Apache Hive](https://hive.apache.org/) y [Apache Oozie](https://oozie.apache.org/). Las tiendas de metadatos solo pueden configurarse durante el proceso de creación del clúster.
-   * **Escalar clúster**: aumente o disminuya el número de nodos de trabajo del clúster.
+   * **Escalar clúster**: aumente o reduzca el número de nodos de trabajo del clúster.
    * **Escritorio remoto**: habilite y deshabilite el acceso de Escritorio remoto (RDP) y configure el nombre de usuario de RDP.  El nombre de usuario de RDP debe ser diferente del nombre de usuario de HTTP.
    * **Socio de registro**:
 
-     > [!NOTE]
+     > [!NOTE]  
      > Se trata de una lista genérica de opciones de configuración disponibles; no todas ellas estarán presentes en todos los tipos de clúster.
-     >
-     >
+
 6. Haga clic en **Propiedades**.
 
     En la sección de propiedades se muestra lo siguiente:
 
-   * **Nombre del clúster**: nombre del clúster.
+   * **Nombre de host**: Nombre del clúster.
    * **Dirección URL del clúster**.
    * **Estado**: puede ser Aborted, Accepted, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, Operational, Running, Error, Deleting, Deleted, Timedout, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, ClusterCustomization
    * **Región**: ubicación de Azure. Para una lista de ubicaciones de Azure admitidas, vea el cuadro de lista desplegable **Región** en [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
    * **Datos creados**.
    * **Sistema operativo**: **Windows** o **Linux**.
-   * **Tipo**: Hadoop, HBase, Storm, Spark.
+   * **Tipo**: Hadoop, HBase, Storm o Spark.
    * **Versión**. Consulte [Versiones de HDInsight](hdinsight-component-versioning.md)
-   * **Suscripción**: nombre de la suscripción.
+   * **Suscripción**: el nombre de la suscripción.
    * **Id. de suscripción**.
    * **Origen de datos principal**. Cuenta de almacenamiento de blobs de Azure usada como sistema de archivos predeterminado de Hadoop.
    * **Plan de tarifa de los nodos de trabajo**.
@@ -145,10 +139,8 @@ Vea también [Pausa o apagado de clústeres](#pauseshut-down-clusters).
 ## <a name="scale-clusters"></a>Escalado de clústeres
 La característica de escalado de clústeres permite cambiar la cantidad de nodos de trabajo que usa un clúster que se ejecuta en HDInsight de Azure sin necesidad de volver a crear el clúster.
 
-> [!NOTE]
+> [!NOTE]  
 > Solo son compatibles los clústeres con la versión 3.1.3 de HDInsight, o superior. Si no está seguro de la versión del clúster, puede comprobar la página de propiedades.  Consulte [Enumeración y visualización de clústeres](#list-and-show-clusters).
->
->
 
 A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de datos de cada tipo de clúster compatible con HDInsight:
 
@@ -175,7 +167,7 @@ A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de d
   * Interfaz de usuario web de Apache Storm
   * La herramienta de la interfaz de línea de comandos (CLI)
 
-    Consulte la [documentación de Apache Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) para obtener más detalles.
+    Consulte la [documentación de Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) para obtener más detalles.
 
     La interfaz de usuario web de Storm se encuentra disponible en el clúster de HDInsight:
 
@@ -234,10 +226,8 @@ Los clústeres de HDInsight tienen los siguientes servicios web HTTP (todos esto
 
 De manera predeterminada, estos servicios se conceden para el acceso. Puede revocar/conceder el acceso desde el Portal de Azure.
 
-> [!NOTE]
+> [!NOTE]  
 > Al conceder/revocar el acceso, restablecerá el nombre de usuario y la contraseña del clúster.
->
->
 
 **Para conceder/revocar el acceso a los servicios web de HTTP**
 
@@ -264,7 +254,7 @@ Consulte [Enumeración y visualización de clústeres](#list-and-show-clusters).
 ## <a name="open-hdinsight-query-console"></a>Apertura de la consola de consulta de HDInsight
 La consola de consulta de HDInsight incluye las siguientes características:
 
-* **Editor Hive**: interfaz de web de GUI para el envío de trabajos de Hive.  Consulte [Ejecución de consultas de Apache Hive mediante la consola de consulta](hadoop/apache-hadoop-use-hive-query-console.md).
+* **Editor de Hive**: interfaz de web de GUI para el envío de trabajos de Hive.  Consulte [Ejecución de consultas de Apache Hive mediante la consola de consulta](hadoop/apache-hadoop-use-hive-query-console.md).
 
     ![HDInsight portal hive editor](./media/hdinsight-administer-use-management-portal/hdinsight-hive-editor.png)
 * **Historial de trabajos**: supervise los trabajos de Hadoop.  
@@ -300,10 +290,8 @@ También puede usar la utilidad **Examinar el sistema de archivos** de la **IU d
 ## <a name="monitor-cluster-usage"></a>Supervisión del uso de los clústeres
 La sección **Uso** de la hoja del clúster de HDInsight muestra información sobre el número de núcleos disponibles con la suscripción para su uso con HDInsight, así como el número de núcleos asignados al clúster y cómo se asignan a los nodos de este clúster. Vea [Enumeración y visualización de clústeres](#list-and-show-clusters).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Para supervisar los servicios que proporciona el clúster de HDInsight, debe usar la web de Ambari o la API de REST de Ambari. Para más información sobre el uso de Ambari, consulte [Administración de clústeres de HDInsight con Apache Ambari](hdinsight-hadoop-manage-ambari.md).
->
->
 
 ## <a name="open-hadoop-ui"></a>Apertura de la IU de Hadoop
 Para supervisar el clúster, examinar el sistema de archivos y comprobar los registros, haga clic en **UI de Hadoop** en la consola de consulta de HDInsight. Vea [Apertura de la consola de consulta de HDInsight](#open-hdinsight-query-console).
@@ -325,10 +313,8 @@ Las credenciales para el clúster que proporcionó en su creación dan acceso a 
 
     El valor predeterminado de "Expira el" es de una semana.
 
-   > [!NOTE]
+   > [!NOTE]  
    > También puede usar .NET SDK de HDInsight para habilitar el Escritorio remoto en un clúster. Use el método **EnableRdp** en el objeto de cliente de HDInsight de la siguiente manera: **client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. De forma similar, para deshabilitar el Escritorio remoto en el clúster, puede usar **client.DisableRdp(clustername, location)**. Para obtener más información sobre estos métodos, consulte [Referencia de .NET SDK de HDInsight](https://go.microsoft.com/fwlink/?LinkId=529017). Esto solo se aplica a los clústeres de HDInsight que se ejecutan en Windows.
-   >
-   >
 
 **Para conectarse a un clúster con RDP**
 
@@ -347,7 +333,7 @@ Para conectarse al clúster mediante el Escritorio remoto y usar la línea de co
 
     ![HDI.HadoopCommandLine][image-hadoopcommandline]
 
-    Para más información acerca de los comandos de Hadoop, consulte [Referencia de comandos de Apache Hadoop](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
+    Para más información acerca de los comandos de Hadoop, consulte [Referencia de comandos de Apache Hadoop](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
 
 En la captura de pantalla anterior, el nombre de la carpeta tiene el número de versión de Hadoop incrustado. El número de versión puede cambiar según la versión de los componentes de Hadoop instalados en el clúster. Puede usar las variables de entorno de Hadoop para referirse a esas carpetas. Por ejemplo: 
 

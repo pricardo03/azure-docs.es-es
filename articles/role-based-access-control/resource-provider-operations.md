@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/26/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 22af5b4b757fed83e5c9b23426283d2fb4c4867f
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: fb72de7e9a61c874d4449a5b9c0422c787a7bdc0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410540"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728455"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operaciones del proveedor de recursos de Azure Resource Manager
 
@@ -1867,12 +1867,12 @@ Las operaciones del proveedor de recursos están en constante evolución. Para o
 > | . | Microsoft.Devices/provisioningServices/certificates/verify/Action | Comprueba el recurso del certificado. |
 > | . | Microsoft.Devices/provisioningServices/certificates/Write | Crea o actualiza el certificado |
 > | . | Microsoft.Devices/provisioningServices/Delete | Elimina el recurso IotDps. |
-> | . | Microsoft.Devices/provisioningServices/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso |
+> | . | Microsoft.Devices/provisioningServices/diagnosticSettings/read | Obtiene la configuración de diagnóstico del recurso. Nota: puede que también necesite `Microsoft.Insights/diagnosticSettings/read`.  |
 > | . | Microsoft.Devices/provisioningServices/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico del recurso |
 > | . | Microsoft.Devices/provisioningServices/keys/listkeys/Action | Obtiene las claves de IotDps del nombre de clave. |
 > | . | Microsoft.Devices/provisioningServices/listkeys/Action | Obtiene todas las claves de IotDps. |
-> | . | Microsoft.Devices/provisioningServices/logDefinitions/read | Obtiene las definiciones de registros disponibles del servicio de aprovisionamiento. |
-> | . | Microsoft.Devices/provisioningServices/metricDefinitions/read | Obtiene las métricas disponibles del servicio de aprovisionamiento. |
+> | . | Microsoft.Devices/provisioningServices/logDefinitions/read | Obtiene las definiciones de registros disponibles del servicio de aprovisionamiento. Nota: puede que también necesite `Microsoft.Insights/logDefinitions/read`. |
+> | . | Microsoft.Devices/provisioningServices/metricDefinitions/read | Obtiene las métricas disponibles del servicio de aprovisionamiento. Nota: puede que también necesite `Microsoft.Insights/metricDefinitions/read`. |
 > | . | Microsoft.Devices/provisioningServices/operationresults/Read | Obtiene el resultado de la operación DPS. |
 > | . | Microsoft.Devices/provisioningServices/Read | Obtiene el recurso IotDps. |
 > | . | Microsoft.Devices/provisioningServices/skus/Read | Obtiene las SKU válidas de IotDps. |

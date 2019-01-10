@@ -2,19 +2,19 @@
 title: Notas de la versión de Azure HDInsight.
 description: Notas más recientes de la versión de Azure HDInsight. Obtenga sugerencias de desarrollo y detalles sobre Hadoop, Spark, R Server, Hive, etc.
 services: hdinsight
-ms.reviewer: jasonh
 author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 07/01/2018
-ms.author: hrasheed
-ms.openlocfilehash: 1f0ff7bef5c1d30eb6920eaab3767de1dea6b94a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 01/02/2019
+ms.openlocfilehash: 49087792efa5e377beadc78746bcf99c88954e9b
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438870"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000092"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Notas de la versión de Azure HDInsight.
 
@@ -35,7 +35,7 @@ Las nuevas actualizaciones y capacidades se dividen en las siguientes categoría
 
      a.  [**Nuevas características en Apache Spark 2.3**](https://spark.apache.org/releases/spark-release-2-3-0.html)
 
-    b.  [**Nuevas características en Apache Kafka 1.0**](https://www.apache.org/dist/kafka/1.0.0/RELEASE_NOTES.html)
+    b.  [**Nuevas características en Apache Kafka 1.0**](https://kafka.apache.org/downloads#1.0.0)
 
 2.  ***Actualización de R Server 9.1 a Machine Learning Services 9.3***: con esta versión, se proporciona a los científicos de datos y a los ingenieros lo mejor del código abierto, mejorado con innovaciones en los algoritmos y la facilidad de la operacionalización, todo ello disponible en el lenguaje que prefieran con la velocidad de Apache Spark. Esta versión va más allá de las funcionalidades que se ofrecen en R Server, ya que añade compatibilidad con Python, lo que ha provocado el cambio del nombre del clúster de R Server a ML Services. 
 
@@ -1300,14 +1300,24 @@ Los problemas corregidos representan problemas seleccionados que se registraron 
 
 |**Componente de Apache**|**JIRA de Apache**|**Resumen**|**Detalles**|
 |--|--|--|--|
-|**Spark 2.3** |**N/D** |**Modificaciones documentadas en las notas de la versión de Apache Spark** |- Existe un documento "Deprecation" (Desuso) y una guía "Change of behavior" (Cambio de comportamiento), https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />- En la parte SQL, existe otra guía detallada "Migration" (Migración) (desde 2.2 a 2.3), http://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
+|**Spark 2.3** |**N/D** |**Modificaciones documentadas en las notas de la versión de Apache Spark** |- Existe un documento "Deprecation" (Desuso) y una guía "Change of behavior" (Cambio de comportamiento), https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />- En la parte SQL, existe otra guía detallada "Migration" (Migración) (desde 2.2 a 2.3), https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
 |Spark |[**HIVE-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |El trabajo de Spark se completa correctamente, pero hay un error de cuota completa de disco HDFS. |**Escenario:** se ejecuta **insert overwrite** con una cuota establecida en la carpeta Papelera del usuario que ejecuta el comando.<br /><br />**Comportamiento anterior:** el trabajo terminaba correctamente, aunque no pudiera mover los datos a la Papelera. El resultado puede contener erróneamente algunos de los datos previamente presentes en la tabla.<br /><br />**Nuevo comportamiento:** cuando se produce un error al mover a la carpeta Papelera, los archivos se eliminan permanentemente.|
-|**Kafka 1.0**|**N/D**|**Modificaciones documentadas en las notas de la versión de Apache Spark** |http://kafka.apache.org/10/documentation.html#upgrade_100_notable|
+|**Kafka 1.0**|**N/D**|**Modificaciones documentadas en las notas de la versión de Apache Spark** |https://kafka.apache.org/10/documentation.html#upgrade_100_notable|
 |**Hive/Ranger** | |Se requieren directivas de Ranger Hive adicionales para INSERT OVERWRITE. |**Escenario:** Se requieren directivas de Ranger Hive adicionales para **INSERT OVERWRITE**<br /><br />**Comportamiento anterior:** las consultas **INSERT OVERWRITE** de Hive eran correctas como de costumbre.<br /><br />**Nuevo comportamiento:** las consultas **INSERT OVERWRITE** de Hive producen errores de forma inesperada después de actualizar a HDP-2.6 con el error:<br /><br />Error al compilar la instrucción: ERROR: HiveAccessControlException ha denegado el permiso: el usuario jdoe no tiene privilegios de escritura en /tmp/\*(state=42000,code=40000)<br /><br />A partir de HDP-2.6.0, las consultas **INSERT OVERWRITE** de Hive requieren una directiva de Ranger URI para permitir las operaciones de escritura, incluso si el usuario tiene privilegios de escritura concedidos a través de la directiva HDFS.<br /><br />**Solución alternativa o acción esperada del cliente:**<br /><br />1. Crear una nueva directiva en el repositorio de Hive.<br />2. En la lista desplegable donde se ve la base de datos, seleccione el identificador URI.<br />3. Actualizar la ruta de acceso (por ejemplo: /tmp/*).<br />4. Agregar los usuarios y el grupo y guardar.<br />5. Volver a intentar la consulta de inserción.|
 |**HDFS**|**N/D** |HDFS debe admitir varios URI de KMS. |**Comportamiento anterior:** se usaba la propiedad dfs.encryption.key.provider.uri para configurar la ruta de acceso del proveedor KMS.<br /><br />**Nuevo comportamiento:** dfs.encryption.key.provider.uri está ahora en desuso en favor de hadoop.security.key.provider.path para configurar la ruta de acceso del proveedor KMS.|
 |**Zeppelin**|[**ZEPPELIN-3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|Opción para deshabilitar el programador. |**Componente afectado:** Servidor de Zeppelin<br /><br />**Comportamiento anterior:** en versiones anteriores de Zeppelin, no había ninguna opción para deshabilitar el programador.<br /><br />**Nuevo comportamiento:** de forma predeterminada, los usuarios ya no verán el programador, ya que está deshabilitado de forma predeterminada.<br /><br />**Solución alternativa o acción esperada del cliente:** si quiere habilitar el programador, deberá agregar azeppelin.notebook.cron.enable con el valor true en el sitio de zeppelin personalizado en la configuración de Zeppelin de Ambari.|
 
 ## <a name="known-issues"></a>Problemas conocidos
+
+-   **Integración de HDInsight con ADLS Gen 2** Hay dos problemas en los clústeres de HDInsight ESP que utilizan Azure Data Lake Storage Gen 2 con directorios y permisos de usuario:
+   
+   1. Los directorios de inicio para los usuarios no se están creando en el nodo principal 1. Como alternativa, cree los directorios manualmente y cambie la propiedad al UPN del usuario correspondiente.
+   
+   2. Los permisos en el directorio /hdp no están actualmente configurados en 751. Debe establecerse en 
+      ```bash
+      chmod 751 /hdp 
+      chmod –R 755 /hdp/apps
+      ```
 
 -   **Spark 2.3**
 
@@ -1409,6 +1419,10 @@ Los problemas corregidos representan problemas seleccionados que se registraron 
             val = \_.escape(val);//Line No:460
             
             Después de quitar la línea anterior, la interfaz de usuario de Ranger podrá crear directivas con una condición de directiva que contenga caracteres especiales y la evaluación de la directiva será correcta para la misma directiva.
+
+**Integración de HDInsight con ADLS Gen 2: Problema con los permisos y directorios de usuarios con los clústeres ESP**
+    1.  Los directorios de inicio para los usuarios no se están creando en el nodo principal 1. Una solución alternativa es crearlos manualmente y cambiar la propiedad al UPN del usuario correspondiente.
+    2.  Los permisos en /hdp no están actualmente configurados en 751. Debe establecerse en  chmod 751 /hdp b.  chmod –R 755 /hdp/apps
 
 ## <a name="deprecation"></a>Desuso
 

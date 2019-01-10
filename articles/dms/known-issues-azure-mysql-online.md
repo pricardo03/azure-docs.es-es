@@ -4,19 +4,19 @@ description: Información acerca de problemas conocidos y limitaciones de migrac
 services: database-migration
 author: HJToland3
 ms.author: scphang
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 6e82c10d8e9109279045095c1b856520245a5a6f
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ebe2af858aafaff62a7e3b629c0a8c84bbf49584
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884517"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721655"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>Problemas conocidos y limitaciones de migración con las migraciones en línea a Azure DB for MySQL
 
@@ -75,7 +75,7 @@ Las columnas de objetos grandes (LOB) son columnas que pueden alcanzar un tamañ
 
     **Solución alternativa**: reemplazar la clave principal por otros tipos de datos o columnas que no sean de LOB.
 
-- **Limitación**: si la longitud de columna de objetos grandes (LOB) es mayor que 32 KB, es posible que se trunquen los datos en el destino. Puede comprobar la longitud de columna de LOB mediante esta consulta:
+- **Limitación**: Si la longitud de columna de objetos grandes (LOB) es mayor que 32 KB, es posible que se trunquen los datos en el destino. Puede comprobar la longitud de columna de LOB mediante esta consulta:
     ```
     SELECT max(length(description)) as LEN from catalog;
     ```

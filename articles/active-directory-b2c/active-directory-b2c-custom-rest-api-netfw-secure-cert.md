@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7bf7add75f60bf64f64119979e5eee81be0f6e7b
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 89663db23962cbc82ead331f05cb39c0ef5d2e87
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344972"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722573"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Proteja los servicios REST mediante certificados de cliente
 
@@ -41,12 +41,12 @@ En este artículo se detalla cómo:
 Para configurar **Azure App Service** para que solicite certificados de cliente, el valor del sitio `clientCertEnabled` de la aplicación web debe ser *true*. Para realizar este cambio, en Azure Portal, abra la página de la aplicación web. En la navegación del lado izquierdo, en **Configuración** seleccione **Configuración de SSL**. En la sección **Certificados de cliente**, active la opción **Certificado de cliente entrante**.
 
 >[!NOTE]
->Asegúrese de que el plan de Azure App Service es Estándar, o superior. Para más información, consulte [Introducción detallada sobre los planes de Azure App Service](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
+>Asegúrese de que el plan de Azure App Service es Estándar, o superior. Para más información, consulte [Introducción detallada sobre los planes de Azure App Service](https://docs.microsoft.com/azure/app-service/overview-hosting-plans).
 
 >[!NOTE]
 >Para más información acerca de cómo establecer la propiedad [clientCertEnabled](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth), consulte **Configuración de la autenticación mutua de TLS para una aplicación web**.
 
-## <a name="step-2-upload-your-certificate-to-azure-ad-b2c-policy-keys"></a>Paso 2: Carga del certificado en las claves de directiva de Azure AD B2C.
+## <a name="step-2-upload-your-certificate-to-azure-ad-b2c-policy-keys"></a>Paso 2: Carga del certificado en las claves de directiva de Azure AD B2C
 Después de establecer `clientCertEnabled` en *true*, la comunicación con la API RESTful requiere un certificado de cliente. Para obtener, cargar y almacenar el certificado de cliente en el inquilino de Azure AD B2C, siga estos pasos: 
 1. En su inquilino de Azure AD B2C y seleccione **B2C Settings (Configuración de B2C)** > **Marco de experiencia de identidad**.
 
@@ -111,7 +111,7 @@ Para admitir la autenticación de certificado de cliente en la directiva persona
 
 6. Cargue el archivo *TrustFrameworkExtensions.xml* y asegúrese de que pasa la validación.
 
-## <a name="step-5-test-the-custom-policy-by-using-run-now"></a>Paso 5: Prueba de la directiva personalizada con Ejecutar ahora
+## <a name="step-5-test-the-custom-policy-by-using-run-now"></a>Paso 5: Probar la directiva personalizada con Ejecutar ahora
 1. Abra **Configuración de Azure AD B2C** y seleccione **Marco de experiencia de identidad**.
 
     >[!NOTE]
@@ -151,8 +151,8 @@ Para admitir la autenticación de certificado de cliente en la directiva persona
    >[!NOTE]
    >Si recibe el mensaje de error *The name is not valid, please provide a valid name* (El nombre no es válido, especifique un nombre válido), significa que Azure AD B2C ha llamado correctamente a su servicio REST mientras presentaba el certificado de cliente. El siguiente paso es validar el certificado.
 
-## <a name="step-6-add-certificate-validation"></a>Paso 6: Incorporación de validación de certificados
-El certificado de cliente que Azure AD B2C envía al servicio REST no pasa por ninguna validación de la plataforma Azure Web Apps, excepto comprobar que existe el certificado. La validación del certificado es responsabilidad de la aplicación web. 
+## <a name="step-6-add-certificate-validation"></a>Paso 6: Incorporación de la validación de certificados
+El certificado de cliente que Azure AD B2C envía al servicio RESTful no pasa por ninguna validación de la plataforma Azure App Service, excepto para comprobar que existe el certificado. La validación del certificado es responsabilidad de la aplicación web. 
 
 En esta sección se añade código de ASP.NET de ejemplo que valida las propiedades del certificado para la autenticación.
 

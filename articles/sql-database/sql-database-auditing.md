@@ -12,12 +12,12 @@ ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/25/2018
-ms.openlocfilehash: e947c284843074cf36c2d85dd240df23a1958cd5
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 892e4e776479d767326d4895dbf4bd4f30c418b0
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971528"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973217"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introducción a la auditoría de bases de datos SQL
 
@@ -182,6 +182,8 @@ Con bases de datos con replicación geográfica, cuando se habilita la auditorí
 
     >[!IMPORTANT]
     >Con la auditoría en el nivel de base de datos, la configuración de almacenamiento de la base de datos secundaria será idéntica a la de la base de datos principal, lo que provocará tráfico interregional. Se recomienda habilitar solo la auditoría de nivel de servidor y dejar que la auditoría de nivel de base de datos esté deshabilitada para todas las bases de datos.
+    > [!WARNING]
+    > El uso de Event Hubs o Log Analytics como destino de los registros de auditorías en el nivel de servidor no se admite actualmente para bases de datos secundarias con replicación geográfica.
 
 ### <a id="subheading-6">Regeneración de clave de almacenamiento</a>
 
@@ -220,12 +222,12 @@ En el entorno de producción, es probable que actualice periódicamente las clav
 
 ## <a id="subheading-7"></a>Administración de auditorías de SQL Database mediante Azure PowerShell
 
-**Cmdlets de PowerShell**:
+**Cmdlets de PowerShell (incluye compatibilidad con la cláusula WHERE para filtrado adicional)**:
 
-- [Crear o actualizar directiva de auditoría de blobs de base de datos (Set-AzureRMSqlDatabaseAuditing)][105]
-- [Crear o actualizar directiva de auditoría de blobs de servidor (Set-AzureRMSqlServerAuditing)][106]
-- [Obtener directiva de auditoría de base de datos (Get-AzureRMSqlDatabaseAuditing)][101]
-- [Obtener directiva de auditoría de blobs de servidor (Get-AzureRMSqlServerAuditing)][102]
+- [Crear o actualizar directiva de auditoría de blobs de base de datos (Set-AzSqlDatabaseAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/set-azsqldatabaseauditing)
+- [Crear o actualizar directiva de auditoría de blobs de servidor (Set-AzSqlServerAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/set-azsqlserverauditing)
+- [Obtener directiva de auditoría de base de datos (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/get-azsqldatabaseauditing)
+- [Obtener directiva de auditoría de blobs de servidor (Get-AzSqlServerAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/get-azsqlserverauditing)
 
 Para ver un script de ejemplo, consulte [Configuración de la auditoría y detección de amenazas mediante PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
@@ -245,6 +247,14 @@ Directiva extendida compatible con la cláusula WHERE para filtrado adicional:
 - [Get Database *Extended* Blob Auditing Policy](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get) (Obtención de la directiva extendida de auditoría de blobs de la base de datos)
 - [Get Server *Extended* Blob Auditing Policy](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get) (Obtención de la directiva extendida de auditoría de blobs del servidor)
 
+## <a id="subheading-10"></a>Administración de auditorías de SQL Database mediante plantillas de Azure Resource Manager
+
+Puede administrar auditorías de Azure SQL Database mediante plantillas de [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview), tal como se muestra en estos ejemplos:
+
+- [Implementación de un servidor de Azure SQL Server con la auditoría habilitada para escribir los registros de auditoría en la cuenta de Azure Blob Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
+- [Implementación de un servidor de Azure SQL Server con la auditoría habilitada para escribir los registros de auditoría en Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
+- [Implementación de un servidor de Azure SQL Server con la auditoría habilitada para escribir los registros de auditoría en Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
+
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1
 [Set up auditing for your database]: #subheading-2
@@ -254,6 +264,7 @@ Directiva extendida compatible con la cláusula WHERE para filtrado adicional:
 [Manage SQL database auditing using Azure PowerShell]: #subheading-7
 [Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
 [Manage SQL database auditing using REST API]: #subheading-9
+[Manage SQL database auditing using ARM templates]: #subheading-10
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png
@@ -266,10 +277,3 @@ Directiva extendida compatible con la cláusula WHERE para filtrado adicional:
 [8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_blob_audit_records.png
 [9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png
 [10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png
-
-[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditing
-[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditing
-[103]: /powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
-[104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
-[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditing
-[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditing

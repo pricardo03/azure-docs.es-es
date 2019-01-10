@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 43f3628878654a32be8aeafe1ba0d2e42e03d82f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d64c55857cda0aa64dc010566490e1696fffdea0
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240416"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972386"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configuración de un grupo de disponibilidad AlwaysOn en máquinas virtuales de Azure en distintas regiones
 
@@ -84,6 +84,7 @@ Para crear una réplica en un centro de datos remoto, siga estos pasos:
    - Incluir un grupo de back-end que conste solo de las máquinas virtuales de la misma región que el equilibrador de carga.
    - Usar un sondeo de puerto TCP específico para la dirección IP.
    - Tener una regla de equilibrio de carga específica de SQL Server en la misma región.  
+   - Ser una instancia de Standard Load Balancer si las máquinas virtuales del grupo de back-end no forman parte de un único conjunto de disponibilidad o conjunto de escalado de máquinas virtuales. Para más información, consulte [Introducción a Azure Load Balancer estándar](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
 
 1. [Agregue la característica Clústeres de conmutación por error al nuevo servidor SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-clustering-features-to-both-sql-server-vms).
 

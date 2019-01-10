@@ -1,9 +1,8 @@
 ---
 title: Uso de VM de Azure de proceso intensivo con Batch | Microsoft Docs
-description: Cómo aprovechar los tamaños de VM compatibles con RDMA o habilitados para GPU en grupos de Azure Batch
-services: batch
+description: Cómo aprovechar los tamaños de máquina virtual HPC y GPU en grupos de Azure Batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -12,18 +11,22 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2018
-ms.author: danlep
-ms.openlocfilehash: 6969f0c6a05ebf5b34fb746d2a83b884687ad710
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/17/2018
+ms.author: lahugh
+ms.openlocfilehash: 4663cb467d7d1d864425f4899c829b6618b9547c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258262"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584469"
 ---
-# <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Uso de instancias compatibles con RDMA o habilitadas para GPU en grupos de Batch
+# <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Uso de instancias RDMA o GPU en grupos de Batch
 
-Para ejecutar determinados trabajos de Batch, puede aprovechar los tamaños de VM de Azure diseñados para el cálculo a gran escala. Por ejemplo, para ejecutar [cargas de trabajo MPI](batch-mpi.md) de varias instancias, puede elegir tamaños de las series A8, A9 o H que tienen una interfaz de red para acceso directo a memoria remota (RDMA). Estos tamaños se conectan a una red de InfiniBand para la comunicación entre nodos, lo que puede acelerar las aplicaciones MPI. O bien, para aplicaciones CUDA, puede elegir tamaños de la serie N que incluyen tarjetas de unidad de procesamiento gráfico (GPU) de NVIDIA Tesla.
+Para ejecutar determinados trabajos de Batch, puede aprovechar los tamaños de máquina virtual de Azure diseñados para el cálculo a gran escala. Por ejemplo: 
+
+* para ejecutar [cargas de trabajo de MPI](batch-mpi.md) de varias instancias, puede elegir la serie H u otros tamaños que tengan una interfaz de red para acceso directo a memoria remota (RDMA). Estos tamaños se conectan a una red de InfiniBand para la comunicación entre nodos, lo que puede acelerar las aplicaciones MPI. 
+
+* Para aplicaciones CUDA, puede elegir tamaños de la serie N que incluyen tarjetas de unidad de procesamiento gráfico (GPU) de NVIDIA Tesla.
 
 En este artículo se proporcionan instrucciones y ejemplos para usar algunos de los tamaños especializados de Azure en grupos de Batch. Para especificaciones e información preliminar, consulte:
 
@@ -31,44 +34,30 @@ En este artículo se proporcionan instrucciones y ejemplos para usar algunos de 
 
 * Tamaños de VM habilitados para GPU ([Linux](../virtual-machines/linux/sizes-gpu.md) y [Windows](../virtual-machines/windows/sizes-gpu.md)) 
 
-
-## <a name="subscription-and-account-limits"></a>Límites de la cuenta y la suscripción
-
-* **Cuotas y límites**: la [cuota de núcleos por cuenta de Batch](batch-quota-limit.md#resource-quotas) puede limitar el número de nodos de un tamaño específico que se puede agregar a un grupo de Batch. Es más probable alcanzar una cuota al elegir tamaños de VM compatibles con RDMA, basados en GPU u otros tamaños de VM de varios núcleos. 
-
-  Además, el uso de ciertas familias de máquinas virtuales en su cuenta de Batch, como NCv2, NCv3 y ND, está restringido debido a los límites de capacidad. El uso de estas familias solo está disponible al solicitar un aumento de cuota a partir del valor predeterminado de 0 núcleos.  
-
-  Si fuera necesario, [solicite un aumento de la cuota](batch-quota-limit.md#increase-a-quota) sin cargo.
-
-* **Disponibilidad por regiones**: Las VM de procesos intensivos podrían no estar disponibles en las regiones donde crea las cuentas de Batch. Para comprobar que un tamaño está disponible, vea [Productos disponibles por región](https://azure.microsoft.com/regions/services/).
-
+> [!NOTE]
+> Algunos tamaños de máquina virtual podrían no estar disponibles en las regiones en las que cree las cuentas de Batch. Para comprobar que un tamaño está disponible, consulte [Productos disponibles por región](https://azure.microsoft.com/regions/services/) y [Elección de un tamaño de máquina virtual para un grupo de Batch](batch-pool-vm-sizes.md).
 
 ## <a name="dependencies"></a>Dependencias
 
-Las funcionalidades RDMA y GPU de tamaños de procesos intensivos solo se admiten en determinados sistemas operativos. Dependiendo del sistema operativo, puede que tenga que instalar o configurar un controlador adicional u otro software. En las tablas siguientes se resumen estas dependencias. Consulte los artículos vinculados para más información. Para conocer las opciones para configurar grupos de Batch, consulte la información restante de este artículo.
-
+Las funcionalidades RDMA y GPU de los tamaños de proceso intensivos solo se admiten en determinados sistemas operativos. (La lista de sistemas operativos admitidos es un subconjunto de los admitidos para las máquinas virtuales creadas en estos tamaños). En función de cómo cree el grupo de Batch, puede que tenga que instalar o configurar un controlador adicional u otro software en los nodos. En las tablas siguientes se resumen estas dependencias. Consulte los artículos vinculados para más información. Para conocer las opciones para configurar grupos de Batch, consulte la información restante de este artículo.
 
 ### <a name="linux-pools---virtual-machine-configuration"></a>Grupos de Linux: configuración de la máquina virtual
 
 | Tamaño | Capacidad | Sistemas operativos | Requisitos de software | Configuración del grupo |
 | -------- | -------- | ----- |  -------- | ----- |
-| [H16r, H16mr, A8 y A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>SUSE Linux Enterprise Server 12 HPC, o<br/>HPC basado en CentOS<br/>(Azure Marketplace) | Intel MPI 5 | Habilitar la comunicación entre nodos y deshabilitar la ejecución de tareas simultáneas |
-| [Serie NC, NCv2, NCv3, ND*](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varía por serie) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 o 7.4<br/>CentOS 7.3 o 7.4<br/>(Azure Marketplace) | Controladores de NVIDIA CUDA Toolkit | N/D | 
-| [Serie NV](../virtual-machines/linux/n-series-driver-setup.md) | GPU NVIDIA Tesla M60 | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 o<br/>CentOS 7.3<br/>(Azure Marketplace) | Controladores de NVIDIA GRID | N/D |
-
-*La conectividad RDMA en las VM de la serie N compatibles con RDMA puede requerir una [configuración adicional](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) que varía en función de la distribución.
-
-
+| [H16r, H16mr, A8 y A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS o<br/>HPC basado en CentOS<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Controladores RDMA en Linux | Habilitar la comunicación entre nodos y deshabilitar la ejecución de tareas simultáneas |
+| [Series NC, NCv2, NCv3, NDv2](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varía por serie) | Ubuntu 16.04 LTS o<br/>CentOS 7.3 o 7.4<br/>(Azure Marketplace) | Controladores de NVIDIA CUDA o de CUDA Toolkit | N/D | 
+| [Series NV, NVv2](../virtual-machines/linux/n-series-driver-setup.md) | GPU NVIDIA Tesla M60 | Ubuntu 16.04 LTS o<br/>CentOS 7.3<br/>(Azure Marketplace) | Controladores de NVIDIA GRID | N/D |
+<sup>*</sup>Los tamaños de la serie N compatibles con RDMA también incluyen las GPU de NVIDIA Tesla
 
 ### <a name="windows-pools---virtual-machine-configuration"></a>Grupos de Windows: configuración de la máquina virtual
 
 | Tamaño | Capacidad | Sistemas operativos | Requisitos de software | Configuración del grupo |
 | -------- | ------ | -------- | -------- | ----- |
-| [H16r, H16mr, A8 y A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2 o<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 o posterior, o<br/> Intel MPI 5<br/><br/>Extensión HpcVMDrivers para VM de Azure | Habilitar la comunicación entre nodos y deshabilitar la ejecución de tareas simultáneas |
-| [Serie NC, NCv2, NCv3, ND*](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varía por serie) | Windows Server 2016 o <br/>2012 R2 (Azure Marketplace) | Controladores de NVIDIA Tesla o controladores de CUDA Toolkit| N/D | 
-| [Serie NV](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla M60 | Windows Server 2016 o<br/>2012 R2 (Azure Marketplace) | Controladores de NVIDIA GRID | N/D |
-
-*La conectividad de RDMA en máquinas virtuales de la serie N compatibles con RDMA se admite en Windows Server 2016 o Windows Server 2012 R2 (desde Azure Marketplace) con la extensión HpcVMDrivers y Microsoft MPI o Intel MPI.
+| [H16r, H16mr, A8 y A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2 o<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 o posterior, o<br/> Intel MPI 5<br/><br/>Controladores RDMA en Windows | Habilitar la comunicación entre nodos y deshabilitar la ejecución de tareas simultáneas |
+| [Series NC, NCv2, NCv3, ND, NDv2](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varía por serie) | Windows Server 2016 o <br/>2012 R2 (Azure Marketplace) | Controladores de NVIDIA CUDA o de CUDA Toolkit| N/D | 
+| [Series NV, NVv2](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla M60 | Windows Server 2016 o<br/>2012 R2 (Azure Marketplace) | Controladores de NVIDIA GRID | N/D |
+<sup>*</sup>Los tamaños de la serie N compatibles con RDMA también incluyen las GPU de NVIDIA Tesla
 
 ### <a name="windows-pools---cloud-services-configuration"></a>Grupos de Windows: configuración de servicios en la nube
 
@@ -78,66 +67,108 @@ Las funcionalidades RDMA y GPU de tamaños de procesos intensivos solo se admite
 
 | Tamaño | Capacidad | Sistemas operativos | Requisitos de software | Configuración del grupo |
 | -------- | ------- | -------- | -------- | ----- |
-| [H16r, H16mr, A8 y A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2, 2012 o<br/>2008 R2 (familia de sistemas operativos invitados) | Microsoft MPI 2012 R2 o posterior, o<br/>Intel MPI 5<br/><br/>Extensión HpcVMDrivers para VM de Azure | Habilitar la comunicación entre nodos y<br/> deshabilitar la ejecución de tareas simultáneas |
-
-
-
-
+| [H16r, H16mr, A8 y A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2, 2012 o<br/>2008 R2 (familia de sistemas operativos invitados) | Microsoft MPI 2012 R2 o posterior, o<br/>Intel MPI 5<br/><br/>Controladores RDMA en Windows | Habilitar la comunicación entre nodos y<br/> deshabilitar la ejecución de tareas simultáneas |
 
 ## <a name="pool-configuration-options"></a>Opciones de configuración de grupos
 
-Para configurar un tamaño de VM especializado para el grupo de Batch, las herramientas y las API de Batch proporcionan varias opciones para instalar el software o los controladores necesarios, entre las que se incluyen las siguientes:
+Dispone de varias opciones para instalar el software o los controladores necesarios para configurar un tamaño de máquina virtual especializado para el grupo de Batch:
 
-* [Tarea de inicio](batch-api-basics.md#start-task): Cargue un paquete de instalación como un archivo de recursos en una cuenta de almacenamiento de Azure en la misma región que la cuenta de Batch. Cree una línea de comandos de la tarea de inicio para instalar el archivo de recursos de forma silenciosa cuando se inicie el grupo. Para más información, consulte la [documentación de la API de REST](/rest/api/batchservice/add-a-pool-to-an-account#bk_starttask).
+* Para grupos de la configuración de máquina virtual, elija una imagen de máquina virtual de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) preconfigurada que tenga los controladores y el software preinstalados. Ejemplos: 
+
+  * [HPC Basado en CentOS 7.4](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74HPC?tab=Overview): incluye los controladores RDMA e Intel MPI 5.1
+
+  * [Data Science Virtual Machine](../machine-learning/data-science-virtual-machine/overview.md) para Linux o Windows: incluye los controladores de NVIDIA CUDA
+
+  * Imágenes de Linux para cargas de trabajo de contenedor de Batch que también incluyen los controladores de GPU y RDMA:
+
+    * [CentOS (con controladores de GPU y RDMA) para grupos de contenedores de Azure Batch](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-batch.centos-container-rdma?tab=Overview)
+
+    * [Ubuntu Server (con controladores de GPU y RDMA) para grupos de contenedores de Azure Batch](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-batch.ubuntu-server-container-rdma?tab=Overview)
+
+* Cree una [imagen de máquina virtual Windows o Linux personalizada](batch-custom-images.md) en la que haya instalado los controladores, software u otras configuraciones necesarias para el tamaño de máquina virtual. 
+
+* Cree un [paquete de aplicación](batch-application-packages.md) de Batch desde un controlador comprimido o el instalador de la aplicación y configure Batch para implementar el paquete en los nodos del grupo e instalarlo una vez cuando se crea cada nodo. Por ejemplo, si el paquete de aplicación es un instalador, cree una línea de comandos de la [tarea de inicio](batch-api-basics.md#start-task) para instalar de forma silenciosa la aplicación en todos los nodos del grupo. Considere el uso de un paquete de aplicación y una tarea de inicio de grupo si la carga de trabajo depende de una versión determinada del controlador.
 
   > [!NOTE] 
-  > La tarea de inicio se debe ejecutar con permisos elevados (administrador) y debe esperar a que se realice correctamente.
+  > La tarea de inicio se debe ejecutar con permisos elevados (administrador) y debe esperar a que se realice correctamente. Las tareas de larga ejecución aumentan el tiempo necesario para aprovisionar un grupo de Batch.
   >
 
-* [Paquete de aplicación](batch-application-packages.md): Agregue un paquete de instalación comprimido a su cuenta de Batch y configure una referencia de paquete en el grupo. Esta configuración carga y descomprime el paquete en todos los nodos del grupo. Si el paquete es un instalador, cree una línea de comandos de la tarea de inicio para instalar de forma silenciosa la aplicación en todos los nodos del grupo. Si lo desea, instale el paquete cuando una tarea esté programada para ejecutarse en un nodo.
-
-* [Imagen del grupo personalizada](batch-custom-images.md): Cree una imagen de VM de Windows o Linux personalizada que contenga controladores, software u otras configuraciones necesarias para el tamaño de VM. 
-
-* [Batch Shipyard](https://github.com/Azure/batch-shipyard) configura automáticamente GPU y RDMA para trabajar de forma transparente con cargas de trabajo en contenedores en Azure Batch. Batch Shipyard se controla por completo con archivos de configuración. Hay muchas configuraciones de recetas de ejemplo disponibles que habilitan las cargas de trabajo de GPU y RDMA, como la [receta CNTK GPU](https://github.com/Azure/batch-shipyard/tree/master/recipes/CNTK-GPU-OpenMPI), que preconfigura controladores de GPU en VM de la serie N y carga el software Microsoft Cognitive Toolkit como una imagen de Docker.
+* [Batch Shipyard](https://github.com/Azure/batch-shipyard) configura automáticamente los controladores de GPU y RDMA para trabajar de forma transparente con cargas de trabajo en contenedores en Azure Batch. Batch Shipyard se controla por completo con archivos de configuración. Hay muchas configuraciones de recetas de ejemplo disponibles que habilitan las cargas de trabajo de GPU y RDMA, como la [receta CNTK GPU](https://github.com/Azure/batch-shipyard/tree/master/recipes/CNTK-GPU-OpenMPI), que preconfigura los controladores de GPU en máquinas virtuales de la serie N y carga el software Microsoft Cognitive Toolkit como una imagen de Docker.
 
 
-## <a name="example-microsoft-mpi-on-an-a8-vm-pool"></a>Ejemplo: Microsoft MPI en un grupo de VM A8
+## <a name="example-nvidia-gpu-drivers-on-windows-nc-vm-pool"></a>Ejemplo: Controladores de GPU de NVIDIA en un grupo de máquinas virtuales NC Windows
 
-Para ejecutar aplicaciones MPI para Windows en un grupo de nodos de A8 de Azure, necesitará instalar una implementación de MPI admitida. Estos son los pasos de ejemplo para instalar [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) en un grupo de Windows mediante un paquete de aplicación de Batch.
+Para ejecutar aplicaciones CUDA en un grupo de nodos NC Windows, debe instalar los controladores de GPU de NVIDIA. Los siguientes pasos de ejemplo usan un paquete de aplicación para instalar los controladores de GPU de NVIDIA. Puede elegir esta opción si la carga de trabajo depende de una versión específica del controlador de GPU.
 
-1. Descargue el [paquete de instalación](https://go.microsoft.com/FWLink/p/?LinkID=389556) (MSMpiSetup.exe) correspondiente a la versión más reciente de Microsoft MPI.
+1. Descargue un paquete de instalación para los controladores de GPU en Windows Server 2016 desde el [sitio web de NVIDIA](http://us.download.nvidia.com/Windows/): por ejemplo, la [versión 411.82](http://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Guarde el archivo localmente con un nombre corto como *GPUDriverSetup.exe*.
 2. Cree un archivo ZIP del paquete.
-3. Cargue el paquete en su cuenta de Batch. Para conocer los pasos, consulte las instrucciones de los [paquetes de aplicación](batch-application-packages.md). Especifique un identificador de aplicación (por ejemplo, *MSMPI*) y una versión (por ejemplo, *8.1*). 
-4. Mediante las API de Batch o Azure Portal, cree un grupo en la configuración de servicios en la nube con el número de nodos y la escala deseados. En la tabla siguiente se muestra la configuración de ejemplo para configurar MPI en modo desatendido mediante una tarea de inicio:
+3. Cargue el paquete en su cuenta de Batch. Para conocer los pasos, consulte las instrucciones de los [paquetes de aplicación](batch-application-packages.md). Especifique un identificador de aplicación, como *GPUDriver* y una versión, como *411.82*.
+1. Mediante las API de Batch o Azure Portal, cree un grupo en la configuración de máquina virtual con el número de nodos y la escala deseados. En la tabla siguiente se muestra la configuración de ejemplo para instalar los controladores de GPU de NVIDIA en modo silencioso mediante una tarea de inicio:
 
 | Configuración | Valor |
 | ---- | ----- | 
-| **Tipo de imagen** | Cloud Services |
-| **Familia de SO** | Windows Server 2012 R2 (familia 4 de SO) |
-| **Tamaño del nodo** | Estándar A8 |
-| **Comunicación entre nodos habilitada** | True |
-| **Número máximo de tareas por nodo** | 1 |
-| **Referencias de paquetes de aplicación** | MSMPI |
-| **Tarea de inicio habilitada** | True<br>**Línea de comandos** - `"cmd /c %AZ_BATCH_APP_PACKAGE_MSMPI#8.1%\\MSMpiSetup.exe -unattend -force"`<br/>**Identidad del usuario**: Usuario automático de grupo, administrador<br/>**Esperar operación correcta**: True
+| **Tipo de imagen** | Marketplace (Linux/Windows) |
+| **Publicador** | Microsoft Windows Server |
+| **Oferta** | Windows Server |
+| **Sku** | 2016-Datacenter |
+| **Tamaño del nodo** | Estándar NC6 |
+| **Referencias de paquetes de aplicación** | GPUDriver, versión 411.82 |
+| **Tarea de inicio habilitada** | True<br>**Línea de comandos** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**Identidad del usuario**: Usuario automático de grupo, administrador<br/>**Esperar operación correcta**: True
 
-## <a name="example-nvidia-tesla-drivers-on-nc-vm-pool"></a>Ejemplo: Controladores de NVIDIA Tesla en el grupo de VM NC
+## <a name="example-nvidia-gpu-drivers-on-a-linux-nc-vm-pool"></a>Ejemplo: Controladores de GPU de NVIDIA en un grupo de máquinas virtuales NC Linux
 
-Para ejecutar aplicaciones CUDA en un grupo de nodos NC de Linux, debe instalar CUDA Toolkit 9.0 en los nodos. El kit de herramientas instala los controladores de GPU NVIDIA Tesla necesarios. Estos son los pasos de ejemplo para implementar una imagen personalizada de Ubuntu 16.04 LTS con los controladores de GPU:
+Para ejecutar aplicaciones CUDA en un grupo de nodos NC Linux, debe instalar los controladores de GPU de NVIDIA Tesla desde el Kit de herramientas de CUDA. Los siguientes pasos de ejemplo crean e implementan una imagen personalizada de Ubuntu 16.04 LTS con los controladores de GPU:
 
-1. Implemente una VM de la serie NC de Azure en la que se ejecute Ubuntu 16.04 LTS. Por ejemplo, puede crear la VM en la región Centro y Sur de EE. UU. Asegúrese de crear la máquina virtual con un disco administrado.
-2. Siga los pasos para conectarse a la VM e [instale los controladores CUDA](../virtual-machines/linux/n-series-driver-setup.md).
-3. Desaprovisione el agente de Linux y luego [capture la imagen de la máquina virtual Linux](../virtual-machines/linux/capture-image.md).
+1. Implemente una VM de la serie NC de Azure en la que se ejecute Ubuntu 16.04 LTS. Por ejemplo, puede crear la VM en la región Centro y Sur de EE. UU. 
+2. Agregue la [extensión de controladores de GPU de NVIDIA](../virtual-machines/extensions/hpccompute-gpu-linux.md
+) a la máquina virtual mediante Azure Portal, un equipo cliente que se conecte a la suscripción de Azure o Azure Cloud Shell. Como alternativa, siga los pasos para conectarse a la máquina virtual e [instale los controladores de CUDA](../virtual-machines/linux/n-series-driver-setup.md) de forma manual.
+3. Siga los pasos para crear una [instantánea y una imagen de máquina virtual Linux personalizada](batch-custom-images.md) para Batch.
 4. Cree una cuenta de Batch en una región que admite las máquinas virtuales de NC.
 5. Mediante las API de Batch o Azure Portal , cree un grupo [mediante la imagen personalizada](batch-custom-images.md) y con el número de nodos y la escala deseados. En la siguiente tabla se muestra la configuración de grupo de ejemplo de la imagen:
 
 | Configuración | Valor |
 | ---- | ---- |
 | **Tipo de imagen** | Imagen personalizada |
-| **Imagen personalizada** | Nombre de la imagen |
+| **Imagen personalizada** | *Nombre de la imagen* |
 | **SKU de agente del nodo** | batch.node.ubuntu 16.04 |
 | **Tamaño del nodo** | Estándar NC6 |
 
+## <a name="example-microsoft-mpi-on-a-windows-h16r-vm-pool"></a>Ejemplo: Microsoft MPI en un grupo de máquinas virtuales H16r Windows
 
+Para ejecutar aplicaciones MPI de Windows en un grupo de nodos de máquinas virtuales H16r de Azure, debe configurar la extensión HpcVmDrivers e instalar [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi). Estos son los pasos de ejemplo para implementar una imagen personalizada de Windows Server 2016 con los controladores y el software necesarios:
+
+1. Implemente una máquina virtual H16r de Azure que ejecute Windows Server 2016. Por ejemplo, puede crear la máquina virtual en la región Oeste de EE. UU. 
+2. Agregue la extensión HpcVmDrivers a la máquina virtual mediante la [ejecución de un comando de Azure PowerShell](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances
+) desde un equipo cliente que se conecte a la suscripción de Azure o mediante Azure Cloud Shell. 
+1. Abra una conexión de Escritorio remoto a la máquina virtual.
+1. Descargue el [paquete de instalación](https://www.microsoft.com/download/details.aspx?id=57467) (MSMpiSetup.exe) correspondiente a la versión más reciente de Microsoft MPI e instale Microsoft MPI.
+1. Siga los pasos para crear una [instantánea y una imagen de máquina virtual Windows personalizada](batch-custom-images.md) para Batch.
+1. Mediante las API de Batch o Azure Portal , cree un grupo [mediante la imagen personalizada](batch-custom-images.md) y con el número de nodos y la escala deseados. En la siguiente tabla se muestra la configuración de grupo de ejemplo de la imagen:
+
+| Configuración | Valor |
+| ---- | ---- |
+| **Tipo de imagen** | Imagen personalizada |
+| **Imagen personalizada** | *Nombre de la imagen* |
+| **SKU de agente del nodo** | batch.node.windows amd64 |
+| **Tamaño del nodo** | H16r Estándar |
+| **Comunicación entre nodos habilitada** | True |
+| **Número máximo de tareas por nodo** | 1 |
+
+## <a name="example-intel-mpi-on-a-linux-h16r-vm-pool"></a>Ejemplo: Intel MPI en un grupo de máquinas virtuales H16r Linux
+
+Para ejecutar aplicaciones MPI en un grupo de nodos Linux de la serie H, una opción consiste en usar la imagen [HPC basada en CentOS 7.4](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74HPC?tab=Overview) desde Azure Marketplace. Los controladores de RDMA de Linux e Intel MPI están preinstalados. Esta imagen también admite cargas de trabajo de contenedor de Docker.
+
+Mediante las API de Batch o Azure Portal, cree un grupo con esta imagen y con el número de nodos y la escala deseados. En la siguiente tabla se muestra la configuración del grupo de ejemplo:
+
+| Configuración | Valor |
+| ---- | ---- |
+| **Tipo de imagen** | Marketplace (Linux/Windows) |
+| **Publicador** | OpenLogic |
+| **Oferta** | CentOS-HPC |
+| **Sku** | 7.4 |
+| **Tamaño del nodo** | H16r Estándar |
+| **Comunicación entre nodos habilitada** | True |
+| **Número máximo de tareas por nodo** | 1 |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

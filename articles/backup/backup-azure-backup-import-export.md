@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: b55c5bc6096186e338d6960190169d5f4acc777d
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: dcedf27f6105dcc1ea6e43feb32d254b491842c7
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955140"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974444"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flujo de trabajo de copia de seguridad sin conexión en Azure Backup
 El servicio Azure Backup presenta varias eficiencias integradas para ahorrar costos de almacenamiento y red durante las copias de seguridad iniciales 'completas' de datos en Azure. Las copias de seguridad iniciales completas transfieren grandes cantidades de datos y requieren un mayor ancho de banda de red en comparación con las copias de seguridad sucesivas que solo transfieren los cambios diferenciales e incrementales. A través del proceso de propagación sin conexión, Azure Backup puede usar discos para cargar los datos de copia de seguridad sin conexión en Azure.
@@ -52,7 +52,7 @@ Antes de iniciar el flujo de trabajo de copia de seguridad sin conexión, comple
 * Cree un [almacén de Recovery Services](backup-azure-recovery-services-vault-overview.md). Para crear uno, consulte los pasos de [este artículo](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault).
 * Asegúrese de que solo la [versión más reciente del agente de Azure Backup](https://aka.ms/azurebackup_agent) se instaló en el cliente Windows Server/Windows, según corresponda, y que el equipo está registrado con el almacén de Recovery Services.
 * Se requiere Azure PowerShell 3.7.0 en el equipo donde se ejecuta el agente de Azure Backup. Se recomienda que descargue e [instale la versión 3.7.0 de Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017).
-* En el equipo donde se ejecuta el agente de Azure Backup, asegúrese de que esté instalado Microsoft Microsoft Edge o Internet Explorer 11 y que JavaScript esté habilitado. 
+* En el equipo donde se ejecuta el agente de Azure Backup, asegúrese de que esté instalado Microsoft Edge o Internet Explorer 11 y que JavaScript esté habilitado. 
 * Cree una cuenta de Azure Storage en la misma suscripción que el almacén de Recovery Services. 
 * Asegúrese de tener los [permisos necesarios](../active-directory/develop/howto-create-service-principal-portal.md) para crear la aplicación de Azure Active Directory. El flujo de trabajo de la copia de seguridad sin conexión crea una aplicación de Azure Active Directory en la suscripción asociada con la cuenta de Azure Storage. El objetivo de la aplicación es proporcionar Azure Backup con el acceso seguro y limitado al servicio Azure Import que se requiere para el flujo de trabajo de la copia de seguridad sin conexión. 
 * Registre el proveedor de recursos Microsoft.ImportExport con la suscripción que contiene la cuenta de Azure Storage. Para registrar el proveedor de recursos:
@@ -75,11 +75,11 @@ En esta sección se describe el flujo de trabajo de la copia de seguridad sin co
 
   La descripción de las entradas es la siguiente:
 
-    * **Ubicación de ensayo**: la ubicación de almacenamiento temporal en la que se escribe la copia de seguridad inicial. La ubicación de almacenamiento provisional podría estar en un recurso compartido de red o en un equipo local. Si el equipo de copia y el equipo de origen son diferentes, se recomienda especificar la ruta de acceso completa de red de la ubicación de ensayo.
-    * **Cuenta de almacenamiento de Azure Resource Manager**: nombre de la cuenta de almacenamiento de tipo Resource Manager en cualquier suscripción de Azure.
-    * **Contenedor de Azure Storage**: nombre del blob de almacenamiento de destino de la cuenta de Azure Storage donde se importan los datos de copia de seguridad antes de copiarlos en el almacén de Recovery Services.
-    * **Identificador de suscripción de Azure**: identificador de la suscripción de Azure donde se crea la cuenta de Azure Storage.
-    * **Nombre del trabajo de importación de Azure**: el nombre único mediante el cual los servicios Azure Import y Azure Backup realizan el seguimiento de la transferencia de los datos enviados mediante discos a Azure. 
+    * **Ubicación de almacenamiento provisional**: la ubicación de almacenamiento temporal en la que se escribe la copia de seguridad inicial. La ubicación de almacenamiento provisional podría estar en un recurso compartido de red o en un equipo local. Si el equipo de copia y el equipo de origen son diferentes, se recomienda especificar la ruta de acceso completa de red de la ubicación de ensayo.
+    * **Cuenta de almacenamiento de Azure Resource Manager**: el nombre de la cuenta de almacenamiento de tipo Resource Manager en cualquier suscripción de Azure.
+    * **Contenedor de Azure Storage**: el nombre del blob de almacenamiento de destino de la cuenta de Azure Storage en la que se importan los datos de la copia de seguridad antes de que se copien en el almacén de Recovery Services.
+    * **Identificador de suscripción de Azure**: el identificador de la suscripción de Azure en la que se crea la cuenta de Azure Storage.
+    * **Nombre de trabajo de Azure Import**: el nombre único mediante el que los servicios Azure Import y Azure Backup realizan el seguimiento de la transferencia de los datos enviados en discos a Azure. 
   
   Proporcione las entradas en la pantalla y haga clic en **Siguiente**. Guarde la *ubicación de almacenamiento provisional* y el *nombre del trabajo de importación de Azure* proporcionados, ya que esta información es necesaria para preparar los discos.
 
@@ -109,7 +109,7 @@ La utilidad *AzureOfflineBackupDiskPrep* prepara las unidades de disco SATA que 
     * El equipo de copia puede acceder a la ubicación de ensayo del flujo de trabajo de propagación sin conexión mediante la misma ruta de acceso de red proporcionada durante el flujo de trabajo de **inicio de la copia de seguridad sin conexión** .
     * BitLocker está habilitado en el equipo de copia.
     * Azure PowerShell 3.7.0 está instalado.
-    * Los exploradores compatibles más recientes (Microsoft Edge o Internet Explorer 11) están instalados y JavaScript, habilitado. 
+    * Los exploradores compatibles más recientes (Edge o Internet Explorer 11) están instalados y JavaScript, habilitado. 
     * El equipo de copia puede acceder a Azure Portal. Si es necesario, el equipo de copia puede ser el mismo que el equipo de origen.
     
     > [!IMPORTANT] 

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: c9a4a0944c51cb8c6f6d91cd153580a17a9b7898
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: eeb548d6bd955aedf322a63c861fd23bb37c1167
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632669"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634633"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>Uso de MapReduce con Apache Hadoop en HDInsight
 
@@ -28,15 +28,15 @@ Obtenga información sobre cómo ejecutar trabajos de MapReduce en clústeres de
 
 > [!IMPORTANT]
 > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
->
+
 
 ## <a id="whatis"></a>Qué es MapReduce
 
 MapReduce de Apache Hadoop es un marco de software para escribir trabajos que procesan enormes cantidades de datos. Los datos de entrada se dividen en fragmentos independientes. Cada fragmento se procesa en paralelo en todos los nodos del clúster. Un trabajo de MapReduce consta de dos funciones:
 
-* **Asignador**: consume datos de entrada, los analiza (normalmente con un filtro y operaciones de ordenación) y emite tuplas (pares de clave-valor)
+* **Asignador**: consume datos de entrada, los analiza (normalmente con un filtro y operaciones de ordenación) y emite tuplas (pares de clave-valor).
 
-* **Reductor**: consume tuplas emitidas por el asignador y realiza una operación de resumen que crea un resultado combinado más pequeño de los datos del asignador
+* **Reductor**: consume tuplas emitidas por el asignador y realiza una operación de resumen que crea un resultado combinado más pequeño de los datos del asignador.
 
 En el siguiente diagrama se muestra un ejemplo de trabajo de MapReduce de recuento de palabras básico:
 
@@ -57,7 +57,7 @@ El streaming de Hadoop se comunica con el asignador y el reductor a través de S
 
     [key]/t[value]
 
-Para obtener más información, consulte [Streaming de Hadoop](http://hadoop.apache.org/docs/r1.2.1/streaming.html).
+Para obtener más información, consulte [Streaming de Hadoop](https://hadoop.apache.org/docs/r1.2.1/streaming.html).
 
 Para obtener ejemplos del uso del streaming de Hadoop con HDInsight, vea los documentos siguientes:
 
@@ -163,7 +163,7 @@ HDInsight puede ejecutar trabajos de HiveQL mediante varios métodos. Use la tab
 | [Curl](apache-hadoop-use-mapreduce-curl.md) |Enviar el trabajo de forma remota mediante **REST** |Linux o Windows |Linux, Unix, Mac OS X o Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Enviar el trabajo de forma remota mediante **Windows PowerShell** |Linux o Windows |Windows |
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a id="nextsteps"></a>Pasos siguientes
@@ -174,9 +174,9 @@ Para conocer más acerca del trabajo con datos en HDInsight, consulte los siguie
 
 * [Desarrollo de programas de MapReduce de streaming de Python para HDInsight](apache-hadoop-streaming-python.md)
 
-* [Uso de Hive con HDInsight][hdinsight-use-hive]
+* [Uso de Apache Hive con HDInsight][hdinsight-use-hive]
 
-* [Uso de Pig con HDInsight][hdinsight-use-pig]
+* [Uso de Apache Pig con HDInsight][hdinsight-use-pig]
 
 
 [hdinsight-upload-data]: hdinsight-upload-data.md

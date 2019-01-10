@@ -4,17 +4,16 @@ description: Use el agente de Microsoft Azure Backup para realizar copias de seg
 services: backup
 author: rayne-wiselman
 manager: carmonm
-keywords: almacén de copia de seguridad; copia de seguridad de un equipo de Windows Server; ventanas de copia de seguridad;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
 ms.author: raynew
-ms.openlocfilehash: 4e138311b58d56f3a188347d43ed12287d43e1bd
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: ff1aaadd77df9cb7678ad71141d15c96f2f12dc0
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874012"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788402"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Copia de seguridad desde Windows Server o un cliente de Windows en Azure mediante el modelo de implementación de Resource Manager
 En este artículo se explica cómo realizar una copia de seguridad de los archivos y carpetas de Windows Server (o del cliente de Windows) en Azure con Azure Backup usando el modelo de implementación de Resource Manager.
@@ -183,6 +182,8 @@ Si la máquina o proxy tienen limitado el acceso a Internet, asegúrese de que s
 La directiva de copia de seguridad constituye la programación del momento en que se establecen los puntos de recuperación y del período de retención de dichos puntos. Use el agente de Microsoft Azure Backup para crear la directiva de copia de seguridad de archivos y carpetas.
 
 ### <a name="to-create-a-backup-schedule"></a>Para crear una programación de copia de seguridad
+
+Establezca la programación de copia de seguridad en la máquina de la que desea realizar una copia de seguridad. Tenga en cuenta que el tiempo establecido para la copia de seguridad puede diferir de la hora del equipo local, porque Azure Backup no toma en cuenta el horario de verano (DST). 
 1. Abra el agente de Microsoft Azure Backup. Para encontrarlo, busque **Microsoft Azure Backup**en la máquina.
 
     ![Lanzamiento del agente de Azure Backup](./media/backup-configure-vault/snap-in-search.png)

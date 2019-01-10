@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 08/27/2018
-ms.openlocfilehash: e760b67c1b971613de6b21102687c8ffeb556ed8
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: ce39b431adfd333db1e771913ed28881a193b327
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386883"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790850"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configuración de clústeres en HDInsight con Apache Hadoop, Apache Spark, Apache Kafka, etc.
 
@@ -107,12 +107,12 @@ No es preciso que especifique la ubicación del clúster explícitamente: El cl�
 
 ## <a name="storage-endpoints-for-clusters"></a>Puntos de conexión de almacenamiento para clústeres
 
-Aunque una instalación local de Hadoop usa el sistema de archivos distribuido de Hadoop (HDFS) para el almacenamiento en el clúster, en la nube se usan puntos de conexión de almacenamiento conectados al clúster. Los clústeres de HDInsight usan [Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md) o [blobs de Azure Storage](hdinsight-hadoop-use-blob-storage.md). El empleo de Azure Storage o Data Lake Store significa que puede eliminar con seguridad los clústeres de HDInsight usados para el cálculo y conservar los datos. 
+Aunque una instalación local de Hadoop usa el sistema de archivos distribuido de Hadoop (HDFS) para el almacenamiento en el clúster, en la nube se usan puntos de conexión de almacenamiento conectados al clúster. Los clústeres de HDInsight usan [Azure Data Lake Storage](hdinsight-hadoop-use-data-lake-store.md) o [blobs de Azure Storage](hdinsight-hadoop-use-blob-storage.md). El empleo de Azure Storage o Data Lake Storage significa que puede eliminar con seguridad los clústeres de HDInsight usados para el cálculo y conservar los datos. 
 
 > [!WARNING]  
 > No se admite el uso de una cuenta de almacenamiento adicional en una ubicación diferente a la del clúster de HDInsight.
 
-Durante la configuración se especifica un contenedor de blobs de una cuenta de Azure Storage o de Data Lake Store para el punto de conexión de almacenamiento predeterminado. El almacenamiento predeterminado contiene los registros del sistema y de la aplicación. De manera opcional, puede especificar más cuentas vinculadas de Azure Storage y cuentas de Data Lake Store a las que el clúster pueda acceder. El clúster de HDInsight y las cuentas de almacenamiento dependientes deben estar en la misma ubicación de Azure.
+Durante la configuración se especifica un contenedor de blobs de una cuenta de Azure Storage o de Data Lake Storage para el punto de conexión de almacenamiento predeterminado. El almacenamiento predeterminado contiene los registros del sistema y de la aplicación. De manera opcional, puede especificar más cuentas vinculadas de Azure Storage y cuentas de Data Lake Storage a las que el clúster pueda acceder. El clúster de HDInsight y las cuentas de almacenamiento dependientes deben estar en la misma ubicación de Azure.
 
 ![Configuración de almacenamiento de clúster: puntos de conexión de almacenamiento compatibles con HDFS](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
 
@@ -247,7 +247,7 @@ Para ver un ejemplo de cómo usar dos tipos de clúster en una red virtual de Az
 
 ## <a name="troubleshoot-access-control-issues"></a>Solución de problemas de control de acceso
 
-Si experimenta problemas con la creación de clústeres de HDInsight, consulte los [requisitos de control de acceso](hdinsight-administer-use-portal-linux.md#create-clusters).
+Si experimenta problemas con la creación de clústeres de HDInsight, consulte los [requisitos de control de acceso](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

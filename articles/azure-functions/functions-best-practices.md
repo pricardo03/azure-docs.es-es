@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78882742549632e7f1f6362f9e3ad0ae0034ffda
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: c8581510f16896df74f814e501648374d984945e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634683"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039340"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimización del rendimiento y confiabilidad de Azure Functions
 
@@ -37,7 +37,7 @@ Siempre que sea posible, refactorice funciones grandes en conjuntos más pequeñ
 
 ### <a name="cross-function-communication"></a>Comunicación entre funciones
 
-[Durable Functions](durable/durable-functions-overview.md) y [Azure Logic Apps](../logic-apps/logic-apps-overview.md) se han creado para administrar las transiciones de estado y las comunicaciones entre varias funciones.
+[Durable Functions](durable/durable-functions-concepts.md) y [Azure Logic Apps](../logic-apps/logic-apps-overview.md) se han creado para administrar las transiciones de estado y las comunicaciones entre varias funciones.
 
 Si no usa Durable Functions ni Logic Apps para integrar varias funciones, se recomienda usar colas de almacenamiento para la comunicación entre estas.  La razón principal es que las colas de almacenamiento son más baratas y mucho más fáciles de aprovisionar. 
 

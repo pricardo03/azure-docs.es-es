@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e3d938c4464fc5141b97f85220bf096920e17d00
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: b8718e02bc0306db1ac8cd4f5b133ebdb17a4ec3
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339600"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557298"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integración de intercambios de notificaciones de API de REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario
 
@@ -27,9 +27,9 @@ El marco de experiencia de identidad, que subyace a Azure Active Directory B2C (
 Mediante Azure AD B2C puede agregar su propia lógica de negocios a un recorrido del usuario mediante una llamada a su propio servicio REST. El marco de experiencia de identidad envía datos al servicio REST en una colección *Notificaciones entrantes* y recibe datos de RESTful en una colección *Notificaciones salientes*. Con la integración del servicio RESTful, puede hacer lo siguiente:
 
 * **Validar datos de entrada de usuario**: esta acción impide que se conserven en Azure AD datos con formato incorrecto. Si el valor del usuario no es válido, el servicio REST devuelve el mensaje de error que indica al usuario que proporcione una entrada. Por ejemplo, puede comprobar que la dirección de correo electrónico que proporciona el usuario existe en la base de datos del cliente.
-* **Sobrescribir notificaciones de entrada**: por ejemplo, si un usuario escribe el nombre con mayúsculas o minúsculas, se le puede dar un formato en el que solo la primera letra esté en mayúscula.
-* **Enriquecer los datos de usuario mediante su integración adicional con las aplicaciones de línea de negocio corporativas**: el servicio REST puede recibir la dirección de correo electrónico del usuario, consultar la base de datos del cliente y devolver el número de fidelidad del usuario a Azure AD B2C. Las notificaciones de devolución se pueden almacenar en la cuenta de Azure AD del usuario, evaluar en los siguientes *pasos de orquestación* o incluir en el token de acceso.
-* **Ejecutar una lógica de negocios personalizada**: puede enviar notificaciones push, actualizar las bases de datos corporativas, ejecutar un proceso de migración de usuarios, administrar permisos, auditar bases de datos y realizar otras acciones.
+* **Sobrescribir notificaciones de entrada**: Por ejemplo, si un usuario escribe el nombre con mayúsculas o minúsculas, se le puede dar un formato en el que solo la primera letra esté en mayúscula.
+* **Enriquecer datos de usuario mediante integración adicional con aplicaciones de línea de negocio corporativas**: el servicio RESTful puede recibir la dirección de correo electrónico del usuario, consultar la base de datos del cliente y devolver el número de fidelidad del usuario a Azure AD B2C. Las notificaciones de devolución se pueden almacenar en la cuenta de Azure AD del usuario, evaluar en los siguientes *pasos de orquestación* o incluir en el token de acceso.
+* **Ejecutar lógica de negocios personalizada**: puede enviar notificaciones push, actualizar las bases de datos corporativas, ejecutar un proceso de migración de usuarios, administrar permisos, auditar bases de datos y realizar otras acciones.
 
 La integración con los servicios REST se pueden diseñar de las siguientes maneras:
 
@@ -38,7 +38,7 @@ La integración con los servicios REST se pueden diseñar de las siguientes mane
    * Validar las notificaciones de entrada y generar mensajes de error personalizados.
    * Devolver notificaciones de salida.
 
-* **Intercambio de notificaciones**: este diseño es similar al perfil técnico de validación, pero se produce dentro de un paso de la orquestación. Esta definición se limita a:
+* **Intercambio de notificaciones**: este diseño es similar al perfil técnico de validación, pero se produce dentro de un paso de orquestación. Esta definición se limita a:
    * Enviar notificaciones de entrada.
    * Devolver notificaciones de salida.
 
@@ -56,7 +56,7 @@ Información general:
 ## <a name="prerequisites"></a>Requisitos previos
 Complete los pasos del artículo [Introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md).
 
-## <a name="step-1-create-an-aspnet-web-api"></a>Paso 1: Creación de ASP.NET Web API
+## <a name="step-1-create-an-aspnet-web-api"></a>Paso 1: Creación de una API web de ASP.NET
 
 1. Cree un proyecto en Visual Studio, para lo que debe seleccionar **Archivo** >  **Nuevo** > **Proyecto**.
 
@@ -74,7 +74,7 @@ Complete los pasos del artículo [Introducción a las directivas personalizadas]
 
 6. Haga clic en **Aceptar** para crear el proyecto.
 
-## <a name="step-2-prepare-the-rest-api-endpoint"></a>Paso 2: Preparación del punto de conexión de API de REST
+## <a name="step-2-prepare-the-rest-api-endpoint"></a>Paso 2: Preparación del punto de conexión de API REST
 
 ### <a name="step-21-add-data-models"></a>Paso 2.1: Incorporación de modelos de datos
 Los modelos representan los datos de notificaciones de entrada y de notificaciones de salida en el servicio RESTful. El código lee los datos de entrada, para lo que deserializa el modelo de notificaciones de entrada de una cadena JSON en un objeto de C# (el modelo). ASP.NET Web API deserializa automáticamente el modelo de notificaciones de salida en JSON y luego escribe los datos serializados en el cuerpo del mensaje de respuesta HTTP. 
@@ -133,7 +133,7 @@ Cree un modelo que represente las notificaciones de entrada, para lo que debe se
     }
     ```
 
-### <a name="step-22-add-a-controller"></a>Paso 2.2: Incorporación de un controlador
+### <a name="step-22-add-a-controller"></a>Paso 2.2: Adición de un controlador
 En la API web, un _controlador_ es un objeto que controla las solicitudes HTTP. El controlador devuelve notificaciones de salida, o bien, si el nombre no es válido, genera un mensaje de error de HTTP en conflicto.
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en la carpeta **Controladores**, y seleccione **Agregar** y **Controlador**.
@@ -203,7 +203,7 @@ En la API web, un _controlador_ es un objeto que controla las solicitudes HTTP. 
     }
     ```
 
-## <a name="step-3-publish-the-project-to-azure"></a>Paso 3: Publicación del proyecto en Azure
+## <a name="step-3-publish-the-project-to-azure"></a>Paso 3: Publicar el proyecto en Azure
 1. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **Contoso.AADB2C.API** y seleccione **Publicar**.
 
     ![Publicación en Microsoft Azure App Service](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-1.png)
@@ -248,7 +248,7 @@ Un proveedor de notificaciones puede tener varios perfiles técnicos por distint
 
 El siguiente fragmento de código de XML contiene un proveedor de reclamaciones con dos perfiles técnicos:
 
-* **TechnicalProfile Id="REST-API-SignUp"**: define el servicio REST. 
+* **TechnicalProfile Id="REST-API-SignUp"**: define el servicio RESTful. 
    * `Proprietary` se describe como protocolo de un proveedor basado en REST. 
    * `InputClaims` define las notificaciones que se enviarán desde Azure AD B2C al servicio REST. 
 
@@ -260,40 +260,40 @@ Busque el nodo `<ClaimsProviders>` y agregue el siguiente fragmento de código X
 
 ```xml
 <ClaimsProvider>
-    <DisplayName>REST APIs</DisplayName>
-    <TechnicalProfiles>
+  <DisplayName>REST APIs</DisplayName>
+  <TechnicalProfiles>
     
     <!-- Custom Restful service -->
     <TechnicalProfile Id="REST-API-SignUp">
-        <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
-        <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-        <Metadata>
+      <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
         <Item Key="ServiceUrl">https://your-app-name.azurewebsites.NET/api/identity/signup</Item>
         <Item Key="AuthenticationType">None</Item>
         <Item Key="SendClaimsIn">Body</Item>
-        </Metadata>
-        <InputClaims>
+        <Item Key="AllowInsecureAuthInProduction">true</Item>
+      </Metadata>
+      <InputClaims>
         <InputClaim ClaimTypeReferenceId="email" />
         <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName" />
         <InputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
-        </InputClaims>
-        <OutputClaims>
+      </InputClaims>
+      <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="loyaltyNumber" PartnerClaimType="loyaltyNumber" />
-        </OutputClaims>
-        <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+      </OutputClaims>
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
     </TechnicalProfile>
 
-<!-- Change LocalAccountSignUpWithLogonEmail technical profile to support your validation technical profile -->
+    <!-- Change LocalAccountSignUpWithLogonEmail technical profile to support your validation technical profile -->
     <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
-        <OutputClaims>
+      <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="loyaltyNumber" PartnerClaimType="loyaltyNumber" />
-        </OutputClaims>
-        <ValidationTechnicalProfiles>
+      </OutputClaims>
+      <ValidationTechnicalProfiles>
         <ValidationTechnicalProfile ReferenceId="REST-API-SignUp" />
-        </ValidationTechnicalProfiles>
+      </ValidationTechnicalProfiles>
     </TechnicalProfile>
-
-    </TechnicalProfiles>
+  </TechnicalProfiles>
 </ClaimsProvider>
 ```
 
@@ -339,7 +339,7 @@ Después de agregar la nueva notificación, el código del usuario de confianza 
 
 7. Repita el paso anterior con el archivo SignUpOrSignIn.xml.
 
-## <a name="step-8-test-the-custom-policy-by-using-run-now"></a>Paso 8: Prueba de la directiva personalizada con Ejecutar ahora
+## <a name="step-8-test-the-custom-policy-by-using-run-now"></a>Paso 8: Probar la directiva personalizada con Ejecutar ahora
 1. Seleccione **Configuración de Azure AD B2C** y vaya a **Marco de experiencia de identidad**.
 
     > [!NOTE]

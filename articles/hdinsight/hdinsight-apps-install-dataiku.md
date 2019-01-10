@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 4ba1e325ec978114016682aaee35be35a20ec028
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 5d2f803414db3bd118f57d317cfc32c8f22fcd5a
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499108"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653262"
 ---
 # <a name="install-published-application---dataiku-dds"></a>Instalación de aplicación publicada: Dataiku DDS
 
@@ -28,13 +28,13 @@ Puede usar DSS para implementar una solución de análisis completa, comenzando 
 
 Puede instalar DSS en HDInsight mediante clústeres de [Apache Hadoop](https://hadoop.apache.org/) o de [Apache Spark](https://spark.apache.org/). Puede instalar DSS en clústeres en ejecución existentes o al crear clústeres nuevos. DSS también admite usar Azure Blob Storage como un conector para leer los datos.
 
-Puede usar DSS para compilar proyectos los que, luego, pueden generar trabajos de [MapReduce de Apache Hadoop](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) o de Spark. Estos trabajos se ejecutan como trabajos de MapReduce o de Spark normales en HDInsight, por lo que puede escalar el clúster a petición.
+Puede usar DSS para compilar proyectos que, luego, pueden generar trabajos de [MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) o de Spark. Estos trabajos se ejecutan como trabajos de MapReduce o de Spark normales en HDInsight, por lo que puede escalar el clúster a petición.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para instalar esta aplicación en un clúster de HDInsight nuevo o en un clúster existente, debe tener la configuración siguiente:
 
-* Niveles de clúster : estándar, Premium
+* Nivel del clúster: Estándar, Premium
 * Tipos de clúster: Hadoop, Spark
 * Versiones de clúster: 3.4, 3.5
 
@@ -115,6 +115,6 @@ Para tutoriales detallados, lea [Learn Dataiku DSS](https://www.dataiku.com/lear
 * [Documentación sobre Dataiku DSS](https://doc.dataiku.com/dss/latest/).
 * [Instalación de aplicaciones de HDInsight personalizadas](hdinsight-apps-install-custom-applications.md): aprenda a implementar en HDInsight una aplicación de HDInsight no publicada.
 * [Publicación de aplicaciones de HDInsight en Azure Marketplace](hdinsight-apps-publish-applications.md): aprenda a publicar aplicaciones de HDInsight personalizadas en Azure Marketplace.
-* [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx)(MSDN: instalación de una aplicación de HDInsight): aprenda a definir aplicaciones de HDInsight.
-* [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md): aprenda a usar acciones de script para instalar otras aplicaciones.
+* [MSDN: Instalación de una aplicación HDInsight](https://msdn.microsoft.com/library/mt706515.aspx): Obtenga información sobre cómo definir las aplicaciones de HDInsight.
+* [Personalización de clústeres de HDInsight basados en Linux mediante acciones de script](hdinsight-hadoop-customize-cluster-linux.md): Obtenga información sobre cómo usar las acciones de script para instalar aplicaciones adicionales.
 * [Uso de nodos perimetrales vacíos en HDInsight](hdinsight-apps-use-edge-node.md): aprenda a usar un nodo perimetral vacío para acceder a los clústeres de HDInsight, probar aplicaciones de este y hospedarlas.

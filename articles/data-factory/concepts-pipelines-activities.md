@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: ca64c87a0211ae00218493fe7bfddcbbb81a032a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: ac72de799ce7cd00e939e9b67f1ef5574ce3eed3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109446"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972574"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Canalizaciones y actividades en Azure Data Factory
-> [!div class="op_single_selector" title1="Seleccione la versión del servicio de Data Factory que está utilizando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1](v1/data-factory-create-pipelines.md)
 > * [Versión actual](concepts-pipelines-activities.md)
 
@@ -55,7 +55,7 @@ Actividad de transformación de datos | Entorno de procesos
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Hadoop Streaming](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[Actividades de Machine Learning: ejecución de Batch y recurso de actualización](transform-data-using-machine-learning.md) | MV de Azure
+[Actividades de Machine Learning: ejecución de lotes y recurso de actualización](transform-data-using-machine-learning.md) | MV de Azure
 [Procedimiento almacenado](transform-data-using-stored-procedure.md) | SQL Azure, Azure SQL Data Warehouse o SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Análisis con Azure Data Lake
 [Código personalizado](transform-data-using-dotnet-custom-activity.md) | Azure Batch
@@ -97,13 +97,13 @@ Aquí encontrará cómo se define una canalización en formato JSON:
 
 Etiqueta | DESCRIPCIÓN | Escriba | Obligatorio
 --- | ----------- | ---- | --------
-Nombre | Nombre de la canalización. Especifique un nombre que represente la acción que realizará la canalización. <br/><ul><li>Número máximo de caracteres: 140</li><li>Debe empezar por una letra, un número o un carácter de subrayado (_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, “>”, “*”, “%”, “&”, “:”, “\”</li></ul> | string | SÍ
+Nombre | Nombre de la canalización. Especifique un nombre que represente la acción que realizará la canalización. <br/><ul><li>Número máximo de caracteres: 140</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, “>”, “*”, “%”, “&”, “:”, “\”</li></ul> | string | SÍ
 description | Especifique el texto que describe para qué se usa la canalización. | string | Sin 
 actividades | La sección **activities** puede contener una o más actividades definidas. Consulte la sección [JSON de actividades](#activity-json) para obtener más información sobre el elemento JSON de actividades. | Matriz | SÍ
 parameters | La sección **parámetros** puede tener uno o varios de los parámetros definidos dentro de la canalización, lo que hace que la canalización sea flexible para su reutilización. | Enumerar | Sin 
 
 ## <a name="activity-json"></a>Actividad de JSON
-La sección **activities** puede contener una o más actividades definidas. Hay dos tipos principales de actividades principales: actividades de ejecución y de control.
+La sección **activities** puede contener una o más actividades definidas. Existen dos tipos principales de actividades: Actividades de ejecución y de control.
 
 ### <a name="execution-activities"></a>Actividades de ejecución
 Las actividades de ejecución incluyen las actividades de [movimiento de datos](#data-movement-activities) y de [transformación de datos](#data-transformation-activities). Tienen la siguiente estructura de nivel superior:
@@ -130,7 +130,7 @@ En la tabla siguiente se describen las propiedades en la definición JSON de la 
 
 Etiqueta | DESCRIPCIÓN | Obligatorio
 --- | ----------- | ---------
-Nombre | Nombre de la actividad. Especifique un nombre que represente la acción que realizará la actividad. <br/><ul><li>Número máximo de caracteres: 55</li><li>Debe empezar en una letra, un número o un carácter de subrayado (_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, “>”, “*”, “%”, “&”, “:”, “\” | SÍ</li></ul>
+Nombre | Nombre de la actividad. Especifique un nombre que represente la acción que realizará la actividad. <br/><ul><li>Número máximo de caracteres: 55</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, “>”, “*”, “%”, “&”, “:”, “\” | SÍ</li></ul>
 description | Texto que describe para qué se usa la actividad. | SÍ
 Tipo | Tipo de la actividad. Consulte las secciones [Actividades de movimiento de datos](#data-movement-activities), [Actividades de transformación de datos](#data-transformation-activities) y [Actividades de control](#control-activities) para ver los diferentes tipos de actividades. | SÍ
 linkedServiceName | Nombre del servicio vinculado utilizado por la actividad.<br/><br/>Una actividad puede requerir que especifique el servicio vinculado que enlaza con el entorno de procesos necesario. | Sí para la actividad de HDInsight, la actividad Scoring de Azure Machine Learning y la actividad de procedimiento almacenado. <br/><br/>No para todos los demás
@@ -170,10 +170,10 @@ Las directivas afectan al comportamiento en tiempo de ejecución de una activida
 ```
 Nombre JSON | DESCRIPCIÓN | Valores permitidos | Obligatorio
 --------- | ----------- | -------------- | --------
-timeout | Especifica el tiempo de espera para que se ejecute la actividad. | TimeSpan | No. El tiempo de espera predeterminado es de 7 días.
-retry | Número máximo de reintentos | Entero | No. El valor predeterminado es 0.
-retryIntervalInSeconds | El retraso entre reintentos, en segundos. | Entero | No. El valor predeterminado es de 20 segundos.
-secureOutput | Cuando se establece en true, la salida de la actividad se considera segura y no se registrará en la supervisión. | boolean | No. El valor predeterminado es false.
+timeout | Especifica el tiempo de espera para que se ejecute la actividad. | TimeSpan |  No. El tiempo de espera predeterminado es de 7 días.
+retry | Número máximo de reintentos | Entero |  No. El valor predeterminado es 0.
+retryIntervalInSeconds | El retraso entre reintentos, en segundos. | Entero |  No. El valor predeterminado es de 20 segundos.
+secureOutput | Cuando se establece en true, la salida de la actividad se considera segura y no se registrará en la supervisión. | boolean |  No. El valor predeterminado es false.
 
 ### <a name="control-activity"></a>Actividad de control
 Las actividades de control tienen la siguiente estructura de nivel superior:
@@ -194,7 +194,7 @@ Las actividades de control tienen la siguiente estructura de nivel superior:
 
 Etiqueta | DESCRIPCIÓN | Obligatorio
 --- | ----------- | --------
-Nombre | Nombre de la actividad. Especifique un nombre que represente la acción que realizará la actividad.<br/><ul><li>Número máximo de caracteres: 55</li><li>Debe empezar en una letra, un número o un carácter de subrayado (_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, “>”, “*”, “%”, “&”, “:”, “\” | SÍ</li><ul>
+Nombre | Nombre de la actividad. Especifique un nombre que represente la acción que realizará la actividad.<br/><ul><li>Número máximo de caracteres: 55</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, “>”, “*”, “%”, “&”, “:”, “\” | SÍ</li><ul>
 description | Texto que describe para qué se usa la actividad. | SÍ
 Tipo | Tipo de la actividad. Consulte las secciones [Actividades de movimiento de datos](#data-movement-activities), [Actividades de transformación de datos](#data-transformation-activities) y [Actividades de control](#control-activities) para ver los diferentes tipos de actividades. | SÍ
 typeProperties | Las propiedades en la sección typeProperties dependen de cada tipo de actividad. Para ver las propiedades de tipo de una actividad, haga clic en vínculos a la actividad de la sección anterior. | Sin 

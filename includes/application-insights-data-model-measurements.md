@@ -4,12 +4,12 @@ ms.service: application-insights
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3986b77cfad167134bf8ada1e3cbb73ad64dd3ca
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 91141e314bf276d9138157c8a9d85d5262ac5907
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572704"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728989"
 ---
 Colección de medidas personalizadas. Use esta colección para notificar la medida designada asociada al elemento de telemetría. Casos de uso típicos:
 - el tamaño de carga útil de la telemetría de dependencia
@@ -25,6 +25,6 @@ customEvents
 ```
 
  > [!NOTE]
- > Las medidas personalizadas están asociadas al elemento de telemetría al que pertenecen. Están sujetas a muestreo con el elemento de telemetría que contiene esas mediciones. Para realizar el seguimiento de una medida que tiene un valor independiente de otros tipos de telemetría, use la [telemetría de métricas](../articles/application-insights/app-insights-api-custom-events-metrics.md).
+ > Las medidas personalizadas están asociadas al elemento de telemetría al que pertenecen. Están sujetas a muestreo con el elemento de telemetría que contiene esas mediciones. Para realizar el seguimiento de una medida que tiene un valor independiente de otros tipos de telemetría, use la [telemetría de métricas](../articles/azure-monitor/app/api-custom-events-metrics.md).
 
 Longitud máxima de la clave: 150

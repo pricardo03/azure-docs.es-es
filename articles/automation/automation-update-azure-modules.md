@@ -9,16 +9,19 @@ ms.author: gwallace
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f461bc1fd17ee957be5f223de731608011d021f5
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5a60dd9af60328759e332514c8af061e50382798
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959366"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634871"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Actualización de módulos de Azure PowerShell en Azure Automation
 
 Los módulos de Azure PowerShell más comunes se proporcionan de forma predeterminada en cada cuenta de Automation. El equipo de Azure actualiza periódicamente los módulos de Azure. En su cuenta de Automation, se le proporciona una manera de actualizar los módulos de la cuenta cuando hay nuevas versiones disponibles desde el portal.
+
+> [!NOTE]
+> El nuevo [módulo Az de Azure PowerShell](/powershell/azure/new-azureps-module-az?view=azurermps-6.13.0) no es compatible con Azure Automation.
 
 Dado que los módulos se actualizan periódicamente por el grupo de productos, pueden producirse cambios con los cmdlets incluidos. Esta acción puede afectar negativamente los runbooks según el tipo de cambio, como cambiar el nombre de un parámetro o dejar de usar un cmdlet por completo. Para evitar afectar los runbooks y los procesos que automatizan, pruébelos y valídelos antes de continuar. Si no tiene una cuenta de Automation dedicada pensada para este propósito, considere la posibilidad de crear una para que pueda probar muchos escenarios diferentes durante el desarrollo de los runbooks. Estas pruebas deben incluir cambios iterativos, como la actualización de los módulos de PowerShell. Si desarrolla sus scripts de forma local, se recomienda tener localmente las mismas versiones del módulo que tiene en la cuenta de Automation al realizar pruebas, a fin de asegurarse de que obtendrá los mismos resultados. Una vez validados los resultados y aplicados los cambios necesarios, puede mover los cambios a producción.
 

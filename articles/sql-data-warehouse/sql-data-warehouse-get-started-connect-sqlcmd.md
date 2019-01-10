@@ -1,6 +1,6 @@
 ---
 title: Conexión a Azure SQL Data Warehouse sqlcmd | Microsoft Docs
-description: Use la utilidad de línea de comandos [sqlcmd][sqlcmd] para conectar y consultar una instancia de Azure SQL Data Warehouse.
+description: Use la utilidad de línea de comandos sqlcmd para conectarse a Azure SQL Data Warehouse y realizar consultas.
 services: sql-data-warehouse
 author: kavithaj
 manager: craigg
@@ -10,12 +10,12 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 94f3955f9ce94fa52e89180fa649c4e412b80109
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 2534d668132db4c66b5e54c33849b76a8f93c348
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247720"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976416"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>Conexión a SQL Data Warehouse con sqlcmd
 > [!div class="op_single_selector"]
@@ -32,14 +32,14 @@ Use la utilidad de línea de comandos [sqlcmd][sqlcmd] para conectarse a Azure S
 ## <a name="1-connect"></a>1. Conectar
 Para empezar a trabajar con [sqlcmd][sqlcmd], abra el símbolo del sistema y escriba **sqlcmd**, seguido de la cadena de conexión de la base de datos de SQL Data Warehouse. La cadena de conexión requiere los siguientes parámetros:
 
-* **Server (-S):** servidor con el formato `<`Nombre del servidor`>`.database.windows.net
-* **Base de datos (-d):** nombre de la base de datos.
-* **Habilitar identificadores entre comillas (-I):** los identificadores entre comillas deben estar habilitados para poder conectarse a una instancia de SQL Data Warehouse.
+* **Server (-S):** servidor con el formato `<`Nombre de servidor`>`.database.windows.net
+* **Database (-d):** nombre de base de datos.
+* **Enable Quoted Identifiers (-I):** los identificadores entre comillas deben estar habilitados para poder conectarse a una instancia de SQL Data Warehouse.
 
 Para utilizar la autenticación de SQL Server, debe agregar los parámetros de nombre de usuario y contraseña:
 
-* **Usuario (-U):** usuario de servidor con el formato `<`usuario`>`
-* **Contraseña (-P):** la contraseña asociada con el usuario.
+* **User (-U):** usuario del servidor con el formato `<`Usuario`>`
+* **Password (-P):** contraseña asociada con el usuario.
 
 Por ejemplo, la cadena de conexión podría ser similar a la siguiente:
 

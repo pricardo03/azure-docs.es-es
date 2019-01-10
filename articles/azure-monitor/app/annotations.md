@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 126c0d63a7d59b76361a25844575ee6556a475b1
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 8536cce8de79f396b5d60058dd41f733d2627c87
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002083"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119142"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anotaciones sobre gráficos de métricas en Application Insights
 
 En las anotaciones sobre gráficos del [Explorador de métricas](../../azure-monitor/app/metrics-explorer.md) se muestra donde ha implementado una nueva compilación u otros eventos importantes. Permiten ver fácilmente si los cambios tuvieron algún efecto en el rendimiento de la aplicación. Se pueden crear automáticamente con el [sistema de compilación de Azure DevOps Services](https://docs.microsoft.com/azure/devops/pipelines/tasks/). También puede crear anotaciones para marcar los eventos que prefiera si los [crea desde PowerShell](#create-annotations-from-powershell).
 
 > [!NOTE]
-> En este artículo se refleja la **experiencia de métricas clásicas** en desuso. Las anotaciones solo están disponibles actualmente en la experiencia clásica y en los **[libros](../../application-insights/app-insights-usage-workbooks.md)**. Para más información sobre la actual experiencia de métricas, puede consultar [este artículo](../../azure-monitor/platform/metrics-charts.md).
+> En este artículo se refleja la **experiencia de métricas clásicas** en desuso. Las anotaciones solo están disponibles actualmente en la experiencia clásica y en los **[libros](../../azure-monitor/app/usage-workbooks.md)**. Para más información sobre la actual experiencia de métricas, puede consultar [este artículo](../../azure-monitor/platform/metrics-charts.md).
 
 ![Ejemplo de anotaciones con correlación visible con el tiempo de respuesta del servidor](./media/annotations/00.png)
 
@@ -46,7 +46,7 @@ Solo deberá hacerlo una vez para su organización de Azure DevOps Services. Las
 
 Necesita obtener una clave de API separada para cada plantilla de versión de Azure DevOps Services.
 
-1. Inicie sesión en [Microsoft Azure Portal](https://portal.azure.com) y abra el recurso de Application Insights que supervisa su aplicación. (O bien, [cree uno ahora](../../application-insights/app-insights-overview.md), si aún no lo ha hecho).
+1. Inicie sesión en [Microsoft Azure Portal](https://portal.azure.com) y abra el recurso de Application Insights que supervisa su aplicación. (O bien, [cree uno ahora](../../azure-monitor/app/app-insights-overview.md), si aún no lo ha hecho).
 2. Abra **Acceso a la API**, **Id. de Application Insights**.
    
     ![En portal.azure.com, abra el recurso de Application Insights y elija Configuración. Abra el Acceso a la API. Copie el identificador de aplicación.](./media/annotations/20.png)

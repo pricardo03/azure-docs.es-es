@@ -11,18 +11,18 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: df9470813f3f9c3bff58882879c06e7b7b0fc15b
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 9657fd448f6fb98eec87a5999af100d4d08594e5
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379611"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717728"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Sustitución de un componente de hardware en un nodo de unidad de escalado de Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack*
 
 En este artículo se describe el proceso general para reemplazar los componentes de hardware que se pueden intercambiar directamente. Los verdaderos pasos para reemplazar varían en función del fabricante del hardware OEM. Consulte la documentación de la unidad reemplazable de campo (FRU) del proveedor para obtener los pasos detallados específicos para el sistema integrado de Azure Stack.
 
@@ -42,9 +42,9 @@ En el diagrama de flujo siguiente se muestra el proceso general de FRU para reem
 
 ![Diagrama de flujo que muestra el flujo de reemplazo de componente](media/azure-stack-replace-component/replacecomponentflow.PNG)
 
-*Es posible que esta acción no sea necesaria en función de la condición física del hardware.
+* Es posible que esta acción no sea necesaria en función de la condición física del hardware.
 
-\*\*Si el fabricante del hardware OEM realiza el reemplazo de componentes y actualiza el firmware, podría variar en función del contrato de soporte técnico.
+** El fabricante del hardware OEM podría o no realizar el reemplazo de componentes y actualizar el firmware en función del contrato de soporte técnico.
 
 ## <a name="review-alert-information"></a>Revisión de la información de las alertas
 
@@ -54,21 +54,23 @@ El sistema de mantenimiento y supervisión de Azure Stack rastrea el estado de l
 
 Los pasos siguientes proporcionan una información general de alto nivel del proceso de reemplazo de componentes. No siga estos pasos sin consultar la documentación de FRU proporcionada por su OEM.
 
-1. Use la acción [Purgar](azure-stack-node-actions.md#scale-unit-node-actions) para poner el nodo de la unidad de escalado en el modo de mantenimiento. Es posible que esta acción no sea necesaria en función de la condición física del hardware.
+1. Use la acción Apagado para apagar correctamente el nodo de unidad de escalado. Es posible que esta acción no sea necesaria en función de la condición física del hardware.
 
-   > [!NOTE]
-   > En cualquier caso, solo se puede purgar y apagar un nodo al mismo tiempo sin que se interrumpan los Espacios de almacenamiento directo (S2D).
+2. En el improbable caso de que la acción de apagado devuelva un error, use la acción [Purga](azure-stack-node-actions.md#drain) para poner el nodo de unidad de escalado en modo de mantenimiento. Es posible que esta acción no sea necesaria en función de la condición física del hardware.
 
-2. Una vez que el nodo de la unidad de escalado está en el modo de mantenimiento, use la acción de [apagado](azure-stack-node-actions.md#scale-unit-node-actions). Es posible que esta acción no sea necesaria en función de la condición física del hardware.
+   > [!NOTE]  
+   > En cualquier caso, solo se puede deshabilitar y apagar un nodo a la vez sin que se interrumpan los Espacios de almacenamiento directo (S2D).
 
-   > [!NOTE]
+3. Una vez que el nodo de la unidad de escalado está en el modo de mantenimiento, use la acción de [apagado](azure-stack-node-actions.md#scale-unit-node-actions). Es posible que esta acción no sea necesaria en función de la condición física del hardware.
+
+   > [!NOTE]  
    > En el caso improbable de que la acción de apagado no funcione, use en su lugar la interfaz web del controlador de administración de placa base (BMC).
 
-3. Reemplace el componente de hardware dañado. Si el fabricante del hardware OEM realiza el reemplazo de componente podría variar en función del contrato de soporte técnico.  
-4. Actualice el firmware. Siga el proceso de actualización del firmware específico del proveedor con el host de ciclo de vida de hardware para asegurarse de que el componente de hardware de reemplazo tiene aplicado el nivel de firmware aprobado. Si el fabricante del hardware OEM realiza este paso podría variar en función del contrato de soporte técnico.  
-5. Use la acción de [reparación](azure-stack-node-actions.md#scale-unit-node-actions) para devolver el nodo de la unidad de escalado a la unidad de escalado.
-6. Use el punto de conexión con privilegios para [comprobar el estado de la reparación del disco virtual](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Con las nuevas unidades de datos, un trabajo de reparación del almacenamiento completo puede tardar varias horas, según la carga del sistema y el espacio consumido.
-7. Una vez finalizada la acción de reparación, confirme que todas las alertas activas se cerraron automáticamente.
+4. Reemplace el componente de hardware dañado. Si el fabricante del hardware OEM realiza el reemplazo de componente podría variar en función del contrato de soporte técnico.  
+5. Actualice el firmware. Siga el proceso de actualización del firmware específico del proveedor con el host de ciclo de vida de hardware para asegurarse de que el componente de hardware de reemplazo tiene aplicado el nivel de firmware aprobado. Si el fabricante del hardware OEM realiza este paso podría variar en función del contrato de soporte técnico.  
+6. Use la acción de [reparación](azure-stack-node-actions.md#scale-unit-node-actions) para devolver el nodo de la unidad de escalado a la unidad de escalado.
+7. Use el punto de conexión con privilegios para [comprobar el estado de la reparación del disco virtual](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Con las nuevas unidades de datos, un trabajo de reparación del almacenamiento completo puede tardar varias horas, según la carga del sistema y el espacio consumido.
+8. Una vez finalizada la acción de reparación, confirme que todas las alertas activas se cerraron automáticamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

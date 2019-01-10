@@ -12,16 +12,19 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: 6963bb44e6377bcfbb2cb647f1508f075b4268be
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a287f985ce015ac6b886f4e5c2b86d6b3793e7d5
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101859"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721842"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync
 
 SQL Data Sync es un servicio basado en Azure SQL Database que permite sincronizar los datos seleccionados de manera bidireccional entre varias bases de datos SQL e instancias de SQL Server.
+
+> [!IMPORTANT]
+> Azure SQL Data Sync **no** admite en este momento Instancia administrada de Azure SQL Database.
 
 ## <a name="architecture-of-sql-data-sync"></a>Arquitectura de SQL Data Sync
 

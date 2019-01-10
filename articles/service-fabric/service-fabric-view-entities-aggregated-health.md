@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: c6d5954ed3547666236130753dfd53d10475df43
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 09696c606fdf57f5ac55fc50eb06c2c5eea55dfe
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308995"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555258"
 ---
 # <a name="view-service-fabric-health-reports"></a>Vista de los informes de estado de Service Fabric
 Azure Service Fabric presenta un [modelo de mantenimiento](service-fabric-health-introduction.md) con entidades de estado en las que componentes y guardianes del sistema pueden notificar las condiciones locales que están supervisando. El [almacén de estado](service-fabric-health-introduction.md#health-store) agrega todos los datos de mantenimiento para determinar si las entidades son correctas.
@@ -464,7 +464,7 @@ Para obtener el mantenimiento del servicio mediante la API, cree una instancia d
 
 En el ejemplo siguiente se obtiene el mantenimiento de un servicio con el nombre de servicio especificado (URI):
 
-```charp
+```csharp
 ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthAsync(serviceName);
 ```
 
@@ -1030,27 +1030,27 @@ Si las consultas generales devuelven un estado de mantenimiento desconocido para
 
 Las consultas que contienen **HealthState** para las entidades son las siguientes:
 
-* Lista de nodos: devuelve los nodos de la lista del clúster (paginada).
+* Lista de nodos: devuelve la lista de nodos del clúster (paginada).
   * API: [FabricClient.QueryClient.GetNodeListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
-  * PowerShell: Get-ServiceFabricNode.
+  * PowerShell: Get-ServiceFabricNode
 * Lista de aplicaciones: devuelve la lista de aplicaciones del clúster (paginada).
   * API: [FabricClient.QueryClient.GetApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
-  * PowerShell: Get-ServiceFabricApplication.
+  * PowerShell: Get-ServiceFabricApplication
 * Lista de servicios: devuelve la lista de servicios de una aplicación (paginada).
   * API: [FabricClient.QueryClient.GetServiceListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
-  * PowerShell: Get-ServiceFabricService.
+  * PowerShell: Get-ServiceFabricService
 * Lista de particiones: devuelve la lista de particiones de un servicio (paginada).
   * API: [FabricClient.QueryClient.GetPartitionListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
-  * PowerShell: Get-ServiceFabricPartition.
+  * PowerShell: Get-ServiceFabricPartition
 * Lista de réplicas: devuelve la lista de réplicas de una partición (paginada).
   * API: [FabricClient.QueryClient.GetReplicaListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
-  * PowerShell: Get-ServiceFabricReplica.
+  * PowerShell: Get-ServiceFabricReplica
 * Lista de aplicaciones implementadas: devuelve la lista de aplicaciones implementadas en un nodo.
   * API: [FabricClient.QueryClient.GetDeployedApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync)
-  * PowerShell: Get-ServiceFabricDeployedApplication.
+  * PowerShell: Get-ServiceFabricDeployedApplication
 * Lista de paquetes de servicio implementados: devuelve la lista de paquetes de servicio de una aplicación implementada.
   * API: [FabricClient.QueryClient.GetDeployedServicePackageListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync)
-  * PowerShell: Get-ServiceFabricDeployedApplication.
+  * PowerShell: Get-ServiceFabricDeployedApplication
 
 > [!NOTE]
 > Algunas de las consultas devuelven resultados paginados. La devolución de estas consultas es una lista que se deriva de [PagedList<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Si los resultados no caben en un mensaje, solo se devuelve una página y ContinuationToken, que realiza el seguimiento de dónde se detuvo la enumeración. Continúe llamando a la misma consulta y pase el token de continuación de la consulta anterior para obtener los siguientes resultados.

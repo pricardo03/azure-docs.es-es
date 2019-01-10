@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: 86d64ef0e9abab4368569c2f7c5ccd633660085c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 796cbcfc7ab905c54b878a5ccc866efbf9242fb6
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583220"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652088"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Introducción a Apache Spark Streaming
 
@@ -203,7 +203,7 @@ Las funciones de ventana deslizante disponibles en la API de Spark Streaming inc
 
 ## <a name="checkpointing"></a>Puntos de control
 
-Para proporcionar resistencia y tolerancia a errores, Spark Streaming se basa en los puntos de control para garantizar que el procesamiento de flujos puede continuar sin interrupciones, aunque se produzcan errores de nodo. En HDInsight, Spark crea puntos de control en un almacenamiento duradero (Azure Storage o Data Lake Store). Estos puntos de control almacenan los metadatos de la aplicación de streaming, como la configuración, las operaciones definidas por la aplicación y todos los lotes que se ponen en cola pero no se procesan. En algunos casos, los puntos de control también guardarán los datos en los RDD para recompilar con más rapidez el estado de los datos a partir de lo que haya presente en los RDD que administra Spark.
+Para proporcionar resistencia y tolerancia a errores, Spark Streaming se basa en los puntos de control para garantizar que el procesamiento de flujos puede continuar sin interrupciones, aunque se produzcan errores de nodo. En HDInsight, Spark crea puntos de control en un almacenamiento duradero (Azure Storage o Data Lake Storage). Estos puntos de control almacenan los metadatos de la aplicación de streaming, como la configuración, las operaciones definidas por la aplicación y todos los lotes que se ponen en cola pero no se procesan. En algunos casos, los puntos de control también guardarán los datos en los RDD para recompilar con más rapidez el estado de los datos a partir de lo que haya presente en los RDD que administra Spark.
 
 ## <a name="deploying-spark-streaming-applications"></a>Implementación de aplicaciones de Spark Streaming
 

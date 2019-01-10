@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ac0a3500956cc81e264c8743d44aa06f018b1a45
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 991748c33eae607e97b3916a913b111af7b3b75a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53258906"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714481"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configuración del nivel PremiumV2 para Azure App Service
 
@@ -29,7 +29,7 @@ Con el nuevo plan de tarifa **PremiumV2**, se obtienen procesadores más rápido
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para escalar verticalmente una aplicación web en **PremiumV2**, debe tener una aplicación web en Azure App Service que se ejecute en un plan de tarifa inferior a **PremiumV2** y la aplicación web debe ejecutarse en una implementación de App Service que admita PremiumV2.
+Para escalar verticalmente una aplicación en **PremiumV2**, debe tener una aplicación de Azure App Service que se ejecute en un plan de tarifa inferior a **PremiumV2** y esta aplicación debe ejecutarse en una implementación de App Service que admita PremiumV2.
 
 <a name="availability"></a>
 
@@ -47,7 +47,7 @@ az appservice list-locations --sku P1V2
 
 ## <a name="create-an-app-in-premiumv2-tier"></a>Creación de una aplicación en el nivel PremiumV2
 
-El plan de tarifa de una aplicación de App Service se define en el [plan de App Service](azure-web-sites-web-hosting-plans-in-depth-overview.md) en el que se ejecuta. Puede crear un plan de App Service por sí mismo o como parte de la creación de la aplicación web.
+El plan de tarifa de una aplicación de App Service se define en el [plan de App Service](overview-hosting-plans.md) en el que se ejecuta. Puede crear un plan de App Service de forma independiente o durante el proceso de creación de la aplicación.
 
 Cuando configure el plan de App Service en <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, seleccione **Plan de tarifa**. 
 
@@ -88,7 +88,7 @@ Algunos planes de App Service no se pueden escalar verticalmente al nivel Premiu
 
 Si la aplicación se ejecuta en una implementación de App Service en la que **PremiumV2** no está disponible o se ejecuta en una región que actualmente no admite **PremiumV2**, tendrá que volver a implementar la aplicación para aprovechar **PremiumV2**.  Tiene dos opciones:
 
-- Cree **otro** grupo de recursos y luego cree **otra** aplicación web y un plan de App Service en el **nuevo** grupo de recursos, y elija la región de Azure que prefiera durante el proceso de creación.  **Debe** seleccionar el plan **PremiumV2** en el momento en que se crea el nuevo plan de App Service.  Esto garantiza que la combinación del grupo de recursos, el plan de App Service y la región de Azure tendrá como resultado que el plan de App Service se cree en una implementación de App Service que admita **PremiumV2**.  Luego, vuelva a implementar el código de aplicación en la aplicación recién creada y el plan de App Service. Si quiere, posteriormente puede reducir verticalmente el plan de App Service en **PremiumV2** para ahorrar costos y aún podrá volver a escalarlo verticalmente en el futuro mediante **PremiumV2**.
+- Cree **otro** grupo de recursos. A continuación, cree **otra** aplicación y un plan de App Service en el **nuevo** grupo de recursos y elija la región de Azure que prefiera durante el proceso de creación.  **Debe** seleccionar el plan **PremiumV2** en el momento en que se crea el nuevo plan de App Service.  Esto garantiza que la combinación del grupo de recursos, el plan de App Service y la región de Azure tendrá como resultado que el plan de App Service se cree en una implementación de App Service que admita **PremiumV2**.  Luego, vuelva a implementar el código de aplicación en la aplicación recién creada y el plan de App Service. Si quiere, posteriormente puede reducir verticalmente el plan de App Service en **PremiumV2** para ahorrar costos y aún podrá volver a escalarlo verticalmente en el futuro mediante **PremiumV2**.
 - Si la aplicación ya se ejecuta en un nivel **Premium** existente, puede clonar la aplicación con todos los valores de aplicación, las cadenas de conexión y la configuración de implementación en un nuevo plan de App Service que utilice **PremiumV2**.
 
     ![](media/app-service-configure-premium-tier/clone-app.png)

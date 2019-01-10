@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 72e0937e91a7287d240bbdb25996865f934d432d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 6f17cb4540feea6400c60c8032d071d6a922c871
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876509"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633068"
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Requerir transferencia segura en Azure Storage
 
@@ -50,7 +50,7 @@ La opción de "Se requiere transferencia segura" se puede activar cuando se crea
 Para requerir una transferencia segura mediante programación, use la configuración de _supportsHttpsTrafficOnly_ en propiedades de la cuenta de almacenamiento mediante la API de REST, herramientas o bibliotecas:
 
 * [API de REST](https://docs.microsoft.com/rest/api/storagerp/storageaccounts) (versión: 2016-12-01)
-* [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0) (versión: 4.1.0)
+* [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) (versión: 0.7)
 * [CLI](https://pypi.python.org/pypi/azure-cli-storage/2.0.11) (versión: 2.0.11)
 * [NodeJS](https://www.npmjs.com/package/azure-arm-storage/) (versión: 1.1.0)
 * [SDK de .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview) (versión: 6.3.0)
@@ -59,14 +59,16 @@ Para requerir una transferencia segura mediante programación, use la configurac
 
 ### <a name="enable-secure-transfer-required-setting-with-powershell"></a>Habilitación de la configuración "Se requiere transferencia segura" con PowerShell
 
-En este ejemplo se requiere la versión 4.1 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell).
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Ejecute `Connect-AzureRmAccount` para crear una conexión con Azure.
+En este ejemplo, debe utilizarse la versión 0.7 del módulo Az de Azure PowerShell o una versión posterior. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps) (Instalación y configuración de Azure PowerShell).
+
+Ejecute `Connect-AzAccount` para crear una conexión con Azure.
 
  Utilice la siguiente línea de comandos siguiente para comprobar la configuración:
 
 ```powershell
-> Get-AzureRmStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}"
+> Get-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}"
 StorageAccountName     : {StorageAccountName}
 Kind                   : Storage
 EnableHttpsTrafficOnly : False
@@ -77,7 +79,7 @@ EnableHttpsTrafficOnly : False
 Utilice la siguiente línea de comandos siguiente para habilitar la configuración:
 
 ```powershell
-> Set-AzureRmStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}" -EnableHttpsTrafficOnly $True
+> Set-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}" -EnableHttpsTrafficOnly $True
 StorageAccountName     : {StorageAccountName}
 Kind                   : Storage
 EnableHttpsTrafficOnly : True

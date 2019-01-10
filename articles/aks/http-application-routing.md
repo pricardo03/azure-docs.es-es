@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: c2f68afb685cb04d456e06cadf378bd1c3ebb1fb
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 0bca7281c390388bd860219fb6f2eacb96b99df0
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385000"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742395"
 ---
 # <a name="http-application-routing"></a>Enrutamiento de aplicación HTTP
 
@@ -28,7 +28,7 @@ Cuando se habilita el complemento, crea una zona DNS en su suscripción. Para m�
 
 El complemento implementa dos componentes, un [controlador de entrada de Kubernetes][ingress] y un controlador [DNS externo][external-dns].
 
-- **Controlador de entrada**: el controlador de entrada está expuesto a Internet a través de un servicio de Kubernetes del tipo de equilibrador de carga. El controlador de entrada supervisa e implementa [recursos de entrada de Kubernetes][ingress-resource], lo que crea rutas a los puntos de conexión de aplicación.
+- **Controlador de entrada**: el controlador de entrada está expuesto a Internet a través de un servicio de Kubernetes de tipo equilibrador de carga. El controlador de entrada supervisa e implementa [recursos de entrada de Kubernetes][ingress-resource], lo que crea rutas a los puntos de conexión de aplicación.
 - **Controlador DNS externo**: inspecciona los recursos de entrada de Kubernetes y crea registros A de DNS en la zona DNS específica del clúster.
 
 ## <a name="deploy-http-routing-cli"></a>Implementación del enrutamiento HTTP: CLI
@@ -174,6 +174,36 @@ La solución de enrutamiento HTTP se puede eliminar mediante la CLI de Azure. Pa
 az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
 ```
 
+Cuando se deshabilita el complemento de enrutamiento de aplicación HTTP, algunos recursos de Kubernetes pueden permanecer en el clúster. Estos recursos incluyen a los archivos *configMaps* y a los *secretos* y se crean en el espacio de nombres *kube-system*. Para mantener un clúster limpio, es posible que quiera quitar estos recursos.
+
+Busque los recursos *addon-http-application-routing* con los siguientes comandos [kubectl get][kubectl-get]:
+
+```console
+kubectl get deployments --namespace kube-system
+kubectl get services --namespace kube-system
+kubectl get configmaps --namespace kube-system
+kubectl get secrets --namespace kube-system
+```
+
+La salida del ejemplo siguiente muestra los archivos configMaps que deben eliminarse:
+
+```
+$ kubectl get configmaps --namespace kube-system
+
+NAMESPACE     NAME                                                       DATA   AGE
+kube-system   addon-http-application-routing-nginx-configuration         0      9m7s
+kube-system   addon-http-application-routing-tcp-services                0      9m7s
+kube-system   addon-http-application-routing-udp-services                0      9m7s
+```
+
+Para eliminar los recursos, use el comando [kubectl delete][kubectl-delete]. Especifique el tipo de recurso, el nombre del recurso y el espacio de nombres. En el ejemplo siguiente se elimina uno de los archivos configmaps anteriores:
+
+```console
+kubectl delete configmaps addon-http-application-routing-nginx-configuration --namespace kube-system
+```
+
+Repita el paso `kubectl delete` anterior para todos los recursos *addon-http-application-routing* que aún se encuentran en el clúster.
+
 ## <a name="troubleshoot"></a>Solución de problemas
 
 Use el comando [kubectl logs][kubectl-logs] para ver los registros de aplicación para la aplicación de DNS externo. Los registros deben confirmar que crearon correctamente unos registros DNS A y TXT.
@@ -256,6 +286,7 @@ Para más información sobre cómo instalar un controlador de entrada protegido 
 [external-dns]: https://github.com/kubernetes-incubator/external-dns
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
 [ingress-resource]: https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource

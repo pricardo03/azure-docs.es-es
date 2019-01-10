@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: 454478fa02b8f4e71bc4efb61e1b8c194b927bc6
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 9c1eff58be52b0b4bd9561db51986c9f509d64ee
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340834"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723236"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protección de las aplicaciones y las máquinas en Azure Security Center
 El Centro de seguridad de Azure analiza el estado de seguridad de los recursos de Azure. Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea recomendaciones que lo guiarán por el proceso de configuración de los controles necesarios. Las recomendaciones se aplican a los tipos de recursos de Azure: máquinas virtuales, equipos, aplicaciones, redes, SQL e identidad y acceso.
@@ -34,27 +34,24 @@ Para ver una lista de todos los problemas, puede seleccionar **Recomendaciones**
 Para ver una lista completa de las recomendaciones sobre procesos y recomendaciones, consulte [Recomendaciones](security-center-virtual-machine-recommendations.md).
 
 Para continuar, seleccione **Procesos y aplicaciones** en **Recursos** o en el menú principal de Security Center.
-![Panel de Security Center][1]
+![Panel de Security Center](./media/security-center-virtual-machine-recommendations/overview.png)
 
 ## <a name="monitor-compute-and-app-services"></a>Supervisión de los servicios de procesos y aplicaciones
-En **Procesos**, hay cuatro pestañas:
+En **Compute & apps** (Procesos y aplicaciones), existen las siguientes pestañas:
 
 - **Información general**: supervisión y recomendaciones identificadas por Security Center.
 - **VM y equipos**: muestra el estado de seguridad actual de todas las máquinas virtuales y equipos.
 - **Cloud Services**: lista de todos los roles web y de trabajo que supervisa Security Center.
 - **App Services (versión preliminar)**: muestra la lista actual de los entornos de App Service y el estado de seguridad actual de cada uno.
-Para continuar, seleccione **Procesos y aplicaciones** en **Recursos** o en el menú principal de Security Center.
+- **Contenedores (versión preliminar)**: lista de los contenedores hospedados en equipos IaaS Linux y evaluaciones de seguridad de sus configuraciones de Docker.
+- **Conjuntos de escalado de máquina virtual (versión preliminar)**: enumera los conjuntos de escalado y recomendaciones para cada uno.
+- **Recursos de proceso (versión preliminar)**: enumera las recomendaciones para los recursos de proceso, como clústeres de Service Fabric y centros de eventos.
 
-![Proceso][2]
+Para continuar, seleccione **Procesos y aplicaciones** en **Protección de seguridad de recursos**.
+
+![Proceso](./media/security-center-virtual-machine-recommendations/compute.png)
 
 Todas las pestañas pueden tener varias secciones y en cada una de ella se puede seleccionar cualquiera de las opciones para ver más detalles acerca de los pasos recomendados para abordar un problema concreto.
-
-### <a name="monitoring-recommendations"></a>Supervisión de las recomendaciones
-En esta sección se muestra el número total de máquinas virtuales y equipos que se inicializaron para el aprovisionamiento automático y sus estados actuales. En este ejemplo hay una recomendación, **Problemas de mantenimiento del agente de supervisión**. Seleccione esta recomendación.
-
-![Supervisión de problemas de Agent Health][3]
-
-Se abre **Problemas de mantenimiento del agente de supervisión**. Se enumeran las máquinas virtuales y los equipos que el Centro de seguridad no puede supervisar correctamente. Seleccione una máquina virtual o un equipo para obtener información detallada. **ESTADO DE SUPERVISIÓN** proporciona un motivo por el que Security Center no puede supervisar. Consulte la [Guía de solución de problemas de Security Center](security-center-troubleshooting-guide.md) para obtener una lista de los valores, las descripciones y los pasos de resolución de **ESTADO DE SUPERVISIÓN**.
 
 ### Equipos y máquinas virtuales no supervisados <a name="unmonitored-vms-and-computers"></a>
 Una máquina virtual o un equipo no está supervisado por Security Center si no está ejecutando la extensión de Microsoft Monitoring Agent. Una máquina virtual puede tener ya instalado un agente local, por ejemplo un agente directo de OMS o el agente SCOM. Las máquinas virtuales con estos agentes se identifican como sin supervisar porque estos agentes no son totalmente compatibles en Security Center. Para aprovechar al máximo todas las funcionalidades de Security Center, se necesita la extensión de Microsoft Monitoring Agent.
@@ -64,13 +61,9 @@ Puede instalar la extensión en la máquina virtual o en el equipo no supervisad
 Consulte [Supervisión de problemas de Agent Health](security-center-troubleshooting-guide.md#mon-agent) para saber más acerca de los motivos por los que Security Center no puede supervisar correctamente las máquinas virtuales y los equipos inicializados para el aprovisionamiento automático.
 
 ### <a name="recommendations"></a>Recomendaciones
-Esta sección incluye un conjunto de recomendaciones para cada máquina virtual y equipo, para cada rol web o de trabajo, para cada entorno de Azure App Service Web Apps y Azure App Service que supervisa Security Center. La primera columna muestra la recomendación. La segunda columna muestra el número total de recursos a los que afecta dicha recomendación. La tercera columna muestra la gravedad del problema como se muestra en la captura de pantalla siguiente:
+Esta sección incluye un conjunto de recomendaciones para cada máquina virtual y equipo, para cada rol web o de trabajo, para cada entorno de Azure App Service Web Apps y Azure App Service que supervisa Security Center. La primera columna muestra la recomendación. La segunda columna muestra el número total de recursos a los que afecta dicha recomendación. La tercera columna muestra la gravedad del problema.
 
-![Recomendaciones][4]
-
-Cada recomendación tiene un conjunto de acciones que se podrán realizar una vez que la selecciona. Por ejemplo, si selecciona **Faltan las actualizaciones del sistema**, aparece el número de máquinas virtuales y equipos a los que les faltan revisiones y la gravedad de la actualización que falta, como se muestra en la captura de pantalla siguiente:
-
-![Aplicar actualizaciones del sistema][5]
+Cada recomendación tiene un conjunto de acciones que se podrán realizar una vez que la selecciona. Por ejemplo, si selecciona **Faltan las actualizaciones del sistema**, aparece el número de máquinas virtuales y equipos a los que les faltan revisiones y la gravedad de la actualización que falta.
 
 **Aplicar actualizaciones del sistema** incluye un resumen de actualizaciones críticas en formato de grafo, uno para Windows y otro para Linux. La segunda parte tiene una tabla con la siguiente información:
 
@@ -91,7 +84,6 @@ Cada recomendación tiene un conjunto de acciones que se podrán realizar una ve
 
 Para ver los detalles de recomendación, haga clic en el nombre de la actualización que falta en la lista.
 
-![Detalles de recomendación][6]
 
 > [!NOTE]
 > Las recomendaciones de seguridad son las mismas que aparecen si selecciona el icono **Recomendaciones**. Para más información sobre cómo resolver las recomendaciones, consulte [Implementación de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md).
@@ -99,42 +91,39 @@ Para ver los detalles de recomendación, haga clic en el nombre de la actualizac
 >
 
 ### <a name="vms-and-computers"></a>Máquinas virtuales y equipos
-La sección de máquinas virtuales y equipos ofrece una visión general de todas las recomendaciones de máquinas virtuales y equipos. Cada columna representa un conjunto de recomendaciones tal como se muestra en la siguiente captura de pantalla:
+La sección de máquinas virtuales y equipos ofrece una visión general de todas las recomendaciones de máquinas virtuales y equipos. Cada columna representa un conjunto de recomendaciones.
 
-![Recomendaciones de máquina virtual y equipo][7]
+![Recomendaciones de máquina virtual y equipo](./media/security-center-virtual-machine-recommendations/vm-computers.png)
 
 Hay cuatro tipos de iconos representados en esta lista:
 
-![Equipos que no son de Azure][8] Equipo que no es de Azure.
+![Equipos que no son de Azure](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon1.png) Equipo que no es de Azure.
 
-![Máquina virtual de Azure Resource Manager][9] Máquina virtual de Azure Resource Manager.
+![Máquina virtual de Azure Resource Manager](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon2.png) Máquina virtual de Azure Resource Manager.
 
-![Máquina virtual de Azure clásico][10] Máquina virtual de Azure clásico.
+![Máquina virtual de Azure clásico](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon3.png) Máquina virtual de Azure clásico.
 
-![Máquinas virtuales identificadas del área de trabajo][11] Máquinas virtuales que se identifican solo desde el área de trabajo que forma parte de la suscripción visualizada. Aquí se incluyen máquinas virtuales de otras suscripciones que informan al área de trabajo de esta suscripción y máquinas virtuales que se instalaron con el agente directo de SCOM y no tienen id. de recurso.
 
-El icono que aparece en cada recomendación le ayuda a identificar rápidamente las máquinas virtuales y los equipos que necesitan atención y el tipo de recomendación. También puede usar la opción Filtro para seleccionar las opciones que verá en esta pantalla.
+![Máquinas virtuales identificadas del área de trabajo](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) Máquinas virtuales que se identifican solo desde el área de trabajo que forma parte de la suscripción visualizada. Aquí se incluyen máquinas virtuales de otras suscripciones que informan al área de trabajo de esta suscripción y máquinas virtuales que se instalaron con el agente directo de SCOM y no tienen id. de recurso.
 
-![Filtrar][12]
+El icono que aparece en cada recomendación le ayuda a identificar rápidamente las máquinas virtuales y los equipos que necesitan atención y el tipo de recomendación. También puede usar filtros para buscar en la lista por **tipo de recurso** y **gravedad**.
 
-En el ejemplo anterior, una máquina virtual tiene una recomendación crítica sobre la protección del punto de conexión. Seleccione la máquina virtual para obtener más información sobre ella:
-
-![Recomendación crítica][13]
-
+Para explorar en profundidad las recomendaciones de seguridad para cada máquina virtual, haga clic en la máquina virtual.
 Aquí verá los detalles de seguridad de la máquina virtual o del equipo. En la parte inferior puede ver la acción recomendada y la gravedad de cada problema.
+![Cloud Services](./media/security-center-virtual-machine-recommendations/recommendation-list.png)
 
 ### <a name="cloud-services"></a>Servicios en la nube
-En el caso de los servicios en la nube, se crea una recomendación cuando la versión del sistema operativo está obsoleta, como se muestra en la siguiente captura de pantalla:
+En el caso de los servicios en la nube, se crea una recomendación cuando la versión del sistema operativo está obsoleta.
 
-![Servicios en la nube][14]
+![Servicios en la nube](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig1-new006-2017.png)
 
-En un escenario en el que haya alguna recomendación (lo que no ocurre en el ejemplo anterior), es preciso seguir los pasos descritos en la recomendación para actualizar la versión del sistema operativo. Cuando haya alguna actualización disponible, aparecerá una alerta (su color, rojo o naranja, depende de la gravedad del problema). Al seleccionar esta alerta en las filas WebRole1 (ejecuta Windows Server con la aplicación web implementada automáticamente en IIS) o WorkerRole1 (ejecuta Windows Server con la aplicación web implementada automáticamente en IIS), puede ver más detalles sobre esta recomendación, como se muestra en la siguiente captura de pantalla:
-
-![WorkerRole1][15]
+En un escenario en el que haya alguna recomendación (lo que no ocurre en el ejemplo anterior), es preciso seguir los pasos descritos en la recomendación para actualizar la versión del sistema operativo. Cuando haya alguna actualización disponible, aparecerá una alerta (su color, rojo o naranja, depende de la gravedad del problema). Al seleccionar esta alerta en las filas WebRole1 (ejecuta Windows Server con la aplicación web implementada automáticamente en IIS) o WorkerRole1 (ejecuta Windows Server con la aplicación web implementada automáticamente en IIS), puede ver más detalles sobre esta recomendación.
 
 Para ver una explicación más preceptiva con respecto a esta recomendación, haga clic en **Actualizar versión del SO** en la columna **DESCRIPCIÓN**.
 
-![Actualizar versión del sistema operativo][16]
+
+
+![Actualizar versión del sistema operativo](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png)
 
 ### <a name="app-services-preview"></a>App Services (versión preliminar)
 
@@ -145,15 +134,15 @@ Para ver una explicación más preceptiva con respecto a esta recomendación, ha
 
 En **App Services**, encontrará una lista de los entornos de App Service y el resumen de su estado según la evaluación que realizó Security Center.
 
-![App Services][17]
+![App Services](./media/security-center-virtual-machine-recommendations/app-services.png)
 
 Hay tres tipos de iconos representados en esta lista:
 
-![Entorno de App Services][18] Entorno de App Services.
+![Entorno de App Services](./media/security-center-virtual-machine-recommendations/ase.png) Entorno de App Services.
 
-![Aplicación web][19] Aplicación web.
+![Aplicación web](./media/security-center-virtual-machine-recommendations/web-app.png) Aplicación web.
 
-![Aplicación de función][24] Aplicación de función.
+![Aplicación de función](./media/security-center-virtual-machine-recommendations/function-app.png) Aplicación de función.
 
 1. Seleccione una aplicación web. Se abre una vista de resumen con tres pestañas:
 
@@ -163,53 +152,41 @@ Hay tres tipos de iconos representados en esta lista:
 
   En **Recomendaciones** hay una lista de las recomendaciones para la aplicación web seleccionada y la gravedad de cada una.
 
-  ![Vista de resumen][20]
+  ![Recomendaciones de App Services](./media/security-center-virtual-machine-recommendations/app-services-rec.png)
 
-2. Seleccione una recomendación para obtener su descripción, una lista de los recursos con estados correctos e incorrectos, y una lista de los recursos sin examinar.
+2. Seleccione una recomendación para ver su descripción, una lista de los recursos con estados correctos e incorrectos y una lista de los recursos sin examinar.
 
-  ![Descripción de la recomendación][21]
+ - En la columna **Evaluaciones aprobadas** hay una lista de las evaluaciones que se aprobaron.  La gravedad de estas evaluaciones siempre aparece en verde.
 
-  En **Evaluaciones aprobadas** hay una lista de las evaluaciones que se consideraron superadas.  La gravedad de estas evaluaciones siempre aparece en verde.
+ -  Seleccione una evaluación aprobada en la lista para obtener su descripción, una lista de los recursos con estados correctos e incorrectos, y una lista de los recursos sin examinar. Hay una pestaña para los recursos con estado incorrecto, pero está siempre vacía ya que se trata de una evaluación aprobada.
 
-  ![Evaluaciones aprobadas][22]
+    ![Corrección de App Service](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
 
-3. Seleccione una evaluación aprobada en la lista para obtener su descripción, una lista de los recursos con estados correctos e incorrectos, y una lista de los recursos sin examinar. Hay una pestaña para los recursos con estado incorrecto, pero está siempre vacía ya que se trata de una evaluación aprobada.
+## <a name="virtual-machine-scale-sets-preview"></a>Conjuntos de escalado de máquinas virtuales (versión preliminar)
+Security Center detecta automáticamente si tiene conjuntos de escalado y recomienda instalar a Microsoft Monitoring Agent en estos conjuntos de escalado. 
 
-    ![Recursos con estado correcto][23]
+Para la instalación de Microsoft Monitoring Agent: 
+
+1. Seleccione la recomendación **Instalar el agente de supervisión en conjuntos de escalado de máquinas virtuales**. Obtiene una lista de conjuntos de escalado no supervisados.
+2. Seleccione un conjunto de escalado en mal estado. Siga las instrucciones para instalar al agente de supervisión con un área de trabajo completada existente o cree una nueva. Asegúrese de establecer el [plan de tarifa](security-center-pricing.md) del área de trabajo si aún no está establecido.
+
+ ![Instalación de MMA](./media/security-center-virtual-machine-recommendations/install-mms.png)
+
+Si quiere establecer nuevos conjuntos de escalado para instalar automáticamente Microsoft Monitoring Agent:
+1. Vaya a Azure Policy y haga clic en **Definiciones**.
+2. Busque la directiva **Implementar el agente de Log Analytics para conjuntos de escalado de máquinas virtuales de Windows** y haga clic en ella.
+3. Haga clic en **Asignar**.
+4. Elija el **ámbito** y el **área de trabajo de Log Analytics** y haga clic en **Asignar**.
+
+Si desea configurar todos los conjuntos de escalado existentes para instalar Microsoft Monitoring Agent, en Azure Policy, vaya a **Corrección** y aplique la directiva existente en conjuntos de escalado existentes.
+
 
 ## <a name="compute-and-app-recommendations"></a>Recomendaciones de proceso y aplicación
 |Tipo de recurso|Puntuación segura|Recomendación|DESCRIPCIÓN|
 |----|----|----|----|
-|Máquina|50|Instalar agente de supervisión en las máquinas|Instale el agente de supervisión para habilitar la recopilación de datos, el análisis de actualizaciones, el análisis de línea de base y la protección de puntos de conexión en cada máquina.|
-|Máquina|50|Habilitar el aprovisionamiento automático y la recopilación de datos para las suscripciones |Habilite el aprovisionamiento automático y la recopilación de datos para las máquinas en las suscripciones a fin de habilitar la recopilación de datos, el análisis de las actualizaciones, el análisis de la línea de base y la protección de los puntos de conexión en cada máquina agregada a sus suscripciones.|
-|Máquina|40|Resolver problemas de estado del agente de supervisión en las máquinas|Para una protección completa de Security Center, resuelva los problemas del agente de supervisión en los equipos siguiendo las instrucciones de la guía de solución de problemas.| 
-|Máquina|40|Resolver problemas de estado de protección de puntos de conexión en las máquinas|Para una protección completa de Security Center, resuelva los problemas del agente de supervisión en las máquinas siguiendo las instrucciones de la guía de solución de problemas.|
-|Máquina|40|Solucionar problemas derivados de la falta de datos de examen en las máquinas|Solucione problemas derivados de datos de examen que faltan en máquinas virtuales y equipos. La falta de datos de examen en sus máquinas provoca también ausencias en las evaluaciones de seguridad, como el análisis de actualizaciones, el análisis de línea de base y la falta de análisis de soluciones de protección de puntos de conexión.|
-|Máquina|40|Instalar actualizaciones del sistema en las máquinas|Instale actualizaciones faltantes de seguridad y críticas para proteger sus máquinas virtuales y equipos de Windows y Linux.
-|Máquina|40|Actualizar la versión del SO para los roles de servicio en la nube|Actualice la versión de sistema operativo (SO) para los roles de servicio en la nube a la versión más reciente disponible para la familia de sistema operativo.|
-|Máquina|35|Corregir vulnerabilidades en la configuración de seguridad en las máquinas|Corrija vulnerabilidades en la configuración de seguridad en las máquinas para protegerlas de ataques. |
-|Máquina|35|Corregir vulnerabilidades en la configuración de seguridad en los contenedores|Corrija vulnerabilidades en la configuración de seguridad en equipos con Docker instalado para protegerlos de ataques.|
-|Máquina|25|Habilitar controles de aplicaciones adaptables|Habilite el control de aplicaciones para controlar qué aplicaciones se pueden ejecutar en las máquinas virtuales ubicadas en Azure. Esto le ayudará a proteger las máquinas virtuales frente a malware. Security Center usa el aprendizaje automático para analizar las aplicaciones que se ejecutan en cada máquina virtual y le ayuda a aplicar reglas de permisos con esta inteligencia. Esta funcionalidad simplifica el proceso de configuración y mantenimiento de reglas de permisos de la aplicación.|
-|Máquina|20|Instalar una solución de protección de punto de conexión en las máquinas|Instale una solución de protección de punto de conexión en las máquinas virtuales para protegerlas frente a amenazas y vulnerabilidades.|
-|Máquina|20|Reiniciar sus máquinas para aplicar las actualizaciones del sistema|Reinicie sus máquinas para aplicar las actualizaciones del sistema y protegerlas ante vulnerabilidades.|
 |App Service|20|Acceso a la aplicación web solo a través de HTTPS|Limite el acceso a las aplicaciones web únicamente a HTTPS.|
 |App Service|20|Acceso a Function App solo a través de HTTPS|Limitar el acceso de Function Apps únicamente a través de HTTPS|
-|Máquina|15|Aplicar Disk Encryption a las máquinas virtuales|Cifre los discos de máquina virtual mediante Azure Disk Encryption para máquinas virtuales Windows y Linux. Azure Disk Encryption (ADE) aprovecha la característica BitLocker de Windows estándar del sector y la característica DM-Crypt de Linux para proporcionar cifrado del disco de datos y del sistema operativo a fin de proteger sus datos y ayudar a asumir las responsabilidades de seguridad y cumplimiento de la organización en un almacén de claves de Azure del cliente. Cuando sus requisitos de cumplimiento y seguridad exijan que cifre los datos de extremo a extremo con sus claves de cifrado, incluido el cifrado del disco efímero (temporal adjunto localmente), utilice Azure Disk Encryption. Como alternativa, los discos de Managed Disks se cifran en reposo de forma predeterminada mediante Azure Storage Service Encryption, donde las claves de cifrado son claves administradas por Microsoft en Azure. Si esto cumple sus requisitos de seguridad y cumplimiento, puede aprovechar el cifrado predeterminado de Managed Disks para satisfacer sus necesidades.|
-|Recursos de proceso (Service Fabric)|10|Usar Azure Active Directory para la autenticación de clientes en Service Fabric|Realice la autenticación de clientes solo mediante Azure Active Directory en Service Fabric.|
-|Recursos de proceso (cuenta de Automation)|5| Habilitar el cifrado de la cuenta de Automation|Habilite el cifrado de recursos de variables de cuentas de Automation al almacenar datos confidenciales.|
 |App Service|5|Habilitar los registros de diagnósticos de App Service|Habilite los registros y consérvelos hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. |
-|Recursos de proceso (Load Balancer)|5|Habilitar los registros de diagnóstico en Load Balancer|Habilite los registros y consérvelos hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. |
-|Recursos de proceso (Search)|5|Habilitar registros de diagnóstico en el servicio Search|Habilite los registros y consérvelos hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. |
-|Recursos de proceso (Service Bus)|5|Habilitar los registros de diagnósticos en Service Bus|Habilite los registros y consérvelos hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. |
-|Recursos de proceso (Stream Analytics)|5|Habilitar los registros de diagnóstico en Azure Stream Analytics|Habilite los registros y consérvelos hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. |
-|Recursos de proceso (Service Fabric)|5|Habilitar los registros de diagnósticos en Service Fabric|Habilite los registros y consérvelos hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. |
-|Recursos de proceso (Batch)|5|Habilitar los registros de diagnóstico en las cuentas de Batch|Habilite los registros y consérvelos hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. |
-|Recursos de proceso (Centro de eventos)|5|Habilitar los registros de diagnósticos en el Centro de eventos|Habilite los registros y consérvelos hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. |
-|Recursos de proceso (Logic Apps)|5|Habilitar los registros de diagnóstico en Logic Apps|Habilite los registros y consérvelos hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. |
-|Máquina|30|Instale una solución de evaluación de la vulnerabilidad en sus máquinas virtuales.|Instale una solución de evaluación de la vulnerabilidad en sus máquinas virtuales.|
-|Máquina|15|Agregar un firewall de aplicaciones web| Implementar una solución de firewall de aplicaciones web para proteger las aplicaciones web. |
-|Máquina|30|Corregir vulnerabilidades mediante una solución de evaluación de vulnerabilidades|Las máquinas virtuales para las que se implementa una solución de evaluación de vulnerabilidades de terceros se evalúan de forma continua en relación con las vulnerabilidades de la aplicación y del sistema operativo. Cada vez que se encuentran vulnerabilidades de este tipo, es posible obtener más información sobre ellas como parte de la recomendación.|
-|Recursos de proceso (Service Fabric)|15|Establecer la propiedad ClusterProtectionLevel en EncryptAndSign en Service Fabric|Service Fabric proporciona tres niveles de protección (None, Sign y EncryptAndSign) para la comunicación de nodo a nodo mediante un certificado de clúster principal.  Establezca el nivel de protección para asegurarse de que todos los mensajes de nodo a nodo se cifran y se firman digitalmente. |
 |App Service|10|Recomendación de desactivación de la depuración remota para aplicaciones web|Desactive la depuración para aplicaciones web si ya no necesita usarla. La depuración remota requiere puertos de entrada que se abran en una instancia de Function App.|
 |App Service|10|Recomendación de desactivación de la depuración remota para Function App|Desactive la depuración para Function App si ya no necesita usarla. La depuración remota requiere puertos de entrada que se abran en una instancia de Function App.|
 |App Service|10|Configuración de las restricciones de IP de las aplicaciones web|Defina una lista de direcciones IP que tienen permiso para acceder a su aplicación. El uso de restricciones de IP protege una aplicación web frente a ataques comunes.|
@@ -219,21 +196,55 @@ Hay tres tipos de iconos representados en esta lista:
 |App Service|5|Recomendación de desactivación de Web Sockets para Function App|Revise el uso de Web Sockets en las instancias de Function App. El protocolo Web Sockets es vulnerable a distintos tipos de amenazas de seguridad.|
 |App Service|5|Uso de dominios personalizados para su aplicación web|Use dominios personalizados para proteger una aplicación web frente a ataques comunes, como la suplantación de identidad y otros ataques relacionados con DNS.|
 |App Service|5|Uso de dominios personalizados para Function App|Use dominios personalizados para proteger una aplicación de función frente a ataques comunes, como la suplantación de identidad y otros ataques relacionados con DNS.|
-|Recursos de proceso (Batch)|1|Configurar las reglas de alerta de métrica en la cuenta de Batch|Configure las reglas de alerta métrica en la cuenta de Batch y habilite las métricas de Eliminar grupo de eventos completos y Eliminar grupo de eventos de inicio.|
-|Recursos de proceso (Service Bus)|1|Quitar todas las reglas de autorización excepto RootManageSharedAccessKey del espacio de nombres del Service Bus |Los clientes de Service Bus no deben usar una directiva de acceso de nivel de espacio de nombres que proporciona acceso a todas las colas y temas de un espacio de nombres. Para alinearse con el modelo de seguridad con privilegios mínimos, debe crear directivas de acceso a nivel de entidad para que las colas y los temas proporcionen acceso solo a la entidad específica.|
-|Recursos de proceso (Centro de eventos)|1|Quitar todas las reglas de autorización excepto RootManageSharedAccessKey del espacio de nombres del Centro de eventos |Los clientes del Centro de eventos no deben usar una directiva de acceso de nivel de espacio de nombres que proporciona acceso a todas las colas y temas de un espacio de nombres. Para alinearse con el modelo de seguridad con privilegios mínimos, debe crear directivas de acceso a nivel de entidad para que las colas y los temas proporcionen acceso solo a la entidad específica.|
-|Recursos de proceso (Centro de eventos)|5|Definir las reglas de autorización en la entidad de Centro de eventos|Audite las reglas de autorización en la entidad de Centro de eventos para conceder acceso con privilegios mínimos.|
-|Máquina|30|Instale una solución de evaluación de la vulnerabilidad en sus máquinas virtuales.|Instale una solución de evaluación de la vulnerabilidad en sus máquinas virtuales.|
 |App Service|20|Recomendación de que CORS no permita que todos los recursos accedan a las aplicaciones web|Permita solo que los dominios requeridos interactúen con la aplicación web. El uso compartido de recursos entre orígenes (CORS) no debe permitir que todos los dominios accedan a la aplicación web.|
 |App Service|20|CORS no debe permitir que todos los recursos accedan a Function App| Permita solo que los dominios requeridos interactúen con la aplicación de función. El uso compartido de recursos entre orígenes (CORS) no debe permitir que todos los dominios accedan a la aplicación de función.|
-|Máquina|15|Agregar un firewall de aplicaciones web| Implementar una solución de firewall de aplicaciones web para proteger las aplicaciones web. |
 |App Service|10|Uso de la última versión compatible de .NET Framework para aplicaciones web|Utilice la versión más reciente de .NET Framework para las clases de seguridad más recientes. El uso de tipos y clases anteriores puede hacer que la aplicación quede expuesta.|
 |App Service|10|Uso de la última versión compatible de Java para aplicaciones web|Utilice la versión más reciente de Java para las clases de seguridad más recientes. El uso de tipos y clases anteriores puede hacer que la aplicación quede expuesta.|
 |App Service|10|Uso de la última versión compatible de Java para aplicaciones web|Utilice la versión más reciente de PHP para las clases de seguridad más recientes. El uso de tipos y clases anteriores puede hacer que la aplicación quede expuesta.|
 |App Service|10|Uso de la última versión compatible de Node.js para aplicaciones web|Utilice la versión más reciente de Node.js para las clases de seguridad más recientes. El uso de tipos y clases anteriores puede hacer que la aplicación quede expuesta.|
 |App Service|10|Usar la última versión compatible de Python para aplicaciones web|Utilice la versión más reciente de Python para las clases de seguridad más recientes. El uso de tipos y clases anteriores puede hacer que la aplicación quede expuesta.|
-|Máquinas virtuales y equipos|1|Migrar las máquinas virtuales a nuevos recursos de AzureRM|Use el nuevo Azure Resource Manager v2 para sus máquinas virtuales para proporcionar mejoras de seguridad como las siguientes: mayor control de acceso (RBAC), mejor auditoría, gobierno e implementación basados en ARM, acceso a identidades administradas, acceso a secretos de Key Vault, autenticación basada en Azure AD y compatibilidad con etiquetas y grupos de recursos para facilitar la administración de seguridad. |
+|Recursos de proceso (Batch)|1|Configurar las reglas de alerta de métrica en la cuenta de Batch|Configure las reglas de alerta métrica en la cuenta de Batch y habilite las métricas de Eliminar grupo de eventos completos y Eliminar grupo de eventos de inicio.|
+|Recursos de proceso (Service Fabric)|10|Usar Azure Active Directory para la autenticación de clientes en Service Fabric|Realice la autenticación de clientes solo mediante Azure Active Directory en Service Fabric.|
+|Recursos de proceso (cuenta de Automation)|5| Habilitar el cifrado de la cuenta de Automation|Habilite el cifrado de recursos de variables de cuentas de Automation al almacenar datos confidenciales.|
+|Recursos de proceso (Load Balancer)|5|Habilitar los registros de diagnóstico en Load Balancer|Habilite los registros y consérvelos hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. |
+|Recursos de proceso (Search)|5|Habilitar registros de diagnóstico en el servicio Search|Habilite los registros y consérvelos hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. |
+|Recursos de proceso (Service Bus)|5|Habilitar los registros de diagnósticos en Service Bus|Habilite los registros y consérvelos hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. |
+|Recursos de proceso (Stream Analytics)|5|Habilitar los registros de diagnóstico en Azure Stream Analytics|Habilite los registros y consérvelos hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. |
+|Recursos de proceso (Service Fabric)|5|Habilitar los registros de diagnósticos en Service Fabric|Habilite los registros y consérvelos hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. |
+|Recursos de proceso (Batch)|5|Habilitar los registros de diagnóstico en las cuentas de Batch|Habilite los registros y consérvelos hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. |
+|Recursos de proceso (Centro de eventos)|5|Habilitar los registros de diagnósticos en el Centro de eventos|Habilite los registros y consérvelos hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. |
+|Recursos de proceso (Logic Apps)|5|Habilitar los registros de diagnóstico en Logic Apps|Habilite los registros y consérvelos hasta un año. Esto le permite volver a crear seguimientos de actividad con fines de investigación cuando se produce un incidente de seguridad o se pone en peligro la red. |
+|Recursos de proceso (Service Fabric)|15|Establecer la propiedad ClusterProtectionLevel en EncryptAndSign en Service Fabric|Service Fabric proporciona tres niveles de protección (None, Sign y EncryptAndSign) para la comunicación de nodo a nodo mediante un certificado de clúster principal.  Establezca el nivel de protección para asegurarse de que todos los mensajes de nodo a nodo se cifran y se firman digitalmente. |
+|Recursos de proceso (Service Bus)|1|Quitar todas las reglas de autorización excepto RootManageSharedAccessKey del espacio de nombres del Service Bus |Los clientes de Service Bus no deben usar una directiva de acceso de nivel de espacio de nombres que proporciona acceso a todas las colas y temas de un espacio de nombres. Para alinearse con el modelo de seguridad con privilegios mínimos, debe crear directivas de acceso a nivel de entidad para que las colas y los temas proporcionen acceso solo a la entidad específica.|
+|Recursos de proceso (Centro de eventos)|1|Quitar todas las reglas de autorización excepto RootManageSharedAccessKey del espacio de nombres del Centro de eventos |Los clientes del Centro de eventos no deben usar una directiva de acceso de nivel de espacio de nombres que proporciona acceso a todas las colas y temas de un espacio de nombres. Para alinearse con el modelo de seguridad con privilegios mínimos, debe crear directivas de acceso a nivel de entidad para que las colas y los temas proporcionen acceso solo a la entidad específica.|
+|Recursos de proceso (Centro de eventos)|5|Definir las reglas de autorización en la entidad de Centro de eventos|Audite las reglas de autorización en la entidad de Centro de eventos para conceder acceso con privilegios mínimos.|
+|Máquina|50|Instalar agente de supervisión en las máquinas|Instale el agente de supervisión para habilitar la recopilación de datos, el análisis de actualizaciones, el análisis de línea de base y la protección de puntos de conexión en cada máquina.|
+|Máquina|50|Habilitar el aprovisionamiento automático y la recopilación de datos para las suscripciones |Habilite el aprovisionamiento automático y la recopilación de datos para las máquinas en las suscripciones a fin de habilitar la recopilación de datos, el análisis de las actualizaciones, el análisis de la línea de base y la protección de los puntos de conexión en cada máquina agregada a sus suscripciones.|
+|Máquina|40|Resolver problemas de estado del agente de supervisión en las máquinas|Para una protección completa de Security Center, resuelva los problemas del agente de supervisión en los equipos siguiendo las instrucciones de la guía de solución de problemas.| 
+|Máquina|40|Resolver problemas de estado de protección de puntos de conexión en las máquinas|Para una protección completa de Security Center, resuelva los problemas del agente de supervisión en las máquinas siguiendo las instrucciones de la guía de solución de problemas.|
+|Máquina|40|Solucionar problemas derivados de la falta de datos de examen en las máquinas|Solucione problemas derivados de datos de examen que faltan en máquinas virtuales y equipos. La falta de datos de examen en sus máquinas provoca también ausencias en las evaluaciones de seguridad, como el análisis de actualizaciones, el análisis de línea de base y la falta de análisis de soluciones de protección de puntos de conexión.|
+|Máquina|40|Instalar actualizaciones del sistema en las máquinas|Instale actualizaciones faltantes de seguridad y críticas para proteger sus máquinas virtuales y equipos de Windows y Linux.
+|Máquina|15|Agregar un firewall de aplicaciones web| Implementar una solución de firewall de aplicaciones web para proteger las aplicaciones web. |
+|Máquina|40|Actualizar la versión del SO para los roles de servicio en la nube|Actualice la versión de sistema operativo (SO) para los roles de servicio en la nube a la versión más reciente disponible para la familia de sistema operativo.|
+|Máquina|35|Corregir vulnerabilidades en la configuración de seguridad en las máquinas|Corrija vulnerabilidades en la configuración de seguridad en las máquinas para protegerlas de ataques. |
+|Máquina|35|Corregir vulnerabilidades en la configuración de seguridad en los contenedores|Corrija vulnerabilidades en la configuración de seguridad en equipos con Docker instalado para protegerlos de ataques.|
+|Máquina|25|Habilitar controles de aplicaciones adaptables|Habilite el control de aplicaciones para controlar qué aplicaciones se pueden ejecutar en las máquinas virtuales ubicadas en Azure. Esto le ayudará a proteger las máquinas virtuales frente a malware. Security Center usa el aprendizaje automático para analizar las aplicaciones que se ejecutan en cada máquina virtual y le ayuda a aplicar reglas de permisos con esta inteligencia. Esta funcionalidad simplifica el proceso de configuración y mantenimiento de reglas de permisos de la aplicación.|
+|Máquina|20|Instalar una solución de protección de punto de conexión en las máquinas|Instale una solución de protección de punto de conexión en las máquinas virtuales para protegerlas frente a amenazas y vulnerabilidades.|
+|Máquina|20|Reiniciar sus máquinas para aplicar las actualizaciones del sistema|Reinicie sus máquinas para aplicar las actualizaciones del sistema y protegerlas ante vulnerabilidades.|
+|Máquina|15|Aplicar Disk Encryption a las máquinas virtuales|Cifre los discos de máquina virtual mediante Azure Disk Encryption para máquinas virtuales Windows y Linux. Azure Disk Encryption (ADE) aprovecha la característica BitLocker de Windows estándar del sector y la característica DM-Crypt de Linux para proporcionar cifrado del disco de datos y del sistema operativo a fin de proteger sus datos y ayudar a asumir las responsabilidades de seguridad y cumplimiento de la organización en un almacén de claves de Azure del cliente. Cuando sus requisitos de cumplimiento y seguridad exijan que cifre los datos de extremo a extremo con sus claves de cifrado, incluido el cifrado del disco efímero (temporal adjunto localmente), utilice Azure Disk Encryption. Como alternativa, los discos de Managed Disks se cifran en reposo de forma predeterminada mediante Azure Storage Service Encryption, donde las claves de cifrado son claves administradas por Microsoft en Azure. Si esto cumple sus requisitos de seguridad y cumplimiento, puede aprovechar el cifrado predeterminado de Managed Disks para satisfacer sus necesidades.|
+|Máquina|30|Instale una solución de evaluación de la vulnerabilidad en sus máquinas virtuales.|Instale una solución de evaluación de la vulnerabilidad en sus máquinas virtuales.|
+|Máquina|15|Agregar un firewall de aplicaciones web| Implementar una solución de firewall de aplicaciones web para proteger las aplicaciones web. |
 |Máquina|30|Corregir vulnerabilidades mediante una solución de evaluación de vulnerabilidades|Las máquinas virtuales para las que se implementa una solución de evaluación de vulnerabilidades de terceros se evalúan de forma continua en relación con las vulnerabilidades de la aplicación y del sistema operativo. Cada vez que se encuentran vulnerabilidades de este tipo, es posible obtener más información sobre ellas como parte de la recomendación.|
+|Máquina|30|Instale una solución de evaluación de la vulnerabilidad en sus máquinas virtuales.|Instale una solución de evaluación de la vulnerabilidad en sus máquinas virtuales.|
+|Máquina|1|Migrar las máquinas virtuales a recursos de Azure Resource Manager nuevos|Use Azure Resource Manager para las máquinas virtuales a fin de proporcionar mejoras de seguridad como las siguientes: mayor control de acceso (RBAC), mejor auditoría, gobierno e implementación basados en Resource Manager, acceso a identidades administradas, acceso a secretos de Key Vault, autenticación basada en Azure AD y compatibilidad con etiquetas y grupos de recursos para facilitar la administración de seguridad. |
+|Máquina|30|Corregir vulnerabilidades mediante una solución de evaluación de vulnerabilidades|Las máquinas virtuales para las que se implementa una solución de evaluación de vulnerabilidades de terceros se evalúan de forma continua en relación con las vulnerabilidades de la aplicación y del sistema operativo. Cada vez que se encuentran vulnerabilidades de este tipo, es posible obtener más información sobre ellas como parte de la recomendación.|
+|Conjunto de escalado de máquina virtual |4|Habilitar registros de diagnóstico en Virtual Machine Scale Sets|Habilite los registros y consérvelos por hasta un año. Esto le permite volver a crear seguimientos de actividad para fines de investigación. Esto es útil cuando se produce un incidente de seguridad o se pone en peligro su red.|
+|Conjunto de escalado de máquina virtual|35|Corregir vulnerabilidades en la configuración de seguridad en conjuntos de escalado de máquinas virtuales|Corrija vulnerabilidades en la configuración de seguridad en conjuntos de escalado de máquinas virtuales para protegerlas de ataques. |
+|Conjunto de escalado de máquina virtual|5|Corregir errores de estado de protección de puntos de conexión en conjuntos de escalado de máquinas virtuales|Corrija los errores de estado de la protección de puntos de conexión en conjuntos de escalado de sus máquinas virtuales para protegerlas de amenazas y vulnerabilidades. |
+|Conjunto de escalado de máquina virtual|10|Instalar una solución de protección de punto de conexión en conjuntos de escalado de máquinas virtuales|Instale una solución de protección de punto de conexión en los conjuntos de escalado de máquinas virtuales para protegerlos frente a amenazas y vulnerabilidades. |
+|Conjunto de escalado de máquina virtual|40|Instalar actualizaciones del sistema en conjuntos de escalado de máquinas virtuales|Instale actualizaciones faltantes de seguridad y críticas para proteger sus conjuntos de escalado de máquinas virtuales de Windows y Linux. |
+ 
+
 
 
 
@@ -253,28 +264,3 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md) : obtenga información sobre cómo administrar y responder a alertas de seguridad.
 * [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md) : encuentre las preguntas más frecuentes sobre el uso del servicio.
 
-<!--Image references-->
-[1]: ./media/security-center-virtual-machine-recommendations/overview.png
-[2]: ./media/security-center-virtual-machine-recommendations/compute.png
-[3]: ./media/security-center-virtual-machine-recommendations/monitoring-agent-health-issues.png
-[4]: ./media/security-center-virtual-machine-recommendations/compute-recommendations.png
-[5]: ./media/security-center-virtual-machine-recommendations/apply-system-updates.png
-[6]: ./media/security-center-virtual-machine-recommendations/missing-update-details.png
-[7]: ./media/security-center-virtual-machine-recommendations/vm-computers.png
-[8]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon1.png
-[9]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon2.png
-[10]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon3.png
-[11]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png
-[12]: ./media/security-center-virtual-machine-recommendations/filter.png
-[13]: ./media/security-center-virtual-machine-recommendations/vm-detail.png
-[14]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig1-new006-2017.png
-[15]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new3.png
-[16]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png
-[17]: ./media/security-center-virtual-machine-recommendations/app-services.png
-[18]: ./media/security-center-virtual-machine-recommendations/ase.png
-[19]: ./media/security-center-virtual-machine-recommendations/web-app.png
-[20]: ./media/security-center-virtual-machine-recommendations/recommendation.png
-[21]: ./media/security-center-virtual-machine-recommendations/recommendation-desc.png
-[22]: ./media/security-center-virtual-machine-recommendations/passed-assessment.png
-[23]: ./media/security-center-virtual-machine-recommendations/healthy-resources.png
-[24]: ./media/security-center-virtual-machine-recommendations/function-app.png

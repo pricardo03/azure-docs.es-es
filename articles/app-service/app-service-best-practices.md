@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariagrigoriu
 ms.custom: seodec18
-ms.openlocfilehash: 0a3570e8907369d5cefc1197eef60d682659d0ed
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3d1821ccc3f3bc16bffd8a19d3014b5ea4876768
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261830"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715612"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Procedimientos recomendados para Azure App Service
 En este artículo se resumen los procedimientos recomendados para usar el [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -39,7 +39,7 @@ Si observa que una aplicación consume más memoria de lo esperado, lo que se in
 ## <a name="CPUresources"></a>Cuando las aplicaciones consumen más CPU de lo esperado
 Si observa que una aplicación consume más CPU de lo esperado o experimenta repetidas puntas de actividad de la CPU como indican la supervisión o las recomendaciones de servicio, considere la posibilidad de escalar el plan de App Service vertical u horizontalmente. Si se trata de una aplicación con estado, el escalado vertical es la única opción, mientras que si es sin estado, el escalado horizontal le proporcionará mayor flexibilidad y mayor potencial de escalado. 
 
-Para más información sobre las aplicaciones con y sin estado puede ver este vídeo: [Planning a Scalable End-to-End Multi-Tier Application on Microsoft Azure Web App](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid) (Planeamiento de una aplicación de varios niveles y de un extremo a otro en Microsoft Azure Web App). Para más información sobre las opciones de escalado y escalado automático de App Service, consulte el artículo sobre el [escalado de una aplicación web en Azure App Service](web-sites-scale.md).  
+Para más información sobre las aplicaciones con y sin estado puede ver este vídeo: [Planning a Scalable End-to-End Multi-Tier Application on Azure App Service](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid) (Planeamiento de una aplicación de varios niveles y de un extremo a otro en Azure App Service). Para más información sobre las opciones de escalado y escalado automático de App Service, consulte el artículo sobre el [escalado de una aplicación web en Azure App Service](web-sites-scale.md).  
 
 ## <a name="socketresources"></a>Cuando se agotan los recursos del socket
 Una razón habitual para agotar las conexiones TCP salientes es el uso de bibliotecas de cliente que no se han implementado para reutilizar las conexiones TCP o cuando no se usa un protocolo de nivel superior como HTTP de conexión persistente. Revise la documentación de las bibliotecas a las que hacen referencia las aplicaciones del plan de App Service para asegurarse de que se configuran o se tiene acceso a ellas en el código para una reutilización eficiente de las conexiones salientes. Siga también la guía de la documentación de la biblioteca para que la creación y liberación, o la limpieza sean correctas para evitar las conexiones con fugas. Aunque las investigaciones de estas bibliotecas de cliente están en curso, el impacto se pueden mitigar mediante el escalado horizontal a varias instancias.
@@ -68,7 +68,7 @@ pm2 start /home/site/wwwroot/app.js --no-daemon -i 4
 ## <a name="appbackup"></a>Cuando la copia de seguridad de la aplicación comienza a fallar
 Los dos principales motivos por los que comienza a fallar la copia de seguridad de una aplicación son una configuración de almacenamiento no válida y una configuración de base de datos no válida. Estos errores suelen ocurrir cuando se producen cambios en los recursos de almacenamiento o de base de datos o en el acceso a estos recursos (por ejemplo, la actualización de las credenciales de la base de datos seleccionada en la configuración de copia de seguridad). Las copias de seguridad suelen ejecutarse según una programación y requieren acceso al almacenamiento (para generar los archivos de copia de seguridad) y a las bases de datos (para copiar y leer el contenido que se incluirá en la copia de seguridad). Si no se tiene acceso a cualquiera de estos recursos, se produciría un error de copia de seguridad. 
 
-Cuando aparezcan errores de copia de seguridad, revise los resultados más recientes para saber qué tipo de error se está produciendo. En el caso de errores de acceso de almacenamiento, revise y actualice la configuración de almacenamiento que se usa en la configuración de copia de seguridad. En el caso de errores de acceso de la base de datos, revise y actualice las cadenas de conexiones como parte de la configuración de la aplicación. Después, continúe para actualizar la configuración de copia de seguridad con el fin de incluir correctamente las bases de datos necesarias. Para más información sobre las copias de seguridad de aplicaciones, consulte el artículo sobre cómo [crear la copia de seguridad de una aplicación web en Azure App Service](web-sites-backup.md).
+Cuando aparezcan errores de copia de seguridad, revise los resultados más recientes para saber qué tipo de error se está produciendo. En el caso de errores de acceso de almacenamiento, revise y actualice la configuración de almacenamiento que se usa en la configuración de copia de seguridad. En el caso de errores de acceso de la base de datos, revise y actualice las cadenas de conexiones como parte de la configuración de la aplicación. Después, continúe para actualizar la configuración de copia de seguridad con el fin de incluir correctamente las bases de datos necesarias. Para más información sobre las copias de seguridad de aplicaciones, consulte el artículo sobre cómo [crear la copia de seguridad de una aplicación web en Azure App Service](manage-backup.md).
 
 ## <a name="nodejs"></a>Cuando se implementan nuevas aplicaciones de Node.js en Azure App Service
 La configuración predeterminada de Azure App Service para las aplicaciones Node.js tiene que como objetivo satisfacer mejor los requisitos de las aplicaciones más comunes. Si considera que la configuración de la aplicación Node.js va a beneficiarse del ajuste personalizado para mejorar el rendimiento o para optimizar el uso de recursos para los recursos de la CPU, memoria o red, consulte los [procedimientos recomendados y la guía para solucionar problemas de las aplicaciones Node en Azure App Service](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md). En este artículo se describen las opciones de IISNode que pueda necesitar configurar para la aplicación de Node.js, así como también se describen los distintos escenarios o problemas que dicha aplicación podría encontrar y se muestra cómo abordarlos.

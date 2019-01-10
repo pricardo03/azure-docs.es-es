@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: a5150d3f318fce2f66adfa4bdc43ae8aec651223
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 46065a742afd08585707f4f4fdf6ad2e32cd89b2
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251154"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719462"
 ---
 # <a name="add-luis-results-to-application-insights-with-a-bot-in-c"></a>Adición de resultados de LUIS a Application Insights con un bot en C#
 
@@ -39,7 +39,7 @@ En este tutorial, aprenderá a:
 > [!Tip]
 > Si aún no tiene una suscripción, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/).
 
-Todo el código de este tutorial está disponible en el [repositorio LUIS-Samples de GitHub](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/csharp) y cada línea asociada con este tutorial se comenta con `//LUIS Tutorial:`.
+Todo el código de este tutorial está disponible en el [repositorio Azure-Samples de GitHub](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/csharp) y cada línea asociada con este tutorial tiene el comentario `//LUIS Tutorial:`.
 
 ## <a name="review-luis-web-app-bot"></a>Revisar el bot de aplicación web de LUIS
 
@@ -127,11 +127,11 @@ Ahora el paquete **Application Insights** está en el proyecto, configurado corr
 
 2. En la ventana **Publicar**, haga clic en **Crear perfil nuevo**.
 
-    ![Publicar el proyecto en el portal](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-1.png)
+    ![Como parte de la publicación, cree un nuevo perfil.](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-1.png)
 
 3. Haga clic en **Importar perfil** y después en **Aceptar**.
 
-    ![Publicar el proyecto en el portal](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-2.png)
+    ![Como parte de la publicación, importe un perfil.](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-2.png)
 
 4. En las ventanas **Importar archivo de configuración de publicación**, navegue hasta la carpeta del proyecto, vaya a la carpeta `PostDeployScripts`, seleccione el archivo que termine en `.PublishSettings` y haga clic en `Open`. Ya ha configurado la publicación para este proyecto.
 
@@ -204,7 +204,7 @@ Abra Application Insights para ver las entradas de LUIS.
 
 1. En el portal, seleccione **Todos los recursos** y, después, filtre por el nombre del bot de aplicación web. Haga clic en el recurso con el tipo de **Application Insights**. El icono de Application Insights es una bombilla.
 
-    ![Buscar Application Insights](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights.png)
+    ![Búsqueda de información de aplicaciones en Azure Portal.](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights.png)
 
 2. Cuando el recurso se abra, haga clic en el icono **Buscar** de la lupa en el panel del extremo derecho. Se muestra un panel nuevo a la derecha. En función de cuántos datos de telemetría se encuentren, el panel puede tardar unos segundos en abrirse. Busque `LUIS`. La lista se limita simplemente a los resultados de consulta de LUIS que se agregaron con este tutorial.
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: e866b205fb5cdd65dc690101503613714271e36c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5b2847914007df414c37397d61632567c277d1b2
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075359"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999433"
 ---
 # <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>Aprovisionamiento del rendimiento en contenedores y bases de datos de Azure Cosmos
 
@@ -27,9 +27,9 @@ La configuración del rendimiento aprovisionado en un contenedor es la opción m
 
 Se recomienda configurar el rendimiento en la granularidad del contenedor cuando se quiere un rendimiento garantizado para el contenedor.
 
-El rendimiento aprovisionado en un contenedor de Azure Cosmos se distribuye uniformemente entre todas las particiones lógicas del contenedor. Puesto que una o varias particiones lógicas de un contenedor se hospedan en una partición de recursos, las particiones físicas pertenecen exclusivamente al contenedor y admiten el rendimiento aprovisionado en el contenedor. En la imagen siguiente se muestra cómo una partición de recursos hospeda una o varias particiones lógicas de un contenedor:
+El rendimiento aprovisionado en un contenedor de Azure Cosmos se distribuye uniformemente entre todas las particiones lógicas del contenedor. Puesto que una o varias particiones lógicas de un contenedor se hospedan en una partición física, las particiones físicas pertenecen exclusivamente al contenedor y admiten el rendimiento aprovisionado en el contenedor. En la imagen siguiente se muestra cómo una partición física hospeda una o varias particiones lógicas de un contenedor:
 
-![Partición de recursos](./media/set-throughput/resource-partition.png)
+![Partición física](./media/set-throughput/resource-partition.png)
 
 ## <a name="setting-throughput-on-a-database"></a>Configuración del rendimiento en una base de datos
 
@@ -47,11 +47,11 @@ Se recomienda configurar el rendimiento en una base de datos si quiere compartir
 
 * El uso compartido del rendimiento aprovisionado de una base de datos a través de un conjunto de contenedores es útil al migrar una base de datos de NoSQL (como MongoDB o Cassandra) hospedada desde un clúster de VM o servidores físicos locales a Azure Cosmos DB. Se puede considerar el rendimiento aprovisionado configurado en la base de datos de Azure Cosmos como un equivalente lógico (pero más rentable y flexible) de la capacidad de proceso del clúster de MongoDB o Cassandra.  
 
-En cualquier momento determinado, el rendimiento asignado a un contenedor dentro de una base de datos se distribuye entre todas las particiones lógicas de dicho contenedor. Cuando hay contenedores que comparten el rendimiento aprovisionado en una base de datos, no se puede aplicar de forma selectiva el rendimiento a un contenedor específico o una partición lógica. Si la carga de trabajo en una partición lógica consume más que el rendimiento que se asignó a una partición lógica específica, las operaciones tendrán una velocidad limitada. Cuando se produce una limitación de velocidad, puede aumentar el rendimiento de todo el contenedor o volver a intentar la operación. Para más información sobre las particiones, consulte [Particiones lógicas](partition-data.md).
+Todos los contenedores creados dentro de una base de datos con rendimiento aprovisionado deben crearse con una clave de partición. En cualquier momento determinado, el rendimiento asignado a un contenedor dentro de una base de datos se distribuye entre todas las particiones lógicas de dicho contenedor. Cuando hay contenedores que comparten el rendimiento aprovisionado en una base de datos, no se puede aplicar de forma selectiva el rendimiento a un contenedor específico o una partición lógica. Si la carga de trabajo en una partición lógica consume más que el rendimiento que se asignó a una partición lógica específica, las operaciones tendrán una velocidad limitada. Cuando se produce una limitación de velocidad, puede aumentar el rendimiento de todo el contenedor o volver a intentar la operación. Para más información sobre las particiones, consulte [Particiones lógicas](partition-data.md).
 
-Varias particiones lógicas que comparten el rendimiento aprovisionado en una base de datos se pueden hospedar en una partición de recurso único. Mientras que una única partición lógica de un contenedor siempre se encuentra dentro del ámbito de una partición de recursos, las particiones lógicas de "L" en los contenedores de "C" que comparten el rendimiento aprovisionado de una base de datos pueden asignarse y hospedarse en particiones físicas de "R". En la siguiente imagen se muestra cómo una partición de recursos puede hospedar una o varias particiones lógicas que pertenecen a distintos contenedores dentro de una base de datos:
+Varias particiones lógicas que comparten el rendimiento aprovisionado en una base de datos se pueden hospedar en una partición física única. Mientras que una única partición lógica de un contenedor siempre se encuentra dentro del ámbito de una partición física, las particiones lógicas de "L" en los contenedores de "C" que comparten el rendimiento aprovisionado de una base de datos pueden asignarse y hospedarse en particiones físicas de "R". En la siguiente imagen se muestra cómo una partición física puede hospedar una o varias particiones lógicas que pertenecen a distintos contenedores dentro de una base de datos:
 
-![Partición de recursos](./media/set-throughput/resource-partition2.png)
+![Partición física](./media/set-throughput/resource-partition2.png)
 
 ## <a name="setting-throughput-on-a-database-and-a-container"></a>Configuración del rendimiento en un contenedor y una base de datos
 

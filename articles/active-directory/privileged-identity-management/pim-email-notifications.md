@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: pim
-ms.date: 11/30/2018
+ms.date: 01/05/2019
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: 00b096f59e70962b6883a8024744e8c91a5f9ae3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4bc963d09b9d01efdfad65b78ce9ce336798d375
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846902"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065348"
 ---
 # <a name="email-notifications-in-pim"></a>Notificaciones por correo electrónico en PIM
 
@@ -43,16 +43,15 @@ PIM envía mensajes de correo electrónico cuando se producen los eventos siguie
 
 - Cuando una activación de roles con privilegios está pendiente de aprobación
 - Cuando se completa una solicitud de activación de roles con privilegios
-- Cuando se asigna un rol con privilegios como apto
 - Cuando se habilita Azure AD PIM
 
 El destinatario de estos correos electrónicos para roles de Azure AD depende de su rol, el evento y las notificaciones de configuración:
 
-| Usuario | La activación de roles está pendiente de aprobación | La solicitud de activación de roles está completa | El rol se ha asignado como apto | PIM está habilitado |
-| --- | --- | --- | --- | --- |
-| Administrador de roles con privilegios</br>(Activado/apto) | SÍ</br>(solo si no se especifican aprobadores explícitos) | Sí* | SÍ | SÍ |
-| Administrador de seguridad</br>(Activado/apto) | Sin  | Sí* | SÍ | SÍ |
-| Administrador global</br>(Activado/apto) | Sin  | Sí* | SÍ | SÍ |
+| Usuario | La activación de roles está pendiente de aprobación | La solicitud de activación de roles está completa | PIM está habilitado |
+| --- | --- | --- | --- |
+| Administrador de roles con privilegios</br>(Activado/apto) | SÍ</br>(solo si no se especifican aprobadores explícitos) | Sí* | SÍ |
+| Administrador de seguridad</br>(Activado/apto) | Sin  | Sí* | SÍ |
+| Administrador global</br>(Activado/apto) | Sin  | Sí* | SÍ |
 
 \* Si el parámetro [**Notificaciones**](pim-how-to-change-default-settings.md#notifications) se establece en **Habilitar**.
 

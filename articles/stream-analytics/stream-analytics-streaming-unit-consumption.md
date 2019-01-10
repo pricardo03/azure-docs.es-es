@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: 0907739bc0e67228f9f7f12594df7b9067e32578
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 84f0c000f54852bbab60a53ecb686656ac86b3de
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984985"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002661"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Descripción y ajuste de las unidades de streaming
 
@@ -22,7 +22,7 @@ Las unidades de streaming (SU) representan los recursos informáticos que se asi
 
 Para lograr un procesamiento de streaming de latencia baja, los trabajos de Azure Stream Analytics realizan todo el procesamiento en memoria. El trabajo de streaming presenta un error cuando se queda sin memoria. Como resultado, en el caso de un trabajo de producción, resulta importante supervisar el uso de recursos de un trabajo de streaming, y debe asegurarse de que hay recursos asignados suficientes para mantener los trabajos en ejecución de manera ininterrumpida.
 
-La métrica de uso del % de SU, que oscila de 0 % al 100 %, describe el consumo de memoria de la carga de trabajo. Para un trabajo de streaming con una superficie mínima, esta métrica suele estar entre el 10 % y el 20 %. Si el porcentaje de uso de SU es bajo y los eventos de entrada quedan pendientes, puede que la carga de trabajo requiera más recursos informáticos, para lo que es necesario aumentar el número de SU. Se recomienda mantener la métrica de SU por debajo del 80 % para tener en cuenta las subidas ocasionales. Microsoft recomienda establecer una alerta en un 80 % de métrica de uso de SU para evitar el agotamiento de recursos. Para obtener más información, consulte [Configuración de alertas en Azure Stream Analytics](stream-analytics-set-up-alerts.md).
+La métrica de uso del % de SU, que oscila de 0 % al 100 %, describe el consumo de memoria de la carga de trabajo. Para un trabajo de streaming con una superficie mínima, esta métrica suele estar entre el 10 % y el 20 %. Si el porcentaje de uso de SU es bajo y los eventos de entrada quedan pendientes, puede que la carga de trabajo requiera más recursos informáticos, para lo que es necesario aumentar el número de SU. Se recomienda mantener la métrica de SU por debajo del 80 % para tener en cuenta las subidas ocasionales. Microsoft recomienda establecer una alerta en un 80 % de métrica de uso de SU para evitar el agotamiento de recursos. Para más información, consulte [Tutorial: Configuración de alertas en Azure Stream Analytics](stream-analytics-set-up-alerts.md).
 
 ## <a name="configure-stream-analytics-streaming-units-sus"></a>Configuración de las unidades de streaming (SU) de Stream Analytics
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/)
@@ -48,7 +48,7 @@ La elección del número de SU necesarias para un trabajo determinado depende de
 
 En general, el procedimiento recomendado es comenzar con 6 SU para consultas que no usen **PARTITION BY**. Luego, determine el punto favorable mediante un método de prueba y error en el que modifica el número de SU después de pasar las cantidades de datos representativas y examinar la métrica de porcentaje de uso de SU. El número máximo de unidades de streaming que se puede utilizar en un trabajo de Stream Analytics depende del número de pasos de la consulta definida para el trabajo y del número de particiones en cada paso. Puede obtener más información sobre los límites [aquí](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#calculate-the-maximum-streaming-units-of-a-job).
 
-Para más información sobre cómo elegir el número correcto de SU, consulte está página: [Escalación de trabajos de Azure Stream Analytics para incrementar el rendimiento](stream-analytics-scale-jobs.md)
+Para más información sobre la elección del número correcto de unidades de streaming, consulte esta página: [Escalar los trabajos de Azure Stream Analytics para incrementar el rendimiento](stream-analytics-scale-jobs.md)
 
 > [!Note]
 > La elección del número de unidades de streaming que se necesitan para un trabajo en concreto depende de la configuración de particiones para las entradas y de la consulta definida para el trabajo. Puede seleccionar como máximo su cuota en unidades de streaming para un trabajo. De manera predeterminada, cada suscripción de Azure tiene una cuota máxima de 200 SU en todos los trabajos de análisis de una región específica. Para aumentar las unidades de streaming de sus suscripciones, contacte con [Soporte técnico de Microsoft](https://support.microsoft.com). Los valores válidos para unidades de streaming por trabajo son 1, 3, 6 y más en incrementos de 6.
@@ -57,15 +57,17 @@ Para más información sobre cómo elegir el número correcto de SU, consulte es
 
 Los elementos de consulta temporal (orientados al tiempo) son el conjunto básico de operadores con estado proporcionados por Stream Analytics. Stream Analytics administra el estado de estas operaciones internamente en nombre de usuario, mediante la administración del consumo de memoria, los puntos de comprobación para la resistencia y la recuperación del estado durante las actualizaciones de servicio. Aunque Stream Analytics administra totalmente los estados, hay una serie de prácticas recomendadas que los usuarios deberían tener en cuenta.
 
+Tenga en cuenta que un trabajo con lógica de consulta compleja podría tener un alto porcentaje de utilización de unidades de streaming, incluso cuando no está recibiendo continuamente eventos de entrada. Esto puede suceder después de un repentino aumento de los eventos de entrada y salida. El trabajo puede continuar manteniendo el estado en memoria si la consulta es compleja.
+
 ## <a name="stateful-query-logicin-temporal-elements"></a>Lógica de consulta con estado en elementos temporales
 Una funcionalidad única de un trabajo de Azure Stream Analytics es realizar procesamiento con estado, como funciones de análisis temporal, combinaciones temporales y agregados en ventanas. Cada uno de estos operadores conserva información de estado. El tamaño máximo de la ventana para estos elementos de consulta es siete días. 
 
 El concepto de ventana temporal aparece en varios elementos de consulta de Stream Analytics:
 1. Agregados en ventanas: GROUP BY de ventanas de saltos de tamaño constante, de salto y deslizantes
 
-2. Combinaciones temporales : función JOIN con DATEDIFF
+2. Combinaciones temporales: Función JOIN con DATEDIFF
 
-3. Funciones analíticas temporales: ISFIRST, LAST y LAG con LIMIT DURATION
+3. Funciones de análisis temporal: ISFIRST, LAST y LAG con LIMIT DURATION
 
 Los siguientes factores influyen en la memoria utilizada (que forma parte de la métrica de unidades de streaming) por los trabajos de Stream Analytics:
 

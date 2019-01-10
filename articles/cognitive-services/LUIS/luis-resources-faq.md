@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 9e5b132a7946bdc648e051c9f7327cc7159f291e
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 9a8bfa2e89e6bc0cbbd5af2efdff60aa406b3f1d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163640"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714209"
 ---
-# <a name="language-understanding-faq"></a>P+F sobre Language Understanding
+# <a name="language-understanding-frequently-asked-questions-faq"></a>Preguntas más frecuentes de Language Understanding
 
 Este artículo contiene respuestas a las preguntas más frecuentes sobre Language Understanding (LUIS).
 
@@ -212,7 +212,7 @@ Las siguientes características se publicaron en la conferencia Build 2018:
 |Integraciones|Integración de [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) del [análisis de sentimiento](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>Integración de [Speech](https://docs.microsoft.com/azure/cognitive-services/speech) de preparación para la voz con [Speech SDK](https://aka.ms/SpeechSDK)|
 |Herramienta de distribución|[Herramienta](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) de distribución por línea de comandos que es parte de [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools) y combina varias aplicaciones de LUIS y QnA Maker en una única aplicación de LUIS para optimizar el reconocimiento de intención en un bot
 
-Se incluyeron [rutas de API](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md) de creación adicionales.
+Se incluyeron [rutas de API](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/authoring-routes.md) de creación adicionales.
 
 Videos:
 * [Azure Friday en la compilación de 2018: Cognitive Services - Language (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)

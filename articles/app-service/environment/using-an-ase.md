@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: eca6f7996b05e58614c8f15067dacabb13730396
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: c332b20650bef2e341a935dacae835403dc56c9b
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274724"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630672"
 ---
 # <a name="use-an-app-service-environment"></a>Uso de una instancia de App Service Environment #
 
@@ -39,22 +39,22 @@ Azure App Service Environment es una implementación de Azure App Service en una
 
 Puede implementar un entorno ASE (ASEv1 y ASEv2) con una VIP externa o interna para acceso a las aplicaciones. La implementación con una VIP externa suele llamarse ASE externo. La versión interna se llama ASE con un ILB porque usa un equilibrador de carga interno (ILB). Para más información sobre ASE con un ILB, consulte [Creación y uso de un ASE con un ILB][MakeILBASE].
 
-## <a name="create-a-web-app-in-an-ase"></a>Creación de una aplicación web en ASE ##
+## <a name="create-an-app-in-an-ase"></a>Creación de una aplicación en un entorno ASE ##
 
-Para crear una aplicación web en ASE, usa el mismo proceso que al crearla normalmente, pero con pequeñas diferencias. Al crear un nuevo plan de App Service:
+Para crear una aplicación en un entorno ASE, se usa el mismo proceso que al crearla normalmente, pero con pequeñas diferencias. Al crear un nuevo plan de App Service:
 
 - En lugar de elegir una ubicación geográfica en la que implementar la aplicación, elija un entorno ASE como su ubicación.
 - Todos los planes de App Service que se creen en ASE deben tener un plan de tarifa aislado.
 
 Si no tiene un entorno ASE, puede crear uno según las instrucciones que aparecen en [Creación de un entorno en App Service Environment][MakeExternalASE].
 
-Para crear una aplicación web en ASE:
+Para crear una aplicación en un entorno ASE:
 
 1. Seleccione **Crear un recurso** > **Web y móvil** > **Aplicación web**.
 
-2. Escriba un nombre para la aplicación web. Si ya seleccionó un plan de App Service en ASE, el nombre de dominio de la aplicación refleja el nombre de dominio del entorno ASE.
+2. Escriba un nombre para la aplicación. Si ya seleccionó un plan de App Service en ASE, el nombre de dominio de la aplicación refleja el nombre de dominio del entorno ASE.
 
-    ![Selección del nombre de la aplicación web][1]
+    ![Selección del nombre de la aplicación][1]
 
 1. Seleccione una suscripción.
 
@@ -80,10 +80,10 @@ Para crear una aplicación web en ASE:
     ![Planes de tarifa aislados][2]
 
     > [!NOTE]
-    > Las aplicaciones web Windows y Linux no pueden estar en el mismo plan de App Service, pero sí que pueden estar en el mismo entorno de App Service. 
+    > Las aplicaciones Windows y Linux no pueden estar en el mismo plan de App Service, pero sí que pueden estar en el mismo entorno de App Service Environment. 
     >
 
-1. Seleccione **Crear**.
+2. Seleccione **Crear**.
 
 ## <a name="how-scale-works"></a>Cómo funciona escalar ##
 
@@ -97,7 +97,7 @@ En un entorno ASE, puede escalar hasta 100 instancias. Todas esas 100 instancias
 
 ## <a name="ip-addresses"></a>Direcciones IP ##
 
-App Service tiene la capacidad de asignar una dirección IP dedicada a una aplicación. Esta funcionalidad está disponible después de configurar un SSL basado en dirección IP, tal como se describe en [Enlazar un certificado SSL personalizado a Azure Web Apps][ConfigureSSL]. Sin embargo, en ASE, hay una excepción importante. No puede agregar direcciones IP adicionales para usarlas para un SSL basado en dirección IP en ASE con un ILB.
+App Service tiene la capacidad de asignar una dirección IP dedicada a una aplicación. Esta funcionalidad está disponible después de configurar un SSL basado en dirección IP, tal como se describe en [Enlace de un certificado SSL personalizado a Azure App Service][ConfigureSSL]. Sin embargo, en ASE, hay una excepción importante. No puede agregar direcciones IP adicionales para usarlas para un SSL basado en dirección IP en ASE con un ILB.
 
 En ASEv1, debe asignar las direcciones IP como recursos antes de poder usarlos. En ASEv2, las usa desde la aplicación tal como lo hace en App Service multiinquilino. Siempre hay una dirección de reserva en un entorno ASEv2 para hasta 30 direcciones IP. Cada vez que usa una, se agrega otra, para que siempre haya una dirección disponible lista para su uso. Un retraso es necesario para asignar otra dirección IP, que evita agregar direcciones IP en una sucesión rápida.
 
@@ -187,6 +187,6 @@ Para eliminar un entorno ASE:
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
-[AppDeploy]: ../app-service-deploy-local-git.md
+[AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

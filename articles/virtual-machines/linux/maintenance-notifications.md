@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: 1ac965896dc3356f33e6461cf390e4345663c3d3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fdd5e3577c91f288919b7223287d2d3722f0259c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982093"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543451"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Control de las notificaciones de mantenimiento planeado de máquinas virtuales Linux
 
@@ -32,7 +32,7 @@ Azure realiza periódicamente actualizaciones para mejorar la confiabilidad, el 
 
 El mantenimiento planeado que requiere un reinicio se programa en olas. Cada ola tiene un ámbito diferente (regiones).
 
-- Una ola comienza con una notificación a los clientes. De forma predeterminada, la notificación se envía al propietario de la suscripción y a los copropietarios. Con las [alertas del registro de actividad](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) de Azure es posible agregar más destinatarios y opciones de mensajería, como el correo electrónico, los SMS y los webhooks, a las notificaciones.  
+- Una ola comienza con una notificación a los clientes. De forma predeterminada, la notificación se envía al propietario de la suscripción y a los copropietarios. Con las [alertas del registro de actividad](../../azure-monitor/platform/activity-logs-overview.md) de Azure es posible agregar más destinatarios y opciones de mensajería, como el correo electrónico, los SMS y los webhooks, a las notificaciones.  
 - En el momento de la notificación, aparece una *ventana de autoservicio*. En ella, puede ver qué máquinas virtuales se incluyen en esta ola e iniciar de forma proactiva el mantenimiento en función de las necesidades que dicte su programación.
 - Después de la ventana de autoservicio, comienza una *ventana de mantenimiento programado*. Mientras está ventana está activa Azure programa el mantenimiento necesario y lo aplica a la máquina virtual. 
 
@@ -134,7 +134,7 @@ azure compute virtual-machine initiate-maintenance --service-name myService --na
 
 **P: ¿Por qué hay que reiniciar las máquinas virtuales ahora?**
 
-**R:** Aunque la mayoría de las actualizaciones de la plataforma Azure no afectan a la disponibilidad de la máquina virtual, hay casos en los que es imposible evitar reiniciar las máquinas virtuales hospedadas en Azure. Hemos acumulado varios cambios que requieren el reinicio de nuestros servidores, lo que conllevará el reinicio de las máquinas virtuales.
+**R:** Aunque la mayoría de las actualizaciones de la plataforma de Azure no afectan a la disponibilidad de la máquina virtual, hay casos en los que es imposible evitar reiniciar las máquinas virtuales hospedadas en Azure. Hemos acumulado varios cambios que requieren el reinicio de nuestros servidores, lo que conllevará el reinicio de las máquinas virtuales.
 
 **P: Si sigo las recomendaciones para lograr una alta disponibilidad mediante un conjunto de disponibilidad, ¿estoy seguro?**
 
@@ -146,7 +146,7 @@ Para más información acerca de la alta disponibilidad, consulte [Regiones y di
 
 **R:** Una oleada de mantenimiento planeado se inicia mediante el establecimiento de una programación en una o varias regiones de Azure. Poco después, se envía una notificación por correo electrónico a los propietarios de las suscripciones (un correo electrónico por suscripción). Mediante Alertas de registro de actividad se pueden configurar más canales y destinatarios de esta notificación. En caso de que implemente una máquina virtual en una región en la que ya se ha programado un mantenimiento planeado, no recibirá la notificación, sino que tendrá que comprobar el estado de mantenimiento de la máquina virtual.
 
-**P: No veo ninguna indicación de mantenimiento planeado en el portal, Powershell ni la CLI. ¿Qué está pasando?**
+**P: No veo ninguna indicación de mantenimiento planeado en el portal, Powershell o la CLI. ¿Qué está pasando?**
 
 **R:** La información relacionada con el mantenimiento planeado está disponible durante una tanda de mantenimiento planeado solo para las máquinas virtuales que van a verse afectadas por el mismo. En otras palabras, si no ve datos, es posible que la oleada de mantenimiento se haya completado (o que no haya empezado) o que la máquina virtual ya esté alojada en un servidor actualizado.
 
@@ -156,13 +156,13 @@ Para más información acerca de la alta disponibilidad, consulte [Regiones y di
 
 **P: ¿Cuánto tiempo tardará en reiniciar mi máquina virtual?**
 
-**R:** En función del tamaño de la máquina virtual, el reinicio podría tardar varios minutos durante la ventana de mantenimiento de autoservicio. En los reinicios ejecutados por Azure en la ventana de mantenimiento programada, el reinicio suele tardar unos 25 minutos. Tenga en cuenta que, si usa Cloud Services (roles de trabajo o web), Virtual Machine Scale Sets o conjuntos de disponibilidad, se le proporcionarán treinta minutos entre cada grupo de máquinas virtuales (UD) durante la ventana de mantenimiento programado.
+**R:**  En función del tamaño de la máquina virtual, el reinicio podría tardar varios minutos durante la ventana de mantenimiento de autoservicio. En los reinicios ejecutados por Azure en la ventana de mantenimiento programada, el reinicio suele tardar unos 25 minutos. Tenga en cuenta que, si usa Cloud Services (roles de trabajo o web), Virtual Machine Scale Sets o conjuntos de disponibilidad, se le proporcionarán treinta minutos entre cada grupo de máquinas virtuales (UD) durante la ventana de mantenimiento programado.
 
 **P: ¿Cuál es la experiencia en el caso de los conjuntos de escalado de máquinas virtuales?**
 
 **R:** El mantenimiento planeado está ahora disponible para los conjuntos de escalado de máquinas virtuales. Para obtener instrucciones sobre cómo iniciar el mantenimiento de autoservicio, consulte el documento [mantenimiento planeado de VMSS](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md).
 
-**P: ¿Cómo es en el caso de Cloud Services (roles de trabajo o web) y Service Fabric?**
+**P: ¿Cómo es la experiencia en el caso de Cloud Services (roles de trabajo o web) y Service Fabric?**
 
 **R:** Aunque estas plataformas resultan afectadas por el mantenimiento planeado, se considera que los clientes que las usan están seguros, ya que solo resultarán afectadas en cualquier momento las máquinas virtuales de un dominio de actualización (UD) individual. El mantenimiento de autoservicio no está disponible para Cloud Services (rol de trabajo o web) y Service Fabric.
 
@@ -175,7 +175,7 @@ Para más información acerca de la alta disponibilidad, consulte [Regiones y di
 
 **P: Está programado que se realice un segundo mantenimiento programado de mi máquina virtual. ¿Por qué?**
 
-**R:** Hay varios casos de uso en los que verá que el mantenimiento de su máquina virtual está programado después de que haya completado el ciclo de mantenimiento-reimplementación:
+**R:** Hay varios casos en los que verá que el mantenimiento de su máquina virtual está programado después de que se haya completado el ciclo de mantenimiento y reimplementación:
 1.  Hemos cancelado la oleada de mantenimiento y la hemos reiniciado con otra carga útil. Es posible que hayamos detectado una carga útil con errores y que necesitemos implementar una carga adicional.
 2.  El *servicio de una máquina virtual se ha reparado* en otro nodo debido a un error de hardware.
 3.  Ha seleccionado detener (desasignar) y reiniciar la máquina virtual.

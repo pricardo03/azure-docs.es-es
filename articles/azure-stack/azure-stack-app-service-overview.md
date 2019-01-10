@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: 3015755d8046f72c03cd1a1485d90a7f720a8909
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: b1b4ea5775a661712838c1495ef0025a83b8c518
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353037"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607950"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Introducción a App Service en Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Azure App Service en Azure Stack es una oferta de plataforma como servicio (PaaS) de Microsoft Azure disponible en Azure Stack. El servicio habilita a sus clientes internos o externos para crear aplicaciones de Azure Functions, API y web para cualquier plataforma o dispositivo. Pueden integrar sus aplicaciones con aplicaciones locales y automatizar sus procesos empresariales. Los operadores en la nube de Azure Stack pueden ejecutar las aplicaciones en máquinas virtuales totalmente administradas, con la elección de los recursos de máquinas virtuales compartidas o máquinas virtuales dedicadas.
 
@@ -35,14 +35,14 @@ Estas son algunas de las características y funcionalidades principales de App S
 
 - **Varios lenguajes y plataformas**: App Service es compatible con ASP.NET, Node.js, Java, PHP y Python. También puede ejecutar Windows PowerShell y otros scripts o ejecutables en máquinas virtuales de App Service.
 - **Optimización de DevOps**: configure la integración y la implementación continuas con GitHub, Git local o BitBucket. Puede promover actualizaciones mediante entornos de ensayo y pruebas, y administrar las aplicaciones en App Service mediante Azure PowerShell o la interfaz de la línea de comandos (CLI) multiplataforma.
-- **Integración con visual Studio**: existen herramientas dedicadas en Visual Studio que permiten optimizar las tareas de creación e implementación de aplicaciones.
+- **Integración con Visual Studio**: existen herramientas dedicadas en Visual Studio que permiten optimizar las tareas de creación e implementación de aplicaciones.
 
 ## <a name="app-types-in-app-service"></a>Tipos de aplicaciones en App Service
 
 App Service ofrece varios tipos de aplicación, cada uno pensado para hospedar una carga de trabajo específica:
 
-- [Web Apps](../app-service/app-service-web-overview.md) para hospedar sitios y aplicaciones web.
-- [API Apps](../app-service/app-service-web-overview.md) para hospedar las API REST.
+- [Web Apps](../app-service/overview.md) para hospedar sitios y aplicaciones web.
+- [API Apps](../app-service/overview.md) para hospedar las API REST.
 - Azure Functions para hospedar cargas de trabajo sin servidor basadas en eventos.
 
 La palabra *aplicación* hace referencia a los recursos de hospedaje dedicados a ejecutar una carga de trabajo. Si se toma *aplicación web* como ejemplo, probablemente está acostumbrado a pensar en una aplicación web como los recursos de proceso y el código de aplicación que juntos ofrecen funcionalidad a un explorador. En App Service, una aplicación web se compone de los recursos de procesos que Azure Stack proporciona para hospedar su código de aplicación.

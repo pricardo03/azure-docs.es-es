@@ -3,7 +3,7 @@ title: 'Diseño de consultas de lista eficaces: Azure Batch | Microsoft Docs'
 description: Mejore el rendimiento filtrando las consultas cuando solicite información en recursos de Batch, como grupos, trabajos, tareas y nodos de proceso.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 031fefeb-248e-4d5a-9bc2-f07e46ddd30d
@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 06/26/2018
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6bc31e8541797930583e41fb6efbb6473cd4b894
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.date: 12/07/2018
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: fc873f68be3e7aad67980ec2e8ee0b2e473777ec
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004462"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537908"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Creación de consultas para enumerar los recursos de Batch con eficacia
 
@@ -106,11 +106,11 @@ La cadena expand reduce el número de llamadas API necesarias para obtener deter
 ## <a name="efficient-querying-in-batch-net"></a>Consultas eficaces en .NET de Batch
 En la API de [.NET de Batch][api_net], se usa la clase [ODATADetailLevel][odata] para suministrar cadenas filter, select y expand a las operaciones de lista. La clase ODataDetailLevel tiene tres propiedades de cadena públicas que se pueden especificar en el constructor, o bien establecerse directamente en el objeto. Luego el objeto ODataDetailLevel pasa como parámetro a las distintas operaciones de lista como [ListPools][net_list_pools], [ListJobs][net_list_jobs] y [ListTasks][net_list_tasks].
 
-* [ODATADetailLevel][odata].[FilterClause][odata_filter]: limita el número de elementos que se devuelven.
-* [ODATADetailLevel.SelectClause][odata].[SelectClause][odata_select]: especifica los valores de propiedad devueltos con cada elemento.
-* [ODATADetailLevel][odata].[ExpandClause][odata_expand]: recupera datos para todos los elementos en una sola llamada API en lugar de en llamadas independientes para cada elemento.
+* [ODATADetailLevel][odata].[ FilterClause][odata_filter]: limita el número de elementos que se devuelven.
+* [ODATADetailLevel][odata].[ SelectClause][odata_select]: especifica los valores de propiedad devueltos con cada elemento.
+* [ODATADetailLevel][odata].[ExpandClause][odata_expand]: recupera datos para todos los elementos en una sola llamada a la API en lugar de en llamadas independientes para cada elemento.
 
-El siguiente fragmento de código usa la API de .NET para Batch para consultar de forma eficaz las estadísticas de un conjunto específico de grupos en el servicio Batch. En este escenario, el usuario de Batch tiene grupos de prueba y de producción. Los identificadores del grupo de prueba tienen el prefijo "test", mientras que los del grupo de producción tienen el prefijo "prod". En el fragmento de código, *myBatchClient* es una instancia de la clase [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient) inicializada correctamente.
+El siguiente fragmento de código usa la API de .NET de Batch para consultar de forma eficaz las estadísticas de un conjunto específico de grupos en el servicio Batch. En este escenario, el usuario de Batch tiene grupos de prueba y de producción. Los identificadores del grupo de prueba tienen el prefijo "test", mientras que los del grupo de producción tienen el prefijo "prod". En el fragmento de código, *myBatchClient* es una instancia de la clase [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient) inicializada correctamente.
 
 ```csharp
 // First we need an ODATADetailLevel instance on which to set the filter, select,
@@ -148,7 +148,7 @@ Los nombres de propiedades en las cadenas filter, select y expand *deben* reflej
 
 ### <a name="mappings-for-filter-strings"></a>Asignaciones de las cadenas filter
 * **Métodos de lista de .NET**: todos los métodos de la API de .NET de esta columna aceptan un objeto [ODATADetailLevel][odata] como parámetro.
-* **Solicitudes de lista de REST**: todas las páginas de la API de REST de esta columna contienen una tabla que especifica las propiedades y operaciones permitidas en las cadenas *filter* . Estos nombres de propiedad y estas operaciones se usarán al construir una cadena [ODATADetailLevel.FilterClause][odata_filter].
+* **Solicitudes de lista de REST**: todas las páginas de la API REST de esta columna contienen una tabla que especifica las propiedades y operaciones permitidas en las cadenas *filter*. Estos nombres de propiedad y estas operaciones se usarán al construir una cadena [ODATADetailLevel.FilterClause][odata_filter].
 
 | Métodos de lista de .NET | Solicitudes de lista de REST |
 | --- | --- |
@@ -164,8 +164,8 @@ Los nombres de propiedades en las cadenas filter, select y expand *deben* reflej
 | [PoolOperations.ListPools][net_list_pools] |[Enumeración de los grupos de una cuenta][rest_list_pools] |
 
 ### <a name="mappings-for-select-strings"></a>Asignaciones de las cadenas select
-* **Tipos de .NET de Batch**: tipos de la API de .NET de Batch.
-* **Entidades de la API de REST**: todas las páginas de esta columna contienen una o varias tablas que enumeran los nombres de propiedades de la API de REST para el tipo. Estos nombres de propiedades se usan al construir cadenas *select* . Estos mismos nombres se usarán al construir una cadena [ODATADetailLevel.SelectClause][odata_select].
+* **Tipos de .NET de Batch**: Tipos de API de .NET de Batch.
+* **Entidades de la API REST**: todas las páginas de esta columna contienen una o varias tablas que enumeran los nombres de propiedades de la API REST para el tipo. Estos nombres de propiedades se usan al construir cadenas *select* . Estos mismos nombres se usarán al construir una cadena [ODATADetailLevel.SelectClause][odata_select].
 
 | Tipos de .NET de Batch | Entidades de la API de REST |
 | --- | --- |
@@ -179,7 +179,7 @@ Los nombres de propiedades en las cadenas filter, select y expand *deben* reflej
 ## <a name="example-construct-a-filter-string"></a>Ejemplo: construcción de una cadena filter
 Al construir una cadena filter para [ODATADetailLevel.FilterClause][odata_filter], consulte la tabla en la sección "Asignaciones de las cadenas filter" para buscar la página de documentación de la API de REST correspondiente a la operación de lista que desea realizar. Encontrará las propiedades filtrables y sus operadores admitidos en la primera tabla de varias filas de dicha página. Por ejemplo, si desea recuperar todas las tareas cuyo código de salida era distinto de cero, en [Lista de las tareas asociadas a un trabajo][rest_list_tasks] esta fila especifica la cadena de propiedad aplicable y los operadores permitidos:
 
-| Propiedad | Operaciones permitidas | type |
+| Propiedad | Operaciones permitidas | Escriba |
 |:--- |:--- |:--- |
 | `executionInfo/exitCode` |`eq, ge, gt, le , lt` |`Int` |
 
@@ -190,7 +190,7 @@ Por lo tanto, la cadena filter para enumerar todas las tareas con un código de 
 ## <a name="example-construct-a-select-string"></a>Ejemplo: construcción de una cadena select
 Para construir [ODATADetailLevel.SelectClause][odata_select], consulte la tabla de "Asignaciones de las cadenas select" y navegue a la página de la API de REST correspondiente al tipo de entidad que vaya a enumerar. Encontrará las propiedades seleccionables y sus operadores admitidos en la primera tabla de varias filas de dicha página. Por ejemplo, si desea recuperar solo el identificador y la línea de comandos para cada tarea de una lista, encontrará estas filas en la tabla correspondiente en la página sobre cómo [obtener información acerca de una tarea][rest_get_task]:
 
-| Propiedad | type | Notas |
+| Propiedad | Escriba | Notas |
 |:--- |:--- |:--- |
 | `id` |`String` |`The ID of the task.` |
 | `commandLine` |`String` |`The command line of the task.` |
@@ -246,9 +246,9 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 [Maximizar el uso de recursos de proceso de Azure Batch con tareas simultáneas nodo](batch-parallel-node-tasks.md) es otro artículo relacionada con rendimiento de aplicaciones de Batch. Algunos tipos de cargas de trabajo pueden beneficiarse de la ejecución de tareas paralelas en una menor cantidad de nodos de proceso que, sin embargo, sean de mayor tamaño. Consulte la sección [Escenario de ejemplo](batch-parallel-node-tasks.md#example-scenario) en el artículo para obtener detalles sobre dicho escenario.
 
 
-[api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
+[api_net]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch?view=azure-dotnet
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
-[api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
+[api_rest]: https://docs.microsoft.com/rest/api/batchservice/
 [batch_metrics]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchMetrics
 [efficient_query_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/EfficientListQueries
 [github_samples]: https://github.com/Azure/azure-batch-samples

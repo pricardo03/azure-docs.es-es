@@ -5,18 +5,18 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 84c82da933b17679e8c69c08b0c9cc7372951cfd
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 3f87a4c520327f1a13a48c70502b6737c0aa9b3a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802060"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630978"
 ---
-# <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Conexión a orígenes de datos locales con la puerta de enlace de datos local de Azure
-La puerta de enlace de datos local actúa como un puente, ya que proporciona una transferencia de datos segura entre orígenes de datos locales y los servidores de Azure Analysis Services en la nube. Además de funcionar con varios servidores de Azure Analysis Services en la misma región, la versión más reciente de la puerta de enlace también funciona con Azure Logic Apps, Power BI, Power Apps y Microsoft Flow. Puede asociar varios servicios de la misma suscripción y región con una sola puerta de enlace. 
+# <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Conexión a orígenes de datos locales con la puerta de enlace de datos local
+La puerta de enlace de datos local proporciona una transferencia de datos segura entre orígenes de datos locales y los servidores de Azure Analysis Services en la nube. Además de funcionar con varios servidores de Azure Analysis Services en la misma región, la versión más reciente de la puerta de enlace también funciona con Azure Logic Apps, Power BI, Power Apps y Microsoft Flow. Puede asociar varios servicios de la misma suscripción y región con una sola puerta de enlace. 
 
 El proceso de instalación de la puerta de enlace consta de cuatro partes:
 
@@ -94,10 +94,10 @@ No hay actualmente un único lugar donde los administradores de inquilinos pueda
 ### <a name="general"></a>General
 
 **P**: ¿Necesito una puerta de enlace para orígenes de datos en la nube como, por ejemplo, Azure SQL Database? <br/>
-**R**: No. Solo se necesitan puertas de enlace para conectarse a orígenes de datos locales.
+**R**:  No. Solo se necesitan puertas de enlace para conectarse a orígenes de datos locales.
 
 **P**: ¿La puerta de enlace debe estar instalada en la misma máquina que el origen de datos? <br/>
-**R**: No. Lo único que necesita la puerta de enlace es poder conectarse al servidor, normalmente en la misma red.
+**R**:  No. Lo único que necesita la puerta de enlace es poder conectarse al servidor, normalmente en la misma red.
 
 <a name="why-azure-work-school-account"></a>
 
@@ -118,7 +118,7 @@ Puede usar la aplicación Azure Speed Test (desarrollada por un tercero) para me
 **R**: Los resultados se envían a través de Azure Service Bus.
 
 **P**: ¿Hay alguna conexión de entrada a la puerta de enlace desde la nube? <br/>
-**R**: No. La puerta de enlace usa conexiones de salida a Azure Service Bus.
+**R**:  No. La puerta de enlace usa conexiones de salida a Azure Service Bus.
 
 **P**: ¿Qué sucede si bloqueo las conexiones de salida? ¿Qué tengo que abrir? <br/>
 **R**: Consulte los puertos y los hosts que usa la puerta de enlace.
@@ -127,12 +127,15 @@ Puede usar la aplicación Azure Speed Test (desarrollada por un tercero) para me
 **R**: En los servicios, la puerta de enlace se llama servicio de puerta de enlace de datos local.
 
 **P**: ¿Se puede ejecutar el servicio de Windows de puerta de enlace con una cuenta de Azure Active Directory? <br/>
-**R**: No. El servicio de Windows debe tener una cuenta de Windows válida. De forma predeterminada, el servicio se ejecuta con el SID de servicio NT SERVICE\PBIEgwService.
+**R**:  No. El servicio de Windows debe tener una cuenta de Windows válida. De forma predeterminada, el servicio se ejecuta con el SID de servicio NT SERVICE\PBIEgwService.
 
 **P**: ¿Cómo adquiero una puerta de enlace? <br/>
 **R**: Para adquirir una puerta de enlace (mediante la ejecución de Configurar/Cambiar en Panel de control > Programas) tiene que ser propietario del recurso de la puerta de enlace en Azure y disponer de una clave de recuperación. Los propietarios del recurso de puerta de enlace se pueden configurar en Control de acceso.
 
 ### <a name="high-availability"></a>Alta disponibilidad y recuperación ante desastres
+
+**P**: ¿Cómo podemos tener alta disponibilidad?  
+**R**: Puede instalar una puerta de enlace en otro equipo para crear un clúster. Para más información, consulte [Clústeres de alta disponibilidad para puerta de enlace de datos local](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters) en la documentación de Power BI Gateway.
 
 **P**: ¿Cuáles son las opciones de recuperación ante desastres disponibles? <br/>
 **R**: Puede usar la clave de recuperación para restaurar o mover una puerta de enlace. Cuando instale la puerta de enlace, especifique la clave de recuperación.
@@ -146,7 +149,7 @@ Puede usar la aplicación Azure Speed Test (desarrollada por un tercero) para me
 **R**: Hay dos razones posibles. La primera es que el recurso ya se ha creado para la puerta de enlace actual o en otra suscripción. Para eliminar esa posibilidad, enumere los recursos del tipo **Puertas de enlace de datos locales** en el portal. Asegúrese de seleccionar todas las suscripciones al enumerar todos los recursos. Una vez que se crea el recurso, la puerta de enlace no aparece en la lista de instancias de puerta de enlace en la experiencia del portal de creación de recursos de puerta de enlace. La segunda posibilidad es que la identidad de Azure AD del usuario que ha instalado la puerta de enlace sea distinta de la del usuario que inició sesión en Azure Portal. Para resolver este problema, inicie sesión el portal con la misma cuenta que el usuario que instaló la puerta de enlace.
 
 **P**: ¿Cómo se pueden ver las consultas que se envían al origen de datos local? <br/>
-**R** Puede habilitar el seguimiento de consultas, que incluye las consultas que se envían. No olvide devolver el seguimiento de consultas al valor original cuando haya terminado de solucionar problemas. Si lo deja activado, crea registros de mayor tamaño.
+**R**: Puede habilitar el seguimiento de consultas, que incluye las consultas que se envían. No olvide devolver el seguimiento de consultas al valor original cuando haya terminado de solucionar problemas. Si lo deja activado, crea registros de mayor tamaño.
 
 También puede examinar las herramientas de que dispone su origen de datos para el seguimiento de consultas. Por ejemplo, puede utilizar Eventos extendidos o SQL Profiler en SQL Server y Analysis Services.
 
@@ -157,7 +160,7 @@ También puede examinar las herramientas de que dispone su origen de datos para 
 
 Pueden surgir muchos problemas cuando la versión de la puerta de enlace deja de estar actualizada. Como buena práctica general, asegúrese de que está usando la versión más reciente. Si no ha actualizado la puerta de enlace durante un mes o más, debería plantearse instalar su versión más reciente y comprobar si puede reproducir el problema.
 
-### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Error: Error al agregar el usuario al grupo. (Usuarios del registro de rendimiento de-2147463168 PBIEgwService)
+### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Error: No se pudo agregar el usuario al grupo. (Usuarios del registro de rendimiento de-2147463168 PBIEgwService)
 
 Es posible que reciba este error si intenta instalar la puerta de enlace en un controlador de dominio, lo cual no se admite. Asegúrese de implementar la puerta de enlace en una máquina que no sea un controlador de dominio.
 
@@ -184,7 +187,7 @@ La telemetría puede usarse para tareas de supervisión y solución de problemas
 
 **Para activar la telemetría:**
 
-1.  Compruebe el directorio de cliente de puerta de enlace de datos local en el equipo. Normalmente, es **%systemdrive%\Program Files\On-premises data gateway**. O bien, puede abrir una consola de servicios y comprobar la ruta de acceso al archivo ejecutable: una propiedad del servicio de puerta de enlace de datos local.
+1.  Compruebe el directorio de cliente de puerta de enlace de datos local en el equipo. Normalmente, es **%systemdrive%\Program Files\On-premises data gateway**. O bien, puede abrir una consola de servicios y comprobar la ruta de acceso al archivo ejecutable: Una propiedad del servicio de puerta de enlace de datos local.
 2.  En el archivo Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config del directorio del cliente, cambie el valor SendTelemetry a true.
         
     ```
@@ -193,7 +196,7 @@ La telemetría puede usarse para tareas de supervisión y solución de problemas
         </setting>
     ```
 
-3.  Guarde los cambios y reinicie el servicio de Windows: el servicio de puerta de enlace de datos local.
+3.  Guarde los cambios y reinicie el servicio de Windows: Servicio de puerta de enlace de datos local.
 
 
 

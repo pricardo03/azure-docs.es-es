@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6b0b047e74496fb9e58df05dc6118c5f376cb99d
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1a8c0ec8a7926d443963075fec576b9e2168d41f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437527"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052639"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Procedimientos recomendados de infraestructura para migrar clústeres locales de Apache Hadoop a Azure HDInsight
 
@@ -205,7 +205,7 @@ HDInsight admite [puntos de conexión de servicio de redes virtuales](../../virt
 Para más información, consulte los siguientes artículos.
 
 - [Puntos de conexión del servicio de redes virtuales](../../virtual-network/virtual-network-service-endpoints-overview.md)
-- [Enhance HDInsight security with service endpoints](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/.md) (Mejora de la seguridad de HDInsight con puntos de conexión de servicio)
+- [Enhance HDInsight security with service endpoints](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/) (Mejora de la seguridad de HDInsight con puntos de conexión de servicio)
 
 ## <a name="connect-hdinsight-to-the-on-premises-network"></a>Conexión de HDInsight a la red local
 

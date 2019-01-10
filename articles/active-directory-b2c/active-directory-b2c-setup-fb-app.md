@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b1fbf77bfb771bd94ed9acdecb3c54e4c6894687
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 183afaeb40b90de078a44f4677dd0218b8d86ba8
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182117"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53968999"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de Facebook mediante Azure Active Directory B2C
 
@@ -38,7 +38,7 @@ Para usar una cuenta de Facebook como proveedor de identidades en Azure Active D
 13. Seleccione **Products** (Productos) y, después, seleccione **Set up** (Configurar) en **Facebook Login** (Inicio de sesión de Facebook).
 14. Seleccione **Settings** (configuración) en **Facebook Login** (Inicio de sesión de Facebook).
 15. En **Valid OAuth redirect URIs** (URI de redireccionamiento OAuth válidos), escriba `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Reemplace `your-tenant-name` por el nombre del inquilino. Haga clic en **Save Changes** (Guardar cambios) en la parte inferior de la página.
-16. Para que la aplicación de Facebook esté disponible en Azure AD B2C, seleccione **App Review** (Revisión de aplicación), establezca **Make My Application public?** (¿Hacer que mi aplicación sea pública?) en **YES** (Sí) y haga clic en **Confirmar**.
+16. Para que su aplicación de Facebook esté disponible para Azure AD B2C, haga clic en el selector de estados situado en la parte superior derecha de la página y seleccione **Activado** para hacer que la aplicación sea pública y, después, haga clic en **Confirmar**.  En este momento el estado debería cambiar de **Desarrollo** a **Activo**.
 
 ## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Configuración de una cuenta de Facebook como proveedor de identidades
 

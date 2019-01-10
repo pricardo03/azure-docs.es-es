@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 78d18bfe0f47517067fbb053a2d7e076b15761a7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 194e6091180fa1dd0eaaf999e970c0248ea99db9
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581007"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651782"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Creación de trabajos de Apache Spark Streaming con el procesamiento de eventos de tipo "exactamente una vez"
 
@@ -21,7 +21,7 @@ Las aplicaciones de procesamiento de flujos adoptan enfoques distintos en cuanto
 
 * Al menos una vez: se garantiza el procesamiento de cada mensaje, pero puede que se procese más de una vez.
 * Como máximo una vez: puede que cada mensaje se procese o no. Si se procesa un mensaje, solo se procesa una vez.
-* Solo una vez: se garantiza un solo procesamiento de cada mensaje.
+* Exactamente una vez: se garantiza un solo procesamiento de cada mensaje.
 
 En este artículo se explica cómo configurar Spark Streaming para conseguir un procesamiento del tipo "exactly-once".
 
@@ -29,19 +29,19 @@ En este artículo se explica cómo configurar Spark Streaming para conseguir un 
 
 En primer lugar, tenga en cuenta cómo se reinician todos los puntos de error del sistema tras un problema y cómo evitar la pérdida de datos. Una aplicación de Spark Streaming tiene:
 
-* Un origen de entrada
-* Uno o varios procesos de receptor que extraen datos del origen de entrada
-* Tareas que procesan los datos
-* Un receptor de salida
-* Un proceso de controlador que administra el trabajo de ejecución prolongada
+* Un origen de entrada.
+* Uno o varios procesos de receptor que extraen datos del origen de entrada.
+* Tareas que procesan los datos.
+* Un receptor de salida.
+* Un proceso de controlador que administra el trabajo de ejecución prolongada.
 
-La semántica del tipo "exactly-once" requiere que no se pierda ningún dato en ningún punto y que el procesamiento de mensajes se pueda reiniciar, con independencia del lugar donde ocurra el error.
+La semántica de tipo "exactamente una vez" requiere que no se pierda ningún dato en ningún punto y que el procesamiento de mensajes se pueda reiniciar, con independencia del lugar donde ocurra el error.
 
 ### <a name="replayable-sources"></a>Orígenes reproducibles
 
 El origen desde el que la aplicación de Spark Streaming lee los eventos debe ser *reproducible*. Esto significa que en los casos en que se recuperó el mensaje pero con un error del sistema antes de que el mensaje pudiera guardarse o procesarse, el origen debe volver a proporcionar el mismo mensaje.
 
-En Azure, tanto Azure Event Hubs como [Apache Kafka](https://kafka.apache.org/) en HDInsight ofrecen orígenes reproducibles. Otro ejemplo de un origen reproducible es un sistema de archivos tolerante a errores como [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), Azure Storage Blob o Azure Data Lake Store, donde todos los datos se conservan indefinidamente y, en cualquier momento, puede volver a leerlos todos.
+En Azure, tanto Azure Event Hubs como [Apache Kafka](https://kafka.apache.org/) en HDInsight ofrecen orígenes reproducibles. Otro ejemplo de un origen reproducible es un sistema de archivos tolerante a errores como [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), Azure Storage Blob o Azure Data Lake Storage, donde todos los datos se conservan indefinidamente y, en cualquier momento, puede volver a leerlos todos.
 
 ### <a name="reliable-receivers"></a>Receptores de confianza
 
@@ -49,7 +49,7 @@ En Spark Streaming, los orígenes como Event Hubs y Kafka tienen *receptores de 
 
 ### <a name="use-the-write-ahead-log"></a>Uso del registro de escritura previa
 
-Spark Streaming admite el uso del registro de escritura previa, donde cada evento recibido se escribe primero en el directorio del punto de control de Spark en un almacenamiento tolerante a errores y después se almacena en un conjunto de datos distribuido resistente (RDD). En Azure, el almacenamiento tolerante a errores es HDFS, con el respaldo de Azure Storage o Azure Data Lake Store. En la aplicación de Spark Streaming, el registro de escritura previa está habilitado para todos los receptores si la opción de configuración `spark.streaming.receiver.writeAheadLog.enable` está establecida en `true`. El registro de escritura previa proporciona tolerancia a errores en caso de problemas del controlador y de los ejecutores.
+Spark Streaming admite el uso del registro de escritura previa, donde cada evento recibido se escribe primero en el directorio del punto de control de Spark en un almacenamiento tolerante a errores y después se almacena en un conjunto de datos distribuido resistente (RDD). En Azure, el almacenamiento tolerante a errores es HDFS, con el respaldo de Azure Storage o Azure Data Lake Storage. En la aplicación de Spark Streaming, el registro de escritura previa está habilitado para todos los receptores si la opción de configuración `spark.streaming.receiver.writeAheadLog.enable` está establecida en `true`. El registro de escritura previa proporciona tolerancia a errores en caso de problemas del controlador y de los ejecutores.
 
 En el caso de los roles de trabajo que ejecutan tareas basadas en los datos de eventos, cada RDD, por definición, se replica y distribuye entre varios roles de trabajo. Si se produce algún error en una tarea porque la ejecución del rol de trabajo está bloqueada, la tarea se reiniciará en otro rol de trabajo que tenga una réplica de los datos del evento, por lo que el evento no se pierde.
 
@@ -66,7 +66,7 @@ Los puntos de control se habilitan en Spark Streaming en dos pasos.
     ssc.checkpoint("/path/to/checkpoints")
     ```
 
-    En HDInsight, estos puntos de control deben guardarse en el almacenamiento predeterminado conectado al clúster, es decir, en Azure Storage o en Azure Data Lake Store.
+    En HDInsight, estos puntos de control deben guardarse en el almacenamiento predeterminado conectado al clúster, es decir, en Azure Storage o en Azure Data Lake Storage.
 
 2. Después, especifique un intervalo (en segundos) del punto de control en DStream. En cada intervalo, los datos de estado derivados del evento de entrada se guardan en el almacenamiento. Los datos de estado guardados pueden reducir el cálculo necesario para recompilar el estado a partir del evento de origen.
 
@@ -85,7 +85,7 @@ Puede crear receptores idempotentes con la implementación de una lógica que pr
 
 Por ejemplo, podría utilizar un procedimiento almacenado con Azure SQL Database que inserte eventos en una tabla. Este procedimiento almacenado primero busca el evento por los campos clave y, solo cuando no se encuentra ningún evento coincidente, el registro se inserta en la tabla.
 
-Otro ejemplo consiste en usar un sistema de archivos con particiones, como Azure Storage Blob o Azure Data Lake Store. En este caso, la lógica del receptor no necesita comprobar la existencia de un archivo. Si el archivo que representa el evento existe, simplemente se sobrescribe con los mismos datos. De lo contrario, se crea un archivo en la ruta de acceso calculada.
+Otro ejemplo consiste en usar un sistema de archivos con particiones, como Azure Storage Blob o Azure Data Lake Storage. En este caso, la lógica del receptor no necesita comprobar la existencia de un archivo. Si el archivo que representa el evento existe, simplemente se sobrescribe con los mismos datos. De lo contrario, se crea un archivo en la ruta de acceso calculada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

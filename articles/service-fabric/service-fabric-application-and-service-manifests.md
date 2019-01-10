@@ -12,17 +12,20 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/29/2018
+ms.date: 12/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 78315409c5d83a98321e16913b1090e8996ed8ce
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 3e390763255878384e7a767158210d0515b09958
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230291"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653559"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Manifiestos de servicio y de aplicación de Service Fabric
 En este artículo se describe cómo se definen y tienen versiones los servicios y las aplicaciones de Service Fabric mediante los archivos ApplicationManifest.xml y ServiceManifest.xml.  Para obtener más ejemplos, consulte los [ejemplos de aplicaciones y manifiesto de servicio](service-fabric-manifest-examples.md).  El esquema XML para estos archivos de manifiesto se documenta en la [documentación del esquema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
+
+> [!WARNING]
+> El esquema de archivo del manifiesto XML impone el orden correcto de los elementos secundarios.  Como solución alternativa parcial, abra "C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd" en Visual Studio durante la creación o modificación de cualquiera de los manifiestos de Service Fabric. Esto le permitirá comprobar el orden de los elementos secundarios y proporciona IntelliSense.
 
 ## <a name="describe-a-service-in-servicemanifestxml"></a>Descripción de un servicio en ServiceManifest.xml
 El manifiesto de servicio define mediante declaración el tipo de servicio y la versión. Especifica los metadatos de servicio, como el tipo de servicio, las propiedades de estado, las métricas de equilibrio de carga, archivos binarios del servicio y archivos de configuración.  Dicho de otro modo, describe los paquetes de código, configuración y datos que componen un paquete de servicio para admitir uno o más tipos de servicio. Un manifiesto de servicio puede contener varios paquetes de código, configuración y datos, que puede tener varias versiones independientes. Este es un manifiesto de servicio para el servicio de front-end web de ASP.NET Core de la [aplicación de ejemplo de votación](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (y estos son [algunos ejemplos más detallados](service-fabric-manifest-examples.md)):

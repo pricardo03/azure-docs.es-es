@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6c1b9fabe89d254524006a21e3a422221791022d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 4bca7ed2f10ce6b0231a260a9cf5b7468476343f
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625273"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652156"
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventos de riesgo de Azure Active Directory
 
@@ -31,7 +31,9 @@ Hay dos lugares donde puede revisar los eventos de riesgo informados:
  - **Informes de Azure AD**: los eventos de riesgo forman parte de los informes de seguridad de Azure AD. Para más información, consulte el [informe de seguridad de usuarios en riesgo](concept-user-at-risk.md) y el [informe de seguridad de inicios de sesión riesgosos](concept-risky-sign-ins.md).
 
  - **Azure AD Identity Protection**: los eventos de riesgo también forman parte de las funcionalidades de informes de [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
-    
+
+Además, puede utilizar la [API de eventos de riesgo Identity Protection](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) para acceder mediante programación a las detecciones de seguridad con Microsoft Graph. Para obtener más información, consulte [Introducción a Azure Active Directory Identity Protection y Microsoft Graph](../identity-protection/graph-get-started.md). 
+
 En la actualidad, Azure Active Directory detecta seis tipos de eventos de riesgo:
 
 - [Usuarios con credenciales perdidas](#leaked-credentials) 
@@ -125,11 +127,11 @@ La gravedad del evento de riesgo representa la fuerza de la señal como predicci
 
 Por ejemplo, 
 
-* **Alto**: evento de riesgo de gravedad alta y de alta confianza. Estos eventos son buenos indicadores de que se ha puesto en peligro la identidad del usuario; las cuentas de usuario afectadas deben corregirse inmediatamente.
+* **Alta**: evento de riesgo de gravedad alta y de alta confianza. Estos eventos son buenos indicadores de que se ha puesto en peligro la identidad del usuario; las cuentas de usuario afectadas deben corregirse inmediatamente.
 
-* **Medio**: evento de riesgo de gravedad alta, pero confianza inferior, o viceversa. Estos eventos son potencialmente peligrosos y las cuentas de usuario afectadas deben corregirse.
+* **Media**: evento de riesgo de gravedad alta, pero confianza inferior, o viceversa. Estos eventos son potencialmente peligrosos y las cuentas de usuario afectadas deben corregirse.
 
-* **Bajo**: evento de riesgo de baja confianza y gravedad baja. Este evento puede no requerir una acción inmediata, pero cuando se combina con otros eventos de riesgo, puede proporcionar una indicación clara de que la identidad está en peligro.
+* **Baja**: evento de riesgo de baja confianza y gravedad baja. Este evento puede no requerir una acción inmediata, pero cuando se combina con otros eventos de riesgo, puede proporcionar una indicación clara de que la identidad está en peligro.
 
 ![Nivel de riesgo](./media/concept-risk-events/01.png)
 

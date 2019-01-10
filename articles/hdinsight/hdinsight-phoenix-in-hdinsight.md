@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: 86b10d65ecaa52055244f3530f91c1cabbe219e0
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 833f240572b10e9d07da0ded27f5848822a70f46
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435555"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744348"
 ---
 # <a name="apache-phoenix-in-hdinsight"></a>Apache Phoenix en HDInsight
 
-[Apache Phoenix](http://phoenix.apache.org/) es una capa de base de datos relacional de código abierto y masivamente paralela que se basa en [Apache HBase](hbase/apache-hbase-overview.md). Phoenix permite usar consultas de tipo SQL sobre HBase. Phoenix usa controladores JDBC subyacentes para permitir a los usuarios crear, eliminar y modificar índices, vistas, secuencias y tablas SQL, así como realizar operaciones upsert en filas de forma individual o masiva. Phoenix usa la compilación nativa de NoSQL en lugar de usar MapReduce para compilar consultas, lo que permite crear aplicaciones de baja latencia a partir de HBase. Phoenix agrega coprocesadores para admitir la ejecución de código proporcionado por clientes en el espacio de direcciones del servidor, ejecutando el código colocado con los datos. Este enfoque minimiza la transferencia de datos entre cliente y servidor.
+[Apache Phoenix](https://phoenix.apache.org/) es una capa de base de datos relacional de código abierto y masivamente paralela que se basa en [Apache HBase](hbase/apache-hbase-overview.md). Phoenix permite usar consultas de tipo SQL sobre HBase. Phoenix usa controladores JDBC subyacentes para permitir a los usuarios crear, eliminar y modificar índices, vistas, secuencias y tablas SQL, así como realizar operaciones upsert en filas de forma individual o masiva. Phoenix usa la compilación nativa de NoSQL en lugar de usar MapReduce para compilar consultas, lo que permite crear aplicaciones de baja latencia a partir de HBase. Phoenix agrega coprocesadores para admitir la ejecución de código proporcionado por clientes en el espacio de direcciones del servidor, ejecutando el código colocado con los datos. Este enfoque minimiza la transferencia de datos entre cliente y servidor.
 
-Apache Phoenix facilita las consultas de macrodatos a personas que no son desarrolladores, ya que pueden usar una sintaxis de tipo SQL en lugar de programación. Phoenix está altamente optimizado para HBase, a diferencia de otras herramientas como [Hive](hadoop/hdinsight-use-hive.md) y Apache Spark SQL. La ventaja para los desarrolladores es que pueden escribir consultas de alto rendimiento con mucho menos código.
+Apache Phoenix facilita las consultas de macrodatos a personas que no son desarrolladores, ya que pueden usar una sintaxis de tipo SQL en lugar de programación. Phoenix está altamente optimizado para HBase, a diferencia de otras herramientas como [Apache Hive](hadoop/hdinsight-use-hive.md) y Apache Spark SQL. La ventaja para los desarrolladores es que pueden escribir consultas de alto rendimiento con mucho menos código.
 <!-- [Spark SQL](spark/apache-spark-sql-with-hdinsight.md)  -->
 
 Cuando envía una consulta SQL, Phoenix compila la consulta para llamadas nativas de HBase y ejecuta el análisis (o plan) en paralelo para optimización. Gracias a esta capa de abstracción, el desarrollador no tiene que escribir trabajos MapReduce y puede centrarse, en su lugar, en la lógica de negocios y el flujo de trabajo de la aplicación en torno al almacenamiento de macrodatos de Phoenix.
@@ -70,17 +70,17 @@ Para agregar más columnas luego, use la instrucción `ALTER VIEW`.
 
 ### <a name="skip-scan"></a>Omitir examen
 
-Omitir examen usa una o varias columnas de un índice compuesto para buscar valores DISTINCT. A diferencia de un examen de intervalo, Omitir examen implementa el análisis dentro de filas y produce un [rendimiento mejorado](http://phoenix.apache.org/performance.html#Skip-Scan). Al analizar, se omite el primer valor coincidente junto con el índice hasta que se encuentra el siguiente valor.
+Omitir examen usa una o varias columnas de un índice compuesto para buscar valores DISTINCT. A diferencia de un examen de intervalo, Omitir examen implementa el análisis dentro de filas y produce un [rendimiento mejorado](https://phoenix.apache.org/performance.html#Skip-Scan). Al analizar, se omite el primer valor coincidente junto con el índice hasta que se encuentra el siguiente valor.
 
 Omitir examen usa la enumeración `SEEK_NEXT_USING_HINT` del filtro HBase. Con `SEEK_NEXT_USING_HINT`, Omitir examen realiza un seguimiento de qué conjunto de claves o rangos de claves se buscan en cada columna. A continuación, Omitir examen toma una clave que se le pasó durante la evaluación del filtro y determina si es una de las combinaciones. Si no lo es, Omitir examen evalúa la siguiente clave más alta a la que va a saltar.
 
 ### <a name="transactions"></a>Transacciones
 
-Si bien HBase proporciona transacciones de nivel de fila, Phoenix se integra con [Tephra](http://tephra.io/) para agregar compatibilidad con transacciones entre filas o entre tablas con semántica [ACID](https://en.wikipedia.org/wiki/ACID) completa.
+Si bien HBase proporciona transacciones de nivel de fila, Phoenix se integra con [Tephra](https://tephra.io/) para agregar compatibilidad con transacciones entre filas o entre tablas con semántica [ACID](https://en.wikipedia.org/wiki/ACID) completa.
 
 Igual que en las transacciones SQL tradicionales, las transacciones proporcionadas a través del administrador de transacciones de Phoenix permiten garantizar que se ha ejecutado correctamente una operación upsert en una unidad atómica de datos, ya que se revierte la transacción si se produce un error en la operación upsert en cualquier tabla habilitada para transacciones.
 
-Para habilitar las transacciones de Phoenix, vea la [documentación sobre las transacciones de Apache Phoenix](http://phoenix.apache.org/transactions.html).
+Para habilitar las transacciones de Phoenix, vea la [documentación sobre las transacciones de Apache Phoenix](https://phoenix.apache.org/transactions.html).
 
 Para crear una nueva tabla con las transacciones habilitadas, establezca la propiedad `TRANSACTIONAL` en `true` en una instrucción `CREATE`:
 
@@ -94,7 +94,7 @@ Para modificar una tabla existente para que sea transaccional, use la misma prop
 ALTER TABLE my_other_table SET TRANSACTIONAL=true;
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > No se puede cambiar una tabla transaccional para que vuelva a ser no transaccional.
 
 ### <a name="salted-tables"></a>Tablas cifradas con sal

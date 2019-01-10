@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 9de1bcf4-b15b-4d0b-9284-8889ecf0c438
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 0603a60ea73d47dd6107ee80afc5c776ff8c83bc
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 3b5b11b148910e9bd1348b20a25fa8383fc2ec9c
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047118"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974682"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs"></a>Administración de Análisis de Azure Data Lake mediante Azure SDK para Node.js
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -23,9 +23,9 @@ En este artículo se describe cómo administrar cuentas, orígenes de datos, usu
 
 Se admiten las siguientes versiones:
 * **Versión de Node.js: 0.10.0 o superior**
-* **Versión de API de REST para la cuenta: 2015-10-01-preview**
-* **Versión de API de REST para el catálogo: 2015-10-01-preview**
-* **Versión de API de REST para el trabajo: 2016-03-20-preview**
+* **Versión de API REST de Cuenta: 2015-10-01-preview**
+* **Versión de API REST de Catálogo: 2015-10-01-preview**
+* **Versión de API REST de Trabajo: 2016-03-20-preview**
 
 ## <a name="features"></a>Características
 * Administración de cuentas: crear, obtener, enumerar, actualizar y eliminar.
@@ -49,7 +49,7 @@ npm install azure-arm-datalake-analytics
 ## <a name="create-the-data-lake-analytics-client"></a>Creación del cliente de Análisis de Data Lake
 ```javascript
 var adlaManagement = require("azure-arm-datalake-analytics");
-var acccountClient = new adlaManagement.DataLakeAnalyticsAccountClient(credentials, 'your-subscription-id');
+var accountClient = new adlaManagement.DataLakeAnalyticsAccountClient(credentials, 'your-subscription-id');
 var jobClient = new adlaManagement.DataLakeAnalyticsJobClient(credentials, 'azuredatalakeanalytics.net');
 var catalogClient = new adlaManagement.DataLakeAnalyticsCatalogClient(credentials, 'azuredatalakeanalytics.net');
 ```

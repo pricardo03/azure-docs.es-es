@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: e8d880534a39651024b60ef10a9fbadb9e109a4e
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 336fe8241a65009e9e100dccd12d88f45df4751d
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138252"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999363"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referencia de configuración de aplicación para Azure Functions
 
@@ -179,7 +179,7 @@ De forma predeterminada, las proxies de Functions usarán accesos directos para 
 
 |Clave|Valor|DESCRIPCIÓN|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Las llamadas con una dirección URL de back-end que señala a una función de la Function local ya no se enviarán directamente a la función y, en su lugar, se dirigirán al front-end HTTP para la instancia de Function App.|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Las llamadas con una dirección URL de back-end que señala a una instancia de Function App local ya no se enviarán directamente a la función y, en su lugar, se dirigirán al front-end HTTP para la instancia de Function App.|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Este es el valor predeterminado. Las llamadas con una dirección URL de back-end que señale a una instancia de Function App local se reenviarán directamente a esa función.|
 
 

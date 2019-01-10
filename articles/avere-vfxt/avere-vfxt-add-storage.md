@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: d38fe1cab27cfade3e6e4d2f6764f455896ac470
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a7036f6fbab771dc090e97034a6191cf82b707a7
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001969"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190858"
 ---
 # <a name="configure-storage"></a>Configurar el almacenamiento
 
@@ -38,7 +38,7 @@ Tenga en cuenta que en estos pasos usará el panel de control de Avere. Lea [Acc
 
 ## <a name="create-a-core-filer"></a>Crear un archivador principal
 
-Un "Archivador principal" es un término de vFXT que hace referencia a un sistema de almacenamiento de back-end. El almacenamiento puede ser un dispositivo NAS de hardware como NetApp o Isilon, o puede ser un almacén de objetos en la nube. Puede encontrar más información acerca de los archivadores principales en la [guía de configuración de clústeres de Avere](http://library.averesystems.com/ops_guide/4_7/settings_overview.html#managing-core-filers).
+Un "Archivador principal" es un término de vFXT que hace referencia a un sistema de almacenamiento de back-end. El almacenamiento puede ser un dispositivo NAS de hardware como NetApp o Isilon, o puede ser un almacén de objetos en la nube. Puede encontrar más información acerca de los archivadores principales en la [guía de configuración de clústeres de Avere](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers).
 
 Para agregar un archivador principal, elija uno de los dos tipos principales que tiene disponibles:
 
@@ -70,7 +70,7 @@ Los siguientes pasos agregan un archivador principal de NAS:
   
    * A continuación, haga clic en **Next** (Siguiente) y elija una directiva de caché. 
    * Haga clic en **Add filer** (Agregar archivador).
-   * Para obtener más información, consulte [Adding a new NAS core filer](http://library.averesystems.com/ops_guide/4_7/new_core_filer_nas.html) (Agregar un nuevo archivador principal de NAS) en la guía de configuración del clúster de Avere.
+   * Para obtener más información, consulte [Adding a new NAS core filer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_nas.html) (Agregar un nuevo archivador principal de NAS) en la guía de configuración del clúster de Avere.
 
 A continuación, [cree una unión](#create-a-junction).  
 
@@ -156,7 +156,7 @@ Para agregar Blob Storage después de crear el clúster, siga estos pasos.
    * Además, puede establecer el **tipo de cifrado** a **None** (Ninguno).  Azure Storage se cifra de forma predeterminada.
    * Haga clic en **Add filer** (Agregar archivador).
 
-  Para obtener más información, consulte [Adding a new cloud core filer](<http://library.averesystems.com/ops_guide/4_7/new_core_filer_cloud.html>) (Agregar un nuevo archivador principal en la nube) en la guía de configuración del clúster de Avere. 
+  Para obtener más información, consulte [Adding a new cloud core filer](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) (Agregar un nuevo archivador principal en la nube) en la guía de configuración del clúster de Avere. 
 
 La página se actualizará (o puede actualizarla usted mismo) para mostrar el nuevo archivador principal.
 
@@ -168,7 +168,7 @@ Una unión es una ruta de acceso que se crea para los clientes. Los clientes deb
 
 Por ejemplo, puede crear `/avere/files` para asignarlo a la exportación del archivador principal de NetApp `/vol0/data` y al subdirectorio `/project/resources`.
 
-Puede encontrar más información sobre las uniones en la [sección del espacio de nombres de la guía de configuración del clúster de Avere](http://library.averesystems.com/ops_guide/4_7/gui_namespace.html).
+Puede encontrar más información sobre las uniones en la [sección del espacio de nombres de la guía de configuración del clúster de Avere](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html).
 
 Siga estos pasos en la interfaz de configuración del panel de control de Avere:
 

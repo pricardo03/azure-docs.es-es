@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 05/17/2017
-ms.openlocfilehash: a522d436328a3aeb1ed365baa2ec1e3b9d3387ed
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 4b6eb0aa7011226fda667370f3e854081b795ae6
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385030"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744877"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Trabajo en el ecosistema de Apache Hadoop en HDInsight desde un equipo con Windows
 
@@ -26,9 +26,9 @@ Azure PowerShell es un entorno de scripting que se puede usar para controlar y a
 
 Ejemplos de tareas que puede realizar con PowerShell:
 
-* [Creación de clústeres con PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-* [Ejecución de consultas de Apache Hive mediante PowerShell](hadoop/apache-hadoop-use-hive-powershell.md)
-* [Administración de clústeres con PowerShell](hdinsight-administer-use-powershell.md)
+* [Creación de clústeres con PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
+* [Ejecución de consultas de Apache Hive mediante PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
+* [Administración de clústeres con PowerShell](hdinsight-administer-use-powershell.md).
 
 Siga los pasos para [instalar y configurar Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) para obtener la versión más reciente. Si tiene scripts que se deben modificar para usar los nuevos cmdlets para Azure Resource Manager, consulte [Migración a las herramientas de desarrollo basadas en Azure Resource Manager para clústeres de HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md).
 
@@ -54,11 +54,11 @@ Ejemplos de tareas que puede hacer con Visual Studio y Herramientas de Data Lake
 Puede usar Visual Studio con el SDK de .NET para administrar clústeres y desarrollar aplicaciones de macrodatos. Puede usar otros IDE para las siguientes tareas, pero los ejemplos se muestran en Visual Studio.
 
 Ejemplos de tareas que puede realizar con el SDK de .NET en Visual Studio:
-* [Creación de clústeres y trabajo en HDInsight desde una aplicación de .NET Framework](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
-* [Ejecución de consultas de Apache Hive mediante .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
-* [Uso de funciones definidas por el usuario de C# con el streaming de Apache Hive y Apache Pig en Apache Hadoop](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Creación de clústeres y trabajo en HDInsight desde una aplicación de .NET Framework](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md).
+* [Ejecución de consultas de Apache Hive mediante .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
+* [Uso de funciones definidas por el usuario de C# con el streaming de Apache Hive y Apache Pig en Apache Hadoop](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md).
 
-> SUGERENCIA   
+> [!TIP]
 > Si ejecuta soluciones de .NET con clústeres de HDInsight para Windows, es un buen momento para planear una migración a clústeres basados en Linux. Para más información, consulte [Migración de soluciones .NET para HDInsight basado en Windows a HDInsight basado en Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md).
 
 ## <a name="intellij-idea-and-eclipse-ide-for-spark-clusters"></a>Intellij IDEA y Eclipse IDE para clústeres de Spark
@@ -85,7 +85,7 @@ Si se da una situación en que debe usar una herramienta o tecnología que solo 
 
 * **Bash (beta) en Windows 10** proporciona un subsistema de Linux en Windows. Bash permite ejecutar utilidades de Linux directamente sin tener que mantener una instalación de Linux dedicada. [Instalación y ejecución de la versión beta de Bash en Windows 10](https://msdn.microsoft.com/commandline/wsl/install_guide)
 * **Docker para Windows** proporciona acceso a muchas herramientas basadas en Linux y se puede ejecutar directamente desde Windows. Por ejemplo, puede usar Docker para ejecutar al cliente Beeline para Hive directamente desde Windows. También puede usar Docker para ejecutar un notebook de Jupyter local y conectarse de forma remota con Spark en HDInsight. [Introducción a Docker para Windows](https://docs.docker.com/docker-for-windows/)
-* **[MobaXTerm](http://mobaxterm.mobatek.net/)** permite examinar gráficamente el sistema de archivos del clúster a través de una conexión SSH.
+* **[MobaXTerm](https://mobaxterm.mobatek.net/)** permite examinar gráficamente el sistema de archivos del clúster a través de una conexión SSH.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si no ha trabajado antes en clústeres basados en Linux, consulte los artículos siguientes:

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: cf183b0a78ff3f7e442ea8052f37fc2df58aac54
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 80a2ed779fa65c669be81fdf8212b7d018325ee5
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262325"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634514"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Solución de problemas integral con los registros y métricas de Azure Storage, AzCopy y el analizador de mensajes
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -94,6 +94,8 @@ Para configurar el registro y las métricas de la cuenta de almacenamiento media
 
 **Con PowerShell**
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Para empezar a usar PowerShell para Azure, vea el tema sobre [cómo instalar y configurar PowerShell de Azure](/powershell/azure/overview).
 
 1. Use el cmdlet [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0) para agregar la cuenta de usuario de Azure a la ventana de PowerShell:
@@ -114,13 +116,13 @@ Para empezar a usar PowerShell para Azure, vea el tema sobre [cómo instalar y c
 4. Habilite el registro de almacenamiento para Blob service:
    
     ```powershell
-    Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
+    Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
     ```
 
 5. Habilite las métricas de almacenamiento de Blob service, procurando establecer **-MetricsType** en `Minute`:
    
     ```powershell
-    Set-AzureStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
+    Set-AzStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
     ```
 
 ### <a name="configure-net-client-side-logging"></a>Configurar el registro del lado cliente de .NET

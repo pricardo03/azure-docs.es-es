@@ -1,5 +1,5 @@
 ---
-title: 'Creación e instalación de archivos de configuración de cliente VPN para conexiones P2S RADIUS: PowerShell (Azure) | Microsoft Docs'
+title: 'Creación e instalación de archivos de configuración de cliente VPN para conexiones RADIUS de punto a sitio: PowerShell: Azure | Microsoft Docs'
 description: Cree archivos de configuración de cliente VPN en Windows, Mac OS X y Linux para conexiones que usan autenticación RADIUS.
 services: vpn-gateway
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/07/2018
 ms.author: cherylmc
 ms.openlocfilehash: 52c7734c2af80d29433c20191d8b5b7c0ee0fe48
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
+ms.lasthandoff: 12/21/2018
 ms.locfileid: "51252015"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Creación e instalación de archivos de configuración de cliente VPN para la autenticación P2S RADIUS
@@ -62,7 +62,7 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -A
  
 La ejecución del comando devuelve un vínculo. Copie y pegue el vínculo en un explorador web para descargar **VpnClientConfiguration.zip**. Descomprima el archivo para ver las siguientes carpetas: 
  
-* **WindowsAmd64** y **WindowsX86**: estas carpetas contienen los paquetes del instalador de Windows de 64 y 32 bits, respectivamente. 
+* **WindowsAmd64** y **WindowsX86**: Estas carpetas contienen los paquetes del instalador de Windows de 64 y 32 bits, respectivamente. 
 * **Genérico**: esta carpeta contiene información general que se usa para crear su propia configuración de cliente VPN. Esta carpeta no es necesaria para las configuraciones de autenticación con nombre de usuario y contraseña.
 * **Mac**: si configuró IKEv2 al crear la puerta de enlace de red virtual, verá una carpeta llamada **Mac** con un archivo **mobileconfig**. Use este archivo para configurar clientes Mac.
 
@@ -193,8 +193,8 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -A
 
 La ejecución del comando devuelve un vínculo. Copie y pegue el vínculo en un explorador web para descargar el archivo VpnClientConfiguration.zip. Descomprima el archivo para ver las siguientes carpetas:
 
-* **WindowsAmd64** y **WindowsX86**: estas carpetas contienen los paquetes del instalador de Windows de 64 y 32 bits, respectivamente. 
-* **GenericDevice**: esta carpeta contiene información general para crear su propia configuración de cliente VPN.
+* **WindowsAmd64** y **WindowsX86**: Estas carpetas contienen los paquetes del instalador de Windows de 64 y 32 bits, respectivamente. 
+* **GenericDevice**: esta carpeta contiene información general que se usa para crear su propia configuración de cliente VPN.
 
 Si ya ha creado los archivos de configuración del cliente, puede recuperarlos con el cmdlet `Get-AzureRmVpnClientConfiguration`. Pero si realiza cambios en la configuración de VPN de punto a sitio, como el tipo de protocolo de VPN o el tipo de autenticación, la configuración no se actualiza automáticamente. Deberá ejecutar el cmdlet  `New-AzureRmVpnClientConfiguration` para crear otra descarga de configuración.
 
@@ -268,7 +268,7 @@ Para usar un tipo de autenticación diferente (por ejemplo, OTP) o un protocolo 
 
    * **VpnServer**: nombre de dominio completo de la instancia de Azure VPN Gateway. Es la dirección a la que se conecta el cliente.
    * **VpnType**: tipo de túnel para la conexión.
-   * **Rutas**: las que debe configurar en el perfil para que solo el tráfico enlazado de la red virtual de Azure se envíe a través del túnel de punto a sitio.
+   * **Rutas**: rutas que debe configurar en el perfil para que solo el tráfico enlazado de la red virtual de Azure se envíe a través del túnel de punto a sitio.
    
    La carpeta **GenenericDevice** también contiene un archivo .cer denominado **VpnServerRoot**. Este archivo contiene el certificado raíz necesario para validar la instancia de Azure VPN Gateway durante la configuración de la conexión de punto a sitio. Instale el certificado en todos los dispositivos que se van a conectar a la red virtual de Azure.
 

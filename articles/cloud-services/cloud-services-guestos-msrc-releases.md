@@ -11,22 +11,60 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/15/2018
+ms.date: 12/14/2018
 ms.author: raiye
-ms.openlocfilehash: c2ff5d79c59a08c6ed808312027dc69aee910224
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 94cf90dbc41533b8f5d41a0bdb18e5cdcb7be474
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854278"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541037"
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se pasan a la [familia][family-explain] concreta en que se introdujeron.
 
-## <a name="november-2018-guest-os"></a>SO invitado de noviembre de 2018
+## <a name="december-2018-guest-os"></a>SO invitado de diciembre de 2018
 
 >[!NOTE]
->El sistema operativo invitado de noviembre se está implementando actualmente en las máquinas virtuales del servicio en la nube que están configuradas para las actualizaciones automáticas. Una vez completada la implementación, esta versión estará disponible para las actualizaciones manuales mediante Azure Portal y los archivos de configuración. Las siguientes revisiones se incluyen en el sistema operativo invitado de noviembre. Esta lista está sujeta a cambios.
+>El sistema operativo invitado de diciembre se está implementando actualmente en las máquinas virtuales del servicio en la nube que están configuradas para las actualizaciones automáticas. Una vez completada la implementación, esta versión estará disponible para las actualizaciones manuales mediante Azure Portal y los archivos de configuración. Se incluyen las siguientes revisiones en el sistema operativo invitado de diciembre. Esta lista está sujeta a cambios.
+
+| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| --- | --- | --- | --- | --- |
+| Versión 18-12 | [4471321] | Seguridad de Windows 10 | 5.26 | 11 de diciembre de 2018 |
+| Versión 18-12 | [4471328] | Seguridad de Windows   | 2.81 | 11 de diciembre de 2018 |
+| Versión 18-12 | [4471326] | Seguridad de Windows   | 3.68 | 11 de diciembre de 2018 |
+| Versión 18-12 | [4471322] | Seguridad de Windows   | 4.61 | 11 de diciembre de 2018 |
+| Versión 18-12 | [4470600] | Seguridad de .NET 3.x  | 2.81 | 11 de diciembre de 2018 |
+| Versión 18-12 | [4470601] | Seguridad de .NET 3.x  | 3.68 | 11 de diciembre de 2018|
+| Versión 18-12 | [4470602] | Seguridad de .NET 3.x  | 4.61 | 11 de diciembre de 2018 |
+| Versión 18-12 | [4470493] | Seguridad de .NET 4.x  | 2.81 | 11 de diciembre de 2018 |
+| Versión 18-12 | [4470492] | Seguridad de .NET 4.x  | 3.68 | 11 de diciembre de 2018 |
+| Versión 18-12 | [4470491] | Seguridad de .NET 4.x  | 4.61| 11 de diciembre de 2018 |
+| Versión 18-12 | [4471331] | Intermitente  | 3.68, 4.61, 5.26 | 5 de diciembre de 2018  |
+| Versión 18-12 | [4470199] | Internet Explorer  | 2.81, 3.68, 4.61 | 11 de diciembre de 2018 |
+| N/D | [4468323] | Actualización de zona horaria    | 2.81, 3.68, 4.61 | 13 de diciembre de 2018 |
+| N/D | [4467107] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad de noviembre   | 2.81 | 13 de noviembre de 2018 |
+| N/D | [4467701] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad de noviembre     | 3.68 | 13 de noviembre de 2018 |
+| N/D | [4467697] | Paquete acumulativo de actualizaciones no relacionadas con la seguridad de noviembre     | 4.61 | 13 de noviembre de 2018 |
+
+[4471321]: http://support.microsoft.com/kb/4471321
+[4471328]: http://support.microsoft.com/kb/4471328
+[4471326]: http://support.microsoft.com/kb/4471326
+[4471322]: http://support.microsoft.com/kb/4471322
+[4470600]: http://support.microsoft.com/kb/4470600
+[4470601]: http://support.microsoft.com/kb/4470601
+[4470602]: http://support.microsoft.com/kb/4470602
+[4470493]: http://support.microsoft.com/kb/4470493
+[4470492]: http://support.microsoft.com/kb/4470492
+[4470491]: http://support.microsoft.com/kb/4470491
+[4471331]: http://support.microsoft.com/kb/4471331
+[4470199]: http://support.microsoft.com/kb/4470199
+[4468323]: http://support.microsoft.com/kb/4468323
+[4467107]: http://support.microsoft.com/kb/4467107
+[4467701]: http://support.microsoft.com/kb/4467701
+[4467697]: http://support.microsoft.com/kb/4467697
+
+## <a name="november-2018-guest-os"></a>SO invitado de noviembre de 2018
 
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
@@ -473,8 +511,8 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D |[3192406] |Versión preliminar de octubre de 2016 del paquete acumulativo de calidad mensual para Windows Server 2012 |3.45 |8 de noviembre de 2016 |
 | N/D |[3185331] |Paquete acumulativo de calidad mensual de actualizaciones de seguridad de octubre de 2016 para Windows 8.1 y Windows Server 2012 R2 |4.38 |8 de noviembre de 2016 |
 | N/D |[3192404] |Versión preliminar de octubre de 2016 del paquete acumulativo de calidad mensual para Windows 8.1 y Windows Server 2012 R2 |4.38 |8 de noviembre de 2016 |
-| N/D |[3199986] |Actualización para Windows 10 versión 1607 de conjunto de servicios: 27 de octubre de 2016 |5.3 |8 de noviembre de 2016 |
-| N/D |[3197954] |Actualización acumulativa para Windows 10 versión 1607 y Windows Server 2016. 27 de octubre de 2016 |5.3 |8 de noviembre de 2016 |
+| N/D |[3199986] |Actualización de la pila de servicios para Windows 10 versión 1607: 27 de octubre de 2016 |5.3 |8 de noviembre de 2016 |
+| N/D |[3197954] |Actualización acumulativa para Windows 10 versión 1607 y Windows Server 2016: 27 de octubre de 2016 |5.3 |8 de noviembre de 2016 |
 
 ## <a name="october-2016-guest-os"></a>SO invitado de octubre de 2016
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
@@ -581,7 +619,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D |[3133977] |BitLocker no puede cifrar unidades debido a bloqueos de servicio en el proceso svchost.exe en Windows 7 o Windows Server 2008 R2  |2.51 |10 de mayo de 2016 |
 | N/D |[3133681] |Las máquinas virtuales no responden a la operación de SCVMM en Windows Server 2012 R2  |4.32 |10 de mayo de 2016 |
 | N/D |[3123245] |La actualización mejora la identificación de agotamiento del puerto en Windows Server 2012 R2  |4.32 |10 de mayo de 2016 |
-| N/D |[Deshabilitar RC4] | Aviso de seguridad de Microsoft: actualización para deshabilitar RC4  |4.32, 3.39, 2.51 |10 de mayo de 2016 |
+| N/D |[Deshabilitar RC4] | Documento informativo sobre seguridad de Microsoft: Actualización para deshabilitar RC4  |4.32, 3.39, 2.51 |10 de mayo de 2016 |
 
 ## <a name="april-2016-guest-os"></a>SO invitado de abril de 2016
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
@@ -630,7 +668,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | MS16-005 |[3124584] |Actualización de seguridad de los controladores del modo kernel de Windows para tratar la ejecución remota de código |4.28, 3.35, 2.47 |12 de enero de 2016 |
 | MS16-007 |[3124901] |Actualización de seguridad de Microsoft Windows para tratar la ejecución remota de código |4.28, 3.35, 2.47 |12 de enero de 2016 |
 | MS16-008 |[3124605] |Actualización de seguridad del kernel para tratar la elevación de privilegios |4.28, 3.35, 2.47 |12 de enero de 2016 |
-| Revisión de documento informativo sobre seguridad de Microsoft |[2755801] |Actualización para vulnerabilidades en Adobe Flash Player en Internet Explorer (KB paquete: por determinar) - Marcador de posición de documento informativo |4.28, 3.35 |12 de enero de 2016 |
+| Revisión de documento informativo sobre seguridad de Microsoft |[2755801] |Actualización para puntos vulnerables en Adobe Flash Player en Internet Explorer (paquete KB: por determinar): marcador de posición de documento informativo |4.28, 3.35 |12 de enero de 2016 |
 | Documento informativo sobre seguridad de Microsoft |[3109853] |Actualización para mejorar la interoperabilidad de TLS |4.28, 3.35 |12 de enero de 2016 |
 | Documento informativo sobre seguridad de Microsoft |[3123479] |Degradación del algoritmo hash SHA-1 para el Programa de certificados raíz de Microsoft |4.28, 3.35, 2.47 |12 de enero de 2016 |
 | Documento informativo sobre seguridad de Microsoft |[2736233] |Actualizaciones para bits de cierre de ActiveX |4.28, 3.35, 2.47 |12 de enero de 2016 |
@@ -778,7 +816,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | MS15-014 |[3004361] |Una vulnerabilidad de SMB podría permitir la omisión de la característica de seguridad |4,17; 3,24; 2,36 |N/D |
 | MS15-015 |[3031432] |Una vulnerabilidad de Microsoft Windows podría permitir la elevación de privilegios |4,17; 3,24; 2,36 |N/D |
 | MS15-016 |[3029944] |Una vulnerabilidad del componente de gráficos de Microsoft podría permitir la divulgación de información |4,17; 3,24; 2,36 |N/D |
-| N/D |[3004375] |Actualización para mejorar la auditoría de línea de comandos de Windows<p/>**Nota**: se instala pero la clave del registro para habilitarlo está desactivada |4,17; 3,24; 2,36 |N/D |
+| N/D |[3004375] |Actualización para mejorar la auditoría de línea de comandos de Windows<p/>**Nota**: Se instala pero la clave del registro para habilitarlo está desactivada |4,17; 3,24; 2,36 |N/D |
 
 ## <a name="january-2015-guest-os"></a>SO invitado de enero de 2015
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |

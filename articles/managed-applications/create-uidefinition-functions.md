@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: a01a59a7e8c9757cb41d328cd26a34fa219f9152
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 80fd593eecf189d516a8c9d7ef2a94ec9f23fc39
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304511"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063801"
 ---
 # <a name="createuidefinition-functions"></a>Funciones CreateUiDefinition
 Esta sección contiene las firmas de todas las funciones compatibles de una CreateUiDefinition.
@@ -80,7 +80,7 @@ Concatena una o varias cadenas.
 Por ejemplo, si el valor de salida de `element1` si `"bar"`, a continuación, en este ejemplo se devuelve la cadena de `"foobar!"`:
 
 ```json
-"[concat('foo', steps('step1').element1), '!']"
+"[concat('foo', steps('step1').element1, '!')]"
 ```
 
 ### <a name="substring"></a>substring

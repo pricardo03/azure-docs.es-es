@@ -6,17 +6,17 @@ services: cognitive-services
 author: tulasim88
 manager: pchoudh
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 8fe4ecfe241422c03a2de8d0634ef1e1395aa050
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9f5aedfc28c8aa0835c865cc2041f66abef39d5f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081326"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724698"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Puntuación de confianza de una base de conocimiento de QnA Maker
 Cuando una consulta de usuario se compara con una base de conocimientos (KB), QnA Maker devuelve respuestas pertinentes, junto con una puntuación de confianza. Esta puntuación indica el grado de confianza que se tiene en que la respuesta sea la coincidencia correcta para la consulta de usuario en cuestión. 
@@ -38,7 +38,7 @@ En la tabla siguiente se indica la confianza típico asociada a un resultado det
 
 |Valor de la puntuación|Significado de la puntuación|Consulta de ejemplo|
 |--|--|--|
-|90-100|Coincidencia casi exacta de la consulta del usuario y una pregunta de KB.|"Mis cambios no se actualizan en Knowledge Base después de la publicación".|
+|90-100|Coincidencia casi exacta de la consulta del usuario y una pregunta de KB.|"Mis cambios no se actualizan en KB después de la publicación".|
 |>70|Confianza alta. Normalmente, una buena respuesta que responde por completo a la consulta del usuario.|"He publicado mi KB pero no se actualiza".|
 |50-70|Confianza media. Normalmente, una respuesta bastante buena que debería responder el propósito principal de la consulta del usuario.|"¿Debo guardar mis actualizaciones antes de publicar mi KB?"|
 |30-50|Confianza baja. Normalmente, una respuesta relacionada que responde en parte a la intención del usuario.|"¿Qué hace Guardar y entrenar?"|
@@ -58,7 +58,7 @@ Al elegir el umbral, tenga en cuenta el equilibrio entre los valores de Precisi�
 > Las versiones más recientes de QnA Maker incluyen mejoras en la lógica de puntuación, lo que podría afectar al umbral. Siempre que actualice el servicio, no olvide probar y ajustar el umbral, en caso necesario. Puede comprobar la versión del servicio QnA [aquí](https://www.qnamaker.ai/UserSettings)y obtener información acerca de cómo obtener las actualizaciones más recientes [aquí](../How-To/troubleshooting-runtime.md).
 
 ## <a name="improve-confidence-scores"></a>Mejorar las puntuaciones de confianza
-Para mejorar la puntuación de confianza de una respuesta concreta a una consulta de usuario, puede agregar la consulta del usuario a la base de conocimiento como una pregunta alternativa en la respuesta.
+Para mejorar la puntuación de confianza de una respuesta concreta a una consulta de usuario, puede agregar la consulta del usuario a la base de conocimiento como una pregunta alternativa en la respuesta. También puede usar [alteraciones de palabras](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) para agregar sinónimos a las palabras clave en la KB.
 
 
 ## <a name="similar-confidence-scores"></a>Puntuaciones de confianza similares

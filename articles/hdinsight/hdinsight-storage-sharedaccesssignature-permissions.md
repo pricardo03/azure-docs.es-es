@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 100c9266718d618b8b00a3169c3d88ac7d501791
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: c3cb9b7988269f394615b6498bbe7af5bb0ab1e1
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409928"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743364"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Uso de firmas de acceso compartido de Azure Storage para restringir el acceso a datos en HDInsight
 
@@ -180,7 +180,7 @@ Se incluye un ejemplo de creación de un clúster de HDInsight que usa la SAS en
    > [!IMPORTANT]  
    > Cuando se le pida el nombre de usuario SSH o HTTP/s y la contraseña, debe proporcionar una contraseña que cumpla los criterios siguientes:
    >
-   > * Debe tener como mínimo 10 caracteres.
+   > * Debe tener como mínimo 10 caracteres.
    > * Debe contener al menos un dígito.
    > * Debe incluir al menos un carácter no alfanumérico.
    > * Debe contener al menos una mayúscula o una minúscula.
@@ -290,7 +290,7 @@ Una vez conectado al clúster, siga estos pasos para comprobar que solo puede le
 
 **Resolución**: utilice una contraseña que cumpla los criterios siguientes:
 
-* Debe tener como mínimo 10 caracteres.
+* Debe tener como mínimo 10 caracteres.
 * Debe contener al menos un dígito.
 * Debe incluir al menos un carácter no alfanumérico.
 * Debe contener al menos una mayúscula o una minúscula.

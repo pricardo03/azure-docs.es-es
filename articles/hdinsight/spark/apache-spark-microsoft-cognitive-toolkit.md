@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: f3e590ec5dded03ce9c6ab2f7a21d51048020622
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 76fc2c9a0864417e380471f8de59d148e0fbf7b4
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012596"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651834"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Uso del modelo de aprendizaje profundo de Microsoft Cognitive Toolkit con un clúster de Azure HDInsight Spark
 
@@ -39,15 +39,15 @@ Esta solución se divide entre este artículo y un cuaderno de Jupyter que se ca
 
 Los pasos restantes siguientes se tratan en el cuaderno de Jupyter.
 
-- Carga de imágenes de ejemplo en un conjunto de datos distribuido resistente o RDD de Spark
-   - Carga de los módulos y definición de los valores preestablecidos
-   - Descarga del conjunto de datos de forma local en el clúster de Spark
-   - Conversión del conjunto de datos en un RDD
-- Puntuación de las imágenes mediante un modelo de Cognitive Toolkit formado
-   - Descarga del modelo de Cognitive Toolkit formado en el clúster de Spark
-   - Definición de las funciones que van a usar los nodos de trabajo
-   - Puntuación de las imágenes en los nodos de trabajo
-   - Evaluación de la precisión del modelo
+- Carga de imágenes de ejemplo en un conjunto de datos distribuido resistente o RDD de Spark.
+   - Carga de los módulos y definición de los valores preestablecidos.
+   - Descarga del conjunto de datos de forma local en el clúster de Spark.
+   - Conversión del conjunto de datos en un RDD.
+- Puntuación de las imágenes mediante un modelo de Cognitive Toolkit entrenado.
+   - Descarga del modelo de Cognitive Toolkit entrenado en el clúster de Spark.
+   - Definición de las funciones que van a usar los nodos de trabajo.
+   - Puntuación de las imágenes en los nodos de trabajo.
+   - Evaluación de la precisión del modelo.
 
 
 ## <a name="install-microsoft-cognitive-toolkit"></a>Instalación de Microsoft Cognitive Toolkit
@@ -98,7 +98,7 @@ Para usar Microsoft Cognitive Toolkit con el clúster de Azure HDInsight Spark, 
 
 ### <a name="create-and-run-applications"></a>Creación y ejecución de aplicaciones
 * [Crear una aplicación independiente con Scala](apache-spark-create-standalone-application.md)
-* [Ejecución de trabajos de forma remota en un clúster de Apache Spark mediante Livy](apache-spark-livy-rest-interface.md)
+* [Ejecución de trabajos de forma remota en un clúster de Apache Spark mediante Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Herramientas y extensiones
 * [Uso del complemento de herramientas de HDInsight para IntelliJ IDEA para crear y enviar aplicaciones de Spark Scala](apache-spark-intellij-tool-plugin.md)

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2018
+ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: 2e8c5b3d9624d3a622f16d770f68bc8614993d36
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 99cca60fe13b9757b3328d00cf66b673c95f66ea
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387489"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558437"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Alerta y supervisión de factorías de datos mediante Azure Monitor
 Las aplicaciones de nube son complejas y tienen muchas partes móviles. La supervisión proporciona datos para garantizar que la aplicación permanece en funcionamiento en un estado correcto. También ayuda a evitar posibles problemas o a solucionar los existentes. Además, puede usar datos de supervisión para obtener un conocimiento más profundo sobre su aplicación. Este conocimiento puede ayudarle a mejorar el rendimiento o mantenimiento de la aplicación, o a automatizar acciones que de lo contrario requerirían intervención manual.
@@ -31,7 +31,7 @@ Data Factory solo almacena los datos de ejecución de canalización durante 45 d
 ## <a name="diagnostic-logs"></a>Registros de diagnóstico
 
 * Guardarlos en una **cuenta de almacenamiento** para archivarlos o inspeccionarlos manualmente. Puede especificar el tiempo de retención (en días) mediante la configuración de diagnóstico.
-* Transmitirlos a **Event Hubs** para la ingestión en un servicio de terceros o una solución de análisis personalizado como PowerBI.
+* Transmitirlos a **Event Hubs** para la ingesta en un servicio de terceros o una solución de análisis personalizado como Power BI.
 * Analícelos con **Log Analytics**.
 
 Puede usar una cuenta de almacenamiento o un espacio de nombres de centro de eventos que no esté en la misma suscripción que el recurso que emite los registros. El usuario que configura los ajustes debe tener el control de acceso basado en rol (RBAC) adecuado a ambas suscripciones.
@@ -43,7 +43,7 @@ Los registros de diagnóstico para recursos no de proceso se configuran mediante
 
 * Dónde se envían los registros de diagnóstico (cuenta de Storage, Event Hubs o Log Analytics).
 * Qué categorías de registro se envían.
-* Cuánto tiempo se debe conservar cada categoría de registro en una cuenta de almacenamiento
+* Cuánto tiempo se debe conservar cada categoría de registro en una cuenta de almacenamiento.
 * Una retención de cero días significa que los registros se conservan de forma indefinida. De lo contrario, el valor puede ser cualquier número de días comprendido entre 1 y 2147483647.
 * Si se establecen directivas de retención, pero el almacenamiento de registros en una cuenta de almacenamiento está deshabilitado (por ejemplo, si solo se han seleccionado las opciones Event Hubs o Log Analytics), las directivas de retención no surten ningún efecto.
 * Las directivas de retención se aplican a diario, por lo que al final de un día (UTC) se eliminan los registros del día que quede fuera de la directiva de retención. Por ejemplo, si tuviera una directiva de retención de un día, se eliminarían los registros de anteayer al principio del día de hoy.
@@ -465,15 +465,7 @@ Puede visualizar las métricas anteriores, examinar las consultas detrás de est
 
 ## <a name="alerts"></a>Alertas
 
-Puede generar alertas en función de métricas admitidas en Data Factory. Haga clic en el botón **Alertas** en la página **Supervisar** de Data Factory.
-
-![Opción de alertas](media/monitor-using-azure-monitor/alerts_image1.png)
-
-Lo lleva a la página **Alertas**.
-
-![Página de alertas](media/monitor-using-azure-monitor/alerts_image2.png)
-
-También puede iniciar sesión en Azure Portal y hacer clic en **Supervisar -&gt; Alertas** para ir a la página **Alertas** directamente.
+Inicie sesión en Azure Portal y haga clic en **Supervisión &gt; Alertas** para crear alertas.
 
 ![Alertas en el menú del portal](media/monitor-using-azure-monitor/alerts_image3.png)
 
@@ -509,4 +501,5 @@ También puede iniciar sesión en Azure Portal y hacer clic en **Supervisar -&gt
     ![Grupo de acciones, pantalla 4 de 4](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte el artículo [Supervisión y administración de canalizaciones](monitor-programmatically.md) para obtener información sobre la supervisión y administración de canalizaciones mediante programación.
+
+Consulte el artículo [Supervisión y administración de canalizaciones mediante programación](monitor-programmatically.md) para obtener información sobre la supervisión y administración de canalizaciones con código.
