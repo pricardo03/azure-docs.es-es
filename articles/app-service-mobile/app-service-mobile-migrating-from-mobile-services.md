@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: 17fbaa7efcdd9e0de675defb3958a61f29bbc3fe
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1c519c658db29152f7ecafa8ac244c922cf4cd9f
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714328"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118999"
 ---
 # <a name="article-top"></a>Migración del servicio móvil de Azure existente al Servicio de aplicaciones de Azure
 Con la [disponibilidad general de Azure App Service], los sitios de Servicios móviles de Azure se pueden migrar fácilmente in situ para aprovechar todas las características del Servicio de aplicaciones de Azure.  En este documento se explica lo que puede esperar al migrar su sitio de Servicios móviles de Azure al Servicio de aplicaciones de Azure.
@@ -374,7 +374,7 @@ Ahora que la aplicación se ha migrado a App Service, hay aún más característ
 
 <!-- Links -->
 [precios de App Service]: https://azure.microsoft.com/pricing/details/app-service/
-[Application Insights]: ../application-insights/app-insights-overview.md
+[Application Insights]: ../azure-monitor/app/app-insights-overview.md
 [Escalado automático]: ../app-service/web-sites-scale.md
 [Azure App Service]: ../app-service/overview.md
 [Portal de Azure clásico]: https://manage.windowsazure.com

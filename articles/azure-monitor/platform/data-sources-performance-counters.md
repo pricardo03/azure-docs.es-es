@@ -1,6 +1,6 @@
 ---
-title: Recopilación y análisis de contadores de rendimiento en Azure Monitor | Microsoft Docs
-description: Azure Monitor recopila contadores de rendimiento para analizar el rendimiento de los agentes de Windows y Linux.  En este artículo se describe cómo configurar la colección de contadores de rendimiento de los agentes de Windows y Linux, se proporcionan detalles dela ubicación en que se almacenan en área de trabajo y se indica cómo analizarlos en Azure Portal.
+title: Recopilación y análisis de contadores de rendimiento en Log Analytics | Microsoft Docs
+description: Log Analytics recopila contadores de rendimiento para analizar el rendimiento de los agentes de Windows y Linux.  En este artículo se describe cómo configurar la colección de contadores de rendimiento de los agentes de Windows y Linux, se proporcionan detalles dela ubicación en que se almacenan en área de trabajo y se indica cómo analizarlos en Azure Portal.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018l
 ms.author: magoedte
-ms.openlocfilehash: f6b6d04df3e3b705fd57e7dffe1570a5e10adb5d
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 8359dda2521773145f9e3e870c3c21db1546004b
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438377"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103713"
 ---
-# <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Orígenes de datos de rendimiento de Windows y Linux en Azure Monitor
-Los contadores de rendimiento de Windows y Linux ofrecen información acerca del rendimiento de los componentes de hardware, los sistemas operativos y las aplicaciones.  Azure Monitor puede recopilar contadores de rendimiento a intervalos frecuentes para el análisis casi en tiempo real (NRT), además de agregar datos de rendimiento para el análisis a más largo plazo y la creación de informes.
+# <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Orígenes de datos de rendimiento de Windows y Linux en Log Analytics
+Los contadores de rendimiento de Windows y Linux ofrecen información acerca del rendimiento de los componentes de hardware, los sistemas operativos y las aplicaciones.  Log Analytics puede recopilar contadores de rendimiento a intervalos frecuentes para el análisis casi en tiempo real (NRT), además de agregar datos de rendimiento para el análisis a más largo plazo y la creación de informes.
 
 ![contadores de rendimiento](media/data-sources-performance-counters/overview.png)
 
@@ -88,7 +88,7 @@ Los parámetros de este elemento se describen en la tabla siguiente.
 | interval | Frecuencia con la que se recopilan los contadores del objeto. |
 
 
-En la tabla siguiente se enumera los objetos y contadores que pueden especificar en el archivo de configuración.  Hay contadores adicionales disponibles para determinadas aplicaciones, como se describe en [Collect performance counters for Linux applications in Azure Monitor](data-sources-linux-applications.md) (Recopilación de contadores de rendimiento para aplicaciones de Linux en Azure Monitor).
+En la tabla siguiente se enumera los objetos y contadores que pueden especificar en el archivo de configuración.  Hay contadores adicionales disponibles para determinadas aplicaciones, como se describe en [Collect performance counters for Linux applications in Log Analytics](data-sources-linux-applications.md) (Recopilación de contadores de rendimiento para aplicaciones de Linux en Log Analytics).
 
 | Nombre de objeto | Nombre del contador |
 |:--|:--|
@@ -182,7 +182,7 @@ Esta es la configuración predeterminada de las métricas de rendimiento.
     </source>
 
 ## <a name="data-collection"></a>Colección de datos
-Azure Monitor recopila todos los contadores de rendimiento especificados en su intervalo de ejemplo en todos los agentes que tengan dicho contador instalado.  Los datos no se agregan; los datos sin procesar están disponibles en todas las vistas de consulta de registro durante el tiempo especificado por la suscripción.
+Log Analytics recopila todos los contadores de rendimiento especificados en su intervalo de ejemplo en todos los agentes que tengan dicho contador instalado.  Los datos no se agregan; los datos sin procesar están disponibles en todas las vistas de consulta de registro durante el tiempo especificado por la suscripción.
 
 ## <a name="performance-record-properties"></a>Propiedades de registros de rendimiento
 Los registros de rendimiento tienen el tipo **Perf** y sus propiedades son las que aparecen en la tabla siguiente.
