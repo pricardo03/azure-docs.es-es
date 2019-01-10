@@ -20,7 +20,7 @@ ms.lasthandoff: 06/27/2018
 ms.locfileid: "37052374"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformación de datos mediante Hadoop Streaming Activity en Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio de Data Factory que está utilizando:"]
 > * [Versión 1](v1/data-factory-hadoop-streaming-activity.md)
 > * [Versión actual](transform-data-using-hadoop-streaming.md)
 
