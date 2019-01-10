@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anumjs
 ms.author: anjangsh
-ms.reviewer: MightyPen
+ms.reviewer: MightyPen, sstein
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 034fd2434d3b824c4356e640a1c1665dff542de6
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 4b2c9f17bc9c6e9bbc280116d074bd0f1e3d3e38
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056603"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606051"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Exploración del análisis de SaaS con Azure SQL Database, SQL Data Warehouse, Data Factory y Power BI
 
@@ -142,11 +142,11 @@ En esta sección se exploran los objetos creados en la factoría de datos. La il
 En la página de información general, cambie a la pestaña **Autor** del panel izquierdo y observe que se han creado tres [canalizaciones](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) y tres [conjuntos de datos](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services).
 ![adf_author](media/saas-tenancy-tenant-analytics/adf_author_tab.JPG)
 
-Las tres canalizaciones anidadas son: SQLDBToDW, DBCopy, and TableCopy.
+Las tres canalizaciones anidadas son: SQLDBToDW, DBCopy y TableCopy.
 
 **Canalización 1: SQLDBToDW** busca los nombres de las bases de datos de inquilinos que se almacenan en la base de datos de catálogo (nombre de la tabla: [__ShardManagement].[ShardsGlobal]) y, para cada base de datos de inquilinos, ejecuta la canalización **DBCopy**. Al finalizar se ejecuta el esquema de procedimiento almacenado **sp_TransformExtractedData**. Este procedimiento almacenado transforma los datos cargados en las tablas de ensayo y rellena las tablas con esquema de estrella.
 
-**Canalización 2: DBCopy** busca los nombres de las tablas y las columnas de origen de un archivo de configuración almacenado en Blob Storage.  A continuación se ejecuta la canalización **TableCopy** para cada una de las cuatro tablas: TicketFacts, CustomerFacts, EventFacts y VenueFacts. La actividad **[ForEach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** se ejecuta en paralelo para todas las 20 bases de datos. ADF permite un máximo de 20 iteraciones en bucle para la ejecución en paralelo. Considere la posibilidad de crear varias canalizaciones para más bases de datos.    
+**Canalización 2: DBCopy** busca los nombres de las tablas y las columnas de origen de un archivo de configuración almacenado en Blob Storage.  La canalización **TableCopy** se ejecuta para cada una de las cuatro tablas: TicketFacts, CustomerFacts, EventFacts y VenueFacts. La actividad **[ForEach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** se ejecuta en paralelo para todas las 20 bases de datos. ADF permite un máximo de 20 iteraciones en bucle para la ejecución en paralelo. Considere la posibilidad de crear varias canalizaciones para más bases de datos.    
 
 **Canalización 3: TableCopy** utiliza los números de versión de fila de SQL Database (_rowversion_) para identificar las filas que se hayan cambiado o actualizado. Esta actividad busca la versión de fila inicial y final para extraer filas de las tablas de origen. La tabla **CopyTracker** que se almacena en cada base de datos de inquilinos realiza un seguimiento de la última fila que se extrajo de cada tabla de origen en cada ejecución. Las filas nuevas o cambiadas se copian en las tablas de almacenamiento provisional correspondientes del almacenamiento de datos: **raw_Tickets**, **raw_Customers**, **raw_Events** y **raw_Venue**. Por último, la última versión de fila se guarda en la tabla **CopyTracker** para usarse como versión de fila inicial para la extracción siguiente. 
 
@@ -189,7 +189,7 @@ Los datos de las tablas con esquema de estrella proporcionan todos los datos de 
 Siga estos pasos para conectarse a Power BI e importar las vistas creadas anteriormente:
 
 1. Lance Power BI Desktop.
-2. En la cinta de opciones de Inicio, seleccione **Obtener datos** y, después, seleccione **Más…** en el menú.
+2. En la cinta de opciones de Inicio, seleccione **Obtener datos** y, después, seleccione **Más…**  en el menú.
 3. En la ventana **Obtener datos**, seleccione **Azure SQL Database**.
 4. En la ventana de inicio de sesión de la base de datos, escriba el nombre del servidor (**catalog-dpt-&lt;usuario&gt;.database.windows.net**). Seleccione **Importar** en **Modo Conectividad de datos** y haga clic en **Aceptar**. 
 

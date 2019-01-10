@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8b0f1cfe56923cbd8a5b1c517cfdc3b174088715
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5634d812b3fbd4e904516767b008f63104b3d7b7
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086146"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632745"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Solución de problemas de Apache Storm mediante Azure HDInsight
 
@@ -54,7 +54,7 @@ La carpeta lib tiene archivos .jar que contienen la implementación para la oper
 
 Ejecuta el script [stormmeta.sh](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/tools/zkdatatool-1.0/bash/stormmeta.sh) desde los nodos de ZooKeeper para importar y después exportar datos. Actualice el script a la versión correcta de Hortonworks Data Platform (HDP). (Estamos trabajando en que estos scripts sean genéricos en HDInsight. Los scripts genéricos pueden ejecutarse desde cualquier nodo en el clúster sin modificaciones por el usuario).
 
-El comando export escribe los metadatos en una ruta de acceso del Sistema de archivos distribuido de Apache Hadoop (HDFS) (en un almacén de Azure Blob Storage o de Azure Data Lake Store) en la ubicación que haya establecido.
+El comando export escribe los metadatos en una ruta de acceso del Sistema de archivos distribuido de Apache Hadoop (HDFS) (en una instancia de Azure Blob Storage o de Azure Data Lake Storage) en la ubicación que haya establecido.
 
 ### <a name="examples"></a>Ejemplos
 
@@ -87,7 +87,7 @@ Los archivos binarios de Storm para la pila de HDP actual se encuentran en: /usr
  
 Puede haber varios archivos binarios para versiones específicas de HDP en /usr/hdp (por ejemplo, /usr/hdp/2.5.0.1233/storm). La carpeta /usr/hdp/current/storm-client tiene un vínculo simbólico a la versión más reciente que se ejecuta en el clúster.
 
-Para más información, consulte cómo [conectarse a un clúster de HDInsight a través de SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) y [Storm](http://storm.apache.org/).
+Para más información, consulte cómo [conectarse a un clúster de HDInsight a través de SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) y [Apache Storm](https://storm.apache.org/).
  
 ## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>¿Cómo se determina la topología de implementación de un clúster de Storm?
 En primer lugar, identifique todos los componentes que se instalan con Storm de HDInsight. Un clúster de Storm consta de cuatro categorías de nodo:

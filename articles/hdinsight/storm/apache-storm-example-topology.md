@@ -9,20 +9,20 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: 985bb755e4754d2aa371d7b86594297c16fedd27
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 73a7c2ef80291920a6d19f0c3ab01b45c1d6b22a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583574"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53627731"
 ---
 # <a name="example-apache-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Topologías y componentes de ejemplo de Apache Storm para Apache Storm en HDInsight
 
-La siguiente es una lista de ejemplos creada y mantenida por Microsoft para su uso con [Apache Storm](http://storm.apache.org/) en HDInsight. Estos ejemplos tratan diversos temas, desde la creación de topologías básicas en C# y Java para trabajar con servicios de Azure como Event Hubs, Cosmos DB, SQL Database, [Apache HBase](http://hbase.apache.org/) en HDInsight y Azure Storage. Algunos ejemplos también muestran cómo trabajar con tecnologías que no son de Azure, o incluso que no son de Microsoft, como SignalR y Socket.IO.
+La siguiente es una lista de ejemplos creada y mantenida por Microsoft para su uso con [Apache Storm](https://storm.apache.org/) en HDInsight. Estos ejemplos tratan diversos temas, desde la creación de topologías básicas en C# y Java para trabajar con servicios de Azure como Event Hubs, Cosmos DB, SQL Database, [Apache HBase](https://hbase.apache.org/) en HDInsight y Azure Storage. Algunos ejemplos también muestran cómo trabajar con tecnologías que no son de Azure, o incluso que no son de Microsoft, como SignalR y Socket.IO.
 
 | DESCRIPCIÓN | Muestra | Lenguaje/Marco de trabajo |
 |:--- |:--- |:--- |
-| [Escritura en el Almacén de Azure Data Lake desde Apache Storm](apache-storm-write-data-lake-store.md) |Escritura en el Almacén de Azure Data Lake |Java |
+| [Escritura en Azure Data Lake Storage desde Apache Storm](apache-storm-write-data-lake-store.md) |Escritura en Azure Data Lake Storage |Java |
 | [Origen de spout y bolt de Centro de eventos](https://github.com/apache/storm/tree/master/external/storm-eventhubs) |Origen de spout y bolt de Centro de eventos |Java |
 | [Desarrollo de topologías basadas en Java para Apache Storm en HDInsight][5797064f] |Maven |Java |
 | [Desarrollo de topologías de C# para Apache Storm en HDInsight con Visual Studio][16fce2d1] |Herramientas de HDInsight para Visual Studio |C#, Java |
@@ -35,7 +35,7 @@ La siguiente es una lista de ejemplos creada y mantenida por Microsoft para su u
 | [Uso de Python con Apache Storm en HDInsight](apache-storm-develop-python-topology.md) |Componentes de Python con una topología Flux |Python |
 | [Uso de Apache Kafka con Apache Storm en HDInsight](../hdinsight-apache-storm-with-kafka.md) | Lectura y escritura de Apache Storm en Apache Kafka | Java |
 
-> [!WARNING]
+> [!WARNING]  
 > Los ejemplos de C# de esta lista se crearon y probaron originalmente con HDInsight para Windows y puede que no funcionen correctamente con los clústeres de HDInsight para Linux. Los clústeres para Linux utilizan Mono para ejecutar código .NET y pueden tener problemas de compatibilidad con los entornos y paquetes utilizados en el ejemplo.
 >
 > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las versiones posteriores.

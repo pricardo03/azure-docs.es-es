@@ -9,15 +9,15 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: 420a1c2ee09f84586f99864878e226df59606f2d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 9b3fc80d129a42e68e877f4d1210e3ab10e0664a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496861"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631828"
 ---
 # <a name="scp-programming-guide"></a>Guía de programación de SCP
-SCP es una plataforma para compilar aplicaciones de procesamiento de datos confiables, coherentes y de alto rendimiento en tiempo real. Se basa en [Apache Storm](http://storm.incubator.apache.org/) , un sistema de procesamiento de transmisiones diseñado por las comunidades de OSS. Storm ha sido diseñado por Nathan Marz con código abierto en Twitter. Usa [Apache ZooKeeper](http://zookeeper.apache.org/), otro proyecto de Apache que permite una coordinación distribuida muy confiable y la administración de estados. 
+SCP es una plataforma para compilar aplicaciones de procesamiento de datos confiables, coherentes y de alto rendimiento en tiempo real. Se basa en [Apache Storm](https://storm.incubator.apache.org/) , un sistema de procesamiento de transmisiones diseñado por las comunidades de OSS. Storm ha sido diseñado por Nathan Marz con código abierto en Twitter. Usa [Apache ZooKeeper](https://zookeeper.apache.org/), otro proyecto de Apache que permite una coordinación distribuida muy confiable y la administración de estados. 
 
 El proyecto SCP no solo trasladó Storm a Windows sino que también agregó las extensiones y la personalización del ecosistema Windows. Entre las extensiones se incluye la experiencia de desarrolladores de .NET y las bibliotecas; la personalización incluye implementación basada en Windows. 
 
@@ -124,7 +124,7 @@ En el caso de una topología transaccional, existe un concepto importante, `Stor
 SCP.NET también proporciona un conjunto sencillo de objetos clave para que los desarrolladores programen con ellos. Son **Context**, **StateStore** y **SCPRuntime**. Se tratan en la parte restante de esta sección.
 
 ### <a name="context"></a>Context
-Context proporciona un entorno de ejecución para la aplicación. Cada instancia de ISCPPlugin (ISCPSpout/ISCPBolt/ISCPTxSpout/ISCPBatchBolt) tiene su correspondiente instancia de Context. La función suministrada por Context se puede dividir en dos partes: 1) la parte estática, que está disponible en todo el proceso de C\#, y 2) la parte dinámica, que solo está disponible para la instancia concreta de Context.
+Context proporciona un entorno de ejecución para la aplicación. Cada instancia de ISCPPlugin (ISCPSpout/ISCPBolt/ISCPTxSpout/ISCPBatchBolt) tiene su correspondiente instancia de Context. La funcionalidad suministrada por Context se puede dividir en dos partes: 1) la parte estática, que está disponible en todo el proceso de C\#, y 2) la parte dinámica, que solo está disponible para la instancia concreta de Context.
 
 ### <a name="static-part"></a>Parte estática
     public static ILogger Logger = null;
@@ -346,7 +346,7 @@ En términos generales, los complementos de SCP pueden ejecutarse aquí en dos m
         }
 
 ## <a name="topology-specification-language"></a>Lenguaje de especificación de topologías
-La especificación de topologías de SCP es un lenguaje específico de dominios para la descripción y configuración de topologías de SCP. Se basa en Clojure DSL de Storm (<http://storm.incubator.apache.org/documentation/Clojure-DSL.html>) y lo extiende SCP.
+La especificación de topologías de SCP es un lenguaje específico de dominios para la descripción y configuración de topologías de SCP. Se basa en Clojure DSL de Storm (<https://storm.incubator.apache.org/documentation/Clojure-DSL.html>) y lo extiende SCP.
 
 Las especificaciones de topologías se pueden enviar directamente a un clúster de Storm para su ejecución a través del comando ***runspec***.
 
@@ -594,7 +594,7 @@ En el spout, si se ha habilitado confirmación, se usa un diccionario para almac
     }
 
 ### <a name="helloworldtx"></a>HelloWorldTx
-El ejemplo **HelloWorldTx** muestra cómo implementar la topología transaccional. Incluye un spout denominado **generator**, un bolt de lote denominado **partial-count** y un bolt de confirmación denominado **count-sum**. Existen también tres archivos txt creados previamente: **DataSource0.txt**, **DataSource1.txt** y **DataSource2.txt**.
+El ejemplo **HelloWorldTx** muestra cómo implementar la topología transaccional. Incluye un spout denominado **generator**, un bolt de lote denominado **partial-count** y un bolt de confirmación denominado **count-sum**. También hay tres archivos txt creados previamente: **DataSource0.txt**, **DataSource1.txt** y **DataSource2.txt**.
 
 En cada transacción, el spout **generator** elige aleatoriamente dos de los tres archivos creados previamente y emite los nombres de estos dos archivos al bolt **partial-count**. El bolt **partial-count** obtiene el nombre de archivo de la tupla recibida, luego abre el archivo y cuenta el número de palabras que hay en este y, por último, emite el número de palabras al bolt **count-sum**. El bolt **count-sum** resume el recuento total.
 

@@ -1,5 +1,5 @@
 ---
-title: Colaboración con otros usuarios
+title: Seguridad al colaborar
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: El acceso a la creación está disponible para los propietarios y colaboradores. Para una aplicación privada, el acceso a los puntos de conexión está disponible para los propietarios y colaboradores.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 533854b723dc5fc9e2406b492a60692f25c33257
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 3de58f244012ee0460812fba1ceb5ab12f60aa51
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53132608"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602586"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Acceso de usuario a la creación y los puntos de conexión
 El acceso a la creación está disponible para los propietarios y colaboradores. Para una aplicación privada, el acceso a los puntos de conexión está disponible para los propietarios y colaboradores. Para una aplicación pública, el acceso al punto de conexión está disponible para todos los usuarios que tengan su propia cuenta de LUIS y el identificador de la aplicación pública. 
@@ -39,6 +39,7 @@ El propietario y todos los colaboradores tienen acceso a la creación de la apli
 |Entrenar|
 
 ## <a name="access-to-endpoint"></a>Acceder al punto de conexión
+
 El acceso para consultar el punto de conexión se controla mediante una opción de configuración de la página **Información de la aplicación** en la sección **Administrar**. 
 
 ![Configurar la aplicación como pública](./media/luis-concept-security/set-application-as-public.png)
@@ -48,6 +49,7 @@ El acceso para consultar el punto de conexión se controla mediante una opción 
 |Disponible para el propietario y los colaboradores|Disponible para el propietario, los colaboradores y cualquier otra persona que conozca el identificador de la aplicación|
 
 ### <a name="private-app-endpoint-security"></a>Seguridad del punto de conexión de aplicaciones privadas
+
 El punto de conexión de una aplicación privada solo está disponible para lo siguiente:
 
 |Clave y usuario|Explicación|
@@ -57,11 +59,13 @@ El punto de conexión de una aplicación privada solo está disponible para lo s
 |Cualquier clave asignada a LUIS por un autor o un colaborador|Según el nivel de uso de las claves|
 
 #### <a name="microsoft-user-accounts"></a>Cuentas de usuario de Microsoft
+
 Los autores y colaboradores pueden asignar claves a una aplicación de LUIS privada. La cuenta de usuario de Microsoft que crea la clave de LUIS en Azure Portal debe ser del propietario de la aplicación o de un colaborador de la aplicación. No se puede asignar una clave a una aplicación privada desde otra cuenta de Azure.
 
 Consulte [Usuario inquilino de Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-tenant-user) para más información sobre las cuentas de usuario de Active Directory. 
 
 ### <a name="public-app-endpoint-access"></a>Acceso al punto de conexión de la aplicación pública
+
 Una vez que una aplicación se ha configurado como pública, _cualquier_ clave de creación de LUIS válida o clave del punto de conexión de LUIS puede consultar la aplicación, siempre y cuando la clave no haya alcanzado el límite de cuota del punto de conexión.
 
 Un usuario que no sea propietario ni colaborador solo podrá acceder a una aplicación pública si se le proporciona el identificador de la aplicación. LUIS no tiene un _mercado_ público u otro medio para buscar una aplicación pública.  
@@ -69,19 +73,13 @@ Un usuario que no sea propietario ni colaborador solo podrá acceder a una aplic
 Una aplicación pública se pone a disposición de los usuarios en todas las regiones para que los que tengan una clave de recurso de LUIS basada en regiones puedan acceder a la aplicación en cualquier región que esté asociada a la clave de recurso.
 
 ## <a name="microsoft-user-accounts"></a>Cuentas de usuario de Microsoft
+
 Los autores y colaboradores pueden agregar claves para LUIS en la página Publicar. La cuenta de usuario de Microsoft que crea la clave de LUIS en Azure Portal debe ser del propietario de la aplicación o de un colaborador de la aplicación. 
 
 Consulte [Usuario inquilino de Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-tenant-user) para más información sobre las cuentas de usuario de Active Directory. 
 
-<!--
-### Individual consent
-If the Microsoft user account is part of an Azure Active Directory (AAD), and the active directory doesn't allow users to give consent, then you can provide individual consent as part of the login process. 
-
-### Administrator consent
-If the Microsoft user account is part of an Azure Active Directory (AAD), and the active directory doesn't allow users to give consent, then the administrator can give individual consent via the method discussed in this [blog](https://blogs.technet.microsoft.com/tfg/2017/10/15/english-tips-to-manage-azure-ad-users-consent-to-applications-using-azure-ad-graph-api/). 
--->
-
 ## <a name="securing-the-endpoint"></a>Proteger el punto de conexión 
+
 Puede controlar quién puede ver su clave del punto de conexión de LUIS llamándola en un entorno de servidor a servidor. Si usa LUIS desde un bot, la conexión entre el bot y LUIS ya es segura. Si está llamando al punto de conexión de LUIS directamente, debe crear una API de servidor (por ejemplo, una [función](https://azure.microsoft.com/services/functions/) de Azure) con acceso controlado (como [AAD](https://azure.microsoft.com/services/active-directory/)). Cuando se llama a la API de servidor y se comprueba la autenticación y la autorización, pase la llamada a LUIS. Aunque esta estrategia no impide los ataques de tipo "Man in the middle", ofusca el punto de conexión de los usuarios, le permite realizar un seguimiento de acceso y agregar un registro de respuesta del punto de conexión (como [Application Insights](https://azure.microsoft.com/services/application-insights/)).  
 
 ## <a name="security-compliance"></a>Seguridad y cumplimiento

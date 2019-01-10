@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: ''
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a95c9f1edd6983c915316f2900885a8131245860
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 57897060e79ffbd750b47b21e97bb16d651f835c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437840"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583517"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Solución de problemas de Hybrid Runbook Worker
 
@@ -34,7 +34,7 @@ Se produce un error en la ejecución de un runbook y recibe el error siguiente:
 "The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
 ```
 
-El Runbook se suspende poco después de intentar ejecutarlo tres veces. Hay condiciones que pueden interrumpir el Runbook antes de que finalice correctamente y el mensaje de error relacionado no incluye información adicional que indique el motivo.
+El runbook se suspende poco después de intentar ejecutarlo tres veces. Hay condiciones que pueden interrumpir la finalización del runbook. Cuando esto sucede, es posible que el mensaje de error relacionado no incluya información adicional que le indique el motivo.
 
 #### <a name="cause"></a>Causa
 
@@ -46,17 +46,40 @@ Las siguientes son causas posibles:
 
 * Los runbooks no se pueden autenticar con recursos locales.
 
-* El equipo designado para ejecutar la característica Hybrid Runbook Worker cumple los requisitos mínimos de hardware.
+* El equipo configurado para ejecutar la característica Hybrid Runbook Worker cumple los requisitos mínimos de hardware.
 
 #### <a name="resolution"></a>Resolución
 
 Compruebe que el equipo tenga acceso saliente a *.azure-automation.net en el puerto 443.
 
-Los equipos que ejecutan Hybrid Runbook Worker deben cumplir los requisitos mínimos de hardware antes de indicar que hospede esta característica. De lo contrario, en función del uso de recursos de otros procesos en segundo plano y la contención durante la ejecución de runbooks, el equipo estará sobreutilizado y provocará retrasos o tiempos de espera en los trabajos de runbook.
+Los equipos que ejecutan Hybrid Runbook Worker deben cumplir los requisitos mínimos de hardware antes de configurarlos para que hospeden esta característica. Los runbooks y los procesos en segundo plano que usan pueden provocar un uso excesivo del sistema, así como tiempos de espera y retrasos del trabajo de runbook.
 
-Confirme que el equipo designado para ejecutar la característica Hybrid Runbook Worker cumple los requisitos mínimos de hardware. Si es así, supervise el uso de la CPU y de memoria para determinar las posibles correlaciones entre el rendimiento de los procesos de Hybrid Runbook Worker y Windows. Si hay presión de memoria o de la CPU, esto puede indicar la necesidad de actualizar o agregar procesadores adicionales, o bien de aumentar la memoria para resolver el cuello de botella de recursos y el error. También puede seleccionar un recurso de proceso diferente que pueda admitir los requisitos mínimos y escalarse cuando las demandas de trabajo indiquen que es necesario un aumento.
+Confirme que el equipo que ejecutará la característica Hybrid Runbook Worker cumple los requisitos mínimos de hardware. Si es así, supervise el uso de la CPU y memoria para determinar las posibles correlaciones entre el rendimiento de los procesos de Hybrid Runbook Worker y Windows. Si hay presión de CPU o memoria, esto puede indicar la necesidad de actualizar los recursos. También puede seleccionar un recurso de proceso diferente que pueda admitir los requisitos mínimos y escalarse cuando las demandas de carga de trabajo indiquen que es necesario un aumento.
 
 Compruebe el registro de eventos **Microsoft SMA** para un evento correspondiente con la descripción *Proceso Win32 cerrado con el código [4294967295]*. La causa de este error es que no ha configurado la autenticación en sus Runbooks o especificado las credenciales de identificación para el grupo de Hybrid Worker. Revise los [permisos de runbook](../automation-hrw-run-runbooks.md#runbook-permissions) para confirmar que ha configurado correctamente la autenticación para los runbooks.
+
+### <a name="no-cert-found"></a>Escenario: No se encontró ningún certificado en el almacén de certificados en Hybrid Runbook Worker.
+
+#### <a name="issue"></a>Problema
+
+Se produce un error en un runbook que se ejecutan en Hybrid Runbook Worker con el mensaje de error siguiente:
+
+```error
+Connect-AzureRmAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000
+At line:3 char:1
++ Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : CloseError: (:) [Connect-AzureRmAccount], ArgumentException
+    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzureRmAccountCommand
+```
+
+#### <a name="cause"></a>Causa
+
+Este error se produce cuando se intenta usar una [cuenta de ejecución](../manage-runas-account.md) en un runbook que se ejecuta en Hybrid Runbook Worker en el que el certificado de la cuenta de ejecución no está presente. Hybrid Runbook Worker no tiene el recurso de certificado localmente de manera predeterminada, el cual la cuenta de ejecución requiere para su correcto funcionamiento.
+
+#### <a name="resolution"></a>Resolución
+
+Si Hybrid Runbook Worker es una VM de Azure, puede usar [Identidades administradas para recursos de Azure](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) en su lugar. Este escenario le permite autenticar los recursos de Azure mediante la identidad administrada de la VM de Azure en lugar de la cuenta de ejecución, lo que simplifica la autenticación. Cuando Hybrid Runbook Worker es una máquina local, deberá instalar el certificado de cuenta de ejecución en la máquina. Para obtener información sobre cómo instalar el certificado, consulte los pasos necesarios para ejecutar el runbook [Export-RunAsCertificateToHybridWorker](../automation-hrw-run-runbooks.md#runas-script).
 
 ## <a name="linux"></a>Linux
 
@@ -64,7 +87,8 @@ Hybrid Runbook Worker de Linux depende del agente de OMS para Linux a fin de com
 
 ### <a name="oms-agent-not-running"></a>Escenario: El agente de OMS para Linux no se está ejecutando
 
-Si el agente de OMS para Linux no se está ejecutando, esto impide que Hybrid Runbook Worker de Linux se comunique con Azure Automation. Escriba el siguiente comando para comprobar si el agente se está ejecutando: `ps -ef | grep python`. Debería ver un resultado similar al siguiente, los procesos de Python con la cuenta de usuario **nxautomation**. Si las soluciones Update Management o Azure Automation no están habilitadas, no se ejecuta ninguno de los procesos siguientes.
+
+Si el Agente de OMS para Linux no se está ejecutando, se impide que Hybrid Runbook Worker de Linux se comunique con Azure Automation. Escriba el siguiente comando para comprobar si el agente se está ejecutando: `ps -ef | grep python`. Debería ver un resultado similar al siguiente, los procesos de Python con la cuenta de usuario **nxautomation**. Si las soluciones Update Management o Azure Automation no están habilitadas, no se ejecuta ninguno de los procesos siguientes.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
@@ -74,11 +98,12 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 
 En la siguiente lista, se muestran los procesos que se inician para un Hybrid Runbook Worker de Linux. Se encuentran en el directorio `/var/opt/microsoft/omsagent/state/automationworker/`.
 
-* **oms.conf**: este es el proceso de administrador de trabajos, que se inicia directamente desde la DSC.
+
+* **oms.conf**: este valor es el proceso de administrador de trabajos. Se inicia directamente desde DSC.
 
 * **worker.conf**: este es el proceso de Auto Registered Hybrid Worker, y lo inicia el administrador de trabajos. Este proceso lo usa Update Management y es transparente para el usuario. Este proceso no está presente si la solución Update Management no está habilitada en el equipo.
 
-* **diy/worker.conf**: este es el proceso de DIY Hybrid Worker. El proceso de DIY Hybrid Worker se usa para ejecutar runbooks de usuario en Hybrid Runbook Worker. Difiere del proceso de Auto Registered Hybrid Worker solo en el detalle clave de que usa otra configuración. Este proceso no está presente si la solución Azure Automation no está habilitada y el Hybrid Worker de Linux personal (DIY, Hágalo usted mismo) no está registrado.
+* **diy/worker.conf**: este es el proceso de DIY Hybrid Worker. El proceso de DIY Hybrid Worker se usa para ejecutar runbooks de usuario en Hybrid Runbook Worker. Difiere del proceso de Auto Registered Hybrid Worker solo en el detalle clave de que usa otra configuración. Este proceso no está presente si la solución Azure Automation está deshabilitada y el Hybrid Worker de Linux personal (DIY, Hágalo usted mismo) no está registrado.
 
 Si el agente de OMS para Linux no se está ejecutando, ejecute el siguiente comando para iniciar el servicio: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
@@ -94,7 +119,7 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 Hybrid Runbook Worker depende de Microsoft Monitoring Agent para comunicarse con su cuenta de Automation para registrar el trabajo, recibir trabajos de runbook e informar del estado. Si se produce un error de registro del trabajo, estas son algunas de las causas posibles:
 
-### <a name="mma-not-running"></a>Escenario: No se está ejecutando Microsoft Monitoring Agent.
+### <a name="mma-not-running"></a>Escenario: Microsoft Monitoring Agent no está en ejecución.
 
 #### <a name="issue"></a>Problema
 
@@ -102,7 +127,7 @@ El servicio `healthservice` no se está ejecutando en el equipo de Hybrid Runboo
 
 #### <a name="cause"></a>Causa
 
-Si el servicio de Windows Microsoft Monitoring Agent no se está ejecutando, este escenario impide que Hybrid Runbook Worker se comunique con Azure Automation.
+Si el servicio de Windows Microsoft Monitoring Agent no se está ejecutando, este estado impide que Hybrid Runbook Worker se comunique con Azure Automation.
 
 #### <a name="resolution"></a>Resolución
 

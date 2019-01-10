@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: fd9094d646b917cf811c28c9770fc2427a404ab4
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0df548d6b3639ce2ce3c7c72695bb96cc6d0dc3d
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309045"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581035"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Uso de MirrorMaker para replicar temas de Apache Kafka con Kafka en HDInsight
 
@@ -22,7 +22,7 @@ Obtenga información sobre cómo usar la característica de creación de reflejo
 
 En este ejemplo, la creación de reflejo se usa para replicar temas entre dos clústeres de HDInsight. Ambos clústeres están en una instancia de Azure Virtual Network en la misma región.
 
-> [!WARNING]
+> [!WARNING]  
 > La creación de reflejo no debe considerarse como un medio para conseguir tolerancia a errores. El desplazamiento a los elementos de un tema es diferentes entre los clústeres de origen y de destino, por lo que los clientes no puede usar los dos indistintamente.
 >
 > Si le preocupa la tolerancia a errores, establezca la replicación para los temas en el clúster. Para obtener más información, vea [Introducción a Apache Kafka en HDInsight](apache-kafka-get-started.md).
@@ -45,13 +45,13 @@ Los clústeres de origen y destino pueden ser diferentes en el número de nodos 
 
 Si tiene que crear un reflejo entre los clústeres Kafka en distintas redes, existen las siguientes consideraciones adicionales:
 
-* **Puertas de enlace**: las redes deben ser capaces de comunicarse en el nivel de TCP/IP.
+* **Puertas de enlace**: las redes deben ser capaces de comunicarse en el nivel de TCPIP.
 
 * **Resolución de nombres**: los clústeres Kafka en cada red deben ser capaces de conectarse entre sí mediante nombres de host. Esto puede requerir un servidor de sistema de nombres de dominio (DNS) en cada red que se configure para reenviar solicitudes a las demás redes.
 
     Al crear una instancia de Azure Virtual Network, en lugar de usar el DNS automático proporcionado con la red, debe especificar un servidor DNS personalizado y la dirección IP para el servidor. Una vez creada la red virtual, debe crear una máquina virtual de Azure que use esa dirección IP, y en ella instalar y configurar el software DNS.
 
-    > [!WARNING]
+    > [!WARNING]  
     > Cree y configure el servidor DNS personalizado antes de instalar HDInsight en la red virtual. No es necesaria ninguna configuración adicional para que HDInsight use el servidor DNS configurado para la red virtual.
 
 Para más información sobre cómo conectar dos instancias de Azure Virtual Network, consulte [Configuración de una conexión de red virtual a red virtual](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
@@ -66,24 +66,24 @@ Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka, r
    
     La plantilla de Azure Resource Manager se encuentra en **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json**.
 
-    > [!WARNING]
+    > [!WARNING]  
     > Para garantizar la disponibilidad de Kafka en HDInsight, el clúster debe contener al menos tres nodos de trabajo. Esta plantilla crea un clúster de Kafka que contiene tres nodos de trabajo.
 
 2. Utilice los datos siguientes para rellenar las entradas de la hoja **Implementación personalizada**:
     
     ![Implementación personalizada de HDInsight](./media/apache-kafka-mirroring/parameters.png)
     
-    * **Grupo de recursos**: cree un nuevo grupo de recursos o seleccione uno existente. Este grupo contiene el clúster de HDInsight.
+    * **Grupo de recursos**: cree un grupo o seleccione uno existente. Este grupo contiene el clúster de HDInsight.
 
     * **Ubicación**: seleccione una ubicación geográfica próxima a usted.
      
     * **Nombre base del clúster**: este valor se utiliza como nombre base en los clústeres Kafka. Por ejemplo, si se especifica **hdi**, se crean clústeres denominados **source-hdi** y **dest-hdi**.
 
-    * **Nombre de usuario de inicio de sesión del clúster**: nombre de usuario del administrador de los clústeres Kafka de origen y destino.
+    * **Nombre de usuario de inicio de sesión del clúster**: nombre del usuario administrador de los clústeres Kafka de origen y destino.
 
-    * **Contraseña de inicio de sesión del clúster**: contraseña del administrador de los clústeres Kafka de origen y destino.
+    * **Contraseña de inicio de sesión del clúster**: contraseña del usuario administrador de los clústeres Kafka de origen y destino.
 
-    * **Nombre de usuario de SSH**: usuario de SSH para crear los clústeres Kafka de origen y destino.
+    * **Nombre de usuario SSH**: usuario de SSH para crear los clústeres Kafka de origen y destino.
 
     * **Contraseña SSH**: contraseña del usuario de SSH para los clústeres Kafka de origen y destino.
 
@@ -91,7 +91,7 @@ Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka, r
 
 4. Por último, active **Anclar al panel** y seleccione **Adquirir**. Se tarda aproximadamente 20 minutos en crear los clústeres.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > El nombre de los clústeres de HDInsight son **source-BASENAME** y **dest-BASENAME**, donde BASENAME es el nombre proporcionado a la plantilla. Estos nombres se utilizarán más adelante al establecer la conexión con los clústeres.
 
 ## <a name="create-topics"></a>Creación de temas

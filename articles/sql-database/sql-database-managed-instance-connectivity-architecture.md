@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 964f91f412645e141ca003d511480f6f6eb438a3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: e69f6869911555730fe723b340e224c0d5a1e4bb
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343314"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536056"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Arquitectura de conectividad de la Instancia administrada de Azure SQL Database
 
@@ -113,7 +113,10 @@ Puede implementar una Instancia administrada en una subred dedicada (la subred d
 
   > [!Note]
   > Aunque las reglas de seguridad de entrada obligatorias permiten el tráfico desde _cualquier_ origen en los puertos 9000, 9003, 1438, 1440, 1452, estos puertos están protegidos por un firewall integrado. Este [artículo](sql-database-managed-instance-find-management-endpoint-ip-address.md) muestra cómo puede detectar la dirección IP del punto de conexión de administración y comprobar las reglas del firewall. 
-
+  
+  > [!Note]
+  > Si usa la replicación transaccional en Instancia administrada y cualquier base de datos de Instancia administrada se utiliza como publicador o distribuidor, el puerto 445 (salida TCP) también debe estar abierto en las reglas de seguridad de la subred para acceder al recurso compartido de archivos de Azure.
+  
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para información general, vea  [¿Qué es Instancia administrada de SQL Database (versión preliminar)?](sql-database-managed-instance.md)

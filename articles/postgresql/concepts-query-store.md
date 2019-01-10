@@ -1,18 +1,17 @@
 ---
 title: Almacén de consultas en Azure Database for PostgreSQL
 description: En este artículo se describe la característica Almacén de consultas en Azure Database for PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 5b760c9148e26421c0df1ffe936365aae4971543
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 86b6c4284cccb183ac9f19911abd4b6cb1d308e5
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379168"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546919"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Supervisión del rendimiento con el Almacén de consultas
 
@@ -22,17 +21,17 @@ ms.locfileid: "49379168"
 > La característica Almacén de consultas está en versión preliminar pública.
 
 
-La característica Almacén de consultas de Azure Database for PostgreSQL proporciona una manera de realizar un seguimiento del rendimiento de las consultas a lo largo del tiempo. El Almacén de consultas simplifica la solución de problemas de rendimiento al ayudar a encontrar rápidamente las consultas que tardan más en ejecutarse y consumen más recursos. Almacén de consultas captura automáticamente un historial de consultas y estadísticas de tiempo de ejecución y las conserva para su revisión. Separa los datos por ventanas de tiempo para que pueda ver patrones de uso de la base de datos. Los datos de todos los usuarios, las bases de datos y las consultas se almacenan en una base de datos denominada **azure_sys** en la instancia de Azure Database for PostgreSQL.
+La característica Almacén de consultas de Azure Database for PostgreSQL proporciona una manera de realizar un seguimiento del rendimiento de las consultas a lo largo del tiempo. El Almacén de consultas simplifica la solución de problemas de rendimiento al ayudar a encontrar rápidamente las consultas que tardan más en ejecutarse y consumen más recursos. El Almacén de consultas captura automáticamente un historial de consultas y estadísticas de tiempo de ejecución y lo conserva para su revisión. Separa los datos por ventanas de tiempo para que pueda ver patrones de uso de la base de datos. Los datos de todos los usuarios, las bases de datos y las consultas se almacenan en una base de datos denominada **azure_sys** en la instancia de Azure Database for PostgreSQL.
 
 > [!IMPORTANT]
-> No modifique la base de datos **azure_sys** ni sus esquemas. Si lo hace, impedirá que el Almacén de consultas y las características de rendimiento relacionados funcionan correctamente.
+> No modifique la base de datos **azure_sys** ni sus esquemas. Si lo hace, impedirá que el Almacén de consultas y las características de rendimiento relacionados funcionen correctamente.
 
 ## <a name="enabling-query-store"></a>Habilitación del Almacén de consultas
 El Almacén de consultas es una característica opcional, por lo que no está activo de forma predeterminada en un servidor. El almacén se habilita o deshabilita globalmente para todas las bases de datos en un servidor determinado y no se puede activar o desactivar por base de datos.
 
 ### <a name="enable-query-store-using-the-azure-portal"></a>Habilitación del Almacén de consultas mediante Azure Portal
 1. Inicie sesión en Azure Portal y seleccione el servidor de Azure Database for PostgreSQL.
-2. Seleccione **Parámetros del servidor** n la sección **Configuración** del menú.
+2. Seleccione **Parámetros del servidor** en la sección **Configuración** del menú.
 3. Busque el parámetro **pg_qs.query_capture_mode**.
 4. Actualice el valor de NONE a TOP y guárdelo.
 
@@ -41,17 +40,17 @@ También puede establecer este parámetro mediante la CLI de Azure.
 az postgres server configuration set --name pg_qs.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value TOP
 ```
 
-Espera hasta 20 minutos para que el primer lote de datos se conserve en la base de datos azure_sys.
+Espere hasta 20 minutos para que el primer lote de datos se conserve en la base de datos azure_sys.
 
 ## <a name="information-in-query-store"></a>Información del Almacén de consultas
 El Almacén de consultas tiene dos almacenes:
-- Un almacén de estadísticas de ejecución para conservar la información de estadísticas de ejecución de consultas.
+- Un almacén de estadísticas de tiempo de ejecución para conservar la información de estadísticas de ejecución de consultas.
 - Un almacén de estadísticas de espera para conservar la información de estadísticas de espera.
 
 Algunos escenarios habituales para usar el Almacén de consultas son:
 - Determinar el número de veces que se ha ejecutado una consulta en un período determinado
 - Comparar el tiempo de ejecución medio de una consulta a través de ventanas de tiempo para ver diferenciales de gran tamaño
-- Identificar las consultas de ejecución más largas en el pasado X horas
+- Identificar las consultas de ejecución más largas en las últimas X horas
 - Identificar las N principales consultas que esperan recursos
 - Descripción de la naturaleza de espera de una determinada consulta
 
@@ -74,9 +73,9 @@ Estos son algunos ejemplos de cómo puede obtener más información sobre la car
 
 | **Observación** | **Acción** |
 |---|---|
-|Largas esperas de bloqueo | Compruebe los textos de consulta para las consultas afectadas e identifique las entidades de destino. Busque en el Almacén de consultas otras consultas que modifiquen la misma entidad, que se ejecutan con frecuencia o tienen una gran duración. Tras identificar estas consultas, considere la posibilidad de cambiar la lógica de aplicación para mejorar la simultaneidad o usar un nivel de aislamiento menos restrictivo.|
+|Largas esperas de bloqueo | Compruebe los textos de consulta para las consultas afectadas e identifique las entidades de destino. Busque en el Almacén de consultas otras consultas que modifiquen la misma entidad, que se ejecuta con frecuencia o tiene una gran duración. Tras identificar estas consultas, considere la posibilidad de cambiar la lógica de aplicación para mejorar la simultaneidad o usar un nivel de aislamiento menos restrictivo.|
 | Largas esperas de E/S de búfer | Encuentre las consultas con un gran número de lecturas físicas en el Almacén de consultas. Si coinciden con las consultas con largas esperas de E/S, considere la posibilidad de introducir un índice en la entidad subyacente para llevar a cabo búsquedas en lugar de exámenes. Esto podría minimizar la sobrecarga de E/S de las consultas. Compruebe las **Recomendaciones de rendimiento** para el servidor en el portal para ver si hay recomendaciones de índices para este servidor que optimizarían las consultas.|
-| Largas de esperas de memoria | Encuentre la consultas que más memoria consumen en el Almacén de consultas. Estas consultas probablemente retrasan el progreso de las consultas afectadas. Compruebe las **Recomendaciones de rendimiento** para el servidor en el portal para ver si hay recomendaciones de índices que optimizarían estas consultas.|
+| Largas esperas de memoria | Encuentre las consultas que más memoria consumen en el Almacén de consultas. Estas consultas probablemente retrasan el progreso de las consultas afectadas. Compruebe las **Recomendaciones de rendimiento** para el servidor en el portal para ver si hay recomendaciones de índices que optimizarían estas consultas.|
 
 ## <a name="configuration-options"></a>Opciones de configuración
 Cuando el Almacén de consultas está habilitado, guarda los datos en ventanas de agregación de 15 minutos, hasta 500 consultas diferentes en cada ventana. 
@@ -102,7 +101,7 @@ Las siguientes opciones afectan específicamente a las estadísticas de espera.
 Use [Azure Portal](howto-configure-server-parameters-using-portal.md) o la [CLI de Azure](howto-configure-server-parameters-using-cli.md) para obtener o establecer otro valor para un parámetro.
 
 ## <a name="views-and-functions"></a>Funciones y vistas
-Vea y administre el Almacén de consultas mediante las siguientes vistas y funciones. Cualquier usuario que el rol público PostgreSQL puede utilizar estas vistas para ver los datos en el Almacén de consultas. Estas vistas solo están disponibles en la base de datos **azure_sys**.
+Vea y administre el Almacén de consultas mediante las siguientes vistas y funciones. Cualquier usuario en el rol público PostgreSQL puede utilizar estas vistas para ver los datos en el Almacén de consultas. Estas vistas solo están disponibles en la base de datos **azure_sys**.
 
 Las consultas se normalizan examinando su estructura después de quitar los literales y constantes. Si dos consultas son idénticas salvo por los valores literales, tienen el mismo hash.
 
@@ -114,30 +113,30 @@ Esta vista devuelve todos los datos del Almacén de consultas. Hay una fila por 
 |runtime_stats_entry_id |bigint | | Id. de la tabla runtime_stats_entries|
 |user_id    |oid    |pg_authid.oid  |OID del usuario que ha ejecutado la instrucción.|
 |db_id  |oid    |pg_database.oid    |OID de la base de datos en la que se ha ejecutado la instrucción.|
-|query_id   |bigint  || Código hash interno, calculado a partir del árbol de análisis de la instrucción.|
-|query_sql_text |Varchar(10000)  || Texto de una instrucción representativa. Las consultas diferentes con la misma estructura se agrupadas; este texto es el texto para la primera consulta del clúster.|
+|query_id   |bigint  || Código hash interno, calculado a partir del árbol de análisis de la instrucción|
+|query_sql_text |Varchar(10000)  || Texto de una instrucción representativa. Las consultas diferentes con la misma estructura se agrupan; este texto es el texto para la primera consulta del clúster.|
 |plan_id    |bigint |   |Identificador del plan correspondiente a esta consulta, no está disponible todavía.|
-|start_time |timestamp  ||  Las consultas se agregan por ciclos: el intervalo de tiempo de un ciclo es de 15 minutos de forma predeterminada. Se trata de la hora de inicio correspondiente al ciclo para esta entrada.|
-|end_time   |timestamp  ||  Hora de finalización correspondiente al ciclo para esta entrada.|
-|calls  |bigint  || Número de veces que se ejecuta la consulta.|
-|total_time |double precision   ||  Tiempo total de ejecución de las consultas, en milisegundos.|
+|start_time | timestamp  ||  Las consultas se agregan por ciclos: el intervalo de tiempo de un ciclo es de 15 minutos de forma predeterminada. Se trata de la hora de inicio correspondiente al ciclo para esta entrada.|
+|end_time   | timestamp  ||  Hora de finalización correspondiente al ciclo para esta entrada.|
+|calls  |bigint  || Número de veces que se ejecuta la consulta.|
+|total_time |double precision   ||  Tiempo total de ejecución de las consultas, en milisegundos.|
 |min_time   |double precision   ||  Tiempo mínimo de ejecución de las consultas, en milisegundos.|
 |max_time   |double precision   ||  Tiempo máximo de ejecución de las consultas, en milisegundos.|
 |mean_time  |double precision   ||  Tiempo medio de ejecución de las consultas, en milisegundos.|
 |stddev_time|   double precision    ||  Desviación estándar del tiempo de ejecución de las consultas, en milisegundos. |
-|rows   |bigint ||  Número total de filas recuperadas o afectadas por la instrucción.|
-|shared_blks_hit|   bigint  ||  Número total de aciertos de caché de bloque compartidos por la instrucción.|
+|rows   |bigint ||  Número total de filas recuperadas o afectadas por la instrucción.|
+|shared_blks_hit|   bigint  ||  Número total de aciertos de caché de bloque compartidos por la instrucción.|
 |shared_blks_read|  bigint  ||  Número total de bloques compartidos leídos por la instrucción.|
-|shared_blks_dirtied|   bigint   || Número total de bloques compartidos desfasados por la instrucción. |
-|shared_blks_written|   bigint  ||  Número total de bloques compartidos escritos por la instrucción.|
+|shared_blks_dirtied|   bigint   || Número total de bloques compartidos desfasados por la instrucción. |
+|shared_blks_written|   bigint  ||  Número total de bloques compartidos escritos por la instrucción.|
 |local_blks_hit|    bigint ||   Número total de aciertos de caché de bloque locales por la instrucción.|
-|local_blks_read|   bigint   || Número total de bloques locales leídos por la instrucción.|
-|local_blks_dirtied|    bigint  ||  Número total de bloques locales desfasados por la instrucción.|
-|local_blks_written|    bigint  ||  Número total de bloques locales escritos por la instrucción.|
-|temp_blks_read |bigint  || Número total de bloques temporales leídos por la instrucción.|
-|temp_blks_written| bigint   || Número total de bloques temporales escritos por la instrucción.|
-|blk_read_time  |double precision    || Tiempo total que la instrucción dedica a leer los bloques, en milisegundos (si está habilitado track_io_timing; de lo contrario, cero).|
-|blk_write_time |double precision    || Tiempo total que la instrucción dedica a escribir los bloques, en milisegundos (si está habilitado track_io_timing; de lo contrario, cero).|
+|local_blks_read|   bigint   || Número total de bloques locales leídos por la instrucción.|
+|local_blks_dirtied|    bigint  ||  Número total de bloques locales desfasados por la instrucción.|
+|local_blks_written|    bigint  ||  Número total de bloques locales escritos por la instrucción.|
+|temp_blks_read |bigint  || Número total de bloques temporales leídos por la instrucción.|
+|temp_blks_written| bigint   || Número total de bloques temporales escritos por la instrucción.|
+|blk_read_time  |double precision    || Tiempo total que la instrucción dedica a leer los bloques, en milisegundos (si está habilitado track_io_timing; de lo contrario, cero).|
+|blk_write_time |double precision    || Tiempo total que la instrucción dedica a escribir los bloques, en milisegundos (si está habilitado track_io_timing; de lo contrario, cero).|
     
 ### <a name="querystorequerytextsview"></a>query_store.query_texts_view
 Esta vista devuelve datos de texto de consulta en el Almacén de consultas. Hay una fila para cada argumento de consulta diferente.
@@ -145,17 +144,17 @@ Esta vista devuelve datos de texto de consulta en el Almacén de consultas. Hay 
 |**Nombre**|  **Tipo**|   **Descripción**|
 |---|---|---|
 |query_text_id  |bigint     |Identificador de la tabla query_texts.|
-|query_sql_text |Varchar(10000)     |Texto de una instrucción representativa. Las consultas diferentes con la misma estructura se agrupadas; este texto es el texto para la primera consulta del clúster.|
+|query_sql_text |Varchar(10000)     |Texto de una instrucción representativa. Las consultas diferentes con la misma estructura se agrupan; este texto es el texto para la primera consulta del clúster.|
 
 ### <a name="querystorepgmswaitsamplingview"></a>query_store.pgms_wait_sampling_view
-Esta vista devuelve datos de eventos de espera en el Almacén de consultas. Hay una fila por cada identificador de base de datos, identificador de usuario, identificador de consulta y evento diferentes.
+Esta vista devuelve datos de eventos de espera en el Almacén de consultas. Hay una fila por cada identificador de base de datos, identificador de usuario, identificador de consulta y evento únicos.
 
 |**Nombre**|  **Tipo**|   **Referencias**| **Descripción**|
 |---|---|---|---|
 |user_id    |oid    |pg_authid.oid  |OID del usuario que ha ejecutado la instrucción.|
 |db_id  |oid    |pg_database.oid    |OID de la base de datos en la que se ha ejecutado la instrucción.|
-|query_id   |bigint     ||Código hash interno, calculado a partir del árbol de análisis de la instrucción.|
-|event_type |text       ||Tipo de evento que está esperando el back-end.|
+|query_id   |bigint     ||Código hash interno, calculado a partir del árbol de análisis de la instrucción.|
+|event_type |text       ||Tipo de evento que está esperando el back-end.|
 |event  |text       ||Nombre del evento de espera si el back-end está esperando.|
 |calls  |Entero        ||Número del mismo evento capturado.|
 
@@ -163,11 +162,11 @@ Esta vista devuelve datos de eventos de espera en el Almacén de consultas. Hay 
 ### <a name="functions"></a>Functions
 Query_store.qs_reset() devuelve void.
 
-`qs_reset` descarta todas las estadísticas recopiladas hasta ahora por el Almacén de consultas. Esta función solo se puede ejecutar mediante el rol de administrador del servidor.
+`qs_reset` descarta todas las estadísticas recopiladas hasta ahora por el Almacén de consultas. Esta función solo se puede ejecutar mediante el rol de administrador del servidor.
 
 Query_store.staging_data_reset() devuelve void.
 
-`staging_data_reset` descarta todas las estadística recopiladas en la memoria por el Almacén de consultas (es decir, los datos en la memoria que no se ha vaciado aún a la base de datos). Esta función solo se puede ejecutar mediante el rol de administrador del servidor.
+`staging_data_reset` descarta todas las estadísticas recopiladas en la memoria por el Almacén de consultas (es decir, los datos en la memoria que no se han vaciado aún a la base de datos). Esta función solo se puede ejecutar mediante el rol de administrador del servidor.
 
 ## <a name="limitations-and-known-issues"></a>Limitaciones y problemas conocidos
 - Si un servidor de PostgreSQL tiene el parámetro default_transaction_read_only activado, el Almacén de consultas no puede capturar datos.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 6/8/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: a7fe2cf151b79b02f4f8996ad938d8fc262a5f77
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b2733bed4418fdfcaefb20c04683cb6a229134e9
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49400101"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53594355"
 ---
 # <a name="enable-write-accelerator"></a>Habilitar el acelerador de escritura
 
@@ -41,7 +41,7 @@ La habilitación del Acelerador de escritura para los discos de sistema operativ
 Estas restricciones se aplican al usar el Acelerador de escritura para un VHD o disco de Azure:
 
 - El almacenamiento en caché de discos Premium debe establecerse en "Ninguno" o "Solo lectura". No se admite ningún otro modo de almacenamiento en caché.
-- Todavía no se admite la instantánea en un disco habilitado para el Acelerador de escritura. Esta restricción bloquea la capacidad que el servicio de Azure Backup tiene para realizar una instantánea coherente con la aplicación de todos los discos de la máquina virtual.
+- Actualmente, los discos con el Acelerador de escritura habilitado no admiten las instantáneas. Durante la copia de seguridad, el servicio Azure Backup excluye automáticamente los discos con el Acelerador de escritura habilitado conectados a la VM.
 - Solo los tamaños de E/S más pequeños (<=32KiB) toman la ruta de acceso acelerada. En situaciones de carga de trabajo donde los datos se cargan de forma masiva o donde los búferes de registros de transacción de los diferentes sistemas de administración de bases de datos (DBMS) se llenan hasta un mayor grado antes de conservarse en el almacenamiento, existe la probabilidad de que la E/S escrita en el disco no tome la ruta de acceso acelerada.
 
 Hay límites en los discos duros virtuales de Azure Premium Storage por máquina virtual que el Acelerador de escritura puede admitir. Los límites actuales son:

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.component: common
-ms.openlocfilehash: 85f93e15cfce1d44567c48c6c6f4b38c42dfb296
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a15c983291d35063884178f7b84e21fe4908b49a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416399"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632321"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Preguntas más frecuentes sobre la migración en Azure Storage
 
@@ -37,7 +37,7 @@ El script de automatización se ha diseñado para la implementación de Azure Re
 
 **¿Se aplica algún cargo por copiar datos entre dos recursos compartidos de archivos en la misma cuenta de almacenamiento de la misma región?**
 
-No. No se aplica ningún cargo por este proceso.
+ No. No se aplica ningún cargo por este proceso.
 
 **¿Cómo puedo realizar una copia de seguridad de toda mi cuenta de almacenamiento en otra diferente?**
 
@@ -118,6 +118,8 @@ Para obtener más información, consulte [Transferencia de datos con AzCopy en W
 
 **¿Cómo puedo mover discos administrados a otra cuenta de almacenamiento?**
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Siga estos pasos:
 
 1.  Detenga la máquina virtual a la que está conectado el disco administrado.
@@ -125,15 +127,15 @@ Siga estos pasos:
 2.  Copie el disco duro virtual del disco administrado de un área a otra ejecutando el siguiente script de Azure PowerShell:
 
     ```
-    Connect-AzureRmAccount
+    Connect-AzAccount
 
-    Select-AzureRmSubscription -SubscriptionId <ID>
+    Select-AzSubscription -SubscriptionId <ID>
 
-    $sas = Grant-AzureRmDiskAccess -ResourceGroupName <RG name> -DiskName <Disk name> -DurationInSecond 3600 -Access Read
+    $sas = Grant-AzDiskAccess -ResourceGroupName <RG name> -DiskName <Disk name> -DurationInSecond 3600 -Access Read
 
-    $destContext = New-AzureStorageContext –StorageAccountName contosostorageav1 -StorageAccountKey <your account key>
+    $destContext = New-AzStorageContext –StorageAccountName contosostorageav1 -StorageAccountKey <your account key>
 
-    Start-AzureStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer 'vhds' -DestContext $destContext -DestBlob 'MyDestinationBlobName.vhd'
+    Start-AzStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer 'vhds' -DestContext $destContext -DestBlob 'MyDestinationBlobName.vhd'
     ```
 
 3.  Cree un disco administrado mediante el archivo VHD en otra región en la que copió el VHD. Puede hacerlo ejecutando el siguiente script de Azure PowerShell:  
@@ -151,9 +153,9 @@ Siga estos pasos:
 
     $storageType = 'StandardLRS'
 
-    $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $vhdUri -StorageAccountId $storageId -DiskSizeGB 128
+    $diskConfig = New-AzDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $vhdUri -StorageAccountId $storageId -DiskSizeGB 128
 
-    $osDisk = New-AzureRmDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
+    $osDisk = New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
     ``` 
 
 Para obtener más información sobre cómo implementar una máquina virtual de un disco administrado, consulte [CreateVmFromManagedOsDisk.ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1).
@@ -164,7 +166,7 @@ Use AzCopy para descargar los datos. Para obtener más información, consulte [T
 
 **¿Cómo puedo cambiar la ubicación secundaria a la región Europa en una cuenta de almacenamiento?**
 
-Cuando crea una cuenta de almacenamiento, selecciona la región principal de la cuenta. La selección de la región secundaria se determina según la región primaria y no es posible cambiarla. Para más información, consulte [Geo-redundant storage (GRS): Cross-regional replication for Azure Storage](storage-redundancy.md) (Almacenamiento con redundancia geográfica (GRS): replicación entre regiones para Azure Storage).
+Cuando crea una cuenta de almacenamiento, selecciona la región principal de la cuenta. La selección de la región secundaria se determina según la región primaria y no es posible cambiarla. Para obtener más información, consulte [Almacenamiento con redundancia geográfica (GRS): replicación entre regiones para Azure Storage](storage-redundancy.md).
 
 **¿Dónde puedo obtener más información sobre el cifrado del servicio Azure Storage (SSE)?**  
   
@@ -191,7 +193,7 @@ Puede usar el [Explorador de Storage](https://azure.microsoft.com/features/stora
 
 **¿Hay requisitos previos para cambiar la replicación de una cuenta de almacenamiento de almacenamiento con redundancia geográfica a almacenamiento con redundancia local?**
 
-No. 
+ No. 
 
 **¿Cómo puedo acceder al almacenamiento redundante de Azure Files?**
 
@@ -234,7 +236,7 @@ Si tiene máquinas virtuales, hay que realizar varios pasos más antes de migrar
 
 **¿Cómo puedo pasar de una cuenta de almacenamiento clásica a una de almacenamiento de Azure Resource Manager?**
 
-Puede usar el cmdlet **Move-AzureStorageAccount**. Este cmdlet tiene varios pasos (validación, preparación y confirmación). Puede validar el cambio antes de efectuarlo.
+Puede usar el cmdlet **Move-AzStorageAccount**. Este cmdlet tiene varios pasos (validación, preparación y confirmación). Puede validar el cambio antes de efectuarlo.
 
 Si tiene máquinas virtuales, hay que realizar varios pasos más antes de migrar los datos de la cuenta de almacenamiento. Para obtener más información, consulte [Migración de recursos de IaaS de la implementación clásica a la de Resource Manager con Azure PowerShell](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md).
 
@@ -274,11 +276,11 @@ Para permitir que otras personas accedan a los recursos de almacenamiento, siga 
 
 -   Si usa el almacenamiento con redundancia geográfica con acceso de lectura, puede acceder a datos de la región secundaria en cualquier momento. Use uno de los siguientes métodos:  
       
-    - **AzCopy**: anexe **-secondary** al nombre de la cuenta de almacenamiento en la dirección URL para acceder al punto de conexión secundario. Por ejemplo:   
+    - **AzCopy**: anexe **-secondary** al nombre de la cuenta de almacenamiento en la dirección URL para obtener acceso al punto de conexión secundario. Por ejemplo:   
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
-    - **Token de SAS**: use un token de SAS para acceder a los datos desde el punto de conexión. Consulte [Uso de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md) para más información.
+    - **Token de SAS**: use un token de SAS para obtener acceso a los datos desde el punto de conexión. Consulte [Uso de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md) para más información.
 
 **¿Cómo puedo usar un dominio personalizado HTTPS con mi cuenta de almacenamiento? Por ejemplo, ¿cómo hago que "https://mystorageaccountname.blob.core.windows.net/images/image.gif"aparezca como "https://www.contoso.com/images/image.gif"?**
 

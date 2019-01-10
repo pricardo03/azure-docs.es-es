@@ -17,10 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.openlocfilehash: 42a4ea1e4dc352e56fbd65f69c9ed71e3b0c1038
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
+ms.lasthandoff: 12/21/2018
 ms.locfileid: "51238082"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configuración manual de grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure
@@ -45,7 +45,7 @@ En la tabla siguiente se enumeran los requisitos previos que debe completar ante
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Recurso compartido de archivos para testigo de clúster |  
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Cuenta de servicio de SQL Server | Cuenta de dominio |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Cuenta de servicio Agente SQL Server | Cuenta de dominio |  
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Puertos de firewall abiertos | - SQL Server: **1433** para la instancia predeterminada <br/> - Punto de conexión de reflejo de la base de datos: **5022** o cualquier puerto disponible <br/> - Sondeo de estado de la dirección IP del equilibrador de carga del grupo de disponibilidad: **59999** o cualquier puerto disponible <br/> - Sondeo de estado de la dirección IP del equilibrador de carga principal del clúster: **58888** o cualquier puerto disponible |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Puertos de firewall abiertos | - SQL Server: **1433** para instancia predeterminada <br/> - Punto de conexión de creación de reflejo de la base de datos: **5022** o cualquier puerto disponible <br/> - Sondeo de estado de la dirección IP del equilibrador de carga del grupo de disponibilidad: **59999** o cualquier puerto disponible <br/> - Sondeo de estado de la dirección IP del equilibrador de carga del núcleo del clúster: **58888** o cualquier puerto disponible |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Agregar característica Clústeres de conmutación por error | Ambos servidores SQL Server necesitan esta característica |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Cuenta de dominio de la instalación | - Administrador local en cada servidor SQL Server <br/> - Miembro del rol fijo del servidor sysadmin de SQL Server para cada instancia de SQL Server  |
 

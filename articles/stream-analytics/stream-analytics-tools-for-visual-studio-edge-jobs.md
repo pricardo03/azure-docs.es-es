@@ -4,17 +4,17 @@ description: En este artículo se describe cómo crear y depurar sus trabajos pa
 services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/13/2018
-ms.openlocfilehash: 5dc90a1334b525c02be3eae2985900ab07cf2e05
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 886cae572ee651efd217e9a87b935918eebe8b13
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696255"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558828"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Desarrollo de trabajos para dispositivos perimetrales de Stream Analytics mediante herramientas de Visual Studio
 
@@ -32,25 +32,25 @@ Para completar este tutorial, debe cumplir estos requisitos previos:
 
 En Visual Studio, seleccione **Archivo** > **Nuevo** > **Proyecto**. Vaya a la lista **Plantillas** de la izquierda y expanda **Azure Stream Analytics** > **Stream Analytics Edge** >  (Stream Analytics para dispositivos perimetrales) **Azure Stream Analytics Edge Application** (Aplicación de Stream Analytics para dispositivos perimetrales). Proporcione un nombre, una ubicación y una solución para el proyecto y seleccione **Aceptar**.
 
-![Nuevo proyecto para dispositivos perimetrales](./media/stream-analytics-tools-for-visual-studio-edge-jobs/new-edge-project.png)
+![Nuevo proyecto de Edge en Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/new-stream-analytics-edge-project.png)
 
 Una vez que se crea el proyecto, vaya al **Explorador de soluciones** para ver la jerarquía de carpetas.
 
-![Vista del Explorador de soluciones](./media/stream-analytics-tools-for-visual-studio-edge-jobs/edge-project-in-solution-explorer.png)
+![Vista del Explorador de soluciones del trabajo de Edge de Stream Analytics](./media/stream-analytics-tools-for-visual-studio-edge-jobs/edge-project-in-solution-explorer.png)
 
  
 ## <a name="choose-the-correct-subscription"></a>Elegir la suscripción correcta
 
 1. En el menú **Ver** de Visual Studio, seleccione **Explorador de servidores**.  
 
-2. Haga clic con el botón derecho en **Azure**, seleccione **Connect to Microsoft Azure Subscription** (Conectarse a la suscripción de Microsoft Azure) e inicie sesión con su cuenta de Azure.
+2. Haga clic con el botón derecho en **Azure** > seleccione **Connect to Microsoft Azure Subscription** (Conectarse a la suscripción de Microsoft Azure) > e inicie sesión con su cuenta de Azure.
 
 ## <a name="define-inputs"></a>Definir las entradas
 
 1. En el **Explorador de soluciones**, expanda el nodo **Entradas**; debería ver una entrada llamada **EdgeInput.json**. Haga doble clic para ver su configuración.  
 
-2. Asegúrese de que el tipo de origen es **Flujo de datos**, el origen es **Centro de Microsoft Edge**, el formato de serialización de eventos es **Json** y la codificación es **UTF8**. Opcionalmente, puede cambiar el nombre del **Alias de entrada**, pero en este ejemplo lo dejaremos como está. En caso de cambiar el nombre del alias de entrada, use el nombre que especificó al definir la consulta. Haga clic en **Save** (Guardar) para guardar la configuración.  
-   ![Entrada: configuración](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-input-configuration.png)
+2. Establezca el tipo de origen en **Flujo de datos**. A continuación, establezca Origen en **Centro de IoT Edge**, Formato de serialización de eventos en **JSON** y Codificación en **UTF8**. Opcionalmente, puede cambiar el nombre del **Alias de entrada**, pero en este ejemplo lo dejaremos como está. En caso de cambiar el nombre del alias de entrada, use el nombre que especificó al definir la consulta. Haga clic en **Save** (Guardar) para guardar la configuración.  
+   ![Configuración de la entrada del trabajo de Stream Analytics](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-input-configuration.png)
  
 
 
@@ -59,7 +59,7 @@ Una vez que se crea el proyecto, vaya al **Explorador de soluciones** para ver l
 1. En el **Explorador de soluciones**, expanda el nodo **Salidas**; debería ver una salida llamada **EdgeOutput.json**. Haga doble clic para ver su configuración.  
 
 2. Asegúrese de que el receptor es **Centro de Microsoft Edge**, el formato de serialización es **Json**, la codificación es **UTF8** y el formato es **Matriz**. Opcionalmente, puede cambiar el nombre del **Alias de salida**, pero en este ejemplo lo dejaremos como está. En caso de cambiar el nombre del alias de salida, use el nombre que especificó al definir la consulta. Haga clic en **Save** (Guardar) para guardar la configuración. 
-   ![Salida: configuración](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-output-configuration.png)
+   ![Configuración de la salida del trabajo de Stream Analytics](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-output-configuration.png)
  
 ## <a name="define-the-transformation-query"></a>Definir la consulta de transformación
 
@@ -87,17 +87,17 @@ Para probar la consulta localmente, debe cargar los datos de ejemplo. Para obten
 1. Para cargar datos de ejemplo, haga clic con el botón derecho en el archivo **EdgeInput.json** y elija **Agregar entrada local**.  
 
 2. En la ventana emergente, haga clic en **Examinar** para buscar los datos de ejemplo en la ruta de acceso local y seleccione **Guardar**.
-   ![Entrada local: configuración](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-local-input-configuration.png)
+   ![Configuración de entrada local en Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-local-input-configuration.png)
  
 3. Un archivo denominado **local_EdgeInput.json** se agrega automáticamente a la carpeta de entradas.  
 4. Puede ejecutarlo localmente o enviarlo a Azure. Para probar la consulta, seleccione **Ejecutar localmente**.  
-   ![Opciones de ejecución](./media/stream-analytics-tools-for-visual-studio-edge-jobs/run-options.png)
+   ![Opciones de ejecución de trabajos de Stream Analytics en Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-visual-stuidio-run-options.png)
  
 5. La ventana de símbolo del sistema muestra el estado del trabajo. Cuando el trabajo se ejecuta correctamente, se crea una carpeta similar a "2018-02-23-11-31-42" en la ruta de acceso de la carpeta del proyecto "Visual Studio 2015\Projects\MyASAEdgejob\MyASAEdgejob\ASALocalRun\2018-02-23-11-31-42". Vaya a la ruta de acceso de carpeta para ver los resultados de la carpeta local:
 
    También puede iniciar sesión en Azure Portal y comprobar que se ha creado el trabajo. 
 
-   ![Carpeta de resultados](./media/stream-analytics-tools-for-visual-studio-edge-jobs/result-folder.png)
+   ![Carpeta de resultados de trabajos de Stream Analytics](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-job-result-folder.png)
 
 ## <a name="submit-the-job-to-azure"></a>Enviar el trabajo a Azure
 
@@ -107,19 +107,19 @@ Para probar la consulta localmente, debe cargar los datos de ejemplo. Para obten
 
 3. Se abre una ventana emergente, donde puede elegir actualizar un trabajo de para dispositivos perimetrales existente o crear uno nuevo. Cuando se actualiza un trabajo existente, se sustituye toda la configuración del trabajo; en este escenario, publicará un nuevo trabajo. Seleccione **Create a New Azure Stream Analytics Job** (Crear un nuevo trabajo de Azure Stream Analytics), escriba un nombre para el trabajo (algo como **MyASAEdgeJob**), elija los valores adecuados de **Suscripción**, **Grupo de recursos** y **Ubicación** y seleccione **Enviar**.
 
-   ![Enviar a Azure](./media/stream-analytics-tools-for-visual-studio-edge-jobs/submit-to-azure.png)
+   ![Enviar un trabajo de Stream Analytics a Azure desde Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/submit-stream-analytics-job-to-azure.png)
  
    Ahora se ha creado el trabajo para dispositivos perimetrales de Stream Analytics; para saber cómo implementarlo en sus dispositivos, puede consultar el [tutorial de ejecución de trabajos en IoT Edge](stream-analytics-edge.md). 
 
 ## <a name="manage-the-job"></a>Administrar el trabajo 
 
-Puede ver el estado del trabajo y el diagrama de trabajos desde el Explorador de servidores. En el **Explorador de servidores** > **Stream Analytics**, expanda la suscripción y el grupo de recursos donde implementó el trabajo para dispositivos perimetrales; puede ver que MyASAEdgejob tiene el estado **Creado**. Expanda el nodo de trabajos y haga doble clic en él para abrir la vista de trabajos.
+Puede ver el estado del trabajo y el diagrama de trabajos desde el Explorador de servidores. Desde **Stream Analytics** en **Explorador de servidores**, expanda la suscripción y el grupo de recursos donde implementó el trabajo de Edge. Puede ver que MyASAEdgejob tiene el estado **Creado**. Expanda el nodo de trabajos y haga doble clic en él para abrir la vista de trabajos.
 
-![Opciones del Explorador de servidores](./media/stream-analytics-tools-for-visual-studio-edge-jobs/server-explorer-options.png)
+![Opciones de administración de trabajos del Explorador de servidores](./media/stream-analytics-tools-for-visual-studio-edge-jobs/server-explorer-options.png)
  
-La ventana de vista de trabajos proporciona operaciones como actualizar el trabajo, eliminar el trabajo, abrir el trabajo desde Azure Portal, etc.
+La ventana de vista de trabajos proporciona operaciones como la actualización del trabajo, la eliminación del trabajo y la apertura del trabajo desde Azure Portal.
 
-![Diagrama de trabajos y otras opciones](./media/stream-analytics-tools-for-visual-studio-edge-jobs/job-diagram-and-other-options.png) 
+![Diagrama de trabajos y otras opciones en Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/job-diagram-and-other-options.png) 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

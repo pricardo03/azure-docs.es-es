@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 3b979a9a7e93992ba593697fa9465fdadc1e58b9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4a272b028e1e3ef2778227f259c0b1b980af885d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240399"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547605"
 ---
 # <a name="replication-with-sql-database-managed-instance"></a>Replicación con Instancia administrada de SQL Database
 
@@ -63,6 +63,8 @@ Se requiere el publicador y el distribuidor en Azure SQL Database:
 - La conectividad usa la autenticación de SQL entre los participantes de la replicación.
 
 - Un recurso compartido de cuenta de Azure Storage para el directorio de trabajo de replicación.
+
+- El puerto 445 (salida TCP) debe estar abierto en las reglas de seguridad de la subred de Instancia administrada para obtener acceso al recurso compartido de archivos de Azure
 
 ## <a name="features"></a>Características
 

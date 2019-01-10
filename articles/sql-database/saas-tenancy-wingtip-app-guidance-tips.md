@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: da8814cfd8fca8da061c27d9c5b69af15bff5007
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 42fd1c19a9cda0aa3d5d62bd265467327250a784
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054411"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606034"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Instrucciones generales para trabajar con aplicaciones SaaS de ejemplo de vales de Wingtip
 
@@ -57,7 +57,7 @@ Al establecer estos valores aquí simplemente evita tener que actualizar estos v
 
 ### <a name="execute-the-scripts-by-pressing-f5"></a>Ejecutar los scripts al presionar F5
 
-Varios scripts usan *$PSScriptRoot* para la navegación por las carpetas y *$PSScriptRoot* solo se evalúa cuando se ejecutan los scripts presionando **F5**.  Resaltar y ejecutar una selección (**F8**) puede dar lugar a errores, por tanto, presione **F5** al ejecutar los scripts.
+Varios scripts usan *$PSScriptRoot* para la navegación por las carpetas y *$PSScriptRoot* solo se evalúa cuando se ejecutan los scripts presionando **F5**.  Resaltar y ejecutar una selección (**F8**) puede dar lugar a errores, por tanto, presione **F5** al ejecutar los scripts.
 
 ### <a name="step-through-the-scripts-to-examine-the-implementation"></a>Siga paso a paso los scripts para examinar la implementación
 
@@ -94,7 +94,7 @@ Para garantizar una conexión de demostración correcta, todos los servidores ti
 
    ![Servidor de catálogo](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. Las credenciales para la demo son: inicio de sesión = *developer*, contraseña =*P@ssword1*.
+3. Las credenciales de demostración son: Inicio de sesión = *developer* y contraseña = *P@ssword1*
 
     En la imagen siguiente se muestra el inicio de sesión para el patrón *Base de datos por inquilino*. 
     ![conexión](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)

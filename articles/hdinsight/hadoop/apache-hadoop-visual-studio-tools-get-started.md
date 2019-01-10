@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 24efb8490afdf67b96d531802362f88bef7d13de
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: dc93d0b44d6d99e8418d4333ca8698bc9ebf3a96
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166496"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629686"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Conectarse a Azure HDInsight y ejecutar consultas de Apache Hive con Herramientas de Data Lake para Visual Studio
 
@@ -23,7 +23,7 @@ Aprenda a usar Herramientas de Data Lake para Visual Studio (también conocido c
 
 Para más información sobre el uso de HDInsight, consulte [Introducción a HDInsight](../hdinsight-hadoop-introduction.md) y [Primeros pasos con HDInsight](apache-hadoop-linux-tutorial-get-started.md). 
 
-Para más información acerca de cómo conectarse a un clúster de Storm, consulte [Desarrollo de topologías de C# para Apache Storm con Azure Data Lake Tools para Visual Studio](../storm/apache-storm-develop-csharp-visual-studio-topology.md).
+Para más información acerca de cómo conectarse a un clúster de Apache Storm, consulte [Desarrollo de topologías de C# para Apache Storm en HDInsight mediante Visual Studio](../storm/apache-storm-develop-csharp-visual-studio-topology.md).
 
 Data Lake Tools para Visual Studio se puede utilizar para acceder a Azure Data Lake Analytics y a HDInsight. Para más información acerca de Data Lake Tools, consulte [Desarrollo de scripts U-SQL mediante Data Lake Tools para Visual Studio](../../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md).
 
@@ -31,13 +31,12 @@ Data Lake Tools para Visual Studio se puede utilizar para acceder a Azure Data L
 
 Para completar este tutorial y usar Data Lake Tools para Visual Studio, se necesitan los siguientes elementos:
 
-* Un clúster de HDInsight de Azure. Para crear un clúster de HDInsight, consulte [Tutorial de Hadoop: introducción al uso de Hadoop en HDInsight](apache-hadoop-linux-tutorial-get-started.md). Para ejecutar consultas de Hive interactivas, necesita un clúster de [Interactive Query de HDInsight](../interactive-query/apache-interactive-query-get-started.md).
+* Un clúster de HDInsight de Azure. Para crear un clúster de HDInsight, consulte [Introducción a Apache Hadoop en Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md). Para ejecutar consultas interactivas de Apache Hive, necesita un clúster de [HDInsight Interactive Query](../interactive-query/apache-interactive-query-get-started.md).
 * Un equipo que tenga Visual Studio 2017, 2015 o 2013 instalado.
     
     > [!NOTE]
     > Actualmente, solo está disponible la versión en inglés de Data Lake Tools para Visual Studio.
-    > 
-    > 
+
 
 ## <a name="install-or-update-data-lake-tools-for-visual-studio"></a>Instalación o actualización de Data Lake Tools para Visual Studio
 
@@ -66,8 +65,7 @@ Data Lake Tools para Visual Studio se puede utilizar para conectarse a clústere
 
 > [!NOTE]
 > Para más información acerca de cómo conectarse a un clúster de Hadoop genérico, consulte [How to write and submit Hive queries using Visual Studio](https://blogs.msdn.com/b/xiaoyong/archive/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio.aspx) (Escritura y envío de consultas de Hive mediante Visual Studio).
-> 
-> 
+
 
 Para conectarse a su suscripción de Azure:
 
@@ -77,8 +75,7 @@ Para conectarse a su suscripción de Azure:
    
    > [!NOTE]
    > Debe abrirse la ventana de **lista de tareas de HDInsight**. Si no ve la ventana, en el menú **Ver**, seleccione **Otras ventanas**y, después, seleccione **Ventana de lista de tareas de HDInsight**.  
-   > 
-   > 
+
 4. Escriba sus credenciales de suscripción de Azure y, después, seleccione **Iniciar sesión**. La autenticación solo se requiere si nunca se ha conectado a la suscripción de Azure desde Visual Studio en este equipo.
 5. En el Explorador de servidores, aparece una lista de los clústeres de HDInsight existentes. Si no tiene ningún clúster, puede crear uno mediante Azure Portal, Azure PowerShell o el SDK de HDInsight. Para más información, consulte [Creación de clústeres de Hadoop en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
    
@@ -106,13 +103,12 @@ Después de abrir un contenedor, puede usar los siguientes botones para cargar, 
 
 ![Captura de pantalla de operaciones de blob de Data Lake Tools para Visual Studio en el Explorador de servidores](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.blob.operations.png "Carga, eliminación y descarga de blobs en el Explorador de servidores")
 
-## <a name="run-interactive-hive-queries"></a>Ejecución de consultas de Hive interactivas
-[Apache Hive](https://hive.apache.org) es una infraestructura de almacenamiento de datos que se basa en Hadoop. Hive se utiliza para el análisis, las consultas y resumen de los datos. Data Lake Tools para Visual Studio se puede usar para ejecutar consultas de Hive desde Visual Studio. Para más información sobre Hive, consulte [Uso de Hive con HDInsight](hdinsight-use-hive.md).
+## <a name="run-interactive-apache-hive-queries"></a>Ejecución de consultas interactivas de Apache Hive
+[Apache Hive](https://hive.apache.org) es una infraestructura de almacenamiento de datos que se basa en Hadoop. Hive se utiliza para el análisis, las consultas y resumen de los datos. Data Lake Tools para Visual Studio se puede usar para ejecutar consultas de Hive desde Visual Studio. Para más información acerca de Hive, consulte [Uso de Apache Hive con HDInsight](hdinsight-use-hive.md).
 
-[Interactive Query](../interactive-query/apache-interactive-query-get-started.md) usa [Hive en LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) en Apache Hive 2.1. Interactive Query aporta la interactividad a las complejas consultas de estilo de almacenamiento de datos en grandes conjuntos de datos almacenados. La ejecución de consultas de Hive en Interactive Query es mucho más rápida en comparación con los trabajos por lotes tradicionales de Hive. Para más información, consulte [Ejecución de trabajos por lotes de Hive](#run-hive-batch-jobs).
+[Interactive Query](../interactive-query/apache-interactive-query-get-started.md) usa [Hive en LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) en Apache Hive 2.1. Interactive Query aporta la interactividad a las complejas consultas de estilo de almacenamiento de datos en grandes conjuntos de datos almacenados. La ejecución de consultas de Hive en Interactive Query es mucho más rápida en comparación con los trabajos por lotes tradicionales de Hive. Para más información, consulte [Ejecución de trabajos por lotes de Apache Hive](#run-hive-batch-jobs).
 
-> [!NOTE]
->
+> [!NOTE]  
 > Solo se pueden ejecutar consultas de Hive interactivas al conectarse a un clúster de [HDInsight Interactive Query](../interactive-query/apache-interactive-query-get-started.md).
 
 También se puede utilizar Data Lake Tools para Visual Studio para ver el contenido de un trabajo de Hive. Data Lake Tools para Visual Studio recopila y muestra los registros Yarn de determinados trabajos de Hive.
@@ -132,7 +128,7 @@ Para enumerar las tablas de Hive y ver el esquema de la tabla de Hive:
    ![Captura de pantalla de una consulta de Hive de HDInsight para Visual Studio](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.hive.schema.png "Resultados de la consulta de Hive")
 
 ### <a name="create-hive-tables"></a>Crear tablas de Hive
-Para crear una tabla de Hive, puede usar la GUI o las consultas de Hive. Para obtener información acerca del uso de consultas de Hive, consulte [Ejecución de consultas de Hive](#run.queries).
+Para crear una tabla de Hive, puede usar la GUI o las consultas de Hive. Para obtener información acerca del uso de consultas de Hive, consulte [Ejecución de consultas de Apache Hive](#run.queries).
 
 Para crear una tabla de Hive:
 
@@ -163,7 +159,7 @@ Para crear, validar y ejecutar consultas ad hoc:
    
    > [!NOTE]
    > IntelliSense solo sugiere los metadatos del clúster que se selecciona en la barra de herramientas de HDInsight.
-   > 
+
    
 4. (Opcional) Para comprobar los errores de sintaxis del script, seleccione **Validar script**.
    
@@ -205,7 +201,8 @@ Para ver trabajos de Hive:
     ![Captura de pantalla de la ventana Ver trabajos de Hive de Visual Studio Tools en HDInsight](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.view.hive.jobs.png "Ver trabajos de Hive")
 
 ### <a name="faster-path-hive-execution-via-hiveserver2"></a>Ejecución de Hive con una ruta de acceso más rápida mediante HiveServer2
-> [!NOTE]
+
+> [!NOTE]  
 > Esta característica solo funciona en un clúster de la versión 3.2 de HDInsight, o cualquier versión posterior.
  
 Data Lake Tools para Visual Studio se usa para enviar trabajos de Hive mediante [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (denominado también Templeton). Este método de envío de trabajos de Hive tardó mucho tiempo en devolver los detalles del trabajo y la información de error.
@@ -240,7 +237,7 @@ En Data Lake Tools para Visual Studio, puede ver los gráficos de rendimiento de
 
 Después de enviar un trabajo de Hive a Visual Studio, este mostrará el gráfico de dicho trabajo cuando se complete. Es posible que tenga que hacer clic en el botón **Actualizar** para ver el estado del trabajo más reciente.
 
-> [!NOTE]
+> [!NOTE]  
 > Esta característica solo está disponible para un clúster de la versión 3.2.4.593 de HDInsight, o cualquier versión posterior. La característica solo funciona en trabajos completados. Para usar esta característica también debe enviar trabajo a través de WebHCat. La siguiente imagen aparece cuando se ejecuta una consulta a través de HiveServer2: 
 > 
 > ![Captura de pantalla del gráfico de rendimiento de Tez de Hive para Hadoop](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.hive.tez.performance.graph.png "Estado del trabajo")
@@ -259,7 +256,7 @@ Data Lake Tools para Visual Studio puede usarse para ver el contenido del trabaj
 
 Para más información sobre cómo ejecutar trabajos por lotes de Hive, consulte [Ejecución de consultas de Hive interactivas](#run-interactive-hive-queries). La información de esa sección se aplica a la ejecución de trabajos por lotes de Hive que tardan más en ejecutarse.
 
-## <a name="run-pig-scripts"></a>Ejecución de scripts de Pig
+## <a name="run-apache-pig-scripts"></a>Ejecución de scripts de Apache Pig
 Data Lake Tools para Visual Studio se puede usar para crear y enviar scripts de Pig a clústeres de HDInsight. En primer lugar, cree un proyecto de Pig desde una plantilla. Luego, envíe el script a los clústeres de HDInsight.
 
 ## <a name="feedback-and-known-issues"></a>Comentarios y problemas conocidos
@@ -271,7 +268,7 @@ Data Lake Tools para Visual Studio se puede usar para crear y enviar scripts de 
 En este artículo, ha aprendido a usar el paquete Data Lake Tools para Visual Studio para establecer conexión a los clústeres de HDInsight desde Visual Studio. También ha aprendido a ejecutar una consulta de Hive. Para obtener más información, consulte estos artículos:
 
 * [Uso de Hive para Hadoop en HDInsight](hdinsight-use-hive.md)
-* [Introducción al uso de Hadoop en HDInsight](apache-hadoop-linux-tutorial-get-started.md)
-* [Envío de trabajos de Hadoop en HDInsight](submit-apache-hadoop-jobs-programmatically.md)
-* [Análisis de datos de Twitter con Hadoop en HDInsight](../hdinsight-analyze-twitter-data.md)
+* [Introducción al uso de Apache Hadoop en HDInsight](apache-hadoop-linux-tutorial-get-started.md)
+* [Envío de trabajos de Apache Hadoop en HDInsight](submit-apache-hadoop-jobs-programmatically.md)
+* [Análisis de datos de Twitter con Apache Hadoop en HDInsight](../hdinsight-analyze-twitter-data.md)
 

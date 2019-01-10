@@ -8,18 +8,20 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: dobett
-ms.openlocfilehash: c20b1d5f3a84e950e37a3236272256db620a5985
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 838a33fd390b28fec609c42487dca225ddc6eaa8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831107"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628211"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>Conexión del dispositivo Raspberry Pi al acelerador de la solución de supervisión remota (C)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-En este tutorial se muestra cómo conectar un dispositivo físico al acelerador de la solución de supervisión remota. Como sucede con la mayoría de aplicaciones insertadas que se ejecutan en dispositivos restringidos, el código cliente para la aplicación del dispositivo Raspberry Pi se escribe en C. En este tutorial, compilará la aplicación en un dispositivo Raspberry Pi que ejecuta el sistema operativo Raspbian.
+En este tutorial se muestra cómo conectar un dispositivo real al acelerador de soluciones de supervisión remota. Como sucede con la mayoría de aplicaciones insertadas que se ejecutan en dispositivos restringidos, el código cliente para la aplicación del dispositivo Raspberry Pi se escribe en C. En este tutorial, compilará la aplicación en un dispositivo Raspberry Pi que ejecuta el sistema operativo Raspbian.
+
+Si prefiere simular un dispositivo, consulte [Crear y probar un nuevo dispositivo simulado](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
 ### <a name="required-hardware"></a>Requisitos de hardware
 
@@ -36,7 +38,7 @@ Un equipo de escritorio que permita conectarse remotamente a la línea de comand
 
 Necesita el cliente SSH en su máquina de escritorio para poder acceder de forma remota a la línea de comandos en su Raspberry Pi.
 
-- Windows no incluye ningún cliente SSH. Se recomienda usar [PuTTY](http://www.putty.org/).
+- Windows no incluye ningún cliente SSH. Se recomienda usar [PuTTY](https://www.putty.org/).
 - La mayoría de las distribuciones de Linux y Mac OS incluyen la utilidad de línea de comandos de SSH. Para más información, consulte [SSH Using Linux or Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md) (SSH cuando se usa Linux o Mac OS).
 
 ### <a name="required-raspberry-pi-software"></a>Software necesario de Raspberry Pi
@@ -59,7 +61,7 @@ Los pasos siguientes muestran cómo preparar el dispositivo Raspberry Pi para co
 
 El [código de ejemplo](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring_client) que se usa en esta guía está disponible en el repositorio de GitHub de los SDK de C para Azure IoT.
 
-### <a name="download-the-source-code-and-prepare-the-project"></a>Descargar el código fuente y preparar el proyecto
+### <a name="download-the-source-code-and-prepare-the-project"></a>Descarga del código fuente y preparación del proyecto
 
 Para preparar el proyecto, clone o descargue el [repositorio de SDK de C para Azure IoT](https://github.com/Azure/azure-iot-sdk-c) en GitHub.
 
@@ -73,7 +75,7 @@ Abra el archivo **remote_monitoring.c** de la carpeta **samples/solutions/remote
 
 En los pasos siguientes se describe cómo se puede usar *CMake* para compilar la aplicación cliente. La aplicación cliente de supervisión remota se compila como parte del proceso de compilación del SDK.
 
-1. Edite el archivo **remote_monitoring.c** para reemplazar `<connectionstring>` por la cadena de conexión de dispositivo que ha anotado al principio de esta guía de procedimientos al agregar un dispositivo al acelerador de soluciones.
+1. Edite el archivo **remote_monitoring.c** para reemplazar `<connectionstring>` por la cadena de conexión de dispositivo que ha anotado al principio de esta guía paso a paso al agregar un dispositivo al acelerador de soluciones.
 
 1. Vaya a la raíz de la copia clonada del [repositorio de SDK de C para Azure IoT](https://github.com/Azure/azure-iot-sdk-c) y ejecute los comandos siguientes para compilar la aplicación cliente:
 

@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 12/10/2018
 ms.author: kgremban
-ms.openlocfilehash: ccd38dd7570dc451a1a5b87163bfdd7aea51dad5
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: dbe9f18f5a38284e2b263d636656c88b1743d7ea
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567441"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555649"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Instalación del entorno de ejecución de Azure IoT Edge en Linux (ARM32v7/armhf)
 
@@ -175,6 +175,39 @@ En dispositivos con recursos limitados, se recomienda encarecidamente establecer
 
 Si la red tiene un servidor proxy, siga los pasos descritos en [Configure your IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md) (Configuración del dispositivo IoT Edge para comunicarse mediante un servidor proxy).
 
+## <a name="uninstall-iot-edge"></a>Desinstalación de IoT Edge
+
+Si quiere quitar la instalación de IoT Edge del dispositivo de Linux, use los siguientes comandos de la línea de comandos. 
+
+Quite el entorno de ejecución de Azure IoT Edge. 
+
+```bash
+sudo apt-get remove --purge iotedge
+```
+
+Cuando se quita el entorno de ejecución de Azure IoT Edge, el contenedor que se ha creado se detiene, pero sigue existiendo en el dispositivo. Observe todos los contenedores para ver cuáles permanecen. 
+
+```bash
+sudo docker ps -a
+```
+
+Elimine los contenedores del dispositivo, incluidos los dos contenedores del entorno en tiempo de ejecución. 
+
+```bash
+sudo docker rm -f <container name>
+```
+
+Por último, quite el entorno en tiempo de ejecución del contenedor del dispositivo. 
+
+```bash 
+sudo apt-get remove --purge moby-cli
+sudo apt-get remove --purge moby-engine
+```
+
 ## <a name="next-steps"></a>Pasos siguientes
 
+Ahora que tiene un dispositivo IoT Edge aprovisionado con el entorno de ejecución instalado, puede [implementar módulos de IoT Edge](how-to-deploy-modules-portal.md).
+
 Si tiene problemas con la instalación correcta del runtime de IoT Edge, consulte la página de [solución de problemas](troubleshoot.md#stability-issues-on-resource-constrained-devices).
+
+Para actualizar una instalación existente a la versión más reciente de IoT Edge, consulte [Actualice el archivo de configuración del demonio de seguridad y el entorno de ejecución de IoT Edge](how-to-update-iot-edge.md).

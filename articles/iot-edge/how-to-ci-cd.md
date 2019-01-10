@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a714cec5ce05473887f9f06d47c75563bf878081
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 3c4f5d6888d581cb44702a8d76e1ebbb13845091
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386832"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582922"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integración continua e implementación continua en Azure IoT Edge
 
@@ -40,7 +40,7 @@ En esta sección, creará una solución de IoT Edge de ejemplo que contendrá pr
 
 3. Ahora su solución de IoT Edge de ejemplo ya está lista. El módulo predeterminado de C# actúa como módulo de mensajes de canalización. En `deployment.template.json`, verá que esta solución contiene dos módulos. El mensaje se genera a partir del módulo `tempSensor` y se canaliza directamente mediante `FilterModule`, para finalmente enviarse a su centro de IoT.
 
-4. Guarde estos proyectos y, a continuación, comprométase con su instancia de Azure Repos.
+4. Guarde estos proyectos y, a continuación, comprométase con su repositorio de Azure Repos.
     
 > [!NOTE]
 > Para más información sobre el uso Azure Repos, vea [Share your code with Visual Studio and Azure Repos](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts) (Compartir el código con Visual Studio y Azure Repos).
@@ -69,11 +69,11 @@ En esta sección, creará una canalización de compilación que está configurad
     
     * Elija si desea compilar los módulos en la plataforma amd64 para contenedores Linux, elija **Hosted Ubuntu 1604**.
     * Elija si desea compilar los módulos en la plataforma amd64 para contenedores Windows, elija **Hosted VS2017**. 
-    * Si quiere compilar los módulos en la plataforma arm32v7 para contenedores Linux, tiene que configurar su propio agente de compilación haciendo clic en el botón **Administrar**.
+    * Si quiere compilar los módulos en la plataforma arm32v7 para contenedores Linux, tiene que configurar su propio agente de compilación mediante el botón **Administrar**.
     
     ![Configuración del grupo de agentes de compilación](./media/how-to-ci-cd/configure-env.png)
 
-1. En Trabajo de agente, haga clic en "+" para agregar tres tareas en la canalización de compilación. Las dos primeras son de **Azure IoT Edge**. Y la tercera es de **Publicar los artefactos de la compilación**.
+1. En Trabajo de agente, abra "+" para agregar tres tareas en la canalización de compilación. Las dos primeras son de **Azure IoT Edge**. Y la tercera es de **Publicar los artefactos de la compilación**.
     
     ![Adición de tareas a la canalización de compilación](./media/how-to-ci-cd/add-tasks.png)
 
@@ -93,13 +93,13 @@ En esta sección, creará una canalización de compilación que está configurad
 
     ![Activación del desencadenador de integración continua](./media/how-to-ci-cd/configure-trigger.png)
 
-    Guarde la nueva canalización de compilación. Haga clic en el botón **Save** (Guardar).
+    Guarde la nueva canalización de compilación con el botón **Guardar**.
 
 
 ## <a name="configure-azure-pipelines-for-continuous-deployment"></a>Configuración de Azure Pipelines para implementación continua
 En esta sección, creará una canalización de versión que está configurada para ejecutarse automáticamente cuando la canalización de compilación coloca artefactos, y mostrará los registros de implementación en Azure Pipelines.
 
-1. En la pestaña **Versiones**, elija **+ Nueva canalización**. O bien, si ya tiene canalizaciones de versión, elija el botón **+ Nuevo** y haga clic en **+ Nueva canalización de versión**.  
+1. En la pestaña **Versiones**, elija **+ Nueva canalización**. O bien, si ya tiene canalizaciones de versión, elija el botón **+ Nuevo** y seleccione **+ Nueva canalización de versión**.  
 
     ![Agregar canalización de versión](./media/how-to-ci-cd/add-release-pipeline.png)
 
@@ -115,7 +115,7 @@ En esta sección, creará una canalización de versión que está configurada pa
 
     ![Agregar artefactos](./media/how-to-ci-cd/add-artifacts.png)  
     
-    En la página **Agregar un artefacto**, elija el tipo de origen **Compilar**. A continuación, seleccione el proyecto y la canalización de compilación que ha creado. A continuación, haga clic en **Agregar**.
+    En la página **Agregar un artefacto**, elija el tipo de origen **Compilar**. A continuación, seleccione el proyecto y la canalización de compilación que ha creado. A continuación, seleccione **Agregar**.
 
     ![Adición de un artefacto de compilación](./media/how-to-ci-cd/add-an-artifact.png)
 
@@ -127,7 +127,7 @@ En esta sección, creará una canalización de versión que está configurada pa
 
     ![Configurar las tareas de QA](./media/how-to-ci-cd/view-stage-tasks.png)
 
-   La tarea de implementación no distingue la plataforma, lo que significa que puede elegir **Hosted VS2017** o **Hosted Ubuntu 1604** en el **Grupo de agentes** (o cualquier otro agente administrado por usted mismo). Haga clic en "+" y agregue una tarea.
+   La tarea de implementación no distingue la plataforma, lo que significa que puede elegir **Hosted VS2017** o **Hosted Ubuntu 1604** en el **Grupo de agentes** (o cualquier otro agente administrado por usted mismo). Seleccione "+" y agregue una tarea.
 
     ![Agregar tareas para QA](./media/how-to-ci-cd/add-task-qa.png)
 
@@ -135,13 +135,13 @@ En esta sección, creará una canalización de versión que está configurada pa
 
     ![Implementar en QA](./media/how-to-ci-cd/deploy-to-qa.png)
 
-    Guarde la nueva canalización de versión. Haga clic en el botón **Save** (Guardar). Y, luego, haga clic en **Canalización** para volver a la canalización.
+    Guarde la nueva canalización de versión con el botón **Guardar**. Y, luego, seleccione **Canalización** para volver a la canalización.
 
 6. La segunda fase es para su entorno de producción. Para agregar una nueva fase "PROD", puede clonar la fase "QA" y cambiar el nombre de la fase clonada a **PROD**.
 
     ![Clonar fase](./media/how-to-ci-cd/clone-stage.png)
 
-7. Configure las tareas para su entorno de producción. Suponga que tiene varios dispositivos de IoT Edge etiquetados como "prod" en las configuraciones de la tarea, actualice la condición de destino "prod" y establezca el identificador de implementación en "deploy-prod" en Opciones avanzadas. Haga clic en el botón **Save** (Guardar). Y, luego, haga clic en **Canalización** para volver a la canalización.
+7. Configure las tareas para su entorno de producción. Suponga que tiene varios dispositivos de IoT Edge etiquetados como "prod" en las configuraciones de la tarea, actualice la condición de destino "prod" y establezca el identificador de implementación en "deploy-prod" en Opciones avanzadas. Guárdelo con el botón **Guardar**. Y, luego, seleccione **Canalización** para volver a la canalización.
     
     ![Implementar en producción](./media/how-to-ci-cd/deploy-to-prod.png)
 
@@ -151,7 +151,7 @@ En esta sección, creará una canalización de versión que está configurada pa
 
         ![Abrir Condiciones anteriores a la implementación](./media/how-to-ci-cd/pre-deploy-conditions.png)    
 
-    2. Establezca **Habilitado** en **Aprobaciones anteriores a la implementación**. Y rellene la entrada **Aprobadores**. A continuación, haga clic en **Guardar**.
+    2. Establezca **Habilitado** en **Aprobaciones anteriores a la implementación**. Y rellene la entrada **Aprobadores**. A continuación, guárdelo con el botón **Guardar**.
     
         ![Establecer las condiciones](./media/how-to-ci-cd/set-pre-deployment-conditions.png)
 
@@ -165,7 +165,7 @@ En esta sección, creará una canalización de versión que está configurada pa
 
 En esta sección, desencadenará una compilación para hacer funcionar la canalización de CI/CD. Luego verifique que la implementación se complete correctamente.
 
-1. Para desencadenar un trabajo de compilación, puede insertar una confirmación en el repositorio de código fuente o desencadenarlo manualmente. Para desencadenar un trabajo de compilación en la canalización de compilación puede hacer clic en el botón **Cola**, como en la siguiente captura de pantalla.
+1. Para desencadenar un trabajo de compilación, puede insertar una confirmación en el repositorio de código fuente o desencadenarlo manualmente. Para desencadenar un trabajo de compilación en la canalización de compilación puede seleccionar el botón **Cola**, como en la siguiente captura de pantalla.
 
     ![Desencadenador manual](./media/how-to-ci-cd/manual-trigger.png)
 

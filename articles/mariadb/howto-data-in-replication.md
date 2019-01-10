@@ -3,17 +3,15 @@ title: Configuración de la replicación de datos de entrada para replicar datos
 description: En este artículo se describe la configuración de la replicación de datos de entrada para Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: f75b3e33cbd5719211bb30b22ab8d53c344b5579
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 3897c402e45962836880ccebbeb252d189188d3c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212767"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548908"
 ---
 # <a name="how-to-configure-azure-database-for-mariadb-data-in-replication"></a>Configuración de la replicación de datos de entrada de Azure Database for MariaDB
 

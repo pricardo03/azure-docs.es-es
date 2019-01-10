@@ -1,5 +1,5 @@
 ---
-title: 'Definición de una vista personalizada: Bing Custom Search'
+title: Configuración de la experiencia de Bing Custom Search | Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: Describe cómo crear servicios de búsqueda de sitio y verticales.
 services: cognitive-services
@@ -10,163 +10,145 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: aahi
-ms.openlocfilehash: d45d917d733727eca3286bb6335ce77591f39685
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: ac5ba80740c47dd71a30bb20aab4a54829eac822
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427291"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53597807"
 ---
-# <a name="configure-your-custom-search-experience"></a>Configuración de la experiencia de búsqueda personalizada
+# <a name="configure-your-bing-custom-search-experience"></a>Configuración de la experiencia de Bing Custom Search
 
-Una instancia de Custom Search le permite adaptar la experiencia de búsqueda para incluir contenido solo de sitios web que interesan a los usuarios. En lugar de realizar una búsqueda en toda la Web, Bing solo busca el sector de la Web que le interesa. Para crear la vista personalizada de la Web, use el [portal](https://customsearch.ai) de Bing Custom Search. Para información sobre cómo iniciar sesión en el portal, consulte [Create your first Bing Custom Search instance](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/quick-start) (Creación de la primera instancia de Bing Custom Search). 
+Una instancia de Custom Search le permite adaptar la experiencia de búsqueda para incluir contenido solo de sitios web que interesan a los usuarios. En lugar de realizar una búsqueda en toda la web, Bing solo busca en el sector de la web que le interesa. Para crear la vista personalizada de la web, use el [portal](https://customsearch.ai) de Bing Custom Search.
 
-El portal le permite crear una instancia de búsqueda que especifica los dominios, las subpáginas y las páginas web en los que quiere que busque Bing y aquellos en los que no quiere que busque. Además de especificar las direcciones URL del contenido que conoce, también puede solicitar al portal que sugiera contenido que quizás quiera agregar a la vista. 
+El portal le permite crear una instancia de búsqueda que especifica los sectores de la web: dominios, subpáginas y páginas web en los que quiere que busque Bing y aquellos en los que no quiere que busque. El portal también puede sugerir contenido que puede que quiera incluir.
 
-Estas son las maneras en que puede definir un sector de la Web: 
+Al definir los sectores de la web, use los siguientes elementos:
 
-1.  Dominio. Un sector de dominio incluye todo el contenido que se encuentra en un dominio de Internet. Por ejemplo, www.microsoft.com. Si se omite "www", Bing también busca en los subdominios del dominio. Por ejemplo, si especifica microsoft.com, Bing también devuelve resultados de support.microsoft.com o technet.microsoft.com.  
-  
-2.  Subpágina. Un sector de subpágina incluye todo el contenido encontrado en la subpágina y las rutas de acceso que hay debajo de ella. Puede especificar como máximo dos subpáginas en la ruta de acceso. Por ejemplo, www.microsoft.com/en-us/windows/  
-  
-3.  Página web. Un sector de página web puede incluir solo esa página web en una búsqueda personalizada. Opcionalmente, puede especificar si se deben incluir subpáginas.
+| Nombre del sector | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                |
+|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Dominio     | Un sector de dominio incluye todo el contenido que se encuentra en un dominio de Internet. Por ejemplo, `www.microsoft.com`. Si se omite `www.`, Bing también busca en los subdominios del dominio. Por ejemplo, si especifica  `microsoft.com`, Bing también devuelve los resultados de  `support.microsoft.com` o `technet.microsoft.com`. |
+| Subpágina    | Un sector de subpágina incluye todo el contenido encontrado en la subpágina y las rutas de acceso que hay debajo de ella. Puede especificar como máximo dos subpáginas en la ruta de acceso. Por ejemplo: `www.microsoft.com/en-us/windows/`                                                                                                                       |
+| Página web    | Un sector de página web puede incluir solo esa página web en una búsqueda personalizada. Opcionalmente, puede especificar si se deben incluir subpáginas.                                                                                                                                                                                  |
 
-Todos los dominios, subpáginas y páginas web que especifique deben ser públicos y estar indexados por Bing. Si dispone de un sitio público que quiere incluir en la búsqueda, y Bing no lo ha indexado, consulte la [documentación del administrador web](https://www.bing.com/webmaster/help/webmaster-guidelines-30fba23a) para más información sobre cómo obtener Bing para indexarlo. Además, consulte la documentación del administrador web para más información sobre cómo obtener Bing para actualizar su sitio rastreado si el índice no está actualizado.
+> [!IMPORTANT]
+> Todos los dominios, subpáginas y páginas web que especifique deben ser públicos y estar indexados por Bing. Si dispone de un sitio público que quiere incluir en la búsqueda, y Bing no lo ha indexado, consulte la [documentación del administrador web](https://www.bing.com/webmaster/help/webmaster-guidelines-30fba23a) para más información sobre cómo obtener Bing para indexarlo. Además, consulte la documentación del administrador web para más información sobre cómo obtener Bing para actualizar su sitio rastreado si el índice no está actualizado.
 
-## <a name="adding-slices-to-your-custom-search"></a>Adición de sectores a la búsqueda personalizada
+## <a name="add-slices-of-the-web-to-your-custom-search-instance"></a>Adición de sectores de la web a la instancia de Custom Search
 
-Al definir la instancia de búsqueda personalizada, especifica los dominios, las páginas web y las subpáginas, activos y bloqueados, en los que quiere buscar o no buscar.  
+Al crear la instancia de Custom Search, puede especificar los sectores de la web: dominios, subpáginas y las páginas web que quiere incluir o bloquear desde los resultados de búsqueda. 
 
-- Activo: una lista de dominios, subpáginas o páginas web que se incluirán en la búsqueda.  
-  
-- Bloqueado: una lista de dominios, subpáginas o páginas web que se excluirán de la búsqueda. Los elementos que bloquea deben ser contenido encontrado en los dominios y las subpáginas enumerados en la lista de activos.
+Si conoce los sectores que quiere incluir en la instancia de Custom Search, agréguelos a la lista **Active** (Activos) de esta. 
 
-Para acceder a cada lista, haga clic en las pestañas Active (Activo) y Blocked (Bloqueado) en la instancia de búsqueda personalizada. 
+Si no está seguro de qué sectores incluir, puede enviar consultas de búsqueda a Bing en el panel **Vista previa** y seleccionar los sectores que quiera. Para ello, siga estos pasos: 
+
+1. Seleccione Bing en la lista desplegable del panel Vista previa y escriba la consulta de búsqueda.
+
+2. Haga clic en **Add site** (Agregar sitio) junto al resultado que quiere incluir. A continuación, haga clic en Aceptar.
+
+>[!NOTE]
+> [!INCLUDE[publish or revert](./includes/publish-revert.md)]
 
 <a name="active-and-blocked-lists"></a>
-## <a name="active-and-blocked-lists"></a>Listas de activos y bloqueados 
 
-Para especificar un sector de la Web en el que quiere que busque Bing, haga clic en la pestaña **Active** (Activo) y muestre los dominios, las subpáginas y las páginas web donde buscar. Puede agregar un sector directamente a la lista o agregar más de un sector mediante la carga de un archivo de texto con el icono de carga.
+### <a name="customize-your-search-experience-with-active-and-blocked-lists"></a>Personalice su experiencia de búsqueda con listas de activos y bloqueados. 
 
-Detalles de carga de archivos: 
+Para obtener acceso a la lista de sectores activos y bloqueados, haga clic en las pestañas **Active** (Activos) y **Blocked** (Bloqueados) en la instancia de Custom Search. Los sectores que se agreguen a la lista de activos se incluirán en Custom Search. No se buscará en los sectores bloqueados y estos no aparecerán en los resultados de búsqueda.
 
-- La carga de archivos solo está disponible para agregar sectores a la lista de activos; no se puede usar para agregar sectores a la lista de bloqueados.  
-  
-- Cree un archivo de texto y especifique un único dominio, subpágina o página web por línea. La carga completa se rechaza si se produce un error.  
-  
-- Si la lista de bloqueados contiene el dominio, la subpágina o la página web que especificó en el archivo de carga, el servicio los quita de la lista de bloqueados y los agrega a la lista de activos.  
-  
-- El servicio omite los elementos duplicados del archivo de carga.
+Para especificar los sectores de la web que quiera que busque Bing, haga clic en la pestaña **Active** (Activos) y agregue una o varias direcciones URL. Para editar o eliminar direcciones URL, use las opciones de la columna **Controls** (Controles). 
 
-Para editar o eliminar sectores, use las opciones de la columna **Controls** (Controles). 
+Al agregar direcciones URL a la lista de **activos**, puede agregar direcciones URL únicas o varias direcciones URL a la vez mediante la carga de un archivo de texto con el icono de carga.
 
-De forma similar, puede agregar sectores a la lista de bloqueados (excepto que no puede usar un archivo de carga para especificar los sectores).
+![Pestaña Active (Activos) de Bing Custom Search](media/file-upload-icon.png)
 
-## <a name="pinned-list"></a>Lista de anclados
+Para cargar un archivo, cree un archivo de texto y especifique un único dominio, subpágina o página web por línea. El archivo se rechazarán si no tiene el formato correcto.
 
-El portal también le permite anclar una página web a la parte superior del resultado de búsqueda si el usuario escribe un término de búsqueda específico. La pestaña **Pinned** (Anclado) contiene una lista de pares de término de consulta y página web que especifican la página web que aparece como mejor resultado para una consulta específica. Además, se mostrarán solo las páginas web indexadas en búsquedas. Para información acerca de cómo anclar los resultados, consulte [Ajuste de la clasificación](#adjustrank). 
+> [!NOTE]
+> * Solo puede cargar un archivo en la lista de **activos**. No se puede usar para agregar sectores a la lista de **bloqueados**.  
+> * Si la lista de **bloqueados** contiene un dominio, una subpágina o una página web que especificó en el archivo de carga, se quitará de la lista de **bloqueados** y se agregará a la de **activos**.
+> * Bing Custom Search omitirá las entradas duplicadas del archivo de carga. 
 
-El anclaje de los resultados no está disponible para las experiencias Image Search ni Video Search.
+### <a name="get-website-suggestions-for-your-search-experience"></a>Obtención de sugerencias de sitio web para la experiencia de búsqueda
 
-## <a name="website-suggestions"></a>Sugerencias de sitio web
+Después de agregar sectores de la web a la lista de **activos**, el portal de Bing Custom Search generará sugerencias de sitio web y subpágina en la parte inferior de la pestaña. Estos son los sectores que Bing Custom Search cree que quiere incluir. Haga clic en **Actualizar** para obtener sugerencias actualizadas después de actualizar la configuración de la instancia de Custom Search. Esta sección solo está visible si hay sugerencias disponibles.
 
-Después de agregar sectores a la lista de activos, el servicio genera sugerencias de sitios web y subpáginas que podría querer agregar a la búsqueda. La sección **You might want to add** (Puede que quiera agregar) contiene las sugerencias. La página de configuración de instancias incluye esta sección solo si hay sugerencias disponibles. 
+## <a name="search-for-images-and-videos"></a>Búsqueda de imágenes y vídeos
 
-Para agregar sugerencias a la lista de activos, haga clic en el icono +.  Como el servicio genera sugerencias basadas en la configuración, asegúrese de hacer clic en **Refresh**  (Actualizar) después de agregar las sugerencias. 
+Puede buscar imágenes y vídeos de forma similar al contenido web mediante [Bing Custom Image Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference) o [Bing Custom Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference). Puede mostrar estos resultados con la [UI hospedada](hosted-ui.md) o las API. 
 
-## <a name="preview-pane"></a>Panel de vista previa
+Estas API son similares a las API no personalizadas de [Bing Image Search](../Bing-Image-Search/overview.md) y [Bing Video Search](../Bing-Video-Search/search-the-web.md), pero buscan en toda la web y no requieren el parámetro de consulta `customConfig`. Consulte esta documentación para obtener más información sobre cómo trabajar con imágenes y vídeos. 
 
-Puede probar la instancia de búsqueda mediante el panel de vista previa de la derecha para enviar consultas de búsqueda y ver los resultados. 
+## <a name="test-your-search-instance-with-the-preview-pane"></a>Prueba de la instancia de búsqueda con el panel Vista previa
 
-1. Seleccione **My Instance** (Mi instancia)
+Puede probar la instancia de búsqueda mediante el panel de vista previa situado al lado derecho del portal para enviar consultas de búsqueda y ver los resultados. 
+
+1. Debajo del cuadro de búsqueda, seleccione **My Instance** (Mi instancia). Puede comparar los resultados de la experiencia de búsqueda con Bing seleccionando **Bing**. 
 2. Seleccione un filtro de búsqueda seguro y el mercado en el que buscar (consulte [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) [Parámetros de consulta]).
-3. Escriba una consulta y presione Entrar o haga clic en el icono de búsqueda para ver los resultados de la configuración actual. 
-
-Para seleccionar el tipo de búsqueda que realizar, haga clic en **Web** para obtener los resultados web, **Imagen** para obtener los resultados de imagen o **Vídeo**, para los de vídeo. 
-
-Mediante el panel de vista previa, puede también revisar los resultados de Bing si selecciona **Bing** en lugar de **My instance** (Mi instancia). El panel de vista previa puede ser útil para comparar los resultados de su experiencia de búsqueda con los resultados devueltos por Bing.
+3. Escriba una consulta y presione Entrar o haga clic en el icono de búsqueda para ver los resultados de la configuración actual. Puede cambiar el tipo de búsqueda que realiza haciendo clic en **Web**, **Imagen** o **Vídeo** para obtener los resultados correspondientes. 
 
 <a name="adjustrank"></a>
-## <a name="adjust-rank"></a>Ajuste de la clasificación
 
-El portal le permite ajustar la clasificación para manipular los resultados que devuelve Bing. En el panel de vista previa, escriba un término de búsqueda y ejecute la consulta. En el panel de vista previa se muestra el resultado de búsqueda de la consulta. A la derecha de cada resultado está la lista de ajustes que puede realizar. 
+## <a name="adjust-the-rank-of-specific-search-results"></a>Ajuste de la clasificación de resultados de búsqueda específicos
 
-- Bloquear. Mueve el dominio, la subpágina o la página web a la lista de bloqueados. Puede seleccionar el nivel de bloqueo. Bing excluye contenido del sitio seleccionado en los resultados de búsqueda.  
-  
-- Aumentar de nivel. Coloca el contenido del dominio o la subpágina en un nivel más alto en los resultados de búsqueda. Seleccione si desea aumentar de nivel el contenido del dominio o la subpágina a los que pertenece la página web. [Más información](#boosting-and-demoting)  
-  
-- Reducir de nivel. Coloca el contenido del dominio o la subpágina en un nivel inferior en los resultados de búsqueda. Seleccione si desea reducir de nivel el contenido del dominio o la subpágina a los que pertenece la página web. [Más información](#boosting-and-demoting).  
-  
-- Anclar al principio. Define la página web que aparece en la parte superior de los resultados si coincide la cadena de consulta del usuario con las ancladas en la condición de coincidencia de anclaje. No es necesario que la lista de activos contenga la página web para que la pueda anclar. [Más información](#pin-to-top).
+El portal le permite ajustar la clasificación de la búsqueda de contenido de supáginas, páginas web y dominios específicos. Después de enviar una consulta de búsqueda en el panel de vista previa, cada resultado de búsqueda contiene una lista de los ajustes que puede realizar:  
 
-El ajuste de la clasificación no está disponible para las experiencias Image Search ni Video Search.
+|            |                                                                                                                                                                      |
+|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Block      | Mueve el dominio, la subpágina o la página web a la lista de bloqueados. Bing excluirá la aparición de contenido del sitio seleccionado en los resultados de búsqueda.                    |
+| Aumentar de nivel      | Coloca el contenido del dominio o la subpágina en un nivel más alto en los resultados de búsqueda.                                                                                        |
+| Reducir de nivel     | Coloca el contenido del dominio o la subpágina en un nivel inferior en los resultados de búsqueda. Seleccione si desea reducir de nivel el contenido del dominio o la subpágina a los que pertenece la página web. |
+| Anclar al principio | Mueve el dominio, la subpágina o la página web a la lista **Pinned** (Anclados). Esto obliga a la página web a aparecer como el resultado de búsqueda principal para una consulta de búsqueda determinada.                   |
 
-## <a name="boosting-and-demoting"></a>Aumento y disminución de nivel
+El ajuste de la clasificación no está disponible para las búsquedas de imágenes o vídeos.
 
-Puede aplicar aumento, aumento avanzado o disminución de nivel a cualquier dominio o subpágina de la lista de activos. De forma predeterminada, todos los sectores se agregan con el mismo peso. Los elementos con aumento o aumento avanzado se clasifican mejor en los resultados de búsqueda (teniendo el aumento avanzado una clasificación más alta que el aumento solo). Los elementos que disminuyen de nivel se clasifican por detrás en los resultados de búsqueda.
+### <a name="boosting-and-demoting-search-results"></a>Aumento y disminución de los resultados de búsqueda
 
-Es importante advertir que el aumento avanzado, el aumento y la disminución de nivel proporcionan variantes de peso respectivas para los dominios o las subpáginas. Esta es solo una de las muchas señales que usa el clasificador para determinar el orden de los resultados. Esto significa que su efecto en una consulta específica no se garantiza, dado que otros muchos factores pueden influir en la clasificación general de los resultados web.  Para determinar el posible efecto que puede tener sobre el clasificador aumentar o disminuir de nivel, pruebe la experiencia de búsqueda mediante el panel de vista previa.
+Puede aplicar aumento, aumento avanzado o disminución de nivel a cualquier dominio o subpágina de la lista de **activos**. De manera predeterminada, todos los sectores se agregan sin ajustes de clasificación. Los sectores de la web con aumento o aumento avanzado se clasifican mejor en los resultados de búsqueda (teniendo el aumento avanzado una clasificación más alta que el aumento solo). Los elementos que disminuyen de nivel se clasifican por detrás en los resultados de búsqueda.
 
-Para aplicar aumento, aumento avanzado o disminución de nivel a los elementos, puede usar los controles de ajuste de clasificación de la lista de activos o los controles de aumento y reducción de nivel del panel de vista previa. El servicio agrega el sector a la lista de activos y ajusta la clasificación según corresponda.
+Para aplicar aumento, aumento avanzado o disminución de nivel a los elementos, puede usar los controles de **ajuste de clasificación** de la lista de **activos** o los controles de aumento y disminución de nivel del panel de vista previa. El servicio agrega el sector a la lista de activos y ajusta la clasificación según corresponda.
 
-Los ajustes de clasificación de aumento avanzado, aumento y disminución no están disponibles para la experiencia Image Search ni Video Search.
+> [!NOTE] 
+> El aumento y disminución el nivel de dominios y subpáginas es uno de los diversos métodos que Bing Custom Search usa para determinar el orden de los resultados de búsqueda. Debido a otros factores que influyen en la clasificación de diferente contenido web, los efectos del ajuste de clasificación pueden variar. Use el panel de vista previa para probar los efectos del ajustar de clasificación de los resultados de búsqueda. 
 
-## <a name="pin-to-top"></a>Anclar al principio
+Los ajustes de clasificación de aumento avanzado, aumento y disminución no están disponibles para la búsqueda de imágenes y vídeos.
 
-Para anclar una página web al principio de los resultados de búsqueda de una consulta específica, elija una de las siguientes opciones:
+## <a name="pin-slices-to-the-top-of-search-results"></a>Anclaje de los sectores al principio de los resultados de búsqueda
 
-1.  En la pestaña  **Anclado** , escriba la dirección URL de la página web para anclar al principio de los resultados y la consulta que desencadena el anclaje.  
-  
-2.  En el panel **Vista previa**, escriba un término de consulta y haga clic en el botón de búsqueda. A continuación, identifique la página web en los resultados que quiere anclar al principio si el usuario escribe la misma consulta. Seguidamente, haga clic en  **Anclar al principio**. El servicio agrega la página web y la consulta a la lista **Anclado**. 
+El portal también le permite anclar las direcciones URL al principio de los resultados de búsqueda para términos de búsqueda específicos mediante la pestaña **Pinned** (Anclado). Escriba una dirección URL y la consulta para especificar la página web que se mostrará como resultado principal. Tenga en cuenta que puede anclar un máximo de una página web por consulta de búsqueda y que en las búsquedas solo se mostrarán las páginas web indexadas. El anclaje de los resultados no está disponible para las búsquedas de imágenes o vídeos.
 
-Puede realizar un seguimiento de los elementos anclados en la pestaña  **Anclado** . Los elementos anclados se muestran como pares de "\<consulta\>, \<página web\>". 
+Puede anclar una página web al principio de dos maneras:
 
-Para una consulta concreta, puede anclar una página web como máximo al principio de los resultados.
+* En la pestaña  **Pinned**  (Anclado), escriba la dirección URL de la página web que se va a anclar al principio y la consulta correspondiente.
 
-Los elementos anclados no están disponibles para las experiencias Image Search ni Video Search.
+* En el panel **Vista previa**, escriba una consulta de búsqueda y haga clic en el botón de búsqueda. Busque la página web que quiere anclar para la consulta y haga clic en  **Anclar al principio**. La página web y la consulta se agregarán a la lista **Anclado**.
 
-### <a name="specifying-the-pins-match-condition"></a>Especificación de la condición de coincidencia de anclaje
+### <a name="specify-the-pins-match-condition"></a>Especificación de la condición de coincidencia de anclaje
 
-La página web se ancla al principio de los resultados solo si la cadena de consulta del usuario coincide con la de anclaje en función de la condición de coincidencia de anclaje. De forma predeterminada, el anclaje coincide solo si la cadena de consulta de anclaje y la del usuario son exactamente iguales. Puede cambiar el comportamiento predeterminado al especificar una de las siguientes condiciones de coincidencia.
+De manera predeterminada, las páginas web solo están ancladas al principio de los resultados de búsqueda cuando la cadena de consulta de un usuario coincide exactamente con una que aparece en la lista **Anclado**. Puede cambiar este comportamiento al especificar una de las siguientes condiciones de coincidencia:
 
-- Empieza por &mdash; El anclaje coincide si la cadena de consulta del usuario empieza por lo mismo que la de anclaje.
-- Termina por &mdash; El anclaje coincide si la cadena de consulta del usuario termina por lo mismo que la de anclaje.
-- Contiene &mdash; El anclaje coincide si la cadena de consulta del usuario contiene la de anclaje.
+> [!NOTE]
+> Todas las comparaciones entre la consulta de búsqueda del usuario y la consulta de búsqueda del anclaje distinguen mayúsculas de minúsculas.
 
-Para cambiar la condición de coincidencia de anclaje, haga clic en el icono de edición del anclaje (parece un lápiz). En la columna **Query match condition** (Condición de coincidencia de la consulta), haga clic en la lista desplegable y seleccione la nueva condición para usarla. Después, haga clic en el icono para guardar el cambio.
+| Valor | DESCRIPCIÓN                                                                          |
+|---------------|----------------------------------------------------------------------------------|
+| Empieza por | El anclaje coincide si la cadena de consulta del usuario empieza por lo mismo que la de anclaje. |
+| Termina por   | El anclaje coincide si la cadena de consulta del usuario termina por lo mismo que la de anclaje.  |
+| Contains    | El anclaje coincide si la cadena de consulta del usuario contiene la de anclaje.   |
 
-En las comparaciones se distingue entre mayúsculas y minúsculas.
 
-### <a name="changing-the-order-of-the-pins"></a>Cambio del orden de los elementos anclados
+Para cambiar la condición de coincidencia de anclaje, haga clic en el icono de edición del anclaje. En la columna **Query match condition** (Condición de coincidencia de la consulta), haga clic en la lista desplegable y seleccione la nueva condición para usarla. Después, haga clic en el icono para guardar el cambio.
 
-Para cambiar el orden de los elementos anclados, puede arrastrarlos y colocarlos o modificarlos y cambiar el número por el que se ordenan. Para arrastrar y colocar un elemento anclado, haga clic en él en la lista para moverlo, mantenga el botón del mouse presionado y arrástrelo al lugar del elemento que desee remplazar; después, suelte el botón del mouse. Tenga en cuenta que número de orden del elemento anclado cambiará en consecuencia.
+### <a name="change-the-order-of-your-pinned-sites"></a>Cambio del orden de los sitios anclados
 
-También puede editar el número de orden del elemento. En la columna **Controls** (Controles), haga clic en el icono de edición del elemento anclado (parece un lápiz). Escriba el número de orden donde desea que aparezca el elemento anclado en la lista y presione Entrar o haga clic en el icono de guardar. Por ejemplo, si es actualmente el sexto en la lista y quiere que sea el segundo, cambie el número a dos (2).
+Para cambiar el orden de los anclajes, puede arrastrarlos y colocarlos o editar su número de orden haciendo clic en el icono de edición en la columna **Controls** (Controles) de la lista **Anclado**.
 
-Si varios elementos anclados cumplen la condición de coincidencia, su orden determinará el que use Bing. Por ejemplo, si los elementos dos y tres cumplen la condición de coincidencia, Bing usará el número dos.
-
-## <a name="use-bing-to-specify-slices"></a>Uso de Bing para especificar sectores
-
-Existen un par de maneras de especificar los sectores de la Web que constituyen su búsqueda personalizada. Si conoce los sectores que quiere incluir en la instancia, agréguelos a la lista **Active** (Activos) de esta. Para información sobre cómo agregar elementos a la lista **Active** (Activos) por su cuenta, consulte [Listas de activos y bloqueados](#active-and-blocked-lists).
-
-Pero si no está seguro de qué sectores incluir, puede ejecutar consultas de Bing en el panel **Vista previa** y ver qué devuelve Bing. A continuación, puede seleccionar los sectores que quiere incluir en la búsqueda personalizada. Es probable que deba ejecutar varios términos de consulta para asegurarse de que se identifican todos los sectores que quiere para la instancia. 
-
-Siga estos pasos para usar Bing para agregar sectores a la instancia de búsqueda personalizada. 
-
-1.  Inicie sesión en el [portal](https://customsearch.ai) de Bing Custom Search.
-2.  Cree una instancia o seleccione una instancia para actualizar.
-3.  En el panel de vista previa de la parte derecha, seleccione Bing en la lista desplegable.
-4.  En el cuadro de búsqueda, escriba un término de consulta que sea pertinente para la instancia.
-5.  Haga clic en **Add site** (Agregar sitio) junto al resultado que quiere incluir.
-6.  Haga clic en el botón **Ok** (Aceptar).
-
-[!INCLUDE [publish or revert](./includes/publish-revert.md)]
+Si varios anclajes satisfacen una condición de coincidencia, Bing Custom Search usará la más alta de la lista.
 
 ## <a name="view-statistics"></a>Visualización de estadísticas
 
 Si se ha suscrito a Custom Search en el nivel adecuado (consulte los [planes de tarifa](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), se agrega una pestaña **Statistics** (Estadísticas) a las instancias de producción. En la pestaña de estadísticas se muestra información detallada sobre cómo se usan los puntos de conexión de Custom Search, como el volumen de llamadas, las mejores consultas, la distribución geográfica, los códigos de respuesta y la búsqueda segura. Puede filtrar esta información mediante los controles proporcionados.
 
-## <a name="understanding-quota"></a>Cuota
+## <a name="usage-guidelines"></a>Directrices de uso
 
 - En cada instancia de búsqueda personalizada, el número máximo de ajustes de clasificación que puede realizar en los sectores **Active** (Activo) y **Blocked** (Bloqueado) se limita a 400.
 - Agregar un sector a las pestañas Active (Activo) o Blocked (Bloqueado) cuenta como un ajuste de clasificación.

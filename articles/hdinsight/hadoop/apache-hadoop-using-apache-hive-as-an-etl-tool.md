@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
-ms.openlocfilehash: c26b4700f32ce4e0bd8327e862d31df8fea2439d
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: f8fb036eaca35e41d89b0a9610ebcd68e65f40f9
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632550"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630265"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Uso de Apache Hive como una herramienta de extracción, transformación y carga de datos (ETL)
 
@@ -30,7 +30,7 @@ Hadoop se utiliza normalmente en los procesos ETL que importan un gran número d
 
 Los pasos típicos para usar Hive para ejecutar ETL son los siguientes:
 
-1. Cargue los datos a Azure Data Lake Store o Azure Blob Storage.
+1. Cargue los datos en Azure Data Lake Store o Azure Blob Storage.
 2. Cree una base de datos de Repositorio de metadatos (con Azure SQL Database) para que la use Hive en el almacenamiento de los esquemas.
 3. Cree un clúster de HDInsight y conecte el almacén de datos.
 4. Defina el esquema para que se aplique en tiempo de lectura en los datos del almacén de datos:
@@ -51,7 +51,7 @@ Los pasos típicos para usar Hive para ejecutar ETL son los siguientes:
 
 5. Transforme los datos y cárguelos en el destino.  Hay varias maneras de usar Hive durante la transformación y la carga:
 
-    * Consulte y prepare los datos con Hive y guárdelos como CSV en Azure Data Lake Store o Azure Blob Storage.  A continuación, use una herramienta como SQL Server Integration Services (SSIS) para adquirir esos archivos CSV y cargar los datos en una base de datos relacional de destino, como SQL Server.
+    * Consulte y prepare los datos con Hive y guárdelos como CSV en Azure Data Lake Storage o Azure Blob Storage.  A continuación, use una herramienta como SQL Server Integration Services (SSIS) para adquirir esos archivos CSV y cargar los datos en una base de datos relacional de destino, como SQL Server.
     * Consulte los datos directamente desde Excel o C# utilizando el controlador ODBC de Hive.
     * Use [Apache Sqoop](apache-hadoop-use-sqoop-mac-linux.md) para leer los archivos CSV planos preparados y cárguelos en la base de datos relacional de destino.
 

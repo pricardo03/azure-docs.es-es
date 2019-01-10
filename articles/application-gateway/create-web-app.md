@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: victorh
-ms.openlocfilehash: b0bde770e33a08832e7d3a93a745bbba44b04f87
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 99a4dd25539db754a893ddda7480c64e5a13a5bd
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353346"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631522"
 ---
-# <a name="configure-app-service-web-apps-with-application-gateway"></a>Configuración de App Service Web Apps con Application Gateway
+# <a name="configure-app-service-with-application-gateway"></a>Configuración de App Service con Application Gateway
 
-La puerta de enlace de aplicaciones le permite tener una instancia de Azure Web App u otro servicio multiinquilino como miembro del grupo de servidores back-end. En este artículo, aprenderá a configurar una aplicación web de Azure con Application Gateway. En el primer ejemplo se muestra cómo configurar una puerta de enlace de aplicaciones existente para usar una aplicación web como miembro del grupo de servidores back-end. En el segundo ejemplo se muestra cómo crear una nueva puerta de enlace de aplicaciones con una aplicación web como miembro del grupo de servidores back-end.
+Application Gateway le permite tener una aplicación de App Service u otro servicio multiinquilino como miembro del grupo de servidores back-end. En este artículo, aprenderá a configurar una aplicación de App Service con Application Gateway. En el primer ejemplo se muestra cómo configurar una puerta de enlace de aplicaciones existente para usar una aplicación web como miembro del grupo de servidores back-end. En el segundo ejemplo se muestra cómo crear una nueva puerta de enlace de aplicaciones con una aplicación web como miembro del grupo de servidores back-end.
 
 ## <a name="configure-a-web-app-behind-an-existing-application-gateway"></a>Configuración de una aplicación web detrás de una puerta de enlace de aplicaciones existente
 
@@ -163,4 +163,4 @@ Una manera de restringir el acceso a las aplicaciones web es usar [Restricciones
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para aprender a configurar el redireccionamiento, visite: [Configuración del redireccionamiento en Application Gateway con PowerShell](redirect-overview.md).
+Para obtener información sobre cómo configurar el redireccionamiento, visite: [Configuración del redireccionamiento en Application Gateway con PowerShell](redirect-overview.md).

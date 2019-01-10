@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 04/04/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 68c3351eccf86c7867074e5713852f57ebf7e7ef
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9a5e2e7e735404efad75d6dd318e965ebbefe73c
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30921525"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53444377"
 ---
 1. En la página **Configuración** de la red virtual, vaya a **Servidores DNS** y haga clic para abrir la página **Servidores DNS**.
 
     ![Especificación de un servidor DNS](./media/vpn-gateway-specify-dns-portal-include/specify-dns-server.png "Specify a DNS Server")
 
-  - **Servidores DNS:** seleccione **Personalizado**.
-  - **Agregar servidor DNS:** escriba la dirección IP del servidor DNS que desea usar para la resolución de nombres.
+   - **Servidores DNS:** seleccione **Personalizada**.
+   - **Agregar servidor DNS:** Introduzca la dirección IP del servidor DNS que quiere usar para la resolución de nombres.
 
 2. Cuando acabe de agregar servidores DNS, haga clic en **Guardar** en la parte superior de la página.

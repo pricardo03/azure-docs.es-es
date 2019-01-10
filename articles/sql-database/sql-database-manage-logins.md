@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/29/2018
-ms.openlocfilehash: c234ac95d0e02857fe87afe3a734d77f00954477
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/18/2018
+ms.openlocfilehash: 2be5c8ddf6928d5529c2eb08a6d64bd64b8445de
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864951"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631981"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Control y concesión de acceso de la base de datos a SQL Database y SQL Data Warehouse
 
@@ -31,9 +31,9 @@ Después de la configuración de las reglas de firewall, puede conectarse a Azur
 > Para ver un tutorial, consulte [Protección de Azure SQL Database](sql-database-security-tutorial.md). Este tutorial no se aplica a la **Instancia administradas de Azure SQL Database**.
 
 ## <a name="unrestricted-administrative-accounts"></a>Cuentas administrativas sin restricciones
-Hay dos cuentas administrativas (**administrador del servidor** y **administrador de Active Directory**) que actúan como administradores. Para identificar estas cuentas de administrador para SQL Server, abra Azure Portal y vaya a las propiedades de SQL Server.
+Hay dos cuentas administrativas (**administrador del servidor** y **administrador de Active Directory**) que actúan como administradores. Para identificar estas cuentas de administrador para SQL Server, abra Azure Portal y vaya a la pestaña de propiedades de SQL Server o SQL Database.
 
-![Administradores de SQL Server](./media/sql-database-manage-logins/sql-admins.png)
+![Administradores de SQL Server](media/sql-database-manage-logins/sql-admins.png)
 
 - **Administrador del servidor**   
 Cuando se crea un servidor de Azure SQL, debe designar un **inicio de sesión de administrador del servidor**. SQL Server crea esa cuenta como un inicio de sesión en la base de datos maestra. Esta cuenta se conecta mediante la autenticación de SQL Server (nombre de usuario y contraseña). Solo puede existir una de estas cuentas.   

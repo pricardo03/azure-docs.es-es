@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 4999639356fd440b6358983f1e4859fb3c505fc7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8c230143a4b3ab15e5a43d8b565d1973bc47ec29
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106505"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599031"
 ---
 # <a name="ship-an-application"></a>Distribuir una aplicación
 
@@ -55,7 +55,7 @@ Asegúrese de seleccionar la versión (x86, x64) que coincida con la aplicación
 * La biblioteca cURL (`libcurl.so.4`)
 * La biblioteca compartida para las aplicaciones ALSA (`libasound.so.2`)
 
-En Ubuntu 16.04, por ejemplo, las bibliotecas de GNU C ya deberían estar instaladas de forma predeterminada. Las tres últimas se pueden instalar con estos comandos:
+En Ubuntu 16.04 o 18.04, por ejemplo, las bibliotecas de GNU C ya deberían estar instaladas de manera predeterminada. Las tres últimas se pueden instalar con estos comandos:
 
 ```sh
 sudo apt-get update

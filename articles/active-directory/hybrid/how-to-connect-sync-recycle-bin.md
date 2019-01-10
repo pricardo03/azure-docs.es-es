@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect Sync: Habilitación de la papelera de reciclaje de AD | Microsoft Docs'
+title: 'Sincronización de Azure AD Connect: Habilitación de la papelera de reciclaje de AD | Microsoft Docs'
 description: En este tema, se recomienda el uso de la característica Papelera de reciclaje de AD con Azure AD Connect.
 services: active-directory
 keywords: Papelera de reciclaje de AD, eliminación accidental, sourceAnchor
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 12/17/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 378e1d3aab992e9b4e6f2263c26ea4268a43d678
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d1a09c077adbc3c9176740bce69bf051a912bc22
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306164"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555581"
 ---
-# <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Azure AD Connect Sync: Habilitación de la papelera de reciclaje de AD
+# <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Sincronización de Azure AD Connect: Habilitar la papelera de reciclaje de AD
 Se recomienda que habilite la característica Papelera de reciclaje de AD en sus instancias locales de Active Directory, que se sincronizan con Azure AD. 
 
 Si ha eliminado accidentalmente un objeto de usuario local de AD y lo restaura con esta característica, Azure AD restaura el objeto de usuario de Azure AD correspondiente.  Para más información acerca de la característica Papelera de reciclaje de AD, consulte el artículo [Scenario Overview for Restoring Deleted Active Directory Objects](https://technet.microsoft.com/library/dd379542.aspx) (Información general sobre el escenario de restauración de objetos de Active Directory eliminados).
@@ -33,14 +33,15 @@ Esta característica ayuda a restaurar objetos de usuario de Azure AD mediante l
 
 * Si ha eliminado accidentalmente un objeto de usuario de una implementación de AD local, se eliminará el objeto de usuario de Azure AD correspondiente en el siguiente ciclo de sincronización. De forma predeterminada, Azure AD mantiene el objeto de usuario de Azure AD eliminado en estado de eliminación temporal durante 30 días.
 
-* Si tiene habilitada la característica Papelera de reciclaje de su instancia local de AD, puede restaurar el objeto de usuario de su instancia de AD local sin cambiar el valor de sourceAnchor. Cuando el objeto de usuario de la instancia de AD local recuperado se sincroniza con Azure AD, Azure AD restaurará el objeto correspondiente de usuario de Azure AD en estado de eliminación temporal. Para más información sobre el atributo sourceAnchor, consulte el artículo [Azure AD Connect: conceptos de diseño](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#sourceanchor).
+* Si tiene habilitada la característica Papelera de reciclaje de su instancia local de AD, puede restaurar el objeto de usuario de su instancia de AD local sin cambiar el valor de sourceAnchor. Cuando el objeto de usuario de la instancia de AD local recuperado se sincroniza con Azure AD, Azure AD restaurará el objeto correspondiente de usuario de Azure AD en estado de eliminación temporal. Para más información sobre el atributo delimitador de origen, consulte el artículo [Azure AD Connect: conceptos de diseño](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#sourceanchor).
 
 * Si no tiene habilitada la característica Papelera de reciclaje de su instancia de AD local, será necesario crear un objeto de usuario de AD para reemplazar el objeto eliminado. Si Azure AD Connect Synchronization Service está configurado para usar un atributo de AD generado por el sistema (por ejemplo, ObjectGuid) para el atributo sourceAnchor, el objeto de usuario de AD recién creado no tendrá el mismo valor de sourceAnchor que el objeto de usuario de AD eliminado. Cuando el objeto de usuario de AD recién creado se sincroniza con Azure AD, Azure AD crea un nuevo objeto de usuario de Azure AD en lugar de restaurar el objeto de usuario de Azure AD en estado de eliminación temporal.
 
 > [!NOTE]
 > De forma predeterminada, Azure AD mantiene los objetos de usuario de Azure AD eliminados en estado de eliminación temporal durante 30 días antes de eliminarlos permanentemente. Sin embargo, los administradores pueden acelerar la eliminación de dichos objetos. Una vez que los objetos se eliminan permanentemente, ya no se puedan recuperar, aunque esté habilitada la característica Papelera de reciclaje de la instancia de AD local.
 
-
+>[!NOTE]
+>Anteriormente, cuando se quitaba un usuario del ámbito de sincronización local y se eliminaba de la nube, el estado DirSyncEnabled de la cuenta se establecía erróneamente en "False". Si, posteriormente, ese usuario se restauraba manualmente de la papelera de reciclaje de Azure AD, se mostraba un estado incorrecto de cuenta de "Solo nube". Este problema ya se ha solucionado y el valor del estado DirSyncEnabled siempre se mantiene en "True" cuando un usuario se quita del ámbito de sincronización. A continuación, se elimina temporalmente y se restaura manualmente desde la papelera de reciclaje de Azure AD.
 
 ## <a name="next-steps"></a>Pasos siguientes
 **Temas de introducción**

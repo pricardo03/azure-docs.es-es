@@ -1,5 +1,5 @@
 ---
-title: Cambio y reimplementación de un microservicio | Microsoft Docs
+title: 'Cambio y reimplementación de un microservicio: Azure | Microsoft Docs'
 description: En este tutorial se explica cómo cambiar y reimplementar un microservicio en la solución de supervisión remota.
 author: dominicbetts
 ms.author: dobett
@@ -7,16 +7,16 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 20e86220fffe95fc38b5fa15dd5603db4331203f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 563de3d062b2c49d6b7ba23ae405e75283270815
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315764"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631912"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personalización y reimplementación de un microservicio
 
-En este tutorial se explica cómo editar uno de los [microservicios](http://azure.com/microservices) en la solución remota, crear una imagen del microservicio, implementar la imagen en el centro de Docker y luego usarla en la solución de supervisión remota. Para introducir este concepto, el tutorial usa un escenario básico donde llamar a una API de microservicio y cambiar el mensaje de estado de "Activo y correcto" a "Las nuevas modificaciones se hacen aquí".
+En este tutorial se explica cómo editar uno de los [microservicios](https://azure.com/microservices) en la solución remota, crear una imagen del microservicio, implementar la imagen en el centro de Docker y luego usarla en la solución de supervisión remota. Para introducir este concepto, el tutorial usa un escenario básico donde llamar a una API de microservicio y cambiar el mensaje de estado de "Activo y correcto" a "Las nuevas modificaciones se hacen aquí".
 
 La solución de supervisión remota usa los microservicios compilados con imágenes de Docker extraídas de un centro de Docker. 
 
@@ -77,7 +77,7 @@ Ahora cambie el mensaje de estado del microservicio del administrador de IoT Hub
     
     o en Windows:
     
-    ```
+    ```cmd
     ./build.cmd
     ```
 

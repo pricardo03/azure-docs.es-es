@@ -1,5 +1,5 @@
 ---
-title: Preguntas más frecuentes sobre Computer Vision API
+title: 'Preguntas más frecuentes: Computer Vision'
 titlesuffix: Azure Cognitive Services
 description: Obtenga respuestas a las preguntas más frecuentes sobre Computer Vision API en Azure Cognitive Services.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: kefre
-ms.openlocfilehash: 55b474d0edbb8dc01b9f35d4f8799e53e37862df
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.custom: seodec18
+ms.openlocfilehash: 3146650280af80923a4ed9cbb78a5ce6d43e5bce
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166379"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584282"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Preguntas frecuentes sobre Computer Vision API
 
@@ -37,7 +38,7 @@ ms.locfileid: "49166379"
 
 **Pregunta**: *¿Qué idiomas se admiten con Computer Vision?*
 
-**Respuesta**: Los idiomas admitidos son:
+**Respuesta**: Los lenguajes compatibles incluyen:
 
 | | | Idiomas admitidos | | |
 |---------------- |------------------ |------------------ |--------------------------- |--------------------
@@ -48,9 +49,9 @@ ms.locfileid: "49166379"
 
 -----
 
-**Pregunta**: *¿Se puede usar Computer Vision para leer matrículas?*
+**Pregunta**: *¿Se puede usar Computer Vision para leer matrículas de entidad de almacén?*
 
-**Respuesta**: Vision API ofrece una buena detección de texto con OCR, pero en este momento no está actualizada para matrículas. En nuestro esfuerzo constante por mejorar nuestros servicios, hemos agregado OCR para el reconocimiento automático de matrículas a nuestra lista de solicitudes de características.
+**Respuesta**: Vision API ofrece una buena detección de texto con OCR, pero en este momento no está actualizada para matrículas de entidad de almacén. En nuestro esfuerzo constante por mejorar nuestros servicios, hemos agregado OCR para el reconocimiento automático de matrículas a nuestra lista de solicitudes de características.
 
 -----
 

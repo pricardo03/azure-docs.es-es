@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: dd11c2c7062d09c522c46770e8dba6d6eb0ac1e9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cb155486365ffa1beb4657e2d9cc56fcf143b624
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105571"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547752"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>Los roles de entidad en los patrones son subtipos contextuales
 Los roles son subtipos contextuales con nombre de una entidad que solo se usa en [patrones](luis-concept-patterns.md).
@@ -45,6 +45,16 @@ La entidad y el rol se incluyen entre paréntesis, `{}`. La entidad y el rol se 
 
 
 [!INCLUDE [H2 Roles versus hierarchical entities](../../../includes/cognitive-services-luis-hier-roles.md)] 
+
+## <a name="example-role-for-entities"></a>Rol de ejemplo para las entidades
+
+Un rol es simplemente una selección de ubicación aprendida contextualmente de una entidad dentro de una expresión. Resulta más eficaz cuando la expresión tiene varios tipos de entidad de esa clase. El ejemplo más fácil para cualquier tipo de entidad es distinguir entre una ubicación de origen y una de destino. La ubicación se puede representar en muchos tipos de entidad diferentes. 
+
+Un ejemplo de caso de uso consiste en transferir un empleado de un departamento a otro, donde cada departamento es un elemento de una lista. Por ejemplo:  
+
+`Move [PersonName] from [Department:from] to [Department:to]`. 
+
+En la predicción devuelta, ambas entidades de departamento se devolverán en la respuesta JSON y cada una de ellas incluirá el nombre del rol. 
 
 ## <a name="roles-with-prebuilt-entities"></a>Roles con entidades precompiladas
 

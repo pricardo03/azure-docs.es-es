@@ -1,17 +1,17 @@
 ---
-title: Almacenamiento y movimiento de datos de Azure Batch para la representación
+title: 'Almacenamiento y movimiento de datos para la representación: Azure Batch'
 description: Opciones de almacenamiento y movimiento de datos para representar cargas de trabajo
 services: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: d5b006fd744e463c73ee0a32388f254017e96354
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 0d343ff5d7513500fa7803495dd42eb94b772935
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036817"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546103"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Opciones de almacenamiento y movimiento de datos para representar archivos de recursos y de salida
 
@@ -133,4 +133,4 @@ Para más información acerca de las opciones de almacenamiento, consulte la doc
 
 * [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)
 * [Blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux)
-* [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)
+* [Archivos de Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)

@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 5d0cb6ca751c844846288e8fe26f6ae542e89831
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 90eacdb120603fdb68c0f6c3de3457964ec5fd75
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339499"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579369"
 ---
-# <a name="detecting-color-schemes"></a>Detección de combinaciones de colores
+# <a name="detect-color-schemes-in-images"></a>Detección de las combinaciones de colores de las imágenes
 
 Computer Vision extrae los colores de una imagen. Después, los colores se analizan en tres contextos diferentes: el color de primer plano predominante, el color de fondo predominante y los colores predominantes de la imagen como un todo. Se agrupan en 12 colores de énfasis predominantes. que son: negro, azul, marrón, gris, verde, naranja, rosa, púrpura, rojo, verde azulado, blanco y amarillo. Computer Vision analiza los colores que se extraen de una imagen para devolver el color de énfasis que representa al color más brillante de la imagen para su visualización, mediante una combinación de colores predominantes y de saturación. En función de los colores de una imagen, se pueden devolver el blanco y negro básico o los colores de énfasis en códigos de color hexadecimales. Computer Vision también devuelve un valor booleano que indica si una imagen está en blanco y negro.
 
@@ -51,8 +52,8 @@ En la tabla siguiente se describen los colores predominantes de primer plano, fo
 
 | Imagen | Colores predominantes |
 |-------|-----------------|
-|![Vision Analyze Flower](./Images/flower.png)| Primer plano: negro<br/>Fondo: blanco<br/>Colores: negro, blanco, verde|
-![Vision Analyze Train Station](./Images/train_station.png) | Primer plano: negro<br/>Fondo: negro<br/>Colores: negro |
+|![Una flor blanca con un fondo verde](./Images/flower.png)| Primer plano: Negro<br/>Fondo: Blanco<br/>Colores: negro, blanco y verde|
+![Un tren pasando por una estación](./Images/train_station.png) | Primer plano: Negro<br/>Fondo: Negro<br/>Colores: Negro |
 
 ### <a name="accent-color-examples"></a>Ejemplos de color de énfasis
 
@@ -60,9 +61,9 @@ En la tabla siguiente se describen los colores predominantes de primer plano, fo
 
 | Imagen | Color de énfasis |
 |-------|--------------|
-|![Outdoor Mountain](./Images/mountain_vista.png) | #BB6D10 |
-|![Vision Analyze Flower](./Images/flower.png) | #C6A205 |
-|![Vision Analyze Train Station](./Images/train_station.png) | #474A84 |
+|![Una persona en la roca de una montaña al atardecer](./Images/mountain_vista.png) | #BB6D10 |
+|![Una flor blanca con un fondo verde](./Images/flower.png) | #C6A205 |
+|![Un tren pasando por una estación](./Images/train_station.png) | #474A84 |
 
 ### <a name="black--white-detection-examples"></a>Ejemplos de detección en blanco y negro
 
@@ -70,8 +71,8 @@ En la tabla siguiente se indica si cada imagen de ejemplo está en blanco y negr
 
 | Imagen | ¿Blanco y negro? |
 |-------|----------------|
-|![Vision Analyze Building](./Images/bw_buildings.png) | true |
-|![Vision Analyze House Yard](./Images/house_yard.png) | false |
+|![Una imagen en blanco y negro de edificios en Manhattan](./Images/bw_buildings.png) | true |
+|![Una casa azul y el patio delantero](./Images/house_yard.png) | false |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

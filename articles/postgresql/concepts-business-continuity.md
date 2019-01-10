@@ -1,20 +1,17 @@
 ---
 title: Introducción a la continuidad empresarial con Azure Database for PostgreSQL
 description: Introducción a la continuidad empresarial con Azure Database for PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: a0ff57037d6639f5778e27d6cf697b90038ab3b3
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: c8c62f6a80cf06e3444c4c3efd9979e723dcf488
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717070"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53559049"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>Introducción a la continuidad empresarial con Azure Database for PostgreSQL
 
@@ -49,7 +46,7 @@ Una opción consiste en esperar a que el servidor vuelva a estar en línea cuand
 La otra opción es usar la característica de replicación geográfica de Azure Database for PostgreSQL que permite restaurar el servidor mediante copias de seguridad con redundancia geográfica. Se puede acceder a estas copias de seguridad incluso cuando la región en la que se hospeda el servidor está sin conexión. Puede realizar la restauración a partir de estas copias de seguridad en cualquier otra región y volver a poner en línea el servidor.
 
 > [!IMPORTANT]
-> La restauración geográfica solo es posible si se ha aprovisionado el servidor con almacenamiento de copia de seguridad con redundancia geográfica. Si desea cambiar de copias de seguridad con redundancia local a copias de seguridad con redundancia geográfica para un servidor existente, debe realizar un volcado mediante mysqldump del servidor existente y restaurarlo en un servidor recién creado, configurado con copias de seguridad con redundancia geográfica.
+> La restauración geográfica solo es posible si se ha aprovisionado el servidor con almacenamiento de copia de seguridad con redundancia geográfica. Si quiere cambiar de copias de seguridad con redundancia local a copias de seguridad con redundancia geográfica para un servidor existente, debe realizar un volcado mediante pg_dump del servidor existente y restaurarlo en un servidor recién creado, configurado con copias de seguridad con redundancia geográfica.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Para más información acerca de las copias de seguridad automatizadas, consulte [Copia de seguridad en Azure Database for PostgreSQL](concepts-backup.md). 

@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pafarley
-ms.openlocfilehash: 7d914f394ecfcf02ed26f41cd8fe2ef799cf6103
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 371fa639b2edc300e44cc495393e89c9fce9c4bf
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966745"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580865"
 ---
-# <a name="generating-thumbnails"></a>Generación de miniaturas
+# <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Generación de miniaturas de recorte inteligente con Computer Vision
 
 Una miniatura es una representación reducida de una imagen. Las miniaturas se utilizan para representar imágenes y otros datos de un modo más económico y más compatible con el diseño. Computer Vision API utiliza la funcionalidad de recorte inteligente junto con el cambio de tamaño para crear miniaturas intuitivas de una determinada imagen.
 
@@ -42,9 +43,9 @@ En la tabla siguiente se muestran las típicas miniaturas que se pueden generar 
 
 | Imagen | Miniatura |
 |-------|-----------|
-|![Outdoor Mountain](./Images/mountain_vista.png) | ![Miniatura Outdoor Mountain](./Images/mountain_vista_thumbnail.png) |
-|![Vision Analyze Flower](./Images/flower.png) | ![Miniatura Vision Analyze Flower](./Images/flower_thumbnail.png) |
-|![Woman Roof](./Images/woman_roof.png) | ![Miniatura Woman Roof](./Images/woman_roof_thumbnail.png) |
+|![Una persona en la roca de una montaña al atardecer](./Images/mountain_vista.png) | ![Miniatura Outdoor Mountain](./Images/mountain_vista_thumbnail.png) |
+|![Una flor blanca con un fondo verde](./Images/flower.png) | ![Miniatura Vision Analyze Flower](./Images/flower_thumbnail.png) |
+|![Una mujer en el tejado de un edificio](./Images/woman_roof.png) | ![Miniatura Woman Roof](./Images/woman_roof_thumbnail.png) |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

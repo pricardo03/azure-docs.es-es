@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
-ms.openlocfilehash: 4663cb467d7d1d864425f4899c829b6618b9547c
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 3c3d534392431e79feabe37fe940ea87f586c660
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584469"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051704"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Uso de instancias RDMA o GPU en grupos de Batch
 
@@ -100,7 +100,7 @@ Dispone de varias opciones para instalar el software o los controladores necesar
 
 Para ejecutar aplicaciones CUDA en un grupo de nodos NC Windows, debe instalar los controladores de GPU de NVIDIA. Los siguientes pasos de ejemplo usan un paquete de aplicación para instalar los controladores de GPU de NVIDIA. Puede elegir esta opción si la carga de trabajo depende de una versión específica del controlador de GPU.
 
-1. Descargue un paquete de instalación para los controladores de GPU en Windows Server 2016 desde el [sitio web de NVIDIA](http://us.download.nvidia.com/Windows/): por ejemplo, la [versión 411.82](http://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Guarde el archivo localmente con un nombre corto como *GPUDriverSetup.exe*.
+1. Descargue un paquete de instalación para los controladores de GPU en Windows Server 2016 desde el [sitio web de NVIDIA](https://www.nvidia.com/Download/index.aspx): por ejemplo, la [versión 411.82](http://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Guarde el archivo localmente con un nombre corto como *GPUDriverSetup.exe*.
 2. Cree un archivo ZIP del paquete.
 3. Cargue el paquete en su cuenta de Batch. Para conocer los pasos, consulte las instrucciones de los [paquetes de aplicación](batch-application-packages.md). Especifique un identificador de aplicación, como *GPUDriver* y una versión, como *411.82*.
 1. Mediante las API de Batch o Azure Portal, cree un grupo en la configuración de máquina virtual con el número de nodos y la escala deseados. En la tabla siguiente se muestra la configuración de ejemplo para instalar los controladores de GPU de NVIDIA en modo silencioso mediante una tarea de inicio:

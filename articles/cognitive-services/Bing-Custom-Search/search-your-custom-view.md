@@ -10,45 +10,44 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: maheshb
-ms.openlocfilehash: 58472d535be41fdd3e1139756f867f683509d9a3
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 77a1756aba0d8473051cdf335f33ed9ca5a8fb24
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161742"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558335"
 ---
-# <a name="call-your-custom-search"></a>Llamada a la búsqueda personalizada
+# <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Llamada a la instancia de Bing Custom Search desde el portal
 
-Antes de realizar la primera llamada a Custom Search API para obtener resultados de búsqueda para la instancia, debe obtener una clave de suscripción de Cognitive Services. Para obtener una clave de Custom Search API, consulte [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
+Después de configurar su experiencia de búsqueda personalizada, puede probarla desde el [portal](https://customsearch.ai) de Bing Custom Search. 
+
+![captura de pantalla del portal de Bing Custom Search](media/portal-search-screen.png)
+## <a name="create-a-search-query"></a>Creación de una consulta de búsqueda 
+
+Una vez que haya iniciado sesión en el [portal](https://customsearch.ai) de Bing Custom Search, seleccione la instancia de búsqueda y haga clic en la pestaña **Producción**. En **Endpoints** (Puntos de conexión), seleccione un punto de conexión de API (por ejemplo, Web API). La suscripción determina qué puntos de conexión se muestran.
+
+Para crear una consulta de búsqueda, escriba los valores de parámetro para el punto de conexión. Tenga en cuenta que los parámetros que aparecen en el portal pueden cambiar en función del punto de conexión que elija. Para más información, consulte la [Documentación de referencia de Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters). 
+
+A continuación, se muestran algunos parámetros importantes:
 
 
-## <a name="try-it-out"></a>Prueba
+|Parámetro  |DESCRIPCIÓN  |
+|---------|---------|
+|Consultar     | El término de búsqueda para buscar. Solo está disponible para los puntos de conexión Web, Image, Video y Autosuggest. |
+|Custom Configuration ID (Id. de configuración personalizada) | El identificador de configuración de la instancia de Custom Search seleccionada. Este campo es de solo lectura. |
+|Mercados     | El mercado desde el que se originan los resultados. Solo está disponible para los puntos de conexión Web, Image, Video y Hosted UI.        |
+|Clave de suscripción | La clave de suscripción con la que probar. Puede seleccionar una clave en la lista desplegable o escribirla manualmente.          |
 
-Después de configurar su experiencia de búsqueda personalizada, puede probar la configuración desde el portal de Custom Search. 
+Al hacer clic en **Additional Parameters** (Parámetros adicionales) aparecen los siguientes parámetros:  
 
-1. Inicie sesión en [Custom Search](https://customsearch.ai).
-2. Haga clic en una instancia de Custom Search de la lista.
-3. Haga clic en la pestaña **Production** (Producción). 
-4. En la pestaña **Endpoints** (Puntos de conexión), seleccione uno de ellos (por ejemplo, Web API). La suscripción determina los puntos de conexión que se muestran (vea los [precios](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/) para conocer las opciones de suscripción). 
-5. Especifique los valores de los parámetros. 
-
-    Los siguientes son los parámetros que puede establecer (la lista real depende del punto de conexión seleccionado). Para más información acerca de estos parámetros, consulte la referencia de [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters).
-
-    - **Consulta**: el término de búsqueda para buscar. Solo está disponible para los puntos de conexión Web, Image, Video y Autosuggest.
-    - **Custom Configuration ID** (Id. de configuración personalizada): el identificador de configuración de la instancia de Custom Search seleccionada. Este campo es de solo lectura.
-    - **Mercado**: mercado de donde proceden los resultados. Solo está disponible para los puntos de conexión Web, Image, Video y Hosted UI.
-    - **Clave de suscripción**: la clave de la suscripción con la que probar. Puede seleccionar una clave en la lista desplegable o escribirla manualmente.  
-      
-    Al hacer clic en **Additional Parameters** (Parámetros adicionales) aparecen los siguientes parámetros:  
-      
-    - **Búsqueda segura**: un filtro usado para filtrar las páginas web de contenido para adultos. Solo está disponible para los puntos de conexión Web, Image, Video y Hosted UI.
-    - **User Interface Language** (Idioma de la interfaz de usuario): el idioma que se usa en las cadenas de la interfaz de usuario. Por ejemplo, si habilita las imágenes y los vídeos en Hosted UI, las pestañas **Image** (Imagen) y **Video** (Vídeo) usan el lenguaje especificado.
-    - **Recuento**: número de resultados de la búsqueda que se devolverán en la respuesta. Disponible solo para los puntos de conexión Web, Image y Video.
-    - **Offset** (Desplazamiento): el número de resultados de búsqueda que se van a omitir antes de devolver los resultados. Disponible solo para los puntos de conexión Web, Image y Video.
-
-6. Tras especificar todas las opciones necesarias, haga clic en **Call** (Llamar) para ver la respuesta de JSON en el panel derecho. 
-
-Si selecciona el punto de conexión Hosted UI, puede probar la experiencia de búsqueda en el panel derecho.
+|Parámetro  |DESCRIPCIÓN  |
+|---------|---------|
+|Búsqueda segura     | Un filtro usado para filtrar las páginas web de contenido para adultos. Solo está disponible para los puntos de conexión Web, Image, Video y Hosted UI.        |
+|Idioma de la interfaz de usuario    | Idioma que se usa para las cadenas de la interfaz de usuario. Por ejemplo, si habilita las imágenes y los vídeos en Hosted UI, las pestañas **Image** (Imagen) y **Video** (Vídeo) usan el lenguaje especificado.        |
+|Recuento     | Número de resultados de búsqueda que se devolverán en la respuesta. Disponible solo para los puntos de conexión Web, Image y Video.         |
+|Offset    | El número de resultados de búsqueda que se van a omitir antes de devolver los resultados. Disponible solo para los puntos de conexión Web, Image y Video.        |
+    
+Tras especificar todas las opciones necesarias, haga clic en **Call** (Llamar) para ver la respuesta de JSON en el panel derecho. Si selecciona el punto de conexión Hosted UI, puede probar la experiencia de búsqueda en el panel derecho.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

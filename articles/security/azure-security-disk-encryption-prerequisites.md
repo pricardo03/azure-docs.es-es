@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/13/2018
+ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 116f1f0a93c09ed751f0720ae74a2c24df7541eb
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: efb8c885daf78ad279a229257492a34c6dbf1c6a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342517"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156517"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Requisitos previos de Azure Disk Encryption
 
@@ -21,8 +21,9 @@ ms.locfileid: "53342517"
 
 Antes de habilitar Azure Disk Encryption en máquinas virtuales IaaS de Azure para los escenarios admitidos que se trataron en el artículo de [información general sobre Azure Disk Encryption](azure-security-disk-encryption-overview.md), asegúrese de cumplir los requisitos previos. 
 
-> [!NOTE]
-> Algunas de las recomendaciones pueden provocar un aumento del uso de datos, de la red o de recursos de proceso, lo que incrementará los costes de las licencias o suscripciones. Para crear recursos en Azure en las regiones admitidas, debe tener una suscripción válida de Azure activa.
+> [!WARNING]
+> - Si ha usado anteriormente [Azure Disk Encryption con la aplicación Azure AD](azure-security-disk-encryption-prerequisites-aad.md) para cifrar esta VM, tendrá que seguir usando esta opción para cifrar la VM. No puede usar [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) en esta VM cifrada ya que no es un escenario compatible, lo que significa que el cambio desde la aplicación de AAD para esta VM cifrada aún no es compatible.
+> - Algunas de las recomendaciones pueden provocar un aumento del uso de datos, de la red o de recursos de proceso, lo que incrementará los costes de las licencias o suscripciones. Para crear recursos en Azure en las regiones admitidas, debe tener una suscripción válida de Azure activa.
 
 
 ## <a name="bkmk_OSs"></a> Sistemas operativos compatibles
@@ -66,12 +67,10 @@ Puede encontrar un ejemplo de los comandos que se pueden usar para montar los di
 
 ### <a name="install-azure-powershell-for-use-on-your-local-machine-optional"></a>Instale Azure PowerShell para su uso en el equipo local (opcional): 
 1. Siga las instrucciones de los vínculos correspondientes a su sistema operativo y continúe por el resto de los pasos siguientes.      
-    - [Instale y configure Azure PowerShell para Windows](/powershell/azure/install-azurerm-ps). 
+    - [Instale y configure Azure PowerShell para Windows](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0). 
         - Instale PowerShellGet, Azure PowerShell y cargue el módulo AzureRM. 
-    - [Instale y configure Azure Powershell en macOS y Linux](/powershell/azure/install-azurermps-maclinux).
-        -  Instale PowerShell Core y Azure PowerShell para .NET Core y cargue el módulo Az.
 
-2. Compruebe las versiones instaladas del módulo AzureRM. Si es necesario, [actualice el módulo Azure PowerShell](/powershell/azure/install-azurerm-ps#update-the-azure-powershell-module).
+2. Compruebe las versiones instaladas del módulo AzureRM. Si es necesario, [actualice el módulo Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0#update-the-azure-powershell-module).
     -  La versión del módulo AzureRM debe ser 6.0.0 o posterior.
     - Se recomienda utilizar la versión más reciente del módulo AzureRM.
 

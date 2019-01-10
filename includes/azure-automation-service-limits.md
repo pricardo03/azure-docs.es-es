@@ -5,16 +5,18 @@ services: automation
 author: georgewallace
 ms.service: automation
 ms.topic: include
-ms.date: 11/07/2018
+ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 70cdd5a9d0482c24dfeb2037ae56b86cd9339fcf
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f3ae2289112948dea7d2649c4fad6b1cafb3804b
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285758"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53444371"
 ---
+#### <a name="process-automation"></a>Automatización de procesos
+
 | Recurso | Límite máximo |Notas|
 | --- | --- |---|
 | Cantidad máxima de trabajos nuevos que se puede enviar cada 30 segundos por cuenta de Automation (trabajos no programados) |100 |Si se alcanza este límite, se producirá un error en las siguientes solicitudes para crear un trabajo. El cliente recibe una respuesta de error.|
@@ -33,5 +35,19 @@ ms.locfileid: "51285758"
 | Parámetros máximos de runbook   | 50|Puede pasar una cadena JSON o XML a un parámetro y analizarlo con el runbook si alcanza el límite de 50 parámetros|
 | Tamaño máximo de carga de webhook |  512 kb|
 | Máximo de días que se conservan los datos de trabajo|30 días|
+| Tamaño máximo del estado de flujo de trabajo de PowerShell |5 MB| Se aplica a los runbooks del flujo de trabajo de PowerShell al aplicar el punto de control del flujo de trabajo.|
 
 **<sup>1</sup>** Un espacio aislado es un entorno compartido que puede usarse en varios trabajos. Los trabajos que usan el mismo espacio aislado están limitados por los límites de los recursos del espacio aislado.
+
+#### <a name="change-tracking-and-inventory"></a>Change Tracking e Inventario
+
+La siguiente tabla muestra los límites del elemento sometido a seguimiento por máquina para Change Tracking.
+
+| **Recurso** | **Límite**| **Notas** |
+|---|---|---|
+|Archivo|500||
+|Registro|250||
+|Software de Windows|250|No se incluye el costo de las actualizaciones de software|
+|Paquetes Linux|1250||
+|Services|250||
+|Daemon|250||

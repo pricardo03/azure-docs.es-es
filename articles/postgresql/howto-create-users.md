@@ -3,16 +3,15 @@ title: Creación de usuarios en un servidor de Azure Database for PostgreSQL
 description: En este artículo se describe cómo puede crear cuentas de usuario para interactuar con un servidor de Azure Database for PostgreSQL.
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/16/2018
-ms.openlocfilehash: 45d1f55e60763724aeb1b1685c5c69696475a424
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 8b1bf6f1eccefb9235751c9e113c90566dfdff79
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958107"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540832"
 ---
 # <a name="create-users-in-azure-database-for-postgresql-server"></a>Creación de usuarios en un servidor de Azure Database for PostgreSQL 
 En este artículo se describe cómo puede crear usuarios en un servidor de Azure Database for PostgreSQL.
@@ -27,7 +26,7 @@ El servidor de Azure Database for PostgreSQL se creó con los tres roles predete
 
 El usuario administrador del servidor es un miembro del rol azure_pg_admin. No obstante, la cuenta de administrador del servidor no forma parte del rol azure_superuser. Como este servicio es un servicio PaaS administrado, solo Microsoft forma parte del rol de superusuario. 
 
-El motor de PostgreSQL usa privilegios para controlar el acceso a objetos de base de datos, como se describe en la [documentación de productos de PostgreSQL](https://www.postgresql.org/docs/current/static/sql-createrole.html). En Azure Database for PostgreSQL, al usuario administrador del servidor se le conceden estos privilegios: LOGIN, NOSUPERUSER, INHERIT, CREATEDB, CREATEROLE, NOREPLICATION
+El motor de PostgreSQL usa privilegios para controlar el acceso a objetos de base de datos, como se describe en la [documentación de productos de PostgreSQL](https://www.postgresql.org/docs/current/static/sql-createrole.html). En Azure Database for PostgreSQL, se le conceden estos privilegios al usuario administrador del servidor: LOGIN, NOSUPERUSER, INHERIT, CREATEDB, CREATEROLE y NOREPLICATION
 
 La cuenta de usuario administrador del servidor puede usarse para crear usuarios adicionales y conceder a tales usuarios el rol azure_pg_admin. Además, la cuenta de administrador del servidor puede usarse para crear usuarios con menos privilegios y roles que tengan acceso a esquemas y base de datos individuales.
 
@@ -77,6 +76,6 @@ La cuenta de usuario administrador del servidor puede usarse para crear usuarios
    ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Abra el firewall para las direcciones IP de las máquinas de los nuevos usuarios para permitirles que se conecten: [Creación y administración de reglas de firewall de Azure Database for PostgreSQL mediante Azure Portal](howto-manage-firewall-using-portal.md) o [CLI de Azure](howto-manage-firewall-using-cli.md).
+Abra el firewall para las direcciones IP de las máquinas de los nuevos usuarios para permitirles conectarse: [Creación y administración de reglas de firewall de Azure Database for PostgreSQL mediante Azure Portal](howto-manage-firewall-using-portal.md) o la [CLI de Azure](howto-manage-firewall-using-cli.md).
 
 Para más información respecto a la administración de cuentas de usuario, consulte la documentación de productos de PostgreSQL relativa a los [privilegios y roles de base de datos](https://www.postgresql.org/docs/current/static/user-manag.html), la [sintaxis GRANT](https://www.postgresql.org/docs/current/static/sql-grant.html) y los [privilegios](https://www.postgresql.org/docs/current/static/ddl-priv.html).

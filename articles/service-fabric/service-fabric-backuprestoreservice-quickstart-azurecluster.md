@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: 57848a7a4d8e627e952a9f46d438b073c73d833a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a9b90fe119bc56620a7bd3087d4842f604fc18f0
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725869"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582548"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Restauración y copia de seguridad periódicas de Azure Service Fabric 
 > [!div class="op_single_selector"]
@@ -150,6 +150,9 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/BackupRestor
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
+> [!IMPORTANT]
+> Debido a un problema en el entorno en tiempo de ejecución, debe asegurarse de que la duración de la retención en la directiva de retención se configure para que sea inferior a 24 días, o bien provocará que en el servicio de restauración de copia de seguridad se produzca una conmutación por error de la réplica de publicación de pérdida de cuórum.
+
 ### <a name="enable-periodic-backup"></a>Habilitación de la copia de seguridad periódica
 Después de definir la directiva de copia de seguridad para satisfacer los requisitos de protección de datos de la aplicación, dicha directiva debe estar asociada a la aplicación. En función de los requisitos, la directiva de copia de seguridad puede asociarse a una aplicación, un servicio o una partición.
 
@@ -228,8 +231,10 @@ FailureError            :
 
 ## <a name="limitation-caveats"></a>Limitaciones o advertencias
 - No hay ninguna instancia de Service Fabric compilada en los cmdlets de PowerShell.
-- Sin compatibilidad con la CLI de Service Fabric.
 - Sin compatibilidad con los clústeres de Service Fabric en Linux.
+
+## <a name="known-issues"></a>Problemas conocidos
+- Asegúrese de que la duración de la retención se configure para que sea inferior a 24 días. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Información sobre la configuración de la copia de seguridad periódica](./service-fabric-backuprestoreservice-configure-periodic-backup.md)

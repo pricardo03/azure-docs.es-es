@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 05/17/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4f4067c73cac4597da3099212c9c04c2544a0b2d
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 30bfaad8fcc1a837a37689280149a6dbe20b7c1d
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634352"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628158"
 ---
 # <a name="use-apache-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Uso de Apache Hive con HDInsight basado en Windows para analizar registros de sitios web
 Vea cómo usar HiveQL con HDInsight para analizar registros de un sitio web. El análisis de registros de sitios web se puede usar para segmentar su público en función de actividades parecidas, clasificar los visitantes a los sitios por datos demográficos, descubrir el contenido que ven, los sitios web de los que proceden, etc.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Los pasos de este tutorial solo se aplican a los clústeres de HDInsight basados en Windows. HDInsight solo está disponible en Windows en versiones inferiores a la 3.4. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 En este ejemplo, usará un clúster de HDInsight para analizar archivos de registro de sitios web a fin de conocer la frecuencia de las visitas a estos en un día desde sitios web externos. También generará un resumen de errores de sitios web que experimentan los usuarios. Aprenderá a:
@@ -32,7 +32,7 @@ En este ejemplo, usará un clúster de HDInsight para analizar archivos de regis
 ![HDI.Samples.Website.Log.Analysis](./media/apache-hive-analyze-website-log/hdinsight-weblogs-sample.png)
 
 ## <a name="prerequisites"></a>Requisitos previos
-* Debe aprovisionar un clúster de Hadoop en HDInsight de Azure. Para obtener instrucciones, consulte [Aprovisionamiento de clústeres de HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
+* Debe haber aprovisionado un clúster de Apache Hadoop en Azure HDInsight. Para obtener instrucciones, consulte [Aprovisionamiento de clústeres de HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 * Debe tener instalado Microsoft Excel 2013 o Excel 2010.
 * Debe tener [Microsoft Hive ODBC Driver para](https://www.microsoft.com/download/details.aspx?id=40886) importar datos de Hive en Excel.
 

@@ -1,20 +1,17 @@
 ---
 title: Uso de sys_schema para operaciones de optimización del rendimiento y mantenimiento de bases de datos en Azure Database for MySQL
 description: En este artículo se describe cómo utilizar sys_schema para detectar problemas de rendimiento y realizar el mantenimiento de bases de datos en Azure Database for MySQL.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/01/2018
-ms.openlocfilehash: 1e10e3b1b5f4518732408f254eb5767acb8485c6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 993c77056c09c1dc21d5317ddbfe8e937341718d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446914"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542856"
 ---
 # <a name="how-to-use-sysschema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Uso de sys_schema para operaciones de optimización del rendimiento y mantenimiento de bases de datos en Azure Database for MySQL
 
@@ -24,15 +21,15 @@ La característica performance_schema de MySQL, disponible por primera vez en My
 
 Hay 52 vistas en sys_schema y cada vista tiene uno de los siguientes prefijos:
 
-- Host_summary o E/S: latencias relacionadas con E/S.
+- Host_summary o IO: latencias relacionadas con E/S.
 - InnoDB: estado y bloqueos del búfer InnoDB.
-- Memory: uso de la memoria por parte del host y de los usuarios.
-- Schema: información relacionada con los esquemas como el incremento automático, los índices, etc.
+- Memoria: uso de la memoria por parte del host y de los usuarios.
+- Esquema: información relacionada con los esquemas, como el incremento automático, los índices, etc.
 - Statement: información sobre las instrucciones SQL. Puede tratarse de una instrucción que dio como resultado un recorrido de tabla completo o un tiempo de consulta largo.
 - User: los recursos que consumen y agrupan los usuarios. Algunos ejemplos son: operaciones de E/S de archivo, conexiones y memoria.
 - Wait: eventos de espera agrupados por host o usuario.
 
-Echemos un vistazo a algunos patrones de uso habituales de sys_schema. Para empezar, vamos a agrupar los patrones de uso en dos categorías: **optimización del rendimiento** y **mantenimiento de base de datos**.
+Echemos un vistazo a algunos patrones de uso habituales de sys_schema. Para empezar, vamos a agrupar los patrones de uso en dos categorías: **Ajuste de rendimiento** y **Mantenimiento de la base de datos**.
 
 ## <a name="performance-tuning"></a>Optimización del rendimiento
 
@@ -40,11 +37,11 @@ Echemos un vistazo a algunos patrones de uso habituales de sys_schema. Para empe
 
 E/S es la operación más costosa en la base de datos. Podemos averiguar el promedio de latencia de E/S consultando la vista *sys.user_summary_by_file_io*. Con el valor predeterminado de 125 GB de almacenamiento aprovisionado, la latencia de E/S es aproximadamente de 15 segundos.
 
-![latencia de E/S: 125 GB](./media/howto-troubleshoot-sys-schema/io-latency-125GB.png)
+![Latencia de E/S: 125 GB](./media/howto-troubleshoot-sys-schema/io-latency-125GB.png)
 
 Dado que Azure Database for MySQL escala E/S en relación al almacenamiento, después de aumentar mi almacenamiento aprovisionado a 1 TB, la latencia de E/S se reduce a 571 ms.
 
-![latencia de E/S: 1 TB](./media/howto-troubleshoot-sys-schema/io-latency-1TB.png)
+![Latencia de E/S: 1 TB](./media/howto-troubleshoot-sys-schema/io-latency-1TB.png)
 
 ### <a name="sysschematableswithfulltablescans"></a>*sys.schema_tables_with_full_table_scans*
 

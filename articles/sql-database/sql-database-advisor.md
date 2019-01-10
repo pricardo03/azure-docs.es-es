@@ -9,22 +9,22 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: e5480e5e071d541d12e96ddd549e496c7f974f81
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: f55d3eb67bb9c494a3d055e39d970c9a440dfc67
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271052"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603446"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Recomendaciones de rendimiento para SQL Database
 
 Azure SQL Database comprende su aplicación y se adapta a ella. Proporciona recomendaciones personalizadas que permiten maximizar el rendimiento de las bases de datos SQL. SQL Database evalúa y analiza continuamente el historial de uso de las bases de datos SQL. Las recomendaciones que se proporcionan se basan en patrones de carga de trabajo únicos de la base de datos y ayudan a mejorar su rendimiento.
 
 > [!TIP]
-> [Ajuste automático](sql-database-automatic-tuning.md) es el método recomendado de realizar el ajuste de rendimiento. [Intelligent Insights](sql-database-intelligent-insights.md) es el método recomendado de supervisar el rendimiento. 
+> El [ajuste automático](sql-database-automatic-tuning.md) es el método recomendado para ajustar automáticamente algunos de los problemas más comunes de rendimiento de la base de datos. La [información de rendimiento de consultas](sql-database-query-performance.md) es el método recomendado para las necesidades básicas de supervisión de rendimiento de Azure SQL Database. [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) es el método recomendado para una supervisión avanzada de rendimiento de la base de datos a escala, con inteligencia integrada para solucionar problemas de rendimiento automatizado.
 >
 
 ## <a name="create-index-recommendations"></a>Recomendaciones Crear índice

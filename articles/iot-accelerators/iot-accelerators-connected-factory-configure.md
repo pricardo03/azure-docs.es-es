@@ -1,5 +1,5 @@
 ---
-title: Configuración de la topología de factoría conectada | Microsoft Docs
+title: 'Configuración de la topología de factoría conectada: Azure | Microsoft Docs'
 description: Cómo configurar la topología de un acelerador de soluciones de factoría conectada.
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 8cb3cae396016545c5d78a2ff7ccde4a053c4cf1
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 3fd160fbccfb5298cefed6a731797ca6962b997c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746986"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602280"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configuración del acelerador de soluciones de factoría conectada
 
@@ -85,7 +85,7 @@ El siguiente fragmento de código muestra un esquema del archivo de configuraci�
 }
 ```
 
-Las propiedades comunes de `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>` y `<station_configuration>` son:
+Las propiedades comunes de  `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>` y `<station_configuration>` son:
 
 * **Name** (tipo cadena)
 
@@ -282,7 +282,7 @@ Las cifras de OEE/KPI para la simulación de factoría conectada están parametr
 * Los valores del nodo OPC UA que se incluirán en el cálculo.
 * Cómo se calcula la cifra a partir de los valores de telemetría.
 
-La solución de factoría conectada usa fórmulas OEE como se publica en http://www.oeefoundation.org.
+La solución de factoría conectada usa fórmulas OEE como se publica en https://www.oeefoundation.org.
 
 Los objetos del nodo OPC UA de las estaciones permiten el etiquetado para su uso en el cálculo de OEE/KPI. La propiedad **Relevance** indica para qué cifra de OEE/KPI debe usarse el valor del nodo OPC UA. La propiedad **OpCode** define cómo se incluye el valor en el cálculo.
 

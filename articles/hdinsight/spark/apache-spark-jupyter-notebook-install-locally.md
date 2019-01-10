@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: 92f6bc358fe8cc5ab8f7242d94edc3004eaab4b9
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: c1f4690d2ce10fe83d613b37ef2514effd2cef63
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163385"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598828"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Instalación de un cuaderno de Jupyter Notebook en el equipo y conexión al clúster de Apache Spark en HDInsight Linux
 
@@ -22,9 +22,9 @@ En este artículo obtendrá información sobre cómo instalar un cuaderno de Jup
 
 Existen tres pasos principales en la instalación de Jupyter y Sparkmagic en el equipo.
 
-* Instalación de cuadernos de Jupyter Notebook
-* Instalación de los kernels de PySpark y Spark con Sparkmagic
-* Configuración de Sparkmagic para acceder al clúster de Spark en HDInsight
+* Instalación de cuadernos de Jupyter Notebook.
+* Instalación de los kernels de PySpark y Spark con Sparkmagic.
+* Configuración de Sparkmagic para obtener acceso al clúster de Spark en HDInsight.
 
 Para más información acerca de los kernels personalizados y Sparkmagic disponibles para cuadernos de Jupyter Notebook con el clúster de HDInsight, consulte [Kernels disponibles para cuadernos de Jupyter con clústeres Spark en HDInsight basados en Linux en HDInsight (versión preliminar)](apache-spark-jupyter-notebook-kernels.md).
 
@@ -43,7 +43,7 @@ Debe instalar Python para poder instalar cuadernos de Jupyter Notebook. Python y
 
         conda install jupyter
 
-    Para más información sobre la instalación de Jupyter, consulte [Installing Jupyter using Anaconda](http://jupyter.readthedocs.io/en/latest/install.html)(Instalación de Jupyter con Anaconda).
+    Para más información sobre la instalación de Jupyter, consulte [Installing Jupyter using Anaconda](https://jupyter.readthedocs.io/en/latest/install.html)(Instalación de Jupyter con Anaconda).
 
 ## <a name="install-the-kernels-and-spark-magic"></a>Instalación de kernels y Sparkmagic
 
@@ -100,7 +100,7 @@ En esta sección, configurará el conjunto de Sparkmagic que instaló anteriorme
             "livy_server_heartbeat_timeout_seconds": 60,
             "heartbeat_retry_seconds": 1
 
-    >[!TIP]
+    >[!TIP]  
     >Los latidos se envían para garantizar que no se pierdan sesiones. Cuando un equipo entra en modo de suspensión o se apaga, no se enviará el latido, con lo que se la sesión se limpia. Para los clústeres 3.4, si desea deshabilitar este comportamiento, puede establecer la configuración de Livio `livy.server.interactive.heartbeat.timeout` a `0` en la interfaz de usuario de Ambari. Para los clústeres 3.5, si no establece la configuración de 3.5 anterior, no se eliminará la sesión.
 
 1. Reinicie Jupyter. En la ventana del símbolo del sistema, ejecute el comando siguiente.
@@ -120,7 +120,7 @@ En esta sección, configurará el conjunto de Sparkmagic que instaló anteriorme
 
     Si puede recuperar correctamente el resultado, se comprobará la conexión al clúster de HDInsight.
 
-    >[!TIP]
+    >[!TIP]  
     >Si desea actualizar la configuración del cuaderno para conectarse a un clúster distinto, actualice el archivo config.json con el nuevo conjunto de valores como se muestra en el paso 3 anterior.
 
 ## <a name="why-should-i-install-jupyter-on-my-computer"></a>¿Por qué debo instalar Jupyter en mi equipo?
@@ -132,7 +132,7 @@ Puede haber varios motivos por los que podría querer instalar Jupyter en el equ
 * Puede trabajar con cuadernos localmente sin necesidad de un clúster activo. Solo necesita un clúster para probar los cuadernos, no para administrar manualmente los cuadernos o un entorno de desarrollo.
 * Puede resultar más fácil configurar su propio entorno de desarrollo local que configurar la instalación de Jupyter en el clúster.  Puede aprovechar todo el software que haya instalado localmente sin configurar uno o más clústeres remotos.
 
-> [!WARNING]
+> [!WARNING]  
 > Con Jupyter instalado en el equipo local, varios usuarios pueden ejecutar el mismo cuaderno en el mismo clúster de Spark al mismo tiempo. En tal situación, se crean varias sesiones de Livy. Si surge un problema y desea depurarlo, es una tarea compleja realizar el seguimiento de a qué sesión de Livy pertenece cada usuario.
 >
 >

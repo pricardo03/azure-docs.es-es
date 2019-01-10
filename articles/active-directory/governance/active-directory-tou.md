@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.component: compliance
 ms.date: 12/20/2018
 ms.author: rolyon
-ms.openlocfilehash: 0a5d58d0403471d591ce2aa2ed9de9092127ea15
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 859d81239cfad9eb5396a30f5db316bc73285831
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744112"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188438"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Característica Condiciones de uso de Azure Active Directory
 Azure AD Terms of Use ofrece un método sencillo que pueden usar las organizaciones para presentar información a los usuarios finales. Esta presentación garantiza que los usuarios ven las declinaciones de responsabilidades pertinentes de los requisitos legales o de cumplimiento. En este artículo se describe cómo empezar a trabajar con Condiciones de uso.
@@ -263,7 +263,7 @@ Esta es una lista de las plataformas y el software admitidos.
 > |  | iOS | Android | Windows 10 | Otros |
 > | --- | --- | --- | --- | --- |
 > | **Aplicación nativa** | SÍ | Sí | SÍ |  |
-> | **Edge** | SÍ | Sí | SÍ |  |
+> | **Microsoft Edge** | SÍ | Sí | SÍ |  |
 > | **Internet Explorer** | SÍ | Sí | SÍ |  |
 > | **Chrome (con extensión)** | SÍ | Sí | SÍ |  |
 

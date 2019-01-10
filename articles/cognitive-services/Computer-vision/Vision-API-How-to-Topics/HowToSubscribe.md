@@ -1,5 +1,5 @@
 ---
-title: Obtener claves de suscripción para Computer Vision API
+title: 'Obtención de las claves de suscripción: Computer Vision'
 titlesuffix: Azure Cognitive Services
 description: Vea cómo se obtienen las claves de suscripción para las llamadas a Computer Vision API en Azure Cognitive Services.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: kefre
-ms.openlocfilehash: db4d589bb0c7611e632a90f2174ad8e9c415bf6a
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.custom: seodec18
+ms.openlocfilehash: 820531cc2254d9cbc7aaf7e758dd0457b282d892
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985429"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580814"
 ---
 # <a name="how-to-obtain-subscription-keys"></a>Cómo obtener las claves de suscripción
 

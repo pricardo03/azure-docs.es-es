@@ -10,16 +10,15 @@ ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 11506f63089564b5187ebd6177f7187f1faf6655
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 4dbfd993a8464c569d30f11e305d4bae000a778f
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999601"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077715"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configuración de Azure Key Vault con la auditoría y la rotación de claves
 
@@ -270,7 +269,7 @@ A continuación, debe [crear una función de Azure](../azure-functions/functions
 
 Para crear una función de Azure, elija **Crear un recurso**, busque _Function App_ en Marketplace y haga clic en **Crear**. Durante el proceso de creación, puede usar un plan de hospedaje existente o crear uno nuevo. También puede utilizar un plan de hospedaje dinámico. Encontrará más información sobre las opciones de hospedaje de funciones en [Escalado de Azure Functions](../azure-functions/functions-scale.md).
 
-Una vez creada la función de Azure, acceda a ella y elija una función de temporizador y C\#. A continuación, haga clic en **Crear esta función**.
+Una vez creada la función de Azure, acceda a ella y elija una función de temporizador y C\#. A continuación, haga clic en **Crear esta función.
 
 ![Hoja de inicio de Azure Functions](./media/keyvault-keyrotation/Azure_Functions_Start.png)
 

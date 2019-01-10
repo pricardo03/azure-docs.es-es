@@ -1,5 +1,5 @@
 ---
-title: Ejecución de cargas de trabajo de Azure Batch en máquinas virtuales de prioridad baja rentables | Microsoft Docs
+title: 'Ejecución de cargas de trabajo en VM de prioridad baja rentables: Azure Batch | Microsoft Docs'
 description: Aprenda a aprovisionar máquinas virtuales de prioridad baja para reducir el costo de las cargas de trabajo de Azure Batch.
 services: batch
 author: mscurrell
@@ -11,12 +11,13 @@ ms.topic: article
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: markscu
-ms.openlocfilehash: d42cef944c3b971804ef1417a3877bf919784a02
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.custom: seodec18
+ms.openlocfilehash: 17668470be3e997c215aacc4cc2c32c80de2dd81
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093010"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546800"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Uso de máquinas virtuales de prioridad baja con Batch
 
@@ -44,9 +45,9 @@ Algunos ejemplos de casos de uso de procesamiento por lotes adecuados para usar 
 
 -   **Desarrollo y pruebas**: en concreto, si se están desarrollando soluciones a gran escala se pueden obtener ahorros significativos. Aunque todos los tipos de pruebas pueden beneficiarse, será especialmente ventajoso para pruebas de carga y regresión a gran escala.
 
--   **Capacidad a petición complementaria** : las máquinas virtuales de prioridad baja pueden usarse para complementar las máquinas virtuales dedicadas normales; cuando están disponibles, los trabajos pueden escalarse y, por lo tanto, completarse más rápido con un costo menor; cuando no están disponibles, la línea base de las máquinas virtuales dedicadas sigue estando disponible.
+-   **Capacidad a petición complementaria**: las VM de prioridad baja pueden usarse para complementar las VM dedicadas normales; cuando están disponibles, los trabajos pueden escalarse y, por lo tanto, completarse más rápido con un costo menor; cuando no están disponibles, la línea base de las VM dedicadas sigue estando disponible.
 
--   **Tiempo de ejecución flexible de los trabajos**: si hay flexibilidad en el tiempo en que tienen que completarse los trabajos, entonces se pueden tolerar posibles bajadas en la capacidad; sin embargo, con la adición de máquinas virtuales de prioridad baja, los trabajos se ejecutan con frecuencia más rápido y con un costo menor.
+-   **Tiempo de ejecución flexible de los trabajos**: si hay flexibilidad en el tiempo en que tienen que completarse los trabajos, entonces se pueden tolerar posibles bajadas en la capacidad; sin embargo, con la adición de VM de prioridad baja, los trabajos se ejecutan con frecuencia más rápido y con un costo menor.
 
 Los grupos de Batch se pueden configurar para usar máquinas virtuales de prioridad baja de varias maneras, dependiendo de la flexibilidad en el tiempo de ejecución de los trabajos:
 

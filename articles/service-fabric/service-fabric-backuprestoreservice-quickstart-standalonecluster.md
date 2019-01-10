@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: 2ff7221a3742f59cdef2c5c7c220cc80148b94d0
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: b8f7142b2bd8e07e4b92c37b7e06bc4fe09efb73
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721568"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580423"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Restauración y copia de seguridad periódicas de Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -146,6 +146,9 @@ $url = "http://localhost:19080/BackupRestore/BackupPolicies/$/Create?api-version
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json'
 ```
 
+> [!IMPORTANT]
+> Debido a un problema en el entorno en tiempo de ejecución, debe asegurarse de que la duración de la retención en la directiva de retención se configure para que sea inferior a 24 días, o bien provocará que en el servicio de restauración de copia de seguridad se produzca una conmutación por error de la réplica de publicación de pérdida de cuórum.
+
 ### <a name="enable-periodic-backup"></a>Habilitación de la copia de seguridad periódica
 Después de definir la directiva para satisfacer los requisitos de protección de datos de la aplicación, la directiva de copia de seguridad debe asociarse a la aplicación. En función de los requisitos, la directiva de copia de seguridad puede asociarse a una aplicación, un servicio o una partición.
 
@@ -222,9 +225,13 @@ CreationTimeUtc         : 2018-04-01T20:09:44Z
 FailureError            : 
 ```
 
+## <a name="known-issues"></a>Problemas conocidos
+- Asegúrese de que la duración de la retención se configure para que sea inferior a 24 días. 
+- El servicio de restauración de copia de seguridad no aparece en escenarios en los que el separador decimal es distinto de ".".
+- El servicio de restauración de copia de seguridad no puede aparecer en un clúster protegido con la seguridad basada en GMSA.
+
 ## <a name="limitation-caveats"></a>Limitaciones o advertencias
 - No hay ninguna instancia de Service Fabric compilada en los cmdlets de PowerShell.
-- Sin compatibilidad con la CLI de Service Fabric.
 - Sin compatibilidad con los clústeres de Service Fabric en Linux.
 
 ## <a name="next-steps"></a>Pasos siguientes

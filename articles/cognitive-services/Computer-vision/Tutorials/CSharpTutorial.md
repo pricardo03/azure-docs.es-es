@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Compilación de una aplicación de procesamiento de imágenes (C#)'
+title: 'Tutorial: Compilación de una aplicación de procesamiento de imágenes: C#'
 titleSuffix: Computer Vision - Cognitive Services - Azure
 description: Explore una aplicación básica de Windows que usa Computer Vision API de Microsoft Cognitive Services. Realice OCR, cree miniaturas y trabaje con características visuales en una imagen.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: d1fa468874cdc51bad3421f700a69f3ffb268635
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 8640d89c5fb9e38fc6c982e21147361ad690964a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342660"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584452"
 ---
-# <a name="tutorial-build-an-image-processing-app---c35"></a>Tutorial: Compilación de una aplicación de procesamiento de imágenes (C&#35;)
+# <a name="tutorial-build-an-image-processing-app---c35"></a>Tutorial: Compilación de una aplicación de procesamiento de imágenes: C&#35;
 
 Explore una aplicación Windows básica que utiliza Computer Vision para realizar el reconocimiento óptico de caracteres (OCR), crear miniaturas de recorte inteligente, además de detectar, clasificar, etiquetar y describir las características visuales, incluidas las caras, en una imagen. El ejemplo siguiente le permite enviar la dirección URL de una imagen o un archivo almacenado localmente. Puede usar este ejemplo de código abierto como plantilla para crear su propia aplicación para Windows con Computer Vision API y Windows Presentation Foundation (WPF), una parte de .NET Framework.
 
@@ -101,7 +102,7 @@ Puede ejecutar la aplicación de ejemplo para ver cómo interactúa con usted y 
    > Microsoft recibe las imágenes cargadas y puede usarlas para mejorar Computer Vision API y los servicios relacionados. Al enviar una imagen, confirma que ha seguido nuestro [Código de conducta del desarrollador](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
 
    En la captura de pantalla siguiente se muestra la página proporcionada para el escenario Analyze Image, después de analizar una imagen de ejemplo.
-   ![Página del escenario Analyze Image](../Images/Analyze_Image_Example.PNG)
+   ![Captura de pantalla de la página Analizar imagen](../Images/Analyze_Image_Example.PNG)
 
 ## <a name="explore-the-sample-app"></a>Explorar la aplicación de ejemplo
 

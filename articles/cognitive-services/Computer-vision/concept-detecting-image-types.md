@@ -1,7 +1,7 @@
 ---
 title: 'Detección de tipos de imagen: Computer Vision'
 titleSuffix: Azure Cognitive Services
-description: Conceptos relacionados con la detección de tipos de imagen mediante Computer Vision API.
+description: Conceptos relacionados con la característica de detección de tipos de imagen de Computer Vision API.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: ecdbdd60af41ee14070f2f45dfe50875e38ac3b3
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 04062d5625126712c5f14c41d610d55caf4c28b5
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342014"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583109"
 ---
-# <a name="detecting-image-types"></a>Detección de los tipos de imagen
+# <a name="detecting-image-types-with-computer-vision"></a>Detección de tipos de imagen con Computer Vision
 
 Computer Vision puede analizar el tipo de contenido de las imágenes e indicar si se trata de una imagen prediseñada (mediante la evaluación de la probabilidad según una escala) o un dibujo lineal.
 
@@ -36,7 +37,7 @@ Computer Vision analiza una imagen y evalúa la probabilidad de que sea una imag
 
 Las respuestas JSON siguientes muestran lo que devuelve Computer Vision cuando evalúa la probabilidad de que las imágenes de ejemplo sean imágenes prediseñadas.
 
-![Vision Analyze Cheese Clip Art](./Images/cheese_clipart.png)
+![Una imagen prediseñada de un pedazo de queso](./Images/cheese_clipart.png)
 
 ```json
 {
@@ -53,7 +54,7 @@ Las respuestas JSON siguientes muestran lo que devuelve Computer Vision cuando e
 }
 ```
 
-![Vision Analyze House Yard](./Images/house_yard.png)
+![Una casa azul y el patio delantero](./Images/house_yard.png)
 
 ```json
 {
@@ -78,7 +79,7 @@ Computer Vision analiza una imagen y devuelve un valor booleano que indica si la
 
 Las respuestas JSON siguientes muestran lo que devuelve Computer Vision al informar si las imágenes de ejemplo son dibujos lineales.
 
-![Vision Analyze Lion Drawing](./Images/lion_drawing.png)
+![Una imagen de dibujo lineal de un león](./Images/lion_drawing.png)
 
 ```json
 {
@@ -95,7 +96,7 @@ Las respuestas JSON siguientes muestran lo que devuelve Computer Vision al infor
 }
 ```
 
-![Vision Analyze Flower](./Images/flower.png)
+![Una flor blanca con un fondo verde](./Images/flower.png)
 
 ```json
 {

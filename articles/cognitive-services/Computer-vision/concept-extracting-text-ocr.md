@@ -10,22 +10,23 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 52b6265722d5cfbf8baf54e1785ace627aa0892f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 07d3f5d365fa5c552ccb61c97532a9931b7e282e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341674"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583687"
 ---
-# <a name="extracting-text-with-ocr"></a>Extracción de texto con OCR
+# <a name="extracting-text-with-optical-character-recognition"></a>Extracción de texto con reconocimiento óptico de caracteres
 
 La tecnología de reconocimiento óptico de caracteres (OCR) de Computer Vision detecta el contenido de texto de una imagen y extrae el texto identificado en una secuencia de caracteres de lectura mecánica. El resultado se puede usar para búsquedas y otros propósitos, como registros médicos, seguridad y banca. Detecta automáticamente el idioma. OCR ahorra tiempo y es cómodo para los usuarios, ya que permite tomar fotografías del texto en lugar de transcribirlo.
 
-OCR admite 25 idiomas, que son: árabe, chino simplificado, chino tradicional, checo, danés, holandés, inglés, finés, francés, alemán, griego, húngaro, italiano, japonés, coreano, noruego, polaco, portugués, rumano, ruso, serbio (cirílico y latino), eslovaco, español, sueco y turco.
+OCR admite 25 idiomas, Estos idiomas son: árabe, chino simplificado, chino tradicional, checo, danés, holandés, inglés, finés, francés, alemán, griego, húngaro, italiano, japonés, coreano, noruego, polaco, portugués, rumano, ruso, serbio (cirílico y latino), eslovaco, español, sueco y turco.
 
 Si es necesario, OCR corrige el giro del texto reconocido, en grados, alrededor del eje horizontal de la imagen. OCR proporciona las coordenadas del marco de cada palabra, como se observa en la ilustración siguiente.
 
-![Información general de OCR](./Images/vision-overview-ocr.png)
+![Un diagrama que representa una imagen que se gira y su texto siendo leído y definido](./Images/vision-overview-ocr.png)
 
 ## <a name="ocr-requirements"></a>Requisitos de OCR
 

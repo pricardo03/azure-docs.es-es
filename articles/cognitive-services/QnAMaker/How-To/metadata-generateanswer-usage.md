@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 12/18/2018
 ms.author: tulasim88
-ms.openlocfilehash: 97fb59a9a483753c6c2b5a4ae027bb358f7050e1
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 004f09eb77d1bc32e44e1940186e8a631c45846d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166598"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608484"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>Uso de metadatos y GenerateAnswer API
 
@@ -113,11 +113,11 @@ Para llamar a GenerateAnswer, se utiliza una solicitud HTTP POST. Para ver códi
 
 ## <a name="metadata-example"></a>Ejemplo de metadatos
 
-Tome los datos de preguntas más frecuentes siguientes para restaurantes en Hyderabad. Para agregar metadatos a la base de conocimiento, haga clic en el icono de engranaje.
+Tenga en cuenta los siguientes datos de preguntas más frecuentes. Para agregar metadatos a Knowledge Base, haga clic en el icono de metadatos.
 
 ![agregar metadatos](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 
-### <a name="filter-results-with-strictfilters"></a>Filtrar los resultados con strictFilters
+### <a name="filter-results-with-strictfilters-for-metadata-tags"></a>Filtrar los resultados con strictFilters para las etiquetas de metadatos
 
 Tomemos la pregunta del usuario "¿Cuándo cierra este hotel?" donde la intención es implícita para el restaurante "Paradise".
 

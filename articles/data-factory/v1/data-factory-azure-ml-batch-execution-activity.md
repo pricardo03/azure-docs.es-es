@@ -9,17 +9,16 @@ ms.assetid: 4fad8445-4e96-4ce0-aa23-9b88e5ec1965
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 29b3f0de5fd7cd578f152902412ca9d7cb82912b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 1a0130c7cd42d81609379ba4d9ba7fc922e50b16
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975209"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022400"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Creación de canalizaciones predictivas con Azure Machine Learning y Azure Data Factory
 
@@ -556,7 +555,7 @@ Un escenario común para el uso de parámetros de servicio web es el uso de Lect
 Para obtener información acerca del lector o escritor de SQL/blob de Azure, consulte los temas [Lector ](https://msdn.microsoft.com/library/azure/dn905997.aspx)y [Escritor](https://msdn.microsoft.com/library/azure/dn905984.aspx) en MSDN Library. El ejemplo de la sección anterior utilizó el lector de Blob de Azure y el lector de Blob de Azure. En esta sección se trata el uso del lector SQL Azure y el escritor SQL Azure.
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
-**P:** Mis canalizaciones de macrodatos han generado varios archivos. ¿Puedo usar la actividad AzureMLBatchExecution para trabajar en todos ellos archivos?
+**P:** Mis canalizaciones de macrodatos han generado varios archivos. ¿Puedo usar la actividad AzureMLBatchExecution para trabajar en todos los archivos?
 
 **R:** Sí. Consulte **Uso de un módulo lector para leer datos de varios archivos de blob de Azure** para obtener más información.
 

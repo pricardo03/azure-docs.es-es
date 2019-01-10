@@ -1,5 +1,5 @@
 ---
-title: Preguntas frecuentes sobre los aceleradores de soluciones de Azure IoT | Microsoft Docs
+title: 'Preguntas más frecuentes sobre los aceleradores de soluciones de IoT: Azure | Microsoft Docs'
 description: Preguntas más frecuentes acerca de los aceleradores de soluciones de IoT
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 294eae1dd5e591d12fdb82f62ea013ba54489686
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 59271a96c5ad1a92483ca585fc30f1e9de0ed4f7
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253353"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608756"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Preguntas más frecuentes acerca de los aceleradores de soluciones de IoT
 
@@ -40,7 +40,28 @@ Actualmente, solo la solución Supervisión remota usa la arquitectura de micros
 
 ### <a name="what-advantages-does-the-new-open-sourced-microservices-based-architecture-provide-in-the-new-update"></a>¿Qué ventajas proporciona en la nueva actualización la nueva arquitectura basada en microservicios de código abierto?
 
-En los dos últimos años, la arquitectura de nube ha evolucionado en gran medida. Los microservicios han surgido como un modelo excelente para lograr el escalado y la flexibilidad, sin sacrificar la velocidad de desarrollo. Este modelo de arquitectura se usa internamente en varios servicios de Microsoft con grandes resultados con respecto a la escalabilidad y la confiabilidad. Estamos poniendo en práctica estos resultados para que nuestros clientes se beneficien de ellos.
+En los dos últimos años, la arquitectura de nube ha evolucionado en gran medida. Los microservicios han surgido como un modelo excelente para lograr el escalado y la flexibilidad, sin sacrificar la velocidad de desarrollo. Este modelo de arquitectura se usa internamente en varios servicios de Microsoft con grandes resultados con respecto a la escalabilidad y la confiabilidad. Microsoft va a poner estos conocimientos en práctica en los aceleradores de soluciones para que los clientes se beneficien de ellos.
+
+### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-azure-ad-tenant-how-do-i-complete-this-task"></a>Soy administrador de servicios y quiero cambiar la asignación de directorios entre mi suscripción y un inquilino de Azure AD específico. ¿Cómo completo esta tarea?
+
+Vea [Adición de una suscripción existente al directorio de Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory).
+
+### <a name="i-want-to-change-a-service-administrator-or-co-administrator-when-logged-in-with-an-organizational-account"></a>Quiero cambiar un administrador de servicios o coadministrador cuando haya iniciado sesión con una cuenta de la organización.
+
+Consulte el artículo de asistencia [Changing Service Administrator and Co-Administrator when logged in with an organizational account](https://azure.microsoft.com/support/changing-service-admin-and-co-admin) (Cambiar el administrador de servicios y el coadministrador cuando ha iniciado sesión con una cuenta organizativa).
+
+### <a name="why-am-i-seeing-this-error-your-account-does-not-have-the-proper-permissions-to-create-a-solution-please-check-with-your-account-administrator-or-try-with-a-different-account"></a>¿Por qué veo este error? "Su cuenta no tiene los permisos adecuados para crear una solución. Póngase en contacto con el administrador de cuentas o inténtelo con otra cuenta."
+
+Observe el diagrama siguiente para obtener instrucciones:
+
+![Diagrama de flujo de permisos](media/iot-accelerators-faq/flowchart.png)
+
+> [!NOTE]
+> Si sigue viendo el error después de validar que usted es el administrador global del inquilino de Azure AD y el coadministrador de la suscripción, haga que el administrador de cuenta quite el usuario y vuelva a asignar los permisos necesarios en este orden. En primer lugar, agregue al usuario como administrador global y luego agregue a un usuario como coadministrador de la suscripción de Azure. Si los problemas persisten, póngase en contacto con [Ayuda y soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+### <a name="why-am-i-seeing-this-error-when-i-have-an-azure-subscription-an-azure-subscription-is-required-to-create-pre-configured-solutions-you-can-create-a-free-trial-account-in-just-a-couple-of-minutes"></a>¿Por qué veo este error cuando tengo una suscripción de Azure? "Para crear soluciones preconfiguradas se requiere una suscripción de Azure. Puede crear una cuenta de evaluación gratuita en pocos minutos".
+
+Si está seguro de que tiene una suscripción a Azure, valide la asignación del inquilino de la suscripción y compruebe si se ha seleccionado el inquilino correcto en la lista desplegable. Si ha validado que el inquilino es correcto, siga el diagrama anterior y valide la asignación de la suscripción y de este inquilino de Azure AD.
 
 ### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>¿Dónde puedo encontrar información acerca de la versión anterior de la solución de supervisión remota?
 
@@ -52,12 +73,12 @@ Sí, la nueva Supervisión remota está disponible en las mismas regiones geogr�
 
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsuitecom"></a>¿Cuál es la diferencia entre eliminar un grupo de recursos en Azure Portal y hacer clic en Eliminar en un acelerador de soluciones en azureiotsuite.com?
 
-* Si elimina el acelerador de soluciones en [azureiotsuite.com](https://www.azureiotsolutions.com/), elimina todos los recursos aprovisionados cuando se creó el acelerador de la solución. Si agrega recursos adicionales al grupo de recursos, dichos recursos también se eliminan.
+* Si elimina el acelerador de soluciones en [azureiotsuite.com](https://www.azureiotsolutions.com/), elimina todos los recursos implementados cuando se creó el acelerador de soluciones. Si agrega recursos adicionales al grupo de recursos, dichos recursos también se eliminan.
 * Si elimina el grupo de recursos en [Azure Portal](https://portal.azure.com), solo se eliminan los recursos de ese grupo de recursos. También debe eliminar la aplicación de Azure Active Directory asociada al acelerador de la solución.
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>¿Puedo seguir aprovechando mi inversión en aceleradores de soluciones de Azure IoT?
 
-Sí. Cualquier solución que exista en la actualidad continúa funcionando en su suscripción de Azure y el código fuente sigue estando disponible en GitHub.
+Sí. Cualquier solución que exista en la actualidad sigue funcionando en la suscripción a Azure y el código fuente sigue estando disponible en GitHub.
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>¿Cuántas instancias de IoT Hub se pueden aprovisionar en una suscripción?
 
@@ -78,7 +99,7 @@ Dos. Solo puede crear dos planes de Mapas de Bing para empresa de nivel 1 de tra
 
 En este momento, no se puede crear un acelerador de soluciones con una cuenta de [Microsoft Azure para DreamSpark](https://azure.microsoft.com/pricing/member-offers/imagine/). Sin embargo, puede crear una [cuenta de evaluación gratuita de Azure](https://azure.microsoft.com/free/) en un par de minutos, lo que le permite crear un acelerador de soluciones.
 
-### <a name="how-do-i-delete-an-aad-tenant"></a>¿Cómo se eliminan inquilinos de AAD?
+### <a name="how-do-i-delete-an-azure-ad-tenant"></a>¿Cómo puedo eliminar un inquilino de Azure AD?
 
 Consulte la entrada del blog de Eric Golpe [Walkthrough of Deleting an Azure AD Tenant](https://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx) (Tutorial para la eliminación de inquilinos de Azure AD).
 

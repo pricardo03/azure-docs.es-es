@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 25b23d280aca9ef13b8820596686a1f9dbecd2a1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3984ac84271728b9066aba15a582065ea3121c76
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085950"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581766"
 ---
 # <a name="how-to-manage-keys-in-qna-maker"></a>Cómo administrar las claves de QnA Maker
 
@@ -24,9 +24,9 @@ El servicio QnA Maker trabaja con dos tipos de claves, **claves de suscripción*
 
 ![Administración de claves](../media/qnamaker-how-to-key-management/key-management.png)
 
-1. **Claves de suscripción**: estas claves se usan para acceder a las [API del servicio de administración de QnA Maker](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff). Estas API permiten realizar diversas operaciones CRUD en la base de conocimiento.  
+1. **Claves de suscripción**: estas claves se usan para acceder a las [API del servicio de administración de QnA Maker](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff). Estas API le permiten realizar ediciones en Knowledge Base.  
 
-2. **Claves de punto de conexión**: estas claves se usan para tener acceso al punto de conexión de la base de conocimiento para obtener una respuesta para una pregunta del usuario. Normalmente se usaría este punto de conexión en el bot de chat o el código de aplicación que consume el servicio QnA Maker.
+2. **Claves de punto de conexión**: estas claves se usan para tener acceso al punto de conexión de la base de conocimiento para obtener una respuesta para una pregunta del usuario. Normalmente se usaría este punto de conexión en el bot de chat o el código de aplicación cliente que consume el servicio QnA Maker.
  
 ## <a name="subscription-keys"></a>Claves de suscripción
 Puede ver y restablecer las claves de suscripción desde Azure Portal, donde creó el recurso QnA Maker. 
@@ -42,7 +42,7 @@ Puede ver y restablecer las claves de suscripción desde Azure Portal, donde cre
 
 Las claves de punto de conexión se pueden administrar desde el [portal de QnA Maker](https://qnamaker.ai).
 
-1. Inicie sesión en el [portal de QnA Maker](https://qnamaker.ai) y vaya a **Administrar claves**.
+1. Inicie sesión en el [portal de QnA Maker](https://qnamaker.ai) y vaya a **Configuración del servicio**.
 
     ![Clave de punto de conexión](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
 
@@ -51,7 +51,7 @@ Las claves de punto de conexión se pueden administrar desde el [portal de QnA M
     ![Administrador de claves de punto de conexión](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
 
     >[!NOTE]
-    >Actualice las claves si considera que se han visto comprometidas. Esto puede requerir realizar los cambios correspondientes en el código del bot o de la aplicación.
+    >Actualice las claves si considera que se han visto comprometidas. Esto puede requerir realizar los cambios correspondientes en el código del bot o de la aplicación cliente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

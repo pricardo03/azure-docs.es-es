@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: raynew
-ms.openlocfilehash: 0c394a92bff3ace210ee0db156f47bb8912bf45d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: c1bd92b9c4611465b680f195e4881a447f4bb701
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631590"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044406"
 ---
 # <a name="back-up-azure-vms-with-the-azure-backup-service"></a>Realización de copias de seguridad de máquinas virtuales de Azure con el servicio Azure Backup
 
@@ -290,7 +290,7 @@ Para ejecutar el trabajo de copia de seguridad inicial:
   Las notificaciones de implementación le permiten saber si se ha desencadenado el trabajo de copia de seguridad y que puede supervisar el progreso del trabajo en la página de trabajos de copia de seguridad. Según el tamaño de la máquina virtual, la creación de la copia de seguridad inicial puede tardar un tiempo.
 
   > [!NOTE]
-  > Todos los datos de los que Azure Backup realiza una copia de seguridad se cifran en reposo mediante [Storage Service Encryption (SSE)](../storage/common/storage-service-encryption.md).
+  > - Todos los datos de los que Azure Backup realiza una copia de seguridad se cifran en reposo mediante [Storage Service Encryption (SSE)](../storage/common/storage-service-encryption.md).
   >
   >
 
@@ -339,4 +339,3 @@ El costo de la copia de seguridad de máquinas virtuales de Azure se basa en el 
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Administración](backup-azure-manage-vms.md) de copias de seguridad.
-

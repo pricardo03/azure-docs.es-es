@@ -1,5 +1,5 @@
 ---
-title: Hoja de cálculo de planeamiento de la capacidad de Azure Stack | Microsoft Docs
+title: Hoja de cálculo de planeamiento de capacidad de Azure Stack | Microsoft Docs
 description: Obtenga más información sobre la hoja de cálculo de planeamiento de la capacidad de Azure Stack de las implementaciones de Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: 7b8276281b8b550492fed17adc516e9539380987
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6f6e680f7ce613d7a6d9f227765ce599c537e2d3
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269743"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106518"
 ---
 # <a name="azure-stack-capacity-planner"></a>Herramienta de planeamiento de capacidad de Azure Stack
 La Herramienta de planeamiento de capacidad de Azure Stack es una hoja de cálculo que se usa para planear la capacidad de recursos de Azure Stack. La herramienta de planeamiento de capacidad le permite diseñar varias asignaciones de recursos informáticos y ver cómo estos se ajustarían a través de una selección de ofertas de hardware. A continuación se proporcionan instrucciones detalladas para el uso de Azure Stack Calculator.
 
 ## <a name="worksheet-descriptions"></a>Descripciones de la hoja de cálculo
-El siguiente es un breve resumen de las hojas de cálculo incluidas en la hoja de cálculo Herramienta de planeamiento de capacidad de Azure Stack que puede descargarse desde [http://aka.ms/azstackcapacityplanner](https://aka.ms/azstackcapacityplanner):
+El siguiente es un breve resumen de las hojas de cálculo incluidas en la hoja de cálculo Herramienta de planeamiento de capacidad de Azure Stack que puede descargarse desde [https://aka.ms/azstackcapacityplanner](https://aka.ms/azstackcapacityplanner):
 
 |Nombre de pestaña|DESCRIPCIÓN|
 |-----|-----|

@@ -1,7 +1,7 @@
 ---
 title: 'Detección de caras: Computer Vision'
 titleSuffix: Azure Cognitive Services
-description: Conceptos relacionados con la detección de caras mediante Computer Vision API.
+description: Conceptos relacionados con la característica de detección de caras de Computer Vision API.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: bf358d1e8f60f989ced8db966bbf0a5179fab25b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 0c6485bff4ad11aab37139cd2aa2d3660bddac0e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342320"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580546"
 ---
-# <a name="detecting-faces"></a>Detección de caras
+# <a name="face-detection-with-computer-vision"></a>Detección de caras con Computer Vision
 
 Computer Vision detecta las caras humanas dentro de una imagen y genera la edad, sexo y rectángulo de cada rostro detectado. Computer Vision proporciona un subconjunto de la funcionalidad que se puede encontrar en [Face](/azure/cognitive-services/face/) y este servicio se puede usar para obtener un análisis más detallado, como la identificación facial y la detección de posturas.  
 

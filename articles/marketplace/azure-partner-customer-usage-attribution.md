@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 1ae10fb749e671f7a8b5ca48e652711d7dcf98c8
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: fad023b7593b0e13b05d081a11333f5e92c8ecef
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262608"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602178"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribución de uso del cliente para asociados de Azure
 
@@ -30,7 +30,7 @@ Ahora, Microsoft ofrece un método que ayuda a los asociados a mejorar el seguim
 Como asociado de Microsoft, puede asociar el uso de Azure con todos los recursos de Azure que aprovisione en nombre de un cliente. La asociación puede formarla a través de Azure Marketplace, el repositorio del Inicio rápido, repositorios privados de GitHub y la involucración del cliente cara a cara. Para habilitar el seguimiento, hay dos enfoques disponibles:
 
 - Plantillas de Azure Resource Manager: las plantillas de Resource Manager o las plantillas de solución para implementar los servicios de Azure para ejecutar el software del asociado. Los asociados pueden crear una plantilla de Resource Manager para definir la infraestructura y configuración de su solución de Azure. Una plantilla de Resource Manager les permite tanto a usted como a sus clientes implementar la solución a lo largo de su ciclo de vida. Puede estar seguro de que los recursos se implementan de forma consistente. 
-- API de Azure Resource Manager: los asociados pueden llamar a las API de Azure Resource Manager directamente para implementar una plantilla de Azure Resource Manager o para generar las llamadas a API para aprovisionar directamente los servicios de Azure. 
+- API de Azure Resource Manager: los asociados pueden llamar a las API de Resource Manager directamente para implementar una plantilla de Azure Resource Manager o para generar las llamadas a API para aprovisionar directamente los servicios de Azure. 
 
 Se requiere la atribución de uso del cliente en todas las [plantillas de solución](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md) publicadas en Azure Marketplace. 
 
@@ -96,7 +96,7 @@ En este método de seguimiento, al diseñar las llamadas API, se incluye un iden
 > [!Note]
 > El formato de la cadena es importante. Si no se incluye el prefijo **pid-**, no es posible consultar los datos. El seguimiento de los distintos SDK se hace de forma diferente. Para implementar este método, revise la compatibilidad y el enfoque del seguimiento de su SDK de Azure preferido. 
 
-#### <a name="example-the-python-sdk"></a>Ejemplo: el SDK de Python
+#### <a name="example-the-python-sdk"></a>Ejemplo: SDK de Python
 
 Para Python, use el atributo **config**. El atributo solo se puede agregar a un UserAgent. Este es un ejemplo:
 
@@ -270,15 +270,11 @@ Microsoft proporciona a sus asociados una vista de las implementaciones por part
 
 **¿Cómo puedo agregar un GUID a una plantilla?**
 
-El recurso de seguimiento está pensado para conectar la solución del asociado al uso de Azure por parte del cliente. Los datos de uso están vinculados a la identidad de Microsoft Partner Network (MPN ID) de un asociado. La creación de informes está disponibles para los asociados en el CPP.
+El recurso de seguimiento está pensado para conectar la solución del asociado al uso de Azure por parte del cliente. Los datos de uso están vinculados a la identidad de Microsoft Partner Network (MPN ID) de un asociado. 
 
 **Una vez que se ha agregado un identificador único global, ¿se puede cambiar?**
  
 Sí, cualquier cliente o asociado de implementación puede personalizar la plantilla y cambiar o quitar el identificador único global. Se recomienda que los asociados describan de forma proactiva la función de los recursos y el GUID a sus clientes y asociados, para evitar la eliminación o modificación del GUID de seguimiento. El cambio del identificador único global solo afecta a las implementaciones y a los recursos nuevos, no a los existentes.
-
-**¿Cuándo estará disponible la opción de creación de informes?**
-
-Una versión beta de la opción de creación de informes estará disponible pronto. La creación de informes se integrará en CPP.
 
 **¿Puedo realizar un seguimiento de las plantillas implementadas desde un repositorio que no sea de Microsoft, como GitHub?**
 

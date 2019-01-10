@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 12/18/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: d40886f54083a1619635f31af57841138f1706d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e055d1e10ddf8c18c84af5376cf4a284d48fde6b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086613"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603334"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Edición de una base de conocimiento en QnA Maker
 
@@ -71,7 +71,7 @@ Agregue preguntas alternativas a un par de QnA existente para mejorar la probabi
 ## <a name="add-metadata"></a>Agregar metadatos
 
 
-Agregar pares de metadatos seleccionando el icono de filtro
+Agregar pares de metadatos seleccionando el icono de metadatos
 
 ![Agregar metadatos](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 
@@ -80,11 +80,17 @@ Agregar pares de metadatos seleccionando el icono de filtro
 
 ## <a name="manage-large-knowledge-bases"></a>Administración de bases de conocimiento grandes
 
-1. Los pares de QnA se **agrupan** según el origen de datos del que se han extraído. Puede expandir o contraer el origen de datos.
-2. Puede **buscar** en la base de conocimiento si escribe en el cuadro de texto en la parte superior de la tabla de la base de conocimiento. Haga clic en Entrar para buscar en el contenido de la pregunta, la respuesta o los metadatos. Haga clic en el icono X para quitar el filtro de búsqueda.
-3. La **paginación** permite administrar grandes bases de conocimiento.
+* **Grupos de origen de datos**: Los pares de QnA se agrupan según el origen de datos del que se han extraído. Puede expandir o contraer el origen de datos.
 
-    ![Buscar, Paginar, Agrupar](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+    ![Uso de la barra de origen de datos de QnA Maker para contraer y expandir preguntas y respuestas acerca del origen de datos](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
+
+* **Buscar en Knowledge Base**: Puede buscar en la base de conocimiento si escribe en el cuadro de texto en la parte superior de la tabla de Knowledge Base. Haga clic en Entrar para buscar en el contenido de la pregunta, la respuesta o los metadatos. Haga clic en el icono X para quitar el filtro de búsqueda.
+
+    ![Use el cuadro de búsqueda de QnA Maker situado encima de las preguntas y respuestas para reducir la vista a solo elementos que coincidan con el filtro](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+
+* **Paginación**: Muévase rápidamente a través de los orígenes de datos para administrar bases de conocimiento de gran tamaño.
+
+    ![Uso de las características de paginación de QnA Maker situadas encima de las preguntas y respuestas para desplazarse por las páginas de preguntas y respuestas](../media/qnamaker-how-to-edit-kb/pagination.png)
 
 ## <a name="delete-knowledge-bases"></a>Eliminación de bases de conocimiento
 

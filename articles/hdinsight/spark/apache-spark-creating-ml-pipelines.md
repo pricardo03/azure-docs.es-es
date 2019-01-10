@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: d422b56acd56f87cb855c5e045e3a91666eee571
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: dbda20554b119bfb72b939cbeb7f19e0b9093b31
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499399"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53597484"
 ---
 # <a name="create-an-apache-spark-machine-learning-pipeline"></a>Creación de una canalización de aprendizaje automático de Apache Spark
 
-La biblioteca de aprendizaje automático (MLlib) escalable de Apache Spark ofrece funcionalidades de modelado a un entorno distribuido. El paquete de Spark [`spark.ml`](http://spark.apache.org/docs/latest/ml-pipeline.html) es un conjunto de API de alto nivel basadas en DataFrames. Estas API permiten crear y ajustar prácticas canalizaciones de aprendizaje automático.  *Aprendizaje automático de Spark* hace referencia a esta API basada en la DataFrame de MLlib, no a la antigua API de canalización basada en RDD.
+La biblioteca de aprendizaje automático (MLlib) escalable de Apache Spark ofrece funcionalidades de modelado a un entorno distribuido. El paquete de Spark [`spark.ml`](https://spark.apache.org/docs/latest/ml-pipeline.html) es un conjunto de API de alto nivel basadas en DataFrames. Estas API permiten crear y ajustar prácticas canalizaciones de aprendizaje automático.  *Aprendizaje automático de Spark* hace referencia a esta API basada en la DataFrame de MLlib, no a la antigua API de canalización basada en RDD.
 
 Una canalización de aprendizaje automático (ML) es un flujo de trabajo completo que combina varios algoritmos de aprendizaje automático. Pueden necesitarse muchos pasos para el procesamiento de datos y el aprendizaje a partir de estos, lo que requiere una secuencia de algoritmos. Las canalizaciones definen las fases y el orden de un proceso de aprendizaje automático. En MLlib, las fases de una canalización se representan mediante una secuencia específica de fases de canalización, donde un transformador y un estimador realizan tareas.
 
@@ -30,7 +30,7 @@ Cada instancia sin estado de un transformador o un estimador tiene su propio ide
 
 ## <a name="pipeline-example"></a>Ejemplo de canalización
 
-Para mostrar un uso práctico de una canalización de ML, este ejemplo usa el archivo de datos de muestra `HVAC.csv` que está precargado en el almacenamiento predeterminado para el clúster HDInsight (Azure Storage o Data Lake Store). Para ver el contenido del archivo, navegue hasta el directorio `/HdiSamples/HdiSamples/SensorSampleData/hvac`. `HVAC.csv` contiene un conjunto de horas con las temperaturas objetivo y reales de los sistemas HVAC (*calefacción, ventilación y aire acondicionado*) de varios edificios. El objetivo es entrenar el modelo con los datos y producir una previsión de temperatura para un edificio determinado.
+Para mostrar un uso práctico de una canalización de ML, en este ejemplo se usa el archivo de datos `HVAC.csv` de ejemplo que está precargado en el almacenamiento predeterminado para el clúster HDInsight (Azure Storage o Data Lake Storage). Para ver el contenido del archivo, navegue hasta el directorio `/HdiSamples/HdiSamples/SensorSampleData/hvac`. `HVAC.csv` contiene un conjunto de horas con las temperaturas objetivo y reales de los sistemas HVAC (*calefacción, ventilación y aire acondicionado*) de varios edificios. El objetivo es entrenar el modelo con los datos y producir una previsión de temperatura para un edificio determinado.
 
 En el código siguiente:
 

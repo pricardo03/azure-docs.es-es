@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: tamram
-ms.openlocfilehash: 10dc25740eca43c7cbd39b8ec783084e048d2af2
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 7f97b72dc7b3456488d97009bde590b0e29918e6
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637608"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631445"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Actualización a una cuenta de almacenamiento de uso general v2
 
@@ -34,12 +34,14 @@ Actualizar a una cuenta de almacenamiento de uso general v2 desde la cuenta de u
 
 ## <a name="upgrade-with-powershell"></a>Actualización con PowerShell
 
-Para actualizar una cuenta de uso general v1 a una cuenta de uso general v2 mediante PowerShell, primero hay que actualizar PowerShell, con el fin de usar la versión más reciente del módulo **AzureRm.Storage**. Para obtener información acerca de cómo instalar PowerShell, consulte [Instalación y configuración de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Para actualizar una cuenta de uso general v1 a una cuenta de uso general v2 mediante PowerShell, primero hay que actualizar PowerShell con el fin de usar la versión más reciente del módulo **Az.Storage**. Para obtener información acerca de cómo instalar PowerShell, consulte [Instalación y configuración de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). 
 
 Luego, llame al siguiente comando para actualizar la cuenta, pero sustituya el nombre de su grupo de recursos y cuenta de almacenamiento:
 
 ```powershell
-Set-AzureRmStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
+Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
 ```
 
 ## <a name="upgrade-with-azure-cli"></a>Actualización con la CLI de Azure
@@ -56,7 +58,7 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 Las cuentas de uso general v2 son compatibles con todos los servicios de almacenamiento y objetos de datos de Azure, pero los niveles de acceso están disponibles solo para blobs en Blob Storage. Al actualizar a una cuenta de almacenamiento de uso general v2, puede especificar un nivel de acceso para los datos de blob. 
 
-Los niveles de acceso le permiten elegir el almacenamiento más rentable en función de los patrones de uso previsto. Los blobs en bloques pueden almacenarse en nivel con un acceso frecuente, esporádico o de archivo. Para más información acerca de los niveles de acceso, consulte [Azure Blob Storage: niveles de almacenamiento de archivo, esporádico y frecuente](../blobs/storage-blob-storage-tiers.md).
+Los niveles de acceso le permiten elegir el almacenamiento más rentable en función de los patrones de uso previsto. Los blobs en bloques pueden almacenarse en nivel con un acceso frecuente, esporádico o de archivo. Para más información sobre los niveles de acceso, consulte [Azure Blob Storage: Niveles de almacenamiento de acceso frecuente, de acceso esporádico y de acceso de archivo](../blobs/storage-blob-storage-tiers.md).
 
 De forma predeterminada, se crea una nueva cuenta de almacenamiento en el nivel de almacenamiento de acceso frecuente, y se actualiza una cuenta de almacenamiento de uso general v1 a la capa de acceso frecuente. Si está explorando qué nivel de acceso debe usar para los datos después de la actualización, considere su escenario. Hay dos escenarios típicos del usuario para migrar a una cuenta de uso general v2:
 
@@ -71,7 +73,7 @@ Todas las cuentas de Blob Storage usan un modelo de precios para el almacenamien
 
 * **Costos de almacenamiento**: además de la cantidad de datos almacenados, el costo varía en función de la capa de almacenamiento. El costo por gigabyte disminuye a medida que el nivel es más esporádico.
 
-* **Data access costs**: los gastos de acceso a los datos aumentan a medida que el nivel es más esporádico. En el nivel de almacenamiento esporádico y de archivo se cobra un cargo de acceso a datos por gigabyte por las operaciones de lectura.
+* **Costos de acceso a datos**: los gastos de acceso a los datos aumentan a medida que el nivel es más esporádico. En el nivel de almacenamiento esporádico y de archivo se cobra un cargo de acceso a datos por gigabyte por las operaciones de lectura.
 
 * **Costos de transacciones**: hay un cargo por transacción para todos los niveles, que aumenta a medida que el nivel es más esporádico.
 
@@ -79,7 +81,7 @@ Todas las cuentas de Blob Storage usan un modelo de precios para el almacenamien
 
 * **Costos de transferencia de datos salientes**: las transferencias de datos salientes (los datos que se transfieren fuera de una región de Azure) conllevan un cargo por el uso del ancho de banda por gigabyte, lo que es coherente con las cuentas de almacenamiento de uso general.
 
-* **Cambio del nivel de almacenamiento**: el cambio de la capa de almacenamiento de la cuenta pasa de esporádico a frecuente conlleva un cargo igual a la lectura de todos los datos existentes en la cuenta de almacenamiento. Sin embargo, cambiar el nivel de almacenamiento de la cuenta de frecuente a esporádico genera un cargo igual que escribir todos los datos en el nivel de acceso esporádico (solo cuentas de GPv2).
+* **Cambio del nivel de almacenamiento**: el cambio de la capa de almacenamiento de la cuenta que pasa de esporádico a frecuente conlleva un cargo igual a la lectura de todos los datos existentes en la cuenta de almacenamiento. Sin embargo, cambiar el nivel de almacenamiento de la cuenta de frecuente a esporádico genera un cargo igual que escribir todos los datos en el nivel de acceso esporádico (solo cuentas de GPv2).
 
 > [!NOTE]
 > Para más información acerca del modelo de precios de las cuentas de almacenamiento, consulte la página [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/). Para más información acercas los cargos por la transferencia de datos salientes, consulte la página [Detalles de precios de ancho de banda](https://azure.microsoft.com/pricing/details/data-transfers/).

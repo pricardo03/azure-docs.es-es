@@ -1,7 +1,7 @@
 ---
 title: 'Descripción de imágenes: Computer Vision'
 titleSuffix: Azure Cognitive Services
-description: Conceptos relacionados con la descripción de imágenes mediante Computer Vision API.
+description: Conceptos relacionados con la característica de descripción de imágenes de Computer Vision API.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 423d1be57bc800108a08a81b72587ca2711bbc3d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 5b920e4ce8df131b81a9ef6ce2d66c7082d8f5e4
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342422"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583415"
 ---
-# <a name="describing-images"></a>Descripción de las imágenes
+# <a name="describe-images-with-human-readable-language"></a>Descripción de imágenes con lenguaje natural
 
 Los algoritmos de Computer Vision analizan el contenido de una imagen. Este análisis forma la base de una «descripción» que se presenta en lenguaje natural, en oraciones completas. La descripción resume lo que se encuentra en la imagen. Los algoritmos de Computer Vision generan varias descripciones en función de las características visuales identificadas en la imagen. Cada una de estas descripciones se evalúa y se genera una puntuación de confianza. Después, se devuelve una lista de puntuaciones de confianza ordenadas de más alta a más baja.
 
@@ -25,7 +26,7 @@ Los algoritmos de Computer Vision analizan el contenido de una imagen. Este aná
 
 La siguiente respuesta JSON muestra lo que devuelve Computer Vision al describir la imagen de ejemplo según sus características visuales.
 
-![B&W Buildings](./Images/bw_buildings.png)
+![Una imagen en blanco y negro de edificios en Manhattan](./Images/bw_buildings.png)
 
 ```json
 {

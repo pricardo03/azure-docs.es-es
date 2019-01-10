@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 70f9ccbbe737bad4d6f88365e804d4421c418d28
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: edd5da35d33aa7e79fc3e972f3ea1cfe2ef40973
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164014"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631420"
 ---
 # <a name="implement-the-device-model-behavior"></a>Implementación del comportamiento de modelo del dispositivo
 
@@ -21,6 +21,9 @@ El artículo [Descripción del esquema de modelo del dispositivo](iot-accelerato
 
 - Archivos JavaScript de **estado** que se ejecutan a intervalos fijos para actualizar el estado interno del dispositivo.
 - Archivos JavaScript de **Método** que se ejecutan cuando la solución invoca un método en el dispositivo.
+
+> [!NOTE]
+> Los comportamientos del modelo del dispositivo son solo para dispositivos simulados que se hospedan en el servicio de simulación del dispositivo. Si quiere crear un dispositivo físico, consulte [Conectar el dispositivo al acelerador de soluciones de supervisión remota](iot-accelerators-connecting-devices.md).
 
 En este artículo, aprenderá a:
 

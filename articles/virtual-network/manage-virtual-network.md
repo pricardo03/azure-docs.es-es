@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: d72faa99c15fdbebb299e416fd902bae261f31f9
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 1c39100007d3b993031aa06cd106dfa2bf8419a2
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221186"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538096"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Crear, cambiar o eliminar una red virtual
 
@@ -55,15 +55,15 @@ Complete las tareas siguientes antes de seguir los pasos de las secciones de est
       >
       >
 
-    - **Nombre de subred**: el nombre de la subred debe ser único dentro de la red virtual. El nombre de subred no se puede cambiar después de crear la subred. El portal requiere que se defina una subred al crear una red virtual, aunque una red virtual no necesita tener ninguna subred. En el portal, solo se puede definir una subred cuando se crea una red virtual. Puede agregar más subredes a la red virtual más adelante, una vez creada la red virtual. Para agregar una subred a una red virtual, consulte [Administrar subredes](virtual-network-manage-subnet.md). Puede crear una red virtual que tenga varias subredes mediante la CLI de Azure o PowerShell.
+    - **Nombre de subred**: El nombre de la subred debe ser único dentro de la red virtual. El nombre de subred no se puede cambiar después de crear la subred. El portal requiere que se defina una subred al crear una red virtual, aunque una red virtual no necesita tener ninguna subred. En el portal, solo se puede definir una subred cuando se crea una red virtual. Puede agregar más subredes a la red virtual más adelante, una vez creada la red virtual. Para agregar una subred a una red virtual, consulte [Administrar subredes](virtual-network-manage-subnet.md). Puede crear una red virtual que tenga varias subredes mediante la CLI de Azure o PowerShell.
 
       >[!TIP]
       >A veces, los administradores crean diferentes subredes para filtrar o controlar el enrutamiento de tráfico entre ellas. Antes de definir subredes, considere cómo quiere filtrar y enrutar el tráfico entre ellas. Para obtener más información sobre el filtrado de tráfico entre subredes, vea [Grupos de seguridad de red](security-overview.md). Azure realiza el enrutamiento de tráfico entre subredes automáticamente, pero puede invalidar las rutas predeterminadas de Azure. Para obtener más información acerca de cómo enruta Azure el tráfico de subredes predeterminado, consulte [Introducción al enrutamiento](virtual-networks-udr-overview.md).
       >
 
-    - **Intervalo de direcciones de subred**: tiene que estar dentro del espacio de direcciones que especificó para la red virtual. El menor intervalo que se puede especificar es /29, lo que proporciona ocho direcciones IP de subred. De conformidad con el protocolo, Azure reserva la primera y la última dirección de cada subred. Otras tres direcciones están reservadas para el uso del servicio de Azure. Como resultado, una red virtual con un intervalo de direcciones de subred de /29 tiene solo tres direcciones IP utilizables. Si planea conectar una red virtual a una puerta de enlace VPN, debe crear una subred de puerta de enlace. Más información sobre las [consideraciones específicas del intervalo de direcciones de las subredes de puerta de enlace](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). En determinadas circunstancias se puede cambiar el intervalo de direcciones una vez creada la subred. Para obtener información sobre cómo cambiar un rango de direcciones de subred, consulte [Administrar subredes](virtual-network-manage-subnet.md).
-    - **Suscripción**: seleccione una [suscripción](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). No se puede usar la misma red virtual en más de una suscripción de Azure. Sin embargo, puede conectar la red virtual de una suscripción a las redes virtuales de otras suscripciones mediante el [emparejamiento de redes virtuales](virtual-network-peering-overview.md). Cualquier recurso de Azure que se conecte a la red virtual debe estar en la misma suscripción que la red virtual.
-    - **Grupo de recursos**: seleccione un [grupo de recursos existente](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) o cree uno nuevo. Un recurso de Azure que se conecta a la red virtual puede estar en el mismo grupo de recursos que la red virtual o en otro diferente.
+    - **Rango de direcciones de subred**: el intervalo debe estar dentro del espacio de direcciones que especificó para la red virtual. El menor intervalo que se puede especificar es /29, lo que proporciona ocho direcciones IP de subred. De conformidad con el protocolo, Azure reserva la primera y la última dirección de cada subred. Otras tres direcciones están reservadas para el uso del servicio de Azure. Como resultado, una red virtual con un intervalo de direcciones de subred de /29 tiene solo tres direcciones IP utilizables. Si planea conectar una red virtual a una puerta de enlace VPN, debe crear una subred de puerta de enlace. Más información sobre las [consideraciones específicas del intervalo de direcciones de las subredes de puerta de enlace](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). En determinadas circunstancias se puede cambiar el intervalo de direcciones una vez creada la subred. Para obtener información sobre cómo cambiar un rango de direcciones de subred, consulte [Administrar subredes](virtual-network-manage-subnet.md).
+    - **Suscripción**: Seleccione una [suscripción](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). No se puede usar la misma red virtual en más de una suscripción de Azure. Sin embargo, puede conectar la red virtual de una suscripción a las redes virtuales de otras suscripciones mediante el [emparejamiento de redes virtuales](virtual-network-peering-overview.md). Cualquier recurso de Azure que se conecte a la red virtual debe estar en la misma suscripción que la red virtual.
+    - **Grupo de recursos**: Seleccione un [grupo de recursos](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) existente, o bien cree uno. Un recurso de Azure que se conecta a la red virtual puede estar en el mismo grupo de recursos que la red virtual o en otro diferente.
     - **Ubicación**: seleccione una [ubicación](https://azure.microsoft.com/regions/) de Azure, también conocida como región. Una red virtual solo puede estar en una ubicación de Azure. Pero se puede conectar una red virtual en una ubicación a una red virtual en otra ubicación mediante el uso de VPN Gateway. Cualquier recurso de Azure que se conecte a la red virtual debe estar en la misma ubicación que la red virtual.
 
 **Comandos**
@@ -88,8 +88,8 @@ Complete las tareas siguientes antes de seguir los pasos de las secciones de est
     - **Emparejamientos**: si hay emparejamientos existentes en la suscripción, estos aparecerán aquí. Puede ver la configuración de emparejamientos existentes, o crear, cambiar o eliminar emparejamientos. Para obtener más información sobre emparejamiento, vea [Emparejamiento de redes virtuales de Azure](virtual-network-peering-overview.md).
     - **Propiedades**: muestra la configuración de la red virtual, incluidos el identificador de recurso de la red virtual y la suscripción de Azure en la que se encuentra.
     - **Diagrama**: el diagrama proporciona una representación visual de todos los dispositivos conectados a la red virtual. El diagrama muestra alguna información clave sobre los dispositivos. Para administrar un dispositivo en esta vista, vaya al diagrama y seleccione el dispositivo.
-    - **Configuración común de Azure**: para obtener más información sobre la configuración común de Azure, vea la siguiente información:
-        *   [Registro de actividad](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+    - **Configuración común de Azure**: Para más información sobre la configuración común de Azure, consulte la información siguiente:
+        *   [Registro de actividad](../azure-monitor/platform/activity-logs-overview.md)
         *   [Control de acceso (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
         *   [Etiquetas](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
         *   [Bloqueos](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -116,8 +116,8 @@ Para agregar o quitar un rango de direcciones:
 2. En la lista de redes virtuales, seleccione la red virtual para la que quiera agregar o quitar un rango de direcciones.
 3. En **CONFIGURACIÓN**, seleccione **Espacio de direcciones**.
 4. Complete una de las siguientes opciones:
-    - **Agregar un rango de direcciones**: escriba el nuevo rango de direcciones. El rango de direcciones no puede superponerse a un rango de direcciones ya existente y que esté definido para la red virtual.
-    - **Quitar un rango de direcciones**: a la derecha del rango de direcciones que quiera quitar, seleccione **...**  y, a continuación, seleccione **Quitar**. Si existe una subred en el rango de direcciones, no se puede quitar ese rango de direcciones. Para quitar un rango de direcciones, es necesario eliminar primero las subredes que existen en ese rango de direcciones y todos los recursos conectados a las subredes.
+    - **Agregar un intervalo de direcciones**: Escriba el nuevo intervalo de direcciones. El rango de direcciones no puede superponerse a un rango de direcciones ya existente y que esté definido para la red virtual.
+    - **Quitar un intervalo de direcciones**: a la derecha del intervalo de direcciones que quiera quitar, seleccione **...** y, a continuación, seleccione **Quitar**. Si existe una subred en el rango de direcciones, no se puede quitar ese rango de direcciones. Para quitar un rango de direcciones, es necesario eliminar primero las subredes que existen en ese rango de direcciones y todos los recursos conectados a las subredes.
 5. Seleccione **Guardar**.
 
 **Comandos**
@@ -136,9 +136,9 @@ Todas las máquinas virtuales que están conectadas a la red virtual se registra
     - **Predeterminado (proporcionado por Azure)**: todos los nombres de los recursos y las direcciones IP privadas se registran automáticamente en los servidores DNS de Azure. Puede resolver nombres entre los recursos conectados a la misma red virtual. No se puede usar esta opción para resolver nombres entre redes virtuales. Para resolver nombres de otras redes virtuales, tiene que usar un servidor DNS personalizado.
     - **Personalizado**: puede agregar uno o varios servidores, hasta el límite de Azure para una red virtual. Para obtener más información sobre los límites de servidor DNS, vea [Límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). Tiene las siguientes opciones:
         - **Agregar una dirección**: agrega el servidor a la lista de servidores DNS de la red virtual. Esta opción también registra el servidor DNS con Azure. Si ya ha registrado un servidor DNS con Azure, puede seleccionarlo en la lista.
-        - **Quitar una dirección**: junto al servidor que quiere quitar, seleccione **...** y **Quitar**. Eliminar el servidor solo lo quita de esta lista de redes virtuales. El servidor DNS seguirá registrado en Azure para que lo usen otras redes virtuales.
+        - **Quitar una dirección**: junto al servidor que quiere quitar, seleccione **...** y, a continuación, **Quitar**. Eliminar el servidor solo lo quita de esta lista de redes virtuales. El servidor DNS seguirá registrado en Azure para que lo usen otras redes virtuales.
         - **Reordenar direcciones de servidor DNS**: es importante comprobar que se enumeran los servidores DNS en el orden correcto para su entorno. Las listas de servidores DNS se usan en el orden en que se especifican. No funcionan como una instalación round robin. Si se puede acceder al primer servidor DNS de la lista, el cliente usa ese servidor DNS, con independencia de si el servidor DNS funciona correctamente. Quite todos los servidores DNS que aparecen y vuelva a agregarlos en el orden que desee.
-        - **Cambiar una dirección**: seleccione el servidor DNS en la lista y después escriba la nueva dirección.
+        - **Cambiar una dirección**: resalte el servidor DNS en la lista y después escriba el nuevo nombre.
 5. Seleccione **Guardar**.
 6. Reinicie las máquinas virtuales conectadas a la red virtual para que se les asigne la nueva configuración de servidor DNS. Hasta que se reinicien, las máquinas virtuales seguirán usando la configuración de DNS que consideran actual.
 

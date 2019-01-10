@@ -10,18 +10,22 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 8542b1f6dfe031de58ea6eeb931027ee03bd81f2
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5e5392f04b7894f0fe39a940865035d967c2d19a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030972"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629945"
 ---
 # <a name="upgrade-your-qna-maker-service"></a>Actualización del servicio QnA Maker
 Puede elegir actualizar componentes individuales de la pila de QnA Maker tras la creación inicial. Consulte los detalles de los componentes dependientes y de la selección de la SKU [aquí](https://aka.ms/qnamaker-docs-capacity).
 
 ## <a name="upgrade-qna-maker-management-sku"></a>Actualización de la SKU de administración de QnA Maker
+
+Cuando necesite tener más preguntas y respuestas en Knowledge Base, más allá de su plan actual, actualice el plan de tarifa del servicio de QnA Maker. 
+
 Para actualizar la SKU de administración de QnA Maker:
+
 1. Vaya al recurso QnA Maker en Azure Portal y seleccione **Plan de tarifa**.
 
     ![Recurso QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-resource.png)
@@ -31,6 +35,9 @@ Para actualizar la SKU de administración de QnA Maker:
     ![Precios de QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-pricing-page.png)
 
 ## <a name="upgrade-app-service"></a>Actualizar App Service
+
+ Cuando Knowledge Base deba atender más solicitudes de la aplicación cliente, actualice el plan de tarifa de App Service.
+
 Puede [escalar](https://docs.microsoft.com/azure/app-service/web-sites-scale) o reducir verticalmente App Service.
 
 1. Vaya al recurso App Service en Azure Portal y seleccione **Escalar verticalmente** o **Reducir verticalmente** según proceda.
@@ -38,6 +45,9 @@ Puede [escalar](https://docs.microsoft.com/azure/app-service/web-sites-scale) o 
     ![Escalado de App Service en QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
 
 ## <a name="upgrade-azure-search-service"></a>Actualización del servicio Azure Search
+
+Si planea tener muchas instancias de Knowledge Base, actualice el plan de tarifa del servicio de Azure Search. 
+
 Actualmente, no es posible realizar una actualización en contexto de la SKU de Azure Search. Sin embargo, puede crear un recurso de Azure Search con la SKU deseada, restaurar los datos al nuevo recurso y luego vincularlo a la pila de QnA Maker.
 
 1. Cree un recurso de Azure Search en Azure Portal y elija la SKU deseada.

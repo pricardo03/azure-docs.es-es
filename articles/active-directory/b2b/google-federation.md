@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 11/07/2018
+ms.date: 12/17/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 5bc94b6fe69a9ffec11fcbab952a6f8aa3e2259a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 295b7eeebf8d9815aef0b862ee2b3cccbee15ed6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569012"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546749"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Incorporación de Google como proveedor de identidades para los usuarios invitados de B2B
 
 Gracias a la configuración de la federación con Google puede permitir a los usuarios invitados iniciar sesión en sus aplicaciones y recursos compartidos con sus propias cuentas de Google, sin tener que crear cuentas Microsoft (cuentas de servicio administradas) o de Azure AD.  
 > [!NOTE]
-> Los usuarios invitados de Google deben iniciar sesión con un vínculo que incluye el contexto del inquilino, por ejemplo, `https://myapps.microsoft.com/?tenantid=<tenant id>`. Los vínculos directos a aplicaciones y los recursos también funcionan siempre que incluyan el contexto del inquilino. Actualmente, los usuarios invitados no pueden iniciar sesión con puntos de conexión sin contexto de inquilino. Por ejemplo, el uso de `https://myapps.microsoft.com`, `https://portal.azure.com` o el punto de conexión común de los equipos producirá un error.
+> Los usuarios invitados de Google deben iniciar sesión con un vínculo que incluye el contexto del inquilino, por ejemplo, `https://myapps.microsoft.com/<tenant id>`. Los vínculos directos a aplicaciones y los recursos también funcionan siempre que incluyan el contexto del inquilino. Actualmente, los usuarios invitados no pueden iniciar sesión con puntos de conexión sin contexto de inquilino. Por ejemplo, el uso de `https://myapps.microsoft.com`, `https://portal.azure.com` o el punto de conexión común de los equipos producirá un error.
  
 ## <a name="what-is-the-experience-for-the-google-user"></a>¿Cuál es la experiencia del usuario de Google?
 Cuando envíe una invitación a un usuario de Gmail de Google, el usuario invitado debe acceder a sus aplicaciones o recursos compartidos mediante un vínculo que incluya el contexto del inquilino. Su experiencia varía en función de si ya han iniciado sesión en Google:
@@ -35,7 +35,7 @@ Si el usuario invitado ve un error de "encabezado demasiado largo", puede intent
 ## <a name="step-1-configure-a-google-developer-project"></a>Paso 1: configuración de un proyecto de desarrollador de Google
 En primer lugar, cree un nuevo proyecto en la consola de desarrolladores de Google para obtener un identificador y un secreto de cliente que pueda agregar después a Azure AD. 
 1. Vaya a las API de Google de https://console.developers.google.com e inicie sesión con su cuenta de Google. Se recomienda utilizar una cuenta de Google compartida con el equipo.
-2. Cree un nuevo proyecto: en el panel, seleccione **Crear proyecto** y **Crear**. En la página Nuevo proyecto, escriba un **Nombre de proyecto** y seleccione **Crear**.
+2. Cree un nuevo proyecto: en el panel, seleccione **Crear proyecto** y, a continuación, **Crear**. En la página Nuevo proyecto, escriba un **Nombre de proyecto** y seleccione **Crear**.
    
    ![Nuevo proyecto de Google](media/google-federation/google-new-project.png)
 

@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: genemi,ayolubek
+ms.reviewer: genemi,ayolubek, jrasnick
 manager: craigg
 ms.date: 02/05/2018
-ms.openlocfilehash: 290414ca07014d5f3bfbe160b0f571397fb13948
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 96627d96acee76516c9dc3db1b58d6e4b7b6ff15
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467143"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601051"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Alias DNS en Azure SQL Database
 
@@ -58,7 +58,7 @@ Las siguientes propiedades se aplican a todos los alias DNS del servidor de SQL 
 - *Nombre único:* cada nombre de alias que se crea es único en todos los servidores de Azure SQL Database, igual que lo son los nombres de servidor.
 - *Se requiere un servidor:* no se puede crear un alias DNS a menos que haga referencia exacta a un servidor y el servidor ya exista. Un alias actualizado siempre debe hacer referencia exacta a un servidor existente.
   - Cuando se quita un servidor de SQL Database, el sistema de Azure también quita todos los alias DNS que hagan referencia a él.
-- *No enlazado a ninguna región:* los alias DNS no están enlazados a una región. Los alias DNS pueden actualizarse para que hagan referencia a un servidor de Azure SQL Database que resida en cualquier región geográfica.
+- *No enlazado a ninguna región:* los alias DNS no están enlazados a ninguna región. Los alias DNS pueden actualizarse para que hagan referencia a un servidor de Azure SQL Database que resida en cualquier región geográfica.
   - Sin embargo, cuando se actualiza un alias para que haga referencia a otro servidor, ambos servidores deben existir en la misma *suscripción* de Azure.
 - *Permisos:* para administrar un alias DNS, el usuario debe tener permisos de *colaborador de servidor* u otros superiores. Para más información, consulte [Introducción al control de acceso basado en roles en Azure Portal](../role-based-access-control/overview.md).
 

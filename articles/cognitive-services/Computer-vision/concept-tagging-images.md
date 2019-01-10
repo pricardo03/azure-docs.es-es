@@ -1,7 +1,7 @@
 ---
-title: 'Etiquetado de imágenes: Computer Vision'
+title: 'Aplicación de etiquetas de contenido a imágenes: Computer Vision'
 titleSuffix: Azure Cognitive Services
-description: Conceptos relacionados con el etiquetado de imágenes mediante Computer Vision API.
+description: Obtenga información sobre los conceptos relacionados con la característica de etiquetado de imágenes de Computer Vision API.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 7e9181b6e805a768ca5dd8ed558b8feea45f22d3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: caf4d8a4ee3ccee181d233716e0a645150a201c3
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960914"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582939"
 ---
-# <a name="tagging-images"></a>Etiquetado de imágenes
+# <a name="applying-content-tags-to-images"></a>Aplicación de etiquetas de contenido a imágenes
 
 Computer Vision devuelve etiquetas en función de miles de objetos, seres vivos, paisajes y acciones reconocibles. Cuando las etiquetas son ambiguas o no muy comunes, la respuesta de la API contiene «indicaciones» para aclarar el significado de la etiqueta en el contexto de un entorno conocido. Las etiquetas no están organizadas por su taxonomía y no existen jerarquías de herencia. Una colección de etiquetas de contenido es la base de la "descripción" de una imagen que se muestra en lenguaje natural con formato de oraciones completas. Tenga en cuenta que, en este momento, el inglés es el único idioma admitido para la descripción de la imagen.
 
@@ -27,7 +28,7 @@ Después de cargar una imagen o especificar la URL de una imagen, los algoritmos
 
 La siguiente respuesta JSON muestra lo que devuelve Computer Vision al etiquetar las características visuales detectadas en la imagen de ejemplo.
 
-![House_Yard](./Images/house_yard.png).
+![Una casa azul y el patio delantero](./Images/house_yard.png).
 
 ```json
 {

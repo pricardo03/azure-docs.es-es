@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: a3f837b41ba6ec7ecadb3e34917a8088e4d1e2d9
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 25b33242b9f7bddf0497067f111ca3fb4a1ea570
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233521"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600730"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Creación de API personalizadas que se pueden llamar desde Azure Logic Apps
 
@@ -25,11 +25,11 @@ Aunque Azure Logic Apps ofrece [más de 100 conectores integrados](../connectors
 * Ayudar a los clientes a utilizar su servicio para administrar tareas profesionales o personales.
 * Expandir la cobertura, la detectabilidad y el uso de su servicio.
 
-Básicamente, los conectores son API web que usan REST para las interfaces conectables, [formato de metadatos de Swagger](http://swagger.io/specification/) para documentación y JSON como formato de intercambio de datos. Dado que los conectores son API de REST que se comunican a través de puntos de conexión HTTP, puede utilizar cualquier lenguaje para crear conectores, como, por ejemplo, .NET, Java, o Node.js. También puede hospedar las API en [Azure App Service](../app-service/app-service-web-overview.md), una oferta de plataforma como servicio (PaaS) que proporciona una de las formas más eficaces, sencillas y escalables para hospedar API. 
+Básicamente, los conectores son API web que usan REST para las interfaces conectables, [formato de metadatos de Swagger](http://swagger.io/specification/) para documentación y JSON como formato de intercambio de datos. Dado que los conectores son API de REST que se comunican a través de puntos de conexión HTTP, puede utilizar cualquier lenguaje para crear conectores, como, por ejemplo, .NET, Java, o Node.js. También puede hospedar las API en [Azure App Service](../app-service/overview.md), una oferta de plataforma como servicio (PaaS) que proporciona una de las formas más eficaces, sencillas y escalables para hospedar API. 
 
 Para que las API personalizadas funcionen con las aplicaciones lógicas, su API puede proporcionar [*acciones*](./logic-apps-overview.md#logic-app-concepts) que realicen tareas específicas en flujos de trabajo de aplicaciones lógicas. La API también puede actuar como un [*desencadenador*](./logic-apps-overview.md#logic-app-concepts) que inicia un flujo de trabajo de aplicación lógica cuando un evento o datos nuevos cumplen una condición especificada. En este tema se describen los patrones comunes que puede seguir para crear acciones y desencadenadores en la API, en función del comportamiento que desee que ofrezca su API.
 
-Puede hospedar las API en [Azure App Service](../app-service/app-service-web-overview.md), una oferta de plataforma como servicio (PaaS) que proporciona hospedaje API fácil y altamente escalable.
+Puede hospedar las API en [Azure App Service](../app-service/overview.md), una oferta de plataforma como servicio (PaaS) que proporciona hospedaje API fácil y altamente escalable.
 
 > [!TIP] 
 > Aunque puede implementar las API como aplicaciones web, considere la posibilidad de implementarlas como aplicaciones de API, lo que puede facilitar la tarea de crear, hospedar y utilizar API en la nube y en el entorno local. No tiene que cambiar ningún código en las API; basta con implementar el código en una aplicación de API. Por ejemplo, aprenda a crear aplicaciones API creadas con estos lenguajes: 

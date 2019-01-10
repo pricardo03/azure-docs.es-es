@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 57abea79a620aa83e16ad4cc2fd78a4294f2b278
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: bda70a6854dc6d94d3d4b37e6f587e4dcd045126
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204862"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543846"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Configuración y uso de la afinidad de servicio en Service Fabric
 La afinidad es un control que se proporciona principalmente para facilitar la transición de aplicaciones grandes y monolíticas al mundo de la nube y los microservicios. También se usa como optimización para mejorar el rendimiento de los servicios, aunque en este caso podrían producirse efectos secundarios.
@@ -72,7 +72,7 @@ Actualmente, Cluster Resource Manager no puede crear cadenas de relaciones de af
 ![Cadenas frente a estrellas en el contexto de las relaciones de afinidad][Image2]
 </center>
 
-Otra cuestión que debe tener en cuenta sobre las relaciones de afinidad en la actualidad es que son direccionales. Esto significa que la regla de afinidad solo se aplica si el elemento secundario está donde el elemento primario. No garantiza que el elemento primario se coloque con el secundario. También es importante tener en cuenta que la relación de afinidad no puede ser perfecta ni aplicarse instantáneamente dado que diferentes servicios tienen ciclos de vida diferentes y pueden producir error y moverse de forma independiente. Por ejemplo, supongamos que el elemento primario conmuta por error de repente a otro nodo porque se ha bloqueado. Cluster Resource Manager y el Administrador de conmutación por error gestionan primero la conmutación por error dado que lo importante es mantener los servicios en funcionamiento, coherentes y disponibles. Una vez finalizada la conmutación por error, la relación de afinidad se interrumpe, pero Cluster Resource Manager cree que todo va bien hasta que advierte que el elemento secundario no está colocado con el primario. Estos tipos de comprobaciones se realizan periódicamente. Puede encontrar más información sobre cómo Cluster Resource Manager evalúa las restricciones en [este artículo](service-fabric-cluster-resource-manager-management-integration.md#constraint-types), y en [este otro](service-fabric-cluster-resource-manager-balancing.md) se habla sobre cómo configurar la cadencia con la que se evalúan estos componentes.   
+Otra cuestión que debe tener en cuenta sobre las relaciones de afinidad en la actualidad es que son direccionales de manera predeterminada. Esto significa que la regla de afinidad solo se aplica si el elemento secundario está donde el elemento primario. No garantiza que el elemento primario se coloque con el secundario. Por lo tanto, si existe una infracción de afinidad y, por algún motivo, para corregirla no es viable mover el elemento secundario al nodo primario (aunque el traslado del elemento primario al nodo secundario hubiese corregido la infracción), el elemento primario no se moverá al nodo secundario. Al establecer la configuración [MoveParentToFixAffinityViolation](service-fabric-cluster-fabric-settings.md) en true, se eliminaría la direccionalidad. También es importante tener en cuenta que la relación de afinidad no puede ser perfecta ni aplicarse instantáneamente dado que diferentes servicios tienen ciclos de vida diferentes y pueden producir error y moverse de forma independiente. Por ejemplo, supongamos que el elemento primario conmuta por error de repente a otro nodo porque se ha bloqueado. Cluster Resource Manager y el Administrador de conmutación por error gestionan primero la conmutación por error dado que lo importante es mantener los servicios en funcionamiento, coherentes y disponibles. Una vez finalizada la conmutación por error, la relación de afinidad se interrumpe, pero Cluster Resource Manager cree que todo va bien hasta que advierte que el elemento secundario no está colocado con el primario. Estos tipos de comprobaciones se realizan periódicamente. Puede encontrar más información sobre cómo Cluster Resource Manager evalúa las restricciones en [este artículo](service-fabric-cluster-resource-manager-management-integration.md#constraint-types), y en [este otro](service-fabric-cluster-resource-manager-balancing.md) se habla sobre cómo configurar la cadencia con la que se evalúan estos componentes.   
 
 
 ### <a name="partitioning-support"></a>Compatibilidad con particiones

@@ -1,5 +1,5 @@
 ---
-title: Cognitive Search para extracción de datos y procesamiento de IA de lenguaje natural en Azure Search
+title: 'Cognitive Search, extracción de datos y procesamiento de IA de lenguaje natural: Azure Search'
 description: Extracción de contenido, procesamiento de lenguaje natural (NLP) y procesamiento de imágenes para crear contenido que se puede buscar en la indexación de Azure Search a través de aptitudes cognitivas y algoritmos de IA.
 manager: cgronlun
 author: HeidiSteen
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 62d2e7af40d6abf6f316789051dfe78f73208eb3
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2bb32ccaeb5960fa69dcdc356523abc199fd5f4f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315617"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633800"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>¿Qué es la "búsqueda cognitiva" en Azure Search?
 
