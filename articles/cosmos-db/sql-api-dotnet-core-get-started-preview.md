@@ -3,17 +3,17 @@ title: Compilación de una aplicación de consola .NET Core para administrar dat
 description: Tutorial en el que crea una base de datos en línea y la aplicación de consola de C# mediante el SDK de .NET Core de la API de SQL de Azure Cosmos DB.
 author: deborahc
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 917cf6ddf23fb9240aa6f2cef8add14c66d0cb06
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: fd5383ded8252375b651c47debea3ba72173eb16
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973184"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038826"
 ---
 # <a name="build-a-net-core-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Compilación de una aplicación de consola .NET Core para administrar datos en la cuenta de SQL API de Azure Cosmos DB (versión preliminar de la versión 3 de SDK)
 

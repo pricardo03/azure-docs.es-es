@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: 058cadec0776e05daf9fddbf715020953478ff58
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 867fdd57df163f37d86572798aaae6d78d43f479
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105162"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973730"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escritura de expresiones para la asignación de atributos en Azure Active Directory
 Al configurar el aprovisionamiento para una aplicación SaaS, uno de los tipos de asignaciones de atributos que puede especificar es una asignación de expresiones. En estos casos, debe escribir una expresión similar a un script que permite transformar los datos de los usuarios en formatos más aceptables para la aplicación SaaS.
@@ -27,13 +27,13 @@ Al configurar el aprovisionamiento para una aplicación SaaS, uno de los tipos d
 La sintaxis de expresiones para asignaciones de atributos recuerda a las funciones de Visual Basic para Aplicaciones (VBA).
 
 * Toda la expresión se tiene que definir en términos de funciones, que constan de un nombre seguido de argumentos entre paréntesis:  <br>
-  *NombreDeFunción (<<argumento 1>>,<<argument N>>)*
-* Es posible anidar funciones dentro de otras. Por ejemplo:  <br> *FunciónUno(FunciónDos(&lt;<argument1>&gt;))*
+  *FunctionName(`<<argument 1>>`,`<<argument N>>`)*
+* Es posible anidar funciones dentro de otras. Por ejemplo:  <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
 * Puede transformar tres tipos diferentes de argumentos en funciones:
   
   1. Atributos, que deben ir entre corchetes. Por ejemplo: [NombreAtributo]
   2. Constantes de cadena, que deben ir entre comillas. Por ejemplo:  "Estados Unidos"
-  3. Otras funciones. Por ejemplo:  FunctionOne(<<argument1>>, FunctionTwo(<<argument2>>))
+  3. Otras funciones. Por ejemplo:  FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
 * Para las constantes de cadena, si necesita una barra diagonal inversa (\) o comillas dobles (") en la cadena, se deben convertirse con el símbolo de barra diagonal inversa (\). Por ejemplo:  "Nombre de la empresa: \"Contoso\""
 
 ## <a name="list-of-functions"></a>Lista de funciones

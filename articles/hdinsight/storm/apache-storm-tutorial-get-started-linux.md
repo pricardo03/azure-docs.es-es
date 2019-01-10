@@ -10,20 +10,20 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 900180c9991932f4efaa07f9881e9f3f897cd99e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 8981f6a2b2d42627530fb8bf820ff8373e8f50b0
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498278"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971672"
 ---
 # <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Introducción a Apache Storm en HDInsight con los ejemplos de Storm-Starter
 
-Aprenda a usar [Apache Storm](http://storm.apache.org/) en HDInsight con los ejemplos de Storm-Starter.
+Aprenda a usar [Apache Storm](https://storm.apache.org/) en HDInsight con los ejemplos de Storm-Starter.
 
 Apache Storm es un sistema de cálculo distribuido, escalable, con tolerancia a errores y en tiempo real para el procesamiento de secuencias de datos. Con Storm en HDInsight de Azure, puede crear un clúster de Storm basado en la nube que realice análisis en tiempo real de grandes cantidades de datos en tiempo real.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -38,18 +38,20 @@ Apache Storm es un sistema de cálculo distribuido, escalable, con tolerancia a 
 
 Siga estos pasos para crear un clúster de Storm en HDInsight:
 
-1. En [Azure Portal](https://portal.azure.com), seleccione **+ Crear un recurso**, **Datos y análisis** y seleccione **HDInsight**.
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+
+1. Vaya a la opción **+ Crear un recurso** > **Analytics** > **HDInsight**.
 
     ![Creación de un clúster de HDInsight](./media/apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 
 2. Escriba la información siguiente d la sección **Aspectos básicos**:
 
-    * **Nombre del clúster**: nombre del clúster de HDInsight.
-    * **Suscripción**: seleccione la suscripción que vaya a usar.
-    * **Nombre de usuario de inicio de sesión del clúster** y **contraseña de inicio de sesión de clúster**: inicio de sesión de acceso al clúster a través de HTTPS. Use estas credenciales para acceder a servicios como la interfaz de usuario de Ambari Web o la API de REST.
-    * **Nombre de usuario de Secure Shell (SSH)**: inicio de sesión para acceder al clúster a través de SSH. De forma predeterminada, la contraseña es la misma que la de inicio de sesión en el clúster.
-    * **Grupo de recursos**: en el que se va a crear el clúster.
-    * **Ubicación**: región de Azure donde se va crear el clúster.
+    * **Nombre del clúster**: el nombre del clúster de HDInsight.
+    * **Suscripción**: Seleccione la suscripción que se va a usar.
+    * **Nombre de usuario de inicio de sesión del clúster** y **contraseña de inicio de sesión del clúster**: inicio de sesión para obtener acceso al clúster a través de HTTPS. Use estas credenciales para acceder a servicios como la interfaz de usuario de Ambari Web o la API de REST.
+    * **Nombre de usuario de Secure Shell (SSH)**: Inicio de sesión para acceder al clúster a través de SSH. De forma predeterminada, la contraseña es la misma que la de inicio de sesión en el clúster.
+    * **Grupo de recursos**: El grupo de recursos en el que se va a crear el clúster.
+    * **Ubicación**: La región de Azure donde se va crear el clúster.
 
    ![Selección de la suscripción](./media/apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)
 
@@ -84,10 +86,10 @@ Siga estos pasos para crear un clúster de Storm en HDInsight:
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-    > [!TIP]
+    > [!TIP]  
     > El cliente SSH puede indicar que no se puede establecer la autenticidad del host. En este caso, escriba `yes` para continuar.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Si usó una contraseña para proteger la cuenta de usuario SSH, se le pedirá que la escriba. Si usó una clave pública, tal vez tenga que usar el parámetro `-i` para especificar la clave privada coincidente. Por ejemplo, `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
 
     Para más información, consulte [Uso de SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
@@ -98,7 +100,7 @@ Siga estos pasos para crear un clúster de Storm en HDInsight:
 
     Este comando inicia la topología WordCount de ejemplo en el clúster. Esta topología genera frases aleatorias y cuenta cuántas veces aparecen las palabras. El nombre descriptivo de la topología es `wordcount`.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Al enviar sus propias topologías al clúster, primero debe copiar el archivo jar que contiene el clúster antes de usar el comando `storm`. Use el comando `scp` para copiar el archivo. Por ejemplo: `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
     >
     > El ejemplo de WordCount, y otros ejemplos de Storm-Starter, ya están incluidos en el clúster en `/usr/hdp/current/storm-client/contrib/storm-starter/`.
@@ -113,7 +115,7 @@ Siga estos pasos para supervisar la topología mediante la interfaz de usuario d
 
 1. Para mostrar la interfaz de usuario de Storm, abra `https://CLUSTERNAME.azurehdinsight.net/stormui` en el explorador web. Reemplace **CLUSTERNAME** por el nombre del clúster.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Si se le pide que ofrezca un nombre de usuario y una contraseña, escriba el administrador de clústeres (admin) y la contraseña que usó al crear el clúster.
 
 2. En el **resumen de la topología**, seleccione la entrada **wordcount** de la columna **Nombre**. Se muestra información sobre la topología.
@@ -124,7 +126,7 @@ Siga estos pasos para supervisar la topología mediante la interfaz de usuario d
 
     * **Estadísticas de topología** : información básica sobre el rendimiento de la topología, organizada en ventanas de tiempo.
 
-        > [!NOTE]
+        > [!NOTE]  
         > Al seleccionar una ventana de tiempo específica, se cambia la ventana de tiempo de la información que aparece en otras secciones de la página.
 
     * **Spouts** : información básica sobre spouts, entre la que se incluye el último error que ha devuelto cada spout.
@@ -139,7 +141,7 @@ Siga estos pasos para supervisar la topología mediante la interfaz de usuario d
 
     * **Desactivar** : pausa una topología en ejecución.
 
-    * **Reequilibrar** : ajusta el paralelismo de la topología. Debe volver a equilibrar las topologías en ejecución después de haber cambiado el número de nodos del clúster. De esta forma, la topología ajusta el paralelismo para compensar el mayor o menor número de nodos del clúster. Para más información, consulte la entrada de blog [Understanding the parallelism of an Apache Storm topology](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) (Entender el paralelismo de una topología de Apache Storm).
+    * **Reequilibrar** : ajusta el paralelismo de la topología. Debe volver a equilibrar las topologías en ejecución después de haber cambiado el número de nodos del clúster. De esta forma, la topología ajusta el paralelismo para compensar el mayor o menor número de nodos del clúster. Para más información, consulte la entrada de blog [Understanding the parallelism of an Apache Storm topology](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) (Entender el paralelismo de una topología de Apache Storm).
 
     * **Eliminar** : finaliza una topología de Storm tras el tiempo de espera especificado.
 
@@ -151,7 +153,7 @@ Siga estos pasos para supervisar la topología mediante la interfaz de usuario d
 
     * **Estadísticas de spouts y bolts** : información básica sobre el rendimiento de los componentes, organizada en ventanas de tiempo.
 
-        > [!NOTE]
+        > [!NOTE]  
         > Al seleccionar una ventana de tiempo específica, se cambia la ventana de tiempo de la información que aparece en otras secciones de la página.
 
     * **Estadísticas de entrada** (solo bolt): información sobre los componentes que generan los datos que consume el bolt.
@@ -183,7 +185,7 @@ Vuelva a la página **Resumen de la topología** de la topología de recuento de
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-Si experimenta un problema con la creación de clústeres de HDInsight, consulte los [requisitos de control de acceso](../hdinsight-administer-use-portal-linux.md#create-clusters).
+Si experimenta un problema con la creación de clústeres de HDInsight, consulte los [requisitos de control de acceso](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a id="next"></a>Pasos siguientes
 
@@ -198,7 +200,7 @@ Por ejemplo, consulte los siguientes ejemplos de las topologías que pueden util
 * [Topologías de ejemplo para Apache Storm en HDInsight](apache-storm-example-topology.md)
 
 [apachestorm]: https://storm.incubator.apache.org
-[stormdocs]: http://storm.incubator.apache.org/documentation/Documentation.html
+[stormdocs]: https://storm.incubator.apache.org/documentation/Documentation.html
 [stormstarter]: https://github.com/apache/storm/tree/master/examples/storm-starter
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: e5c5c7f667959426f015e207cd32d716c493e31e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 78290f6d1b31788c3f2de99996739cc8e7b20419
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995026"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810941"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Desencadenador de Event Grid para Azure Functions
 
@@ -48,7 +48,7 @@ Vea el ejemplo específico del lenguaje de un desencadenador de Event Grid:
 
 * [C#](#c-example)
 * [Script de C# (.csx)](#c-script-example)
-* [Java](#trigger---java-example)
+* [Java](#trigger---java-examples)
 * [JavaScript](#javascript-example)
 * [Python](#python-example)
 
@@ -221,9 +221,14 @@ def main(event: func.EventGridEvent):
     logging.info("  Data: %s", event.get_json())
 ```
 
-### <a name="trigger---java-example"></a>Desencadenador: ejemplo de Java
+### <a name="trigger---java-examples"></a>Desencadenador: ejemplos de Java
 
-En el ejemplo siguiente se muestra un enlace de desencadenador en un archivo *function.json* y una [función de Java](functions-reference-java.md) que usa el enlace e imprime un evento.
+En esta sección se incluyen los ejemplos siguientes:
+
+* [Desencadenador de Event Grid, parámetro de cadena](#event-grid-trigger-string-parameter-java)
+* [Desencadenador de Event Grid, parámetro POJO](#event-grid-trigger-pojo-parameter-java)
+
+En los siguientes ejemplos se muestra el enlace de activación en un archivo *function.json* y las [funciones de Java](functions-reference-java.md) que usan el enlace e imprimen un evento, recibiendo primero el evento como ```String``` y un segundo evento como POJO.
 
 ```json
 {
@@ -237,16 +242,60 @@ En el ejemplo siguiente se muestra un enlace de desencadenador en un archivo *fu
 }
 ```
 
-Este es el código de Java:
+#### <a name="event-grid-trigger-string-parameter-java"></a>Desencadenador de Event Grid, parámetro de cadena (Java)
 
 ```java
-@FunctionName("eventGridMonitor")
+  @FunctionName("eventGridMonitorString")
   public void logEvent(
-     @EventGridTrigger(name = "event") String content,
-      final ExecutionContext context
-  ) {
-      context.getLogger().info(content);
-    }
+    @EventGridTrigger(
+      name = "event"
+    ) 
+    String content, 
+    final ExecutionContext context) {
+      // log 
+      context.getLogger().info("Event content: " + content);      
+  }
+```
+
+#### <a name="event-grid-trigger-pojo-parameter-java"></a>Desencadenador de Event Grid, parámetro POJO (Java)
+
+En este ejemplo se usa el siguiente objeto POJO, que representa las propiedades de nivel superior de un evento de Event Grid:
+
+```java
+import java.util.Date;
+import java.util.Map;
+
+public class EventSchema {
+
+  public String topic;
+  public String subject;
+  public String eventType;
+  public Date eventTime;
+  public String id;
+  public String dataVersion;
+  public String metadataVersion;
+  public Map<String, Object> data;
+
+}
+```
+
+Al llegar, la carga útil JSON del evento se deserializa en el POJO ```EventSchema``` para que la función pueda usarla. Esto permite que la función obtenga acceso a las propiedades del evento de manera que esté orientada a los objetos.
+
+```java
+  @FunctionName("eventGridMonitor")
+  public void logEvent(
+    @EventGridTrigger(
+      name = "event"
+    ) 
+    EventSchema event, 
+    final ExecutionContext context) {
+      // log 
+      context.getLogger().info("Event content: ");
+      context.getLogger().info("Subject: " + event.subject);
+      context.getLogger().info("Time: " + event.eventTime); // automatically converted to Date by the runtime
+      context.getLogger().info("Id: " + event.id);
+      context.getLogger().info("Data: " + event.data);
+  }
 ```
 
 En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación `EventGridTrigger` en los parámetros cuyo valor provendría de EventGrid. Los parámetros con estas anotaciones hacen que la función se ejecuta cuando llega un evento.  Esta anotación se puede usar con tipos nativos de Java, POJO o valores que aceptan valores NULL mediante `Optional<T>`.

@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/02/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 58dfb3f02b338d62fcfb10e4d8c1bc492cdacbda
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 15c86d1d5af3ba4d373f8dfb199d9ea56edb60b4
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890558"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002491"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registro de Azure Stack con Azure
 
@@ -300,15 +300,20 @@ Si lo desea, puede usar el cmdlet Get-Content para señalar a un archivo que con
 
 ## <a name="verify-azure-stack-registration"></a>Comprobación del registro de Azure Stack
 
-Siga estos pasos para comprobar que Azure Stack se ha registrado correctamente en Azure.
+Puede usar el icono de **administración de regiones** para comprobar si el registro de Azure Stack se realizó correctamente. Este icono está disponible en el panel predeterminado del portal del administrador. El estado puede ser Registrado o No registrado. Si el estado es registrado, también muestra el identificador de la suscripción de Azure que usó para registrar Azure Stack, junto con el grupo de recursos de registro y el nombre.
 
-1. Inicie sesión en el [portal de administración](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal) de Azure Stack: https&#58;//adminportal.*&lt;región>.&lt;fqdn>*.
-2. Seleccione **Todos los servicios** y, luego, en la categoría **ADMINISTRACIÓN**, seleccione **Administración de Marketplace** > **Agregar desde Azure**.
+1. Inicie sesión en el [portal de administración de Azure Stack](https://adminportal.local.azurestack.external).
 
-Si aparece una lista de elementos disponibles de Azure (como WordPress), la activación fue correcta. Sin embargo, en entornos desconectados no verá los elementos del Marketplace de Azure en el Marketplace de Azure Stack.
+2. En el panel, seleccione **Region management** (Administración de regiones).
 
-> [!Note]  
-> Una vez completado el registro, ya no aparecerá la advertencia activa para no registrar.
+    [ ![Icono de administración de regiones](media/azure-stack-registration/admin1sm.png "icono de administración de regiones") ](media/azure-stack-registration/admin1.png#lightbox)
+
+3. Seleccione **Propiedades**. Esta hoja muestra el estado y los detalles de su entorno. El estado puede ser **Registrado** o **No registrado**. Si el estado es registrado, también muestra el identificador de la suscripción de Azure que usó para registrar Azure Stack, junto con el grupo de recursos de registro y el nombre.
+
+Como alternativa, puede comprobar si el registro es correcto mediante la característica de administración de Marketplace. Si ve una lista de elementos de marketplace en la hoja de administración de Marketplace, significa que su registro se realizó correctamente. Sin embargo, en entornos desconectados, no verá los elementos de marketplace en la característica de administración de Marketplace. Pero, puede usar la herramienta sin conexión para comprobar el registro.
+
+> [!NOTE]
+> Una vez completado el registro, ya no aparecerá la advertencia activa para no registrar. En escenarios desconectados, verá un mensaje en la característica de administración de Marketplace que le solicita registrar y activar Azure Stack, incluso si se ha registrado correctamente.
 
 ## <a name="renew-or-change-registration"></a>Renovación o cambio de registro
 

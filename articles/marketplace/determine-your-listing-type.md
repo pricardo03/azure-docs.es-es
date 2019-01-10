@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0ad4fef9dd67ed0bf2bc9a3c66e26fc111526b90
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4abed1718d77c93e864fe5bb1d39aba5e5272f10
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081547"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074477"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar la opción de publicación
 La opción de publicación que elige para su oferta está relacionada directamente con los requisitos de idoneidad y las ventajas de GTM de Marketplace. Y, aún más importante, la selección de la opción de publicación y el tipo de oferta en Cloud Partner Portal define cómo interactúan los usuarios con su oferta de Marketplace.
@@ -62,7 +62,7 @@ El escaparate donde se presentará la oferta, Azure Marketplace o AppSource, se 
 
 ## <a name="choose-a-publishing-option"></a>Selección de la opción de publicación
 
-Las opciones de publicación disponibles ofrecen un compromiso diferenciado del cliente y le ofrecen acceso al uso compartido de clientes potenciales y a [ventajas de comercialización](https://partner.microsoft.com/en-US/reach-customers/gtm). Seleccione entre tres opciones posibles de publicación antes de usar Cloud Partner Portal para crear una oferta de Marketplace. Tenga en cuenta las llamadas a la acción que se corresponden con la opción de publicación:
+Las opciones de publicación disponibles ofrecen un compromiso diferenciado del cliente y le ofrecen acceso al uso compartido de clientes potenciales y a [ventajas de comercialización](https://partner.microsoft.com/reach-customers/gtm). Seleccione entre tres opciones posibles de publicación antes de usar Cloud Partner Portal para crear una oferta de Marketplace. Tenga en cuenta las llamadas a la acción que se corresponden con la opción de publicación:
 
 | **Opción de publicación**    | **Descripción**  |
 | :------------------- | :-------------------|

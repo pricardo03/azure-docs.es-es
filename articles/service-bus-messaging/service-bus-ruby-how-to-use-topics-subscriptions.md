@@ -14,12 +14,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: spelluru
-ms.openlocfilehash: 2bde0661f57acc9507b1f26f6ceb442cefee7947
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 0310b532fae69aa2509a427b73c40ba732a740de
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406488"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102320"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Uso de temas y suscripciones de Service Bus con Ruby
  
@@ -39,7 +39,7 @@ El objeto **Azure::ServiceBusService** le permite trabajar con temas. El siguien
 ```ruby
 azure_service_bus_service = Azure::ServiceBus::ServiceBusService.new(sb_host, { signer: signer})
 begin
-  topic = azure_service_bus_service.create_queue("test-topic")
+  topic = azure_service_bus_service.create_topic("test-topic")
 rescue
   puts $!
 end
@@ -61,7 +61,7 @@ Las suscripciones a temas también se crean con el objeto **Azure::ServiceBusSer
 Las suscripciones son permanentes. Siguen existiendo hasta que se eliminan o se elimina el tema al que están asociadas. Si la aplicación contiene lógica para crear una suscripción, primero debe comprobar si esta ya existe utilizando el método getSubscription.
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Creación de una suscripción con el filtro predeterminado (MatchAll)
-El filtro predeterminado **MatchAll** se usa en caso de que no se haya especificado ninguno al crear una nueva suscripción. Al usar el filtro **MatchAll**, todos los mensajes publicados en el tema se colocan en la cola virtual de la suscripción. En el ejemplo siguiente se crea una suscripción llamada "all-messages" que usa el filtro predeterminado **MatchAll**.
+Se usa el filtro predeterminado **MatchAll** en caso de que no se haya especificado ninguno al crear una nueva suscripción. Al usar el filtro **MatchAll**, todos los mensajes publicados en el tema se colocan en la cola virtual de la suscripción. En el ejemplo siguiente se crea una suscripción llamada "all-messages" que usa el filtro predeterminado **MatchAll**.
 
 ```ruby
 subscription = azure_service_bus_service.create_subscription("test-topic", "all-messages")

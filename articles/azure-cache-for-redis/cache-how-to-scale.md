@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: 46f94a512ea78016a327357a3d0ee25a91ad607e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 009fbd3b86518758e9654fab547bab99bec369de
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53022061"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105209"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Escalado de Azure Cache for Redis
 Azure Cache for Redis tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la memoria caché. Después de crear una memoria caché, puede ajustar su tamaño y el plan de tarifa si cambian los requisitos de la aplicación. En este artículo se muestra cómo escalar la memoria caché en Azure Portal o con herramientas tales como Azure PowerShell y la CLI de Azure.
@@ -136,7 +136,7 @@ No, el nombre de la memoria caché y las claves no se cambian durante una operac
 ### <a name="will-i-lose-data-from-my-cache-during-scaling"></a>¿Se pierden los datos de mi memoria caché durante el escalado?
 * Cuando se escala una memoria caché **Básica** a un nuevo tamaño, se pierden todos los datos y la memoria caché no está disponible durante la operación de escalado.
 * Cuando se escala una memoria caché del plan **Básico** al plan **Estándar**, normalmente se conservan los datos de la memoria caché.
-* Cuando se escala una memoria caché del plan **Estándar** a un tamaño o plan superior, o cuando una del plan **Premium** se escala a un tamaño superior, normalmente se conservan todos los datos. Si una memoria caché del plan **Estándar** o **Premium** se reduce verticalmente, la posibilidad de que se pierdan los datos depende de la cantidad que haya en la caché, en relación con el nuevo tamaño cuando se realice el escalado. Si se pierden datos al reducir, las claves se expulsan mediante el directiva de expulsión [allkeys-lru](http://redis.io/topics/lru-cache) . 
+* Cuando se escala una memoria caché del plan **Estándar** a un tamaño o plan superior, o cuando una del plan **Premium** se escala a un tamaño superior, normalmente se conservan todos los datos. Si una memoria caché del plan **Estándar** o **Premium** se reduce verticalmente, la posibilidad de que se pierdan los datos depende de la cantidad que haya en la caché, en relación con el nuevo tamaño cuando se realice el escalado. Si se pierden datos al reducir, las claves se expulsan mediante el directiva de expulsión [allkeys-lru](https://redis.io/topics/lru-cache) . 
 
 ### <a name="is-my-custom-databases-setting-affected-during-scaling"></a>¿Mi configuración de bases de datos personalizada se ve afectada durante el escalado?
 Si ha configurado un valor personalizado para el parámetro `databases` al crear la memoria caché, tenga en cuenta que algunos planes de tarifa tienen diferentes [límites de bases de datos](cache-configure.md#databases). Estos son algunas de los aspectos que considerar al escalar en este escenario:

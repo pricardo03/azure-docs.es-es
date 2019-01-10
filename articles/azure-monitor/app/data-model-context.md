@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: fc2b5a5badcf38f7bc94a876f9f0a21af4f558b7
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 7c1f47c9b88bd68b326b3c8923ba5b81d425c3e4
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53813507"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015481"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Contexto de telemetría: Modelo de datos de Application Insights
 
@@ -84,7 +84,7 @@ Longitud máxima: 64
 
 Este es el identificador del usuario anónimo. Representa al usuario final de la aplicación. Al enviar telemetría desde un servicio, el contexto del usuario trata sobre el usuario que inició la operación en el servicio.
 
-El [muestreo](../../application-insights/app-insights-sampling.md) es una de las técnicas mediante las cuales se reduce al mínimo la cantidad de telemetría recopilada. El algoritmo de muestreo intenta muestrear toda la telemetría correlacionada para aceptarla o rechazarla. El identificador del usuario anónimo se usa para muestrear la generación de puntuaciones. Por ello, el identificador del usuario anónimo debería ser un valor suficiente aleatorio. 
+El [muestreo](../../azure-monitor/app/sampling.md) es una de las técnicas mediante las cuales se reduce al mínimo la cantidad de telemetría recopilada. El algoritmo de muestreo intenta muestrear toda la telemetría correlacionada para aceptarla o rechazarla. El identificador del usuario anónimo se usa para muestrear la generación de puntuaciones. Por ello, el identificador del usuario anónimo debería ser un valor suficiente aleatorio. 
 
 Usar el identificador del usuario anónimo para almacenar el nombre de usuario es usar el campo de forma incorrecta. Use el identificador del usuario autenticado.
 

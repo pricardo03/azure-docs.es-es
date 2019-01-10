@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.author: Evgeny.Ternovsky
-ms.openlocfilehash: 892342dfa4407a7ed138ffb004e7854c0cd07b4a
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: d034bf130440fdb5b783db41161ab5a21a306478
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53797524"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103119"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Correlación de los datos de Application Insights con orígenes de datos personalizados
 
@@ -28,7 +28,7 @@ Algunas situaciones en las que es posible que desee usar datos personalizados in
 
 - Enriquecimiento de datos o tablas de búsqueda: complementar, por ejemplo, un nombre de servidor con el propietario del servidor y la ubicación del laboratorio en el que se puede encontrar. 
 - Correlación con orígenes de datos que no son de Application Insights: por ejemplo, correlacionar datos sobre una compra en una tienda web con la información del servicio de entrega de compras para determinar el grado de precisión de las estimaciones de la hora de envío. 
-- Datos completamente personalizados: a muchos de nuestros clientes les encantan el lenguaje de consulta y el rendimiento de la plataforma de datos de Log Analytics que hay detrás de Application Insights, y desean usarlos para consultar datos que no están relacionados con Application Insights. Por ejemplo, para supervisar el rendimiento de un panel solar como parte de una instalación doméstica inteligente como se describe [aquí]( http://blogs.catapultsystems.com/cfuller/archive/2017/10/04/using-log-analytics-and-a-special-guest-to-forecast-electricity-generation/).
+- Datos completamente personalizados: a muchos de nuestros clientes les encantan el lenguaje de consulta y el rendimiento de la plataforma de datos de Log Analytics que hay detrás de Application Insights, y desean usarlos para consultar datos que no están relacionados con Application Insights. Por ejemplo, para supervisar el rendimiento de un panel solar como parte de una instalación doméstica inteligente como se describe [aquí]( https://blogs.catapultsystems.com/cfuller/archive/2017/10/04/using-log-analytics-and-a-special-guest-to-forecast-electricity-generation/).
 
 ## <a name="how-to-correlate-custom-data-with-application-insights-data"></a>Correlación de datos personalizados con datos de Application Insights 
 

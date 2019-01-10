@@ -6,22 +6,22 @@ services: key-vault
 author: amitbapat
 ms.author: ambapat
 manager: mbaldwin
-ms.date: 08/31/2018
+ms.date: 01/02/2019
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: 656007268dcf57910e4a655d85285da4fbd37425
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 1d53fc6cef022f627bb1cd1f832ebf65698207a9
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681524"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002437"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Puntos de conexión de servicio de red virtual para Azure Key Vault
 
 Los puntos de conexión de servicio de red virtual para Azure Key Vault permiten restringir el acceso a una red virtual especificada. También permiten restringir el acceso a una lista de intervalos de direcciones IPv4 (protocolo de Internet, versión 4). A todos los usuarios que se conecten a su almacén de claves desde fuera de esos orígenes se les negará el acceso.
 
-Hay una excepción importante a esta restricción. Si un usuario ha decidido permitir los servicios de Microsoft de confianza, se habilitan las conexiones de esos servicios a través del firewall. Por ejemplo, estos servicios incluyen Office 365 Exchange Online, Office 365 SharePoint Online, la instancia de proceso de Azure, Azure Resource Manager y Azure Backup. Tales usuarios deben presentar un token de Azure Active Directory válido y necesitan tener permisos (configurados como directivas de acceso) para realizar la operación solicitada. Para obtener más información, consulte [Puntos de conexión del servicio de redes virtuales](../virtual-network/virtual-network-service-endpoints-overview.md).
+Hay una excepción importante a esta restricción. Si un usuario ha decidido permitir los servicios de Microsoft de confianza, se habilitan las conexiones de esos servicios a través del firewall. Por ejemplo, estos servicios incluyen Office 365 Exchange Online, Office 365 SharePoint Online, la instancia de proceso de Azure, Azure Resource Manager y Azure Backup. Tales usuarios deben presentar un token de Azure Active Directory válido y necesitan tener permisos (configurados como directivas de acceso) para realizar la operación solicitada. Para obtener más información, consulte [Puntos de conexión de servicio de Virtual Network](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## <a name="usage-scenarios"></a>Escenarios de uso
 
@@ -31,6 +31,7 @@ Puede configurar los [firewalls y redes virtuales de Key Vault](key-vault-networ
 > Los firewalls de Key Vault y las reglas de redes virtuales solo se aplican al [plan de datos](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) de Key Vault. Las operaciones del plano de control de Key Vault (como crear, eliminar, modificar operaciones, configurar directivas de acceso, y configurar firewalls y reglas de redes virtuales) no se ven afectadas por los firewalls y las reglas de redes virtuales.
 
 Estos son algunos ejemplos de cómo puede usar los puntos de conexión de servicio:
+
 * Si utiliza Key Vault para almacenar claves de cifrado, secretos de aplicación o certificados y quiere bloquear el acceso al almacén de claves de Internet pública.
 * Si quiere bloquear el acceso al almacén de claves para que solo la aplicación o una lista breve de los hosts designados puedan conectarse al almacén de claves.
 * Tiene una aplicación que se ejecuta en su red virtual de Azure y esta red virtual está bloqueada para todo el tráfico entrante y saliente. Su aplicación aún necesita conectarse a Key Vault para capturar secretos o certificados, o usar claves criptográficas.
@@ -38,12 +39,13 @@ Estos son algunos ejemplos de cómo puede usar los puntos de conexión de servic
 ## <a name="configure-key-vault-firewalls-and-virtual-networks"></a>Configuración de firewalls y redes virtuales de Key Vault
 
 Estos son los pasos necesarios para configurar firewalls y redes virtuales. Estos pasos se aplican si usa PowerShell, la CLI de Azure o Azure Portal.
+
 1. Habilite el [registro de Key Vault](key-vault-logging.md) para ver registros de acceso detallados. Esto lo ayudará a realizar diagnósticos cuando las reglas de los firewalls y la red virtual impiden el acceso a un almacén de claves. Este paso es opcional, pero muy recomendable.
 2. Habilite los **puntos de conexión de servicio para el almacén de claves** de las redes y subredes virtuales de destino.
 3. Establezca reglas de firewall y red virtual para un almacén de claves, y así limitar el acceso a ese almacén de claves desde redes virtuales, subredes y rangos de direcciones IPv4 específicos.
 4. Si este almacén de claves debe ser accesible para los servicios de confianza de Microsoft, debe habilitar la opción para permitir que los **servicios de confianza de Azure** se conecten a Key Vault.
 
-Para obtener más información, consulte [Configuración de firewalls y redes virtuales de Azure Key Vault](key-vault-network-security.md).
+Para más información, vea [Configuración de firewalls y redes virtuales de Azure Key Vault](key-vault-network-security.md).
 
 > [!IMPORTANT]
 > Una vez que las reglas del firewall están en vigor, los usuarios solo pueden realizar operaciones del [plano de datos](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) de Key Vault cuando las solicitudes se originan desde redes virtuales o rangos de direcciones IPv4 permitidos. Esto también se aplica al acceso de Key Vault desde Azure Portal. Aunque los usuarios pueden ir a un almacén de claves desde Azure Portal, es posible que no pueda enumerar las claves, los secretos o los certificados si su equipo cliente no está en la lista de dispositivos permitidos. Esto también afecta al selector de Key Vault de otros servicios de Azure. Los usuarios podrían ver la lista de almacenes de claves, pero no enumerar las claves si las reglas del firewall limitan su equipo cliente.
@@ -57,6 +59,7 @@ Para obtener más información, consulte [Configuración de firewalls y redes vi
 > * Solo se admiten direcciones IPV4 en este momento.
 
 ## <a name="trusted-services"></a>Servicios de confianza
+
 Esta es una lista de servicios de confianza que tienen permiso para acceder a un almacén de claves si está habilitada la opción **Permitir servicios de confianza**.
 
 |Servicio de confianza|Escenarios de uso|

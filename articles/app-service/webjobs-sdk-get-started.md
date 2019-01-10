@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 9f3d84b1f2e179d265c811faf2d35bd55bc1410f
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 913b23946f70500ace7ab7e4ff7b5cd2858492fc
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607008"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121673"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introducción al SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
@@ -292,7 +292,7 @@ En esta sección, va a crear y ejecutar el proyecto localmente, y desencadenar l
 
 ## <a name="add-application-insights-logging"></a>Incorporación del registro de Application Insights
 
-Cuando el proyecto se ejecuta en Azure, no puede supervisar la ejecución de la función mediante la visualización de la salida de la consola. La solución de supervisión recomendada es [Application Insights](../application-insights/app-insights-overview.md). Para más información, consulte [Supervisión de Azure Functions](../azure-functions/functions-monitoring.md).
+Cuando el proyecto se ejecuta en Azure, no puede supervisar la ejecución de la función mediante la visualización de la salida de la consola. La solución de supervisión recomendada es [Application Insights](../azure-monitor/app/app-insights-overview.md). Para más información, consulte [Supervisión de Azure Functions](../azure-functions/functions-monitoring.md).
 
 En esta sección, realiza las tareas siguientes para configurar el registro de Application Insights antes de implementarlo en Azure:
 
@@ -304,9 +304,9 @@ En esta sección, realiza las tareas siguientes para configurar el registro de A
 
 1. Si aún no tiene una aplicación de App Service que pueda usar, [cree una](app-service-web-get-started-dotnet-framework.md).
 
-1. Si aún no tiene un recurso de Application Insights que pueda utilizar, [cree uno](../application-insights/app-insights-create-new-resource.md). Establezca **Tipo de aplicación** en **General** y omita las secciones que siguen a **Copy the instrumentation key** (Copiar la clave de instrumentación).
+1. Si aún no tiene un recurso de Application Insights que pueda utilizar, [cree uno](../azure-monitor/app/create-new-resource.md ). Establezca **Tipo de aplicación** en **General** y omita las secciones que siguen a **Copy the instrumentation key** (Copiar la clave de instrumentación).
 
-1. Si ya tiene un recurso de Application Insights que desee usar, [copie la clave de instrumentación](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key).
+1. Si ya tiene un recurso de Application Insights que desee usar, [copie la clave de instrumentación](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key).
 
 ### <a name="configure-app-settings"></a>Configuración de aplicaciones 
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 7fd201dd7c766880b1ed892abe3900b523d75145
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a37e67f299262a7e0b353564c24c789859dcec7c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307481"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605014"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Conexión con Apache Kafka en HDInsight mediante una instancia de Azure Virtual Network
 
@@ -49,7 +49,7 @@ HDInsight no permite la conexión directa a Kafka a través de la red pública d
 
     Para más información, vea la sección [Conexión a Apache Kafka con un cliente VPN](#vpnclient).
 
-    > [!WARNING]
+    > [!WARNING]  
     > Esta configuración solo se recomienda para fines de desarrollo debido a las limitaciones siguientes:
     >
     > * Cada cliente debe conectarse con un cliente de software de VPN.
@@ -61,7 +61,7 @@ Para más información sobre cómo usar HDInsight en una máquina virtual, consu
 
 Para crear un clúster de Kafka que se comunique con la red local, siga los pasos del documento [Connect HDInsight to your on-premises network (Conexión de HDInsight a la red local)](./../connect-on-premises-network.md).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Al crear el clúster de HDInsight, seleccione el tipo de clúster __Kafka__.
 
 Estos pasos crean la siguiente configuración:
@@ -186,7 +186,7 @@ Use los pasos de esta sección para crear la configuración siguiente:
         -VpnClientRootCertificates $p2sRootCert
     ```
 
-    > [!WARNING]
+    > [!WARNING]  
     > Este proceso puede tardar varios minutos en completarse.
 
 5. Use el código siguiente para crear el contenedor de blobs y la cuenta de Azure Storage:
@@ -232,7 +232,7 @@ Use los pasos de esta sección para crear la configuración siguiente:
         -SubnetName $defaultSubnet.Id
     ```
 
-  > [!WARNING]
+  > [!WARNING]  
   > Este proceso tarda unos 15 minutos en completarse.
 
 ### <a name="configure-kafka-for-ip-advertising"></a>Configuración de Kafka para anunciar direcciones IP
@@ -287,7 +287,7 @@ De manera predeterminada, Apache Zookeeper devuelve el nombre de dominio de los 
 
 Para conectarse a la puerta de enlace de VPN, use la sección __Conexión a Azure__ del documento [Configuración de una conexión de punto a sitio](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#connect).
 
-## <a id="python-client"></a> Ejemplo: cliente de Python
+## <a id="python-client"></a> Ejemplo: Cliente de Python
 
 Para validar la conectividad con Kafka, use los pasos siguientes para crear y ejecutar un productor y un consumidor:
 
@@ -317,7 +317,7 @@ Para validar la conectividad con Kafka, use los pasos siguientes para crear y ej
 
     Guarde la información devuelta para su uso en los pasos siguientes.
 
-2. Use el código siguiente para instalar el cliente [kafka-python](http://kafka-python.readthedocs.io/):
+2. Use el código siguiente para instalar el cliente [kafka-python](https://kafka-python.readthedocs.io/):
 
         pip install kafka-python
 

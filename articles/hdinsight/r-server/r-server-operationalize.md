@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: ce701c029c63256714452aa13f646af77991cb67
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: d0cae4210fa313c5d6e1f33987422e7b0d53e76a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496916"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579964"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Puesta en funcionamiento de clústeres de ML Services en Azure HDInsight
 
@@ -22,13 +22,13 @@ Después de haber usado el clúster de ML Services en HDInsight para completar e
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Un clúster de ML Services en HDInsight**: para obtener instrucciones, consulte [Introducción a ML Services en Azure HDInsight](r-server-get-started.md).
+* **Un clúster de ML Services en HDInsight**: Para obtener instrucciones, consulte [Introducción a ML Services en Azure HDInsight](r-server-get-started.md).
 
 * **Un cliente de Secure Shell (SSH)**: el cliente de SSH se usa para conectarse al clúster de HDInsight de forma remota y ejecutar comandos directamente desde el clúster. Para más información, consulte [Uso SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>Poner en funcionamiento el clúster de ML Services con la configuración de un solo equipo
 
-> [!NOTE]
+> [!NOTE]  
 > Los pasos siguientes se pueden aplicar a R Server 9.0 y ML Server 9.1. Para ML Server 9.3, consulte [Use the administration tool to manage the operationalization configuration](https://docs.microsoft.com/machine-learning-server/operationalize/configure-admin-cli-launch) (Usar la herramienta de administración para administrar la configuración de puesta en marcha).
 
 1. Uso de SSH en el nodo perimetral.

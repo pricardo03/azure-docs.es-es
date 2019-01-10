@@ -8,18 +8,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: a86902d772226be136778d200a37c451b7b7e9a5
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 01db1de5c6b533c346ce35c8474d996213873d10
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407259"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002202"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Streaming a escala en HDInsight
 
 Las soluciones de macrodatos en tiempo real actúan sobre los datos que se mueven. Normalmente, estos datos son especialmente útiles en el momento de su llegada. Si el flujo de datos entrante pasa a ser mayor de lo que pueda controlarse en ese momento, es posible que tenga que limitar los recursos. Como alternativa, un clúster de HDInsight puede escalarse para hacer frente a la solución de streaming agregando nodos a petición.
 
-En una aplicación de streaming, uno o varios orígenes de datos generan eventos (a veces, millones por segundo) que deben ser ingeridos rápidamente sin quitar ninguna información útil. Los eventos de entrada se tratan con el *almacenamiento en búfer de los flujos de datos*, también denominado *puesta en cola de eventos*, por un servicio como [Apache Kafka](kafka/apache-kafka-introduction.md) o [Event Hubs](https://azure.microsoft.com/services/event-hubs/). Después de recopilar los eventos, puede analizar los datos mediante un sistema de análisis en tiempo real en el nivel de *procesamiento de flujos de datos*, como [Apache Storm](storm/apache-storm-overview.md) o [Apache Spark Streaming](spark/apache-spark-streaming-overview.md). Los datos procesados se pueden almacenar en sistemas de almacenamiento a largo plazo, como [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) y se muestran en tiempo real en un panel de inteligencia empresarial, como [Power BI](https://powerbi.microsoft.com), Tableau o una página web personalizada.
+
+En una aplicación de streaming, uno o varios orígenes de datos generan eventos (a veces, millones por segundo) que deben ser ingeridos rápidamente sin quitar ninguna información útil. Los eventos de entrada se tratan con el *almacenamiento en búfer de los flujos de datos*, también denominado *puesta en cola de eventos*, por un servicio como [Apache Kafka](kafka/apache-kafka-introduction.md) o [Event Hubs](https://azure.microsoft.com/services/event-hubs/). Después de recopilar los eventos, puede analizar los datos mediante un sistema de análisis en tiempo real en el nivel de *procesamiento de flujos de datos*, como [Apache Storm](storm/apache-storm-overview.md) o [Apache Spark Streaming](spark/apache-spark-streaming-overview.md). Los datos procesados se pueden almacenar en sistemas de almacenamiento a largo plazo, como [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) y se muestran en tiempo real en un panel de inteligencia empresarial, como [Power BI](https://powerbi.microsoft.com), Tableau o una página web personalizada.
+
 
 ![Patrones de streaming de HDInsight](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
 
@@ -37,13 +39,13 @@ Para más información, vea [¿Qué es Apache Storm en Azure HDInsight?](storm/a
 
 ## <a name="spark-streaming"></a>Spark Streaming
 
-Spark Streaming es una extensión para Spark que permite reutilizar el mismo código que se usa para el procesamiento por lotes. Puede combinar tanto consultas interactivas como por lotes en la misma aplicación. A diferencia de Storm, Spark Streaming proporciona una semántica de procesamiento de una sola vez con información de estado. Cuando se utiliza en combinación con la [API Direct de Kafka](http://spark.apache.org/docs/latest/streaming-kafka-integration.html), que garantiza que todos los datos de Kafka son recibidos por Spark Streaming exactamente una vez, es posible tener la garantía de que llegan solo una vez de un extremo a otro. Uno de los puntos fuertes de Spark Streaming es su funcionalidad de tolerancia a errores, que permite recuperar los nodos rápidamente cuando se utilizan varios dentro del clúster.
+Spark Streaming es una extensión para Spark que permite reutilizar el mismo código que se usa para el procesamiento por lotes. Puede combinar tanto consultas interactivas como por lotes en la misma aplicación. A diferencia de Storm, Spark Streaming proporciona una semántica de procesamiento de una sola vez con información de estado. Cuando se utiliza en combinación con la [API Direct de Kafka](https://spark.apache.org/docs/latest/streaming-kafka-integration.html), que garantiza que todos los datos de Kafka son recibidos por Spark Streaming exactamente una vez, es posible tener la garantía de que llegan solo una vez de un extremo a otro. Uno de los puntos fuertes de Spark Streaming es su funcionalidad de tolerancia a errores, que permite recuperar los nodos rápidamente cuando se utilizan varios dentro del clúster.
 
 Para más información, consulte [¿Qué es Apache Spark Streaming?](hdinsight-spark-streaming-overview.md).
 
 ## <a name="scaling-a-cluster"></a>Escala de un clúster
 
-Aunque puede especificar el número de nodos del clúster durante su creación, puede ser conveniente aumentar o reducir el clúster para que se ajuste a la carga de trabajo. Todos los clústeres de HDInsight le permiten [cambiar el número de nodos del clúster](hdinsight-administer-use-management-portal.md#scale-clusters). Los clústeres de Spark se pueden quitar sin que se pierdan datos, ya que todos los datos están almacenados en Azure Storage o en Data Lake Store.
+Aunque puede especificar el número de nodos del clúster durante su creación, puede ser conveniente aumentar o reducir el clúster para que se ajuste a la carga de trabajo. Todos los clústeres de HDInsight le permiten [cambiar el número de nodos del clúster](hdinsight-administer-use-management-portal.md#scale-clusters). Los clústeres de Spark se pueden quitar sin que se pierdan datos, ya que todos los datos están almacenados en Azure Storage o en Data Lake Storage.
 
 Hay ventajas para las tecnologías de desacoplamiento. Por ejemplo, Kafka es una tecnología de almacenamiento en búfer de eventos, por lo que se realizan muchas operaciones de E/S y no se necesita mucha capacidad de procesamiento. En comparación, los procesadores de flujos de datos como Spark Streaming utilizan una gran capacidad de procesamiento, lo que requiere máquinas virtuales más eficaces. Debido a que estas tecnologías se desacoplan en diferentes clústeres, puede escalarlas independientemente al tiempo que las máquinas virtuales se aprovechan de la mejor manera.
 
@@ -55,7 +57,7 @@ Ambas tecnologías de almacenamiento en búfer de flujos de datos, Event Hubs y 
 
 Tanto Apache Storm como Spark Streaming permiten agregar nodos de trabajo a sus clústeres, incluso durante el procesamiento de los datos.
 
-Para aprovechar los nodos nuevos que se agregan al escalar Storm, debe reajustar las topologías de Storm iniciadas antes de que aumentara el tamaño del clúster. Este reajuste puede realizarse utilizando la interfaz de usuario web de Storm o su CLI. Para más información, consulte la [documentación de Apache Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+Para aprovechar los nodos nuevos que se agregan al escalar Storm, debe reajustar las topologías de Storm iniciadas antes de que aumentara el tamaño del clúster. Este reajuste puede realizarse utilizando la interfaz de usuario web de Storm o su CLI. Para más información, consulte la [documentación de Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
 Apache Spark utiliza tres parámetros clave para configurar su entorno, según los requisitos de la aplicación: `spark.executor.instances`, `spark.executor.cores` y `spark.executor.memory`. Un *ejecutor* es un proceso que se inicia para una aplicación Spark. Se ejecuta en el nodo de trabajo y es responsable de realizar las tareas de la aplicación. El número predeterminado de ejecutores y su tamaño para cada clúster se calcula en función del número de nodos de trabajo y del tamaño de estos. Estos números se almacenan en el archivo `spark-defaults.conf` en cada nodo principal del clúster.
 

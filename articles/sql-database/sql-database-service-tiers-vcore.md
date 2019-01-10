@@ -11,20 +11,20 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 11/27/2018
-ms.openlocfilehash: 4aaaf2e7a918ab91aebd1e1f1f6d166d6cadf19a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 01/02/2019
+ms.openlocfilehash: f756f043a7ab3c9086b21b8bdb88a5a6a7ed60df
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437075"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001607"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>Niveles de servicio de núcleo virtual, ventaja híbrida de Azure y migración
 
 El modelo de compra basado en núcleos virtuales permite escalar los recursos de proceso y almacenamiento de manera independiente, igualar el rendimiento local y optimizar el precio. También le permite elegir la generación del hardware:
 
 - Gen 4: hasta 24 CPU lógicas basadas en procesadores Intel E5-2673 v3 (Haswell) de 2,4 GHz, núcleo virtual = 1 PP (núcleo físico), 7 GB por núcleo, SSD conectada
-- Gen 5: hasta 80 CPU lógicas basadas en procesadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz, núcleo virtual = 1 LP (hyper-thread), 5,5 GB por núcleo, SSD eNVM rápido
+- Gen 5: hasta 80 CPU lógicas basadas en procesadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz, núcleo virtual = 1 LP (hyper-thread), 5.1. GB por núcleo, SSD eNVM rápido
 
 El modelo de núcleo virtual también permite usar la [Ventaja híbrida de Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) para ahorrar en los costos.
 
@@ -33,16 +33,16 @@ El modelo de núcleo virtual también permite usar la [Ventaja híbrida de Azure
 
 ## <a name="service-tier-characteristics"></a>Características del nivel de servicios
 
-El modelo de núcleo virtual ofrece dos niveles de servicio: De uso General y Crítico para la empresa. Los niveles de servicio se diferencian por una variedad de tamaños de proceso, un diseño de alta disponibilidad, el aislamiento de errores, los tipos de almacenamiento y el intervalo de E/S. El cliente debe configurar por separado el periodo necesario de retención y almacenamiento de las copias de seguridad. Debe configurar por separado el periodo necesario de retención y almacenamiento de las copias de seguridad. En Azure Portal, vaya a Servidor (no la base de datos) > Copia de seguridad administrada > Configurar directiva > Configuración de restauración a un momento dado > de 7 a 35 días.
+El modelo de núcleo virtual ofrece tres niveles de servicio: De uso General, Hiperescala y Crítico para la empresa. Los niveles de servicio se diferencian por una variedad de tamaños de proceso, un diseño de alta disponibilidad, el aislamiento de errores, los tipos y el tamaño de almacenamiento y el intervalo de E/S. Debe configurar por separado el periodo necesario de retención y almacenamiento de las copias de seguridad. En Azure Portal, vaya a Servidor (no la base de datos) > Copia de seguridad administrada > Configurar directiva > Configuración de restauración a un momento dado > de 7 a 35 días.
 
-La tabla siguiente le ayudará a comprender las diferencias entre estos dos niveles:
+La tabla siguiente le ayudará a comprender las diferencias entre estos tres niveles:
 
 ||**Uso general**|**Crítico para la empresa**|**Hiperescala (versión preliminar)**|
 |---|---|---|---|
 |Más adecuado para|La mayoría de las cargas de trabajo empresariales. Ofrece opciones de proceso y almacenamiento equilibradas y escalables orientadas al presupuesto.|Aplicaciones empresariales con elevados requisitos de E/S. Ofrece la máxima resistencia a errores mediante varias réplicas aisladas.|La mayoría de las cargas de trabajo de una empresa que tengan requisitos de almacenamiento y un escalado de lectura que sean altamente escalables.|
 |Proceso|Gen4: De 1 a 24 núcleos virtuales<br/>Gen5: De 1 a 80 núcleos virtuales|Gen4: De 1 a 24 núcleos virtuales<br/>Gen5: De 1 a 80 núcleos virtuales|Gen4: De 1 a 24 núcleos virtuales<br/>Gen5: De 1 a 80 núcleos virtuales|
 |Memoria|Gen4: 7 GB por núcleo<br>Gen5: 5,1 GB por núcleo | Gen4: 7 GB por núcleo<br>Gen5: 5,1 GB por núcleo |Gen4: 7 GB por núcleo<br>Gen5: 5,1 GB por núcleo|
-|Storage|Usa [almacenamiento remoto Premium](../virtual-machines/windows/premium-storage.md):<br/>Base de datos única: 5 GB – 4 TB<br/>Instancia administrada: 32 GB - 8 TB |Usa almacenamiento local de SSD:<br/>Base de datos única: 5 GB - 1 TB<br/>Instancia administrada: 32 GB - 4 TB |Flexible; crecimiento automático de almacenamiento según sea necesario. Admite hasta 100 TB de almacenamiento y mucho más. Almacenamiento SSD local para la caché del grupo de búferes local y el almacenamiento de datos local. Almacenamiento remoto de Azure como almacén de datos final a largo plazo. |
+|Storage|Usa [almacenamiento remoto Premium](../virtual-machines/windows/premium-storage.md):<br/>Base de datos única: 5 GB – 4 TB<br/>Instancia administrada: 32 GB - 8 TB |Usa almacenamiento local de SSD:<br/>Base de datos única: 5 GB – 4 TB<br/>Instancia administrada: 32 GB - 4 TB |Flexible; crecimiento automático de almacenamiento según sea necesario. Admite hasta 100 TB de almacenamiento y mucho más. Almacenamiento SSD local para la caché del grupo de búferes local y el almacenamiento de datos local. Almacenamiento remoto de Azure como almacén de datos final a largo plazo. |
 |Rendimiento de E/S (aproximado)|Base de datos única: 500 IOPS por núcleo virtual con 7000 IOPS como máximo</br>Instancia administrada: Depende del [tamaño del archivo](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS por núcleo con 200 000 IOPS como máximo|TBD|
 |Disponibilidad|1 réplica, sin escalado de lectura|3 réplicas, 1 [réplica de escalado de lectura](sql-database-read-scale-out.md),<br/>Con alta disponibilidad y redundancia de zona|?|
 |Copias de seguridad|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), de 7 a 35 días (7 días de forma predeterminada)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), de 7 a 35 días (7 días de forma predeterminada)|Copias de seguridad basadas en instantáneas que se encuentran en el almacenamiento remoto de Azure, y restauraciones que usan esas instantáneas para una recuperación rápida. Las copias de seguridad son instantáneas y no afectan el rendimiento de E/S del proceso. Las restauraciones son muy rápidas y no tienen el tamaño de una operación de datos (tardan minutos en lugar de horas o días).|
@@ -63,7 +63,7 @@ Consulte [Preguntas más frecuentes sobre SQL Database](sql-database-faq.md) par
 
 ## <a name="azure-hybrid-benefit"></a>Ventaja híbrida de Azure
 
-En el modelo de compra basado en núcleos virtuales, puede intercambiar sus licencias existentes por tarifas de descuento en SQL Database mediante la [Ventaja híbrida de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Esta ventaja de Azure le permite usar las licencias de SQL Server locales para ahorrar hasta un 30 % en Azure SQL Database al utilizarlas con Software Assurance.
+En el modelo de compra basado en núcleos virtuales, puede intercambiar sus licencias existentes por tarifas de descuento en SQL Database mediante la [Ventaja híbrida de Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Esta ventaja de Azure le permite usar las licencias de SQL Server locales para ahorrar hasta un 30 % en Azure SQL Database al utilizarlas con Software Assurance.
 
 ![Precios](./media/sql-database-service-tiers/pricing.png)
 

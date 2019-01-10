@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ab238e31ba022427dc55fec842f3e89e72fa530a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 7f8c410f368c5c63bd24bed25b9807b8061180be
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238886"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189803"
 ---
 # <a name="manage-database-roles-and-users"></a>Administración de usuarios y roles de base de datos
 
@@ -63,6 +63,7 @@ Cuando se crea un proyecto de modelo tabular, crea roles y agrega usuarios o gru
 
 
 ## <a name="to-add-or-manage-roles-and-users-in-ssms"></a>Para agregar o administrar roles y usuarios en SSMS
+
 Para agregar roles y usuarios a una base de datos modelo implementada, debe estar conectado al servidor como administrador del servidor y ya debe tener un rol de base de datos con permisos de administrador.
 
 1. En el Explorador de objetos, haga clic con el botón derecho en **Rol** > **Nuevo rol**.
@@ -83,6 +84,7 @@ Para agregar roles y usuarios a una base de datos modelo implementada, debe esta
 5. Si el rol que crea tiene permiso de lectura, puede agregar filtros de fila mediante una fórmula DAX. Haga clic en **Filtros de fila**, seleccione una tabla y, luego, escriba una fórmula DAX en el campo **Filtro DAX**. 
 
 ## <a name="to-add-roles-and-users-by-using-a-tmsl-script"></a>Para agregar roles y usuarios mediante un script de TMSL
+
 Puede ejecutar un script de TMSL en la ventana XMLA en SSMS o mediante PowerShell. Use el comando [CreateOrReplace](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/createorreplace-command-tmsl) y el objeto [Roles](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-objects/roles-object-tmsl).
 
 **Script TMSL de ejemplo**
@@ -116,6 +118,7 @@ En este ejemplo, se agrega un grupo y un usuario externo de B2B al rol de analis
 ```
 
 ## <a name="to-add-roles-and-users-by-using-powershell"></a>Para agregar roles y usuarios mediante PowerShell
+
 El módulo [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) proporciona cmdlets de administración de base de datos específicos de la tarea y el cmdlet Invoke-ASCmd de uso general que acepta un script o una consulta de Tabular Model Scripting Language (TMSL). Los cmdlets siguientes se usan para administrar usuarios y roles de base de datos.
   
 |Cmdlet|DESCRIPCIÓN|
@@ -125,6 +128,7 @@ El módulo [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) proporc
 |[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Ejecuta un script de TMSL.|
 
 ## <a name="row-filters"></a>Filtros de fila  
+
 Los filtros de fila definen las filas de una tabla que los miembros de un rol determinado pueden consultar. Los filtros de fila están definidos para cada tabla en un modelo mediante fórmulas DAX.  
   
 Los filtros de fila solo se pueden definir para los roles con permisos de lectura y lectura y proceso. De manera predeterminada, si no hay definido un filtro de fila para una tabla determinada, los miembros pueden consultar todas las filas de la tabla a menos que el filtrado cruzado se aplique desde otra tabla.
@@ -144,6 +148,7 @@ Los filtros de fila se aplican a las rilas especificadas y a las filas relaciona
  Puede usar el filtro, *=FALSE()*, para denegar el acceso a todas las filas de una tabla completa.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
   [Administración de administradores del servidor](analysis-services-server-admins.md)   
   [Administración de Azure Analysis Services con PowerShell](analysis-services-powershell.md)  
   [Referencia Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)

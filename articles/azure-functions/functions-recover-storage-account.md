@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: babad23743a0a3c9631c0bcf406de3521174264a
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 1902091978233ecaf80f04e3a08c70c20aee42c9
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887224"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000026"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Solución de problemas de acceso a Azure Functions Runtime
 
@@ -37,6 +37,7 @@ Le guiaremos con los cuatro casos de error más comunes y le ayudaremos a identi
 1. Eliminación de la configuración de la aplicación de la cuenta de almacenamiento
 1. Credenciales de la cuenta de almacenamiento no válidas
 1. Falta de acceso a la cuenta de almacenamiento
+1. Cuota de ejecución diaria total
 
 ## <a name="storage-account-deleted"></a>Eliminación de la cuenta de almacenamiento
 
@@ -79,6 +80,13 @@ La aplicación de función debe poder acceder a la cuenta de almacenamiento. Est
 * Aplicaciones de función implementadas en entornos de App Service sin las reglas de red correctas para permitir el tráfico hacia la cuenta de almacenamiento y desde esta
 * El firewall de la cuenta de almacenamiento está habilitado y no está configurado para permitir el tráfico hacia Functions y desde aquí. [Más información sobre la configuración del firewall de la cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 
+## <a name="daily-execution-quota-full"></a>Cuota de ejecución diaria total
+
+Si tiene una cuota de ejecución diaria configurada, la instancia de Function App se deshabilitará temporalmente y muchos de los controles del portal dejarán de estar disponibles. 
+
+* Para comprobarlo, abra Características de la plataforma > Configuración de Function App en el portal. Verá el siguiente mensaje si supera la cuota
+    * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
+* Elimine la cuota y reinicie la aplicación para resolver el problema.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -89,8 +97,8 @@ Ahora que volvemos a tener la aplicación de función y funciona, veamos las gu�
 * [Referencia para desarrolladores de Azure Functions](functions-reference.md)  
   Proporciona información técnica sobre el tiempo de ejecución de Azure Functions y una referencia para las funciones de codificación y la definición de enlaces y desencadenadores.
 * [Prueba de Azure Functions](functions-test-a-function.md)  
-  describe las diversas herramientas y técnicas para probar sus funciones.
+   describe las diversas herramientas y técnicas para probar sus funciones.
 * [How to scale Azure Functions](functions-scale.md)  
   Trata los planes de servicio disponibles con Azure Functions, incluido el plan de hospedaje de Consumo, y cómo elegir el plan adecuado. 
-* [¿Qué es Azure App Service?](../app-service/app-service-web-overview.md)  
+* [¿Qué es Azure App Service?](../app-service/overview.md)  
   Azure Functions aprovecha Azure App Service para obtener una funcionalidad básica como son las implementaciones, las variables de entorno y los diagnósticos. 

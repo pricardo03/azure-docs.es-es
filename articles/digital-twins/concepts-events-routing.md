@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: e16d27314a159b124e35560ffb8cd9685fc5c7a0
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: b7ace0718ea0fad0b746a40c90acff487ae314d5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438020"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035702"
 ---
 # <a name="routing-events-and-messages"></a>Enrutamiento de eventos y mensajes
 
@@ -65,6 +65,7 @@ Azure Digital Twins actualmente admite los siguientes **EventTypes** que se envi
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para información acerca de los límites de la versión preliminar de Azure Digital Twins, consulte [Límites de servicio de la versión preliminar pública](concepts-service-limits.md).
+
 - Para probar un ejemplo de Azure Digital Twins, consulte la [guía de inicio rápido para buscar salas disponibles](quickstart-view-occupancy-dotnet.md).
 
 <!-- Images -->

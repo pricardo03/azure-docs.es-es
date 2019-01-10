@@ -1,5 +1,5 @@
 ---
-title: Adición de compatibilidad con Key Vault en su proyecto de ASP.NET con Visual Studio | Microsoft Docs
+title: Adición de compatibilidad con Azure Key Vault en su proyecto de ASP.NET con Visual Studio | Microsoft Docs
 description: Use este tutorial para obtener información sobre cómo agregar compatibilidad con Key Vault a una aplicación web de ASP.NET o ASP.NET Core.
 services: key-vault
 author: ghogen
@@ -9,14 +9,14 @@ ms.technology: vs-azure
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual
-ms.date: 04/15/2018
+ms.date: 01/02/2019
 ms.author: ghogen
-ms.openlocfilehash: 9f2adfcbf2d6ca5de79cc787029f5139138b0e52
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: a6de5385046918c48b3f606477727ca4623a784c
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230444"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998632"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Adición de Key Vault a una aplicación web mediante los servicios conectados de Visual Studio
 

@@ -1,21 +1,19 @@
 ---
 title: Compilación de una aplicación de consola mediante la API de Azure Cosmos DB para MongoDB y el SDK de Java
 description: Se presenta un ejemplo de código de Java que se puede usar para conectarse a la API de Azure Cosmos DB para MongoDB y realizar consultas.
-services: cosmos-db
 author: rimman
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
-ms.custom: quickstart
+ms.subservice: cosmosdb-mongo
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2017
 ms.author: rimman
-ms.openlocfilehash: 6a27958a38006d8ef81fab469bbf3c9d97e90a69
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 36e07fa7d0dadd93f44e1e1ebd13d171fbd6e2a9
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793159"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033747"
 ---
 # <a name="build-a-web-app-using-azure-cosmos-dbs-api-for-mongodb-and-java-sdk"></a>Compilación de una aplicación web mediante la API de Azure Cosmos DB para MongoDB y el SDK de Java
 

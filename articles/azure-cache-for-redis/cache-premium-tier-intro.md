@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: wesmc
-ms.openlocfilehash: 0978e906467fd5b16f25bd2e053980dda4510127
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 906ab6c433df7cf452d1f5ab4660abce8d4674fc
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53022144"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107521"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Introducción a Azure Cache for Redis de nivel Prémium
 Azure Cache for Redis es una memoria caché distribuida y administrada que ayuda a compilar aplicaciones muy útiles y altamente escalables mediante el acceso ultrarrápido a los datos. 
@@ -34,7 +34,7 @@ Premium es un nuevo nivel destinado a las empresas que incluye todas las caracte
 Para más información sobre el tamaño, la transferencia y el ancho de banda de las memorias caché de nivel Prémium, consulte el artículo [Azure Cache for Redis FAQ](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use) (Preguntas más frecuentes de Azure Cache for Redis).
 
 ## <a name="redis-data-persistence"></a>Persistencia de datos de Redis
-El nivel Premium permite conservar los datos de la memoria caché en una cuenta de Azure Storage. En las memorias caché de nivel Basic o Standard, todos los datos se almacenan únicamente en la memoria. En caso de problemas con la infraestructura subyacente, podría producirse una pérdida de los datos. Se recomienda usar la característica de persistencia de datos de Redis en el nivel Premium para aumentar la resistencia contra la pérdida de datos. Azure Cache for Redis ofrece las opciones RDB y AOF (próximamente) en la [persistencia de Redis](http://redis.io/topics/persistence). 
+El nivel Premium permite conservar los datos de la memoria caché en una cuenta de Azure Storage. En las memorias caché de nivel Basic o Standard, todos los datos se almacenan únicamente en la memoria. En caso de problemas con la infraestructura subyacente, podría producirse una pérdida de los datos. Se recomienda usar la característica de persistencia de datos de Redis en el nivel Premium para aumentar la resistencia contra la pérdida de datos. Azure Cache for Redis ofrece las opciones RDB y AOF (próximamente) en la [persistencia de Redis](https://redis.io/topics/persistence). 
 
 Para instrucciones sobre cómo configurar la persistencia, consulte [Configuración de la persistencia para Azure Cache for Redis de nivel Prémium](cache-how-to-premium-persistence.md).
 

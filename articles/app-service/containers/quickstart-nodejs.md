@@ -4,7 +4,7 @@ description: Implementación de su primera aplicación Hola mundo de Node.js en 
 services: app-service\web
 documentationcenter: ''
 author: msangapu
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/07/2017
+ms.date: 11/20/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c739aa4fb510bd5ebe9e3ffff67f93a2dd49cf0c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: b3c57a9a8912f44dbe7e9261549d034e99356547
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631539"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190585"
 ---
 # <a name="create-a-nodejs-app-in-azure-app-service-on-linux"></a>Creación de una aplicación de Node.js en Azure App Service en Linux
 
@@ -37,22 +37,6 @@ Completará esta guía de inicio rápido en Cloud Shell, pero también puede eje
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-## <a name="install-web-app-extension-for-cloud-shell"></a>Instalación de la extensión de la aplicación web para Cloud Shell
-
-Para completar esta guía de inicio rápido, debe agregar el comando [az web app extension](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add). Si la extensión ya está instalada, se debe actualizar a la versión más reciente. Para actualizar la extensión de la aplicación web, escriba `az extension update -n webapp`.
-
-Para instalar la extensión de aplicación web, ejecute el comando siguiente:
-
-```bash
-az extension add -n webapp
-```
-
-Una vez instalada la extensión, Cloud Shell muestra información en el siguiente ejemplo:
-
-```bash
-The installed extension 'webapp' is in preview.
-```
 
 ## <a name="download-the-sample"></a>Descarga del ejemplo
 

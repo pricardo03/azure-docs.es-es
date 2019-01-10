@@ -14,14 +14,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2018
 ms.author: adsolank
-ms.openlocfilehash: 268e679bb052bce4c972c940333147edc5c7d721
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3b361202d2d80f879ae6d23ec29782bc6f837f96
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242592"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632881"
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Archivos multimedia de Hyperlapse con Azure Media Hyperlapse
+
+> [!NOTE]
+> La característica en versión preliminar (GB) de Azure Media Services se retirará en breve. A partir del 19 de diciembre de 2018, Media Services ya no realizará cambios ni mejoras en la característica Media Hyperlapse. El 29 de marzo de 2019 se retirará y ya no estará disponible.
+
 Azure Media Hyperlapse es un procesador de multimedia (MP) que crea vídeos fluidos con la técnica time-lapse a partir de contenido generado en primera persona o con una cámara de acción.  Microsoft Hyperlapse para Azure Media Services, el producto para la nube de [Hyperlapse Pro (para equipos de escritorio) y Hyperlapse Mobile (para móviles) de Microsoft Research](https://aka.ms/hyperlapse), usa la escalación masiva de la plataforma de procesamiento de medios de Azure Media Services para escalar horizontalmente y establecer paralelismos en el procesamiento masivo de Hyperlapse.
 
 > [!IMPORTANT]

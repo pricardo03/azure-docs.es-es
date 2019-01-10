@@ -1,87 +1,98 @@
 ---
-title: Administración de cuentas administrativas de acceso de emergencia en Azure AD | Microsoft Docs
-description: Este artículo describe cómo usar las cuentas de acceso de emergencia para ayudar a las organizaciones a restringir el acceso con privilegios en un entorno de Azure Active Directory existente.
+title: Administración de cuentas de acceso de emergencia en Azure AD | Microsoft Docs
+description: En este artículo se describe cómo usar las cuentas de acceso de emergencia para ayudar a evitar que se bloquee inadvertidamente su acceso al inquilino de Azure Active Directory (Azure AD).
 services: active-directory
 author: markwahl-msft
 ms.author: billmath
-ms.date: 12/13/2017
+ms.date: 12/21/2018
 ms.topic: article-type-from-white-list
 ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
-ms.openlocfilehash: 4f3772abc1cdbd3b35b8b1f16e7a47c0f1a17783
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ae23d7a3047a970c795c562b0b981c20068aeccb
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38595661"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974242"
 ---
-# <a name="manage-emergency-access-administrative-accounts-in-azure-ad"></a>Administración de cuentas administrativas de acceso de emergencia en Azure AD 
+# <a name="manage-emergency-access-accounts-in-azure-ad"></a>Administración de cuentas de acceso de emergencia en Azure AD
 
-Para la mayoría de las actividades cotidianas, los usuarios no necesitan derechos de *administrador global*. No se debería asignar permanentemente a los usuarios a este rol, ya que podrían realizar de forma no intencionada alguna tarea que requiera permisos más elevados de los que deberían tener. Cuando los usuarios no necesitan actuar como administrador global, deberían activar la asignación de roles mediante Azure Active Directory (Azure AD) Privileged Identity Management (PIM) en sus propias cuentas o en una cuenta administrativa alternativa.
+Es importante evitar que se bloquee accidentalmente su acceso al inquilino de Azure Active Directory (Azure AD) porque no podrá iniciar sesión ni activar una cuenta de un usuario individual existente como administrador. Puede mitigar el efecto de una falta involuntaria de acceso administrativo mediante la creación de dos o más *cuentas de acceso de emergencia* en su inquilino.
 
-Además de que los usuarios se puedan asignar derechos de acceso administrativo a ellos mismos, debe impedir que se le bloquee de forma no intencionada de la administración de su inquilino de Azure AD ya que no podría iniciar sesión ni activar una cuenta existente de usuario individual como administrador. Puede mitigar el efecto de una falta involuntaria de acceso administrativo mediante el almacenamiento de dos o más *cuentas de acceso de emergencia* en su inquilino.
+Las cuentas de acceso de emergencia tienen privilegios elevados y no se asignan a usuarios específicos. Las cuentas de acceso de emergencia se limitan a situaciones "excepcionales" o de emergencia en las que no se pueden usar las cuentas administrativas normales. Las organizaciones deben incluir como objetivo la restricción del uso de las cuentas de emergencia solo para aquellos momentos en los que sean absolutamente necesarias.
 
-Las cuentas de acceso de emergencia pueden ayudar a las organizaciones a restringir el acceso con privilegios en un entorno de Azure Active Directory existente. Estas cuentas tienen privilegios elevados y no se asignan a usuarios específicos. Las cuentas de acceso de emergencia se limitan a escenarios "excepcionales" o de emergencia, situaciones en las que no se pueden usar las cuentas administrativas normales. Las organizaciones deben incluir como objetivo la restricción del uso de las cuentas de emergencia solo para aquellos casos en los que sean necesarias.
+En este artículo se proporcionan instrucciones para administrar las cuentas de acceso de emergencia en Azure AD.
+
+## <a name="when-would-you-use-an-emergency-access-account"></a>¿Cuándo usaría una cuenta de acceso de emergencia?
 
 Puede que una organización necesite usar una cuenta de acceso de emergencia en las siguientes situaciones:
 
- - Las cuentas de usuario están federadas y la federación no está disponible en este momento debido a una interrupción de la red de telefonía móvil o una interrupción del proveedor de identidades. Por ejemplo, si se ha interrumpido el host del proveedor de identidades de su entorno, puede que los usuarios no puedan iniciar sesión cuando Azure AD les redirija a su proveedor de identidades. 
- - Los administradores están registrados mediante Azure Multi-Factor Authentication y todos sus dispositivos individuales están deshabilitados. Puede que los usuarios no puedan completar la autenticación multifactor para activar un rol. Por ejemplo, una interrupción de la red de telefonía móvil les impide responder a llamadas telefónicas o recibir mensajes de texto, los únicos dos mecanismos de autenticación que registraron para sus dispositivos. 
- - La persona con el acceso administrativo global más reciente ha dejado la organización. Azure AD impide que se pueda eliminar la última cuenta de *administrador global*, pero no impide que esta se pueda eliminar o deshabilitar de forma local. Es posible que alguna de estas situaciones impida a la organización recuperar la cuenta.
+- Las cuentas de usuario están federadas y la federación no está disponible en este momento debido a una interrupción de la red de telefonía móvil o una interrupción del proveedor de identidades. Por ejemplo, si se ha interrumpido el host del proveedor de identidades de su entorno, puede que los usuarios no puedan iniciar sesión cuando Azure AD les redirija a su proveedor de identidades.
+- Los administradores están registrados mediante Azure Multi-Factor Authentication y todos sus dispositivos individuales o los servicios están deshabilitados. Puede que los usuarios no puedan completar la autenticación multifactor para activar un rol. Por ejemplo, una interrupción de la red de telefonía móvil les impide responder a llamadas telefónicas o recibir mensajes de texto, los únicos dos mecanismos de autenticación que registraron para sus dispositivos.
+- La persona con el acceso de Administrador global más reciente ha dejado la organización. Azure AD impide que se pueda eliminar la última cuenta de Administrador global, pero no impide que esta se pueda eliminar o deshabilitar de forma local. Es posible que alguna de estas situaciones impida a la organización recuperar la cuenta.
+- Circunstancias imprevistas, como un desastre natural, durante las cuales puede que las redes de telefonía móvil u otras redes no estén disponibles. 
 
-## <a name="initial-configuration"></a>Configuración inicial
+## <a name="create-two-cloud-based-emergency-access-accounts"></a>Creación de dos cuentas de acceso de emergencia basadas en la nube
 
-Cree dos o más cuentas de acceso de emergencia. Estas deben ser cuentas que estén solo en la nube, que usen el dominio \*.onmicrosoft.com y que no estén federadas ni sincronizadas desde un entorno local. 
+Cree dos o más cuentas de acceso de emergencia. Estas deben ser cuentas que estén solo en la nube, que usen el dominio \*.onmicrosoft.com y que no estén federadas ni sincronizadas desde un entorno local.
 
-Las cuentas no se deberían asociar a ningún usuario individual de la organización. Las organizaciones se deben asegurar de que las credenciales de estas cuentas están protegidas y solo las conocen los usuarios que están autorizados para usarlas. 
+Al configurarlas, deben cumplirse los siguientes requisitos:
 
-> [!NOTE]
-> La contraseña de una cuenta de acceso de emergencia se encuentra normalmente dividida en dos o tres partes, escrita en diferentes fragmentos de papel que se almacenan en cajas de seguridad a prueba de incendios que están en ubicaciones separadas seguras. 
->
-> Asegúrese de que las cuentas de acceso de emergencia no están conectadas a ningún teléfono móvil suministrado por un empleado, ni a tokens de hardware que viajen con empleados individuales ni con otras credenciales específicas de un empleado. Esta precaución debe incluir también los casos en los que un empleado individual pueda no estar disponible cuando se necesiten las credenciales. 
+- Las cuentas de acceso de emergencia no se deberían asociar a ningún usuario individual de la organización. Asegúrese de que las cuentas no están conectadas a ningún teléfono móvil suministrado por un empleado, ni a tokens de hardware que viajen con empleados individuales ni con otras credenciales específicas de un empleado. Esta precaución debe incluir también los casos en los que un empleado individual pueda no estar disponible cuando se necesiten las credenciales. Es importante garantizar que todos los dispositivos registrados se almacenen en una ubicación conocida y segura que tenga varias formas de comunicarse con Azure AD.
+- El mecanismo de autenticación usado para una cuenta de acceso de emergencia debe ser distinto del que se utiliza para otras cuentas administrativas, incluidas otras cuentas de acceso de emergencia.  Por ejemplo, si el inicio de sesión de administrador normal es a través de una instancia de MFA local, Azure MFA sería un mecanismo diferente.  Sin embargo, si Azure MFA es la parte principal de la autenticación para las cuentas administrativas, considere un enfoque diferente para estas, como el uso de acceso condicional con un proveedor MFA de terceros.
+- El dispositivo o la credencial no deben expirar ni estar en el ámbito de una limpieza automatizada debido a la falta de uso.  
+- Debe convertir la asignación del rol de Administrador global en permanente para las cuentas de acceso de emergencia. 
 
-### <a name="initial-configuration-with-permanent-assignments"></a>Configuración inicial con asignaciones permanentes
 
-Una opción es hacer a los usuarios miembros permanentes del rol *administrador global*. Esta opción sería adecuada para organizaciones que no tienen suscripciones de Azure AD Premium P2.
+### <a name="exclude-at-least-one-account-from-phone-based-multi-factor-authentication"></a>Exclusión de al menos una cuenta de autenticación multifactor basada en teléfono
 
-Para reducir el riesgo de ataques como resultado de una contraseña que se ha puesto en peligro, Azure AD recomienda que requiera autenticación multifactor a todos los usuarios individuales. Este grupo debe incluir a los administradores y a todos aquellos (por ejemplo, los agentes financieros) cuyas cuentas, si se ponen en peligro, tendrían un impacto significativo. 
+Para reducir el riesgo de ataques como resultado de una contraseña que se ha puesto en peligro, Azure AD recomienda que requiera autenticación multifactor a todos los usuarios individuales. Este grupo incluye a los administradores y a todos aquellos (por ejemplo, los agentes financieros) cuyas cuentas, si se ponen en peligro, tendrían un impacto significativo.
 
-Sin embargo, si su organización no tiene dispositivos compartidos, puede que la autenticación multifactor no sea posible para estas cuentas de acceso de emergencia. Si va a configurar una directiva de acceso condicional para requerir [el registro mediante autenticación multifactor para cada administrador](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) de Azure AD y de otras aplicaciones conectadas de software como servicio (SaaS), tendrá que configurar las exclusiones de directiva para excluir a las cuentas de acceso de emergencia de este requisito.
+Sin embargo, al menos una de sus cuentas de acceso de emergencia no debe tener el mismo mecanismo de autenticación multifactor que las demás cuentas que no son de emergencia. Esto incluye las soluciones de autenticación multifactor de terceros. Si tiene una directiva de acceso condicional para requerir [autenticación multifactor para cada administrador](../authentication/howto-mfa-userstates.md) de Azure AD y de otras aplicaciones conectadas de software como servicio (SaaS), debería excluir las cuentas de acceso de emergencia de este requisito y configurar un mecanismo diferente. Además, debe asegurarse de que las cuentas no tienen una directiva de autenticación multifactor por usuario.
 
-### <a name="initial-configuration-with-approvals"></a>Configuración inicial con aprobaciones
+### <a name="exclude-at-least-one-account-from-conditional-access-policies"></a>Exclusión de al menos una cuenta de las directivas de acceso condicional
 
-Otra opción consiste en configurar a los usuarios como aptos y como aprobadores para activar el rol de *administrador global*. Esta opción requiere que su organización tenga suscripciones de Azure AD Premium P2. También requeriría una opción de la autenticación multifactor que sea adecuada para su uso compartido entre varios usuarios y el entorno de red. Estos requisitos se deben a que la activación del rol de *administrador global* requiere que los usuarios hayan realizado previamente la autenticación multifactor. Para más información, consulte [Exigencia de MFA en Privileged Identity Management de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-how-to-require-mfa).
+Durante una emergencia, no quiere que una directiva pueda bloquear el acceso para corregir un problema. Por eso, debe excluirse por lo menos una cuenta de acceso de emergencia de todas las directivas de acceso condicional. Si ha habilitado un [directiva de línea base](../conditional-access/baseline-protection.md), debe excluir las cuentas de acceso de emergencia.
 
-No se recomienda usar una autenticación multifactor que esté asociada con dispositivos personales para cuentas de acceso de emergencia. En caso de emergencia real, la persona que necesita acceso a un dispositivo registrado con autenticación multifactor puede que no sea la persona que tiene el dispositivo personal. 
+## <a name="additional-guidance-for-hybrid-customers"></a>Instrucciones adicionales para clientes híbridos
 
-Tenga en cuenta también el panorama de posibles amenazas. Por ejemplo, puede surgir una circunstancia imprevista, como un desastre natural, durante la cual puede que las redes de telefonía móvil u otras redes no estén disponibles. Es importante garantizar que todos los dispositivos registrados se almacenen en una ubicación conocida y segura que tenga varias formas de comunicarse con Azure AD.
+Una opción adicional para las organizaciones que usan AD Domain Services, ADFS o proveedores de identidades similares para federar con Azure AD, es configurar una cuenta de acceso de emergencia cuya notificación de MFA podría proporcionarla dicho proveedor de identidades.  Por ejemplo, la cuenta de acceso de emergencia podría estar respaldada por un par de certificado y clave como el almacenado en una tarjeta inteligente.  Cuando ese usuario se autentica en Active Directory, ADFS pueden proporcionar una notificación a Azure AD para indicar que el usuario ha cumplido con los requisitos de MFA.  Incluso con este enfoque, las organizaciones todavía deben tener cuentas de acceso de emergencia basadas en la nube en caso de que no se pueda establecer la federación. 
 
-## <a name="ongoing-monitoring"></a>Supervisión continua
+## <a name="store-devices-and-credentials-in-a-safe-location"></a>Guardado de los dispositivos y de las credenciales en una ubicación segura
 
-Supervise el [inicio de sesión en Azure AD y los registros de auditoría](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-sign-ins) para analizar los inicios de sesión y actividades de auditoría de las cuentas de acceso de emergencia. Normalmente, esas cuentas no deben iniciar sesión y no deberían realizar cambios, por lo que su uso es anómalo y requiere una investigación de seguridad.
+Las organizaciones se deben asegurar de que las credenciales de estas cuentas de acceso de emergencia estén protegidas y solo las conozcan los usuarios que están autorizados para usarlas. Algunos clientes usan una tarjeta inteligente y otros usan contraseñas. La contraseña de una cuenta de acceso de emergencia se encuentra normalmente dividida en dos o tres partes, escrita en diferentes fragmentos de papel que se almacenan en cajas de seguridad a prueba de incendios que están en ubicaciones separadas seguras.
 
-## <a name="account-check-validation-must-occur-at-regular-intervals"></a>Se debe efectuar una validación de comprobación de cuentas en intervalos regulares.
+Si usa contraseñas, asegúrese de que las cuentas tengan contraseñas seguras y que no expiren. Idealmente, las contraseñas deben tener al menos 16 caracteres y generarse aleatoriamente.
 
-Efectúe la validación de la cuenta en los siguientes casos como mínimo:
-- Cada 90 días.
+
+## <a name="monitor-sign-in-and-audit-logs"></a>Supervisión de registros de inicio de sesión y de auditoría
+
+Supervise los [registros de inicio de sesión y de auditoría de Azure AD](../reports-monitoring/concept-sign-ins.md) para analizar los inicios de sesión y actividades de auditoría de las cuentas de acceso de emergencia. Normalmente, esas cuentas no deben iniciar sesión y tampoco deberían realizar cambios, por lo que su uso es anómalo y requiere una investigación de seguridad.
+
+## <a name="validate-accounts-at-regular-intervals"></a>Validación de cuentas a intervalos regulares
+
+Para entrenar a los miembros del personal en el uso de cuentas de acceso de emergencia y validar dichas cuentas, siga estos pasos mínimos a intervalos regulares:
+
+- Asegúrese de que el personal de supervisión de seguridad sea consciente de que la actividad de comprobación de las cuentas es continua.
+- Asegúrese de que el proceso para escenarios de máxima emergencia en los que se usarán estas cuentas está documentado y es actual.
+- Asegúrese de que los administradores y los responsables de seguridad que podrían tener que realizar estos pasos durante una emergencia están entrenados en el proceso.
+- Actualice las credenciales, en particular las contraseñas, de las cuentas de acceso de emergencia y, después, valide que las cuentas de acceso de emergencia puedan iniciar sesión y realizar tareas administrativas.
+- Asegúrese de que los usuarios no han registrado la autenticación multifactor ni el restablecimiento de contraseña de autoservicio (SSPR) en ningún dispositivo de usuario individual o con información personal. 
+- Si las cuentas se han registrado para la autenticación multifactor en un dispositivo, para su uso durante el inicio de sesión o la activación de rol, asegúrese de que este dispositivo sea accesible para todos los administradores que podrían tener que usarlo en caso de emergencia. Compruebe también que el dispositivo pueda comunicarse mediante al menos dos rutas de acceso de red que no compartan un modo de avería común. Por ejemplo, el dispositivo puede comunicarse con Internet a través de la red inalámbrica de la oficina y a través de una red de un proveedor de telefonía móvil.
+
+Estos pasos deben realizarse a intervalos regulares y para cambios de claves:
+
+- Al menos cada 90 días
 - Cuando se ha producido un cambio reciente en el personal de TI, como un cambio de trabajo, una salida o un nuevo empleado.
 - Cuando se han cambiado las suscripciones de Azure AD de la organización.
 
-Para formar a los miembros del personal para que usen las cuentas de acceso de emergencia, haga lo siguiente:
-
-* Asegúrese de que el personal de supervisión de seguridad sea consciente de que la actividad de comprobación de las cuentas es continua.
-* Compruebe que las cuentas de usuarios en la nube pueden iniciar sesión y activar sus roles, y que aquellos usuarios que tengan que realizar estos pasos en caso de emergencia conozcan el proceso.
-* Asegúrese de que estos no han registrado la autenticación multifactor ni el restablecimiento de contraseña de autoservicio (SSPR) en ningún dispositivo de usuario individual o con información personal. 
-* Si las cuentas se han registrado para la autenticación multifactor en un dispositivo, para su uso durante la activación de rol, asegúrese de que este dispositivo sea accesible para todos los administradores que podrían tener que usarlo en caso de emergencia. Compruebe también que el dispositivo se ha registrado mediante dos mecanismos que no compartan un modo de avería común. Por ejemplo, el dispositivo puede comunicarse con Internet a través de la red inalámbrica de la oficina y a través de una red de un proveedor de telefonía móvil.
-* Actualice las credenciales de la cuenta.
-
 ## <a name="next-steps"></a>Pasos siguientes
-- [Agregue un usuario basado en la nube](../fundamentals/add-users-azure-active-directory.md) y [Asigne un nuevo usuario al rol de administrador global](../fundamentals/active-directory-users-assign-role-azure-portal.md).
-- [Suscríbase a Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md), si no lo ha hecho anteriormente.
-- [Solicite Azure Multi-Factor Authentication a los usuarios individuales asignados como administradores](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states).
-- [Configure otras protecciones adicionales para los administradores globales de Office 365](https://support.office.com/article/Protect-your-Office-365-global-administrator-accounts-6b4ded77-ac8d-42ed-8606-c014fd947560), si lo usa.
-- [Realice una revisión de acceso de los administradores globales](../privileged-identity-management/pim-how-to-start-security-review.md) y [cambie los administradores globales existentes a roles de administrador más específicos](directory-assign-admin-roles.md).
 
-
+- [Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD](directory-admin-roles-secure.md)
+- [Adición de usuarios con Azure AD](../fundamentals/add-users-azure-active-directory.md) y [Asignación de un nuevo usuario al rol de Administrador global](../fundamentals/active-directory-users-assign-role-azure-portal.md).
+- [Suscripción a Azure AD Premium](../fundamentals/active-directory-get-started-premium.md), si no lo ha hecho anteriormente.
+- [Exigencia de verificación en dos pasos para un usuario](../authentication/howto-mfa-userstates.md).
+- [Configuración de otras protecciones adicionales para los administradores globales de Office 365](https://docs.microsoft.com/office365/enterprise/protect-your-global-administrator-accounts), si lo usa.
+- [Inicio de una revisión de acceso de los administradores globales](../privileged-identity-management/pim-how-to-start-security-review.md) y [cambio de los administradores globales existentes a roles de administrador más específicos](directory-assign-admin-roles.md).

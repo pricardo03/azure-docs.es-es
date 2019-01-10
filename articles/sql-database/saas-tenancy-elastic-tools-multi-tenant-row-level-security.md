@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 6d701878886cb1d5cc20a57614a474537f06a728
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5a9f168a0abc28b1decc6f327a62f5eaa4163e6f
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242915"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601532"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicaciones de múltiples inquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila
 
@@ -41,7 +41,7 @@ El objetivo es usar las API de [enrutamiento dependiente de los datos](sql-datab
 
 - Uso de Visual Studio (2012 o posterior)
 - Creación de tres instancias de Azure SQL Database
-- Descargue el proyecto de ejemplo: [Herramientas de bases de datos elásticas para SQL de Azure - Particiones con varios inquilinos](https://go.microsoft.com/?linkid=9888163)
+- Descargue el proyecto de ejemplo: [Herramientas de bases de datos elásticas para Azure SQL: Particiones multiinquilino](https://go.microsoft.com/?linkid=9888163)
   - Rellene la información para las bases de datos al comienzo de **Program.cs** 
 
 Este proyecto amplía el descrito en [Herramientas de bases de datos elásticas para SQL de Azure - Integración de Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) mediante la adición de compatibilidad con bases de datos de partición de varios inquilinos. El proyecto compila una sencilla aplicación de consola para la creación de blogs y publicaciones. El proyecto incluye cuatro inquilinos y dos bases de datos de la partición multiinquilino. Esta configuración se ilustra en el diagrama anterior. 
@@ -54,7 +54,7 @@ Compile y ejecute la aplicación. Esta ejecución arranca el administrador de ma
 
 Tenga en cuenta que como todavía no se ha habilitado RLS en las bases de datos de la partición, cada una de estas pruebas revela un problema: los inquilinos pueden consultar los blogs que no pertenecen a ellos y la aplicación no impide insertar un blog del inquilino incorrecto. El resto de este artículo describe cómo resolver estos problemas mediante la imposición de aislamiento de inquilinos con RLS. Hay dos pasos: 
 
-1. **Capa de aplicación**: modifique el código de la aplicación para establecer siempre el valor actual de TenantId en SESSION\_después de abrir una conexión. El proyecto de ejemplo ya establece el valor de TenantId de este modo. 
+1. **Capa de aplicación**: modifique el código de la aplicación para establecer siempre el valor actual de TenantId en SESSION\_CONTEXT después de abrir una conexión. El proyecto de ejemplo ya establece el valor de TenantId de este modo. 
 2. **Capa de datos**: cree una directiva de seguridad de RLS en cada base de datos de la partición para filtrar las filas en función del valor de TenantId almacenado en SESSION\_CONTEXT. Cree una directiva para cada una de las bases de datos de la partición, ya que si no lo hace, las filas de las particiones multiinquilino no se van a filtrar. 
 
 ## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1. Capa de aplicación: establezca TenantId en SESSION\_CONTEXT
@@ -342,7 +342,7 @@ GO
 ### <a name="maintenance"></a>Mantenimiento 
 
 - **Agregar particiones nuevas**: ejecute el script T-SQL para habilitar RLS en las nuevas particiones; en caso contrario, no se filtran las consultas en esas particiones.
-- **Agregar tablas nuevas**: cada vez que se cree una tabla, agregue un predicado FILTER y BLOCK a la directiva de seguridad en todas las particiones. De lo contrario, no se filtran las consultas de la nueva tabla. Esta adición se puede automatizar mediante un desencadenador DDL, como se describe en [Apply Row-Level Security automatically to newly created tables (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx)[Aplicación de la seguridad de nivel de fila a las tablas recientemente creadas (blog)].
+- **Agregar tabla nuevas**: agregue un predicado FILTER y BLOCK a la directiva de seguridad en todas las particiones cada vez que se cree una tabla nueva. De lo contrario, no se filtran las consultas de la nueva tabla. Esta adición se puede automatizar mediante un desencadenador DDL, como se describe en [Apply Row-Level Security automatically to newly created tables (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx)[Aplicación de la seguridad de nivel de fila a las tablas recientemente creadas (blog)].
 
 ## <a name="summary"></a>Resumen
 

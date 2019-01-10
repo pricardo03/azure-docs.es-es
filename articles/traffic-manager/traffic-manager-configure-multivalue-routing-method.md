@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: 521a9dd49abee8fdeaa42b1ea8c13b9a648f1875
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d4a51551fb0f9067929df1fdf074e7286938004b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187375"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187712"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Configuración del método de enrutamiento de varios valores en Traffic Manager
 
@@ -47,9 +47,9 @@ Cree un perfil de Traffic Manager que dirija el tráfico de usuario mediante el 
     | Subscription            | Seleccione su suscripción.                          |
     | Grupos de recursos          | Seleccione *myResourceGroupTM1*. |
     | Ubicación                | Esta configuración se refiere a la ubicación del grupo de recursos y no tiene efecto alguno sobre el perfil de Traffic Manager que se implementará globalmente.                              |
-    
+   |        |           | 
   
-    ![Crear un perfil de Traffic Manager](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
+  ![Crear un perfil de Traffic Manager](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
 
 ## <a name="add-traffic-manager-endpoints"></a>Incorporación de puntos de conexión de Traffic Manager
 
@@ -69,7 +69,7 @@ Agregue dos direcciones IP como puntos de conexión externos para el perfil de T
 4. Repita los pasos 2 y 3 para agregar otro punto de conexión denominado *myEndpoint2*, para **Nombre de dominio completo (FQDN) o IP**, escriba la dirección IP pública del segundo punto de conexión.
 5.  Cuando termine de agregar ambos puntos de conexión, aparecerán en **Perfil de Traffic Manager** junto con el estado de supervisión como **En línea**.
 
-    ![Incorporación de un punto de conexión de Traffic Manager](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
+   ![Incorporación de un punto de conexión de Traffic Manager](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
  
 ## <a name="next-steps"></a>Pasos siguientes
 

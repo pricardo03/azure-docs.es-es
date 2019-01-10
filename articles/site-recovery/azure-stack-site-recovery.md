@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 8285632d8dea76763c65dd06e8be2d7494a47188
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 02e6d6407a515314d99ea747dac3646d665c47ae
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839000"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976586"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicación de máquinas virtuales de Azure Stack en Azure
 
@@ -237,7 +237,7 @@ Asegúrese de que ha completado todas las tareas del [Paso 1: Preparación de la
 6. Seleccione la cuenta de Azure Storage en la que quiere almacenar los datos replicados.
 7. Seleccione la red y la subred de Azure a la que se conectarán las máquinas virtuales de Azure cuando se creen después de la conmutación por error.
 8. Seleccione la opción **Configurar ahora para las máquinas seleccionadas** con el fin de aplicar la configuración de red a todas las máquinas que seleccione para su protección. Seleccione **Configurar más adelante** si desea seleccionar la red de Azure por separado para cada máquina.
-9. En **Máquinas físicas**, haga clic en **+ Máquina física**. Especifique el nombre de la dirección IP de cada máquina y el sistema operativo que quiere replicar.
+9. En **Máquinas físicas**, haga clic en **+ Máquina física**. Especifique el nombre, la dirección IP y el tipo de sistema operativo de cada máquina que quiera replicar.
 
     - Use la dirección IP interna de la máquina.
     - Si se especifica que la dirección IP pública, puede que la replicación no funcione según lo previsto.
@@ -280,7 +280,7 @@ Cuando se ejecuta una conmutación por error de prueba, ocurre lo siguiente:
 2. La conmutación por error procesa los datos mediante el punto de recuperación especificado:
     - **Procesado más recientemente**: la máquina conmuta por error al último punto de recuperación procesado por Site Recovery. Se muestra la marca de tiempo. Con esta opción, no se empleó tiempo en el procesamiento de datos, por lo que se proporciona un objetivo de tiempo de recuperación (RTO) bajo.
     - **Más reciente coherente con la aplicación**: la máquina conmuta por error al punto de recuperación más reciente coherente con la aplicación.
-    - **Personalizado**. Seleccione el punto de recuperación usado para la conmutación por error.
+    - **Personalizado**: Seleccione el punto de recuperación usado para la conmutación por error.
 
 3. Se crea una máquina virtual de Azure con los datos procesados.
 4. La conmutación por error de prueba puede limpiar automáticamente las máquinas virtuales de Azure que se crearon durante el simulacro.

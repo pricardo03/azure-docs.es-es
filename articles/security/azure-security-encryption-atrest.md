@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 1bcd9dfe2d7a846dd040944509be916c1964ba48
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4796dc50447b94b01d9bb4625ca9a69a73850fcd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420394"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994409"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Cifrado en reposo de datos de Azure
 
@@ -104,7 +104,7 @@ Para el cifrado del lado cliente, tenga en cuenta lo siguiente:
 - Los clientes administran y almacenan las claves en ubicaciones locales (o en otras ubicaciones seguras). Las claves no están disponibles para los servicios de Azure
 - Funcionalidad de nube reducida
 
-Los modelos de cifrado admitidos en Azure se dividen en dos grupos principales: "cifrado del cliente" y "cifrado del lado servidor", como se mencionó anteriormente. Independientemente del modelo de cifrado en reposo utilizado, los servicios de Azure siempre recomiendan el uso de un transporte seguro como TLS o HTTPS. Por lo tanto, el cifrado de transporte debe tratarse con el protocolo de transporte y no debe ser un factor importante para determinar qué modelo de cifrado en reposo se utilizará.
+Los modelos de cifrado admitidos en Azure se dividen en dos grupos principales: "Cifrado del cliente" y "Cifrado del servidor" como se mencionó anteriormente. Independientemente del modelo de cifrado en reposo utilizado, los servicios de Azure siempre recomiendan el uso de un transporte seguro como TLS o HTTPS. Por lo tanto, el cifrado de transporte debe tratarse con el protocolo de transporte y no debe ser un factor importante para determinar qué modelo de cifrado en reposo se utilizará.
 
 ### <a name="client-encryption-model"></a>Modelo de cifrado del cliente
 
@@ -201,7 +201,7 @@ Cuando se usa el cifrado del lado servidor mediante las claves administradas del
 
 ## <a name="encryption-at-rest-in-microsoft-cloud-services"></a>Cifrado en reposo en servicios en la nube de Microsoft
 
-Los servicios en la nube de Microsoft se utilizan en los tres modelos de la nube: IaaS, PaaS, SaaS. A continuación encontrará ejemplos de cómo encajan en cada modelo:
+Los Servicios en la nube de Microsoft se utilizan en los tres modelos de la nube: IaaS, PaaS, SaaS. A continuación encontrará ejemplos de cómo encajan en cada modelo:
 
 - Servicios de software, que se conocen como software como servicio o SaaS, que tienen la aplicación proporcionada por la nube, como Office 365.
 - Servicios de la plataforma de los que los clientes sacan provecho en la nube en sus aplicaciones, que usan la nube para tareas como almacenamiento, análisis y funcionalidad de bus de servicio.
@@ -262,6 +262,7 @@ Se admite el cifrado del lado cliente de los datos de Azure SQL Database a trav�
 | Disco (IaaS)                      | -                  | Sí, RSA de 2048 bits  | -                  |
 | SQL Server (IaaS)                | SÍ                | Sí, RSA de 2048 bits  | SÍ                |
 | Azure SQL (Base de datos/Almacenamiento de datos) | SÍ                | Sí, RSA de 2048 bits  | SÍ                |
+| Azure SQL Database (instancia administrada) | SÍ                | Versión preliminar, RSA de 2048 bits  | SÍ                |
 | Azure Storage (blobs en bloques o en páginas) | SÍ                | Sí, RSA de 2048 bits  | SÍ                |
 | Azure Storage (archivos)            | SÍ                | Sí, RSA de 2048 bits  | -                  |
 | Azure Storage (tablas, colas)   | SÍ                | -                  | SÍ                |

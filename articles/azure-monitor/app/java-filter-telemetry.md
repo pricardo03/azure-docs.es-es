@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 81bfd5e0354fefea4690e6871dd5e846f41dc6d8
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6bd8d0cee01853547efd028feef0a97f9398024e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53982118"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015529"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrado de telemetría en la aplicación web de Java
 
@@ -31,7 +31,7 @@ Los filtros de serie incluyen:
 
 > [!NOTE]
 > Los filtros sesgan las métricas de la aplicación. Por ejemplo, puede decidir que, para diagnosticar respuestas lentas, hay que establecer un filtro para descartar los tiempos de respuesta rápidos. Pero debe tener en cuenta que los tiempos de respuesta promedio notificados por Application Insights serán más lentos que la velocidad real y que el recuento de las solicitudes será menor que el recuento real.
-> Si puede resultar un problema, use el [muestreo](../../application-insights/app-insights-sampling.md) en su lugar.
+> Si puede resultar un problema, use el [muestreo](../../azure-monitor/app/sampling.md) en su lugar.
 
 ## <a name="setting-filters"></a>Establecimiento de filtros
 
@@ -262,4 +262,4 @@ En ApplicationInsights.xml:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Muestreo](../../application-insights/app-insights-sampling.md): considere la posibilidad del muestreo como una alternativa que no sesga las métricas.
+* [Muestreo](../../azure-monitor/app/sampling.md): considere la posibilidad del muestreo como una alternativa que no sesga las métricas.

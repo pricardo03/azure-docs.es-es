@@ -4,14 +4,14 @@ description: Aborda las preguntas más frecuentes sobre Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.author: snehaa
-ms.openlocfilehash: ebc4393341341b3b73165a166a650ae1a6f431ff
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 787e3f53cb75b33b03c29b61b319270fdf7a63ca
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257801"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975481"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate: preguntas más frecuentes (P+F)
 
@@ -48,12 +48,13 @@ Azure Migrate es una herramienta de planeación de migración y Azure Site Recov
 
 ### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>¿Qué geografías de Azure con compatibles con Azure Migrate?
 
-Azure Migrate admite actualmente Estados Unidos y Azure Government como ubicaciones geográficas de proyecto. Aunque solo puede crear proyectos de migración en estas geografías, puede evaluar sus máquinas para [varias ubicaciones de destino](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). La geografía del proyecto solo se usa para almacenar los metadatos detectados.
+Azure Migrate admite actualmente Europa, Estados Unidos y Azure Government como ubicaciones geográficas de proyecto. Aunque solo puede crear proyectos de migración en estas geografías, puede evaluar sus máquinas para [varias ubicaciones de destino](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). La geografía del proyecto solo se usa para almacenar los metadatos detectados.
 
 **Geografía** | **Ubicación de almacenamiento de metadatos**
 --- | ---
-Estados Unidos | Centro-oeste de EE. UU. o Este de EE. UU.
 Azure Government | Gobierno de EE. UU. - Virginia
+Europa | Norte de Europa y Oeste de Europa
+Estados Unidos | Centro-oeste de EE. UU. o Este de EE. UU.
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>¿Cómo se conecta el sitio local a Azure Migrate?
 

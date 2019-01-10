@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 792a3401c483327eb7fb9fcd88039bc09025b3ef
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 85e9b49cb8be1a3f53ca0f3b4816e6165b68bde0
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944957"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993117"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Uso de la supervisión y el diagnóstico con una máquina virtual Windows y plantillas de Azure Resource Manager
 La extensión Azure Diagnostics proporciona funcionalidades de supervisión y diagnóstico en una máquina virtual de Azure basada en Windows. Para habilitar estas funcionalidades en la máquina virtual, incluya la extensión como parte de la plantilla de Azure Resource Manager. Para obtener más información sobre cómo incluir cualquier extensión como parte de una plantilla de máquina virtual, consulte [Creación de plantillas del Administrador de recursos de Azure con extensiones de máquina virtual](../windows/template-description.md#extensions) . En este artículo se describe cómo agregar la extensión de Diagnósticos de Azure a una plantilla de máquina virtual de Windows.  
@@ -92,13 +92,13 @@ El fragmento de código JSON de la extensión Diagnostics anterior presupone dos
     "type": "string",
     "metadata": {
 "description": "The name of an existing storage account to which diagnostics data is transfered."
-    }        
+    }
 },
 "existingdiagnosticsStorageResourceGroup": {
     "type": "string",
     "metadata": {
 "description": "The resource group for the storage account specified in existingdiagnosticsStorageAccountName"
-      }
+    }
 }
 ```
 
@@ -168,9 +168,9 @@ Ejemplo: *WADMetricsPT1HP10DV2S20151108* contiene datos de métricas agregados d
 
 Cada tabla WADMetrics contiene las columnas siguientes:
 
-* **PartitionKey**: la clave de partición se construye a partir del valor *resourceID* para identificar de forma única el recurso de máquina virtual. Por ejemplo: 002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>  
+* **PartitionKey**: la clave de partición se construye a partir del valor *resourceID* para identificar de forma única el recurso de máquina virtual. Por ejemplo: `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
 * **RowKey**: sigue el formato `<Descending time tick>:<Performance Counter Name>`. El cálculo de la graduación de tiempo descendente es igual a la graduación de tiempo máxima menos el tiempo de comienzo del período de agregación. Por ejemplo, si el período de ejemplo empezó el 10 de noviembre de 2015 a las 00:00 horas UTC, entonces el cálculo sería: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. Para el contador de rendimiento de bytes de memoria disponible, la clave de fila será similar a: `2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
-* **CounterName**: es el nombre del contador de rendimiento. Coincide con el valor de *counterSpecifier* definido en el archivo de configuración XML.
+* **CounterName**: nombre del contador de rendimiento. Coincide con el valor de *counterSpecifier* definido en el archivo de configuración XML.
 * **Maximum**: el valor máximo del contador de rendimiento durante el período de agregación.
 * **Minimum**: el valor mínimo del contador de rendimiento durante el período de agregación.
 * **Total**: la suma de todos los valores del contador de rendimiento notificados durante el período de agregación.

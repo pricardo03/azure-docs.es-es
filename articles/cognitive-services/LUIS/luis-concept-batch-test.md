@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: c050c8ed338a019b34302e87a53d4a40306f9a22
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b0b2c8d0e3484538ca5c988a7fad56fb82b97902
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133154"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993173"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Pruebas por lotes con 1 000 expresiones en el portal de LUIS
 
@@ -48,7 +48,7 @@ Todas las entidades personalizadas del modelo aparecen en el filtro de entidades
 
 El archivo por lotes está compuesto de expresiones. Cada expresión debe tener una predicción de intenciones esperada junto con todas las [entidades de aprendizaje automático](luis-concept-entity-types.md#types-of-entities) que espera detectar. 
 
-## <a name="batch-syntax-template"></a>Plantilla de sintaxis por lotes
+## <a name="batch-syntax-template-for-intents-with-entities"></a>Plantilla de sintaxis de lotes para intenciones con entidades
 
 Use la plantilla siguiente para iniciar el archivo por lotes:
 
@@ -75,6 +75,22 @@ Use la plantilla siguiente para iniciar el archivo por lotes:
 ```
 
 El archivo por lotes usa las propiedades **startPos** y **endPos** para tener en cuenta el inicio y el final de una entidad. Los valores se basan en cero y no pueden empezar ni terminar en un espacio. Esto es diferente de los registros de consultas que usan las propiedades startIndex y endIndex. 
+
+## <a name="batch-syntax-template-for-intents-without-entities"></a>Plantilla de sintaxis de lotes para intenciones sin entidades
+
+Use la plantilla siguiente para iniciar el archivo por lotes sin entidades:
+
+```JSON
+[
+  {
+    "text": "example utterance goes here",
+    "intent": "intent name goes here",
+    "entities": []
+  }
+]
+```
+
+Si no quiere probar entidades, incluya la propiedad `entities` y establezca el valor como una matriz vacía, `[]`.
 
 
 ## <a name="common-errors-importing-a-batch"></a>Errores comunes al importar un lote

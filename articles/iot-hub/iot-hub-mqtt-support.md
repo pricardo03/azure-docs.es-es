@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: 9df2e8762d546e6115dc1205548e927cfee7bb60
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d1214df922e8e656ba2ff566571d878b0031fea9
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341887"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000264"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicación con la instancia de IoT Hub mediante el protocolo MQTT
 
@@ -279,11 +279,12 @@ Cuando se conecta un dispositivo, IoT Hub envía notificaciones al tema `$iothub
 ```json
 {
     "telemetrySendFrequency": "5m",
-    "route": null
+    "route": null,
+    "$version": 8
 }
 ```
 
-Para las actualizaciones de propiedad, los valores `null` significan que se elimina el miembro del objeto JSON.
+Para las actualizaciones de propiedad, los valores `null` significan que se elimina el miembro del objeto JSON. Además, tenga en cuenta que `$version` indica la nueva versión de la sección de propiedades deseadas del gemelo.
 
 > [!IMPORTANT]
 > IoT Hub genera notificaciones de cambio solo si los dispositivos están conectados. Asegúrese de implementar el [flujo de reconexión de dispositivos][lnk-devguide-twin-reconnection] para mantener las propiedades que desee sincronizadas entre IoT Hub y la aplicación del dispositivo.

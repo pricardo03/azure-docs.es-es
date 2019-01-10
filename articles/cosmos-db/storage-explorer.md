@@ -1,28 +1,27 @@
 ---
 title: Administración de recursos de Azure Cosmos DB mediante Explorador de Azure Storage
 description: Obtenga información sobre cómo conectarse a Azure Cosmos DB y administrar sus recursos con el Explorador de Azure Storage.
-author: Jejiang
-tags: Azure Cosmos DB
+author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.author: jejiang
+ms.author: dech
 ms.custom: seodec18
-ms.openlocfilehash: 1ce483a88c1f57912dfe30efa98f46335e97c01c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d19aaa6e486732cb1453e3299c8e598e8fd2f507
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138133"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044627"
 ---
 # <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>Administración de recursos de Azure Cosmos DB con el Explorador de Azure Storage
 
-El uso de Azure Cosmos DB en el Explorador de Azure Storage permite a los usuarios administrar entidades de Azure Cosmos DB, manipular datos, actualizar procedimientos y desencadenadores almacenados, además de otras entidades de Azure, como los blobs y las colas de Storage. Ahora puede usar la misma herramienta para administrar las diferentes entidades de Azure en un solo lugar. Actualmente, el Explorador de Azure Storage admite cuentas de SQL, MongoDB, Graph y Table.
+El uso de Azure Cosmos DB en el Explorador de Azure Storage permite a los usuarios administrar entidades de Azure Cosmos DB, manipular datos, actualizar procedimientos y desencadenadores almacenados, además de otras entidades de Azure, como los blobs y las colas de Storage. Ahora puede usar la misma herramienta para administrar las diferentes entidades de Azure en un solo lugar. Actualmente, el Explorador de Azure Storage admite cuentas de Cosmos que estén configuradas para API de SQL, MongoDB, Graph y Table.
 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Una cuenta de Azure Cosmos DB para SQL API <!--or MongoDB API-->. Si no tiene una cuenta, puede crear una en Azure Portal, tal y como se describe en [Azure Cosmos DB: Compilación de una aplicación web de SQL API con .NET y Azure Portal](create-sql-api-dotnet.md).
+Una cuenta de Cosmos con las API de SQL o Azure Cosmos DB para MongoDB. Si no tiene una cuenta, puede crear una en Azure Portal, tal y como se describe en [Azure Cosmos DB: Compilación de una aplicación web de SQL API con .NET y Azure Portal](create-sql-api-dotnet.md).
 
 ## <a name="installation"></a>Instalación
 

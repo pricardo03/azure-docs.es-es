@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 7a1577e3c352c24983cc3a586c11ad43c416acc4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0b68819ba032d7655433aadd30fe2852941096ce
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091050"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000553"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Aprovechamiento de la paralelización de consultas en Azure Stream Analytics
 En este artículo se muestra cómo aprovechar la paralelización en Azure Stream Analytics. Aprenda a escalar los trabajos de Stream Analytics mediante la configuración de particiones de entrada y el ajuste de la definición de consultas de análisis.
@@ -41,12 +41,13 @@ Cuando trabaja con Stream Analytics, puede aprovechar la creación de particione
 -   Azure Functions
 -   tabla de Azure
 -   Blob Storage (la clave de partición se puede establecer explícitamente)
--   CosmosDB (la clave de partición se debe establecer explícitamente)
--   EventHub (la clave de partición se debe establecer explícitamente)
+-   Cosmos DB (la clave de partición se debe establecer explícitamente)
+-   Event Hubs (la clave de partición se debe establecer explícitamente)
 -   IoT Hub (la clave de partición se debe establecer explícitamente)
 -   Azure Service Bus
+- SQL y SQL Data Warehouse con partición opcional: obtenga más información en la página [Salida de Azure Stream Analytics a Azure SQL Database](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf).
 
-Las salidas de PowerBI, SQL y SQL Data Warehouse no admiten la creación de particiones. Sin embargo, de todos modos puede crear particiones de la entrada, tal como se describe en [está sección](#multi-step-query-with-different-partition-by-values) 
+Power BI no admite la creación de particiones. Sin embargo, de todos modos puede crear particiones de la entrada, tal como se describe en [está sección](#multi-step-query-with-different-partition-by-values) 
 
 Para más información sobre las particiones, vea los siguientes artículos:
 
@@ -75,8 +76,8 @@ En las siguientes secciones se describen algunos escenarios de ejemplo que son e
 
 ### <a name="simple-query"></a>Consulta sencilla
 
-* Entrada: Event Hubs con ocho particiones
-* Salida: Event Hubs con ocho particiones
+* Entrada: Event Hubs con 8 particiones
+* Salida: Event Hubs con 8 particiones
 
 Consulta:
 
@@ -90,7 +91,7 @@ Esta consulta es un filtro sencillo. Por consiguiente, no hay que preocuparse po
 
 ### <a name="query-with-a-grouping-key"></a>Consulta con una clave de agrupación
 
-* Entrada: Event Hubs con ocho particiones
+* Entrada: Event Hubs con 8 particiones
 * Salida: Almacenamiento de blobs
 
 Consulta:
@@ -115,9 +116,9 @@ En este caso, no importa cuál es la consulta. Si el recuento de particiones de 
 
 ### <a name="query-using-non-partitioned-output"></a>Consulta con salida sin particiones
 * Entrada: Event Hubs con 8 particiones
-* Salida: PowerBI
+* Salida: Power BI
 
-La salida de PowerBI no admite en este momento la creación de particiones. Por consiguiente, este escenario no es embarazosamente paralelo.
+La salida de Power BI no admite en este momento la creación de particiones. Por consiguiente, este escenario no es embarazosamente paralelo.
 
 ### <a name="multi-step-query-with-different-partition-by-values"></a>Consulta de varios pasos con diferentes valores de PARTITION BY
 * Entrada: Event Hubs con 8 particiones

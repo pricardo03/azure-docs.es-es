@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: ed18be8b875ba7cf4c465123297d8f390ac4ae7c
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: b94136f063f9d4793ce4c8a03c17454df920af26
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54005163"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117561"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Uso de PowerShell para configurar alertas en Application Insights
-Puede automatizar la configuración de [alertas](../../azure-monitor/app/alerts.md) en [Application Insights](../../application-insights/app-insights-overview.md).
+Puede automatizar la configuración de [alertas](../../azure-monitor/app/alerts.md) en [Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 Además, puede [establecer webhooks para automatizar su respuesta ante una alerta](../../azure-monitor/platform/alerts-webhooks.md).
 

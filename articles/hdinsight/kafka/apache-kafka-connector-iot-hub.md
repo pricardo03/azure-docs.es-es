@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 143df8a8c82e84b193bdb48a3d41682fca19156b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ff96204d53d31940846d2ec74db57caf69d4329e
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315434"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608637"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Uso de Apache Kafka en HDInsight con Azure IoT Hub
 
@@ -48,7 +48,7 @@ Para más información sobre las API de Connect, consulte [https://kafka.apache.
 
 2. Para cargar el archivo .jar en el nodo perimetral del clúster de Kafka en HDInsight, use el comando siguiente:
 
-    > [!NOTE]
+    > [!NOTE]  
     > Reemplace `sshuser` por la cuenta de usuario de SSH del clúster de HDInsight. Reemplace `new-edgenode` por el nombre del nodo perimetral. Reemplace `clustername` por el nombre del clúster. Para más información sobre el punto de conexión de SSH del nodo perimetral, consulte el documento [Uso de nodos perimetrales con HDInsight](../hdinsight-apps-use-edge-node.md#access-an-edge-node).
 
     ```bash
@@ -69,10 +69,10 @@ Para más información sobre las API de Connect, consulte [https://kafka.apache.
     sudo mv kafka-connect-iothub-assembly*.jar /usr/hdp/current/kafka-broker/libs/
     ```
 
-> [!TIP]
+> [!TIP]  
 > Si experimenta problemas con el resto de los pasos descritos en este documento cuando se usa un archivo .jar precompilado, intente compilar el paquete desde el origen.
 >
-> Para compilar el conector, debe tener un entorno de desarrollo de Scala con la [herramienta de compilación de Scala](http://www.scala-sbt.org/).
+> Para compilar el conector, debe tener un entorno de desarrollo de Scala con la [herramienta de compilación de Scala](https://www.scala-sbt.org/).
 >
 > 1. Descargue el código fuente del conector desde [https://github.com/Azure/toketi-kafka-connect-iothub/](https://github.com/Azure/toketi-kafka-connect-iothub/) hasta el entorno de desarrollo.
 >
@@ -132,7 +132,7 @@ Desde una conexión SSH en el nodo perimetral, siga estos pasos para configurar 
         value.converter=org.apache.kafka.connect.storage.StringConverter
         ```
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > Este cambio permite probar mediante el productor de consola incluido con Kafka. Puede que necesite convertidores diferentes para otros productores y consumidores. Para información sobre el uso de otros valores de convertidor, consulte [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
 
     * Agregue una línea al final del archivo que contenga el texto siguiente:
@@ -141,7 +141,7 @@ Desde una conexión SSH en el nodo perimetral, siga estos pasos para configurar 
         consumer.max.poll.records=10
         ```
 
-        > [!TIP]
+        > [!TIP]  
         > Este cambio es para evitar tiempos de espera en el conector de receptor al limitarlo a 10 registros a la vez. Para más información, consulte [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
 
 6. Para guardar el archivo, presione __Ctr+X__, luego, __Y__ y __Entrar__.
@@ -178,7 +178,7 @@ Para recuperar información de IoT Hub que usa el conector, siga estos pasos:
             * __Punto de conexión compatible con el centro de eventos__
             * __Particiones__
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > El valor del punto de conexión del portal puede contener texto adicional que no es necesario en este ejemplo. Extraiga el texto que coincida con este patrón `sb://<randomnamespace>.servicebus.windows.net/`.
 
     * __En la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__, use el comando siguiente:
@@ -239,14 +239,14 @@ Para configurar el origen para que funcione con su instancia de IoT Hub, realice
 
     En el editor, busque y cambie las siguientes entradas:
 
-    * `Kafka.Topic=PLACEHOLDER`: reemplace `PLACEHOLDER` por `iotin`. Los mensajes recibidos del centro de IoT se colocan en el tema `iotin`.
+    * `Kafka.Topic=PLACEHOLDER`: Reemplace `PLACEHOLDER` por `iotin`. Los mensajes recibidos del centro de IoT se colocan en el tema `iotin`.
     * `IotHub.EventHubCompatibleName=PLACEHOLDER`: reemplace `PLACEHOLDER` por el nombre compatible con el centro de eventos.
     * `IotHub.EventHubCompatibleEndpoint=PLACEHOLDER`: reemplace `PLACEHOLDER` por el punto de conexión compatible con el centro de eventos.
     * `IotHub.Partitions=PLACEHOLDER`: reemplace `PLACEHOLDER` por el número de particiones de los pasos anteriores.
-    * `IotHub.AccessKeyName=PLACEHOLDER`: reemplace `PLACEHOLDER` por `service`.
+    * `IotHub.AccessKeyName=PLACEHOLDER`: Reemplace `PLACEHOLDER` por `service`.
     * `IotHub.AccessKeyValue=PLACEHOLDER`: reemplace `PLACEHOLDER` por la clave principal de la directiva `service`.
     * `IotHub.StartType=PLACEHOLDER`: reemplace `PLACEHOLDER` por una fecha UTC. Esta fecha corresponde a cuando el conector comienza a buscar mensajes. El formato de fecha es `yyyy-mm-ddThh:mm:ssZ`.
-    * `BatchSize=100`: reemplace `100` por `5`. Este cambio hace que el conector lea los mensajes en Kafka una vez que hay cinco nuevos mensajes en el centro de IoT.
+    * `BatchSize=100`: Reemplace `100` por `5`. Este cambio hace que el conector lea los mensajes en Kafka una vez que hay cinco nuevos mensajes en el centro de IoT.
 
     Para ver una configuración de ejemplo, consulte [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md).
 
@@ -272,7 +272,7 @@ Para configurar la conexión de receptor para que funcione con su instancia de I
 
     En el editor, busque y cambie las siguientes entradas:
 
-    * `topics=PLACEHOLDER`: reemplace `PLACEHOLDER` por `iotout`. Los mensajes enviados a `iotout` se reenvían al centro de IoT.
+    * `topics=PLACEHOLDER`: Reemplace `PLACEHOLDER` por `iotout`. Los mensajes enviados a `iotout` se reenvían al centro de IoT.
     * `IotHub.ConnectionString=PLACEHOLDER`: reemplace `PLACEHOLDER` por la cadena de conexión de la directiva `service`.
 
     Para ver una configuración de ejemplo, consulte [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
@@ -298,7 +298,7 @@ nnect.IotHubSourceTask:39)
 org.apache.kafka.connect.runtime.WorkerSourceTask:356)
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Es posible que vea varias advertencias cuando se inicia el conector. Estas advertencias no ocasionan problemas con la recepción de mensajes desde el centro de IoT.
 
 Para detener el conector, use __Ctrl+C__.
@@ -320,7 +320,7 @@ IotHubSinkTask:47)
 t.runtime.WorkerSinkTask:262)
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Al iniciar el conector, puede que observe varias advertencias. Puede omitir estos errores con seguridad.
 
 Para enviar mensajes mediante el conector, siga estos pasos:
@@ -332,7 +332,7 @@ Para enviar mensajes mediante el conector, siga estos pasos:
     ```
 2. Para enviar mensajes al tema `iotout`, use el comando siguiente:
 
-    > [!WARNING]
+    > [!WARNING]  
     > Puesto que se trata de una nueva conexión SSH, la variable `$KAFKABROKERS` no contiene ninguna información. Para establecerla, use uno de los siguientes métodos:
     >
     > * Siga los tres primeros pasos de la sección [Configuración de Apache Kafka](#configure-apache-kafka).
@@ -346,7 +346,7 @@ Para enviar mensajes mediante el conector, siga estos pasos:
 
 3. Para enviar un mensaje a su dispositivo, pegue un documento JSON en la sesión SSH para `kafka-console-producer`.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Debe establecer el valor de la entrada `"deviceId"` en el identificador del dispositivo. En el ejemplo siguiente, el dispositivo se denomina `fakepi`:
 
     ```text

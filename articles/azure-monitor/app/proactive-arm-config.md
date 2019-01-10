@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: fe675a39abfd1ddc70ecdb21496b7197962ca368
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: b1f4d278079b81b4a224dc4712426d1f078de110
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54005179"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020411"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Administración de reglas de detección inteligente de Application Insights con plantillas de Azure Resource Manager
 
@@ -159,6 +159,6 @@ Seguidamente se muestra una tabla de nombres de reglas de detección inteligente
 
 Más información sobre la detección automática:
 
-- [Anomalías de error](../../application-insights/app-insights-proactive-failure-diagnostics.md)
-- [Fugas de memoria](../../application-insights/app-insights-proactive-potential-memory-leak.md)
-- [Anomalías de rendimiento](../../application-insights/app-insights-proactive-performance-diagnostics.md)
+- [Anomalías de error](../../azure-monitor/app/proactive-failure-diagnostics.md)
+- [Fugas de memoria](../../azure-monitor/app/proactive-potential-memory-leak.md)
+- [Anomalías de rendimiento](../../azure-monitor/app/proactive-performance-diagnostics.md)

@@ -8,18 +8,18 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 50e6b714bc28ce383f06580d0e35b0b0e4066835
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: be918ecef3a9fb346d9aa441bef9b4c3991009d6
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432230"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606476"
 ---
 # <a name="app-service-documentation"></a>Documentación de App Service
 Azure App Service le permite crear y hospedar aplicaciones web en el lenguaje de programación de su elección sin tener que administrar la infraestructura, el lenguaje o el entorno de ejecución del marco web. Ofrece escalado automático y alta disponibilidad, es compatible con Windows y Linux, y permite implementaciones automatizadas desde GitHub, Azure DevOps Services o cualquier repositorio Git. Aprenda a usar Azure App Service con nuestras guías de inicio rápido, tutoriales y ejemplos.
 
 ## <a name="windows-linux-and-docker"></a>Windows, Linux y Docker
-[Web Apps](/app-service/app-service-web-overview) es la oferta principal de App Service para la creación y el hospedaje de aplicaciones web mediante entornos de Windows. Los programadores que prefieran un entorno de Linux pueden elegir [App Service para Linux](/app-service/containers/app-service-linux-intro). Los desarrolladores también pueden implementar imágenes de Docker directamente en App Service para Linux para implementar entornos de tiempo de ejecución o marcos personalizados.
+[Web Apps](/app-service/overview) es la oferta principal de App Service para la creación y el hospedaje de aplicaciones web mediante entornos de Windows. Los programadores que prefieran un entorno de Linux pueden elegir [App Service para Linux](/app-service/containers/app-service-linux-intro). Los desarrolladores también pueden implementar imágenes de Docker directamente en App Service para Linux para implementar entornos de tiempo de ejecución o marcos personalizados.
 
 ## <a name="5-minute-quickstarts"></a>Inicios rápidos en 5 minutos
 
@@ -54,7 +54,7 @@ Aprenda a implementar, administrar y supervisar aplicaciones web seguras en Azur
 Busque scripts para administrar las tareas más habituales.
 
 - [CLI de Azure](/azure/app-service/app-service-cli-sample)
-- [Azure PowerShell](/azure/app-service/app-service-powershell-samples)
+- [Azure PowerShell](/azure/app-service/samples-powershell)
 
 ## <a name="more"></a>Más
 

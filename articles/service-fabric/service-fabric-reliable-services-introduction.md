@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: masnider
-ms.openlocfilehash: 474cc78a4ceb872742ca7eb10837eeb89dcc1bdb
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 37f956606075cb21075d6f50bb53e04075936997
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213187"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999040"
 ---
 # <a name="reliable-services-overview"></a>Información general sobre Reliable Services
 Azure Service Fabric simplifica la escritura y administración de los servicios de Reliable Services con y sin estado. En este tema se explica:
@@ -82,7 +82,7 @@ Cuando se realiza una llamada desde un cliente, se invoca el método adecuado y 
 
 El hecho de no almacenar ningún estado interno hace que esta calculadora de ejemplo sea sencilla. Pero la mayoría de los servicios no son realmente sin estado. En su lugar, externalizan su estado a algún otro almacén. (Por ejemplo, cualquier aplicación web que se base en mantener el estado de sesión en un almacén de respaldo o una memoria caché no es sin estado).
 
-Un ejemplo común de cómo se utilizan los servicios sin estado en Service Fabric es un extremo que expone la API pública para una aplicación web. El servicio front-end se comunica entonces con los servicios con estado para completar una solicitud de usuario. En este caso, las llamadas de los clientes se dirigen a un puerto conocido, como el 80, en el que se escucha el servicio sin estado. Este servicio sin estado recibe la llamada y determina si esta procede de una entidad de confianza, así como a qué servicio va destinada.  Luego, el servicio sin estado reenvía la llamada a la partición correcta del servicio con estado y espera una respuesta. Cuando el servicio sin estado recibe una respuesta, responde al cliente original. Hay un ejemplo de un servicio como este en nuestras muestras de [C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) / [Java](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/Actors/VisualObjectActor/VisualObjectWebService). Esto es solo un ejemplo de este patrón en las muestras; hay otros en otras muestras también.
+Un ejemplo común de cómo se utilizan los servicios sin estado en Service Fabric es un extremo que expone la API pública para una aplicación web. El servicio front-end se comunica entonces con los servicios con estado para completar una solicitud de usuario. En este caso, las llamadas de los clientes se dirigen a un puerto conocido, como el 80, en el que se escucha el servicio sin estado. Este servicio sin estado recibe la llamada y determina si esta procede de una entidad de confianza, así como a qué servicio va destinada.  Luego, el servicio sin estado reenvía la llamada a la partición correcta del servicio con estado y espera una respuesta. Cuando el servicio sin estado recibe una respuesta, responde al cliente original. Hay un ejemplo de un servicio como este en nuestras muestras de [C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) / [Java](https://github.com/Azure-Samples/service-fabric-java-getting-started). Esto es solo un ejemplo de este patrón en las muestras; hay otros en otras muestras también.
 
 ### <a name="stateful-reliable-services"></a>Servicios fiables con estado
 Un servicio con estado es el que debe tener alguna parte del estado coherente y presente para que el servicio funcione. Considere un servicio que calcula constantemente una media acumulada de algún valor basándose en las actualizaciones que recibe. Para ello, debe disponer del conjunto actual de solicitudes entrantes que necesite procesar y del promedio actual. Cualquier servicio que recupera, procesa y almacena la información en un almacén externo (por ejemplo, en la actualidad un almacén de tablas o blobs de Azure) es con estado. Simplemente mantiene su estado en el almacén de estado externo.

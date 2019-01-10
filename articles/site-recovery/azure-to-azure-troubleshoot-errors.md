@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: 84462b98e1006cadf34adecf948efd39ad4f69d6
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: e120c10468ca95b604ef8f857959607d3a066ea0
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313979"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973560"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Solución de problemas de replicación de máquinas virtuales de Azure a Azure
 
@@ -278,6 +278,14 @@ Para habilitar la replicación en la máquina virtual, el estado de aprovisionam
 
 Puede abrir la consola de los servicios y asegurarse de que la aplicación del sistema COM+ y el servicio de instantáneas de volumen no se encuentran en "Desactivado" en "Tipo de inicio".
   ![com-error](./media/azure-to-azure-troubleshoot-errors/com-error.png)
+
+## <a name="unsupported-managed-disk-size-error-code-150172"></a>Tamaño del disco administrado no compatible (código de error 150172)
+
+
+**Código de error** | **Causas posibles:** | **Recomendaciones**
+--- | --- | ---
+150172<br></br>**Mensaje**: Protection couldn't be enabled for the virtual machine as it has (DiskName) with size (DiskSize) that is lesser than the minimum supported size 10 GB. (No se pudo habilitar la protección para la máquina virtual, ya que tiene un disco (DiskName) con un tamaño (DiskSize), que es menor que el tamaño mínimo admitido de 10 GB.) | -El tamaño del disco es menor que el tamaño admitido de 1024 MB| Asegúrese de que los tamaños de disco están dentro del intervalo de tamaño admitido y reintente la operación. 
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Replicación de máquinas virtuales de Azure](site-recovery-replicate-azure-to-azure.md)

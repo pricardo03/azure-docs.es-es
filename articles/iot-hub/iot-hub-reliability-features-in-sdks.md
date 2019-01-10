@@ -12,12 +12,12 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8951680ca9488dabffd02ee084e3f6827122276e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a51efa18672b81ef3e23e292abbe2b34c1936205
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957459"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994749"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Administrar la conectividad y la mensajería confiable mediante los SDK de dispositivo de Azure IoT Hub
 
@@ -62,13 +62,13 @@ Los pasos siguientes describen el proceso de reintento cuando se detectan errore
 1. El SDK detecta el error y el error asociado en la red, el protocolo o la aplicación.
 1. El SDK usa el filtro de error para determinar el tipo de error y decidir si es necesario un reintento.
 1. Si el SDK identifica un **error irrecuperable**, operaciones como la conexión, el envío y la recepción se detienen. El SDK notifica al usuario. Un error de autenticación y un error de punto de conexión incorrecta son ejemplos de errores irrecuperables.
-1. Si el SDK identifica un **error recuperable**, vuelve a intentar el proceso según la directiva de reintentos especificada hasta que transcurra el tiempo de espera definido.
+1. Si el SDK identifica un **error recuperable**, vuelve a intentar el proceso según la directiva de reintentos especificada hasta que transcurra el tiempo de espera definido.  Tenga en cuenta que el SDK usa de manera predeterminada la directiva de reintentos **Retroceso exponencial con vibración**.
 1. Cuando el tiempo de espera definido expira, el SDK deja de tratar de conectarse o de enviar el contenido. Notifica al usuario.
 1. El SDK permite que el usuario adjunte una devolución de llamada para recibir los cambios de estado de la conexión.
 
 Los SDK proporcionan tres directivas de reintentos:
 
-- **Retroceso exponencial con vibración**: esta directiva de reintentos predeterminada tiende a ser agresiva al principio y se ralentiza poco a poco hasta que se alcanza un retraso máximo. El diseño se basa en la [guía de reintentos de Azure Architecture Center](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific).
+- **Retroceso exponencial con vibración**: esta directiva de reintentos predeterminada tiende a ser agresiva al principio y se ralentiza poco a poco hasta que se alcanza un retraso máximo. El diseño se basa en la [guía de reintentos de Azure Architecture Center](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific). 
 - **Reintento personalizado**: para algunos idiomas del SDK, puede diseñar una directiva de reintentos personalizada que sea más adecuada para su escenario y luego agregarla en RetryPolicy. La opción de reintento personalizado no está disponible en el SDK de C.
 - **Sin reintentos**: puede establecer la directiva de reintentos en "sin reintentos" para deshabilitar la lógica de reintentos. El SDK intenta conectarse una vez y envía un mensaje una vez, suponiendo que se establece la conexión. Esta directiva se usa normalmente en escenarios con problemas de ancho de banda o de costos. Si elige esta opción, tenga en cuenta que los mensajes que no se envíen se perderán y no se podrán recuperar.
 

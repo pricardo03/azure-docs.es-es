@@ -3,7 +3,7 @@ title: Incorporación de usuarios a los AD FS de Azure Stack | Microsoft Docs
 description: Aprenda a agregar usuarios a las implementaciones de Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: patricka
+author: PatAltimore
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: patricka
 ms.reviewer: unknown
-ms.openlocfilehash: f8abacbcb05d1346931b5c2e1097660cfbd8e594
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: ee571ec14a93653b524401d1d304021178ecd794
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344173"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120819"
 ---
 # <a name="add-azure-stack-users-in-ad-fs"></a>Incorporación de usuarios de Azure Stack a AD FS
 Puede usar el complemento **Active Directory Users and Computers** (Usuarios y equipos de Active Directory) para incorporar usuarios adicionales a un entorno de Azure Stack, aprovechando a AD FS como proveedor de identidades.

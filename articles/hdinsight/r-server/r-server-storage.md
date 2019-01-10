@@ -9,33 +9,33 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 578479d43279dc1edb9edd24fd57d6841784166a
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4aae44745981951fa61836fe52d8d6b799c6cadf
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498146"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001522"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Soluciones de Azure Storage para ML Services en HDInsight
 
 ML Service en HDInsight puede usar diversas soluciones para almacenar datos, código u objetos que contienen resultados de análisis. Entre ellas se incluyen las siguientes opciones:
 
 - [Azure Blob](https://azure.microsoft.com/services/storage/blobs/)
-- [Almacén de Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/)
+- [Almacén de Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage/)
 - [Azure File Storage](https://azure.microsoft.com/services/storage/files/)
 
 También tiene la opción de acceder a varias cuentas o contenedores de Azure Storage con el clúster de HDInsight. Azure File Storage constituye una práctica opción de almacenamiento de datos para usar en el nodo perimetral que le permite montar un recurso compartido de archivos de Azure Storage en, por ejemplo, el sistema de archivos Linux. Pero los recursos compartidos de Azure File se pueden montar y utilizar en cualquier sistema que tenga un sistema operativo compatible, como Windows o Linux. 
 
-Cuando se crea un clúster de Apache Hadoop en HDInsight, se especifica una cuenta de **Azure Storage** o una de **Data Lake Store**. Un contenedor de almacenamiento específico de esa cuenta conserva el sistema de archivos para el clúster creado (por ejemplo, el Sistema de archivos distribuido de Hadoop). Para más información e instrucciones, consulte:
+Cuando se crea un clúster de Apache Hadoop en HDInsight, se especifica una cuenta de **Azure Storage** o de **Data Lake Storage**. Un contenedor de almacenamiento específico de esa cuenta conserva el sistema de archivos para el clúster creado (por ejemplo, el Sistema de archivos distribuido de Hadoop). Para más información e instrucciones, consulte:
 
 - [Uso de Azure Storage con HDInsight](../hdinsight-hadoop-use-blob-storage.md)
-- [Uso de Data Lake Store con clústeres de Azure HDInsight](../hdinsight-hadoop-use-data-lake-store.md)
+- [Uso de Data Lake Storage con clústeres de Azure HDInsight](../hdinsight-hadoop-use-data-lake-store.md)
 
 ## <a name="use-azure-blob-storage-accounts-with-ml-services-cluster"></a>Uso de cuentas de Azure Blob Storage con un clúster de ML Services
 
 Si especificó más de una cuenta de almacenamiento al crear el clúster de ML Services, las instrucciones siguientes explican cómo usar una cuenta secundaria para las operaciones y el acceso a datos en el clúster de ML Services. Supongamos las cuentas de almacenamiento y el contenedor siguientes: **storage1** y un contenedor predeterminado denominado **container1**, y  **storage2** con **container2**.
 
-> [!WARNING]
+> [!WARNING]  
 > Con vistas al rendimiento, el clúster de HDInsight se crea en el mismo centro de datos que la cuenta de almacenamiento principal especificada. No se admite el uso de una cuenta de almacenamiento en una ubicación diferente a la del clúster de HDInsight.
 
 ### <a name="use-the-default-storage-with-ml-services-on-hdinsight"></a>Uso del almacenamiento predeterminado con ML Services en HDInsight
@@ -102,29 +102,29 @@ Debe configurar el directorio /user/RevoShare/<SSH username> en **storage2** de 
     hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare
     hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
 
-## <a name="use-an-azure-data-lake-store-with-ml-services-cluster"></a>Uso de una instancia de Azure Data Lake Store con el clúster de ML Services 
+## <a name="use-azure-data-lake-storage-with-ml-services-cluster"></a>Uso de una instancia de Azure Data Lake Storage con el clúster de ML Services 
 
-Para utilizar Data Lake Store con el clúster de HDInsight, tiene que dar al clúster acceso a cada Azure Data Lake Store que quiera usar. Para obtener instrucciones sobre cómo usar Azure Portal para crear un clúster de HDInsight con una cuenta de Azure Data Lake Store como almacenamiento predeterminado o como almacén adicional, consulte [Creación de un clúster de HDInsight con Data Lake Store mediante Azure Portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Para utilizar Data Lake Storage con el clúster de HDInsight, tiene que dar al clúster acceso a cada instancia de Azure Data Lake Storage que quiera usar. Para obtener instrucciones sobre cómo usar Azure Portal para crear un clúster de HDInsight con una cuenta de Azure Data Lake Storage como almacenamiento predeterminado o adicional, consulte [Creación de un clúster de HDInsight con Data Lake Storage mediante Azure Portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
-El uso del almacén en el script de R es muy similar al uso de una cuenta de almacenamiento secundaria de Azure (tal como se describe en el procedimiento anterior).
+El uso del almacenamiento en el script de R es muy similar al uso de una cuenta de almacenamiento secundaria de Azure (tal como se describe en el procedimiento anterior).
 
-### <a name="add-cluster-access-to-your-azure-data-lake-stores"></a>Incorporación de acceso de clúster a instancias de Azure Data Lake Store
-El acceso a un almacén de Azure Data Lake se establece mediante el uso de una entidad de servicio de Azure Active Directory (AAD) asociada a su clúster de HDInsight.
+### <a name="add-cluster-access-to-your-azure-data-lake-storage"></a>Incorporación de acceso de clúster a instancias de Azure Data Lake Storage
+El acceso a una instancia de Data Lake Storage mediante el uso de una entidad de servicio de Azure Active Directory (AAD) asociada a su clúster de HDInsight.
 
 1. Al crear el clúster de HDInsight, seleccione **Identidad de AAD del clúster** en la pestaña **Origen de datos**.
 
 2. En el cuadro de diálogo **Identidad de AAD del clúster**, en **Seleccionar entidad de servicio de AD**, elija **Crear nuevo**.
 
-Después de asignar un nombre a la entidad de servicio y crear una contraseña para ella, haga clic en **Administrar acceso a ADLS** para asociar la entidad de servicio a Data Lake Store.
+Después de asignar un nombre a la entidad de servicio y crear una contraseña para ella, haga clic en **Administrar acceso a ADLS** para asociar la entidad de servicio a Data Lake Storage.
 
-También es posible agregar acceso al clúster a una o varias cuentas de Data Lake Store después de la creación del clúster. Abra la entrada de Azure Portal para una instancia de Data Lake Store y vaya a **Explorador de datos > Acceso > Agregar**. 
+También es posible agregar acceso al clúster a una o varias cuentas de Data Lake Storage después de la creación del clúster. Abra la entrada de Azure Portal para una instancia de Data Lake Storage y vaya a **Explorador de datos > Acceso > Agregar**. 
 
-### <a name="how-to-access-the-data-lake-store-from-ml-services-on-hdinsight"></a>Acceso a la instancia de Data Lake Store desde ML Services en HDInsight
+### <a name="how-to-access-data-lake-storage-from-ml-services-on-hdinsight"></a>Acceso a la instancia de Data Lake Storage desde ML Services en HDInsight
 
-Una vez que tenga acceso a una instancia de Data Lake Store, puede usar el almacén en el clúster de ML Services en HDInsight de la manera en que lo haría con una cuenta de almacenamiento de Azure secundaria. La única diferencia es que el prefijo **wasb://** cambia a **adl://**, de la forma siguiente:
+Una vez que tenga acceso a una instancia de Data Lake Storage, puede usar el almacenamiento en el clúster de ML Services en HDInsight de la manera en que lo haría con una cuenta de almacenamiento de Azure secundaria. La única diferencia es que el prefijo **wasb://** cambia a **adl://**, de la forma siguiente:
 
 
-    # Point to the ADL store (e.g. ADLtest)
+    # Point to the ADL Storage (e.g. ADLtest)
     myNameNode <- "adl://rkadl1.azuredatalakestore.net"
     myPort <- 0
 
@@ -143,7 +143,7 @@ Una vez que tenga acceso a una instancia de Data Lake Store, puede usar el almac
     # Specify the input file in HDFS to analyze
     inputFile <-file.path(bigDataDirRoot,"mysamplefile.csv")
 
-Los siguientes comandos se usan para configurar la cuenta de Data Lake Store con el directorio RevoShare y agregar el archivo .csv de muestra del ejemplo anterior:
+Los siguientes comandos se usan para configurar la cuenta de Data Lake Storage con el directorio RevoShare y agregar el archivo .csv de ejemplo del ejemplo anterior:
 
 
     hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/user

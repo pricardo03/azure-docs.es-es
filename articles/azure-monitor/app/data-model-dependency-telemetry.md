@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 04/17/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 4db0deac72adc5e51294cf7e4c6da334259a5531
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 3e3d6b8fdc9ac8dd28f73fecd6231e97a5645407
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000442"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120094"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Telemetría de dependencia: Modelo de datos de Application Insights
 
-La telemetría de dependencias (en [Application Insights](../../application-insights/app-insights-overview.md)) representa una interacción del componente supervisado con un componente remoto como SQL o un punto de conexión HTTP.
+La telemetría de dependencias (en [Application Insights](../../azure-monitor/app/app-insights-overview.md)) representa una interacción del componente supervisado con un componente remoto como SQL o un punto de conexión HTTP.
 
 ## <a name="name"></a>NOMBRE
 

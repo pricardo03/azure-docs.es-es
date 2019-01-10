@@ -14,28 +14,14 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 2e65c5f0d6c2d493abcd61bea4077cbdd8ff95fa
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 135ee9f6b833165cd393b9c5ca582e0ee9499e0f
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52331473"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54057419"
 ---
 ## <a name="register-your-application"></a>Registrar su aplicación
-
-Hay varias maneras de registrar una aplicación. Seleccione la opción que mejor se adapte a sus necesidades:
-* [Modo rápido: use la guía de inicio rápido de aplicación de página única para configurar la aplicación](#option-1-register-your-application-express-mode)
-* [Modo avanzado: configure manualmente las opciones de la aplicación](#option-2-register-your-application-advanced-mode)
-
-### <a name="option-1-register-your-application-express-mode"></a>Opción 1: Registro de la aplicación (modo Rápido)
-
-1. Inicie sesión en el [Registro de aplicaciones de Azure Portal (versión preliminar)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) para registrar una aplicación.
-1. En la página **Registrar una aplicación**, escriba el nombre de su aplicación.
-1. En **Supported account types** (Tipos de cuenta compatibles), seleccione **Accounts in any organizational directory and personal Microsoft accounts** (Cuentas en cualquier directorio de organización y cuentas personales de Microsoft).
-1. Cuando termine, seleccione **Registrar**.
-1. Siga las instrucciones de inicio rápido para descargar y configurar automáticamente su nueva aplicación en un solo clic.
-
-### <a name="option-2-register-your-application-advanced-mode"></a>Opción 2: Registro de la aplicación (modo Avanzado)
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) para registrar una aplicación.
 1. Si la cuenta proporciona acceso a más de un inquilino, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.

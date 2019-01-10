@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: ec2c7a25c5108ee3c6f861defd8403ff40113075
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 4227db0f2767f559bb51afab6cb75f3ac34707c4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722224"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117595"
 ---
 # <a name="compare-flow-logic-apps-functions-and-webjobs"></a>Comparativa de Flow, Logic Apps, Functions y WebJobs
 
@@ -53,7 +53,7 @@ La tabla siguiente le ayuda a determinar qué es lo mejor para una integración 
 
 Functions y Logic Apps son servicios de Azure que posibilitan las cargas de trabajo sin servidor. Azure Functions es un servicio de proceso sin servidor, mientras que Azure Logic Apps proporciona flujos de trabajo sin servidor. Con ambos se pueden crear *orquestaciones* complejas. Una orquestación es una colección de funciones o pasos, llamados *acciones* en Logic Apps, que se ejecutan para realizar una tarea compleja. Por ejemplo, para procesar un lote de pedidos podría ejecutar varias instancias de una función en paralelo, esperar a que todas las instancias terminen y, a continuación, ejecutar una función que calcula un resultado sobre el agregado.
 
-En Azure Functions, las orquestaciones se desarrollan mediante la escritura de código y el uso de la [extensión Durable Functions](durable/durable-functions-overview.md). En Logic Apps, las orquestaciones se crean mediante una GUI o editando archivos de configuración.
+En Azure Functions, las orquestaciones se desarrollan mediante la escritura de código y el uso de la [extensión Durable Functions](durable/durable-functions-concepts.md). En Logic Apps, las orquestaciones se crean mediante una GUI o editando archivos de configuración.
 
 Puede mezclar y combinar servicios cuando crea una orquestación, puede llamar a las funciones desde las aplicaciones lógicas y llamar a las aplicaciones lógicas desde las funciones. Elija cómo crear cada orquestación según las funcionalidades de los servicios o sus preferencias personales. En la tabla siguiente se enumeran algunas de las diferencias principales entre estos servicios:
  
@@ -62,7 +62,7 @@ Puede mezclar y combinar servicios cuando crea una orquestación, puede llamar a
 | Desarrollo | Orientado a código (imperativo) | Orientado al diseñador (declarativo) |
 | Conectividad | [Con una docena de tipos de enlaces integrados](functions-triggers-bindings.md#supported-bindings), puede escribir código para los enlaces personalizados | [Gran colección de conectores](../connectors/apis-list.md), [Enterprise Integration Pack para escenarios B2B](../logic-apps/logic-apps-enterprise-integration-overview.md), [creación de conectores personalizados](../logic-apps/custom-connector-overview.md) |
 | Acciones | Cada actividad es una función de Azure; puede escribir código para las funciones de actividad |[Gran colección de acciones listas para usar](../logic-apps/logic-apps-workflow-actions-triggers.md)|
-| Supervisión | [Azure Application Insights](../application-insights/app-insights-overview.md) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
+| Supervisión | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
 | Administración | [API REST](durable/durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [API REST](https://docs.microsoft.com/rest/api/logic/), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/?view=azurermps-5.6.0), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
 | Contexto de ejecución | Se puede ejecutar [localmente](functions-runtime-overview.md) o en la nube. | Solo se ejecuta en la nube.|
 

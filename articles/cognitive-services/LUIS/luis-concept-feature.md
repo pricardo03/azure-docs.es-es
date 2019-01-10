@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 62827054a14930cd49f7d80d6c305e60060c0fe6
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 2d6f7e2fd332e1687db1564befeb6f531045c5dd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271392"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993079"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Características de lista de frases en la aplicación de LUIS
 
@@ -29,6 +29,10 @@ Una lista de frases incluye un grupo de valores (palabras o frases) que pertenec
 
 Una lista de frases se agrega al vocabulario del dominio de aplicación como una segunda señal para LUIS sobre esas palabras.
 
+## <a name="phrase-lists-help-all-models"></a>Listas de frases que ayudan a todos los modelos
+
+Las listas de frases no están vinculadas a una entidad ni a una intención específicas, pero se agregan como un impulso a todos los modelos. Su objetivo es mejorar la detección de intenciones y la clasificación de entidades.
+
 ## <a name="how-to-use-phrase-lists"></a>Cómo usar las listas de frases
 En el [tutorial sobre entidades simples](luis-quickstart-primary-and-secondary-data.md) de la aplicación de recursos humanos, la aplicación usa una lista de frases **Job** de tipos de trabajos como programador, reparador de tejados y secretaria. Si etiqueta uno de estos valores como una entidad de aprendizaje automático, LUIS aprende a reconocer el resto. 
 
@@ -40,6 +44,7 @@ Una lista de frases puede ser intercambiable o no intercambiable. Una lista de f
 |No intercambiables|Vocabulario de aplicación, específico de la aplicación, más que de generalmente otras palabras en ese idioma.|
 
 Las listas de frases no solo ayudan con la detección de entidades sino también con la clasificación de intención, donde los elementos no intercambiables tienen sentido, como la incorporación de palabras de vocabulario que no se conocen en el idioma inglés.
+
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 

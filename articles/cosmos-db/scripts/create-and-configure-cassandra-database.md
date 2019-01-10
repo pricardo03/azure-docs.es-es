@@ -1,21 +1,20 @@
 ---
 title: 'Script de Azure PowerShell: creación de una cuenta de Cassandra API para Azure Cosmos DB'
 description: 'Ejemplo de script de Azure PowerShell: creación de una cuenta de Cassandra API para Azure Cosmos DB'
-services: cosmos-db
-author: SnehaGunda
-ms.author: sngun
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
-ms.custom: mvc
+ms.subservice: cosmosdb-graph
 ms.devlang: PowerShell
 ms.topic: sample
 ms.date: 08/08/2018
-ms.openlocfilehash: d4b834293116d96e312d862970132b0f55187102
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: sngun
+ms.openlocfilehash: 13305224ec0f1c0c6126a86af366474ebf1db9c3
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960301"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040819"
 ---
 # <a name="azure-cosmos-db-create-a-cassandra-api-account-using-powershell"></a>Azure Cosmos DB: creación de una cuenta de Cassandra API mediante PowerShell
 

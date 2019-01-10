@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 022ffeaf75f8f03447b931ed9c3a474286a17f89
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 841c65fd8420fdfe681cb99ee7054cb4edd5fcd3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067812"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969002"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Creación dinámica y uso de un volumen persistente con Azure Files en Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Para más información sobre volúmenes persistentes de Kubernetes, vea el artí
 
 En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, vea la guía de inicio rápido AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
 
-También es preciso que esté instalada y configurada la versión 2.0.46 de la CLI de Azure u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][install-azure-cli].
+También es preciso que esté instalada y configurada la versión 2.0.46 de la CLI de Azure u otra posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
@@ -184,7 +184,7 @@ Cree el pod con el comando [kubectl apply][kubectl-apply].
 kubectl apply -f azure-pvc-files.yaml
 ```
 
-Ahora tiene un pod en ejecución con el disco de Azure montado en el directorio */mnt/azure*. Esta configuración puede verse al examinar el pod mediante `kubectl describe pod mypod`. La siguiente salida de ejemplo condensada muestra el volumen montado en el contenedor:
+Ahora tiene un pod en ejecución con el recurso compartido de Azure Files montado en el directorio */mnt/azure*. Esta configuración puede verse al examinar el pod mediante `kubectl describe pod mypod`. La siguiente salida de ejemplo condensada muestra el volumen montado en el contenedor:
 
 ```
 Containers:
