@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 12ef6447e53ba0da3fbd3d56749d7798c49a2cfe
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b368ef3b5503d90b0eb928113e8154aabca9c04a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993966"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157146"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Creación de una puerta de enlace de aplicaciones con un firewall de aplicaciones web mediante Azure Portal
 
@@ -119,7 +119,7 @@ En este ejemplo, se crean dos máquinas virtuales que se usarán como servidores
 ### <a name="add-backend-servers"></a>Incorporación de servidores back-end
 
 1. Haga clic en **Todos los recursos** y en **myAppGateway**.
-2. Haga clic en **Grupos de back-end**. Con la puerta de enlace de aplicaciones se crea un grupo predeterminado. Haga clic en **appGateayBackendPool**.
+2. Haga clic en **Grupos de back-end**. Con la puerta de enlace de aplicaciones se crea un grupo predeterminado. Haga clic en **appGatewayBackendPool**.
 3. Haga clic en **Agregar destino** para agregar las máquinas virtuales que creó en el grupo de servidores back-end.
 
     ![Incorporación de servidores back-end](./media/application-gateway-web-application-firewall-portal/application-gateway-backend.png)

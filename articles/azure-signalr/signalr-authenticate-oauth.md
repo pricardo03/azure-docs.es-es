@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: be44a233c2b09aa91ec04b5a64b523a2d0b00db1
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: bd872e7aa9ada8c46b0af897b4d7ad137b767514
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599866"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103798"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Tutorial: Autenticación de Azure SignalR Service
 
@@ -547,7 +547,7 @@ Para implementar el código, ejecute los comandos siguientes en un shell de Git.
 
 El último paso que debe realizar es actualizar la **dirección URL de la página principal** y la **dirección URL de devolución de llamada de autorización** de la aplicación de OAuth de GitHub para que apunte a la nueva aplicación hospedada.
 
-1. Abra [http://github.com](http://github.com) en un explorador y, en la cuenta, vaya a **Settings** (Configuración)  > **Developer settings** (Opciones del desarrollador)  > **Oauth Apps** (Aplicaciones de Oauth).
+1. Abra [https://github.com](https://github.com) en un explorador y, en la cuenta, vaya a **Settings** (Configuración)  > **Developer settings** (Opciones del desarrollador)  > **Oauth Apps** (Aplicaciones de Oauth).
 
 2. Haga clic en la aplicación de autenticación y actualice la **dirección URL de la página principal** y la **dirección URL de devolución de llamada de autorización** tal y como se muestra a continuación:
 

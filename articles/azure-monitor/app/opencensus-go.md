@@ -9,12 +9,12 @@ ms.date: 09/15/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8f0dc0db3f50d191b558f69252a4557410c30adc
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 935119f2efe40ee22d2d11005fa79b12c712b7c2
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54005170"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104580"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Recopilación de seguimientos distribuidos en Go (versión preliminar)
 
@@ -225,4 +225,4 @@ Solo hemos tratado los conceptos básicos de la integración de OpenCensus para 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Mapa de aplicación](./../../azure-monitor/app/app-map.md)
-* [Supervisión del rendimiento de un extremo a otro](./../../application-insights/app-insights-tutorial-performance.md)
+* [Supervisión del rendimiento de un extremo a otro](./../../azure-monitor/learn/tutorial-performance.md)

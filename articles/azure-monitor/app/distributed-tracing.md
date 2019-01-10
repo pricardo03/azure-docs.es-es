@@ -10,16 +10,16 @@ ms.date: 09/17/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e68e236c54083862bbe1524ec2f7fc3ee6c52ef2
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 7bc04748f2a5b8caa8f589140dd46f0650b7b390
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002219"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102982"
 ---
 # <a name="what-is-distributed-tracing"></a>¿Qué es el seguimiento distribuido?
 
-La llegada de las modernas arquitecturas de [microservicios](http://azure.com/microservices) y en la nube ha dado lugar a servicios simples que se pueden implementar de forma independiente y que pueden ayudar a reducir los costos al tiempo que aumentan la disponibilidad y el rendimiento. Pero aunque estos movimientos han hecho más fáciles de entender los servicios individuales como un todo, se han creado sistemas que en general son más difíciles de analizar y depurar.
+La llegada de las modernas arquitecturas de [microservicios](https://azure.com/microservices) y en la nube ha dado lugar a servicios simples que se pueden implementar de forma independiente y que pueden ayudar a reducir los costos al tiempo que aumentan la disponibilidad y el rendimiento. Pero aunque estos movimientos han hecho más fáciles de entender los servicios individuales como un todo, se han creado sistemas que en general son más difíciles de analizar y depurar.
 
 En las arquitecturas monolíticas, nos hemos acostumbrado a depurar con pilas de llamadas. Las pilas de llamadas son excelentes herramientas para mostrar el flujo de ejecución (el método A llama al método B y este al método C), junto con detalles y parámetros sobre cada una de esas llamadas. Esto es fantástico para estructuras monolíticas o servicios que se ejecutan en un único proceso, pero ¿cómo se depura cuando la llamada se produce fuera de los límites de un proceso y no es simplemente una referencia en la pila local? 
 
@@ -59,4 +59,4 @@ El sitio web de OpenCensus mantiene la documentación de referencia de la API pa
 
 * [Guía de uso de Python de OpenCensus](https://opencensus.io/api/python/trace/usage.html)
 * [Mapa de aplicación](./../../azure-monitor/app/app-map.md)
-* [Supervisión del rendimiento de un extremo a otro](./../../application-insights/app-insights-tutorial-performance.md)
+* [Supervisión del rendimiento de un extremo a otro](./../../azure-monitor/learn/tutorial-performance.md)

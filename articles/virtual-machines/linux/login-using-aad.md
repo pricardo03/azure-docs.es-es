@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: e75758c5a4171adc7af56581026a727db2ef4740
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: bc556991cc304aa8c5edc04dba1d333dc77ad230
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850982"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073414"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicio de sesión en una máquina virtual Linux en Azure mediante la autenticación de Azure Active Directory (versión preliminar)
 
@@ -150,7 +150,7 @@ Cierre la ventana del explorador, vuelva al símbolo del sistema SSH y presione 
 
 ## <a name="sudo-and-aad-login"></a>Inicio de sesión de sudo y AAD
 
-La primera vez que ejecute sudo, se le pedirá autenticarse una segunda vez. Si no quiere tener que volver a autenticarse para ejecutar sudo, puede editar el archivo de sudoers `/aad/etc/sudoers.d/aad_admins` y reemplazar esta línea:
+La primera vez que ejecute sudo, se le pedirá autenticarse una segunda vez. Si no quiere tener que volver a autenticarse para ejecutar sudo, puede editar el archivo de sudoers `/etc/sudoers.d/aad_admins` y reemplazar esta línea:
 
 ```bash
 %aad_admins ALL=(ALL) ALL

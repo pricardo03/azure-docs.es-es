@@ -1,20 +1,19 @@
 ---
 title: Operaciones de copia de tablas en Cassandra API de Azure Cosmos DB de Spark
 description: En este artículo se detalla cómo copiar datos entre tablas de Cassandra API de Azure Cosmos DB
-services: cosmos-db
-author: anagha-microsoft
+author: kanshiG
+ms.author: govindk
+ms.reviewer: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.devlang: spark-scala
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: ankhanol
-ms.openlocfilehash: 4be80bfa7354f4a4b6a13a7a34150c7052a2117b
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: c98582d5fe11b87d2ba88d5fb247a87cc905e1dc
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227136"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034169"
 ---
 # <a name="table-copy-operations-on-azure-cosmos-db-cassandra-api-from-spark"></a>Operaciones de copia de tablas en Cassandra API de Azure Cosmos DB de Spark
 
@@ -147,6 +146,6 @@ newBooksDF: org.apache.spark.sql.DataFrame = [book_id: string, book_author: stri
 
 ## <a name="next-steps"></a>Pasos siguientes
 
- * Introducción a la [creación de una cuenta de Cassandra API, una base de datos y una tabla](create-cassandra-api-account-java.md) usando una aplicación de Java.
+ * Introducción a la [creación de una cuenta de Cassandra API, una base de datos y una tabla](create-cassandra-api-account-java.md) mediante una aplicación de Java.
  * [Carga de datos de ejemplo en la tabla de Cassandra API](cassandra-api-load-data.md) mediante el uso de una aplicación de Java.
  * [Consulta de datos de la cuenta de Cassandra API](cassandra-api-query-data.md) mediante el uso de una aplicación de Java.

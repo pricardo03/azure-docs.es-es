@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae310ac35afed06881eb85fabc92d68e256ca5e7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 6511eb7a4651f0b95b7821e1959ba7e4130c2d6e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189785"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105804"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Creación de un archivo de solución de administración en Azure (versión preliminar)
 > [!NOTE]
@@ -42,7 +42,7 @@ Puede usar cualquier editor de texto para trabajar con archivos de solución, pe
 La estructura básica del archivo de una solución de administración es la misma que la de una [plantilla de Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md#template-format) y se muestra a continuación.  En cada una de las siguientes secciones se describen los elementos de nivel superior y su contenido en una solución.  
 
     {
-       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
        "contentVersion": "1.0",
        "parameters": {  },
        "variables": {  },

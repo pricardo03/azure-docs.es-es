@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: c8ff6abe72a55be24b35b254a4bfc2a446b13c0b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 5e22a3f3b362811fd87460ec41b61a990f4d83fb
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999688"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074213"
 ---
 # <a name="how-do-i--in-application-insights"></a>¿Cómo ... en Application Insights?
 ## <a name="get-an-email-when-"></a>Recibir un correo electrónico cuando...
@@ -83,18 +83,18 @@ Algunos puntos que se deben tener en cuenta:
 ## <a name="separate-telemetry-from-different-versions"></a>Telemetría independiente de diferentes versiones
 
 * Varias roles en una aplicación: usar un único recurso de Application Insights y filtrar por [cloud_NombreDelRol](../../azure-monitor/app/app-map.md).
-* Separación de desarrollo, prueba y versiones de lanzamiento: Use diferentes recursos de Application Insights. Tome las claves de instrumentación de web.config. [Más información](../../application-insights/app-insights-separate-resources.md)
-* Generación de informes de versiones de compilación: agregar una propiedad usando un inicializador de telemetría. [Más información](../../application-insights/app-insights-separate-resources.md)
+* Separación de desarrollo, prueba y versiones de lanzamiento: Use diferentes recursos de Application Insights. Tome las claves de instrumentación de web.config. [Más información](../../azure-monitor/app/separate-resources.md)
+* Generación de informes de versiones de compilación: agregar una propiedad usando un inicializador de telemetría. [Más información](../../azure-monitor/app/separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>Supervisar servidores back-end y aplicaciones de escritorio
-[Use el módulo de SDK de Windows Server](../../application-insights/app-insights-windows-desktop.md).
+[Use el módulo de SDK de Windows Server](../../azure-monitor/app/windows-desktop.md).
 
 ## <a name="visualize-data"></a>Visualización de datos
 #### <a name="dashboard-with-metrics-from-multiple-apps"></a>Panel con métricas de varias aplicaciones
 * En el [Explorador de métricas](../../azure-monitor/app/metrics-explorer.md), personalice el gráfico y guárdelo como favorito. Ánclelo al panel de Azure.
 
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>Panel con datos de otros orígenes y Application Insights
-* [Exporte la telemetría a Power BI](../../application-insights/app-insights-export-power-bi.md).
+* [Exporte la telemetría a Power BI](../../azure-monitor/app/export-power-bi.md ).
 
 o
 

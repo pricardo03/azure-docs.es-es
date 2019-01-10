@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 8459866aa192f2364ae52d0d5d68eace693e127e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c73c846db4b22d8c19ccdaa2ec99a3fe7fdadf78
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832690"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076712"
 ---
 # <a name="manage-azure-marketplace-and-appsource-publisher-profile"></a>Administración del perfil de anunciante de "Azure Marketplace" y "AppSource"
 
@@ -51,6 +51,6 @@ Primero, inicie sesión en el portal con la misma dirección de correo electrón
 >[!NOTE]
 >Es obligatorio registrar una cuenta del Centro de desarrollo para la publicación de SKU de pago en Marketplace.
 
-Si no tiene ninguna [cuenta del Centro de desarrollo](~/articles/marketplace-publishing/marketplace-publishing-accounts-creation-registration.md), puede crear una. A continuación, agregue la dirección de correo electrónico registrada como propietario en Cloud Partner Portal para su oferta. Los propietarios solo pueden agregar la dirección de correo electrónico registrada para el perfil de publicación desde la sección **Usuario**. Después, inicie sesión en el portal con la misma dirección de correo electrónico y vincule la cuenta del Centro de desarrollo.
+Si no tiene ninguna [cuenta del Centro de desarrollo](./cloud-partner-portal-dev-center-accounts-registration.md), puede crear una. A continuación, agregue la dirección de correo electrónico registrada como propietario en Cloud Partner Portal para su oferta. Los propietarios solo pueden agregar la dirección de correo electrónico registrada para el perfil de publicación desde la sección **Usuario**. Después, inicie sesión en el portal con la misma dirección de correo electrónico y vincule la cuenta del Centro de desarrollo.
 
 ![Detalles del perfil de anunciante: descripción del perfil de anunciante](./media/cloud-partner-portal-how-to-manage-publisher-profile/publisherprofiledescription.png)

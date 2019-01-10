@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 289818f0377fdc28b116a8c154a919dc02ed8052
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: aac5010ca6b0ed958a849bf203f1d2f80bcdb81c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000091"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119829"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API de Application Insights para eventos y métricas personalizados
 
-Inserte unas cuantas líneas de código en la aplicación para averiguar qué uso hacen de ella los usuarios o para ayudarle a diagnosticar problemas. Puede enviar datos de telemetría desde aplicaciones de escritorio y de dispositivo y desde clientes y servidores web. Use la API de telemetría principal de [Azure Application Insights](../../application-insights/app-insights-overview.md) para enviar métricas y eventos personalizados, así como sus propias versiones de telemetría estándar. Esta API es la misma que usan los recopiladores de datos estándar de Application Insights.
+Inserte unas cuantas líneas de código en la aplicación para averiguar qué uso hacen de ella los usuarios o para ayudarle a diagnosticar problemas. Puede enviar datos de telemetría desde aplicaciones de escritorio y de dispositivo y desde clientes y servidores web. Use la API de telemetría principal de [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) para enviar métricas y eventos personalizados, así como sus propias versiones de telemetría estándar. Esta API es la misma que usan los recopiladores de datos estándar de Application Insights.
 
 > [!NOTE]
 > `TrackMetric()` ya no es el método preferido para enviar métricas personalizadas para sus aplicaciones .NET. En la [versión 2.60 beta 3](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/CHANGELOG.md#version-260-beta3) del SDK de Application Insights para .NET, se ha incorporado un nuevo método, [`TelemetryClient.GetMetric()`](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet). A partir de la [versión 2.72](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet) del SDK de Application Insights para .NET, esta funcionalidad forma parte de la versión estable.
@@ -153,7 +153,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 La telemetría está disponible en la tabla `customEvents` de [Analytics de Application Insights](analytics.md). Cada fila representa una llamada a `trackEvent(..)` en la aplicación.
 
-Si el [muestreo](../../application-insights/app-insights-sampling.md) está en uso, en la propiedad itemCount se muestra un valor mayor que 1. Por ejemplo, itemCount==10 significa que de cada 10 llamadas a trackEvent(), el proceso de muestreo solo transmite una. Para obtener un recuento correcto de eventos personalizados, debería usar código como `customEvents | summarize sum(itemCount)`.
+Si el [muestreo](../../azure-monitor/app/sampling.md) está en uso, en la propiedad itemCount se muestra un valor mayor que 1. Por ejemplo, itemCount==10 significa que de cada 10 llamadas a trackEvent(), el proceso de muestreo solo transmite una. Para obtener un recuento correcto de eventos personalizados, debería usar código como `customEvents | summarize sum(itemCount)`.
 
 ## <a name="getmetric"></a>GetMetric
 
@@ -440,7 +440,7 @@ Consulte [Seguimiento de las operaciones personalizadas con el SDK de .NET para 
 
 En [Analytics de Application Insights](analytics.md), las solicitudes aparecen en la tabla `requests`.
 
-Si el [muestreo](../../application-insights/app-insights-sampling.md) está en uso, en la propiedad de itemCount se mostrará un valor superior a 1. Por ejemplo, itemCount==10 significa que de cada 10 llamadas a trackRequest(), el proceso de muestreo solo transmite una. Para obtener un recuento correcto de solicitudes y la duración media segmentada por nombres de solicitudes, use código como el siguiente:
+Si el [muestreo](../../azure-monitor/app/sampling.md) está en uso, en la propiedad de itemCount se mostrará un valor superior a 1. Por ejemplo, itemCount==10 significa que de cada 10 llamadas a trackRequest(), el proceso de muestreo solo transmite una. Para obtener un recuento correcto de solicitudes y la duración media segmentada por nombres de solicitudes, use código como el siguiente:
 
 ```kusto
 requests
@@ -522,7 +522,7 @@ Los SDK capturan muchas excepciones automáticamente, por lo que no siempre es n
 
 En [Analytics de Application Insights](analytics.md), las excepciones aparecen en la tabla `exceptions`.
 
-Si el [muestreo](../../application-insights/app-insights-sampling.md) está en uso, en la propiedad `itemCount` se muestra un valor mayor que 1. Por ejemplo, itemCount==10 significa que de cada 10 llamadas a trackException(), el proceso de muestreo solo transmite una. Para obtener un recuento correcto de excepciones segmentadas por tipo de excepción, use código como el siguiente:
+Si el [muestreo](../../azure-monitor/app/sampling.md) está en uso, en la propiedad `itemCount` se muestra un valor mayor que 1. Por ejemplo, itemCount==10 significa que de cada 10 llamadas a trackException(), el proceso de muestreo solo transmite una. Para obtener un recuento correcto de excepciones segmentadas por tipo de excepción, use código como el siguiente:
 
 ```kusto
 exceptions
@@ -603,7 +603,7 @@ En [Búsqueda](../../azure-monitor/app/diagnostic-search.md), puede filtrar fác
 
 En [Analytics de Application Insights](analytics.md), las llamadas a TrackTrace aparecen en la tabla `traces`.
 
-Si el [muestreo](../../application-insights/app-insights-sampling.md) está en uso, en la propiedad itemCount se muestra un valor mayor que 1. Por ejemplo, itemCount==10 significa que de cada 10 llamadas a `trackTrace()`, el proceso de muestreo solo transmite una. Para obtener un recuento correcto de llamadas de seguimiento, debería codificar por tanto como `traces | summarize sum(itemCount)`.
+Si el [muestreo](../../azure-monitor/app/sampling.md) está en uso, en la propiedad itemCount se muestra un valor mayor que 1. Por ejemplo, itemCount==10 significa que de cada 10 llamadas a `trackTrace()`, el proceso de muestreo solo transmite una. Para obtener un recuento correcto de llamadas de seguimiento, debería codificar por tanto como `traces | summarize sum(itemCount)`.
 
 ## <a name="trackdependency"></a>TrackDependency
 
@@ -678,7 +678,7 @@ Para desactivar el módulo de seguimiento de dependencias estándar en C#, edite
 
 En [Analytics de Application Insights](analytics.md), las llamadas de trackDependency aparecen en la tabla `dependencies`.
 
-Si el [muestreo](../../application-insights/app-insights-sampling.md) está en uso, en la propiedad itemCount se muestra un valor mayor que 1. Por ejemplo, itemCount==10 significa que de cada 10 llamadas a trackDependency(), el proceso de muestreo solo transmite una. Para obtener un recuento correcto de dependencias segmentadas por componente de destino, use código como el siguiente:
+Si el [muestreo](../../azure-monitor/app/sampling.md) está en uso, en la propiedad itemCount se muestra un valor mayor que 1. Por ejemplo, itemCount==10 significa que de cada 10 llamadas a trackDependency(), el proceso de muestreo solo transmite una. Para obtener un recuento correcto de dependencias segmentadas por componente de destino, use código como el siguiente:
 
 ```kusto
 dependencies
@@ -897,7 +897,7 @@ requests
 Tenga en lo siguiente:
 
 * Al extraer un valor de los elementos de JSON customDimensions o customMeasurements, es de tipo dinámico, por lo que debe convertirlo a `tostring` o `todouble`.
-* Para tener en cuenta la posibilidad de [muestreo](../../application-insights/app-insights-sampling.md), debería usar `sum(itemCount)`, no `count()`.
+* Para tener en cuenta la posibilidad de [muestreo](../../azure-monitor/app/sampling.md), debería usar `sum(itemCount)`, no `count()`.
 
 ## <a name="timed"></a> Eventos de temporización
 
@@ -1076,7 +1076,7 @@ telemetry.InstrumentationKey = "---my key---";
 
 ## <a name="dynamic-ikey"></a> Copia de la clave de instrumentación
 
-Para evitar la mezcla de telemetría de entornos de desarrollo, pruebas y producción, puede [crear recursos separados de Application Insights](../../application-insights/app-insights-create-new-resource.md) y cambiar sus claves en función del entorno.
+Para evitar la mezcla de telemetría de entornos de desarrollo, pruebas y producción, puede [crear recursos separados de Application Insights](../../azure-monitor/app/create-new-resource.md ) y cambiar sus claves en función del entorno.
 
 En lugar de obtener la clave de instrumentación del archivo de configuración, puede establecerla en el código. Establezca la clave en un método de inicialización, como global.aspx.cs en un servicio de ASP.NET:
 
@@ -1141,7 +1141,7 @@ Si establece cualquiera de estos valores manualmente, considere la posibilidad d
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 
-Para evitar llegar al límite de velocidad de datos, utilice el [muestreo](../../application-insights/app-insights-sampling.md).
+Para evitar llegar al límite de velocidad de datos, utilice el [muestreo](../../azure-monitor/app/sampling.md).
 
 Para determinar cuánto tiempo se conservan los datos, consulte el artículo sobre [retención de datos y privacidad](../../azure-monitor/app/data-retention-privacy.md).
 
@@ -1170,9 +1170,9 @@ Para determinar cuánto tiempo se conservan los datos, consulte el artículo sob
     Ninguno. No es necesario agruparlas en cláusulas try-catch. Si el SDK encuentra problemas, registrará los mensajes en la salida de la consola de depuración, y, si los mensajes pasan, en la Búsqueda de diagnóstico.
 * *¿Hay una API de REST para obtener datos desde el portal?*
 
-    Sí, la [API de acceso a datos](https://dev.applicationinsights.io/). Otras maneras de extraer datos son [exportar desde Analytics a Power BI](../../application-insights/app-insights-export-power-bi.md) y la [exportación continua](../../azure-monitor/app/export-telemetry.md).
+    Sí, la [API de acceso a datos](https://dev.applicationinsights.io/). Otras maneras de extraer datos son [exportar desde Analytics a Power BI](../../azure-monitor/app/export-power-bi.md ) y la [exportación continua](../../azure-monitor/app/export-telemetry.md).
 
 ## <a name="next"></a>Pasos siguientes
 
 * [Búsqueda de eventos y registros](../../azure-monitor/app/diagnostic-search.md)
-* [Solución de problemas](../../application-insights/app-insights-troubleshoot-faq.md)
+* [Solución de problemas](../../azure-monitor/app/troubleshoot-faq.md)

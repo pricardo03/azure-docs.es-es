@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 61cefe762b639dcc58c2e10fc845dd9729cb2cb2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4fcb692d7189c84e32f55995538ffc692cb67dd6
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078249"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064720"
 ---
 # <a name="azure-active-directory-premium-p2-licensing-feature-checklist"></a>Lista de comprobación de la característica de licencia de Azure Active Directory Premium P2
 
@@ -84,7 +84,7 @@ En esta guía, se supone que dispone de las licencias de Azure AD Premium P2, En
 - Administración del ciclo de vida del usuario holísticamente
    - Azure AD tiene un enfoque para administrar el ciclo de vida de las identidades
    - Eliminación de los pasos manuales del ciclo de vida de la cuenta del empleado para evitar el acceso no autorizado:
-      - Sincronización de identidades desde un origen fiable (sistema de RR. HH.) en Azure AD. (vínculo a los sistemas de RR. HH. compatibles)
+      - Sincronización de identidades desde un origen fiable (sistema de RR. HH.) en Azure AD.
       - [Uso de grupos dinámicos para asignar automáticamente usuarios a grupos en función de sus atributos de RR. HH. (o su origen fiable), como el departamento, el título, la región y otros atributos](../users-groups-roles/groups-dynamic-membership.md).
       - [Uso del aprovisionamiento de administración del acceso basado en grupos para aprovisionar usuarios automáticamente para las aplicaciones SaaS](../manage-apps/what-is-access-management.md).
 

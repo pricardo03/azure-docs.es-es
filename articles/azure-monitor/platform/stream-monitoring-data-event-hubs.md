@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: a39d497c90f49f8699b9d27be175e501973804c5
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 7225bc8121ddab8809ebb1c409a3af59dbcc42f2
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811518"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118394"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa
 
@@ -26,7 +26,7 @@ Azure Monitor proporciona una sola canalización para acceder a todos los datos 
 En el entorno de Azure hay varios "niveles" de datos de supervisión, cuyo método de acceso varía ligeramente. Normalmente, estos niveles se pueden describir como:
 
 - **Datos de supervisión de aplicaciones:** datos sobre el rendimiento y la funcionalidad del código que ha escrito y que se ejecuta en Azure. El seguimiento del rendimiento, los registros de aplicaciones y la telemetría de usuario son ejemplos de datos de supervisión de aplicaciones. Normalmente se recopilan datos de supervisión de aplicaciones de una de las maneras siguientes:
-  - Mediante la instrumentación del código con un SDK como el [SDK de Application Insights](../../application-insights/app-insights-overview.md).
+  - Mediante la instrumentación del código con un SDK como el [SDK de Application Insights](../../azure-monitor/app/app-insights-overview.md).
   - Mediante la ejecución de un agente de supervisión que escucha los registros de aplicaciones nuevos en la máquina donde se ejecuta la aplicación, como el [agente de Azure Diagnostics para Windows](./../../azure-monitor/platform/diagnostics-extension-overview.md) o el [agente de Azure Diagnostics para Linux](../../virtual-machines/extensions/diagnostics-linux.md).
 - **Datos de supervisión del sistema operativo invitado**: datos sobre el sistema operativo en el que se ejecuta la aplicación. Ejemplos de datos de supervisión de sistema operativo invitado serían los syslog de Linux o los eventos de sistema de Windows. Para recopilar este tipo de datos, debe instalar un agente como el [agente de Azure Diagnostics para Windows](./../../azure-monitor/platform/diagnostics-extension-overview.md) o el [agente de Azure Diagnostics para Linux](../../virtual-machines/extensions/diagnostics-linux.md).
 - **Supervisión de recursos con DMV**: datos sobre el funcionamiento de un recurso de Azure. Para algunos tipos de recursos de Azure, como las máquinas virtuales, hay un sistema operativo invitado y aplicaciones que supervisan el interior de ese servicio de Azure. Para otros recursos de Azure, como los grupos de seguridad de red, los datos de supervisión de recursos son el nivel más alto de datos disponible (porque no hay ningún sistema operativo invitado ni aplicación que se ejecute en esos recursos). Estos datos se pueden recopilar con la [configuración de diagnóstico de recursos](./../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings).
@@ -98,7 +98,7 @@ Puede utilizarse el [agente de Azure Diagnostics para Windows](./../../azure-mon
 
 ## <a name="application-monitoring-data"></a>Datos de supervisión de aplicaciones
 
-Los datos de supervisión de aplicaciones requieren la instrumentación del código mediante SDK, por lo que no hay una solución general al enrutamiento de datos de supervisión de aplicaciones a un centro de eventos en Azure. Sin embargo, [Azure Application Insights](../../application-insights/app-insights-overview.md) es un servicio que puede usarse para recopilar datos de nivel de aplicación de Azure. Si usa Application Insights, puede haber un flujo de datos de supervisión a un centro de eventos al hacer lo siguiente:
+Los datos de supervisión de aplicaciones requieren la instrumentación del código mediante SDK, por lo que no hay una solución general al enrutamiento de datos de supervisión de aplicaciones a un centro de eventos en Azure. Sin embargo, [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) es un servicio que puede usarse para recopilar datos de nivel de aplicación de Azure. Si usa Application Insights, puede haber un flujo de datos de supervisión a un centro de eventos al hacer lo siguiente:
 
 1. [Configure la exportación continua](../../azure-monitor/app/export-telemetry.md) de los datos de Application Insights a una cuenta de almacenamiento.
 
@@ -108,7 +108,7 @@ Los datos de supervisión de aplicaciones requieren la instrumentación del cód
 
 El enrutamiento de los datos de supervisión a un centro de eventos con Azure Monitor facilita la integración con las herramientas de asociados de Administración de eventos e información de seguridad y supervisión. La mayoría de las herramientas requieren la cadena de conexión al centro de eventos y determinados permisos para la suscripción de Azure para leer datos desde el centro de eventos. Esta es una lista incompleta de herramientas con la integración de Azure Monitor:
 
-* **IBM QRadar**: el módulo específico del dispositivo y el protocolo del centro de eventos de Microsoft Azure están disponibles para descarga en [el sitio web de soporte técnico de IBM](http://www.ibm.com/support). [Más información sobre la integración con Azure aquí](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
+* **IBM QRadar**: el módulo específico del dispositivo y el protocolo del centro de eventos de Microsoft Azure están disponibles para descarga en [el sitio web de soporte técnico de IBM](https://www.ibm.com/support). [Más información sobre la integración con Azure aquí](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
 * **Splunk**: dependiendo de su configuración de Splunk, existen dos enfoques:
     1. [El complemento Azure Monitor para Splunk](https://splunkbase.splunk.com/app/3534/) está disponible en Splunkbase y es un proyecto de código abierto. [La documentación se encuentra aquí](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
     2. Si no puede instalar un complemento en su instancia de Splunk (p. ej., si usa un proxy o se ejecuta en Splunk Cloud), puede reenviar estos eventos al recopilador de eventos de HTTP de Splunk mediante [esta función desencadenada por nuevos mensajes en el centro de eventos](https://github.com/Microsoft/AzureFunctionforSplunkVS).

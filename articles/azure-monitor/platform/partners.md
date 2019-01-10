@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 95e4140125f064d4e279c90f60b390c4762e8cf8
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 6ed8bae2e1571722f7a9a0030a48e64c4f7fbc60
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580219"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106671"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integraciones de asociados de Azure Monitor
 | Asociados |  |  |
@@ -126,7 +126,7 @@ PagerDuty, la solución líder de administración de incidentes, ofrece soporte 
 [Vaya a la documentación.][pagerduty-doc]
 
 ## <a name="qradar"></a>QRadar
-Los protocolos Microsoft Azure DSM y Microsoft Azure Even Hub se pueden descargar en el sitio web de [el sitio web de soporte técnico de IBM](http://www.ibm.com/support). [Aquí encontrará más información acerca de la integración con Azure aquí][qradar-doc].
+Los protocolos Microsoft Azure DSM y Microsoft Azure Even Hub se pueden descargar en el sitio web de [el sitio web de soporte técnico de IBM](https://www.ibm.com/support). [Aquí encontrará más información acerca de la integración con Azure aquí][qradar-doc].
 
 ## <a name="sciencelogic"></a>ScienceLogic
 ScienceLogic ofrece la plataforma de seguridad del servicio de TI de próxima generación para administrar cualquier tecnología y en cualquier lugar. ScienceLogic ofrece la escala, seguridad, automatización y resistencia necesarias para simplificar las tareas de administración de recursos, servicios y aplicaciones de TI. La plataforma de ScienceLogic usa las API de Azure para comunicarse con Microsoft Azure. ScienceLogic le proporciona visibilidad en tiempo real sobre los servicios y recursos de Azure. Para que pueda saber cuándo algo no funciona y lo pueda corregir con mayor rapidez. También puede administrar Azure junto con otras nubes y otros sistemas de centros de datos y servicios.
@@ -230,8 +230,8 @@ Turbonomic ofrece automatización de cargas de trabajo en nubes híbridas, ya qu
 [botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Introducción a Botmetric."
 [circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 
 [cloudhealth-doc]: https://www.cloudhealthtech.com/azure
-[cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "Introducción de CloudMonix."
-[datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Documentación de Datadog."
+[cloudmonix-doc]: https://cloudmonix.com/features/azure-management/ "Introducción de CloudMonix."
+[datadog-doc]: https://docs.datadoghq.com/integrations/azure/ "Documentación de Datadog."
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Documentación de Dynatrace."
 [elastic-doc]: https://www.elastic.co/guide/en/logstash/master/azure-module.html "Documentación de Elastic."
 [grafana-doc]: ./grafana-plugin.md "Integración de Grafana y Azure Monitor."

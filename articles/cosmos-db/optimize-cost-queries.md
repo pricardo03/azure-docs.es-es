@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: ec17f06fa9d527ef62861a152b3e143bfd10a37f
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: e2cb1a76bfde5bea7707cf3cc6658e3fc82163c5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263370"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043097"
 ---
 # <a name="optimize-the-cost-required-to-run-queries-in-azure-cosmos-db"></a>Optimización del costo necesario para ejecutar consultas en Azure Cosmos DB
 
@@ -105,9 +105,9 @@ A continuación, puede seguir obteniendo más información sobre la optimizació
 
 * Sobre los [precios de Azure Cosmos DB](how-pricing-works.md)
 * Sobre la [optimización para desarrollo y pruebas](optimize-dev-test.md)
-* Sobre la [explicación de la factura de Azure Cosmos DB](understand-your-bill.md)
-* Sobre la [optimización del costo de la capacidad de proceso](optimize-cost-throughput.md)
-* Sobre la [optimización del costo del rendimiento](optimize-cost-storage.md)
+* Obtenga más información sobre [la factura de Azure Cosmos DB](understand-your-bill.md).
+* Obtenga más información sobre la [optimización del costo de la capacidad del rendimiento](optimize-cost-throughput.md).
+* Obtenga más información sobre la [optimización del costo del almacenamiento](optimize-cost-storage.md).
 * Sobre la [Optimización del costo de la lectura y la escritura](optimize-cost-reads-writes.md)
 * Sobre la [optimización del costo de las cuentas de Azure Cosmos de varias regiones](optimize-cost-regions.md)
 * Sobre la [capacidad reservada de Azure Cosmos DB](cosmos-db-reserved-capacity.md)

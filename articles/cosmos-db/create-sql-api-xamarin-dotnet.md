@@ -1,21 +1,19 @@
 ---
 title: 'Azure Cosmos DB: compilación de una aplicación de lista de tareas con Xamarin'
 description: En este tema se incluye un ejemplo de código Xamarin que puede usar para conectarse a Azure Cosmos DB y realizar consultas
-services: cosmos-db
 author: codemillmatt
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: f955e0386cd601212eb992870f02607538b537e2
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 4a3c3f4b97da75d3e73f89866efe6f2fa4adeb65
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252633"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043420"
 ---
 # <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>Azure Cosmos DB: compilación de una aplicación de lista de tareas con Xamarin
 

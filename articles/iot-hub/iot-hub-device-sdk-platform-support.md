@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: yizhon
-ms.openlocfilehash: ebe039c37eb42b0044fa0acf9361edc7e8cbb828
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 15548e801777a99dfb78de0067abb633a2587ee6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879395"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053200"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Compatibilidad de plataformas de SDK de IoT de Azure
 
@@ -20,9 +20,9 @@ Los [SDK de IoT de Azure](iot-hub-devguide-sdks.md) son un conjunto de bibliotec
 
 Microsoft admite una variedad de sistemas operativos, plataformas y marcos de trabajo y se puede extender mediante el SDK de C de IoT de Azure. Algunos reciben soporte oficial por el equipo, agrupados en niveles que representan el nivel de compatibilidad de los usuarios pueden esperar. Las *plataformas completamente compatibles* implican que Microsoft:
 
-    * Compila y ejecuta pruebas de un extremo a otro continuamente sobre la versión maestra y otras versiones admitidas de LTS.  Para proporcionar cobertura de pruebas en las distintas versiones, se suele realizar una prueba en comparación con la última versión de LTS y la versión más popular.  Otras versiones de la misma plataforma pueden admitirse mediante la compatibilidad de versiones de plataforma.
-    * Proporciona instrucciones de instalación o paquetes si corresponde.
-    * Es totalmente compatible con las plataformas en GitHub.
+- Compila y ejecuta pruebas de un extremo a otro continuamente sobre la versión maestra y otras versiones admitidas de LTS.  Para proporcionar cobertura de pruebas en las distintas versiones, se suele realizar una prueba en comparación con la última versión de LTS y la versión más popular.  Otras versiones de la misma plataforma pueden admitirse mediante la compatibilidad de versiones de plataforma.
+- Proporciona instrucciones de instalación o paquetes si corresponde.
+- Es totalmente compatible con las plataformas en GitHub.
 
 Además, diversos socios han trasladado nuestro SDK de C a más plataformas y se ocupan del mantenimiento de la capa de abstracción de plataforma (PAL). El [catálogo de dispositivos Azure Certified for IoT](https://catalog.azureiotsolutions.com/) también presenta una lista de las plataformas de sistemas operativos con las que se han probado los distintos SDK. Los SDK también se compilan periódicamente en estas plataformas, con pruebas y soporte limitados:
 

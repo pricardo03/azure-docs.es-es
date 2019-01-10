@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: 69127702a7d8e7027e78a8e04a4e8e1bc3e36b65
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d7beab66bdaed312f32adef74ceb4b2944e6853e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956347"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103898"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Uso de la API de autenticación de Resource Manager para acceder a suscripciones
 ## <a name="introduction"></a>Introducción
@@ -156,7 +156,7 @@ El ejemplo siguiente muestra una solicitud de token de concesión de códigos co
 
 Cuando trabaje con credenciales de certificado, cree un JSON Web Token (JWT) y una firma (RSA SHA256) mediante la clave privada de la credencial de certificado de la aplicación. La creación de este token se muestra en el [flujo de credenciales de cliente](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#second-case-access-token-request-with a-certificate).  Para referencia, consulte el [código de la biblioteca de autorización de Active Directory (.NET)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) para firmar tokens JWT de aserción de cliente.
 
-Consulte la [especificación de Open ID Connect](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) para más información acerca de la autenticación de cliente.
+Consulte la [especificación de Open ID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) para más información acerca de la autenticación de cliente.
 
 El ejemplo siguiente muestra una solicitud de token de concesión de códigos con una credencial de certificado:
 
