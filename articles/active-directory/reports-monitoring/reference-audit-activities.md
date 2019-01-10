@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 4d86bcf99d5b4cf2b04980e72a2bd0a422233dc3
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: db801acbed649c4baa039858ce1d097237c8e227
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622881"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971382"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referencia sobre actividades de auditoría de Azure AD
 
@@ -166,7 +166,7 @@ En este artículo se enumeran las actividades de auditoría que se pueden regist
 |Autorización|Obtención de aplicaciones V1|
 |Autorización|Obtención de aplicación V2|
 |Autorización|Obtención de aplicaciones V2|
-|Autorización|Obtención de un recurso del directorio B2C|
+|Autorización|Obtención del recurso del directorio B2C|
 |Autorización|Obtención de una lista de dominios personalizados en el inquilino|
 |Autorización|Obtención de un recorrido del usuario|
 |Autorización|Obtención de notificaciones de aplicación permitidas para el recorrido del usuario|
@@ -228,8 +228,8 @@ En este artículo se enumeran las actividades de auditoría que se pueden regist
 |Autorización|Actualización de atributo de usuario|
 |Autorización|Carga de una clave cifrada CPIM|
 |Autorización|Autorización de usuario: la API está deshabilitada para el conjunto de características del inquilino|
-|Autorización|Autorización del usuario: se ha concedido acceso al usuario como "Administrador del inquilino"|
-|Autorización|Autorización del usuario: se han concedido al usuario derechos de acceso de "Usuarios autenticados"|
+|Autorización|Autorización de usuario: se ha concedido acceso al usuario como "Administrador del inquilino"|
+|Autorización|Autorización de usuario: se han concedido al usuario derechos de acceso de "Usuarios autenticados"|
 |Autorización|Comprobación de si está habilitada la característica B2C|
 |Autorización|Comprobación de si está habilitada la característica|
 |Autorización|Creación de programa|
@@ -395,7 +395,7 @@ En este artículo se enumeran las actividades de auditoría que se pueden regist
 |Administración de directorios|Obtención de recursos de directorio B2C en una suscripción|
 |Administración de directorios|Obtención de IDP personalizado|
 |Administración de directorios|Obtención de IDP|
-|Administración de directorios|Obtención de un recurso del directorio B2C|
+|Administración de directorios|Obtención del recurso del directorio B2C|
 |Administración de directorios|Obtención de un recorrido del usuario|
 |Administración de directorios|Obtención de notificaciones de aplicación permitidas para el recorrido del usuario|
 |Administración de directorios|Obtención de notificaciones autoafirmadas permitidas para el recorrido del usuario|
@@ -515,10 +515,10 @@ En este artículo se enumeran las actividades de auditoría que se pueden regist
 |Administración de grupos|Revisión de la solicitud de aprobación de la solicitud|
 |Administración de grupos|Actualización de la revisión de acceso|
 |Administración de grupos|Actualización de la configuración de las notificaciones por correo de revisión de acceso|
-|Administración de grupos|Actualización de la configuración del número de repeticiones de la revisión de acceso|
-|Administración de grupos|Actualización de la configuración de la duración en días de la repetición de la revisión de acceso|
-|User Management|Actualización de la configuración del tipo de finalización de las repeticiones de la revisión de acceso|
-|User Management|Actualización de la configuración del tipo de repeticiones de la revisión de acceso|
+|Administración de grupos|Actualización de la configuración de recuento de repeticiones de la revisión de acceso|
+|Administración de grupos|Actualización de la configuración de duración de repeticiones de la revisión de acceso en días|
+|User Management|Actualización de la configuración de tipo de fin de repeticiones de la revisión de acceso|
+|User Management|Actualización de la configuración de tipo de repeticiones de la revisión de acceso|
 
 
 

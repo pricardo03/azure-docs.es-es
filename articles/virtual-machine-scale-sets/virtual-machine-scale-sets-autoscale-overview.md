@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: zarhoads
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 18be454c93c32e0902a55a08748045c26d649ce7
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: a5386e56bffd9a9789fe431aae8ed13df8ffae13
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322046"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117442"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Introducción a los registros de escalado automático con conjuntos de escalado de máquinas virtuales de Azure
 Un conjunto de escalado de máquinas virtuales de Azure puede aumentar o reducir automáticamente el número de instancias de máquinas virtuales que ejecutan la aplicación. Este comportamiento automatizado y elástico reduce la sobrecarga de administración para supervisar y optimizar el rendimiento de la aplicación. Puede crear reglas que definan el rendimiento aceptable para una experiencia positiva del cliente. Al cumplirse esos umbrales definidos, las reglas de escalado automático actúan para ajustar la capacidad del conjunto de escalado. También puede programar eventos para aumentar o reducir automáticamente la capacidad del conjunto de escalado en determinados momentos. En este artículo se proporciona información general de las métricas de rendimiento que están disponibles y las acciones que puede realizar el escalado automático.
@@ -122,7 +122,7 @@ Para obtener más información, consulte los artículos sobre cómo habilitar la
 ## <a name="application-level-metrics-with-app-insights"></a>Métricas de nivel de aplicación con App Insights
 Para obtener mayor visibilidad en el rendimiento de sus aplicaciones, puede usar Application Insights. Puede instalar un paquete de instrumentación pequeño en su aplicación que supervisa la aplicación y envía telemetría a Azure. Puede supervisar métricas como los tiempos de respuesta de su aplicación, el rendimiento de carga de las páginas y el recuento de sesiones. Estas métricas de la aplicación se pueden usar para crear reglas de escalado automático en un nivel pormenorizado e incrustado al desencadenar reglas basadas en conocimiento útil que puede afectar a la experiencia del cliente.
 
-Para obtener más información sobre App Insights, consulte [¿Qué es Application Insights?](../application-insights/app-insights-overview.md)
+Para obtener más información sobre App Insights, consulte [¿Qué es Application Insights?](../azure-monitor/app/app-insights-overview.md)
 
 
 ## <a name="scheduled-autoscale"></a>Escalado automático programado

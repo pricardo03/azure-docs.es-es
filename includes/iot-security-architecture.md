@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: a6564877c05dcd5c611c6bbf7a09c65ac2f1f406
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: f2c7111373ac880d27298deb4fc919d797713f3e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51293194"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53995780"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Arquitectura de seguridad de Internet de las cosas (IoT)
 
@@ -169,7 +169,7 @@ En esta sección se explora la arquitectura esbozada anteriormente a través de 
 
 En cada una de las categorías esbozadas en la arquitectura de IoT de Azure, en este ejemplo se intentan mitigar varias amenazas diferentes en las distintas fases en que existen información o datos: proceso, comunicación y almacenamiento. A continuación, se ofrece información general de las más comunes para la categoría de "proceso", seguida de información general de cuál sería la mejor forma de mitigar estas amenazas:
 
-**Suplantación de identidad (S)**: un atacante puede extraer material criptográfico clave de un dispositivo en el nivel de hardware o en el de software y, posteriormente, tener acceso al sistema con un dispositivo físico o virtual diferente bajo la identidad del dispositivo del que se ha tomado el material clave. Un buen ejemplo son los mandos a distancia que pueden encender cualquier televisor y que son herramientas populares para gastar bromas.
+**Suplantación de identidad (S)**: un atacante puede extraer material de la clave criptográfica de un dispositivo, en el nivel de hardware o en el de software y posteriormente acceder al sistema con un dispositivo físico o virtual diferente bajo la identidad del dispositivo del que se ha tomado el material de la clave. Un buen ejemplo son los mandos a distancia que pueden encender cualquier televisor y que son herramientas populares para gastar bromas.
 
 **Denegación de servicio (D)**: un dispositivo se puede representar como incapaz de funcionar o comunicarse al interferir con frecuencias de radio o cortar hilos. Por ejemplo, una cámara de vigilancia cuya alimentación o conexión de red se ha interrumpido intencionadamente no puede notificar datos.
 
@@ -204,7 +204,7 @@ Estos son algunos ejemplos de las amenazas de esta categoría:
 
 **Divulgación de información**: si el dispositivo ejecuta software manipulado, dicho software puede proporcionar datos a partes no autorizadas.
 
-**Divulgación de información**: un atacante puede usar el material clave extraído para inyectarse a sí mismo en la ruta de acceso de comunicación entre el dispositivo y un controlador o la puerta de enlace del campo o la puerta de enlace en la nube para desviar información.
+**Divulgación de información**: un atacante puede sacar provecho del material clave extraído para inyectarse a sí mismo en la ruta de acceso de comunicación entre el dispositivo y un controlador o la puerta de enlace del campo o la puerta de enlace en la nube para desviar información.
 
 **Denegación de servicio**: el dispositivo se puede desactivar o activar en un modo en el que la comunicación no sea posible (lo que es intencionado en muchas máquinas industriales).
 
@@ -263,7 +263,7 @@ Habitualmente, una puerta de enlace en la nube es un software personalizado inte
 
 Un sistema de control (o controlador) es una solución de software que interactúa con un dispositivo, una puerta de enlace de campo o una puerta de enlace en la nube y cuyo propósito es controlar uno o varios dispositivos, o recopilar o almacenar o analizar los datos del dispositivo para su presentación o con fines de control posterior. Los sistemas de control son las únicas entidades, entre las que entran dentro del ámbito de este análisis, que pueden facilitar inmediatamente la interacción con personas. Las excepciones son las superficies de control físico intermedias de dispositivos, como un conmutador que permite a una persona desactivar el dispositivo o cambiar otras propiedades, y para las que no hay ningún equivalente funcional a las que se pueda acceder digitalmente.
 
-Las superficies de control físico intermedias son aquellas en las que la lógica rectora restringe la función de la superficie de control físico, de modo que se pueda iniciar una función equivalente de forma remota o que se puedan evitar conflictos de entrada remota (dichas superficies de control intermedias están vinculadas a un sistema de control local que saca provecho de la misma funcionalidad subyacente que cualquier otro sistema de mando a distancia al que el dispositivo pueda estar vinculado en paralelo). Las principales amenazas a la informática en la nube se pueden consultar en la página de [Cloud Security Alliance (CSA)](https://cloudsecurityalliance.org/research/top-threats/).
+Las superficies de control físico intermedias son aquellas en las que la lógica rectora restringe la función de la superficie de control físico, de modo que se pueda iniciar una función equivalente de forma remota o que se puedan evitar conflictos de entrada remota (dichas superficies de control intermedias están vinculadas a un sistema de control local que saca provecho de la misma funcionalidad subyacente que cualquier otro sistema de mando a distancia al que el dispositivo pueda estar vinculado en paralelo). Las principales amenazas a la informática en la nube se pueden consultar en la página de [Cloud Security Alliance (CSA)](https://cloudsecurityalliance.org/articles/csa-releases-top-threats-to-cloud-computing-deep-dive/).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

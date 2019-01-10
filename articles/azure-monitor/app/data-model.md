@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 9d7266e75d863ab5c024217e137566c109e79f70
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 749b4077b457eff836ec515f21d97e892e663156
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997918"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120672"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Modelo de datos de telemetría de Application Insights
 
-[Azure Application Insights](../../application-insights/app-insights-overview.md) envía telemetría de la aplicación web en Azure Portal, por lo que puede analizar el rendimiento y el uso de la aplicación. El modelo de telemetría está normalizado para que sea posible crear una supervisión de independiente del lenguaje y de la plataforma. 
+[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) envía telemetría de la aplicación web en Azure Portal, por lo que puede analizar el rendimiento y el uso de la aplicación. El modelo de telemetría está normalizado para que sea posible crear una supervisión de independiente del lenguaje y de la plataforma. 
 
 Los datos recopilados por Application Insights modelan este patrón de ejecución de aplicaciones típico:
 
@@ -55,5 +55,5 @@ Para informar de problemas del esquema o del modelo de datos y proporcionar suge
 
 - [Escritura de telemetría personalizada](../../azure-monitor/app/api-custom-events-metrics.md)
 - Obtenga información sobre cómo [ampliar y filtrar la telemetría](../../azure-monitor/app/api-filtering-sampling.md).
-- Use el [muestreo](../../application-insights/app-insights-sampling.md) para minimizar la cantidad de telemetría en función del modelo de datos.
+- Use el [muestreo](../../azure-monitor/app/sampling.md) para minimizar la cantidad de telemetría en función del modelo de datos.
 - Consulte las [plataformas](../../azure-monitor/app/platforms.md) compatibles con Application Insights.

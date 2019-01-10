@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: 374a27b10b3928838b10e4fba24e1f36721c162a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: e6d95d44dbfe2d66189be5103552d841ccbdf690
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53433686"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117425"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Entrada de datos de telemetría y conectividad de dispositivo
 
@@ -80,4 +80,4 @@ Use la llamada [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para información sobre el procesamiento de datos y funcionalidades de las funciones definidas por el usuario de Azure Digital Twins, lea [Procesamiento de datos y funciones definidas por el usuario con Azure Digital Twins](concepts-user-defined-functions.md).
+- Para información sobre el procesamiento de datos y funcionalidades de las funciones definidas por el usuario de Azure Digital Twins, lea [Procesamiento de datos y funciones definidas por el usuario con Azure Digital Twins](concepts-user-defined-functions.md).

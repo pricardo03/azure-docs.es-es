@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/12/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: bbb338d2b1d359d8e141b18a2beacd8b7faafe9c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 7d1f75df9318c53a6d9e38c4d7b68587cf9a0d4b
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53326466"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54057422"
 ---
 **HDD de máquina virtual administrados estándar**
 
@@ -25,11 +25,11 @@ ms.locfileid: "53326466"
 
 **SSD de máquina virtual administrados estándar**
 
-| Tipo de disco SSD estándar  | E10               | E15               | E20             | E30 | E40              | E50              | E60 *             | E70 *             | E80 *             |
-|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
-| Tamaño de disco en GiB           | 128             | 256             | 512            | 1024  | 2 048            | 4095     | 8192     | 16 384     | 32 767    |
-| IOPS por disco       | Hasta 500              | Hasta 500              | Hasta 500              | Hasta 500 | Hasta 500              | Hasta 500              | Hasta 500             | Hasta 500              | Hasta 1300              | Hasta 2000              | Hasta 2000              |
-| Rendimiento de disco | Hasta 60 MB/s | Hasta 60 MB/s | Hasta 60 MB/s | Hasta 60 MB/s | Hasta 60 MB/s | Hasta 60 MB/s | Hasta 60 MB/s | Hasta 60 MB/s| Hasta 300 MiB/s |  Hasta 500 MiB/s | Hasta 500 MiB/s |
+| Tipo de disco SSD estándar  | E10               | E15               | E20             | E30              | E40              | E50              | E60 *             | E70 *             | E80 *             |
+|---------------------|---------------------|---------------------|-----------------|------------------|------------------|------------------|-------------------|-------------------|-------------------|
+| Tamaño de disco en GiB    | 128                 | 256                 | 512             | 1024            | 2 048            | 4095            | 8192             | 16 384            | 32 767            |
+| IOPS por disco       | Hasta 500           | Hasta 500           | Hasta 500       | Hasta 500        | Hasta 500        | Hasta 500        | Hasta 1300       | Hasta 2000       | Hasta 2000       |
+| Rendimiento de disco | Hasta 60 MB/s     | Hasta 60 MB/s     | Hasta 60 MB/s | Hasta 60 MB/s  | Hasta 60 MB/s  | Hasta 60 MB/s  | Hasta 300 MiB/s | Hasta 500 MiB/s | Hasta 500 MiB/s |
 
 **Discos de máquina virtual administrados Premium: por los límites de disco**
 

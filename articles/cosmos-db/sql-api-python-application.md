@@ -1,22 +1,19 @@
 ---
 title: Tutorial sobre aplicaciones web de Python Flask para Azure Cosmos DB
 description: Vea un tutorial de base de datos sobre el uso de Azure cosmos DB para almacenar datos y acceder a ellos desde una aplicación web de Python Flask hospedada en Azure. Encuentre soluciones de desarrollo de aplicaciones.
-keywords: Desarrollo de aplicaciones, python flask, aplicación web de python, desarrollo web de python
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a2c7b7c5dc68bb96e0b54dc89f2c170cdb20c792
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a59de5fad7f457fffcc36ed55fd5862bc9329a1d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081921"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037164"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Compilación de una aplicación web Node.js de Python Flask mediante Azure cosmos DB
 

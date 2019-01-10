@@ -1,22 +1,19 @@
 ---
 title: Compilación de una aplicación web de .NET con Azure Cosmos DB y la API de SQL
 description: En esta guía de inicio rápido, usa la API de SQL de Azure Cosmos DB y Azure Portal para crear una aplicación web de .NET
-services: cosmos-db
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
-ms.custom: quick start connect, mvc, devcenter
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-clicktale: true
 ms.date: 04/10/2018
-ms.openlocfilehash: d8869d21be84ea886dd2ea7db48c60b1a308f807
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6f90485b17361089de9770bb630db38cf91abe12
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098124"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040921"
 ---
 # <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>Guía de inicio rápido: Compilación de una aplicación web de .NET con Azure Cosmos DB y SQL API en Azure Portal
 

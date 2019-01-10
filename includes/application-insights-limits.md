@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/21/2018
 ms.author: mbullwin
 ms.custom: include file
-ms.openlocfilehash: 1efddb605422f00575cc0e44592315b725c838e3
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 6b9b40c457766573be0d72cb7f4ebe2328a070f5
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002780"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54026271"
 ---
 Hay algunos límites en el número de métricas y eventos por aplicación (es decir, por clave de instrumentación). Los límites dependen del [plan de precios](https://azure.microsoft.com/pricing/details/application-insights/) que elija.
 
@@ -28,7 +28,7 @@ Hay algunos límites en el número de métricas y eventos por aplicación (es de
 | Longitud de cadena del valor de propiedad | 8192 | Consulte [esquemas de tipos](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/).
 | Longitud del mensaje de seguimiento y excepción | 10 K | Consulte [esquemas de tipos](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/).
 | Número de [pruebas de disponibilidad](../articles/azure-monitor/app/monitor-web-app-availability.md) por aplicación | 100 |
-| Retención de datos del [generador de perfiles](../articles/application-insights/app-insights-profiler.md) | 5 días |
-| Datos enviados por día del [generador de perfiles](../articles/application-insights/app-insights-profiler.md) | 10 GB |
+| Retención de datos del [generador de perfiles](../articles/azure-monitor/app/profiler.md) | 5 días |
+| Datos enviados por día del [generador de perfiles](../articles/azure-monitor/app/profiler.md) | 10 GB |
 
 Para más información, consulte [Administración de precios y cuotas para Application Insights](../articles/azure-monitor/app/pricing.md).

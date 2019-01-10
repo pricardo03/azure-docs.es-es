@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: bf290343634f9f9f836a87ab15f13cc1dac6f86f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9d5a0cf9fa4f9ad8b5a673cd2420416f92edda91
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141958"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994987"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics en IoT Edge
  
@@ -144,7 +144,7 @@ En este ejemplo se definen las siguientes rutas:
 ### <a name="current-limitations-for-iot-edge-jobs-compared-to-cloud-jobs"></a>Limitaciones actuales de los trabajos de IoT Edge en comparación con los trabajos en la nube
 El objetivo es tener paridad entre los trabajos de IoT Edge y los trabajos en la nube. La mayoría de las características de lenguaje de consulta de SQL ya se admiten.
 Sin embargo, las siguientes características aún no se admiten en los trabajos perimetrales:
-* Funciones definidas por el usuario (UDF) en JavaScript. Las UDF están disponibles en [ C# para trabajos de IoT Edge](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-edge-csharp-udf) (versión preliminar).
+* Funciones definidas por el usuario (UDF) en JavaScript. Las UDF están disponibles en [ C# para trabajos de IoT Edge](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf) (versión preliminar).
 * Agregados definidos por el usuario (UDA).
 * Funciones de Azure ML
 * Uso de más de 14 agregados en un solo paso.
@@ -167,7 +167,7 @@ Para ejecutar ASA en IoT Edge, se necesitan dispositivos que puedan ejecutar [Az
 
 ASA y Azure IoT Edge usan contenedores de **Docker** para proporcionar una solución portátil que se ejecuta en sistemas operativos que admiten múltiples hosts (Windows, Linux).
 
-ASA en IoT Edge está disponible en forma de imágenes de Windows y Linux que se ejecutan en arquitecturas x86-64 o de Azure Resource Manager. 
+ASA en IoT Edge está disponible en forma de imágenes de Windows y Linux que se ejecutan en arquitecturas x86-64 o ARM (Advanced RISC Machines). 
 
 
 ### <a name="input-and-output"></a>Entrada y salida

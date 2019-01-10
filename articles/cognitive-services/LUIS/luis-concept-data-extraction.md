@@ -11,24 +11,24 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d8d12662552eaf2d566eebd773c69dfb9817d874
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a97da5542395b57fa9a6ca6e4c38dd25e524ec3e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098658"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969427"
 ---
 # <a name="data-extraction-from-intents-and-entities"></a>Extracción de datos de intenciones y entidades
 LUIS ofrece la capacidad de obtener información de expresiones de lenguaje natural de un usuario. La información se extrae de manera que pueda ser usada por un programa, una aplicación o un bot de chat para tomar medidas. En las secciones siguientes, obtendrá información sobre qué datos se devuelven de las intenciones y entidades con ejemplos de JSON.
 
-Los datos más difíciles de extraer son los datos de aprendizaje automático, porque no son una coincidencia de texto exacta. La extracción de datos de [entidades](luis-concept-entity-types.md) de aprendizaje automático debe formar parte del [ciclo de creación](luis-concept-app-iteration.md) hasta que esté seguro de que recibirá los datos que espera.
+Los datos más difíciles de extraer son los datos de aprendizaje automático, porque no son una coincidencia de texto exacta. El proceso de extracción de datos de [entidades](luis-concept-entity-types.md) de aprendizaje automático debe formar parte del [ciclo de creación](luis-concept-app-iteration.md) hasta que esté seguro de que recibirá los datos que espera.
 
 ## <a name="data-location-and-key-usage"></a>Ubicación de los datos y uso de la clave
 LUIS proporciona los datos del [punto de conexión](luis-glossary.md#endpoint) publicado. La **solicitud HTTPS** (POST o GET) contiene la expresión, así como algunas configuraciones opcionales como los entornos de producción o de almacenamiento provisional.
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-El valor de `appID` está disponible en la página **Configuración** de la aplicación de LUIS, así como parte de la dirección URL (después de `/apps/`) cuando edita esa aplicación de LUIS. El valor de `subscription-key` es la clave de punto de conexión que se ha usado para consultar a la aplicación. Aunque puede usar la clave de inicio o creación gratis mientras se familiariza con LUIS, es importante cambiar la clave de punto de conexión por una clave que admita el [uso esperado de LUIS](luis-boundaries.md#key-limits). La unidad de `timezoneOffset` es minutos.
+El valor de `appID` está disponible en la página **Configuración** de la aplicación LUIS, así como parte de la dirección URL (después de `/apps/`) cuando edite esa aplicación LUIS. El valor de `subscription-key` es la clave de punto de conexión que se ha usado para consultar a la aplicación. Aunque puede usar la clave de inicio o creación gratis mientras se familiariza con LUIS, es importante que cambie la clave del punto de conexión por una clave que admita el [uso esperado de LUIS](luis-boundaries.md#key-limits). La unidad de `timezoneOffset` es minutos.
 
 La **respuesta HTTPS** contiene toda la información de la intención y la entidad que LUIS puede determinar en función del modelo actual publicado de un punto de conexión de producción o de almacenamiento provisional. La dirección URL del punto de conexión se encuentra en el sitio web de [LUIS](luis-reference-regions.md), en la sección **Administrar**, en la página **Claves y puntos de conexión**.
 
@@ -174,7 +174,7 @@ Los datos devueltos desde el punto de conexión incluyen el nombre de la entidad
 
 ## <a name="hierarchical-entity-data"></a>Datos de entidad jerárquica
 
-Las entidades [jerárquicas](luis-concept-entity-types.md) son de aprendizaje automático y pueden incluir una palabra o frase. Los elementos secundarios se identifican mediante el contexto. Si quiere obtener una relación de elementos primarios y secundarios con coincidencia de texto exacta, use una entidad [List](#list-entity-data).
+Las entidades [jerárquicas](luis-concept-entity-types.md) son de aprendizaje automático y pueden incluir una palabra o frase. Los elementos secundarios se identifican mediante el contexto. Si quiere obtener una relación de elementos primarios y secundarios con coincidencia de texto exacta, use una entidad de [lista](#list-entity-data).
 
 `book 2 tickets to paris`
 
@@ -260,7 +260,7 @@ Las entidades compuestas se devuelven en una matriz `compositeEntities` y todas 
 
 ## <a name="list-entity-data"></a>Datos de entidad de lista
 
-Una entidad de [lista](luis-concept-entity-types.md) no es de aprendizaje automático. Es una coincidencia de texto exacta. Una lista representa elementos de la lista junto con sinónimos de esos elementos. LUIS marca todas las coincidencias de un elemento de cualquier lista como una entidad en la respuesta. Un sinónimo puede estar en más de una lista.
+Una entidad de [lista](luis-concept-entity-types.md) no está relacionada con el aprendizaje automático. Es una coincidencia de texto exacta. Una lista representa elementos de la lista junto con sinónimos de esos elementos. LUIS marca todas las coincidencias de un elemento de cualquier lista como una entidad en la respuesta. Un sinónimo puede estar en más de una lista.
 
 Imagine que la aplicación tiene una lista, denominada `Cities`, que permite variaciones de nombres de ciudades, incluidos la ciudad del aeropuerto (Sea-tac), el código del aeropuerto (SEA), el código postal (98101) y el código de área telefónica (206).
 
@@ -425,7 +425,11 @@ Las entidades de [expresiones regulares](luis-concept-entity-types.md) se detect
 ```
 
 ## <a name="extracting-names"></a>Extraer nombres
-Obtener nombres de una expresión es difícil porque un nombre puede ser casi cualquier combinación de letras y palabras. En función de qué tipo de nombre vaya a extraer, tiene varias opciones. Estas no son reglas, sino más bien instrucciones.
+Obtener nombres de una expresión es difícil porque un nombre puede ser casi cualquier combinación de letras y palabras. En función de qué tipo de nombre vaya a extraer, tiene varias opciones. Las sugerencias siguientes no son reglas a seguir, si no más bien instrucciones.
+
+### <a name="add-prebuilt-personname-and-geographyv2-entities"></a>Agregar las entidades PersonName y GeographyV2 creadas previamente
+
+Las entidades [PersonName](luis-reference-prebuilt-person.md) y [GeographyV2](luis-reference-prebuilt-geographyV2.md) están disponibles en algunas [referencias culturales del idioma](luis-reference-prebuilt-entities.md). 
 
 ### <a name="names-of-people"></a>Nombres de personas
 Los nombres de personas pueden tener un pequeño formato en función del idioma y la referencia cultural. Use una entidad jerárquica con nombres y apellidos como elementos secundarios o una entidad simple con roles de nombres y apellidos. No olvide proporcionar ejemplos que usen el nombre y el apellido en diferentes partes de la expresión, en expresiones de distintas longitudes y expresiones en todas las intenciones, incluida la intención None. [Revise](luis-how-to-review-endoint-utt.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente.
@@ -434,7 +438,7 @@ Los nombres de personas pueden tener un pequeño formato en función del idioma 
 Los nombres de ubicaciones se establecen y conocen, por ejemplo, ciudades, condados, estados, provincias y países. Si en la aplicación se usa un conjunto conocido de ubicaciones, considere la posibilidad de usar una entidad de lista. Si necesita buscar todos los nombres de lugares, cree una entidad simple y proporcione una variedad de ejemplos. Agregue una lista de frases de nombres de lugares para reforzar el aspecto de los nombres de lugares en la aplicación. [Revise](luis-how-to-review-endoint-utt.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente.
 
 ### <a name="new-and-emerging-names"></a>Nombres nuevos y emergentes
-Algunas aplicaciones necesitan poder encontrar nombres nuevos y emergentes, como productos o empresas. Este es el tipo de extracción de datos más difícil. Empiece con una entidad simple y agregue una lista de frases. [Revise](luis-how-to-review-endoint-utt.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente.
+Algunas aplicaciones necesitan poder encontrar nombres nuevos y emergentes, como productos o empresas. Estos tipos de nombres son el tipo de extracción de datos más difícil. Empiece con una entidad simple y agregue una lista de frases. [Revise](luis-how-to-review-endoint-utt.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente.
 
 ## <a name="pattern-roles-data"></a>Datos de roles de patrón
 Los roles son diferencias contextuales de entidades.
@@ -603,6 +607,7 @@ La entidad de extracción de frases clave devuelve frases clave en la expresión
 ```
 
 ## <a name="data-matching-multiple-entities"></a>Datos que coinciden con varias entidades
+
 LUIS devuelve todas las entidades que ha detectado la expresión. Como consecuencia, es posible que el bot de chat tenga que tomar una decisión en función de los resultados. Una expresión puede tener varias entidades en una expresión:
 
 `book me 2 adult business tickets to paris tomorrow on air france`
@@ -728,6 +733,46 @@ El punto de conexión de LUIS puede detectar los mismos datos en diferentes enti
           "value": "business"
         }
       ]
+    }
+  ]
+}
+```
+
+## <a name="data-matching-multiple-list-entities"></a>Datos que coinciden con varias entidades de lista
+
+Si una palabra o frase coincide con más de una entidad de lista, la consulta de punto de conexión devolverá todas las entidades de lista.
+
+Para la consulta `when is the best time to go to red rock?`, si la aplicación tiene la palabra `red` en más de una lista, LUIS reconocerá todas las entidades y devolverá una matriz de entidades como parte de la respuesta del punto de conexión JSON: 
+
+```JSON
+{
+  "query": "when is the best time to go to red rock?",
+  "topScoringIntent": {
+    "intent": "Calendar.Find",
+    "score": 0.06701678
+  },
+  "entities": [
+    {
+      "entity": "red",
+      "type": "Colors",
+      "startIndex": 31,
+      "endIndex": 33,
+      "resolution": {
+        "values": [
+          "Red"
+        ]
+      }
+    },
+    {
+      "entity": "red rock",
+      "type": "Cities",
+      "startIndex": 31,
+      "endIndex": 38,
+      "resolution": {
+        "values": [
+          "Destinations"
+        ]
+      }
     }
   ]
 }

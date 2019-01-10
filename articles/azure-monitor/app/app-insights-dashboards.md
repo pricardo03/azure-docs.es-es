@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 83bf45c93648ca768243a2208f6a91cc9011a919
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 1b0c991c09d1235215dc9b930c529a219d492a8c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002525"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117084"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navegación y paneles en el portal de Application Insights
-Una vez [configurado Application Insights en su proyecto](../../application-insights/app-insights-overview.md), aparecerán los datos de telemetría acerca del rendimiento y el uso de la aplicación en el recurso del proyecto Application Insights en [Azure Portal](https://portal.azure.com).
+Una vez [configurado Application Insights en su proyecto](../../azure-monitor/app/app-insights-overview.md), aparecerán los datos de telemetría acerca del rendimiento y el uso de la aplicación en el recurso del proyecto Application Insights en [Azure Portal](https://portal.azure.com).
 
 ## <a name="find-your-telemetry"></a>Encontrar la telemetría
 Inicie sesión en [Azure Portal](https://portal.azure.com), vaya al recurso de Application Insights que ha creado para la aplicación.
@@ -34,7 +34,7 @@ La hoja de información general (página) de la aplicación muestra un resumen d
 Puede personalizar cualquiera de los gráficos y cuadrículas y anclarlos a un panel. De este modo, se puede reunir la telemetría clave de aplicaciones diferentes en un panel central.
 
 ## <a name="dashboards"></a>Paneles
-Lo primero que verá después de iniciar sesión en el [Portal de Microsoft Azure](https://portal.azure.com) es un panel. Aquí puede agrupar los gráficos que le resultan más importantes de todos los recursos de Azure, incluidos los datos de telemetría desde [Azure Application Insights](../../application-insights/app-insights-overview.md).
+Lo primero que verá después de iniciar sesión en el [Portal de Microsoft Azure](https://portal.azure.com) es un panel. Aquí puede agrupar los gráficos que le resultan más importantes de todos los recursos de Azure, incluidos los datos de telemetría desde [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 ![Panel personalizado.](./media/app-insights-dashboards/31.png)
 
@@ -96,7 +96,7 @@ Cuando haya creado un panel, puede compartirlo con otros usuarios.
 
 ![En el encabezado del panel, haga clic en Compartir.](./media/app-insights-dashboards/41.png)
 
-Aprenda más acerca de [Roles y control de acceso](../../application-insights/app-insights-resources-roles-access-control.md).
+Aprenda más acerca de [Roles y control de acceso](../../azure-monitor/app/resources-roles-access-control.md).
 
 ## <a name="create-dashboards-programmatically"></a>Crear paneles mediante programación
 Puede automatizar la creación de paneles mediante [Azure Resource Manager](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) y un editor de JSON sencillo.
@@ -113,28 +113,28 @@ La hoja de información general es la puerta de enlace para más información ac
 * [**Búsqueda**](../../azure-monitor/app/diagnostic-search.md): investigue casos específicos de eventos como solicitudes, excepciones o seguimientos de registro.
 * [**Analytics**](../../azure-monitor/app/analytics.md): consultas eficaces sobre los datos de telemetría.
 * **Intervalo de tiempo**: ajuste el intervalo mostrado por todos los gráficos de la hoja.
-* **Eliminar**: elimine el recurso de Application Insights para esta aplicación. Debe también quitar los paquetes de Application Insights del código de la aplicación, o editar la [clave de instrumentación](../../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) de la aplicación para dirigir la telemetría a un recurso de Application Insights diferente.
+* **Eliminar**: elimine el recurso de Application Insights para esta aplicación. Debe también quitar los paquetes de Application Insights del código de la aplicación, o editar la [clave de instrumentación](../../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) de la aplicación para dirigir la telemetría a un recurso de Application Insights diferente.
 
 ### <a name="essentials-tab"></a>Pestaña Essentials
-* [Clave de instrumentación](../../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key): identifica este recurso de la aplicación.
+* [Clave de instrumentación](../../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key): identifica este recurso de la aplicación.
 
 ### <a name="app-navigation-bar"></a>Barra de navegación de la aplicación
 ![Barra de navegación izquierda](./media/app-insights-dashboards/app-left-nav-bar.png)
 
 * **Información general**: vuelve a la hoja de información general de la aplicación.
 * **Registro de actividad**: alertas y eventos administrativos de Azure.
-* [**Control de acceso**](../../application-insights/app-insights-resources-roles-access-control.md): proporciona acceso a los miembros del equipo y a otros elementos.
+* [**Control de acceso**](../../azure-monitor/app/resources-roles-access-control.md): proporciona acceso a los miembros del equipo y a otros elementos.
 * [**Etiquetas**](../../azure-resource-manager/resource-group-using-tags.md): usa etiquetas para agrupar la aplicación con otras.
 
 INVESTIGAR
 
 * [**Mapa de aplicación**](app-map.md): mapa activo que muestra los componentes de la aplicación, obtenidos de la información de dependencia.
-* [**Detección inteligente**](../../application-insights/app-insights-proactive-diagnostics.md): revise las alertas recientes de rendimiento.
+* [**Detección inteligente**](../../azure-monitor/app/proactive-diagnostics.md): revise las alertas recientes de rendimiento.
 * [**Stream en vivo**](../../azure-monitor/app/live-stream.md): un conjunto fijo de métricas casi instantáneas, útiles al implementar una nueva compilación o depurar.
 * [**Disponibilidad / pruebas web**](../../azure-monitor/app/monitor-web-app-availability.md): envíe solicitudes regulares a la aplicación web desde cualquier parte del mundo*.
-* [**Errores, rendimiento**](../../application-insights/app-insights-web-monitor-performance.md): excepciones, tasas de error y tiempos de respuesta para las solicitudes realizadas a la aplicación y para las solicitudes realizadas desde la aplicación a las [dependencias](../../azure-monitor/app/asp-net-dependencies.md).
-* [**Rendimiento**](../../application-insights/app-insights-web-monitor-performance.md): tiempo de respuesta, tiempos de respuesta de dependencia.
-* [Servidores](../../application-insights/app-insights-web-monitor-performance.md) : contadores de rendimiento. Está disponible si se [instala el Monitor de estado](../../azure-monitor/app/monitor-performance-live-website-now.md).
+* [**Errores, rendimiento**](../../azure-monitor/app/web-monitor-performance.md): excepciones, tasas de error y tiempos de respuesta para las solicitudes realizadas a la aplicación y para las solicitudes realizadas desde la aplicación a las [dependencias](../../azure-monitor/app/asp-net-dependencies.md).
+* [**Rendimiento**](../../azure-monitor/app/web-monitor-performance.md): tiempo de respuesta, tiempos de respuesta de dependencia.
+* [Servidores](../../azure-monitor/app/web-monitor-performance.md) : contadores de rendimiento. Está disponible si se [instala el Monitor de estado](../../azure-monitor/app/monitor-performance-live-website-now.md).
 * **Explorador** : vista de página y rendimiento de AJAX. Está disponible si se [instrumentan las páginas web](../../azure-monitor/app/javascript.md).
 * **Uso** : vista de página, recuentos de usuarios y sesiones. Está disponible si se [instrumentan las páginas web](../../azure-monitor/app/javascript.md).
 
@@ -145,7 +145,7 @@ CONFIGURAR
 * [Alertas](../../azure-monitor/app/alerts.md) : configuración de alertas de métricas.
 * [Exportación continua](../../azure-monitor/app/export-telemetry.md) : configuración de la exportación de los datos de telemetría a Almacenamiento de Azure.
 * [Pruebas de rendimiento](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests) : configuración de una carga simétrica en el sitio web.
-* [Cuotas y precios](../../azure-monitor/app/pricing.md) y [muestreo de ingesta](../../application-insights/app-insights-sampling.md).
+* [Cuotas y precios](../../azure-monitor/app/pricing.md) y [muestreo de ingesta](../../azure-monitor/app/sampling.md).
 * **Acceso a API**: cree [anotaciones de versión](annotations.md) y para la API de acceso a datos.
 * [**Elementos de trabajo**](../../azure-monitor/app/diagnostic-search.md#create-work-item): conéctese a un sistema de seguimiento de trabajos de modo que pueda crear errores mientras se inspeccionan los datos de telemetría.
 

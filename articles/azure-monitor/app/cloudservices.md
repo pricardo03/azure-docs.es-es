@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9ab256526ccba3fa84d4979ba536f6b681a7df89
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: c47a4d853ba6360fb7f8017b7ad9a59e10040401
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001675"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120859"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para Azure Cloud Services
 La disponibilidad, el rendimiento, los errores y el uso de las [aplicaciones de servicio Microsoft Azure Cloud](https://azure.microsoft.com/services/cloud-services/) se pueden supervisar con [Application Insights][start] mediante la combinación de datos de los SDK de Application Insights y datos de [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de Cloud Services. Con los comentarios que obtendrá sobre el rendimiento y la eficacia de la aplicación en su entorno natural, pueda tomar decisiones meditadas sobre la dirección del diseño en cada ciclo de vida de desarrollo.
@@ -217,7 +217,7 @@ Para obtener una imagen general del sistema, puede reunir los gráficos de super
 
 Si el sistema usa otros servicios de Azure, como Stream Analytics, incluya también sus gráficos de supervisión. 
 
-Si tiene una aplicación móvil cliente, utilice [App Center](../../application-insights/app-insights-mobile-center-quickstart.md). Cree consultas en [Analytics](../../azure-monitor/app/analytics.md) para mostrar los recuentos de eventos y anclarlos al panel.
+Si tiene una aplicación móvil cliente, utilice [App Center](../../azure-monitor/learn/mobile-center-quickstart.md). Cree consultas en [Analytics](../../azure-monitor/app/analytics.md) para mostrar los recuentos de eventos y anclarlos al panel.
 
 ## <a name="example"></a>Ejemplo
 [El ejemplo](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) supervisa un servicio que tiene un rol web y dos roles de trabajo.
@@ -237,11 +237,11 @@ Si tiene una aplicación móvil cliente, utilice [App Center](../../application-
 
 [api]: ../../azure-monitor/app/api-custom-events-metrics.md
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[azure]: ../../application-insights/app-insights-overview.md
+[azure]: ../../azure-monitor/app/app-insights-overview.md
 [client]: ../../azure-monitor/app/javascript.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [netlogs]: ../../azure-monitor/app/asp-net-trace-logs.md
 [portal]: https://portal.azure.com/
-[qna]: ../../application-insights/app-insights-troubleshoot-faq.md
+[qna]: ../../azure-monitor/app/troubleshoot-faq.md
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../application-insights/app-insights-overview.md 
+[start]: ../../azure-monitor/app/app-insights-overview.md 

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 5f85d01b20466fd72b802b4daaf001a7928717c4
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: b298836070a511421f9df25155ff1ee4422e61dd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410285"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994375"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Solución de problemas de un clúster de HDInsight lento o con errores
 
@@ -88,7 +88,7 @@ Para abrir una lista de vistas de servicio, seleccione **Vistas de Ambari** en l
 
 #### <a name="check-for-azure-service-outages"></a>Buscar interrupciones de servicio de Azure
 
-HDInsight se basa en varios servicios de Azure. Ejecuta servidores virtuales en Azure HDInsight, almacena datos y scripts en Azure Blob Storage o Azure Data Lake Store e indexa los archivos de registro en el almacenamiento de tablas de Azure. Las interrupciones en estos servicios, aunque sean poco frecuentes, pueden causar problemas en HDInsight. Si se produce una ralentización inesperada o errores en el clúster, compruebe el [Panel de estado de Azure](https://azure.microsoft.com/status/). El estado de cada servicio se muestra por región. Compruebe la región de su clúster, así como las de todos los servicios relacionados.
+HDInsight se basa en varios servicios de Azure. Ejecuta servidores virtuales en Azure HDInsight, almacena datos y scripts en Azure Blob Storage o Azure Data Lake Storage e indexa los archivos de registro en el almacenamiento de tablas de Azure. Las interrupciones en estos servicios, aunque sean poco frecuentes, pueden causar problemas en HDInsight. Si se produce una ralentización inesperada o errores en el clúster, compruebe el [Panel de estado de Azure](https://azure.microsoft.com/status/). El estado de cada servicio se muestra por región. Compruebe la región de su clúster, así como las de todos los servicios relacionados.
 
 #### <a name="check-azure-service-usage-limits"></a>Comprobar los límites de uso del servicio de Azure
 

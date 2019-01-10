@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 862380a35dcc4d50dce8d709bd1dbea1aa38e37a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 9b160c011a8a9507698443446ad5fe908b32fb9e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728353"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54049969"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizar datos de Azure Monitor
 En este artículo se proporciona un resumen de los métodos disponibles para visualizar los datos de métricas y de registro almacenados en Azure Monitor.
@@ -71,7 +71,7 @@ Las [vistas de Azure Monitor](../log-analytics/log-analytics-view-designer.md) l
 
 
 ## <a name="application-insights-workbooks"></a>Libros de Application Insights
-Los [libros](../application-insights/app-insights-usage-workbooks.md) son documentos interactivos que proporcionan información detallada sobre los datos, la investigación y colaboración en el equipo. Algunos ejemplos de libros útiles son las guías de resolución de problemas y los análisis posteriores a incidentes.
+Los [libros](../azure-monitor/app/usage-workbooks.md) son documentos interactivos que proporcionan información detallada sobre los datos, la investigación y colaboración en el equipo. Algunos ejemplos de libros útiles son las guías de resolución de problemas y los análisis posteriores a incidentes.
 
 ![Libro](media/visualizations/workbook.png)
 
@@ -140,7 +140,7 @@ Puede tener acceso a datos de métricas y de registro en Azure Monitor mediante 
 - Obtenga información sobre los [datos que Azure Monitor recopila](platform/data-collection.md).
 - Obtenga información sobre los [paneles de Azure](../azure-portal/azure-portal-dashboards.md).
 - Obtenga información sobre las [vistas de Azure Monitor](platform/view-designer.md).
-- Obtenga información sobre los [libros de Application Insights](../application-insights/app-insights-usage-workbooks.md).
+- Obtenga información sobre los [libros de Application Insights](../azure-monitor/app/usage-workbooks.md).
 - Obtenga información sobre cómo [importar datos de registro en Power BI](../azure-monitor/platform/powerbi.md).
 - Obtenga información sobre el [complemento de origen de datos de Azure Monitor en Grafana](../azure-monitor/platform/grafana-plugin.md).
 
