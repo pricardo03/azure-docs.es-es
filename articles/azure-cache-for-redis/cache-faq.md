@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: aee91f6d9b8d16db7f14bbc2372d7c465377ce28
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 444f1aaee496666745be548bcdfadf3a4f162699
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971535"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104070"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Preguntas frecuentes sobre Azure Cache for Redis
 Conozca las respuestas a preguntas comunes, patrones y procedimientos recomendados para Azure Cache for Redis.
@@ -90,7 +90,7 @@ Hay varias maneras de empezar a utilizar Azure Cache for Redis.
 
 * Puede consultar uno de los tutoriales disponibles para [.NET](cache-dotnet-how-to-use-azure-redis-cache.md), [ASP.NET](cache-web-app-howto.md), [Java](cache-java-get-started.md), [Node.js](cache-nodejs-get-started.md) y [Python](cache-python-get-started.md).
 * Puede ver el vídeo [How to Build High Performance Apps Using Microsoft Azure Cache for Redis](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/)(Procedimiento para compilar aplicaciones de alto rendimiento con Azure Cache for Redis).
-* Puede consultar la documentación de los clientes que coincidan con el lenguaje de desarrollo de su proyecto para ver cómo usar Redis. Hay muchos clientes de Redis que pueden utilizarse con Azure Cache for Redis. Para ver una lista de clientes de Redis, consulte [http://redis.io/clients](http://redis.io/clients).
+* Puede consultar la documentación de los clientes que coincidan con el lenguaje de desarrollo de su proyecto para ver cómo usar Redis. Hay muchos clientes de Redis que pueden utilizarse con Azure Cache for Redis. Para ver una lista de clientes de Redis, consulte [https://redis.io/clients](https://redis.io/clients).
 
 Si no tiene una cuenta de Azure, siga estos pasos:
 
@@ -210,7 +210,7 @@ Habitualmente, los valores predeterminados del cliente son suficientes. Ajuste l
       * Esta guía puede conducir a una latencia más simplificada por `ConnectionMultiplexer`.
 
 ### <a name="what-azure-cache-for-redis-clients-can-i-use"></a>¿Qué clientes de Azure Cache for Redis puedo usar?
-Una de las grandes virtudes de Redis es que hay muchos clientes que admiten muchos lenguajes de desarrollo diferentes. Para obtener una lista de clientes, consulte [Redis clients](http://redis.io/clients)(Clientes de Redis). Para ver tutoriales que abarcan varios lenguajes y clientes diferentes, consulte el artículo sobre el [uso de Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) y haga clic en el idioma deseado del selector de idioma de la parte superior.
+Una de las grandes virtudes de Redis es que hay muchos clientes que admiten muchos lenguajes de desarrollo diferentes. Para obtener una lista de clientes, consulte [Redis clients](https://redis.io/clients)(Clientes de Redis). Para ver tutoriales que abarcan varios lenguajes y clientes diferentes, consulte el artículo sobre el [uso de Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) y haga clic en el idioma deseado del selector de idioma de la parte superior.
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
@@ -236,12 +236,12 @@ No hay ningún emulador local para Azure Cache for Redis, pero puede ejecutar la
         }
 
 
-Si lo desea, también puede configurar un archivo [redis.conf](http://redis.io/topics/config) para ajustarse con más precisión a la [configuración de caché predeterminada](cache-configure.md#default-redis-server-configuration) del servicio en línea Azure Cache for Redis.
+Si lo desea, también puede configurar un archivo [redis.conf](https://redis.io/topics/config) para ajustarse con más precisión a la [configuración de caché predeterminada](cache-configure.md#default-redis-server-configuration) del servicio en línea Azure Cache for Redis.
 
 <a name="cache-commands"></a>
 
 ### <a name="how-can-i-run-redis-commands"></a>¿Cómo puedo ejecutar comandos de Redis?
-Puede usar cualquiera de los comandos enumerados en el artículo de [Comandos de Redis](http://redis.io/commands#), salvo los comandos indicados en [Redis commands not supported in Azure Cache for Redis](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis) (Comandos de Redis no admitidos en Azure Cache for Redis). Para ejecutar comandos de Redis, tiene varias opciones.
+Puede usar cualquiera de los comandos enumerados en el artículo de [Comandos de Redis](https://redis.io/commands#), salvo los comandos indicados en [Redis commands not supported in Azure Cache for Redis](cache-configure.md#redis-commands-not-supported-in-azure-cache-for-redis) (Comandos de Redis no admitidos en Azure Cache for Redis). Para ejecutar comandos de Redis, tiene varias opciones.
 
 * Si tiene una caché Estándar o Premium, puede ejecutar comandos de Redis mediante la [Consola de Redis](cache-configure.md#redis-console). La consola de Redis ofrece una manera segura de ejecutar comandos de Redis en Azure Portal.
 * También puede usar las herramientas de línea de comandos de Redis. Para ello, realice los siguientes pasos:
@@ -257,7 +257,7 @@ Puede usar cualquiera de los comandos enumerados en el artículo de [Comandos de
 <a name="cache-reference"></a>
 
 ### <a name="why-doesnt-azure-cache-for-redis-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services"></a>¿Por qué Azure Cache for Redis no tiene una referencia de biblioteca de clases MSDN como otros servicios de Azure?
-Microsoft Azure Cache for Redis se basa en la popular caché de Azure para Redis de código abierto y son varios los [clientes de Redis](http://redis.io/clients) disponibles para muchos lenguajes de programación los que pueden acceder a ella. Cada cliente tiene su propia API que realiza llamadas a la instancia de Azure Cache for Redis mediante los [comandos de Redis](http://redis.io/commands).
+Microsoft Azure Cache for Redis se basa en la popular caché de Azure para Redis de código abierto y son varios los [clientes de Redis](https://redis.io/clients) disponibles para muchos lenguajes de programación los que pueden acceder a ella. Cada cliente tiene su propia API que realiza llamadas a la instancia de Azure Cache for Redis mediante los [comandos de Redis](https://redis.io/commands).
 
 Dado que cada cliente es diferente, no hay no una referencia de clase centralizada en MSDN; cada cliente mantiene su propia documentación de referencia. Además de la documentación de referencia, hay varios tutoriales que muestran cómo empezar a trabajar con Azure Cache for Redis con distintos idiomas y clientes de la caché. Para acceder a estos tutoriales, consulte el artículo sobre el [uso de Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) y haga clic en el idioma deseado del selector de idioma en la parte superior.
 
@@ -310,7 +310,7 @@ Para obtener instrucciones acerca de cómo descargar las herramientas de Redis, 
 * Redis funciona mejor con valores más pequeños, por lo que puede cortar los datos más grandes en varias claves. En [esta discusión de Redis](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ), 100 kB se considera "grande". Lea [este artículo](https://gist.github.com/JonCole/db0e90bedeb3fc4823c2#large-requestresponse-size) para ver un problema de ejemplo que puede deberse a valores grandes.
 * Configure [ThreadPool](#important-details-about-threadpool-growth) para evitar que se agoten los tiempos de espera.
 * Utilice al menos el valor de connectTimeout predeterminado de 5 segundos. Este intervalo daría a StackExchange.Redis tiempo suficiente para volver a establecer la conexión, en caso de una interrupción momentánea de la red.
-* Tenga en cuenta los costos de rendimiento de las diferentes operaciones que se estén ejecutando. Por ejemplo, el comando `KEYS` es una operación O(n) y debe evitarse. El [sitio redis.io](http://redis.io/commands/) tiene información sobre la complejidad de tiempo de cada operación admitida. Haga clic en cada comando para ver la complejidad de cada operación.
+* Tenga en cuenta los costos de rendimiento de las diferentes operaciones que se estén ejecutando. Por ejemplo, el comando `KEYS` es una operación O(n) y debe evitarse. El [sitio redis.io](https://redis.io/commands/) tiene información sobre la complejidad de tiempo de cada operación admitida. Haga clic en cada comando para ver la complejidad de cada operación.
 
 #### <a name="configuration-and-concepts"></a>Configuración y conceptos
 * Use el nivel Estándar o Premium en sistemas de producción. El nivel básico es un sistema de nodo único sin replicación de datos ni Acuerdo de Nivel de Servicio. Además, utilice al menos una caché de C1. Las cachés C0 se usan normalmente en escenarios de desarrollo o pruebas sencillos.
@@ -329,7 +329,7 @@ Para obtener instrucciones acerca de cómo descargar las herramientas de Redis, 
 
 ### <a name="what-are-some-of-the-considerations-when-using-common-redis-commands"></a>¿Cuáles son algunas de las consideraciones al usar los comandos de Redis comunes?
 * No se deben ejecutar determinados comandos de Redis que tardan mucho tiempo en completarse sin comprender el impacto de estos comandos.
-  * Por ejemplo, no ejecute el comando [KEYS](http://redis.io/commands/keys) en producción ya que puede tardar mucho tiempo en devolver según el número de claves. Redis es un servidor de un único subproceso y procesa los comandos uno a la vez. Si tiene otros comandos emitidos después de KEYS, no se procesarán hasta que Redis procese el comando KEYS. El [sitio redis.io](http://redis.io/commands/) tiene información sobre la complejidad de tiempo de cada operación admitida. Haga clic en cada comando para ver la complejidad de cada operación.
+  * Por ejemplo, no ejecute el comando [KEYS](https://redis.io/commands/keys) en producción ya que puede tardar mucho tiempo en devolver según el número de claves. Redis es un servidor de un único subproceso y procesa los comandos uno a la vez. Si tiene otros comandos emitidos después de KEYS, no se procesarán hasta que Redis procese el comando KEYS. El [sitio redis.io](https://redis.io/commands/) tiene información sobre la complejidad de tiempo de cada operación admitida. Haga clic en cada comando para ver la complejidad de cada operación.
 * Tamaños de clave: ¿debo usar claves/valores pequeños o claves/valores grandes? En términos generales, depende del escenario. Si su escenario requiere claves de mayor tamaño, puede ajustar el valor de ConnectionTimeout y los valores de reintento y ajustar la lógica de reintento. Desde una perspectiva del servidor Redis, se observan valores menores que tiene un mejor rendimiento.
 * Estas consideraciones no significan que no pueda almacenar valores mayores en Redis, simplemente debe tenerlas en cuenta. Las latencias serán mayores. Si tiene un conjunto de datos mayor y otro más pequeño, puede usar varias instancias de ConnectionMultiplexer, cada una configurado con un conjunto diferente de valores de tiempo de expiración y reintentos, tal como se describe en la sección anterior [¿Qué hacen las opciones de configuración de StackExchange.Redis?](#cache-configuration) .
 
