@@ -189,8 +189,6 @@ items:
       href: how-to-connect-azureadaccount.md
     - name: Cambio de la contraseña de la cuenta del conector de AD DS
       href: how-to-connect-sync-change-addsacct-pass.md
-    - name: ¿Qué es el módulo de PowerShell ADConnectivityTools?
-      href: how-to-connect-adconnectivitytools.md
   - name: Administración de la autenticación de paso a través
     items:
     - name: Introducción a la autenticación de paso a través
@@ -267,6 +265,8 @@ items:
         href: how-to-connect-sync-service-manager-ui-mvsearch.md
   - name: Solución de problemas
     items:
+    - name: ¿Qué es el módulo de PowerShell ADConnectivityTools?
+      href: how-to-connect-adconnectivitytools.md
     - name: Conectividad
       href: tshoot-connect-connectivity.md
     - name: Errores durante la sincronización
@@ -325,9 +325,9 @@ items:
     href: reference-connect-adsynctools.md
   - name: Referencia de ADConnectivityTools
     href: reference-connect-adconnectivitytools.md
-ms.openlocfilehash: 53da6c08a48f14034e95094ec698f4ec55703466
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 04a7cbec3b72de527cfb1f2b8bf7f0b172617ce3
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342500"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215327"
