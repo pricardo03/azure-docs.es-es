@@ -712,6 +712,8 @@ items:
         items:
         - name: Datos de aplicación
           href: app/analytics.md
+        - name: Unificación de los recursos de datos de la aplicación
+          href: log-query/unify-app-resource-data.md
         - name: Propiedades estándar
           href: platform/log-standard-properties.md
         - name: Análisis de datos de texto
@@ -1005,9 +1007,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Ejemplos de código
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 02748b429bf7122dd0f1531d45c8af1217ceaa43
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 18a79275cc100cddce1687451168946d2cb2b85e
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120932"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215242"
