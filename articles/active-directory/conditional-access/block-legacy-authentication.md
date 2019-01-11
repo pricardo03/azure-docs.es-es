@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 12/06/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: ddfea3ec7380a36f937052a6a994504ca081f187
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 2abf0afb3b6e1cd80168fa3f295297551b9bf7ce
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53022205"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53755162"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Control de Bloqueo de autenticación heredada a Azure AD con acceso condicional   
 
@@ -91,7 +91,7 @@ Azure incluye una característica de seguridad que le impide crear una directiva
 ![Configuración de directiva no compatible](./media/block-legacy-authentication/04.png)
 
 
-La característica de seguridad es necesaria porque el *bloqueo de todos los usuarios y todas las aplicaciones en la nube* tiene el potencial de impedir que toda la organización inicie sesión en el inquilino. Se debe excluir al menos un usuario para cumplir con el requisito mínimo del procedimiento recomendado. También puede usar 
+La característica de seguridad es necesaria porque el *bloqueo de todos los usuarios y todas las aplicaciones en la nube* tiene el potencial de impedir que toda la organización inicie sesión en el inquilino. Se debe excluir al menos un usuario para cumplir con el requisito mínimo del procedimiento recomendado. También puede excluir un rol de directorio.
 
 ![Configuración de directiva no compatible](./media/block-legacy-authentication/05.png)
 

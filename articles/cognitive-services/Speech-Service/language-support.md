@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 65c89e337d62ccb7ce58a1ea4e7414527bf9af19
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 27b952fb1a901ff716f25cc7d512f860f639fb02
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342105"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632625"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Idiomas y regiones admitidos para Speech Service API
 
@@ -176,22 +176,7 @@ La personalización de la voz está disponible para inglés de Estados Unidos (e
 
 ## <a name="speech-translation"></a>Traducción de voz
 
-**Speech Translation** API admite varios idiomas para la traducción de voz a voz y de texto a voz. El idioma de origen siempre debe ser de la tabla de idiomas de Voz siguiente. Los idiomas de destino admitidos dependen de si el destino de traducción es voz o texto. Puede traducir la voz entrante en más de [60 idiomas](https://www.microsoft.com/translator/business/languages/). Un subconjunto de estos idiomas está disponible para [síntesis de voz](language-support.md#text-languages).
-
-### <a name="speech-languages"></a>Idiomas de voz
-
-| Idioma de voz   | Código de idioma |
-|:----------- |-|
-| Árabe (estándar moderno)      | `ar` |
-| Chino (mandarín)      | `zh` |
-| English      | `en` |
-| Francés      | `fr` |
-| Alemán      | `de` |
-| Italiano      | `it` |
-| Japonés      | `jp` |
-| Portugués (Brasil)     | `pt` |
-| Ruso      | `ru` |
-| Español      |  `es` |
+**Speech Translation** API admite varios idiomas para la traducción de voz a voz y de texto a voz. El idioma de origen debe incluirse siempre en la siguiente tabla de conversión de voz en texto. Los idiomas de destino admitidos dependen de si el destino de traducción es voz o texto. Puede traducir la voz entrante en más de [60 idiomas](https://www.microsoft.com/translator/business/languages/). Un subconjunto de estos idiomas está disponible para [síntesis de voz](language-support.md#text-languages).
 
 ### <a name="text-languages"></a>Idiomas de texto
 

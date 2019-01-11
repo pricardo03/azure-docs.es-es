@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 12/12/2018
-ms.openlocfilehash: 7af15e2e2ca6698f9d8ba1629f13804ce6457b8d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: f6191ba2f6ca86e07842030c0fca0a65b8c9d09a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315645"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584503"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Introducción a los límites de recursos de Instancia administrada de Azure SQL Database
 
@@ -48,16 +48,20 @@ Instancia administrada tiene dos niveles de servicio: De uso general y Crítico 
 | **Característica** | **Uso general** | **Crítico para la empresa** |
 | --- | --- | --- |
 | Número de núcleos virtuales\* | Gen4: 8, 16, 24<br/>Gen5: 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 8, 16, 24, 32, 40, 64, 80 |
-| Memoria | Gen4: 56 GB-156 GB<br/>Gen5: 44 GB - 440 GB<br/>\*Proporcional al número de núcleos virtuales | Gen4: 56 GB-156 GB <br/> Gen5: 44 GB - 440 GB<br/>\*Proporcional al número de núcleos virtuales |
+| Memoria | Gen4: 56 GB-156 GB<br/>Gen5: 44 GB - 440 GB<br/>\*Proporcional al número de núcleos virtuales | Gen4: 56 GB-156 GB <br/> Gen5: 41 GB - 408 GB<br/>\*Proporcional al número de núcleos virtuales |
 | Tamaño de almacenamiento máximo | 8 TB | Gen 4: 1 TB <br/> Gen 5: <br/>- 1 TB para 8 y 16 núcleos virtuales<br/>- 2 TB para 24 núcleos virtuales<br/>- 4 TB para 32, 40, 64 y 80 núcleos virtuales |
 | Almacenamiento máximo por base de datos | Determinado por el tamaño de almacenamiento máximo por instancia | Determinado por el tamaño de almacenamiento máximo por instancia |
 | Número máximo de bases de datos por instancia | 100 | 100 |
 | Número máximo de archivos de base de datos por instancia | Hasta 280 | Hasta 32 767 archivos por base de datos |
-| IOPS (aproximado) | 500-7500 por archivo<br/>\*[Depende del tamaño del archivo](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11 K - 110 K (1375 por núcleo virtual) |
+| Datos/IOPS de registro (aproximado) | 500-7500 por archivo<br/>\*[Depende del tamaño del archivo](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11 K - 110 K (1375 por núcleo virtual) |
+| Rendimiento del registro de la instancia | 22 MB/s por instancia | 3 MB/s por núcleo virtual<br/>Máximo 48 MB/s |
+| Rendimiento de datos (aproximado) | 100-250 MB/s por archivo<br/>\*[Depende del tamaño del archivo](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24-48 MB/s por núcleo virtual |
 | Latencia de E/S (aproximada) | 5-10 ms | 1-2 ms |
-| Tamaño máximo de tempDB | 192-1920 GB (24 GB por núcleo virtual) | Determinado por el tamaño de almacenamiento máximo por instancia |
+| Tamaño máximo de tempDB | 192-1920 GB (24 GB por núcleo virtual) | No hay restricciones: limitadas por el tamaño máximo de almacenamiento de la instancia |
 
-- Tanto las bases de datos de usuario como las del sistema se incluyen en el tamaño de almacenamiento de la instancia que se compara con el límite de tamaño de almacenamiento máximo. Utilice la vista del sistema <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> para determinar el espacio total utilizado por las bases de datos. Los registros de errores no se mantienen y no se incluyen en el tamaño. Las copias de seguridad no se incluyen en el tamaño del almacenamiento.
+**Notas**:
+- Tanto los datos como el tamaño de archivo de registro en las bases de datos del usuario y las del sistema se incluyen en el tamaño de almacenamiento de la instancia que se compara con el límite de tamaño de almacenamiento máximo. Utilice la vista del sistema <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> para determinar el espacio total utilizado por las bases de datos. Los registros de errores no se mantienen y no se incluyen en el tamaño. Las copias de seguridad no se incluyen en el tamaño del almacenamiento.
+- El rendimiento e IOPS también dependen del tamaño de página que no está limitado explícitamente por instancia administrada.
 
 ## <a name="supported-regions"></a>Regiones admitidas
 

@@ -1,7 +1,7 @@
 ---
 title: Crear, ejecutar y realizar un seguimiento de las canalizaciones de ML
 titleSuffix: Azure Machine Learning service
-description: Cree y ejecute una canalización de aprendizaje automático con el SDK de Azure Machine Learning para Python.  Las canalizaciones se usan para crear y administrar flujos de trabajo que unen fases de aprendizaje automático (ML). Entre las diferentes fases de aprendizaje automático se incluyen la preparación de datos, el entrenamiento de modelos, la implementación de modelos y la inferencia.
+description: Cree y ejecute una canalización de aprendizaje automático con el SDK de Azure Machine Learning para Python. Las canalizaciones se usan para crear y administrar flujos de trabajo que unen las fases de aprendizaje automático (ML). Estas fases incluyen preparación de los datos, entrenamiento del modelo, implementación de modelo e inferencia.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,23 +11,23 @@ ms.author: sanpil
 author: sanpil
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8478b6760921f4641cd214b1ff19cae9757b6d7e
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6c6472b824eefdd1954f3645c69090d1fb5455de
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269052"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754465"
 ---
-# <a name="create-and-run-a-machine-learning-pipeline-using-azure-machine-learning-sdk"></a>Crear y ejecutar una canalización de aprendizaje automático con el SDK de Azure Machine Learning
+# <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Crear y ejecutar una canalización de aprendizaje automático con el SDK de Azure Machine Learning
 
 En este artículo aprenderá a crear, publicar, ejecutar y realizar un seguimiento de una [canalización de aprendizaje automático](concept-ml-pipelines.md) mediante el [SDK de Azure Machine Learning](https://aka.ms/aml-sdk).  Estas canalizaciones se usan para crear y administrar flujos de trabajo que unen varias fases de aprendizaje automático. Cada fase de una canalización, como la preparación de datos y el entrenamiento de modelos, puede incluir uno o más pasos.
 
 Las canalizaciones que cree serán visibles para los miembros de su [área de trabajo](how-to-manage-workspace.md) de Azure Machine Learning Service. 
 
-Recuerde que las canalizaciones usan destinos de proceso remotos para el cálculo y el almacenamiento de los datos intermedios y finales asociados a esa canalización.  Asimismo, las canalizaciones pueden leer y escribir datos en y desde las ubicaciones de[Azure Storage](https://docs.microsoft.com/azure/storage/).
+Recuerde que las canalizaciones usan destinos de proceso remotos para el cálculo y el almacenamiento de los datos intermedios y finales asociados a esa canalización. Asimismo, las canalizaciones pueden leer y escribir datos en y desde las ubicaciones de[Azure Storage](https://docs.microsoft.com/azure/storage/).
 
 >[!Note]
->Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](http://aka.ms/AMLFree).
+>Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning Service](http://aka.ms/AMLFree).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -55,9 +55,9 @@ Cree los recursos necesarios para ejecutar una canalización:
 * Configure los [destinos de proceso](concept-azure-machine-learning-architecture.md#compute-target) en los que se ejecutarán los pasos de su canalización.
 
 ### <a name="set-up-a-datastore"></a>Configurar un almacén de datos
-Un almacén de datos almacena los datos a los que la canalización puede obtener acceso.  Cada área de trabajo tiene un almacén de datos predeterminado. Asimismo, puede registrar almacenes de datos adicionales. 
+Un almacén de datos almacena los datos a los que la canalización puede obtener acceso. Cada área de trabajo tiene un almacén de datos predeterminado. Asimismo, puede registrar almacenes de datos adicionales. 
 
-Cuando cree su área de trabajo, una instancia de [Azure File Storage ](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) y una de [Blob Storage ](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) se adjuntan al área de trabajo de forma predeterminada.  Azure File Storage es el "almacén de datos predeterminado" para un área de trabajo, pero también puede usar Blob Storage como un almacén de datos.  Obtenga más información sobre las [opciones de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
+Cuando cree su área de trabajo, una instancia de [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) y una de [Azure Blob Storage ](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) se adjuntan al área de trabajo de forma predeterminada. Azure Files es el almacén de datos predeterminado para un área de trabajo, pero también puede usar Blob Storage como un almacén de datos. Para obtener más información, consulte [Decisión sobre cuándo usar Azure Files, Azure Blobs o Azure Disks](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
 
 ```python
 # Default datastore (Azure file storage)
@@ -70,7 +70,7 @@ def_data_store = Datastore(ws, "workspacefilestore")
 def_blob_store = Datastore(ws, "workspaceblobstore")
 ```
 
-Cargue archivos de datos o directorios en el almacén de datos para que pueda obtener acceso a ellos desde sus canalizaciones.  En este ejemplo se usa la versión de Blob Storage del almacén de datos:
+Cargue archivos de datos o directorios en el almacén de datos para que pueda obtener acceso a ellos desde sus canalizaciones. En este ejemplo se usa la versión de Blob Storage del almacén de datos:
 
 ```python
 def_blob_store.upload_files(
@@ -79,7 +79,7 @@ def_blob_store.upload_files(
     overwrite=True)
 ```
 
-Una canalización consta de uno o varios pasos.  Un paso es una unidad que se ejecuta en un destino de proceso.  Los pasos pueden consumir orígenes de datos y producir datos "intermedios". Igualmente, un paso puede crear datos como un modelo, un directorio con archivos dependientes o datos temporales.  Estos datos están disponibles para otros pasos más adelante en la canalización.
+Una canalización consta de uno o varios pasos. Un paso es una unidad que se ejecuta en un destino de proceso. Los pasos pueden consumir orígenes de datos y producir datos "intermedios". Igualmente, un paso puede crear datos como un modelo, un directorio con archivos dependientes o datos temporales. Estos datos están disponibles para otros pasos más adelante en la canalización.
 
 ### <a name="configure-data-reference"></a>Configurar la referencia de datos
 
@@ -92,7 +92,7 @@ blob_input_data = DataReference(
     path_on_datastore="20newsgroups/20news.pkl")
 ```
 
-Los datos intermedios (o salida de un paso) se representan mediante un objeto [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py). `output_data1` se crea como la salida de un paso y se usa como la entrada de uno o más pasos futuros.  `PipelineData` introduce una dependencia de datos entre los pasos y crea un orden de ejecución implícito en la canalización.
+Los datos intermedios (o salida de un paso) se representan mediante un objeto [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py). `output_data1` se crea como la salida de un paso y se usa como la entrada de uno o más pasos futuros. `PipelineData` introduce una dependencia de datos entre los pasos y crea un orden de ejecución implícito en la canalización.
 
 ```python
 output_data1 = PipelineData(
@@ -103,7 +103,7 @@ output_data1 = PipelineData(
 
 ### <a name="set-up-compute"></a>Configurar un proceso
 
-En Azure Machine Learning, el proceso (o destino de proceso) se refiere a las máquinas o clústeres que realizarán los pasos del cálculo en su canal de aprendizaje automático. Por ejemplo, puede crear un proceso de Azure Machine Learning para ejecutar sus pasos.
+En Azure Machine Learning, el término *proceso* (o *destino de proceso*) se refiere a las máquinas o clústeres que realizarán los pasos del cálculo en su canal de aprendizaje automático. Por ejemplo, puede crear un proceso de Azure Machine Learning para ejecutar sus pasos.
 
 ```python
 compute_name = "aml-compute"
@@ -157,27 +157,27 @@ pipeline1 = Pipeline(workspace=ws, steps=[compareModels])
 
 ## <a name="submit-the-pipeline"></a>Enviar la canalización
 
-Cuando envía la canalización, se comprueban las dependencias para cada paso y se carga una instantánea de la carpeta especificada como directorio de origen en Azure Machine Learning Service.  Si no se especifica ningún directorio de origen, se carga el directorio local actual.
+Cuando envía la canalización, Azure Machine Learning Service comprueba las dependencias para cada paso y carga una instantánea del directorio de origen especificado. Si no se especifica ningún directorio de origen, se carga el directorio local actual.
 
 ```python
 # Submit the pipeline to be run
 pipeline_run1 = Experiment(ws, 'Compare_Models_Exp').submit(pipeline1)
 ```
 
-Cuando ejecute primero una canalización:
+Cuando se ejecuta por primera vez una canalización, Azure Machine Learning:
 
-* La instantánea del proyecto se descarga en el destino de proceso de la instancia de Blob Storage asociada al área de trabajo.
-* Se construye una imagen de docker correspondiente a cada paso en la canalización.
-* La imagen de docker para cada paso se descarga en el destino de proceso del registro de contenedor.
-* Si se especifica un objeto `DataReference` en un paso, se monta el almacén de datos. Si no se admite el montaje, los datos se copian al destino de proceso.
-* El paso se ejecuta en el destino de proceso especificado en la definición del paso. 
-* Se crean artefactos como registros, las propiedades stdout y stderr, métricas y resultados que especifica el paso. Estos artefactos se cargan y se guardan en el almacén de datos predeterminado del usuario.
+* Descarga la instantánea del proyecto en el destino de proceso de la instancia de Blob Storage asociada al área de trabajo.
+* Crea una imagen de docker correspondiente a cada paso en la canalización.
+* Descarga la imagen de docker para cada paso en el destino de proceso del registro de contenedor.
+* Monta el almacén de datos, si se especifica un objeto `DataReference`. Si no se admite el montaje, los datos se copian al destino de proceso.
+* Ejecuta el paso en el destino de proceso especificado en la definición del paso. 
+* Crea artefactos como registros, las propiedades stdout y stderr, métricas y resultados que especifica el paso. Estos artefactos se cargan y se guardan en el almacén de datos predeterminado del usuario.
 
-![ejecutar un experimento como una canalización](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
+![Diagrama de ejecución de un experimento como una canalización](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 
 ## <a name="publish-a-pipeline"></a>Publicar una canalización
 
-Puede publicar una canalización para ejecutarla con diferentes entradas más adelante. Para que el punto de conexión REST de una canalización ya publicada acepte los parámetros, la canalización debe parametrizarse antes de publicarse. 
+Puede publicar una canalización para ejecutarla con diferentes entradas más adelante. Para que el punto de conexión REST de una canalización ya publicada acepte los parámetros, debe parametrizar la canalización antes de publicarla. 
 
 1. Para crear un parámetro de canalización, use un objeto [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) con un valor predeterminado.
 
@@ -209,7 +209,7 @@ published_pipeline1 = pipeline1.publish(
 
 ## <a name="run-a-published-pipeline"></a>Ejecutar una canalización publicada
 
-Todas las canalizaciones publicadas tienen un punto de conexión REST para invocar la ejecución de la canalización desde sistemas externos, como los clientes que no son de Python. Este punto de conexión proporciona una forma de "repetibilidad administrada" en los escenarios de puntuación y nuevo entrenamiento.
+Todas las canalizaciones publicadas tienen un punto de conexión REST. Este punto de conexión invoca la ejecución de la canalización desde sistemas externos, como los clientes que no son de Python. Este punto de conexión habilita la "repetibilidad administrada" en los escenarios de puntuación y nuevo entrenamiento.
 
 Para invocar el proceso de ejecución de la canalización anterior, necesitará un token de encabezado de autenticación de Azure Active Directory, tal como se describe en la [clase AzureCliAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py).
 

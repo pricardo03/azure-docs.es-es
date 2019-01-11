@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nacharya1
 ms.author: nilesha
-ms.date: 12/04/2018
+ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7e55304fb02078c71b91b2904475a4bee4bcc018
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 9e3297b2493ea12f9da50556e4fc9e72d625fd25
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436966"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583466"
 ---
 # <a name="what-is-automated-machine-learning"></a>Descripción del aprendizaje automático
 
@@ -65,9 +65,10 @@ Siga este [cuaderno de ejemplo](https://github.com/Azure/MachineLearningNotebook
 ## <a name="next-steps"></a>Pasos siguientes
 
 Vea ejemplos y aprenda cómo generar modelos mediante Automated Machine Learning:
++ [Ejemplos: Uso de cuadernos de Jupyter para explorar Azure Machine Learning Service](samples-notebooks.md#automated-ml-setup)
 
 + [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md) (Tutorial: Entrenamiento automático de un modelo de clasificación con Azure Machine Learning automatizado)
 
-+ [Configuración del experimento de aprendizaje automático automatizado](how-to-configure-auto-train.md)
++ [Entrenamiento de modelos con aprendizaje automático automatizado en la nube](how-to-auto-train-remote.md)
 
-+ [Entrenamiento de modelos con aprendizaje automático automatizado en la nube](how-to-auto-train-remote.md) 
++ [Configuración del experimento de aprendizaje automático automatizado](how-to-configure-auto-train.md)

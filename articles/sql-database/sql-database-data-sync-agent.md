@@ -12,16 +12,19 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 11/12/2018
-ms.openlocfilehash: bb80b512176e8fe260eb4572ea9fa801a6ffc80a
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: b5916b781c636752ada6898cfa0c03bc02891501
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685147"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715025"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Agente de sincronización de datos para Azure SQL Data Sync
 
 Sincronice los datos con bases de datos locales de SQL Server mediante la instalación y configuración del agente de sincronización de datos para Azure SQL Data Sync. Para obtener más información acerca de SQL Data Sync, consulte [Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync](sql-database-sync-data.md).
+
+> [!IMPORTANT]
+> SQL Data Sync **no** admite en este momento Instancia administrada de Azure SQL Database.
 
 ## <a name="download-and-install"></a>Descargar e instalar
 
@@ -136,7 +139,7 @@ Estos escenarios pueden provocar este error:
 
 ### <a name="agent-start"></a> El agente cliente no se inicia (error 1069)
 
-El agente no se está ejecutando en un equipo que hospeda SQL Server. Al intentar iniciar manualmente el agente, ve un cuadro de diálogo con el mensaje "Error 1069: el servicio no se inició debido a un error de inicio de sesión".
+El agente no se está ejecutando en un equipo que hospeda SQL Server. Al intentar iniciar manualmente el agente, verá un cuadro de diálogo con el mensaje "Error 1069: el servicio no se inició debido a un error de inicio de sesión".
 
 ![Cuadro de diálogo del error 1069 de Data Sync](media/sql-database-troubleshoot-data-sync/sync-error-1069.png)
 
@@ -316,9 +319,9 @@ SqlDataSyncAgentCommand.exe -action "updatecredential" -serverName localhost -da
 
 Para obtener más información sobre SQL Data Sync, vea los siguientes artículos:
 
--   Introducción: [Sincronización de datos entre varias bases de datos locales y de la nube con Azure SQL Data Sync](sql-database-sync-data.md)
+-   Introducción: [Sincronización de datos entre varias bases de datos locales y en la nube con Azure SQL Data Sync](sql-database-sync-data.md)
 -   Configuración de Data Sync
-    - En el portal: [Tutorial: Configuración de SQL Data Sync para sincronizar datos entre Azure SQL Database e instancias locales de SQL Server](sql-database-get-started-sql-data-sync.md)
+    - En el portal, [Tutorial: Configuración de SQL Data Sync para sincronizar datos entre Azure SQL Database e instancias locales de SQL Server](sql-database-get-started-sql-data-sync.md)
     - Con PowerShell
         -  [Uso de PowerShell para sincronizar entre varias bases de datos SQL de Azure.](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Uso de PowerShell para realizar la sincronización entre Azure SQL Database y una base de datos de SQL Server local](scripts/sql-database-sync-data-between-azure-onprem.md)

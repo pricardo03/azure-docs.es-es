@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e247cedb732bb1290631ada4c6d423f1b3ed0dbd
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: da67213b708b3ff26fe1ddd926c5cb0bba33458d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196457"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788561"
 ---
 # <a name="saas-application-technical-info-tab"></a>Pestaña Información técnica de aplicaciones SaaS
 
@@ -54,7 +54,7 @@ En la tabla siguiente se describen los campos obligatorios de Sell through Micro
 |     Instrucciones de introducción              |   Instrucciones que compartir con sus clientes para ayudarles a conectar con la aplicación SaaS. Se permiten las etiquetas HTML básicas, por ejemplo: &lt;p&gt;, &lt;h1&gt;, &lt;li&gt;, etc.                |
 |    URL de página de aterrizaje  |   La dirección URL del sitio a la que se puede dirigir a los clientes después de hacer una adquisición en Azure Portal. Esta URL también será el punto de conexión que recibirá las API de conexión para facilitar el comercio con Microsoft.                |
 |  Webhook de conexión    |  Para todos los eventos asincrónicos que Microsoft necesita enviarle en nombre del cliente (ejemplo: la Suscripción de Azure se ha vuelto no válida), le pedimos que nos proporcione un webhook de conexión. Si aún no tiene un sistema de webhooks activo, la configuración más sencilla es una aplicación de lógica de punto de conexión HTTP que escuchará los eventos que se publiquen y los gestionará adecuadamente. Para más información, consulte <a href="https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint">Llamada, desencadenamiento o anidamiento de flujos de trabajo con puntos de conexión HTTP en aplicaciones lógicas</a>.                |
-|  Identificador del inquilino de Azure AD e ID de la aplicación      |   En Azure Portal, es necesario crear una aplicación de Active Directory para que podamos validar que la conexión entre nuestros dos servicios usa una comunicación autenticada. Para estos campos, cree una aplicación de AD y péguela en el id. de inquilino y el id. de aplicación correspondientes.               |
+|  Identificador del inquilino de Azure AD e ID de la aplicación      |   En Azure Portal, es necesario crear una aplicación de Active Directory para que podamos validar que la conexión entre nuestros dos servicios usa una comunicación autenticada. Para estos campos, cree una aplicación de AD y péguela en el id. de inquilino y el id. de aplicación correspondientes. Tenga en cuenta que el identificador de la aplicación está asociado a publisherID. Por lo tanto, asegúrese de que usa el mismo identificador de la aplicación en todas las ofertas.             |
 
 
 Por último, si selecciona **Sell through Microsoft**, hay otra pestaña Nueva oferta denominada **Planes**. 

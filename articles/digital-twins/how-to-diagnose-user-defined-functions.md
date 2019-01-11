@@ -1,23 +1,27 @@
 ---
 title: Depuración de las UDF en Azure Digital Twins | Microsoft Docs
-description: Instrucciones para depurar las UDF en Azure Digital Twins
+description: Instrucciones para depurar las UDF en Azure Digital Twins.
 author: stefanmsft
 manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/27/2018
 ms.author: stefanmsft
-ms.openlocfilehash: 9476db888a4bfae2d43ae4eec340972d4c2eb714
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.custom: seodec18
+ms.openlocfilehash: e373e7c3ca83a0200cd1b6b945c5e4cb43b77a51
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413020"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974869"
 ---
-# <a name="how-to-debug-issues-with-user-defined-functions-in-azure-digital-twins"></a>Depuración de problemas con las funciones definidas por el usuario en Azure Digital Twins
+# <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Depuración de funciones definidas por el usuario en Azure Digital Twins
 
-En este artículo se resume cómo diagnosticar las funciones definidas por el usuario. A continuación, se identifican algunos de los escenarios más comunes que se producen al trabajar con ellas.
+En este artículo se resume cómo diagnosticar las funciones definidas por el usuario. A continuación, se identifican algunos de los escenarios con más probabilidad de producirse al trabajar con ellas.
+
+>[!TIP]
+> Lea [Configuración de la supervisión y el registro](./how-to-configure-monitoring.md) para obtener más información sobre cómo configurar las herramientas de depuración en Azure Digital Twins mediante registros de actividad, registros de diagnóstico y Azure Monitor.
 
 ## <a name="debug-issues"></a>Depuración de problemas
 
@@ -28,9 +32,14 @@ Conocer la manera de diagnosticar cualquier problema que surja dentro de la inst
 Los registros y las métricas para la instancia de Azure Digital Twins se exponen a través de Azure Monitor. En la siguiente documentación se supone que ha creado un área de trabajo de [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) mediante [Azure Portal](../azure-monitor/learn/quick-create-workspace.md), la [CLI de Azure](../azure-monitor/learn/quick-create-workspace-cli.md) o [PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
 > [!NOTE]
-> Podría experimentar un retraso de 5 minutos al enviar eventos a **Log Analytics** por primera vez.
+> Podría experimentar un retraso de 5 minutos al enviar eventos a Azure Log Analytics por primera vez.
 
-Lea el artículo [Recopile y use los datos de registro provenientes de los recursos de Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) para habilitar la configuración de diagnóstico para la instancia de Azure Digital Twins mediante el Portal, la CLI de Azure o PowerShell. Asegúrese de seleccionar todas las categorías de registro, las métricas y el área de trabajo de Azure Log Analytics.
+Para configurar la supervisión y el registro de los recursos de Azure Digital Twins, lea [Configuración de la supervisión y el registro](./how-to-configure-monitoring.md).
+
+Lea el artículo [Recopile y use los datos de registro provenientes de los recursos de Azure](../azure-monitor/platform/diagnostic-logs-overview.md) para obtener una descripción completa de la configuración del registro de diagnóstico para la instancia de Azure Digital Twins mediante Azure Portal, la CLI de Azure o PowerShell.
+
+>[!IMPORTANT]
+> Asegúrese de seleccionar todas las categorías de registro, las métricas y el área de trabajo de Azure Log Analytics.
 
 ### <a name="trace-sensor-telemetry"></a>Seguimiento de la telemetría del sensor
 
@@ -56,7 +65,7 @@ AzureDiagnostics
 | where Category == 'UserDefinedFunction'
 ```
 
-Para obtener más información acerca de estas eficaces operaciones de consulta, lea [Introducción a las consultas](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
+Para obtener más información acerca de estas eficaces operaciones de consulta, lea [Introducción a las consultas](../azure-monitor/log-query/get-started-queries.md).
 
 ## <a name="identify-common-issues"></a>Identificación de los problemas comunes
 
@@ -74,11 +83,11 @@ Compruebe si existe una asignación de roles para la función definida por el us
 GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
 ```
 
-| Parámetro | Reemplazar por |
+| Valor del parámetro | Reemplazar por |
 | --- | --- |
-| *YOUR_USER_DEFINED_FUNCTION_ID* | El identificador de la función definida por el usuario para la que recuperar las asignaciones de roles|
+| YOUR_USER_DEFINED_FUNCTION_ID | El identificador de la función definida por el usuario para la que recuperar las asignaciones de roles|
 
-Si no se recupera ninguna asignación de roles, siga este artículo en [How to create a role assignment for your user-defined function](./how-to-user-defined-functions.md) (Creación de una asignación de roles para su función definida por el usuario).
+Descubra cómo [crear una asignación de roles para su función definida por el usuario](./how-to-user-defined-functions.md), si no existe ninguna asignación de roles.
 
 ### <a name="check-if-the-matcher-will-work-for-a-sensors-telemetry"></a>Compruebe si funcionará el buscador de coincidencias para la telemetría de un sensor
 
@@ -159,7 +168,7 @@ var customNotification = {
 sendNotification(telemetry.SensorId, "Space", JSON.stringify(customNotification));
 ```
 
-Esta situación se produce porque el identificador usado hace referencia a un sensor mientras el tipo de objeto de la topología especificado es "Espacio".
+Esta situación se produce porque el identificador usado hace referencia a un sensor mientras el tipo de objeto de la topología especificado es `Space`.
 
 Ejemplo **correcto**:
 
@@ -200,4 +209,4 @@ Si habilita la configuración de diagnóstico, es posible que se produzcan estas
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre cómo habilitar [la supervisión y los registros](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) en Azure Digital Twins.
+Obtenga información sobre cómo habilitar [la supervisión y los registros](../azure-monitor/platform/activity-logs-overview.md) en Azure Digital Twins.

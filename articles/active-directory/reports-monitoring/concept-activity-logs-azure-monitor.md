@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 760110d0ac359f6b7f135bf869e2520b8028ba6e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 298d4a7a003963e3466b595243c294679f581346
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625443"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582198"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Registros de actividad de Azure AD en Azure Monitor (versión preliminar)
 
@@ -39,7 +39,7 @@ Ahora puede enrutar los registros de actividad de Azure Active Directory (Azure 
 Con esta característica, puede enrutar registros de auditoría y de inicios de sesión de Azure AD a la cuenta de almacenamiento de Azure, un centro de eventos, Log Analytics o una solución personalizada. 
 
 * **Registros de auditoría**: el [informe de actividad de registros de auditoría](concept-audit-logs.md) le proporciona acceso al historial de todas las tareas llevadas a cabo en el inquilino.
-* **Inicios de sesión**: con el [informe de actividad de inicios de sesión](concept-sign-ins.md), puede determinar quién ha realizado las tareas notificadas en el informe de registros de auditoría.
+* **Registros de inicio de sesión**: Con el [informe de actividad de inicios de sesión](concept-sign-ins.md), puede determinar quién ha realizado las tareas notificadas en el informe de registros de auditoría.
 
 > [!NOTE]
 > En este momento no se admiten los registros de actividad de auditoría e inicio de sesión relacionados con B2C.
@@ -103,7 +103,7 @@ En esta sección se responden las preguntas más frecuentes y se abordan los pro
 
 **P: ¿Qué registros se incluyen?**
 
-**R:** Los registros de actividad de inicio de sesión y los registros de auditoría se pueden enrutar mediante esta característica, aunque actualmente no se incluyen los eventos de auditoría relacionados con B2C. Para averiguar qué tipos de registros y qué registros basados en características se admiten en la actualidad, consulte el [esquema de registro de auditoría](reference-azure-monitor-audit-log-schema.md) y el [esquema de registro de inicio de sesión](reference-azure-monitor-sign-ins-log-schema.md). 
+**R**: Los registros de actividad de inicio de sesión y los registros de auditoría se pueden enrutar mediante esta característica, aunque actualmente no se incluyen los eventos de auditoría relacionados con B2C. Para averiguar qué tipos de registros y qué registros basados en características se admiten en la actualidad, consulte el [esquema de registro de auditoría](reference-azure-monitor-audit-log-schema.md) y el [esquema de registro de inicio de sesión](reference-azure-monitor-sign-ins-log-schema.md). 
 
 ---
 
@@ -121,7 +121,7 @@ En esta sección se responden las preguntas más frecuentes y se abordan los pro
 
 **P: ¿Cuánto costará almacenar mis datos?**
 
-**R:**: El costo de almacenamiento depende tanto del tamaño de sus registros como del período de retención que elija. Para ver una lista de los costos estimados para los inquilinos, que dependen del volumen de registros generados, consulte la sección [Tamaño de almacenamiento de los registros de actividad](#storage-size-for-activity-logs).
+**R**: El costo de almacenamiento depende tanto del tamaño de sus registros como del período de retención que elija. Para ver una lista de los costos estimados para los inquilinos, que dependen del volumen de registros generados, consulte la sección [Tamaño de almacenamiento de los registros de actividad](#storage-size-for-activity-logs).
 
 ---
 
@@ -143,7 +143,7 @@ En esta sección se responden las preguntas más frecuentes y se abordan los pro
 
 **P: ¿Qué herramientas SIEM se admiten actualmente?** 
 
-**R**: Actualmente, [Splunk](tutorial-integrate-activity-logs-with-splunk.md), QRadar y [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory) admiten Azure Monitor. Para más información sobre cómo funcionan los conectores, consulte [Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa](../../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
+**R**: Actualmente, [Splunk](tutorial-integrate-activity-logs-with-splunk.md), QRadar y [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory) admiten Azure Monitor. Para más información sobre cómo funcionan los conectores, consulte [Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 ---
 

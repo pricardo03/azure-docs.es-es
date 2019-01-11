@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights - Modelo de serie temporal | Microsoft Docs
+title: Modelo de serie temporal en Azure Time Series Insights | Microsoft Docs
 description: Comprender el modelo de serie temporal de Azure Time Series Insights.
 author: ashannon7
 ms.author: anshan
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2ead7a9a71c0afe72736bef8796107cae42009f1
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: a6eb142cf607c286ccce1282bb5c67a30c040c62
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278192"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716589"
 ---
 # <a name="time-series-model"></a>Modelo de Time Series
 
@@ -136,7 +136,7 @@ Observe el siguiente ejemplo donde la jerarquía H1 tiene los valores *edificio*
  H1 = [“building”, “floor”, “room”]
 ```
 
-Según los *campos de instancia*, los atributos y valores de la jerarquía aparecen tal como se muestra en la siguiente tabla: 
+Según los *campos de instancia*, los atributos y valores de la jerarquía aparecen tal como se muestra en la siguiente tabla:
 
 | Identificador de serie temporal | Campos de instancia |
 | --- | --- |
@@ -144,9 +144,9 @@ Según los *campos de instancia*, los atributos y valores de la jerarquía apare
 | ID2 | "edificio" = "1000", "habitación" = "55" |
 | ID3 | "piso" = "10" |
 | ID4 | "Edificio" = "1000", "piso" = "10"  |
-| ID5 | |
+| ID5 | No se establece ningún valor de "compilación", "piso" o "habitación" |
 
-En el ejemplo anterior, ID1 se muestra como parte de la jerarquía H1 en la interfaz de usuario o la experiencia de usuario, y el resto de valores se clasifican en *instancias no primarias*, ya que no se ajustan a la jerarquía de datos especificada.
+En el ejemplo anterior, ID1 e ID4 se muestran como parte de la jerarquía H1 en el explorador de Azure Time Series Insights, y el resto de los valores se clasifican en *instancias no primarias*, ya que no se ajustan a la jerarquía de datos especificada.
 
 ## <a name="time-series-model-instances"></a>Instancias del modelo de serie temporal
 

@@ -1,19 +1,20 @@
 ---
-title: Incorporación de blobs a objetos en Azure Digital Twins | Microsoft Docs
-description: Instrucciones para agregar blobs a objetos en Azure Digital Twins
+title: Cómo agregar blobs a objetos en Azure Digital Twins | Microsoft Docs
+description: Descubra cómo agregar blobs a objetos en Azure Digital Twins.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/28/2018
 ms.author: adgera
-ms.openlocfilehash: 8a68ba35ddf7caacbf2339d87c5aeef80f470ba4
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.custom: seodec18
+ms.openlocfilehash: 604093dcec048b0991bbc9beac3ef998cc47e351
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725631"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974527"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Incorporación de blobs a objetos en Azure Digital Twins
 
@@ -21,10 +22,7 @@ Los blobs son representaciones no estructuradas de tipos de archivo comunes (por
 
 Azure Digital Twins admite la conexión de blobs a dispositivos, espacios y usuarios. Los blobs pueden representar una imagen de perfil de un usuario, una foto de dispositivo, un vídeo, un mapa o un registro.
 
-> [!NOTE]
-> En este artículo se da por hecho que:
-> * La instancia está configurada correctamente para recibir solicitudes de la API de administración.
-> * La autenticación se ha realizado correctamente con un cliente de REST de su elección.
+[!INCLUDE [Digital Twins Management API familiarity](../../includes/digital-twins-familiarity.md)]
 
 ## <a name="uploading-blobs-an-overview"></a>Carga de blobs: introducción
 
@@ -93,9 +91,9 @@ This is my blob content. In this case, some text, but I could also be uploading 
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Valor del parámetro | Reemplazar por |
+| Valor | Reemplazar por |
 | --- | --- |
-| *USER_DEFINED_BOUNDARY* | Nombre de un límite de contenido de varias partes |
+| USER_DEFINED_BOUNDARY | Nombre de un límite de contenido de varias partes |
 
 El siguiente código es una implementación de .NET de la misma carga de blobs mediante la clase [MultipartFormDataContent](https://docs.microsoft.com/dotnet/api/system.net.http.multipartformdatacontent):
 
@@ -116,7 +114,7 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 ## <a name="api-endpoints"></a>Puntos de conexión de API
 
-Las siguientes secciones lo guiarán a través de los puntos de conexión principales y sus funcionalidades.
+Las siguientes secciones describen los principales puntos de conexión de API relacionados con el blob y sus funcionalidades.
 
 ### <a name="devices"></a>Dispositivos
 

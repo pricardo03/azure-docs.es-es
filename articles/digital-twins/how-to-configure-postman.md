@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/18/2018
 ms.author: adgera
-ms.openlocfilehash: b22bf34a06966f917cdcdd07c28ead2d042061c1
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 92ff8cb732c7c10c525d8a8ec76180cb435bd466
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164003"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975022"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Configuración de Postman para Azure Digital Twins
 
@@ -31,7 +31,7 @@ Configure la aplicación de Azure AD para usar el flujo de concesión implícita
 
 1. Siga los pasos de [este inicio rápido](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) para crear una aplicación de Azure AD de tipo nativo. O bien, puede volver a usar un registro de aplicación nativa existente.
 
-1. En **Permisos necesarios**, escriba `Azure Digital Twins` y seleccione **Permisos delegados**. A continuación, seleccione **Conceder permisos**.
+1. En **Permisos necesarios**, seleccione **Agregar** y escriba **Azure Digital Twins** en **Agregar acceso de API**. Si la búsqueda no encuentra la API, busque en su lugar **Azure Smart Spaces**. A continuación, seleccione **Conceder permisos > Permisos delegados** y **Listo**.
 
     ![api de incorporación de registros de aplicación de Azure AD](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
 
@@ -65,7 +65,7 @@ A continuación, instale y configure Postman para obtener un token de Azure AD. 
     | Campo  | Valor |
     |---------|---------|
     | Tipo de concesión | `Implicit` |
-    | Dirección URL de devolución de llamadas | [`https://www.getpostman.com/oauth2/callback`](https://www.getpostman.com/oauth2/callback) |
+    | Dirección URL de devolución de llamadas | `https://www.getpostman.com/oauth2/callback` |
     | Dirección URL de autenticación | Use el valor de **Dirección URL de autorización** del paso 2 anterior |
     | Id. de cliente | Use el valor de **Id. de aplicación** para la aplicación de Azure AD que se creó o se reutilizó en la sección anterior |
     | Ámbito | Déjelo en blanco |

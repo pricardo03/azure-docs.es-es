@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: 724e6c57f10fb85b4b91c2236d17a64899953d67
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 204a3230c782279b0cad4194e97aa4014c940635
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581942"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608501"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Mejora del rendimiento de las cargas de trabajo de Apache Spark con la memoria caché de E/S de Azure HDInsight (versión preliminar)
 
@@ -20,7 +20,7 @@ La memoria caché de E/S es un servicio de almacenamiento en caché de datos par
 
 La mayoría de discos SSD proporciona más de 1 GB por segundo de ancho de banda. Este ancho de banda, complementado por la memoria caché de archivos en memoria del sistema operativo, es suficiente para cargar los motores de procesamiento de cálculo de macrodatos, como Apache Spark. La memoria operativa queda disponible para que Apache Spark procese tareas muy dependientes de la memoria, como órdenes aleatorios. El hecho de disponer del uso exclusivo de la memoria operativa permite a Apache Spark alcanzar un uso óptimo de los recursos.  
 
->[!Note]
+>[!Note]  
 >La memoria caché de E/S actualmente usa RubiX como un componente de almacenamiento en caché, pero esto podría cambiar en futuras versiones del servicio. Use las interfaces de la memoria caché de E/S y no tome las dependencias directamente en la implementación de RubiX.
 
 ## <a name="benefits-of-azure-hdinsight-io-cache"></a>Ventajas de la memoria caché de E/S de Azure HDInsight
@@ -45,7 +45,7 @@ La memoria caché de E/S de Azure HDInsight está desactivada de forma predeterm
 
 1. Confirme el reinicio de todos los servicios afectados en el clúster.
 
->[!NOTE] 
+>[!NOTE]  
 > Aunque la barra de progreso la muestre activada, la memoria caché de E/S no está habilitada realmente hasta que reinicie los otros servicios afectados.
 
 ## <a name="troubleshooting"></a>solución de problemas
@@ -78,4 +78,4 @@ Si esto no funciona, deshabilite la memoria caché de E/S.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información acerca de la memoria caché de E/S, incluidas las pruebas comparativas de rendimiento en esta entrada de blog: [Apache Spark jobs gain up to 9x speed up with HDInsight IO Cache](https://azure.microsoft.com/en-us/blog/apache-spark-speedup-with-hdinsight-io-cache/) (Los trabajos de Apache Spark consiguen una velocidad hasta 9 veces superior con la memoria caché de E/S de HDInsight).
+- Lea más acerca de la memoria caché de E/S, incluidas las pruebas comparativas de rendimiento, en esta entrada de blog: [Los trabajos de Apache Spark obtienen hasta 9 veces más velocidad con la memoria caché de E/S HDInsight](https://azure.microsoft.com/en-us/blog/apache-spark-speedup-with-hdinsight-io-cache/)

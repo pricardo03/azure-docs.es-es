@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 12/05/2018
 ms.author: jgao
 ms.custom: include file
-ms.openlocfilehash: 46618b76f43247199e85c2023a5391c5566f3394
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 711688b5b414e7b9a931190de3f7e6321d97ba3e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52978729"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53729346"
 ---
 ## <a name="quickstarts-and-tutorials"></a>Guías de inicio rápido y tutoriales
 
@@ -39,6 +39,7 @@ Use las siguientes guías de inicio rápido y tutoriales para aprender a desarro
     |------|-----|
     |[Utilización de la referencia de la plantilla](../articles/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md)|Use la documentación de referencia de la plantilla para desarrollar las plantillas. En el tutorial, busque el esquema de la cuenta de almacenamiento y use la información para crear una cuenta de almacenamiento cifrada.|
     |[Creación de varias instancias](../articles/azure-resource-manager/resource-manager-tutorial-create-multiple-instances.md)|Cree varias instancias de recursos de Azure. En el tutorial, puede crear varias instancias de la cuenta de almacenamiento.|
+    |[Movimiento de recursos](../articles/azure-resource-manager/resource-manager-tutorial-move-resources.md)|Trasladar recursos de un grupo de recursos a otro. En el tutorial, se ejecutará una plantilla existente para crear dos grupos de recursos y una cuenta de almacenamiento. Después, se ejecutará un cmdlet de PowerShell de Azure para mover la cuenta de almacenamiento al otro grupo de recursos.|
     |[Establecimiento del orden de implementación de los recursos](../articles/azure-resource-manager/resource-manager-tutorial-create-templates-with-dependent-resources.md)|Defina las dependencias de recursos. En el tutorial, va a crear una red virtual, una máquina virtual y los recursos dependientes de Azure. Aprenderá cómo se definen las dependencias.|
     |[Condiciones de uso](../articles/azure-resource-manager/resource-manager-tutorial-use-conditions.md)|Implemente recursos basados en algunos valores de parámetro. En el tutorial, definirá una plantilla para crear una nueva cuenta de almacenamiento o usará una cuenta de almacenamiento ya existente basada en el valor de un parámetro.|
     |[Integración de Key Vault](../articles/azure-resource-manager/resource-manager-tutorial-use-key-vault.md)|Recupere los secretos o contraseñas de Azure Key Vault. En el tutorial, creará una máquina virtual.  La contraseña del administrador de la máquina virtual se recupera de Key Vault.|

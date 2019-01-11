@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: 3a0304a69cdff15cddf325be8abe336a42ea4fc1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6d463ca73fb533b8a44c2019a478f2df0162cb23
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089877"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791452"
 ---
 # <a name="quickstart-convert-text-to-speech-using-net-core"></a>Inicio rápido: Conversión de texto a voz con .NET Core
 
@@ -27,7 +27,7 @@ En esta guía de inicio rápido, se requiere una [cuenta de Azure Cognitive Serv
 
 Esta guía de inicio rápido requiere:
 
-* [SDK de .NET](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
+* [SDK de .NET Core](https://dotnet.microsoft.com/download)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) o su editor favorito de código
 * Una clave de suscripción de Azure para el servicio Voz
 
@@ -109,7 +109,7 @@ public class Authentication
 ```
 
 > [!NOTE]
-> Para más información, consulte [Cómo obtener un token de acceso](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#how-to-get-an-access-token).
+> Para obtener más información, vea [Autenticación con un token de autenticación](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
 
 ## <a name="get-an-access-token-and-set-the-host-url"></a>Obtención de un token de acceso y establecimiento de la dirección URL del host
 
@@ -162,7 +162,7 @@ string body = @"<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis'
 ```
 
 > [!NOTE]
-> Este ejemplo se utiliza la fuente de voz `ZiraRUS`. Para obtener una lista completa de los idiomas y las voces que proporciona Microsoft, consulte [Compatibilidad con idiomas](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/language-support). Si está interesado en crear una voz única y reconocible para su marca, vea [Crear fuentes de voz personalizada](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font).
+> Este ejemplo se utiliza la fuente de voz `ZiraRUS`. Para obtener una lista completa de los idiomas y las voces que proporciona Microsoft, consulte [Compatibilidad con idiomas](language-support.md). Si está interesado en crear una voz única y reconocible para su marca, vea [Crear fuentes de voz personalizada](how-to-customize-voice-font.md).
 
 ## <a name="instantiate-the-client-make-a-request-and-save-synthesized-audio-to-a-file"></a>Creación de una instancia del cliente, realización de una solicitud y guardado del audio sintetizado en un archivo
 

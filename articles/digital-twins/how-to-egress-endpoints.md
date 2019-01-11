@@ -1,25 +1,71 @@
 ---
 title: Salidas y puntos de conexión en Azure Digital Twins | Microsoft Docs
-description: Instrucciones sobre cómo crear puntos de conexión con Azure Digital Twins
+description: Instrucciones sobre cómo crear puntos de conexión con Azure Digital Twins.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 12/31/2018
 ms.author: alinast
-ms.openlocfilehash: c94d29f16c011a9ff9951d064d7496d3a87f70ef
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: e93811a56f934a95dde45633c4fb64312b3696df
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636312"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994844"
 ---
 # <a name="egress-and-endpoints"></a>Salidas y puntos de conexión
 
-Azure Digital Twins admite el concepto de **puntos de conexión**. Cada punto de conexión representa un mensaje o un agente de eventos en la suscripción a Azure del usuario. Los eventos y mensajes pueden enviarse a Azure Event Hubs, a Azure Event Grid y a los temas de Azure Service Bus.
+Los *puntos de conexión* de Azure Digital Twins representan un mensaje o agente de eventos en la suscripción a Azure de un usuario. Los eventos y mensajes pueden enviarse a Azure Event Hubs, a Azure Event Grid y a los temas de Azure Service Bus.
 
-Los eventos se envían a los puntos de conexión de acuerdo con las preferencias de enrutamiento predefinidas. El usuario puede especificar qué punto de conexión debe recibir cualquiera de los siguientes eventos: 
+Los eventos se enrutan a los puntos de conexión de acuerdo con las preferencias de enrutamiento predefinidas. Los usuarios especifican qué *tipos de evento* puede recibir cada punto de conexión.
+
+Para obtener más información sobre eventos, enrutamiento y tipos de eventos, consulte [Enrutamiento de eventos y mensajes en Azure Digital Twins](./concepts-events-routing.md).
+
+## <a name="events"></a>Eventos
+
+Los eventos se envían a través de objetos de IoT (como dispositivos y sensores) para su procesamiento mediante mensajes y agentes de eventos de Azure. Los eventos se definen mediante la siguiente [referencia del esquema de eventos de Azure Event Grid](../event-grid/event-schema.md).
+
+```JSON
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "subject": "ExtendedPropertyKey",
+  "data": {
+    "SpacesToNotify": [
+      "3a16d146-ca39-49ee-b803-17a18a12ba36"
+    ],
+    "Id": "00000000-0000-0000-0000-000000000000",
+      "Type": "ExtendedPropertyKey",
+    "AccessType": "Create"
+  },
+  "eventType": "TopologyOperation",
+  "eventTime": "2018-04-17T17:41:54.9400177Z",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
+}
+```
+
+| Atributo | Escriba | DESCRIPCIÓN |
+| --- | --- | --- |
+| id | string | Identificador único para el evento |
+| subject | string | Ruta al asunto del evento definida por el anunciante. |
+| data | objeto | Los datos del evento específicos del proveedor de recursos. |
+| eventType | string | Uno de los tipos de eventos registrados para este origen de eventos. |
+| eventTime | string | La hora de generación del evento en función de la hora UTC del proveedor. |
+| dataVersion | string | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
+| metadataVersion | string | Versión del esquema de los metadatos del evento. Event Grid define el esquema de las propiedades de nivel superior. Event Grid proporciona este valor. |
+| topic | string | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
+
+Para más información, consulte el esquema de eventos de Azure Event Grid:
+
+- Revise la [referencia del esquema de eventos de Azure Event Grid](../event-grid/event-schema.md).
+- Lea la [referencia de EventGridEvent del SDK de Node.js de Azure EventGrid](https://docs.microsoft.com/javascript/api/azure-eventgrid/eventgridevent?view=azure-node-latest).
+
+## <a name="event-types"></a>Tipos de eventos
+
+Los tipos de eventos clasifican la naturaleza del evento y se establecen en el campo **eventType**. Los tipos de eventos disponibles se indican en la lista siguiente:
 
 - TopologyOperation
 - UdfCustom
@@ -27,15 +73,11 @@ Los eventos se envían a los puntos de conexión de acuerdo con las preferencias
 - SpaceChange
 - DeviceMessage
 
-Para obtener un conocimiento básico del enrutamiento de eventos y los tipos de eventos, consulte [Routing events and messages](concepts-events-routing.md) (Enrutamiento de eventos y mensajes).
-
-## <a name="event-types-description"></a>Descripción de los tipos de evento
-
-Los formatos de eventos para cada uno de los tipos de evento se describen en las secciones siguientes.
+Los formatos de eventos para cada uno de los tipos de evento se describen con más detalle en las subsecciones siguientes.
 
 ### <a name="topologyoperation"></a>TopologyOperation
 
-**TopologyOperation** se aplica a los cambios del grafo. La propiedad **subject** especifica el tipo de objeto afectado. Los siguientes tipos de objetos podrían desencadenar este evento: 
+**TopologyOperation** se aplica a los cambios del grafo. La propiedad **subject** especifica el tipo de objeto afectado. Los siguientes tipos de objetos podrían desencadenar este evento:
 
 - Dispositivo
 - DeviceBlobMetadata
@@ -86,7 +128,7 @@ Los formatos de eventos para cada uno de los tipos de evento se describen en las
 
 ### <a name="udfcustom"></a>UdfCustom
 
-**UdfCustom** es un evento enviado por una función definida por el usuario (UDF). 
+**UdfCustom** es un evento enviado por una función definida por el usuario (UDF).
   
 > [!IMPORTANT]  
 > Este evento tiene que enviarse explícitamente desde la misma función.
@@ -195,10 +237,19 @@ Al usar **DeviceMessage**, puede especificar una conexión de **EventHub** a la 
 
 ## <a name="configure-endpoints"></a>Configuración de extremos
 
-La administración de puntos de conexión se ejerce a través de la API de puntos de conexión. Los ejemplos siguientes muestran cómo configurar los distintos puntos de conexión compatibles. Preste especial atención a la matriz de tipos de evento, ya que define el enrutamiento para el punto de conexión:
+La administración de puntos de conexión se ejerce a través de la API de puntos de conexión.
+
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
+
+Los ejemplos siguientes muestran cómo configurar los puntos de conexión compatibles.
+
+>[!IMPORTANT]
+> Preste mucha atención al atributo **eventTypes**. Define qué tipos de eventos se controlan mediante el punto de conexión y, por tanto, determinan su enrutamiento.
+
+Una solicitud HTTP GET autenticada en
 
 ```plaintext
-POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
+YOUR_MANAGEMENT_API_URL/endpoints
 ```
 
 - Enrute a los tipos de eventos de Service Bus **SensorChange**, **SpaceChange** y **TopologyOperation**:

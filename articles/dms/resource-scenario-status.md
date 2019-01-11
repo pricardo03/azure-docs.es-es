@@ -4,22 +4,22 @@ description: Obtenga información sobre el estado de los escenarios de migració
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/11/2018
-ms.openlocfilehash: 9eea3c28751ecaec0ffdb27e08f84cad1bf62acd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.date: 12/19/2018
+ms.openlocfilehash: 81bd23f7e4b7065155b708703e52bc0a351696c1
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53267873"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722097"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Estado de los escenarios de migración que admite Azure Database Migration Service
-Azure Database Migration Service está diseñado para admitir una serie de escenarios de migración (pares de origen/destino) para las migraciones sin conexión (de un solo uso) y en línea (sincronización continua). Azure Database Migration Service proporciona una cobertura de escenarios que amplían constantemente. Nos encargamos de agregar nuevos escenarios de forma regular. En este artículo se identifican los escenarios de migración que actualmente son compatibles con Azure Database Migration Service y el estado (versión preliminar privada, versión preliminar pública o disponibilidad general) de cada escenario.
+Azure Database Migration Service está diseñado para admitir una serie de escenarios de migración (pares de origen/destino) para las migraciones sin conexión (de un solo uso) y en línea (sincronización continua). Azure Database Migration Service proporciona una cobertura de escenarios que amplían constantemente. Nos encargamos de agregar nuevos escenarios de forma regular. En este artículo se identifican los escenarios de migración que actualmente son compatibles con Azure Database Migration Service y el estado (versión preliminar privada [o limitada], versión preliminar pública o disponibilidad general) de cada escenario.
 
 ## <a name="offline-versus-online-migrations"></a>Migraciones sin conexión o en línea
 Cuando migra bases de datos a Azure mediante Azure Database Migration Service, puede realizar una migración sin conexión o en línea. Si usa las migraciones *sin conexión*, el tiempo de inactividad de la aplicación comienza al mismo tiempo que la migración. En cuanto a las *migraciones en línea*, el tiempo de inactividad se limita al tiempo requerido para pasar al nuevo entorno cuando finaliza la migración. Es recomendable probar una migración sin conexión para determinar si el tiempo de inactividad es aceptable; si no fuera así, realice una migración en línea.

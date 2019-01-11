@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
-ms.openlocfilehash: 3f7cfbea414561a50152f88ac9061d7f62c89e2a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bc8688e06b430522d2aeb1bcc67f72dae2e9ac6a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192420"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728419"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Grupos de equipos en búsquedas de registros en Log Analytics
 
@@ -31,7 +31,7 @@ Puede crear un grupo de equipos en Log Analytics mediante cualquiera de los mét
 |:--- |:--- |
 | Búsqueda de registros |Cree una búsqueda de registros que devuelva una lista de equipos. |
 | API de búsqueda de registros |Use la API de búsqueda de registros para crear mediante programación un grupo de equipos basándose en los resultados de una búsqueda de registros. |
-| Active Directory |Analice automáticamente la pertenencia al grupo de cualquier equipo agente que sea miembro de un dominio de Active Directory y cree un grupo en Log Analytics para cada grupo de seguridad. |
+| Active Directory |Analice automáticamente la pertenencia al grupo de cualquier equipo agente que sea miembro de un dominio de Active Directory y cree un grupo en Log Analytics para cada grupo de seguridad. (solo máquinas de Windows)|
 | Administrador de configuración | Importe colecciones desde System Center Configuration Manager y cree un grupo en Log Analytics para cada una. |
 | Windows Server Update Services |Analice automáticamente clientes o servidores WSUS para grupos de destino y cree un grupo en Log Analytics para cada uno. |
 
@@ -60,7 +60,10 @@ Utilice el procedimiento siguiente para crear un grupo de equipos a partir de un
 
 
 ### <a name="active-directory"></a>Active Directory
-Al configurar Log Analytics para importar pertenencias a grupos de Active Directory, se analiza la pertenencia a grupos de todos los equipos unidos al dominio con el agente de Log Analytics.  En Log Analytics se crea un grupo de equipos para cada grupo de seguridad de Active Directory y cada equipo se agrega a los grupos de equipos correspondientes a los grupos de seguridad de los que son miembros.  Esta pertenencia se actualiza continuamente cada 4 horas.  
+Al configurar Log Analytics para importar pertenencias a grupos de Active Directory, se analiza la pertenencia a grupos de todos los equipos unidos al dominio de Windows con el agente de Log Analytics.  En Log Analytics se crea un grupo de equipos para cada grupo de seguridad de Active Directory y cada equipo de Windows se agrega a los grupos de equipos correspondientes a los grupos de seguridad de los que son miembros.  Esta pertenencia se actualiza continuamente cada 4 horas.  
+
+> [!NOTE]
+> Los grupos importados de Active Directory solo contienen las máquinas de Windows.
 
 Configure Log Analytics para importar los grupos de seguridad de Active Directory en **Configuración avanzada** de Log Analytics en Azure Portal.  Seleccione **Grupos de equipos**, **Active Directory** y, a continuación, **Importar pertenencias a grupos de Active Directory de los equipos**.  No es necesario realizar ninguna configuración más.
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 12/22/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 5a0d7a0e96a788c3136adba70fb27a2c98674e7a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f3994c2be50939a837256224030e5284cc6f385b
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088058"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754057"
 ---
 # <a name="azure-stack-1809-update"></a>Actualización de Azure Stack 1809
 
@@ -287,12 +287,15 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
    - Para las cuotas creadas antes de la actualización 1808, la cuota de Managed Disks mostrará valores 0 en el portal de administrador, aunque se han asignado 2 048 GiB. Puede aumentar o disminuir el valor según sus necesidades reales y el valor de la cuota recién establecido invalida el predeterminado de 2 048 GiB.
    - Si actualiza el valor de la cuota a 0, equivale al valor predeterminado de 2 048 GiB. Como alternativa, establezca el valor de la cuota en 1.
 
-<!-- TBD - IS ASDK --> Después de aplicar la actualización 1809, se pueden producir los problemas siguientes al implementar máquinas virtuales con Managed Disks:
+<!-- TBD - IS ASDK --> 
+- Después de aplicar la actualización 1809, se pueden producir los problemas siguientes al implementar máquinas virtuales con Managed Disks:
 
    - Si la suscripción se creó antes de la actualización 1808, se puede producir un error en la implementación de máquinas virtuales con Managed Disks con un mensaje de error interno. Para resolver el error, siga estos pasos en cada suscripción:
       1. En el portal del inquilino, vaya a **Suscripciones** y busque la suscripción. Haga clic en **Proveedores de recursos**, después en **Microsoft.Compute** y luego en **Volver a registrar**.
       2. En la misma suscripción, vaya a **Control de acceso (IAM)**, y compruebe que **Azure Stack – Managed Disk** (Azure Stack - Disco administrado) aparece en la lista.
    2. Si ha configurado un entorno de varios inquilinos, se puede producir un error con un mensaje de error interno en la implementación de máquinas virtuales en una suscripción asociada con un directorio de invitados. Para solucionar el error, siga los pasos de [este artículo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) para volver a configurar cada uno de los directorios de invitado.
+
+- Una máquina virtual 18.04 de Ubuntu creada con la autorización de SSH habilitada no le permitirá usar las claves SSH para iniciar sesión. Como alternativa, utilice el acceso a la VM para la extensión de Linux a fin de implementar las claves SSH después del aprovisionamiento o utilice la autenticación basada en contraseña.
 
 ### <a name="networking"></a>Redes  
 

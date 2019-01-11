@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 46cd16c1667d3b33501c1b5680baabf243509f67
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: cf3c30d33e618ae3fd9d4ad942c77d211a414e82
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288551"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601158"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>Implementación local del acelerador de soluciones de supervisión remota: Docker
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-En este artículo, se explica cómo implementar el acelerador de la solución Supervisión remota en la máquina local para pruebas y desarrollo. Aprenderá a implementar los microservicios en contenedores locales de Docker. Una implementación local de microservicios usa los siguientes servicios en la nube: IoT Hub, Cosmos DB, Azure Streaming Analytics y Azure Time Series Insights.
+En este artículo, se explica cómo implementar el acelerador de la solución Supervisión remota en la máquina local para pruebas y desarrollo. Aprenderá a implementar los microservicios en contenedores locales de Docker. Una implementación local de microservicios utiliza los siguientes servicios en la nube: servicios de IoT Hub, Cosmos DB, Azure Streaming Analytics y Azure Time Series Insights en la nube.
 
 Si quiere ejecutar el acelerador de soluciones de supervisión remota en un IDE del equipo local, consulte [Implementación local del acelerador de la solución Supervisión remota: Visual Studio](iot-accelerators-remote-monitoring-deploy-local.md).
 
@@ -27,7 +27,7 @@ Si quiere ejecutar el acelerador de soluciones de supervisión remota en un IDE 
 
 Para implementar los servicios de Azure que usa el acelerador de la solución Supervisión remota, necesita una suscripción de Azure activa.
 
-En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
+En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ### <a name="machine-setup"></a>Configuración de la máquina
 
@@ -72,11 +72,11 @@ La primera vez que ejecuta este comando, Docker descarga las imágenes de micros
 > [!TIP]
 > Microsoft publica con frecuencia nuevas imágenes de Docker con la nueva funcionalidad. Puede usar el siguiente conjunto de comandos para limpiar los contenedores locales de Docker y las imágenes correspondientes antes de extraer las más recientes:
 
-    ```cmd/sh
-    docker list
-    docker rm <list_of_containers>
-    docker rmi <list_of_images>
-    ```
+```cmd/sh
+docker list
+docker rm <list_of_containers>
+docker rmi <list_of_images>
+```
 
 Puede utilizar un shell independiente para ver los registros desde el contenedor. En primer lugar, busque el identificador del contenedor mediante el comando `docker ps`. A continuación, utilice `docker logs {container-id} --tail 1000` para ver las 1000 entradas más recientes del contenedor especificado.
 

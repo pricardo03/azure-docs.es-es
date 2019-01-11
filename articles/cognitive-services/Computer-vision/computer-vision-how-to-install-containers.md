@@ -1,24 +1,24 @@
 ---
-title: Instalación y ejecución de contenedores
-titlesuffix: Computer Vision - Azure Cognitive Services
+title: 'Cómo instalar y ejecutar contenedores: Computer Vision'
+titlesuffix: Azure Cognitive Services
 description: Cómo descargar, instalar y ejecutar contenedores para Computer Vision en este tutorial paso a paso.
 services: cognitive-services
 author: diberry
 manager: cgronlun
-ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 9964be07c578cd1cafd93328bffe972483123e03
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.custom: seodec18
+ms.openlocfilehash: 6a6468cd71cf83c627f6dd72e5a1fc5564361d50
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077042"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579862"
 ---
-# <a name="install-and-run-containers"></a>Instalación y ejecución de contenedores
+# <a name="install-and-run-recognize-text-containers"></a>Instalar y ejecutar contenedores de Reconocer texto
 
 La creación de contenedores es un enfoque de distribución de software en el que una aplicación o servicio se empaqueta como una imagen de contenedor. La configuración y las dependencias de la aplicación o del servicio se incluyen en la imagen de contenedor. La imagen de contenedor puede implementarse en un host de contenedor con pocas modificaciones o ninguna. Los contenedores están aislados entre sí y del sistema operativo subyacente, con una superficie menor que una máquina virtual. Se pueden crear instancias de contenedores a partir de las imágenes de contenedor para las tareas a corto plazo y quitarlas cuando ya no se necesiten.
 
@@ -32,11 +32,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Debe cumplir los siguientes requisitos previos para poder usar el contenedor de Reconocer texto:
 
-**Motor de Docker**: el motor de Docker debe estar instalado en el entorno local. Docker proporciona paquetes que configuran el entorno de Docker en [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) y [Windows](https://docs.docker.com/docker-for-windows/). En Windows, Docker debe configurarse para admitir los contenedores de Linux. Los contenedores de Docker también se pueden implementar directamente en [Azure Kubernetes Service](/azure/aks/), [Azure Container Instances](/azure/container-instances/) o en un clúster de [Kubernetes](https://kubernetes.io/) implementado en [Azure Stack](/azure/azure-stack/). Para obtener más información sobre la implementación de Kubernetes en Azure Stack, consulte [Implementación de Kubernetes en Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+**Motor de Docker**: debe tener el motor de Docker instalado localmente. Docker proporciona paquetes que configuran el entorno de Docker en [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms) y [Windows](https://docs.docker.com/docker-for-windows/). En Windows, Docker debe configurarse para admitir los contenedores de Linux. Los contenedores de Docker también se pueden implementar directamente en [Azure Kubernetes Service](../../aks/index.yml), [Azure Container Instances](../../container-instances/index.yml) o en un clúster de [Kubernetes](https://kubernetes.io/) implementado en [Azure Stack](../../azure-stack/index.yml). Para obtener más información sobre la implementación de Kubernetes en Azure Stack, consulte [Implementación de Kubernetes en Azure Stack](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
 
 Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio.
 
-**Conocimientos sobre Microsoft Container Registry y Docker**: debe tener conocimientos básicos sobre los conceptos de Microsoft Container Registry y Docker, como los registros, los repositorios, los contenedores y las imágenes de contenedor, así como sobre los comandos `docker` básicos.  
+**Familiaridad con Microsoft Container Registry y Docker**: debe tener un conocimiento básico de los conceptos de Microsoft Container Registry y Docker, como los registros, los repositorios, los contenedores y las imágenes de contenedor, así como de los comandos `docker` básicos.  
 
 Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).
 
@@ -60,7 +60,7 @@ Debe crear un recurso de Computer Vision en Azure si quiere usar el contenedor d
 Realice los pasos siguientes para crear y recuperar información de un recurso de Azure:
 
 1. Cree un recurso de Azure en Azure Portal.  
-   Si quiere usar el contenedor de Reconocer texto, primero debe crear un recurso correspondiente de Computer Vision en Azure Portal. Para más información, consulte [Inicio rápido: Crear una cuenta de Cognitive Services en Azure Portal](../cognitive-services-apis-create-account.md).
+   Si quiere usar el contenedor de Reconocer texto, primero debe crear un recurso correspondiente de Computer Vision en Azure Portal. Para más información, consulte [Inicio rápido: Creación de una cuenta de Cognitive Services en Azure Portal](../cognitive-services-apis-create-account.md).
 
 1. Obtenga la dirección URL del punto de conexión y la clave de suscripción para el recurso de Azure.  
    Una vez creado el recurso de Azure, debe usar la clave de suscripción y la dirección URL del punto de conexión de ese recurso para crear una instancia del contenedor correspondiente de Reconocer texto. Puede copiar la dirección URL del punto de conexión y la clave de suscripción de las páginas Inicio rápido y Claves, respectivamente, del recurso de Computer Vision en Azure Portal.

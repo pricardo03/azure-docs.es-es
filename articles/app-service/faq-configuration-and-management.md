@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 266c9df095e9153533dbd89b4cd557d12ddcdc66
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 4cd6b375385326889226f6d4284815dfa0f47c49
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408891"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971314"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre la configuración y administración de Web Apps en Azure
 
@@ -39,7 +39,7 @@ Para obtener respuestas a preguntas comunes sobre el uso de un nombre de dominio
 
 ## <a name="how-do-i-purchase-a-new-custom-domain-for-my-web-app"></a>¿Cómo se compra un nuevo dominio personalizado para una aplicación web?
 
-Para saber cómo comprar y configurar un dominio personalizado para su aplicación web de App Service, consulte [Comprar y configurar un nombre de dominio personalizado en Azure App Service](custom-dns-web-site-buydomains-web-app.md).
+Para saber cómo comprar y configurar un dominio personalizado para su aplicación web de App Service, consulte [Comprar y configurar un nombre de dominio personalizado en Azure App Service](manage-custom-dns-buy-domain.md).
 
 
 ## <a name="how-do-i-upload-and-configure-an-existing-ssl-certificate-for-my-web-app"></a>¿Cómo se carga y configura un certificado SSL existente para una aplicación web?
@@ -72,9 +72,11 @@ Para establecer la zona horaria de servidor para la aplicación web:
     * Valor = *la zona horaria que desea*
 3. Seleccione **Guardar**.
 
+Consulte la columna **Zona horaria** en el artículo [Zonas horarias predeterminadas](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) para ver los valores aceptados.
+
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>¿Por qué mis trabajos web continuos en ocasiones dan error?
 
-De forma predeterminada, las aplicaciones web se descargan si están inactivas durante algún tiempo. Esto permite que el sistema conserve recursos. En los planes Básico y Estándar, puede activar el valor **Siempre activado** para que la aplicación web se mantenga cargada en todo momento. Si la aplicación web ejecuta trabajos web continuos, debe seleccionar **Siempre activado** o dichos trabajos podrían no ejecutarse de manera confiable. Para más información, consulte [Creación de un trabajo web de ejecución continua](web-sites-create-web-jobs.md#CreateContinuous).
+De forma predeterminada, las aplicaciones web se descargan si están inactivas durante algún tiempo. Esto permite que el sistema conserve recursos. En los planes Básico y Estándar, puede activar el valor **Siempre activado** para que la aplicación web se mantenga cargada en todo momento. Si la aplicación web ejecuta trabajos web continuos, debe seleccionar **Siempre activado** o dichos trabajos podrían no ejecutarse de manera confiable. Para más información, consulte [Creación de un trabajo eb de ejecución continua](webjobs-create.md#CreateContinuous).
 
 ## <a name="how-do-i-get-the-outbound-ip-address-for-my-web-app"></a>¿Cómo se obtiene una dirección IP de salida para una aplicación web?
 
@@ -124,7 +126,7 @@ Para más información, consulte el artículo sobre el [cumplimiento de las apli
 
 En los planes Premium y Standard de App Service, al implementar la aplicación web en App Service, puede hacerlo en una ranura de implementación independiente distinta a la de producción predeterminada. Los espacios de implementación son aplicaciones web activas que tienen sus propios nombres de host. Los elementos de contenido y configuración de aplicaciones web se pueden intercambiar entre dos espacios de implementación, incluida la ranura de producción.
 
-Para más información sobre el uso de las ranuras de implementación, consulte [Configuración de entornos de ensayo en Azure App Service](web-sites-staged-publishing.md).
+Para más información sobre el uso de las ranuras de implementación, consulte [Configuración de entornos de ensayo en Azure App Service](deploy-staging-slots.md).
 
 ## <a name="how-do-i-access-and-review-webjob-logs"></a>¿Cómo se accede y se revisan registros de WebJob?
 
@@ -248,7 +250,7 @@ Puede crear un trabajo web programado mediante expresiones Cron:
     {month} {day of the week}" }
     ```
 
-Para más información sobre los trabajos web programados, consulte [Creación de un trabajo web programado utilizando una expresión CRON](web-sites-create-web-jobs.md#CreateScheduledCRON).
+Para más información sobre los trabajos web programados, consulte [Creación de un trabajo web programado utilizando una expresión CRON](webjobs-create.md#CreateScheduledCRON).
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>¿Cómo se realizan pruebas de penetración para una aplicación de App Service?
 

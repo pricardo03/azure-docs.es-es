@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: d5e10e04ea9567e2656f592407855a53a70d7b0f
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 0ec603df7005b9151f1cf760df80de9aaffc78b3
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263360"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539711"
 ---
 # <a name="optimize-the-cost-for-multi-region-deployments-in-azure-cosmos-db"></a>Optimización de los costos para las implementaciones en varias regiones de Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Puede agregar regiones a la cuenta de Azure Cosmos o eliminarlas en cualquier mo
 
 1. `T x (N+1) RU/s` si su cuenta de Azure Cosmos está configurada con todas las regiones con capacidad de procesar escritura. 
 
-La capacidad de proceso con una sola región de escritura cuesta 0,008 USD/hora por cada 100 RU/s y la capacidad de proceso aprovisionada con varias regiones de escritura cuesta 0,016 USD/hora por cada 100 RU/s. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/) de Cosmos DB.
+La capacidad de proceso con una sola región de escritura cuesta 0,008 USD/hora por cada 100 RU/s y la capacidad de proceso aprovisionada con varias regiones de escritura cuesta 0,016 USD/hora por cada 100 RU/s. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/) de Azure Cosmos DB.
 
 ## <a name="costs-for-multiple-write-regions"></a>Costos para varias regiones de escritura
 
@@ -54,9 +54,9 @@ Si el uso no es el adecuado, como una o más regiones con menos o más uso del n
 A continuación, puede seguir obteniendo más información sobre la optimización de costos en Azure Cosmos DB con los siguientes artículos:
 
 * Sobre la [optimización para desarrollo y pruebas](optimize-dev-test.md)
-* Sobre la [explicación de la factura de Azure Cosmos DB](understand-your-bill.md)
-* Sobre la [optimización del costo de la capacidad de proceso](optimize-cost-throughput.md)
-* Sobre la [optimización del costo del rendimiento](optimize-cost-storage.md)
-* Sobre la [Optimización del costo de la lectura y la escritura](optimize-cost-reads-writes.md)
+* Obtenga más información sobre [la factura de Azure Cosmos DB](understand-your-bill.md).
+* Obtenga más información sobre la [optimización del costo de la capacidad del rendimiento](optimize-cost-throughput.md).
+* Obtenga más información sobre la [optimización del costo del almacenamiento](optimize-cost-storage.md).
+* Obtenga más información sobre la [optimización del costo de la lectura y la escritura](optimize-cost-reads-writes.md).
 * Sobre la [Optimización del costo de las consultas](optimize-cost-queries.md)
 

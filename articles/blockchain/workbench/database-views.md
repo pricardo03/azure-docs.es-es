@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 893e44b3298a03559b7dea4721e3bbbab0c65897
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4d5b98ab001bcb30091590880954c7075701e53b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615932"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607360"
 ---
 # <a name="database-views-in-azure-blockchain-workbench"></a>Vistas de base de datos de Azure Blockchain Workbench
 
@@ -27,7 +27,7 @@ Esta sección incluye una introducción sobre las vistas de base de datos y los 
 
 > [!NOTE]
 > No se admite ningún uso directo de las tablas de base de datos que se encuentran en la base de datos fuera de estas vistas, aunque sea posible.
-> 
+>
 
 ## <a name="vwapplication"></a>vwApplication
 
@@ -39,11 +39,11 @@ Esta vista proporciona información detallada sobre **aplicaciones** que se han 
 | ApplicationName                  | nvarchar(50)  | Sin           | Nombre de la aplicación |
 | ApplicationDescription           | nvarchar(255) | Sí         | Una descripción de la aplicación |
 | ApplicationDisplayName           | nvarchar(255) | Sin           | El nombre que aparecerá en una interfaz de usuario |
-| ApplicationEnabled               | bit           | Sin           | Identifica si la aplicación está habilitada actualmente</br> **Nota:** Incluso aunque una aplicación pueda aparecer como deshabilitada en la base de datos, los contratos asociados permanecen en la cadena de bloques y los datos sobre esos contratos permanecen en la base de datos. |
+| ApplicationEnabled               | bit           | Sin           | Identifica si la aplicación está habilitada actualmente<br /> **Nota:** Incluso aunque una aplicación pueda aparecer como deshabilitada en la base de datos, los contratos asociados permanecen en la cadena de bloques y los datos sobre esos contratos permanecen en la base de datos. |
 | UploadedDtTm                     | datetime2(7)  | Sin           | La fecha y hora en que se cargó un contrato |
 | UploadedByUserId                 | int           | Sin           | El identificador del usuario que ha cargado la aplicación |
 | UploadedByUserExternalId         | nvarchar(255) | Sin           | El identificador externo del usuario que ha cargado la aplicación. De forma predeterminada, este es el identificador del usuario de Azure Active Directory para el consorcio.                                                                                                |
-| UploadedByUserProvisioningStatus | int           | Sin           | Identifica el estado actual del proceso de aprovisionamiento para el usuario. Los valores posibles son: </br>0: la API ha creado un usuario<br>1: se ha asociado una clave con el usuario en la base de datos</br>2: el usuario está completamente aprovisionado                         |
+| UploadedByUserProvisioningStatus | int           | Sin           | Identifica el estado actual del proceso de aprovisionamiento para el usuario. Los valores posibles son: <br />0: la API ha creado un usuario<br />1: se ha asociado una clave con el usuario en la base de datos<br />2: el usuario está completamente aprovisionado                         |
 | UploadedByUserFirstName          | nvarchar(50)  | SÍ         | El nombre del usuario que ha cargado el contrato |
 | UploadedByUserLastName           | nvarchar(50)  | SÍ         | Los apellidos del usuario que ha cargado el contrato |
 | UploadedByUserEmailAddress       | nvarchar(255) | SÍ         | La dirección de correo electrónico del usuario que ha cargado el contrato |
@@ -81,7 +81,7 @@ Por ejemplo, en una aplicación de *transferencia de recursos*, *John Smith* se 
 | ApplicationRoleDescription | nvarchar(255) | Sí         | Una descripción del rol                                                                                                                                                                                                             |
 | UserId                     | int           | Sin           | El identificador del usuario asociado al rol |
 | UserExternalId             | nvarchar(255) | Sin           | El identificador externo del usuario asociado con el rol. De forma predeterminada, este es el identificador del usuario de Azure Active Directory para el consorcio.                                                                     |
-| UserProvisioningStatus     | int           | Sin           | Identifica el estado actual del proceso de aprovisionamiento para el usuario. Los valores posibles son: </br>0: la API ha creado un usuario</br>1: se ha asociado una clave con el usuario en la base de datos<br>2: el usuario está completamente aprovisionado |
+| UserProvisioningStatus     | int           | Sin           | Identifica el estado actual del proceso de aprovisionamiento para el usuario. Los valores posibles son: <br />0: la API ha creado un usuario<br />1: se ha asociado una clave con el usuario en la base de datos<br />2: el usuario está completamente aprovisionado |
 | UserFirstName              | nvarchar(50)  | SÍ         | El nombre del usuario asociado al rol |
 | UserLastName               | nvarchar(255) | SÍ         | Los apellidos del usuario asociado al rol |
 | UserEmailAddress           | nvarchar(255) | SÍ         | La dirección de correo electrónico del usuario asociado al rol |
@@ -103,7 +103,7 @@ Esta vista proporciona información detallada sobre las conexiones que se han de
 | LedgerDisplayName        | nvarchar(255) | Sin           | El nombre del libro de contabilidad que se va a mostrar en la interfaz de usuario |
 | UserId                   | int           | Sin           | El identificador del usuario asociado a la conexión |
 | UserExternalId           | nvarchar(255) | Sin           | El identificador externo del usuario asociado a la conexión. De forma predeterminada, este es el identificador del usuario de Azure Active Directory para el consorcio. |
-| UserProvisioningStatus   | int           | Sin           |Identifica el estado actual del proceso de aprovisionamiento para el usuario. Los valores posibles son: </br>0: la API ha creado un usuario</br>1: se ha asociado una clave con el usuario en la base de datos<br>2: el usuario está completamente aprovisionado |
+| UserProvisioningStatus   | int           | Sin           |Identifica el estado actual del proceso de aprovisionamiento para el usuario. Los valores posibles son: <br />0: la API ha creado un usuario<br />1: se ha asociado una clave con el usuario en la base de datos<br />2: el usuario está completamente aprovisionado |
 | UserFirstName            | nvarchar(50)  | SÍ         | El nombre del usuario asociado a la conexión |
 | UserLastName             | nvarchar(255) | SÍ         | Los apellidos del usuario asociado a la conexión |
 | UserEmailAddress         | nvarchar(255) | SÍ         | La dirección de correo electrónico del usuario asociado a la conexión |
@@ -129,7 +129,7 @@ Esta vista proporciona detalles sobre los contratos implementados. Para cada con
 | ApplicationId                            | int            | Sin           | Un identificador único para la aplicación |
 | ApplicationName                          | nvarchar (50)  | Sin           | Nombre de la aplicación |
 | ApplicationDisplayName                   | nvarchar (255) | Sin           | El nombre que aparecerá en una interfaz de usuario |
-| ApplicationEnabled                       | bit            | Sin           | Identifica si la aplicación está habilitada actualmente.</br> **Nota:** Incluso aunque una aplicación pueda aparecer como deshabilitada en la base de datos, los contratos asociados permanecen en la cadena de bloques y los datos sobre esos contratos permanecen en la base de datos.  |
+| ApplicationEnabled                       | bit            | Sin           | Identifica si la aplicación está habilitada actualmente.<br /> **Nota:** Incluso aunque una aplicación pueda aparecer como deshabilitada en la base de datos, los contratos asociados permanecen en la cadena de bloques y los datos sobre esos contratos permanecen en la base de datos.  |
 | WorkflowId                               | int            | Sin           | Un identificador único del flujo de trabajo asociado a un contrato |
 | WorkflowName                             | nvarchar(50)   | Sin           | El nombre del flujo de trabajo asociado a un contrato |
 | WorkflowDisplayName                      | nvarchar(255)  | Sin           | El nombre del flujo de trabajo asociado al contrato que se muestra en la interfaz de usuario |
@@ -138,11 +138,11 @@ Esta vista proporciona detalles sobre los contratos implementados. Para cada con
 | ContractFileName                         | int            | Sin           | El nombre del archivo que contiene el código de contrato inteligente de este flujo de trabajo. |
 | ContractUploadedDtTm                     | int            | Sin           | La fecha y hora en que se cargó el código de contrato |
 | ContractId                               | int            | Sin           | El identificador único del contrato |
-| ContractProvisioningStatus               | int            | Sin           | Identifica el estado actual del proceso de aprovisionamiento del contrato. Los valores posibles son: </br>0: la API ha creado el contrato en la base de datos</br>1: el contrato se ha enviado al libro de contabilidad</br>2: el contrato se ha implementado correctamente en el libro de contabilidad</br>3 o 4: no se pudo realizar la implementación del contrato en el libro de contabilidad</br>5: el contrato se implementó correctamente en el libro de contabilidad </br></br>A partir de la versión 1.5, se admiten los valores de 0 a 5. Para compatibilidad con versiones anteriores en la versión actual, la vista **vwContractV0** está disponible y solo admite valores de 0 a 2. |
+| ContractProvisioningStatus               | int            | Sin           | Identifica el estado actual del proceso de aprovisionamiento del contrato. Los valores posibles son: <br />0: la API ha creado el contrato en la base de datos<br />1: el contrato se ha enviado al libro de contabilidad<br />2: el contrato se ha implementado correctamente en el libro de contabilidad<br />3 o 4: no se pudo realizar la implementación del contrato en el libro de contabilidad<br />5: el contrato se implementó correctamente en el libro de contabilidad <br /><br />A partir de la versión 1.5, se admiten los valores de 0 a 5. Para compatibilidad con versiones anteriores en la versión actual, la vista **vwContractV0** está disponible y solo admite valores de 0 a 2. |
 | ContractLedgerIdentifier                 | nvarchar (255) |             | La dirección de correo electrónico del usuario que ha implementado el contrato |
 | ContractDeployedByUserId                 | int            | Sin           | Un identificador externo para el usuario que ha implementado el contrato. De forma predeterminada, este es el identificador único global que representa el identificador de Azure Active Directory del usuario.                                                                                                          |
 | ContractDeployedByUserExternalId         | nvarchar(255)  | Sin           | Un identificador externo para el usuario que ha implementado el contrato. De forma predeterminada, este es el identificador único global que representa el identificador de Azure Active Directory del usuario.                                                                                                         |
-| ContractDeployedByUserProvisioningStatus | int            | Sin           | Identifica el estado actual del proceso de aprovisionamiento para el usuario. Los valores posibles son: </br>0: la API ha creado un usuario</br>1: una clave se ha asociado con el usuario en la base de datos </br>2: el usuario está completamente aprovisionado                     |
+| ContractDeployedByUserProvisioningStatus | int            | Sin           | Identifica el estado actual del proceso de aprovisionamiento para el usuario. Los valores posibles son: <br />0: la API ha creado un usuario<br />1: una clave se ha asociado con el usuario en la base de datos <br />2: el usuario está completamente aprovisionado                     |
 | ContractDeployedByUserFirstName          | nvarchar(50)   | SÍ         | El nombre del usuario que ha implementado el contrato |
 | ContractDeployedByUserLastName           | nvarchar(255)  | SÍ         | Los apellidos del usuario que ha implementado el contrato |
 | ContractDeployedByUserEmailAddress       | nvarchar(255)  | SÍ         | La dirección de correo electrónico del usuario que ha implementado el contrato |
@@ -170,7 +170,7 @@ Esta vista representa la mayoría de la información relacionada con las accione
 | WorkflowDisplayName                      | nvarchar(255) | Sin           | El nombre del flujo de trabajo que se va a mostrar en una interfaz de usuario |
 | WorkflowDescription                      | nvarchar(255) | SÍ         | La descripción del flujo de trabajo |
 | ContractId                               | int           | Sin           | Un identificador único del contrato |
-| ContractProvisioningStatus               | int           | Sin           | Identifica el estado actual del proceso de aprovisionamiento del contrato. Los valores posibles son: </br>0: la API ha creado el contrato en la base de datos</br>1: el contrato se ha enviado al libro de contabilidad</br>2: el contrato se ha implementado correctamente en el libro de contabilidad</br>3 o 4: no se pudo realizar la implementación del contrato en el libro de contabilidad</br>5: el contrato se implementó correctamente en el libro de contabilidad </br></br>A partir de la versión 1.5, se admiten los valores de 0 a 5. Para compatibilidad con versiones anteriores en la versión actual, la vista **vwContractActionV0** está disponible y solo admite valores de 0 a 2. |
+| ContractProvisioningStatus               | int           | Sin           | Identifica el estado actual del proceso de aprovisionamiento del contrato. Los valores posibles son: <br />0: la API ha creado el contrato en la base de datos<br />1: el contrato se ha enviado al libro de contabilidad<br />2: el contrato se ha implementado correctamente en el libro de contabilidad<br />3 o 4: no se pudo realizar la implementación del contrato en el libro de contabilidad<br />5: el contrato se implementó correctamente en el libro de contabilidad <br /><br />A partir de la versión 1.5, se admiten los valores de 0 a 5. Para compatibilidad con versiones anteriores en la versión actual, la vista **vwContractActionV0** está disponible y solo admite valores de 0 a 2. |
 | ContractCodeId                           | int           | Sin           | Un identificador único para la implementación del código del contrato |
 | ContractLedgerIdentifier                 | nvarchar(255) | Sí         | Un identificador único asociado a la versión implementada de un contrato inteligente de un libro de contabilidad distribuida específico. Por ejemplo, Ethereum. |
 | ContractDeployedByUserId                 | int           | Sin           | El identificador único del usuario que ha implementado el contrato |
@@ -183,12 +183,12 @@ Esta vista representa la mayoría de la información relacionada con las accione
 | WorkflowFunctionDisplayName              | nvarchar(255) | Sin           | El nombre de una función que se mostrará en la interfaz de usuario |
 | WorkflowFunctionDescription              | nvarchar(255) | Sin           | La descripción de la función |
 | ContractActionId                         | int           | Sin           | El identificador único de una acción del contrato |
-| ContractActionProvisioningStatus         | int           | Sin           | Identifica el estado actual del proceso de aprovisionamiento de la acción del contrato. Los valores posibles son: </br>0: la API ha creado la acción del contrato en la base de datos</br>1: la acción del contrato se ha enviado al libro de contabilidad</br>2: la acción del contrato se ha implementado correctamente en el libro de contabilidad</br>3 o 4: no se pudo realizar la implementación del contrato en el libro de contabilidad</br>5: el contrato se implementó correctamente en el libro de contabilidad </br></br>A partir de la versión 1.5, se admiten los valores de 0 a 5. Para compatibilidad con versiones anteriores en la versión actual, la vista **vwContractActionV0** está disponible y solo admite valores de 0 a 2. |
+| ContractActionProvisioningStatus         | int           | Sin           | Identifica el estado actual del proceso de aprovisionamiento de la acción del contrato. Los valores posibles son: <br />0: la API ha creado la acción del contrato en la base de datos<br />1: la acción del contrato se ha enviado al libro de contabilidad<br />2: la acción del contrato se ha implementado correctamente en el libro de contabilidad<br />3 o 4: no se pudo realizar la implementación del contrato en el libro de contabilidad<br />5: el contrato se implementó correctamente en el libro de contabilidad <br /><br />A partir de la versión 1.5, se admiten los valores de 0 a 5. Para compatibilidad con versiones anteriores en la versión actual, la vista **vwContractActionV0** está disponible y solo admite valores de 0 a 2. |
 | ContractActionTimestamp                  | datetime(2,7) | Sin           | La marca de tiempo de la acción del contrato |
 | ContractActionExecutedByUserId           | int           | Sin           | El identificador único del usuario que ha ejecutado la acción del contrato |
 | ContractActionExecutedByUserFirstName    | int           | SÍ         | El nombre del usuario que ha ejecutado la acción del contrato |
 | ContractActionExecutedByUserLastName     | nvarchar(50)  | SÍ         | Los apellidos del usuario que ha ejecutado la acción del contrato |
-| ContractActionExecutedByUserExternalId   | nvarchar(255) | Sí         | El identificador externo del usuario que ha ejecutado la acción del contrato.  De forma predeterminada, este es el identificador único global que representa su identidad en la instancia de Azure Active Directory del consorcio. |
+| ContractActionExecutedByUserExternalId   | nvarchar(255) | Sí         | El identificador externo del usuario que ha ejecutado la acción del contrato. De forma predeterminada, este es el identificador único global que representa su identidad en la instancia de Azure Active Directory del consorcio. |
 | ContractActionExecutedByUserEmailAddress | nvarchar(255) | SÍ         | La dirección de correo electrónico del usuario que ha ejecutado la acción del contrato |
 | WorkflowFunctionParameterId              | int           | Sin           | Un identificador único de un parámetro de la función |
 | WorkflowFunctionParameterName            | nvarchar(50)  | Sin           | El nombre de un parámetro de la función |
@@ -204,7 +204,7 @@ Esta vista representa la mayoría de la información relacionada con las accione
 | TransactionTo                            | nvarchar(255) | SÍ         | La entidad con la que se ha realizado la transacción |
 | TransactionHash                          | nvarchar(255) | SÍ         | El hash de una transacción |
 | TransactionIsWorkbenchTransaction        | bit           | SÍ         | Un bit que indica si la transacción es una transacción de Azure Blockchain Workbench |
-| TransactionProvisioningStatus            | int           | Sí         | Identifica el estado actual del proceso de aprovisionamiento de la transacción. Los valores posibles son: </br>0: la API ha creado la transacción en la base de datos</br>1: la transacción se ha enviado al libro de contabilidad</br>2: la transacción se ha implementado correctamente en el libro de contabilidad                 |
+| TransactionProvisioningStatus            | int           | Sí         | Identifica el estado actual del proceso de aprovisionamiento de la transacción. Los valores posibles son: <br />0: la API ha creado la transacción en la base de datos<br />1: la transacción se ha enviado al libro de contabilidad<br />2: la transacción se ha implementado correctamente en el libro de contabilidad                 |
 | TransactionValue                         | decimal(32,2) | SÍ         | El valor de la transacción |
 
 ## <a name="vwcontractproperty"></a>vwContractProperty
@@ -223,13 +223,13 @@ Esta vista representa la mayoría de la información relacionada con las propied
 | ApplicationId                      | int           | Sin           | Un identificador único para la aplicación |
 | ApplicationName                    | nvarchar(50)  | Sin           | Nombre de la aplicación |
 | ApplicationDisplayName             | nvarchar(255) | Sin           | El nombre que aparecerá en una interfaz de usuario |
-| ApplicationEnabled                 | bit           | Sin           | Identifica si la aplicación está habilitada actualmente.</br>**Nota:** Incluso aunque una aplicación pueda aparecer como deshabilitada en la base de datos, los contratos asociados permanecen en la cadena de bloques y los datos sobre esos contratos permanecen en la base de datos.                      |
+| ApplicationEnabled                 | bit           | Sin           | Identifica si la aplicación está habilitada actualmente.<br />**Nota:** Incluso aunque una aplicación pueda aparecer como deshabilitada en la base de datos, los contratos asociados permanecen en la cadena de bloques y los datos sobre esos contratos permanecen en la base de datos.                      |
 | WorkflowId                         | int           | Sin           | El identificador único del flujo de trabajo |
 | WorkflowName                       | nvarchar(50)  | Sin           | El nombre del flujo de trabajo |
 | WorkflowDisplayName                | nvarchar(255) | Sin           | El nombre del flujo de trabajo que se va a mostrar en la interfaz de usuario |
 | WorkflowDescription                | nvarchar(255) | SÍ         | La descripción del flujo de trabajo |
 | ContractId                         | int           | Sin           | El identificador único del contrato |
-| ContractProvisioningStatus         | int           | Sin           | Identifica el estado actual del proceso de aprovisionamiento del contrato. Los valores posibles son: </br>0: la API ha creado el contrato en la base de datos</br>1: el contrato se ha enviado al libro de contabilidad</br>2: el contrato se ha implementado correctamente en el libro de contabilidad</br>3 o 4: no se pudo realizar la implementación del contrato en el libro de contabilidad</br>5: el contrato se implementó correctamente en el libro de contabilidad </br></br>A partir de la versión 1.5, se admiten los valores de 0 a 5. Para compatibilidad con versiones anteriores en la versión actual, la vista **vwContractPropertyV0** está disponible y solo admite valores de 0 a 2. |
+| ContractProvisioningStatus         | int           | Sin           | Identifica el estado actual del proceso de aprovisionamiento del contrato. Los valores posibles son: <br />0: la API ha creado el contrato en la base de datos<br />1: el contrato se ha enviado al libro de contabilidad<br />2: el contrato se ha implementado correctamente en el libro de contabilidad<br />3 o 4: no se pudo realizar la implementación del contrato en el libro de contabilidad<br />5: el contrato se implementó correctamente en el libro de contabilidad <br /><br />A partir de la versión 1.5, se admiten los valores de 0 a 5. Para compatibilidad con versiones anteriores en la versión actual, la vista **vwContractPropertyV0** está disponible y solo admite valores de 0 a 2. |
 | ContractCodeId                     | int           | Sin           | Un identificador único para la implementación del código del contrato |
 | ContractLedgerIdentifier           | nvarchar(255) | Sí         | Un identificador único asociado a la versión implementada de un contrato inteligente de un libro de contabilidad distribuida específico. Por ejemplo, Ethereum. |
 | ContractDeployedByUserId           | int           | Sin           | El identificador único del usuario que ha implementado el contrato |
@@ -263,14 +263,14 @@ Esta vista representa la mayoría de la información relacionada con el estado d
 | ApplicationId                      | int           | Sin           | Un identificador único para la aplicación |
 | ApplicationName                    | nvarchar(50)  | Sin           | Nombre de la aplicación |
 | ApplicationDisplayName             | nvarchar(255) | Sin           | El nombre que aparecerá en una interfaz de usuario |
-| ApplicationEnabled                 | bit           | Sin           | Identifica si la aplicación está habilitada actualmente.</br>**Nota:** Incluso aunque una aplicación pueda aparecer como deshabilitada en la base de datos, los contratos asociados permanecen en la cadena de bloques y los datos sobre esos contratos permanecen en la base de datos. |
+| ApplicationEnabled                 | bit           | Sin           | Identifica si la aplicación está habilitada actualmente.<br />**Nota:** Incluso aunque una aplicación pueda aparecer como deshabilitada en la base de datos, los contratos asociados permanecen en la cadena de bloques y los datos sobre esos contratos permanecen en la base de datos. |
 | WorkflowId                         | int           | Sin           | El identificador único del flujo de trabajo |
 | WorkflowName                       | nvarchar(50)  | Sin           | El nombre del flujo de trabajo |
 | WorkflowDisplayName                | nvarchar(255) | Sin           | El nombre que se muestra en la interfaz de usuario |
 | WorkflowDescription                | nvarchar(255) | SÍ         | La descripción del flujo de trabajo |
 | ContractLedgerImplementationId     | nvarchar(255) | Sí         | Un identificador único asociado a la versión implementada de un contrato inteligente de un libro de contabilidad distribuida específico. Por ejemplo, Ethereum. |
 | ContractId                         | int           | Sin           | Un identificador único del contrato |
-| ContractProvisioningStatus         | int           | Sin           |Identifica el estado actual del proceso de aprovisionamiento del contrato. Los valores posibles son: </br>0: la API ha creado el contrato en la base de datos</br>1: el contrato se ha enviado al libro de contabilidad</br>2: el contrato se ha implementado correctamente en el libro de contabilidad</br>3 o 4: no se pudo realizar la implementación del contrato en el libro de contabilidad</br>5: el contrato se implementó correctamente en el libro de contabilidad </br></br>A partir de la versión 1.5, se admiten los valores de 0 a 5. Para compatibilidad con versiones anteriores en la versión actual, la vista **vwContractStateV0** está disponible y solo admite valores de 0 a 2. |
+| ContractProvisioningStatus         | int           | Sin           |Identifica el estado actual del proceso de aprovisionamiento del contrato. Los valores posibles son: <br />0: la API ha creado el contrato en la base de datos<br />1: el contrato se ha enviado al libro de contabilidad<br />2: el contrato se ha implementado correctamente en el libro de contabilidad<br />3 o 4: no se pudo realizar la implementación del contrato en el libro de contabilidad<br />5: el contrato se implementó correctamente en el libro de contabilidad <br /><br />A partir de la versión 1.5, se admiten los valores de 0 a 5. Para compatibilidad con versiones anteriores en la versión actual, la vista **vwContractStateV0** está disponible y solo admite valores de 0 a 2. |
 | ConnectionId                       | int           | Sin           | El identificador único de la instancia de la cadena de bloques en la que se implementa el flujo de trabajo |
 | ContractCodeId                     | int           | Sin           | Un identificador único para la implementación del código del contrato |
 | ContractDeployedByUserId           | int           | Sin           | El identificador único del usuario que ha implementado el contrato |
@@ -297,7 +297,7 @@ Esta vista proporciona detalles sobre los miembros del consorcio que se han apro
 |--------------------|---------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ID                 | int           | Sin           | El identificador único de un usuario |
 | ExternalID         | nvarchar(255) | Sin           | El identificador externo de un usuario. De forma predeterminada, este es el identificador único global que representa el identificador de Azure Active Directory del usuario. |
-| ProvisioningStatus | int           | Sin           |Identifica el estado actual del proceso de aprovisionamiento para el usuario. Los valores posibles son: </br>0: la API ha creado un usuario</br>1: se ha asociado una clave con el usuario en la base de datos<br>2: el usuario está completamente aprovisionado |
+| ProvisioningStatus | int           | Sin           |Identifica el estado actual del proceso de aprovisionamiento para el usuario. Los valores posibles son: <br />0: la API ha creado un usuario<br />1: se ha asociado una clave con el usuario en la base de datos<br />2: el usuario está completamente aprovisionado |
 | Nombre          | nvarchar(50)  | SÍ         | El nombre del usuario |
 | Apellidos           | nvarchar(50)  | SÍ         | Los apellidos del usuario |
 | EmailAddress       | nvarchar(255) | SÍ         | La dirección de correo electrónico del usuario. |
@@ -331,7 +331,7 @@ Esta vista representa los principales metadatos del flujo de trabajo así como l
 
 ## <a name="vwworkflowfunction"></a>vwWorkflowFunction
 
-Esta vista representa los principales metadatos del flujo de trabajo así como las funciones y parámetros de este. Diseñado para los informes, esta vista también contiene metadatos sobre la aplicación asociada al flujo de trabajo. Esta vista contiene datos de varias tablas subyacentes que facilitan la creación de informes sobre los flujos de trabajo.  Para cada función del flujo de trabajo, esta vista contiene los datos siguientes:
+Esta vista representa los principales metadatos del flujo de trabajo así como las funciones y parámetros de este. Diseñado para los informes, esta vista también contiene metadatos sobre la aplicación asociada al flujo de trabajo. Esta vista contiene datos de varias tablas subyacentes que facilitan la creación de informes sobre los flujos de trabajo. Para cada función del flujo de trabajo, esta vista contiene los datos siguientes:
 
 -   Definición de aplicación asociada
 -   Definición de flujo de trabajo asociada
@@ -371,7 +371,7 @@ Esta vista representa las propiedades definidas para un flujo de trabajo. Para c
 | ApplicationId                | int           | Sin           | Un identificador único para la aplicación |
 | ApplicationName              | nvarchar(50)  | Sin           | Nombre de la aplicación |
 | ApplicationDisplayName       | nvarchar(255) | Sin           | El nombre que aparecerá en una interfaz de usuario |
-| ApplicationEnabled           | bit           | Sin           | Identifica si la aplicación está habilitada actualmente.</br>**Nota:** Incluso aunque una aplicación pueda aparecer como deshabilitada en la base de datos, los contratos asociados permanecen en la cadena de bloques y los datos sobre esos contratos permanecen en la base de datos. |
+| ApplicationEnabled           | bit           | Sin           | Identifica si la aplicación está habilitada actualmente.<br />**Nota:** Incluso aunque una aplicación pueda aparecer como deshabilitada en la base de datos, los contratos asociados permanecen en la cadena de bloques y los datos sobre esos contratos permanecen en la base de datos. |
 | WorkflowId                   | int           | Sin           | El identificador único del flujo de trabajo |
 | WorkflowName                 | nvarchar(50)  | Sin           | El nombre del flujo de trabajo |
 | WorkflowDisplayName          | nvarchar(255) | Sin           | El nombre del flujo de trabajo que aparecerá en una interfaz de usuario |
@@ -398,7 +398,7 @@ Esta vista representa las propiedades asociadas a un flujo de trabajo. Para cada
 | ApplicationId                | int           | Sin           | Un identificador único para la aplicación |
 | ApplicationName              | nvarchar(50)  | Sin           | Nombre de la aplicación |
 | ApplicationDisplayName       | nvarchar(255) | Sin           | Una descripción de la aplicación |
-| ApplicationEnabled           | bit           | Sin           | Identifica si la aplicación está habilitada actualmente.</br>**Nota:** Incluso aunque una aplicación pueda aparecer como deshabilitada en la base de datos, los contratos asociados permanecen en la cadena de bloques y los datos sobre esos contratos permanecen en la base de datos. |
+| ApplicationEnabled           | bit           | Sin           | Identifica si la aplicación está habilitada actualmente.<br />**Nota:** Incluso aunque una aplicación pueda aparecer como deshabilitada en la base de datos, los contratos asociados permanecen en la cadena de bloques y los datos sobre esos contratos permanecen en la base de datos. |
 | WorkflowId                   | int           | Sin           | El identificador único del flujo de trabajo |
 | WorkflowName                 | nvarchar(50)  | Sin           | El nombre del flujo de trabajo |
 | WorkflowDisplayName          | nvarchar(255) | Sin           | El nombre del flujo de trabajo que aparecerá en la interfaz de usuario |

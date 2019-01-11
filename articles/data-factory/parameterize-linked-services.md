@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 12/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 99efd29165f381b9038758c3384774a65da91501
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 874d2e7b5925bf299c3749948206401e00553736
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649421"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650454"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Parametrización de servicios vinculados en Azure Data Factory
 
@@ -34,7 +34,7 @@ Si desea una demostración y una introducción de siete minutos de esta caracter
 
 ## <a name="supported-data-stores"></a>Almacenes de datos compatibles
 
-En este momento, la parametrización de los servicios vinculados se admite en la interfaz de usuario de Data Factory en Azure Portal para los siguientes almacenes de datos. Para todos los demás almacenes de datos, puede parametrizar el servicio vinculado si selecciona el icono **Código** en la pestaña de la canalización y usa el editor de JSON.
+En este momento, la parametrización de los servicios vinculados se admite en la interfaz de usuario de Data Factory en Azure Portal para los siguientes almacenes de datos. Para todos los demás almacenes de datos, puede parametrizar el servicio vinculado si selecciona el icono **Código** en la pestaña **Conexiones** y usa el editor de JSON.
 - Azure SQL Database
 - Azure SQL Data Warehouse
 - SQL Server

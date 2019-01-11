@@ -11,18 +11,18 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: fc1f472cec1b1da26456924885d7905ab2458e14
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: efa24fcb624c7613ce16028d7ba06af4d4d2153c
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251137"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753394"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir un modelo de Azure Machine Learning que está implementado como un servicio web
 
 La implementación de un modelo de Azure Machine Learning como un servicio web crea una API REST. Puede enviar datos a esta API y recibir la predicción que devuelve el modelo. En este documento aprenderá a crear clientes para el servicio web usando C #, Go, Java y Python.
 
-Se crea un servicio web cuando se implementa una imagen en una instancia de Azure Container, Azure Kubernetes Service o Project Brainwave (matrices de puertas programables). Las imágenes se crean a partir de modelos registrados y archivos de puntuación. El URI que se usa para obtener acceder a un servicio web se puede recuperar gracias al [SDK de Azure Machine Learning](https://aka.ms/aml-sdk). Si la autenticación está habilitada, también puede usar el SDK para obtener las claves de autenticación.
+Creará un servicio web cuando se implementa una imagen en una instancia de Azure Container, Azure Kubernetes Service o Project Brainwave (matrices de puertas programables). Creará imágenes a partir de modelos registrados y archivos de puntuación. Recuperará el URI que se usa para obtener acceso a un servicio web gracias al [SDK de Azure Machine Learning](https://aka.ms/aml-sdk). Si la autenticación está habilitada, también puede usar el SDK para obtener las claves de autenticación.
 
 El flujo de trabajo general al crear un cliente que usa un servicio web de Machine Learning es:
 
@@ -33,9 +33,9 @@ El flujo de trabajo general al crear un cliente que usa un servicio web de Machi
 ## <a name="connection-information"></a>Información sobre la conexión
 
 > [!NOTE]
-> El SDK de Azure Machine Learning se usa para obtener la información del servicio web. Este es un SDK de Python. Si bien se usa para recuperar información sobre los servicios web, puede usar cualquier lenguaje para crear un cliente para el servicio.
+> Use el SDK de Azure Machine Learning para obtener la información del servicio web. Este es un SDK de Python. Puede usar cualquier lenguaje para crear un cliente para el servicio.
 
-La información de conexión del servicio web se puede recuperar si usa el SDK de Azure Machine Learning. La clase [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) proporciona la información necesaria para crear un cliente. Las siguientes propiedades `Webservice` son útiles al crear una aplicación cliente:
+La clase [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) proporciona la información necesaria para crear un cliente. Las siguientes propiedades `Webservice` son útiles para crear una aplicación cliente:
 
 * `auth_enabled`: si la autenticación está habilitada, `True`; de lo contrario, `False`.
 * `scoring_uri`: dirección de la API REST.
@@ -69,10 +69,10 @@ Existen tres formas de recuperar esta información para los servicios web implem
 
 ### <a name="authentication-key"></a>Clave de autenticación
 
-Las claves de autenticación se crean automáticamente cuando se habilita la autenticación de una implementación.
+Al habilitar la autenticación para una implementación, se crean automáticamente las claves de autenticación.
 
-* La autenticación se __habilita de manera predeterminada__ cuando se implementa en __Azure Kubernetes Service__.
-* La autenticación se __deshabilita de manera predeterminada__ cuando se implementa en __instancias de Azure Container__.
+* La autenticación se habilita de manera predeterminada cuando se implementa en Azure Kubernetes Service.
+* La autenticación se deshabilita de manera predeterminada cuando se implementa en instancias de Azure Container.
 
 Para controlar la autenticación, use el parámetro `auth_enabled` cuando cree o actualice una implementación.
 
@@ -155,9 +155,9 @@ def run(request):
 ```
 
 > [!IMPORTANT]
-> Los elementos del espacio de nombres `azureml.contrib` cambian con frecuencia mientras trabajamos para mejorar el servicio. Por lo tanto, todo el contenido de este espacio de nombres debe considerarse como una versión preliminar, no completamente compatible con Microsoft.
+> El espacio de nombres `azureml.contrib` cambia con frecuencia mientras trabajamos para mejorar el servicio. Por lo tanto, todo el contenido de este espacio de nombres debe considerarse como una versión preliminar, no completamente compatible con Microsoft.
 >
-> Si necesita probar esto en su entorno de desarrollo local, puede instalar los componentes en el espacio de nombres contrib mediante el comando siguiente:
+> Si necesita probar esto en su entorno de desarrollo local, puede instalar los componentes en el espacio de nombres `contrib`mediante el comando siguiente:
 > 
 > ```shell
 > pip install azureml-contrib-services

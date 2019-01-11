@@ -1,5 +1,5 @@
 ---
-title: 'Planeamiento de la versión preliminar de Azure Time Series Insights: planeamiento del entorno de versión preliminar de Azure Time Series Insights | Microsoft Docs'
+title: Planeamiento del entorno de versión preliminar de Azure Time Series Insights | Microsoft Docs
 description: Planee el entorno de versión preliminar de Azure Time Series Insights.
 author: ashannon7
 ms.author: anshan
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1df4847f20329e924352adfe782faa43d10dde98
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 09fef060a58723624796fe6192fef2444251cc1c
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277053"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556091"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planeamiento del entorno de versión preliminar de Azure Time Series Insights
 

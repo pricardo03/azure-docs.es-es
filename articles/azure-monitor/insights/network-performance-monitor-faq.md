@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 8e152bc96293d5e6e801fd23657d0de303093eb6
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: c792881b02eba7207b20c4b4807d8afbc1adb87f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166615"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543995"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Preguntas más frecuentes sobre la solución Network Performance Monitor.
 
@@ -70,6 +70,9 @@ El script configura solo el firewall de Windows localmente. Si tiene reglas de f
 
 ### <a name="how-many-agents-should-i-use"></a>¿Cuántos agentes se deben usar?
 Debe usar a al menos un agente para cada subred que quiera supervisar.
+
+### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--you-have-reached-your-configuration-limit"></a>¿Cuál es el número máximo de agentes que puedo usar o, si no, aparece el error "... se ha alcanzado el límite de configuración"?
+NPM limita el número de direcciones IP a direcciones 5000 por área de trabajo. Si un nodo tiene direcciones IPv4 e IPv6, esto contará como dos direcciones IP para ese nodo. Por lo tanto, el límite de 5000 direcciones IP podría decidir el límite superior en el número de agentes. Puede eliminar los agentes inactivos en la pestaña Nodos en NPM >> Configurar. NPM también mantiene el historial de todas las direcciones IP que se han asignado a la máquina virtual que hospeda al agente y esto también cuenta como direcciones IP independientes que contribuyen a ese límite de 5000 direcciones IP. Para liberar direcciones IP para el área de trabajo, puede usar la página Nodos para eliminar las direcciones IP que no están en uso.
 
 ## <a name="monitoring"></a>Supervisión
 

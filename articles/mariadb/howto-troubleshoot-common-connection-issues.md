@@ -2,20 +2,17 @@
 title: Solución de problemas de conexión a Azure Database for MariaDB | Microsoft Docs
 description: Obtenga información sobre la solución de problemas de conexión a Azure Database for MariaDB.
 keywords: conexión de mariadb, cadena de conexión, problemas de conectividad, error transitorio, error de conexión
-services: mariadb
 author: jan-eng
 ms.author: janeng
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/09/2018
-ms.openlocfilehash: 0100fa6d9691c864de9ac4aaea04b647e1705872
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: c7e1ff10f9698bf57ce86a7e9686ef13e5248db7
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565146"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545916"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>Solución de problemas de conexión a Azure Database for MariaDB
 
@@ -50,8 +47,8 @@ Los errores transitorios se producen cuando se realiza el mantenimiento, el sist
 Si la aplicación no se puede conectar a Azure Database for MariaDB de forma persistente, normalmente indica un problema con uno de los siguientes elementos:
 
 * Configuración del firewall: el firewall del servidor o el cliente de Azure Database for MariaDB bloquea las conexiones.
-* Reconfiguración de la red en el lado cliente: se ha añadido un nuevo servidor de proxy o dirección IP.
-* Error de usuario: por ejemplo, escribió incorrectamente los parámetros de conexión, como el nombre del servidor en la cadena de conexión o falta un sufijo *@servername* en el nombre de usuario.
+* Reconfiguración de red del cliente: Se agregó una nueva dirección IP o un servidor proxy.
+* Error del usuario: por ejemplo, escribió incorrectamente los parámetros de conexión, como el nombre del servidor en la cadena de conexión o falta un sufijo *@servername* en el nombre de usuario.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Pasos para resolver los problemas de conectividad persistentes
 

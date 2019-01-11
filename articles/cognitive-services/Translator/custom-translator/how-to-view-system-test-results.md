@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 61d3869559d88e14c0b9a3c3e23cd8a1f9c2b6c4
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 701f97a006e7457fcbdcc835f87832b269f986a8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627189"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630349"
 ---
 # <a name="view-system-test-results"></a>Ver resultados de pruebas del sistema
 
@@ -26,7 +26,7 @@ Seleccione un proyecto y, a continuación, seleccione la pestaña de modelos de 
 
 En la pestaña de pruebas se muestra lo siguiente:
 
-1.  Resultados de pruebas del sistema: el resultado del proceso de pruebas del entrenamiento. El proceso de pruebas genera la puntuación BLEU.
+1.  **Resultados de pruebas del sistema:** el resultado del proceso de pruebas del entrenamiento. El proceso de pruebas genera la puntuación BLEU.
 
     **Recuento de oraciones:** cuántas oraciones paralelas se usaron en el conjunto de pruebas.
 
@@ -54,11 +54,11 @@ Haga clic en el vínculo Download Translations (Descargar traducciones) para des
 
 Este archivo zip descargado contiene tres archivos.
 
-1.  custom.mt.txt: contiene la traducción automática de las oraciones del idioma de origen al idioma de destino que realizó el modelo entrenado con los datos del usuario.
+1.  **custom.mt.txt:** contiene la traducción automática de las oraciones del idioma de origen al idioma de destino que realizó el modelo entrenado con los datos del usuario.
 
-2.  ref.txt: contiene las traducciones de las oraciones del idioma de origen proporcionadas por el usuario en el idioma de destino.
+2.  **ref.txt:** contiene las traducciones de las oraciones del idioma de origen proporcionadas por el usuario en el idioma de destino.
 
-3.  source.txt: contiene las oraciones en el idioma de origen.
+3.  **source.txt:** contiene las oraciones en el idioma de origen.
 
     ![Resultados de pruebas del sistema descargados](media/how-to/how-to-download-system-test.png)
 
@@ -73,14 +73,29 @@ Para solicitar una implementación, haga lo siguiente:
     ![Implementación del modelo](media/how-to/how-to-deploy-model.png)
 
 3.  Haga clic en Implementar.
-4.  Seleccione las regiones donde quiere que se implemente el modelo y haga clic en Guardar. Puede seleccionar varias regiones.
+4.  Seleccione **Implementado** para las regiones donde quiere que se implemente el modelo y haga clic en Guardar. Puede seleccionar **Implementado** para varias regiones.
 
     ![Implementación del modelo](media/how-to/how-to-deploy-model-regions.png)
 
 5.  Puede ver el estado del modelo en la columna "Estado".
 
+## <a name="update-deployment-settings"></a>Actualizar la configuración de implementación
+
+Para actualizar la configuración de implementación:
+
+1.  Seleccione un proyecto y vaya a la pestaña **Modelos**.
+
+2. En el caso de un modelo implementado correctamente, se muestra un botón **Actualizar**.
+
+    ![Implementación del modelo](media/how-to/how-to-update-undeploy-model.png)
+
+3.  Seleccione **Actualizar**.
+4.  Seleccione **Implementado** o **No implementado** para las regiones donde quiere que se implemente el modelo o se anule su implementación y, a continuación, haga clic en **Guardar**.
+
+    ![Implementación del modelo](media/how-to/how-to-undeploy-model.png)
+
 >[!Note]
->Si ya se ha implementado un modelo, verá un botón "Anular la implementación" para ese modelo. Para anular la implementación de un modelo, haga clic en "Anular la implementación".
+>Si selecciona **No implementado** para todas las regiones, se anula la implementación del modelo en todas las regiones y se coloca en un estado no implementado. Ahora está deshabilitado para su uso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

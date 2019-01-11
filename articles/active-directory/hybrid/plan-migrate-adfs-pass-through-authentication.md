@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5361c8940c8c7dba5338a3f5a0ed18910f7e45a0
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: c7d236769d5e9adca0402affc2d0eccdf78a6837
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410336"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107759"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-ad"></a>Migración de Federación a Autenticación de paso a través para Azure AD
 El siguiente documento proporciona instrucciones para migrar desde AD FS a la autenticación de paso a través.
@@ -121,9 +121,9 @@ Antes de realizar la conversión de Federado a Administrado, es preciso examinar
 |-|-|
 | Va a conservar AD FS para otras aplicaciones.| Va a utilizar tanto AD FS como Azure AD y debe considerar como resultado la experiencia del usuario final. Es posible que los usuarios tengan que autenticarse dos veces en algunos escenarios, una vez en Azure AD (donde obtendrán SSO en adelante para otras aplicaciones como Office 365) y una segunda para todas las aplicaciones que aún están enlazadas a AD FS como una relación de confianza para usuario autenticado. |
 | AD FS está muy personalizado y depende de valores de configuración concretos del archivo onload.js que no se pueden duplicar en Azure AD (por ejemplo, ha cambiado la forma en que se inicia sesión para que los usuarios solo especifiquen un formato SamAccountName para su nombre de usuario, en lugar de un nombre principal de usuario, o tiene un inicio de sesión en el que la marca es importante).| Antes de continuar, deberá comprobar que Azure AD pueden cumplir los requisitos de personalización actuales. Para más información, consulte las secciones acerca de la personalización de marca de AD FS y la personalización de AD FS.|
-| Bloquea a los clientes de autenticación heredada mediante AD FS.| Considere la posibilidad de sustituir los controles para bloquear los clientes de autenticación heredada presentes actualmente en AD FS con una combinación de [controles de acceso condicional para la autenticación heredada](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) y [reglas de acceso de cliente de Exchange Online](http://aka.ms/EXOCAR). |
+| Bloquea a los clientes de autenticación heredada mediante AD FS.| Considere la posibilidad de sustituir los controles para bloquear los clientes de autenticación heredada presentes actualmente en AD FS con una combinación de [controles de acceso condicional para la autenticación heredada](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) y [reglas de acceso de cliente de Exchange Online](https://aka.ms/EXOCAR). |
 | Exija a los usuarios que ejecuten MFA con una solución de servidor de MFA local al realizar la autenticación en AD FS.| No podrá insertar un desafío de MFA mediante la solución MFA local en el flujo de autenticación de un dominio administrado; sin embargo, puede usar el servicio Azure MFA para ello, así que siga adelante una vez que se haya convertido el dominio. Si los usuarios no utilizan Azure MFA actualmente, esto implicará un único paso de registro de usuario final para el que tendrá que prepararse y comunicarse con sus usuarios finales. |
-| Use directivas de control de acceso (reglas de AuthZ) en AD FS para controlar el acceso a Office 365.| Considere la posibilidad de reemplazarlas por las [directivas de acceso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) de Azure AD y las [reglas de acceso de cliente de Exchange Online](http://aka.ms/EXOCAR).|
+| Use directivas de control de acceso (reglas de AuthZ) en AD FS para controlar el acceso a Office 365.| Considere la posibilidad de reemplazarlas por las [directivas de acceso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) de Azure AD y las [reglas de acceso de cliente de Exchange Online](https://aka.ms/EXOCAR).|
 
 ### <a name="considerations-for-common-ad-fs-customizations"></a>Consideraciones para las personalizaciones de AD FS comunes
 
@@ -244,7 +244,7 @@ Primero tiene que cambiar el método de inicio de sesión:
    ![imagen](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image8.png)</br>
    7. Abra el **portal de Azure AD**, seleccione **Azure Active Directory** y, después, seleccione **Azure AD Connect**.
    8. Compruebe que **Federación** está deshabilitado y que las opciones **Inicio de sesión único de conexión directa** y **Autenticación de paso a través** están **habilitadas**.</br>
-   ![imagen](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image9.png)</br>
+   ![Imagen](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image9.png)</br>
 
 Después debe implementar métodos de autenticación adicionales. Abra **Azure Portal**, busque **Azure Active Directory, Azure AD Connect** y haga clic en **Autenticación de paso a través**.
 
@@ -333,7 +333,7 @@ La conversión se realiza mediante el módulo de PowerShell de Azure AD.
 
 Cuando el inquilino usaba la federación, los usuarios se redirigían de la página de inicio de sesión de Azure AD al entorno de AD FS. Ahora que el inquilino está configurado para utilizar Autenticación de paso a través en lugar de Federación, los usuarios no se redirigirán a AD FS y en su lugar iniciarán sesión directamente mediante la página de inicio de sesión de Azure AD.
 
-Abra Internet Explorer en modo InPrivate para evitar que el inicio de sesión único de conexión directa inicie sesión automáticamente y vaya a la página de inicio de sesión de Office 365 ([http://portal.office.com](http://portal.office.com/)). Escriba el **nombre principal del usuario** y haga clic en **Siguiente**. Asegúrese de escribir el nombre principal de usuario de un usuario híbrido que se haya sincronizado desde la instancia de Active Directory local y que se haya federado previamente. El usuario verá la pantalla donde va a escribir el nombre de usuario y la contraseña.
+Abra Internet Explorer en modo InPrivate para evitar que el inicio de sesión único de conexión directa inicie sesión automáticamente y vaya a la página de inicio de sesión de Office 365 ([https://portal.office.com](https://portal.office.com/)). Escriba el **nombre principal del usuario** y haga clic en **Siguiente**. Asegúrese de escribir el nombre principal de usuario de un usuario híbrido que se haya sincronizado desde la instancia de Active Directory local y que se haya federado previamente. El usuario verá la pantalla donde va a escribir el nombre de usuario y la contraseña.
 
 ![Imagen 18](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image27.png)
 

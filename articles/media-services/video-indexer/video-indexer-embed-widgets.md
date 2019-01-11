@@ -7,18 +7,22 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/25/2018
 ms.author: juliako
-ms.openlocfilehash: a051f40cb5586cae58d8e4939f4fcee35438bf69
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 2c07cfcba473e2e27f14ff0118e6ca8a8f484df1
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292083"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791832"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Inserción de widgets de Video Indexer en las aplicaciones
 
 En este vídeo se muestra cómo insertar widgets de Video Indexer en sus aplicaciones. Video Indexer admite la inserción de dos tipos de widgets en la aplicación: **Cognitive Insights** y **Player**. 
+
+> [!NOTE]
+> A partir del 1 de febrero de 2018, la versión 1 del widget **Cognitive Insights** dejará de utilizarse. La versión predeterminada de la dirección URL para insertar será `version=2`.
+
 ## <a name="widget-types"></a>Tipos de widget
 
 ### <a name="cognitive-insights-widget"></a>Widget Cognitive Insights
@@ -39,7 +43,7 @@ El widget **Player** le permite transmitir el vídeo con velocidad de bits adapt
 |t|Segundos desde el inicio|Hace que el reproductor comience a reproducir desde un momento de tiempo determinado.<br/>Ejemplo: t=60|
 |captions|Código de idioma|Recupera el título en el idioma dado durante la carga del widget para que esté disponible en el menú de títulos.<br/>Ejemplo: captions=en-US|
 |showCaptions|Un valor booleano|Hace que el reproductor se cargue con los títulos ya habilitados.<br/>Ejemplo: showCaptions=true|
-|Tipo||Activa una máscara del reproductor de audio (se quita la parte de vídeo).<br/>Ejemplo: type=audio|
+|Tipo||Activa una máscara del reproductor de audio (se quita la parte de vídeo).<br/>Ejemplo: type=audio|"
 |autoplay|Un valor booleano|Indica si el reproductor debe comenzar a reproducir el vídeo cuando esté cargado (el valor predeterminado es true).<br/>Ejemplo: autoplay=false|
 |language|Código de idioma|Controla el idioma del reproductor (el valor predeterminado es en-US)<br/>Ejemplo: language=de-DE|
 

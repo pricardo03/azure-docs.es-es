@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 78c840efebd2e451747e2490fc4d2f363afa9a09
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 6a6f8b47044d36d767721e2d3503d11518dbf5a6
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263260"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036127"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Optimización de los costos de almacenamiento de Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Azure Cosmos DB espera que el tamaño del elemento sea de 2 MB o menos para un 
 
 ## <a name="optimize-cost-with-indexing"></a>Optimización del costo con indexación
 
-De forma predeterminada, los datos se indexan automáticamente, lo que puede aumentar el total de almacenamiento consumido. Sin embargo, puede aplicar directivas de índice personalizadas para reducir esta sobrecarga. La indexación automática que no se ha ajustado mediante la directiva es de aproximadamente del 10 a 20 % del tamaño del elemento. Al quitar o personalizar las directivas de índice, no pagará ningún costo adicional por las operaciones de escritura y no necesitará capacidad de rendimiento adicional. Consulte [Indexación en Cosmos DB](indexing-policies.md) para configurar directivas de indexación personalizadas. Si ha trabajado antes con bases de datos relacionales, puede pensar que "indexar todo" significa duplicar el almacenamiento o algo más. Sin embargo, en Azure Cosmos DB, en el caso medio, es mucho menor. En Azure Cosmos DB, la sobrecarga de almacenamiento del índice es típicamente baja (10-20 %) incluso con la indexación automática, porque está diseñada para un espacio de almacenamiento reducido. Mediante la administración de la directiva de indexación, puede controlar el equilibrio de la superficie del índice y del rendimiento de la consulta de una manera más precisa.
+De forma predeterminada, los datos se indexan automáticamente, lo que puede aumentar el total de almacenamiento consumido. Sin embargo, puede aplicar directivas de índice personalizadas para reducir esta sobrecarga. La indexación automática que no se ha ajustado mediante la directiva es de aproximadamente del 10 a 20 % del tamaño del elemento. Al quitar o personalizar las directivas de índice, no pagará ningún costo adicional por las operaciones de escritura y no necesitará capacidad de rendimiento adicional. Consulte [Indexación en Azure Cosmos DB](indexing-policies.md) para configurar directivas de indexación personalizadas. Si ha trabajado antes con bases de datos relacionales, puede pensar que "indexar todo" significa duplicar el almacenamiento o algo más. Sin embargo, en Azure Cosmos DB, en el caso medio, es mucho menor. En Azure Cosmos DB, la sobrecarga de almacenamiento del índice es típicamente baja (10-20 %) incluso con la indexación automática, porque está diseñada para un espacio de almacenamiento reducido. Mediante la administración de la directiva de indexación, puede controlar el equilibrio de la superficie del índice y del rendimiento de la consulta de una manera más precisa.
 
 ## <a name="optimize-cost-with-time-to-live-and-change-feed"></a>Optimización del costo con el período de vida y la fuente de cambios
 
@@ -54,10 +54,10 @@ Console.WriteLine("Item size quota: {0}, usage: {1}", collectionInfo.DocumentQuo
 
 A continuación, puede seguir obteniendo más información sobre la optimización de costos en Azure Cosmos DB con los siguientes artículos:
 
-* Más información sobre la [optimización para desarrollo y pruebas](optimize-dev-test.md)
-* Más información sobre la [descripción de la factura de Azure Cosmos DB](understand-your-bill.md)
+* Sobre la [optimización para desarrollo y pruebas](optimize-dev-test.md)
+* Obtenga más información sobre [la factura de Azure Cosmos DB](understand-your-bill.md).
 * Más información sobre la [Optimización del costo del rendimiento](optimize-cost-throughput.md)
 * Información sobre la [Optimización del costo de la lectura y la escritura](optimize-cost-reads-writes.md)
-* Más información sobre la [optimización del costo de consulta](optimize-cost-queries.md)
-* Más información sobre la [optimización del costo de las cuentas de Azure Cosmos de varias regiones](optimize-cost-regions.md)
+* Obtenga más información sobre la [optimización del costo de las consultas](optimize-cost-queries.md).
+* Obtenga más información sobre la [optimización del costo de las cuentas de Azure Cosmos de varias regiones](optimize-cost-regions.md).
 

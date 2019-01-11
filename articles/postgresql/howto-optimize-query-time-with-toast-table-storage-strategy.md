@@ -3,16 +3,15 @@ title: Optimización del tiempo de consulta en un servidor de Azure Database for
 description: En este artículo se describe cómo optimizar el tiempo de consulta con la estrategia de almacenamiento de tablas TOAST en un servidor de Azure Database for PostgreSQL.
 author: dianaputnam
 ms.author: dianas
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: dee8aaaef4b1998a7234a88d07ad5efbc79d050b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 1fb818a65e26f969f72131b0f5265f3efdd36bb6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628839"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542227"
 ---
 # <a name="optimizing-query-time-with-toast-table-storage-strategy"></a>Optimización del tiempo de consulta con la estrategia de almacenamiento de tablas TOAST 
 En este artículo se describe cómo optimizar los tiempos de consulta con la estrategia de almacenamiento de tablas TOAST.
@@ -32,4 +31,4 @@ Si tiene una carga de trabajo con un esquema con tablas anchas y gran recuento d
 ## <a name="next-steps"></a>Pasos siguientes
 Revise la carga de trabajo en busca de las características anteriores. 
 
-Revise la siguiente documentación de PostgreSQL: [Chapter 68, Database physical storage](https://www.postgresql.org/docs/current/storage-toast.html) 
+Revise la siguiente documentación de PostgreSQL: [Capítulo 68, Almacenamiento físico de base de datos](https://www.postgresql.org/docs/current/storage-toast.html) 

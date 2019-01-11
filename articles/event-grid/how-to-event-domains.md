@@ -6,13 +6,13 @@ author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 11/08/2018
-ms.openlocfilehash: ad23599d1df5d07e912f634435f8b44b441d87e6
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.date: 12/17/2018
+ms.openlocfilehash: 08faef2eaf5c9cd09172d455c464531e293d5f3e
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298542"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554595"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Administrar temas y publicar eventos con dominios de eventos
 
@@ -139,7 +139,7 @@ Los permisos que se establecen para un tema se almacenan en Azure Active Directo
 
 ## <a name="publish-events-to-an-event-grid-domain"></a>Publicar eventos en un dominio de Event Grid
 
-Publicar eventos en un dominio es lo mismo que [publicar en un tema personalizado](./post-to-custom-topic.md). La única diferencia es que debe especificar el tema al que quiere que vaya cada evento. La siguiente matriz de eventos enviará eventos con `"id": "1111"` al tema `foo`, mientras que el evento con `"id": "2222"` se enviará al tema `bar`:
+Publicar eventos en un dominio es lo mismo que [publicar en un tema personalizado](./post-to-custom-topic.md). Sin embargo, en lugar de publicar en el tema personalizado, debe publicar todos los eventos en el punto de conexión del dominio. En los datos del evento JSON, especifique el tema al que desea que vayan los eventos. La siguiente matriz de eventos enviará eventos con `"id": "1111"` al tema `demotopic1`, mientras que el evento con `"id": "2222"` se enviará al tema `demotopic2`:
 
 ```json
 [{
@@ -168,7 +168,15 @@ Publicar eventos en un dominio es lo mismo que [publicar en un tema personalizad
 }]
 ```
 
-Para obtener las claves para un dominio con la CLI de Azure, use:
+Para obtener el punto de conexión del dominio con la CLI de Azure, use
+
+```azurecli-interactive
+az eventgrid domain show \
+  -g <my-resource-group> \
+  -n <my-domain>
+```
+
+Para obtener las claves para un dominio, use:
 
 ```azurecli-interactive
 az eventgrid domain key list \
@@ -176,7 +184,15 @@ az eventgrid domain key list \
   -n <my-domain>
 ```
 
-Para PowerShell, use:
+Para obtener el punto de conexión del dominio con PowerShell, use
+
+```azurepowershell-interactive
+Get-AzureRmEventGridDomain `
+  -ResourceGroupName <my-resource-group> `
+  -Name <my-domain>
+```
+
+Para obtener las claves para un dominio, use:
 
 ```azurepowershell-interactive
 Get-AzureRmEventGridDomainKey `

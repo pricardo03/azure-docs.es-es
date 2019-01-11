@@ -11,12 +11,12 @@ ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 30546d31e96d7d7fa1009f16a50fe8fda12ead67
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 18c9eace306522f9ac9f04e19b9571db67561ae0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105111"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725069"
 ---
 # <a name="configure-containers"></a>Configuración de contenedores
 
@@ -113,10 +113,10 @@ El contenedor de Face almacena datos de blob, de caché, de metadatos y de la co
   Los cuatro tipos de datos se almacenan en la memoria. No se distribuyen ni son persistentes. Si el contenedor de Face se detiene o elimina, se destruyen todos los datos en el almacenamiento de dicho contenedor.  
   Se trata del escenario de almacenamiento predeterminado para el contenedor de Face.
 * Azure  
-  El contenedor de Face utiliza Azure Storage y Azure Cosmos DB para distribuir estos cuatro tipos de datos en el almacenamiento persistente. Los datos de blob y de cola se controlan mediante Azure Storage. Los datos de la memoria caché y los metadatos se controlan mediante Azure Cosmos DB, con MongoDB API. Si el contenedor de Face se detiene o elimina, todos los datos en el almacenamiento de dicho contenedor permanecen almacenados en Azure Storage y Azure Cosmos DB.  
+  El contenedor de Face utiliza Azure Storage y Azure Cosmos DB para distribuir estos cuatro tipos de datos en el almacenamiento persistente. Los datos de blob y de cola se controlan mediante Azure Storage. Los datos de la memoria caché y los metadatos se controlan mediante Azure Cosmos DB. Si el contenedor de Face se detiene o elimina, todos los datos en el almacenamiento de dicho contenedor permanecen almacenados en Azure Storage y Azure Cosmos DB.  
   Los recursos utilizados por el escenario de Azure Storage tienen los siguientes requisitos adicionales:
   * El recurso de Azure Storage debe usar el tipo de cuenta StorageV2.
-  * El recurso de Azure Cosmos DB debe usar MongoDB API.
+  * El recurso de Azure Cosmos DB debe usar Azure Cosmos DB para la API de MongoDB.
 
 Los escenarios de almacenamiento y las opciones de configuración asociadas se administran mediante el objeto `Storage`, en la sección de configuración `CloudAI`. Las opciones de configuración siguientes están disponibles en el objeto `Storage`:
 

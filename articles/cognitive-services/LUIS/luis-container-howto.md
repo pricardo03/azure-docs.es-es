@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: a6170d51e1a8756020b4f2caa733c388b2ce4060
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 2542364db3a895c060c752beeb0cfabf75834f7d
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013823"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970282"
 ---
-# <a name="install-and-run-containers"></a>Instalación y ejecución de contenedores
+# <a name="install-and-run-luis-docker-containers"></a>Instalar y ejecutar contenedores de docker de LUIS
  
 El contenedor de Language Understanding (LUIS) carga el modelo de Language Understanding entrenado o publicado, lo que también se conoce como [aplicación de LUIS](https://www.luis.ai), en un contenedor de Docker y proporciona acceso a las predicciones de consulta de los puntos de conexión de la API del contenedor. Puede recopilar registros de consultas en el contenedor y cargarlos de nuevo en el modelo de Azure Language Understanding para mejorar la precisión de predicción de la aplicación.
 
@@ -34,7 +34,7 @@ Para poder ejecutar el contenedor de LUIS, debe tener lo siguiente:
 
 |Obligatorio|Propósito|
 |--|--|
-|Motor de Docker| Para completar esta versión preliminar, necesita que el motor de Docker esté instalado en un [equipo host](#the-host-computer). Docker dispone de paquetes que configuran el entorno de Docker en [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) y [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio. <br><br> **En Windows**, Docker también debe estar configurado de forma que admita los contenedores de Linux.<br><br>|
+|Motor de Docker| Necesita que el motor de Docker esté instalado en un [equipo host](#the-host-computer). Docker dispone de paquetes que configuran el entorno de Docker en [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) y [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio. <br><br> **En Windows**, Docker también debe estar configurado de forma que admita los contenedores de Linux.<br><br>|
 |Conocimientos sobre Docker | Debe tener conocimientos básicos sobre los conceptos de Docker, como los registros, los repositorios, los contenedores y las imágenes de contenedor, así como conocer los comandos `docker` básicos.| 
 |Recurso y aplicación asociada de Language Understanding (LUIS) |Para poder usar el contenedor, debe tener:<br><br>* Un [recurso de Azure de _Language Understanding_](luis-how-to-azure-subscription.md), junto con la clave del punto de conexión asociado y el URI del punto de conexión (que se utiliza como punto de conexión de facturación).<br>* Una aplicación entrenada o publicada como una entrada montada en el contenedor junto con su identificador de aplicación asociado.<br>* La clave de creación para descargar el paquete de la aplicación, si esta operación se va a realizar desde la API.<br><br>Estos requisitos se usan para pasar argumentos de la línea de comandos a las siguientes variables:<br><br>**{AUTHORING_KEY}**: esta clave se usa para obtener la aplicación empaquetada del servicio LUIS en la nube y cargar los registros de consultas en la nube. El formato es `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}**: este identificador se usa para seleccionar la aplicación. El formato es `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}**: esta clave se usa para iniciar el contenedor. Puede encontrar la clave de punto de conexión en dos lugares. El primero de ellos es Azure Portal, en la lista de claves del recurso de _Language Understanding_. La clave de punto de conexión también está disponible en el portal de LUIS, en la página de configuración de puntos de conexión y claves. No utilice la clave de inicio.<br><br>**{BILLING_ENDPOINT}**: El valor del punto de conexión de facturación está disponible en Azure Portal, en la página de información general de Language Understanding. Un ejemplo sería `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>El propósito de la [clave de creación y la clave de punto de conexión](luis-boundaries.md#key-limits) es diferente. No deben utilizarse indistintamente. |
 
@@ -42,9 +42,9 @@ Para poder ejecutar el contenedor de LUIS, debe tener lo siguiente:
 
 El **host** es el equipo que ejecuta el contenedor de Docker. Puede ser un equipo del entorno local o un servicio de hospedaje de Docker incluido en Azure, como:
 
-* [Azure Kubernetes Service](/azure/aks/)
-* [Azure Container Instances](/azure/container-instances/)
-* Un clúster de [Kubernetes](https://kubernetes.io/) implementado en [Azure Stack](/azure/azure-stack/). Para obtener más información, consulte [Implementación de Kubernetes en Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+* [Azure Kubernetes Service](../../aks/index.yml)
+* [Azure Container Instances](../../container-instances/index.yml)
+* Un clúster de [Kubernetes](https://kubernetes.io/) implementado en [Azure Stack](../../azure-stack/index.yml). Para obtener más información, consulte [Implementación de Kubernetes en Azure Stack](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
 
 ### <a name="container-requirements-and-recommendations"></a>Recomendaciones y requisitos del contenedor
 

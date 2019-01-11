@@ -9,18 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/20/2018
 ms.author: juliako
-ms.openlocfilehash: cb34855fc9451679c885eebb0ef5a2fab0be8c57
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 658843fd5acbe0d4e29947e99c00edf4909fe9f4
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086852"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742752"
 ---
 # <a name="streaming-locators"></a>Localizadores de streaming
 
-Para proporcionar a los clientes una dirección URL que pueden usar para reproducir archivos de audio o vídeo codificados, debe crear un elemento [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) y compilar las direcciones URL de streaming. Para obtener más información, consulte [Stream a file](stream-files-dotnet-quickstart.md) (Hacer streaming de un archivo).
+Debe proporcionar a los clientes una dirección URL que pueden usar para reproducir archivos de audio o vídeo codificados, debe crear un [localizador de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators) y compilar las direcciones URL de streaming. Para obtener más información, consulte [Stream a file](stream-files-dotnet-quickstart.md) (Hacer streaming de un archivo).
 
 ## <a name="streaminglocator-definition"></a>Definición de StreamingLocator
 
@@ -29,13 +29,13 @@ En la tabla siguiente se muestran las propiedades de StreamingLocator y se propo
 |NOMBRE|Descripción|
 |---|---|
 |id |Identificador de recurso completo del recurso.|
-|Nombre   |Nombre del recurso.|
+|Nombre|Nombre del recurso.|
 |properties.alternativeMediaId|Id. de medios alternativo de este localizador de streaming.|
-|properties.assetName   |Nombre de recurso|
-|properties.contentKeys |Claves de contenido que usa este localizador de streaming.|
-|properties.created |Hora de creación del localizador de streaming.|
+|properties.assetName|Nombre de recurso|
+|properties.contentKeys|Claves de contenido que usa este localizador de streaming.|
+|properties.created|Hora de creación del localizador de streaming.|
 |properties.defaultContentKeyPolicyName|Nombre del elemento ContentKeyPolicy predeterminado que usa este localizador de streaming.|
-|properties.endTime |Hora de finalización del localizador de streaming.|
+|properties.endTime|Hora de finalización del localizador de streaming.|
 |properties.startTime|Hora de inicio del localizador de streaming.|
 |properties.streamingLocatorId|Elemento StreamingLocatorId del localizador de streaming.|
 |properties.streamingPolicyName |Nombre de la directiva de streaming que usa este localizador de streaming. Especifique el nombre de la directiva de streaming que creó o use una de las directivas de streaming predefinidas. Las directivas de streaming predefinidas que están disponibles son: "Predefined_DownloadOnly", "Predefined_ClearStreamingOnly", "Predefined_DownloadAndClearStreaming", "Predefined_ClearKey", "Predefined_MultiDrmCencStreaming" y "Predefined_ MultiDrmStreaming".|

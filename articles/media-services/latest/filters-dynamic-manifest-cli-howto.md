@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: a16024ad5d8b9d2355b579b9b508ef0de91f2ccd
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 471277433f0fc9a54a28baa158f1e20f1efb613f
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133866"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000533"
 ---
 # <a name="creating-filters-with-cli"></a>Creación de filtros con la CLI 
 
@@ -37,7 +37,7 @@ En este tema se muestra cómo configurar un filtro para un recurso Vídeo bajo d
 
 ## <a name="define-a-filter"></a>Definición de un filtro 
 
-En el siguiente ejemplo se definen las condiciones de selección de seguimiento que se agregan al manifiesto final. Este filtro incluye las pistas de audio en inglés con EC-3 y las pistas de vídeo con velocidad de bits en el intervalo 0 a 1000000.
+En el siguiente ejemplo se definen las condiciones de selección de seguimiento que se agregan al manifiesto final. Este filtro incluye las pistas de audio con EC-3 y las pistas de vídeo con velocidad de bits en el intervalo 0 a 1000000.
 
 Los filtros definidos en REST incluyen el objeto JSON de contenedor "Properties".  
 
@@ -48,11 +48,6 @@ Los filtros definidos en REST incluyen el objeto JSON de contenedor "Properties"
             {
                 "property": "Type",
                 "value": "Audio",
-                "operation": "Equal"
-            },
-            {
-                "property": "Language",
-                "value": "en",
                 "operation": "Equal"
             },
             {
@@ -83,8 +78,17 @@ Los filtros definidos en REST incluyen el objeto JSON de contenedor "Properties"
 
 El siguiente comando [az ams account-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) crea un filtro de cuenta con selecciones de seguimiento de filtro [definidas anteriormente](#define-a-filter). 
 
+El comando permite pasar un parámetro `--tracks` opcional que contiene un valor JSON que representa las selecciones de seguimiento.  Use @{file} para cargar el valor JSON desde un archivo. Si usa la CLI de Azure localmente, especifique la ruta de acceso completa al de archivo:
+
+
 ```azurecli
-az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @C:\tracks.json
+az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @c:\tracks.json
+```
+
+Si utiliza Azure Cloud Shell, cargue el archivo en Cloud Shell (busque el botón de carga y descarga de archivos en la parte superior de la ventana de shell). A continuación, puede hacer referencia al archivo de esta forma:
+
+```azurecli
+az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @tracks.json
 ```
 
 Vea también la sección de [ejemplos de JSON para los filtros](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create_an_account_filter).
@@ -93,8 +97,11 @@ Vea también la sección de [ejemplos de JSON para los filtros](https://docs.mic
 
 El siguiente comando [az ams asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest) crea un filtro de recurso con selecciones de seguimiento de filtro [definidas anteriormente](#define-a-filter). 
 
+> [!TIP]
+> Consulte la información acerca de cómo especificar la ubicación del nombre de archivo en la sección anterior.
+
 ```azurecli
-az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @C:\tracks.json
+az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @tracks.json
 ```
 
 Vea también la sección de [ejemplos de JSON para los filtros](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create_an_asset_filter).

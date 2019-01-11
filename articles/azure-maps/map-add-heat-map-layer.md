@@ -9,19 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: ec1343f85216171adac22f873f9be2e72bb4c282
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: cbf134640f981056c0996ffc6768ebc1381ce2ac
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52893318"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53995157"
 ---
 # <a name="add-a-heat-map-layer"></a>Adición de una capa de mapa térmico
 
 Los mapas térmicos, también conocidos como mapas de densidad de puntos, son un tipo de visualización de datos utilizado para representar la densidad de los datos mediante una gama de colores. A menudo se utilizan para mostrar las "zonas activas" de datos en un mapa y son una forma excelente de representar grandes conjuntos de datos de puntos.  Por ejemplo, la representación de decenas de miles de puntos dentro de la vista del mapa cubre la mayor parte del área del mapa y daría lugar a que muchos símbolos se tapen entre sí, lo que dificulta la comprensión de los datos. Sin embargo, la visualización de este mismo conjunto de datos como un mapa térmico facilita la visualización dónde los datos de puntos son más densos y la densidad relativa a otras áreas. Hay muchos escenarios en los que se usan los mapas térmicos. Estos son algunos ejemplos:
 
 * Los datos de temperatura normalmente se representan como mapa térmico, ya que este proporciona aproximaciones de temperatura entre dos puntos de datos.
-* La representación de datos de sensores de ruido como un mapa térmico no solo muestra la alteración del ruido donde se encuentra el sensor, sino que también puede proporcionar información sobre la degradación a lo largo de una distancia. Puede que el nivel de ruido de cualquier sitio no sea elevado; sin embargo, si el área de cobertura de ruido de varios sensores se superpone, es posible que esta área superpuesta pueda experimentar niveles de ruido más elevados y, por tanto, serían visibles en el mapa térmico.
+* La representación de datos de sensores de ruido como un mapa térmico no solo muestra la intensidad del ruido donde se encuentra el sensor, sino que también puede proporcionar información sobre la degradación a lo largo de una distancia. Puede que el nivel de ruido de cualquier sitio no sea elevado; sin embargo, si el área de cobertura de ruido de varios sensores se superpone, es posible que esta área superpuesta pueda experimentar niveles de ruido más elevados y, por tanto, serían visibles en el mapa térmico.
 * La visualización de un seguimiento por GPS que incluya la velocidad como un mapa de altura y peso donde la intensidad de cada punto se basa en la velocidad es una forma magnífica de ver rápidamente dónde acelera el vehículo.
 
 > [!TIP]

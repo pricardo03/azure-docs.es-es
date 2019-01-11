@@ -9,16 +9,22 @@ ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 4540de7acd89614152c7331b17ba752f4032bf1a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 9a16498c527af2d23840c53af11103f7580d80bb
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434773"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582565"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Información sobre los resultados de la comprobación del agente de Windows en Update Management
 
 Puede haber muchas razones por las que el equipo no muestre el estado **Listo** en Update Management. En Update Management, puede comprobar el estado de un agente de Hybrid Worker para determinar el problema subyacente. En este artículo se explica cómo ejecutar el solucionador de problemas para máquinas de Azure desde Azure Portal y máquinas que son de Azure en [escenarios sin conexión](#troubleshoot-offline).
+
+La siguiente lista enumera los tres estados de preparación en los que puede estar una máquina:
+
+* **Listo**: el agente de actualización está implementado y se vio por última vez hace menos de 1 hora.
+* **Desconectado**: el agente de actualización está implementado y se vio por última vez hace más de 1 hora.
+* **No configurado**: el agente de actualización no se encuentra o no ha finalizado la incorporación.
 
 ## <a name="start-the-troubleshooter"></a>Iniciar el solucionador de problemas
 

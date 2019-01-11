@@ -1,24 +1,24 @@
 ---
-title: Configuración de contenedores
-titlesuffix: Computer Vision - Azure Cognitive Services
-description: Opciones de configuración de contenedores en Computer Vision.
+title: 'Configurar contenedores: Computer Vision'
+titlesuffix: Azure Cognitive Services
+description: Configure diversas opciones para los contenedores de Reconocer texto en Computer Vision.
 services: cognitive-services
 author: diberry
 manager: cgronlun
-ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: f71cbe965e70dfce1b29cf0e5f9ea44faf0a4e27
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.custom: seodec18
+ms.openlocfilehash: 48d3bc7ecdd66565372be8347897202cae3ec158
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077025"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579794"
 ---
-# <a name="configure-containers"></a>Configuración de contenedores
+# <a name="configure-recognize-text-containers"></a>Configurar contenedor de Reconocer texto
 
 Computer Vision proporciona el contenedor de Reconocer texto con un marco de configuración común, por lo que puede configurar y administrar fácilmente la configuración de almacenamiento, registro, telemetría y seguridad de los contenedores.
 
@@ -41,7 +41,7 @@ Los valores de variable de entorno invalidan los valores de argumento de la lín
 
 ### <a name="configuration-settings-as-environment-variables"></a>Opciones de configuración como variables de entorno
 
-Puede usar la [sintaxis de variables de entorno de ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#configuration-by-environment) para especificar las opciones de configuración.
+Puede usar la [sintaxis de variables de entorno de ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#environment-variables-configuration-provider) para especificar las opciones de configuración.
 
 El contenedor lee las variables de entorno del usuario cuando se crea una instancia del contenedor. Si existe una variable de entorno, su valor invalida el valor predeterminado para la opción de configuración especificada. La ventaja de usar variables de entorno es que se pueden establecer varias opciones de configuración antes de crear instancias de contenedores y varios contenedores pueden usar automáticamente el mismo conjunto de opciones de configuración.
 
@@ -130,10 +130,10 @@ Las opciones de configuración `Logging` administran la compatibilidad con el re
 
   | NOMBRE | Tipo de datos | DESCRIPCIÓN |
   |------|-----------|-------------|
-  | `Format` | string | Formato de salida de los archivos de registro.<br/> **Nota:** este valor debe establecerse en `json` para habilitar el proveedor de registro. Si se especifica este valor sin especificar también un montaje de salida al crear una instancia de un contenedor, se produce un error. |
+  | `Format` | string | Formato de salida de los archivos de registro.<br/> **Nota:** Este valor debe establecerse en `json` para habilitar el proveedor de registro. Si se especifica este valor sin especificar también un montaje de salida al crear una instancia de un contenedor, se produce un error. |
   | `MaxFileSize` | Entero | Tamaño máximo en megabytes (MB) de un archivo de registro. Cuando el tamaño del archivo de registro actual cumple este valor o lo supera, el proveedor de registro inicia un nuevo archivo de registro. Si se especifica -1, el tamaño del archivo de registro solo está limitado por el tamaño máximo de archivo, si existe, para el montaje de salida. El valor predeterminado es 1. |
 
-Para obtener más información acerca de cómo configurar la compatibilidad con el registro de ASP.NET Core, consulte [Configuración del archivo de configuración](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration).
+Para obtener más información acerca de cómo configurar la compatibilidad con el registro de ASP.NET Core, consulte [Registro en ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#configuration).
 
 ## <a name="mounts-configuration-settings"></a>Opciones de configuración Mounts
 

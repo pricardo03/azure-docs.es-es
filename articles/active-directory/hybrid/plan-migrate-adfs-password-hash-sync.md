@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c226eb19dbd2049c486acfb1ffb9423fdb1dad43
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: a14e630c23af3e0228bf4806851f29cfab199215
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410268"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103985"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-ad"></a>Migración de la federación a la sincronización de hash de contraseña para Azure AD
 El siguiente documento proporciona instrucciones para migrar desde AD FS a la sincronización de hash de contraseña.
@@ -133,9 +133,9 @@ Antes de realizar la conversión de Federado a Administrado, es preciso examinar
 |-|-|
 | Va a conservar AD FS para otras aplicaciones.| Va a utilizar tanto AD FS como Azure AD y debe considerar como resultado la experiencia del usuario final. Es posible que los usuarios tengan que autenticarse dos veces en algunos escenarios, una vez en Azure AD (donde obtendrán SSO en adelante para otras aplicaciones como Office 365) y una segunda para todas las aplicaciones que aún están enlazadas a AD FS como una relación de confianza para usuario autenticado. |
 | AD FS está muy personalizado y depende de valores de configuración concretos del archivo onload.js que no se pueden duplicar en Azure AD (por ejemplo, ha cambiado la forma en que se inicia sesión para que los usuarios solo especifiquen un formato SamAccountName para su nombre de usuario, en lugar de un nombre principal de usuario, o ha personalizado con marca la experiencia de inicio de sesión)| Antes de continuar, deberá comprobar que Azure AD pueden cumplir los requisitos de personalización actuales. Para más información, consulte las secciones acerca de la personalización de marca de AD FS y la personalización de AD FS.|
-| Bloquea a los clientes de autenticación heredada mediante AD FS.| Considere la posibilidad de sustituir los controles para bloquear los clientes de autenticación heredada presentes actualmente en AD FS con una combinación de [controles de acceso condicional para la autenticación heredada](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) y [reglas de acceso de cliente de Exchange Online](http://aka.ms/EXOCAR).|
+| Bloquea a los clientes de autenticación heredada mediante AD FS.| Considere la posibilidad de sustituir los controles para bloquear los clientes de autenticación heredada presentes actualmente en AD FS con una combinación de [controles de acceso condicional para la autenticación heredada](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) y [reglas de acceso de cliente de Exchange Online](https://aka.ms/EXOCAR).|
 | Exija a los usuarios que ejecuten MFA con una solución de servidor de MFA local al realizar la autenticación en AD FS.| No podrá insertar un desafío de MFA mediante la solución MFA local en el flujo de autenticación de un dominio administrado; sin embargo, puede usar el servicio Azure MFA para ello, así que siga adelante una vez que se haya convertido el dominio. Si usuarios no utilizan Azure MFA actualmente, será preciso realizar un paso de registro del usuario de un solo uso que será preciso preparar y comunicar a los usuarios finales.|
-| Use directivas de control de acceso (reglas de AuthZ) en AD FS para controlar el acceso a Office 365.| Considere la posibilidad de reemplazarlas por las [directivas de acceso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) de Azure AD y las [reglas de acceso de cliente de Exchange Online](http://aka.ms/EXOCAR).|
+| Use directivas de control de acceso (reglas de AuthZ) en AD FS para controlar el acceso a Office 365.| Considere la posibilidad de reemplazarlas por las [directivas de acceso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) de Azure AD y las [reglas de acceso de cliente de Exchange Online](https://aka.ms/EXOCAR).|
 
 ### <a name="considerations-for-common-ad-fs-customizations"></a>Consideraciones para las personalizaciones de AD FS comunes
 
@@ -153,7 +153,7 @@ Consulte [¿Qué es la condición de ubicación en el acceso condicional de Azur
 
 La unión de un dispositivo a Azure AD permite crear reglas de acceso condicional que exigen que los dispositivos cumplan los estándares de acceso en cuanto a seguridad y cumplimiento de normas, y permite a los usuarios iniciar sesión en un dispositivo con un profesional o educativa, en lugar de una cuenta personal. Dispositivos unidos a Azure AD híbrido le permite unir a Azure AD sus dispositivos unidos a un dominio de AD. Es posible que un entorno federado se haya configurado con esta característica.
 
-Para asegurarse de que la unión híbrida sigue funcionando en todos los dispositivos nuevos unidos al dominio una vez que los dominios se han convertido a la sincronización de hash de contraseña, Azure AD Connect debe configurarse para sincronizar con Azure AD las cuentas de equipos de Active Directory de los clientes de Windows 10. En el caso de cuentas de equipos con Windows 7 y Windows 8, la unión híbrida usará SSO de conexión directa para registrar el equipo en Azure AD, por lo que no es preciso sincronizarlas, como en el caso de los equipos con Windows 10. Sin embargo tendrá que implementar una versión actualizada del archivo workplacejoin.exe (a través de un archivo .msi) en los clientes de nivel inferior para que se puedan registrar a sí mismos mediante la SSO de conexión directa. [Descargue el archivo .msi](https://www.microsoft.com/download/details.aspx?id=53554). 
+Para asegurarse de que la unión híbrida sigue funcionando en todos los dispositivos nuevos unidos al dominio una vez que los dominios se han convertido a la sincronización de hash de contraseña, Azure AD Connect debe configurarse para sincronizar con Azure AD las cuentas de equipos de Active Directory de los clientes de Windows 10. En el caso de cuentas de equipos con Windows 7 y Windows 8, la unión híbrida usará SSO de conexión directa para registrar el equipo en Azure AD, por lo que no es preciso sincronizarlas, como en el caso de los equipos con Windows 10. Sin embargo, tendrá que implementar una versión actualizada del archivo workplacejoin.exe (a través de un archivo .msi) en los clientes de nivel inferior para que se puedan registrar a sí mismos mediante la SSO de conexión directa. [Descargue el archivo .msi](https://www.microsoft.com/download/details.aspx?id=53554). 
 
 Para más información, consulte [Configuración de dispositivos híbridos unidos a Azure Active Directory](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup).
 
@@ -368,7 +368,7 @@ La conversión se realiza mediante el módulo de PowerShell de Azure AD.
 
 Cuando el inquilino usaba la federación, los usuarios se redirigían de la página de inicio de sesión de Azure AD al entorno de AD FS. Ahora que el inquilino está configurado para utilizar Sincronización de hash de contraseña en lugar de Federación, los usuarios no se redirigirán a AD FS y en su lugar iniciarán sesión directamente mediante la página de inicio de sesión de Azure AD.
 
-Abra Internet Explorer en modo InPrivate para evitar que el inicio de sesión único de conexión directa inicie sesión automáticamente y vaya a la página de inicio de sesión de Office 365 ([http://portal.office.com](http://portal.office.com/)). Escriba el nombre principal del usuario y haga clic en Siguiente. Asegúrese de escribir el nombre principal de usuario de un usuario híbrido que se haya sincronizado desde la instancia de Active Directory local y que se haya federado previamente. El usuario verá la pantalla donde va a escribir el nombre de usuario y la contraseña.
+Abra Internet Explorer en modo InPrivate para evitar que el inicio de sesión único de conexión directa inicie sesión automáticamente y vaya a la página de inicio de sesión de Office 365 ([https://portal.office.com](https://portal.office.com/)). Escriba el nombre principal del usuario y haga clic en Siguiente. Asegúrese de escribir el nombre principal de usuario de un usuario híbrido que se haya sincronizado desde la instancia de Active Directory local y que se haya federado previamente. El usuario verá la pantalla donde va a escribir el nombre de usuario y la contraseña.
 
 ![Imagen 9](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image18.png)
 
@@ -424,7 +424,7 @@ Para obtener instrucciones sobre cómo comprobar o habilitar esta característic
 
 [Sincronización de actualizaciones de userPrincipalName](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsyncservice-features).
 
-### <a name="troubleshooting"></a>Solución de problemas
+### <a name="troubleshooting"></a>solución de problemas
 
 El equipo de soporte técnico debe saber solucionar cualquier problema de autenticación que surja durante el cambio de federación a administrado, o después. Use la siguiente documentación de solución de problemas para ayudar al equipo de soporte técnico a familiarizarse con los pasos comunes para la solución de problemas comunes y las acciones adecuadas que pueden ayudar a aislar y resolver el problema.
 

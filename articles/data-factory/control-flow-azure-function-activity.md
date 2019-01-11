@@ -11,20 +11,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 12/20/2018
 ms.author: douglasl
-ms.openlocfilehash: ef93c62a2e2084a43eeda578c889a568d04db4f1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4b185236e5925152acb5f8a733e117186a2318cf
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52855216"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53740899"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Actividad de las funciones de Azure en Azure Data Factory
 
 La actividad de las funciones de Azure permite ejecutar [Azure Functions](../azure-functions/functions-overview.md) en una canalización de Data Factory. Para ejecutar una función de Azure, debe crear una conexión de servicio vinculado y una actividad que especifique la función de Azure que se va a ejecutar.
 
 ## <a name="azure-function-linked-service"></a>Servicio vinculado de la función de Azure
+
+El tipo de valor devuelto de la función de Azure tiene que ser un elemento JObject válido. Nada produce un error y genera el error de usuario genérico *Error al llamar al punto de conexión*.
 
 | **Propiedad** | **Descripción** | **Obligatorio** |
 | --- | --- | --- |
@@ -43,10 +45,16 @@ La actividad de las funciones de Azure permite ejecutar [Azure Functions](../azu
 | Nombre de la función  | Nombre de la función de la instancia de Azure Function App al que esta actividad llama | string | Sí |
 | estático  | Método de API de REST para llamar a la función | Tipos de cadenas admitidos: "GET", "POST", "PUT"   | Sí |
 | encabezado  | Encabezados que se envían a la solicitud. Por ejemplo, para establecer el idioma y el tipo en una solicitud: "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | Cadena (o expresión con un valor resultType de cadena) | Sin  |
-| Cuerpo  | Cuerpo que se envía junto con la solicitud al método de API de la función  | Cadena (o expresión con un valor resultType de cadena).   | Necesario para los métodos POST o PUT |
+| Cuerpo  | Cuerpo que se envía junto con la solicitud al método de API de la función  | Cadena (o expresión con un valor resultType de cadena) u objeto.   | Necesario para los métodos POST o PUT |
 |   |   |   | |
 
 Vea el esquema de la carga de solicitud en la sección  [Solicitar un esquema de carga](control-flow-web-activity.md#request-payload-schema) .
+
+## <a name="more-info"></a>Más información
+
+La actividad de la función de Azure admite **enrutamiento**. Por ejemplo, si su aplicación usa el enrutamiento - `https://functionAPP.azurewebsites.net/api/functionName/{value}?code=<secret>` -, el `functionName` es `functionName/{value}`, lo cual se puede parametrizar para proporcionar el `functionName` deseado en tiempo de ejecución.
+
+La actividad de la función de Azure admite **consultas**. Una consulta tiene que formar parte de la `functionName`, por ejemplo, `HttpTriggerCSharp2?name=hello` (donde el `function name` es `HttpTriggerCSharp2`).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

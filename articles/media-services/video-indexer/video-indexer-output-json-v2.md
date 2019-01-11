@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: juliako
-ms.openlocfilehash: 8acb1c70dc21efc87e13e0e5e94d9a61acfe01e9
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 666be9c2ebba9dc9607e4188b2390fff49fd59b9
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292084"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554663"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Examen de la salida de Video Indexer producida por la API v2
 
@@ -78,7 +78,7 @@ En esta sección se muestra el resumen de la información detallada.
 |Atributo | Descripción|
 |---|---|
 |name|Nombre del vídeo. Por ejemplo, Azure Monitor.|
-|shortId|Identificador del vídeo. Por ejemplo, 63c6d532ff.|
+|id|Identificador del vídeo. Por ejemplo, 63c6d532ff.|
 |privacyMode|El desglose puede tener uno de los siguientes modos: **Privado**, **Público**. **Público**: el vídeo es visible para todos los usuarios de la cuenta y cualquiera que tenga un vínculo al vídeo. **Privado**: el vídeo es visible para todos los usuarios de la cuenta.|
 |duration|Duración que describe el momento del tiempo en el que se ha producido la información. La duración se mide en segundos.|
 |thumbnailVideoId|Identificador del vídeo del que se tomó la miniatura.
@@ -149,7 +149,7 @@ En esta sección se muestra el resumen de la información detallada.
 
 La información detallada es un conjunto de dimensiones (por ejemplo, líneas de transcripción, rostros, marcas, etc.), en el que cada dimensión es una lista de elementos únicos (por ejemplo, face1, face2, face3) y cada elemento tiene sus propios metadatos y una lista de sus instancias (que son intervalos de tiempo con metadatos opcionales adicionales).
 
-Un rostro podría tener un identificador, un nombre, una miniatura, otros metadatos y una lista de sus instancias temporales (por ejemplo: 00:00:05: 00:00:10, 00:01:00 - 00:02:30 y 00:41:21: 00:41:49). Cada instancia temporal puede tener metadatos adicionales. Por ejemplo, las coordenadas del rectángulo del rostro (20,230,60,60).
+Un rostro podría tener un identificador, un nombre, una miniatura, otros metadatos y una lista de sus instancias temporales (por ejemplo: 00:00:05: 00:00:10, 00:01:00: 00:02:30 y 00:41:21: 00:41:49). Cada instancia temporal puede tener metadatos adicionales. Por ejemplo, las coordenadas del rectángulo del rostro (20,230,60,60).
 
 |Versión|Versión del código|
 |---|---|
@@ -553,7 +553,7 @@ Nombres de empresas y marcas de productos detectados en la transcripción de voz
 |Nombre|Descripción|
 |---|---|
 |CorrespondenceCount|Número de correspondencias en el vídeo.|
-|WordCount|Número de palabras por orador.|
+|SpeakerWordCount|Número de palabras por orador.|
 |SpeakerNumberOfFragments|Cantidad de fragmentos que el orador tiene en un vídeo.|
 |SpeakerLongestMonolog|Monólogo más largo del orador. Si el orador tiene períodos de silencio dentro del monólogo, se incluyen. Los silencios al principio y al final del monólogo se eliminan.| 
 |SpeakerTalkToListenRatio|El cálculo se basa en el tiempo invertido en el monólogo del orador (sin los silencios intermedios) dividido por el tiempo total del vídeo. El tiempo se redondea a tres decimales.|
@@ -767,8 +767,8 @@ Video Indexer saca conclusiones de los temas principales a partir de las transcr
 |NOMBRE|Descripción|
 |---|---|
 |id|Identificador del tema.|
-|Nombre|Nombre del tema (por ejemplo, "Productos farmacéuticos").|
-|referenceId|Rutas de navegación que reflejan la jerarquía de temas. Por ejemplo: "Salud y bienestar / Medicina y salud / Productos farmacéuticos".|
+|Nombre|El nombre del tema, por ejemplo: "productos farmacéuticos".|
+|referenceId|Rutas de navegación que reflejan la jerarquía de temas. Por ejemplo:  "Salud y bienestar / Medicina y salud / Productos farmacéuticos".|
 |confidence|Puntuación de confianza en el intervalo [0,1]. Cuanto mayor es, más segura es.|
 |language|Idioma que se usa en el tema.|
 |iptcName|Nombre del código multimedia IPTC, si se detecta.|

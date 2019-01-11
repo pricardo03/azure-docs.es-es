@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 6572a9b72554691441cb258a87a5db4ba7845087
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a02be1ba29ad43b90c99a5d1e275b96b3b4023d6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077127"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718731"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migración del área de trabajo y los proyectos de Microsoft Translator Hub a Custom Translator
 
@@ -130,7 +130,7 @@ Si desea obtener un informe de migración más detallado sobre los proyectos, ap
 * Solo se permite migrar una vez por proyecto.  Si necesita repetir una migración de un proyecto, póngase en contacto con nosotros.
 * Actualmente, Traductor personalizado admite 36 idiomas para traducir desde y hacia el inglés y estamos trabajando para agregar idiomas adicionales.  El centro no requiere modelos de referencia y, por tanto, admite varios miles de lenguajes.  Puede migrar un par de idiomas no admitidos, pero solo se realizará la migración de los documentos y las definiciones del proyecto.  No se podrá entrenar el modelo nuevo.  Además, estos documentos y proyectos se mostrarán como inactivos para indicar que no se pueden utilizar en este momento. Si se agrega compatibilidad para estos proyectos y/o documentos, estarán activos y se podrán entrenar.
 * Traductor personalizado no admite actualmente datos de entrenamiento monolingüe.  Como con los pares de idiomas no admitidos, puede migrar documentos monolingües, pero se mostrarán como inactivos hasta que se admitan datos monolingües.  
-* Traductor personalizado requiere oraciones 10 000 frases en paralelo para el entrenamiento.  Microsoft Hub podría entrenar sobre un conjunto más pequeño de datos.  Si se migra un entrenamiento que no cumple este requisito, será entrenado.
+* Traductor personalizado requiere oraciones 10 000 frases en paralelo para el entrenamiento.  Microsoft Hub podría entrenar sobre un conjunto más pequeño de datos. Si se migra un entrenamiento que no cumple este requisito, no será entrenado.
 
 
 ## <a name="custom-translator-versus-hub"></a>Custom Translator frente a Hub

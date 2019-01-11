@@ -11,27 +11,27 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: a711b80471da0677c5e2d0dd0ee5e371e5a16f75
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: adac498b2f1e3331497c08f41558575c06b5823c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268656"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102948"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>Ejecutar predicciones por lotes en grandes conjuntos de datos con Azure Machine Learning Service
 
-En este artículo aprenderá a hacer predicciones de forma rápida, eficaz y de forma asincrónica con grandes cantidades de datos usando, para ello, Azure Machine Learning Service.
+En este artículo aprenderá a hacer predicciones de forma asincrónica con grandes cantidades de datos usando, para ello, Azure Machine Learning Service.
 
-La predicción por lotes (o puntuación por lotes) proporciona una inferencia rentable con un rendimiento sin precedentes para aplicaciones asincrónicas. Las canalizaciones de predicción por lotes pueden escalarse para realizar inferencias en terabytes de datos de producción. La predicción por lotes está optimizada en torno a las predicciones de alto rendimiento y de tipo "fire-and-forget" (envíelo y olvídese) cuando se trabaja con una gran cantidad de datos.
+La predicción por lotes (o puntuación por lotes) proporciona una inferencia rentable con un rendimiento sin precedentes para aplicaciones asincrónicas. Las canalizaciones de predicción por lotes pueden escalarse para realizar inferencias en terabytes de datos de producción. La predicción por lotes está optimizada para las predicciones de alto rendimiento y de tipo "fire-and-forget" (envíelo y olvídese) cuando se trabaja con una gran cantidad de datos.
 
->[!NOTE]
+>[!TIP]
 > Si su sistema requiere un procesamiento de baja latencia (esto es, procesar rápidamente un solo documento o un pequeño conjunto de documentos), use la [puntuación en tiempo real](how-to-consume-web-service.md) en lugar de la predicción por lotes.
 
-En los siguientes pasos creará una [canalización de aprendizaje automático](concept-ml-pipelines.md) para registrar un modelo de Computer Vision entrenado previamente ([Inception-V3](https://arxiv.org/abs/1512.00567)) y, a continuación, usará el modelo entrenado previamente para crear una puntuación por lotes en las imágenes que tiene disponibles en su cuenta de blob de Azure. Estas imágenes se usan para puntuar imágenes sin etiqueta del conjunto de datos [ImageNet](http://image-net.org/).
+En los pasos siguientes, se creará una [canalización de aprendizaje automático](concept-ml-pipelines.md) para registrar un modelo de visión de equipo previamente entrenado ([Inception-V3](https://arxiv.org/abs/1512.00567)). A continuación, usará el modelo previamente entrenado para realizar una puntuación por lotes en las imágenes disponibles en la cuenta de almacenamiento de blobs de Azure. Estas imágenes se usan para puntuar imágenes sin etiqueta del conjunto de datos [ImageNet](http://image-net.org/).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](http://aka.ms/AMLFree).
+- Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe la [versión gratuita o de pago de Azure Machine Learning Service](http://aka.ms/AMLFree).
 
 - Configure un entorno de desarrollo para instalar el SDK de Azure Machine Learning. Para obtener más información, consulte [Configurar un entorno de desarrollo para Azure Machine Learning](how-to-configure-environment.md).
 
@@ -48,11 +48,11 @@ En los siguientes pasos creará una [canalización de aprendizaje automático](c
 
 ## <a name="set-up-machine-learning-resources"></a>Configurar los recursos de aprendizaje automático
 
-Los siguientes pasos configurarán los recursos que necesita para ejecutar una canalización:
+Los siguientes pasos configuran los recursos que necesita para ejecutar una canalización:
 
 - Obtenga acceso al almacén de datos que ya tiene el modelo entrenado previamente, etiquetas de entrada e imágenes para puntuar (esto ya está configurado).
 - Configure un almacén de datos para almacenar las salidas.
-- Configure los objetos DataReference para que apunten a los datos en los almacenes de datos anteriores.
+- Configure los objetos  `DataReference`  para que apunten a los datos en los almacenes de datos anteriores.
 - Configure las máquinas o clústeres de cálculo donde se ejecutarán los pasos de la canalización.
 
 ### <a name="access-the-datastores"></a>Obtener acceso a los almacenes de datos
@@ -76,7 +76,7 @@ batchscore_blob = Datastore.register_azure_blob_container(ws,
 
 A continuación, configúrelo para usar el almacén de datos predeterminado en las salidas.
 
-Cuando cree su área de trabajo, un  [almacén de archivos de Azure ](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)  y un  [almacén de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)  se adjuntan al área de trabajo de forma predeterminada. El Azure File Storage es el "almacén de datos predeterminado" para un área de trabajo, pero también puede usar Blob Storage como un almacén de datos. Obtenga más información sobre las  [opciones de almacenamiento de Azure](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
+Cuando cree su área de trabajo, [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)  y [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)  se adjuntan al área de trabajo de forma predeterminada. Azure Files es el almacén de datos predeterminado para un área de trabajo, pero también puede usar Blob Storage como un almacén de datos. Para obtener más información, consulte [Opciones de almacenamiento de Azure](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
 
 ```python
 def_data_store = ws.get_default_datastore()
@@ -86,7 +86,7 @@ def_data_store = ws.get_default_datastore()
 
 Ahora debe hacer referencia a los datos en su canalización como entradas para los pasos de la canalización.
 
-Un objeto [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference)  se encarga de representar un origen de datos en una canalización. El objeto DataReference apunta a los datos que están en o que son accesibles desde un almacén de datos. Tenga en cuenta que necesita los objetos DataReference para el directorio que usa para las imágenes de entrada, el directorio en el que se almacena el modelo entrenado previamente, el directorio para las etiquetas y el directorio de salida.
+Un objeto [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference)  se encarga de representar un origen de datos en una canalización. El objeto  `DataReference`  apunta a los datos que están en o que son accesibles desde un almacén de datos. Tenga en cuenta que necesita los objetos `DataReference` para el directorio que usa para las imágenes de entrada, el directorio en el que se almacena el modelo entrenado previamente, el directorio para las etiquetas y el directorio de salida.
 
 ```python
 input_images = DataReference(datastore=batchscore_blob, 
@@ -111,7 +111,7 @@ output_dir = PipelineData(name="scores",
 
 ### <a name="set-up-compute-target"></a>Configurar el destino de proceso
 
-En Azure Machine Learning, el proceso (o destino de proceso) se refiere a las máquinas o clústeres que realizarán los pasos del cálculo en su canal de aprendizaje automático. Por ejemplo, puede crear un `Azure Machine Learning compute`.
+En Azure Machine Learning, el *proceso* (o *destino de proceso*) se refiere a las máquinas o clústeres que realizarán los pasos del cálculo en su canal de aprendizaje automático. Por ejemplo, puede crear un `Azure Machine Learning compute`.
 
 ```python
 compute_name = "gpucluster"
@@ -148,7 +148,7 @@ Antes de que pueda usar el modelo entrenado previamente, deberá descargar ese m
 
 ### <a name="download-the-pretrained-model"></a>Descargar el modelo entrenado previamente
 
-Descargue el modelo de Computer Vision entrenado previamente (InceptionV3) desde <http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz>. Una vez descargado, extráigalo a la subcarpeta `models`.
+Descargue el modelo de Computer Vision entrenado previamente (InceptionV3) desde <http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz>. A continuación, extráigalo a la subcarpeta `models`.
 
 ```python
 import os
@@ -167,6 +167,8 @@ tar.extractall(model_dir)
 
 ### <a name="register-the-model"></a>Registro del modelo
 
+Aquí se explica cómo registrar el modelo:
+
 ```python
 import shutil
 from azureml.core.model import Model
@@ -183,7 +185,7 @@ model = Model.register(
 ## <a name="write-your-scoring-script"></a>Escribir un script de puntuación
 
 >[!Warning]
->El siguiente código es solo una muestra de lo que se encuentra en el archivo [batch_score.py](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/batch_score.py) que usa el [cuaderno de muestra](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-batch-scoring.ipynb). Deberá crear su propio script de puntuación para su escenario.
+>El siguiente código es solo una muestra de lo que se encuentra en el archivo [batch_score.py](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/batch_scoring.py) que usa el [cuaderno de muestra](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/pipeline-batch-scoring.ipynb). Deberá crear su propio script de puntuación para su escenario.
 
 El script `batch_score.py` toma las imágenes de entrada en  *dataset_path* y los modelos entrenados previamente en  *model_dir* y genera *results-label.txt*  en  *output_dir*.
 
@@ -241,7 +243,7 @@ Ya tiene todo lo que necesita para construir la canalización, así que ahora so
 
 ### <a name="prepare-the-run-environment"></a>Preparar el entorno de ejecución
 
-Especifique las dependencias conda para su script. Necesitará este objeto cuando cree el paso de canalización más adelante.
+Especifique las dependencias conda para su script. Necesitará este objeto más adelante, cuando cree el paso de canalización.
 
 ```python
 from azureml.core.runconfig import DEFAULT_GPU_IMAGE
@@ -290,14 +292,14 @@ batch_score_step = PythonScriptStep(
 
 ### <a name="run-the-pipeline"></a>Ejecución de la canalización
 
-A continuación, ejecute la canalización y examine la salida que generó. La salida tendrá una puntuación correspondiente a cada imagen de entrada.
+A continuación, ejecute la canalización y examine la salida que generó. La salida tiene una puntuación correspondiente a cada imagen de entrada.
 
 ```python
 # Run the pipeline
 pipeline = Pipeline(workspace=ws, steps=[batch_score_step])
 pipeline_run = Experiment(ws, 'batch_scoring').submit(pipeline, pipeline_params={"param_batch_size": 20})
 
-# Wait for the run to finish (this may take several minutes)
+# Wait for the run to finish (this might take several minutes)
 pipeline_run.wait_for_completion(show_output=True)
 
 # Download and review the output
@@ -312,7 +314,7 @@ df.head()
 
 ## <a name="publish-the-pipeline"></a>Publicación de la canalización
 
-Cuando esté satisfecho con el resultado de la ejecución, publique la canalización para que pueda ejecutarla con diferentes valores de entrada más adelante. Cuando se publica una canalización, se obtiene un punto de conexión REST que permite la invocación de la canalización con el conjunto de parámetros que ya se han incorporado con [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py).
+Cuando esté satisfecho con el resultado de la ejecución, publique la canalización para que pueda ejecutarla con diferentes valores de entrada más adelante. Cuando se publica una canalización, obtiene un punto de conexión de REST que permite la invocación de la canalización con el conjunto de parámetros que ya se han incorporado con [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py).
 
 ```python
 published_pipeline = pipeline_run.publish_pipeline(
@@ -321,7 +323,7 @@ published_pipeline = pipeline_run.publish_pipeline(
     version="1.0")
 ```
 
-## <a name="rerun-the-pipeline-using-the-rest-endpoint"></a>Volver a ejecutar la canalización mediante el punto de conexión REST
+## <a name="rerun-the-pipeline-by-using-the-rest-endpoint"></a>Volver a ejecutar la canalización mediante el punto de conexión REST
 
 Para volver a ejecutar la canalización, necesitará un token de encabezado de autenticación de Azure Active Directory, tal como se describe en la [clase AzureCliAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py).
 
@@ -344,7 +346,7 @@ RunDetails(published_pipeline_run).show()
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para ver cómo funciona este proceso de un extremo a otro, pruebe el cuaderno de puntuación por lotes [how-to-use-azureml/machine-learning-pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines). 
+Para ver cómo funciona esto de un extremo a otro, pruebe el cuaderno de puntuación por lotes en [GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines). 
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

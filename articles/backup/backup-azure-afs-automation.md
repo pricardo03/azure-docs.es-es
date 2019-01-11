@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pullabhk
 ms.assetid: 80da8ece-2cce-40dd-8dce-79960b6ae073
-ms.openlocfilehash: 90623981f67bbed15ade743192525676e58a0a83
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 30fc36f29a7602e2bc3f192b445474bfc50e9434
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318431"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632642"
 ---
 # <a name="use-powershell-to-back-up-and-restore-azure-file-shares"></a>Uso de PowerShell para la copia de seguridad y restauración de recursos compartidos de archivos de Azure
 
@@ -34,11 +34,11 @@ Para ver la referencia del cmdlet de PowerShell AzureRm.RecoveryServices.Backup,
 ## <a name="setup-and-registration"></a>Instalación y registro
 
 > [!NOTE]
-> Como se indica [aquí](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0), la compatibilidad con las nuevas características del módulo de AzureRM termina en noviembre de 2018. Por ello, vamos a proporcionar compatibilidad con la copia de seguridad de recursos compartidos de Azure con el nuevo módulo "Az" PS. También estamos planeando embarcarnos en el lanzamiento en modo de disponibilidad general del módulo Az.
+> Como se indica [aquí](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0), la compatibilidad con las nuevas características del módulo de AzureRM termina en noviembre de 2018. Por ello, vamos a proporcionar compatibilidad con la copia de seguridad de recursos compartidos de Azure con el nuevo módulo "Az" PS en GA.
 
 Para empezar:
 
-1. [Descargue la versión más reciente de "Az" PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0) (la versión mínima necesaria es: 0.7.0)
+1. [Descargue la versión más reciente de "Az" PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0) (la versión mínima necesaria es: 1.0.0)
 
 2. Para buscar los cmdlets de PowerShell de Azure Backup disponibles, escriba el siguiente comando:
 
@@ -158,6 +158,8 @@ Name                 WorkloadType       BackupManagementType BackupTime         
 ----                 ------------       -------------------- ----------                ----------
 NewAFSPolicy           AzureFiles            AzureStorage              10/24/2017 1:30:00 AM
 ```
+
+'NewAFSPolicy' realiza una copia de seguridad diaria y la conserva durante 30 días.
 
 ### <a name="enable-protection"></a>Habilitar protección
 
