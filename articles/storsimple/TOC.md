@@ -109,7 +109,7 @@
 ##### [Administrar cuentas de almacenamiento](storsimple-8000-manage-storage-accounts.md)
 ##### [Administrar contenedores de volúmenes](storsimple-8000-manage-volume-containers.md)
 ##### [Administración de volúmenes: actual](storsimple-8000-manage-volumes-u2.md)
-###### [Preguntas más frecuentes: volúmenes anclados localmente](storsimple-8000-local-volume-faq.md)
+###### [Preguntas más frecuentes: Volúmenes anclados localmente](storsimple-8000-local-volume-faq.md)
 ##### [Control de acceso basado en rol](storsimple-8000-role-based-access-control.md)
 ##### [Administración de ACR](storsimple-8000-manage-acrs.md)
 ##### [Administrar plantillas de ancho de banda](storsimple-8000-manage-bandwidth-templates.md)
@@ -209,7 +209,7 @@
 ## Referencia
 ### [API DE REST](https://docs.microsoft.com/rest/api/storsimple)
 ### [Cmdlets de Windows PowerShell para StorSimple](https://technet.microsoft.com/library/dn688168.aspx)
-
+### [Plantilla de Resource Manager](/azure/templates/microsoft.storsimple/allversions)
 
 # StorSimple Data Manager
 
@@ -235,7 +235,7 @@
 ## Notas de la versión
 ### [Notas de la versión de StorSimple](https://aka.ms/storsimple-virtual-array-latest-relnote)
 ### [Notas de la versión de CSP](https://partner.microsoft.com/Support/whats-new)
-### [StorSimple para CSP: preguntas más frecuentes](storsimple-partner-csp-faq.md)
+### [StorSimple para CSP: Preguntas más frecuentes](storsimple-partner-csp-faq.md)
 
 # Temas relacionados
 ## [StorSimple series 5000-7000](http://onlinehelp.storsimple.com)

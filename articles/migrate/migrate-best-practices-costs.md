@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 9d1acabd07e7c01445c55a57be9b0c9a36140aa5
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: b8ff1ae2f4c07dc59bd1ffb631378817493b96b0
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163776"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53995055"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>Procedimientos recomendados para la gestión de los costos y los ajustes de tamaño de las cargas de trabajo migradas a Azure
 
@@ -117,7 +117,7 @@ Azure proporciona diferentes tipos de cuentas de almacenamiento y niveles de ren
 
 **Tipo de cuenta** | **Detalles** | **Uso**
 --- | --- | ---
-**Uso general v2 estándar** | Admite blobs (de bloques, páginas, anexos), archivos, discos, colas y tablas.<br/><br/> Admite los niveles de acceso frecuente, esporádico y archivo. Se admite ZRS. | Se usa para la mayoría de los escenarios y la mayoría de los tipos de datos. Las cuentas de almacenamiento estándar pueden basarse en HHD o en SSD.
+**Uso general v2 estándar** | Admite blobs (de bloques, páginas, anexos), archivos, discos, colas y tablas.<br/><br/> Admite los niveles de acceso frecuente, esporádico y archivo. Se admite ZRS. | Se usa para la mayoría de los escenarios y la mayoría de los tipos de datos. Las cuentas de almacenamiento estándar pueden basarse en HDD o en SSD.
 **Uso general v2 Prémium** | Admite datos de Blob Storage (blobs en páginas). Admite los niveles de acceso frecuente, esporádico y archivo. Se admite ZRS.<br/><br/> Se almacena en SSD. | Microsoft recomienda usarlo para todas las máquinas virtuales.
 **Uso general v1** | No se admiten los niveles de acceso. No admite ZRS. | Se usa si las aplicaciones necesitan el modelo de implementación clásica de Azure.
 **Blob** | Es la cuenta de almacenamiento especializada para almacenar los objetos no estructurados. Proporciona los blobs en bloques y solo blobs anexos (ningún servicio de almacenamiento de archivo, cola, tabla o disco). Proporciona la misma durabilidad, disponibilidad, escalabilidad y rendimiento que el uso general v2. | En estas cuentas no se pueden almacenar blobs en páginas y, por lo tanto, no se pueden almacenar archivos de disco duro virtual. Puede establecer un nivel de acceso frecuente o esporádico.
@@ -248,7 +248,7 @@ En Azure se paga por lo que usa, cuando los recursos se utilizan, y no se paga c
 **Más información:**
 - Obtenga información general de [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) y [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview).
 - [Consulte](https://docs.microsoft.com/azure/advisor/advisor-cost-recommendations) recomendaciones sobre el costo de Azure Advisor.
-- [Obtenga información sobre cómo [optimizar los costos a partir de las recomendaciones](https://docs.microsoft.com/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json) y [evitar cargos imprevistos](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started).
+- [Obtenga información sobre cómo [optimizar los costos a partir de las recomendaciones](https://docs.microsoft.com/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json) y [evitar cargos imprevistos](https://docs.microsoft.com/azure/billing/billing-getting-started).
 - [Obtenga información sobre](https://github.com/Azure/azure-quickstart-templates/tree/master/azure-resource-optimization-toolkit/) el Kit de herramientas Azure Resource Optimization (ARO)
 
 ## <a name="best-practice-implement-resource-group-budgets"></a>Procedimiento recomendado: Implementar presupuestos para los grupos de recursos

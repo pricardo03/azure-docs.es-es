@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 12fab05ef7c459419c8aaf319098fddaae1416e6
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 145dd36629286980c0f0e1692df3afb227764285
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48242123"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974053"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Consorcio de prueba de autoridad de Ethereum
 
@@ -744,7 +744,7 @@ $ truffle migrate --network poa
 
 ### <a name="debug-smart-contract-with-truffle"></a>Depurar un contrato inteligente con Truffle
 
-Truffle tiene una red de desarrollo local que está disponible para depurar el contrato inteligente. Podrá encontrar el tutorial completo [aquí](http://truffleframework.com/tutorials/debugging-a-smart-contract).
+Truffle tiene una red de desarrollo local que está disponible para depurar el contrato inteligente. Podrá encontrar el tutorial completo [aquí](https://truffleframework.com/tutorials/debugging-a-smart-contract).
 
 ### <a name="webassembly-wasm-support"></a>Compatibilidad con WebAssembly (WASM)
 
