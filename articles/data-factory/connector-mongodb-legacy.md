@@ -20,7 +20,7 @@ ms.lasthandoff: 01/08/2019
 ms.locfileid: "54105430"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copia de datos desde MongoDB mediante Azure Data Factory de Azure
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio de Data Factory que está utilizando:"]
 > * [Versión 1](v1/data-factory-on-premises-mongodb-connector.md)
 > * [Versión actual](connector-mongodb.md)
 
