@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9c44e2564c26a16d632a16195d3e53b8ce83d735
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: edea614065d67bab23de29e5cef3b56c69905a90
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629890"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188617"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Creación y uso de un equilibrador de carga interno con una instancia de App Service Environment #
 
@@ -188,7 +188,7 @@ Functions y los trabajos web se admiten en un ASE de ILB, pero para que el porta
 
 Al usar Azure Functions en un ASE con un ILB, puede recibir un mensaje de error que dice "No se han podido recuperar sus funciones ahora. Inténtelo de nuevo más tarde." Este error se produce porque la interfaz de usuario de Functions aprovecha el sitio de SCM a través de HTTPS y el certificado raíz no está en la cadena de confianza del explorador. Los trabajos web tienen un problema similar. Para evitar este problema puede hacer cualquiera de las siguientes acciones:
 
-- Agregue el certificado a su almacén de certificados de confianza. Esto desbloquea Edge e Internet Explorer.
+- Agregue el certificado a su almacén de certificados de confianza. Esto desbloquea Microsoft Edge e Internet Explorer.
 - Use Chrome y primero vaya al sitio de SCM, acepte el certificado que no es de confianza y luego vaya al portal.
 - Use un certificado comercial que se encuentre en la cadena de confianza del explorador.  Esta es la mejor opción.  
 
