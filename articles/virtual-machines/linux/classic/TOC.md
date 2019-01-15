@@ -1,4 +1,4 @@
-# [Información general](../overview.md)
+# Información general
 ## [Extensiones de máquina virtual](agents-and-extensions-classic.md)
 ## [Disponibilidad](configure-availability-classic.md)
 ## [P+F](faq-classic.md)
@@ -7,7 +7,7 @@
 ## [Creación de una máquina virtual Linux](createportal-classic.md)
 
 # Procedimientos
-## Compute
+## Proceso
 ### [Creación de una máquina virtual personalizada](create-custom-classic.md)
 ### [Captura de una máquina virtual](capture-image-classic.md)
 ### [Uso de Escritorio remoto con una máquina virtual Linux](remote-desktop-classic.md)
@@ -49,7 +49,6 @@
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [CLI de Azure](/cli/azure/vm)
 ## [Java](/java/api)
-## [Creación de plantillas de Resource Manager](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Plantillas de la comunidad](https://azure.microsoft.com/documentation/templates)
 ## [REST de Compute](https://msdn.microsoft.com/library/jj157206.aspx)
 ## [REST de Network](https://msdn.microsoft.com/library/jj157182.aspx)

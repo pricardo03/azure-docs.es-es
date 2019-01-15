@@ -122,8 +122,6 @@ items:
         href: backup-azure-vms-encryption.md
       - name: Habilitar copia de seguridad de máquinas virtuales durante la creación de estas
         href: backup-during-vm-creation.md
-      - name: Funcionalidad de restauración instantánea
-        href: backup-instant-restore-capability.md
     - name: Administración y supervisión de máquinas virtuales
       items:
       - name: Administración de copias de seguridad de máquina virtual de Azure en Azure Portal
@@ -136,6 +134,8 @@ items:
         href: backup-azure-restore-files-from-vm.md
       - name: Restauración de máquinas virtuales en Azure Portal
         href: backup-azure-arm-restore-vms.md
+      - name: Funcionalidad de restauración instantánea
+        href: backup-instant-restore-capability.md
       - name: Restauración de máquinas virtuales cifradas
         href: backup-azure-vms-encryption.md
       - name: Restauración de la clave y el secreto de Key Vault para máquinas virtuales cifradas
@@ -256,9 +256,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=backup
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=backup
-ms.openlocfilehash: 44ab1f24ba3bcae8902d8fa953b09f48630e7822
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 4f5d8a19fe45aa493183fd5de027a1ecd159622e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199264"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267494"

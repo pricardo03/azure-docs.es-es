@@ -5,41 +5,37 @@ items:
   items:
   - name: ¿Qué es Bing News Search API?
     href: search-the-web.md
-- name: Guías de inicio rápido de API REST
-  items:
-  - name: Introducción
-    href: quickstart.md
-  - name: C#
-    href: csharp.md
-  - name: Java
-    href: java.md
-  - name: Node.js
-    href: nodejs.md
-  - name: PHP
-    href: php.md
-  - name: Python
-    href: python.md
-  - name: Ruby
-    href: ruby.md
   expanded: true
-- name: Guías de inicio rápido de SDK
+- name: Guías de inicio rápido
   items:
-  - name: Introducción a los ejemplos de SDK
-    href: sdk.md
-  - name: Guía de inicio rápido del SDK de News Search para C#
-    href: news-search-sdk-quickstart.md
-  - name: Guía de inicio rápido del SDK de News Search para Node.js
-    href: news-search-sdk-node-quickstart.md
-  - name: Guía de inicio rápido del SDK de News Search para Python
-    href: news-sdk-python-quickstart.md
-  - name: Guía de inicio rápido del SDK de News Search para Java
-    href: news-sdk-java-quickstart.md
+  - name: API DE REST
+    items:
+    - name: Con C#
+      href: csharp.md
+    - name: Usar Java
+      href: java.md
+    - name: Uso de Node.js
+      href: nodejs.md
+    - name: Uso de PHP
+      href: php.md
+    - name: Usar Python
+      href: python.md
+    - name: Uso de Ruby
+      href: ruby.md
+  - name: SDK
+    items:
+    - name: Con C#
+      href: news-search-sdk-quickstart.md
+    - name: Uso de Node.js
+      href: news-search-sdk-node-quickstart.md
+    - name: Usar Python
+      href: news-sdk-python-quickstart.md
+    - name: Usar Java
+      href: news-sdk-java-quickstart.md
 - name: Tutoriales
   items:
-  - name: Aplicación web de una sola página
+  - name: Creación de una aplicación web de una sola página
     href: tutorial-bing-news-search-single-page-app.md
-  - name: Aplicación web de una sola página (código fuente)
-    href: tutorial-bing-news-search-single-page-app-source.md
 - name: Ejemplos
   items:
   - name: Ejemplos de código
@@ -54,12 +50,18 @@ items:
     href: paging-news.md
   - name: Cambio de tamaño y recorte de miniaturas
     href: resize-and-crop-thumbnails.md
-  - name: Actualizar de v5 a v7
+  - name: Actualización de la versión v5 a la v7 de la API
     href: bing-news-upgrade-guide-v5-to-v7.md
   - name: Trabajo con Visual Studio
     items:
     - name: Use el servicio conectado de Bing News Search
       href: vs-bing-news-search-connected-service.md
+- name: Conceptos
+  items:
+  - name: Envío de consultas de búsqueda
+    href: concepts/send-search-queries.md
+  - name: Búsqueda de noticias
+    href: concepts/search-for-news.md
 - name: Referencia
   items:
   - name: Bing News Search API v7
@@ -102,9 +104,9 @@ items:
     href: language-support.md
   - name: Análisis para Bing News Search API
     href: bing-news-stats.md
-ms.openlocfilehash: 9f702884dba94169eae71f98253a3ae1a94d8510
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: ed425db68d5c617f6442e9757531f02b0ab1cd38
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790550"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266219"

@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 1aa295f52540b765eda1d02a9d85fea195c0854a
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: eb2c62758f115617e971b4bd9b814456c7bc3331
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820133"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262157"
 documentType: LandingData
 title: Identidades administradas de Azure AD para la documentación de recursos de Azure
 metadata:
   document_id: 
-  title: Identidades administradas de Azure AD para la documentación de recursos de Azure
+  title: Documentación de identidades administradas de Azure AD para recursos de Azure
   description: Aprenda a usar las identidades administradas de los recursos de Azure para autenticarse con seguridad en los servicios en la nube de Azure sin tener que mantener las credenciales en el código fuente.
   services: active-directory
   ms.component: msi
