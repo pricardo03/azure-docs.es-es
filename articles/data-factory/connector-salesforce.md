@@ -21,7 +21,7 @@ ms.lasthandoff: 10/18/2018
 ms.locfileid: "49409584"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copia de datos desde y hacia Salesforce mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Seleccione la versión del servicio de Data Factory que está utilizando:"]
 > * [Versión 1](v1/data-factory-salesforce-connector.md)
 > * [Versión actual](connector-salesforce.md)
 
