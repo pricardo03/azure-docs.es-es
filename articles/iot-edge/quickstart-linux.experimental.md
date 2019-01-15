@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 44b47a595c422f62cae13fb1aeb582e0c15787d6
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 181addbcf4d0cfd51e74a24677de63f66e6fec1d
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973509"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190531"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Guía de inicio rápido: Implementación del primer módulo de IoT Edge en un dispositivo Linux x64
 
@@ -179,7 +179,9 @@ Administre el dispositivo Azure IoT Edge desde la nube para implementar un módu
 
 ## <a name="view-generated-data"></a>Visualización de datos generados
 
-En esta guía de inicio rápido, ha creado un nuevo dispositivo de IoT Edge y ha instalado el runtime de IoT Edge en él. Luego, ha usado Azure Portal para insertar un módulo de IoT Edge para que se ejecute en el dispositivo sin tener que realizar cambios en el propio dispositivo. En este caso, el módulo que ha insertado crea datos del entorno que se pueden usar para los tutoriales.
+En esta guía de inicio rápido, ha creado un nuevo dispositivo de IoT Edge y ha instalado el runtime de IoT Edge en él. Luego, ha usado Azure Portal para implementar un módulo de IoT Edge para que se ejecute en el dispositivo sin tener que realizar cambios en el propio dispositivo. 
+
+En este caso, el módulo que ha insertado crea los datos de ejemplo que puede usar para las pruebas. El módulo del sensor de temperatura simulado genera datos de entorno que se pueden utilizar con fines de prueba más tarde. El sensor simulado está supervisando una máquina y el entorno alrededor de esta. Por ejemplo, este sensor podría estar en una sala de servidores, en una fábrica o en un aerogenerador. El mensaje incluye la temperatura y la humedad ambiental, la temperatura y la presión de la máquina, y una marca de tiempo. Los tutoriales de IoT Edge usan los datos creados por este módulo como datos de prueba con fines de análisis.
 
 Abra de nuevo el símbolo del sistema en su dispositivo IoT Edge, o utilice la conexión SSH de la CLI de Azure. Confirme que el módulo implementado desde la nube se está ejecutando en el dispositivo IoT Edge:
 
@@ -200,9 +202,7 @@ Vea los mensajes que se envían desde el módulo del sensor de temperatura:
 
    ![Ver los datos desde el módulo](./media/quickstart-linux/iotedge-logs.png)
 
-Puede que el módulo del sensor de temperatura esté esperando para conectarse al centro de IoT Edge si la última línea que se ve en el registro es **Using transport Mqtt_Tcp_Only** (Usando transporte Mqtt_Tcp_Only). Intente detener el módulo y dejar que el agente de Edge lo reinicie. Puede detenerlo con el comando `sudo docker stop SimulatedTemperatureSensor`.
-
-También puede ver los mensajes que llegan a su centro de IoT mediante la [extensión de Azure IoT Hub Toolkit para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
+También puede ver los mensajes que llegan a su centro de IoT mediante el uso de la [extensión de Azure IoT Hub Toolkit para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (anteriormente, extensión de Azure IoT Tookit). 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -226,20 +226,6 @@ Quite el entorno de ejecución de Azure IoT Edge.
 
    ```bash
    sudo apt-get remove --purge iotedge
-   ```
-
-Cuando se quita el entorno de ejecución de Azure IoT Edge, los contenedores que se han creado se detienen, pero siguen existiendo en el dispositivo. Vea todos los contenedores.
-
-   ```bash
-   sudo docker ps -a
-   ```
-
-Elimine los contenedores que se crearon en el dispositivo por el entorno de ejecución de Azure IoT Edge. 
-
-   ```bash
-   sudo docker rm -f SimulatedTemperatureSensor
-   sudo docker rm -f edgeHub
-   sudo docker rm -f edgeAgent
    ```
 
 Quite el entorno de ejecución del contenedor.

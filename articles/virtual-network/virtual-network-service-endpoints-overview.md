@@ -1,12 +1,10 @@
 ---
-title: Puntos de conexión de servicio de Azure Virtual Network | Microsoft Docs
+title: Puntos de conexión del servicio Azure Virtual Network
+titlesuffix: Azure Virtual Network
 description: Aprenda a habilitar el acceso directo a los recursos de Azure desde una red virtual con puntos de conexión de servicio.
 services: virtual-network
 documentationcenter: na
 author: sumeetmittal
-manager: narayan
-editor: ''
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -15,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: acb5897825a2a7762869d3ad961dfcdcb87071b4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 77d21a9db54a34d3f9981929bb90dfd3b54e23dd
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540561"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190602"
 ---
 # <a name="virtual-network-service-endpoints"></a>Puntos de conexión del servicio de redes virtuales
 
@@ -60,7 +58,7 @@ Los puntos de conexión de servicio proporcionan las siguientes ventajas:
 
 - Esta característica solo está disponible en las redes virtuales implementadas con el modelo de implementación de Azure Resource Manager.
 - Los puntos de conexión están habilitados en subredes configuradas en redes virtuales de Azure. No se pueden usar los puntos de conexión para el tráfico desde las instalaciones a los servicios de Azure. Para más información, consulte [Protección del acceso del servicio de Azure desde el entorno local](#securing-azure-services-to-virtual-networks)
-- Para Azure SQL, un punto de conexión de servicio solo se aplica al tráfico del servicio de Azure dentro de la región de una red virtual. En el caso de Azure Storage, para admitir tráfico RA-GRS y GRS, los puntos de conexión también se extienden para incluir regiones emparejadas donde está implementada la red virtual. Obtenga más información acerca de las [regiones emparejadas de Azure](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
+- Para Azure SQL, un punto de conexión de servicio solo se aplica al tráfico del servicio de Azure dentro de la región de una red virtual. En el caso de Azure Storage y ADLS Gen 1, para admitir tráfico RA-GRS y GRS, los puntos de conexión también se extienden para incluir regiones emparejadas donde está implementada la red virtual. Obtenga más información acerca de las [regiones emparejadas de Azure](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
 
 ## <a name="securing-azure-services-to-virtual-networks"></a>Protección de servicios de Azure para las redes virtuales
 

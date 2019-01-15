@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: rogarana
-ms.openlocfilehash: 8c060cd7b1c3cf049db6d5935c0d3e20a024fb16
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f85d404df37d34f7363114fbbf34ceec3bbe7c0f
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635745"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042808"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-azure-powershell"></a>Guía de inicio rápido: Carga, descarga y enumeración de blobs mediante Azure PowerShell
 
@@ -33,30 +33,30 @@ Para realizar los pasos de este inicio rápido, se requiere la versión 0.7 del 
 
 Los blobs siempre se cargan en un contenedor. Puede organizar los grupos de blobs de una forma similar a cómo organiza los archivos en carpetas en el equipo.
 
-Establezca el nombre del contenedor y, después, cree el contenedor mediante [New-AzStorageContainer](/powershell/module/azure.storage/new-AzStoragecontainer). Establezca los permisos para `blob` de modo que se permita el acceso público de los archivos. El nombre del contenedor en este ejemplo es *quickstartblobs*.
+Establece el nombre del contenedor y, después, crea el contenedor mediante [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer). Establezca los permisos para `blob` de modo que se permita el acceso público de los archivos. El nombre del contenedor en este ejemplo es *quickstartblobs*.
 
 ```powershell
 $containerName = "quickstartblobs"
-New-AzStorageContainer -Name $containerName -Context $ctx -Permission blob
+new-azurestoragecontainer -Name $containerName -Context $ctx -Permission blob
 ```
 
 ## <a name="upload-blobs-to-the-container"></a>Carga de blobs al contenedor
 
 Blob Storage admite blobs en bloques, blobs en anexos y blobs en páginas. Los archivos VHD utilizados para respaldar VM IaaS son blobs en páginas. Use los blobs en anexos para el registro, por ejemplo, cuando desea escribir en un archivo y luego sigue agregando más información. La mayoría de los archivos almacenados en Blob Storage son blobs en bloques. 
 
-Para cargar un archivo en un blob en bloques, obtenga una referencia de contenedor y luego obtenga una referencia al blob en bloques en ese contenedor. Cuando tenga la referencia del blob, puede cargar datos en él mediante [Set-AzStorageBlobContent](/powershell/module/azure.storage/set-AzStorageblobcontent). De este modo, se creará el blob si no existe, o se sobrescribirá si ya existe.
+Para cargar un archivo en un blob en bloques, obtenga una referencia de contenedor y luego obtenga una referencia al blob en bloques en ese contenedor. Una vez que tenga la referencia de blob, puede cargar datos en él mediante [set-azurestorageblobcontent](/powershell/module/azure.storage/set-azurestorageblobcontent). De este modo, se creará el blob si no existe, o se sobrescribirá si ya existe.
 
 Los ejemplos siguientes cargan *Image001.jpg* e *Image002.png* desde la carpeta *D:\\_TestImages* del disco local al contenedor que creó.
 
 ```powershell
 # upload a file
-Set-AzStorageBlobContent -File "D:\_TestImages\Image001.jpg" `
+set-azurestorageblobcontent -File "D:\_TestImages\Image001.jpg" `
   -Container $containerName `
   -Blob "Image001.jpg" `
   -Context $ctx 
 
 # upload another file
-Set-AzStorageBlobContent -File "D:\_TestImages\Image002.png" `
+set-azurestorageblobcontent -File "D:\_TestImages\Image002.png" `
   -Container $containerName `
   -Blob "Image002.png" `
   -Context $ctx
@@ -66,30 +66,30 @@ Cargue tantos archivos como desee antes de continuar.
 
 ## <a name="list-the-blobs-in-a-container"></a>Enumerar los blobs de un contenedor
 
-Obtenga una lista de blobs del contenedor mediante [Get-AzStorageBlob](/powershell/module/azure.storage/get-AzStorageblob). Este ejemplo muestra solo los nombres de los blobs cargados.
+Obtenga una lista de blobs del contenedor mediante [get-azurestorageblob](/powershell/module/azure.storage/get-azurestorageblob). Este ejemplo muestra solo los nombres de los blobs cargados.
 
 ```powershell
-Get-AzStorageBlob -Container $ContainerName -Context $ctx | select Name 
+get-azurestorageblob -Container $ContainerName -Context $ctx | select Name
 ```
 
 ## <a name="download-blobs"></a>Descargar blobs
 
-Descargue los blobs en el disco local. Para cada blob que quiera descargar, establezca el nombre y llame a [Get-AzStorageBlobContent](/powershell/module/azure.storage/get-AzStorageblobcontent) para descargar el blob.
+Descargue los blobs en el disco local. Para cada blob que desee descargar, establezca el nombre y llame a [get-azurestorageblobcontent](/powershell/module/azure.storage/get-azurestorageblobcontent) para descargarlo.
 
 Este ejemplo descarga los blobs a *D:\\_TestImages\Downloads* en el disco local. 
 
 ```powershell
 # download first blob
-Get-AzStorageBlobContent -Blob "Image001.jpg" `
+get-azurestorageblobcontent -Blob "Image001.jpg" `
   -Container $containerName `
   -Destination "D:\_TestImages\Downloads\" `
   -Context $ctx 
 
 # download another blob
-Get-AzStorageBlobContent -Blob "Image002.png" `
+get-azurestorageblobcontent -Blob "Image002.png" `
   -Container $containerName `
   -Destination "D:\_TestImages\Downloads\" `
-  -Context $ctx 
+  -Context $ctx
 ```
 
 ## <a name="data-transfer-with-azcopy"></a>Transferencia de datos con AzCopy
@@ -111,7 +111,7 @@ A modo de un ejemplo rápido, aquí está el comando de AzCopy para cargar un ar
 Quite todos los recursos que ha creado. La manera más fácil de quitar los recursos consiste en eliminar el grupo de recursos. Al quitar el grupo de recursos también se eliminan todos los recursos contenidos en él. En el ejemplo siguiente, al quitar el grupo de recursos, se quita la cuenta de almacenamiento y el propio grupo de recursos.
 
 ```powershell
-Remove-AzResourceGroup -Name $resourceGroup
+Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

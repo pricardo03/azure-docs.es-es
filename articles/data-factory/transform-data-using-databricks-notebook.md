@@ -8,17 +8,16 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 6b0a4b7a8b2a30b9572ecfc488e2af7554b46346
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 7035035823e00fb0c12de3f4eeae11d8b3e1d54d
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017745"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016930"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Ejecución de un cuaderno de Databricks con la actividad Notebook de Databricks en Azure Data Factory
 
@@ -34,7 +33,7 @@ En este tutorial, realizará los siguientes pasos:
 
   - Supervisión de la ejecución de la canalización
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+Si no tiene una suscripción a Azure, cree una  [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 Si desea una introducción y demostración de once minutos de esta característica, vea el siguiente vídeo:
 
@@ -46,37 +45,37 @@ Si desea una introducción y demostración de once minutos de esta característi
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
-1.  Inicie el explorador web **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
+1.  Inicie el explorador web  **Microsoft Edge** o  **Google Chrome** . Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
 
-1.  Seleccione **Crear un recurso** en el menú izquierdo, seleccione **Analytics** y, luego, elija **Data Factory**.
+1.  Seleccione  **Crear un recurso**  en el menú izquierdo,  **Analytics** y, después,  **Data Factory**.
 
     ![Creación de una factoría de datos](media/transform-data-using-databricks-notebook/new-azure-data-factory-menu.png)
 
-1.  En el panel **Nueva factoría de datos**, escriba **ADFTutorialDataFactory** en **Nombre**.
+1.  En el panel  **Nueva factoría de datos** , escriba  **ADFTutorialDataFactory**  en  **Nombre**.
 
-    El nombre de la instancia de Azure Data Factory debe ser *único de forma global*. Si ve el siguiente error, cambie el nombre de la factoría de datos. (Por ejemplo, utilice **\<SuNombre\>ADFTutorialDataFactory**). Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte el artículo [Azure Data Factory: reglas de nomenclatura](https://docs.microsoft.com/azure/data-factory/naming-rules).
+    El nombre de la factoría de datos de Azure debe ser  *único de forma global*. Si ve el siguiente error, cambie el nombre de la factoría de datos. (Por ejemplo, use **\<sunombre\>ADFTutorialDataFactory**). Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte el artículo  [Azure Data Factory: reglas de nomenclatura](https://docs.microsoft.com/azure/data-factory/naming-rules) .
 
     ![Proporcionar un nombre para la nueva factoría de datos](media/transform-data-using-databricks-notebook/new-azure-data-factory.png)
 
-1.  En **Suscripción**, seleccione la suscripción de Azure donde desea crear la factoría de datos.
+1.  En  **Suscripción**, seleccione la suscripción de Azure donde desea crear la factoría de datos.
 
-1.  Para **Grupo de recursos**, realice uno de los siguientes pasos:
+1.  En  **Grupo de recursos**, realice uno de los siguientes pasos:
     
-    - Seleccione en primer lugar **Usar existente** y después un grupo de recursos de la lista desplegable.
+    - Seleccione  **Usar existente** y un grupo de recursos de la lista desplegable.
     
-    - Seleccione **Crear nuevo** y escriba el nombre de un grupo de recursos.
+    - Seleccione  **Crear nuevo** y escriba el nombre de un grupo de recursos.
 
-    En algunos de los pasos de esta guía de inicio rápido se supone que se usa el nombre: **ADFTutorialResourceGroup** para el grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+    En algunos de los pasos de este inicio rápido se supone que se usa el nombre  **ADFTutorialResourceGroup**  para el grupo de recursos. Para más información sobre los grupos de recursos, consulte  [Uso de grupos de recursos para administrar los recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
-1.  En **Versión**, seleccione **V2**.
+1.  En  **Versión**, seleccione  **V2**.
 
-1.  En **Ubicación**, seleccione la ubicación de la factoría de datos.
+1.  En  **Ubicación**, seleccione la ubicación de la factoría de datos.
 
-    Para obtener una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (como Azure Storage y Azure SQL Database) y los procesos (como HDInsight) que usan Data Factory pueden encontrarse en otras regiones.
-1.  Seleccione **Crear**.
+    Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (como Azure Storage y Azure SQL Database) y los procesos (como HDInsight) que usan Data Factory pueden encontrarse en otras regiones.
+1.  Seleccione  **Crear**.
 
 
-1.  Una vez completada la creación, verá la página **Data Factory**. Seleccione el icono **Author & Monitor** (Creación y supervisión) para iniciar la aplicación de interfaz de usuario de Azure Data Factory en una pestaña independiente.
+1.  Una vez completada la creación, verá la página  **Data Factory** . Seleccione el icono  **Author & Monitor**  (Creación y supervisión) para iniciar la aplicación de interfaz de usuario de Azure Data Factory en una pestaña independiente.
 
     ![Inicio de la aplicación de interfaz de usuario de Data Factory](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image4.png)
 
@@ -86,19 +85,19 @@ En esta sección, va a crear un servicio vinculado de Databricks. Este servicio 
 
 ### <a name="create-an-azure-databricks-linked-service"></a>Creación de un servicio vinculado de Azure Databricks
 
-1.  En la página de **introducción**, cambie a la pestaña **Edit** (Editar) del panel izquierdo.
+1.  En la página  **Let's get started**  (Comencemos), cambie a la pestaña  **Edit**  (Editar) en el panel izquierdo.
 
     ![Modificar el nuevo servicio vinculado](media/transform-data-using-databricks-notebook/get-started-page.png)
 
-1.  Seleccione **Connections** (Conexiones) en la parte inferior de la ventana y seleccione **+ New** (+ Nuevo).
+1.  Seleccione  **Connections** (Conexiones) En la parte inferior de la ventana y, después, seleccione  **+ New** (Nuevo).
     
     ![Crear una conexión](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image6.png)
 
-1.  En la ventana **New Linked Service** (Nuevo servicio vinculado), seleccione **Compute** (Proceso) \> **Azure Databricks** y, luego, seleccione **Continue** (Continuar).
+1.  En la ventana  **New Linked Service**  (Nuevo servicio vinculado), seleccione  **Compute**  (Proceso) \> **Azure Databricks** y, luego, seleccione  **Continue** (Continuar).
     
     ![Especificar un servicio vinculado de Databricks](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image7.png)
 
-1.  En la ventana **New Linked Service** (Nuevo servicio vinculado), realice los pasos siguientes:
+1.  En la ventana  **New Linked Service**  (Nuevo servicio vinculado), realice los pasos siguientes:
     
     1.  En **Name** (Nombre) escriba ***AzureDatabricks\_LinkedService***.
     
@@ -122,7 +121,7 @@ En esta sección, va a crear un servicio vinculado de Databricks. Este servicio 
 
 ## <a name="create-a-pipeline"></a>Crear una canalización
 
-1.  Seleccione el botón **+** (Más) y seleccione **Pipeline** (Canalización) en el menú.
+1.  Seleccione el botón  **+**   (Más) y seleccione  **Pipeline**  (Canalización) en el menú.
 
     ![Botones para crear una canalización](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image9.png)
 
@@ -132,15 +131,15 @@ En esta sección, va a crear un servicio vinculado de Databricks. Este servicio 
 
     ![Crear el parámetro name](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image11.png)
 
-1.  En el cuadro de herramientas **Activities** (Actividades), expanda **Databricks**. Arrastre la actividad **Notebook** del cuadro de herramientas **Activities** (Actividades) a la superficie del diseñador de canalizaciones.
+1.  En el cuadro de herramientas  **Activities**  (Actividades), expanda  **Databricks**. Arrastre la actividad  **Notebook**  del cuadro de herramientas  **Activities**  (Actividades) a la superficie del diseñador de canalizaciones.
 
     ![Arrastrar Notebook a la superficie del diseñador](media/transform-data-using-databricks-notebook/new-adf-pipeline.png)
 
-1.  En las propiedades de la ventana de actividad **Notebook** de **Databricks** de la parte inferior, realice los pasos siguientes:
+1.  En las propiedades de la ventana de actividad  **Notebook** de **Databricks**  de la parte inferior, realice los pasos siguientes:
 
-    a. Cambie a la pestaña **Azure Databricks**.
+     a. Cambie a la pestaña  **Azure Databricks** .
 
-    b. Seleccione **AzureDatabricks\_LinkedService** (que creó en el procedimiento anterior).
+    b. Seleccione  **AzureDatabricks\_LinkedService**  (que creó en el procedimiento anterior).
 
     c. Cambie a la pestaña **Settings** (Configuración).
 
@@ -174,25 +173,25 @@ En esta sección, va a crear un servicio vinculado de Databricks. Este servicio 
 
        1. La **ruta de acceso del cuaderno** en este caso es **/adftutorial/mynotebook**.
 
-1.  Vuelva a la **herramienta de creación de interfaz de usuario de Data Factory**. Vaya a la pestaña **Configuración** en la **actividad Notebook1**. 
+1.  Vuelva a la **herramienta de creación de interfaz de usuario de Data Factory**. Vaya a la pestaña **Configuración** en la **actividad Notebook1**. 
     
-    a.  **Agregue un parámetro** a la actividad Notebook. Utilice el mismo parámetro que se ha agregado antes a la **canalización**.
+     a.  **Agregue un parámetro** a la actividad Notebook. Utilice el mismo parámetro que se ha agregado antes a la **canalización**.
 
        ![Agregar un parámetro](media/transform-data-using-databricks-notebook/new-adf-parameters.png)
 
     b.  Llame al parámetro **input** y proporcione el valor como expresión **@pipeline().parameters.name**.
 
-1.  Para comprobar la canalización, seleccione el botón **Validate** (Comprobar) en la barra de herramientas. Para cerrar la ventana de validación, seleccione el botón **\>\>** (flecha derecha).
+1.  Para comprobar la canalización, seleccione el botón  **Validate**  (Comprobar) en la barra de herramientas. Para cerrar la ventana de validación, seleccione el botón  **\>\>**  (flecha derecha).
 
     ![Comprobación de la canalización](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image18.png)
 
-1.  Seleccione **Publish All** (Publicar todo). La interfaz de usuario de Data Factory permite publicar entidades (servicios vinculados y canalizaciones) en el servicio Azure Data Factory.
+1.  Seleccione  **Publicar todo**. La interfaz de usuario de Data Factory permite publicar entidades (servicios vinculados y canalizaciones) en el servicio Azure Data Factory.
 
     ![Publicar las nuevas entidades de Data Factory](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image19.png)
 
 ## <a name="trigger-a-pipeline-run"></a>Desencadenamiento de una ejecución de la canalización
 
-Seleccione **Trigger** (Desencadenar) en la barra de herramientas y, después, seleccione **Trigger Now** (Desencadenar ahora).
+Seleccione  **Trigger**  (Desencadenar) en la barra de herramientas y, después, seleccione  **Trigger Now** (Desencadenar ahora).
 
 ![Seleccionar el comando Trigger Now (Desencadenar ahora)](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image20.png)
 
@@ -202,17 +201,17 @@ El cuadro de diálogo **Pipeline Run** (Ejecución de canalización) solicita el
 
 ## <a name="monitor-the-pipeline-run"></a>Supervisión de la ejecución de la canalización
 
-1.  Vaya a la pestaña **Monitor** (Supervisar). Confirme que ve una ejecución de canalización. Se tarda aproximadamente entre 5 y 8 minutos crear un clúster de trabajo de Databricks, donde se ejecuta el cuaderno.
+1.  Cambie a la pestaña  **Monitor** . Confirme que ve una ejecución de canalización. Se tarda aproximadamente entre 5 y 8 minutos crear un clúster de trabajo de Databricks, donde se ejecuta el cuaderno.
 
     ![Supervisar la canalización](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image22.png)
 
-1.  Seleccione **Actualizar** periódicamente para comprobar el estado de la ejecución de canalización.
+1.  Seleccione  **Actualizar**  periódicamente para comprobar el estado de la ejecución de canalización.
 
-1.  Para ver las ejecuciones de actividad asociadas con la ejecución de esta canalización, seleccione **View Activity Runs** (Ver ejecuciones de actividad) de la columna **Actions** (Acciones).
+1.  Para ver las ejecuciones de actividad asociadas con la ejecución de la canalización, seleccione  **View Activity Runs** (Ver ejecuciones de actividad) en la columna  **Actions**  (Acciones).
 
     ![Ver las ejecuciones de actividad](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image23.png)
 
-Puede volver a la vista de ejecuciones de canalización. Para ello seleccione el vínculo **Pipelines** (Canalizaciones) en la parte superior.
+Puede volver a la vista de ejecuciones de canalización. Para ello, seleccione el vínculo  **Pipelines**  (Canalizaciones) en la parte superior.
 
 ## <a name="verify-the-output"></a>Comprobación del resultado
 

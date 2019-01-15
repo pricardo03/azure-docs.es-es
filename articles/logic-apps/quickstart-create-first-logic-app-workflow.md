@@ -1,6 +1,6 @@
 ---
-title: 'Creación y automatización del primer flujo de trabajo: Azure Logic Apps | Microsoft Docs'
-description: Guía de inicio rápido para saber cómo crear la primera aplicación lógica que automatiza tareas, procesos y flujos de trabajo con Azure Logic Apps. Creación de aplicaciones lógicas para la integración de sistemas y la integración de aplicaciones empresariales (EAI) para los sistemas y servicios en la nube
+title: 'Inicio rápido: Creación y automatización del primer flujo de trabajo: Azure Logic Apps | Microsoft Docs'
+description: Cree la primera aplicación lógica que automatiza tareas, procesos y flujos de trabajo con Azure Logic Apps. Creación de aplicaciones lógicas para la integración de sistemas y la integración de aplicaciones empresariales (EAI) para los sistemas y servicios en la nube
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -11,14 +11,14 @@ ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: fe2ca48c1cab3789f2bb501eaf00aeb9cd866b8c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: cc0f452cf9dc27354124437acc8d9a7c99fa80f4
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233691"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065195"
 ---
-# <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Guía de inicio rápido: Creación del primer flujo de trabajo automatizado con Azure Logic Apps: Azure Portal
+# <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Inicio rápido: Creación del primer flujo de trabajo automatizado con Azure Logic Apps: Azure Portal
 
 En esta guía de inicio rápido se muestra cómo crear su primer flujo de trabajo automatizado con [Azure Logic Apps](../logic-apps/logic-apps-overview.md). En este artículo, creará una aplicación lógica que comprobará periódicamente la fuente RSS de un sitio web para detectar si se ha publicado nuevo contenido. Si existe algún elemento nuevo, la aplicación lógica envía un correo electrónico por cada elemento. Cuando haya terminado, la aplicación lógica se parecerá a este flujo de trabajo, en un alto nivel:
 
@@ -38,7 +38,7 @@ Inicie sesión en <a href="https://portal.azure.com" target="_blank">Azure Porta
 
    ![Creación de la aplicación lógica](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
 
-3. En **Crear aplicación lógica**, proporcione información sobre la aplicación lógica, como se muestra a continuación. Cuando haya terminado, seleccione **Anclar al panel** > **Crear**.
+3. En **Crear aplicación lógica**, proporcione información sobre la aplicación lógica, como se muestra a continuación. Cuando termine, seleccione **Crear**.
 
    ![Proporcione los detalles de la aplicación lógica](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
@@ -61,9 +61,9 @@ A continuación, añada un [desencadenador](../logic-apps/logic-apps-overview.md
 
 ## <a name="check-rss-feed-with-a-trigger"></a>Comprobación de la fuente RSS con un desencadenador
 
-1. En el diseñador, escriba "rss" en el cuadro de búsqueda. Seleccione este desencadenador: **RSS: cuando se publica un elemento de fuente**
+1. En el diseñador, escriba "rss" en el cuadro de búsqueda. Seleccione este desencadenador: **RSS - When a feed item is published** (RSS: Cuando se publica un elemento de fuente)
 
-   ![Selección del desencadenador "RSS: cuando se publica un elemento de fuente"](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss.png)
+   ![Seleccione el desencadenador: "RSS - When a feed item is published" (RSS: Cuando se publica un elemento de fuente)](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss.png)
 
 2. Proporcione esta información para el desencadenador, como se describe a continuación: 
 
@@ -91,13 +91,13 @@ La aplicación lógica estará activa, pero no hace más que comprobar la fuente
 
 Ahora, añada una [acción](../logic-apps/logic-apps-overview.md#logic-app-concepts) para enviar un correo electrónico cuando aparezca un nuevo elemento en la fuente RSS. 
 
-1. En el desencadenador **Cuando se publica un elemento de fuente**, seleccione **+ Nuevo paso** > **Agregar una acción**.
+1. En el desencadenador **When a feed item is published** (Cuando se publica un elemento de fuente), elija **New step** (Nuevo paso).
 
    ![Agregar una acción](./media/quickstart-create-first-logic-app-workflow/add-new-action.png)
 
-2. En **Elegir una acción**, escriba "enviar un correo electrónico" como filtro. En la lista de acciones, seleccione la acción "enviar un correo electrónico" del proveedor de correo electrónico que desee. 
+2. En **Elegir una acción**, escriba "enviar un correo electrónico" en el cuadro de búsqueda. En el cuadro de búsqueda, elija **Todas**. En la lista de acciones, seleccione la acción "enviar un correo electrónico" del proveedor de correo electrónico que desee. 
 
-   ![Selección de la acción "Office 365 Outlook: enviar un correo electrónico"](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
+   ![Seleccione esta acción: "Office 365 Outlook - Send an email" (Office 365 Outlook: Enviar un correo electrónico)](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
 
    Para filtrar la lista de acciones de una aplicación o un servicio específicos, puede seleccionar la aplicación o servicio primero:
 

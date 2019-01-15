@@ -9,23 +9,22 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/28/2018
 ms.author: douglasl
-ms.openlocfilehash: 2baadd0bcb5aba401e2dd6cec9a82ca401b3c9bd
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 5a883d922944552b53b152546cc891a0a2f4a31f
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620496"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042740"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Creación de una instancia de Azure Data Factory mediante una plantilla de Azure Resource Manager
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
 > * [Versión actual](quickstart-create-data-factory-resource-manager-template.md) 
 
-En esta guía de inicio rápido se describe cómo usar una plantilla de Azure Resource Manager para crear una instancia de Azure Data Factory. La canalización que ha creado en esta factoría de datos **copia** los datos de una carpeta a otra en Azure Blob Storage. Para ver un tutorial acerca de cómo **transformar** datos mediante Azure Data Factory, consulte [Transformación de datos en la nube mediante la actividad de Spark en Azure Data Factory](transform-data-using-spark.md). 
+En esta guía de inicio rápido se describe cómo usar una plantilla de Azure Resource Manager para crear una instancia de Azure Data Factory. La canalización que ha creado en esta factoría de datos **copia** los datos de una carpeta a otra en Azure Blob Storage. Para ver un tutorial acerca de cómo **transformar** datos mediante Azure Data Factory, consulte [Tutorial: Transformación de datos con Spark](transform-data-using-spark.md). 
 
 > [!NOTE]
 > En este artículo no se ofrece una introducción detallada al servicio Data Factory. Para ver una introducción al servicio Azure Data Factory, consulte [Introducción al servicio Azure Data Factory](introduction.md).
@@ -39,6 +38,8 @@ Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo i
 Para más información acerca de las plantillas de Azure Resource Manager en general, consulte [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). 
 
 En la siguiente sección se proporciona la plantilla completa de Resource Manager para definir las entidades de Data Factory para que pueda ejecutar el tutorial rápidamente y probar la plantilla. Para entender cómo se define cada entidad de Data Factory, consulte la sección [Entidades de Data Factory en la plantilla](#data-factory-entities-in-the-template).
+
+Para obtener información sobre la sintaxis y las propiedades de JSON para los recursos de la factoría de datos en una plantilla, consulte [Tipos de recurso Microsoft.DataFactory](/azure/templates/microsoft.datafactory/allversions).
 
 ## <a name="data-factory-json"></a>JSON de Data Factory 
 Cree un archivo JSON llamado **ADFTutorialARM.json** en la carpeta **C:\ADFTutorial** con el siguiente contenido:
@@ -268,7 +269,7 @@ Cree un archivo JSON denominado **ADFTutorialARM Parameters.json** que contenga 
 
 > [!IMPORTANT]
 > - Especifique el nombre y la clave de la cuenta de Azure Storage para los parámetros **storageAccountName** y **storageAccountKey** en este archivo de parámetros. Ha creado el contenedor adftutorial y ha cargado el archivo de ejemplo (emp.txt) en la carpeta de entrada en esta instancia de Azure Blob Storage. 
-> - Especifique un nombre globalmente único para el generador de datos para el parámetro **dataFactoryName**. Por ejemplo: ARMTutorialFactoryJohnDoe11282017. 
+> - Especifique un nombre globalmente único para el generador de datos para el parámetro **dataFactoryName**. Por ejemplo:  ARMTutorialFactoryJohnDoe11282017. 
 > - En **triggerStartTime**, especifique el día actual con el formato: `2017-11-28T00:00:00`.
 > - En **triggerEndTime**, especifique el día siguiente con el formato: `2017-11-29T00:00:00`. También puede comprobar la hora UTC actual y especificar la hora, o dos horas, siguiente como hora de finalización. Por ejemplo, si la hora UTC actual es 1:32 a. m., especifique `2017-11-29:03:00:00` como la hora de finalización. En ese caso, el desencadenador ejecuta la canalización dos veces (a las 2 a. m. y a las 3 a. m.).
 
@@ -440,11 +441,11 @@ El desencadenador implementado está en estado detenido. Una de las formas de in
     ![Supervisar ejecución de canalización](media/quickstart-create-data-factory-resource-manager-template/monitor-pipeline-run.png)    
 
     > [!IMPORTANT]
-    > Verá que la canalización se ejecuta solo en a las horas en punto (por ejemplo: 4 a. m., 5 a. m., 6 a. m., etc.) Haga clic en **Actualizar** en la barra de herramientas para actualizar la lista cuando la hora que alcance la hora siguiente. 
+    > Verá que la canalización se ejecuta solo en a las horas en punto (por ejemplo, 4 a. m., 5 a. m., 6 a. m., etc). Haga clic en **Actualizar** en la barra de herramientas para actualizar la lista cuando la hora que alcance la hora siguiente. 
 5. Haga clic en el vínculo de las columnas **Acciones**. 
 
     ![Vínculo de acciones de canalización](media/quickstart-create-data-factory-resource-manager-template/pipeline-actions-link.png)
-6. Vea las ejecuciones de actividad asociadas con la ejecución de la canalización. En esta guía de inicio rápido, la canalización tiene sólo una actividad del tipo: Copy. Por consiguiente, se ve una ejecución de dicha actividad. 
+6. Vea las ejecuciones de actividad asociadas con la ejecución de la canalización. En este inicio rápido, la canalización tiene solo una actividad del tipo: Copy. Por consiguiente, se ve una ejecución de dicha actividad. 
 
     ![Ejecuciones de actividad](media/quickstart-create-data-factory-resource-manager-template/activity-runs.png)
 1. Haga clic en el vínculo situado debajo de la columna **Output**. Se ve el resultado de la operación de copia en la ventana de **salida**. Haga clic en el botón de maximizar para ver la salida completa. Puede cerrar la ventana de salida maximizada. 

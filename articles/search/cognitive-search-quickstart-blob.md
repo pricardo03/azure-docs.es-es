@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ff862dcee77fb874511ea1b9bcc907a5e4b60dcc
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 50b2973f2b245cfb42ed7212e443fec1c66217cf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998989"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015279"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Guía de inicio rápido: Creación de una canalización de Cognitive Search mediante aptitudes y datos de ejemplo
 
@@ -26,9 +26,9 @@ En este artículo de inicio rápido, cree su primera la canalización de enrique
 
 > [!div class="checklist"]
 > * Comience con una muestra de datos en Azure Blob Storage.
-> * Configure el [Asistente para la importación de datos](search-import-data-portal.md) para la indexación y el enriquecimiento cognitivos. 
+> * Configure el [**Asistente para la importación de datos**](search-import-data-portal.md) para la indexación y el enriquecimiento cognitivos. 
 > * Ejecute el asistente (una aptitud de la entidad detecta personas, ubicaciones y organizaciones).
-> * Uso del [Explorador de búsqueda](search-explorer.md) para consultar los datos enriquecidos
+> * Use el [**Explorador de búsqueda**](search-explorer.md) para consultar los datos enriquecidos.
 
 ## <a name="supported-regions"></a> Regiones admitidas
 
@@ -98,9 +98,9 @@ La canalización de enriquecimiento extrae contenido de los orígenes de datos d
 
 1. [Descargue los datos de ejemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) que están formados por un pequeño conjunto de archivos de diferentes tipos. 
 
-1. Regístrese en Azure Blob Storage, cree una cuenta de almacenamiento, inicie sesión en el Explorador de Storage y cree un contenedor. Establezca el nivel de acceso público en **Contenedor**. Para obtener más información, consulte la [sección sobre creación de un contenedor](../storage/blobs/storage-unstructured-search.md#create-a-container) del tutorial sobre búsqueda de datos no estructurados.
+1. Regístrese en Azure Blob Storage, cree una cuenta de almacenamiento, abra las páginas de servicios de blob y cree un contenedor. En el contenedor, establezca el nivel de acceso público en **Contenedor**. Para más información, consulte la [sección sobre la creación de un contenedor](../storage/blobs/storage-unstructured-search.md#create-a-container) del tutorial *Búsqueda de datos no estructurados*.
 
-1. En el contenedor que creó, haga clic en **Cargar** para cargar los archivos de ejemplo.
+1. En el contenedor que creó, haga clic en **Cargar** para cargar los archivos de ejemplo que descargó en un paso anterior.
 
   ![Archivos de origen en Azure Blob Storage](./media/cognitive-search-quickstart-blob/sample-data.png)
 

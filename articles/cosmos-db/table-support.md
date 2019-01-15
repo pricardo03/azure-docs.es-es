@@ -1,19 +1,19 @@
 ---
 title: Compatibilidad de Azure Table Storage con Azure Cosmos DB
 description: Obtenga información sobre cómo funcionan conjuntamente Table API de Azure Cosmos DB y Azure Table Storage.
-services: cosmos-db
-author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.topic: overview
 ms.date: 11/15/2017
-ms.author: sngun
-ms.openlocfilehash: 6c6b0650ae8f4ed780b72e8fcd414e3f26e4f5f3
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+author: wmengmsft
+ms.author: wmeng
+ms.reviewer: sngun
+ms.openlocfilehash: b105cf6c220534927a16be83ca5db8801c88f6c0
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878744"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035600"
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Implementación con Table API de Azure Cosmos DB y Azure Table Storage
 
@@ -29,7 +29,7 @@ En este momento, [Table API de Azure Cosmos DB](table-introduction.md) tiene cua
 - [SDK de Java](table-sdk-java.md). Este SDK de Azure Storage tiene la capacidad de conectarse a las cuentas de Azure Cosmos DB mediante Table API.
 - [SDK de Node.js](table-sdk-nodejs.md). Este SDK de Azure Storage tiene la capacidad de conectarse a las cuentas de Azure Cosmos DB mediante Table API.
 
-Puede encontrar información adicional sobre el funcionamiento con Table API en el artículo [Preguntas más frecuentes: Desarrollar con Table API](faq.md#table).
+Puede encontrar información adicional sobre el funcionamiento con Table API en el artículo [Preguntas más frecuentes: desarrollo con Table API en .NET](faq.md#table).
 
 ## <a name="developing-with-azure-table-storage"></a>Desarrollo con Azure Table Storage
 

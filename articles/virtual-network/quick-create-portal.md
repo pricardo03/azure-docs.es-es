@@ -1,14 +1,12 @@
 ---
-title: 'Guía de inicio rápido: Creación de una red virtual mediante Azure Portal | Microsoft Docs'
-description: En esta guía de inicio rápido, aprenderá a crear una red virtual mediante Azure Portal. Una red virtual permite que los recursos de Azure, como las máquinas virtuales, se comuniquen de manera privada entre sí y con Internet.
+title: 'Inicio rápido: Creación de una red virtual mediante Azure Portal'
+titlesuffix: Azure Virtual Network
+description: En esta guía de inicio rápido, aprenderá a crear una red virtual mediante Azure Portal. Una red virtual permite que los recursos de Azure, como máquinas virtuales, se comunican de manera privada entre sí y con Internet.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: quickstart
@@ -16,13 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: jdial
-ms.custom: mvc
-ms.openlocfilehash: d627d54686cb40714e9e8574ceae56a8900cb45e
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 346299dff8354bfca56a1f348c8f66e90da89632
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269472"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020836"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Guía de inicio rápido: Creación de una red virtual mediante el Portal de Azure
 
@@ -149,7 +146,7 @@ Después de haber creado *myVm1*, conéctese a ella a través de Internet.
     1. Escriba el nombre de usuario y la contraseña que especificó al crear la máquina virtual.
 
         > [!NOTE]
-        > Puede que tenga que seleccionar **Más opciones** > **Usar otra cuenta** para especificar las credenciales que escribió al crear la máquina virtual.
+        > Es posible que tenga que seleccionar **Más opciones** > **Usar otra cuenta** para especificar las credenciales que escribió al crear la máquina virtual.
 
 1. Seleccione **Aceptar**.
 

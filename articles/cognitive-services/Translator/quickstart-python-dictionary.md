@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Obtención de traducciones alternativas con Python: Translator Text API'
+title: 'Inicio rápido: Búsqueda de palabras con diccionario bilingüe, Python: Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, aprenderá a buscar traducciones alternativas y ejemplos de uso para un texto específico con Python y Translator Text REST API.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/21/2018
 ms.author: erhopf
-ms.openlocfilehash: ab8a6d5b6d4bb52863e77b844a4008bb80d840be
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 52820a9162a20b680b85d07f8c49ac5305d4979a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993958"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158018"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-python"></a>Inicio rápido: Uso de Translator Text API para obtener traducciones alternativas con Python
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>Inicio rápido: Búsqueda de palabras con un diccionario bilingüe mediante Python
 
 En esta guía de inicio rápido, aprenderá a buscar traducciones alternativas y ejemplos de uso para un texto específico con Python y Translator Text REST API.
 

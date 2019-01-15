@@ -7,15 +7,15 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/07/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3f75cd61d948f3f6df34124a9b16b333f6c5e6d5
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 9bdc2e197b4d7aea270c954305a96a01a1371945
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001794"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121556"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Inicio rápido: Uso de herramientas integradas el portal para la importación, indexación y consultas de Azure Search
 
@@ -48,7 +48,7 @@ Muchos clientes comienzan con el servicio gratis. Esta versión está limitada a
 
 Los iconos del panel de servicio muestran el número de índices, indexadores y orígenes de datos que ya tiene. 
 
-![Listas de índices, indexadores y orígenes de datos][media/search-get-started-portal/tiles-indexers-datasources2.png]
+![Listas de índices, indexadores y orígenes de datos](media/search-get-started-portal/tiles-indexers-datasources2.png)
 
 ## <a name="create-index"></a> Creación de un índice y carga de datos
 
@@ -124,9 +124,13 @@ El portal puede tardar unos minutos en actualizar la página, pero debería ver 
 
 ## <a name="view-the-index"></a>Ver el índice
 
-La lista **Índices** muestra los índices existentes, incluido el índice *realestate-us-sample* que acaba de crear en el asistente.
+La página principal del servicio proporciona vínculos a los recursos creados en el servicio Azure Search.  Para ver el índice que acaba de crear, haga clic en **Índices** en la lista de vínculos. 
 
-En esta lista, puede ver el esquema de índice y, opcionalmente, agregar nuevos campos, pero no puede cambiar los campos existentes. Los campos existentes tienen una representación física en Azure Search y, por tanto, no son modificables, ni siquiera en el código. Para cambiar radicalmente un campo, cree otro índice y elimine el original.
+   ![Lista de índices en el panel del servicio](media/search-get-started-portal/indexes-list.png)
+
+En esta lista, puede hacer clic en el índice *realestate-us-sample* que acaba de crear, ver el esquema de índice y, opcionalmente, agregar nuevos campos. 
+
+La pestaña **Campos** muestra el esquema de índice. Desplácese hasta la parte inferior de la lista para especificar un nuevo campo. En la mayoría de los casos, no se pueden cambiar los campos existentes. Los campos existentes tienen una representación física en Azure Search y, por tanto, no son modificables, ni siquiera en el código. Para cambiar radicalmente un campo, cree otro índice y elimine el original.
 
    ![definición de índice de ejemplo](media/search-get-started-portal/sample-index-def.png)
 
@@ -137,6 +141,8 @@ Para saber claramente qué puede y qué no puede modificar durante el diseño de
 ## <a name="query-index"></a> Realización de consultas con el Explorador de búsqueda
 
 Más adelante, debería tener ahora un índice de búsqueda que esté preparado para la consulta con la página de consulta del [**Explorador de búsqueda**](search-explorer.md) integrada. Proporciona un cuadro de búsqueda para que pueda probar las cadenas de consulta arbitraria.
+
+El **explorador de Search** está equipado solo para administrar [solicitudes de API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents), pero acepta sintaxis para la [sintaxis de consulta simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) y el [analizador de consultas completo de Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), además de todos los parámetros de búsqueda disponibles en las operaciones de [API REST de búsqueda en documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples).
 
 > [!TIP]
 > En el [vídeo de introducción a Azure Search](https://channel9.msdn.com/Events/Connect/2016/138), los siguientes pasos se demuestran en 6 minutos y 8 segundos.
@@ -150,11 +156,9 @@ Más adelante, debería tener ahora un índice de búsqueda que esté preparado 
 
    ![Comandos de índice y API](media/search-get-started-portal/search-explorer-changeindex-se2.png)
 
-3. En la barra de búsqueda, escriba las cadenas de consulta siguientes y haga clic en **Buscar**.
+3. En la barra de búsqueda, pegue las cadenas de consulta siguientes y haga clic en **Buscar**.
 
-    > [!NOTE]
-    > El **Explorador de búsqueda** solo está preparado para controlar [solicitudes de API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents). Acepta [sintaxis de consulta simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) y el [analizador de consultas completo de Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), además de todos los parámetros de búsqueda disponibles en las operaciones de [búsqueda en documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents).
-    >
+   ![Cadena de consulta y botón Buscar](media/search-get-started-portal/search-explorer-query-string-example.png)
 
 ## <a name="example-queries"></a>Consultas de ejemplo
 

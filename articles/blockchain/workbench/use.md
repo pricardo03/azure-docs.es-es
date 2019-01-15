@@ -1,25 +1,33 @@
 ---
 title: Uso de aplicaciones en Azure Blockchain Workbench
-description: Procedimientos para el uso de contratos de aplicación en Azure Blockchain Workbench.
+description: Tutorial sobre cómo usar contratos de aplicación en Azure Blockchain Workbench.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
-ms.topic: article
+ms.date: 1/8/2019
+ms.topic: tutorial
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 4fe6f164882ffce7bf22ec0c0b94107abcf6a20e
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: b43b125f7e96ac58a9094fc1e0e18b38f10d3e2f
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48242092"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107079"
 ---
-# <a name="using-applications-in-azure-blockchain-workbench"></a>Uso de aplicaciones en Azure Blockchain Workbench
+# <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>Tutorial: Uso de aplicaciones en Azure Blockchain Workbench
 
 Puede usar Blockchain Workbench para crear y realizar acciones en contratos. También puede ver detalles del contrato como el estado y el historial de transacciones.
+
+Aprenderá a:
+
+> [!div class="checklist"]
+> * Crear un contenedor nuevo
+> * Realizar una acción en un contrato
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -82,4 +90,4 @@ Según el estado que tenga el contrato, los miembros pueden realizar acciones pa
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Procedimientos para la solución de problemas de Azure Blockchain Workbench](troubleshooting.md)
+> [Versiones de aplicaciones de Azure Blockchain Workbench](version-app.md)

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: ed3d21719908a4c16b92d610b8ac75ac0b235ec1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 4a9ffdd9f81a7d46d3476f3395a4456dea6c0341
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968719"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156738"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Creación de una nueva instancia del servicio Azure API Management
 
@@ -69,12 +69,12 @@ Cuando ya no los necesite, puede quitar el grupo de recursos y todos los recurso
 1. En Azure Portal, seleccione **Todos los servicios**.
 2. Escriba `resource groups` en el cuadro de búsqueda y haga clic en el resultado.
 
-    ![Exploración de grupos de recursos](./media/get-started-create-service-instance/00-DeleteResource-01.png)
+    ![Navegación por grupos de recursos](./media/get-started-create-service-instance/00-DeleteResource-01.png)
 
 3. Encuentre el grupo de recursos y haga clic en él.
 4. Haga clic en **Eliminar grupo de recursos**.
 
-    ![Exploración de grupos de recursos](./media/get-started-create-service-instance/00-DeleteResource-02.png)
+    ![Navegación por grupos de recursos](./media/get-started-create-service-instance/00-DeleteResource-02.png)
 
 5. Confirme la eliminación; para ello, escriba el nombre del grupo de recursos.
 6. Hacer clic en **Eliminar**.

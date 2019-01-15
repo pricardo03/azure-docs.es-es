@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/26/2018
+ms.date: 12/20/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 7949e764baa7a4e20eb988c78817b6b4f0045593
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: e6cfdca207b114871a478262f14ea960be5985df
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333775"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104971"
 ---
 # <a name="validate-a-new-azure-stack-solution"></a>Validación de una nueva solución de Azure Stack
 
@@ -35,32 +35,53 @@ Para certificar la solución, ejecute dos veces el flujo de trabajo de validaci�
 ## <a name="create-a-solution-validation-workflow"></a>Creación de un flujo de trabajo de validación de soluciones
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_select-solution](includes/azure-stack-vaas-workflow-step_select-solution.md)]
-2. Seleccione **Iniciar** en el icono **Solution Validations** (Validación de soluciones).
+
+3. Seleccione **Iniciar** en el icono **Solution Validations** (Validación de soluciones).
 
     ![Icono de flujo de trabajo de validaciones de soluciones](media/tile_validation-solution.png)
 
-3. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
-4. Seleccione la **configuración de la solución**.
+4. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
+
+5. Seleccione la **configuración de la solución**.
     - **Minimum** (Mínima): la solución se configura con el número mínimo admitido de nodos.
     - **Maximum** (Máxima): la solución se configura con el número máximo admitido de nodos.
-5. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
+6. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
 
     ![Información de la validación de soluciones](media/workflow_validation-solution_info.png)
 
-6. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
+7. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
     > [!NOTE]
     > No se pueden modificar los parámetros de entorno después de crear un flujo de trabajo.
 
-7. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
-8. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
+8. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
+9. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
     Se le redirigirá a la página de resumen de las pruebas.
 
-## <a name="execute-solution-validation-tests"></a>Ejecución de pruebas de validación de soluciones
+## <a name="run-solution-validation-tests"></a>Ejecución de pruebas de validación de soluciones
 
 En la página **Solution validation tests summary** (Resumen de pruebas de validación de soluciones), verá una lista de las pruebas necesarias para realizar la validación.
 
-[!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
+En los flujos de trabajo de validación, para **programar** una prueba se usan los parámetros comunes de nivel de flujo de trabajo que especificó durante la creación del flujo de trabajo (consulte [Parámetros comunes del flujo de trabajo en la validación de Azure Stack como servicio](azure-stack-vaas-parameters.md)). Si alguno de los valores de parámetro de prueba deja de ser válido, debe volver a suministrarlo como se indica en [Modify workflow parameters](azure-stack-vaas-monitor-test.md#change-workflow-parameters) (Modificación de los parámetros de flujo de trabajo).
+
+> [!NOTE]
+> La programación a través de una prueba de validación a través de una instancia existente creará una nueva instancia en el lugar de la anterior en el portal. Los registros de la instancia anterior se conservarán, pero no se podrá acceder a ellos desde el portal.  
+Una vez finalizada una prueba correctamente, la acción **Schedule** (Programar) pasará a estar deshabilitada.
+
+1. [!INCLUDE [azure-stack-vaas-workflow-step_select-agent](includes/azure-stack-vaas-workflow-step_select-agent.md)]
+
+2. Seleccione las pruebas siguientes:
+    - Cloud Simulation Engine
+    - Compute SDK Operational Suite
+    - Disk Identification Test
+    - KeyVault Extension SDK Operational Suite
+    - KeyVault SDK Operational Suite
+    - Network SDK Operational Suite
+    - Storage Account SDK Operational Suite
+
+3. Seleccione **Schedule** (Programar) desde el menú contextual para abrir un símbolo del sistema y programar la instancia de prueba.
+
+4. Revise los parámetros de prueba y, luego, seleccione **Submit** (Enviar) para programar la ejecución de la prueba.
 
 ![Programación de la prueba de validación de soluciones](media/workflow_validation-solution_schedule-test.png)
 

@@ -5,33 +5,37 @@ services: iot-edge
 author: kgremban
 ms.service: iot-edge
 ms.topic: include
-ms.date: 12/31/2018
+ms.date: 01/04/2019
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: dd4873017105db190f9a468ec1f1f77f4e8c9c0e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c20a14ef2bc74d73b93ab39ee52fe1be8a5f984f
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53977153"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192162"
 ---
-Una de las funcionalidades clave de Azure IoT Edge es que puede implementar módulos en dispositivos de IoT Edge desde la nube. Un módulo de IoT Edge es un paquete ejecutable que se implementa como un contenedor. En esta sección, se va a implementar un módulo pregenerado desde la [sección de módulos de IoT Edge de Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Este módulo genera una telemetría simulada para el dispositivo IoT Edge.
+Una de las funcionalidades clave de Azure IoT Edge es que puede implementar código en dispositivos de IoT Edge desde la nube. Los **módulos de IoT Edge** son paquetes ejecutables que se implementan como contenedores. En esta sección, va a implementar un módulo pregenerado desde la [sección de módulos de IoT Edge de Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). 
+
+El módulo que se implementa en esta sección simula un sensor y envía los datos generados. Este módulo es un fragmento de código útil para empezar a trabajar con IoT Edge porque se pueden usar los datos simulados para desarrollo y pruebas. Si desea ver exactamente lo que hace este módulo, puede ver el [código fuente del sensor de temperatura simulado](https://github.com/Azure/iotedge/blob/027a509549a248647ed41ca7fe1dc508771c8123/edge-modules/SimulatedTemperatureSensor/src/Program.cs). 
+
+Para implementar el primer módulo desde Azure Marketplace, siga estos pasos:
 
 1. En [Azure Portal](https://portal.azure.com), escriba **Sensor de temperatura simulado** en la búsqueda y abra el resultado de Marketplace.
 
    ![Sensor de temperatura simulado en la búsqueda de Azure Portal](./media/iot-edge-deploy-module/search-for-temperature-sensor.png)
 
-2. Elija un dispositivo IoT Edge para recibir este módulo. En **Dispositivos de destino para el módulo de IoT Edge**, proporcione esta información:
+2. Elija un dispositivo IoT Edge para recibir este módulo. En la página **Dispositivos de destino para el módulo de IoT Edge**, proporcione la siguiente información:
 
    1. **Suscripción**: seleccione la suscripción que contiene el centro de IoT que usa.
 
    2. **IoT Hub**: seleccione el nombre del centro de IoT que usa.
 
-   3. **Nombre de dispositivo IoT Edge**: si usó el nombre de dispositivo sugerido anteriormente en este inicio rápido, escriba **myEdgeDevice**. O bien, seleccione **Buscar dispositivo** para elegir de una lista de dispositivos en el centro de IoT. 
+   3. **Nombre de dispositivo IoT Edge**: si usó el nombre de dispositivo sugerido anteriormente en este inicio rápido, escriba **myEdgeDevice**. También puede seleccionar **Buscar dispositivo** para elegir de una lista de dispositivos IoT Edge en el centro de IoT. 
    
    4. Seleccione **Crear**.
 
-3. Ahora que eligió un módulo de IoT Edge en Azure Marketplace y un dispositivo IoT Edge para recibir el módulo, verá un asistente de tres pasos que lo ayudará a definir exactamente cómo se implementará el módulo. En el paso **Agregar módulos** del asistente, observe que el módulo**SimulatedTemperatureSensor** se rellena automáticamente. En los tutoriales, usará esta página para agregar otros módulos a la implementación. En este inicio rápido, basta con implementar este módulo. Seleccione **Siguiente** para pasar al próximo paso del asistente.
+3. Ahora que eligió un módulo de IoT Edge en Azure Marketplace y un dispositivo IoT Edge para recibir el módulo, verá un asistente de tres pasos que lo ayudará a definir exactamente cómo se implementa el módulo. En el paso **Agregar módulos** del asistente, observe que el módulo**SimulatedTemperatureSensor** se rellena automáticamente. En los tutoriales, usará esta página para agregar otros módulos a la implementación. En este inicio rápido, basta con implementar este módulo. Seleccione **Siguiente** para pasar al próximo paso del asistente.
 
 4. En el paso **Especificar rutas** del asistente, defina cómo se transmiten los mensajes entre los módulos y a IoT Hub. Para el inicio rápido, querrá que todos los mensajes de todos los módulos vayan a IoT Hub (`$upstream`). Si no se rellena automáticamente, agregue el código siguiente y seleccione **Siguiente**:
 
@@ -45,7 +49,7 @@ Una de las funcionalidades clave de Azure IoT Edge es que puede implementar mód
 
 5. En el paso **Revisar implementación** del asistente, puede obtener una vista previa del archivo JSON que define todos los módulos que se implementarán en el dispositivo IoT Edge. Observe que se incluye el módulo **SimulatedTemperatureSensor**, así como dos módulos de sistema adicionales llamados **edgeAgent** y **edgeHub**. Seleccione **Enviar** cuando termine de revisar.
 
-   Cuando se envía una implementación nueva a un dispositivo IoT Edge, no se inserta nada en el dispositivo. En lugar de eso, el dispositivo consulta a IoT Hub de manera periódica para comprobar cualquier instrucción nueva. Cuando ve la información de implementación nueva, el dispositivo la usa para extraer las imágenes de módulo desde la nube e inicia la ejecución local de los módulos. Este proceso puede tardar unos minutos. 
+   Cuando se envía una implementación nueva a un dispositivo IoT Edge, no se inserta nada en el dispositivo. En lugar de eso, el dispositivo consulta a IoT Hub de manera periódica para comprobar cualquier instrucción nueva. Si el dispositivo encuentra un manifiesto de implementación actualizado, usa la información sobre la nueva implementación para extraer las imágenes del módulo de la nube y, después, comienza a ejecutar localmente los módulos. Este proceso puede tardar unos minutos. 
 
 6. Después de enviar los detalles de la implementación del módulo, el asistente lo lleva nuevamente a la página **IoT Edge** del centro de IoT. Seleccione el dispositivo en la lista de dispositivos IoT Edge para ver sus detalles. 
 

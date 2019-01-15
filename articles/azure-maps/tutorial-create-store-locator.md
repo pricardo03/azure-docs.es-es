@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7c7891d8a73142c78b1ca80027d685b93a062d06
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 6a9b8e25b8c64d39606ee5c2582098839e349630
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317915"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189769"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Creación de un localizador de almacén mediante Azure Maps
 
@@ -109,7 +109,7 @@ Para crear el proyecto, puede usar [Visual Studio](https://visualstudio.microsof
 
 Para crear la interfaz de usuario, agregue código a *index.html*:
 
-1. Agregue las siguientes etiquetas `meta` a `head` de *index.html*. Las etiquetas definen el juego de caracteres (UTF-8), indican a Internet Explorer y Edge que usen las versiones más recientes del explorador y especifican una ventanilla que funciona bien con diseños dinámicos.
+1. Agregue las siguientes etiquetas `meta` a `head` de *index.html*. Las etiquetas definen el juego de caracteres (UTF-8), indican a Internet Explorer y Microsoft Edge que usen las versiones más recientes del explorador y especifican una ventanilla que funciona bien con diseños dinámicos.
 
     ```HTML
     <meta charset="utf-8" /> 

@@ -1,5 +1,6 @@
 ---
-title: 'Enrutamiento del tráfico de red (tutorial): Azure Portal | Microsoft Docs'
+title: 'Enrutamiento del tráfico de red (tutorial): Azure Portal'
+titlesuffix: Azure Virtual Network
 description: En este tutorial, aprenderá a enrutar el tráfico de red con una tabla de rutas mediante Azure Portal.
 services: virtual-network
 documentationcenter: virtual-network
@@ -17,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: fbbc624bbc3d20a70a54c50296f5b74634002a67
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 3422219e33c04d7cb130e064790896f5da28649a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409078"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025052"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Tutorial: Enrutamiento del tráfico de red con una tabla de rutas mediante Azure Portal
 
@@ -159,7 +160,7 @@ Las aplicaciones virtuales de red son máquinas virtuales que ayudan con las fun
     | Nombre de la máquina virtual | Escriba *myVmNva*. |
     | Region | Seleccione **Este de EE. UU**. |
     | Opciones de disponibilidad | Deje el valor predeterminado **No se requiere redundancia de la infraestructura**. |
-    | Imagen | Deje el valor predeterminado **Microsoft Windows Server 2016 Datacenter**. |
+    | Imagen | Deje el valor predeterminado **Windows Server 2016 Datacenter**. |
     | Tamaño | Deje el valor predeterminado **Estándar DS1 v2**. |
     | **CUENTA DE ADMINISTRADOR** |  |
     | Nombre de usuario | Escriba un nombre de usuario de su elección. |
@@ -199,7 +200,7 @@ Las aplicaciones virtuales de red son máquinas virtuales que ayudan con las fun
 
 1. Seleccione **Aceptar**.
 
-1. Seleccione **Revisar + crear**. Se le remite a la página **Revisión y creación** y Azure valida la configuración.
+1. Seleccione **Revisar + crear**. Se le remite a la página **Revisar y crear** y Azure valida la configuración.
 
 1. Cuando vea **Validación superada**, seleccione **Crear**.
 

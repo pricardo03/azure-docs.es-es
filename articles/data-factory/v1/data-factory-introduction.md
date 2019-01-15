@@ -1,6 +1,6 @@
 ---
 title: Introducción a Data Factory, un servicio de integración de datos | Microsoft Docs
-description: 'Sepa lo que es Azure Data Factory: un servicio de integración de datos basado en la nube que organiza y automatiza el movimiento y la transformación de datos.'
+description: Sepa lo que es Azure Data Factory, un servicio de integración de datos basado en la nube que organiza y automatiza el movimiento y la transformación de datos.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -9,17 +9,16 @@ ms.assetid: cec68cb5-ca0d-473b-8ae8-35de949a009e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 0cdf10f4898ba103f9b6f65179300a10c9e33cdf
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 9bf8c51fda6985f88ecffa60b32c1c62e364a511
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43087178"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014937"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introducción a Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -120,7 +119,7 @@ Los servicios vinculados se utilizan en Data Factory por dos motivos:
 
 ### <a name="relationship-between-data-factory-entities"></a>Relación entre las entidades de Data Factory
 
-![Diagrama: Data Factory, un servicio de integración de datos en la nube - conceptos clave](./media/data-factory-introduction/data-integration-service-key-concepts.png)
+![Diagrama: Data Factory, un servicio de integración de datos en la nube (conceptos clave)](./media/data-factory-introduction/data-integration-service-key-concepts.png)
 
 ## <a name="supported-regions"></a>Regiones admitidas
 Actualmente, se pueden crear factorías de datos en las regiones Oeste de EE. UU., Este de EE.UU. y Europa del Norte. Sin embargo, una factoría de datos puede acceder a almacenes de datos y a servicios de proceso en otras regiones de Azure para mover datos entre almacenes de datos o para procesarlos mediante servicios de proceso.

@@ -1,6 +1,6 @@
 ---
-title: Búsqueda de mapa interactiva con Azure Maps | Microsoft Docs
-description: 'Guía de inicio rápido de Azure: iniciar una búsqueda de mapa interactiva de demostración con Azure Maps'
+title: Búsqueda interactiva de mapas con Azure Maps | Microsoft Docs
+description: 'Inicio rápido de Azure: Creación de una demostración de búsqueda de interactiva de mapas con Azure Maps'
 author: walsehgal
 ms.author: v-musehg
 ms.date: 12/02/2018
@@ -9,74 +9,76 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5f828bfd2ceee81daf86382846be0c5ee7f1fe8c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 681a76de02d91b39ee74d1e4fa764c06d79ff3ab
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836583"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065144"
 ---
-# <a name="launch-an-interactive-search-map-using-azure-maps"></a>Inicio de un mapa de búsqueda interactiva mediante Azure Maps
+# <a name="create-an-interactive-search-map-by-using-azure-maps"></a>Creación de una búsqueda interactiva de mapas mediante Azure Maps
 
-En este artículo se muestran las funcionalidades de Azure Maps para crear un mapa que dé a los usuarios una experiencia de búsqueda interactiva. Le guía por los pasos básicos para crear su propia cuenta de Maps y obtener la clave de la cuenta para usarla en la aplicación web de demostración.
+En este artículo se muestran las funcionalidades de Azure Maps para crear un mapa que dé a los usuarios una experiencia de búsqueda interactiva. Le guía por estos pasos básicos:
+* Cree su propia cuenta de Azure Maps.
+* Obtenga la clave de cuenta que se usará en la aplicación web de demostración.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
+## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en [Azure Portal](https://portal.azure.com/).
+Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-an-account-and-get-your-key"></a>Creación de una cuenta y obtención de la clave
 
-1. En la esquina superior izquierda de [Azure Portal](https://portal.azure.com), haga clic en **Crear un recurso**.
-2. En el campo *Buscar en el Marketplace*, escriba **Maps**.
-3. En *Resultados*, seleccione **Maps**. Haga clic en el botón **Crear** que aparece debajo del mapa.
-4. En la página **Create Maps Account** (Crear una cuenta de Azure Maps), escriba los siguientes valores:
-    - El *nombre* de la nueva cuenta.
-    - La *suscripción* que quiere usar para esta cuenta.
-    - El *Grupo de recursos* para esta cuenta. Puede elegir *Crear nuevo* o *Usar existente* para el grupo de recursos.
-    - Seleccione el *plan de tarifa* que prefiera.
-    - Lea la *licencia* y la *declaración de privacidad* y active la casilla para aceptar los términos.
-    - Finalmente, haga clic en el botón **Crear**.
+1. En la esquina superior izquierda de [Azure Portal](https://portal.azure.com), seleccione **Crear un recurso**.
+2. En el campo **Buscar en Marketplace**, escriba **Maps**.
+3. En **Resultados**, seleccione **Maps**. Haga clic en el botón **Crear** que aparece debajo del mapa.
+4. En la página **Crear una cuenta de Azure Maps**, escriba los siguientes valores:
+    - El **nombre** de la nueva cuenta.
+    - La **suscripción** que quiere usar para esta cuenta.
+    - El **Grupo de recursos** para esta cuenta. Puede elegir **Crear nuevo** o **Usar existente** para el grupo de recursos.
+    - Seleccione el **plan de tarifa** que prefiera.
+    - Lea las secciones **Licencia** y **Declaración de privacidad**. Active la casilla para aceptar los términos.
+    - Finalmente, seleccione el botón **Crear**.
 
-    ![Creación de una cuenta de Maps en el portal](./media/quick-demo-map-app/create-account.png)
+    ![Creación de una cuenta de Azure Maps en el portal](./media/quick-demo-map-app/create-account.png)
 
-5. Una vez que la cuenta se haya creado correctamente, ábrala y vaya a la sección de configuración del menú de la cuenta. Haga clic en **Claves** para ver las claves principal y secundaria de la cuenta de Azure Maps. Copie el valor de la **clave principal** en el Portapapeles local para usarlo en la sección siguiente.
+5. Una vez que la cuenta se ha creado correctamente, ábrala y busque la sección de configuración del menú de la cuenta. Haga clic en **Claves** para ver las claves principal y secundaria de la cuenta de Azure Maps. Copie el valor de la **clave principal** en el Portapapeles local para usarlo en la sección siguiente.
 
 ## <a name="download-the-application"></a>Descarga de la aplicación
 
 1. Descargue o copie el contenido del archivo [interactiveSearch.html](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/interactiveSearch.html).
-2. Guarde el contenido de este archivo de manera local como **AzureMapDemo.html** y ábralo en un editor de texto.
-3. Busque la cadena `<insert-key>` y reemplácela por el valor de la **clave principal** que se obtuvo en la sección anterior.
+2. Guarde el contenido de este archivo localmente como **AzureMapDemo.html**. Ábralo en un editor de texto.
+3. Busque la cadena `<insert-key>`. Reemplácela por el valor de **Clave principal** de la sección anterior.
 
-## <a name="launch-the-application"></a>Inicie la aplicación.
+## <a name="open-the-application"></a>Abrir la aplicación
 
 1. Abra el archivo **AzureMapDemo.html** en un explorador de su preferencia.
-2. Observe el mapa que se muestra de Los Ángeles. Acerque y aleje para ver de qué manera el mapa se representa automáticamente con más o menos información según el nivel de zoom. 
+2. Observe el mapa que se muestra de la Ciudad de Los Ángeles. Acerque y aleje para ver de qué manera el mapa se representa automáticamente con más o menos información según el nivel de zoom. 
 3. Cambie el centro predeterminado del mapa. En el archivo **AzureMapDemo.html**, busque la variable denominada **center**. Reemplace el par de valores de longitud y latitud de esta variable con los nuevos valores **[-74.0060, 40.7128]**. Guarde el archivo y actualice el explorador.
-4. Pruebe la experiencia de búsqueda interactiva. En el cuadro de búsqueda en la esquina superior izquierda de la aplicación web de demostración, busque **restaurants**.
-5. Mueva el mouse sobre la lista de direcciones o ubicaciones que aparecen debajo del cuadro de búsqueda y observe cómo el marcador correspondiente en el mapa despliega información sobre la ubicación en un mensaje emergente. Para proteger la privacidad de empresas privadas, se muestran nombres y direcciones ficticios.
+4. Pruebe la experiencia de búsqueda interactiva. En el cuadro de búsqueda de la esquina superior izquierda de la aplicación web de demostración, busque **restaurants**.
+5. Mueva el mouse sobre la lista de direcciones y ubicaciones que aparecen debajo del cuadro de búsqueda. Observe cómo el correspondiente alfiler en el mapa muestra información sobre esa ubicación. Para proteger la privacidad de empresas privadas, se muestran nombres y direcciones ficticios.
 
     ![Aplicación web de búsqueda interactiva](./media/quick-demo-map-app/interactive-search.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Los tutoriales incluyen detalles sobre cómo usar y configurar Maps con la cuenta. Si tiene pensado seguir con los tutoriales, no elimine los recursos que se crearon con esta guía de inicio rápido. Si no va a continuar, use el siguiente comando para eliminar todos los recursos creados.
+Los tutoriales incluyen detalles sobre cómo usar y configurar Azure Maps con su cuenta. Si tiene pensado seguir con los tutoriales, no elimine los recursos que se crearon con este inicio rápido. Si no tiene pensado continuar, siga estos pasos para eliminar los recursos:
 
 1. Cierre el explorador donde se ejecuta la aplicación web **AzureMapDemo.html**.
-2. En el menú de la izquierda de Azure Portal, haga clic en **Todos los recursos** y seleccione la cuenta de Maps. En la parte superior de la hoja **Todos los recursos**, haga clic en **Eliminar**.
+2. Seleccione **Todos los recursos** en el menú izquierdo de Azure Portal. A continuación, seleccione la cuenta de Azure Maps. En la parte superior de la hoja **Todos los recursos**, seleccione **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, creó una cuenta de Maps e inició una aplicación de demostración. Para obtener información sobre cómo crear su propia aplicación con las API de Maps, pase al tutorial siguiente.
+En este inicio rápido, creó una cuenta de Azure Maps y una aplicación de demostración. Para aprender a crear su propia aplicación con las API de Azure Maps, pase al tutorial siguiente:
 
 > [!div class="nextstepaction"]
-> [Búsqueda de puntos de interés con Maps](./tutorial-search-location.md)
+> [Búsqueda de puntos cercanos de interés mediante Azure Maps](./tutorial-search-location.md)
 
-Para ver más ejemplos de código y obtener una experiencia de codificación interactiva, consulte a continuación las guías de procedimientos.
-
-> [!div class="nextstepaction"]
-> [Procedimiento para buscar una dirección mediante las API REST de Azure Maps](./how-to-search-for-address.md)
+Para ver más ejemplos de código y obtener una experiencia de codificación interactiva, consulte estas guías:
 
 > [!div class="nextstepaction"]
-> [Cómo usar el Control de mapa de Azure Maps](./how-to-use-map-control.md)
+> [Búsqueda de una dirección mediante el servicio de búsqueda de Azure Maps](./how-to-search-for-address.md)
+
+> [!div class="nextstepaction"]
+> [Uso del Control de mapa de Azure Maps](./how-to-use-map-control.md)

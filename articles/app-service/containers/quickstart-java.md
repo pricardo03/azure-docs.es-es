@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 12/10/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 0c72318f6c80563d138d9c885ea5984a22c5c7fa
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: fe134591a979569048072877632260ea9728b4fc
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653907"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159764"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Inicio rápido: Creación de una aplicación de Java en App Service en Linux
 
@@ -108,7 +108,7 @@ Una vez que se haya completado la implementación, vaya a la aplicación impleme
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido se ha usado Maven para crear una aplicación Java, se ha configurado el [complemento Maven para Azure Web Apps](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) y luego se ha implementado una aplicación Java empaquetada de archivo web en App Service en Linux. Consulte los siguientes tutoriales y artículos de procedimientos para obtener más información al hospedar aplicaciones Java en App Service de Linux.
+En este inicio rápido se ha usado Maven para crear una aplicación Java, se ha configurado el [complemento Maven para Azure Web Apps](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) y luego se ha implementado una aplicación Java empaquetada de archivo web en App Service en Linux. Consulte los siguientes tutoriales y artículos de procedimientos para más información al hospedar aplicaciones Java en App Service en Linux.
 
 - [Tutorial: Implementación de una aplicación Java Enterprise con PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
 - [Configuración de un origen de datos de Tomcat](app-service-linux-java.md#connecting-to-data-sources)

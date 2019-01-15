@@ -4,109 +4,101 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 26704ca7-13ed-4261-bf24-fd6252e2072b
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/08/2018
+ms.topic: tutorial
+ms.date: 1/4/2019
 ms.author: jeedes
-ms.openlocfilehash: 73e20afdcacec76482f8ebf01bf2cef2105912a6
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 61ea0874f76fb054ddb1ae23d42a7161bea2f96b
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005532"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064327"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>Tutorial: Integración de Azure Active Directory con Cisco Webex
 
 En este tutorial, aprenderá a integrar Cisco Webex con Azure Active Directory (Azure AD).
-
 Integrar Cisco Webex con Azure AD proporciona las siguientes ventajas:
 
-- Puede controlar en Azure AD quién tiene acceso a Cisco Webex.
-- Puede permitir que los usuarios inicien sesión automáticamente en Cisco Webex con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: Azure Portal.
+* Puede controlar en Azure AD quién tiene acceso a Cisco Webex.
+* Puede permitir que los usuarios inicien sesión automáticamente en Cisco Webex (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Para obtener más detalles sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Cisco Webex, se necesitan los siguientes elementos:
 
-- Una suscripción de Azure AD
-- Una suscripción habilitada para el inicio de sesión único en Cisco Webex
-
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-
-Para probar los pasos de este tutorial, siga estas recomendaciones:
-
-- No use el entorno de producción, salvo que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba gratuita durante un mes](https://azure.microsoft.com/pricing/free-trial/).
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
+* Una suscripción habilitada para el inicio de sesión único en Cisco Webex
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
-1. Adición de Cisco Webex desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-## <a name="add-cisco-webex-from-the-gallery"></a>Adición de Cisco Webex desde la galería
+* Cisco Webex admite el inicio de sesión único iniciado por **SP**
+
+* Cisco Webex admite el aprovisionamiento de usuarios **Just-In-Time**
+
+* Cisco Webex admite el aprovisionamiento de usuarios **Automatizado**
+
+## <a name="adding-cisco-webex-from-the-gallery"></a>Adición de Cisco Webex desde la galería
+
 Para configurar la integración de Cisco Webex en Azure AD, será preciso que agregue Cisco Webex desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Cisco Webex desde la galería, realice los pasos siguientes:**
+**Para agregar Cisco Webex desde la galería, siga estos pasos:**
 
-1. En el panel izquierdo de [Azure Portal](https://portal.azure.com), seleccione el icono **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
-    ![Botón Azure Active Directory][1]
+    ![Botón Azure Active Directory](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
-    ![Hoja Aplicaciones empresariales][2]
-    
-3. Para agregar una nueva aplicación, seleccione el botón **Nueva aplicación** en la parte superior del cuadro de diálogo.
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-    ![Botón Nueva aplicación][3]
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-4. En el cuadro de búsqueda, escriba **Cisco Webex**. 
+    ![Botón Nueva aplicación](common/add-new-app.png)
 
-5. Seleccione **Cisco Webex** en el panel de resultados. A continuación, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Cisco Webex**, seleccione **Cisco Webex** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
 
-    ![Cisco Webex en la lista de resultados](./media/cisco-webex-tutorial/tutorial_ciscowebex_addfromgallery.png)
+     ![Cisco Webex en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, va a configurar y probar el inicio de sesión único de Azure AD con Cisco Webex con un usuario de prueba llamado "Britta Simon".
+En esta sección, va a configurar y probar el inicio de sesión único de Azure AD con Cisco Webex con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Cisco Webex.
 
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Cisco Webex para un usuario de Azure AD. Es decir, es necesario establecer un vínculo entre un usuario de Azure AD y el usuario relacionado de Cisco Webex.
+Para configurar y probar el inicio de sesión único de Azure AD con Cisco Webex, es preciso completar los siguientes bloques de creación:
 
-En Cisco Webex, asigne a **Nombre de usuario** el mismo valor que definió en **nombre de usuario** en Azure AD. Ahora ya ha establecido el vínculo entre los dos usuarios. 
-
-Para configurar y probar el inicio de sesión único de Azure AD con Cisco Webex, complete los siguientes bloques de creación:
-
-1. [Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on), para permitir que los usuarios utilicen esta característica.
-2. [Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user), para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. [Creación de un usuario de prueba de Cisco Webex](#create-a-cisco-webex-test-user), para tener un homólogo de Britta Simon en Cisco Webex que esté vinculado a la representación de ella en Azure AD.
-4. [Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user), para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. [Prueba del inicio de sesión único](#test-single-sign-on) para comprobar que la configuración funciona.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de Cisco Webex](#configure-cisco-webex-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación del usuario de prueba de Cisco Webex](#create-cisco-webex-test-user)**: para tener un homólogo de Britta Simon en Cisco Webex vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y configurará el inicio de sesión único en la aplicación Cisco Webex.
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-**Para configurar el inicio de sesión único de Azure AD con Cisco Webex, siga estos pasos:**
+Para configurar el inicio de sesión único de Azure AD con Cisco Webex, siga estos pasos:
 
-1. En la página de integración de la aplicación **Cisco Webex** de Azure Portal, haga clic en **Inicio de sesión único**.
+1. En la página de integración de la aplicación [Cisco Webex](https://portal.azure.com/) de **Azure Portal**, haga clic en **Inicio de sesión único**.
 
-    ![Vínculo Configurar inicio de sesión único][4]
+    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en la lista desplegable **Modo**, seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
-    ![Cuadro de diálogo Inicio de sesión único](./media/cisco-webex-tutorial/tutorial_ciscowebex_samlbase.png)
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
+
+    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
 3. En otra ventana del explorador web, inicie sesión como administrador en el sitio de la compañía Cisco Webex.
 
@@ -126,157 +118,149 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/cisco-webex-tutorial/tutorial_cisco_webex_16.png)
 
-8. En Azure Portal, en la sección **Dominio y direcciones URL de Cisco Webex**, cargue el **archivo de metadatos del proveedor de servicios** que descargó y configure la aplicación realizando estos pasos:
+8. En Azure Portal, en la página **Set-up Single Sign-On with SAML** (Configurar inicio de sesión único con SAML), haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-    a. Haga clic en **Cargar el archivo de metadatos**.
+    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-    ![Información de inicio de sesión único de dominio y direcciones URL de Cisco Webex](./media/cisco-webex-tutorial/tutorial_ciscowebex_upload.png)
+9. En la sección **Configuración básica de SAML**, cargue el **archivo de metadatos del proveedor de servicios** que descargó y configure la aplicación realizando estos pasos:
+
+     a. Haga clic en **Cargar el archivo de metadatos**.
+
+    ![Carga del archivo de metadatos](common/upload-metadata.png)
 
     b. Haga clic en el **logotipo de la carpeta** para seleccionar el archivo de metadatos y luego en **Cargar**.
 
-    ![Información de inicio de sesión único de dominio y direcciones URL de Cisco Webex](./media/cisco-webex-tutorial/tutorial_ciscowebex_uploadconfig.png)
+    ![Elección del archivo de metadatos](common/browse-upload-metadata.png)
 
-    c. Cuando el **archivo de metadatos del proveedor de servicios** se haya cargado correctamente, los valores **Identificador** y **URL de respuesta** se rellenan automáticamente en el cuadro de texto de la sección **Dominio y direcciones URL de Cisco Webex**, como se muestra a continuación:
+    c. Cuando el archivo de metadatos del proveedor de servicios se haya cargado correctamente, los valores **Identificador** y **URL de respuesta** se rellenan automáticamente en la sección **Configuración básica de SAML**:
 
-    ![Información de inicio de sesión único de dominio y direcciones URL de Cisco Webex](./media/cisco-webex-tutorial/tutorial_ciscowebex_url.png)
+    ![Información de inicio de sesión único de dominio y direcciones URL de Cisco Webex](common/sp-identifier-reply.png)
 
-    d. En el cuadro **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.webex.com/`
-     
-    > [!NOTE] 
-    > Estos valores no son reales. Actualice estos valores con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico para clientes de Cisco Webex](https://www.webex.co.in/support/support-overview.html) para obtener estos valores.
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.webex.com/`
 
-9. La aplicación de Cisco Webex espera que las aserciones SAML contengan atributos específicos. Configure los siguientes atributos para esta aplicación. Puede administrar los valores de estos atributos en la sección **Atributos de usuario** de la página de integración de aplicaciones. La siguiente captura de pantalla le muestra un ejemplo de esto.
+    > [!Note]
+    > El valor de la dirección URL de inicio de sesión no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de clientes de Cisco Webex](https://www.webex.co.in/support/support-overview.html) para obtener este valor.
+
+10. La aplicación Cisco Webex espera las aserciones de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **Atributos de usuario** de la página de integración de aplicaciones. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
+
+    ![imagen](common/edit-attribute.png)
+
+11. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, configure el atributo Token SAML como muestra la imagen anterior y realice los siguientes pasos:
     
-    ![Configurar inicio de sesión único](./media/cisco-webex-tutorial/tutorial_ciscowebex_07.png) 
-
-10. En la sección **Atributos de usuario** del cuadro de diálogo **Inicio de sesión único**, configure el atributo Token SAML como muestra la imagen anterior y realice los siguientes pasos:
-    
-    |  Nombre del atributo  | Valor de atributo |
-    | --------------- | -------------------- |    
+    | NOMBRE | Atributo de origen|
+    | ---------------| --------------- | --------- |
     |   firstname    | user.givenname |
     |   lastname    | user.surname |
     |   uid    | user.mail |
 
-    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
-    ![Configurar inicio de sesión único](./media/cisco-webex-tutorial/tutorial_attribute_04.png)
+    ![imagen](common/new-save-attribute.png)
 
-    ![Configurar inicio de sesión único](./media/cisco-webex-tutorial/tutorial_attribute_05.png)
-    
+    ![imagen](common/new-attribute-details.png)
+
     b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
-    
-    c. En la lista **Valor**, seleccione el atributo que se muestra para esa fila.
-    
-    d. Haga clic en **Aceptar**.
 
-11. En la sección **Certificado de firma de SAML**, seleccione **XML de metadatos** y, a continuación, guarde el archivo de metadatos en el equipo.
+    c. Deje **Espacio de nombres** en blanco.
 
-    ![Vínculo de descarga del certificado](./media/cisco-webex-tutorial/tutorial_ciscowebex_certificate.png) 
+    d. Seleccione **Atributo** como origen.
 
-12. Seleccione **Guardar**.
+    e. En la lista **Atributo de origen**, escriba el valor de atributo que se muestra para esa fila.
 
-    ![Configuración del botón Guardar del inicio de sesión único](./media/cisco-webex-tutorial/tutorial_general_400.png)
-    
-13. En la página de administrador del sitio de la compañía Cisco Webex, use la opción del explorador de archivos para localizar y cargar el archivo de metadatos de Azure AD. Después, seleccione **Require certificate signed by a certificate authority in Metadata (more secure)** (Requerir certificado firmado por una entidad de certificación en metadatos [más seguro]) y vaya a la siguiente pantalla. 
+    f. Haga clic en **Aceptar**.
+
+    g. Haga clic en **Save**(Guardar).
+
+12. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+
+    ![Vínculo de descarga del certificado](common/metadataxml.png)
+
+13. En la sección **Set up Cisco Webex** (Configurar Cisco Webex), copie las direcciones URL que necesite.
+
+    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+
+     a. URL de inicio de sesión
+
+    b. Identificador de Azure AD
+
+    c. URL de cierre de sesión
+
+### <a name="configure-cisco-webex-single-sign-on"></a>Configuración del inicio de sesión único de Cisco Webex
+
+1. En la página de administrador del sitio de la compañía Cisco Webex, use la opción del explorador de archivos para localizar y cargar el archivo de metadatos de Azure AD. Después, seleccione **Require certificate signed by a certificate authority in Metadata (more secure)** (Requerir certificado firmado por una entidad de certificación en metadatos [más seguro]) y vaya a la siguiente pantalla. 
 
     ![Configurar inicio de sesión único](./media/cisco-webex-tutorial/tutorial_cisco_webex_11.png)
 
-14. Seleccione **Test SSO Connection** (Probar SSO de conexión) y cuando se abra una nueva pestaña de explorador, autentíquese con Azure AD mediante el inicio de sesión.
+2. Seleccione **Test SSO Connection** (Probar SSO de conexión) y cuando se abra una nueva pestaña de explorador, autentíquese con Azure AD mediante el inicio de sesión.
 
-15. Vuelva a la pestaña del explorador de **Cisco Cloud Collaboration Management**. Si la prueba se realizó correctamente, seleccione **This test was successful. Enable Single Sign-On option** (Esta prueba se realizó correctamente. Habilite la opción de inicio de sesión único) y haga clic en **Save** (Guardar).
+3. Vuelva a la pestaña del explorador de **Cisco Cloud Collaboration Management**. Si la prueba se realizó correctamente, seleccione **This test was successful. Enable Single Sign-On option** (Esta prueba se realizó correctamente. Habilite la opción de inicio de sesión único) y haga clic en **Save** (Guardar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-   ![Creación de un usuario de prueba de Azure AD][100]
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
-1. En el panel izquierdo de Azure Portal, seleccione el botón **Azure Active Directory**.
+2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
-    ![Botón Azure Active Directory](./media/cisco-webex-tutorial/create_aaduser_01.png)
+    ![Botón Nuevo usuario](common/new-user.png)
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, seleccione **Todos los usuarios**.
+3. En las propiedades Usuario, siga estos pasos.
 
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/cisco-webex-tutorial/create_aaduser_02.png)
+    ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-3. En la parte superior del cuadro de diálogo **Todos los usuarios**, seleccione **Agregar** para abrir el cuadro de diálogo **Usuario**.
+     a. En el campo **Nombre**, escriba **BrittaSimon**.
+  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    Por ejemplo: BrittaSimon@contoso.com
 
-    ![Botón Agregar](./media/cisco-webex-tutorial/create_aaduser_03.png)
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-4. En el cuadro de diálogo **Usuario**, realice los pasos siguientes:
-
-    ![Cuadro de diálogo Usuario](./media/cisco-webex-tutorial/create_aaduser_04.png)
-
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
-
-    b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
-
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-
-    d. Seleccione **Crear**.
- 
-### <a name="create-a-cisco-webex-test-user"></a>Creación de un usuario de prueba de Cisco Webex
-
-El objetivo de esta sección es crear un usuario llamado Britta Simon en Cisco Webex. Cisco Webex admite el aprovisionamiento Just-In-Time y el aprovisionamiento automático de usuarios, el cual está habilitado de forma predeterminada. [Aquí](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-webex-provisioning-tutorial) puede encontrar más información sobre cómo configurar el aprovisionamiento automático de usuarios.
+    d. Haga clic en **Create**(Crear).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, para permitir a Britta Simon usar el inicio de sesión único de Azure, le concederá acceso a Cisco Webex.
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Cisco Webex.
 
-![Asignación de rol de usuario][200] 
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **Cisco Webex**.
 
-**Para asignar a Britta Simon a Cisco Webex, realice los pasos siguientes:**
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-1. En Azure Portal, abra la vista de aplicaciones. Vaya a la vista de directorio y, a continuación, a **Aplicaciones empresariales**.  
+2. En la lista de aplicaciones, seleccione **Cisco Webex**.
 
-2. Seleccione **Todas las aplicaciones**.
-
-    ![Asignar usuario][201] 
-
-3. En la lista de aplicaciones, seleccione **Cisco Webex**.
-
-    ![Vínculo a Cisco Webex en la lista de aplicaciones](./media/cisco-webex-tutorial/tutorial_ciscowebex_app.png)  
+    ![Vínculo a Cisco Webex en la lista de aplicaciones](common/all-applications.png)
 
 3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
-    ![Vínculo "Usuarios y grupos"][202]
+    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-4. Seleccione el botón **Agregar**. A continuación, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
-    ![Panel Agregar asignación][203]
+    ![Panel Agregar asignación](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista **Usuarios**.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-6. En el cuadro de diálogo **Usuarios y grupos**, haga clic en el botón **Seleccionar**.
+6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
 7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
-    
+
+### <a name="create-cisco-webex-test-user"></a>Creación del usuario de prueba de Cisco Webex
+
+El objetivo de esta sección es crear un usuario llamado Britta Simon en Cisco Webex. Cisco Webex admite el aprovisionamiento Just-In-Time y el aprovisionamiento automático de usuarios, el cual está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si el usuario no existe en Cisco Webex, se crea uno al intentar acceder.
+
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al seleccionar el icono de Cisco Webex en el panel de acceso, iniciará sesión automáticamente en la aplicación Cisco Webex.
-
-Para más información sobre el panel de acceso, consulte [Introducción al panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Al hacer clic en el icono de Cisco Webex en el panel de acceso, debería iniciar sesión automáticamente en la versión de Cisco Webex para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/cisco-webex-tutorial/tutorial_general_01.png
-[2]: ./media/cisco-webex-tutorial/tutorial_general_02.png
-[3]: ./media/cisco-webex-tutorial/tutorial_general_03.png
-[4]: ./media/cisco-webex-tutorial/tutorial_general_04.png
-
-[100]: ./media/cisco-webex-tutorial/tutorial_general_100.png
-
-[200]: ./media/cisco-webex-tutorial/tutorial_general_200.png
-[201]: ./media/cisco-webex-tutorial/tutorial_general_201.png
-[202]: ./media/cisco-webex-tutorial/tutorial_general_202.png
-[203]: ./media/cisco-webex-tutorial/tutorial_general_203.png
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

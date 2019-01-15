@@ -1,74 +1,80 @@
 ---
-title: Alta disponibilidad en Azure para los datos de aplicación | Microsoft Docs
+title: 'Tutorial: Alta disponibilidad en Azure para los datos de aplicación | Microsoft Docs'
 description: Use el almacenamiento con redundancia geográfica con acceso de lectura para lograr alta disponibilidad para los datos de aplicación
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 03/26/2018
+ms.date: 01/03/2019
 ms.author: tamram
 ms.custom: mvc
 ms.component: blobs
-ms.openlocfilehash: 162b30444a22ea193d93e8a6a2c7374dcd2f5fd3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e6b64c7545e7a36b9178af84f88ee89b498077b0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415991"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019103"
 ---
-# <a name="tutorial-make-your-application-data-highly-available-with-azure-storage"></a>Tutorial: alta disponibilidad de los datos de aplicación gracias al almacenamiento de Azure
+# <a name="tutorial-make-your-application-data-highly-available-with-azure-storage"></a>Tutorial: Logre alta disponibilidad de los datos de aplicación con Azure Storage
 
-Este tutorial forma parte de una serie que muestra cómo conseguir alta disponibilidad de los datos de aplicación en Azure. Cuando haya terminado, tendrá una aplicación de consola que carga un blob a una cuenta de [almacenamiento con redundancia geográfica con acceso de lectura](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) y lo recupera. RA-GRS funciona mediante la replicación de transacciones de la región primaria en la región secundaria. Este proceso de replicación garantiza que los datos de la región secundaria tengan coherencia final. La aplicación utiliza el patrón de [disyuntor](/azure/architecture/patterns/circuit-breaker) patrón para determinar a qué punto de conexión conectarse. La aplicación cambia al punto de conexión secundario cuando se simula un error.
+Este tutorial es la primera parte de una serie. En él, aprenderá a conseguir una alta disponibilidad de los datos de aplicación en Azure.
+
+Cuando haya terminado este tutorial, tendrá una aplicación de consola que carga un blob a una cuenta de [almacenamiento con redundancia geográfica con acceso de lectura](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) y lo recupera.
+
+RA-GRS funciona mediante la replicación de transacciones de una región primaria en una región secundaria. Este proceso de replicación garantiza que los datos de la región secundaria tengan coherencia final. La aplicación usa el patrón [disyuntor](/azure/architecture/patterns/circuit-breaker) para determinar a qué punto de conexión conectarse y cambia automáticamente entre los puntos de conexión a medida que se simulan errores y recuperaciones.
+
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 En la primera parte de la serie, se aprende a:
 
 > [!div class="checklist"]
 > * Crear una cuenta de almacenamiento
-> * Descarga del ejemplo
 > * Establecimiento de la cadena de conexión
 > * Ejecución de la aplicación de consola
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial:
- 
+
 # <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
+
 * Instalar [Visual Studio 2017](https://www.visualstudio.com/downloads/) con las cargas de trabajo siguientes:
   - **Desarrollo de Azure**
 
   ![Desarrollo de Azure (en web y la nube)](media/storage-create-geo-redundant-storage/workloads.png)
 
-* (Opcional) Descargue e instale [Fiddler](https://www.telerik.com/download/fiddler)
- 
-# <a name="python-tabpython"></a>[Python] (#tab/python) 
+# <a name="python-tabpython"></a>[Python] (#tab/python)
 
 * Instalación de [Python](https://www.python.org/downloads/)
 * Descargue e instale el [SDK de Azure Storage para Python](https://github.com/Azure/azure-storage-python).
-* (Opcional) Descargue e instale [Fiddler](https://www.telerik.com/download/fiddler)
 
-# <a name="java-tabjava"></a>[Java] (#tab/java)
+# <a name="java-v7-sdk--tabjava-v7"></a>[Java V7 SDK ] (#tab/java-v7)
 
 * Instale y configure [Maven](http://maven.apache.org/download.cgi) para trabajar desde la línea de comandos
-* Instalación y configuración de [JDK](https://aka.ms/azure-jdks)
+* Instalación y configuración de [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+
+# <a name="java-v10-sdk-tabjava-v10"></a>[Java V10 SDK] (#tab/java-v10)
+
+* Instale y configure [Maven](http://maven.apache.org/download.cgi) para trabajar desde la línea de comandos
+* Instalación y configuración de [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 ---
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
-
-Inicie sesión en [Azure Portal](https://portal.azure.com/).
+Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
-Una cuenta de almacenamiento proporciona un espacio de nombres único para almacenar y tener acceso a los objetos de datos de almacenamiento de Azure.
+Una cuenta de almacenamiento proporciona un espacio de nombres único para almacenar y tener acceso a los objetos de datos de Azure Storage.
 
 Siga estos pasos para crear una cuenta de almacenamiento con redundancia geográfica con acceso de lectura:
 
 1. Seleccione el botón **Crear un recurso** de la esquina superior izquierda de Azure Portal.
-
-2. Seleccione **Storage** desde la página **Nuevo** y **Cuenta de almacenamiento: blob, archivo, tabla, cola** en **Destacadas**.
-3. Rellene el formulario de la cuenta de almacenamiento con la siguiente información, como se muestra en la siguiente imagen y seleccione **Crear**:
+2. Seleccione **Almacenamiento** en la página **Nuevo**.
+3. Seleccione **Cuenta de almacenamiento: blob, archivo, tabla, cola** en **Destacados**.
+4. Rellene el formulario de la cuenta de almacenamiento con la siguiente información, como se muestra en la siguiente imagen y seleccione **Crear**:
 
    | Configuración       | Valor sugerido | Descripción |
    | ------------ | ------------------ | ------------------------------------------------- |
@@ -77,7 +83,6 @@ Siga estos pasos para crear una cuenta de almacenamiento con redundancia geográ
    | **Tipo de cuenta** | StorageV2 | Para más información sobre los tipos de cuenta, consulte [Tipos de cuentas de almacenamiento](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Rendimiento** | Estándar | Suficiente para el escenario de ejemplo. |
    | **Replicación**| Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS). | Necesario para el ejemplo funcione. |
-   |**Se requiere transferencia segura** | Disabled| No es necesario para este escenario. |
    |**Suscripción** | Su suscripción |Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions). |
    |**ResourceGroup** | myResourceGroup |Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). |
    |**Ubicación** | Este de EE. UU | Elija una ubicación. |
@@ -93,7 +98,8 @@ Siga estos pasos para crear una cuenta de almacenamiento con redundancia geográ
 ```bash
 git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git 
 ```
-# <a name="python-tabpython"></a>[Python] (#tab/python) 
+
+# <a name="python-tabpython"></a>[Python] (#tab/python)
 
 [Descargue el proyecto de ejemplo](https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) y extraiga (descomprima) el archivo storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.zip. También puede usar [git](https://git-scm.com/) para descargar una copia de la aplicación en el entorno de desarrollo. El proyecto de ejemplo contiene una aplicación de básica de Python.
 
@@ -101,34 +107,100 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# <a name="java-tabjava"></a>[Java] (#tab/java)
+# <a name="java-v7-sdk--tabjava-v7"></a>[Java V7 SDK ] (#tab/java-v7)
+
 [Descargue el proyecto de ejemplo](https://github.com/Azure-Samples/storage-java-ha-ra-grs) y extraiga el archivo ragrs.zip de java de almacenamiento. También puede usar [git](https://git-scm.com/) para descargar una copia de la aplicación en el entorno de desarrollo. El proyecto de ejemplo contiene una aplicación de básica de Java.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
 ```
+
+# <a name="java-v10-sdk-tabjava-v10"></a>[Java V10 SDK] (#tab/java-v10)
+
+[Descargue el proyecto de ejemplo](https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs) y extraiga el archivo ragrs.zip de java de almacenamiento. También puede usar [git](https://git-scm.com/) para descargar una copia de la aplicación en el entorno de desarrollo. El proyecto de ejemplo contiene una aplicación de básica de Java.
+
+```bash
+git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
+```
+
 ---
 
-
-## <a name="set-the-connection-string"></a>Establecimiento de la cadena de conexión
+# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
 
 En la aplicación, debe proporcionar la cadena de conexión para la cuenta de almacenamiento. Se recomienda almacenar esta cadena de conexión dentro de una variable de entorno en la máquina local que ejecuta la aplicación. Siga uno de los estos ejemplos dependiendo de su sistema operativo para crear la variable de entorno.
 
 En Azure Portal, vaya a la cuenta de almacenamiento. Seleccione **Claves de acceso** en **Configuración**, en su cuenta de almacenamiento. Copie la **cadena de conexión** de la clave principal o secundaria. Reemplace \<yourconnectionstring\> con la cadena de conexión real ejecutando uno de los siguientes comandos en función de su sistema operativo. Este comando guarda una variable de entorno en la máquina local. En Windows, la variable de entorno no está disponible hasta que vuelve a cargar el **símbolo del sistema** o el shell que usa. Reemplace  **\<storageConnectionString\>** en el ejemplo siguiente:
 
-# <a name="linux-tablinux"></a>[Linux] (#tab/linux) 
-export storageconnectionstring=\<yourconnectionstring\> 
+### <a name="linux"></a>Linux
 
-# <a name="windows-tabwindows"></a>[Windows] (#tab/windows) 
+```
+export storageconnectionstring=\<yourconnectionstring\> 
+```
+### <a name="windows"></a> Windows
+
+```PowerShell
 setx storageconnectionstring "\<yourconnectionstring\>"
+```
+
+# <a name="python-tabpython"></a>[Python] (#tab/python)
+
+En la aplicación, debe proporcionar la cadena de conexión para la cuenta de almacenamiento. Se recomienda almacenar esta cadena de conexión dentro de una variable de entorno en la máquina local que ejecuta la aplicación. Siga uno de los estos ejemplos dependiendo de su sistema operativo para crear la variable de entorno.
+
+En Azure Portal, vaya a la cuenta de almacenamiento. Seleccione **Claves de acceso** en **Configuración**, en su cuenta de almacenamiento. Copie la **cadena de conexión** de la clave principal o secundaria. Reemplace \<yourconnectionstring\> con la cadena de conexión real ejecutando uno de los siguientes comandos en función de su sistema operativo. Este comando guarda una variable de entorno en la máquina local. En Windows, la variable de entorno no está disponible hasta que vuelve a cargar el **símbolo del sistema** o el shell que usa. Reemplace  **\<storageConnectionString\>** en el ejemplo siguiente:
+
+### <a name="linux"></a>Linux
+
+```
+export storageconnectionstring=\<yourconnectionstring\> 
+```
+### <a name="windows"></a> Windows
+
+```PowerShell
+setx storageconnectionstring "\<yourconnectionstring\>"
+```
+
+# <a name="java-v7-sdk--tabjava-v7"></a>[Java V7 SDK ] (#tab/java-v7)
+
+En la aplicación, debe proporcionar la cadena de conexión para la cuenta de almacenamiento. Se recomienda almacenar esta cadena de conexión dentro de una variable de entorno en la máquina local que ejecuta la aplicación. Siga uno de los estos ejemplos dependiendo de su sistema operativo para crear la variable de entorno.
+
+En Azure Portal, vaya a la cuenta de almacenamiento. Seleccione **Claves de acceso** en **Configuración**, en su cuenta de almacenamiento. Copie la **cadena de conexión** de la clave principal o secundaria. Reemplace \<yourconnectionstring\> con la cadena de conexión real ejecutando uno de los siguientes comandos en función de su sistema operativo. Este comando guarda una variable de entorno en la máquina local. En Windows, la variable de entorno no está disponible hasta que vuelve a cargar el **símbolo del sistema** o el shell que usa. Reemplace  **\<storageConnectionString\>** en el ejemplo siguiente:
+
+### <a name="linux"></a>Linux
+
+```
+export storageconnectionstring=\<yourconnectionstring\> 
+```
+### <a name="windows"></a> Windows
+
+```PowerShell
+setx storageconnectionstring "\<yourconnectionstring\>"
+```
+
+# <a name="java-v10-sdk-tabjava-v10"></a>[Java V10 SDK] (#tab/java-v10)
+
+Este ejemplo requiere que almacene de forma segura el nombre y la clave de la cuenta de almacenamiento. Almacene esta información en variables de entorno locales de la máquina en la que se ejecutará el ejemplo. Siga el ejemplo para Linux o el de Windows, según su sistema operativo, para crear las variables de entorno. En Windows, la variable de entorno no está disponible hasta que vuelve a cargar el **símbolo del sistema** o el shell que usa.
+
+### <a name="linux-example"></a>Ejemplo de Linux
+
+```
+export AZURE_STORAGE_ACCOUNT="<youraccountname>"
+export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
+```
+
+### <a name="windows-example"></a>Ejemplo de Windows
+
+```
+setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
+setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
+```
 
 ---
-
 
 ## <a name="run-the-console-application"></a>Ejecución de la aplicación de consola
 
 # <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
-En Visual Studio, presione **F5** o seleccione **Iniciar** para iniciar la depuración de la aplicación. Visual Studio restaura automáticamente los paquetes de NuGet que falten (si se ha configurado); consulte el artículo sobre la [instalación y la reinstalación de paquetes con la restauración de paquetes](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) para más información.
+
+En Visual Studio, presione **F5** o seleccione **Iniciar** para iniciar la depuración de la aplicación. Visual Studio restaura automáticamente los paquetes NuGet que falten, si se ha configurado; consulte el artículo sobre la [instalación y la reinstalación de paquetes con la restauración de paquetes](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) para más información.
 
 Se inicia una ventana en la consola y la aplicación comienza a ejecutarse. La aplicación carga la imagen **HelloWorld.png** de la solución en la cuenta de almacenamiento. La aplicación se comprueba para garantizar que la imagen se ha replicado en el punto de conexión de RA-GRS secundario. A continuación, comienza la descarga de la imagen hasta 999 veces. Cada lectura se representa con una **P** o una **S**. Donde **P** representa el punto de conexión principal y **S**, el secundario.
 
@@ -136,7 +208,8 @@ Se inicia una ventana en la consola y la aplicación comienza a ejecutarse. La a
 
 En el código de ejemplo, la tarea `RunCircuitBreakerAsync` del archivo `Program.cs` se usa para descargar una imagen de la cuenta de almacenamiento con el método [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_). Antes de la descarga, se define [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet). El contexto de operación define los controladores de eventos, que se activan cuando una descarga se completa correctamente o si se produce un error de descarga y se vuelve a intentar.
 
-# <a name="python-tabpython"></a>[Python] (#tab/python) 
+# <a name="python-tabpython"></a>[Python] (#tab/python)
+
 Para ejecutar la aplicación en un terminal o un símbolo del sistema, vaya al directorio **circuitbreaker.py** y escriba `python circuitbreaker.py`. La aplicación carga la imagen **HelloWorld.png** de la solución en la cuenta de almacenamiento. La aplicación se comprueba para garantizar que la imagen se ha replicado en el punto de conexión de RA-GRS secundario. A continuación, comienza la descarga de la imagen hasta 999 veces. Cada lectura se representa con una **P** o una **S**. Donde **P** representa el punto de conexión principal y **S**, el secundario.
 
 ![Aplicación de consola en ejecución](media/storage-create-geo-redundant-storage/figure3.png)
@@ -144,13 +217,58 @@ Para ejecutar la aplicación en un terminal o un símbolo del sistema, vaya al d
 En el código de ejemplo, el método `run_circuit_breaker` del archivo `circuitbreaker.py` se usa para descargar una imagen de la cuenta de almacenamiento con el método [get_blob_to_path](https://azure.github.io/azure-storage-python/ref/azure.storage.blob.baseblobservice.html). 
 
 La función de reintento de objeto de Storage se establece en una directiva de reintento lineal. La función de reintento determina si se debe reintentar una solicitud y especifica el número de segundos que deben transcurrir para reintentar la solicitud. Establezca el valor de **retry\_to\_secondary** en true, si la solicitud debe reintentarse en el elemento secundario en caso de que la solicitud inicial al principal produzca error. En la aplicación de ejemplo, una directiva de reintento personalizada se define en la función `retry_callback` del objeto de almacenamiento.
- 
+
 Antes de la descarga, se definen el objeto de servicio [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) y la función [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python). Estas funciones definen los controladores de eventos que se activan cuando una descarga se completa correctamente o si se produce un error de descarga y se vuelve a intentar.  
 
-# <a name="java-tabjava"></a>[Java] (#tab/java)
+# <a name="java-v7-sdk-tabjava-v7"></a>[Java V7 SDK] (#tab/java-v7)
+
 Para ejecutar la aplicación, abra un terminal o el símbolo del sistema con ámbito en la carpeta de aplicaciones descargadas. Desde ahí, escriba `mvn compile exec:java` para ejecutar la aplicación. A continuación, la aplicación carga la imagen **HelloWorld.png** desde el directorio para la cuenta de almacenamiento y realiza las comprobaciones necesarias para asegurarse de que la imagen se ha replicado en el punto de conexión de RA-GRS secundario. Una vez completada la comprobación, la aplicación iniciará la descarga de la imagen varias veces, mientras notifica el punto de conexión desde el que realiza la descarga.
 
 Está establecido que la función de reintento de objeto de Storage use en una directiva de reintento lineal. La función de reintento determina si se reintenta una solicitud y especifica el número de segundos que deben transcurrir para reintentar la solicitud. La propiedad **LocationMode** de **BlobRequestOptions** está establecida en **PRIMARY\_THEN\_SECONDARY**. Esto permite que la aplicación cambie automáticamente a la ubicación secundaria si no logra acceder a la ubicación principal al intentar descargar **HelloWorld.png**.
+
+# <a name="java-v10-sdk-tabjava-v10"></a>[Java V10 SDK] (#tab/java-v10)
+
+Para ejecutar el ejemplo, use Maven en la línea de comandos.
+
+1. Abra un shell y vaya a **storage-blobs-java-v10-quickstart** dentro del directorio clonado.
+2. Escriba `mvn compile exec:java`.
+
+Este ejemplo crea un archivo de prueba en el directorio predeterminado, que es **AppData\Local\Temp** para los usuarios de Windows. El ejemplo, a continuación, presenta las siguientes opciones de comandos que puede escribir:
+
+- Escriba **P** para ejecutar una operación put blob, que carga un archivo temporal en la cuenta de almacenamiento.
+- Escriba **L** para llevar a cabo una operación list blob; de este modo, se enumeran los blobs que están actualmente en el contenedor.
+- Escriba **G** para llevar a cabo una operación get blob, que descarga un archivo de la cuenta de almacenamiento en la máquina local.
+- Escriba **D** para ejecutar una operación delete blob, que elimina el blob de la cuenta de almacenamiento.
+- Escriba **E** para cerrar el ejemplo; de este modo, también se eliminan todos los recursos en el ejemplo creado.
+
+En este ejemplo aparece la salida si ejecuta la aplicación en Windows.
+
+```
+Created quickstart container
+Enter a command
+(P)utBlob | (L)istBlobs | (G)etBlob | (D)eleteBlobs | (E)xitSample
+# Enter a command :
+P
+Uploading the sample file into the container: https://<storageaccount>.blob.core.windows.net/quickstart
+# Enter a command :
+L
+Listing blobs in the container: https://<storageaccount>.blob.core.windows.net/quickstart
+Blob name: SampleBlob.txt
+# Enter a command :
+G
+Get the blob: https://<storageaccount>.blob.core.windows.net/quickstart/SampleBlob.txt
+The blob was downloaded to C:\Users\<useraccount>\AppData\Local\Temp\downloadedFile13097087873115855761.txt
+# Enter a command :
+D
+Delete the blob: https://<storageaccount>.blob.core.windows.net/quickstart/SampleBlob.txt
+
+# Enter a command :
+>> Blob deleted: https://<storageaccount>.blob.core.windows.net/quickstart/SampleBlob.txt
+E
+Cleaning up the sample and exiting!
+```
+
+Tiene el control del ejemplo, por lo tanto, escriba los comandos para que se ejecute el código. Las entradas distinguen mayúsculas de minúsculas.
 
 ---
 
@@ -189,7 +307,7 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 ### <a name="request-completed-event-handler"></a>Controlador de eventos de solicitud completada
 
 El controlador de eventos `OperationContextRequestCompleted` se llama cuando la descarga de la imagen es correcta. Si la aplicación utiliza el punto de conexión secundario, continuará usándolo hasta 20 veces. Después de 20 veces, la aplicación establece [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) en `PrimaryThenSecondary` de nuevo y vuelve a probar con el punto de conexión principal. Si la solicitud se realiza correctamente, la aplicación continúa leyendo desde el punto de conexión principal.
- 
+
 ```csharp
 private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)
 {
@@ -249,7 +367,7 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
-# <a name="java-tabjava"></a>[Java] (#tab/java)
+# <a name="java-v7-sdk--tabjava-v7"></a>[Java V7 SDK ] (#tab/java-v7)
 
 Con Java, no es preciso definir controladores de devolución de llamada si la **LocationMode** propiedad de **BlobRequestOptions** está establecida en **PRIMARY\_THEN\_SECONDARY**. Esto permite que la aplicación cambie automáticamente a la ubicación secundaria si no logra acceder a la ubicación principal al intentar descargar **HelloWorld.png**.
 
@@ -261,18 +379,23 @@ Con Java, no es preciso definir controladores de devolución de llamada si la **
 
     blob.downloadToFile(downloadedFile.getAbsolutePath(),null,blobClient.getDefaultRequestOptions(),opContext);
 ```
----
 
+# <a name="java-v10-sdk-tabjava-v10"></a>[Java V10 SDK] (#tab/java-v10)
+
+Con el SDK de Java V10, definir controladores de devolución de llamada es innecesario y el SDK ahora presenta algunas diferencias fundamentales con respecto a SDK V7. En lugar de LocationMode, tenemos una **canalización** secundaria. Puede definir una canalización secundaria con **RequestRetryOptions** y, si define esta opción, permitirá que la aplicación cambie automáticamente a la canalización secundaria si se produce un error al acceder a los datos mediante la canalización principal.
+
+```java
+// We create pipeline options here so that they can be easily used between different pipelines
+PipelineOptions myOptions = new PipelineOptions();
+myOptions.withRequestRetryOptions(new RequestRetryOptions(RetryPolicyType.EXPONENTIAL, 3, 10, 500L, 1000L, accountName + "-secondary.blob.core.windows.net"));
+// We are using a default pipeline here, you can learn more about it at https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview
+final ServiceURL serviceURL = new ServiceURL(new URL("https://" + accountName + ".blob.core.windows.net"), StorageURL.createPipeline(creds, myOptions));
+```
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En la primera parte de la serie, aprendió a lograr alta disponibilidad para una aplicación con las cuentas de RA-GRS, además de:
-
-> [!div class="checklist"]
-> * Crear una cuenta de almacenamiento
-> * Descarga del ejemplo
-> * Establecimiento de la cadena de conexión
-> * Ejecución de la aplicación de consola
+En la primera parte de la serie, aprendió a lograr una alta disponibilidad para una aplicación con las cuentas de almacenamiento RA-GRS.
 
 Vaya a la segunda parte de la serie para aprender a simular un error y obligar a la aplicación a utilizar el punto de conexión de RA-GRS secundario.
 

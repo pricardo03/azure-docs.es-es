@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5023171c4f943b7e698a0b6bbcadef209965e2df
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 4ba25da1f356f6164137dead467bd8bc948ce3d7
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789253"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037844"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migración de máquinas locales a Azure
 
@@ -45,7 +45,7 @@ No se admiten dispositivos que se hayan exportado con controladores paravirtuali
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) > **Recovery Services**.
-2. Haga clic en **Crear un recurso** > **Supervisión y administración** > **Backup y Site Recovery**.
+2. Seleccione **Crear un recurso** > **Herramientas de administración** > **Backup and Site Recovery**.
 3. En el apartado **Nombre**, especifique el nombre descriptivo **ContosoVMVault**. Si tiene más de una suscripción, seleccione la apropiada.
 4. Cree un grupo de recursos denominado **ContosoRG**.
 5. Especifique una región de Azure. Para comprobar las regiones admitidas, consulte la disponibilidad geográfica en [Detalles de precios de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).

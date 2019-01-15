@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: aecb193d1d9a10dbb5c936401f9900c4b2be071f
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: f898b21e84cc57327991c97d2694e9e44e608417
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638250"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014903"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Comparación de Azure Data Factory con Azure Data Factory versión 1
 En este artículo se compara Data Factory con Data Factory versión 1. Para obtener una introducción a Data Factory, consulte [Introducción a Data Factory](introduction.md). Para obtener una introducción a Data Factory versión 1, consulte [Introducción a Azure Data Factory](v1/data-factory-introduction.md). 
@@ -68,7 +67,7 @@ Las canalizaciones se pueden desencadenar a petición (según eventos, es decir,
 La actividad [Execute Pipeline](control-flow-execute-pipeline-activity.md) permite que una canalización de Data Factory invoque otra.
 
 ### <a name="delta-flows"></a>Flujos delta
-Un caso de uso importante en los patrones de extracción, transformación y carga de datos es la "carga diferencial", en la que se cargan solo los datos que han cambiado desde la última iteración de una canalización. Las nuevas funcionalidades de la versión actual, como la [actividad de búsqueda](control-flow-lookup-activity.md), la programación flexible y el flujo de control habilitan este caso de uso de forma natural. Para ver instrucciones detalladas, consulte [Carga de datos de forma incremental de Azure SQL Database a Azure Blob Storage](tutorial-incremental-copy-powershell.md).
+Un caso de uso importante en los patrones de extracción, transformación y carga de datos es la "carga diferencial", en la que se cargan solo los datos que han cambiado desde la última iteración de una canalización. Las nuevas funcionalidades de la versión actual, como la [actividad de búsqueda](control-flow-lookup-activity.md), la programación flexible y el flujo de control habilitan este caso de uso de forma natural. Para ver un tutorial con instrucciones detalladas, consulte [Tutorial: Copia incremental](tutorial-incremental-copy-powershell.md).
 
 ### <a name="other-control-flow-activities"></a>Otras actividades del flujo de control
 Estas son otras actividades del flujo de control compatibles con la versión actual de Data Factory. 
@@ -117,9 +116,9 @@ Para más información, consulte [Diferencias entre la actividad personalizada d
 ## <a name="sdks"></a>SDK
  La versión actual de Data Factory proporciona un conjunto más completo de SDK que se puede usar para crear, administrar y supervisar canalizaciones.
 
-- **SDK de .NET**: el SDK de .NET se actualiza para la versión actual.
+- **.NET SDK**: .NET SDK se actualiza para la versión actual.
 
-- **PowerShell**: los cmdlets de PowerShell se actualizan en la versión actual. Los cmdlets de la versión actual tienen **AzureRmDataFactoryV2** en su nombre, por ejemplo: Get-AzureRmDataFactoryV2. 
+- **PowerShell**: los cmdlets de PowerShell se actualizan en la versión actual. Los cmdlets de la versión actual tienen **DataFactoryV2** en el nombre, por ejemplo, Get-AzureRmDataFactoryV2. 
 
 - **SDK de Python**: este SDK es una novedad de la versión actual.
 
@@ -147,4 +146,4 @@ En la versión actual, también puede supervisar factorías de datos mediante [A
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para aprender a crear una factoría de datos, siga las instrucciones detalladas de las siguientes guías de inicio rápido: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md) y [API de REST](quickstart-create-data-factory-rest-api.md). 
+Para aprender a crear una factoría de datos, siga las instrucciones detalladas de las siguientes guías de inicio rápido: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [API REST](quickstart-create-data-factory-rest-api.md). 

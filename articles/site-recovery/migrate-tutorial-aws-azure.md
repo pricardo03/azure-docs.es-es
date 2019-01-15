@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 24503a821445bbf1610588d7f69ec87948a812b9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 4674428cf96562670b0e24e5ac93a2f2979128da
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793077"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042060"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migración de máquinas virtuales de Amazon Web Services (AWS) a Azure
 
@@ -33,12 +33,14 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 - Asegúrese de que las máquinas virtuales que quiere migrar ejecutan una versión del sistema operativo compatible. Las versiones compatibles son: 
-  - Windows Server 2016 
-  - Windows Server 2012 R2
-  - Windows Server 2012 
-  - Versión de 64 bits de Windows Server 2008 R2 SP1 o posterior
-  - Red Hat Enterprise Linux 6.7 (solo instancias virtualizadas de HVM) con un controlador Citrix PV o AWS PV. *No* se admiten instancias que ejecuten controladores RedHat PV.
- - Mobility Service debe instalarse en todas las máquinas que se quieran replicar. 
+      - Windows Server 2016 
+      - Windows Server 2012 R2
+      - Windows Server 2012 
+      - Versión de 64 bits de Windows Server 2008 R2 SP1 o posterior
+      - Red Hat Enterprise Linux 6.4 a 6.10, 7.1 a 7.6 (solo instancias virtualizadas de HVM) *(no se admiten instancias que ejecuten controladores RedHat PV).*
+      - CentOS 6.4 a 6.10 7.1 a 7.6 (solo instancias virtualizadas de HVM)
+ 
+- Mobility Service debe instalarse en todas las máquinas que se quieran replicar. 
 
     > [!IMPORTANT]
     > Site Recovery instala este servicio automáticamente cuando se habilita la replicación para la máquina virtual. Para la instalación automática, debe preparar una cuenta en las instancias de EC2, que Site Recovery usará para acceder a la máquina virtual. Puede usar una cuenta local o de dominio. 

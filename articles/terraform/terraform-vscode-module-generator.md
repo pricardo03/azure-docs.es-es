@@ -4,17 +4,17 @@ description: Obtenga información sobre cómo crear una plantilla base de Terraf
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, máquina virtual, azure, yeoman
-author: v-mavick
+author: tomarchermsft
 manager: jeconnoc
-ms.author: v-mavick
+ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.openlocfilehash: 15ef4795544044427805e21f7a8e98646c9cf9bd
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 36e4b424cdb961920fccdf7f050e28447ccbd6cf
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284342"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074545"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Creación de una plantilla base de Terraform en Azure mediante Yeoman
 
@@ -28,10 +28,10 @@ En este artículo, aprenderá a usar el generador de módulos de Yeoman para cre
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- **Suscripción de Azure**: si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
+- **Suscripción de Azure**: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 - **Visual Studio Code**: usaremos [Visual Studio Code](https://www.bing.com/search?q=visual+studio+code+download&form=EDGSPH&mkt=en-us&httpsmsn=1&refig=dffc817cbc4f4cb4b132a8e702cc19a3&sp=3&ghc=1&qs=LS&pq=visual+studio+code&sk=LS1&sc=8-18&cvid=dffc817cbc4f4cb4b132a8e702cc19a3&cc=US&setlang=en-US) para examinar los archivos creados por el generador de Yeoman. Sin embargo, puede usar el editor de código que elija.
 - **Terraform**: necesitará una instalación de [Terraform](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure ) para ejecutar el módulo creado por Yeoman.
-- **Docker**: usaremos [Docker](https://www.docker.com/get-started) para ejecutar el módulo creado por el generador de Yeoman (si lo prefiere, puede usar Ruby en lugar de Docker para ejecutar el módulo de ejemplo).
+- **Docker**: usaremos [Docker](https://www.docker.com/get-started) para ejecutar el módulo creado por el generador de Yeoman. (si lo prefiere, puede usar Ruby en lugar de Docker para ejecutar el módulo de ejemplo).
 - **Lenguaje de programación Go**: necesitará una instalación de [Go](https://golang.org/), ya que los casos de prueba generados por Yeoman se escriben en Go.
 
 >[!NOTE]
@@ -140,8 +140,8 @@ Define lo que genera el módulo. Aquí, es el valor devuelto por **random_shuffl
 
 Define los pasos de compilación. Estos pasos incluyen:
 
-- **compilación**: valida el formato del archivo main.tf.
-- **unidad**: el esqueleto del módulo generado no incluye el código para una prueba unitaria. Si desea especificar un escenario de prueba unitaria, agregaría ese código aquí.
+- **build**: valida el formato del archivo main.tf.
+- **unit**: el esqueleto del módulo generado no incluye el código para una prueba unitaria. Si desea especificar un escenario de prueba unitaria, agregaría ese código aquí.
 - **e2e**: ejecuta una prueba de un extremo a otro del módulo.
 
 ### <a name="test"></a>test
@@ -149,7 +149,7 @@ Define los pasos de compilación. Estos pasos incluyen:
 - Los casos de prueba están escritos en Go.
 - Todos los códigos de la prueba son pruebas de un extremo a otro.
 - Las pruebas de un extremo a otro intentan usar Terraform para aprovisionar todos los elementos definidos en el **accesorio** y, a continuación, comparan el resultado del código **template_output.go** con los valores esperados predefinidos.
-- **Gopkg.lock** y **Gopkg.toml**: definen sus dependencias. 
+- **Gopkg.lock** y **Gopkg.toml**: Defina las dependencias. 
 
 ## <a name="test-your-new-terraform-module-using-a-docker-file"></a>Prueba del nuevo módulo de Terraform mediante un archivo de Docker
 
@@ -248,16 +248,16 @@ Todos estos elementos ya están instalados en Cloud Shell.
 
 1. En este momento, Cloud Shell ya habrá configurado GOPATH en las variables de entorno. Para ver la ruta de acceso, escriba `go env`.
 
-1. Cree la carpeta $GOPATH, si aún no existe: escriba `mkdir ~/go`.
+1. Cree la carpeta $GOPATH, si aún no existe. Escriba `mkdir ~/go`.
 
-1. Cree una carpeta dentro de la carpeta $GOPATH: escriba `mkdir ~/go/src`. Esta carpeta se utilizará para almacenar y organizar las distintas carpetas del proyecto que pueda crear, como la carpeta <nombre-de-módulo> que se creará en el paso siguiente.
+1. Cree una carpeta dentro de la carpeta $GOPATH: Escriba `mkdir ~/go/src`. Esta carpeta se utilizará para almacenar y organizar las distintas carpetas del proyecto que pueda crear, como la carpeta <nombre-de-módulo> que se creará en el paso siguiente.
 
-1. Cree una carpeta para almacenar el módulo de Terraform: escriba `mkdir ~/go/src/<your-module-name>`.
+1. Cree una carpeta para almacenar el módulo de Terraform: Escriba `mkdir ~/go/src/<your-module-name>`.
 
     >[!NOTE]
     >En este ejemplo, elegimos `my-module-name` para el nombre de carpeta.
 
-1. Vaya a la carpeta del módulo: escriba `cd ~/go/src/<your-module-name>`
+1. Vaya a la carpeta del módulo: Escriba `cd ~/go/src/<your-module-name>`.
 
 ### <a name="create-and-test-your-terraform-module"></a>Creación y prueba del módulo de Terraform
 

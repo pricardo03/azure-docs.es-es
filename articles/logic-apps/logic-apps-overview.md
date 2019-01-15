@@ -11,16 +11,16 @@ ms.custom: mvc
 ms.date: 6/29/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: f5b39b428b894fcf5dddc0a7435353d174d83b78
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: d9f3bb33ab0638fddfcf64e61642c236a03d6293
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231209"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065279"
 ---
 # <a name="what-is-azure-logic-apps"></a>¿Qué es Azure Logic Apps?
 
-[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) es un servicio en la nube que le ayuda a automatizar y organizar tareas, procesos empresariales y [flujos de trabajo](#logic-app-concepts) cuando tiene que integrar aplicaciones, datos, sistemas y servicios en empresas u organizaciones. Logic Apps simplifica cómo diseñar y compilar soluciones escalables de integración de aplicaciones, integración de datos, integración de sistemas, Enterprise Application Integration (EAI) y comunicación de negocio a negocio (B2B), ya sea en la nube, localmente o en ambos entornos.
+[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps) es un servicio en la nube que le ayuda a automatizar y organizar tareas, procesos empresariales y [flujos de trabajo](#logic-app-concepts) cuando tiene que integrar aplicaciones, datos, sistemas y servicios en empresas u organizaciones. Logic Apps simplifica el diseño y la compilación de soluciones escalables de [integración](https://azure.microsoft.com/product-categories/integration/) de aplicaciones, integración de datos, integración de sistemas, Enterprise Application Integration (EAI) y comunicación de negocio a negocio (B2B), ya sea en la nube, localmente o en ambos entornos.
 
 Por ejemplo, las siguientes son algunas de las cargas de trabajo que puede automatizar con Logic Apps:
 
@@ -41,7 +41,7 @@ Cada vez que el desencadenador se activa, el motor de Logic Apps crea una instan
 
 ![Diseñador de Logic Apps (ejemplo de aplicación lógica)](./media/logic-apps-overview/overview.png)
 
-Puede compilar las aplicaciones lógicas visualmente con el diseñador de aplicaciones lógicas, disponible en Azure Portal en el explorador y en Visual Studio. Para personalizar aún más las aplicaciones lógicas, puede crear o editar definiciones de aplicación lógica en notación de objetos JavaScript (JSON) trabajando en el editor de "vista de código". También puede usar comandos de Azure PowerShell y plantillas de Azure Resource Manager para seleccionar tareas. Las aplicaciones lógicas se implementan y ejecutan en la nube en Azure. Para una introducción más detallada, vea este vídeo: [Use Azure Enterprise Integration Services to run cloud apps at scale](https://channel9.msdn.com/Events/Connect/2017/T119/) (Uso de Azure Enterprise Integration Services para ejecutar aplicaciones en la nube a escala).
+Puede compilar las aplicaciones lógicas visualmente con el diseñador de aplicaciones lógicas, disponible en Azure Portal en el explorador y en Visual Studio. Para personalizar aún más las aplicaciones lógicas, puede crear o editar definiciones de aplicación lógica en notación de objetos JavaScript (JSON) trabajando en el editor de "vista de código". También puede usar comandos de Azure PowerShell y plantillas de Azure Resource Manager para seleccionar tareas. Las aplicaciones lógicas se implementan y ejecutan en la nube en Azure. Para una introducción más detallada, vea este vídeo: [Use Azure Enterprise Integration Services to run cloud apps at scale](https://channel9.msdn.com/Events/Connect/2017/T119/) (Uso de Azure Enterprise Integration Services para ejecutar aplicaciones en la nube a escala)
 
 ## <a name="why-use-logic-apps"></a>¿Por qué usar Logic Apps?
 
@@ -122,9 +122,9 @@ Obtenga más información sobre Logic Apps con estos vídeos de introducción:
 
 * **Desencadenadores**: muchos conectores administrados por Microsoft proporcionan desencadenadores que se activan cuando hay eventos o nuevos datos que cumplen determinadas condiciones. Por ejemplo, un evento puede ser la recepción de un correo electrónico o la detección de cambios en su cuenta de Azure Storage. Cada vez que el desencadenador se activa, el motor de Logic Apps crea una nueva instancia de aplicación lógica que ejecuta el flujo de trabajo.
 
-* **Acciones**: las acciones son todos los pasos que se producen después del desencadenador. Normalmente, cada acción se asigna a una operación que se define mediante un conector administrado, una API personalizada o un conector personalizado.
+* **Acciones**: Las acciones son todos los pasos que se producen después del desencadenador. Normalmente, cada acción se asigna a una operación que se define mediante un conector administrado, una API personalizada o un conector personalizado.
 
-* **Enterprise Integration Pack**: para escenarios más avanzados de integración, Logic Apps incluye funcionalidades de BizTalk Server. Enterprise Integration Pack proporciona conectores que ayudan a las aplicaciones lógicas a realizar fácilmente tareas de validación, transformación y mucho más.
+* **Enterprise Integration Pack**: para escenarios de integración más avanzados, Logic Apps incluye funcionalidades de BizTalk Server. Enterprise Integration Pack proporciona conectores que ayudan a las aplicaciones lógicas a realizar fácilmente tareas de validación, transformación y mucho más.
 
 ## <a name="how-does-logic-apps-differ-from-functions-webjobs-and-flow"></a>¿En qué se diferencia Logic Apps de Functions, WebJobs y Flow?
 

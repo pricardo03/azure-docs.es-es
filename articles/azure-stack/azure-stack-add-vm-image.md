@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 11/05/2018
+ms.date: 1/07/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: a0dc3405cc0e1deb25c1f2772a5018dad95b87e9
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 9f5f3c4ce08cde81c883bfdac87012dcfd80b8a4
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036604"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119737"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Hacer que una imagen de máquina virtual esté disponible en Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 En Azure Stack, puede poner las imágenes de máquina virtual a disposición de los usuarios. Luego, las plantillas de Azure Resource Manager pueden hacer referencia a estas imágenes o se pueden agregar a la interfaz de usuario de Azure Marketplace como un elemento de Marketplace. Puede usar una imagen de Azure Marketplace global o agregar su propia imagen personalizada. Puede agregar una máquina virtual mediante Azure Portal o Windows PowerShell.
 
@@ -154,7 +154,7 @@ Debe poderse hacer referencia a las imágenes mediante un identificador URI de B
 
 3. Inicie sesión como operador en Azure Stack. Para obtener instrucciones, consulte [Iniciar sesión como operador en Azure Stack](azure-stack-powershell-configure-admin.md).
 
-4. Cree una cuenta de almacenamiento en Azure global o Azure Stack para almacenar la imagen de máquina virtual personalizada. Para ver instrucciones, [Inicio rápido: Carga, descarga y enumeración de blobs mediante Azure Portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+4. Cree una cuenta de almacenamiento en Azure global o Azure Stack para almacenar la imagen de máquina virtual personalizada. Para obtener instrucciones, consulte [Inicio rápido: Carga, descarga y enumeración de blobs mediante Azure Portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
 
 5. Prepare una imagen de sistema operativo Windows o Linux en formato VHD (no VHDX), cargue la imagen en la cuenta de almacenamiento y obtenga el URI donde PowerShell puede recuperar la imagen de máquina virtual.  
 

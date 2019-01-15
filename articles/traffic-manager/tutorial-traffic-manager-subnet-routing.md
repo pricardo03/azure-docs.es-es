@@ -1,10 +1,9 @@
 ---
-title: Configuración del método de enrutamiento de tráfico de subred con Azure Traffic Manager | Microsoft Docs
+title: Configuración del método de enrutamiento de tráfico de subred con Azure Traffic Manager
 description: En este artículo se explica cómo configurar Traffic Manager para enrutar el tráfico de las subredes de usuario a puntos de conexión concretos.
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: jpconnock
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: tutorial
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: 20c34b820eb326a18be1c4298b0850a58599be64
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8243130fc9752a47661b4c80826000d573da35c8
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956241"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053081"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Dirección del tráfico a puntos de conexión específicos en función de la subred de usuario mediante Traffic Manager
 

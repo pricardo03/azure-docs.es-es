@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: e7c134881cbf8745a4e4ef9102a418f7d47a6f8c
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 37aa248af30c4beae3f9d170174842c908933339
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43098035"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020020"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copia de varias tablas en bloque mediante Azure Data Factory
 En este tutorial se muestra cómo puede **copiar varias tablas de Azure SQL Database a Azure SQL Data Warehouse**. Además, puede aplicar el mismo patrón en otros escenarios de copia. Por ejemplo, para copiar tablas de SQL Server u Oracle a Azure SQL Database, Data Warehouse o el blob de Azure, o bien para copiar diferentes rutas de acceso de blob a tablas de Azure SQL Database.
@@ -93,10 +92,10 @@ Permita que los servicios de Azure accedan a SQL Server tanto para SQL Database 
          
       Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
 1. Seleccione **V2** para la **versión**.
-1. Seleccione la **ubicación** de Data Factory. Para obtener una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
+1. Seleccione la **ubicación** de Data Factory. Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 1. Seleccione **Anclar al panel**.     
 1. Haga clic en **Create**(Crear).
-1. En el panel, verá el icono siguiente con el estado: **Implementando factoría de datos**. 
+1. En el panel, verá el icono siguiente con el estado: **Deploying data factory** (Implementación de la factoría de datos). 
 
     ![icono implementando factoría de datos](media//tutorial-bulk-copy-portal/deploying-data-factory.png)
 1. Una vez completada la creación, verá la página **Data Factory** tal como se muestra en la imagen.
@@ -208,7 +207,7 @@ En este tutorial, las tablas de origen y destino SQL no están codificadas en la
     ![Generador de parámetros del conjunto de datos](./media/tutorial-bulk-copy-portal/dataset-parameter-builder.png)
 
 ## <a name="create-pipelines"></a>Creación de canalizaciones
-En este tutorial creará dos canalizaciones: **IterateAndCopySQLTables** y **GetTableListAndTriggerCopyData**. 
+En este tutorial, creará dos canalizaciones: **IterateAndCopySQLTables** y **GetTableListAndTriggerCopyData**. 
 
 La canalización **GetTableListAndTriggerCopyData** lleva a cabo dos pasos:
 
@@ -400,7 +399,7 @@ Vaya a la canalización **GetTableListAndTriggerCopyData**, haga clic en **Desen
         ]
     }
     ```    
-1. Para volver a la vista **Pipeline Runs** (Ejecuciones de canalización), , haga clic en el vínculo **Pipelines** (Canalizaciones) de la parte superior. Haga clic en el vínculo **View Activity Runs** (Ver las ejecuciones de la actividad) (primero de la columna **Actions**) para la canalización **IterateAndCopySQLTables**. Debería ver el resultado como se muestra en la siguiente imagen: tenga en cuenta que hay una ejecución de la actividad **Copy** (Copiar) para cada tabla de la salida de la actividad **Lookup** (Búsqueda). 
+1. Para volver a la vista **Pipeline Runs** (Ejecuciones de canalización), , haga clic en el vínculo **Pipelines** (Canalizaciones) de la parte superior. Haga clic en el vínculo **View Activity Runs** (Ver las ejecuciones de la actividad) (primero de la columna **Actions**) para la canalización **IterateAndCopySQLTables**. Debería ver la salida tal como se muestra en la siguiente imagen: Tenga en cuenta que hay una ejecución de la actividad **Copy** (Copiar) para cada tabla de la salida de la actividad **Lookup** (Búsqueda). 
 
     ![Ejecuciones de actividad](./media/tutorial-bulk-copy-portal/activity-runs-2.png)
 1. Confirme que los datos se copiaron en la instancia de SQL Data Warehouse de destino que usamos en este tutorial. 

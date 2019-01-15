@@ -3,38 +3,31 @@ title: 'Guía de inicio rápido: Dirección del tráfico web con Azure Applicati
 description: Obtenga información acerca de cómo utilizar la CLI de Azure para crear una instancia de Azure Application Gateway que dirija el tráfico web a las máquinas virtuales de un grupo de back-end.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
 ms.service: application-gateway
-ms.devlang: azurecli
 ms.topic: quickstart
-ms.workload: infrastructure-services
-ms.date: 02/14/2018
+ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 62c4e51cd160ed7830eb42943225847857dc4963
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d14b8c9c752c9d41a42f092662c5f3aa88840dc5
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963635"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157724"
 ---
-# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Guía de inicio rápido: Dirección del tráfico web con Azure Application Gateway: CLI de Azure
+# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Inicio rápido: Dirección del tráfico web con Azure Application Gateway: CLI de Azure
 
-Con Azure Application Gateway, puede dirigir el tráfico web de la aplicación a recursos específicos mediante la asignación de agentes de escucha a los puertos, la creación de reglas y la adición de recursos a un grupo back-end.
-
-Esta guía de inicio rápido muestra cómo utilizar la CLI de Azure para crear rápidamente la puerta de enlace de aplicaciones con dos máquinas virtuales en el grupo de back-end. A continuación, se prueba para asegurarse de que funciona correctamente.
+Este inicio rápido muestra cómo utilizar la CLI de Azure para crear rápidamente una puerta de enlace de aplicaciones con dos máquinas virtuales en el grupo de back-end. A continuación, se prueba para asegurarse de que funciona correctamente. Con Azure Application Gateway, puede dirigir el tráfico web de la aplicación a recursos específicos mediante la asignación de agentes de escucha a los puertos, la creación de reglas y la adición de recursos a un grupo de back-end.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI en un entorno local, para esta guía de inicio rápido es preciso que ejecute la versión 2.0.4 de la CLI de Azure o una versión posterior. Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
+Si decide instalar y usar la CLI localmente, ejecute la CLI de Azure versión 2.0.4 o posterior. Para averiguar la versión, ejecute el comando **az --version**. Para más información sobre la instalación o actualización, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Siempre debe crear los recursos en un grupo de recursos. Para crear un grupo de recursos, use [az group create](/cli/azure/group#az-group-create). 
+En Azure, puede asignar recursos relacionados a un grupo de recursos. Para crear un grupo de recursos, use [az group create](/cli/azure/group#az-group-create). 
 
 En el ejemplo siguiente, se crea un grupo de recursos llamado *myResourceGroupAG* en la ubicación *eastus*.
 
@@ -44,7 +37,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Crear recursos de red 
 
-Debe crear una red virtual para que la puerta de enlace de aplicaciones pueda comunicarse con otros recursos. Puede crear una red virtual a la vez que crea la puerta de enlace de aplicaciones. En este ejemplo, se crean dos subredes: una para la puerta de enlace de aplicaciones y la otra para las máquinas virtuales. 
+Cuando crea una red virtual, la puerta de enlace de aplicaciones se puede comunicar con otros recursos. Puede crear una red virtual a la vez que crea la puerta de enlace de aplicaciones. En este ejemplo, se crean dos subredes: una para la puerta de enlace de aplicaciones y la otra para las máquinas virtuales. La subred de la puerta de enlace de aplicaciones solo puede contener puertas de enlace de aplicaciones. No se permite ningún otro recurso.
 
 Cree la red virtual y una subred mediante [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Cree la dirección IP pública mediante [az network public-ip create](/cli/azure/network/public-ip#az-public-ip-create).
 
@@ -68,13 +61,13 @@ az network public-ip create \
 
 ## <a name="create-backend-servers"></a>Creación de servidores back-end
 
-En este ejemplo, se crean dos máquinas virtuales que se usarán como servidores back-end para la puerta de enlace de aplicaciones. 
+En este ejemplo, se crean dos máquinas virtuales que Azure usará como servidores back-end para la puerta de enlace de aplicaciones. 
 
 ### <a name="create-two-virtual-machines"></a>Creación de dos máquinas virtuales
 
-También se instala NGINX en las máquinas virtuales para verificar que la puerta de enlace de aplicaciones se ha creado correctamente. Puede usar un archivo de configuración cloud-init para instalar NGINX y ejecutar una aplicación Node.js "Hola mundo" en una máquina virtual Linux. 
+Instale el [servidor web NGINX](https://docs.nginx.com/nginx/) en las máquinas virtuales para verificar que la puerta de enlace de aplicaciones se ha creado correctamente. Puede usar un archivo de configuración cloud-init para instalar NGINX y ejecutar una aplicación Node.js "Hola mundo" en una máquina virtual Linux. Para más información sobre cloud-init, consulte [Compatibilidad con cloud-init para máquinas virtuales en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init).
 
-En el shell actual, cree un archivo denominado cloud-init.txt, y copie y pegue la siguiente configuración en el shell. Asegúrese de copiar correctamente todo el archivo cloud-init, especialmente la primera línea:
+En Azure Cloud Shell, copie y pegue la siguiente configuración en un archivo llamado *cloud-init.txt*. Escriba *editor cloud-init.txt* para crear el archivo.
 
 ```yaml
 #cloud-config
@@ -118,7 +111,7 @@ runcmd:
   - nodejs index.js
 ```
 
-Cree las interfaces de red con [az network nic create](/cli/azure/network/nic#az-network-nic-create). Cree las máquinas virtuales con [az vm create](/cli/azure/vm#az-vm-create).
+Cree las interfaces de red con [az network nic create](/cli/azure/network/nic#az-network-nic-create). Para crear las máquinas virtuales, use [az vm create](/cli/azure/vm#az-vm-create).
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -140,7 +133,7 @@ done
 
 ## <a name="create-the-application-gateway"></a>Creación de la puerta de enlace de aplicaciones
 
-Cree una puerta de enlace de aplicaciones mediante [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create). Cuando se crea una puerta de enlace de aplicaciones mediante la CLI de Azure, se especifica información de configuración, como capacidad, SKU y HTTP. Las direcciones IP privadas de las interfaces de red se agregan como servidores en el grupo de servidores back-end de la puerta de enlace de aplicaciones.
+Cree una puerta de enlace de aplicaciones mediante [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create). Cuando se crea una puerta de enlace de aplicaciones mediante la CLI de Azure, se especifica información de configuración, como capacidad, SKU y HTTP. Posteriormente, Azure agrega las direcciones IP privadas de las interfaces de red como servidores en el grupo de servidores back-end de la puerta de enlace de aplicaciones.
 
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
@@ -158,17 +151,17 @@ az network application-gateway create \
   --servers "$address1" "$address2"
 ```
 
-La puerta de enlace de aplicaciones puede tardar hasta 30 minutos en crearse. Después de crear la puerta de enlace de aplicaciones, puede ver estas características de ella:
+La puerta de enlace de aplicaciones puede tardar hasta 30 minutos en crearse. Una vez creada, puede ver los siguientes valores en la sección **Configuración** de la página **Puerta de enlace de aplicaciones**:
 
-- *appGatewayBackendPool*: una puerta de enlace de aplicaciones debe tener al menos un grupo de direcciones de servidores back-end.
-- *appGatewayBackendHttpSettings*: especifica que se use el puerto 80 y un protocolo HTTP para la comunicación.
-- *appGatewayHttpListener*: agente de escucha predeterminado asociado con *appGatewayBackendPool*.
-- *appGatewayFrontendIP*: asigna *myAGPublicIPAddress* a *appGatewayHttpListener*.
-- *rule1*: la regla de enrutamiento predeterminada asociada a *appGatewayHttpListener*.
+- **appGatewayBackendPool**: Se encuentra en la página **Grupos de back-end**. Especifica el grupo de back-end necesario.
+- **appGatewayBackendHttpSettings**: Se encuentra en la página **Configuración HTTP**. Este especifica que la puerta de enlace de aplicaciones usa el puerto 80 y el protocolo HTTP para la comunicación.
+- **appGatewayHttpListener**: Se encuentra en la **página de Agentes de escucha**. Este valor, especifica el agente de escucha predeterminado asociado con **appGatewayBackendPool**.
+- **appGatewayFrontendIP**: Se encuentra en la página **Configuraciones de IP de front-end**. Asigna *myAGPublicIPAddress* a **appGatewayHttpListener**.
+- **rule1**: Se encuentra en la página **Reglas**. Especifica la regla de enrutamiento predeterminada asociada a **appGatewayHttpListener**.
 
 ## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 
-No es necesario instalar NGINX para crear la puerta de enlace de aplicaciones, pero se instaló en esta guía de inicio rápido para comprobar si la puerta de enlace de aplicaciones se ha creado correctamente. Para obtener la dirección IP pública de la puerta de enlace de aplicaciones, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Copie la dirección IP pública y péguela en la barra de direcciones del explorador.
+Aunque Azure no necesita un servidor web NGINX para crear la puerta de enlace de aplicaciones, lo instaló en este inicio rápido para comprobar si Azure la creaba correctamente. Para obtener la dirección IP pública de la nueva puerta de enlace de aplicaciones, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). 
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -178,13 +171,15 @@ az network public-ip show \
   --output tsv
 ``` 
 
+Copie la dirección IP pública y péguela en la barra de direcciones del explorador.
+    
 ![Prueba de la puerta de enlace de aplicaciones](./media/quick-create-cli/application-gateway-nginxtest.png)
 
-Al actualizar el explorador, verá aparecer el nombre de la otra VM.
+Al actualizar el explorador, verá aparecer el nombre de la segunda máquina virtual.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Explore los recursos que se han creado con la puerta de enlace de aplicaciones y, cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/group#az-group-delete) para quitar el grupo de recursos, la puerta de enlace de aplicaciones y todos los recursos relacionados.
+Cuando ya no necesite más los recursos que creó con la puerta de enlace de aplicaciones, use el comando [az group delete](/cli/azure/group#az-group-delete) para eliminar el grupo de recursos. Mediante la eliminación del grupo de recursos también elimina la puerta de enlace de aplicaciones y todos sus recursos relacionados.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroupAG

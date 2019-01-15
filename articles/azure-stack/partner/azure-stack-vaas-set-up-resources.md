@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 0830deaaa1161880706c39aee741af06a41b4b6f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 58c69840e7b8ebdc2bd367859184ab54460c9426
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426365"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103486"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Tutorial: Configuración de recursos para la validación como servicio
 
@@ -90,7 +90,7 @@ Cuando se le pida que conceda a VaaS los permisos de Azure AD enumerados, acepte
 
 ## <a name="create-an-azure-storage-account"></a>Creación de una cuenta de Azure Storage
 
-Durante la ejecución de prueba, VaaS genera registros de diagnóstico en una cuenta de almacenamiento de Azure. Además de los registros de prueba, la cuenta de almacenamiento también puede usarse para cargar los paquetes de extensión OEM para el flujo de trabajo de validación de paquetes.
+Durante la ejecución de prueba, VaaS genera registros de diagnóstico en una cuenta de almacenamiento de Azure. Además de los registros de prueba, la cuenta de almacenamiento también puede usarse para cargar los paquetes de extensión OEM para el flujo de trabajo de validación de soluciones.
 
 La cuenta de almacenamiento de Azure se hospeda en la nube pública de Azure, no en el entorno de Azure Stack.
 

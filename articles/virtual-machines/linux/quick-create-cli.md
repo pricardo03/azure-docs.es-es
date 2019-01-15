@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3c2212ba0216949d3ca7dbcedb5e086bc3e43b97
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: af7f3b42aad41f103be6c86da84db2ff230ff226
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406643"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065229"
 ---
-# <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Guía de inicio rápido: Creación de una máquina virtual Linux con la CLI de Azure
+# <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Inicio rápido: Creación de una máquina virtual Linux con la CLI de Azure
 
 La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En esta guía de inicio rápido se muestra como usar la CLI de Azure para implementar una máquina virtual (VM) Linux en Azure. En este tutorial, se instalará Ubuntu 16.04 LTS. Para mostrar la máquina virtual en acción, se conectará a ella mediante SSH e instalará al servidor web de NGINX.
 

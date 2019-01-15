@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Uso de una API de REST para crear una canalización de Azure Data Factory | Microsoft Docs'
+title: 'Tutorial: Uso de API REST para crear una canalización de Azure Data Factory | Microsoft Docs'
 description: En este tutorial, usará una API de REST para crear una canalización de Azure Data Factory con una actividad de copia para copiar datos de Azure Blob Storage en Azure SQL Database.
 services: data-factory
 documentationcenter: ''
@@ -10,19 +10,18 @@ ms.assetid: 1704cdf8-30ad-49bc-a71c-4057e26e7350
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4ce344292577dd286abcd7fbf9e067800da0e0b3
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 8b12df3e31b46fa29f5726946be1d7509018fcbf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958999"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025851"
 ---
-# <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Tutorial: Uso de una API de REST para crear una canalización de Azure Data Factory 
+# <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Tutorial: Uso de API REST para crear una canalización de Azure Data Factory 
 > [!div class="op_single_selector"]
 > * [Introducción y requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
@@ -47,7 +46,7 @@ pero cualquier canalización puede tener más de una actividad. También puede e
 > [!NOTE]
 > Este artículo no abarca toda la API de REST de Data Factory. Consulte [Referencia de API de REST de Data Factory](/rest/api/datafactory/) para ver la documentación completa sobre los cmdlets de Data Factory.
 >  
-> La canalización de datos de este tutorial copia datos de un almacén de datos de origen a un almacén de datos de destino. Para ver un tutorial acerca de cómo transformar datos mediante Azure Data Factory, consulte [Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md).
+> La canalización de datos de este tutorial copia datos de un almacén de datos de origen a un almacén de datos de destino. Para ver un tutorial acerca de cómo transformar datos mediante Azure Data Factory, consulte [Tutorial: Compilación de una canalización para transformar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Consulte [Copia de datos de Almacenamiento de blobs en Base de datos SQL mediante Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) y complete los pasos de los **requisitos previos** .
@@ -285,7 +284,7 @@ Tenga en cuenta los siguientes puntos:
  
 Reemplace el valor de la propiedad **start** por el día actual y el valor **end** por el próximo día. Puede especificar solo la parte de fecha y omitir la parte de hora de la fecha y hora. Por ejemplo, "03-02-2017", que es equivalente a "03-02-2017T00:00:00Z"
  
-Las fechas y horas de inicio y de finalización deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2016-10-14T16:32:41Z. La hora de finalización ( **end** ) es opcional, pero se utilizará en este tutorial. 
+Las fechas y horas de inicio y de finalización deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo:  2016-10-14T16:32:41Z. La hora de finalización ( **end** ) es opcional, pero se utilizará en este tutorial. 
  
 Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**.
  
@@ -351,7 +350,7 @@ En este paso, creará una instancia de Azure Data Factory llamada **ADFCopyTutor
 
 Tenga en cuenta los siguientes puntos:
 
-* El nombre de Azure Data Factory debe ser único de forma global. Si ve el siguiente error en los resultados: **El nombre “ADFCopyTutorialDF” de factoría de datos no está disponible**, siga estos pasos:  
+* El nombre de Azure Data Factory debe ser único de forma global. Si ve el siguiente error en los resultados, **El nombre “ADFCopyTutorialDF” de factoría de datos no está disponible**, siga estos pasos:  
   
   1. Cambie el nombre (por ejemplo, suNombreADFCopyTutorialDF) en el archivo **datafactory.json** .
   2. En el primer comando donde se asigna un valor a la variable **$cmd** , reemplace ADFCopyTutorialDF por el nuevo nombre y ejecute el comando. 
@@ -377,7 +376,7 @@ Tenga en cuenta los siguientes puntos:
 Antes de crear una canalización, debe crear algunas entidades de factoría de datos primero. Cree unos servicios vinculados para vincular almacenes de datos de origen y destino a su almacén de datos. A continuación, defina los conjuntos de datos de entrada y salida para representar datos en almacenes de datos vinculados. Por último, cree la canalización con una actividad que utilice estos conjuntos de datos.
 
 ## <a name="create-linked-services"></a>Crear servicios vinculados
-Los servicios vinculados se crean en una factoría de datos para vincular los almacenes de datos y los servicios de proceso con la factoría de datos. En este tutorial, no se usa ningún servicio de proceso, como Azure HDInsight o Azure Data Lake Analytics. Se usan dos almacenes de datos del tipo Azure Storage (origen) y Azure SQL Database (destino). Por lo tanto, se crean dos servicios vinculados llamados AzureStorageLinkedService y AzureSqlLinkedService del tipo AzureStorage y AzureSqlDatabase.  
+Los servicios vinculados se crean en una factoría de datos para vincular los almacenes de datos y los servicios de proceso con la factoría de datos. En este tutorial, no se usa ningún servicio de proceso, como Azure HDInsight o Azure Data Lake Analytics. Se usan dos almacenes de datos del tipo Azure Storage (origen) y Azure SQL Database (destino). Por lo tanto, se crean dos servicios vinculados llamados AzureStorageLinkedService y AzureSqlLinkedService de los tipos AzureStorage y AzureSqlDatabase.  
 
 AzureStorageLinkedService vincula una cuenta de Azure Storage a la factoría de datos. Esta cuenta de almacenamiento es la que se usó para crear un contenedor y con la que se cargaron los datos como parte de los [requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 

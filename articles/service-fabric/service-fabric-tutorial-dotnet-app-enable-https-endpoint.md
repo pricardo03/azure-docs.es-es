@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4333a234efe96f32541254819c9c5f21bb031757
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 2e631a0605385f8d55c652a26739b23a0945674f
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115083"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077257"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: Incorporación de un punto de conexión HTTPS a un servicio de front-end de API Web de ASP.NET Core mediante Kestrel
 
@@ -54,10 +54,10 @@ Antes de empezar este tutorial:
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>Obtención de un certificado o creación de un certificado de desarrollo autofirmado
 
-Para aplicaciones de producción, use un certificado de una [entidad de certificación (CA)](https://wikipedia.org/wiki/Certificate_authority). Con fines de desarrollo y pruebas, puede crear y usar un certificado autofirmado. El SDK de Service Fabric proporciona el script *CertSetup.ps1*, que crea un certificado autofirmado y lo importa en el almacén de certificados `Cert:\LocalMachine\My`. Abra un símbolo del sistema como administrador y ejecute el siguiente comando para crear un certificado con el asunto "CN=localhost":
+Para aplicaciones de producción, use un certificado de una [entidad de certificación (CA)](https://wikipedia.org/wiki/Certificate_authority). Con fines de desarrollo y pruebas, puede crear y usar un certificado autofirmado. El SDK de Service Fabric proporciona el script *CertSetup.ps1*, que crea un certificado autofirmado y lo importa en el almacén de certificados `Cert:\LocalMachine\My`. Abra un símbolo del sistema como administrador y ejecute el siguiente comando para crear un certificado con el asunto "CN=mytestcert":
 
 ```powershell
-PS C:\program files\microsoft sdks\service fabric\clustersetup\secure> .\CertSetup.ps1 -Install -CertSubjectName CN=localhost
+PS C:\program files\microsoft sdks\service fabric\clustersetup\secure> .\CertSetup.ps1 -Install -CertSubjectName CN=mytestcert
 ```
 
 Si ya tiene un archivo PFX de certificado, ejecute lo siguiente para importar el certificado en el almacén de certificados `Cert:\LocalMachine\My`:
@@ -158,7 +158,7 @@ serviceContext =>
         }))
 ```
 
-Agregue también el método siguiente para que Kestrel pueda encontrar el certificado en el almacén `Cert:\LocalMachine\My` mediante el asunto.  Reemplace "&lt;your_CN_value&gt;" por "localhost" si ha creado un certificado autofirmado con el comando de PowerShell anterior o use el nombre CN del certificado.
+Agregue también el método siguiente para que Kestrel pueda encontrar el certificado en el almacén `Cert:\LocalMachine\My` mediante el asunto.  Reemplace "&lt;your_CN_value&gt;" por "mytestcert" si ha creado un certificado autofirmado con el comando de PowerShell anterior o use el nombre CN del certificado.
 
 ```csharp
 private X509Certificate2 GetCertificateFromStore()
@@ -238,7 +238,7 @@ Modifique las propiedades del archivo *Setup.bat* para establecer la opción **C
 En el Explorador de soluciones, haga clic con el botón derecho en **VotingWeb** y seleccione **Agregar**->**Nuevo elemento** y agregue un nuevo archivo denominado "SetCertAccess.ps1".  Edite el archivo *SetCertAccess.ps1* y agregue el siguiente script:
 
 ```powershell
-$subject="localhost"
+$subject="mytestcert"
 $userGroup="NETWORK SERVICE"
 
 Write-Host "Checking permissions to certificate $subject.." -ForegroundColor DarkCyan
@@ -349,7 +349,7 @@ Guarde todos los archivos y presione la tecla F5 para ejecutar la aplicación lo
 
 Antes de implementar la aplicación en Azure, instale el certificado en el almacén `Cert:\LocalMachine\My` de los nodos de clúster remotos.  Cuando se inicia el servicio web de front-end en un nodo de clúster, el script de inicio busca el certificado y configura los permisos de acceso.
 
-Primero, exporte el certificado a un archivo PFX. Abra la aplicación certlm.msc y vaya a **Personal**>**Certificados**.  Haga clic con el botón derecho en el certificado *localhost* y seleccione **Todas las tareas**>**Exportar**.
+Primero, exporte el certificado a un archivo PFX. Abra la aplicación certlm.msc y vaya a **Personal**>**Certificados**.  Haga clic con el botón derecho en el certificado *mytestcert* y seleccione **Todas las tareas**>**Exportar**.
 
 ![Exportación de certificado][image4]
 

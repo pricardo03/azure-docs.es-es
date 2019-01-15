@@ -5,110 +5,104 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: joflore
+ms.reviewer: barbkess
 ms.assetid: 81c50614-f49b-4bbc-97d5-3cf77154305f
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/08/2017
+ms.topic: tutorial
+ms.date: 12/27/2018
 ms.author: jeedes
-ms.openlocfilehash: ce4142c5b4a20886a94c87699f262f7238fc2cb4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7d1280525560c5333a5764ac9f962f79bd2284ad
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438576"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061630"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-admin-console"></a>Tutorial: Integración de Azure Active Directory con Mimecast Admin Console
 
 En este tutorial, obtendrá información sobre cómo integrar Mimecast Admin Console con Azure Active Directory (Azure AD).
-
 La integración de Mimecast Admin Console con Azure AD proporciona las siguientes ventajas:
 
-- En Azure AD puede controlar quién tiene acceso a Mimecast Admin Console.
-- Puede permitir que los usuarios inicien sesión automáticamente en Mimecast Admin Console (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: Azure Portal.
+* En Azure AD puede controlar quién tiene acceso a Mimecast Admin Console.
+* Puede permitir que los usuarios inicien sesión automáticamente en Mimecast Admin Console (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Mimecast Admin Console, necesita los siguientes elementos:
 
-- Una suscripción de Azure AD
-- Un suscripción habilitada para inicio de sesión único en Mimecast Admin Console
-
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-
-Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
-
-- No use el entorno de producción, salvo que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
+* Una suscripción habilitada para inicio de sesión único en Mimecast Admin Console
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
-1. Incorporación de Mimecast Admin Console desde la galería
-1. Configuración y comprobación del inicio de sesión único de Azure AD
+En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
+
+* Mimecast Admin Console admite el inicio de sesión único iniciado por **SP**.
 
 ## <a name="adding-mimecast-admin-console-from-the-gallery"></a>Incorporación de Mimecast Admin Console desde la galería
+
 Para configurar la integración de Mimecast Admin Console en Azure AD, deberá agregar esta solución desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar Mimecast Admin Console desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
-    ![Botón Azure Active Directory][1]
+    ![Botón Azure Active Directory](common/select-azuread.png)
 
-1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
-    ![Hoja Aplicaciones empresariales][2]
-    
-1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-    ![Botón Nueva aplicación][3]
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-1. En el cuadro de búsqueda, escriba **Mimecast Admin Console**, seleccione **Mimecast Admin Console** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+    ![Botón Nueva aplicación](common/add-new-app.png)
 
-    ![Mimecast Admin Console en la lista de resultados](./media/mimecast-admin-console-tutorial/tutorial_mimecastadminconsole_addfromgallery.png)
+4. En el cuadro de búsqueda, escriba **Mimecast Admin Console**, seleccione **Mimecast Admin Console** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+
+     ![Mimecast Admin Console en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, configurará y probará el inicio de sesión único de Azure AD con Mimecast Admin Console con un usuario de prueba llamado "Britta Simon".
-
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Mimecast Admin Console para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Mimecast Admin Console.
-
-Para establecer la relación de vínculo, en Mimecast Admin Console, asigne el valor del **nombre de usuario** en Azure AD como el valor del **Nombre de usuario**.
+En esta sección, configurará y probará el inicio de sesión único de Azure AD con Mimecast Admin Console con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Mimecast Admin Console.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Mimecast Admin Console, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **[Creación de un usuario de prueba de Mimecast Admin Console](#create-a-mimecast-admin-console-test-user)**: para tener un homólogo de Britta Simon en Mimecast Admin Console que esté vinculado a la representación del usuario en Azure AD.
-1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-1. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+2. **[Configuración del inicio de sesión único de Mimecast Admin Console](#configure-mimecast-admin-console-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Mimecast Admin Console](#create-mimecast-admin-console-test-user)**: para tener un homólogo de Britta Simon en Mimecast Admin Console que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación Mimecast Admin Console.
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-**Para configurar el inicio de sesión único de Azure AD con Mimecast Admin Console, realice los pasos siguientes:**
+Para configurar el inicio de sesión único de Azure AD con Mimecast Admin Console, realice los pasos siguientes:
 
-1. En la página de integración de la aplicación **Mimecast Admin Console** de Azure Portal, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración aplicaciones de **Mimecast Admin Console**, seleccione **Inicio de sesión único**.
 
-    ![Vínculo Configurar inicio de sesión único][4]
+    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
-    ![Cuadro de diálogo Inicio de sesión único](./media/mimecast-admin-console-tutorial/tutorial_mimecastadminconsole_samlbase.png)
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
-1. En la sección **Dominio y direcciones URL de Mimecast Admin Console**, lleve a cabo los pasos siguientes:
+    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-    ![Información sobre dominio y direcciones URL de inicio de sesión único de Mimecast Admin Console](./media/mimecast-admin-console-tutorial/tutorial_mimecastadminconsole_url.png)
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
+
+    ![Edición de la configuración básica de SAML](common/edit-urls.png)
+
+4. En la sección **Configuración básica de SAML**, siga estos pasos:
+
+    ![Información sobre dominio y direcciones URL de inicio de sesión único de Mimecast Admin Console](common/sp-signonurl.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL:
     | |
@@ -119,47 +113,51 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE] 
     > La dirección URL de inicio de sesión es específica de la región.
 
-1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+4. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
-    ![Vínculo de descarga del certificado](./media/mimecast-admin-console-tutorial/tutorial_mimecastadminconsole_certificate.png) 
+    ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-1. Haga clic en el botón **Guardar** .
+6. En la sección **Set up Mimecast Admin Console** (Configurar Mimecast Admin Console), copie las direcciones URL que necesite.
 
-    ![Botón Configurar inicio de sesión único](./media/mimecast-admin-console-tutorial/tutorial_general_400.png)
+    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-1. En la sección **Configuración de Mimecast Admin Console**, haga clic en **Configurar Mimecast Admin Console** para abrir la ventana **Configurar el inicio de sesión**. Copie los valores de **SAML Entity ID y SAML Single Sign-On Service URL** (Identificador de entidad de SAML y Dirección URL del servicio de inicio de sesión único de SAML) de la sección **Referencia rápida**.
+     a. URL de inicio de sesión
 
-    ![Configuración de Mimecast Admin Console](./media/mimecast-admin-console-tutorial/tutorial_mimecastadminconsole_configure.png) 
+    b. Identificador de Azure AD
+
+    c. URL de cierre de sesión
+
+### <a name="configure-mimecast-admin-console-single-sign-on"></a>Configuración del inicio de sesión único en Mimecast Admin Console
 
 1. En otra ventana del explorador web, inicie sesión como administrador en el sitio de la compañía de Mimecast Admin Console.
 
-1. Vaya a **Servicios\>Aplicación**.
+2. Vaya a **Servicios\>Aplicación**.
 
     ![Servicios](./media/mimecast-admin-console-tutorial/ic794998.png "Servicios")
 
-1. Haga clic en **Authentication Profiles**(Perfiles de autenticación).
+3. Haga clic en **Authentication Profiles**(Perfiles de autenticación).
 
     ![Authentication Profiles (Perfiles de autenticación)](./media/mimecast-admin-console-tutorial/ic794999.png "Authentication Profiles (Perfiles de autenticación)")
     
-1. Haga clic en **New Authentication Profile**(Nuevo perfil de autenticación).
+4. Haga clic en **New Authentication Profile**(Nuevo perfil de autenticación).
 
     ![New Authentication Profiles (Nuevos perfiles de autenticación)](./media/mimecast-admin-console-tutorial/ic795000.png "Authentication Profiles (Nuevos perfiles de autenticación)")
 
-1. En la sección **Authentication Profile** (Perfil de autenticación), realice estos pasos:
+5. En la sección **Authentication Profile** (Perfil de autenticación), realice estos pasos:
 
     ![Authentication Profile (Perfil de autenticación)](./media/mimecast-admin-console-tutorial/ic795015.png "Authentication Profile (Perfil de autenticación)")
     
-    a. En el cuadro de texto **Description** (Descripción), escriba un nombre para la configuración.
+     a. En el cuadro de texto **Description** (Descripción), escriba un nombre para la configuración.
     
     b. Seleccione **Enforce SAML Authentication for Mimecast Admin Console**(Aplicar la autenticación SAML a Mimecast Admin Console).
     
     c. Como **Provider** (Proveedor), seleccione **Azure Active Directory**.
     
-    d. Pegue el valor del **identificador de entidad de SAML**, que ha copiado de Azure Portal, en el cuadro de texto de **dirección URL del emisor**.
+    d. Pegue el valor de **Identificador de Azure AD** que copió de Azure Portal en el cuadro de texto **URL del emisor**.
     
-    e. Pegue la **dirección URL del inicio de sesión único de SAML**, que ha copiado de Azure Portal, en el cuadro de texto de **dirección URL del inicio de sesión**.
+    e. Pegue la **URL de inicio de sesión** que ha copiado de Azure Portal en el cuadro de texto **URL de inicio de sesión**.
 
-    f. Pegue la **dirección URL del inicio de sesión único de SAML**, que ha copiado de Azure Portal, en el cuadro de texto de **dirección URL del cierre de sesión**.
+    f. Pegue la **URL de inicio de sesión** que ha copiado de Azure Portal en el cuadro de texto **URL de cierre de sesión**.
     
     >[!NOTE]
     >El valor de Dirección URL de inicio de sesión y el valor de Dirección URL de cierre de sesión para Mimecast Admin Console son los mismos.
@@ -170,42 +168,58 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     i. Haga clic en **Save**(Guardar).
 
-> [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985) 
-
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-   ![Creación de un usuario de prueba de Azure AD][100]
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
-1. En el panel izquierdo de Azure Portal, haga clic en el botón **Azure Active Directory**.
+2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
-    ![Botón Azure Active Directory](./media/mimecast-admin-console-tutorial/create_aaduser_01.png)
+    ![Botón Nuevo usuario](common/new-user.png)
 
-1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
+3. En las propiedades Usuario, siga estos pasos.
 
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/mimecast-admin-console-tutorial/create_aaduser_02.png)
+    ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-1. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
+     a. En el campo **Nombre**, escriba **BrittaSimon**.
+  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    Por ejemplo: BrittaSimon@contoso.com
 
-    ![Botón Agregar](./media/mimecast-admin-console-tutorial/create_aaduser_03.png)
-
-1. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
-
-    ![Cuadro de diálogo Usuario](./media/mimecast-admin-console-tutorial/create_aaduser_04.png)
-
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
-
-    b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
-
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
     d. Haga clic en **Create**(Crear).
- 
-### <a name="create-a-mimecast-admin-console-test-user"></a>Creación de un usuario de prueba de Mimecast Admin Console
+
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Mimecast Admin Console.
+
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y, después, **Mimecast Admin Console**.
+
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+
+2. En la lista de aplicaciones, escriba y seleccione **Mimecast Admin Console**.
+
+    ![Vínculo a Mimecast Admin Console en la lista de aplicaciones](common/all-applications.png)
+
+3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
+
+    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
+
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+
+    ![Panel Agregar asignación](common/add-assign-user.png)
+
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+
+6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+
+### <a name="create-mimecast-admin-console-test-user"></a>Creación de un usuario de prueba de Mimecast Admin Console
 
 Para permitir que los usuarios de Azure AD inicien sesión en Mimecast Admin Console, deben aprovisionarse en Mimecast Admin Console. En el caso de Mimecast Admin Console, el aprovisionamiento es una tarea manual.
 
@@ -214,79 +228,41 @@ Para permitir que los usuarios de Azure AD inicien sesión en Mimecast Admin Con
 **Siga estos pasos para configurar el aprovisionamiento de usuario:**
 
 1. Inicie sesión en **Mimecast Admin Console** como administrador.
-1. Vaya a **Directorios\> Interno**.
-   
-   ![Directories (Directorios)](./media/mimecast-admin-console-tutorial/ic795003.png "Directories (Directorios)")
-1. Haga clic en **Register New Domain**(Registrar nuevo dominio).
-   
-   ![Register New Domain (Registrar nuevo dominio)](./media/mimecast-admin-console-tutorial/ic795004.png "Register New Domain (Registrar nuevo dominio)")
-1. Una vez creado el nuevo dominio, haga clic en **New Address**(Nueva dirección).
-   
-   ![New Address (Nueva dirección)](./media/mimecast-admin-console-tutorial/ic795005.png "New Address (Nueva dirección)")
-1. En el cuadro de diálogo Nueva dirección, realice estos pasos:
-   
-   ![Guardar](./media/mimecast-admin-console-tutorial/ic795006.png "Guardar")
-   
-   a. Escriba los datos de una cuenta de Azure AD válida que desee aprovisionar en los cuadros de texto correspondientes: **Email Address** (Dirección de correo electrónico), **Global Name** (Nombre global), **Password** (Contraseña) y **Confirm Password** (Confirmar contraseña).
 
-   b. Haga clic en **Save**(Guardar).
+2. Vaya a **Directorios\> Interno**.
+   
+    ![Directories (Directorios)](./media/mimecast-admin-console-tutorial/ic795003.png "Directories (Directorios)")
+
+3. Haga clic en **Register New Domain**(Registrar nuevo dominio).
+   
+    ![Register New Domain (Registrar nuevo dominio)](./media/mimecast-admin-console-tutorial/ic795004.png "Register New Domain (Registrar nuevo dominio)")
+
+4. Una vez creado el nuevo dominio, haga clic en **New Address**(Nueva dirección).
+   
+    ![New Address (Nueva dirección)](./media/mimecast-admin-console-tutorial/ic795005.png "New Address (Nueva dirección)")
+
+5. En el cuadro de diálogo Nueva dirección, realice estos pasos:
+   
+    ![Guardar](./media/mimecast-admin-console-tutorial/ic795006.png "Guardar")
+   
+     a. Escriba los datos de una cuenta de Azure AD válida que desee aprovisionar en los cuadros de texto correspondientes: **Email Address** (Dirección de correo electrónico), **Global Name** (Nombre global), **Password** (Contraseña) y **Confirm Password** (Confirmar contraseña).
+
+    b. Haga clic en **Save**(Guardar).
 
 >[!NOTE]
 >Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Mimecast Admin Console ofrecida por Mimecast Admin Console para aprovisionar cuentas de usuario de Azure AD. 
 
-### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-
-En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Mimecast Admin Console.
-
-![Asignación de rol de usuario][200] 
-
-**Para asignar a Britta Simon a Mimecast Admin Console, siga estos pasos:**
-
-1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
-
-    ![Asignar usuario][201] 
-
-1. En la lista de aplicaciones, seleccione **Mimecast Admin Console**.
-
-    ![Vínculo a Mimecast Admin Console en la lista de aplicaciones](./media/mimecast-admin-console-tutorial/tutorial_mimecastadminconsole_app.png)  
-
-1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
-
-    ![Vínculo "Usuarios y grupos"][202]
-
-1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
-
-    ![Panel Agregar asignación][203]
-
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
-
-1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
-
-1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
-    
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Mimecast Admin Console en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación Mimecast Admin Console.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Al hacer clic en el icono de Mimecast Admin Console del panel de acceso, debería iniciar sesión automáticamente en la versión de Mimecast Admin Console para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/mimecast-admin-console-tutorial/tutorial_general_01.png
-[2]: ./media/mimecast-admin-console-tutorial/tutorial_general_02.png
-[3]: ./media/mimecast-admin-console-tutorial/tutorial_general_03.png
-[4]: ./media/mimecast-admin-console-tutorial/tutorial_general_04.png
-
-[100]: ./media/mimecast-admin-console-tutorial/tutorial_general_100.png
-
-[200]: ./media/mimecast-admin-console-tutorial/tutorial_general_200.png
-[201]: ./media/mimecast-admin-console-tutorial/tutorial_general_201.png
-[202]: ./media/mimecast-admin-console-tutorial/tutorial_general_202.png
-[203]: ./media/mimecast-admin-console-tutorial/tutorial_general_203.png
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

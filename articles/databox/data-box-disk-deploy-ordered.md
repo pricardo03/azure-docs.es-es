@@ -6,41 +6,46 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 11/05/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 961352dc99a164b8537fb588e038ad1b385941cc
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: db10361707d83fcda20f0e4bf2adc2abc4176808
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567458"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156178"
 ---
-# <a name="tutorial-order-an-azure-data-box-disk-preview"></a>Tutorial: Solicitar Azure Data Box Disk (versión preliminar)
+# <a name="tutorial-order-an-azure-data-box-disk"></a>Tutorial: Solicitud de Azure Data Box Disk
 
 Azure Data Box Disk es una solución en la nube híbrida que permite importar datos locales en Azure de una forma rápida, fácil y confiable. Transfiera los datos a discos de estado sólido (SSD) suministrados por Microsoft y envíe los discos de vuelta. Luego, dichos datos se cargan en Azure.
 
 En este tutorial se describe cómo se puede solicitar Azure Data Box Disk. En este tutorial, obtendrá información sobre lo siguiente:
 
 > [!div class="checklist"]
-> * Suscribirse a Data Box Disk
 > * Solicitar Data Box Disk
 > * Hacer un seguimiento del pedido
 > * Cancelar el pedido
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+## <a name="prerequisites"></a>Requisitos previos
 
-> [!IMPORTANT]
-> - Data Box Disk se encuentra en versión preliminar. Antes de solicitar e implementar esta solución revise los [términos del servicio de Azure para la versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-> - Durante la versión preliminar, Data Box Disk se puede enviar a clientes de Estados Unidos, Europa Occidental, Europa del Norte,Canadá y Australia. Para más información, vaya a [Disponibilidad por región](data-box-disk-overview.md#region-availability).
+Antes de implementar, complete los siguientes requisitos previos de configuración para el servicio Data Box y para Data Box Disk.
 
-## <a name="sign-up"></a>Suscripción
+### <a name="for-service"></a>Para el servicio
 
-Data Box Disk está en versión preliminar y es preciso registrarse para el servicio. Siga estos pasos para registrarse en el servicio Data Box:
+Antes de comenzar, asegúrese de que:
+- Tiene una cuenta de almacenamiento de Microsoft Azure con credenciales de acceso.
+- Asegúrese de que la suscripción que utilice para el servicio Data Box sea de uno de los siguientes tipos:
+    - Contrato Enterprise (EA) de Microsoft. Más información acerca de [las suscripciones de EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
+    - Proveedor de soluciones en la nube (CSP). Más información acerca del [programa Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
+- Asegúrese de que tiene acceso de propietario o colaborador a la suscripción para crear un pedido de Data Box.
 
-1. Inicie sesión en Azure Portal en: [https://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
-2. Seleccione la suscripción que desea habilitar para la versión preliminar. Responda a las preguntas relativas al tamaño de los datos, país de residencia de los datos, período de tiempo y frecuencia de transferencia de datos. Haga clic en **Quiero registrarme**.
-3. Una vez que se haya registrado y esté habilitado para la versión preliminar, puede solicitar Data Box Disk.
+### <a name="for-device"></a>Para el dispositivo
+
+Antes de comenzar, asegúrese de que:
+- Tiene un equipo cliente disponible desde el que puede copiar los datos. El equipo cliente debe:
+    - Ejecutar un [sistema operativo admitido](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
+    - Disponer de otro [software necesario](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) instalado si es un cliente de Windows.  
 
 ## <a name="order-data-box-disk"></a>Solicitud de Data Box Disk
 
@@ -97,7 +102,7 @@ Para solicitar Data Box Disk, siga estos pasos en [Azure Portal](https://aka.ms/
  
 ## <a name="track-the-order"></a>Seguimiento del pedido
 
-Tras realizar el pedido, puede hacer un seguimiento del estado del pedido desde el portal de vista previa de Azure. Vaya al pedido y, después, vaya a **Información general** para ver el estado. El portal muestra el trabajo en estado **Ordered** (Pedido). 
+Tras realizar el pedido, puede hacer un seguimiento del estado del mismo desde Azure Portal. Vaya al pedido y, después, vaya a **Información general** para ver el estado. El portal muestra el trabajo en estado **Ordered** (Pedido). 
 
 ![Estado Pedido de Data Box Disk](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png) 
 
@@ -111,17 +116,15 @@ Una vez que se completa la preparación del disco, el portal muestra el pedido e
 
 Luego, Microsoft prepara y envía los discos a través de un operador regional. Tras su envío recibirá un número de seguimiento. El portal muestra el orden en estado **Dispatched** (Enviado).
 
-
-
 ## <a name="cancel-the-order"></a>Cancelar el pedido
 
-Para cancelar el pedido, en el portal de vista previa de Azure, vaya a **Información general** y haga clic en **Cancelar** en la barra de comandos. 
+Para cancelar el pedido, en Azure Portal, vaya a **Información general** y haga clic en **Cancelar** en la barra de comandos. 
 
 La cancelación sólo se puede realizar una vez que se han pedido los discos y el pedido se está procesando para el envío. Una vez que el pedido se procese, no se podrá cancelar. 
 
 ![Cancelar un pedido](media/data-box-disk-deploy-ordered/cancel-order1.png)
 
-Para eliminar un pedido cancelado, vaya a **Información general** y haga clic en **Eliminar** desde la barra de comandos. 
+Para eliminar un pedido cancelado, vaya a **Información general** y haga clic en **Eliminar** desde la barra de comandos.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -129,7 +132,6 @@ Para eliminar un pedido cancelado, vaya a **Información general** y haga clic e
 En este tutorial, ha obtenido información acerca de varios temas relacionados con Azure Data Box, como:
 
 > [!div class="checklist"]
-> * Suscribirse a Data Box Disk
 > * Solicitud de Data Box Disk
 > * Seguimiento del pedido
 > * Cancelar el pedido

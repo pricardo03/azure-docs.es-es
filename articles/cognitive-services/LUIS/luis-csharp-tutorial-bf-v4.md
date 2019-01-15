@@ -9,14 +9,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/25/2018
+ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 113e5769ee6a58785a46182064684bea5825c12c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d233f1df40d9580edfaaeb6b819c014952ad3b0c
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138949"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189285"
 ---
 # <a name="tutorial-luis-bot-in-c-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Tutorial: Bot de LUIS en C# con Bot Framework 4.x y el bot de aplicación web de Azure
 Con C#, puede crear un bot de chat que se integre con Language Understanding (LUIS). Este bot usa la aplicación HomeAutomation para implementar una solución de bot. El bot se compila con el [bot de aplicación web](https://docs.microsoft.com/azure/bot-service/) de Azure y con la [versión 4 de Bot Framework](https://github.com/Microsoft/botbuilder-js).
@@ -301,6 +301,7 @@ Azure Bot Service usa el SDK de Bot Framework. Más información sobre el SDK y 
 
 Creó una instancia de Azure Bot Service, copió el secreto del bot y la ruta de acceso al archivo `.bot` y descargó el archivo ZIP del código. Agregó el dominio HomeAutomation creado previamente a la aplicación LUIS que se creó como parte de la nueva instancia de Azure Bot Service y luego entrenó y publicó nuevamente la aplicación. Extrajo el código del proyecto, creó un archivo de entorno (`.env`) y estableció el secreto del bot y la ruta de acceso al archivo `.bot`. En el archivo bot.js, agregó código para controlar las dos intenciones nuevas. Luego probó el bot en Bot Emulator para ver la respuesta de LUIS para una expresión de una de las intenciones nuevas. 
 
+Consulte más [ejemplos](https://github.com/Microsoft/AI) con bots de conversación. 
 
 > [!div class="nextstepaction"]
 > [Compilación de un dominio personalizado en LUIS](luis-quickstart-intents-only.md)

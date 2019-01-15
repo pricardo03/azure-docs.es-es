@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.date: 11/27/2018
 ms.author: bsiva
 ms.custom: MVC
-ms.openlocfilehash: 32b8337121c2552a29f9af35e50f540972a1add7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2497793ce5d24ed2516636e76b8b947417dd9f74
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847650"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039952"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migración de servidores que ejecutan Windows Server 2008 a Azure
 
@@ -89,7 +89,7 @@ Realice las siguientes tareas para preparar el entorno de VMware y físico local
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) > **Recovery Services**.
-2. Haga clic en **Crear un recurso** > **Supervisión y administración** > **Backup y Site Recovery**.
+2. Seleccione **Crear un recurso** > **Herramientas de administración** > **Backup and Site Recovery**.
 3. En el apartado **Nombre**, especifique el nombre descriptivo **W2K8-migration**. Si tiene más de una suscripción, seleccione la apropiada.
 4. Cree un grupo de recursos **w2k8migrate**.
 5. Especifique una región de Azure. Para comprobar las regiones admitidas, consulte la disponibilidad geográfica en [Detalles de precios de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
@@ -163,4 +163,4 @@ Ejecute una conmutación por error para las máquinas que desea migrar.
 
 
 > [!WARNING]
-> **No cancele una conmutación por error en curso**: antes de iniciar la conmutación por error, se detiene la replicación de la máquina virtual. Si se cancela una conmutación por error en curso, la conmutación por error se detiene, pero no se replica la máquina virtual de nuevo.
+> **No cancele una conmutación por error en curso**: La replicación de la máquina virtual se detiene antes de que se inicie la conmutación por error. Si se cancela una conmutación por error en curso, la conmutación por error se detiene, pero no se replica la máquina virtual de nuevo.

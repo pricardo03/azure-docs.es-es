@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: e816799ba2df0f97aca7618e7c181a1086bb84a9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2fc88f82222deeecb55dac8fa77e1d8702ffe011
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791921"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055037"
 ---
 # <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-template"></a>Inicio rápido: Creación de un clúster de Apache Spark en HDInsight mediante una plantilla
 
@@ -29,7 +29,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="create-an-hdinsight-spark-cluster"></a>Creación de un clúster de Spark en HDInsight
 
-Cree un clúster de Spark en HDInsight mediante una plantilla de Azure Resource Manager. La plantilla se encuentra en [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-spark-linux/).
+Cree un clúster de Spark en HDInsight mediante una plantilla de Azure Resource Manager. La plantilla se encuentra en [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-spark-linux/). Para las propiedades del clúster y la sintaxis de JSON, consulte [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/clusters).
 
 1. Seleccione el vínculo siguiente para abrir la plantilla en Azure Portal en una nueva pestaña del explorador:
 

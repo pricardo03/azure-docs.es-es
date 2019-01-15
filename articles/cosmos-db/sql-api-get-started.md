@@ -1,23 +1,21 @@
 ---
-title: 'Azure Cosmos DB: tutorial de introducción a las API de SQL'
+title: 'Azure Cosmos DB: Tutorial de introducción a la API de SQL'
 description: Tutorial en el que se crea una base de datos en línea y la aplicación de consola de C# con la API de SQL.
-keywords: tutorial de nosql, base de datos en línea, aplicación de consola de c#
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/16/2017
 ms.author: sngun
-ms.openlocfilehash: 100524eacb30f77e06204fb3b31e6477dd1320a4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d73638e0c02af5dc07e80084dd2ce5a7e090ecd2
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867536"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043454"
 ---
-# <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: tutorial de introducción a las API de SQL
+# <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: Tutorial de introducción a la API de SQL
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -423,7 +421,7 @@ El siguiente diagrama muestra la denominación de la sintaxis de la consulta SQL
 
 La palabra clave [FROM](how-to-sql-query.md#FromClause) es opcional en la consulta porque las consultas de Azure Cosmos DB ya tienen como ámbito una única colección. Por lo tanto, «FROM Families f" se puede intercambiar por  "FROM root r", o cualquier otra variable de nombre que elija. Azure Cosmos DB deducirá la familia, la raíz o el nombre de variable elegido y hará referencia a la colección actual de forma predeterminada.
 
-## <a id="ReplaceDocument"></a>Paso 8: Reemplazar un documento JSON
+## <a id="ReplaceDocument"></a>Paso 8: Reemplazo de un documento JSON
 Azure Cosmos DB admite la sustitución de documentos JSON.  
 
 Copie y pegue el método **ReplaceFamilyDocument** después del método **ExecuteSimpleQuery**.
@@ -453,7 +451,7 @@ Presione **F5** para ejecutar la aplicación.
 
 Felicidades. Ha sustituido correctamente un documento de Azure Cosmos DB.
 
-## <a id="DeleteDocument"></a>Paso 9: Eliminar documento JSON
+## <a id="DeleteDocument"></a>Paso 9: Eliminación de un documento JSON
 Azure Cosmos DB admite la eliminación de documentos JSON.  
 
 Copie y pegue el método **DeleteFamilyDocument** después del método **ReplaceFamilyDocument**.
@@ -478,7 +476,7 @@ Presione **F5** para ejecutar la aplicación.
 
 Felicidades. Ha eliminado correctamente un documento de Azure Cosmos DB.
 
-## <a id="DeleteDatabase"></a>Paso 10: Eliminar la base de datos
+## <a id="DeleteDatabase"></a>Paso 10: Eliminación de la base de datos
 La eliminación de la base de datos creada quitará la base de datos y todos los recursos secundarios (colecciones, documentos, etc.).
 
 Copie y pegue el código siguiente en el método **GetStartedDemo** después de la sección "delete" del documento para eliminar toda la base de datos y todos los recursos secundarios.
@@ -538,7 +536,7 @@ Y, eso es todo, genérela y habrá terminado.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* ¿Desea un tutorial de ASP.NET MVC más complejo? Consulte el [Tutorial de ASP.NET MVC: desarrollo de aplicaciones web con Azure Cosmos DB](sql-api-dotnet-application.md).
+* ¿Desea un tutorial de ASP.NET MVC más complejo? Consulte [Tutorial de ASP.NET MVC: Desarrollo de aplicaciones web con Azure Cosmos DB](sql-api-dotnet-application.md).
 * ¿Desea realizar pruebas de escala y de rendimiento con Azure Cosmos DB? Consulte [Pruebas de escala y rendimiento con Azure Cosmos DB](performance-testing.md).
 * Obtenga más información sobre cómo [supervisar las solicitudes, el uso y el almacenamiento de Azure Cosmos DB](monitor-accounts.md).
 * Ejecute las consultas en nuestro conjunto de datos de ejemplo en el [área de consultas](https://www.documentdb.com/sql/demo).

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: dc27e49cc67a902bb45b1d889bb61b1f4b3aab83
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2ce9c486dee3f26d23db5da67abfea4701f85796
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788776"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040481"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Traslado de máquinas virtuales de Azure a otra región
 
@@ -83,7 +83,7 @@ Asegúrese de que todos los certificados raíz más recientes estén presentes e
 Cree el almacén en cualquier región, excepto en la de origen.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) > **Recovery Services**.
-2. Haga clic en **Crear un recurso** > **Supervisión y administración** > **Backup y Site Recovery**.
+2. Seleccione **Crear un recurso** > **Herramientas de administración** > **Backup and Site Recovery**.
 3. En el apartado **Nombre**, especifique el nombre descriptivo **ContosoVMVault**. Si tiene más de una suscripción, seleccione la apropiada.
 4. Cree un grupo de recursos denominado **ContosoRG**.
 5. Especifique una región de Azure. Para comprobar las regiones admitidas, consulte la disponibilidad geográfica en [Detalles de precios de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).

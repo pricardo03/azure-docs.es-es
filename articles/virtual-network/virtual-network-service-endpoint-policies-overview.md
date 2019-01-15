@@ -3,24 +3,20 @@ title: Directivas de punto de conexión de servicio Azure Virtual Network | Micr
 description: Aprenda a filtrar el tráfico de la red virtual para los recursos de servicio de Azure con las directivas de punto de conexión de servicio.
 services: virtual-network
 documentationcenter: na
-author: anithaa
-manager: narayan
-editor: ''
-ms.assetid: ''
+author: sumeetmittal
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
-ms.author: anithaa
-ms.custom: ''
-ms.openlocfilehash: 425bbc9eac112a4b999bd08940abb8b875aca61c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.author: sumeet.mittal
+ms.openlocfilehash: 7a3a94e9759dfb3c525ffcf1e840d5bec18f4808
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433300"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051318"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Directivas de punto de conexión de servicio de redes virtuales (versión preliminar)
 
@@ -129,7 +125,7 @@ Las directivas de puntos de conexión de servicio de redes virtuales proporciona
 - De forma predeterminada, los grupos de seguridad de red permiten el tráfico saliente de Internet, incluido el tráfico de red virtual a los servicios de Azure.
 - Si desea denegar todo el tráfico de Internet saliente y permitir únicamente el tráfico a recursos de servicios de Azure: 
 
-  Paso 1: Configure los grupos de seguridad de red para permitir el tráfico de salida solo a los servicios de Azure en las regiones de punto de conexión, mediante las *etiquetas de servicio de Azure*. Para más información, consulte las [etiquetas de servicio para grupos de seguridad de red](https://aka.ms/servicetags).
+  Paso 1: Configure los grupos de seguridad de red para permitir el tráfico de salida solo a los servicios de Azure en las regiones de punto de conexión, mediante las *etiquetas de servicios de Azure*. Para más información, consulte las [etiquetas de servicio para grupos de seguridad de red](https://aka.ms/servicetags).
       
   Por ejemplo, las reglas de grupos de seguridad de red que restringen el acceso solo a las regiones de punto de conexión se parecen al siguiente ejemplo:
 
@@ -139,16 +135,16 @@ Las directivas de puntos de conexión de servicio de redes virtuales proporciona
   Deny all
   ```
 
-  Paso 2: Aplique la directiva de punto de conexión de servicio con acceso únicamente a los recursos del servicio de Azure específico.
+  Paso 2: Aplique la directiva de punto de conexión de servicio con acceso únicamente a los recursos de servicios de Azure específico.
 
   > [!WARNING]  
   > Si el grupo de seguridad de red no está configurado para limitar el acceso de servicio de Azure de una red virtual a las regiones de punto de conexión, puede acceder a los recursos de servicio de otras regiones, incluso si se aplica la directiva de punto de conexión de servicio.
 
 ## <a name="scenarios"></a>Escenarios
 
-- **Redes virtuales múltiples, conectadas o emparejadas**: para filtrar el tráfico en redes virtuales emparejadas, las directivas de punto de conexión deben aplicarse individualmente a estas redes virtuales.
-- **Filtrado del tráfico de Internet con dispositivos de red o Azure Firewall**: filtre el tráfico de servicio de Azure con directivas, sobre puntos de conexión, y filtre el resto del tráfico de Internet o de Azure a través de dispositivos o de Azure Firewall. 
-- **Filtrado del tráfico en los servicios de Azure implementados en redes virtuales**: durante la versión preliminar, las directivas de punto de conexión de servicio no son compatibles con ningún servicio administrado de Azure que se implemente en la red virtual. 
+- **Redes virtuales emparejadas, conectadas o múltiples**: para filtrar el tráfico en redes virtuales emparejadas, las directivas de punto de conexión deben aplicarse individualmente a estas redes virtuales.
+- **Filtrado del tráfico de Internet con dispositivos de red o Azure Firewall**: filtre el tráfico del servicio de Azure con directivas, sobre puntos de conexión, y filtre el resto del tráfico de Internet o de Azure a través de dispositivos o de Azure Firewall. 
+- **Filtrado del tráfico en servicios de Azure implementados en redes virtuales**: durante la versión preliminar, las directivas de punto de conexión de servicio no son compatibles con ningún servicio administrado de Azure que se implemente en la red virtual. 
  Para ver servicios específicos, consulte [Limitaciones.](#Limitations)
 - **Filtrado del tráfico a los servicios de Azure desde el entorno local**: las directivas de punto de conexión de servicio solo se aplican al tráfico de las subredes asociadas a las directivas. Para permitir el acceso a recursos de servicio específicos de Azure desde el entorno local, el tráfico debe filtrarse utilizando aplicaciones de redes virtuales o firewalls.
 

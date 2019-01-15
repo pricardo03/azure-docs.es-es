@@ -9,19 +9,18 @@ ms.assetid: 7e0a2465-2d85-4143-a4bb-42e03c273097
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: caea4296bc0573141865aca27b04f9d9ee049e94
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 517d3da0e8e126a1982dafe8fcea0bbf391cfa5a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955593"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019697"
 ---
-# <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Tutorial: Compilación de la primera instancia de Azure Data Factory con la API de REST de Data Factory
+# <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Tutorial: Compilación de la primera factoría de datos Azure mediante la API REST de Data Factory
 > [!div class="op_single_selector"]
 > * [Introducción y requisitos previos](data-factory-build-your-first-pipeline.md)
 > * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
@@ -34,11 +33,11 @@ ms.locfileid: "49955593"
 
 
 > [!NOTE]
-> Este artículo se aplica a la versión 1 de Data Factory. Si usa la versión actual del servicio Data Factory, consulte [Guía de inicio rápido: Creación de una factoría de datos mediante Data Factory](../quickstart-create-data-factory-rest-api.md).
+> Este artículo se aplica a la versión 1 de Data Factory. Si utiliza la versión actual del servicio Data Factory, consulte el artículo [Inicio rápido: Creación de una factoría de datos con Azure Data Factory](../quickstart-create-data-factory-rest-api.md).
 
 En este artículo usará la API de REST de Data Factory para crear su primera instancia de Azure Data Factory. Para realizar el tutorial con otros SDK/herramientas, seleccione una de las opciones de la lista desplegable.
 
-La canalización de este tutorial tiene una actividad: **actividad de HDInsight Hive**. Esta actividad ejecuta un script de Hive en un clúster de Azure HDInsight que transforma los datos de entrada para generar datos de salida. La canalización está programada para ejecutarse una vez al mes entre las horas de inicio y finalización especificadas.
+La canalización de este tutorial tiene solo una actividad: **Actividad de Hive de HDInsight**. Esta actividad ejecuta un script de Hive en un clúster de Azure HDInsight que transforma los datos de entrada para generar datos de salida. La canalización está programada para ejecutarse una vez al mes entre las horas de inicio y finalización especificadas.
 
 > [!NOTE]
 > Este artículo no abarca toda la API de REST. Para obtener documentación completa sobre la API de REST, consulte la [referencia de la API de REST de Data Factory](/rest/api/datafactory/).
@@ -315,7 +314,7 @@ En este paso, creará una instancia de Azure Data Factory llamada **LogProcessin
 
 Tenga en cuenta los siguientes puntos:
 
-* El nombre de Azure Data Factory debe ser único de forma global. Si ve el siguiente error en los resultados: **El nombre “ADFCopyTutorialDF” de factoría de datos no está disponible**, siga estos pasos:
+* El nombre de Azure Data Factory debe ser único de forma global. Si ve el siguiente error en los resultados, **El nombre “FirstDataFactoryREST” de factoría de datos no está disponible**, siga estos pasos:
   1. Cambie el nombre (por ejemplo, yournameFirstDataFactoryREST) en el archivo **datafactory.json** . Consulte el tema [Data Factory: reglas de nomenclatura](data-factory-naming-rules.md) para conocer las reglas de nomenclatura para los artefactos de Data Factory.
   2. En el primer comando, donde se asigna un valor a la variable **$cmd** , reemplace FirstDataFactoryREST por el nuevo nombre y ejecute el comando.
   3. Ejecute los dos comandos siguientes para invocar la API de REST para crear la factoría de datos e imprimir los resultados de la operación.
@@ -420,7 +419,7 @@ En este paso, creará el conjunto de datos de salida que representa los datos de
     ```
 
 ## <a name="create-pipeline"></a>Creación de una canalización
-En este paso, creará la primera canalización con una actividad **HDInsightHive** . El segmento de entrada está disponible mensualmente (frecuencia: mensual, intervalo: 1), el segmento de salida se genera mensualmente y la propiedad de programador de la actividad también se establece en mensual. La configuración del conjunto de datos de salida y la del programador de la actividad deben coincidir. Actualmente, el conjunto de datos de salida es lo que controla la programación, por lo que debe crear un conjunto de datos de salida aunque la actividad no genere ninguna salida. Si la actividad no toma ninguna entrada, puede omitir la creación del conjunto de datos de entrada.
+En este paso, creará la primera canalización con una actividad **HDInsightHive** . El segmento de entrada está disponible de forma mensual (frecuencia: mensual, intervalo: 1), el segmento de salida se genera mensualmente y la propiedad de programador de la actividad también se establece en mensual. La configuración del conjunto de datos de salida y la del programador de la actividad deben coincidir. Actualmente, el conjunto de datos de salida es lo que controla la programación, por lo que debe crear un conjunto de datos de salida aunque la actividad no genere ninguna salida. Si la actividad no toma ninguna entrada, puede omitir la creación del conjunto de datos de entrada.
 
 Confirme que el archivo **input.log** aparece en la carpeta **adfgetstarted/inputdata** en Azure Blob Storage y ejecute el siguiente comando para implementar la canalización. Como las fechas de **inicio** y **finalización** están establecidas en el pasado e **isPaused** está establecido en false, la canalización (la actividad de la canalización) se ejecuta nada más realizar la implementación.
 
@@ -485,7 +484,7 @@ En este tutorial, ha creado una instancia de Data Factory de Azure para procesar
 4. Ha creado una **canalización** con una actividad de **Hive de HDInsight**.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight de Azure a petición. Para ver cómo se usa una actividad de copia para copiar datos de un blob de Azure en SQL Azure, consulte [Tutorial: Copia de datos de un blob de Azure a SQL Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+En este artículo, creó una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight de Azure a petición. Para ver cómo se usa una actividad de copia para copiar datos de un blob de Azure en SQL Azure, consulte [Tutorial: Copia de datos de un blob de Azure a Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="see-also"></a>Otras referencias
 | Tema | DESCRIPCIÓN |

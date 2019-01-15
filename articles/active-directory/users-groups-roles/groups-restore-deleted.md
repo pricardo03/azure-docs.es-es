@@ -14,12 +14,12 @@ ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 3b2264817dce63885ce0c428fe4df8427f7cdde6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 090c6c2d20bf169a3b3362cc796f6fc5c04b3c83
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049257"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54155038"
 ---
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>Restauración de un grupo eliminado de Office 365 en Azure Active Directory
 
@@ -79,7 +79,7 @@ Para comprobar que restauró correctamente un grupo de Office 365, ejecute el cm
 ## <a name="next-steps"></a>Pasos siguientes
 En estos artículos se proporciona información adicional sobre los grupos de Azure Active Directory.
 
-* [Ver los grupos existentes](../fundamentals/active-directory-groups-view-azure-portal.md)
+* [Consulta de los grupos existentes](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Administración de la configuración de un grupo](../fundamentals/active-directory-groups-settings-azure-portal.md)
 * [Administrar miembros de un grupo](../fundamentals/active-directory-groups-members-azure-portal.md)
 * [Administrar la pertenencia a grupos](../fundamentals/active-directory-groups-membership-azure-portal.md)

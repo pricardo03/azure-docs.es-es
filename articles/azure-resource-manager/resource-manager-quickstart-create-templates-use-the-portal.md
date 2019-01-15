@@ -13,14 +13,14 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 515ab6a4ee832c702cfe19f2aca9022f208b409d
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 15940d952dad62b3f71bfef6aa1cd8598d044605
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612795"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104733"
 ---
-# <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Guía de inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal
+# <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal
 
 Aprenda cómo crear su primera plantilla de Azure Resource Manager al generar una con Azure Portal, así como el proceso de editar e implementar la plantilla desde Azure Portal. Las plantillas de Resource Manager son archivos JSON que definen los recursos que necesita para implementar la solución. Las instrucciones de este tutorial crean una cuenta de Azure Storage. Puede usar el mismo proceso para crear otros recursos de Azure.
 
@@ -97,7 +97,7 @@ Azure requiere que cada servicio de Azure tenga un nombre único. Se producirá 
 
     ```json
     {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "location": {
@@ -145,9 +145,9 @@ Azure requiere que cada servicio de Azure tenga un nombre único. Se producirá 
     - **Grupo de recursos**: dé un nombre único a su grupo de recursos.
     - **Ubicación**: seleccione una ubicación para el grupo de recursos.
     - **Ubicación**: seleccione la ubicación para la cuenta de almacenamiento.  Puede usar la misma ubicación que el grupo de recursos.
-    - **Tipo de cuenta**: escriba **Standard_LRS** para esta guía de inicio rápido.
-    - **Variante**: escriba **StorageV2** para esta guía de inicio rápido.
-    - **Nivel de acceso**: escriba **Frecuente** para esta guía de inicio rápido.
+    - **Tipo de cuenta**: escriba **Standard_LRS** para este artículo de inicio rápido.
+    - **Variante**: escriba **StorageV2** para este artículo de inicio rápido.
+    - **Nivel de acceso**: escriba **Frecuente** para este artículo de inicio rápido.
     - **Https Traffic Only Enabled** (Solo tráfico HTTPS habilitado).  Seleccione **true** para esta guía de inicio rápido.
     - **Acepto los términos y condiciones indicados anteriormente**: (seleccionar)
 
@@ -164,7 +164,7 @@ Azure requiere que cada servicio de Azure tenga un nombre único. Se producirá 
 
     ![Grupo de recursos de la implementación de plantillas de Azure Resource Manager](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-deployment-resource-group.png)
 
-    Puede ver que el estado de la implementación fue correcto y que solo hay una cuenta de almacenamiento en el grupo de recursos. El nombre de cuenta de almacenamiento es una cadena única generada por la plantilla. Para más información sobre el uso de cuentas de Azure Storage, consulte [Inicio rápido: Carga, descarga y enumeración de blobs mediante Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md).
+    Puede ver que el estado de la implementación fue correcto y que solo hay una cuenta de almacenamiento en el grupo de recursos. El nombre de cuenta de almacenamiento es una cadena única generada por la plantilla. Para más información sobre las cuentas de almacenamiento de Azure, consulte [Inicio rápido: Carga, descarga y enumeración de blobs mediante Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

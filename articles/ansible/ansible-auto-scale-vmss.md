@@ -3,17 +3,17 @@ title: Escalado automático de un conjunto de escalado de máquinas virtuales en
 description: Aprenda a usar Ansible para escalar un conjunto de escalado de máquinas virtuales con la escalabilidad automática en Azure.
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, scale, autoscale, virtual machine, virtual machine scale set, vmss
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
-ms.author: yuwzho, kyliel
+ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.openlocfilehash: c6678d6df3a695d3a0471e5779bc3af4b6ba6c84
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 7721dba37131616122f8a5a902e3c63de5c7157f
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53411168"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157061"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-azure-using-ansible"></a>Escalado automático de un conjunto de escalado de máquinas virtuales en Azure con Ansible
 Ansible permite automatizar la implementación y la configuración de recursos en un entorno. Puede usar Ansible para administrar su conjunto de escalado de máquinas virtuales (VMSS) de Azure, al igual que podría hacerlo con cualquier otro recurso de Azure. 
@@ -29,7 +29,7 @@ Al crear un conjunto de escalado, puede definir el número de instancias de máq
 > Se requiere Ansible 2.7 para ejecutar los siguientes cuadernos de estrategias de ejemplo en este tutorial. 
 
 ## <a name="auto-scale-based-on-a-schedule"></a>Escalación automática según una programación   
-Para habilitar el escalado automático en un conjunto de escalado, primero debe definir un perfil de escalado automático. Este perfil define la capacidad predeterminada, mínima y máxima del conjunto de escalado. Estos límites le permiten controlar el costo por no crear continuamente instancias de máquina virtual, y equilibrar un rendimiento aceptable con un número mínimo de instancias que permanecen en un evento de reducción horizontal. 
+Para habilitar el escalado automático en un conjunto de escalado, primero debe definir un perfil de escalado automático. Este perfil define la capacidad predeterminada, mínima y máxima del conjunto de escalado. Estos límites le permiten controlar el costo al no crear continuamente instancias de máquina virtual, y equilibrar un rendimiento aceptable con un número mínimo de instancias que permanecen en un evento de reducción horizontal. 
 
 Puede reducir y escalar horizontalmente los Virtual Machine Scale Sets siguiendo una programación periódica o en una fecha determinada. En esta sección se presenta un ejemplo de cuaderno de estrategias de Ansible que crea una configuración de escalabilidad automática por la que se aumenta el número de instancias de máquina virtual a tres en los conjuntos de escalado a las 10:00 todos los lunes, zona horaria del Pacífico. 
 

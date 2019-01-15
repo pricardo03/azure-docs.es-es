@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: d116f2553ce35c2d4041f37cc3fe4567e1595adc
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 5b3e68765fbcff12dcb5337aec38623b8994882c
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53258770"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156806"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>Guía de inicio rápido: Realizar una búsqueda de noticias con el SDK de Bing News Search para C#
 
@@ -35,14 +35,14 @@ La instalación del [paquete del SDK de NuGet News Search](https://www.nuget.org
 * Newtonsoft.Json
 
 ## <a name="news-search-client"></a>Cliente de News Search
-Para crear una instancia del cliente `NewsSearchAPI`, agregue una directiva Using:
+Para crear una instancia de `NewsSearchClient`, agregue una directiva using:
 ```
 using Microsoft.Azure.CognitiveServices.Search.NewsSearch;
 
 ```
 Después, cree una instancia del cliente:
 ```
-var client = new NewsSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+var client = new NewsSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
 
 ```
@@ -56,7 +56,7 @@ Analice las noticias devueltas en los resultados de la consulta anterior:
 ```
 if (newsResults.Value.Count > 0)
 {
-    var firstNewsResult = newsResults.Value.First();
+    var firstNewsResult = newsResults.Value[0];
 
     Console.WriteLine($"TotalEstimatedMatches value: {newsResults.TotalEstimatedMatches}");
     Console.WriteLine($"News result count: {newsResults.Value.Count}");
@@ -64,7 +64,7 @@ if (newsResults.Value.Count > 0)
     Console.WriteLine($"First news url: {firstNewsResult.Url}");
     Console.WriteLine($"First news description: {firstNewsResult.Description}");
     Console.WriteLine($"First news published time: {firstNewsResult.DatePublished}");
-    Console.WriteLine($"First news provider: {firstNewsResult.Provider.First().Name}");
+    Console.WriteLine($"First news provider: {firstNewsResult.Provider[0].Name}");
 }
 
 else
@@ -88,7 +88,7 @@ namespace NewsSrchSDK
     {
         static void Main(string[] args)
         {
-            var client = new NewsSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+            var client = new NewsSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
             try
             {
@@ -141,7 +141,7 @@ namespace NewsSrchSDK
 ## <a name="recent-news-freshness-and-sortby-parameters"></a>Parámetros Recent news, freshness y sortBy
 El código siguiente busca las noticias más recientes sobre "Inteligencia artificial" con los parámetros `freshness` y `sortBy`. Verifica el número de resultados e imprime `totalEstimatedMatches`, `name`, `url`, `description`, `published time` y `name` del proveedor del primer resultado de noticias.
 ```
-        public static void NewsSearchWithFilters(NewsSearchAPI client)
+        public static void NewsSearchWithFilters(NewsSearchClient client)
         {
             try
             {
@@ -184,7 +184,7 @@ El código siguiente busca las noticias más recientes sobre "Inteligencia artif
 ## <a name="category-news-safe-search"></a>Noticias de categoría y búsqueda segura
 El código siguiente busca entretenimiento de películas y TV en la categoría de noticias con la búsqueda segura.  Verifica el número de resultados e imprime `category`, `name`, `url`, `description`, `published time` y `name` del proveedor del primer resultado de noticias.
 ```
-        public static void NewsCategory(NewsSearchAPI client)
+        public static void NewsCategory(NewsSearchClient client)
         {
             try
             {
@@ -226,7 +226,7 @@ El código siguiente busca entretenimiento de películas y TV en la categoría d
 ## <a name="trending-topics"></a>Temas populares
 El código siguiente busca temas populares de noticias de Bing. Verifica el número de resultados e imprime `name`, `text of query`, `webSearchUrl`, `newsSearchUrl` y `image.Url` del primer resultado de noticias.
 ```
-        public static void TrendingTopics(NewsSearchAPI client)
+        public static void TrendingTopics(NewsSearchClient client)
         {
             try
             {

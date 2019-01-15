@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: overview
-ms.date: 11/19/2018
+ms.date: 01/03/2019
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 7628260efff34b52ca7d4bd4c35cce279d5474b3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 516ce9d9a6fcc73b543c7db584afebf71c2293ca
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965417"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065006"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introducción a Azure Blob Storage
 
@@ -33,7 +33,7 @@ En el siguiente diagrama se muestra la relación entre estos recursos.
 
 ### <a name="storage-accounts"></a>Cuentas de almacenamiento
 
-Una cuenta de almacenamiento le proporciona un espacio de nombres único en Azure para sus datos. Cada objeto que almacena en Azure Storage tiene una dirección que incluye su nombre de cuenta único. La combinación del nombre de la cuenta y el punto de conexión del servicio de Azure Storage forma los puntos de conexión de su cuenta de almacenamiento.
+Una cuenta de almacenamiento le proporciona un espacio de nombres único en Azure para sus datos. Cada objeto que almacena en Azure Storage tiene una dirección que incluye su nombre de cuenta único. La combinación del nombre de la cuenta y el punto de conexión del blob de Azure Storage constituye la dirección base de los objetos de la cuenta de almacenamiento.
 
 Por ejemplo, si la cuenta de almacenamiento se llama *mystorageaccount*, los puntos de conexión predeterminados para Blob Storage son:
 
@@ -56,7 +56,7 @@ Azure Storage admite tres tipos de blobs:
 
 * Los **blobs en bloques** almacenan texto y datos binarios, hasta unos 4,7 TB. Los blobs en bloques se componen de bloques de datos que se pueden administrar de forma individual.
 * Los **blobs en anexos** constan de bloques, como los blobs en bloques, pero están optimizados para operaciones de anexión. Los blobs en anexos resultan muy convenientes para escenarios como el registro de datos de máquinas virtuales.
-* Los **blobs en páginas** almacenan archivos de acceso aleatorio con un tamaño de hasta 8 TB. Los blobs en páginas almacenan los archivos del disco duro virtual (VHD) que sirven como discos para las máquinas virtuales de Azure. Para más información sobre los blobs en páginas, vea (../articles/storage/blobs/storage-blob-pageblob-overview.md)
+* Los **blobs en páginas** almacenan archivos de acceso aleatorio con un tamaño de hasta 8 TB. Los blobs en páginas almacenan los archivos del disco duro virtual (VHD) que sirven como discos para las máquinas virtuales de Azure. Para más información sobre los blobs en páginas, consulte la [Introducción a los blobs en páginas de Azure](storage-blob-pageblob-overview.md)
 
 Para más información sobre los distintos tipos de blobs, consulte [Understanding Block Blobs, Append Blobs, and Page Blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) (Descripción de los blobs en bloques, en anexos y en páginas).
 

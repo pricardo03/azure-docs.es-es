@@ -9,17 +9,16 @@ ms.assetid: 98cf8387-34de-468e-ac8f-5c02c9e83e68
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/10/2018
+ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 864c80fe0ab8b061439b5a80a111edbd1b2004b6
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: c3b605507c3878770db2c7dcb53a2ff9bb512b6b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027034"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078395"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante Azure Portal
 
@@ -41,7 +40,7 @@ Inicie sesión en Azure Portal en http://portal.azure.com.
 4. En la sección Key Vault, elija **Crear**.
 5. En la sección **Crear Key Vault**, proporcione la siguiente información:
     - **Nombre**: se requiere un nombre único. En esta guía de inicio rápido se usará **Contoso-vault2**. 
-    - **Suscripción**: elija una suscripción.
+    - **Suscripción**: Elija una suscripción.
     - En **Grupo de recursos** elija **Crear nuevo** y escriba un nombre para el grupo de recursos.
     - En el menú desplegable **Ubicación**, elija una ubicación.
     - Seleccione la casilla **Anclar al panel**.
@@ -50,8 +49,8 @@ Inicie sesión en Azure Portal en http://portal.azure.com.
 
 Tome nota de las dos propiedades siguientes:
 
-* **Nombre de almacén**: en este ejemplo es **Contoso-Vault2**. Utilizará este nombre para otros pasos.
-* **URI de almacén**: en el ejemplo, es https://contoso-vault2.vault.azure.net/. Las aplicaciones que utilizan el almacén a través de su API de REST deben usar este identificador URI.
+* **Nombre del almacén**: en este ejemplo es **Contoso-Vault2**. Utilizará este nombre para otros pasos.
+* **URI de almacén**: en el ejemplo es https://contoso-vault2.vault.azure.net/. Las aplicaciones que utilizan el almacén a través de su API de REST deben usar este identificador URI.
 
 En este momento, su cuenta de Azure es la única autorizada para realizar operaciones en este nuevo almacén.
 

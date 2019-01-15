@@ -12,29 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2018
+ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: ec8fabfce8c26aef98217947da33a56222288b3c
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6399e1838b00fc533ab42a76e4f1f1667e3a434a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077569"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159526"
 ---
 # <a name="create-a-plan-in-azure-stack"></a>Creación de un plan en Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Los [planes](azure-stack-key-features.md) son agrupaciones de uno o varios servicios. Como proveedor puede crear planes y ofrecérselos a sus usuarios. A su vez, los usuarios se suscriben a las ofertas para usar los planes y los servicios que incluyen. Este ejemplo muestra cómo crear un plan que incluya a los proveedores de recursos de proceso, de red y de almacenamiento. Este plan ofrece a los suscriptores la capacidad de aprovisionar máquinas virtuales.
 
-1. Inicie sesión en el portal de administración de Azure Stack (https://adminportal.local.azurestack.external).
+1. Inicie sesión en el [Portal de administración de Azure Stack](https://adminportal.local.azurestack.external).
 
-2. Para crear un plan y una oferta a la que los usuarios puedan suscribirse, seleccione **+Crear un recurso** > **Ofertas y planes** > **Plan**.
+2. Para crear un plan y una oferta a la que los usuarios puedan suscribirse, seleccione **+ Crear un recurso**, **Ofertas y planes** y, finalmente, **Plan**.
   
    ![Seleccionar un plan](media/azure-stack-create-plan/select-plan.png)
 
-3. En **Nuevo plan**, escriba un **nombre para mostrar** y un **nombre del recurso**. El nombre para mostrar es el nombre descriptivo del plan que ven los usuarios. Solo el administrador puede ver el nombre del recurso, que usan los administradores para trabajar con el plan como un recurso de Azure Resource Manager.
+3. En **Nuevo plan**, escriba un **nombre para mostrar** y un **nombre del recurso**. El nombre para mostrar es el nombre descriptivo del plan que ven los usuarios. Solo el administrador puede ver el nombre del recurso que usan los administradores para trabajar con el plan como un recurso de Azure Resource Manager.
 
    ![Especificar los detalles](media/azure-stack-create-plan/plan-name.png)
 
@@ -72,4 +72,4 @@ Los [planes](azure-stack-key-features.md) son agrupaciones de uno o varios servi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Creación de una oferta](azure-stack-create-offer.md)
+* [Creación de una oferta](azure-stack-create-offer.md)

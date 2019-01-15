@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c5889d89ec8c913d9300fa85318a16b4eb452d3b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: d265c391b12a46f509c8663c64892372c8d806ba
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633765"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104529"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>Creación de la primera función mediante Visual Studio Code
 
@@ -27,7 +27,7 @@ En este artículo aprenderá a usar la [extensión de Azure Functions para Visua
 
 ![Código Azure Functions en un proyecto de Visual Studio](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-La extensión admite actualmente funciones de C#, JavaScript y Java. Los pasos descritos en este artículo pueden variar según el lenguaje que elija para el proyecto de Azure Functions. Actualmente, la extensión se encuentra en versión preliminar. Para más información, consulte la página de la [extensión de Azure Functions para Visual Studio Code].
+En la actualidad la extensión es totalmente compatible con las funciones C#, JavaScript y Java, con la compatibilidad con Python actualmente en versión preliminar. Los pasos descritos en este artículo pueden variar según el lenguaje que elija para el proyecto de Azure Functions. Actualmente, la extensión se encuentra en versión preliminar. Para más información, consulte la página de la [extensión de Azure Functions para Visual Studio Code].
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -93,7 +93,7 @@ Azure Functions Core Tools le permite ejecutar un proyecto de Azure Functions en
 
     ![Respuesta de localhost de la función en el explorador](./media/functions-create-first-function-vs-code/functions-test-local-browser.png)
 
-1. Para detener la depuración, presione Mayús + F1.
+1. Para detener la depuración, presione Mayús + F5.
 
 Después de comprobar que la función se ejecuta correctamente en el equipo local es el momento de publicar el proyecto en Azure.
 

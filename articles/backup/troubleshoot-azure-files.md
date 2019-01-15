@@ -8,12 +8,12 @@ ms.author: raynew
 ms.date: 10/23/2018
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 4806ca77bda1d380d3c5f1d958a335bceddc7f16
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 56daf1bd8d0ab7752b74463759f25441924b52d2
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787450"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064124"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Solución de problemas en las copias de seguridad de recursos compartidos de archivos de Azure
 Puede solucionar los problemas y errores que aparezcan al usar la copia de seguridad de recursos compartidos de archivos de Azure con la información que encontrará en las tablas siguientes.
@@ -36,7 +36,7 @@ La copia de seguridad de recursos compartidos de archivos de Azure en cuentas de
 ## <a name="configuring-backup"></a>Configuración de la copia de seguridad
 La tabla siguiente es para configurar la copia de seguridad:
 
-| Configuración de la copia de seguridad | Sugerencias de solución alternativa o resolución |
+| mensajes de error | Sugerencias de solución alternativa o resolución |
 | ------------------ | ----------------------------- |
 | No se pudo encontrar la cuenta de almacenamiento para configurar la copia de seguridad para los recursos compartidos de archivos de Azure | <ul><li>Espere a que la detección finalice. <li>Compruebe si algún recurso compartido de archivos de la cuenta de almacenamiento ya está protegido con otro almacén de Recovery Services. **Nota**: Todos los recursos compartidos de archivos de una cuenta de almacenamiento solo se pueden proteger en un almacén de Recovery Services. <li>Asegúrese de que el recurso compartido de archivos no esté presente en ninguna de las cuentas de almacenamiento no admitidas.|
 | Error en la detección de estados del portal de las cuentas de almacenamiento. | Si la suscripción es de un asociado (habilitada para CSP), haga caso omiso del error. Si la suscripción no está habilitada para CSP y las cuentas de almacenamiento no se pueden detectar, póngase en contacto con el servicio de soporte técnico.|
@@ -64,6 +64,14 @@ La tabla siguiente es para configurar la copia de seguridad:
 | No se puede realizar la operación de restauración porque el recurso compartido de archivos de destino está lleno. | Aumente la cuota de tamaño del recurso compartido de archivos de destino para albergar los datos de restauración y vuelva a intentar la operación. |
 | La operación de restauración produjo un error porque, a su vez, se produjo un error al realizar las operaciones previas de restauración en los recursos del servicio de sincronización de archivos asociados con el recurso compartido de archivos de destino. | Vuelva a intentarlo un tiempo después y si el problema persiste, póngase en contacto con el soporte técnico de Microsoft. |
 | Uno o varios archivos no se pudieron recuperar correctamente. Para más información, consulte la lista de archivos que han dado error en la ruta de acceso anterior. | <ul> <li> Las causas de los errores de recuperación se muestran en el archivo (la ruta de acceso se proporciona en los detalles del trabajo). Solucione los errores y vuelva a intentar la operación de restauración solo de los archivos con error. <li> Las causas comunes de errores de restauración de archivos son: <br/> -Asegúrese de que los archivos con error no están actualmente en uso. <br/> -Existe un directorio con el mismo nombre que el archivo de error en el directorio principal. |
+
+
+## <a name="modify-policy"></a>Modificación de directivas
+| mensajes de error | Sugerencias de solución alternativa o resolución |
+| ------------------ | ----------------------------- |
+| Hay otra operación de protección de configuración en curso para este elemento. | Espere a que termine la operación de modificación de directivas anterior y vuelva a intentarlo al cabo de un tiempo.|
+| Hay otra operación en curso en el elemento seleccionado. | Espere a que la otra operación en curso termine y vuelva a intentarlo al cabo de un tiempo. |
+
 
 ## <a name="see-also"></a>Otras referencias
 Para información adicional acerca de la copia de seguridad de los recursos compartidos de archivos de Azure, consulte:

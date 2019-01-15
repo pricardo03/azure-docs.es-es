@@ -10,17 +10,16 @@ ms.assetid: eb9e70b9-a13a-4a27-8256-2759496be470
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: a04e91cea4ce1670fcc0a7be2d7591d5856b738f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c0bb15dceed7bc4d0c335e129f810c88622ebadd
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106869"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043709"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Compilación de la primera Data Factory de Azure con la plantilla de Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -33,16 +32,16 @@ ms.locfileid: "43106869"
 > 
  
 > [!NOTE]
-> Este artículo se aplica a la versión 1 de Data Factory. Si usa la versión actual del servicio Data Factory, consulte [Guía de inicio rápido: Creación de una factoría de datos mediante Data Factory](../quickstart-create-data-factory-dot-net.md).
+> Este artículo se aplica a la versión 1 de Data Factory. Si utiliza la versión actual del servicio Data Factory, consulte el artículo [Inicio rápido: Creación de una factoría de datos con Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 En este artículo, usará una plantilla de Azure Resource Manager para crear su primera instancia de Azure Data Factory. Para realizar el tutorial con otros SDK/herramientas, seleccione una de las opciones de la lista desplegable.
 
-La canalización de este tutorial tiene una actividad: **actividad de HDInsight Hive**. Esta actividad ejecuta un script de Hive en un clúster de Azure HDInsight que transforma los datos de entrada para generar datos de salida. La canalización está programada para ejecutarse una vez al mes entre las horas de inicio y finalización especificadas. 
+La canalización de este tutorial tiene solo una actividad: **Actividad de Hive de HDInsight**. Esta actividad ejecuta un script de Hive en un clúster de Azure HDInsight que transforma los datos de entrada para generar datos de salida. La canalización está programada para ejecutarse una vez al mes entre las horas de inicio y finalización especificadas. 
 
 > [!NOTE]
-> En este tutorial, la canalización de datos transforma los datos de entrada para generar datos de salida. Para ver un tutorial acerca de cómo copiar datos mediante Azure Data Factory, consulte [Copia de datos de Blob Storage en SQL Database mediante Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> En este tutorial, la canalización de datos transforma los datos de entrada para generar datos de salida. Para ver un tutorial acerca de cómo copiar datos mediante Azure Data Factory, consulte [Tutorial: Copia de datos de Blob Storage en SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
-> La canalización de este tutorial tiene solo una actividad de tipo: HDInsightHive. pero se puede tener más de una actividad en una canalización. También puede encadenar dos actividades (ejecutar una después de otra) haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. Para más información, consulte [Programación y ejecución en Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
+> La canalización de este tutorial tiene solo una actividad de tipo: HDInsightHive. pero cualquier canalización puede tener más de una actividad. También puede encadenar dos actividades (ejecutar una después de otra) haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. Para más información, consulte [Programación y ejecución en Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Lea el artículo [Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md) y complete los pasos de los **requisitos previos** .
@@ -60,7 +59,7 @@ La canalización de este tutorial tiene una actividad: **actividad de HDInsight 
 
 Una factoría de datos puede tener una o más canalizaciones. Una canalización puede tener una o más actividades. Hay dos tipos de actividades: [actividades de movimiento de datos](data-factory-data-movement-activities.md) y [actividades de transformación de datos](data-factory-data-transformation-activities.md). En este tutorial se crea una canalización con una actividad (actividad de Hive).
 
-En la siguiente sección se proporciona la plantilla completa de Resource Manager para definir las entidades de Data Factory para que pueda ejecutar el tutorial rápidamente y probar la plantilla. Para entender cómo se define cada entidad de Data Factory, consulte la sección [Entidades de Data Factory en la plantilla](#data-factory-entities-in-the-template).
+En la siguiente sección se proporciona la plantilla completa de Resource Manager para definir las entidades de Data Factory para que pueda ejecutar el tutorial rápidamente y probar la plantilla. Para entender cómo se define cada entidad de Data Factory, consulte la sección [Entidades de Data Factory en la plantilla](#data-factory-entities-in-the-template). Para obtener información sobre la sintaxis y las propiedades de JSON para los recursos de la factoría de datos en una plantilla, consulte [Tipos de recurso Microsoft.DataFactory](/azure/templates/microsoft.datafactory/allversions).
 
 ## <a name="data-factory-json-template"></a>Plantilla JSON de Data Factory
 La plantilla de Resource Manager de nivel superior para definir una factoría de datos es: 
@@ -262,7 +261,7 @@ Cree un archivo JSON llamado **ADFTutorialARM.json** en la carpeta **C:\ADFGetSt
 ```
 
 > [!NOTE]
-> Puede encontrar otro ejemplo de plantilla de Resource Manager para crear una factoría de datos de Azure en [Tutorial: Create a pipeline with Copy Activity using an Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md) (Tutorial: Creación de una canalización con la actividad de copia mediante una plantilla de Azure Resource Manager).  
+> Puede encontrar otro ejemplo de plantilla de Resource Manager para crear una instancia de Data Factory de Azure en [Tutorial: Creación de una canalización para copiar datos mediante el uso de plantillas de Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md).  
 > 
 > 
 
@@ -616,7 +615,7 @@ Aquí aparece una plantilla de Resource Manager de ejemplo para crear una puerta
     ]
 }
 ```
-Esta plantilla crea una factoría de datos denominada GatewayUsingArmDF con una puerta de enlace llamada GatewayUsingARM. 
+Esta plantilla crea una factoría de datos denominada GatewayUsingArmDF con una puerta de enlace llamada: GatewayUsingARM. 
 
 ## <a name="see-also"></a>Otras referencias
 | Tema | DESCRIPCIÓN |

@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 10/04/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: a2f8d295ca161ff2263f53b8faa407c7a42a4c6b
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: ae6ab0eb4c966ef57c7859098217b5b6b560614b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385855"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188562"
 ---
 # <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Inicio rápido: Implementación de Azure Data Box mediante Azure Portal
 
 En esta guía de inicio rápido se describe cómo implementar Azure Data Box mediante Azure Portal. Los pasos incluyen cómo cablear, configurar y copiar datos en Data Box para que se cargan en Azure. La guía de inicio rápido se realiza en Azure Portal y en la interfaz de usuario web local del dispositivo.
 
-Para obtener las instrucciones para realizar una implementación paso a paso y el seguimiento del proceso, vaya a [Tutorial: Pedido de Azure Data Box](data-box-deploy-ordered.md).
+Para obtener instrucciones detalladas para realizar una implementación y el seguimiento del proceso, vaya a [Tutorial: Realización de pedidos de Azure Data Box](data-box-deploy-ordered.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -28,7 +28,6 @@ Antes de empezar:
 - Asegúrese de que la suscripción que utilice para el servicio Data Box sea de uno de los siguientes tipos:
     - Contrato Enterprise (EA) de Microsoft. Más información acerca de [las suscripciones de EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
     - Proveedor de soluciones en la nube (CSP). Más información acerca del [programa Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-    - Consumo: pago por uso. Más información acerca de las [suscripciones de pago por uso de Azure](https://azure.microsoft.com/offers/ms-azr-0003p/).
     - Patrocinio de Microsoft Azure Obtenga más información sobre el [programa de patrocinio de Azure](https://azure.microsoft.com/offers/ms-azr-0036p/). 
 
 - Asegúrese de que tiene acceso de propietario o colaborador a la suscripción para crear un pedido de Data Box.

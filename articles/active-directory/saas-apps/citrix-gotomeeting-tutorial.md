@@ -4,176 +4,199 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: bcaf19f2-5809-4e1c-acbc-21a8d3498ccf
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/02/2018
+ms.topic: tutorial
+ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: b62b3b7f9f3bfd55237ed4d894954a0bde48e7fc
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f1632ffa6bf4f0896fe4155b9a3fe938d0e672fc
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39043727"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065025"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>Tutorial: Integración de Azure Active Directory con GoToMeeting
 
 En este tutorial, aprenderá a integrar GoToMeeting con Azure Active Directory (Azure AD).
-
 La integración de GoToMeeting con Azure AD le proporciona las siguientes ventajas:
 
-- Puede controlar en Azure AD quién tiene acceso a GoToMeeting.
-- Puede permitir que los usuarios inicien sesión automáticamente en GoToMeeting (Inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: Azure Portal.
+* Puede controlar en Azure AD quién tiene acceso a GoToMeeting.
+* Puede permitir que los usuarios inicien sesión automáticamente en GoToMeeting (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con GoToMeeting, necesita los siguientes elementos:
 
-- Una suscripción de Azure AD
-- Una suscripción habilitada para el inicio de sesión único en GoToMeeting
-
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-
-Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
-
-- No use el entorno de producción, salvo que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
+* Una suscripción habilitada para el inicio de sesión único en GoToMeeting
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
-1. Incorporación de GoToMeeting desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
+
+* GoToMeeting admite el inicio de sesión único iniciado por **IDP**
 
 ## <a name="adding-gotomeeting-from-the-gallery"></a>Incorporación de GoToMeeting desde la galería
+
 Para configurar la integración de GoToMeeting en Azure AD, tendrá que agregar GoToMeeting desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar GoToMeeting desde la galería, realice los siguientes pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
-    ![Botón Azure Active Directory][1]
+    ![Botón Azure Active Directory](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
-    ![Hoja Aplicaciones empresariales][2]
-    
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+
 3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-    ![Botón Nueva aplicación][3]
+    ![Botón Nueva aplicación](common/add-new-app.png)
 
 4. En el cuadro de búsqueda, escriba **GoToMeeting**, seleccione **GoToMeeting** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-    ![GoToMeeting en la lista de resultados](./media/citrix-gotomeeting-tutorial/tutorial_gotomeeting_addfromgallery.png)
+     ![GoToMeeting en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, configurará y probará el inicio de sesión único de Azure AD con GoToMeeting con un usuario de prueba llamado "Britta Simon".
-
-Para que el inicio de sesión único funcione, Azure AD tiene saber cuál es el usuario homólogo en GoToMeeting de un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de GoToMeeting.
-
-Para establecer la relación de vínculo, en GoToMeeting, asigne el valor de **nombre de usuario** de Azure AD como valor de **nombre de usuario**.
+En esta sección, configurará y probará el inicio de sesión único de Azure AD con GoToMeeting con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de GoToMeeting.
 
 Para configurar y probar el inicio de sesión único de Azure AD con GoToMeeting, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de GoToMeeting ](#create-a-gotomeeting-test-user)**: para tener un homólogo de Britta Simon en GoToMeeting que esté vinculado a la representación del usuario en Azure AD.
+2. **[Configuración del inicio de sesión único de GoToMeeting](#configure-gotomeeting-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+5. **[Creación del usuario de prueba de GoToMeeting](#create-gotomeeting-test-user)**: para tener un homólogo de Britta Simon en GoToMeeting vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación GoToMeeting.
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-**Para configurar el inicio de sesión único de Azure AD con GoToMeeting, realice los siguientes pasos:**
+Para configurar el inicio de sesión único de Azure AD con GoToMeeting, realice los siguientes pasos:
 
-1. En la página de integración de la aplicación **GoToMeeting** de Azure Portal, haga clic en **Inicio de sesión único**.
+1. En la página de integración de la aplicación [GoToMeeting](https://portal.azure.com/) de **Azure Portal**, haga clic en **Inicio de sesión único**.
 
-    ![Vínculo Configurar inicio de sesión único][4]
+    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
-    ![Cuadro de diálogo Inicio de sesión único](./media/citrix-gotomeeting-tutorial/tutorial_gotomeeting_samlbase.png)
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
-3. En la sección **Dominio y direcciones URL de GoToMeeting**, lleve a cabo los pasos siguientes:
+    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-    ![Información acerca del inicio de sesión único de dominio y direcciones URL de GoToMeeting](./media/citrix-gotomeeting-tutorial/tutorial_gotomeeting_url.png)
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-    En el cuadro de texto **Identificador**, escriba la dirección URL: `https://authentication.logmeininc.com/saml/sp`
+    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. Haga clic en **Mostrar configuración URL avanzada** y configure las siguientes direcciones URL.
+4. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-    **Dirección URL de inicio de sesión** (mantener en blanco)
-    
-    **URL de respuesta**: `https://authentication.logmeininc.com/saml/acs`
-    
-    **RelayState**:
-    
+    ![Información acerca del inicio de sesión único de dominio y direcciones URL de GoToMeeting](common/both-allurls.png)
+
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://authentication.logmeininc.com/saml/sp`
+
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://authentication.logmeininc.com/saml/acs`
+
+    c. Haga clic en **Establecer direcciones URL adicionales** y configure las siguientes direcciones URL
+
+    d. **Dirección URL de inicio de sesión** (mantener en blanco)
+
+    e. En el cuadro de texto **RelayState**, escriba una dirección URL con el siguiente patrón:
+
     - Para la aplicación GoToMeeting, use `https://global.gotomeeting.com`
-    
+
     - Para GoToTraining, use `https://global.gototraining.com`
-    
+
     - Para GoToWebinar, use `https://global.gotowebinar.com` 
-    
+
     - Para GoToAssist, use `https://app.gotoassist.com`
-    
-5. Haga clic en el botón **Guardar** .
 
-    ![Botón Configurar inicio de sesión único](./media/citrix-gotomeeting-tutorial/tutorial_general_400.png)
+    > [!NOTE]
+    > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de clientes de GotoMeeting](https://go.microsoft.com/fwlink/?linkid=845985) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-6. En otra ventana del explorador, inicie sesión en el [Centro de organización de GoToMeeting](https://organization.logmeininc.com/). Se le pedirá que confirme que se ha actualizado el IdP.
+5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
-7. Habilite la casilla de verificación "Mi proveedor de identidad se ha actualizado con el nuevo dominio". Cuando haya terminado, haga clic en **Listo**.
+    ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
+6. En la sección **Set up GoToMeeting** (Configurar GoToMeeting), copie las direcciones URL que necesite.
 
-> [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+     a. URL de inicio de sesión
+
+    b. Identificador de Azure AD
+
+    c. URL de cierre de sesión
+
+### <a name="configure-gotomeeting-single-sign-on"></a>Configuración del inicio de sesión único de GoToMeeting
+
+1. En otra ventana del explorador, inicie sesión en el [Centro de organización de GoToMeeting](https://organization.logmeininc.com/). Se le pedirá que confirme que se ha actualizado el IdP.
+
+2. Habilite la casilla de verificación "Mi proveedor de identidad se ha actualizado con el nuevo dominio". Cuando haya terminado, haga clic en **Listo**.
+
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-   ![Creación de un usuario de prueba de Azure AD][100]
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
-1. En el panel izquierdo de Azure Portal, haga clic en el botón **Azure Active Directory**.
+2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
-    ![Botón Azure Active Directory](./media/citrix-gotomeeting-tutorial/create_aaduser_01.png)
+    ![Botón Nuevo usuario](common/new-user.png)
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
+3. En las propiedades Usuario, siga estos pasos.
 
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/citrix-gotomeeting-tutorial/create_aaduser_02.png)
+    ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-3. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
+     a. En el campo **Nombre**, escriba **BrittaSimon**.
+  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    Por ejemplo: BrittaSimon@contoso.com
 
-    ![Botón Agregar](./media/citrix-gotomeeting-tutorial/create_aaduser_03.png)
-
-4. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
-
-    ![Cuadro de diálogo Usuario](./media/citrix-gotomeeting-tutorial/create_aaduser_04.png)
-
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
-
-    b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
-
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
     d. Haga clic en **Create**(Crear).
- 
-### <a name="create-a-gotomeeting-test-user"></a>Creación de un usuario de prueba de GoToMeeting
+
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+
+En esta sección, permitirá que Britta Simon use el inicio de sesión único de Azure mediante la concesión de acceso a GoToMeeting.
+
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**, **GoToMeeting**.
+
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+
+2. En la lista de aplicaciones, seleccione **GoToMeeting**.
+
+    ![Vínculo a GoToMeeting en la lista de aplicaciones](common/all-applications.png)
+
+3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
+
+    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
+
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+
+    ![Panel Agregar asignación](common/add-assign-user.png)
+
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+
+6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+
+### <a name="create-gotomeeting-test-user"></a>Creación del usuario de prueba de GoToMeeting
 
 En esta sección, creará un usuario llamado a Britta Simon en GoToMeeting. GoToMeeting admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada.
 
@@ -182,61 +205,17 @@ No hay ningún elemento de acción para usted en esta sección. Si el usuario no
 > [!NOTE]
 > Si necesita crear manualmente un usuario, póngase en contacto con el [equipo de soporte técnico de GoToMeeting](https://support.logmeininc.com/gotomeeting).
 
-### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
-
-En esta sección, permitirá que Britta Simon use el inicio de sesión único de Azure mediante la concesión de acceso a GoToMeeting.
-
-![Asignación de rol de usuario][200] 
-
-**Para asignar Britta Simon a GoToMeeting, lleve a cabo los siguientes pasos:**
-
-1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
-
-    ![Asignar usuario][201] 
-
-2. En la lista de aplicaciones, seleccione **GoToMeeting**.
-
-    ![Vínculo a GoToMeeting en la lista de aplicaciones](./media/citrix-gotomeeting-tutorial/tutorial_gotomeeting_app.png)  
-
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
-
-    ![Vínculo "Usuarios y grupos"][202]
-
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
-
-    ![Panel Agregar asignación][203]
-
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
-
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
-
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
-    
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de GoToMeeting en el Panel de acceso, debería iniciar sesión automáticamente en la aplicación GoToMeeting.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Al hacer clic en el icono de GoToMeeting en el panel de acceso, debería iniciar sesión automáticamente en la versión de GoToMeeting para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configuración del aprovisionamiento de usuarios](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrixgotomeeting-provisioning-tutorial)
+- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-<!--Image references-->
-
-[1]: ./media/gotomeeting-tutorial/tutorial_general_01.png
-[2]: ./media/gotomeeting-tutorial/tutorial_general_02.png
-[3]: ./media/gotomeeting-tutorial/tutorial_general_03.png
-[4]: ./media/gotomeeting-tutorial/tutorial_general_04.png
-
-[100]: ./media/gotomeeting-tutorial/tutorial_general_100.png
-
-[200]: ./media/gotomeeting-tutorial/tutorial_general_200.png
-[201]: ./media/gotomeeting-tutorial/tutorial_general_201.png
-[202]: ./media/gotomeeting-tutorial/tutorial_general_202.png
-[203]: ./media/gotomeeting-tutorial/tutorial_general_203.png
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

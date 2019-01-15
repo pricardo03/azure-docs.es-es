@@ -6,24 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 08/28/2018
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: f4ea5e282e9b915cffeac7daff07f5934be1a424
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 6b6d0d1a7e14035f7a1b7998ec4b3e68761539f5
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974996"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158115"
 ---
-# <a name="use-azure-portal-to-administer-your-data-box-disk-preview"></a>Uso de Azure Portal para administrar Data Box Disk (versión preliminar)
+# <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Uso de Azure Portal para administrar Data Box Disk
 
 Los tutoriales de este artículo se aplican a Microsoft Azure Data Box Disk durante la versión preliminar. En este artículo se describen algunas de las tareas de administración y los flujos de trabajo complejos que se pueden realizar en Data Box Disk. 
 
 Puede administrar Data Box Disk mediante Azure Portal. Este artículo se centra en las tareas que se pueden realizar mediante Azure Portal. Use Azure Portal para administrar pedidos, administrar discos y realizar el seguimiento del estado del pedido mientras pasa a la fase terminal.
-
-> [!IMPORTANT]
-> Data Box Disk se encuentra en versión preliminar. Antes de implementar esta solución revise los [términos del servicio de Azure para la versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 
 ## <a name="cancel-an-order"></a>Cancelación de un pedido
 

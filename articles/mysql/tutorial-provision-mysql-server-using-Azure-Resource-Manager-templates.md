@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Aprovisionamiento de un servidor de Azure Database for MySQL mediante las plantillas de Azure Resource Manager'
-description: En este tutorial se explica cómo aprovisionar y automatizar las implementaciones de servidores de Azure Database for MySQL mediante las plantillas de Azure Resource Manager.
+description: En este tutorial se explica cómo aprovisionar y automatizar las implementaciones de servidores de Azure Database for MySQL mediante una plantilla de Azure Resource Manager.
 author: savjani
 ms.author: pariks
 ms.service: mysql
@@ -8,23 +8,23 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: 45a4a43ae95b42174f368122f89831a356410f2b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 3c89c5cc0b299852f85836dd416b5bb270757719
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004084"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061047"
 ---
-# <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-templates"></a>Tutorial: Aprovisionamiento de un servidor de Azure Database for MySQL mediante las plantillas de Azure Resource Manager
+# <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Tutorial: Aprovisionamiento de un servidor de Azure Database for MySQL mediante las plantillas de Azure Resource Manager
 
 La [API de REST de Azure Database for MySQL](https://docs.microsoft.com/en-us/rest/api/mysql/) permite a los ingenieros de DevOps automatizar e integrar el aprovisionamiento, la configuración y las operaciones de las bases de datos y los servidores MySQL administrados en Azure.  Además, con dicha API se pueden crear, enumerar, administrar y eliminar bases de datos y servidores MySQL en el servicio Azure Database for MySQL.
 
-Las plantillas de Azure Resource Manager aprovechan la API de REST para declarar y programar los recursos de Azure requeridos para las implementaciones a escala, de tal modo que se alineen con la infraestructura como concepto de código. La plantilla parametriza la configuración, el firewall, la red, la SKU y el nombre del recurso de Azure, lo que permite que se creen una vez y se utilicen varias.  Las plantillas de Azure Resource Manager se pueden crear fácilmente mediante [Azure Portal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) o [Visual Studio Code](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI). Estas permiten automatizar la implementación, la estandarización y el empaquetado de aplicaciones, que se pueden integrar en la canalización de CI/CD de DevOps.  Por ejemplo, si desea implementar rápidamente una aplicación web con el servidor back-end de Azure Database for MySQL, puede realizar la implementación integral mediante esta [plantilla de inicio rápido](https://azure.microsoft.com/en-us/resources/templates/101-webapp-managed-mysql/) de la galería de GitHub.
+Azure Resource Manager aprovecha la API REST subyacente para declarar y programar los recursos de Azure requeridos para las implementaciones a escala, de tal modo que se alineen con la infraestructura como concepto de código. La plantilla parametriza la configuración, el firewall, la red, la SKU y el nombre del recurso de Azure, lo que permite que se creen una vez y se utilicen varias.  Las plantillas de Azure Resource Manager se pueden crear fácilmente mediante [Azure Portal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) o [Visual Studio Code](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI). Estas permiten automatizar la implementación, la estandarización y el empaquetado de aplicaciones, que se pueden integrar en la canalización de CI/CD de DevOps.  Por ejemplo, si desea implementar rápidamente una aplicación web con el servidor back-end de Azure Database for MySQL, puede realizar la implementación integral mediante esta [plantilla de inicio rápido](https://azure.microsoft.com/en-us/resources/templates/101-webapp-managed-mysql/) de la galería de GitHub.
 
-En este tutorial, usará las plantillas de Azure Resource Manager y otras utilidades para aprender a hacer lo siguiente:
+En este tutorial, usará una plantilla de Azure Resource Manager y otras utilidades para aprender a hacer lo siguiente:
 
 > [!div class="checklist"]
-> * Crear un servidor de Azure Database for MySQL con el punto de conexión de servicio de red virtual mediante la plantilla de Azure Resource Manager
+> * Creación de un servidor de Azure Database for MySQL con el punto de conexión de servicio de red virtual mediante la plantilla de Azure Resource Manager
 > * Uso de la [herramienta de línea de comandos mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) para crear una base de datos
 > * Carga de datos de ejemplo
 > * Datos de consulta
@@ -32,7 +32,7 @@ En este tutorial, usará las plantillas de Azure Resource Manager y otras utilid
 
 ## <a name="create-an-azure-database-for-mysql-server-with-vnet-service-endpoint-using-azure-resource-manager-template"></a>Creación de un servidor de Azure Database for MySQL con el punto de conexión de servicio de red virtual mediante la plantilla de Azure Resource Manager
 
-Para obtener la referencia de la plantilla JSON de un servidor de Azure Database for MySQL, vaya a la referencia de la plantilla de servidores Microsoft.DBforMySQL (https://docs.microsoft.com/en-us/azure/templates/microsoft.dbformysql/servers). A continuación, se encuentra la plantilla JSON de ejemplo que puede usarse para crear un servidor que ejecuta Azure Database for MySQL con el punto de conexión de servicio de red virtual.
+Para obtener la referencia de la plantilla JSON de un servidor de Azure Database for MySQL, vaya a la referencia de la plantilla [de servidores Microsoft.DBforMySQL](/azure/templates/microsoft.dbformysql/servers). A continuación, se encuentra la plantilla JSON de ejemplo que puede usarse para crear un servidor que ejecuta Azure Database for MySQL con el punto de conexión de servicio de red virtual.
 ```json
 {
   "apiVersion": "2017-12-01",

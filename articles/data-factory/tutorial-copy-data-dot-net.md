@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 3240b3ecfe8de8644d2ac1fd4a880fc0d2dcc76b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1ad344d3169643128a4860c9b0856f845d9656cd
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237135"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021363"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copia de datos del blob de Azure a Azure SQL Database mediante Azure Data Factory
 En este tutorial, creará una canalización de Data Factory que copia datos de Azure Blob Storage a Azure SQL Database. El patrón de configuración de este tutorial se aplica a la copia de un almacén de datos basado en archivos a un almacén de datos relacional. Para obtener una lista de los almacenes de datos que se admiten como orígenes y receptores, consulte la tabla [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) (Almacenes de datos admitidos).
@@ -119,7 +118,7 @@ Con Visual Studio 2015 o 2017, cree una aplicación de consola .NET de C#.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
     
-2. Agregue el siguiente código al método **Main** que establece las variables. Reemplace los marcadores de posición con sus propios valores. Para obtener una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
+2. Agregue el siguiente código al método **Main** que establece las variables. Reemplace los marcadores de posición con sus propios valores. Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 
     ```csharp
     // Set variables
@@ -232,8 +231,8 @@ Agregue el código siguiente al método **Main** que crea un **conjunto de datos
 
 Se define un conjunto de datos que representa los datos de origen del blob de Azure. Este conjunto de datos de blob hace referencia al servicio vinculado de Azure Storage que creó en el paso anterior y describe:
 
-- La ubicación del blob que se debe copiar de: **FolderPath** y **FileName**;
-- El formato de blob que indica cómo analizar el contenido **TextFormat** y su configuración (por ejemplo, el delimitador de columna).
+- La ubicación del blob se debe copiar de: **FolderPath** y **FileName**;
+- El formato de blob que indica cómo analizar el contenido: **TextFormat** y su configuración (por ejemplo, el delimitador de columna).
 - La estructura de datos, incluidos los tipos de datos y los nombres de columna que, en este caso, se asignan a la tabla SQL del receptor.
 
 ```csharp

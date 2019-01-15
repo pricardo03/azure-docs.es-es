@@ -9,21 +9,20 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 9aab9df353ea5691b4132741e9b4a97b0afd9d17
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 93f8a5e806bd10824a78dd62351fd3d9be0cf32c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262155"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025834"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Actividades de bifurcación y encadenamiento en una canalización de Data Factory
 En este tutorial, creará una canalización de Data Factory que muestra algunas de las características del flujo de control. Esta canalización realiza una copia simple de un contenedor en Azure Blob Storage a otro contenedor de la misma cuenta de almacenamiento. Si la actividad de copia se realiza correctamente, será necesario que envíe los detalles de la operación de copia correcta (por ejemplo, la cantidad de datos escritos) en un correo electrónico de operación correcta. Si se produce un error en la actividad de copia, deberá enviar los detalles del error de la copia (por ejemplo, el mensaje de error) en un correo electrónico de operación incorrecta. A lo largo del tutorial, verá cómo pasar parámetros.
 
-Descripción general del escenario: ![información general](media/tutorial-control-flow/overview.png)
+Información general del escenario: ![Información general](media/tutorial-control-flow/overview.png)
 
 En este tutorial, realizará los siguientes pasos:
 
@@ -95,7 +94,7 @@ Con Visual Studio 2015 o 2017, cree una aplicación de consola .NET de C#.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. Agregue estas variables estáticas para la **clase Program**. Reemplace los marcadores de posición con sus propios valores. Para obtener una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
+2. Agregue estas variables estáticas para la **clase Program**. Reemplace los marcadores de posición con sus propios valores. Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 
     ```csharp
         // Set variables
@@ -204,7 +203,7 @@ Agregue el código siguiente al método **Main** que crea un **conjunto de datos
 
 Se define un conjunto de datos que representa los datos de origen del blob de Azure. Este conjunto de datos de blob hace referencia al servicio vinculado de Azure Storage que creó en el paso anterior y describe:
 
-- La ubicación del blob que se debe copiar de: **FolderPath** y **FileName**;
+- La ubicación del blob se debe copiar de: **FolderPath** y **FileName**;
 - Tenga en cuenta el uso de los parámetros para FolderPath. "sourceBlobContainer" es el nombre del parámetro y la expresión se reemplaza con los valores pasados en la canalización de ejecución. La sintaxis para definir los parámetros es `@pipeline().parameters.<parameterName>`.
 
 Cree la función de "SourceBlobDatasetDefinition" en el archivo Program.cs.
@@ -258,13 +257,13 @@ client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSourceDataset
 client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSinkDatasetName, SinkBlobDatasetDefinition(client));
 ```
 
-## <a name="create-a-c-class-emailrequest"></a>Creación de una clase C#: EmailRequest
+## <a name="create-a-c-class-emailrequest"></a>Cree una clase de C#: EmailRequest
 En el proyecto de C#, cree una clase denominada **EmailRequest**. Esto define qué propiedades envía la canalización en la solicitud del cuerpo al enviar un correo electrónico. En este tutorial, la canalización envía cuatro propiedades desde la canalización al correo electrónico:
 
 - **Message**: cuerpo del correo electrónico. En el caso de que una copia se realice correctamente, esta propiedad contiene los detalles de la ejecución (número de datos escritos). En el caso de que una copia se realice de forma incorrecta, esta propiedad contiene los detalles del error.
 - **Data factory name**: nombre de la factoría de datos
 - **Pipeline name**: nombre de la canalización
-- **Receiver**: parámetro que se pasa Esta propiedad especifica el destinatario del correo electrónico.
+- **Receiver**: parámetro que se pasa. Esta propiedad especifica el destinatario del correo electrónico.
 
 ```csharp
     class EmailRequest

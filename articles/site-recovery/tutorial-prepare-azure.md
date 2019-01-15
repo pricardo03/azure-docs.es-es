@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 01/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 947e5d4004565fd10e81e703111daf26fce10368
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: da71857e84b27b9e9a063d707f75fdf33e5d6a96
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973526"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159016"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Preparación de los recursos de Azure para la recuperación ante desastres de máquinas locales
 
@@ -68,11 +68,12 @@ Las imágenes de máquinas replicadas se conservan en Azure Storage. Las máquin
 
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 
-1. En Azure Portal, seleccione **Crear un recurso** > **Storage** > **Backup y Site Recovery (OMS)**.
-2. En **Nombre**, escriba un nombre descriptivo para identificar el almacén. Para este conjunto de tutoriales se usa **ContosoVMVault**.
-3. En **Grupo de recursos**, se va a usar **contosoRG**.
-4. En **Ubicación**, se va a usar **Europa Occidental**.
-5. Para acceder rápidamente al almacén desde el panel, seleccione **Anclar al panel** > **Crear**.
+1. En Azure Portal, haga clic en **+Crear un recurso** y, en Marketplace, busque **Recovery Services**.
+2. Haga clic en **Backup and Site Recovery (OMS)** y, una vez en esta página, haga clic en **Crear**. 
+1. En **Almacén de Recovery Services** > **Nombre**, escriba un nombre descriptivo para identificar el almacén. Para este conjunto de tutoriales se usa **ContosoVMVault**.
+2. En **Grupo de recursos**, seleccione un grupo de recursos existente o cree uno nuevo. En este tutorial se va a usar **contosoRG**.
+3. En **Ubicación**, seleccione la región en la que debería estar el almacén. se va a usar **Europa Occidental**.
+4. Para acceder rápidamente al almacén desde el panel, seleccione **Anclar al panel** > **Crear**.
 
    ![Crear un nuevo almacén](./media/tutorial-prepare-azure/new-vault-settings.png)
 

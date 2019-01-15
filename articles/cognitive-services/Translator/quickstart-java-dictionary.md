@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Obtención de traducciones alternativas con Translator Text API mediante Java'
+title: 'Inicio rápido: Búsqueda de palabras con diccionario bilingüe, Java: Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido aprenderá a obtener posibles traducciones alternativas de un término y se proporcionan ejemplos de uso mediante Java y Translator Text API.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 2c5517b470e46423631f6a63a24ceccf5de0a919
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 001aa2a813816562cdc5e95a00b858d8958a6756
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888846"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157826"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-java"></a>Guía de inicio rápido: Uso de Translator Text API para obtener traducciones alternativas mediante Java
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-java"></a>Inicio rápido: Búsqueda de palabras con un diccionario bilingüe mediante Java
 
 En esta guía de inicio rápido aprenderá a obtener posibles traducciones alternativas de un término y se proporcionan ejemplos de uso mediante Java y Translator Text API.
 

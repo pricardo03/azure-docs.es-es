@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/29/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: dd6d25d05f59d9561eadb0b55d2a1ec528c27b56
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 4d35ab9df17055b798207aafd0e0bdf3b17426fb
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753955"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188477"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatizar el cambio de tamaño de imágenes cargadas mediante Event Grid
 
@@ -27,7 +27,7 @@ Este tutorial es la segunda parte de una serie de tutoriales sobre almacenamient
 
 Use la CLI de Azure y Azure Portal para agregar la funcionalidad de cambio de tamaño a una aplicación existente de carga de imágenes.
 
-![Aplicación web publicada en el explorador Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![Aplicación web publicada en el explorador Microsoft Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 En este tutorial, aprenderá a:
 
@@ -170,8 +170,8 @@ Una suscripción de eventos indica los eventos generados por el proveedor que se
     | **Tipo de suscriptor** |  generado automáticamente |  Predefinidos como Webhook. |
     | **Punto de conexión de suscriptor** | generado automáticamente | Use la dirección URL del punto de conexión generado automáticamente. | 
     | **Nombre** | imageresizersub | Nombre que identifica a la nueva suscripción de eventos. | 
-
-4. Haga clic en **Crear** para agregar la suscripción de eventos. Se crea una suscripción a evento que desencadena `imageresizerfunc` cuando se agrega un blob al contenedor *images*. La función cambia el tamaño de las imágenes y las agrega al contenedor *thumbnails*.
+4. *Opcional:* En caso de que necesite crear contenedores adicionales en el mismo almacenamiento de blobs para otros fines en el futuro, puede utilizar las características de **Filtrado de asunto** de la pestaña **Filtros** para una selección de destino más específica que asegure que solo se llama a la aplicación de función si se agregan blobs al contenedor de **imágenes** específicamente. 
+5. Haga clic en **Crear** para agregar la suscripción de eventos. Se crea una suscripción a evento que desencadena `imageresizerfunc` cuando se agrega un blob al contenedor *images*. La función cambia el tamaño de las imágenes y las agrega al contenedor *thumbnails*.
 
 Ahora que se han configurado los servicios back-end, pruebe la funcionalidad de cambio de tamaño de imagen en la aplicación web de ejemplo. 
 
@@ -183,7 +183,7 @@ Haga clic en la región **Cargar fotos** para seleccionar y cargar un archivo. T
 
 Observe que después de que la imagen cargada desaparezca, se muestra una copia de ella en el carrusel **Miniaturas generadas**. La función ha cambiado el tamaño de la imagen, la imagen se ha agregado al contenedor *thumbnails* y el cliente web la ha descargado.
 
-![Aplicación web publicada en el explorador Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
+![Aplicación web publicada en el explorador Microsoft Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

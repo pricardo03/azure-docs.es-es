@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 470d08c13d5874283794fa9a2ce06fcaad4f60c2
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 24646c9448a70af228085c99f03ab844e5af7e9e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300547"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053149"
 ---
 # <a name="azure-resource-manager-overview"></a>Información general del Administrador de recursos de Azure
 La infraestructura de la aplicación está constituida normalmente por varios componentes: quizás una máquina virtual, una cuenta de almacenamiento y una red virtual, o una aplicación web, una base de datos, un servidor de bases de datos y servicios de terceros. Estos componentes no se ven como entidades independientes, sino como partes de una sola entidad relacionadas e interdependientes. Desea implementarlos, administrarlos y supervisarlos como grupo. Azure Resource Manager permite trabajar con los recursos de la solución como un grupo. Todos los recursos de la solución se pueden implementar, actualizar o eliminar en una sola operación coordinada. Para realizar la implementación se usa una plantilla, que puede funcionar en distintos entornos, como producción, pruebas y ensayo. Administrador de recursos proporciona funciones de seguridad, auditoría y etiquetado que le ayudan a administrar los recursos después de la implementación. 
 
 ## <a name="consistent-management-layer"></a>Capa de administración coherente
-Resource Manager proporciona una capa de administración coherente para realizar tareas mediante Azure PowerShell, la CLI de Azure, Azure Portal, las API de REST y los SDK de cliente. Todas las funcionalidades que están disponibles en Azure Portal también lo están con Azure PowerShell, la CLI de Azure, las API de REST de Azure y los SDK de cliente. Las funcionalidades disponibles originalmente mediante las API se incluirán en el portal a los 180 días de su lanzamiento inicial.
+Resource Manager proporciona una capa de administración coherente para llevar a cabo las tareas en Azure Portal y todas las funcionalidades que están disponibles en Azure Portal también están disponibles en Azure PowerShell, la CLI de Azure, las API REST de Azure y los SDK de cliente. Las funcionalidades disponibles originalmente mediante las API se incluirán en el portal a los 180 días de su lanzamiento inicial.
 
 Seleccione las herramientas y API que más le convengan; tienen la misma funcionalidad y proporcionan resultados coherentes.
 
@@ -88,9 +88,9 @@ El nombre de un tipo de recurso tiene el formato: **{proveedor de recursos}/{tip
 Antes de comenzar a implementar los recursos, debe conocer los proveedores de recursos disponibles. Conocer los nombres de los recursos y sus proveedores ayuda a definir los recursos que desea implementar en Azure. Además, es necesario que conozca las ubicaciones y las versiones de API válidas de cada tipo de recurso. Para más información, consulte [Tipos y proveedores de recursos](resource-manager-supported-services.md).
 
 ## <a name="template-deployment"></a>Implementación de plantilla
-Con Resource Manager, puede crear una plantilla (en formato JSON) que defina la infraestructura y la configuración de su solución de Azure. Mediante una plantilla, puede implementar la solución repetidamente a lo largo del ciclo de vida y tener la seguridad de que los recursos se implementan de forma coherente. Cuando crea una solución desde el Portal, la solución incluye automáticamente una plantilla de implementación. No tiene que crear la plantilla desde cero; puede empezar con la plantilla para la solución y personalizarla para satisfacer sus necesidades específicas. Para ver un ejemplo, consulte [Guía de inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](./resource-manager-quickstart-create-templates-use-the-portal.md). También puede recuperar una plantilla de un grupo de recursos existente mediante la exportación del estado actual del grupo de recursos o la visualización de la plantilla de una implementación determinada. Una buena estrategia para aprender sobre la sintaxis de una plantilla es consultar la [plantilla exportada](resource-manager-export-template.md).
+Con Resource Manager, puede crear una plantilla (en formato JSON) que defina la infraestructura y la configuración de su solución de Azure. Mediante una plantilla, puede implementar la solución repetidamente a lo largo del ciclo de vida y tener la seguridad de que los recursos se implementan de forma coherente. Cuando crea una solución desde el Portal, la solución incluye automáticamente una plantilla de implementación. No tiene que crear la plantilla desde cero; puede empezar con la plantilla para la solución y personalizarla para satisfacer sus necesidades específicas. Para obtener un ejemplo, consulte [Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](./resource-manager-quickstart-create-templates-use-the-portal.md). También puede recuperar una plantilla de un grupo de recursos existente mediante la exportación del estado actual del grupo de recursos o la visualización de la plantilla de una implementación determinada. Una buena estrategia para aprender sobre la sintaxis de una plantilla es consultar la [plantilla exportada](resource-manager-export-template.md).
 
-Para más información sobre el formato de la plantilla y cómo se crea, consulte [Guía de inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](./resource-manager-quickstart-create-templates-use-the-portal.md). Para ver la sintaxis JSON para los tipos de recursos, consulte [Define resources in Azure Resource Manager templates](/azure/templates/) (Definición de recursos en plantillas de Azure Resource Manager).
+Para información acerca del formato de la plantilla y cómo se crea, consulte [Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](./resource-manager-quickstart-create-templates-use-the-portal.md). Para ver la sintaxis JSON para los tipos de recursos, consulte [Define resources in Azure Resource Manager templates](/azure/templates/) (Definición de recursos en plantillas de Azure Resource Manager).
 
 Resource Manager procesa la plantilla como cualquier otra solicitud (consulte la imagen para [Capa de administración coherente](#consistent-management-layer)). Analiza la plantilla y convierte su sintaxis en operaciones de API de REST para los proveedores de recursos adecuados. Por ejemplo, cuando Resource Manager recibe una plantilla con la siguiente definición de recursos:
 
@@ -212,7 +212,7 @@ Azure también proporciona varios roles específicos de los recursos. Algunos co
 4. Colaborador de SQL Server: puede administrar bases de datos y servidores SQL, pero no las directivas relacionadas con la seguridad.
 5. Colaborador de sitio web: puede administrar sitios web, pero no los planes web a los que están conectados.
 
-Para ver la lista completa de los roles y las acciones permitidas, consulte [RBAC: roles integrados](../role-based-access-control/built-in-roles.md). Para más información sobre el control de acceso basado en roles, consulte [Control de acceso basado en roles de Azure](../role-based-access-control/role-assignments-portal.md). 
+Para ver la lista completa de los roles y las acciones permitidas, consulte [RBAC: Roles integrados](../role-based-access-control/built-in-roles.md). Para más información sobre el control de acceso basado en roles, consulte [Control de acceso basado en roles de Azure](../role-based-access-control/role-assignments-portal.md). 
 
 En algunos casos, desea ejecutar el código o script que accede a los recursos, pero no con las credenciales del usuario. En lugar de ello, desea crear una identidad que llama a la entidad de servicio de la aplicación y asignar el rol adecuado para la entidad de servicio. Resource Manager permite crear credenciales para la aplicación y autenticar la aplicación mediante programación. Para aprender más acerca de cómo crear entidades de servicio, consulte uno de los siguientes temas:
 
@@ -255,4 +255,4 @@ Para obtener información acerca del uso de estos lenguajes sus los recursos, co
 En este artículo, ha aprendido a utilizar Azure Resource Manager para la implementación, la administración y el control de acceso de los recursos en Azure. Continúe con el siguiente artículo para aprender a crear la primera plantilla de Azure Resource Manager.
 
 > [!div class="nextstepaction"]
-> [Guía de inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](./resource-manager-quickstart-create-templates-use-the-portal.md)
+> [Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal](./resource-manager-quickstart-create-templates-use-the-portal.md)
