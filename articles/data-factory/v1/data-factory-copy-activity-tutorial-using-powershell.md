@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Creación de una canalización con la actividad de copia para mover datos con Azure PowerShell | Microsoft Docs'
+title: 'Tutorial: Creación de una canalización para mover datos con Azure PowerShell | Microsoft Docs'
 description: En este tutorial, creará una canalización de Azure Data Factory con una actividad de copia mediante Azure PowerShell.
 services: data-factory
 documentationcenter: ''
@@ -10,19 +10,18 @@ ms.assetid: 71087349-9365-4e95-9847-170658216ed8
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: bfe1d022364455f6c3e22872358b6e18b0806e6a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: ce2c3bffecd691acd5eb26b999c63fd2bb5dd510
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109343"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015346"
 ---
-# <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Tutorial: Creación de una canalización de Data Factory para mover datos mediante Azure PowerShell
+# <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Tutorial: Creación de una canalización de Data Factory que mueve datos mediante Azure PowerShell
 > [!div class="op_single_selector"]
 > * [Introducción y requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
@@ -45,7 +44,7 @@ pero cualquier canalización puede tener más de una actividad. También puede e
 > [!NOTE]
 > Este artículo no abarca todos los cmdlets de Factoría de datos. Vea [Referencia de cmdlets de Data Factory](/powershell/module/azurerm.datafactories) para obtener la documentación completa sobre estos cmdlets.
 > 
-> La canalización de datos de este tutorial copia datos de un almacén de datos de origen a un almacén de datos de destino. Para ver un tutorial acerca de cómo transformar datos mediante Azure Data Factory, consulte [Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md).
+> La canalización de datos de este tutorial copia datos de un almacén de datos de origen a un almacén de datos de destino. Para ver un tutorial acerca de cómo transformar datos mediante Azure Data Factory, consulte [Tutorial: Compilación de una canalización para transformar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 - Complete los [requisitos previos del tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
@@ -55,7 +54,7 @@ pero cualquier canalización puede tener más de una actividad. También puede e
 Estos son los pasos que se realizan en este tutorial:
 
 1. Cree una **factoría de datos** de Azure. En este paso, creará una factoría de datos llamada ADFTutorialDataFactoryPSH. 
-1. Cree **servicios vinculados** en la factoría de datos. En este paso, se crean dos servicios vinculados del tipo Azure Storage y Azure SQL Database. 
+1. Cree **servicios vinculados** en la factoría de datos. En este paso, creará dos tipos de servicios vinculados: Microsoft Azure Storage y Azure SQL Database. 
     
     AzureStorageLinkedService vincula una cuenta de Azure Storage a la factoría de datos. Como parte de los [requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), se creó un contenedor y se cargaron datos en esta cuenta de almacenamiento.   
 
@@ -107,7 +106,7 @@ Una factoría de datos puede tener una o más canalizaciones. Una canalización 
     ```PowerShell
     $df=New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
     ```
-    Puede que ya se esté usando este nombre. Para que el nombre de la factoría de datos sea único, agregue un prefijo o un sufijo (por ejemplo: ADFTutorialDataFactoryPSH05152017) y vuelva a ejecutar el comando.  
+    Puede que ya se esté usando este nombre. Por lo tanto, para que el nombre de la factoría de datos sea único, agregue un prefijo o un sufijo (por ejemplo,  ADFTutorialDataFactoryPSH05152017) y vuelva a ejecutar el comando.  
 
 Tenga en cuenta los siguientes puntos:
 
@@ -118,7 +117,7 @@ Tenga en cuenta los siguientes puntos:
     ```
 * Para crear instancias de Data Factory, debe ser administrador o colaborador en la suscripción de Azure.
 * El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, que sea visible públicamente.
-* Es posible que reciba el siguiente error: "**La suscripción no está registrada para usar el espacio de nombres Microsoft.DataFactory**". Realice una de las siguientes acciones e intente publicar de nuevo:
+* Puede que aparezca el siguiente mensaje de error: "**La suscripción no está registrada para usar el espacio de nombres Microsoft.DataFactory**". Realice una de las siguientes acciones e intente publicar de nuevo:
 
   * En Azure PowerShell, ejecute el siguiente comando para registrar el proveedor de Data Factory:
 
@@ -136,7 +135,7 @@ Tenga en cuenta los siguientes puntos:
 ## <a name="create-linked-services"></a>Crear servicios vinculados
 Los servicios vinculados se crean en una factoría de datos para vincular los almacenes de datos y los servicios de proceso con la factoría de datos. En este tutorial, no se usa ningún servicio de proceso, como Azure HDInsight o Azure Data Lake Analytics. Se usan dos almacenes de datos del tipo Azure Storage (origen) y Azure SQL Database (destino). 
 
-Por lo tanto, se crean dos servicios vinculados llamados AzureStorageLinkedService y AzureSqlLinkedService del tipo AzureStorage y AzureSqlDatabase.  
+Por lo tanto, se crean dos servicios vinculados llamados AzureStorageLinkedService y AzureSqlLinkedService de los tipos: AzureStorage y AzureSqlDatabase.  
 
 AzureStorageLinkedService vincula una cuenta de Azure Storage a la factoría de datos. Esta cuenta de almacenamiento es la que se usó para crear un contenedor y con la que se cargaron los datos como parte de los [requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
@@ -145,7 +144,7 @@ AzureSqlLinkedService vincula la base de datos SQL de Azure con la factoría de 
 ### <a name="create-a-linked-service-for-an-azure-storage-account"></a>Creación de un servicio vinculado para una cuenta de almacenamiento de Azure
 En este paso, vinculará su cuenta de Azure Storage con su factoría de datos.
 
-1. Cree un archivo JSON llamado **AzureStorageLinkedService.json** en la carpeta **C:\ADFGetStartedPSH** con el siguiente contenido: (cree la carpeta ADFGetStartedPSH si aún no existe).
+1. Cree un archivo JSON con el nombre **AzureStorageLinkedService.json** en la carpeta **C:\ADFGetStartedPSH** con el siguiente contenido: (si todavía no existe, cree la carpeta ADFGetStartedPSH).
 
     > [!IMPORTANT]
     > Reemplace &lt;accountname&gt; y &lt;accountkey&gt; por el nombre y la clave de su cuenta de Azure Storage antes de guardar el archivo. 
@@ -162,7 +161,7 @@ En este paso, vinculará su cuenta de Azure Storage con su factoría de datos.
      }
     ``` 
 1. En **Azure PowerShell**, cambie a la carpeta **ADFGetStartedPSH**.
-1. Ejecute el cmdlet **New-AzureRmDataFactoryLinkedService** para crear el servicio vinculado: **AzureStorageLinkedService**. Tanto el cmdlet como otros cmdlets de Data Factory que se usan en este tutorial requieren que se pasen los valores de los parámetros **ResourceGroupName** y **DataFactoryName**. Como alternativa, puede pasar el objeto DataFactory devuelto por el cmdlet New-AzureRmDataFactory sin escribir ResourceGroupName y DataFactoryName cada vez que ejecute un cmdlet. 
+1. Ejecute el cmdlet **New-AzureRmDataFactoryLinkedService** para crear un servicio vinculado: **AzureStorageLinkedService**. Tanto el cmdlet como otros cmdlets de Data Factory que se usan en este tutorial requieren que se pasen los valores de los parámetros **ResourceGroupName** y **DataFactoryName**. Como alternativa, puede pasar el objeto DataFactory devuelto por el cmdlet New-AzureRmDataFactory sin escribir ResourceGroupName y DataFactoryName cada vez que ejecute un cmdlet. 
 
     ```PowerShell
     New-AzureRmDataFactoryLinkedService $df -File .\AzureStorageLinkedService.json
@@ -427,7 +426,7 @@ Actualmente, el conjunto de datos de salida es lo que impulsa la programación. 
      
     Reemplace el valor de la propiedad **start** por el día actual y el valor **end** por el próximo día. Puede especificar solo la parte de fecha y omitir la parte de hora de la fecha y hora. Por ejemplo, "03-02-2016", que es equivalente a "03-02-2016T00:00:00Z"
      
-    Las fechas y horas de inicio y de finalización deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2016-10-14T16:32:41Z. La hora de finalización ( **end** ) es opcional, pero se utilizará en este tutorial. 
+    Las fechas y horas de inicio y de finalización deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo:  2016-10-14T16:32:41Z. La hora de finalización ( **end** ) es opcional, pero se utilizará en este tutorial. 
      
     Si no especifica ningún valor para la propiedad **end**, se calcula como "**start + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**.
      
@@ -559,7 +558,7 @@ En este tutorial, ha creado una factoría de datos de Azure para copiar datos de
 1. Ha creado una **factoría de datos**de Azure.
 1. Ha creado **servicios vinculados**.
 
-   a. Un servicio vinculado **Azure Storage** para vincular la cuenta de almacenamiento de Azure que contiene datos de entrada.     
+    a. Un servicio vinculado **Azure Storage** para vincular la cuenta de almacenamiento de Azure que contiene datos de entrada.     
    b. Un servicio vinculado **Azure SQL** para vincular la base de datos SQL que contiene los datos de salida.
 1. Ha creado **conjuntos de datos** que describen los datos de entrada y salida de las canalizaciones.
 1. Ha creado una **canalización** con una **actividad de copia** con un origen **BlobSource** y un receptor **SqlSink**.

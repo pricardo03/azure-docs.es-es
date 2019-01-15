@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: f4edd1632203e2f8723fa7880683727f8fb69c4d
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: af764557a6bd3d3f60a3aa628834d5929e073a82
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614028"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021992"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copia de datos de una base de datos de SQL Server local en Azure Blob Storage
 En este tutorial se utiliza la interfaz de usuario (IU) de Azure Data Factory para crear una canalización de Data Factory que copie los datos de una base de datos de SQL Server local en Azure Blob Storage. Cree y use una instancia de Integration Runtime autohospedado, que mueve los datos entre almacenes locales y en la nube.
@@ -195,7 +194,7 @@ El nombre de la factoría de datos tiene que ser *único a nivel global*. Si ve 
 
     ![Nombre del entorno de ejecución de integración](./media/tutorial-hybrid-copy-portal/integration-runtime-name.png)
 
-1. En la sección **Option 1: Express setup** (Opción 1: configuración rápida) seleccione **Click here to launch the express setup for this computer** (Haga clic aquí para iniciar la configuración rápida en este equipo). 
+1. En **Option 1: Express setup** (Opción 1: configuración rápida), seleccione **Click here to launch the express setup for this computer** (Haga clic aquí para iniciar la configuración rápida en este equipo). 
 
     ![Vínculo a configuración rápida](./media/tutorial-hybrid-copy-portal/click-express-setup.png)
 
@@ -209,7 +208,7 @@ El nombre de la factoría de datos tiene que ser *único a nivel global*. Si ve 
 
 1. En la ventana **New Linked Service** (Nuevo servicio vinculado), realice los pasos siguientes:
 
-    a. En **Name** (Nombre), escriba **SqlServerLinkedService**.
+     a. En **Name** (Nombre), escriba **SqlServerLinkedService**.
 
     b. En **Connect via integration runtime** (Conectar a través del entorno de ejecución de integración) compruebe que aparece el entorno de ejecución de integración autohospedado que creó anteriormente.
 
@@ -229,7 +228,7 @@ El nombre de la factoría de datos tiene que ser *único a nivel global*. Si ve 
 
 1. Debería volver a la ventana con el conjunto de datos de origen abierto. En la pestaña **Connection** (Conexión) en la ventana **Properties** (Propiedades), realice los pasos siguientes: 
 
-    a. En **Linked service** (Servicio vinculado) confirme que ve **SqlServerLinkedService**.
+     a. En **Linked service** (Servicio vinculado) confirme que ve **SqlServerLinkedService**.
 
     b. En **Table** (Tabla), seleccione **[dbo].[emp]**.
 
@@ -257,7 +256,7 @@ El nombre de la factoría de datos tiene que ser *único a nivel global*. Si ve 
 
 1. En la ventana **New Linked Service** (Nuevo servicio vinculado), realice los pasos siguientes:
 
-    a. En **Name** (Nombre), escriba **AzureStorageLinkedService**.
+     a. En **Name** (Nombre), escriba **AzureStorageLinkedService**.
 
     b. En **Storage account name** (Nombre de la cuenta de almacenamiento), seleccione la cuenta de almacenamiento.
 
@@ -269,7 +268,7 @@ El nombre de la factoría de datos tiene que ser *único a nivel global*. Si ve 
 
 1. Debería volver a la ventana con el conjunto de datos receptor abierto. En la pestaña **Connection** (Conexión), realice los pasos siguientes: 
 
-    a. En **Linked service** (Servicio vinculado) confirme que **AzureStorageLinkedService** está seleccionado.
+     a. En **Linked service** (Servicio vinculado) confirme que **AzureStorageLinkedService** está seleccionado.
 
     b. En la parte de la **carpeta**/ **Directorio** del campo **File path** (Ruta de acceso del archivo), escriba **adftutorial/fromonprem**. Si no existe la carpeta de salida en el contenedor adftutorial, Data Factory la crea automáticamente.
 
