@@ -5,19 +5,19 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1a9ecea835e42c90ce7d71617666d210182fe465
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 5b89051cab7e89f79a2b62a392173e6dc234e48d
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428916"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189752"
 ---
 # <a name="create-roles"></a>Creación de roles
 
-En esta lección, creará roles. Los roles proporcionan seguridad para los objetos y los datos de la base de datos modelo, ya que solo permiten el acceso a los usuarios que son miembros del rol. Cada rol se define con un permiso único: Ninguno, Lectura, Lectura y procesamiento, Procesamiento o Administrador. Los roles se pueden definir durante la creación del modelo mediante el Administrador de roles. Una vez implementado un modelo, puede administrar roles mediante SQL Server Management Studio (SSMS). Para obtener más información, vea [Roles](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular).
+En esta lección, creará roles. Los roles proporcionan seguridad para los objetos y los datos de la base de datos modelo, ya que solo permiten el acceso a los usuarios que son miembros del rol. Cada rol se define con un solo permiso: Ninguno, Lectura, Lectura y proceso, Proceso o Administrador. Los roles se pueden definir durante la creación del modelo mediante el Administrador de roles. Una vez implementado un modelo, puede administrar roles mediante SQL Server Management Studio (SSMS). Para obtener más información, vea [Roles](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular).
   
 > [!NOTE]  
 > No es necesario crear roles para completar este tutorial. De forma predeterminada, la cuenta en la que ha iniciado sesión actualmente tiene privilegios de administrador en el modelo. Pero para que otros usuarios de la organización naveguen mediante el uso de un cliente de creación de informes, debe crear al menos un rol con permisos de lectura y agregar a los usuarios como miembros.  
@@ -32,10 +32,10 @@ Se crean tres roles:
   
 Dado que las cuentas de usuario y de grupo de Windows de la organización son únicas, puede agregar cuentas de su propia organización a los miembros, Pero para este tutorial también puede dejar los miembros en blanco. Más adelante en la Lección 12: Analizar en Excel se prueba el efecto de cada rol.  
   
-Tiempo estimado para completar esta lección: **15 minutos**  
+Tiempo estimado para completar esta lección: **15 minutos**  
   
 ## <a name="prerequisites"></a>Requisitos previos  
-Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Antes de realizar las tareas de esta lección, debe haber completado la lección anterior: [Lección 10: Creación de particiones](../tutorials/aas-lesson-10-create-partitions.md).  
+Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Para poder realizar las tareas de esta lección, debe haber completado la lección anterior: [Lección 10: Creación de particiones](../tutorials/aas-lesson-10-create-partitions.md).  
   
 ## <a name="create-roles"></a>Creación de roles  
   
@@ -84,7 +84,7 @@ Este tema forma parte de un tutorial de modelado tabular, que se debe completar 
   
   
 ## <a name="whats-next"></a>Pasos siguientes
-[Lección 12: Analizar en Excel](../tutorials/aas-lesson-12-analyze-in-excel.md)
+[Lección 12: Análisis en Excel](../tutorials/aas-lesson-12-analyze-in-excel.md).
 
   
   

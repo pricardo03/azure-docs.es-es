@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/07/2018
+ms.date: 01/08/2018
 ms.custom: seodec18
-ms.openlocfilehash: a6cf415112f245421b3225c2e2ccb07a7bbf9332
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 36ecfe8942d263ed84e430b01727743ed2cad00c
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098311"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103172"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guía de solución de problemas de Azure Disk Encryption
 
@@ -72,6 +72,9 @@ Parte de la configuración del grupo de seguridad de red que se aplica debe perm
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>Azure Key Vault detrás de un firewall
 La máquina virtual debe poder tener acceso al almacén de claves. Consulte la documentación sobre el acceso al almacén de claves desde detrás de un firewall que el equipo de [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md) mantiene. 
+
+### <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure 
+La máquina virtual debe poder acceder al punto de conexión de [Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md) que utiliza una dirección IP no enrutable conocida (`169.254.169.254`) a la que solo se puede acceder desde la máquina virtual.
 
 ### <a name="linux-package-management-behind-a-firewall"></a>Administración de paquetes de Linux detrás de un firewall
 

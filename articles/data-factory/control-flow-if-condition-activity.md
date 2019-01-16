@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 5077982bdef4d0e8fbf1ab485566909b4dc97a8a
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 799348c14bba80909d6e443f09d232e5a4783f25
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857385"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015158"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Actividad de la condición IF en Azure Data Factory
 La actividad de la condición IF proporciona la misma funcionalidad que proporciona una instrucción If en lenguajes de programación. Evalúa un conjunto de actividades cuando la condición se evalúa como `true` y otro conjunto de actividades cuando la condición se evalúa como `false`. 
@@ -67,11 +66,11 @@ La actividad de la condición IF proporciona la misma funcionalidad que proporci
 
 Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-Nombre | Nombre de la actividad de la condición IF. | string | Sí
-Tipo | Debe establecerse en **IfCondition** | string | Sí
-expresión | Expresión que debe evaluarse como "true" o "false" | Expresión con resultado de tipo booleano | Sí
-ifTrueActivities | Conjunto de actividades que se ejecutan cuando la expresión se evalúa como `true`. | Matriz | Sí
-ifFalseActivities | Conjunto de actividades que se ejecutan cuando la expresión se evalúa como `false`. | Matriz | Sí
+Nombre | Nombre de la actividad de la condición IF. | string | SÍ
+Tipo | Debe establecerse en **IfCondition** | string | SÍ
+expresión | Expresión que debe evaluarse como "true" o "false" | Expresión con resultado de tipo booleano | SÍ
+ifTrueActivities | Conjunto de actividades que se ejecutan cuando la expresión se evalúa como `true`. | Matriz | SÍ
+ifFalseActivities | Conjunto de actividades que se ejecutan cuando la expresión se evalúa como `false`. | Matriz | SÍ
 
 ## <a name="example"></a>Ejemplo
 La canalización de este ejemplo copia los datos de una carpeta de entrada a una carpeta de salida. La carpeta de salida viene determinada por el valor del parámetro de canalización routeSelection. Si el valor de routeSelection es true, los datos se copian en outputPath1. Y si el valor de routeSelection es false, los datos se copian en outputPath2. 
@@ -246,7 +245,7 @@ La canalización establece **folderPath** en el valor de los parámetros **outpu
 ```
 
 ### <a name="powershell-commands"></a>Comandos de PowerShell
-Estos comandos presuponen que ha guardado los archivos JSON en la carpeta C:\ADF. 
+Estos comandos presuponen que ha guardado los archivos JSON en la siguiente carpeta: C:\ADF. 
 
 ```powershell
 Connect-AzureRmAccount

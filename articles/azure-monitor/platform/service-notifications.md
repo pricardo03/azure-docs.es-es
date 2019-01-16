@@ -5,15 +5,15 @@ author: dkamstra
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 4/12/2017
+ms.date: 4/12/2018
 ms.author: dukek
 ms.component: logs
-ms.openlocfilehash: 8603ccf4643d7b1abd977cc372cde3fe24f98e07
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2dec2b1f9bdca8c83669b753d424204218f7a9ae
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724885"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190704"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Visualización de las notificaciones de mantenimiento del servicio mediante Azure Portal
 
@@ -49,52 +49,36 @@ categoría | Esta propiedad es siempre **ServiceHealth**.
 ResourceId | Identificador de recurso del recurso afectado.
 Properties.title | El título localizado de esta comunicación. El valor predeterminado es inglés.
 Properties.communication | Los detalles localizados de la comunicación con el formato HTML. El valor predeterminado es inglés.
-Properties.incidentType | Uno de los valores siguientes: **ActionRequired**, **Information**, **Incident**, **Maintenance** o **Security**.
+Properties.incidentType | Uno de los valores siguientes: **ActionRequired**, **Informational**, **Incident**, **Maintenance** o **Security**.
 Properties.trackingId | El incidente al que está asociado este evento. Se utiliza para correlacionar los eventos relacionados con un incidente.
 Properties.impactedServices | Un blob JSON con caracteres de escape que describe los servicios y regiones a los que afecta el incidente. Una lista de servicios, cada uno de los cuales tiene un valor de **ServiceName** y una lista de regiones afectadas, cada una de los cuales tiene un valor de **RegionName**.
 Properties.defaultLanguageTitle | La comunicación en inglés.
 Properties.defaultLanguageContent | La comunicación en inglés en formato HTML o como texto sin formato.
-Properties.stage | Los valores posibles de **Incident** y **Security** son **Active**, **Resolved** o **RCA**. Para **ActionRequired** o **Information** el único valor posible es **Active**. En el caso de **Maintenance** son: **Active**, **Planned**, **InProgress**, **Canceled**, **Rescheduled**, **Resolved** o **Complete**.
+Properties.stage | Los valores posibles de **Incident** y **Security** son **Active**, **Resolved** o **RCA**. Para **ActionRequired** o **Informational**, el único valor posible es **Active**. En el caso de **Maintenance** son: **Active**, **Planned**, **InProgress**, **Canceled**, **Rescheduled**, **Resolved** o **Complete**.
 Properties.communicationId | La comunicación con la cual está asociado este evento.
 
 ### <a name="details-on-service-health-level-information"></a>Detalles sobre la información de estado del servicio
-  <ul>
-    <li><b>Action Required</b> (properties.incidentType == ActionRequired) <dl>
-            <dt>Informativo</dt>
-            <dd>Se necesita una acción del administrador para evitar que los servicios existentes se vean afectados</dd>
-        </dl>
-    </li>
-    <li><b>Maintenance</b> (properties.incidentType == Maintenance) <dl>
-            <dt>Advertencia</dt>
-            <dd>Mantenimiento de emergencia<dd>
-            <dt>Informativo</dt>
-            <dd>Mantenimiento planeado estándar</dd>
-        </dl>
-    </li>
-    <li><b>Information</b> (properties.incidentType == Information) <dl>
-            <dt>Informativo</dt>
-            <dd>Puede ser necesaria una acción del administrador para evitar que los servicios existentes se vean afectados</dd>
-        </dl>
-    </li>
-    <li><b>Security</b> (properties.incidentType == Security) <dl>
-            <dt>Error</dt>
-            <dd>Problemas generalizados de acceso a varios servicios en distintas regiones que afectan a numerosos grupos de clientes.</dd>
-            <dt>Advertencia</dt>
-            <dd>Problemas de acceso a servicios concretos o en regiones concretas que afectan a un subgrupo de clientes.</dd>
-            <dt>Informativo</dt>
-            <dd>Problemas que afectan a las operaciones de administración o de latencia, sin afectar a la disponibilidad del servicio.</dd>
-        </dl>
-    </li>
-    <li><b>Service Issues</b> (properties.incidentType == Incident) <dl>
-            <dt>Error</dt>
-            <dd>Problemas generalizados de acceso a varios servicios en distintas regiones que afectan a numerosos grupos de clientes.</dd>
-            <dt>Advertencia</dt>
-            <dd>Problemas de acceso a servicios concretos o en regiones concretas que afectan a un subgrupo de clientes.</dd>
-            <dt>Informativo</dt>
-            <dd>Problemas que afectan a las operaciones de administración o de latencia, sin afectar a la disponibilidad del servicio.</dd>
-        </dl>
-    </li>
-  </ul>
+
+**Action Required** (properties.incidentType == ActionRequired)
+    - Información: Se necesita una acción del administrador para evitar que los servicios existentes se vean afectados
+    
+**Maintenance** (properties.incidentType == Maintenance)
+    - Advertencia: mantenimiento de emergencia
+    - Información: mantenimiento planeado estándar
+
+**Information** (properties.incidentType == Information)
+    - Información: Se necesita que el administrador para evite que los servicios existentes se vean afectados
+
+**Security** (properties.incidentType == Security)
+    - Error: Problemas generalizados de acceso a varios servicios en distintas regiones que afectan a numerosos grupos de clientes.
+    - Advertencia: Problemas de acceso a servicios concretos o en regiones concretas que afectan a un subgrupo de clientes.
+    - Información: Problemas que afectan a las operaciones de administración o de latencia, sin afectar a la disponibilidad del servicio.
+
+**Service Issues** (properties.incidentType == Incident)
+    - Error: Problemas generalizados de acceso a varios servicios en distintas regiones que afectan a numerosos grupos de clientes.
+    - Advertencia: Problemas de acceso a servicios concretos o en regiones concretas que afectan a un subgrupo de clientes.
+    - Información: Problemas que afectan a las operaciones de administración o de latencia, sin afectar a la disponibilidad del servicio.
+
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Visualización de las notificaciones de mantenimiento del servicio en Azure Portal
 1.  En [Azure Portal](https://portal.azure.com), seleccione **Supervisión**.

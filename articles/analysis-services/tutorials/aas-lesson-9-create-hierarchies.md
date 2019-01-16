@@ -1,19 +1,19 @@
 ---
-title: 'Lección 9 del tutorial de Azure Analysis Services: Creación de jerarquías'
+title: 'Lección 9 del tutorial de Azure Analysis Services: Creación de jerarquías | Microsoft Docs'
 description: Describe cómo crear jerarquías en un modelo tabular.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2e6591dc25ab498b496f6abff1041e448240896d
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: f34b2fd2ba5f6e3e1433fb8dac04d931a36920d0
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426086"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188970"
 ---
 # <a name="create-hierarchies"></a>Creación de jerarquías
 
@@ -21,10 +21,10 @@ En esta lección, creará jerarquías. Las jerarquías son grupos de columnas di
   
 Para crear jerarquías, use el diseñador de modelos de *Vista de diagrama*. La creación y la administración de jerarquías no se admiten en vista de datos.  
   
-Tiempo estimado para completar esta lección: **20 minutos**  
+Tiempo estimado para completar esta lección: **20 minutos**  
   
 ## <a name="prerequisites"></a>Requisitos previos  
-Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Antes de realizar las tareas de esta lección, debe haber completado la lección anterior: [Lección 8: Creación de perspectivas](../tutorials/aas-lesson-8-create-perspectives.md).  
+Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Para poder realizar las tareas de esta lección, debe haber completado la lección anterior: [Lección 8: Creación de perspectivas](../tutorials/aas-lesson-8-create-perspectives.md).  
   
 ## <a name="create-hierarchies"></a>Creación de jerarquías  
   
@@ -73,6 +73,6 @@ Este tema forma parte de un tutorial de modelado tabular, que se debe completar 
     *  DayNumberOfWeek
   
  ## <a name="whats-next"></a>Pasos siguientes
-[Lección 10: Creación de particiones](../tutorials/aas-lesson-10-create-partitions.md) 
+[Lección 10: Creación de particiones](../tutorials/aas-lesson-10-create-partitions.md). 
   
   

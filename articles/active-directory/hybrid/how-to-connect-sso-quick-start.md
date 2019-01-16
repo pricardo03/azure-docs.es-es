@@ -1,5 +1,5 @@
 ---
-title: 'Inicio de sesión único de conexión directa de Azure AD Connect: Guía de inicio rápido | Microsoft Docs'
+title: 'Azure AD Connect: Inicio de sesión único de conexión directa: inicio rápido | Microsoft Docs'
 description: En este artículo se describe cómo empezar a trabajar con el inicio de sesión único de conexión directa de Azure Active Directory.
 services: active-directory
 keywords: qué es Azure AD Connect, instalar Active Directory, componentes necesarios para Azure AD, SSO, inicio de sesión único
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6d6b8d2bddcd3ac622a2a5f51ebe78cbecc29c29
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 2a842646d2696c0d7d26ad7218d298d2df0be1a1
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687340"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187645"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Guía de inicio rápido
+# <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Inicio rápido
 
 ## <a name="deploy-seamless-single-sign-on"></a>Implementación del inicio de sesión único de conexión directa
 
@@ -34,27 +34,27 @@ Para implementar SSO de conexión directa, siga estos pasos.
 
 Asegúrese de que se cumplen los siguientes requisitos previos:
 
-* **Configure el servidor de Azure AD Connect**: si usa la [autenticación de paso a través](how-to-connect-pta.md) como método de inicio de sesión, no es necesaria ninguna otra comprobación de requisitos previos. Si va a usar la [sincronización de hash de contraseña](how-to-connect-password-hash-synchronization.md) como método de inicio de sesión y hay un firewall entre Azure AD Connect y Azure AD, asegúrese de que:
+* **Configuración del servidor de Azure AD Connect**: si usa la [autenticación de paso a través](how-to-connect-pta.md) como método de inicio de sesión, no es necesaria ninguna otra comprobación de requisitos previos. Si va a usar la [sincronización de hash de contraseña](how-to-connect-password-hash-synchronization.md) como método de inicio de sesión y hay un firewall entre Azure AD Connect y Azure AD, asegúrese de que:
    - Usa Azure AD Connect 1.1.644.0 o cualquier versión posterior. 
    - Si el firewall o el proxy permiten la creación de listas blancas con DNS, cree una lista blanca para las conexiones a las direcciones URL **\*.msappproxy.net** en el puerto 443. En caso contrario, permita el acceso a los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653), que se actualizan cada semana. Este requisito solo es aplicable cuando se habilita la característica. No es necesario para los inicios de sesión de usuarios reales.
 
     >[!NOTE]
     >Las versiones de Azure AD Connect 1.1.557.0, 1.1.558.0, 1.1.561.0 y 1.1.614.0 tienen un problema relacionado con la sincronización de hash de contraseña. Si _no_ tiene pensado utilizar la sincronización de hash de contraseña junto con la autenticación de paso a través, consulte las [notas del historial de versiones de Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) para más información.
 
-* **Use una topología compatible con Azure AD Connect**: asegúrese de que usa una de las topologías compatibles con Azure AD Connect que se describen [aquí](plan-connect-topologies.md).
+* **Uso de una topología de Azure AD Connect**: asegúrese de que usa una de las topologías compatibles con Azure AD Connect que se describen [aquí](plan-connect-topologies.md).
 
     >[!NOTE]
     >El inicio de sesión único de conexión directa es compatible con varios bosques de AD, así haya relaciones de confianza de AD entre ellos o no.
 
-* **Configure las credenciales del administrador de dominio**: debe tener credenciales de administrador de dominio para cada bosque de Active Directory que:
+* **Configuración de credenciales del administrador de dominio**: debe tener credenciales de administrador de dominio para cada bosque de Active Directory que:
     * Sincronice en Azure AD mediante Azure AD Connect.
     * Contenga usuarios para los que desea habilitar el SSO de conexión directa.
     
-* **Habilite la autenticación moderna**: para que esta característica funcione, es preciso que habilite la [autenticación moderna](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) en el inquilino.
+* **Habilitación de la autenticación moderna**: para que esta característica funcione, es preciso que habilite la [autenticación moderna](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) en el inquilino.
 
-* **Use las versiones más recientes de los clientes de Office 365**: para obtener una experiencia de inicio de sesión silenciosa con clientes de Office 365 (Outlook, Word, Excel, etc.), los usuarios deben usar las versiones 16.0.8730.xxxx o superiores.
+* **Uso de las versiones más recientes de los clientes de Office 365**: para obtener una experiencia de inicio de sesión silenciosa con clientes de Office 365 (Outlook, Word, Excel, etc.), los usuarios deben usar las versiones 16.0.8730.xxxx o superiores.
 
-## <a name="step-2-enable-the-feature"></a>Paso 2: Habilitación de la característica
+## <a name="step-2-enable-the-feature"></a>Paso 2: Habilitar la característica
 
 Habilite el SSO de conexión directa mediante [Azure AD Connect](whatis-hybrid-identity.md).
 
@@ -70,7 +70,7 @@ Si va a realizar una instalación nueva de Azure AD Connect, elija la [ruta de a
 
 Si ya tiene una instalación de Azure AD Connect, seleccione la página **Cambiar inicio de sesión de usuario** en Azure AD Connect y después seleccione **Siguiente**. Si usa Azure AD Connect 1.1.880.0 o versiones posteriores, la opción **Habilitar inicio de sesión único** estará seleccionada de forma predeterminada. Si usa versiones anteriores de Azure AD Connect, seleccione la opción **Habilitar inicio de sesión único**.
 
-![Azure AD Connect: Cambiar inicio de sesión de usuario](./media/how-to-connect-sso-quick-start/changeusersignin.png)
+![Azure AD Connect: Cambio del inicio de sesión de usuario](./media/how-to-connect-sso-quick-start/changeusersignin.png)
 
 Continúe con el asistente hasta llegar a la página **Habilitar el inicio de sesión único**. Proporcione las credenciales de administrador de dominio para cada bosque de Active Directory que:
     * Sincronice en Azure AD mediante Azure AD Connect.
@@ -88,7 +88,7 @@ Siga estas instrucciones para verificar que ha habilitado SSO de conexión direc
 3. Seleccione **Azure AD Connect**.
 4. Verifique que la característica **Inicio de sesión único de conexión directa** aparece como **Habilitado**.
 
-![Azure Portal: panel Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
+![Azure Portal: Panel de Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
 > SSO de conexión directa crea una cuenta de equipo llamada `AZUREADSSOACC` (que representa Azure AD) en la instancia local de Active Directory (AD) de cada bosque de AD. Esta cuenta de equipo es necesaria para que funcione la característica. Si utiliza las arquitecturas Pass-the-Hash y Credential Theft Mitigation en su entorno local, asegúrese de que la cuenta de equipo `AZUREADSSOACC` no termine en el contenedor de cuarentena. Realice los cambios adecuados para crear la cuenta de equipo en el contenedor de equipos. Una vez que el SSO de conexión directa esté habilitado correctamente en el asistente de Azure AD Connect, mueva la cuenta de equipo `AZUREADSSOACC` a una unidad organizativa (UO) donde se administren otras cuentas de equipo para asegurarse de que no se elimine accidentalmente.
@@ -97,7 +97,7 @@ Siga estas instrucciones para verificar que ha habilitado SSO de conexión direc
 
 Puede implementar el inicio de sesión único de conexión directa gradualmente a los usuarios con las instrucciones que se proporcionan a continuación. Para empezar, agregue la siguiente dirección URL de Azure AD a la configuración de la zona de la intranet de todos los usuarios, o de los seleccionados, mediante la directiva de grupo de Active Directory:
 
-- https://autologon.microsoftazuread-sso.com
+- `https://autologon.microsoftazuread-sso.com`
 
 Además, tiene que habilitar a una configuración de directiva de zona de intranet denominada **Permitir actualizaciones en la barra de estado a través de script** mediante la directiva de grupo. 
 
@@ -106,7 +106,7 @@ Además, tiene que habilitar a una configuración de directiva de zona de intran
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>¿Por qué es necesario modificar la configuración de zona de Intranet de los usuarios?
 
-De forma predeterminada, el explorador calcula automáticamente la zona correcta (Internet o intranet) de una dirección URL específica. Por ejemplo, "http://contoso/" se asigna a la zona de intranet, mientras que "http://intranet.contoso.com/" se asigna a la zona de Internet (porque la dirección URL contiene un punto). Los exploradores no enviarán vales de Kerberos a un punto de conexión en la nube, como la dirección URL de Azure AD, a menos que agregue explícitamente la dirección URL a la zona de intranet del explorador.
+De forma predeterminada, el explorador calcula automáticamente la zona correcta (Internet o intranet) de una dirección URL específica. Por ejemplo, `http://contoso/` se asigna a la zona de intranet, mientras que `http://intranet.contoso.com/` se asigna a la zona de Internet (porque la dirección URL contiene un punto). Los exploradores no enviarán vales de Kerberos a un punto de conexión en la nube, como la dirección URL de Azure AD, a menos que agregue explícitamente la dirección URL a la zona de intranet del explorador.
 
 Hay dos formas de modificar la configuración de zona de intranet de los usuarios:
 
@@ -122,12 +122,12 @@ Hay dos formas de modificar la configuración de zona de intranet de los usuario
 3. Vaya a **Configuración de usuario** > **Plantillas administrativas** > **Componentes de Windows** > **Internet Explorer** > **Panel de control de Internet** > **Página de seguridad**. A continuación, seleccione **Lista de asignación de sitio a zona**.
     ![Inicio de sesión único](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Habilite la directiva y escriba los valores siguientes en el cuadro de diálogo:
-   - **Nombre de valor**: la dirección URL de Azure AD a la que se reenvían los vales de Kerberos.
+   - **Nombre de valor**: dirección URL de Azure AD a la que se reenvían los vales de Kerberos.
    - **Valor** (datos): **1** indica la zona de intranet.
 
     El resultado se parecerá al siguiente:
 
-    Nombre de valor: https://autologon.microsoftazuread-sso.com
+    Nombre de valor: `https://autologon.microsoftazuread-sso.com`
   
     Valor (datos): 1
 
@@ -181,7 +181,7 @@ Mozilla Firefox no realiza automáticamente la autenticación Kerberos. Cada usu
 1. Ejecute Firefox y escriba `about:config` en la barra de direcciones. Descarte las notificaciones que vea.
 2. Busque la preferencia **network.negotiate-auth.trusted-URI**. Esta preferencia enumera los sitios de confianza de Firefox para la autenticación Kerberos.
 3. Haga clic con el botón derecho y seleccione **Modificar**.
-4. Escriba https://autologon.microsoftazuread-sso.com en el campo.
+4. Escriba `https://autologon.microsoftazuread-sso.com` en el campo.
 5. Seleccione **Aceptar** y después vuelva a abrir el explorador.
 
 #### <a name="safari-macos"></a>Safari (macOS)
@@ -190,7 +190,7 @@ Asegúrese de que la máquina que ejecuta macOS se ha unido a AD. Las instruccio
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (todas las plataformas)
 
-Si ha reemplazado la configuración de las directivas [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) o [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) en su entorno, asegúrese de agregar también la dirección URL de Azure AD (https://autologon.microsoftazuread-sso.com)).
+Si ha reemplazado la configuración de las directivas [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) o [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) en su entorno, asegúrese de agregar también la dirección URL de Azure AD (`https://autologon.microsoftazuread-sso.com`).
 
 #### <a name="google-chrome-macos-only"></a>Google Chrome (solo macOS)
 
@@ -200,7 +200,7 @@ El uso de las extensiones de directiva de grupo de Active Directory de terceros 
 
 #### <a name="known-browser-limitations"></a>Limitaciones de exploradores conocidos
 
-SSO de conexión directa no funciona en modo de exploración privada en los navegadores Firefox y Microsoft Edge. Tampoco funciona en Internet Explorer si el navegador se ejecuta en modo de protección mejorada.
+La opción SSO de conexión directa no funciona en modo de exploración privada en los navegadores Firefox y Microsoft Edge. Tampoco funciona en Internet Explorer si el navegador se ejecuta en modo de protección mejorada.
 
 ## <a name="step-4-test-the-feature"></a>Paso 4: Prueba de la característica
 
@@ -211,27 +211,27 @@ Para probar la característica con un usuario específico, asegúrese de que se 
   - Ha [implantado la característica](##step-3-roll-out-the-feature) para este usuario mediante la directiva de grupo.
 
 Para probar el escenario en el que el usuario escribe solo su nombre de usuario, pero no la contraseña:
-   - Inicie sesión en https://myapps.microsoft.com/ es una sesión de explorador privada nueva.
+   - Inicie sesión en `https://myapps.microsoft.com/` es una sesión de explorador privada nueva.
 
 Para probar el escenario en el que el usuario no tiene que escribir ni su nombre de usuario ni su contraseña, realice alguno de estos pasos: 
-   - Inicie sesión en https://myapps.microsoft.com/contoso.onmicrosoft.com es una sesión de explorador privada nueva. Reemplace *contoso* con el nombre de su inquilino.
-   - Inicie sesión en https://myapps.microsoft.com/contoso.com es una sesión de explorador privada nueva. Reemplace *contoso.com* con un dominio comprobado (no un dominio federado) en el inquilino.
+   - Inicie sesión en `https://myapps.microsoft.com/contoso.onmicrosoft.com` es una sesión de explorador privada nueva. Reemplace *contoso* con el nombre de su inquilino.
+   - Inicie sesión en `https://myapps.microsoft.com/contoso.com` es una sesión de explorador privada nueva. Reemplace *contoso.com* con un dominio comprobado (no un dominio federado) en el inquilino.
 
 ## <a name="step-5-roll-over-keys"></a>Paso 5: Sustitución de claves
 
-En el paso 2, Azure AD Connect crea cuentas de equipo (que representan a Azure AD) en todos los bosques de Active Directory en que se ha habilitado SSO de conexión directa. Para más información, vea [Inicio de sesión único de conexión directa de Azure Active Directory: información técnica detallada](how-to-connect-sso-how-it-works.md).
+En el paso 2, Azure AD Connect crea cuentas de equipo (que representan a Azure AD) en todos los bosques de Active Directory en que se ha habilitado SSO de conexión directa. Para más información, consulte [Azure Active Directory Seamless Single Sign-On: Technical deep dive](how-to-connect-sso-how-it-works.md) (Inicio de sesión único de conexión directa de Azure Active Directory: información técnica detallada).
 
 >[!IMPORTANT]
 >Si se pierde la clave de descifrado de Kerberos de la cuenta de un equipo, se puede usar para generar vales de Kerberos para todos los usuarios de su bosque de AD. En ese caso, actores malintencionados pueden suplantar los inicios de sesión de Azure AD de los usuarios en peligro. Se recomienda encarecidamente cambiar las claves de descifrado de Kerberos de manera periódica (al menos cada 30 días).
 
-Para obtener instrucciones sobre cómo sustituir las claves, vea [Preguntas más frecuentes sobre el inicio de sesión único de conexión directa de Azure Active Directory](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account). Estamos trabajando en una funcionalidad para introducir el cambio automático de claves.
+Para obtener instrucciones sobre cómo sustituir las claves, consulte [Azure Active Directory Seamless Single Sign-On: Frequently asked questions](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) (inicio de sesión único de conexión directa de Azure Active Directory: preguntas más frecuentes). Estamos trabajando en una funcionalidad para introducir el cambio automático de claves.
 
 >[!IMPORTANT]
 >No es necesario realizar este paso _inmediatamente_ después de haber habilitado la característica. Sustituya las claves de descifrado de Kerberos al menos cada treinta días.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Información técnica detallada](how-to-connect-sso-how-it-works.md): obtenga información sobre cómo funciona la característica de inicio de sesión único de conexión directa.
+- [Profundización técnica](how-to-connect-sso-how-it-works.md): comprenda cómo funciona la característica de inicio de sesión único de conexión directa.
 - [Preguntas más frecuentes](how-to-connect-sso-faq.md): obtenga respuestas a las preguntas más frecuentes sobre el inicio de sesión único de conexión directa.
-- [Solución de problemas](tshoot-connect-sso.md): obtenga información sobre cómo resolver problemas comunes con la característica de inicio de sesión único de conexión directa.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): use el foro de Azure Active Directory para solicitar nuevas características.
+- [Solución de problemas](tshoot-connect-sso.md): aprenda a resolver problemas comunes con la característica de inicio de sesión único de conexión directa.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Use el foro de Azure Active Directory para solicitar nuevas características.

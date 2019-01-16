@@ -16,12 +16,12 @@ ms.date: 10/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 18de5ce2f47b6593d4c8556af045f14ade957fb9
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 164fc42d905c9354a58ea6f66a739ea05f12e601
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979240"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157775"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Tokens de acceso de Azure Active Directory
 
@@ -38,7 +38,7 @@ Consulte las secciones siguientes para saber cómo un recurso puede validar y ut
 
 ## <a name="sample-tokens"></a>Tokens de ejemplo
 
-Los tokens de las versiones v1.0 y v2.0 se ven muy similares y contienen muchas de las mismas notificaciones. Aquí se proporciona un ejemplo de cada uno.
+Los tokens de las versiones v1.0 y v2.0 se ven similares y contienen muchas de las mismas notificaciones. Aquí se proporciona un ejemplo de cada uno.
 
 ### <a name="v10"></a>v1.0
 
@@ -79,7 +79,7 @@ Las notificaciones están presentes solo si existe un valor que las rellene. Por
 | `nonce` | string | Un identificador único utilizado para proteger contra ataques de repetición de token. El recurso puede registrar este valor para protegerse contra las repeticiones. |
 | `alg` | string | Indica el algoritmo que se usó para firmar el token, por ejemplo, "RS256". |
 | `kid` | string | Especifica la huella digital de la clave pública que se utiliza para firmar este token. Se emite en ambos tokens de acceso de las versiones 1.0 y 2.0. |
-| `x5t` | string | Funciona igual (en uso y valor) que `kid`. Esta es una notificación heredada emitida solo en los tokens de acceso de la versión 1.0 para fines de compatibilidad. |
+| `x5t` | string | Funciona igual (en uso y valor) que `kid`. `x5t` es una notificación heredada emitida solo en los tokens de acceso de la versión 1.0 para fines de compatibilidad. |
 
 ### <a name="payload-claims"></a>Notificaciones de carga
 
@@ -121,7 +121,7 @@ Las siguientes notificaciones se incluirán en los tokens de la versión 1.0 si 
 | Notificación | Formato | DESCRIPCIÓN |
 |-----|--------|-------------|
 | `ipaddr`| string | La dirección IP desde la que el usuario se autenticó. |
-| `onprem_sid`| Cadena, [en formato de GUID](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | En los casos en los que el usuario tiene una autenticación local, esta notificación proporciona el SID. Esto se puede utilizar para la autorización en aplicaciones heredadas. |
+| `onprem_sid`| Cadena, [en formato de GUID](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | En los casos en los que el usuario tiene una autenticación local, esta notificación proporciona el SID. Puede utilizar `onprem_sid` para la autorización en aplicaciones heredadas. |
 | `pwd_exp`| entero, una marca de tiempo de UNIX | Indica cuándo expira la contraseña del usuario. |
 | `pwd_url`| string | Una dirección URL a donde se envían los usuarios para restablecer la contraseña. |
 | `in_corp`|boolean | Indica si el cliente ha iniciado sesión desde la red corporativa. En caso contrario, la notificación no se incluye |
@@ -200,7 +200,7 @@ La lógica de negocio de la aplicación dictará este paso; a continuación se p
 * Valide el estado de autenticación del cliente que llama mediante `appidacr` - no debería ser 0 si los clientes públicos no pueden llamar a la API.
 * Compare con una lista de notificaciones `nonce` anteriores para comprobar que el token no se está repitiendo.
 * Compruebe que `tid` coincide con un inquilino al que se le permite llamar a la API.
-* Utilice la notificación `acr` para comprobar que el usuario ha realizado la autenticación multifactor. Tenga en cuenta que esto se debe aplicar con [acceso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
+* Utilice la notificación `acr` para comprobar que el usuario ha realizado la autenticación multifactor. Esto se debe aplicar con [acceso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 * Si ha solicitado las notificaciones `roles` o `groups` en el token de acceso, compruebe que el usuario está en el grupo al que se permite realizar esta acción.
   * Para los tokens recuperados utilizando el flujo implícito, es probable que necesite consultar [Microsoft Graph](https://developer.microsoft.com/graph/) para estos datos, ya que a menudo son demasiado grandes para adaptarse al token. 
 
@@ -225,7 +225,7 @@ Los tokens de actualización pueden ser invalidados o revocados en cualquier mom
 
 ### <a name="revocation"></a>Revocación
 
-|   | Cookie basada en contraseña | Token basado en contraseña | Cookie no basada en contraseña | Token no basado en contraseña | Token de cliente confidencial| 
+|   | Cookie basada en contraseñas | Token basado en contraseñas | Cookie no basada en contraseñas | Token no basado en contraseñas | Token de cliente confidencial| 
 |---|-----------------------|----------------------|---------------------------|--------------------------|--------------------------|
 | La contraseña expira | Permanece activa| Permanece activa | Permanece activa | Permanece activa | Permanece activa |
 | Contraseña cambiada por el usuario | Revocada | Revocada | Permanece activa | Permanece activa | Permanece activa |

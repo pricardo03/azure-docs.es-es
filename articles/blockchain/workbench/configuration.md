@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/4/2018
+ms.date: 1/8/2019
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: caaee4cb155fc05b78bc47f1e53c79ecb0597183
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f93bfcb076bfae5c50c751ac664a145e1b375f23
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341946"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107776"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Referencia sobre la configuración de Azure Blockchain Workbench
 
@@ -53,17 +53,17 @@ Para obtener un ejemplo, consulte [ejemplo de archivo de configuración](#config
 
 Se puede modelar la lógica de negocios de una aplicación como una máquina de estados en la que la realización de una acción provoca que el flujo de la lógica de negocios pase de un estado a otro. Un flujo de trabajo es una colección de estos estados y acciones. Cada flujo de trabajo consta de uno o varios contratos inteligentes que representan la lógica de negocios en archivos de código. Un contrato ejecutable es una instancia de un flujo de trabajo.
 
-| Campo | DESCRIPCIÓN | Obligatorio |
-|-------|-------------|:--------:|
-| NOMBRE | Nombre único de flujo de trabajo. El contrato inteligente correspondiente debe usar el mismo **nombre** para la clase de contrato aplicable. | SÍ |
-| DisplayName | Nombre descriptivo para mostrar del flujo de trabajo. | SÍ |
-| DESCRIPCIÓN | Descripción del flujo de trabajo. | Sin  |
-| Iniciadores | Colección de [ApplicationRoles](#application-roles). Roles que se asignan a los usuarios que están autorizados para crear contratos en el flujo de trabajo. | SÍ |
-| StartState | Nombre del estado inicial del flujo de trabajo. | SÍ |
-| Properties (Propiedades) | Colección de [identificadores](#identifiers). Representa los datos que se pueden leer fuera de la cadena o visualizar en una herramienta de experiencia del usuario. | SÍ |
-| Constructor | Define los parámetros de entrada para la creación de una instancia del flujo de trabajo. | SÍ |
-| Functions | Una colección de [funciones](#functions) que se pueden ejecutar en el flujo de trabajo. | SÍ |
-| States | Una colección de [estados](#states) del flujo de trabajo. | SÍ |
+| Campo | DESCRIPCIÓN | Obligatorio | Longitud máxima |
+|-------|-------------|:--------:|-----------:|
+| NOMBRE | Nombre único de flujo de trabajo. El contrato inteligente correspondiente debe usar el mismo **nombre** para la clase de contrato aplicable. | SÍ | 50 |
+| DisplayName | Nombre descriptivo para mostrar del flujo de trabajo. | SÍ | 255 |
+| DESCRIPCIÓN | Descripción del flujo de trabajo. | Sin  | 255 |
+| Iniciadores | Colección de [ApplicationRoles](#application-roles). Roles que se asignan a los usuarios que están autorizados para crear contratos en el flujo de trabajo. | SÍ | |
+| StartState | Nombre del estado inicial del flujo de trabajo. | SÍ | |
+| Properties (Propiedades) | Colección de [identificadores](#identifiers). Representa los datos que se pueden leer fuera de la cadena o visualizar en una herramienta de experiencia del usuario. | SÍ | |
+| Constructor | Define los parámetros de entrada para la creación de una instancia del flujo de trabajo. | SÍ | |
+| Functions | Una colección de [funciones](#functions) que se pueden ejecutar en el flujo de trabajo. | SÍ | |
+| States | Una colección de [estados](#states) del flujo de trabajo. | SÍ | |
 
 Para obtener un ejemplo, consulte [ejemplo de archivo de configuración](#configuration-file-example).
 
@@ -207,12 +207,12 @@ Define los parámetros de entrada de una instancia de un flujo de trabajo.
 
 Define las funciones que se pueden ejecutar en el flujo de trabajo.
 
-| Campo | DESCRIPCIÓN | Obligatorio |
-|-------|-------------|:--------:|
-| NOMBRE | El nombre único de la función. El contrato inteligente correspondiente debe usar el mismo **nombre** para la función aplicable. | SÍ |
-| DisplayName | Nombre descriptivo para mostrar de la función. | SÍ |
-| DESCRIPCIÓN | Descripción de la función | Sin  |
-| Parámetros | Colección de [identificadores](#identifiers) que se corresponden con los parámetros de la función. | SÍ |
+| Campo | DESCRIPCIÓN | Obligatorio | Longitud máxima |
+|-------|-------------|:--------:|-----------:|
+| NOMBRE | El nombre único de la función. El contrato inteligente correspondiente debe usar el mismo **nombre** para la función aplicable. | SÍ | 50 |
+| DisplayName | Nombre descriptivo para mostrar de la función. | SÍ | 255 |
+| DESCRIPCIÓN | Descripción de la función | Sin  | 255 |
+| Parámetros | Colección de [identificadores](#identifiers) que se corresponden con los parámetros de la función. | SÍ | |
 
 ### <a name="functions-example"></a>Ejemplo de funciones
 
@@ -255,14 +255,14 @@ Define las funciones que se pueden ejecutar en el flujo de trabajo.
 
 Una colección de estados únicos dentro de un flujo de trabajo. Cada estado captura un paso del flujo de control de la lógica de negocios. 
 
-| Campo | DESCRIPCIÓN | Obligatorio |
-|-------|-------------|:--------:|
-| NOMBRE | Nombre único del estado. El contrato inteligente correspondiente debe usar el mismo **nombre** para el estado aplicable. | SÍ |
-| DisplayName | Nombre descriptivo para mostrar del estado. | SÍ |
-| DESCRIPCIÓN | Descripción del estado. | Sin  |
-| PercentComplete | Un valor entero que se muestra en la interfaz de usuario de Blockchain Workbench para mostrar el progreso en el flujo de control de la lógica de negocios. | SÍ |
-| Estilo | Sugerencia visual que indica si el estado representa un estado correcto o erróneo. Hay dos valores válidos: `Success` o `Failure`. | SÍ |
-| Transiciones | Colección de las [transiciones](#transitions) disponibles desde el estado actual hasta el siguiente conjunto de estados. | Sin  |
+| Campo | DESCRIPCIÓN | Obligatorio | Longitud máxima |
+|-------|-------------|:--------:|-----------:|
+| NOMBRE | Nombre único del estado. El contrato inteligente correspondiente debe usar el mismo **nombre** para el estado aplicable. | SÍ | 50 |
+| DisplayName | Nombre descriptivo para mostrar del estado. | SÍ | 255 |
+| DESCRIPCIÓN | Descripción del estado. | Sin  | 255 |
+| PercentComplete | Un valor entero que se muestra en la interfaz de usuario de Blockchain Workbench para mostrar el progreso en el flujo de control de la lógica de negocios. | SÍ | |
+| Estilo | Sugerencia visual que indica si el estado representa un estado correcto o erróneo. Hay dos valores válidos: `Success` o `Failure`. | SÍ | |
+| Transiciones | Colección de las [transiciones](#transitions) disponibles desde el estado actual hasta el siguiente conjunto de estados. | Sin  | |
 
 ### <a name="states-example"></a>Ejemplo de estados
 
@@ -369,10 +369,10 @@ Las acciones disponibles hasta el siguiente estado. Uno o varios roles de usuari
 
 Los roles de aplicación definen un conjunto de roles que se pueden asignar a los usuarios que deseen actuar o participar en la aplicación. Estos roles se pueden usar para restringir las acciones y la participación en la aplicación de cadena de bloques y en los flujos de trabajo correspondientes. 
 
-| Campo | DESCRIPCIÓN | Obligatorio |
-|-------|-------------|:--------:|
-| NOMBRE | El nombre único del rol de aplicación. El contrato inteligente correspondiente debe usar el mismo **nombre** para el rol aplicable. Se reservan los nombres de tipo base. No puede asignar un nombre a un rol de aplicación con el mismo nombre como [Tipo](#type)| SÍ |
-| DESCRIPCIÓN | Descripción del rol de aplicación. | Sin  |
+| Campo | DESCRIPCIÓN | Obligatorio | Longitud máxima |
+|-------|-------------|:--------:|-----------:|
+| NOMBRE | El nombre único del rol de aplicación. El contrato inteligente correspondiente debe usar el mismo **nombre** para el rol aplicable. Se reservan los nombres de tipo base. No puede asignar un nombre a un rol de aplicación con el mismo nombre como [Tipo](#type)| SÍ | 50 |
+| DESCRIPCIÓN | Descripción del rol de aplicación. | Sin  | 255 |
 
 ### <a name="application-roles-example"></a>Ejemplo de roles de aplicación
 
@@ -392,11 +392,11 @@ Los roles de aplicación definen un conjunto de roles que se pueden asignar a lo
 
 Los identificadores representan una colección de información que se usa para describir las propiedades, el constructor y los parámetros de función del flujo de trabajo. 
 
-| Campo | DESCRIPCIÓN | Obligatorio |
-|-------|-------------|:--------:|
-| NOMBRE | El nombre único de la propiedad o parámetro. El contrato inteligente correspondiente debe usar el mismo **nombre** para la propiedad o parámetro aplicables. | SÍ |
-| DisplayName | Nombre descriptivo para mostrar de la propiedad o parámetro. | SÍ |
-| DESCRIPCIÓN | Descripción de la propiedad o parámetro. | Sin  |
+| Campo | DESCRIPCIÓN | Obligatorio | Longitud máxima |
+|-------|-------------|:--------:|-----------:|
+| NOMBRE | El nombre único de la propiedad o parámetro. El contrato inteligente correspondiente debe usar el mismo **nombre** para la propiedad o parámetro aplicables. | SÍ | 50 |
+| DisplayName | Nombre descriptivo para mostrar de la propiedad o parámetro. | SÍ | 255 |
+| DESCRIPCIÓN | Descripción de la propiedad o parámetro. | Sin  | 255 |
 
 ### <a name="identifiers-example"></a>Ejemplo de identificadores
 
@@ -423,7 +423,7 @@ Los identificadores representan una colección de información que se usa para d
 
 ## <a name="configuration-file-example"></a>Ejemplo de archivo de configuración
 
-La transferencia de recursos es un escenario de contrato inteligente pensado para la compra y venta de recursos de alto valor, que requieren un inspector y un evaluador. Los vendedores pueden enumerar los recursos mediante la creación de una instancia de un contrato inteligente de transferencia de recursos. Los compradores pueden realizar ofertas mediante la ejecución de una acción en el contrato inteligente y las demás partes pueden realizar acciones para inspeccionar o evaluar el recurso. Una vez que se marca el recurso como inspeccionado y evaluado, el comprador y el vendedor confirmarán la venta de nuevo antes de establecer el contrato como completo. En cada punto del proceso, todos los participantes pueden ver el estado del contrato a medida que se actualiza. 
+La transferencia de recursos es un escenario de contrato inteligente pensado para la compra y venta de recursos de alto valor, que requieren un inspector y un evaluador. Los vendedores pueden enumerar los recursos mediante la creación de una instancia de un contrato inteligente de transferencia de recursos. Los compradores pueden realizar ofertas mediante la ejecución de una acción en el contrato inteligente y las demás partes pueden realizar acciones para inspeccionar o evaluar el recurso. Una vez que se marca el recurso como inspeccionado y evaluado, el comprador y el vendedor confirmarán la venta de nuevo antes de establecer el contrato como completo. En cada punto del proceso, todos los participantes pueden ver el estado del contrato a medida que se actualiza. 
 
 Para más información, incluidos los archivos de código, consulte el [ejemplo de transferencia de recursos de Azure Blockchain Workbench](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer)
 

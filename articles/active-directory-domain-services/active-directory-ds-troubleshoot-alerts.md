@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: solución de problemas de alertas | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Solución de problemas de alertas | Microsoft Docs'
 description: Solución de problemas de alertas para Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: c4aa5786ea1dfbef32c40306de6291ebeb2fe6f8
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: c30e18c42f310172b07995e0ad88a505a01c4218
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036145"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159611"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services: solución de problemas de alertas
 En este artículo se brinda guías para la solución de problemas de cualquier alerta que pueda recibir en su dominio administrado.
@@ -56,7 +56,7 @@ Elija los pasos de solución de problemas que correspondan al identificador o me
 
 
 
-## <a name="aadds100-missing-directory"></a>AADDS100: falta un directorio
+## <a name="aadds100-missing-directory"></a>AADDS100: Falta un directorio
 **Mensaje de alerta:**
 
 *Es posible que se haya eliminado el directorio de Azure AD asociado con su dominio administrado. El dominio administrado ya no está en una configuración admitida. Microsoft no puede supervisar, administrar, revisar ni sincronizar el dominio administrado.*
@@ -83,7 +83,7 @@ Para restaurar el servicio, siga estos pasos:
 2. Cree un directorio que no sea un directorio de Azure AD B2C.
 3. Siga la guía de [introducción](active-directory-ds-getting-started.md) para volver a crear un dominio administrado.
 
-## <a name="aadds103-address-is-in-a-public-ip-range"></a>AADDS103: la dirección está en un intervalo IP público
+## <a name="aadds103-address-is-in-a-public-ip-range"></a>AADDS103: La dirección está en un intervalo IP público
 
 **Mensaje de alerta:**
 
@@ -114,7 +114,7 @@ Dentro de la red virtual, las máquinas pueden realizar solicitudes a los recurs
 4. Para unir las máquinas virtuales al dominio nuevo, siga [esta guía](active-directory-ds-admin-guide-join-windows-vm-portal.md).
 8. Para asegurarse de que la alerta se resuelve, compruebe el estado de su dominio transcurridas dos horas.
 
-## <a name="aadds106-your-azure-subscription-is-not-found"></a>AADDS106: No se encuentra la suscripción de Azure
+## <a name="aadds106-your-azure-subscription-is-not-found"></a>AADDS106: Su suscripción de Azure no se encuentra
 
 **Mensaje de alerta:**
 
@@ -128,7 +128,7 @@ Azure AD Domain Services requiere una suscripción para funcionar y no puede mov
 2. [Elimine el dominio administrado](active-directory-ds-disable-aadds.md) del directorio de Azure AD existente.
 3. Siga la guía de [introducción](active-directory-ds-getting-started.md) para volver a crear un dominio administrado.
 
-## <a name="aadds107-your-azure-subscription-is-disabled"></a>AADDS107: La suscripción de Azure está deshabilitada
+## <a name="aadds107-your-azure-subscription-is-disabled"></a>AADDS107: Su suscripción de Azure está deshabilitada
 
 **Mensaje de alerta:**
 
@@ -179,7 +179,7 @@ Azure AD Domain Services crea recursos específicos durante la implementación p
 
 Este error es irrecuperable. Para resolver esto, debe [eliminar el dominio administrado existente](active-directory-ds-disable-aadds.md) y [volver a crear el dominio administrado](active-directory-ds-getting-started.md).
 
-## <a name="aaddds111-service-principal-unauthorized"></a>AADDDS111: Entidad de servicio no autorizada
+## <a name="aadds111-service-principal-unauthorized"></a>AADDS111: Entidad de servicio no autorizada
 
 **Mensaje de alerta:**
 

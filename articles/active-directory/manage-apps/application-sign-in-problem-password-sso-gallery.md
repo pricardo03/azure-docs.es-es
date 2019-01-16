@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 6af369c9ba1621dcedc2adf74f0c25321422f3c4
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 0008384b53671b76e5cc0a6a405d3aa4986e73d2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356294"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191775"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problemas al iniciar sesión en una aplicación de la galería de Azure AD configurada para inicio de sesión único
 
@@ -40,7 +40,7 @@ Para el SSO basado en contraseña, los exploradores del usuario final pueden ser
 -   Firefox 26.0 o versiones superiores: en Windows XP SP2 o versiones superiores y en Mac OS X 10.6 o versiones superiores
 
 >[!NOTE]
->La extensión de SSO basada en contraseña está disponible para Microsoft Edge en Windows 10 cuando se admiten extensiones de explorador para Microsoft Edge.
+>La extensión de SSO basado en contraseña está disponible para Microsoft Edge en Windows 10 cuando se admiten extensiones de explorador para Microsoft Edge.
 >
 >
 
@@ -76,7 +76,7 @@ Los requisitos previos son:
 
 -   Configuró [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)y unió los equipos de los usuarios a su dominio.
 
--   Debe tener el permiso "Editar configuración" para editar el objeto de directiva de grupo (GPO). De forma predeterminada, los miembros de los siguientes grupos de seguridad poseen este permiso: Administradores de dominio, Administradores de organización y Propietarios del creador de directivas de grupo. [Más información](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
+-   Debe tener el permiso "Editar configuración" para editar el objeto de directiva de grupo (GPO). De forma predeterminada, los miembros de los siguientes grupos de seguridad tienen este permiso: administradores de dominio, administradores de empresa y propietarios del creador de directivas de grupo. [Más información](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx).
 
 Siga el tutorial [Implementación de la extensión de panel de acceso para Internet Explorer mediante la directiva de grupo](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-group-policy) para obtener instrucciones paso a paso sobre cómo configurar la directiva de grupo e implementarla en los usuarios.
 

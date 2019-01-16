@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: 129f77ec9ea4d4e2633e1ea0b02795bc0df26433
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1f51fb1d92fdec93fdb57fd25f8ca1cbaeb4fc46
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834713"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188936"
 ---
 # <a name="what-is-the-myapps-portal"></a>¿Qué es el portal MyApps?
 
@@ -65,7 +65,7 @@ El instalador es específico para la arquitectura. Si hace clic en el vínculo d
 
 
 La extensión del portal Mis aplicaciones está actualmente disponible para:
-- **Edge**: en Windows 10 Anniversary Edition, o cualquier versión posterior. 
+- **Microsoft Edge**: en Windows 10 Anniversary Edition o versión posterior. 
 - **Chrome**: en Windows 7 o versiones posteriores y en MacOS X o versiones posteriores.
 - **Firefox 26.0 o versiones posteriores**: en Windows XP SP2 o versiones posteriores y en Mac OS X 10.6 o versiones posteriores.
 - **Internet Explorer 11**: en Windows 7, o cualquier versión posterior (compatibilidad limitada).
@@ -79,7 +79,7 @@ Para poder iniciar sesión con el inicio de sesión único basado en contraseña
 - Puede usar direcciones URL internas de la empresa mientras se conecta de forma remota mediante el [proxy de la aplicación](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started)
 
 > [!NOTE]
-> Hay características adicionales disponibles solo para Edge, Chrome y Firefox.
+> Hay características adicionales disponibles solo para Microsoft Edge, Chrome y Firefox.
 >
 También puede descargar la extensión directamente desde los siguientes sitios:
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)

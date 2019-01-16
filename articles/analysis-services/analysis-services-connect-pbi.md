@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 707bc41a2a66782d9540d95606c41685908e9848
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: cb93c29ae4cb8d365cd128c52ee726c10c94bc19
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429730"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189344"
 ---
 # <a name="connect-with-power-bi"></a>Conexión con Power BI
 
@@ -45,9 +45,7 @@ Una vez que se ha creado un servidor en Azure y se ha implementado un modelo tab
 ## <a name="connect-in-power-bi-service"></a>Conexión en Power BI (servicio)
 
 1. Cree un archivo de Power BI Desktop que tenga una conexión en directo con el modelo del servidor.
-2. En [Power BI](https://powerbi.microsoft.com), haga clic en **Obtener datos** > **Archivos**, busque el archivo pbix y selecciónelo.
-
-
+2. En [Power BI](https://powerbi.microsoft.com), haga clic en **Obtener datos** > **Archivos**, busque el archivo .pbix y selecciónelo.
 
 ## <a name="see-also"></a>Otras referencias
 [Conexión a Azure Analysis Services](analysis-services-connect.md)   

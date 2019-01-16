@@ -8,18 +8,24 @@ ms.topic: include
 ms.date: 09/13/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 830deb7569772b610b7e6abde649830b7ad67a92
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 547e0b08b2a57b4b9192f11907f77160142d4466
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046632"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54192132"
 ---
+## <a name="launch-azure-cloud-shell"></a>Inicio de Azure Cloud Shell
+
+Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. 
+
+Para abrir Cloud Shell, seleccione **Pruébelo** en la esquina superior derecha de un bloque de código. También puede ir a [https://shell.azure.com/bash](https://shell.azure.com/bash) para iniciar Cloud Shell en una pestaña independiente del explorador. Seleccione **Copiar** para copiar los bloques de código, péguelos en Cloud Shell y, luego, presione Entrar para ejecutarlos.
+
 ## <a name="before-you-begin"></a>Antes de empezar
 
 Para completar el ejemplo de este artículo, debe tener una imagen administrada existente de una VM generalizada. Para más información, consulte [Tutorial: Creación de una imagen personalizada de una máquina virtual de Azure con la CLI de Azure 2.0](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). 
 
-## <a name="preview-register-the-feature"></a>Versión preliminar: Registrar la característica
+## <a name="preview-register-the-feature"></a>Vista previa: Registrar la característica
 
 La galería de imágenes compartidas está en versión preliminar, pero debe registrar la característica antes de poder usarla. Para registrar la característica de galería de imágenes compartidas:
 

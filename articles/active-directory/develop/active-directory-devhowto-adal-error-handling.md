@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.custom: ''
-ms.openlocfilehash: db1d2f16c6497ce3c14d162a9c354dda995058f6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d6e70048f5c86ad18962237d7ffcc442c82bf035
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974789"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107657"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Prácticas recomendadas de control de errores para los clientes de la Biblioteca de autenticación de Azure Active Directory (ADAL)
 
@@ -187,7 +187,7 @@ El sistema operativo también puede generar un conjunto de errores, que requiere
   - Todos las situaciones, incluida en nombre de
   - Situaciones concretas de en nombre de
 
-### <a name="error-cases-and-actionable-steps-native-client-applications"></a>Casos de error y acciones recomendadas: aplicaciones de cliente nativo
+### <a name="error-cases-and-actionable-steps-native-client-applications"></a>Casos de error y acciones recomendadas: Aplicaciones cliente nativas
 
 Si va a compilar una aplicación de cliente nativo, hay algunos casos de control de errores a tener en cuenta que se relacionan con problemas de red, errores transitorios y otros errores específicos de la plataforma. En la mayoría de los casos, una aplicación no debería realizar intentos inmediatos, sino esperar a la interacción del usuario final que solicita un inicio de sesión. 
 
@@ -340,7 +340,7 @@ El código debería implementarse así:
 }]
 ```
 
-### <a name="error-cases-and-actionable-steps-web-applications-that-call-a-resource-api-net"></a>Casos de error y acciones recomendadas: aplicaciones web que llaman a una API de recurso (.NET)
+### <a name="error-cases-and-actionable-steps-web-applications-that-call-a-resource-api-net"></a>Casos de error y acciones recomendadas: Aplicaciones web que llaman a una API de recurso (.NET)
 
 Si va a compilar una aplicación web de .NET que obtiene un token con un código de autorización para un recurso, el único código necesario es un controlador predeterminado para el caso genérico. 
 
@@ -365,7 +365,7 @@ catch (AdalException e) {
 }
 ```
 
-### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>Casos de error y acciones recomendadas: aplicaciones de una sola página (adal.js)
+### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>Casos de error y acciones recomendadas: Aplicaciones de página única (adal.js)
 
 Si va a compilar una aplicación de una sola página mediante adal.js con AcquireToken, el código del control de errores es similar al de una llamada silenciosa típica. En concreto, en adal.js, AcquireToken nunca muestra la interfaz de usuario. 
 
@@ -586,7 +586,13 @@ window.Logging = {
 Use la siguiente sección de comentarios para proporcionar sus opiniones y ayudarnos a refinar y remodelar nuestro contenido.
 
 [![Botón de inicio de sesión][AAD-Sign-In]][AAD-Sign-In]
-<!--Reference style links --> [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md [AAD-Auth-Scenarios]:authentication-scenarios.md [AAD-Dev-Guide]:azure-ad-developers-guide.md [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md [AZURE-portal]: https://portal.azure.com
+<!--Reference style links -->
+
+[AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
+[AAD-Auth-Scenarios]:authentication-scenarios.md
+[AAD-Dev-Guide]:azure-ad-developers-guide.md
+[AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
+[AZURE-portal]: https://portal.azure.com
 
 <!--Image references-->
 [AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png

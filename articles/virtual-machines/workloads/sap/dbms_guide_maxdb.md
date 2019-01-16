@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 408d43f07179f9f18c05f22fdd4ea36a3a90cb49
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: c5f71e104e97ab886483d50760f0a42936a16717
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075622"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157316"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>Implementación de SAP MaxDB, liveCache y del servidor de contenido en máquinas virtuales de Azure
 
@@ -331,7 +331,7 @@ Encontrará la lista de la documentación de SAP MaxDB actualizada en la nota de
 
 ### <a name="sap-maxdb-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Instrucciones de configuración de SAP MaxDB para instalaciones de SAP en máquinas virtuales de Azure
 #### <a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>Configuración de almacenamiento
-Los procedimientos recomendados de Azure Storage para SAP MaxDB siguen las recomendaciones generales mencionadas en el capítulo [Estructura de una implementación de RDBMS][dbms-guide-2].
+Los procedimientos recomendados de almacenamiento de Azure para SAP MaxDB siguen las recomendaciones generales mencionadas en el capítulo [Estructura de almacenamiento de una máquina virtual para implementaciones de RDBMS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64).
 
 > [!IMPORTANT]
 > Al igual que otras bases de datos, SAP MaxDB también dispone de archivos de datos y de registro. Sin embargo, en la terminología de SAP MaxDB el término correcto es "volumen" (no "archivo"). Por ejemplo, existen volúmenes de datos y de registro de SAP MaxDB. No los confunda con los volúmenes de disco del sistema operativo. 
@@ -458,7 +458,7 @@ Dispone de dos opciones:
 
 1. **El cliente es un sistema SAP de back-end** Si se configura un sistema SAP de back-end para acceder a SAP Content Server, dicho sistema SAP será un cliente. Puesto que el sistema SAP y SAP Content Server se implementan en la misma región de Azure, en el mismo centro de datos de Azure, ambos se encuentran físicamente próximos entre sí. Por lo tanto, no hace falta disponer de un SAP Content Server dedicado. Los clientes de interfaz de usuario de SAP (SAP GUI o un explorador web) acceden directamente al sistema SAP y este recupera los documentos desde SAP Content Server.
 2. **El cliente es un explorador web local** SAP Content Server puede configurarse para acceder a él directamente mediante un explorador web. En este caso, un explorador web que se ejecute de forma local es un cliente de SAP Content Server. Se coloca un centro de datos local y el de Azure en diferentes ubicaciones físicas (lo ideal es que se encuentren próximos entre sí). Su centro de datos local se conecta a Azure a través del VPN de sitio a sitio o ExpressRoute de Azure. Aunque ambas opciones ofrecen conexión de red VPN segura a Azure, la conexión de red de sitio a sitio no ofrece un acuerdo de nivel de servicio de latencia y ancho de banda de red entre el centro de datos local y el de Azure. Para agilizar el acceso a los documentos, puede realizar una de las siguientes acciones:
-   1. Instalar el servidor de caché de SAP de forma local, cerca del explorador web local (opción de [esta][dbms-guide-900-sap-cache-server-on-premises] ilustración)
+   1. Instalar el servidor de caché de SAP de forma local, cerca del explorador web local (opción de ilustración a continuación)
    2. Configurar ExpressRoute de Azure, que ofrece una conexión de red dedicada de alta velocidad y baja latencia entre el centro de datos local y el centro de datos de Azure.
 
 ![Opción de instalar el servidor de caché de SAP de forma local](./media/dbms_maxdb_deployment_guide/900-sap-cache-server-on-premises.png)

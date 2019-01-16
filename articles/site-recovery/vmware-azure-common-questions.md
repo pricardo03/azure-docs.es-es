@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 12/31/2018
 ms.topic: conceptual
 ms.author: rayne
-ms.openlocfilehash: 920ae8ff09cb8e936a1ba70b2c862bd9bc076046
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e229fcc2c9eb6b8e1b49293dfd741a2f96f62871
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974699"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077392"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Preguntas frecuentes: replicación de VMware en Azure
 
@@ -108,6 +108,12 @@ Sí, puede agregar nuevas máquinas virtuales a un grupo de replicación existen
 ### <a name="can-i-modify-vms-that-are-replicating-by-adding-or-resizing-disks"></a>¿Puedo modificar máquinas virtuales que se replican mediante la adición o el cambio de tamaño de discos?
 
 Para la replicación de VMware en Azure, puede modificar el tamaño del disco. Si desea agregar discos nuevos, debe agregar el disco y volver a habilitar la protección de la máquina virtual.
+
+### <a name="can-i-migrate-on-prem-machines-to-a-new-vcenter-without-impacting-ongoing-replication"></a>¿Puedo migrar máquinas locales a una nueva instancia de Vcenter sin que ello repercuta en la replicación en curso?
+No, el cambio de instancia de Vcenter o migración afectará a la replicación en curso. Deberá configurar ASR con la nueva instancia de Vcenter y habilitar la replicación de máquinas.
+
+### <a name="can-i-replicate-to-cachetarget-storage-account-which-has-a-vnet-with-azure-storage-firewalls-configured-on-it"></a>¿Puedo replicar a una cuenta de almacenamiento en caché o destino que tenga una red virtual (con firewalls de Azure Storage) configurada?
+No, Azure Site Recovery no admite la replicación ni en el almacenamiento ni en la red virtual.
 
 ## <a name="configuration-server"></a>Servidor de configuración
 
@@ -225,9 +231,10 @@ La [conmutación por error](site-recovery-failover.md) no es automática. Puede 
 Sí, si conmutó por error en Azure, puede conmutar por recuperación en otra ubicación si la ubicación original no está disponible. [Más información](concepts-types-of-failback.md#alternate-location-recovery-alr).
 
 ### <a name="why-do-i-need-a-vpn-or-expressroute-to-fail-back"></a>¿Por qué se necesita una VPN o ExpressRoute para conmutar por recuperación?
-
 Cuando conmuta por recuperación desde Azure, los datos provenientes de Azure se copia nuevamente en la máquina virtual local y se requiere acceso privado.
 
+### <a name="can-i-resize-the-azure-vm-after-failover"></a>¿Puedo cambiar el tamaño de la máquina virtual de Azure después de la conmutación por error?
+No, no se puede cambiar el tamaño de la máquina virtual de destino después de la conmutación por error.
 
 
 ## <a name="automation-and-scripting"></a>Automatización y scripts

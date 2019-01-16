@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2018
+ms.date: 01/03/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 6251a0c7fd43a12dbe02a0013f1530557d142d25
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 2ab696436a8cf139eff92edc3b8ff2c27b40a7aa
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969964"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018394"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Uso de los perfiles de la versión de la API con la CLI de Azure en Azure Stack
 
@@ -26,7 +26,7 @@ Puede seguir los pasos de este artículo para configurar la interfaz de la líne
 
 ## <a name="install-cli"></a>Instalar la CLI
 
-Inicie sesión en la estación de trabajo de desarrollo e instale la CLI. Azure Stack requiere la versión 2.0 o superior de la CLI de Azure. Puede instarla usando los pasos descritos en el artículo [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Para comprobar si la instalación se realizó correctamente, abra un terminal o una ventana del símbolo del sistema y ejecute el siguiente comando:
+Inicie sesión en la estación de trabajo de desarrollo e instale la CLI. Azure Stack requiere la versión 2.0 o superior de la CLI de Azure. Puede instalar esa versión usando los pasos descritos en el artículo [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Para comprobar si la instalación se realizó correctamente, abra un terminal o una ventana del símbolo del sistema y ejecute el siguiente comando:
 
 ```azurecli
 az --version
@@ -40,11 +40,11 @@ Debería ver la versión de la CLI de Azure y otras bibliotecas dependientes ins
 
 1. Busque la ubicación del certificado en la máquina. La ubicación puede variar dependiendo de dónde haya instalado Python. Debe tener [pip](https://pip.pypa.io) y el módulo [certifi](https://pypi.org/project/certifi/) instalado. Puede usar el siguiente comando de Python desde el símbolo del sistema de bash:
 
-  ```bash  
+    ```bash  
     python -c "import certifi; print(certifi.where())"
-  ```
+    ```
 
-  Tome nota de la ubicación del certificado. Por ejemplo, `~/lib/python3.5/site-packages/certifi/cacert.pem`. La ruta de acceso particular dependerá del sistema operativo y de la versión de Python que esté instalada.
+    Tome nota de la ubicación del certificado; por ejemplo, `~/lib/python3.5/site-packages/certifi/cacert.pem`. La ruta de acceso específica depende del sistema operativo y la versión de Python que haya instalado.
 
 ### <a name="set-the-path-for-a-development-machine-inside-the-cloud"></a>Establecimiento de la ruta de acceso para una máquina de desarrollo dentro de la nube
 
@@ -56,13 +56,11 @@ sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
 
 ### <a name="set-the-path-for-a-development-machine-outside-the-cloud"></a>Establecimiento de la ruta de acceso para una máquina de desarrollo fuera de la nube
 
-Si va a ejecutar la CLI en una máquina **fuera** del entorno de Azure Stack:  
+Si va a ejecutar la CLI en una máquina fuera del entorno de Azure Stack:  
 
-1. Debe configurar la [conectividad VPN a Azure Stack](azure-stack-connect-azure-stack.md).
-
+1. Configure la [conectividad VPN a Azure Stack](azure-stack-connect-azure-stack.md).
 1. Copie el certificado PEM que obtuvo del operador de Azure Stack y anote la ubicación del archivo (PATH_TO_PEM_FILE).
-
-1. Ejecute los siguientes comandos, dependiendo del sistema operativo de la estación de trabajo de desarrollo.
+1. Ejecute los comandos en las secciones siguientes, según el sistema operativo de la estación de trabajo de desarrollo.
 
 #### <a name="linux"></a>Linux
 
@@ -84,7 +82,7 @@ $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Down
 $root = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
 $root.Import($pemFile)
 
-Write-Host "Extracting needed information from the cert file"
+Write-Host "Extracting required information from the cert file"
 $md5Hash    = (Get-FileHash -Path $pemFile -Algorithm MD5).Hash.ToLower()
 $sha1Hash   = (Get-FileHash -Path $pemFile -Algorithm SHA1).Hash.ToLower()
 $sha256Hash = (Get-FileHash -Path $pemFile -Algorithm SHA256).Hash.ToLower()
@@ -104,21 +102,20 @@ $serialEntry + "`n" + $md5Entry + "`n" + $sha1Entry + "`n" + $sha256Entry + "`n"
 Write-Host "Adding the certificate content to Python Cert store"
 Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
 
-Write-Host "Python Cert store was updated for allowing the azure stack CA root certificate"
+Write-Host "Python Cert store was updated to allow the Azure Stack CA root certificate"
 ```
 
 ## <a name="get-the-virtual-machine-aliases-endpoint"></a>Obtención del punto de conexión de alias de máquina virtual
 
-Antes de que los usuarios puedan crear máquinas virtuales mediante la CLI, deben ponerse en contacto con el operador de Azure Stack y obtener el identificador URI del punto de conexión de alias de máquina virtual. Por ejemplo, Azure usa el URI siguiente: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. El administrador de la nube debe configurar un punto de conexión similar para Azure Stack con las imágenes que están disponibles en Marketplace de Azure Stack. Los usuarios deben pasar el identificador URI del punto de conexión en el parámetro `endpoint-vm-image-alias-doc` del comando `az cloud register` tal como se muestra en la siguiente sección. 
-   
-
+Antes de que pueda crear máquinas virtuales mediante la CLI, debe ponerse en contacto con el operador de Azure Stack y obtener el identificador URI del punto de conexión de alias de máquina virtual. Por ejemplo, Azure usa el URI siguiente: `https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json`. El administrador de la nube debe configurar un punto de conexión similar para Azure Stack con las imágenes que están disponibles en Marketplace de Azure Stack. Debe pasar el identificador URI del punto de conexión en el parámetro `endpoint-vm-image-alias-doc` del comando `az cloud register` tal como se muestra en la siguiente sección. 
+  
 ## <a name="connect-to-azure-stack"></a>Conexión a Azure Stack
 
 Use los pasos siguientes para conectarse a Azure Stack:
 
 1. Registre el entorno de Azure Stack. Para ello, ejecute el comando `az cloud register`.
    
-    a. Para registrar el entorno *administrativo de nube*, use:
+     a. Para registrar el entorno *administrativo de nube*, use:
 
       ```azurecli
       az cloud register \ 
@@ -128,8 +125,7 @@ Use los pasos siguientes para conectarse a Azure Stack:
         --suffix-keyvault-dns ".adminvault.local.azurestack.external" \ 
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
-
-   b. Para registrar el entorno de *usuario*, use:
+    b. Para registrar el entorno de *usuario*, use:
 
       ```azurecli
       az cloud register \ 
@@ -151,17 +147,30 @@ Use los pasos siguientes para conectarse a Azure Stack:
         --endpoint-active-directory-resource-id=<URI of the ActiveDirectoryServiceEndpointResourceID> \
         --profile 2018-03-01-hybrid
       ```
+    d. Para registrar al usuario en un entorno de AD FS, use:
 
+      ```azurecli
+      az cloud register \
+        -n AzureStack  \
+        --endpoint-resource-manager "https://management.local.azurestack.external" \
+        --suffix-storage-endpoint "local.azurestack.external" \
+        --suffix-keyvault-dns ".vault.local.azurestack.external"\
+        --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" \
+        --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/"\
+        --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/"\
+        --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases> \
+        --profile "2018-03-01-hybrid"
+      ```
 1. Establezca el entorno activo mediante los comandos siguientes.
-
-    a. Para el entorno *administrativo de nube*, use:
+   
+     a. Para el entorno *administrativo de nube*, use:
 
       ```azurecli
       az cloud set \
         -n AzureStackAdmin
       ```
 
-   b. Para el entorno de *usuario*, use:
+    b. Para el entorno de *usuario*, use:
 
       ```azurecli
       az cloud set \
@@ -170,18 +179,18 @@ Use los pasos siguientes para conectarse a Azure Stack:
 
 1. Actualice la configuración del entorno para usar el perfil de la versión de API específico de Azure Stack. Para actualizar la configuración, ejecute el comando siguiente:
 
-   ```azurecli
-   az cloud update \
-     --profile 2018-03-01-hybrid
+    ```azurecli
+    az cloud update \
+      --profile 2018-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >Si ejecuta una versión de Azure Stack anterior a la compilación 1808, tendrá que tener que usar el perfil de la versión de API **2017-03-09-profile** en lugar de **2018-03-01-hybrid**.
+    >Si ejecuta una versión de Azure Stack anterior a la compilación 1808, debe usar el perfil de la versión de API **2017-03-09-profile** en lugar de **2018-03-01-hybrid**.
 
-1. Inicie sesión en el entorno de Azure Stack. Para ello, use el comando `az login`. Puede iniciar sesión en el entorno de Azure Stack como un usuario o una [entidad de servicio](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
+1. Inicie sesión en el entorno de Azure Stack. Para ello, use el comando `az login`. Puede iniciar sesión en el entorno de Azure Stack como un usuario o una [entidad de servicio](../../active-directory/develop/app-objects-and-service-principals.md). 
 
-    * Entornos de AAD
-      * Iniciar sesión como *usuario*: puede especificar el nombre de usuario y la contraseña directamente en el comando `az login` o autenticarse utilizando un explorador. Deberá hacer esto último, si la cuenta tiene habilitada la autenticación multifactor.
+    * Entornos de Azure AD
+      * Iniciar sesión como *usuario*: puede especificar el nombre de usuario y la contraseña directamente en el comando `az login` o autenticarse utilizando un explorador. Debe hacer esto último si la cuenta tiene habilitada la autenticación multifactor:
 
       ```azurecli
       az login \
@@ -190,11 +199,11 @@ Use los pasos siguientes para conectarse a Azure Stack:
       ```
 
       > [!NOTE]
-      > Si su cuenta de usuario tiene la autenticación multifactor habilitada, puede usar `az login command` sin proporcionar el parámetro `-u`. Al ejecutar el comando, se le proporciona una URL y un código que debe usar para la autenticación.
+      > Si su cuenta de usuario tiene la autenticación multifactor habilitada, puede usar `az login command` sin proporcionar el parámetro `-u`. Al ejecutar este comando, se le proporciona una URL y un código que debe usar para la autenticación.
    
       * Inicie sesión como una *entidad de servicio*: Antes de iniciar sesión, [cree una entidad de servicio en Azure Portal](azure-stack-create-service-principals.md) o mediante la CLI y asígnele un rol. Ahora, inicie sesión con el siguiente comando:
 
-      ```azurecli
+      ```azurecli  
       az login \
         --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> \
         --service-principal \
@@ -203,24 +212,37 @@ Use los pasos siguientes para conectarse a Azure Stack:
       ```
     * Entornos de AD FS
 
-        * Inicie sesión como una *entidad de servicio*: 
-          1.    Prepare el archivo .pem que se va a usar para el inicio de sesión de la entidad de servicio.
-                * En el equipo cliente donde se ha creado la entidad de seguridad, exporte el certificado de la entidad de servicio como un archivo pfx con la clave privada (ubicada en cert:\CurrentUser\My; el nombre del certificado es igual que el de la entidad de seguridad).
+        * Iniciar sesión como un usuario mediante un explorador web:  
+              ```azurecli  
+              az login
+              ```
+        * Iniciar sesión como un usuario mediante un explorador web con un código de dispositivo:  
+              ```azurecli  
+              az login --use-device-code
+              ```
+        > [!Note]  
+        >Al ejecutar el comando, se le proporciona una URL y un código que debe usar para la autenticación.
 
-                *   Convierta el archivo pfx a pem (use la utilidad OpenSSL).
+        * Iniciar sesión como una entidad de servicio:
+        
+          1. Prepare el archivo .pem que se va a usar para el inicio de sesión de la entidad de servicio.
 
-          1.    Inicie sesión en la CLI. :
-                ```azurecli
-                az login --service-principal \
-                 -u <Client ID from the Service Principal details> \
-                 -p <Certificate's fully qualified name. Eg. C:\certs\spn.pem>
-                 --tenant <Tenant ID> \
-                 --debug 
-                ```
+            * En el equipo cliente donde se ha creado la entidad de seguridad, exporte el certificado de la entidad de servicio como un archivo pfx con la clave privada ubicado en `cert:\CurrentUser\My`; el nombre del certificado es igual que el de la entidad de seguridad.
+        
+            * Convierta el archivo pfx a pem (use la utilidad OpenSSL).
+
+          2.  Inicie sesión en la CLI:
+            ```azurecli  
+            az login --service-principal \
+              -u <Client ID from the Service Principal details> \
+              -p <Certificate's fully qualified name, such as, C:\certs\spn.pem>
+              --tenant <Tenant ID> \
+              --debug 
+            ```
 
 ## <a name="test-the-connectivity"></a>Prueba de la conectividad
 
-Ahora que todo está configurado, vamos a usar la CLI para crear recursos en Azure Stack. Por ejemplo, puede crear un grupo de recursos para una aplicación y agregar una máquina virtual. Use el comando siguiente para crear un grupo de recursos denominado "MyResourceGroup":
+Con todo configurado, vamos a usar la CLI para crear recursos en Azure Stack. Por ejemplo, puede crear un grupo de recursos para una aplicación y agregar una máquina virtual. Use el comando siguiente para crear un grupo de recursos denominado "MyResourceGroup":
 
 ```azurecli
 az group create \
@@ -232,16 +254,15 @@ Si el grupo de recursos se crea correctamente, el comando anterior da como resul
 ![Resultado de creación del grupo de recursos](media/azure-stack-connect-cli/image1.png)
 
 ## <a name="known-issues"></a>Problemas conocidos
-Hay algunos problemas conocidos que debe tener en cuenta cuando use la CLI en Azure Stack:
 
- - El modo interactivo de la CLI, por ejemplo, el comando `az interactive` no se admite todavía en Azure Stack.
+Existen problemas conocidos cuando se usa la CLI en Azure Stack:
+
+ - El modo interactivo de la CLI; por ejemplo, el comando `az interactive`, aún no se admite en Azure Stack.
  - Para obtener la lista de imágenes de máquinas virtuales disponibles en Azure Stack, use el comando `az vm image list --all` en lugar del comando `az vm image list`. Al especificar la opción `--all`, se asegura de que la respuesta devuelve únicamente las imágenes que estén disponibles en el entorno de Azure Stack.
  - Los alias de las imágenes de máquinas virtuales que están disponibles en Azure pueden no ser aplicables a Azure Stack. Al utilizar imágenes de máquinas virtuales, debe utilizar todo el parámetro URN (Canonical:UbuntuServer:14.04.3-LTS:1.0.0) en lugar del alias de la imagen. Este URN debe coincidir con las especificaciones de la imagen como se derivan del comando `az vm images list`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Implementación de plantillas con la CLI de Azure](azure-stack-deploy-template-command-line.md)
-
-[Habilitación de la CLI de Azure para usuarios de Azure Stack (operador)](../azure-stack-cli-admin.md)
-
-[Administración de permisos de usuario](azure-stack-manage-permissions.md)
+- [Implementación de plantillas con la CLI de Azure](azure-stack-deploy-template-command-line.md)
+- [Habilitación de la CLI de Azure para usuarios de Azure Stack (operador)](../azure-stack-cli-admin.md)
+- [Administración de permisos de usuario](azure-stack-manage-permissions.md) 

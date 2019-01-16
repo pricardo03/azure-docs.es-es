@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 67e57faf37697697bee74597a40db39149699fe5
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 31f0517cd4d61fa324072eae954404c899451cc3
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320244"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117408"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Acceso a los registros de auditoría de Azure AD B2C
 
@@ -39,7 +39,7 @@ La categoría **B2C** de los registros de auditoría contiene los siguientes tip
 > Para las actividades CRUD de objeto de usuario, vea la categoría **Core Directory**.
 
 ## <a name="example-activity"></a>Actividad de ejemplo
-El ejemplo siguiente muestra los datos capturados cuando un usuario inicia sesión con un proveedor de identidades externo: ![Registros de auditoría - Ejemplo](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
+En el ejemplo siguiente se muestran los datos capturados cuando un usuario inicia sesión con un proveedor de identidades externo: ![Registros de auditoría: ejemplo](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
 ## <a name="accessing-audit-logs-through-the-azure-portal"></a>Acceso a los registros de auditoría a través de Azure Portal
 1. Vaya a [Azure Portal](https://portal.azure.com). Asegúrese de que se encuentra en el directorio B2C.
@@ -68,7 +68,7 @@ Los registros de auditoría se publican en la misma canalización que otras acti
 ### <a name="prerequisites"></a>Requisitos previos
 Para autenticarse en la API de informes de Azure AD, debe registrar una aplicación. Asegúrese de seguir los pasos de [Requisitos previos para acceder a la API de informes de Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).
 
-### <a name="accesing-the-api"></a>Acceso a la API
+### <a name="accessing-the-api"></a>Acceso a la API
 Para descargar los registros de auditoría de Azure AD B2C a través de la API, se recomienda filtrar los registros en la categoría **B2C**. Para filtrar por categoría, use el parámetro de cadena de consulta al llamar al punto de conexión de la API de informes de Azure AD, como se muestra a continuación:
 
 `https://graph.windows.net/your-b2c-tentant.onmicrosoft.com/activities/audit?api-version=beta&$filter=category eq 'B2C'`

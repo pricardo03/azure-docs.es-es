@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 01/09/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: 821aecf5549548365d95ef83ea1fcdeb017a4a21
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 7d5cd8aab0f368ffec636e6dfcacf127c910dafc
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321450"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190177"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>Creación de una tabla de rutas de concentrador virtual para dirigir el tráfico a un dispositivo virtual de red
 
@@ -43,7 +43,7 @@ Compruebe que se cumplen los criterios siguientes:
 
 ## <a name="signin"></a>1. Iniciar sesión
 
-Asegúrese de instalar la versión más reciente de los cmdlets de PowerShell de Resource Manager. Para más información sobre cómo instalar los cmdlets de PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview). Esto es importante porque las versiones anteriores de los cmdlets no contienen los valores actuales que necesita para este ejercicio.
+Asegúrese de instalar la versión más reciente de los cmdlets de PowerShell de Resource Manager. Para más información sobre cómo instalar los cmdlets de PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/azurerm/overview). Esto es importante porque las versiones anteriores de los cmdlets no contienen los valores actuales que necesita para este ejercicio. Los módulos de los ejemplos siguientes son Azure RM. Este artículo se actualizará a Azure Az en el futuro.
 
 1. Abra la consola de PowerShell con privilegios elevados e inicie sesión en su cuenta de Azure. El cmdlet le pide las credenciales de inicio de sesión. Después de iniciar la sesión, se descarga la configuración de la cuenta a fin de que esté disponible para Azure PowerShell.
 

@@ -12,12 +12,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
-ms.openlocfilehash: b996d42e5c543235d09b46d29889bc5eaeafd52a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 80b99880362c3979ae5ead6d1cdff4091d23d065
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412989"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118982"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Información de mensajes de error habituales al administrar máquinas virtuales en Azure
 
@@ -108,7 +108,7 @@ En esta sección se muestran los mensajes de error habituales que pueden produci
 |  InvalidParameter  |  No se pueden especificar reemplazos de imagen de usuario para un disco ya definido en la referencia de imagen especificada.  |
 |  InvalidParameter  |  Un disco llamado "{0}" ya usa la misma dirección URL de VHD {1}.  |
 |  InvalidParameter  |  El número de dominios de error especificado {0} debe estar en el intervalo de {1} a {2}.  |
-|  InvalidParameter  |  El tipo de licencia {0} no es válido. Los tipos de licencia válidos son: Windows_Client o Windows_Server, con distinción de mayúsculas y minúsculas.  |
+|  InvalidParameter  |  El tipo de licencia {0} no es válido. Tipos de licencia válidos son: Windows_Client o Windows_Server, distinguen mayúsculas de minúsculas.  |
 |  InvalidParameter  |  La longitud del nombre de host de Linux no puede superar los {0} caracteres ni contener los siguientes caracteres: {1}.  |
 |  InvalidParameter  |  La ruta de destino de las claves públicas SSH está actualmente limitada a su valor predeterminado, {0}, debido a un problema conocido del agente de aprovisionamiento de Linux.  |
 |  InvalidParameter  |  Ya existe un disco en LUN {0}.  |
@@ -171,7 +171,7 @@ En esta sección se muestran los mensajes de error habituales que pueden produci
 |  OperationNotAllowed  |  No se puede ajustar el tamaño de la máquina virtual porque el tamaño solicitado, {0}, no está disponible en el clúster en el que el conjunto de disponibilidad está asignado actualmente. Los tamaños disponibles son: {1}. Se puede encontrar más información sobre la estrategia de cambio de tamaño de máquinas virtuales en https://aka.ms/azure-resizevm.  |
 |  OperationNotAllowed  |  No se puede ajustar el tamaño de la máquina virtual porque el tamaño solicitado, {0}, no está disponible en el clúster en el que la máquina virtual está asignada actualmente. Para cambiar el tamaño de la máquina virtual a {1}, desasígnela (esta es la operación de detención de Azure Portal) y vuelva a intentar la operación de cambio de tamaño. Se puede encontrar más información sobre la estrategia de cambio de tamaño de máquinas virtuales en https://aka.ms/azure-resizevm.  |
 |  OSProvisioningClientError  |  No se pudo aprovisionar el sistema operativo para la máquina virtual "{0}" porque el sistema operativo invitado se está aprovisionando actualmente.  |
-|  OSProvisioningClientError  |  Error de aprovisionamiento del sistema operativo para la máquina virtual "{0}". Detalles del error: {1} Asegúrese de que la imagen se haya preparado (generalizado) correctamente. <ul><li>Instrucciones para Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/  </li></ul> |
+|  OSProvisioningClientError  |  Error de aprovisionamiento del sistema operativo para la máquina virtual "{0}". Detalles del error: {1} asegúrese de que la imagen se haya preparado (generalizado) correctamente. <ul><li>Instrucciones para Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/  </li></ul> |
 |  OSProvisioningClientError  |  Error de generación de claves del host SSH. Detalles del error: {0}. Para resolver este problema, compruebe si el agente de Linux está configurado correctamente. <ul><li>Puede comprobar las instrucciones que aparecen en: https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux/ </li></ul> |
 |  OSProvisioningClientError  |  El nombre de usuario especificado para la máquina virtual no es válido para esta distribución de Linux. Detalles del error: {0}.  |
 |  OSProvisioningInternalError  |  Error de aprovisionamiento del sistema operativo para la máquina virtual "{0}" debido a un error interno.  |

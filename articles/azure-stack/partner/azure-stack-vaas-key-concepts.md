@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 1/07/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 871df693878611b0322a0f06634c62a7a9efd90a
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 6a14a806b48b30d84b021a84a1ef0a2f4318ea94
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335170"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106484"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>Conceptos clave de la validación como servicio
 
@@ -44,7 +44,7 @@ Los flujos de trabajo se clasifican por tipo de escenario de prueba. En las prue
 ![Iconos de flujo de trabajo de VaaS](media/tile_all-workflows.png)
 
 > [!NOTE]
-> El flujo de trabajo de **Validación del paquete** actualmente admite dos escenarios: [Validación de paquetes de OEM](azure-stack-vaas-validate-oem-package.md) y [Validación de las actualizaciones de software de Microsoft](azure-stack-vaas-validate-microsoft-updates.md).
+> El flujo de trabajo de **validación de la solución**actualmente admite dos escenarios: [Validación de paquetes OEM](azure-stack-vaas-validate-oem-package.md) y [Validación de las actualizaciones de software de Microsoft](azure-stack-vaas-validate-microsoft-updates.md).
 
 Para más información sobre los tipos de flujo de trabajo, consulte [¿Qué es la validación como servicio de Azure Stack?](azure-stack-vaas-overview.md)
 
@@ -52,10 +52,10 @@ Para más información sobre los tipos de flujo de trabajo, consulte [¿Qué es 
 
 1. En el panel de soluciones, cree una solución o seleccione una existente. Esto actualiza y permite los iconos de flujos de trabajo.
 2. Para crear un flujo de trabajo, seleccione **Iniciar** en cualquiera de los iconos. Para obtener información específica para cada flujo de trabajo, consulte los artículos siguientes:
-    - Pruebas superadas: [Guía de inicio rápido: Uso del portal de validación como servicio para programar la primera prueba](azure-stack-vaas-schedule-test-pass.md)
+    - Prueba superada: [Inicio rápido: Uso del portal de validación como servicio para programar la primera prueba](azure-stack-vaas-schedule-test-pass.md)
     - Validación de la solución: [Validación de una nueva solución de Azure Stack](azure-stack-vaas-validate-solution-new.md)
-    - Validación del paquete: [Validación de las actualizaciones de software de Microsoft](azure-stack-vaas-validate-microsoft-updates.md)
-    - Validación del paquete: [Validación de paquetes de OEM](azure-stack-vaas-validate-oem-package.md)
+    - Validación de la solución: [Validación de las actualizaciones de software de Microsoft](azure-stack-vaas-validate-microsoft-updates.md)
+    - Validación de la solución: [Validación de paquetes de OEM](azure-stack-vaas-validate-oem-package.md)
 
 3. Para administrar o supervisar un flujo de trabajo existente, seleccione **Administrar** en el icono del flujo de trabajo. Seleccione el nombre del flujo de trabajo y use el botón **Editar** para ver las propiedades o cambiar los parámetros comunes de las pruebas.
 

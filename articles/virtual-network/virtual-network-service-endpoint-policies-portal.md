@@ -1,13 +1,10 @@
 ---
-title: 'Creación y asociación de directivas de punto de conexión de servicio: Azure Portal | Microsoft Docs'
+title: 'Creación y asociación de directivas de punto de conexión de servicio: Azure Portal'
+titlesuffix: Azure Virtual Network
 description: En este artículo, aprenderá cómo configurar y asociar directivas de punto de conexión de servicio mediante Azure Portal.
 services: virtual-network
 documentationcenter: virtual-network
 author: anithaa
-manager: narayan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 09/18/2018
 ms.author: anithaa
-ms.openlocfilehash: 6bd318da5b3cd667d0a39b9c963e8d3ffd472f41
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 06c034968b2577d6321ffe6f55f969547a35931f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633017"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054442"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Creación, cambio o eliminación de la directiva de punto de conexión de servicio mediante Azure Portal
 
@@ -47,18 +44,18 @@ Inicie sesión en Azure Portal en http://portal.azure.com.
 3. Escriba o seleccione la siguiente información en **Básico**. 
 
    - Suscripción: seleccione la suscripción por directiva.    
-   - Grupo de recursos: seleccione **Crear nuevo** y escriba *myResourceGroup*.     
+   - Grupo de recursos: Haga clic en **Crear nuevo** y escriba *myResourceGroup*.     
    - Nombre: myEndpointPolicy
-   - Ubicación: Centro-oeste de EE. UU.     
+   - Ubicación: Centro occidental de EE.UU.     
  
    ![Conceptos básicos de Crear una directiva de punto de conexión de servicio](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-startpane.PNG)
    
 4. Especifique o seleccione la información siguiente en **Definiciones de directivas**.
 
    - En **+ Agregar un recurso**, escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de las opciones y, a continuación, seleccione **Agregar**.  
-   - Ámbito: seleccione **Cuenta única** o **Todas las cuentas de la suscripción** o **Todas las cuentas del grupo de recursos**.    
+   - Ámbito: seleccione **Cuenta única** , **Todas las cuentas de la suscripción**  o **Todas las cuentas del grupo de recursos** .    
    - Suscripción: seleccione la suscripción para la cuenta de almacenamiento. Las cuentas de almacenamiento y las directivas pueden estar en distintas suscripciones.   
-   - Grupo de recursos: seleccione el grupo de recursos. Requerido, si el ámbito está establecido como "Todas las cuentas del grupo de recursos" o "Cuenta única".  
+   - Grupo de recursos: Seleccione el grupo de recursos que necesite. Requerido, si el ámbito está establecido como "Todas las cuentas del grupo de recursos" o "Cuenta única".  
    - Recurso: mystorageaccountportal    
    - Haga clic en **+ Agregar un recurso** para seguir agregando más recursos.
    
@@ -66,8 +63,8 @@ Inicie sesión en Azure Portal en http://portal.azure.com.
    
 5. Opcional: escriba o seleccione la siguiente información en **Etiquetas**:
    
-   - Clave: seleccione la clave de la directiva. P. ej.: departamento     
-   - Valor: escriba el par de valor de la clave. Por ejemplo: finanzas
+   - Clave: seleccione la clave de la directiva. Por ejemplo: Dept     
+   - Valor: escriba el par de valor de la clave. Por ejemplo: Finance
 
 6. Seleccione **Revisar + crear**. Valide la información y haga clic en **Crear**. Para hacer más modificaciones, haga clic en **Anterior**. 
 
@@ -101,9 +98,9 @@ Antes de poder asociar una directiva a una subred, debe crear una red virtual y 
 3. En **Crear red virtual**, escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de las opciones y, a continuación, seleccione **Crear**:
    - Nombre: myVirtualNetwork      
    - Espacio de direcciones: 10.0.0.0/16      
-   - Suscripción: seleccione la suscripción. La directiva debe estar en la misma suscripción que la red virtual     
-   - Grupo de recursos: seleccione **Usar existente** y seleccione *myResourceGroup*     
-   - Ubicación: Centro-oeste de EE. UU.     
+   - Suscripción: Seleccione su suscripción. La directiva debe estar en la misma suscripción que la red virtual     
+   - Grupo de recursos: seleccione **Usar existente** y después seleccione *myResourceGroup*     
+   - Ubicación: Centro occidental de EE.UU.     
    - Nombre de subred: privada     
    - Intervalo de direcciones: 10.0.0.0/24
      

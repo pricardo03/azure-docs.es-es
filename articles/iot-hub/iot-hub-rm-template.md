@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 1a64749b7218fccfdad6b6eeebfac39a44aa0522
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2b1aca07fe60a328dac9d3724454a21835026a53
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38687778"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063852"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Creación de un centro de IoT con una plantilla de Azure Resource Manager (.NET)
 
@@ -23,7 +23,7 @@ ms.locfileid: "38687778"
 Puede usar Azure Resource Manager para crear y administrar los centros de IoT de Azure mediante programación. En este tutorial se muestra cómo usar una plantilla de Azure Resource Manager para crear un IoT Hub desde un programa de C#.
 
 > [!NOTE]
-> Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [Azure Resource Manager y clásico](../azure-resource-manager/resource-manager-deployment-model.md).  Este artículo trata sobre el uso del modelo de implementación de Azure Resource Manager.
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos:  [Azure Resource Manager y clásico](../azure-resource-manager/resource-manager-deployment-model.md).  Este artículo trata sobre el uso del modelo de implementación de Azure Resource Manager.
 
 Para completar este tutorial, necesitará lo siguiente:
 
@@ -203,6 +203,7 @@ Ahora que ha implementado un centro de IoT mediante una plantilla de Azure Resou
 
 * Consulte las funcionalidades de la [API de REST del proveedor de recursos de IoT Hub][lnk-rest-api].
 * Para más información sobre las funcionalidades de Azure Resource Manager, consulte [Información general de Azure Resource Manager][lnk-azure-rm-overview].
+* Para la sintaxis y las propiedades de JSON que se usan en una plantilla, consulte [Tipos de recursos de Microsoft.EventHub](/azure/templates/microsoft.devices/iothub-allversions).
 
 Para obtener más información sobre cómo desarrollar para IoT Hub, consulte los siguientes artículos:
 

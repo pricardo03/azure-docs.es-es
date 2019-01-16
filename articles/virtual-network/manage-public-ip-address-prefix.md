@@ -1,13 +1,10 @@
 ---
-title: Creación, modificación o eliminación del prefijo de una dirección IP pública de Azure | Microsoft Docs
+title: Creación, modificación o eliminación del prefijo de una dirección IP pública de Azure
+titlesuffix: Azure Virtual Network
 description: Obtenga información sobre cómo crear, cambiar o eliminar el prefijo de una dirección IP pública.
 services: virtual-network
 documentationcenter: na
 author: anavinahar
-manager: narayan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: a0ae1f3fbf9189068cae4b18ac92f0bea0498f67
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 4207698c57b907cf60fd860bc409c8f8d5a4c565
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427580"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015294"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Creación, modificación o eliminación del prefijo de una dirección IP pública
 
@@ -29,7 +26,7 @@ Obtenga información sobre el prefijo de una dirección IP pública y cómo crea
 ## <a name="before-you-begin"></a>Antes de empezar
 
 > [!IMPORTANT]
-> El prefijo de dirección IP pública está en versión preliminar pública en regiones limitadas. Puede [obtener información sobre qué significa estar en versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). El prefijo de dirección IP pública está actualmente disponible en: Centro-oeste de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Centro de EE. UU., Europa del Norte, Europa Occidental y Sudeste Asiático. Para obtener una lista actualizada de regiones, consulte [Actualizaciones de Azure](https://azure.microsoft.com/updates/?product=virtual-network).
+> El prefijo de dirección IP pública está en versión preliminar pública en regiones limitadas. Puede [obtener información sobre qué significa estar en versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). El prefijo de una dirección IP pública está actualmente disponible en: Centro-oeste de EE. UU., Oeste de EE. UU., Oeste de EE. UU. 2, Centro de EE. UU., Europa del Norte, Europa Occidental y Sudeste Asiático. Para obtener una lista actualizada de regiones, consulte [Actualizaciones de Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
 Complete las tareas siguientes antes de seguir los pasos de las secciones de este artículo:
 

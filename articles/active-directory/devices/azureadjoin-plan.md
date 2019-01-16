@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 3154d5401389d46eb1b9fad335aa18362c5f21f7
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: cb604bec1860da25e18c1c3a56a012882e5ea58e
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310381"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189520"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Control de Planeación de la implementación de la unión a Azure AD
 
@@ -113,7 +113,7 @@ Si crea usuarios en:
 
 - **Azure AD**, no se requiere ninguna configuración adicional.
 
-Los [id. de inicio de sesión alternativos](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) no se admiten en dispositivos unidos a Azure AD. Si los usuarios usan un id. de inicio de sesión alternativo, debe planear usar su UPN principal en Azure AD.
+Los nombres principales de usuario locales son distintos de los nombres principales de usuario de Azure AD no se admiten en los dispositivos unidos a Azure AD. Si los usuarios usan un UPN local, debe planear usar su UPN principal en Azure AD.
 
 
 
@@ -167,7 +167,7 @@ En las secciones siguientes se indican las consideraciones para los distintos ti
 
 ### <a name="cloud-based-applications"></a>Aplicaciones basadas en la nube
 
-Si una aplicación se agrega a la galería de aplicaciones de Azure AD, los usuarios obtienen el inicio de sesión único a través de los dispositivos unidos a Azure AD. No se requiere ninguna configuración adicional. Los usuarios obtienen el inicio de sesión único en ambos exploradores, Edge y Chrome. Para Chrome, debe implementar la [extensión de cuentas de Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). 
+Si una aplicación se agrega a la galería de aplicaciones de Azure AD, los usuarios obtienen el inicio de sesión único a través de los dispositivos unidos a Azure AD. No se requiere ninguna configuración adicional. Los usuarios obtienen el inicio de sesión único en ambos exploradores, Microsoft Edge y Chrome. Para Chrome, debe implementar la [extensión de cuentas de Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). 
 
 Todas las aplicaciones Win32 que:
 

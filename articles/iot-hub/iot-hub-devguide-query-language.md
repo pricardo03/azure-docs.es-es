@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: rezas
-ms.openlocfilehash: b7919a86c5f0b6b6990b465ed0c563fb42ea8bbc
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: d3b039c30557499233eec72d7c560ad4bf49a776
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747922"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157214"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Lenguaje de consulta de IoT Hub para dispositivos y módulos gemelos, trabajos y enrutamiento de mensajes
 
@@ -168,15 +168,15 @@ SELECT * FROM devices.modules
 No se permite la unión entre las colecciones devices y devices.modules. Si quiere consultar módulos gemelos entre dispositivos, hágalo en función de etiquetas. Esta consulta devuelve todos los módulos gemelos entre todos los dispositivos con el estado de exploración:
 
 ```sql
-Select * from devices.modules where properties.reported.status = 'scanning'
+SELECT * FROM devices.modules WHERE properties.reported.status = 'scanning'
 ```
 
 Esta consulta devuelve todos los módulos gemelos con el estado de exploración, pero solo en el subconjunto de dispositivos especificado:
 
 ```sql
-Select * from devices.modules 
-  where properties.reported.status = 'scanning' 
-  and deviceId IN ['device1', 'device2']
+SELECT * FROM devices.modules 
+  WHERE properties.reported.status = 'scanning' 
+  AND deviceId IN ['device1', 'device2']
 ```
 
 ### <a name="c-example"></a>Ejemplo de C#
@@ -326,7 +326,7 @@ SELECT <select_list>
 
 ## <a name="from-clause"></a>Cláusula FROM
 
-La cláusula **FROM <from_specification>** solo puede asumir dos valores: **FROM devices**, para consultar dispositivos gemelos o **FROM devices.jobs**, para consultar detalles por dispositivo del trabajo.
+La cláusula **FROM <from_specification>** solo puede asumir dos valores: **FROM devices** para consultar dispositivos gemelos o **FROM devices.jobs** para consultar los detalles del trabajo por dispositivo.
 
 
 ## <a name="where-clause"></a>Cláusula WHERE

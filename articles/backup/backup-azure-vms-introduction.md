@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 9a80671a72f059e24a8cebc5de803af9261ad829
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: cac219414418277ace09ba3a0b442f3bf74e6025
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743959"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107436"
 ---
 # <a name="about-azure-vm-backup"></a>Acerca de la copia de seguridad de máquina virtual de Azure
 
@@ -30,7 +30,7 @@ Aquí se explica cómo completa Azure Backup una copia de seguridad para las má
     - La extensión se instala durante la primera copia de seguridad de la máquina virtual.
     - Para instalar la extensión, la máquina virtual debe estar ejecutándose.
     - Si no se está ejecutando la máquina virtual, el servicio Azure Backup toma una instantánea del almacenamiento subyacente (ya que no se produce ninguna escritura de la aplicación mientras se detiene la máquina virtual).
-4. La extensión de copia de seguridad toma una instantánea coherente con la aplicación y de nivel de almacenamiento.
+4. La extensión de copia de seguridad toma una instantánea coherente con el archivo, el bloqueo y el nivel de almacenamiento.
 5. Después de tomar la instantánea, los datos se transfieren al almacén. Para que el proceso resulte más eficaz, el servicio identifica y transfiere únicamente los bloques de datos que han cambiado desde la última copia de seguridad (las diferencias).
 5. Cuando finaliza la transferencia de datos, se elimina la instantánea y se crea un punto de recuperación.
 
@@ -83,19 +83,7 @@ Azure Backup tiene una serie de limitaciones con respecto a las suscripciones y 
 
 ### <a name="disk-considerations"></a>Consideraciones de disco
 
-Azure Backup intenta completarse tan pronto como sea posible y consumir tantos recursos como pueda.
-
-- En un intento por maximizar la velocidad, el proceso de copia de seguridad trata de copiar cada uno de los discos de la máquina virtual en paralelo.
-- Por ejemplo, si una máquina virtual tiene cuatro discos, el servicio tratará de hacer copia de seguridad de los cuatro en paralelo.
-- El factor más importante que determina el tráfico de copia de seguridad de la cuenta de almacenamiento es el número de discos de los que se va a realizar una copia de seguridad.
-- Todas las operaciones de E/S están limitadas por la *capacidad de proceso de destino de un blob*, que tiene un límite de 60 MB por segundo.
-- Para cada disco cuya copia de seguridad se realiza, Azure Backup lee los bloques en el disco y solo almacena los datos cambiados (copia de seguridad incremental). Puede usar los valores de rendimiento promedio siguientes para calcular la cantidad de tiempo que tarda en realizarse una copia de seguridad de un disco de un tamaño determinado.
-
-    **operación** | **Mejor rendimiento**
-    --- | ---
-    Copia de seguridad inicial | 160 Mbps |
-    Copia de seguridad incremental | 640 Mbps  <br><br> El rendimiento disminuye considerablemente si las diferencias de datos están dispersas por el disco.|
-
+La operación de copia de seguridad se optimiza al hacer una copia de seguridad de cada uno de los discos de la máquina virtual en paralelo. Por ejemplo, si una máquina virtual tiene cuatro discos, el servicio tratará de hacer copia de seguridad de los cuatro en paralelo. Para cada disco cuya copia de seguridad se realiza, Azure Backup lee los bloques en el disco y solo almacena los datos cambiados (copia de seguridad incremental).
 
 
 ### <a name="scheduling-considerations"></a>Consideraciones sobre programación
@@ -128,16 +116,10 @@ La copia de seguridad consta de dos fases: toma de instantáneas y transferencia
 
 Las siguientes son algunas situaciones que pueden afectar al tiempo de copia de seguridad:
 
-
-- **Copia de seguridad inicial de un disco recién agregado a una máquina virtual ya protegida**: Si una máquina virtual está experimentando una copia de seguridad incremental, cuando se agrega un disco nuevo, la copia de seguridad podría perder el acuerdo de nivel de servicio de un día, según el tamaño del nuevo disco.
-- **Aplicación fragmentada**: Si una aplicación está mal configurada, podría no ser la óptima para el almacenamiento:
-    - Si la instantánea contiene muchas escrituras pequeñas y fragmentadas, el servicio tarda más tiempo en procesar los datos que escriben las aplicaciones.
-    - En el caso de las aplicaciones que se ejecutan dentro de la máquina virtual, el bloque de escrituras de aplicaciones mínimo es de 8 KB. Si la aplicación utiliza un bloque de menos de 8 KB, se realiza el rendimiento de copia de seguridad.
-- **Cuenta de almacenamiento sobrecargada**: se pudo programar una copia de seguridad cuando se ejecuta la aplicación en producción o si hay más de cinco a diez discos que se hospedan en la misma cuenta de almacenamiento.
-- **Modo de comprobación de coherencia (CC)**: para los discos de más de 1 TB, la copia de seguridad podría estar en modo de comprobación de coherencia por dos razones:
-    - El disco administrado se mueve como parte del reinicio de la máquina virtual.
-    - Se promueve la instantánea a un blob base.
-
+- **Copia de seguridad inicial de un disco recién agregado a una máquina virtual ya protegida**: Si una máquina virtual está realizando una copia de seguridad incremental y se le agrega un nuevo disco, la duración de la copia de seguridad puede ir más allá de 24 horas, ya que el disco recién agregado debe someterse a la replicación inicial, junto con la replicación diferencial de los discos existentes.
+- **Fragmentación**: El producto de copia de seguridad examina los cambios incrementales entre las operaciones de dos copias de seguridad. Las operaciones de copia de seguridad son más rápidas cuando los cambios en el disco están colocados en comparación con los cambios que están distribuidos en el disco. 
+- **Renovación**: La renovación diaria (para la replicación incremental) por cada disco de más de 200 GB puede tardar más de 8 horas para completar la operación. Si la máquina virtual tiene más de un disco y uno de esos discos está tardando más tiempo en completar su copia de seguridad, la operación de copia de seguridad general podría resultar afectada (o podría producirse un error). 
+- **Modo de comparación de suma de comprobación**: El modo de comparación de suma de comprobación es más lento en comparación con el modo optimizado que usa Instant RP (Punto de recuperación instantáneo). Si ya usa Instant RP (Punto de recuperación instantáneo) y ha eliminado las instantáneas de nivel 1, la copia de seguridad se cambia al modo de comparación de suma de comprobación provocando que la operación de copia de seguridad tarde más de 24 horas (o dé errores).
 
 ## <a name="restore-considerations"></a>Consideraciones de la restauración
 
@@ -150,17 +132,12 @@ Una operación de restauración consta de dos tareas principales: copiar datos d
 
 Se recomienda seguir estos procedimientos recomendados al configurar copias de seguridad para máquinas virtuales:
 
-- No programe copias de seguridad de más de 100 VM de un almacén al mismo tiempo.
-- Programe las copias de seguridad de máquinas virtuales durante horas de poca actividad. De esta forma, el servicio Backup utiliza IOPS para transferir datos desde la cuenta de almacenamiento al almacén.
-- Si hace una copia de seguridad discos administrados, el servicio Azure Backup controla la administración de almacenamiento. Si va a realizar la copia de seguridad de discos no administrados:
-    - Asegúrese de aplicar una directiva de copia de seguridad para VM que se aplique a varias cuentas de almacenamiento.
-    - La misma programación de copia de seguridad debería proteger un máximo de 20 discos de una única cuenta de almacenamiento.
-    - Si tiene más de 20 discos en una cuenta de almacenamiento, distribuya esas máquinas virtuales entre varias directivas para obtener el número de IOPS necesario durante la fase de transferencia del proceso de copia de seguridad.
-    - No restaure una máquina virtual que se ejecute en almacenamiento prémium en la misma cuenta de almacenamiento. Si el proceso de la operación de restauración coincide con la operación de copia de seguridad, se reduce el número de IOPS disponible para copia de seguridad.
-    - En el caso de copias de seguridad de VM premium de la versión 1 de la pila de copia de seguridad de VM, solo debería asignar el 50 % del espacio total de la cuenta de almacenamiento a fin de que el servicio Backup pueda copiar la instantánea a la cuenta de almacenamiento y transferir datos desde la cuenta de almacenamiento al almacén.
-- Se recomienda usar diferentes cuentas de almacenamiento con el fin de restaurar las máquinas virtuales desde un único almacén. Así se evita la limitación y se obtiene un éxito del 100 % en la restauración con buen rendimiento.
-- Las restauraciones del nivel de almacenamiento 1 se completarán en minutos con las restauraciones de almacenamiento de nivel 2 que se tarda unas horas. Se recomienda usar la [característica de RP de instantánea](backup-upgrade-to-vm-backup-stack-v2.md) para agilizar las restauraciones. Esto solo se puede aplicar a las máquinas virtuales de Azure administradas.
-
+- Actualice los almacenes a Instant RP (Punto de recuperación instantáneo) Revise estas [ventajas](backup-upgrade-to-vm-backup-stack-v2.md) y [consideraciones](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade) y después continúe con la actualización según estas [instrucciones](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
+- Considere la posibilidad de modificar el tiempo de directiva previsto de manera predeterminada (por ej. si la hora de la directiva predeterminada es 12:00 A.M., considere la posibilidad de incrementarlo en minutos) cuando se realicen las instantáneas de datos para asegurarse de que los recursos se utilizan de forma óptima.
+- En el caso de una copia de seguridad de VM Premium en una característica diferente de Instant RP (Punto de recuperación instantáneo), se asigna aproximadamente el 50 % del espacio total de la cuenta de almacenamiento. El servicio de copia de seguridad requiere este espacio para copiar la instantánea en la misma cuenta de almacenamiento y para transferirla al almacén.
+- Para restaurar máquinas virtuales desde un solo almacén, es muy recomendable usar diferentes [cuentas de almacenamiento v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)  para asegurarse de que la cuenta de almacenamiento de destino no se verá limitada. Por ejemplo, cada máquina virtual debe tener una cuenta de almacenamiento diferente (si se restauran 10 VM, considere el uso de 10 cuentas de almacenamiento diferentes).
+- Las restauraciones desde la capa de almacenamiento de nivel 1 (instantánea) se completarán en cuestión de minutos (ya que es la misma cuenta de almacenamiento), a diferencia de la capa de almacenamiento de nivel 2 (almacén), que puede tardar horas. Se recomienda usar la característica [Instant RP](backup-upgrade-to-vm-backup-stack-v2.md) (Punto de recuperación instantáneo) para restauraciones más rápidas en los casos en que los datos están disponibles en el nivel 1 (si los datos tienen que restaurarse desde el almacén, la operación tardará un tiempo).
+- El límite del número de discos por cuenta de almacenamiento depende de la frecuencia con que se esté accediendo a los discos por parte de las aplicaciones que se ejecutan en VM de IaaS. Compruebe si se hospedan varios discos en una única cuenta de almacenamiento. Como práctica general, si hay entre 5 y 10 o más en una única cuenta de almacenamiento, equilibre la carga moviendo algunos discos para separar las cuentas de almacenamiento.
 
 ## <a name="backup-costs"></a>Costos de la copia de seguridad
 
@@ -193,6 +170,5 @@ Por ejemplo, veamos una máquina virtual de tamaño estándar A2 con dos discos 
 
 Después de revisar el proceso de copia de seguridad y las consideraciones de rendimiento, haga lo siguiente:
 
-- Descargue la [hoja de cálculo de Excel de planeación de la capacidad](https://gallery.technet.microsoft.com/Azure-Backup-Storage-a46d7e33) para probar con diferentes cifras para la programación de copias de seguridad.
 - [Obtenga información sobre](../virtual-machines/windows/premium-storage-performance.md) el ajuste de las aplicaciones con un alto rendimiento con Azure Storage. El artículo se centra en el almacenamiento prémium, pero también es aplicable a los discos de almacenamiento estándar.
 - [Empiece](backup-azure-arm-vms-prepare.md) con la copia de seguridad; para ello, revise las limitaciones y la compatibilidad de las máquinas virtuales, cree un almacén y prepare las máquinas virtuales para hacer copias de seguridad.

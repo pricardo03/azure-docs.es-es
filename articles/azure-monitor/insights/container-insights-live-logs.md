@@ -11,17 +11,17 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2018
+ms.date: 01/09/2019
 ms.author: magoedte
-ms.openlocfilehash: da11bb0669bf6bde2c65b2a7a0badaa1ae35abda
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1a51e9b636e15f178de072af8372404af1dc47e2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189137"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188001"
 ---
 # <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>Vista de los registros de contenedor en tiempo real con Azure Monitor para contenedores (versión preliminar)
-Esta característica, que se encuentra actualmente en versión preliminar, proporciona una vista en tiempo real en los registros de contenedor de Azure Kubernetes Service (AKS) (stdout/stderr) sin tener que ejecutar los comandos de kubectl. Cuando se selecciona esta opción, el nuevo panel aparece debajo de la tabla de datos de rendimiento de contenedores en la vista **Contenedores**, y muestra el registro dinámico generado por el motor de contenedores para ayudar a solucionar los problemas en tiempo real.  
+Esta característica, que se encuentra actualmente en versión preliminar, proporciona una vista en tiempo real en los registros de contenedor de Azure Kubernetes Service (AKS) (stdout/stderr) sin tener que ejecutar los comandos de kubectl. Cuando se selecciona esta opción, el nuevo panel aparece debajo de la tabla de datos de rendimiento de contenedores en la vista **Contenedores**.  Muestra el registro dinámico generado por el motor de contenedores para ayudar a solucionar los problemas en tiempo real.  
 
 Los registros dinámicos admiten tres métodos diferentes para controlar el acceso a los registros:
 
@@ -39,33 +39,33 @@ Si ha habilitado la autorización de RBAC de Kubernetes, deberá aplicar el enla
 1. Copie el archivo yaml, péguelo y guárdelo como LogReaderRBAC.yaml.  
 
    ```
-   kind: ClusterRole 
    apiVersion: rbac.authorization.k8s.io/v1 
-   metadata:   
+   kind: ClusterRole 
+   metadata: 
       name: containerHealth-log-reader 
    rules: 
-      - apiGroups: [""]   
-        resources: ["pods/log"]   
+      - apiGroups: [""] 
+        resources: ["pods/log"] 
         verbs: ["get"] 
    --- 
-   kind: ClusterRoleBinding 
    apiVersion: rbac.authorization.k8s.io/v1 
-   metadata:   
+   kind: ClusterRoleBinding 
+   metadata: 
       name: containerHealth-read-logs-global 
-   subjects:   
-      - kind: User     
-        name: clusterUser
-        apiGroup: rbac.authorization.k8s.io 
-    roleRef:   
-       kind: ClusterRole
-       name: containerHealth-log-reader
+   roleRef: 
+       kind: ClusterRole 
+       name: containerHealth-log-reader 
        apiGroup: rbac.authorization.k8s.io 
+   subjects: 
+      - kind: User 
+        name: clusterUser 
+        apiGroup: rbac.authorization.k8s.io 
    ```
 
 2. Cree el enlace de regla de clúster mediante la ejecución del siguiente comando: `kubectl create -f LogReaderRBAC.yaml`. 
 
 ## <a name="configure-aks-with-azure-active-directory"></a>Configuración de AKS con Azure Active Directory
-Es posible configurar AKS para que utilice Azure Active Directory (AD) para la autenticación de usuarios. Si va a configurar esto por primera vez, consulte [Integración de Azure Active Directory con Azure Kubernetes Service](../../aks/aad-integration.md). Durante los pasos para crear la [aplicación cliente](../../aks/aad-integration.md#create-client-application) y especificar el **URI de redirección**, deberá agregar otro URI a la lista ** https://ininprodeusuxbase.microsoft.com/***.  
+Es posible configurar AKS para que utilice Azure Active Directory (AD) para la autenticación de usuarios. Si va a configurar esto por primera vez, consulte [Integración de Azure Active Directory con Azure Kubernetes Service](../../aks/aad-integration.md). Durante los pasos para crear la [aplicación cliente](../../aks/aad-integration.md#create-client-application) y especificar el **URI de redirección**, deberá agregar otro URI a la lista `https://ininprodeusuxbase.microsoft.com/*`.  
 
 >[!NOTE]
 >La configuración de la autenticación con Azure Active Directory para el inicio de sesión único solo puede lograrse durante la implementación inicial de un nuevo clúster de AKS. No puede configurar el inicio de sesión único en un clúster de AKS ya implementado.  

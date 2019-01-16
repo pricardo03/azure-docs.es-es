@@ -1,23 +1,23 @@
 ---
-title: 'Lección 3 del tutorial de Azure Analysis Services: Marcar como tabla de fechas |Microsoft Docs'
+title: 'Lección 3 del tutorial de Azure Analysis Services: Marcado como tabla de fechas | Microsoft Docs'
 description: Se describe cómo marcar una tabla de fechas en el proyecto del tutorial de Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9cbbf8c5ea05915293c785028bdd0a47ba081036
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 4c383fe30b8a6be3a5915f3cc1c0f5e5712ab328
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426029"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189004"
 ---
 # <a name="mark-as-date-table"></a>Marcar como tabla de fechas
 
-En la lección 2: Obtención de datos, importó una tabla de dimensiones denominada DimDate. Mientras que en su modelo esta tabla se denomina DimDate, también se conoce como *tabla de fechas* porque contiene datos de fecha y hora.  
+En la lección 2: Obtención de datos, importó una tabla de dimensiones denominada DimDate. Mientras que en su modelo esta tabla se denomina DimDate, también se conoce como *tabla de fechas* porque contiene datos de fecha y hora.  
   
 Cada vez que se usan funciones de inteligencia de tiempo de DAX, igual que hará cuando cree medidas un poco más tarde, debe especificar propiedades que incluyan una *tabla de fechas* y un identificador único de *columna de fecha* en esa tabla.
   
@@ -25,10 +25,10 @@ En esta lección, marcará la tabla DimDate como la *tabla de fechas* y la colum
 
 Antes de marcar la tabla de fechas y la columna de fecha, es hora de realizar algunas tareas para que su modelo sea más fácil de comprender. Observe en la tabla DimDate una columna llamada **FullDateAlternateKey**. Esta columna contiene una fila por cada día de cada año de calendario incluido en la tabla. Esta columna se usa mucho en las fórmulas de medida y los informes. Sin embargo, FullDateAlternateKey no es realmente un buen identificador en esta columna. Cambie el nombre por **Date**, para que sea más fácil identificarlo e incluirlo en fórmulas. Siempre que sea posible, es una buena idea cambiar el nombre de los objetos, como tablas y columnas, para que sean más fáciles de identificar en SSDT y en aplicaciones cliente de generación de informes como Power BI y Excel. 
   
-Tiempo estimado para completar esta lección: **tres minutos**  
+Tiempo estimado para completar esta lección: **3 minutos**  
   
 ## <a name="prerequisites"></a>Requisitos previos  
-Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Antes de realizar las tareas de esta lección, debe haber completado la lección anterior: [Lección 2: Obtención de datos](../tutorials/aas-lesson-2-get-data.md). 
+Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Para poder realizar las tareas de esta lección, debe haber completado la lección anterior: [Lección 2: Obtención de datos](../tutorials/aas-lesson-2-get-data.md). 
 
 ### <a name="to-rename-the-fulldatealternatekey-column"></a>Para cambiar el nombre de la columna FullDateAlternateKey, siga estos pasos:
 
@@ -49,5 +49,5 @@ Este tema forma parte de un tutorial de modelado tabular, que se debe completar 
   
 
 ## <a name="whats-next"></a>Pasos siguientes
-[Lección 4: Creación de relaciones](../tutorials/aas-lesson-4-create-relationships.md).
+[Lección 4: Creación de relaciones](../tutorials/aas-lesson-4-create-relationships.md).
   

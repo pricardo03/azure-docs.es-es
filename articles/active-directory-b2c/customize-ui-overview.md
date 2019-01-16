@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 94f7239bdcdc5ddc91f3ed8b49b59378309711e8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 08cd16cb9edc5606a18fc5d425910185f7747179
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844964"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187559"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Acerca de la personalización de la interfaz de usuario en Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ Antes de comenzar, repase las siguientes advertencias:
 - Azure AD B2C combina contenido HTML en las páginas. No copie ni intente cambiar el contenido predeterminado que proporciona Azure AD B2C. Es preferible compilar su propio contenido de HTML desde cero y usar el contenido predeterminado como referencia.
 - Por motivos de seguridad, no puede incluir JavaScript en el contenido.
 - Estas son las versiones de explorador admitidas: 
-    - Internet Explorer 11, 10 y Edge.
+    - Internet Explorer 11 y 10 y Microsoft Edge
     - Compatibilidad limitada con Internet Explorer 9 y 8.
     - Google Chrome 42.0 y versiones posteriores
     - Mozilla Firefox 38.0 y versiones posteriores

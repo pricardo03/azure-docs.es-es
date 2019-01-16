@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: a2f654043146536ecf543ae2a0aa49537c2223e1
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 737e05f3d936481e06acfc0604ff739b9f01d5db
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344047"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191656"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Descripción del estado de las máquinas virtuales de Azure con Azure Monitor para VM (versión preliminar)
 Azure incluye varios servicios que realizan individualmente una tarea o un rol específico en el espacio de supervisión, pero hasta ahora no era posible proporcionar una perspectiva detallada del estado del sistema operativo hospedado en máquinas virtuales de Azure.  Aunque se podían supervisar distintas condiciones mediante Log Analytics o Azure Monitor, no estaban diseñadas para modelar ni representar el estado general de la máquina virtual o de los componentes principales.  Con la característica de estado de Azure Monitor para máquinas virtuales, la disponibilidad y el rendimiento del sistema operativo invitado Windows o Linux se supervisan de forma proactiva con un modelo que representa los principales componentes y sus relaciones, así como los criterios que especifican cómo se debe medir el estado de dichos componentes y, además, le avisa cuando se detecta una condición de estado incorrecto.  

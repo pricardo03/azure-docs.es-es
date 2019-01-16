@@ -14,12 +14,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a28ae46a449d4aacf046636793585a84adc5ba83
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2b4fcb42c913149f8caf05a72fb089586ee21e2a
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089640"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54106128"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-event-processor-host"></a>Recepción de eventos desde Azure Event Hubs mediante el host del procesador de eventos
 
@@ -123,7 +123,9 @@ En este caso, cada host adquiere la propiedad de una partición durante un deter
 
 ## <a name="receive-messages"></a>Recepción de mensajes
 
-Cada llamada a [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) ofrece una colección de eventos. Es su responsabilidad administrar estos eventos. Se recomienda que el proceso se realice relativamente rápido, es decir, con el menor procesamiento posible. En su lugar, utilice grupos de consumidores. Si tiene que escribir en el almacenamiento y hacer algo de enrutamiento, es mejor por lo general usar dos grupos de consumidores y tener dos implementaciones de [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) que se ejecuten por separado.
+Cada llamada a [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) ofrece una colección de eventos. Es su responsabilidad administrar estos eventos. Si desea asegurarse de que el host del procesador procesa cada mensaje al menos una vez, deberá escribir su propio código de reintento. Pero tenga cuidado con los mensajes dudosos.
+
+Se recomienda que el proceso se realice relativamente rápido, es decir, con el menor procesamiento posible. En su lugar, utilice grupos de consumidores. Si tiene que escribir en el almacenamiento y hacer algo de enrutamiento, es mejor por lo general usar dos grupos de consumidores y tener dos implementaciones de [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) que se ejecuten por separado.
 
 En algún momento durante el procesamiento, es posible que desee realizar un seguimiento de lo que ha leído y completado. Es fundamental realizar un seguimiento si debe reiniciar la lectura, para no tener que volver al principio de la transmisión. [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) simplifica este seguimiento mediante el uso de *puntos de comprobación*. Un punto de comprobación es una ubicación o desplazamiento, de una partición determinada, dentro de un grupo de consumidores determinado, en el que está satisfecho con los mensajes que se han procesado. Para marcar un punto de comprobación en **EventProcessorHost** llame al método [CheckpointAsync](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync) en el objeto [PartitionContext](/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext). Esta operación se realiza en el método [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) pero también se puede realizar en [CloseAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync).
 

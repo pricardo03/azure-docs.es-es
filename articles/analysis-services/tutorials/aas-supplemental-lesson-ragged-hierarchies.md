@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f5bd679c11139b7ac439247df81a7adb0b02b0fe
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 50926b7c8b06668770d9a00b8342d209fdb94649
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426342"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191112"
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>Lección complementaria: Jerarquías desiguales
 
@@ -23,7 +23,7 @@ En esta lección complementaria, resolverá un problema común que se produce al
 
 Los modelos tabulares en el nivel de compatibilidad 1400 tienen la propiedad adicional **Ocultar miembros** para las jerarquías. La configuración **predeterminada** da por supuesto que no hay ningún miembro en blanco en ningún nivel. La configuración **Ocultar miembros en blanco** excluye los miembros en blanco de la jerarquía cuando se agrega a una tabla dinámica o informe.  
   
-Tiempo estimado para completar esta lección: **20 minutos**  
+Tiempo estimado para completar esta lección: **20 minutos**  
   
 ## <a name="prerequisites"></a>Requisitos previos  
 Esta lección complementaria forma parte de un tutorial de modelado tabular. Antes de realizar las tareas de esta lección complementaria, debería haber finalizado todas las lecciones anteriores o haber completado un proyecto de modelo de ejemplo de ventas por Internet de Adventure Works. 
@@ -87,7 +87,7 @@ Si ha creado el proyecto de ventas por Internet de AW como parte del tutorial, e
     =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],5,1)) 
     ```
 
-6.  En la tabla **DimEmployee**, cree una [jerarquía](../tutorials/aas-lesson-9-create-hierarchies.md) denominada **Organización**. Agregue las columnas siguientes en orden: **Level1**, **Level2**, **Level3**, **Level4**, **Level5**.
+6.  En la tabla **DimEmployee**, cree una [jerarquía](../tutorials/aas-lesson-9-create-hierarchies.md) denominada **Organización**. Agregue las siguientes columnas en orden: **Level1**, **Level2**, **Level3**, **Level4**, **Level5**.
 
 7.  En la tabla **FactResellerSales**, cree la [medida](../tutorials/aas-lesson-6-create-measures.md) siguiente:
 

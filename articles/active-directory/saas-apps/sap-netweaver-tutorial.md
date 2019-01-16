@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con SAP NetWeaver | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con SAP NetWeaver | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y SAP NetWeaver.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: fac22508e679c1e1c93ec62a5b120ba9c7c52317
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 607d05818966e62407795640d223f1aed2f59bbb
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162396"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156755"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Tutorial: Integración de Azure Active Directory con SAP NetWeaver
 
@@ -142,7 +142,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Vínculo de descarga del certificado](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_userpwd.png)
 
-6. Reemplace el **nombre del proveedor** T01122 por **http://T01122** y haga clic en **Guardar**.
+6. Reemplace el **nombre del proveedor** de T01122 por `http://T01122` y haga clic en **Guardar**.
 
     > [!NOTE]
     > De forma predeterminada, el nombre de proveedor tiene el formato <sid><client>, pero Azure AD espera que el nombre tenga el formato <protocol>://<name>. Se recomienda que el nombre del proveedor se mantenga como https://<sid><client> para permitir la configuración de varios motores ABAP de SAP NetWeaver en Azure AD.
@@ -275,7 +275,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 29. Tenga en cuenta que los valores **origen del id. de usuario** y **modo de asignación de id. de usuario** determinan el vínculo entre el usuario SAP y la notificación de Azure AD.  
 
-    ####<a name="scenario-sap-user-to-azure-ad-user-mapping"></a>Escenario: usuario SAP para la asignación de usuario de Azure AD.
+    ####<a name="scenario-sap-user-to-azure-ad-user-mapping"></a>Escenario: Usuario SAP para la asignación de usuario de Azure AD.
 
      a. Captura de pantalla de los detalles de NameID de SAP.
 
@@ -285,7 +285,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/sapnetweaver-tutorial/claimsaad1.png)
 
-    ####<a name="scenario-select-sap-user-id-based-on-configured-email-address-in-su01-in-this-case-email-id-should-be-configured-in-su01-for-each-user-who-requires-sso"></a>Escenario: seleccione el id. de usuario SAP según la dirección de correo electrónico configurada en SU01. En este caso, el id. de correo electrónico debe configurarse en su01 para cada usuario que requiera del inicio de sesión único.
+    ####<a name="scenario-select-sap-user-id-based-on-configured-email-address-in-su01-in-this-case-email-id-should-be-configured-in-su01-for-each-user-who-requires-sso"></a>Escenario: Seleccione el identificador de usuario SAP según la dirección de correo electrónico configurada en SU01. En este caso, el id. de correo electrónico debe configurarse en su01 para cada usuario que requiera del inicio de sesión único.
 
      a.  Captura de pantalla de los detalles de NameID de SAP.
 

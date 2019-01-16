@@ -1,18 +1,17 @@
 ---
-title: Información general del enrutamiento de contenido basado en URL | Microsoft Docs
-description: En esta página se proporciona información general sobre el enrutamiento de contenido basado en URL de Application Gateway, la configuración de UrlPathMap y la regla PathBasedRouting.
+title: Introducción al enrutamiento de contenido basado en la dirección URL con Azure Application Gateway
+description: En esta página se ofrece información general sobre el enrutamiento de contenido basado en la dirección URL de Azure Application Gateway, la configuración de UrlPathMap y la regla PathBasedRouting.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.date: 11/7/2018
+ms.date: 1/8/2019
 ms.author: victorh
-ms.openlocfilehash: bc123307a3cc3a5040e93e517c60604dc75fc7e7
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 1ada74f5c85ef327957ec4981e83f68bcafea858
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218430"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188766"
 ---
 # <a name="url-path-based-routing-overview"></a>Información general del enrutamiento basado en URL
 
@@ -62,8 +61,37 @@ El elemento UrlPathMap se utiliza para especificar patrones de ruta de acceso pa
 }]
 ```
 
-> [!NOTE]
-> PathPattern: esta opción es una lista de patrones de ruta de acceso con los que se buscan coincidencias. Cada uno de ellos debe comenzar con / y el único lugar donde se permite un carácter "*" es al final, después de un carácter "/". La cadena que se suministra al comprobador de rutas de acceso no incluye texto después del primer "?" o "#", y esos caracteres no se permiten. En caso contrario, todos los caracteres admitidos en una dirección URL se permiten en PathPattern.
+### <a name="pathpattern"></a>PathPattern
+
+PathPattern es la lista de patrones de ruta de acceso con los que se buscan coincidencias. Cada uno de ellos debe comenzar con / y el único lugar donde se permite un carácter "*" es al final, después de un carácter "/". La cadena que se suministra al comprobador de rutas de acceso no incluye texto después del primer "?" o "#", y esos caracteres no se permiten. En caso contrario, todos los caracteres admitidos en una dirección URL se permiten en PathPattern.
+
+Los patrones admitidos dependen de si se implementa Application Gateway v1 o v2:
+
+#### <a name="v1"></a>v1
+
+Las reglas de ruta de acceso no distinguen mayúsculas de minúsculas.
+
+|Patrón de ruta de acceso de v1  |¿Se admite?  |
+|---------|---------|
+|`/images/*`     |Sí|
+|`/images*`     |no|
+|`/images/*.jpg`     |no|
+|`/*.jpg`     |no|
+|`/Repos/*/Comments/*`     |no|
+|`/CurrentUser/Comments/*`     |Sí|
+
+#### <a name="v2"></a>v2
+
+Las reglas de ruta de acceso distinguen mayúsculas de minúsculas.
+
+|Patrón de ruta de acceso de v2  |¿Se admite?  |
+|---------|---------|
+|`/images/*`     |Sí|
+|`/images*`     |Sí|
+|`/images/*.jpg`     |no|
+|`/*.jpg`     |no|
+|`/Repos/*/Comments/*`     |no|
+|`/CurrentUser/Comments/*`     |Sí|
 
 Para obtener más información, puede consultar una [plantilla de Resource Manager que use el enrutamiento basado en URL](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) .
 

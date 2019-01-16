@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: anwestg
-ms.openlocfilehash: cd16bf400c5a5e5a07c7e2dc459d801e6fc810b9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 504cd5a0bfbae1ff91f7914abe12aa35b699ee80
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635380"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104767"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Incorporación de un proveedor de recursos de App Service a Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Use las instrucciones de este artículo para implementar App Service en Azure Stack.
 
@@ -207,10 +207,10 @@ Para implementar el proveedor de recursos de App Service, siga estos pasos:
     - Origen: Cualquiera
     - Intervalo de puertos de origen: *
     - Destino: Direcciones IP
-    - Intervalo de direcciones IP de destino: intervalo de direcciones IP para el servidor de archivos
+    - Intervalo de direcciones IP de destino: Intervalo de direcciones IP del servidor de archivos
     - Intervalo de puertos de destino: 445
     - Protocolo: TCP
-    - Acción: Permitir
+    - Acción: PERMITIR
     - Prioridad: 700
     - Nombre: Outbound_Allow_SMB445
 
@@ -260,9 +260,9 @@ También puede probar otros [servicios de Plataforma como servicio (PaaS)](azure
  - [Proveedor de recursos de MySQL](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Links-->
-[Azure_Stack_App_Service_preview_installer]: http://go.microsoft.com/fwlink/?LinkID=717531
-[App_Service_Deployment]: http://go.microsoft.com/fwlink/?LinkId=723982
-[AppServiceHelperScripts]: http://go.microsoft.com/fwlink/?LinkId=733525
+[Azure_Stack_App_Service_preview_installer]: https://go.microsoft.com/fwlink/?LinkID=717531
+[App_Service_Deployment]: https://go.microsoft.com/fwlink/?LinkId=723982
+[AppServiceHelperScripts]: https://go.microsoft.com/fwlink/?LinkId=733525
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-deploy/app-service-installer.png

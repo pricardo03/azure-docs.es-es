@@ -9,19 +9,19 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/25/2017
+ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 91f6254fe756f256a2c88429fb4d96156867ef4a
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: d39ec71315bec98c35ac7fb76ed9a88a094817ca
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001913"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117153"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetría de solicitudes: Modelo de datos de Application Insights
 
-Un elemento de telemetría de solicitud (en [Application Insights](../../application-insights/app-insights-overview.md)) representa la secuencia lógica de ejecución desencadenada por una solicitud externa a la aplicación. Todas las ejecuciones de solicitud se identifican mediante un `ID` y una `url` únicos que contienen todos los parámetros de ejecución. Puede agrupar las solicitudes por `name` lógico y definir el `source` de esta solicitud. La ejecución de código puede ser `success` o `fail`, y tiene una `duration` determinada. Tanto las ejecuciones correctas como las erróneas se pueden seguir agrupando por `resultCode`. La hora de inicio de la telemetría de solicitudes se define en el nivel de sobre.
+Un elemento de telemetría de solicitud (en [Application Insights](../../azure-monitor/app/app-insights-overview.md)) representa la secuencia lógica de ejecución desencadenada por una solicitud externa a la aplicación. Todas las ejecuciones de solicitud se identifican mediante un `ID` y una `url` únicos que contienen todos los parámetros de ejecución. Puede agrupar las solicitudes por `name` lógico y definir el `source` de esta solicitud. La ejecución de código puede ser `success` o `fail`, y tiene una `duration` determinada. Tanto las ejecuciones correctas como las erróneas se pueden seguir agrupando por `resultCode`. La hora de inicio de la telemetría de solicitudes se define en el nivel de sobre.
 
 La telemetría de solicitudes admite el modelo de extensibilidad estándar mediante el uso de `properties` y `measurements` personalizadas.
 
@@ -65,7 +65,7 @@ Longitud máxima: 1024 caracteres
 
 Indicación de si la llamada es correcta o no. Este campo es obligatorio. Si no se establece explícitamente en `false`, la solicitud se considera correcta. Establezca este valor en `false` si la operación se ha interrumpido por una excepción o ha devuelto un código de resultado de error.
 
-Para las aplicaciones web, Application Insights define las solicitudes como erróneas cuando el código de respuesta es menor que `400` o igual a `401`. Sin embargo, hay casos en los que esta asignación predeterminada no coincide con la semántica de la aplicación. El código de respuesta `404` puede indicar que "no hay registros", lo cual puede formar parte de un flujo regular. También puede indicar que un vínculo está roto. Para los vínculos rotos, puede incluso implementar lógica más avanzada. Puede marcar vínculos rotos como errores solo cuando estos se encuentren en el mismo sitio mediante el análisis de origen de referencia de URL. También puede marcarlos como errores accediendo desde la aplicación para dispositivos móviles de la empresa. De modo similar, `301` y `302` indican un error al acceder desde el cliente que no admite redireccionamiento.
+Para las aplicaciones web, Application Insights define una solicitud como correcta cuando el código de respuesta es menor que `400` o igual a `401`. Sin embargo, hay casos en los que esta asignación predeterminada no coincide con la semántica de la aplicación. El código de respuesta `404` puede indicar que "no hay registros", lo cual puede formar parte de un flujo regular. También puede indicar que un vínculo está roto. Para los vínculos rotos, puede incluso implementar lógica más avanzada. Puede marcar vínculos rotos como errores solo cuando estos se encuentren en el mismo sitio mediante el análisis de origen de referencia de URL. También puede marcarlos como errores accediendo desde la aplicación para dispositivos móviles de la empresa. De modo similar, `301` y `302` indican un error al acceder desde el cliente que no admite redireccionamiento.
 
 El contenido aceptado parcialmente `206` puede indicar un error de una solicitud general. Por ejemplo, el punto de conexión de Application Insights recibe un lote de elementos de telemetría como una solicitud única. Devuelve el error `206` cuando algunos elementos del lote no se han procesado correctamente. Un aumento de la frecuencia del error `206` indica la presencia de un problema que es necesario investigar. Se aplica una lógica similar al error con varios estados de `207`, en el cual el estado correcto puede ser el peor de los códigos de respuesta separados.
 

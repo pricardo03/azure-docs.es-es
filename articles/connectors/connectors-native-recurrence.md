@@ -1,6 +1,6 @@
 ---
-title: Creación de tareas y flujos de trabajo que se ejecutan regularmente con Azure Logic Apps | Microsoft Docs
-description: Automatización de tareas y flujos de trabajo que se ejecutan según una programación con el conector de periodicidad de Azure Logic Apps
+title: Programación y ejecución de tareas y flujos de trabajo automatizados con Azure Logic Apps | Microsoft Docs
+description: Automatice tareas programadas y periódicas con el conector de periodicidad en Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,17 +10,17 @@ ms.reviewer: klam, LADocs
 ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 tags: connectors
 ms.topic: article
-ms.date: 09/25/2017
-ms.openlocfilehash: 905157ab530ae042318de520f9d6fe24cb9d59ce
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.date: 01/08/2019
+ms.openlocfilehash: a1f89ca6e9dc2d05180df14ff0f4dc52729a7e03
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127061"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107844"
 ---
 # <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>Creación y ejecución de tareas y flujos de trabajo repetitivos con Azure Logic Apps
 
-Para programar tareas, acciones, cargas de trabajo o procesos que se ejecutan con regularidad, puede crear un flujo de trabajo de aplicación lógica que se inicie con el [desencadenador](../logic-apps/logic-apps-overview.md#logic-app-concepts) **Schedule - Recurrence**. Con este desencadenador, puede establecer una fecha y hora para iniciar la periodicidad y una programación de periodicidad para realizar tareas, como estos ejemplos, y mucho más:
+Para programar acciones, cargas de trabajo o procesos que se ejecutan con regularidad, cree un flujo de trabajo de aplicación lógica que se inicie con el [desencadenador](../logic-apps/logic-apps-overview.md#logic-app-concepts) **Programación: Periodicidad**. Puede establecer una fecha y hora para iniciar el flujo de trabajo y una programación de periodicidad para realizar tareas, como estos ejemplos, y mucho más:
 
 * Obtener datos internos: [ejecutar un procedimiento almacenado de SQL](../connectors/connectors-create-api-sqlazure.md) cada día.
 * Obtener datos externos: extraer informes meteorológicos de NOAA cada 15 minutos.
@@ -37,7 +37,9 @@ Este desencadenador es compatible con muchos patrones, por ejemplo:
 * Ejecutar y repetir cada semana, pero solo días específicos, como el sábado y domingo.
 * Ejecutar y repetir cada semana, pero solo días específicos a horas concretas, como de lunes a viernes, a las 8:00 a. m. y a las 5:00 p. m.
 
-Cada vez que el desencadenador de periodicidad se activa, Logic Apps crea y ejecuta una instancia nueva del flujo de trabajo de aplicación lógica.
+Cada vez que el desencadenador de periodicidad se activa, Logic Apps crea y ejecuta una instancia nueva del flujo de trabajo de aplicación lógica. 
+
+Para desencadenar la aplicación lógica y ejecutarla solo una vez en el futuro, consulte [Ejecución de trabajos una sola vez](#run-once) más adelante en este tema.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -49,9 +51,9 @@ Cada vez que el desencadenador de periodicidad se activa, Logic Apps crea y ejec
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com). Cree una aplicación lógica en blanco u obtenga información [sobre cómo crear una aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-2. Cuando se abra el Diseñador de aplicaciones lógicas, en el cuadro de búsqueda, escriba el filtro "recurrence". Seleccione el desencadenador **Schedule - Recurrence**. 
+2. Cuando aparezca el Diseñador de aplicaciones lógicas, elija **Todas**. En el cuadro de búsqueda, escriba "periodicidad" para el filtro. En la lista de desencadenadores, seleccione este desencadenador: **Periodicidad: Programación** 
 
-   ![Desencadenador Schedule - Recurrence](./media/connectors-native-recurrence/add-recurrence-trigger.png)
+   ![Selección del desencadenador "Periodicidad: Programación"](./media/connectors-native-recurrence/add-recurrence-trigger.png)
 
    Este desencadenador ahora es el primer paso de la aplicación lógica.
 
@@ -95,11 +97,11 @@ Puede configurar estas propiedades en el desencadenador de periodicidad.
 
 | NOMBRE | Obligatorio | Nombre de propiedad | Escriba | DESCRIPCIÓN | 
 |----- | -------- | ------------- | ---- | ----------- | 
-| **Frecuencia** | SÍ | frequency | string | La unidad de tiempo para la periodicidad: **segundo**, **minuto**, **hora**, **día**, **semana** o **mes** | 
-| **Intervalo** | SÍ | interval | Entero | Entero positivo que describe la frecuencia con la que se ejecuta el flujo de trabajo. <p>El intervalo predeterminado es 1. Estos son los intervalos mínimo y máximo: <p>- Month: 1-16 meses </br>- Day: 1-500 días </br>- Hour: 1-12 000 horas </br>- Minute: 1-72 000 minutos </br>- Second: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
+| **Frecuencia** | SÍ | frequency | string | Unidad de tiempo que se usa para la periodicidad: **Segundo**, **Minuto**, **Hora**, **Día**, **Semana** o **Mes** | 
+| **Intervalo** | SÍ | interval | Entero | Entero positivo que describe la frecuencia con la que se ejecuta el flujo de trabajo. <p>El intervalo predeterminado es 1. Estos son los intervalos mínimo y máximo: <p>- Mes: 1-16 meses </br>- Día: 1-500 días </br>- Hora: 1-12 000 horas </br>- Minuto: 1-72 000 minutos </br>- Segundo: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
 | **Zona horaria** | Sin  | timeZone | string | Solo se aplica cuando se especifica una hora de inicio porque este desencadenador no acepta [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Seleccione la zona horaria que desea aplicar. | 
 | **Hora de inicio** | Sin  | startTime | string | Proporcione una hora de inicio con este formato: <p>AAAA-MM-DDThh:mm:ss si selecciona una zona horaria <p>O bien <p>AAAA-MM-DDThh:mm:ssZ si no selecciona una zona horaria <p>Por ejemplo, si desea la fecha del 18 de septiembre de 2017 a las 2:00 p. m., especifique entonces "2017-09-18T14:00:00" y selecciona una zona horaria como Hora estándar del Pacífico. O bien, especifique "2017-09-18T14:00:00Z" sin una zona horaria. <p>**Nota:** Esta hora de inicio debe seguir la [especificación de fecha y hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) en [formato de hora y fecha UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), pero sin una [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Si no se selecciona una zona horaria, debe agregar la letra "Z" al final sin espacios. Esta "Z" se refiere al equivalente de [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para las programaciones simples, la hora de inicio es la primera aparición, mientras que para programaciones complejas, el desencadenador no se activa antes de la hora de inicio. [*¿De qué formas puedo usar la fecha y hora de inicio?*](#start-time) | 
-| **En estos días** | Sin  | weekDays | Cadena o matriz de cadenas | Si selecciona "Week", puede seleccionar uno o varios días en los que desea ejecutar el flujo de trabajo: **Monday**, **Tuesday**, **Wednesday**, **Thursday**, **Friday**, **Saturday** y **Sunday** | 
+| **En estos días** | Sin  | weekDays | Cadena o matriz de cadenas | Si selecciona "Semana", puede seleccionar uno o más días que desee ejecutar el flujo de trabajo: **Lunes**, **Martes**, **Miércoles**, **Jueves**, **Viernes**, **Sábado** y **Domingo** | 
 | **A estas horas** | Sin  | hours | Entero o matriz de enteros | Si selecciona "Day" o "Week", puede especificar uno o varios enteros de 0 a 23 como las horas del día en las que desea ejecutar el flujo de trabajo. <p>Por ejemplo, si especifica "10", "12" y "14", obtendrá 10 a. m., 12 p. m. y 2 p. m. como las marcas de hora. | 
 | **En estos minutos** | Sin  | minutes | Entero o matriz de enteros | Si selecciona "Day" o "Week", puede seleccionar uno o varios enteros de 0 a 59 como los minutos de la hora en los que desea ejecutar el flujo de trabajo. <p>Por ejemplo, puede especificar "30" como la marca de minuto y, utilizando el ejemplo anterior para las horas del día, obtendrá 10:30 a. m., 12:30 p. m. y las 2:30 p. m. | 
 ||||| 
@@ -109,35 +111,42 @@ Puede configurar estas propiedades en el desencadenador de periodicidad.
 Este es un ejemplo de [definición de desencadenador de periodicidad](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger):
 
 ``` json
-{
-    "triggers": {
-        "Recurrence": {
-            "type": "Recurrence",
-            "recurrence": {
-                "frequency": "Week",
-                "interval": 1,
-                "schedule": {
-                    "hours": [
-                        10,
-                        12,
-                        14
-                    ],
-                    "minutes": [
-                        30
-                    ],
-                    "weekDays": [
-                        "Monday"
-                    ]
-                },
-               "startTime": "2017-09-07T14:00:00",
-               "timeZone": "Pacific Standard Time"
-            }
-        }
-    }
+"triggers": {
+   "Recurrence": {
+      "type": "Recurrence",
+      "recurrence": {
+         "frequency": "Week",
+         "interval": 1,
+         "schedule": {
+            "hours": [
+               10,
+               12,
+               14
+            ],
+            "minutes": [
+               30
+            ],
+            "weekDays": [
+               "Monday"
+            ]
+         },
+         "startTime": "2017-09-07T14:00:00",
+         "timeZone": "Pacific Standard Time"
+      }
+   }
 }
 ```
 
 ## <a name="faq"></a>Preguntas más frecuentes
+
+<a name="run-once"></a>
+
+**P:** ¿Qué pasa si deseo ejecutar una aplicación lógica una vez solo en el futuro? </br>
+**R:** Para desencadenar la aplicación lógica y ejecutarla una vez sin periodicidad, puede usar la plantilla **Scheduler: Run once jobs** (Programador:ejecutar trabajos una vez). Después de crear una nueva aplicación lógica, pero antes de abrir el Diseñador de aplicaciones lógicas, en la sección **Plantillas**, en la lista **Categoría**, seleccione **Programación** y, a continuación, seleccione la plantilla:
+
+![Seleccione la plantilla "Scheduler: Run once jobs" (Programador:ejecutar trabajos una vez)](./media/connectors-native-recurrence/choose-run-once-template.png)
+
+O bien, si usa una aplicación lógica en blanco, inicie la aplicación lógica con el desencadenador **Cuando se recibe una solicitud HTTP - Solicitar**. Pase la hora de inicio del desencadenador como un parámetro. Para el paso siguiente, agregue la acción **Retraso hasta - Programación** y especifique la hora en que empieza a ejecutarse la acción siguiente.
 
 <a name="example-recurrences"></a>
 

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 01/04/2019
 ms.author: tulasim
-ms.openlocfilehash: f732391cc73f0a7cb417409cd6f6f2b3c54f93d6
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: a26c4b6d16ac16596f8b1b0606aca029be335d71
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994137"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038507"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Orígenes de datos para el contenido de QnA Maker
 
@@ -149,6 +149,23 @@ Si no tiene contenido existente previamente para rellenar la base de conocimient
 ## <a name="formatting-considerations"></a>Consideraciones de formato
 
 Después de importar un archivo o una dirección URL, se convierte al formato Markdown y se almacena en ese formato. Si el proceso de conversión no convierte correctamente los vínculos de los archivos y direcciones URL, debe editar las preguntas y respuestas en la página **Editar**. 
+
+|Formato|Propósito|
+|--|--|
+|`\n\n`| Línea nueva|
+|`\n*`|Viñeta de una lista ordenada|
+
+## <a name="editing-your-knowledge-base-locally"></a>Edición de la base de conocimiento localmente
+
+Una vez que se crea una base de conocimiento, es recomendable realizar modificaciones en el texto de dicha base en el [portal de QnA Maker](https://qnamaker.ai), en lugar de exportar y volver a importar a través de archivos locales. Sin embargo, puede haber ocasiones en las que necesite editar una base de conocimiento localmente. 
+
+Exporte la base de conocimiento desde la página **Configuración** y luego edite dicha base con Microsoft Excel. Si decide utilizar otra aplicación para editar el archivo TSV exportado, la aplicación puede introducir errores de sintaxis porque no es totalmente compatible con TSV. Por lo general, los archivos TSV de Microsoft Excel no introducen errores de formato. 
+
+Cuando termine de realizar las modificaciones, vuelva a importar el archivo TSV desde la página **Configuración**. Esto reemplazará completamente la base de conocimiento actual por la base de conocimiento importada. 
+
+## <a name="testing-your-markdown"></a>Prueba de Markdown
+
+Use el tutorial **[CommonMark](https://commonmark.org/help/tutorial/index.html)** para validar su Markdown. El tutorial tiene una característica **Pruébelo** para la validación rápida de copiar y pegar. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

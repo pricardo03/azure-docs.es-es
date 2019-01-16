@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 9f701f0f6d00d2913eaf5b237435fd375b2030e0
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 80b1896c55d00a4ac8e5dea62afc08ace1a84249
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435283"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078531"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Bloqueo inteligente de Azure Active Directory
 
@@ -70,6 +70,14 @@ Para comprobar o modificar los valores de bloqueo inteligente para su organizaci
 > Si el primer inicio de sesión después de un bloqueo también produce un error, la cuenta se bloquea de nuevo. Si una cuenta se bloquea de forma repetida, aumenta la duración del bloqueo.
 
 ![Personalización de la directiva de bloqueo inteligente de Azure AD en Azure Portal](./media/howto-password-smart-lockout/azure-active-directory-custom-smart-lockout-policy.png)
+
+## <a name="how-to-determine-if-the-smartlockout-feature-is-working-or-not"></a>Cómo determinar si la característica Smartlockout está funcionando o no
+
+Cuando se desencadena el umbral de Smartlockout, aparecerá el siguiente mensaje mientras la cuenta está bloqueada:
+
+**Su cuenta se bloqueó temporalmente para impedir un uso no autorizado. Vuelva a intentarlo y, si sigue teniendo problemas, póngase en contacto con su administrador.**
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Configuración de la lista personalizada de contraseñas prohibidas mediante Azure AD](howto-password-ban-bad.md)

@@ -5,20 +5,22 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fa089db385995f6c44ea2238c91a3ac59946daae
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 01af5052d8b092d10609769f211d6ffcde03cf8e
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407663"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190381"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalación y configuración de una puerta de enlace de datos local
+
 Se requiere una puerta de enlace de datos local cuando uno o varios servidores de Azure Analysis Services de la misma región se conectan a orígenes de datos locales. Para más información acerca de la puerta de enlace, consulte [Puerta de enlace de datos local](analysis-services-gateway.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 **Requisitos mínimos:**
 
 * .NET Framework 4.5
@@ -44,6 +46,7 @@ Se requiere una puerta de enlace de datos local cuando uno o varios servidores d
 
 
 ## <a name="download"></a>Descarga
+
  [Descargar la puerta de enlace](https://aka.ms/azureasgateway)
 
 ## <a name="install"></a>Instalación
@@ -62,6 +65,7 @@ Se requiere una puerta de enlace de datos local cuando uno o varios servidores d
    > Si inicia sesión con una cuenta de dominio, se asignará a la cuenta profesional de Azure AD. La cuenta profesional se usará como administrador de la puerta de enlace.
 
 ## <a name="register"></a>Registro
+
 Para crear un recurso de puerta de enlace en Azure, debe registrar la instancia local que instaló con el servicio en la nube de la puerta de enlace. 
 
 1.  Seleccione **Registrar una nueva puerta de enlace en este equipo**.
@@ -77,6 +81,7 @@ Para crear un recurso de puerta de enlace en Azure, debe registrar la instancia 
 
 
 ## <a name="create-resource"></a>Creación de un recurso de puerta de enlace de Azure
+
 Una vez que ha instalado y registrado la puerta de enlace, debe crear un recurso de puerta de enlace en su suscripción de Azure. Inicie sesión en Azure con la misma cuenta que usó al registrar la puerta de enlace.
 
 1. En Azure Portal, elija **Crear un recurso** > **Integración** > **Puerta de enlace de datos local**.
@@ -91,7 +96,7 @@ Una vez que ha instalado y registrado la puerta de enlace, debe crear un recurso
    
       La suscripción predeterminada se basa en la cuenta de Azure que usó para iniciar sesión.
 
-    * **Grupo de recursos**: cree un grupo de recursos o seleccione uno existente.
+    * **Grupo de recursos**: Cree un grupo de recursos o seleccione uno existente.
 
     * **Ubicación**: seleccione la región en que se ha registrado la puerta de enlace.
 
@@ -115,6 +120,7 @@ Una vez que ha instalado y registrado la puerta de enlace, debe crear un recurso
 Eso es todo. Si necesita abrir puertos o solucionar cualquier problema, asegúrese de consultar [Puerta de enlace de datos local](analysis-services-gateway.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * [Administración de Analysis Services](analysis-services-manage.md)   
 * [Obtención de datos de Azure Analysis Services](analysis-services-connect.md)   
 * [Uso de la puerta de enlace para orígenes de datos en Azure Virtual Network](analysis-services-vnet-gateway.md)

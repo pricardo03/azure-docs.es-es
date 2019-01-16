@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: f460c063ded489c8ec0ef23b35ab304c62943a98
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 73c94b79bb315c317d39ade704e2ee70a241a348
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337077"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187752"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Uso de la asignación de Azure Monitor para VM (versión preliminar) para conocer los componentes de una aplicación
 Los componentes de aplicación detectados en máquinas virtuales de Windows y Linux que se ejecutan en el entorno de Azure se pueden observar de dos formas gracias a Azure Monitor para VM: directamente desde la máquina virtual o a través de los grupos de máquinas virtuales en Azure Monitor. 

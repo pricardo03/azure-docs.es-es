@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a020f0f22f16d8aaa959c41a912ca5839be05312
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 308623b4643724d95777d7e21d1138f808e9c1c9
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055907"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190432"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solución de problemas de inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -27,7 +27,7 @@ Este artículo sirve de ayuda para encontrar información sobre cómo solucionar
 
 - En algunos casos, el proceso para habilitar el inicio de sesión único de conexión directa puede tardar hasta 30 minutos.
 - Si deshabilita y vuelve a habilitar Inicio de sesión único de conexión directa en el inquilino, los usuarios no podrán tener la experiencia de inicio de sesión único hasta que sus vales de Kerberos en caché, que normalmente son válidos durante diez horas, hayan expirado.
-- El soporte técnico para el explorador Microsoft Edge no está disponible.
+- No hay compatibilidad disponible con el explorador Microsoft Edge.
 - Si el inicio de sesión único de conexión directa se realiza correctamente, el usuario no tiene la oportunidad de seleccionar **Mantener la sesión iniciada**. Debido a este comportamiento, los [escenarios de asignación de SharePoint y OneDrive](https://support.microsoft.com/help/2616712/how-to-configure-and-to-troubleshoot-mapped-network-drives-that-connec) no funcionan.
 - Se admiten los clientes Win32 de Office 365 (Outlook, Word, Excel, etc.) con las versiones 16.0.8730 y posteriores mediante un flujo no interactivo. No se admiten otras versiones; en estas, para iniciar sesión, los usuarios escribirán sus nombres de usuario, pero no las contraseñas. En OneDrive, tendrá que activar la [función de configuración silenciosa de OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) para disfrutar de una experiencia de inicio de sesión silenciosa.
 - SSO de conexión directa no funciona en modo de exploración privada en Firefox.
@@ -42,17 +42,17 @@ Este artículo sirve de ayuda para encontrar información sobre cómo solucionar
 
 Asegúrese de que la característica de SSO de conexión directa esté aún **habilitada** en el inquilino. Puede comprobar el estado; para ello, vaya al panel **Azure AD Connect** en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com/).
 
-![Centro de administración de Azure Active Directory: panel de Azure AD Connect](./media/tshoot-connect-sso/sso10.png)
+![Centro de administración de Azure Active Directory: Panel de Azure AD Connect](./media/tshoot-connect-sso/sso10.png)
 
 Haga clic para ver todos los bosques de AD que están habilitados para SSO de conexión directa.
 
-![Centro de administración de Azure Active Directory: panel de SSO de conexión directa](./media/tshoot-connect-sso/sso13.png)
+![Centro de administración de Azure Active Directory: Panel de SSO de conexión directa](./media/tshoot-connect-sso/sso13.png)
 
 ## <a name="sign-in-failure-reasons-in-the-azure-active-directory-admin-center-needs-a-premium-license"></a>Motivos del error de inicio de sesión en el centro de administración de Azure Active Directory (se necesita una licencia Premium)
 
 Si el inquilino tiene una licencia de Azure AD Premium asociada, también puede buscar el [informe actividad de inicio de sesión](../reports-monitoring/concept-sign-ins.md) en el [centro de administración de Azure Active Directory](https://aad.portal.azure.com/).
 
-![Centro de administración de Azure Active Directory: informe de inicios de sesión](./media/tshoot-connect-sso/sso9.png)
+![Centro de administración de Azure Active Directory: Informe de inicios de sesión](./media/tshoot-connect-sso/sso9.png)
 
 Examine **Azure Active Directory** > **Inicios de sesión** en el [centro de administración de Azure Active Directory](https://aad.portal.azure.com/) y después seleccione la actividad de inicio de sesión de un usuario específico. Busque el campo **CÓDIGO DE ERROR DE INICIO DE SESIÓN**. Busque la correspondencia entre el valor de ese campo y un motivo de error y la resolución en la siguiente tabla:
 

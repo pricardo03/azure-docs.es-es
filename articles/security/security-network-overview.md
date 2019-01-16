@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 2237d523b8023c0a6551515f9a2740e92e7beb3f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: a5943c1d2e6b04564e1de732b8f3924a67393753
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548932"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065688"
 ---
 # <a name="azure-network-security-overview"></a>Introducción a Azure Network Security
 
@@ -104,7 +104,7 @@ Por ejemplo, suponga que tiene un dispositivo de seguridad de red virtual en la 
 
 La [tunelización forzada](https://www.petri.com/azure-forced-tunneling) es un mecanismo que puede usar para tener la seguridad de que no se permite que sus servicios inicien una conexión con dispositivos en Internet. Tenga en cuenta que este proceso no es lo mismo que aceptar conexiones entrantes y luego responder a ellas. En este caso, los servidores web de front-end tienen que responder a las solicitudes de los hosts de Internet, así que se permite que el tráfico cuyo origen es Internet entre en estos servidores web y que dichos servidores respondan.
 
-Lo que no quiere es permitir que un servidor web de front-end inicie una solicitud saliente. Estas solicitudes pueden representar un riesgo para la seguridad porque estas conexiones podrían usarse para descargar software malintencionado. Incluso si quiere que estos servidores de front-end inicien solicitudes salientes a Internet, puede que quiera obligarles a que pasen por los proxies web locales. Así podrá aprovechar las ventajas del filtrado y el registro de direcciones URL.
+Lo que no quiere es permitir que un servidor web front-end inicie una solicitud saliente. Estas solicitudes pueden representar un riesgo para la seguridad porque estas conexiones podrían usarse para descargar software malintencionado. Incluso si quiere que estos servidores de front-end inicien solicitudes salientes a Internet, puede que quiera obligarles a que pasen por los proxies web locales. Así podrá aprovechar las ventajas del filtrado y el registro de direcciones URL.
 
 En su lugar, y para evitar esto, querrá usar la tunelización forzada. Cuando se habilita la tunelización forzada, todas las conexiones a Internet tienen que pasar a la fuerza por la puerta de enlace local. Puede configurar la tunelización forzada aprovechando las rutas que definió el usuario.
 
@@ -199,7 +199,7 @@ Más información:
 
 Es posible utilizar varias redes virtuales en las implementaciones. Hay muchas razones para hacer esto. Es posible que quiera simplificar la administración o aumentar la seguridad. Con independencia de los motivos o razones para colocar los recursos en diferentes redes virtuales, puede haber ocasiones en que quiera que los recursos de cada una de las redes se conecten entre sí.
 
-Una opción sería conectar los servicios de una red virtual con los servicios de otra mediante la creación de un "bucle de retroceso" en Internet. La conexión comienza en una red virtual, pasa por Internet y vuelve a la red virtual de destino. Esta opción expone la conexión a los problemas de seguridad inherentes a cualquier comunicación basada en Internet.
+Una opción sería conectar los servicios en una red virtual con los servicios de otra creando un "bucle de retroceso" a través de Internet. La conexión comienza en una red virtual, pasa por Internet y vuelve a la red virtual de destino. Esta opción expone la conexión a los problemas de seguridad inherentes a cualquier comunicación basada en Internet.
 
 Una opción mejor podría ser crear una VPN de sitio a sitio que se conecte entre dos redes virtuales. Este método usa el mismo protocolo de [modo de túnel IPSec](https://technet.microsoft.com/library/cc786385.aspx) que la conexión VPN de sitio a sitio entre locales mencionada anteriormente.
 
@@ -213,7 +213,7 @@ Otra manera de conectar las redes virtuales es el [Emparejamiento de VNET](../vi
 
 ## <a name="availability"></a>Disponibilidad
 
-La disponibilidad es un componente clave de cualquier programa de seguridad. Si los usuarios y los sistemas no pueden acceder a lo que necesitan en la red, el servicio puede considerarse en peligro. Azure ofrece tecnologías de red que admiten los siguientes mecanismos de alta disponibilidad:
+La disponibilidad es un componente clave de cualquier programa de seguridad. Si los usuarios y los sistemas no pueden acceder a lo que necesitan a través de la red, el servicio puede considerarse en peligro. Azure ofrece tecnologías de red que admiten los siguientes mecanismos de alta disponibilidad:
 
 * Equilibrio de carga basado en HTTP
 * Equilibrio de carga de nivel de red
@@ -222,7 +222,7 @@ La disponibilidad es un componente clave de cualquier programa de seguridad. Si 
 El equilibrio de carga es un mecanismo diseñado para distribuir equitativamente las conexiones entre varios dispositivos. Los objetivos del equilibrio de carga son:
 
 * Para aumentar la disponibilidad. Cuando se equilibra la carga de las conexiones entre varios dispositivos, uno o más de los dispositivos pueden dejar de estar disponibles sin comprometer el servicio. Los servicios que se ejecuten en los dispositivos en línea restantes pueden seguir proporcionando contenido desde el servicio.
-* Para aumentar el rendimiento. Cuando se equilibra la carga de las conexiones entre varios dispositivos, un solo dispositivo no tiene que controlar todo el procesamiento. En su lugar, las demandas de procesamiento y memoria para el suministro de contenido se reparten entre varios dispositivos.
+* Para aumentar el rendimiento. Cuando se equilibra la carga de las conexiones entre varios dispositivos, un solo dispositivo no tiene que asumir toda la carga de la operación de procesamiento. En su lugar, las demandas de procesamiento y memoria para el suministro de contenido se reparten entre varios dispositivos.
 
 ### <a name="http-based-load-balancing"></a>Equilibrio de carga basado en HTTP
 
@@ -231,7 +231,7 @@ Las organizaciones que ejecutan servicios basados en web, a menudo necesitan ten
 Azure Application Gateway se encarga de proporcionar equilibrio de carga basado en HTTP a los servicios basados en la web. Application Gateway admite:
 
 * Afinidad de sesión basada en cookies. Esta funcionalidad garantiza que las conexiones establecidas con uno de los servidores detrás del equilibrador de carga permanecen intactas entre el cliente y el servidor. Gracias a ello, las transacciones permanecen estables.
-* Descarga de SSL. Cuando un cliente se conecta con el equilibrador de carga, dicha sesión se cifra mediante el protocolo HTTPS (SSL). Sin embargo, para aumentar el rendimiento, tiene la opción de usar el protocolo HTTP para realizar una conexión entre el equilibrador de carga y el servidor web que está detrás de ese equilibrador de carga. Esto se conoce como "descarga de SSL" porque los servidores web que hay detrás del equilibrador de carga no experimentan la sobrecarga del procesador que implica el cifrado. Por lo tanto, deberían poder atender las solicitudes con mayor rapidez.
+* Descarga de SSL. Cuando un cliente se conecta con el equilibrador de carga, dicha sesión se cifra mediante el protocolo HTTPS (SSL). Sin embargo, para aumentar el rendimiento, tiene la opción de usar el protocolo HTTP para realizar una conexión entre el equilibrador de carga y el servidor web que está detrás de ese equilibrador de carga. Esto se conoce como "descarga de SSL" porque los servidores web que hay detrás del equilibrador de carga no experimentan la sobrecarga del procesador implicada en el cifrado. Por lo tanto, deberían poder atender las solicitudes con mayor rapidez.
 * Enrutamiento de contenido basado en direcciones URL. Esta característica hace posible que el equilibrador de carga tome decisiones sobre dónde reenviar las conexiones en función de la dirección URL de destino. Este método proporciona mucha más flexibilidad que las soluciones que toman decisiones sobre el equilibrio de carga según las direcciones IP.
 
 Más información:
@@ -268,11 +268,11 @@ Más información:
 
 ## <a name="name-resolution"></a>Resolución de nombres
 
-La resolución de nombres es una función crítica para todos los servicios hospedados en Azure. Desde una perspectiva de la seguridad, poner en peligro la función de resolución de nombres puede dar lugar a que un atacante redirija las solicitudes de sus sitios al sitio de dicho individuo. Proteger la resolución de nombres es un requisito de todos los servicios hospedados en la nube.
+La resolución de nombres es una función crítica para todos los servicios hospedados en Azure. Desde una perspectiva de la seguridad, poner en peligro esta función puede dar lugar a que un atacante redirija las solicitudes de sus sitios al sitio de dicho individuo. Proteger la resolución de nombres es un requisito de todos los servicios hospedados en la nube.
 
 Hay dos tipos de resolución de nombres que debe abordar:
 
-* Resolución de nombres interna. Los servicios de las redes virtuales, las redes locales o ambos usan esta opción. Los nombres que se usan para la resolución de nombres interna no son accesibles a través de Internet. Para lograr una seguridad óptima, es importante que el esquema de la resolución de nombres interno no sea accesible a usuarios externos.
+* Resolución de nombres interna. Los servicios de las redes virtuales, las redes locales o ambos usan esta opción. Los nombres que se usan para la resolución de nombres interna no son accesibles a través de Internet. Para lograr una seguridad óptima, es importante que el esquema de la resolución de nombres interna no sea accesible a usuarios externos.
 * Resolución de nombres externa. La usan personas y dispositivos que se encuentran fuera del alcance de las redes locales y virtuales. Son los nombres que son visibles en Internet y que se usan para dirigir la conexión a los servicios basados en la nube.
 
 Para la resolución de nombres interna, tiene dos opciones:

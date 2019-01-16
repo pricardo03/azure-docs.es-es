@@ -1,24 +1,26 @@
 ---
-title: Implementación en Azure Analysis Services mediante SSDT | Microsoft Docs
+title: Implementación en Azure Analysis Services mediante Visual Studio (SSDT) | Microsoft Docs
 description: Aprenda a implementar un modelo tabular en un servidor de Azure Analysis Services mediante SSDT.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5f56ee65cd2ec5dfb39929f6985c26ebc339953e
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: a9f3dfba4c79b2369e99b95c13557557ed930c24
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429055"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188596"
 ---
-# <a name="deploy-a-model-from-ssdt"></a>Implementación de un modelo desde SSDT
+# <a name="deploy-a-model-from-visual-studio"></a>Implementación de un modelo de Visual Studio
+
 Una vez que ha creado un servidor en su suscripción de Azure, está listo para implementar una base de datos de modelo tabular en él. Puede utilizar SQL Server Data Tools (SSDT) para compilar e implementar un proyecto de modelo tabular que esté trabajando. 
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 Para empezar, necesitará lo siguiente:
 
 * **Servidor de Analysis Services** en Azure. Para más información, consulte [Creación de un servidor de Azure Analysis Services en Azure Portal](analysis-services-create-server.md).
@@ -53,10 +55,12 @@ Eso es todo.
 
 
 ## <a name="troubleshooting"></a>solución de problemas
+
 Si se produce un error al implementar los metadatos, es probable que sea porque SSDT no se pudo conectar al servidor. Asegúrese de poder conectarse al servidor mediante SSMS. A continuación, asegúrese de que la propiedad de Servidor de implementación del proyecto es correcta.
 
 Si se produce un error al realizar una implementación en una tabla, es probable que sea porque el servidor no pudo conectarse a un origen de datos. Si el origen de datos es local en la red de su organización, asegúrese de instalar una [puerta de enlace de datos local](analysis-services-gateway.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Ahora que tiene el modelo tabular implementado en el servidor, está listo para conectarse a él. Puede [conectarse a él con SSMS](analysis-services-manage.md) para administrarlo. Además, puede [conectarse a él mediante una herramienta cliente](analysis-services-connect.md) como Power BI, Power BI Desktop o Excel y empezar a crear informes.
 

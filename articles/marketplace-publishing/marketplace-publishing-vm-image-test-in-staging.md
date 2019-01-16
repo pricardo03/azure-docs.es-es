@@ -3,7 +3,7 @@ title: Probar su oferta de VM para Marketplace | Microsoft Docs
 description: Entienda cómo probar su imagen de VM para Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 7a41c3c6-625c-4478-b804-e124dee89040
@@ -14,22 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: hascipio
-ms.openlocfilehash: bf41953300c3042853118c815dbf64e4474106fa
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ROBOTS: NOINDEX
+ms.openlocfilehash: b90353dbbc5d019897735cfc05caa3ee094dfedc
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194120"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078820"
 ---
 # <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>Probar su oferta de VM para Azure Marketplace en un entorno de ensayo
-En la etapa de ensayo, se implementa la SKU en un “espacio aislado” privado, donde puede probar y validar su funcionalidad antes de implementarla en Marketplace. La SKU aparece en un entorno de ensayo tal y como lo haría para un cliente que la ha implementado. Su imagen de VM debe estar certificada para trasladarse a un entorno de ensayo.
+En la etapa de ensayo, se implementa la SKU en un “espacio aislado” privado, donde puede probar y validar su funcionalidad antes de implementarla en Marketplace. La SKU aparece en un entorno de ensayo tal y como lo haría para un cliente que la ha implementado. Se debe certificar su imagen de máquina virtual antes de que pase al entorno de ensayo.
 
 ## <a name="step-1-push-your-offer-to-staging"></a>Paso 1: Trasladar su oferta a un entorno de ensayo
 1. En la pestaña **Publicar**, haga clic en **Push to Staging** (Pasar a ensayo).
    
     ![dibujo](media/marketplace-publishing-vm-image-test-in-staging/vm-image-push-to-staging.png)
 2. Si el Portal de publicación le informa errores, corríjalos.
-3. En el cuadro de diálogo **¿Quién puede obtener acceso a su oferta de ensayo?** , escriba la lista de suscripciones de Azure que usará para obtener una vista previa de su oferta en el [portal de vista previa de Azure](https://portal.azure.com).
+3. En el cuadro de diálogo **¿Quién puede obtener acceso a su oferta de ensayo?**, escriba la lista de suscripciones de Azure que usará para obtener una vista previa de su oferta en [Azure Portal](https://portal.azure.com).
    
    > [!NOTE]
    > En el caso de las plantillas de soluciones y máquinas virtuales, **no** agregue a la lista blanca suscripciones de tipo CSP, DreamSpark o Azure bajo licencia Open.
@@ -42,7 +43,7 @@ En la etapa de ensayo, se implementa la SKU en un “espacio aislado” privado,
    > - Cuando se complete la certificación, se inicia la replicación de la oferta en todos los centros de datos de Azure. Normalmente, el proceso de replicación de la oferta tarda en completarse entre 24 y 48 horas, aunque puede extenderse hasta una semana en función del tamaño del VHD. Sin embargo, si la solicitud tiene solo incluye un cambio de marketing, la replicación se realiza más rápidamente.
    > - Cuando se complete la replicación, la oferta se mostrará en el [Portal de Azure](http:/portal.azure.com). En este momento, el estado muestra que la oferta está en el entorno de ensayo en el Portal de publicación. Una oferta de ensayo está visible en el [Portal de Azure](http:/portal.azure.com) solo con los identificadores de correo electrónico asociados con la suscripción con la que se envío la oferta al entorno de ensayo.
 
-1. Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com) mediante una de las suscripciones de Azure anteriores que se enumeran en el paso anterior.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) mediante una de las suscripciones de Azure anteriores que se enumeran en el paso anterior.
 2. Busque su oferta y valide los puntos de su imagen de VM:
    
    * Asegúrese de que el contenido de marketing se muestra correctamente en el Marketplace.

@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 01/09/2019
 ms.author: douglasl
-ms.openlocfilehash: 950336db215bbca76f20c15527397212c6fe5ffd
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 23114a1d2fff081c802ddedc7bf5430938c45b3b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554935"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191792"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Integración y entrega continuas (CI/CD) en Azure Data Factory
 
@@ -162,7 +161,7 @@ Hay dos formas de administrar los secretos:
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 ### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Concesión de permisos al agente de Azure Pipelines
-Puede que se produzca un error de acceso denegado la primera vez que se ejecute la tarea de Azure Key Vault. Descargue los registros de la versión y busque el archivo `.ps1` con el comando para conceder permisos al agente de Azure Pipelines. Puede ejecutar el comando directamente o bien copiar el identificador de entidad de seguridad del archivo y añadir la directiva de acceso manualmente en Azure Portal (*Get* y *List* son los permisos mínimos necesarios).
+Puede que se produzca un error de Integration Runtime de acceso denegado la primera vez que se ejecute la tarea de Azure Key Vault. Descargue los registros de la versión y busque el archivo `.ps1` con el comando para conceder permisos al agente de Azure Pipelines. Puede ejecutar el comando directamente o bien copiar el identificador de entidad de seguridad del archivo y añadir la directiva de acceso manualmente en Azure Portal (*Get* y *List* son los permisos mínimos necesarios).
 
 ### <a name="update-active-triggers"></a>Actualización de desencadenadores activos
 Puede producirse un error en la implementación si intenta actualizar desencadenadores activos. Para actualizar desencadenadores activos, debe detenerlos manualmente e iniciarlos después de la implementación. Puede añadir una tarea de Azure Powershell para este propósito, como se muestra en el ejemplo siguiente:
@@ -184,7 +183,7 @@ Puede producirse un error en la implementación si intenta actualizar desencaden
 Puede seguir los mismos pasos y utilizar un código similar (con la función `Start-AzureRmDataFactoryV2Trigger`) para reiniciar los desencadenadores después de la implementación.
 
 > [!IMPORTANT]
-> En escenarios de integración e implementación continuas, el tipo de entorno de ejecución de integración entre distintos entornos debe ser el mismo. Por ejemplo, si tiene un entorno de ejecución de integración (IR) *autohospedado* en el entorno de desarrollo, el mismo IR debe ser también de tipo *autohospedado* en otros entornos, como prueba y producción. De igual forma, si va a compartir los entornos de ejecución de integración entre varias fases, tiene que configurar los IR como *autohospedado vinculado* en todos los entornos: desarrollo, prueba y producción.
+> En escenarios de integración e implementación continuas, el tipo de entorno de ejecución de integración entre distintos entornos debe ser el mismo. Por ejemplo, si tiene un entorno de ejecución de integración (IR) *autohospedado* en el entorno de desarrollo, el mismo IR debe ser también de tipo *autohospedado* en otros entornos, como prueba y producción. De igual forma, si va a compartir los entornos de ejecución de integración entre varias fases, tiene que configurar las instancias de Integration Runtime como *autohospedadas vinculadas* en todos los entornos: desarrollo, prueba y producción.
 
 ## <a name="sample-deployment-template"></a>Plantilla de implementación de ejemplo
 
@@ -854,7 +853,7 @@ Puede definir parámetros personalizados para la plantilla de Resource Manager. 
 
 Estas son algunas directrices para usar durante la creación del archivo de parámetros personalizados. Para ver ejemplos de esta sintaxis, consulte la sección siguiente, [Archivo de parámetros personalizados de ejemplo](#sample).
 
-1. Cuando especifica una matriz en el archivo de definición, se indica que la propiedad coincidente en la plantilla es una matriz. Data Factory recorre en iteración todos los objetos de la matriz mediante la definición especificada en el primer objeto de la matriz. El segundo objeto, una cadena, se convierte en el nombre de la propiedad, que se utiliza como el nombre del parámetro para cada iteración.
+1. Cuando especifica una matriz en el archivo de definición, se indica que la propiedad coincidente en la plantilla es una matriz. Data Factory recorre en iteración todos los objetos de la matriz mediante la definición especificada en el primer objeto de Integration Runtime de la matriz. El segundo objeto, una cadena, se convierte en el nombre de la propiedad, que se utiliza como el nombre del parámetro para cada iteración.
 
     ```json
     ...
@@ -989,3 +988,23 @@ Normalmente las plantillas vinculadas de Resource Manager tienen una plantilla p
 No se olvide de agregar los scripts de Data Factory en la canalización de CI/CD antes y después de la tarea de implementación.
 
 Si no tiene GIT configurado, las plantillas vinculadas son accesibles a través del gesto **Exportar plantilla de ARM**.
+
+## <a name="best-practices-for-cicd"></a>Procedimientos recomendados para CI/CD
+
+Si usa la integración de Git con la factoría de datos y tiene una canalización de CI/CD que mueve los cambios desde el entorno de desarrollo al entorno de prueba y, luego, a producción, los procedimientos recomendados son los siguientes:
+
+-   **Integración de Git**. Solo se necesita configurar la factoría de datos de desarrollo con la integración de Git. Los cambios en los entorno de prueba y producción se implementan a través de CI/CD y no es necesario que tengan la integración de Git.
+
+-   **Script de CI/CD de Data Factory**. Antes del paso de implementación de Resource Manager en CI/CD, debe preocuparse de aspectos como detener los desencadenadores y de un tipo distinto de limpieza de factoría. Se recomienda usar [este script](#sample-script-to-stop-and-restart-triggers-and-clean-up) que se preocupa de todos estos aspectos. Ejecute el script una vez antes de la implementación y una vez después, mediante el uso de las marcas adecuadas.
+
+-   **Entornos de ejecución de integración y uso compartido**. Los entornos de ejecución de integración son uno de los componentes de la infraestructura de la factoría de datos, que experimentan cambios frecuentes y son similares en todas las etapas de CI/CD. Como resultado, Data Factory espera que el usuario tenga el mismo nombre y tipo que los entornos de ejecución de integración en todas las etapas de CI/CD. Si quiere compartir los entornos de ejecución de integración en todas las etapas, por ejemplo, los entornos de ejecución de integración autohospedados, una manera de compartir es hospedando el IR autohospedado en una factoría ternaria, solo para incluir los entornos de ejecución de integración compartidos. Luego, puede usarlos en desarrollo/pruebas/producción como tipo de IR vinculado.
+
+-   **Key Vault**. Cuando usa los servicios vinculados basados en Azure Key Vault recomendados, puede aprovecharlos todavía más si mantiene almacenes de claves independientes para desarrollo/pruebas/producción. También puede configurar niveles de permisos independientes para cada uno de ellos. Es posible que no quiera que los miembros del equipo tengan permisos para ver los secretos del entorno de producción. También se recomienda mantener los mismos nombres de los secretos en todas las etapas. Si conserva los mismos nombres, no es necesario cambiar las plantillas de Resource Manager a través de CI/CD, porque lo único que sí se debe cambiar es el nombre del almacén de claves, que es uno de los parámetros de la plantilla de Resource Manager.
+
+## <a name="unsupported-features"></a>Características no admitidas
+
+-   No puede publicar recursos individuales, porque las entidades de factoría de datos dependen unas de otras. Por ejemplo, los desencadenadores dependen de las canalizaciones, las canalizaciones dependen de los conjuntos de datos y otras canalizaciones, etc. Es difícil hacer un seguimiento de los cambios de las dependencias. Si era posible seleccionar los recursos para publicarlos manualmente, sería posible elegir solo un subconjunto de todo el conjunto de cambios, lo que daría lugar a un comportamiento inesperado después de la publicación.
+
+-   No es posible publicar desde ramas privadas.
+
+-   No es posible hospedar proyectos en Bitbucket.

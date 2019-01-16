@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 676baa6947eaf8b3842b0100657f42a1e6438061
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: e9e00dd9d05ff7339a6b5fd93e86bae61fbbf5ee
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184889"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188441"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Cómo consultar registros de Azure Monitor para VM (versión preliminar)
 Azure Monitor para VM recopila métricas de rendimiento y conexión, datos de inventario de proceso y equipo, e información sobre el estado, y reenvía estos datos al almacén de datos de Log Analytics en Azure Monitor.  Estos datos están disponibles para realizar [búsquedas](../../azure-monitor/log-query/log-query-overview.md) en Log Analytics. Estos datos se pueden aplicar a escenarios que incluyen la planeación de la migración, el análisis de la capacidad, la detección y la solución de problemas de rendimiento a petición.

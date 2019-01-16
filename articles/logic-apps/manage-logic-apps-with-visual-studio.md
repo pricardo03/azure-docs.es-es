@@ -3,20 +3,20 @@ title: 'Administración de aplicaciones lógicas con Visual Studio: Azure Logic 
 description: Administración de aplicaciones lógicas y otros recursos de Azure con Visual Studio Cloud Explorer
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
+ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: d4de75238e48b8eb955095b5a3823f2fed799fae
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: dbb38336f0521f8f8e526ad3f5e13829075e7cca
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445650"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158152"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Administración de aplicaciones lógicas con Visual Studio
 
@@ -172,6 +172,13 @@ Para eliminar la aplicación lógica desde Azure Portal, en Cloud Explorer, abra
 
 > [!NOTE]
 > Cuando se elimina una aplicación lógica, no se crean instancias de nuevas ejecuciones. Todas las ejecuciones nuevas y pendientes se cancelan. Si tiene miles de ejecuciones, la cancelación puede tardar bastante tiempo en completarse. 
+
+## <a name="troubleshooting"></a>solución de problemas
+
+Cuando se abre el proyecto de aplicación lógica en el Diseñador de aplicaciones lógicas, es posible que no tenga la opción de seleccionar la suscripción a Azure. En cambio, la aplicación lógica se abre con una suscripción a Azure que no es la que quiere usar. Este comportamiento ocurre porque después de abrir el archivo .json de una aplicación lógica, Visual Studio almacena en caché la primera suscripción seleccionada para su uso futuro. Para solucionar este problema, pruebe uno de estos pasos:
+
+* Cambie el nombre del archivo .json de la aplicación lógica. La caché de suscripción depende del nombre del archivo. 
+* Para eliminar las suscripciones previamente seleccionadas para *todas* las aplicaciones lógicas de la solución, elimine la carpeta *oculta* .vs en el directorio de la solución. Esta ubicación almacena la información de suscripción. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

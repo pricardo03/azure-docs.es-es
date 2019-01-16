@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 01/03/2019
+ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: a66917f1ab4e554dbb5a8cd1fb9013e111970714
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: b6713eabec62b1658b54dcb29231ddbfb2faceb7
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999822"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107505"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure.
 
@@ -169,7 +169,7 @@ Disco cifrado de invitado/servidor | Sin
 NFS de invitado/servidor | Sin 
 SMB 3.0 de invitado/servidor | Sin 
 RDM de invitado/servidor | SÍ<br/><br/> N/D para servidores físicos
-Disco de invitado/servidor > 1 TB | SÍ<br/><br/>Hasta 4095 GB
+Disco de invitado/servidor > 1 TB | SÍ<br/><br/>Hasta 4095 GB<br/><br/> El disco debe ser de un tamaño superior a 1024 MB.
 Disco de invitado/servidor con tamaño de sector físico de 4K y lógico de 4K | SÍ
 Disco de invitado/servidor con tamaño de sector físico de 512 bytes y lógico de 4K | SÍ
 Volumen de invitado/servidor con disco seccionado > 4 TB <br/><br/>Administración de volúmenes lógicos (LVM)| SÍ

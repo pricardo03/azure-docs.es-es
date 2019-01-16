@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: 24c7ddff1eea16fc2be3f99d04abd90ee0791f4c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f3d171a8f0e353d5860f410a8c32149f8872338
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247303"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189395"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Preguntas más frecuentes sobre itinerancia de datos y configuración
 Este artículo responde a algunas preguntas que los administradores de TI podrían tener sobre la sincronización de datos de aplicación y la configuración.
@@ -31,7 +31,7 @@ Este artículo responde a algunas preguntas que los administradores de TI podrí
 
 * *Tema*, que incluye características como la configuración de tema y la barra de tareas del escritorio.
 * *Configuración de Internet Explorer*, como pestañas abiertas recientemente y favoritos.
-* *Configuración del explorador Edge*, como favoritos y lista de lectura.
+* *Configuración del explorador Microsoft Edge*, como favoritos y lista de lectura.
 * *Contraseñas*, entre las que se incluyen las contraseñas de Internet, perfiles de Wi-Fi, y otras.
 * *Preferencias de idioma*, que incluye la configuración de la distribución del teclado, el idioma del sistema, la fecha y hora, y mucho más.
 * *Características de facilidad de acceso*, como el tema de contraste alto, narrador o lupa

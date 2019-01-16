@@ -1,19 +1,19 @@
 ---
-title: 'Lección 6 del tutorial de Analysis Services Azure: Creación de medidas | Microsoft Docs'
+title: 'Lección 6 del tutorial de Azure Analysis Services: Creación de medidas | Microsoft Docs'
 description: Describe cómo crear medidas en el proyecto del tutorial de Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ce38cac7a0b175004fbb670069ddbeefb53e96e7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0e9f798917b557d99259ece4773cce0853b15237
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428579"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191690"
 ---
 # <a name="create-measures"></a>Crear medidas
 
@@ -28,7 +28,7 @@ En esta lección creará medidas especificando una fórmula DAX en la barra de f
 Tiempo estimado para completar esta lección: **30 minutos**  
   
 ## <a name="prerequisites"></a>Requisitos previos  
-Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Antes de llevar a cabo las tareas de esta lección, debe haber finalizado la lección anterior: [Lección 5: Creación de columnas calculadas](../tutorials/aas-lesson-5-create-calculated-columns.md).  
+Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Para poder realizar las tareas de esta lección, debe haber completado la lección anterior: [Lección 5: Creación de columnas calculadas](../tutorials/aas-lesson-5-create-calculated-columns.md).  
   
 ## <a name="create-measures"></a>Crear medidas  
   
@@ -122,6 +122,6 @@ Este tema forma parte de un tutorial de modelado tabular, que se debe completar 
 Las medidas creadas para la tabla FactInternetSales se pueden usar para analizar datos financieros esenciales, como las ventas, los costos y el margen de beneficio de los elementos definidos por el filtro seleccionado por el usuario.  
   
 ## <a name="whats-next"></a>Pasos siguientes
-[Lección 7: Creación de indicadores clave de rendimiento](../tutorials/aas-lesson-7-create-key-performance-indicators.md)  
+[Lección 7: Creación de indicadores clave de rendimiento](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
 
   

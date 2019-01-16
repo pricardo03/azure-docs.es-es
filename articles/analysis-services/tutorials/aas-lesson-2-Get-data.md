@@ -5,29 +5,29 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b7aaadb6237a3b16d166d3bc931fddc70fb4a792
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6643d0851be1ad9d2827f51af3662a469020654c
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427627"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189327"
 ---
 # <a name="get-data"></a>Obtener los datos
 
 En esta lección, usará Obtención de datos en SSDT para conectarse a la base de datos de ejemplo Adventure Works, seleccionar los datos, obtener una vista previa de los mismos, filtrarlos e importarlos en el área de trabajo del modelo.  
   
-Al usar Obtención de datos, puede importar datos de diversos de orígenes: Azure SQL Database, Oracle, Sybase, fuente OData, Teradata, archivos y mucho más. También puede consultar datos mediante una expresión de fórmula de Power Query M.
+Al usar Get Data, puede importar datos desde una amplia variedad de orígenes: Azure SQL Database, Oracle, Sybase, OData Feed, Teradata, archivos y mucho más. También puede consultar datos mediante una expresión de fórmula de Power Query M.
 
 > [!NOTE]
 > Las tareas y las imágenes en este tutorial muestran cómo establecer una conexión a una base de datos de AdventureWorksDW2014 en un servidor local. En algunos casos, una base de datos de Adventure Works en Azure puede ser diferente.
   
-Tiempo estimado para completar esta lección: **10 minutos**  
+Tiempo estimado para completar esta lección: **10 minutos**  
   
 ## <a name="prerequisites"></a>Requisitos previos  
-Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Antes de realizar las tareas de esta lección, debe haber completado la lección anterior: [Lección 1: Creación de un proyecto de modelo tabular](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
+Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Para poder realizar las tareas de esta lección, debe haber completado la lección anterior: [Lección 1: Creación de un nuevo proyecto de modelo tabular](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
 ## <a name="create-a-connection"></a>Crear una conexión  
   
@@ -52,7 +52,7 @@ Este tema forma parte de un tutorial de modelado tabular, que se debe completar 
   
 5.  En el navegador, seleccione la base de datos **AdventureWorksDW2014** y haga clic en **Aceptar**. De este modo, se crea la conexión con la base de datos. 
   
-6.  En el navegador, active la casilla de las siguientes tablas: **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**, **DimProductSubcategory** y **FactInternetSales**, y haga clic en **Editar**.
+6.  En el navegador, active la casilla de verificación de las siguientes tablas: **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**, **DimProductSubcategory** y **FactInternetSales** y haga clic en **Editar**.
 
     ![aas-lesson2-select-tables](../tutorials/media/aas-lesson2-select-tables.png)
   
@@ -151,7 +151,7 @@ Es importante que guarde con frecuencia el proyecto de modelo.
 -   Haga clic en **Archivo** > **Guardar todo**.  
   
 ## <a name="whats-next"></a>Pasos siguientes
-[Lección 3: Marcado como tabla de fechas](../tutorials/aas-lesson-3-mark-as-date-table.md)
+[Lección 3: Marcar como tabla de fechas](../tutorials/aas-lesson-3-mark-as-date-table.md).
 
   
   

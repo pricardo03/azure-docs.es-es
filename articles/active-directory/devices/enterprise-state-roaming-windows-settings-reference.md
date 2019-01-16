@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: c225761f18a89539ea4966fab620104a25d1270e
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 45bf554e457e48704684fe8ac3b32c29f3f646b2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50129240"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189291"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referencia de la configuración de movilidad de Windows 10
 Lo siguiente es una lista completa de todas las opciones que se movilizan o de las que se realiza una copia de seguridad en Windows 10. 
@@ -48,7 +48,7 @@ Los grupos de configuración siguientes están disponibles para que los usuarios
 * Preferencias de idioma: diccionario de ortografía, configuración de idioma del sistema 
 * Facilidad de acceso: narrador, teclado en pantalla, lupa 
 * Otras configuraciones de Windows: consultar Detalles de configuración de Windows
-* Configuración del explorador de Edge: favoritos de Microsoft Edge, lista de lectura y otras opciones
+* Configuración del explorador Microsoft Edge: favoritos de Microsoft Edge, lista de lectura y otras opciones
 
 ![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
@@ -74,7 +74,7 @@ Las configuraciones que no se movilizan o sincronizan no pertenecerán a ningún
 | **Datos de la aplicación**: las aplicaciones individuales pueden sincronizar datos |sincronización copia de seguridad |sincronización copia de seguridad |interno |
 | **Lista de aplicaciones**: lista de aplicaciones instaladas |X |backup |Otros |
 | **Bluetooth**: toda la configuración de Bluetooth |X |X | |
-| **Símbolo del sistema**: configuración predeterminada del símbolo del sistema. |sync |X |interno |
+| **Símbolo del sistema**: configuración de los "valores predeterminados" del símbolo del sistema |sync |X |interno |
 | **Credenciales**: Caja de seguridad de credenciales |sync |sync |contraseña |
 | **Fecha, hora y región**: hora automática (sincronización de hora de Internet) |sync |sync |language |
 | **Fecha, hora y región**: formato de 24 horas |sync |X |language |
@@ -93,23 +93,23 @@ Las configuraciones que no se movilizan o sincronizan no pertenecerán a ningún
 | **Personalización del escritorio**: configuración de la barra de tareas (posición, ocultar automáticamente, etc.) |sync |X |Tema |
 | **Personalización del escritorio**: diseño de pantalla de inicio |X |backup | |
 | **Dispositivos**: impresoras compartidas a las que se conecta |X |X |Otros |
-| **Explorador de Edge**: lista de lectura |sync |sync |interno |
-| **Explorador Edge**: favoritos |sync |sync |interno |
-| **Explorador Edge**: sitios principales <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Explorador Edge**: direcciones URL escritas <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Explorador Edge**: configuración de la barra de favoritos <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Explorador Edge**: mostrar el botón inicio <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Explorador Edge**: bloquear elementos emergentes <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Explorador Edge**: preguntarme qué hacer en cada descarga <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Explorador Edge**: ofrecer guardar contraseñas <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Explorador Edge**: enviar solicitudes de no seguimiento <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Explorador Edge**: guardar entradas de formularios <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Explorador Edge**: mostrar sugerencias de búsqueda y de sitios web al escribir <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Explorador Edge**: preferencias de cookies <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Explorador Edge**: permitir que los sitios guarden licencias multimedia protegidas en mi dispositivo <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Explorador Edge**: configuración del lector de pantalla <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
-| **Contraste alto**: activar o desactivar |sync |X |Facilidad de acceso |
-| **Contraste alto**: configuración de temas |sync |X |Facilidad de acceso |
+| **Explorador Microsoft Edge**: lista de lectura |sync |sync |interno |
+| **Explorador Microsoft Edge**: favoritos |sync |sync |interno |
+| **Explorador Microsoft Edge**: sitios principales <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Explorador Microsoft Edge**: direcciones URL escritas <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Explorador Microsoft Edge**: configuración de la barra de favoritos <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Explorador Microsoft Edge**: mostrar el botón inicio <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Explorador Microsoft Edge**: bloquear elementos emergentes <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Explorador Microsoft Edge**: preguntarme qué hacer en cada descarga <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Explorador Microsoft Edge**: ofrecer guardar contraseñas <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Explorador Microsoft Edge**: enviar solicitudes de no seguimiento <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Explorador Microsoft Edge**: guardar entradas de formularios <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Explorador Microsoft Edge**: mostrar sugerencias de búsqueda y de sitios web al escribir <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Explorador Microsoft Edge**: preferencias de cookies <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Explorador Microsoft Edge**: permitir que los sitios guarden licencias multimedia protegidas en mi dispositivo <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Explorador Microsoft Edge**: configuración del lector de pantalla <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
+| **Contraste alto**: On (Activado) u Off (Desactivado) |sync |X |Facilidad de acceso |
+| **Contraste alto**: Configuración de tema |sync |X |Facilidad de acceso |
 | **Internet Explorer**: abrir pestañas (dirección URL y título) |sync |sync |Internet Explorer |
 | **Internet Explorer**: lista de lectura |sync |sync |Internet Explorer |
 | **Internet Explorer**: direcciones URL escritas |sync |sync |Internet Explorer |
@@ -133,12 +133,12 @@ Las configuraciones que no se movilizan o sincronizan no pertenecerán a ningún
 | **Idioma**: QWERTY chino simplificado - corrección automática de lectura |sync |X |Idioma |
 | **Idioma**: QWERTY chino simplificado - tecla de modificador C/E, MAYÚS |sync |X |Idioma |
 | **Idioma**: QWERTY chino simplificado - tecla de modificador C/E, Ctrl |sync |X |Idioma |
-| **Idioma**: chino simplificado WUBI - modo de entrada de carácter único |sync |X |Idioma |
-| **Idioma**: WUBI chino simplificado - mostrar la codificación restante del candidato |sync |X |language |
+| **Idioma**: WUBI chino simplificado - modo de entrada de carácter único |sync |X |Idioma |
+| **Idioma**: WUBI chino simplificado - mostrar la codificación restante del candidato |sync |X |Idioma |
 | **Idioma**: WUBI chino simplificado - pitido cuando la codificación 4 no sea válida |sync |X |Idioma |
 | **Idioma**: Bopomofo chino simplificado, incluir CJK Ext-A |sync |X |Idioma |
 | **Idioma**: IME japonés - escritura predictiva y palabras personalizadas |sync |sync |Idioma |
-| **Idioma**: IME coreano (KOR) |X |X |Idioma |
+| **Idioma**: IME coreano |X |X |Idioma |
 | **Idioma**: reconocimiento de escritura a mano |X |X |Idioma |
 | **Idioma**: perfil de lenguaje |sync |backup |Idioma |
 | **Idioma**: corrector ortográfico - autocorrección y resaltar errores ortográficos |sync |backup |Idioma |

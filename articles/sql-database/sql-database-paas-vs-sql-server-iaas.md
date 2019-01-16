@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/02/2019
-ms.openlocfilehash: e9f322198cf94232dd2d87aa1f27dbbd6a282b72
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 01/03/2019
+ms.openlocfilehash: c1ef32256569d1718f6848a968585216f43f333a
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995004"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033458"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure---paas-or-iaas"></a>Selección de la opción de SQL Server correcta en Azure: PaaS o IaaS
 
@@ -87,10 +87,11 @@ En la siguiente tabla se resumen las principales características de SQL Databas
 ## <a name="business-motivations-for-choosing-azure-sql-database-or-sql-server-on-azure-vms"></a>Motivaciones empresariales al elegir Azure SQL Database o SQL Server en Azure Virtual Machines
 
 Hay varios factores que pueden influir a la hora de elegir PaaS o IaaS para hospedar las bases de datos SQL:
+
 - [Costo](#cost): ambas opciones, PaaS e IaaS, incluyen un precio base que cubre la infraestructura subyacente y la concesión de licencias. Sin embargo, con la opción IaaS deberá invertir más tiempo y recursos para administrar la base de datos, mientras que con PaaS podrá disfrutar de estas características de administración por el mismo precio. La opción IaaS permite cerrar los recursos cuando no los esté usando para reducir el costo, mientras que la versión de PaaS se ejecutará siempre, a menos que quite los recursos y vuelva a crearlos según sea necesario.
 - [Administración](#administration): las opciones PaaS reducen la cantidad de tiempo que necesita invertir para administrar la base de datos. Sin embargo, también impiden realizar algunas tareas de administración personalizadas que podrían mejorar el rendimiento de su carga de trabajo.
 - [Acuerdo de nivel de servicio](#service-level-agreement-sla): tanto IaaS como PaaS proporcionan SLA altos y estándar en el sector. La opción PaaS garantiza un SLA del 99,99 %, mientras que IaaS garantiza un SLA del 99,95 % para la infraestructura, lo que significa que deberá implementar mecanismos adicionales para garantizar la disponibilidad de las bases de datos. En el caso extremo, si quiere implementar una solución de alta disponibilidad que coincida con PaaS, deberá crear una instancia adicional de SQL Server en la máquina virtual y configurar grupos de disponibilidad AlwaysOn, que podrían duplicar el costo de la base de datos.
-- [Hora de pasar a la nube](#time-to-move-to-cloud): SQL Server en la máquina virtual de Azure es la coincidencia exacta del entorno, por lo que la migración desde una instancia local a la máquina virtual de SQL Azure no difiere de mover las bases de datos de un servidor local a otro. Instancia administrada también permite una migración muy sencilla. Sin embargo, puede que sea necesario aplicar algunos cambios antes de migrar a Instancia administrada.
+- [Hora de pasar a Azure](#market): SQL Server en la máquina virtual de Azure es la coincidencia exacta del entorno, por lo que la migración desde una instancia local a la máquina virtual de SQL Azure no difiere de mover las bases de datos de un servidor local a otro. Instancia administrada también permite una migración muy sencilla. Sin embargo, puede que sea necesario aplicar algunos cambios antes de migrar a Instancia administrada.
 
 Estos factores se tratarán con más detalle en las secciones siguientes.
 
@@ -102,10 +103,8 @@ Si se encuentra en una startup con falta de medios o en un equipo de una compañ
 
 Actualmente, **SQL Database** se vende como un servicio y está disponible con varios niveles de servicio y distintos precios para los recursos, que se facturan por hora a una tarifa fija en función del nivel de servicio y el tamaño de proceso que se elija.
 Con una Base de datos única de SQL, puede elegir un nivel de servicio que se adapte a sus necesidades de entre una amplia gama de precios a partir de 5 USD/mes para el nivel básico.
-Con Instancia administrada de Azure SQL Database, puede usar su propia licencia. Para obtener más información sobre la incorporación de licencias propias, consulte [Movilidad de licencias a través de Software Assurance en Azure](https://azure.microsoft.com/pricing/license-mobility/) o use la [calculadora de Ventaja híbrida de Azure ](https://azure.microsoft.com/en-us/pricing/hybrid-benefit/#sql-database) para saber cómo **ahorrar hasta un 40 %**.
+Con Instancia administrada de Azure SQL Database, puede usar su propia licencia. Para obtener más información sobre la incorporación de licencias propias, consulte [Movilidad de licencias a través de Software Assurance en Azure](https://azure.microsoft.com/pricing/license-mobility/) o use la [calculadora de Ventaja híbrida de Azure ](https://azure.microsoft.com/pricing/hybrid-benefit/#sql-database) para saber cómo **ahorrar hasta un 40 %**.
 Además, se le facturará el tráfico saliente de Internet en las [tasas de transferencia de datos](https://azure.microsoft.com/pricing/details/data-transfers/)habituales. Los niveles de servicio y los tamaños de proceso se pueden ajustar de forma dinámica para satisfacer las necesidades variables de rendimiento de la aplicación. Para acceder a la información más reciente sobre los niveles de servicio admitidos actualmente, consulte los artículos sobre el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md). También puede crear [grupos elásticos](sql-database-elastic-pool.md) para compartir recursos entre las instancias de la base de datos con la finalidad de reducir costos y admitir picos de uso.
-
-
 
 Con **SQL Database**, Microsoft configura, revisa y actualiza automáticamente el software de base de datos, lo que reduce los costos de administración. Además, sus capacidades de [copia de seguridad integrada](sql-database-automated-backups.md) ayudan a obtener un ahorro significativo, sobre todo, cuando se tiene gran cantidad de base de datos.
 

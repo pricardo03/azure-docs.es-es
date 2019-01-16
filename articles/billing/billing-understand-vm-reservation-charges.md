@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: cwatson
-ms.openlocfilehash: 096cf8e7a03f00cd5854ac4ce9569b14fe4b761b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: cdcb4e06afab2cccff7baa92989ccf904f42cf88
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581483"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118020"
 ---
 # <a name="understand-how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Aprenda cómo se aplica un descuento en la reserva de Azure a las máquinas virtuales
 
@@ -52,6 +52,10 @@ Para comprender y ver la aplicación de Azure Reservations en los informes de us
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Aplicación del descuento de reserva a máquinas virtuales con Windows
 
 Cuando ejecuta instancias de máquina virtual Windows, la reserva se aplica para cubrir los costos de infraestructuras. La aplicación de la reserva a los costos de infraestructuras de máquinas virtuales con Windows es la misma que para las máquinas virtuales que no ejecutan Windows. Se le cobra por separado por el software de Windows según el número de vCPU. Consulte los [costos de software de Windows con Reservations](https://go.microsoft.com/fwlink/?linkid=862756). Puede cubrir los costos de licencia de Windows con la [Ventaja híbrida de Azure para Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
+
+## <a name="discount-applies-to-different-sizes-with-instance-size-flexibility"></a>El descuento se aplica a diferentes tamaños con flexibilidad de tamaño de instancia
+
+Al comprar una instancia reservada de máquina virtual, si selecciona **Optimizado para**: **flexibilidad de tamaño de instancia**, la cobertura de descuento dependerá del tamaño de máquina virtual que elija. La reserva se puede aplicar a los tamaños de máquinas virtuales (VM) en el mismo grupo de series de tamaño. Si quiere saber más, vea [Flexibilidad en el tamaño de las máquinas virtuales con Azure Reserved VM Instances](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

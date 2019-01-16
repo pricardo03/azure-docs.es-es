@@ -15,12 +15,12 @@ ms.workload8: na
 ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 458b615ea872b62a412a71cbbb0b3827ccb4d9b8
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: eb81e5202b5705c59bae8e07cbf2ade43b03f075
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580933"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064481"
 ---
 # <a name="azure-log-integration-faq"></a>Preguntas más frecuentes sobre Azure Log Integration
 

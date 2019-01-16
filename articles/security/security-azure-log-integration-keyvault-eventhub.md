@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/07/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 4653803623ed0c847fa63663204b5842f7a03d08
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 8b03c3627d476ec83fda402545c7a7d73346385f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584214"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063920"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Tutorial de Azure Log Integration: Procesamiento de eventos de Azure Key Vault mediante Event Hubs
 
@@ -25,7 +25,7 @@ ms.locfileid: "53584214"
 
 Puede usar Azure Log Integration para recuperar los eventos registrados y hacer que estén disponibles en su sistema de información de seguridad y administración de eventos (SIEM). En este tutorial se muestra un ejemplo de cómo se puede usar Azure Log Integration para procesar registros adquiridos a través de Azure Event Hubs.
 
-El método preferido para la integración de registros de Azure es mediante el conector de Azure Monitor del proveedor SIEM y siguiendo estas [instrucciones](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). De todas formas, si su proveedor SIEM no proporciona ningún conector a Azure Monitor, es posible que pueda usar Azure Log Integration como solución temporal (si el SIEM es compatible con Azure Log Integration) hasta que esté disponible un conector de este tipo.
+El método preferido para la integración de registros de Azure es mediante el conector de Azure Monitor del proveedor SIEM y siguiendo estas [instrucciones](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). De todas formas, si su proveedor SIEM no proporciona un conector a Azure Monitor, es posible que pueda usar Azure Log Integration como solución temporal (si el SIEM es compatible con Azure Log Integration) hasta que esté disponible un conector de este tipo.
 
  
 Utilícelo para familiarizarse con el modo en que Azure Log Integration y Event Hubs funcionan conjuntamente siguiendo los pasos del ejemplo y entendiendo cómo cada paso se encamina hacia la solución. A continuación, puede aprovechar lo que ha aprendido aquí para crear sus propios pasos según los requisitos únicos de su empresa.
@@ -80,7 +80,7 @@ Necesita lo siguiente para completar los pasos de este artículo:
 ## <a name="create-supporting-infrastructure-elements"></a>Crear los elementos de la infraestructura de soporte
 
 1. Abra una ventana de PowerShell con privilegios elevados y vaya a **C:\Archivos de programa\Microsoft Azure Log Integration**.
-1. Importe los cmdlets de AzLog mediante la ejecución del script LoadAzLogModule.ps1. Escriba el comando `.\LoadAzLogModule.ps1`. (Observe la parte ".\" en el comando). Puede ver algo así:</br>
+1. Importe los cmdlets de AzLog mediante la ejecución del script LoadAzLogModule.ps1. Escriba el comando `.\LoadAzLogModule.ps1`. Observe la parte ".\"" en el comando. Puede ver algo así:</br>
 
    ![Lista de módulos cargados](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
 
@@ -93,7 +93,7 @@ Necesita lo siguiente para completar los pasos de este artículo:
 
    ![Ventana de PowerShell](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
 1. Cree variables para almacenar valores que se usarán más adelante. Escriba cada una de las siguientes líneas de PowerShell. Es posible que necesite ajustar los valores para que se adapten a su entorno.
-    - ```$subscriptionName = �Visual Studio Ultimate with MSDN�``` (El nombre de la suscripción puede ser diferente. Puede verlo como parte de la salida del comando anterior).
+    - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` (El nombre de la suscripción puede ser diferente. Puede verlo como parte de la salida del comando anterior).
     - ```$location = 'West US'``` (Se utilizará esta variable para pasar la ubicación donde se deben crear los recursos. Puede cambiar esta variable para que sea cualquier otra ubicación que elija).
     - ```$random = Get-Random```
     - ``` $name = 'azlogtest' + $random``` (El nombre puede ser de cualquier tipo, pero solo debe incluir números y letras en minúsculas).

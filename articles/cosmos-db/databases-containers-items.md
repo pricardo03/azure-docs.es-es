@@ -1,18 +1,18 @@
 ---
 title: Trabajar con bases de datos, contenedores y elementos de Azure Cosmos DB
 description: En este artículo se describe la forma de crear y usar bases de datos, contenedores y elementos de Azure Cosmos DB.
-author: dharmas
+author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 6757f887376e1b399d6af18f114e203991c16a67
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: d5714e43c9ba58cdec33ca5fd1eae31eb6a88f51
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807693"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107742"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Trabajar con bases de datos, contenedores y artículos de Azure Cosmos.
 
@@ -77,10 +77,10 @@ Un contenedor de Azure Cosmos tiene un conjunto de propiedades que define el sis
 
 | **Propiedad que define el sistema** | **Configurable por el usuario o generado por el sistema** | **Propósito** | **SQL API** | **Cassandra API** | **API de Azure Cosmos DB para MongoDB** | **Gremlin API** | **Table API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|__rid | Generado por el sistema | Identificador único del contenedor | SÍ | No | No | No | Sin  |
-|__etag | Generado por el sistema | Etiqueta de entidad que se usa para el control de simultaneidad optimista | SÍ | No | No | No | Sin  |
-|__ts | Generado por el sistema | Última actualización de la marca de tiempo del contenedor | SÍ | No | No | No | Sin  |
-|__self | Generado por el sistema | URI direccionable del contenedor | SÍ | No | No | No | Sin  |
+|_rid | Generado por el sistema | Identificador único del contenedor | SÍ | No | No | No | Sin  |
+|_etag | Generado por el sistema | Etiqueta de entidad que se usa para el control de simultaneidad optimista | SÍ | No | No | No | Sin  |
+|_ts | Generado por el sistema | Última actualización de la marca de tiempo del contenedor | SÍ | No | No | No | Sin  |
+|_self | Generado por el sistema | URI direccionable del contenedor | SÍ | No | No | No | Sin  |
 |id | Configurable por el usuario | Nombre único que ha definido el usuario del contenedor | SÍ | Sí | Sí | Sí | SÍ |
 |indexingPolicy | Configurable por el usuario | Proporciona la capacidad para cambiar la ruta de acceso del índice, su precisión y el modelo de coherencia. | SÍ | No | No | No | SÍ |
 |TimeToLive | Configurable por el usuario | Proporciona la capacidad de eliminar automáticamente elementos de un contenedor después de un determinado período de tiempo. Para obtener más información, lea el artículo sobre el [período de vida](time-to-live.md). | SÍ | No | No | No | SÍ |
@@ -113,10 +113,10 @@ Cada elemento de Azure Cosmos tiene las siguientes propiedades que define el sis
 
 |**Propiedad que define el sistema** | **Configurable por el usuario o generado por el sistema**| **Propósito** | **SQL API** | **Cassandra API** | **API de Azure Cosmos DB para MongoDB** | **Gremlin API** | **Table API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|__id | Generado por el sistema | Identificador único del elemento | SÍ | No | No | No | Sin  |
-|__etag | Generado por el sistema | Etiqueta de entidad que se usa para el control de simultaneidad optimista | SÍ | No | No | No | Sin  |
-|__ts | Generado por el sistema | Última actualización de la marca de tiempo del elemento | SÍ | No | No | No | Sin  |
-|__self | Generado por el sistema | URI direccionable del elemento | SÍ | No | No | No | Sin  |
+|_id | Generado por el sistema | Identificador único del elemento | SÍ | No | No | No | Sin  |
+|_etag | Generado por el sistema | Etiqueta de entidad que se usa para el control de simultaneidad optimista | SÍ | No | No | No | Sin  |
+|_ts | Generado por el sistema | Última actualización de la marca de tiempo del elemento | SÍ | No | No | No | Sin  |
+|_self | Generado por el sistema | URI direccionable del elemento | SÍ | No | No | No | Sin  |
 |id | Es posible usar el | Nombre único que define el usuario en una partición lógica. Si el usuario no especifica el id., el sistema generará automáticamente uno. | SÍ | Sí | Sí | Sí | SÍ |
 |Propiedades arbitrarias que define el usuario | Definidas por el usuario | Las propiedades que define el usuario se presentan en la representación de la API nativa (JSON, BSON, CQL, etc.). | SÍ | Sí | Sí | Sí | SÍ |
 

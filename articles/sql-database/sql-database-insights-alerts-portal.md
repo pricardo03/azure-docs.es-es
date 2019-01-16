@@ -1,28 +1,31 @@
 ---
-title: Uso de Azure Portal para crear alertas de SQL Database | Microsoft Docs
+title: Configuración de alertas y notificaciones mediante Azure Portal | Microsoft Docs
 description: Use Azure Portal para crear alertas de SQL Database, que pueden desencadenar notificaciones o automatización cuando se cumplen las condiciones que ha especificado.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: howto
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: ddd704b41e6d1463bc635f13135cc9a388e677fe
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 64e743010b3ae615817639d9b2531b2f99979498
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634616"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156909"
 ---
-# <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Usar Azure Portal para crear alertas de Azure SQL Database y Data Warehouse
+# <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Creación de alertas para Azure SQL Database y Data Warehouse con Azure Portal
 
 ## <a name="overview"></a>Información general
-En este artículo se muestra cómo configurar alertas de Azure SQL Database y Data Warehouse con Azure Portal. En este artículo también se indican procedimientos recomendados para establecer periodos de alerta.    
+En este artículo se muestra cómo configurar alertas de Azure SQL Database y Data Warehouse con Azure Portal. Las alertas pueden enviarle un correo electrónico o llamar a un webhook cuando alguna métrica (por ejemplo, el tamaño de la base de datos o el uso de la CPU) alcanza el umbral. En este artículo también se indican procedimientos recomendados para establecer periodos de alerta.    
+
+> [!IMPORTANT]
+> Esta característica todavía no está disponible en la Instancia administrada. Como alternativa, puede utilizar el agente de SQL para enviar alertas por correo electrónico para algunas métricas basadas en [vistas de administración dinámica](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
 Puede recibir una alerta basada en las métricas de supervisión para los servicios de Azure o los eventos sobre ellos.
 

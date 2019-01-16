@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: ellacroi
-ms.openlocfilehash: f39392518f89ac51afd9a18fe59bcef46840478d
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 2a4343b036716e6c49f7a05a8a480c6e74463760
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054184"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078004"
 ---
 # <a name="grow-your-business-with-appsource"></a>Haga crecer su negocio con AppSource  
 Use AppSource al interactuar con clientes empresariales para que busquen, prueben y obtengan servicios de implementación y aplicaciones de software como servicio (SaaS) de línea de negocio que les ayuden a impulsar los resultados empresariales y acelerar la rentabilidad.  
@@ -67,7 +67,7 @@ La calidad de la publicación de las aplicaciones y el compromiso a la generaci�
 La siguiente lista de comprobación proporciona recomendaciones de marketing y recursos que debe tener en cuenta al crear ofertas para publicarlas en AppSource:  
 *   **Tenga en cuenta las directrices de marca y marca comercial de Microsoft.**  
     Cuando asigne un nombre a su aplicación y haga referencia a marcas comerciales de Microsoft y a nombres de software, productos y servicios de Microsoft, siga las directrices de marca y marca comercial de Microsoft, así como las directrices específicas de cada producto.  
-    *   Para más información sobre la personalización de marca y las marcas comerciales de Microsoft, visite la página de directrices sobre marcas y marcas comerciales de Microsoft en [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx).  
+    *   Para más información sobre la personalización de marca y las marcas comerciales de Microsoft, visite la página de directrices sobre marcas y marcas comerciales de Microsoft en [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx).  
 *   **Cree una experiencia inmediata, una oferta de evaluación gratuita o una experiencia de versión de prueba de la aplicación.**  
     Los usuarios empresariales desean probar la aplicación directamente.  
 *   **Cree una propuesta de valor sólida.**  
@@ -104,7 +104,7 @@ Las siguientes tablas detallan cada paso del proceso de creación de la publicac
 
 | Configuración de la oferta | Procedimientos recomendados | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **Name** | **Asignación de un nombre a la oferta**<br />Elegir un nombre para la aplicación es una decisión clave. Los nombres basados en las ventajas son más eficaces que los descriptivos. El nombre de la aplicación debe comunicar el principal valor que obtendrán los clientes. Incluir palabras clave de búsqueda en el título de la aplicación también puede ayudar a que la aplicación se clasifique en resultados superiores de los motores de búsqueda. Siga las directrices de marca y marca comercial de Microsoft, así como las directrices específicas de cada producto cuando haga referencia a marcas comerciales de Microsoft y a nombres de software, productos y servicios de Microsoft.<ul> <li>Para más información sobre la personalización de marca y las marcas comerciales de Microsoft, visite la página de directrices sobre marcas y marcas comerciales de Microsoft en [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx).</li> </ul> |
+| **Nombre** | **Asignación de un nombre a la oferta**<br />Elegir un nombre para la aplicación es una decisión clave. Los nombres basados en las ventajas son más eficaces que los descriptivos. El nombre de la aplicación debe comunicar el principal valor que obtendrán los clientes. Incluir palabras clave de búsqueda en el título de la aplicación también puede ayudar a que la aplicación se clasifique en resultados superiores de los motores de búsqueda. Siga las directrices de marca y marca comercial de Microsoft, así como las directrices específicas de cada producto cuando haga referencia a marcas comerciales de Microsoft y a nombres de software, productos y servicios de Microsoft.<ul> <li>Para más información sobre la personalización de marca y las marcas comerciales de Microsoft, visite la página de directrices sobre marcas y marcas comerciales de Microsoft en [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx).</li> </ul> |
 
 **Detalles del escaparate: información de la oferta**  
 
@@ -153,7 +153,7 @@ https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-87
 ```  
 
 >[!Important]  
->Al preparar la dirección URL, no incluya el código de idioma, por ejemplo, `/en-us/`.  
+>Al preparar la dirección URL, no incluya el código de idioma, por ejemplo, ``.  
 
 
 #### <a name="link-to-gtm-benefits"></a>Vínculo a las ventajas de GTM

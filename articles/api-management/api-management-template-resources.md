@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 790d05201550461b095cfefd32f0330f37697e0b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 4a7e3e9ff414c8f7ba1c49924f1d8659d72ae3e2
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970338"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158217"
 ---
 # <a name="azure-api-management-template-resources"></a>Recursos de plantilla de Azure API Management
 Azure API Management proporciona los siguientes tipos de recursos para su uso en las plantillas del portal para desarrolladores.  
@@ -108,7 +108,7 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|¿Está seguro de que desea quitar la aplicación?|  
 |WebDevelopersAppNotPublished|No publicado|  
-|WebDevelopersAppNotSubminted|No enviado|  
+|WebDevelopersAppNotSubmitted|No enviado|  
 |WebDevelopersAppTableCategoryHeader|Categoría|  
 |WebDevelopersAppTableNameHeader|NOMBRE|  
 |WebDevelopersAppTableStateHeader|Estado|  
@@ -361,7 +361,7 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |WebProductsUsageLimitsHeader|Límites de uso|  
 |WebProductsYouAreNotSubscribed|Está suscrito a este producto.|  
 |WebProductsYouRequestedSubscription|Ha solicitado una suscripción a este producto.|  
-|ErrorYouNeedtoAgreeWithLegalTerms|Debe aceptar los términos de uso antes de continuar.|  
+|ErrorYouNeedToAgreeWithLegalTerms|Debe aceptar los términos de uso antes de continuar.|  
 |ButtonLabelAddSubscription|Agregar suscripción|  
 |LinkLabelChangeSubscriptionName|cambiar|  
 |ButtonLabelConfirm|Confirm|  
@@ -517,7 +517,7 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
 |WebDevelopersSecondaryKey|Clave secundaria|  
 |ButtonLabelShowKey|Presentación|  
 |ButtonLabelRenewSubscription|Renovación|  
-|WebDevelopersSubscriptionReqested|Solicitud realizada el {0}|  
+|WebDevelopersSubscriptionRequested|Solicitud realizada el {0}|  
 |WebDevelopersSubscriptionRequestedState|Solicitada|  
 |WebDevelopersSubscriptionTableNameHeader|NOMBRE|  
 |WebDevelopersSubscriptionTableStateHeader|Estado|  

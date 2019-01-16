@@ -3,28 +3,28 @@ title: Agregar bucles que repiten acciones o matrices de procesos - Azure Logic 
 description: Cómo crear bucles que repiten las acciones del flujo de trabajo o procesan matrices en Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.date: 03/05/2018
-ms.topic: article
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 5ba5e5abef4ebdc58c44cbe7f5ba584efe8abfc7
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+manager: jeconnoc
+ms.date: 01/05/2019
+ms.topic: article
+ms.openlocfilehash: 7237a9a6a99b57401af40512a6d2e21a3fe49e53
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233113"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159492"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Crear bucles que repiten las acciones del flujo de trabajo o procesan matrices en Azure Logic Apps
 
-Para iterar las matrices de la aplicación lógica, puede usar un [bucle "Foreach"](#foreach-loop) o un [bucle secuencial "Foreach"](#sequential-foreach-loop). Las iteraciones de un bucle "Foreach" estándar se ejecutan en paralelo, mientras que las iteraciones de un bucle "Foreach" secuencial se ejecutan de una en una. Para conocer el número máximo de elementos de matriz que los bucles "Foreach" pueden procesar en una única ejecución de aplicación lógica, consulte [Límites y configuración](../logic-apps/logic-apps-limits-and-config.md). 
+Para procesar una matriz en la aplicación lógica, puede crear un [bucle "Foreach"](#foreach-loop). Este bucle repite una o varias acciones en cada elemento de la matriz. Para conocer los límites del número de elementos de matriz que los bucles "Foreach" pueden procesar, consulte [Límites y configuración](../logic-apps/logic-apps-limits-and-config.md). 
 
-> [!TIP] 
+Para repetir las acciones hasta que se cumpla una condición o cambie un estado, puede crear un [bucle "Until"](#until-loop). La aplicación lógica ejecuta todas las acciones dentro del bucle y luego comprueba la condición o el estado. Si se cumple la condición, se detiene el bucle. En caso contrario, se repite el bucle. Para conocer el número de bucles "Until" en una ejecución de aplicación lógica, consulte [Límites y configuración](../logic-apps/logic-apps-limits-and-config.md). 
+
+> [!TIP]
 > Si tiene un desencadenador que recibe una matriz y desea ejecutar un flujo de trabajo para cada elemento de matriz, puede *desagrupar* esa matriz con la propiedad de desencadenador [**SplitOn**](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
-  
-Para repetir acciones hasta que se cumpla una condición o cambie algún estado, use un [bucle "Until"](#until-loop). La aplicación lógica realiza primero todas las acciones dentro del bucle y, después, comprueba la condición como último paso. Si se cumple la condición, se detiene el bucle. En caso contrario, se repite el bucle. Para conocer el número máximo de bucles "Until" en una única ejecución de aplicación lógica, consulte [Límites y configuración](../logic-apps/logic-apps-limits-and-config.md). 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -36,21 +36,31 @@ Para repetir acciones hasta que se cumpla una condición o cambie algún estado,
 
 ## <a name="foreach-loop"></a>Bucle "Foreach"
 
-Para repetir acciones para cada elemento de una matriz, use un bucle "Foreach" en el flujo de trabajo de la aplicación lógica. Puede incluir varias acciones en un bucle "Foreach" y se pueden anidar bucles "Foreach" dentro de otros. De forma predeterminada, los ciclos de un bucle "Foreach" estándar se ejecutan en paralelo. Para ver el número máximo de ciclos paralelos que los bucles "Foreach" pueden ejecutar, consulte [Límites y configuración](../logic-apps/logic-apps-limits-and-config.md).
+Un bucle "Foreach" repite una o varias acciones en cada elemento de la matriz y solo funciona en matrices. Las iteraciones de un bucle "Foreach" se ejecutan en paralelo. Aunque puede ejecutar las iteraciones una por una configurando un [bucle "Foreach" secuencial](#sequential-foreach-loop). 
 
-> [!NOTE] 
-> Un bucle "Foreach" solo funciona con una matriz y las acciones del bucle emplean la referencia `@item()` para procesar cada elemento de la matriz. Si especifica datos que no están en una matriz, se producirá un error en el flujo de trabajo de la aplicación lógica. 
+Estas son algunas consideraciones que debe tener en cuenta al usar bucles "Foreach":
 
-Por ejemplo, esta aplicación lógica le envía un resumen diario de la fuente RSS de un sitio web. La aplicación utiliza un bucle "Foreach" que envía un correo electrónico para cada nuevo elemento encontrado.
+* En los bucles anidados, las iteraciones siempre se ejecutan secuencialmente, no en paralelo. Para ejecutar operaciones en paralelo en elementos de un bucle anidado, cree y [llame a una aplicación lógica secundaria](../logic-apps/logic-apps-http-endpoint.md).
+
+* Para obtener resultados predecibles de operaciones en variables durante cada iteración del bucle, ejecute esos bucles secuencialmente. Por ejemplo, cuando un bucle de ejecución simultánea finaliza, el incremento, el decremento y la anexión a las operaciones con variables devuelven resultados predecibles. Pero, durante cada iteración del bucle de ejecución simultánea, es posible que estas operaciones devuelvan resultados imprevisibles. 
+
+* Las acciones incluidas en un bucle "Foreach" utilizan la expresión [`@item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) 
+para hacer referencia a cada elemento de la matriz y procesarlo. Si especifica datos que no están en una matriz, se producirá un error en el flujo de trabajo de la aplicación lógica. 
+
+Esta aplicación lógica de ejemplo envía un resumen diario de una fuente RSS de sitio web. La aplicación utiliza un bucle "Foreach" que envía un correo electrónico por cada nuevo elemento.
 
 1. [Cree una aplicación lógica de ejemplo](../logic-apps/quickstart-create-first-logic-app-workflow.md) con una cuenta de Outlook.com o de Office 365 Outlook.
 
 2. Entre el desencadenador RSS y la acción para enviar un correo electrónico, agregue un bucle "Foreach". 
 
-   Para agregar un bucle entre pasos, mueva el puntero sobre la flecha en la que desee agregar el bucle. 
-   Haga clic en el **signo más** (**+**) que aparece y seleccione **Add a for each** (Agregar un bucle "Foreach").
+   1. Para agregar un bucle entre un paso y otro, mueva el puntero sobre la flecha entre ellos. 
+   Elija el **signo más** (**+**) que aparece y seleccione **Agregar una acción**.
 
-   ![Agregar un bucle "Foreach" entre pasos](media/logic-apps-control-flow-loops/add-for-each-loop.png)
+      ![Seleccione "Add an action" (Agregar una acción).](media/logic-apps-control-flow-loops/add-for-each-loop.png)
+
+   1. En el cuadro de búsqueda, elija **Todas**. En el cuadro de búsqueda, escriba "para cada uno" como filtro. En la lista de acciones, seleccione esta acción: **Para cada uno: control**
+
+      ![Incorporación de un bucle "para cada uno"](media/logic-apps-control-flow-loops/select-for-each.png)
 
 3. Ahora, compile el bucle. En **Select an output from previous steps** (Seleccionar una salida de los pasos anteriores) después de que aparezca la lista **Agregar contenido dinámico**, seleccione la matriz **Vínculos de fuente**, que es la salida del desencadenador RSS. 
 
@@ -63,7 +73,7 @@ Por ejemplo, esta aplicación lógica le envía un resumen diario de la fuente R
 
    ![Seleccionar matriz](media/logic-apps-control-flow-loops/for-each-loop-select-array.png)
 
-4. Para realizar una acción en cada elemento de matriz, arrastre la acción **Enviar un correo electrónico** al bucle **Foreach**. 
+4. Para ejecutar una acción en cada elemento de matriz, arrastre la acción **Enviar un correo electrónico** al bucle. 
 
    La aplicación lógica podría ser similar a la de este ejemplo:
 
@@ -79,86 +89,90 @@ Si está trabajando en la vista de código de la aplicación lógica, puede defi
 
 ``` json
 "actions": {
-    "myForEachLoopName": {
-        "type": "Foreach",
-        "actions": {
-            "Send_an_email": {
-                "type": "ApiConnection",
-                "inputs": {
-                    "body": {
-                        "Body": "@{item()}",
-                        "Subject": "New CNN post @{triggerBody()?['publishDate']}",
-                        "To": "me@contoso.com"
-                    },
-                    "host": {
-                        "api": {
-                            "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/office365"
-                        },
-                        "connection": {
-                            "name": "@parameters('$connections')['office365']['connectionId']"
-                        }
-                    },
-                    "method": "post",
-                    "path": "/Mail"
-                },
-                "runAfter": {}
-            }
-        },
-        "foreach": "@triggerBody()?['links']",
-        "runAfter": {},
-    }
-},
+   "myForEachLoopName": {
+      "type": "Foreach",
+      "actions": {
+         "Send_an_email": {
+            "type": "ApiConnection",
+            "inputs": {
+               "body": {
+                  "Body": "@{item()}",
+                  "Subject": "New CNN post @{triggerBody()?['publishDate']}",
+                  "To": "me@contoso.com"
+               },
+               "host": {
+                  "api": {
+                     "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/office365"
+                  },
+                  "connection": {
+                     "name": "@parameters('$connections')['office365']['connectionId']"
+                  }
+               },
+               "method": "post",
+               "path": "/Mail"
+            },
+            "runAfter": {}
+         }
+      },
+      "foreach": "@triggerBody()?['links']",
+      "runAfter": {}
+   }
+}
 ```
 
 <a name="sequential-foreach-loop"></a>
 
 ## <a name="foreach-loop-sequential"></a>Bucle "Foreach": secuencial
 
-De forma predeterminada, cada ciclo de un bucle "Foreach" se ejecuta en paralelo para cada elemento de la matriz. Para ejecutar cada ciclo de forma secuencial, establezca la opción **Secuencial** en el bucle "Foreach".
+De forma predeterminada, los ciclos de un bucle "Foreach" se ejecutan en paralelo. Para ejecutar cada ciclo secuencialmente, establezca la opción **Secuencial** del bucle. Los bucles "Foreach" deben ejecutarse secuencialmente cuando se han anidado bucles o variables dentro de bucles en los que se esperan resultados predecibles. 
 
 1. En la esquina superior derecha del bucle, elija **puntos suspensivos** (**...**) > **Configuración**.
 
    ![En bucle "Foreach", elija "..." > "Configuración"](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
-2. Active la opción **Secuencial** y, a continuación, elija **Listo**.
+1. En **Control de simultaneidad**, establezca la opción **Control de simultaneidad** en **Activar**. Arrastre el control deslizante **Grado de paralelismo** a **1** y elija **Listo**.
 
-   ![Activar opción Secuencial del bucle "Foreach"](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
+   ![Activación del control de simultaneidad](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
 
-También puede establecer el parámetro **operationOptions** en `Sequential` en la definición JSON de la aplicación lógica. Por ejemplo: 
+Si está trabajando con la definición de JSON de la aplicación lógica, puede usar la opción `Sequential` agregando el parámetro `operationOptions`, por ejemplo:
 
 ``` json
 "actions": {
-    "myForEachLoopName": {
-        "type": "Foreach",
-        "actions": {
-            "Send_an_email": {               
-            }
-        },
-        "foreach": "@triggerBody()?['links']",
-        "runAfter": {},
-        "operationOptions": "Sequential"
-    }
-},
+   "myForEachLoopName": {
+      "type": "Foreach",
+      "actions": {
+         "Send_an_email": { }
+      },
+      "foreach": "@triggerBody()?['links']",
+      "runAfter": {},
+      "operationOptions": "Sequential"
+   }
+}
 ```
 
 <a name="until-loop"></a>
 
 ## <a name="until-loop"></a>Bucle "Until"
   
-Para repetir acciones hasta que se cumpla una condición o cambie algún estado, use un bucle "Until" en el flujo de trabajo de la aplicación lógica. Estos son algunos casos de uso habituales en los que puede utilizar un bucle "Until":
+Para repetir las acciones hasta que se cumpla una condición o cambie un estado, coloque esas acciones en un bucle "Until". Estos son algunos escenarios comunes en los que puede utilizar un bucle "Until":
 
-* Llamada a un punto de conexión hasta que obtiene la respuesta que desea.
-* Creación de un registro en una base de datos y espera hasta que se aprueba un campo específico de ese recurso y continúa el procesamiento. 
+* Llamada a un punto de conexión hasta obtener la respuesta que quiere.
 
-Por ejemplo, a las 8:00 a. m. cada día, esta aplicación lógica incrementa una variable hasta que el valor de la misma es igual a 10. Después, la aplicación lógica envía un correo electrónico que confirma el valor actual. Aunque en este ejemplo se usa Office 365 Outlook, puede usar cualquier proveedor de correo electrónico compatible con Logic Apps ([revise la lista de conectores aquí](https://docs.microsoft.com/connectors/)). Si usa otra cuenta de correo electrónico, los pasos generales serán los mismos, pero su interfaz de usuario puede ser ligeramente distinta. 
+* Creación de un registro en una base de datos. Espere hasta que un campo específico de ese registro sea aprobado. Continúe el procesamiento. 
 
-1. Crear una aplicación lógica en blanco. En el Diseñador de aplicación lógica, busque "periodicidad" y seleccione este desencadenador: **Programación: Periodicidad** 
+A partir de las 8:00 a. m. cada día, esta aplicación lógica de ejemplo incrementa una variable hasta que su valor sea igual a 10. La aplicación lógica envía después un correo electrónico que confirma el valor actual. 
 
-   ![Agregar desencadenador "Programación: Periodicidad"](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
+> [!NOTE]
+> En estos pasos se usa Office 365 Outlook, pero puede usarse cualquier proveedor de correo electrónico que Logic Apps admita. 
+> [Compruebe aquí la lista de conectores](https://docs.microsoft.com/connectors/). Si utiliza otra cuenta de correo electrónico, los pasos generales siguen siendo los mismos pero la interfaz de usuario podría ser ligeramente distinta. 
 
-2. Especifique cuando se debe activar el desencadenador estableciendo el intervalo, la frecuencia y la hora del día. Para establecer la hora, seleccione **Mostrar opciones avanzadas**.
+1. Crear una aplicación lógica en blanco. En el cuadro de búsqueda del Diseñador de aplicación lógica, elija **Todas**. Busque "periodicidad". En la lista de desencadenadores, seleccione este desencadenador: **Programación: Periodicidad**
 
-   ![Agregar desencadenador "Programación: Periodicidad"](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
+   ![Incorporación del desencadenador "Periodicidad: Programación"](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
+
+1. Especifique cuando se debe activar el desencadenador estableciendo el intervalo, la frecuencia y la hora del día. Para establecer la hora, seleccione **Mostrar opciones avanzadas**.
+
+   ![Configuración de la programación de periodicidad](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
 
    | Propiedad | Valor |
    | -------- | ----- |
@@ -167,11 +181,11 @@ Por ejemplo, a las 8:00 a. m. cada día, esta aplicación lógica incrementa una
    | **A estas horas** | 8 |
    ||| 
 
-3. En el desencadenador, elija **Nuevo paso** > **Agregar una acción**. Busque "variables" y seleccione esta acción: **Variables: Inicializar variable**.
+1. En el desencadenador, elija **New step** (Nuevo paso). Busque "variables" y seleccione esta acción: **Inicializar variable: variables**
 
-   ![Agregar la acción "Variables: Inicializar variable"](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
+   ![Incorporación de la acción "Inicializar variable: variables"](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
 
-4. Configure la variable con estos valores:
+1. Configure la variable con estos valores:
 
    ![Establecer propiedades de las variables](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
@@ -182,27 +196,35 @@ Por ejemplo, a las 8:00 a. m. cada día, esta aplicación lógica incrementa una
    | **Valor** | 0 | El valor de inicio de la variable | 
    |||| 
 
-5. En la acción **Inicializar variable**, elija **Nuevo paso** > **Más**. Seleccione este bucle: **Add a do until** (Agregar un bucle "do until")
+1. En la acción **Inicializar variable**, elija **Nuevo paso**. 
 
-   ![Agregar un bucle "do until"](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
+1. En el cuadro de búsqueda, elija **Todas**. Busque "hasta" y seleccione esta acción: **Hasta: control**
 
-6. Cree la condición de salida del bucle seleccionando la variable **Limit** y el operador **is equal** (es igual a). Escriba **10** como valor de comparación.
+   ![Incorporación del bucle "Until"](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
+
+1. Cree la condición de salida del bucle seleccionando la variable **Limit** y el operador **is equal** (es igual a). Escriba **10** como valor de comparación.
 
    ![Crear condición de salida para detener el bucle](./media/logic-apps-control-flow-loops/do-until-loop-settings.png)
 
-7. Dentro del bucle, elija **Agregar una acción**. Busque "variables" y agregue esta acción: **Variables: Incrementar variable**.
+1. Dentro del bucle, elija **Agregar una acción**. 
+
+1. En el cuadro de búsqueda, elija **Todas**. Busque "variables" y seleccione esta acción: **Incrementar variable: variables**
 
    ![Agregar acción para incrementar la variable](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable.png)
 
-8. En **Nombre**, seleccione la variable **Limit**. En **Valor**, escriba "1". 
+1. En **Nombre**, seleccione la variable **Limit**. En **Valor**, escriba "1". 
 
    ![Aumentar "Límite" en 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
-9. Debajo del bucle, pero fuera de este, agregue una acción que envíe un correo electrónico. Si se le pide, inicie sesión en la cuenta de correo electrónico.
+1. Fuera, en el bucle, elija **Nuevo paso**. 
+
+1. En el cuadro de búsqueda, elija **Todas**. Incorporación de una acción que envía notificaciones por correo electrónico, por ejemplo: 
 
    ![Agregar una acción que envía correo electrónico](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
 
-10. Establezca las propiedades del correo electrónico. Agregue la variable **Limit** al asunto. De este modo, se puede confirmar que el valor actual de la variable cumple la condición especificada, por ejemplo:
+1. Si se le pide, inicie sesión en la cuenta de correo electrónico.
+
+1. Establezca las propiedades de la acción de correo electrónico. Agregue la variable **Limit** al asunto. De este modo, se puede confirmar que el valor actual de la variable cumple la condición especificada, por ejemplo:
 
     ![Configurar las propiedades del correo electrónico](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
@@ -213,7 +235,7 @@ Por ejemplo, a las 8:00 a. m. cada día, esta aplicación lógica incrementa una
     | **Cuerpo** | <*email-content*> | Especifique el contenido del mensaje de correo electrónico que desea enviar. En este ejemplo, escriba cualquier texto que desee. | 
     |||| 
 
-11. Guarde la aplicación lógica. Para probar manualmente la aplicación lógica, en la barra de herramientas del diseñador, elija **Ejecutar**.
+1. Guarde la aplicación lógica. Para probar manualmente la aplicación lógica, en la barra de herramientas del diseñador, elija **Ejecutar**.
 
     Después de que la lógica empiece a ejecutarse, recibirá un correo electrónico con el contenido que haya especificado:
 
@@ -225,8 +247,8 @@ Un bucle "Until" tiene límites predeterminados que detienen la ejecución si se
 
 | Propiedad | Valor predeterminado | DESCRIPCIÓN | 
 | -------- | ------------- | ----------- | 
-| **Recuento** | 60 | El número máximo de bucles que se ejecutan antes de salir del bucle. El valor predeterminado es de 60 ciclos. | 
-| **Tiempo de espera** | PT1H | La cantidad máxima de tiempo para ejecutar un bucle antes de salir de este. El valor predeterminado es una hora y se especifica en formato ISO 8601. <p>El valor de tiempo de espera se evalúa para cada ciclo del bucle. Si una acción del bucle tarda más que el límite de tiempo de espera, el ciclo actual no se detiene, pero no se iniciará el siguiente ciclo porque no se cumple la condición del límite. | 
+| **Recuento** | 60 | Número máximo de bucles que se ejecutan antes de salir del bucle. El valor predeterminado es de 60 ciclos. | 
+| **Tiempo de espera** | PT1H | Cantidad máxima de tiempo que se ejecuta un bucle antes de salir del bucle. El valor predeterminado es una hora y se especifica en formato ISO 8601. <p>El valor de tiempo de espera se evalúa para cada ciclo del bucle. Si cualquier acción en el bucle tarda más que el límite de tiempo de expiración, el ciclo actual no se detiene. Pero el siguiente ciclo no se inicia porque no se cumple la condición del límite. | 
 |||| 
 
 Para cambiar estos límites predeterminados, elija **Mostrar opciones avanzadas** en la forma de acción del bucle.
@@ -239,73 +261,74 @@ Si está trabajando en la vista de código de la aplicación lógica, puede defi
 
 ``` json
 "actions": {
-    "Initialize_variable": {
-        // Definition for initialize variable action
-    },
-    "Send_an_email": {
-        // Definition for send email action
-    },
-    "Until": {
-        "type": "Until",
-        "actions": {
-            "Increment_variable": {
-                "type": "IncrementVariable",
-                "inputs": {
-                    "name": "Limit",
-                    "value": 1
-                },
-                "runAfter": {}
-            }
-        },
-        "expression": "@equals(variables('Limit'), 10)",
-        // To prevent endless loops, an "Until" loop 
-        // includes these default limits that stop the loop. 
-        "limit": { 
-            "count": 60,
-            "timeout": "PT1H"
-        },
-        "runAfter": {
-            "Initialize_variable": [
-                "Succeeded"
-            ]
-        },
-    }
-},
+   "Initialize_variable": {
+      // Definition for initialize variable action
+   },
+   "Send_an_email": {
+      // Definition for send email action
+   },
+   "Until": {
+      "type": "Until",
+      "actions": {
+         "Increment_variable": {
+            "type": "IncrementVariable",
+            "inputs": {
+               "name": "Limit",
+               "value": 1
+            },
+            "runAfter": {}
+         }
+      },
+      "expression": "@equals(variables('Limit'), 10)",
+      // To prevent endless loops, an "Until" loop 
+      // includes these default limits that stop the loop. 
+      "limit": { 
+         "count": 60,
+         "timeout": "PT1H"
+      },
+      "runAfter": {
+         "Initialize_variable": [
+            "Succeeded"
+         ]
+      }
+   }
+}
 ```
 
-En otro ejemplo, este bucle "Until" llama a un punto de conexión HTTP que crea un recurso y se detiene cuando el cuerpo de respuesta HTTP devuelve un estado "Completado". Para impedir bucles sin fin, el bucle también se detendrá si se produce alguna de estas condiciones:
+El bucle "Until" de este ejemplo llama a un punto de conexión HTTP, que crea un recurso. El bucle se detiene cuando se devuelve el cuerpo de la respuesta HTTP con el estado `Completed`. Para impedir bucles sin fin, el bucle también se detendrá si se produce alguna de estas condiciones:
 
 * El bucle se ha ejecutado 10 veces según lo especificado por el atributo `count`. El valor predeterminado es 60 veces. 
-* El bucle ha intentado ejecutarse durante dos horas según lo especificado por el atributo `timeout` en formato ISO 8601. El valor predeterminado es de una hora.
+
+* El bucle se ejecutó durante dos horas según lo especificado por el atributo `timeout` en formato ISO 8601. El valor predeterminado es de una hora.
   
 ``` json
 "actions": {
-    "myUntilLoopName": {
-        "type": "Until",
-        "actions": {
-            "Create_new_resource": {
-                "type": "Http",
-                "inputs": {
-                    "body": {
-                        "resourceId": "@triggerBody()"
-                    },
-                    "url": "https://domain.com/provisionResource/create-resource",
-                    "body": {
-                        "resourceId": "@triggerBody()"
-                    }
-                },
-                "runAfter": {},
-                "type": "ApiConnection"
-            }
-        },
-        "expression": "@equals(triggerBody(), 'Completed')",
-        "limit": {
-            "count": 10,
-            "timeout": "PT2H"
-        },
-        "runAfter": {}
-    }
-},
+   "myUntilLoopName": {
+      "type": "Until",
+      "actions": {
+         "Create_new_resource": {
+            "type": "Http",
+            "inputs": {
+               "body": {
+                  "resourceId": "@triggerBody()"
+               },
+               "url": "https://domain.com/provisionResource/create-resource",
+               "body": {
+                  "resourceId": "@triggerBody()"
+               }
+            },
+            "runAfter": {},
+            "type": "ApiConnection"
+         }
+      },
+      "expression": "@equals(triggerBody(), 'Completed')",
+      "limit": {
+         "count": 10,
+         "timeout": "PT2H"
+      },
+      "runAfter": {}
+   }
+}
 ```
 
 ## <a name="get-support"></a>Obtención de soporte técnico

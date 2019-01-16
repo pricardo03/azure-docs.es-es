@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/27/2018
+ms.date: 1/7/2019
 ms.author: borisb
-ms.openlocfilehash: 0755d472ef6b2566d7faa51019da7d49266fa199
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 1a1038bec66cd90e2cd0cbc8b125857403317d89
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993219"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078259"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update Infrastructure para máquinas virtuales Red Hat Enterprise Linux a petición en Azure
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permite que los proveedores de nube, como Azure, reflejen el contenido del repositorio hospedado en Red Hat, creen repositorios personalizados con contenido específico de Azure y lo pongan a disposición de las máquinas virtuales del usuario final.
@@ -41,29 +41,30 @@ Hay disponible información adicional sobre las imágenes de RHEL de Azure, incl
 
 * El acceso a la RHUI hospedada en Azure se limita a las máquinas virtuales dentro de los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653). Si remite todo el tráfico de máquina virtual a través de un proxy mediante la infraestructura de red local, es posible que tenga que configurar rutas definidas por el usuario para que las máquinas virtuales de PAYG de RHEL accedan a RHUI de Azure.
 
-### <a name="rhel-eus-and-version-locking-rhel-vms"></a>Bloqueo de versiones en máquinas virtuales de RHEL y RHEl EUS
+### <a name="rhel-eus-and-version-locking-rhel-vms"></a>Bloqueo de versiones en máquinas virtuales de RHEL y RHEL EUS
 Es posible que algunos clientes quieran bloquear sus máquinas virtuales de RHEL a una versión secundaria de determinadas RHEL. Puede bloquear la versión de una máquina virtual de RHEL a una determinada versión secundaria mediante la actualización de los repositorios para que apunten a los repositorios de Extended Update Support. Use las instrucciones siguientes para bloquear una VM de RHEL a una determinada versión secundaria:
 
 >[!NOTE]
-> Esto solo se aplica a RHEL 7.2-7.5
+> Esto solo se aplica para las versiones de RHEL en que EUS está disponible. En el momento de redactar este artículo, esto incluye RHEL 7.2-7.6. Encontrará más detalles en la página [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) (Ciclo de vida de Red Hat Enterprise Linux).
 
 1. Deshabilitar los repositorios que no sean EUS:
-    ```
+    ```bash
     sudo yum --disablerepo=* remove rhui-azure-rhel7
     ```
 
 1. Agregar repositorios EUS:
-    ```
+    ```bash
     yum --config=https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config install rhui-azure-rhel7-eus
     ```
 
 1. Bloquear la variable releasever:
-    ```
+    ```bash
     echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
     ```
 
     >[!NOTE]
     > La instrucción anterior bloqueará la versión secundaria de RHEL a la versión secundaria actual. Especifique una determinada versión secundaria si quiere actualizar y bloquee en una versión secundaria posterior que no sea la más reciente. Por ejemplo, `echo 7.5 > /etc/yum/vars/releasever` bloqueará la versión de RHEL en RHEL 7.5
+
 1. Actualización de la máquina virtual de RHEL
     ```bash
     sudo yum update

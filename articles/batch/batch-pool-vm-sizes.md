@@ -12,15 +12,15 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2018
+ms.date: 01/07/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: a1d733e918d4b53ea9dd220f5e379e0c8133c03a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 787c10ab75a3534a73e04f1bd60462ea02fcf42a
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540663"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191724"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Selección de un tamaño de máquina virtual para nodos de proceso en un grupo de Azure Batch
 
@@ -42,6 +42,16 @@ Los grupos de Batch en la configuración de máquina virtual son compatibles con
 | Serie A básica | Basic_A0 (A0) |
 | Serie A | Standard_A0 |
 | Serie B | Todo |
+| Serie DC | Todo | 
+| Optimizadas para memoria extrema | Todo |
+| Serie Hb<sup>1</sup> | Todo | 
+| Serie Hc<sup>1</sup> | Todo |
+| Serie Lsv2 | Todo |
+| Serie NDv2<sup>1</sup> | Todo |
+| Serie NDv2<sup>1</sup> | Todo |
+| SAP HANA | Todo |
+
+<sup>1</sup> No es compatible actualmente, pero se admitirá en el futuro.
 
 Los siguientes tamaños de VM solo se admiten para nodos de prioridad baja:
 

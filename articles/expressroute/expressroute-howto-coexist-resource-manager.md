@@ -5,15 +5,15 @@ services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 01/07/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 1aeb5ca447a3058962483b640f742e4a7ec4a414
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a35bde6e89290fd2282ba6ec829f46cb4c6fc225
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104040"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103322"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configuración de conexiones ExpressRoute y de sitio a sitio coexistentes con PowerShell
 > [!div class="op_single_selector"]
@@ -43,6 +43,7 @@ En este artículo, se explican los pasos para configurar ambos escenarios. Este 
 * **No se admite la puerta de enlace de la SKU de nivel Básico.** Debe utilizar una puerta de enlace de la SKU que no sea de nivel Básico tanto para la [puerta de enlace de ExpressRoute](expressroute-about-virtual-network-gateways.md) como para la [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * **Solo se admite la VPN Gateway basada en rutas.** Debe usar una [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) basada en rutas.
 * **Se debe configurar una ruta estática para VPN Gateway.** Si la red local está conectada tanto a ExpressRoute como a una VPN de sitio a sitio, debe tener configurada una ruta estática en la red local para enrutar la conexión VPN de sitio a sitio a la red pública de Internet.
+* **VPN Gateway se configura de manera predeterminada en ASN 65515 si no se especifica.** Azure VPN Gateway admite el protocolo de enrutamiento de BGP. Para especificar el ASN (número AS) de la red virtual, agregue el modificador - Asn. Si no se especifica este parámetro, el número AS predeterminado es 65515. Puede usar cualquier ASN para la configuración, pero si selecciona un valor distinto de 65515, debe restablecer la puerta de enlace para que la configuración surta efecto.
 
 ## <a name="configuration-designs"></a>Diseños de configuración
 ### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Configuración de una VPN de sitio a sitio como una ruta de acceso de conmutación por error para ExpressRoute

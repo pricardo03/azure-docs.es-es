@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
-ms.openlocfilehash: 29c0a1a15db7670d83ff384a1ba0f37499389ef7
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: a476af9ceb1b664a458f7f07a5a7b3945b1ad881
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741894"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036569"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Más información sobre las plantillas de conjuntos de escalado de máquinas virtuales
 Las [plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) constituyen una excelente manera de implementar grupos de recursos relacionados. En esta serie de tutoriales se explica cómo crear una plantilla de conjunto de escalado de viabilidad mínimo y cómo modificarla para adaptarla a distintos escenarios. Todos los ejemplos proceden de este [repositorio de GitHub](https://github.com/gatneil/mvss). 
@@ -70,7 +70,7 @@ A continuación está la sección de recursos de la plantilla. Aquí puede defin
    "resources": [
 ```
 
-Todos los recursos requieren las propiedades `type`, `name`, `apiVersion` y `location`. El primer recurso de este ejemplo tiene el tipo `Microsft.Network/virtualNetwork`, el nombre `myVnet` y el valor de apiVersion `2016-03-30`. (Para encontrar la versión más reciente de la API para un tipo de recurso, consulte la [documentación de la API de REST de Azure](https://docs.microsoft.com/rest/api/)).
+Todos los recursos requieren las propiedades `type`, `name`, `apiVersion` y `location`. El primer recurso de este ejemplo tiene el tipo [Microsft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks), el nombre `myVnet` y la apiVersion `2016-03-30`. (Para encontrar la versión más reciente de la API para un tipo de recurso, consulte la [referencia de la plantilla de Azure Resource Manager](/azure/templates/)).
 
 ```json
      {
@@ -124,7 +124,7 @@ En este caso, solo hay un elemento en la lista: la máquina virtual del ejemplo 
        ],
 ```
 ## <a name="specify-scale-set-properties"></a>Especificación de propiedades de conjunto de escalado
-Los conjuntos de escalado tienen muchas propiedades para personalizar las máquinas virtuales en el conjunto de escalado. Para una lista completa de estas propiedades, consulte la [documentación de API de REST del conjunto de escalado](https://docs.microsoft.com/rest/api/virtualmachinescalesets/create-or-update-a-set). En ese tutorial solo se establecen algunas propiedades de uso frecuente.
+Los conjuntos de escalado tienen muchas propiedades para personalizar las máquinas virtuales en el conjunto de escalado. Para una lista completa de estas propiedades, vea la [referencia de la plantilla](/azure/templates/microsoft.compute/virtualmachinescalesets). En ese tutorial solo se establecen algunas propiedades de uso frecuente.
 ### <a name="supply-vm-size-and-capacity"></a>Suministro de capacidad y tamaño de máquina virtual
 El conjunto de escalado necesita saber qué tamaño de máquina virtual debe crear ("nombre de SKU") y cuántas crear ("capacidad de SKU"). Para ver qué tamaños de máquinas virtuales están disponibles, consulte la [documentación de tamaños de máquina virtual](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes).
 

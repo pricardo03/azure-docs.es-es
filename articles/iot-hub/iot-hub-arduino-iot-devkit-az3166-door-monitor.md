@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 501dc942fc41a4e06aa13fba2eb670f8bc0f8a21
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 293c2325f57f04c3a77b0b2b8ec2ef30e8c912b8
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597827"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54156245"
 ---
 # <a name="door-monitor"></a>Supervisión de puertas          
 
@@ -108,11 +108,11 @@ Rellene los campos en el formulario de registro.
 
    * **Grupo de recursos**: cree un grupo de recursos para hospedar el servicio SendGrid o utilice uno existente. Consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-portal.md).
 
-   * **Iot Hub Name** (Nombre del IoT Hub): nombre del centro de IoT. Elija un nombre único que sea diferente al de otros servicios que pudiera tener.
+   * **Nombre de la instancia de IoT Hub**: el nombre de su centro de IoT. Elija un nombre único que sea diferente al de otros servicios que pudiera tener.
 
    * **Iot Hub Sku** (SKU de IoT Hub): el nivel F1 es gratis (solo se admite uno por suscripción). Puede encontrar más información sobre los precios en la [página de precios](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-   * **From Email** (Correo electrónico de origen): debería tratarse de la misma dirección de correo electrónico que utilizó al configurar el servicio SendGrid.
+   * **Correo electrónico del remitente**: debería tratarse de la misma dirección de correo electrónico que utilizó al configurar el servicio SendGrid.
 
 Active la opción **Anclar al panel** para que resulte más fácil encontrar esta aplicación en el futuro y, después, haga clic en **Comprar** cuando esté listo para continuar con el siguiente paso.
  
@@ -135,7 +135,7 @@ Expanda la sección de la izquierda **ARDUINO EXAMPLES** (EJEMPLOS DE ARDUINO), 
 
 ![mini-solution-examples](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/vscode-examples.png)
 
-También puede abrir la aplicación de ejemplo desde la paleta de comandos. Utilice `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) para abrir la paleta de comandos, escriba **Arduino** y, a continuación, busque y seleccione **Arduino: ejemplos** .
+También puede abrir la aplicación de ejemplo desde la paleta de comandos. Utilice `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) para abrir la paleta de comandos, escriba **Arduino** y, a continuación, busque y seleccione **Arduino: Ejemplos**.
 
 ### <a name="provision-azure-services"></a>Aprovisionamiento de los servicios de Azure
 
@@ -154,7 +154,7 @@ En el terminal de VS Code, una línea de comandos interactiva le guiará durante
 
 A continuación, cargue el código para el dispositivo.
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a> Windows
 
 1. Use `Ctrl+P` para ejecutar `task device-upload`.
 
@@ -162,7 +162,7 @@ A continuación, cargue el código para el dispositivo.
 
 #### <a name="macos"></a>macOS
 
-1. Ponga el DevKit en modo de configuración: mantenga presionado el botón A y presione y suelte el botón de restablecimiento. La pantalla muestra "Configuration" (Configuración).
+1. Ponga el DevKit en modo de configuración: Mantenga presionado el botón A, y presione y suelte el botón de restablecimiento. La pantalla muestra "Configuration" (Configuración).
 
 2. Hacer clic en `Cmd+P` para ejecutar `task device-upload`.
 
@@ -177,7 +177,7 @@ A continuación, VS Code comenzará a verificar y a cargar el boceto de Arduino 
 El DevKit se reinicia y comienza a ejecutar el código.
 
 > [!NOTE]
-> En ocasiones, puede aparecer un mensaje de error similar al siguiente "Error: AZ3166: paquete desconocido". Este error se produce cuando el índice del paquete de la placa no se actualiza correctamente. Para resolver este error, consulte la [sección de desarrollo de las preguntas frecuentes del DevKit de IoT](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
+> En ocasiones, puede recibir un mensaje de error "Error: AZ3166: paquete desconocido". Este error se produce cuando el índice del paquete de la placa no se actualiza correctamente. Para resolver este error, consulte la [sección de desarrollo de las preguntas frecuentes de IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
 ## <a name="test-the-project"></a>Prueba del proyecto
 
@@ -185,16 +185,16 @@ El programa se inicializa por primera vez cuando DevKit está en presencia de un
 
 Una vez que se ha inicializado, aparece `Door closed` en la pantalla. Cuando se produce un cambio en el campo magnético, el estado pasa a `Door opened`. Cada vez que la puerta cambie de estado, recibirá una notificación por correo electrónico (puede tardar hasta cinco minutos en llegar).
 
-![El imán está cerca del sensor: puerta cerrada](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-closed.jpg "El imán está cerca del sensor: puerta cerrada")
+![Imanes cerca del sensor: Puerta cerrada](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-closed.jpg "Magnets close to the sensor: Door Closed")
 
-![El imán se separa del sensor: puerta abierta](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-opened.jpg "El imán se separa del sensor: puerta abierta")
+![Imán alejado del sensor: Puerta abierta](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-opened.jpg "Magnet moved away from the sensor: Door Opened")
 
 ## <a name="problems-and-feedback"></a>Problemas y comentarios
 
 Si tiene algún problema, consulte las [preguntas más frecuentes de DevKit de IoT](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) o póngase en contacto con nosotros mediante los siguientes canales:
 
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

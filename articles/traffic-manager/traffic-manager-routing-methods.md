@@ -1,8 +1,7 @@
 ---
-title: 'Azure Traffic Manager: métodos de enrutamiento del tráfico | Microsoft Docs'
+title: Métodos de enrutamiento del tráfico de Azure Traffic Manager
 description: Este artículo le ayudará a entender los distintos métodos de enrutamiento de tráfico usados por Traffic Manager
 services: traffic-manager
-documentationcenter: ''
 author: KumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: 57ae9f3a747ef3fde1a21de8a56ec4059becf392
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 3cabfeda458011c5d3006642085f78dc74f3451e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139351"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054731"
 ---
 # <a name="traffic-manager-routing-methods"></a>Métodos de enrutamiento del Administrador de tráfico
 
@@ -24,12 +23,12 @@ Azure Traffic Manager admite seis métodos de enrutamiento de tráfico para dete
 
 En Traffic Manager, los métodos de enrutamiento de tráfico disponibles son los siguientes:
 
-* **[Prioridad](#priority):** Seleccione **Prioridad** cuando quiera usar un punto de conexión de servicio primario para todo el tráfico y proporcionar reservas en caso de que los puntos de conexión principal o de reserva no estén disponibles.
-* **[Ponderado](#weighted):** Seleccione **Ponderado** cuando quiera distribuir el tráfico entre un conjunto de puntos de conexión, bien de manera uniforme o en función a pesos definidos.
-* **[Rendimiento](#performance):** Seleccione **Rendimiento** cuanto tenga puntos de conexión en ubicaciones geográficas diferentes y quiera que los usuarios finales utilicen el punto de conexión "más cercano" según la latencia de red más baja.
-* **[Geográfico](#geographic):** Seleccione **Geográfico** para dirigir a los usuarios a puntos de conexión concretos (Azure, Externo o Anidado) en función de la ubicación geográfica de la que parta su consulta de DNS. Esto permite a los clientes de Traffic Manager habilitar escenarios en los que es importante conocer la región geográfica de un usuario y enrutarlo en función de dicha región. Algunos ejemplos incluyen cumplir los mandatos de soberanía de datos, la localización del contenido y de la experiencia del usuario, y la medición del tráfico de otras regiones.
+* **[Prioridad](#priority):** seleccione **Prioridad** cuando quiera usar un punto de conexión de servicio primario para todo el tráfico y proporcione reservas en caso de que los puntos de conexión primarios o de reserva no se encuentren disponibles.
+* **[Ponderado](#weighted):** seleccione **Ponderado** cuando quiera distribuir el tráfico entre un conjunto de puntos de conexión, o bien de manera uniforme o según los pesos definidos.
+* **[Rendimiento](#performance):** seleccione **Rendimiento** cuando tenga puntos de conexión en diferentes ubicaciones geográficas y quiera que los usuarios finales utilicen el punto de conexión "más cercano" según la latencia de red más baja.
+* **[Geográfico](#geographic):** seleccione **Geográfico** para dirigir a los usuarios a puntos de conexión concretos (Azure, Externo o Anidado) en función de la ubicación geográfica de la que parta su consulta de DNS. Esto permite a los clientes de Traffic Manager habilitar escenarios en los que es importante conocer la región geográfica de un usuario y enrutarlo en función de dicha región. Algunos ejemplos incluyen cumplir los mandatos de soberanía de datos, la localización del contenido y de la experiencia del usuario, y la medición del tráfico de otras regiones.
 * **[Multivalor](#multivalue):** seleccione **Multivalor** para los perfiles de Traffic Manager que solo pueden tener direcciones IPv4/IPv6 como puntos de conexión. Cuando se recibe una consulta para este perfil, se devuelven todos los puntos de conexión correctos.
-* **[Subred](#subnet):** seleccione el método de enrutamiento de tráfico se **subred** para asignar conjuntos de rangos de direcciones IP de usuario final a un punto de conexión específico dentro de un perfil de Traffic Manager. Al recibirse una solicitud, se devuelve el punto de conexión asignado a esa dirección IP de origen de la solicitud. 
+* **[Subred](#subnet):** seleccione el método de enrutamiento de tráfico **Subred** para asignar conjuntos de rangos de direcciones IP de usuario final a un punto de conexión específico dentro de un perfil de Traffic Manager. Al recibirse una solicitud, se devuelve el punto de conexión asignado a esa dirección IP de origen de la solicitud. 
 
 
 Todos los perfiles de Traffic Manager incluyen supervisión del estado y conmutación por error automática del punto de conexión. Para más información, consulte [Acerca de la supervisión de Traffic Manager](traffic-manager-monitoring.md). Con un único perfil de Administrador de tráfico solo se puede usar un método de enrutamiento de tráfico. El método de enrutamiento de tráfico para el perfil se puede cambiar en cualquier momento. Los cambios se aplican en un minuto, sin tiempo de inactividad. Los métodos de enrutamiento de tráfico se pueden combinar mediante perfiles anidados del Administrador de tráfico. La anidación hace posible la creación de configuraciones de enrutamiento de tráfico sofisticadas y flexibles que satisfacen las necesidades de aplicaciones más grandes y complejas. Para más información, consulte [Nested Traffic Manager profiles](traffic-manager-nested-profiles.md)(Perfiles anidados de Administrador de tráfico).
@@ -57,9 +56,9 @@ Para cada consulta de DNS recibida, Traffic Manager elegirá aleatoriamente un p
 
 El método ponderado permite algunos escenarios útiles:
 
-* Actualización gradual de aplicaciones: asigne un porcentaje de tráfico para redirigirlo a un nuevo extremo y aumentar gradualmente el tráfico hasta el 100 %.
+* Actualización gradual de aplicaciones: asigne un porcentaje de tráfico para redirigirlo a un nuevo punto de conexión y aumentar gradualmente el tráfico hasta el 100 %.
 * Migración de aplicaciones a Azure: cree un perfil con puntos de conexión de Azure y externos. Ajuste el peso de los puntos de conexión para dar preferencia a los nuevos puntos de conexión.
-* Expansión de la nube para conseguir capacidad adicional: expanda rápidamente una implementación local en la nube colocándola detrás de un perfil de Administrador de tráfico. Cuando necesite capacidad adicional en la nube, puede agregar o habilitar más extremos y especificar la porción de tráfico que va a cada extremo.
+* Expansión de la nube para conseguir capacidad adicional: expanda rápidamente una implementación local en la nube colocándola detrás de un perfil de Traffic Manager. Cuando necesite capacidad adicional en la nube, puede agregar o habilitar más extremos y especificar la porción de tráfico que va a cada extremo.
 
 Además de usar Azure Portal, puede configurar las ponderaciones mediante Azure PowerShell, la CLI y las API REST.
 

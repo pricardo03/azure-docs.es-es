@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 01/05/2019
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: 16cf679f91dae185a857813ec27441b9a4440e37
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.reviewer: ''
+ms.openlocfilehash: 34804dae53fcf06d1a18bf503cdabea61f272585
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244056"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065399"
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Consideraciones de la plantilla de Azure Resource Manager
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Al desarrollar la aplicación, es importante garantizar la portabilidad de las plantillas entre Azure y Azure Stack. Este artículo proporciona consideraciones para el desarrollo de [plantillas](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) de Azure Resource Manager, por lo que puede crear un prototipo de la implementación de prueba y la aplicación en Azure sin acceder a un entorno de Azure Stack.
 
@@ -34,7 +34,7 @@ La plantilla que tenga previsto implementar debe utilizar solo servicios de Micr
 
 ## <a name="public-namespaces"></a>Espacios de nombres públicos
 
-Como Azure Slack se hospeda en el centro de datos, tiene espacios de nombres de punto de conexión de servicio diferentes a la nube pública de Azure. Como resultado, se producirá un error en los puntos de conexión públicos codificados de forma rígida de las plantillas de Azure Resource Manager al tratar de implementarlos en Azure Stack. Puede compilar dinámicamente puntos de conexión de servicio con las funciones *reference* y *concatenate* para recuperar valores del proveedor de recursos durante la implementación. Por ejemplo, en lugar de codificar de forma rígida *blob.core.windows.net* en la plantilla, recupere[primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) para establecer dinámicamente el punto de conexión *osDisk.URI*:
+Como Azure Slack se hospeda en el centro de datos, tiene espacios de nombres de punto de conexión de servicio diferentes a la nube pública de Azure. Como resultado, se producirá un error en los puntos de conexión públicos codificados de forma rígida de las plantillas de Azure Resource Manager al tratar de implementarlos en Azure Stack. Puede compilar dinámicamente puntos de conexión de servicio con las funciones `reference` y `concatenate` para recuperar valores del proveedor de recursos durante la implementación. Por ejemplo, en lugar de codificar de forma rígida *blob.core.windows.net* en la plantilla, recupere[primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) para establecer dinámicamente el punto de conexión *osDisk.URI*:
 
 ```json
 "osDisk": {"name": "osdisk","vhd": {"uri":
@@ -48,7 +48,7 @@ Las versiones de los servicios de Azure pueden diferir entre Azure y Azure Stack
 
 | Proveedor de recursos | apiVersion |
 | --- | --- |
-| Compute |`'2015-06-15'` |
+| Proceso |`'2015-06-15'` |
 | Red |`'2015-06-15'`, `'2015-05-01-preview'` |
 | Storage |`'2016-01-01'`, `'2015-06-15'`, `'2015-05-01-preview'` |
 | KeyVault | `'2015-06-01'` |

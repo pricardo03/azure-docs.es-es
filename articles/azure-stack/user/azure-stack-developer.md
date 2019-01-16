@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 3be22e7f8e69ded8ccc8956cc7fd7c6d71fe5fa1
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 51f3861d53ac5dac80b53fad9a4efe7b276807fe
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497746"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065416"
 ---
 # <a name="develop-for-azure-stack"></a>Desarrollo para Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
-Puede empezar a desarrollar aplicaciones hoy mismo, incluso si no tiene acceso a un entorno de Azure Stack. Dado que Azure Stack proporciona servicios de Microsoft Azure que se ejecutan en el centro de datos, puede usar herramientas y procesos similares para desarrollar con Azure Stack tal como lo haría con Azure. 
+Puede empezar a desarrollar aplicaciones hoy mismo, incluso si no tiene acceso a un entorno de Azure Stack. Dado que Azure Stack proporciona servicios de Microsoft Azure que se ejecutan en el centro de datos, puede usar herramientas y procesos similares para desarrollar con Azure Stack tal como lo haría con Azure.
 
 ## <a name="development-considerations"></a>Consideraciones de desarrollo
 
@@ -40,5 +40,5 @@ Con un poco de preparación y la orientación que le proporcionarán los siguien
 
 Consulte los siguientes artículos para obtener más información sobre el desarrollo de Azure Stack:
 
-- [Azure Resource Manager template best practices](azure-stack-develop-templates.md) (Procedimientos recomendados de plantillas de Azure Resource Manager)
-- [Plantillas de inicio rápido de Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates)
+* [Azure Resource Manager template best practices](azure-stack-develop-templates.md) (Procedimientos recomendados de plantillas de Azure Resource Manager)
+* [Plantillas de inicio rápido de Azure Stack en GitHub](https://github.com/Azure/AzureStack-QuickStart-Templates)

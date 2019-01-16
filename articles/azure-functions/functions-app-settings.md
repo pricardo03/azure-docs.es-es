@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 336fe8241a65009e9e100dccd12d88f45df4751d
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 8b364e2a51db8ee8d97fc981ac3df0d1fa5650ef
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999363"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037079"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referencia de configuración de aplicación para Azure Functions
 
-La configuración de la aplicación en una aplicación de función contiene opciones de configuración global que afectan a todas las funciones de dicha aplicación. Cuando se ejecuta localmente, esta configuración es en [variables de entorno](functions-run-local.md#local-settings-file). Este artículo incluye una lista de las opciones de configuración disponibles en las aplicaciones de funciones.
+La configuración de la aplicación en una aplicación de función contiene opciones de configuración global que afectan a todas las funciones de dicha aplicación. Cuando se ejecuta localmente, se accede a esta configuración como [variables de entorno](functions-run-local.md#local-settings-file) locales. Este artículo incluye una lista de las opciones de configuración disponibles en las aplicaciones de funciones.
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 

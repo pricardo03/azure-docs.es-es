@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 933fcbfc21c69d02f1093e0ea2519d76f4130b29
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 2bae07643407e8672ef26fb59da588661eb9f0d1
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598897"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191826"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedaje de sitios web estáticos en Azure Storage
 Las cuentas GPv2 de Azure Storage le permiten proporcionar contenido estático (HTML, CSS, JavaScript y archivos de imagen) directamente desde un contenedor de almacenamiento llamado *$web*. Si aprovecha el hospedaje que ofrece Azure Storage, podrá usar arquitecturas sin servidor, incluyendo[Azure Functions](/azure/azure-functions/functions-overview) y otros servicios de PaaS.
@@ -21,16 +21,16 @@ Las cuentas GPv2 de Azure Storage le permiten proporcionar contenido estático (
 A diferencia del hospedaje de sitios web estáticos, los sitios dinámicos que dependen del código del lado servidor se hospedan mejor si se usa [Azure App Service](/azure/app-service/overview).
 
 ## <a name="how-does-it-work"></a>¿Cómo funciona?
-Cuando habilita el hospedaje de sitios web estáticos en su cuenta de almacenamiento, debe seleccionar el nombre del archivo predeterminado y, opcionalmente, proporcionar una ruta de acceso a una página 404 personalizada. Cuando la característica está habilitada, se crea un contenedor llamado *$web* si este aún no existe. 
+Cuando habilita el hospedaje de sitios web estáticos en su cuenta de almacenamiento, debe seleccionar el nombre del archivo predeterminado y, opcionalmente, proporcionar una ruta de acceso a una página 404 personalizada. Cuando la característica está habilitada, se crea un contenedor llamado *$web* si este aún no existe.
 
 Los archivos del contenedor *$web* tienen las siguientes características:
 
 - se proporcionan a través de solicitudes de acceso anónimas.
 - solo están disponibles a través de operaciones de lectura de objetos.
 - Distingue mayúsculas de minúsculas.
-- están disponibles en la web pública si se sigue este patrón: 
+- están disponibles en la web pública si se sigue este patrón:
     - `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
-- están disponibles a través de un punto de conexión de Blob Storage si se sigue este patrón: 
+- están disponibles a través de un punto de conexión de Blob Storage si se sigue este patrón:
     - `https://<ACCOUNT_NAME>.blob.core.windows.net/$web/<FILE_NAME>`
 
 Debe usar el punto de conexión de Blob Storage para cargar archivos. Por ejemplo, el archivo que se cargó a esta ubicación:
@@ -97,10 +97,10 @@ Consulte la dirección URL del punto de conexión web:
 az storage account show -n <ACCOUNT_NAME> -g <RESOURCE_GROUP> --query "primaryEndpoints.web" --output tsv
 ```
 
-Cargue los objetos al contenedor *$web* desde un directorio de origen:
+Cargue los objetos al contenedor *$web* desde un directorio de origen. No olvide usar el carácter de escapa correcto para la referencia al contenedor *$web* en el comando. Por ejemplo, si usa la CLI de Azure desde CloudShell en Azure Portal, use el carácter de escape para el contenedor *$web* como se muestra a continuación:
 
 ```azurecli-interactive
-az storage blob upload-batch -s <SOURCE_PATH> -d $web --account-name <ACCOUNT_NAME>
+az storage blob upload-batch -s <SOURCE_PATH> -d \$web --account-name <ACCOUNT_NAME>
 ```
 
 ## <a name="deployment"></a>Implementación
@@ -120,7 +120,7 @@ Para habilitar las métricas en las páginas de su sitio web estático, haga cli
 
 Los datos de las métricas se generan al enlazarse en diferentes API de métricas. El portal solo muestra los miembros de API que se usan en un período de tiempo determinado, para centrarse únicamente en los miembros que devuelven datos. Para asegurarse de que puede seleccionar el miembro de API necesario, el primer paso es expandir el período de tiempo.
 
-Haga clic en el botón de marco de tiempo y seleccione **Last 24 hours** (Últimas 24 horas) y luego haga clic en **Apply** (Aplicar). 
+Haga clic en el botón de marco de tiempo y seleccione **Last 24 hours** (Últimas 24 horas) y luego haga clic en **Apply** (Aplicar).
 
 ![Intervalo de tiempo de las métricas de sitios web estáticos de Azure Storage](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
 

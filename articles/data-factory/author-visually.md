@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/7/2018
+ms.date: 01/09/2019
 ms.author: shlo
-ms.openlocfilehash: 7a0d72ac67b329cb6d25be955205a2bbcef38e81
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 323d22363ee52ff6ccf7575b00c6b8b31a0fa156
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281700"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188501"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Creación visual de Azure Data Factory
 La experiencia de la interfaz de usuario (UX) de Azure Data Factory le permite crear e implementar visualmente recursos para la factoría de datos sin tener que escribir código. Puede arrastrar y colocar las actividades en un lienzo de canalización, realizar ejecuciones de prueba, depurar de forma iterativa e implementar y supervisar ejecuciones de canalizaciones. Hay dos enfoques a la hora de utilizar la experiencia de la interfaz de usuario para llevar a cabo la creación visual:
@@ -47,7 +46,7 @@ La creación visual con la integración de Git de Azure Repos admite el control 
 ### <a name="configure-an-azure-repos-git-repository-with-azure-data-factory"></a>Configuración de un repositorio de Git de Azure Repos con Azure Data Factory
 Los usuarios pueden configurar un repositorio de Git de Azure Repos con una factoría de datos mediante dos métodos.
 
-#### <a name="method1"></a> Método de configuración 1 (repositorio de Git de Azure Repos): página de introducción
+#### <a name="method1"></a> Método de configuración 1 (repositorio Git de Azure Repos): Página de introducción
 
 En Azure Data Factory, vaya a la página **Comencemos**. Seleccione **Configuración del repositorio de código**:
 
@@ -61,7 +60,7 @@ El panel muestra la siguiente configuración del repositorio de código de Azure
 
 | Configuración | DESCRIPCIÓN | Valor |
 |:--- |:--- |:--- |
-| **Tipo de repositorio** | Tipo de repositorio de código de Azure Repos.<br/>**Nota**: GitHub actualmente no se admite. | Git de Azure Repos |
+| **Tipo de repositorio** | Tipo de repositorio de código de Azure Repos.<br/>**Nota**: GitHub no se admite actualmente. | Git de Azure Repos |
 | **Azure Active Directory** | El nombre de su inquilino de Azure AD. | <your tenant name> |
 | **Organización de Azure Repos** | Nombre de la organización de Azure Repos. Puede buscar el nombre de la organización de Azure Repos en `https://{organization name}.visualstudio.com`. Puede [iniciar sesión en la organización de Azure Repos](https://www.visualstudio.com/team-services/git/) para acceder a su perfil de Visual Studio y ver sus proyectos y repositorios. | <your organization name> |
 | **ProjectName** | Nombre de proyecto de Azure Repos. Puede buscar el nombre de proyecto de Azure Repos en `https://{organization name}.visualstudio.com/{project name}`. | <your Azure Repos project name> |
@@ -70,18 +69,18 @@ El panel muestra la siguiente configuración del repositorio de código de Azure
 | **Carpeta raíz** | Carpeta raíz de la rama de colaboración de Azure Repos. | <your root folder name> |
 | **Import existing Data Factory resources to repository** (Importar recursos existentes de Data Factory en el repositorio). | Especifica si se deben importar los recursos de la factoría de datos existente del **lienzo de creación** de UX en un repositorio Git de Azure Repos. Active la casilla para importar los recursos de la factoría de datos en el repositorio Git asociado en formato JSON. Esta acción exporta cada recurso individualmente (es decir, los servicios vinculados y los conjuntos de datos se exportan a archivos JSON independientes). Cuando esta casilla no está activada, no se importan los recursos existentes. | Activada (valor predeterminado) |
 
-#### <a name="configuration-method-2-azure-repos-git-repo-ux-authoring-canvas"></a>Método de configuración 2 (repositorio Git de Azure Repos): lienzo de creación de UX
+#### <a name="configuration-method-2-azure-repos-git-repo-ux-authoring-canvas"></a>Método de configuración 2 (repositorio Git de Azure Repos): lienzo de creación de la experiencia de usuario
 En el **lienzo de creación** de la experiencia de interfaz de usuario de Azure Data Factory, busque su factoría de datos. Seleccione el menú desplegable **Factoría de datos** y, a continuación, seleccione **Configurar repositorio de código**.
 
 Aparece un panel de configuración. Para obtener más detalles acerca de las opciones de configuración, consulte las descripciones en <a href="#method1">Método de configuración 1</a>.
 
 ![Configuración del repositorio de código para la creación con UX](media/author-visually/configure-repo-2.png)
 
-## <a name="use-a-different-azure-active-directory-tenant"></a>Uso de un inquilino de Azure Active Directory distinto
+### <a name="use-a-different-azure-active-directory-tenant"></a>Uso de un inquilino de Azure Active Directory distinto
 
 Puede crear un repositorio Git de Azure Repos en un inquilino de Azure Active Directory distinto. Para especificar otro inquilino de Azure AD, deberá tener permisos de administrador para la suscripción de Azure que utilice.
 
-## <a name="use-your-personal-microsoft-account"></a>Uso de la cuenta de Microsoft personal
+### <a name="use-your-personal-microsoft-account"></a>Uso de la cuenta de Microsoft personal
 
 Para usar una cuenta de Microsoft personal para la integración de Git, puede vincular el repositorio de Azure personal al entorno de Active Directory de su organización.
 
@@ -95,7 +94,7 @@ Después de estos pasos de configuración, su repositorio personal está disponi
 
 Para más información sobre cómo conectar Azure Repos al entorno de Active Directory de su organización, vea [Connect your Azure DevOps organization to Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad) (Conexión de la organización de Azure DevOps a Azure Active Directory).
 
-## <a name="switch-to-a-different-git-repo"></a>Cambie a otro repositorio de Git diferente
+### <a name="switch-to-a-different-git-repo"></a>Cambie a otro repositorio de Git diferente
 
 Para cambiar a un repositorio de Git diferente, busque el icono en la esquina superior derecha de la página de información general de Data Factory, como se muestra en la siguiente captura de pantalla. Si no ve el icono, borre la caché del explorador local. Seleccione el icono para quitar la asociación con el repositorio actual.
 
@@ -103,7 +102,7 @@ Después de quitar la asociación con el repositorio actual, puede configurar la
 
 ![Elimine la asociación con el repositorio de Git actual.](media/author-visually/remove-repo.png)
 
-## <a name="use-version-control"></a>Uso del control de versiones
+### <a name="use-version-control"></a>Uso del control de versiones
 Los sistemas de control de versiones, conocidos también como _de control de código fuente_, permiten a los desarrolladores colaborar en el código y llevar a cabo el seguimiento de los cambios realizados en la base de código. El control del código fuente es una herramienta esencial para proyectos de varios desarrolladores.
 
 Tan pronto como cada repositorio Git de Azure Repos se asocia a una factoría de datos, tiene una rama de colaboración. (`master` es la rama de colaboración predeterminada). Para crear ramas de características, los usuarios también pueden hacer clic en **+ Nueva rama** y desarrollar en las ramas de características.
@@ -114,7 +113,7 @@ Cuando haya terminado con el desarrollo de la característica en la rama de cara
 
 ![Creación de una nueva solicitud de incorporación de cambios](media/author-visually/create-pull-request.png)
 
-## <a name="configure-publishing-settings"></a>Configurar los valores de publicación
+### <a name="configure-publishing-settings"></a>Configurar los valores de publicación
 
 Para configurar la rama de publicación, es decir, la rama donde se guardan las plantillas de Resource Manager, agregue un archivo `publish_config.json` a la carpeta raíz de la rama de colaboración. Data Factory lee este archivo, busca el campo `publishBranch` y crea una nueva rama (si aún no existe) con el valor proporcionado. Después guarda todas las plantillas de Resource Manager en la ubicación especificada. Por ejemplo: 
 
@@ -132,13 +131,39 @@ Al especificar una nueva rama de publicación, Data Factory no elimina la rama d
 
 Data Factory solo lee el archivo `publish_config.json` cuando se carga la factoría. Si ya tiene la factoría cargada en el portal, actualice el explorador para que los cambios surtan efecto.
 
-## <a name="publish-code-changes"></a>Cambios de código publicando
+### <a name="publish-code-changes"></a>Cambios de código publicando
 Después de haber combinado los cambios en la rama de colaboración (`master` es el valor predeterminado), seleccione **Publicar** para publicar manualmente los cambios de código en la rama principal para el servicio Data Factory.
 
 ![Publicación de cambios en el servicio Data Factory](media/author-visually/publish-changes.png)
 
 > [!IMPORTANT]
 > La rama principal no es representativa de lo que se implementa en el servicio Data Factory. La rama principal se *debe* publicar manualmente en el servicio Data Factory.
+
+### <a name="advantages-of-git-integration"></a>Ventajas de la integración de Git
+
+-   **Control de código fuente**. A medida que las cargas de trabajo de la factoría de datos se vuelven cruciales, le convendría integrar la fábrica con Git para aprovechar varias ventajas de control de código fuente como las siguientes:
+    -   Capacidad para realizar el seguimiento y la auditoría de los cambios.
+    -   Capacidad para revertir los cambios que presentaron errores.
+-   **Operaciones de guardado parcial**. Al realizar muchos cambios en la fábrica, se dará cuenta de que, en el modo real normal, no puede guardar los cambios como borrador, porque no está preparado o porque no quiere perder los cambios en caso de que su equipo se bloquee. Con la integración de Git, puede continuar guardando los cambios de forma incremental y publicarlos en la fábrica solo cuando esté listo. Git actúa como un espacio de almacenamiento provisional para el trabajo, hasta que haya probado los cambios y estén a su gusto.
+-   **Colaboración y control**. Si varios miembros del equipo participan en la misma fábrica, puede que le convenga permitir que sus compañeros de equipo colaboren entre sí mediante un proceso de revisión de código. También puede configurar la fábrica de manera que no todos los colaboradores de la fábrica tengan permiso para implementar en la fábrica. Es posible que los miembros del equipo solo puedan hacer cambios a través de Git, pero solo algunas personas del equipo puedan "Publicar" los cambios en la fábrica.
+-   **Muestra de las diferencias**. En el modo de Git, puede ver una clara diferencia de la carga útil que está a punto de publicar en la fábrica. Esta diferencia muestra todos los recursos y entidades que se han modificado, agregado y eliminado desde la última vez que se publicó en la fábrica. Según esta diferencia, puede continuar con la publicación o volver y comprobar los cambios, así como volver más tarde.
+-   **Mejor proceso de CI/CD**. Si utiliza el modo de Git, puede configurar la canalización de versión para que se desencadene automáticamente en cuanto haya algún cambio en la fábrica en desarrollo. También podrá personalizar las propiedades de la fábrica que estén disponibles como parámetros en la plantilla de Resource Manager. Puede ser útil mantener solo el conjunto requerido de propiedades como parámetros, y tener todo lo demás codificado.
+-   **Mejor rendimiento**. Una fábrica media carga 10 veces más rápido en el modo de Git que en el modo real normal, porque los recursos se descargan a través de Git.
+
+### <a name="best-practices-for-git-integration"></a>Procedimientos recomendados para la integración de Git
+
+-   **Permisos**. Normalmente no conviene que todos los miembros del equipo tengan permisos para actualizar la fábrica.
+    -   Todos los miembros del equipo deberían tener permisos de lectura en la factoría de datos.
+    -   Solo un conjunto seleccionado de usuarios debería poder publicar en la fábrica y, para ello, tienen que formar parte del rol "Colaborador de Data Factory" en la fábrica.
+    -   Uno de los procedimientos recomendados del control de código fuente consiste también en no permitir inserciones directas en el repositorio en la rama de colaboración. Este requisito evita los errores, ya que cada inserción en el repositorio pasa por un proceso de solicitud de incorporación de cambios.
+-   **Cambio de modos**.
+    -    Cuando esté en modo de Git, no se recomienda cambiar una y otra vez al modo normal, principalmente porque cualquier cambio que se haga en el modo normal no se verá al volver a Git. Procure realizar los cambios en el mismo modo de Git y publicarlos luego a través de la interfaz de usuario.
+    -   De forma similar, no utilice tampoco ningún cmdlet de Powershell en la factoría de datos, ya que se consigue el mismo efecto aplicando directamente los cambios especificados a la fábrica real.
+-   **Uso de contraseñas de Azure Key Vault**.
+    -   Se recomienda muy especialmente usar AzureKeyVault para almacenar las cadenas de conexión o las contraseñas en servicios vinculados de DataFactory.
+    -   No almacenamos ninguna información secreta de este tipo en Git (por motivos de seguridad), por lo que los cambios efectuados en los servicios vinculados se publican inmediatamente en la fábrica real. Esta publicación inmediata no siempre es conveniente, ya que es posible que los cambios no se hayan probado, lo que frustra el propósito de Git.
+    -   Por consiguiente, todos estos secretos deben extraerse de servicios vinculados que utilizan Azure Key Vault.
+    -   Otra de las ventajas de utilizar Key Vault es que facilita el proceso de CI/CD al no tener que especificar estos secretos durante la implementación de la plantilla de Resource Manager.
 
 ## <a name="author-with-github-integration"></a>Creación con la integración de GitHub
 
@@ -164,7 +189,7 @@ Si desea ver una introducción y una demostración de esta característica, vea 
 
 Los usuarios pueden configurar un repositorio GitHub con una factoría de datos mediante dos métodos.
 
-**Método 1 de configuración (repositorio público): página de introducción**
+**Método de configuración 1 (repositorio público): página de introducción**
 
 En Azure Data Factory, vaya a la página  **Empecemos** . Seleccione  **Configuración del repositorio de código**:
 
@@ -186,7 +211,7 @@ El panel muestra la siguiente configuración del repositorio de código de Azure
 | **Import existing Data Factory resources to repository** (Importar recursos existentes de Data Factory en el repositorio). | Especifica si se deben importar los recursos de Data Factory existentes del  **lienzo de creación**  de UX en un repositorio de GitHub. Active la casilla para importar los recursos de la factoría de datos en el repositorio Git asociado en formato JSON. Esta acción exporta cada recurso individualmente (es decir, los servicios vinculados y los conjuntos de datos se exportan a archivos JSON independientes). Cuando esta casilla no está activada, no se importan los recursos existentes. | Activada (valor predeterminado) |
 | **Rama donde importar recursos**                       | Especifica en qué rama se importan los recursos de la factoría de datos (canalizaciones, conjuntos de datos, servicios vinculados etc.). Puede importar recursos en una de las siguientes ramas: a. Colaboración b. Crear nuevo c. Usar existente                                                                                                                                                                                                     |                    |
 
-#### <a name="configuration-method-2-public-repo-ux-authoring-canvas"></a>Método de configuración 2 (repositorio público): lienzo de creación de UX
+#### <a name="configuration-method-2-public-repo-ux-authoring-canvas"></a>Método de configuración 2 (repositorio público): lienzo de creación de la experiencia de usuario
 
 En el  **lienzo de creación** de la experiencia de usuario de Azure Data Factory, busque su factoría de datos. Seleccione el menú desplegable  **Data Factory**  y, a continuación, seleccione  **Configurar repositorio de código**.
 
@@ -196,7 +221,7 @@ Aparece un panel de configuración. Para más detalles sobre las opciones de con
 
 Los usuarios pueden configurar un repositorio GitHub Enterprise con una factoría de datos mediante dos métodos.
 
- #### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>Método 1 de configuración (repositorio Enterprise): página de introducción
+ #### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>Método de configuración 1 (repositorio de Enterprise): Página de introducción
 
 En Azure Data Factory, vaya a la página  **Empecemos** . Seleccione  **Configuración del repositorio de código**:
 
@@ -220,7 +245,7 @@ El panel muestra la siguiente configuración del repositorio de código de Azure
 | **Import existing Data Factory resources to repository** (Importar recursos existentes de Data Factory en el repositorio). | Especifica si se deben importar los recursos de Data Factory existentes del  **lienzo de creación**  de UX en un repositorio de GitHub. Active la casilla para importar los recursos de la factoría de datos en el repositorio Git asociado en formato JSON. Esta acción exporta cada recurso individualmente (es decir, los servicios vinculados y los conjuntos de datos se exportan a archivos JSON independientes). Cuando esta casilla no está activada, no se importan los recursos existentes. | Activada (valor predeterminado) |
 | **Rama donde importar recursos**                       | Especifica en qué rama se importan los recursos de la factoría de datos (canalizaciones, conjuntos de datos, servicios vinculados etc.). Puede importar recursos en una de las siguientes ramas: a. Colaboración b. Crear nuevo c. Usar existente                                                                                                                                                                                                     |                    |
 
-#### <a name="configuration-method-2-enterprise-repo-ux-authoring-canvas"></a>Método de configuración 2 (repositorio de Enterprise): lienzo de creación de UX
+#### <a name="configuration-method-2-enterprise-repo-ux-authoring-canvas"></a>Método de configuración 2 (repositorio de Enterprise): lienzo de creación de la experiencia de usuario
 
 En el  **lienzo de creación** de la experiencia de usuario de Azure Data Factory, busque su factoría de datos. Seleccione el menú desplegable  **Data Factory**  y, a continuación, seleccione  **Configurar repositorio de código**.
 

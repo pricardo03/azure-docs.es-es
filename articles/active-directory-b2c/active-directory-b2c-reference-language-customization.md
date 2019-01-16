@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e5bf7cc199fc8a439b5071faa89cce2e3ed47a75
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: e115db18770ef304d823ff9c35d7d2cf302d5ccf
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724322"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187769"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalización de idioma en Azure Active Directory B2C
 
@@ -175,7 +175,7 @@ Microsoft no proporciona actualmente compatibilidad con idiomas que se leen de d
 ### <a name="social-identity-provider-translations"></a>Traducciones de proveedores de identidades sociales
 Microsoft proporciona el parámetro OIDC `ui_locales` a los inicios de sesión de redes sociales. Pero algunos proveedores de identidades de redes sociales, incluidas Facebook y Google, no los respetan. 
 ### <a name="browser-behavior"></a>Comportamiento del explorador
-Tanto Chrome como Firefox solicitan su idioma establecido. Si es un idioma admitido, se muestra antes el valor predeterminado. Edge no solicita actualmente un idioma y va directamente al predeterminado.
+Tanto Chrome como Firefox solicitan su idioma establecido. Si es un idioma admitido, se muestra antes el valor predeterminado. Microsoft Edge no solicita actualmente un idioma y va directamente al predeterminado.
 
 ### <a name="supported-languages"></a>Idiomas admitidos
 

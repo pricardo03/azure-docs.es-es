@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 4ebd6eb860a6b102d1a3b12642510c429c18baa7
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 9a6b40aa86d4d81482d9c3724f0e230e0b811276
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259161"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189503"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solución de problemas de Azure Migrate
 
@@ -136,7 +136,7 @@ El recopilador de Azure Migrate descarga PowerCLI y lo instala en el dispositivo
 2. Vaya al directorio C:\ProgramFiles\ProfilerService\VMWare\Scripts\
 3. Ejecute el script InstallPowerCLI.ps1.
 
-### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Se ha producido un error interno UnhandledException: System.IO.FileNotFoundException
+### <a name="error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception"></a>Se produjo un error interno UnhandledException: System.IO.FileNotFoundException
 
 Este problema podría producirse debido a un problema con la instalación de VMware PowerCLI. Para solucionar el problema, siga estos pasos:
 
@@ -245,14 +245,14 @@ Para recopilar el Seguimiento de eventos para Windows, haga lo siguiente:
 2. Presione F12 para iniciar las Herramientas de desarrollo. Si es necesario, desactive la configuración **Clear entries on navigation** (Borrar entradas de navegación).
 3. Haga clic en la pestaña **Network** (Red) para empezar a capturar el tráfico de red:
  - En Chrome, seleccione **Preserve log** (Conservar registro). La grabación debe iniciarse automáticamente. Un círculo rojo indica que la captura del tráfico está en curso. Si no aparece, haga clic en el círculo negro para iniciar la captura.
- - En Edge/IE, la grabación debe iniciarse automáticamente. Si no es así, haga clic en el botón de reproducción de color verde.
+ - En Microsoft Edge/IE, la grabación debe iniciarse automáticamente. Si no es así, haga clic en el botón de reproducción de color verde.
 4. Pruebe a reproducir el error.
 5. Una vez haya encontrado el error durante la grabación, detenga la grabación y guarde una copia de la actividad grabada:
  - En Chrome, haga clic con el botón derecho y haga clic en **Save as HAR with content** (Guardar como HAR con contenido). Con esta acción, los registros se comprimen y exportan como un archivo .har.
- - En Edge/IE, haga clic en el icono **Exportar el tráfico capturado**. Con esta acción, el registro se comprime y exporta.
+ - En Microsoft Edge/IE, haga clic en el icono **Exportar el tráfico capturado**. Con esta acción, el registro se comprime y exporta.
 6. Navegue a la pestaña **Console** (Consola) para ver si hay alguna advertencia o error. Para guardar el registro de la consola:
  - En Chrome, haga clic con el botón derecho en cualquier lugar en el registro de la consola. Seleccione **Save as** (Guardar como) para exportar y comprimir el registro.
- - En Edge/IE, haga clic con el botón derecho sobre los errores y seleccione **Copy all** (Copiar todo).
+ - En Microsoft Edge/IE, haga clic con el botón derecho sobre los errores y seleccione **Copy all** (Copiar todo).
 7. Cierre las Herramientas de desarrollo.
 
 ## <a name="collector-error-codes-and-recommended-actions"></a>Códigos de error del recopilador y acciones recomendadas

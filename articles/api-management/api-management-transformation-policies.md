@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 87d2ebcf6a12f51775b15e906ea7813962e3630f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5dc39d2f64aa2cd895cbf57d95100d831a6f4432
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965383"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159798"
 ---
 # <a name="api-management-transformation-policies"></a>Directivas de transformación de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -318,7 +318,7 @@ En este ejemplo, la directiva enruta la solicitud a un back-end de Service Fabri
 </set-body>
 ```
 
-#### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accesing-it-later-in-the-pipeline-will-result-in-an-exception"></a>Ejemplo de acceso al cuerpo como un elemento JObject. Tenga en cuenta que, al no estar conservando el cuerpo de la solicitud original, el acceso posterior a él en la canalización producirá una excepción.
+#### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accessing-it-later-in-the-pipeline-will-result-in-an-exception"></a>Ejemplo de acceso al cuerpo como un elemento JObject. Tenga en cuenta que, al no conservar el cuerpo de la solicitud original, el acceso posterior a él en la canalización producirá una excepción.
 
 ```xml
 <set-body> 
@@ -353,7 +353,7 @@ En este ejemplo, la directiva enruta la solicitud a un back-end de Service Fabri
 ```
 
 ### <a name="using-liquid-templates-with-set-body"></a>Uso de plantillas Liquid con la directiva de establecer cuerpo
-La directiva `set-body` se puede configurar para usar el lenguaje de plantillas [Liquid](https://shopify.github.io/liquid/basics/introduction/) que transforman el cuerpo de una solicitud o respuesta. Esto puede resultar muy eficaz si necesita cambiar completamente el formato del mensaje.
+La directiva `set-body` se puede configurar para usar el lenguaje de plantillas [Liquid](https://shopify.github.io/liquid/basics/introduction/) para transformar el cuerpo de una solicitud o una respuesta. Esto puede resultar muy eficaz si necesita cambiar completamente el formato del mensaje.
 
 > [!IMPORTANT]
 > La implementación de Liquid que se utiliza en la directiva `set-body` está configurada en el modo de C#. Esto es especialmente importante al realizar tareas como el filtrado. Por ejemplo, para usar un filtro de fecha se requiere usar las mayúsculas y minúsculas de Pascal y el formato de fecha de C#; por ejemplo:

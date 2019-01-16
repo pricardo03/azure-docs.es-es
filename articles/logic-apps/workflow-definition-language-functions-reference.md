@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 179d8fc0f17bf43792db6a9b0e15a6f63349f002
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 43ca62191f0dc5a306ea5891f31a316242694a02
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890949"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107878"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referencia de las funciones del lenguaje de definición de flujo de trabajo en Azure Logic Apps
 
@@ -102,6 +102,7 @@ Para trabajar con colecciones, por lo general matrices, cadenas y, en ocasiones,
 | [empty](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Comprueba si una colección está vacía. | 
 | [first](../logic-apps/workflow-definition-language-functions-reference.md#first) | Devuelve el primer elemento de una colección. | 
 | [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Devuelve una colección que tiene *solo* los elementos comunes en las colecciones especificadas. | 
+| [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | Dentro de una acción de repetición sobre una matriz, devuelve el elemento actual de la matriz durante la iteración actual de la acción. | 
 | [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | Devuelve una cadena que tiene *todos* los elementos de una matriz, separados por el carácter especificado. | 
 | [last](../logic-apps/workflow-definition-language-functions-reference.md#last) | Devuelve el último elemento de una colección. | 
 | [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Devuelve el número de elementos de una cadena o una matriz. | 
@@ -4014,7 +4015,7 @@ xml('<value>')
 
 | Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*valor*> | SÍ | string | Cadena con el objeto JSON que se va a convertir <p>El objeto JSON debe tener solo una propiedad raíz. <br>Use el carácter de barra diagonal inversa (\\) como carácter de escape para la marca de comillas dobles ("). | 
+| <*valor*> | SÍ | string | Cadena con el objeto JSON que se va a convertir <p>El objeto JSON debe tener solo una propiedad raíz, que no puede ser una matriz. <br>Use el carácter de barra diagonal inversa (\\) como carácter de escape para la marca de comillas dobles ("). | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 

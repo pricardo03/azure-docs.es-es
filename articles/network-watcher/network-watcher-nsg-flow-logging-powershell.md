@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 752370564c52513d59e99b18d5343b0575900463
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 120e9295c7e9bd196f40258e8eb8d8d2503cd086
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819362"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187536"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>Configuración de registros de flujo de grupos de seguridad de red con PowerShell
 
@@ -32,43 +32,63 @@ ms.locfileid: "51819362"
 Los registros de flujo de grupos de seguridad de red son una característica de Network Watcher que permite ver información acerca del tráfico IP de entrada y de salida en un grupo de seguridad de red. Estos registros de flujo se escriben en formato JSON y muestran los flujos de entrada y salida en función de cada regla, la NIC a la que se aplica el flujo, información de 5-tupla sobre el flujo (IP de origen/destino, puerto de origen/destino, protocolo), y si se permitió o denegó el tráfico.
 
 > [!NOTE] 
-> La versión 2 de los registros de flujo solo está disponible en la región Centro-oeste de EE. UU. La configuración está disponible mediante Azure Portal y API REST. Si habilita los registros de la versión 2 en una región no admitida, hará que los registros de la versión 1 se envíen a su cuenta de almacenamiento.
+> La versión 2 de los registros de flujo solo está disponible en la región Centro-oeste de EE. UU. Si habilita los registros de la versión 2 en una región no admitida, hará que los registros de la versión 1 se envíen a su cuenta de almacenamiento.
 
 ## <a name="register-insights-provider"></a>Registro del proveedor de Insights
 
 Para que el registro del flujo de trabajo funcione correctamente, es necesario registrar el proveedor **Microsoft.Insights**. Si no está seguro de si el proveedor **Microsoft.Insights**está registrado, ejecute el siguiente script.
 
 ```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Insights
+Register-AzResourceProvider -ProviderNamespace Microsoft.Insights
 ```
 
-## <a name="enable-network-security-group-flow-logs"></a>Habilitación de los registros de flujo de grupos de seguridad de red
+## <a name="enable-network-security-group-flow-logs-and-traffic-analytics"></a>Habilitación de los registros de flujo de grupos de seguridad de red y Análisis de tráfico
 
 El ejemplo siguiente muestra el comando para habilitar los registros de flujo:
 
 ```powershell
-$NW = Get-AzurermNetworkWatcher -ResourceGroupName NetworkWatcherRg -Name NetworkWatcher_westcentralus
-$nsg = Get-AzureRmNetworkSecurityGroup -ResourceGroupName nsgRG -Name nsgName
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName StorageRG -Name contosostorage123
-Get-AzureRmNetworkWatcherFlowLogStatus -NetworkWatcher $NW -TargetResourceId $nsg.Id
-Set-AzureRmNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $true
+$NW = Get-AzNetworkWatcher -ResourceGroupName NetworkWatcherRg -Name NetworkWatcher_westcentralus
+$nsg = Get-AzNetworkSecurityGroup -ResourceGroupName nsgRG -Name nsgName
+$storageAccount = Get-AzStorageAccount -ResourceGroupName StorageRG -Name contosostorage123
+Get-AzNetworkWatcherFlowLogStatus -NetworkWatcher $NW -TargetResourceId $nsg.Id
+
+#Traffic Analytics Parameters
+$workspaceResourceId = "/subscriptions/bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb/resourcegroups/trafficanalyticsrg/providers/microsoft.operationalinsights/workspaces/taworkspace"
+$workspaceGUID = "cccccccc-cccc-cccc-cccc-cccccccccccc"
+$workspaceLocation = "westeurope"
+
+#Configure Version 1 Flow Logs
+Set-AzNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $true -FormatType Json -FormatVersion 1
+
+#Configure Version 2 Flow Logs, and configure Traffic Analytics
+Set-AzNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $true -FormatType Json -FormatVersion 2
+
+#Configure Version 2 FLow Logs with Traffic Analytics Configured
+Set-AzNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $true -FormatType Json -FormatVersion 2 -EnableTrafficAnalytics -WorkspaceResourceId $workspaceResourceId -WorkspaceGUID $worspaceid -WorkspaceLocation $workspaceRegion
+
+#Query Flow Log Status
+Get-AzNetworkWatcherFlowLogStatus -NetworkWatcher $NW -TargetResourceId $nsg.Id
 ```
 
 La cuenta de almacenamiento que especifique no puede tener configuradas reglas de red que restrinjan el acceso a la red solo a servicios de Microsoft o a redes virtuales específicas. La cuenta de almacenamiento puede estar en la misma suscripción de Azure, o en una diferente, que el NSG para el que habilite el registro de flujo. Si utiliza distintas suscripciones, ambas deben estar asociadas al mismo inquilino de Azure Active Directory. La cuenta que utilice para cada suscripción debe tener los [permisos necesarios](required-rbac-permissions.md).
 
-## <a name="disable-network-security-group-flow-logs"></a>Deshabilitación de los registros de flujo de grupos de seguridad de red
+## <a name="disable-traffic-analytics-and-network-security-group-flow-logs"></a>Deshabilitación de los registros de flujo de grupos de seguridad de red y Análisis de tráfico
 
-Use el ejemplo siguiente para deshabilitar los registros de flujo:
+Utilice el ejemplo siguiente para deshabilitar los registros de flujo y Análisis de tráfico:
 
 ```powershell
-Set-AzureRmNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $false
+#Disable Traffic Analaytics by removing -EnableTrafficAnalytics property
+Set-AzNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $true -FormatType Json -FormatVersion 2 -WorkspaceResourceId $workspaceResourceId -WorkspaceGUID $workspaceGUID -WorkspaceLocation $workspaceLocation
+
+#Disable Flow Logging
+Set-AzNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $false
 ```
 
 ## <a name="download-a-flow-log"></a>Descarga de un registro de flujo
 
 La ubicación de almacenamiento de un registro de flujo se define en el momento de la creación. Una herramienta práctica para acceder a estos registros de flujo guardados en una cuenta de almacenamiento es el Explorador de Microsoft Azure Storage, que puede descargarse aquí: http://storageexplorer.com/
 
-Si se especifica una cuenta de almacenamiento, los archivos de captura de paquetes se guardan en una cuenta de almacenamiento en la siguiente ubicación:
+Si se especifica una cuenta de almacenamiento, los archivos de registro de flujo se guardan en una cuenta de almacenamiento en la siguiente ubicación:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json

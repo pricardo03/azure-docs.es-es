@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: fdb3c5cbd3acee90386352c6f180a71aa81f54fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c2ebcfc376456f63896ebae8331136aff0cdb99
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23127163"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119448"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Ejemplo 3: Creación de una red perimetral para proteger las redes con un firewall, enrutamiento definido por el usuario y grupo de seguridad de red
 [Volver a la página de procedimientos recomendados de límites de seguridad][HOME]
@@ -31,8 +31,8 @@ En este ejemplo se creará una red perimetral con un firewall, cuatro servidores
 ## <a name="environment-setup"></a>Configuración del entorno
 En este ejemplo hay una suscripción que contiene lo siguiente:
 
-* Tres servicios en la nube: “SecSvc001”, “FrontEnd001” y “BackEnd001”
-* Una red virtual, CorpNetwork, con tres subredes: SecNet, FrontEnd y BackEnd
+* Tres servicios en la nube: "SecSvc001", "FrontEnd001" y "BackEnd001"
+* Una red virtual "CorpNetwork", con tres subredes: "SecNet", "FrontEnd" y "BackEnd"
 * Un dispositivo virtual de red, en este ejemplo, un firewall, conectado a la subred SecNet
 * Un servidor Windows que representa un servidor de aplicaciones web ("IIS01")
 * Dos servidores Windows que representan servidores back-end de aplicaciones (“AppVM01”, “AppVM02”)
@@ -46,14 +46,14 @@ Para crear el entorno, siga estos pasos:
 2. Actualice las variables de usuario en el script para que coincida con el entorno en el que se va a ejecutar el script (suscripciones, nombres de servicio, etc.).
 3. Ejecución del script en PowerShell
 
-**Nota**: la región indicada en el script de PowerShell debe coincidir con la región indicada en el archivo xml de configuración de red.
+**Nota**: La región indicada en el script de PowerShell debe coincidir con la región indicada en el archivo xml de configuración de red.
 
 Cuando el script se ejecuta correctamente, se pueden realizar los siguientes pasos posteriores al script:
 
-1. Configure las reglas de firewall; este tema se trata en la sección Descripción de las reglas de firewall.
+1. Configure las reglas de firewall. Este tema se trata en la sección siguiente denominada: Descripción de las reglas de firewall.
 2. Opcionalmente, en la sección de referencias hay dos scripts para configurar el servidor web y el servidor de aplicaciones con una aplicación web sencilla para permitir las pruebas con esta configuración de red perimetral.
 
-Una vez que el script ejecuta correctamente el firewall, se deben completar las reglas; este tema se trata en la sección Reglas de firewall.
+Una vez que el script ejecuta correctamente el firewall, se deben completar las reglas. Este tema se trata en la sección llamada: Reglas de firewall.
 
 ## <a name="user-defined-routing-udr"></a>Enrutamiento definido por el usuario (UDR)
 De forma predeterminada, las siguientes rutas de sistema se definen como:
@@ -199,17 +199,17 @@ En el diagrama lógico anterior, no se muestra la subred de seguridad debido a q
 En este ejemplo, necesitamos siete tipos de reglas que se describen a continuación:
 
 * Reglas externas (para el tráfico entrante):
-  1. Regla de administración de firewall: esta regla de redirección de aplicación permite que el tráfico pase a los puertos de administración del dispositivo virtual de red.
-  2. Reglas de RDP (para cada servidor Windows): estas cuatro reglas (una para cada servidor) permitirán la administración de los servidores individuales a través de RDP. También se puede agrupar en una regla según las capacidades del dispositivo virtual de red que se use.
-  3. Reglas de tráfico de aplicación: hay dos reglas de tráfico de aplicación, la primera para el tráfico web front-end y la segunda para el tráfico back-end (p. ej. servidor web a capa de datos). La configuración de estas reglas dependerá de la arquitectura de red (donde están situados los servidores) y los flujos de tráfico (en qué dirección fluye el tráfico y qué puertos se usan).
+  1. Regla de administración de firewall: esta regla de redirección de aplicación permite que el tráfico pase a los puertos de administración de la aplicación virtual de red.
+  2. Reglas de RDP (para cada servidor Windows): estas cuatro reglas (una para cada servidor) permitirán la administración de los servidores individuales mediante RDP. También se puede agrupar en una regla según las capacidades del dispositivo virtual de red que se use.
+  3. Reglas de tráfico de aplicación: hay dos reglas de tráfico de aplicación, la primera para el tráfico web de front-end y la segunda para el tráfico de back-end (p. ej. del servidor web a la capa de datos). La configuración de estas reglas dependerá de la arquitectura de red (donde están situados los servidores) y los flujos de tráfico (en qué dirección fluye el tráfico y qué puertos se usan).
      * La primera regla permitirá que el tráfico de aplicación real llegue al servidor de aplicaciones. Mientras que las demás reglas permiten seguridad, administración, etc., las reglas de aplicación son las que permiten a los usuarios o servicios externos obtener acceso a las aplicaciones. En este ejemplo, hay un único servidor web en el puerto 80, por lo tanto, una única regla de aplicación de firewall redirigirá el tráfico entrante a la dirección IP externa y a la dirección IP interna de los servidores web. La dirección de la sesión de tráfico redirigido se traduciría al servidor interno.
      * La segunda regla de tráfico de aplicación es la regla back-end que permite que el servidor web se comunique con el servidor AppVM01 (pero no AppVM02) a través de cualquier puerto.
 * Reglas internas (para el tráfico entre redes virtuales)
   1. Regla de saliente a Internet: esta regla permitirá que el tráfico de cualquier red pase a las redes seleccionadas. Normalmente, esta es una regla predeterminada que ya existe en el firewall, pero en estado deshabilitado. Esta regla debe habilitarse para este ejemplo.
-  2. Regla DNS: esta regla permite que pase solo el tráfico DNS (puerto 53) al servidor DNS. En este entorno, se bloquea la mayor parte del tráfico desde la subred front-end a la subred back-end. Esta regla permite específicamente DNS desde cualquier subred local.
+  2. Regla de DNS: esta regla permite que pase solo el tráfico DNS (puerto 53) al servidor DNS. En este entorno, se bloquea la mayor parte del tráfico desde la subred front-end a la subred back-end. Esta regla permite específicamente DNS desde cualquier subred local.
   3. Regla de subred a subred: esta regla permite que cualquier servidor en la subred back-end conecte con cualquier servidor en la subred front-end (pero no a la inversa).
 * Regla para notificaciones de error (para el tráfico que no cumple ninguna de las anteriores):
-  1. Denegar todas las reglas de tráfico: esta debe ser siempre la última regla (en términos de prioridad) y, como tal, si un flujo de tráfico no coincide con ninguna de las reglas anteriores, esta regla lo descartará. Esta es una regla predeterminada y normalmente está activada; normalmente no se necesitan modificaciones.
+  1. Regla para denegar todo el tráfico: esta debe ser siempre la última regla (en términos de prioridad) y, como tal, si un flujo de tráfico no coincide con ninguna de las reglas anteriores, esta regla lo descartará. Esta es una regla predeterminada y normalmente está activada; normalmente no se necesitan modificaciones.
 
 > [!TIP]
 > En la segunda regla de tráfico de aplicación, se permite cualquier puerto para facilitar el ejemplo; en un escenario real, se usarían el puerto más específico e intervalos de direcciones para reducir la superficie de ataque de esta regla.
@@ -241,7 +241,7 @@ Aunque no se muestra aquí claramente debido al uso de variables, los extremos *
 
 Deberá instalarse un cliente de administración en el equipo para administrar el firewall y crear las configuraciones necesarias. Consulte la documentación del proveedor de su firewall (o de otro dispositivo virtual de red) acerca de cómo administrar el dispositivo. El resto de esta sección y la siguiente, Creación de reglas de firewall, describe la configuración del firewall mediante el cliente de administración de proveedores (es decir, no el Portal de Azure ni PowerShell).
 
-Puede encontrar instrucciones para descargar el cliente y conectarse al firewall Barracuda usado en este ejemplo aquí: [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
+Puede encontrar aquí instrucciones para descargar y conectar el cliente al firewall Barracuda usado en este ejemplo: [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
 
 Una vez iniciada sesión en el firewall pero antes de crear las reglas de firewall, hay dos clases de objeto que son requisitos previos y que pueden facilitar la creación de las reglas, los objetos de red y de servicio.
 
@@ -275,11 +275,11 @@ Este proceso debe repetirse para crear servicios RDP para los demás servidores:
 ### <a name="firewall-rules-creation"></a>Creación de reglas de firewall
 En este ejemplo se usan tres tipos de reglas de firewall, todas ellas con iconos distintos:
 
-Regla de redirección de la aplicación: ![icono Redirección de aplicación][7]
+La regla Redirección de aplicación:  ![Icono de redirección de aplicación][7]
 
-Regla de NAT de destino: ![icono NAT de destino][8]
+La regla NAT de destino:  ![Icono de NAT de destino][8]
 
-Regla de paso: ![icono Paso][9]
+La regla Paso:  ![Icono de paso][9]
 
 Encontrará más información sobre estas reglas en el sitio web de Barracuda.
 
@@ -289,7 +289,7 @@ Una vez creadas o modificadas las reglas, deben insertarse en el firewall y, des
 
 A continuación se describen los detalles de cada regla necesarios para completar este ejemplo:
 
-* **Regla de administración de firewall**: esta regla de redirección de aplicación permite que el tráfico pase a los puertos de administración del dispositivo virtual de red, Barracuda NextGen Firewall en este ejemplo. Los puertos de administración son 801, 807 y, opcionalmente, 22. Los puertos internos y externos son los mismos (es decir, sin traducción de puertos). SETUP-MGMT-ACCESS es una regla predeterminada y está habilitada de forma predeterminada (en Barracuda NextGen Firewall versión 6.1).
+* **Regla de administración de firewall**: esta regla de redirección de aplicación permite que el tráfico pase a los puertos de administración de la aplicación virtual de red, Barracuda NextGen Firewall en este ejemplo. Los puertos de administración son 801, 807 y, opcionalmente, 22. Los puertos internos y externos son los mismos (es decir, sin traducción de puertos). SETUP-MGMT-ACCESS es una regla predeterminada y está habilitada de forma predeterminada (en Barracuda NextGen Firewall versión 6.1).
   
     ![Regla de administración de firewall][10]
 
@@ -298,7 +298,7 @@ A continuación se describen los detalles de cada regla necesarios para completa
 > 
 > 
 
-* **Reglas RDP**: estas reglas NAT de destino permitirán la administración de los servidores individuales mediante RDP.
+* **Reglas de RDP**:  estas reglas NAT de destino permitirán la administración de los servidores individuales mediante RDP.
   Hay cuatro campos críticos necesarios para crear esta regla:
   
   1. Origen: para permitir RDP desde cualquier lugar, se usa la referencia "Any" (cualquiera) en el campo de origen.
@@ -322,7 +322,7 @@ A continuación se describen los detalles de cada regla necesarios para completa
 > 
 > 
 
-* **Reglas de tráfico de aplicación**: hay dos reglas de tráfico de aplicación, la primera para el tráfico web de front-end y la segunda para el tráfico de back-end (p. ej. de servidor web a capa de datos). Estas reglas dependerán de la arquitectura de red (donde están situados los servidores) y los flujos de tráfico (en qué dirección fluye el tráfico y qué puertos se usan).
+* **Reglas de tráfico de aplicación**: hay dos reglas de tráfico de aplicación, la primera para el tráfico web de front-end y la segunda para el tráfico de back-end (p. ej. del servidor web a la capa de datos). Estas reglas dependerán de la arquitectura de red (donde están situados los servidores) y los flujos de tráfico (en qué dirección fluye el tráfico y qué puertos se usan).
   
     Primero se describe la regla front-end para el tráfico web:
   
@@ -342,7 +342,7 @@ A continuación se describen los detalles de cada regla necesarios para completa
   
     Con esta regla de paso, no se necesita traducción NAT porque se trata de tráfico interno, por lo que el método de conexión puede establecerse en "No SNAT".
   
-    **Nota**: en esta regla, la red de origen es cualquier recurso de la subred FrontEnd, si solo va a haber una, o un número específico conocido de servidores web. Se podría crear un recurso de objeto de red para especificar las direcciones IP exactas en lugar de toda la subred FrontEnd.
+    **Nota**: En esta regla, la red de origen es cualquier recurso de la subred FrontEnd, si solo va a haber una, o un número específico conocido de servidores web. Se podría crear un recurso de objeto de red para especificar las direcciones IP exactas en lugar de toda la subred FrontEnd.
 
 > [!TIP]
 > Esta regla usa el servicio "Any" para facilitar la configuración y el uso de la aplicación de ejemplo. Esto también permitirá ICMPv4 (ping) en una sola regla. Sin embargo, este no es el procedimiento recomendado. Los puertos y protocolos ("servicios") se deben reducir al mínimo posible que permita el funcionamiento de la aplicación para reducir la superficie de ataque.
@@ -359,17 +359,17 @@ A continuación se describen los detalles de cada regla necesarios para completa
 * **Regla de saliente a Internet**: esta regla de paso permitirá que el tráfico de cualquier red de origen pase a las redes de destino seleccionadas. Normalmente, esta es una regla predeterminada que ya existe en el firewall Barracuda NextGen, pero en estado deshabilitado. Haga clic el botón derecho de esta regla para acceder al comando Activate Rule (Activar regla). La regla que se muestra se ha modificado para agregar las dos subredes locales que se crearon como referencias en la sección de requisitos previos de este documento al atributo Source de esta regla.
   
     ![Regla de salida de firewall][14]
-* **Regla DNS**: esta regla de paso permite que pase solo el tráfico DNS (puerto 53) al servidor DNS. En este entorno, se bloquea la mayor parte del tráfico desde la subred front-end a la subred back-end. Esta regla permite específicamente DNS.
+* **Regla de DNS**: esta regla de paso permite que pase solo el tráfico DNS (puerto 53) al servidor DNS. En este entorno, se bloquea la mayor parte del tráfico desde la subred front-end a la subred back-end. Esta regla permite específicamente DNS.
   
     ![Regla de DNS de firewall][15]
   
-    **Nota**: en esta captura de pantalla se incluye el método Connection. Dado que esta regla es para el tráfico de dirección IP interna a dirección IP interna, no se necesita traducción. El método Connection se establece en "No SNAT" para esta regla de paso.
-* **Regla de subred a subred**: esta es una regla de paso predeterminada que se ha activado y modificado para que permita que cualquier servidor en la subred back-end conecte con cualquier servidor en la subred front-end. Esta regla es toda para tráfico interno por lo que el método Connection se puede establecer en No SNAT.
+    **Nota**: En esta captura de pantalla se incluye el método Connection. Dado que esta regla es para el tráfico de dirección IP interna a dirección IP interna, no se necesita traducción. El método Connection se establece en "No SNAT" para esta regla de paso.
+* **Regla de subred a subred**: esta es una regla de paso predeterminada que se ha activado y modificado para permitir que cualquier servidor en la subred back-end conecte con cualquier servidor en la subred front-end. Esta regla es toda para tráfico interno por lo que el método Connection se puede establecer en No SNAT.
   
     ![Regla entre redes virtuales de firewall][16]
   
-    **Nota**: la casilla Bi-directional (Bidireccional) no está activada (ni lo está en la mayoría de las reglas). Esto es significativo para esta regla porque hace que sea una regla unidireccional, es decir, se puede iniciar una conexión desde la subred back-end hacia la red front-end, pero no a la inversa. Si esa casilla se activa, esta regla permitiría el tráfico bidireccional lo que, desde la perspectiva de nuestro diagrama lógico, no es deseable.
-* **Denegar todas las reglas de tráfico**: esta debe ser siempre la última regla (en términos de prioridad) y, como tal, si un flujo de tráfico no coincide con ninguna de las reglas anteriores, esta regla lo descartará. Esta es una regla predeterminada y normalmente está activada; normalmente no se necesitan modificaciones. 
+    **Nota**: La casilla Bi-directional (Bidireccional) no está activada (ni lo está en la mayoría de las reglas). Esto es significativo para esta regla porque hace que sea una regla unidireccional, es decir, se puede iniciar una conexión desde la subred back-end hacia la red front-end, pero no a la inversa. Si esa casilla se activa, esta regla permitiría el tráfico bidireccional lo que, desde la perspectiva de nuestro diagrama lógico, no es deseable.
+* **Regla para denegar todo el tráfico**: esta debe ser siempre la última regla (en términos de prioridad) y, como tal, si un flujo de tráfico no coincide con ninguna de las reglas anteriores, esta regla lo descartará. Esta es una regla predeterminada y normalmente está activada; normalmente no se necesitan modificaciones. 
   
     ![Regla de denegación de firewall][17]
 
@@ -419,7 +419,7 @@ Recuerde también que los grupos de seguridad de red están vigentes para el tr�
 5. El firewall comienza el procesamiento de las reglas:
    1. No se aplica la regla de reenvío 1 (administración de reenvío), pasar a la regla siguiente.
    2. No se aplican las reglas de reenvío 2 a 5 (reglas de RDP), pasar a la regla siguiente.
-   3. No se aplica la regla de reenvío 6 (aplicación: web), se permite el tráfico, traducción NAT del firewall a 10.0.1.4 (IIS01).
+   3. Se aplica la regla de reenvío 6 (aplicación: web), se permite el tráfico, el firewall traduce las direcciones de red de dicho tráfico a 10.0.1.4 (IIS01)
 6. La subred front-end comienza el procesamiento de las reglas de entrada:
    1. No se aplica la regla 1 (bloquear Internet) de grupo de seguridad de red (el firewall no aplicó traducción NAT a este tráfico y, por lo tanto, la dirección de origen ahora es el firewall que se encuentra en la subred de seguridad. El grupo de seguridad de red de la subred front-end lo considera tráfico "local" y, por tanto, lo permite); pasar a la siguiente regla.
    2. Las reglas de grupo de seguridad de red predeterminadas permiten el tráfico de subred, se permite el tráfico, detener el procesamiento de las reglas de grupo de seguridad de red.
@@ -430,8 +430,8 @@ Recuerde también que los grupos de seguridad de red están vigentes para el tr�
 11. El firewall comienza el procesamiento de las reglas:
     1. No se aplica la regla de reenvío 1 (administración de reenvío), pasar a la regla siguiente.
     2. No se aplican las reglas de reenvío 2 a 5 (reglas de RDP), pasar a la regla siguiente.
-    3. No se aplica la regla de reenvío 6 (reglas de RDP), pasar a la regla siguiente.
-    4. Se aplica la regla de reenvío 7 (aplicación: back-end), se permite el tráfico, el firewall reenvía el tráfico a 10.0.2.5 (AppVM01).
+    3. No se aplica la regla de reenvío 6 (aplicación: web), se pasa a la siguiente regla
+    4. Se aplica la regla de reenvío 7 (aplicación: back-end), se permite el tráfico, el firewall reenvía el tráfico a 10.0.2.5 (AppVM01)
 12. La subred back-end comienza el procesamiento de las reglas de entrada:
     1. No se aplica la regla 1 (bloquear Internet) de grupo de seguridad de red, pasar a la regla siguiente.
     2. Las reglas de grupo de seguridad de red predeterminadas permiten el tráfico de subred, se permite el tráfico, detener el procesamiento de las reglas de grupo de seguridad de red.
@@ -782,7 +782,7 @@ Este script de PowerShell debe ejecutarse localmente en un equipo o servidor con
             Else { Write-Host "The deployment location was found in the network config file." -ForegroundColor Green}}
 
     If ($FatalError) {
-        Write-Host "A fatal error has occured, please see the above messages for more information." -ForegroundColor Red
+        Write-Host "A fatal error has occurred, please see the above messages for more information." -ForegroundColor Red
         Return}
     Else { Write-Host "Validation passed, now building the environment." -ForegroundColor Green}
 
@@ -959,7 +959,7 @@ Guarde este archivo xml con la ubicación actualizada y agregue el vínculo a es
     </NetworkConfiguration>
 
 #### <a name="sample-application-scripts"></a>Scripts de aplicación de ejemplo
-Si desea instalar una aplicación de ejemplo para este y otros ejemplos de red perimetral, hay una en el siguiente vínculo: [Script de aplicación de ejemplo][SampleApp].
+Si quiere instalar una aplicación de ejemplo para este y otros ejemplos de red perimetral, se proporciona uno en el siguiente vínculo: [Script de aplicación de ejemplo][SampleApp]
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/example3design.png "Red perimetral bidireccional con un dispositivo de red virtual, grupos de seguridad de red y enrutamiento definido por el usuario"

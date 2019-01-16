@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
-ms.openlocfilehash: e1dc637d2f629b5002c2e8796fbd29a95478c392
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b48de6a6eeed997fe162cabe4d57e6770e016971
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035506"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54122809"
 ---
 Las máquinas virtuales de Azure pueden tener diferentes estados que se pueden clasificar en estados de *aprovisionamiento* y estados de *energía*. El propósito de este artículo es describir estos estados y resaltar específicamente cuándo se les factura a los clientes por el uso de la instancia. 
 
@@ -108,7 +108,7 @@ Facturación del uso de instancia
  ]</code><br>
 </td>
 <td>
-<p><b>No facturado&#42;</b></p>
+<p><b>Facturado&#42;</b></p>
 </td>
 </tr>
 <tr>
@@ -151,7 +151,7 @@ Facturación del uso de instancia
 </table>
 
 
-&#42;Algunos recursos de Azure como los discos y las redes, incurren en gastos independientemente del estado de la instancia. 
+&#42;Algunos recursos de Azure como los discos y las redes, incurren en gastos. Las licencias de software en la instancia no cuestan nada.
 
 ## <a name="provisioning-states"></a>Estados de aprovisionamiento
 
@@ -287,7 +287,7 @@ Una vez completada la operación, la máquina virtual pasará a uno de los sigui
 
 La API de vista de instancia proporciona información sobre el estado de ejecución de la máquina virtual. Para más información, consulte la documentación de API de [Máquinas virtuales: Instance View](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview).
 
-Azure Resource Explorer proporciona una interfaz de usuario sencilla para ver el estado de ejecución de una máquina virtual: [Resource Explorer](https://resources.azure.com/).
+Azure Resource Explorer proporciona una interfaz de usuario sencilla para ver el estado de ejecución de una máquina virtual: [Explorador de recursos](https://resources.azure.com/).
 
 Los estados de aprovisionamiento son visibles en las propiedades y la vista de instancia de la máquina virtual. Los estados de energía están disponibles en la vista de instancia de la máquina virtual. 
 

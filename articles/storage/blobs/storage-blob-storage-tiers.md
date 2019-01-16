@@ -5,15 +5,15 @@ services: storage
 author: kuhussai
 ms.service: storage
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 01/09/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: e12e29a5a627110ce845cd44be6dd97b717f9b26
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 21e442c7a0cdd0edcce77c862b11ae368d4a3abc
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014504"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191673"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob Storage: niveles de almacenamiento de archivo, esporádico, frecuente y prémium (versión preliminar)
 
@@ -63,7 +63,7 @@ Durante la versión preliminar, el nivel de acceso Premium:
 
 - Está disponible como almacenamiento con redundancia local (LRS)
 - Solo está disponible en las siguientes regiones: Este de EE. UU. 2, Centro de EE. UU. y Oeste de EE. UU.
-- No admite niveles automáticos y administración del ciclo de vida de datos
+- No admite la organización en niveles a nivel de objeto ni automatizada con la administración del ciclo de vida de los datos
 
 Para saber cómo registrarse para obtener la versión preliminar del nivel de acceso Premium, consulte [ Introducción a Azure Premium Blob Storage](https://aka.ms/premiumblob).
 
@@ -86,7 +86,8 @@ El nivel de almacenamiento de acceso esporádico tiene menores costos de almacen
 
 El almacenamiento de archivo tiene el menor costo de almacenamiento y los costos de recuperación de datos más altos en comparación con el almacenamiento frecuente y esporádico. Este nivel está destinado a los datos que pueden tolerar varias horas de latencia de recuperación y que permanecerán en el nivel de archivo durante un mínimo de 180 días.
 
-Mientras un blob esté en almacenamiento de archivo, estará sin conexión y no se podrá leer (excepto los metadatos, que están en línea y disponibles), copiar, sobrescribir o modificar. Tampoco puede tomar instantáneas de un blob en almacenamiento de archivo. Sin embargo, puede usar las operaciones existentes para eliminar, enumerar, obtener propiedades y metadatos del blob o cambiar el nivel del blob.
+Mientras un blob está en almacenamiento de archivo, los datos de blob están sin conexión y no se pueden leer, copiar, sobrescribir ni modificar. Tampoco puede tomar instantáneas de un blob en almacenamiento de archivo. Sin embargo, los metadatos de blob quedan en línea y se mantienen disponibles, lo que permite enumerar el blob y sus propiedades. Para los blobs en el nivel de archivo, las únicas operaciones válidas son GetBlobProperties, GetBlobMetadata, ListBlobs, SetBlobTier y DeleteBlob. 
+
 
 Entre los ejemplos de escenarios de uso del nivel de almacenamiento de archivo se incluyen:
 
@@ -110,20 +111,27 @@ Los blobs en los tres niveles de almacenamiento pueden coexistir dentro de la mi
 > [!NOTE]
 > El almacenamiento de archivo y el almacenamiento por niveles de blob solo admiten blobs en bloques. Tampoco se puede cambiar el nivel de un blob en bloques que tiene instantáneas.
 
-Los datos almacenados en el nivel de acceso Premium no se pueden poner en niveles de almacenamiento de acceso frecuente, esporádico o de archivo mediante el comando [Set Blob Tier](/rest/api/storageservices/set-blob-tier) o mediante la administración del ciclo de vida de Azure Blob Storage. Para mover datos, puede copiar blobs de forma sincrónica desde el nivel de acceso Premium al frecuente con el uso [Put Block From URL API](/rest/api/storageservices/put-block-from-url) o una versión de AzCopy que admite esta API. *Put Block From URL* API copia datos de forma asíncrónica en el servidor, lo que significa que la llamada solo se completa una vez que todos los datos se han movido de la ubicación original del servidor a la ubicación de destino.
+> [!NOTE]
+> Los datos almacenados en el nivel de acceso Premium actualmente no se pueden organizar en niveles de almacenamiento de acceso frecuente, esporádico o de archivo con [Set Blob Tier](/rest/api/storageservices/set-blob-tier) (Establecer el nivel del blob) o mediante la administración del ciclo de vida de Azure Blob Storage. Para mover datos, puede copiar blobs de forma sincrónica desde el nivel de acceso Premium al frecuente con el uso [Put Block From URL API](/rest/api/storageservices/put-block-from-url) o una versión de AzCopy que admite esta API. *Put Block From URL* API copia datos de forma asíncrónica en el servidor, lo que significa que la llamada solo se completa una vez que todos los datos se han movido de la ubicación original del servidor a la ubicación de destino.
 
 ### <a name="blob-lifecycle-management"></a>Administración del ciclo de vida de blobs
 La administración del ciclo de vida de Blob Storage (versión preliminar) ofrece una directiva enriquecida basada en reglas que se puede usar para realizar la transición de los datos al nivel de acceso mejorado y para hacer que los datos expiren cuando finalice su ciclo de vida. Para más información, consulte [Administración del ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md).  
 
 ### <a name="blob-level-tiering-billing"></a>Facturación del almacenamiento por niveles de blob
 
-Cuando un blob se mueve a un nivel de almacenamiento de acceso más esporádico (frecuente -> esporádico, frecuente -> archivo o esporádico -> archivo), la operación se factura como una operación de escritura del nivel de destino, donde se aplican los cargos de la operación de escritura (por 10 000) y de la escritura de datos (por GB) del nivel de destino. Si un blob se mueve a un nivel menos esporádico (archivo -> esporádico, archivo -> frecuente -> o esporádico -> frecuente), la operación se factura como lectura desde el nivel de origen, donde aplican los cargos de la operación de lectura (por 10 000) y de la recuperación de datos (por GB) del nivel de origen.
+Cuando un blob se mueve a un nivel de almacenamiento de acceso más esporádico (frecuente -> esporádico, frecuente -> archivo o esporádico -> archivo), la operación se factura como una operación de escritura del nivel de destino, donde se aplican los cargos de la operación de escritura (por 10 000) y de la escritura de datos (por GB) del nivel de destino. Cuando un blob se mueve a un nivel menos esporádico (archivo -> esporádico, archivo -> frecuente -> o esporádico -> frecuente), la operación se factura como lectura desde el nivel de origen, donde aplican los cargos de la operación de lectura (por 10 000) y de la recuperación de datos (por GB) del nivel de origen.
+
+| | **Cargo por escritura** | **Cargo por lectura** 
+| ---- | ----- | ----- |
+| **Dirección de SetBlobTier** | Frecuente -> esporádico, frecuente -> archivo, esporádico -> archivo | Archivo -> esporádico, archivo -> frecuente, esporádico -> frecuente
 
 Si cambia el nivel de acceso de la cuenta de frecuente a esporádico, solo se le cobrarán las operaciones de escritura (por 10 000) de todos los blobs sin un nivel establecido en las cuentas de GPv2. En las cuentas de Blob Storage no se realiza ningún cargo por este cambio. Si cambia el nivel de acceso de su cuenta de Blob Storage o de GPv2 de esporádico a frecuente, se le cobran tanto las operaciones de lectura (por 10 000) como las de recuperación de datos (por GB). También podrían aplicarse cargos por la eliminación temprana de algún blob que se haya trasladado desde el nivel de acceso esporádico o de archivo.
 
 ### <a name="cool-and-archive-early-deletion"></a>Eliminación temprana en los niveles de acceso esporádico y de archivo
 
 Además de los cargos por GB y por mes, los blobs que se hayan incorporado al nivel de acceso esporádico (solo cuentas de GPv2) están sujetos a un período de eliminación temprana de este nivel de 30 días, y cualquier blob que se haya incorporado al nivel de acceso de archivo está sujeto a un período de eliminación temprana de este nivel de 180 días. Este cargo se prorratea. Por ejemplo, si un blob se mueve al nivel de acceso de archivo y, a continuación, se elimina o se mueve al nivel de acceso frecuente al cabo de 45 días, se le cobrará una cuota de eliminación temprana equivalente a 135 (180 menos 45) días a partir del almacenamiento de ese blob en el nivel de acceso de archivo.
+
+Para calcular la eliminación temprana, use la propiedad de blob, **creation-time**, si no ha habido cambios en el nivel de acceso. También, cuando el nivel de acceso se modificó por última vez a Esporádico o Archivo, puede consultar la propiedad de blob: **access-tier-change-time**. Para más información sobre las propiedades de blob, consulte el artículo sobre cómo [obtener las propiedades de blob](https://docs.microsoft.com/rest/api/storageservices/get-blob-properties).
 
 ## <a name="comparison-of-the-storage-tiers"></a>Comparación de los niveles de almacenamiento
 
@@ -140,7 +148,7 @@ En la tabla siguiente se muestra una comparación de los niveles de almacenamien
 | **Objetivos de escalabilidad y rendimiento** | Igual que las cuentas de almacenamiento de uso general | Igual que las cuentas de almacenamiento de uso general | Igual que las cuentas de almacenamiento de uso general |
 
 > [!NOTE]
-> Las cuentas de Almacenamiento de blobs admiten los mismos objetivos de rendimiento y escalabilidad que las cuentas de almacenamiento de uso general. Consulte [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para obtener más información.
+> Las cuentas de Almacenamiento de blobs admiten los mismos objetivos de rendimiento y escalabilidad que las cuentas de almacenamiento de uso general. Para obtener más información, consulte [Objetivos de escalabilidad y rendimiento de Azure Storage](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
 
 ## <a name="quickstart-scenarios"></a>Escenarios de inicio rápido
 

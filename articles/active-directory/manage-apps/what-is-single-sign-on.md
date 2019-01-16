@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 627bd114504de20517abcd05f45dc6c58fe80117
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: b7e75753f8d7a9316dd1cc644dc22c42ef284736
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322711"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190100"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Inicio de sesión único en aplicaciones de Azure Active Directory
 Aprenda a elegir el método de inicio de sesión único más adecuado al configurar aplicaciones en Azure Active Directory (Azure AD). 
@@ -79,7 +79,7 @@ Use el inicio de sesión único basado en contraseñas si:
 Se admite el inicio de sesión único basado en contraseñas para cualquier aplicación basada en la nube cuya página de inicio de sesión esté basada en HTML. Puede utilizar cualquiera de los siguientes exploradores:
 
 - Internet Explorer 11 en Windows 7 o posterior
-- Edge en Windows 10 Anniversary Edition o posterior 
+- Microsoft Edge en Windows 10 Anniversary Edition o versión posterior 
 - Chrome en Windows 7 o posterior, y en Mac OS X o posterior
 - Firefox 26.0 o posterior en Windows XP SP2 o posterior, y en Mac OS X 10.6 o posterior
 

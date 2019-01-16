@@ -1,25 +1,25 @@
 ---
-title: 'Lección 1 del tutorial de Azure Analysis Services: Creación de un nuevo proyecto de modelo tabular| Microsoft Docs'
+title: 'Lección 1 del tutorial de Azure Analysis Services: Creación de un nuevo proyecto de modelo tabular | Microsoft Docs'
 description: Describe cómo crear un proyecto del tutorial de Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b9d3e9df62ffd31a6a01ea427fec8d5a3d168bfa
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 3291721847d34b0fa9a6259bfeb6ec6fa06ed2b5
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42145925"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188018"
 ---
 # <a name="create-a-tabular-model-project"></a>Creación de un proyecto de modelos tabulares
 
 En esta lección se usa Visual Studio con proyectos de Analysis Services o SQL Server Data Tools (SSDT) para crear un proyecto de modelos tabulares en el nivel de compatibilidad 1400. Una vez creado el proyecto, puede empezar a agregar datos y a crear el modelo. En esta lección también se le proporciona una breve introducción al entorno de creación de modelos tabulares en Visual Studio.  
   
-Tiempo estimado para completar esta lección: **10 minutos**  
+Tiempo estimado para completar esta lección: **10 minutos**  
   
 ## <a name="prerequisites"></a>Requisitos previos  
 Este tema es la primera lección de un tutorial de creación de modelos tabulares. Para llevar a cabo esta lección, hay una serie de requisitos previos que debe cumplir. Para obtener más información, consulte [Azure Analysis Services: Tutorial de Adventure Works](../tutorials/aas-adventure-works-tutorial.md).  
@@ -74,7 +74,7 @@ Explore algunos de los cuadros de diálogo y ubicaciones de distintas caracterí
   
 
 ## <a name="whats-next"></a>Pasos siguientes
-[Lección 2: Obtención de datos](../tutorials/aas-lesson-2-get-data.md)
+[Lección 2: Obtención de datos](../tutorials/aas-lesson-2-get-data.md).
 
   
   

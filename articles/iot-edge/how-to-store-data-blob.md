@@ -5,17 +5,17 @@ author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: arduppal
-ms.date: 10/03/2018
+ms.date: 01/04/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: e56d49208740686b51cdaef1bab778e2c08a9b58
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b5dcc4295467aee82547bc2a0894320bd110998f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077927"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065824"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Almacene datos en el perímetro con Azure Blob Storage en IoT Edge (versión preliminar)
 
@@ -55,129 +55,145 @@ Hay varias maneras de implementar módulos en un dispositivo de IoT Edge, y toda
 
 ### <a name="azure-portal"></a>Azure Portal
 
-#### <a name="find-the-module"></a>Encontrar el módulo
+Azure Marketplace ofrece módulos IoT Edge que se pueden implementar directamente en sus dispositivos IoT Edge, incluido Azure Blob Storage en IoT Edge. Siga estos pasos para implementar el módulo en Azure Portal.
 
-Elija una de las dos opciones para encontrar el módulo de almacenamiento de blobs:
+1. En [Azure Portal](https://portal.azure.com), busque "Azure Blob Storage en IoT Edge". **Seleccione** el resultado de la búsqueda en Marketplace.
 
-1. En Azure Portal, busque "Azure Blob Storage en IoT Edge". **Seleccione** el elemento del resultado de la búsqueda.
-2. Vaya a Marketplace desde Azure Portal y luego haga clic en "Internet de las cosas". En la sección "Módulos de IoT Edge", seleccione "Azure Blob Storage en IoT Edge". Haga clic en **Crear**.
+   ![Creación del módulo en Marketplace](./media/how-to-store-data-blob/marketplace-module.png)
 
-#### <a name="steps-to-deploy"></a>Pasos de implementación
+2. Elija un dispositivo IoT Edge para recibir este módulo. En la página **Dispositivos de destino para el módulo de IoT Edge**, proporcione la siguiente información:
 
-**Dispositivos de destino para el módulo de IoT Edge**
+   1. Seleccione la **suscripción** que contiene el centro de IoT que usa.
 
-1. Seleccione la "suscripción" donde se implementa IoT Hub.
-2. Seleccione "IoT Hub".
-3. Proporcione el "Nombre de dispositivo de IoT Edge" en el que desea implementar este módulo. Puede usar la opción "Buscar dispositivo" para encontrar el dispositivo.
-4. Haga clic en **Create**(Crear).
+   2. Elija **IoT Hub**.
 
-**Establecer módulos**
-
-1. En la sección "Agregar módulos", en "Módulos de implementación", observará que ese módulo ya aparece con un nombre que comienza con "AzureBlobStorageonIoTEdge". 
-2. **Seleccione** el módulo de almacenamiento de blobs de la lista de "Módulos de implementación". Se abrirá el panel lateral de "Módulos personalizados de IoT Edge".
-3. **Nombre**: puede cambiar el nombre del módulo aquí
-4. **URI de la imagen**: reemplace el identificador URI por **mcr.microsoft.com/azure-blob-storage:latest**
-5. **Opciones de creación del contenedor**: edite el código JSON siguiente con sus valores y reemplácelo por el código JSON en la página del portal:
+   3. Si conoce el **nombre del dispositivo IoT Edge**, escríbalo en el cuadro de texto. También puede seleccionar **Buscar dispositivo** para elegir de una lista de dispositivos IoT Edge en el centro de IoT. 
    
-   ```json
-   {
-       "Env":[
-           "LOCAL_STORAGE_ACCOUNT_NAME=<your storage account name>",
-           "LOCAL_STORAGE_ACCOUNT_KEY=<your storage account key>"
-       ],
-       "HostConfig":{
-           "Binds":[
-               "<storage directory bind>"
-           ],
-           "PortBindings":{
-               "11002/tcp":[{"HostPort":"11002"}]
-           }
-       }
-   }
-   ```   
+   4. Seleccione **Crear**.
+
+   Ahora que eligió un módulo de IoT Edge en Azure Marketplace y un dispositivo IoT Edge para recibir el módulo, verá un asistente de tres pasos que lo ayudará a definir exactamente cómo se implementará el módulo.
+
+3. En el paso **Agregar módulos** del Asistente para establecer módulos, tenga en cuenta que el módulo **AzureBlobStorageonIoTEdge** ya aparece en **Módulos de implementación**. 
+
+2. Seleccione el módulo de Blob Storage de la lista de módulos de implementación para abrir los detalles del módulo. 
+
+   ![Selección del nombre del módulo para abrir los detalles del módulo](./media/how-to-store-data-blob/open-module-details.png)
+
+3. En la página **Módulos personalizados de IoT Edge**, actualice el módulo Azure Blob Storage en IoT Edge siguiendo estos pasos:
+
+   1. Cambie el **nombre** del módulo a minúsculas. Puede modificar el nombre del módulo si lo desea, o usar `azureblobstorageoniotedge`. 
+
+      >[!IMPORTANT]
+      >Azure IoT Edge distingue mayúsculas y minúsculas al realizar llamadas a los módulos y el SDK de Storage toma como valor predeterminado la minúsculas. Para asegurarse de que no se interrumpan las conexiones al módulo de Azure Blob Storage en IoT Edge, asígnele un nombre en minúsculas. 
+
+   2. Las **opciones de creación del contenedor** son los enlaces de puerto que el contenedor necesita, pero también debe agregar la información de su cuenta de almacenamiento y un enlace para el directorio de almacenamiento del dispositivo. Sobrescriba el archivo JSON en el portal con el siguiente JSON:
+    
+      ```json
+      {
+          "Env":[
+              "LOCAL_STORAGE_ACCOUNT_NAME=<your storage account name>",
+              "LOCAL_STORAGE_ACCOUNT_KEY=<your storage account key>"
+          ],
+          "HostConfig":{
+              "Binds":[
+                  "<storage directory bind>"
+              ],
+              "PortBindings":{
+                  "11002/tcp":[{"HostPort":"11002"}]
+              }
+          }
+      }
+      ```   
+   3. Actualice el archivo JSON que ha copiado con la siguiente información: 
+
+      * Reemplace `<your storage account name>` por un nombre que pueda recordar. Los nombres de cuenta deben tener entre 3 y 24 caracteres, e incluir números y letras minúsculas.
+      * Actualice `<your storage account key>` por una clave base64 de 64 bytes. Puede generar una clave con herramientas como [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Estas credenciales las usará para acceder a Blob Storage desde otros módulos.
+      * Reemplace `<storage directory bind>` según el sistema operativo del contenedor. Especifique el nombre de un [volumen](https://docs.docker.com/storage/volumes/) o la ruta de acceso absoluta a un directorio del dispositivo de IoT Edge en el que desea que el módulo del blob almacene sus datos. El enlace del directorio de almacenamiento asigna una ubicación del dispositivo proporcionada a una ubicación establecida del módulo. 
+
+         * Contenedores de Linux: **\<ruta de acceso de almacenamiento >:/blobroot**. Por ejemplo, /srv/containerdata:/blobroot. O bien, my-volume:/blobroot. 
+         * Contenedores de Windows: **\<ruta de acceso de almacenamiento >: C:/BlobRoot**. Por ejemplo, C:/ContainerData:C:/BlobRoot. O bien, my-volume:C:/blobroot.
    
-    * Actualice `<your storage account name>`. Los nombres de cuenta deben tener entre 3 y 24 caracteres, e incluir números y letras minúsculas.
-    * Actualice `<your storage account key>` con una clave de base64 de 64 bytes. Puede generar una clave con herramientas como [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Estas credenciales las usará para acceder a Blob Storage desde otros módulos.
-    * Actualice `<storage directory bind>`. Según el sistema operativo del contenedor. Especifique el nombre de un [volumen](https://docs.docker.com/storage/volumes/) o la ruta de acceso absoluta a un directorio del dispositivo de IoT Edge en el que desea que el módulo del blob almacene sus datos.  
+      > [!IMPORTANT]
+      > No cambie la segunda mitad del valor del enlace del directorio de almacenamiento, que señala a una ubicación específica del módulo. El enlace del directorio de almacenamiento siempre debe terminar con **:/blobroot** para contenedores de Linux y **:C:/BlobRoot** para contenedores de Windows.
 
-       * Contenedores de Linux: **\<ruta de acceso de almacenamiento >:/blobroot**. Por ejemplo, /srv/containerdata:/blobroot. O bien, my-volume:/blobroot. 
-       * Contenedores de Windows: **\<ruta de acceso de almacenamiento >: C:/BlobRoot**. Por ejemplo, C:/ContainerData:C:/BlobRoot. O bien, my-volume:C:/blobroot.
-   
-   > [!CAUTION]
-   > No cambie los valores "/blobroot" en Linux y "C:/BlobRoot" en Windows para el **\<enlace del directorio de almacenamiento>**.
+      ![Opciones de creación del contenedor del módulo de actualización: portal](./media/how-to-store-data-blob/edit-module.png)
 
-    ![Opciones de creación del contenedor del módulo de actualización: portal](./media/how-to-store-data-blob/edit-module.png)
+   4. Seleccione **Guardar**.
 
-6. **Guarde** los valores en "Módulos personalizados de IoT Edge".
-7. Haga clic en **Siguiente** en la sección "Establecer módulos".
-8. Haga clic en **Siguiente** en la sección "Especificar rutas".
-9. Después de revisar, haga clic en **Enviar** en la sección "Revisar la implementación".
-10. Verifique en IoT Hub que el dispositivo ejecuta el módulo de almacenamiento de blobs. 
+4. Seleccione **Siguiente** para pasar al próximo paso del asistente.
+5. En el paso **Especificar rutas**, seleccione **Siguiente**.
+6. En el paso **Review Deployment** (Revisar implementación) del asistente, seleccione **Submit** (Enviar).
+7. Después de enviar la implementación, vuelva a la página **IoT Edge** del centro de IoT. Seleccione el dispositivo IoT Edge elegido como destino con la implementación para abrir sus detalles. 
+8. En los detalles del dispositivo, compruebe que el módulo de Blob Storage aparece como **Especificado en la implementación** y **Notificado por el dispositivo**. Puede tardar unos minutos para que el módulo se inicie en el dispositivo y, a continuación, notifique a IoT Hub. Actualice la página para ver el estado actualizado. 
 
 ### <a name="visual-studio-code-templates"></a>Plantillas de Visual Studio Code
 
-Azure IoT Edge proporciona plantillas de Visual Studio Code que facilitan el desarrollo de soluciones de perímetro. Estos pasos requieren que [Visual Studio Code](https://code.visualstudio.com/) esté instalado en el equipo de desarrollo y configurado con la [extensión de Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
+Azure IoT Edge proporciona plantillas de Visual Studio Code que facilitan el desarrollo de soluciones de perímetro. Estos pasos requieren que [Visual Studio Code](https://code.visualstudio.com/) esté instalado en la máquina de desarrollo y configurado con las [herramientas de Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
 Siga estos pasos para crear una nueva solución de IoT Edge con un módulo de Blob Storage y configurar el manifiesto de implementación. 
 
 1. Seleccione **Ver** > **Paleta de comandos**. 
 
-2. En la paleta de comandos, escriba y ejecute el comando **Azure IoT Edge: New IoT Edge Solution** (Nueva solución de IoT Edge). 
+2. En la paleta de comandos, escriba y ejecute el comando **Azure IoT Edge: New IoT Edge solution** (Nueva solución de IoT Edge). Para crear la solución, siga las indicaciones de la paleta de comandos.
 
-3. Siga las indicaciones para crear una solución: 
+   | Campo | Valor |
+   | ----- | ----- |
+   | Seleccionar carpeta | Elija la ubicación en el equipo de desarrollo en la que VS Code creará los archivos de la solución. |
+   | Proporcionar un nombre de la solución | Escriba un nombre descriptivo para la solución o acepte el valor predeterminado **EdgeSolution**. |
+   | Seleccionar plantilla del módulo | Elija **Existing Module (Enter full image URL)** (Módulo existente [escribir URL completa de la imagen]). |
+   | Proporcionar un nombre de módulo | Escriba un nombre en minúsculas para el módulo, como **azureblobstorage**.<br><br>Es importante usar un nombre en minúsculas para el módulo de Azure Blob Storage en IoT Edge. IoT Edge distingue mayúsculas y minúsculas al hacer referencia a módulos y el SDK de Storage toma como valor predeterminado la minúsculas. |
+   | Provide Docker image for the module (Proporcionar imagen de Docker para el módulo) | Proporcione el identificador URI: **mcr.microsoft.com/azure-blob-storage:latest** |
 
-   1. **Seleccionar carpeta**: vaya a la carpeta en la que desea crear la solución.  
-   
-   2. **Especificar el nombre de la solución**: escriba un nombre para la solución o acepte el predeterminado.
-   
-   3. **Seleccionar plantilla de módulo**: elija **Existing Module (Enter full image URL)** [Módulo existente (escribir URL completa de la imagen)].
-   
-   4. **Especificar un nombre de módulo**: escriba un nombre reconocible para el módulo, como **azureBlobStorage**.
-   
-   5. **Especificar imagen de Docker para el módulo**: especifique el identificador URI de la imagen: **mcr.microsoft.com/azure-blob-storage:latest**
+   VS Code toma la información que le ha proporcionado, crea una solución IoT Edge y la carga en una nueva ventana. La plantilla de solución crea una plantilla de manifiesto de implementación que incluye la imagen del módulo de Blob Storage, pero es preciso configurar las opciones de creación del módulo. 
 
-VS Code toma la información que le ha proporcionado, crea una solución IoT Edge y la carga en una nueva ventana. 
+3. Abra **deployment.template.json** en el área de trabajo de la solución nueva y busque la sección **modules**. Realice los cambios de configuración siguientes:
 
-La plantilla de solución crea una plantilla de manifiesto de implementación que incluye la imagen del módulo de Blob Storage, pero es preciso configurar las opciones de creación del módulo. 
+   1. Elimine el módulo **tempSensor**, ya que no es necesaria para esta implementación. 
 
-1. Abra **deployment.template.json** en el área de trabajo de la solución nueva y busque la sección **modules**. 
+   2. Copie y pegue el código siguiente en el campo **createOptions** del módulo de Blob Storage: 
 
-2. Elimine el módulo **tempSensor**, ya que no es necesaria para esta implementación. 
+      ```json
+      "Env": [
+        "LOCAL_STORAGE_ACCOUNT_NAME=$STORAGE_ACCOUNT_NAME","LOCAL_STORAGE_ACCOUNT_KEY=$STORAGE_ACCOUNT_KEY"
+      ],
+      "HostConfig":{
+        "Binds": ["<storage directory bind>"],
+        "PortBindings":{
+          "11002/tcp": [{"HostPort":"11002"}]
+        }
+      }
+      ```
 
-3. Copie y pegue el código siguiente en el campo **createOptions** del módulo de Blob Storage: 
+      ![Actualización del módulo createOptions: VS Code](./media/how-to-store-data-blob/create-options.png)
 
-   ```json
-   {\"Env\": [\"LOCAL_STORAGE_ACCOUNT_NAME=$STORAGE_ACCOUNT_NAME\",\" LOCAL_STORAGE_ACCOUNT_KEY=$STORAGE_ACCOUNT_KEY\"],\"HostConfig\": {\"Binds\": [\"<storage directory bind>\"],\"PortBindings\": {\"11002/tcp\": [{\"HostPort\":\"11002\"}]}}}
-   ```
-
-   ![Actualización del módulo createOptions: VS Code](./media/how-to-store-data-blob/create-options.png)
-
-4. En el JSON de las opciones de creación, actualice `<storage directory bind>` en función del sistema operativo del contenedor. Especifique el nombre de un [volumen](https://docs.docker.com/storage/volumes/) o la ruta de acceso absoluta a un directorio del dispositivo de IoT Edge en el que desea que el módulo del blob almacene sus datos.  
+4. En el JSON de las opciones de creación, actualice `<storage directory bind>` en función del sistema operativo del contenedor. Especifique el nombre de un [volumen](https://docs.docker.com/storage/volumes/) o la ruta de acceso absoluta a un directorio del dispositivo de IoT Edge en el que desea que el módulo del blob almacene sus datos. El enlace del directorio de almacenamiento asigna una ubicación del dispositivo proporcionada a una ubicación establecida del módulo.  
 
    * Contenedores de Linux: **\<ruta de acceso de almacenamiento >:/blobroot**. Por ejemplo, /srv/containerdata:/blobroot. O bien, my-volume:/blobroot.
    * Contenedores de Windows: **\<ruta de acceso de almacenamiento >: C:/BlobRoot**. Por ejemplo, C:/ContainerData:C:/BlobRoot. O bien, my-volume:C:/blobroot.
    
-   > [!CAUTION]
-   > No cambie los valores "/blobroot" en Linux y "C:/BlobRoot" en Windows para el **\<enlace del directorio de almacenamiento>**.
+   > [!IMPORTANT]
+   > No cambie la segunda mitad del valor del enlace del directorio de almacenamiento, que señala a una ubicación específica del módulo. El enlace del directorio de almacenamiento siempre debe terminar con **:/blobroot** para contenedores de Linux y **:C:/BlobRoot** para contenedores de Windows.
 
-5. Guarde **deployment.template.json**.
+5. Guarde el archivo **deployment.template.json**.
 
-6. Abra **.env** en el área de trabajo de la solución. 
+6. Abra el archivo **.env** en el área de trabajo de la solución. 
 
-7. No es preciso que especifique ningún valor del registro de contenedor para la imagen de Blob Storage, ya que está públicamente disponible. En su lugar, agregue dos nuevas variables de entorno: 
+7. El archivo .env está configurado para recibir las credenciales del registro de contenedor, pero no es necesario para la imagen de Blob Storage porque está públicamente disponible. En su lugar, reemplace el archivo por dos nuevas variables de entorno: 
 
    ```env
    STORAGE_ACCOUNT_NAME=
    STORAGE_ACCOUNT_KEY=
    ```
 
-8. Proporcione un valor para `STORAGE_ACCOUNT_NAME`; los nombres de cuenta deben tener entre 3 y 24 caracteres e incluir números y letras minúsculas. Proporcione una clave Base64 de 64 bytes para `STORAGE_ACCOUNT_KEY`. Puede generar una clave con herramientas como [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Estas credenciales las usará para acceder a Blob Storage desde otros módulos. 
+8. Proporcione un valor para `STORAGE_ACCOUNT_NAME`; los nombres de cuenta deben tener entre 3 y 24 caracteres, así como incluir números y letras minúsculas. Proporcione una clave base64 de 64 bytes para `STORAGE_ACCOUNT_KEY`. Puede generar una clave con herramientas como [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Estas credenciales las usará para acceder a Blob Storage desde otros módulos. 
 
-9. Guarde **.env**. 
+   No incluya espacios o comillas alrededor de los valores proporcionados. 
+
+9. Guarde el archivo **.env**. 
 
 10. Haga clic con el botón derecho en **deployment.template.json** y seleccione **Generar manifiesto de implementación de IoT Edge**. 
 
-Visual Studio Code toma la información que especificó en deployment.template.json y .env, y la usa para crear un nuevo archivo de manifiesto de implementación. El manifiesto de implementación se crea en una carpeta **config** nueva en el área de trabajo de la solución. Cuando tenga el archivo, puede seguir los pasos de [Implementación de módulos de Azure IoT Edge desde Visual Studio Code](how-to-deploy-modules-vscode.md) o [Implementación de módulos de Azure IoT Edge con la CLI de Azure 2.0](how-to-deploy-modules-cli.md).
+11. Visual Studio Code toma la información que especificó en deployment.template.json y .env, y la usa para crear un nuevo archivo de manifiesto de implementación. El manifiesto de implementación se crea en una carpeta **config** nueva en el área de trabajo de la solución. Cuando tenga el archivo, puede seguir los pasos de [Implementación de módulos de Azure IoT Edge desde Visual Studio Code](how-to-deploy-modules-vscode.md) o [Implementación de módulos de Azure IoT Edge con la CLI de Azure 2.0](how-to-deploy-modules-cli.md).
 
 ## <a name="connect-to-your-blob-storage-module"></a>Conexión a un módulo de Blob Storage
 
@@ -185,7 +201,7 @@ Puede usar el nombre y la clave de cuenta que configuró para el módulo para ac
 
 Especifique el dispositivo de IoT Edge como el punto de conexión del blob para todas las solicitudes de almacenamiento que realice en él. Puede [crear una cadena de conexión para un punto de conexión de almacenamiento explícito](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint) mediante la información del dispositivo de IoT Edge y el nombre de cuenta que configuró. 
 
-1. Para los módulos que se implementan en el mismo dispositivo perimetral en que se está ejecutando "Azure Blob Storage en IoT Edge", el punto de conexión del blob es: `http://<Module Name>:11002/<account name>`. 
+1. Para los módulos que se implementan en el mismo dispositivo perimetral en que se está ejecutando "Azure Blob Storage en IoT Edge", el punto de conexión del blob es: `http://<module name>:11002/<account name>`. 
 2. Para los módulos que se implementan en dispositivos perimetrales distintos al que está ejecutando "Azure Blob Storage en IoT Edge", de acuerdo con su configuración, el punto de conexión del blob es: `http://<device IP >:11002/<account name>`, `http://<IoT Edge device hostname>:11002/<account name>` o `http://<FQDN>:11002/<account name>`
 
 ## <a name="logs"></a>Registros

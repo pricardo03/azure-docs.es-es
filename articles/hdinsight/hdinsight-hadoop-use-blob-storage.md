@@ -8,17 +8,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: 7513ce90437ebf3d06d4ceb0ea5a83610db5f7dd
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.date: 01/04/2019
+ms.openlocfilehash: a94f55449535faf0f4d061e3368f408843361063
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742701"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051975"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Uso de Azure Storage con clústeres de Azure HDInsight
 
-Para analizar datos del clúster de HDInsight, puede almacenar los datos en Azure Storage, [Azure Data Lake Storage Gen 1/Azure Data Lake Storage Gen2], o en ambos lugares. Ambas opciones de almacenamiento le permiten eliminar de forma segura clústeres de HDInsight que se usan para el cálculo sin perder datos del usuario.
+Para analizar datos del clúster de HDInsight, puede almacenar los datos en [Azure Storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md)/[Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md), o en ambos lugares. Ambas opciones de almacenamiento le permiten eliminar de forma segura clústeres de HDInsight que se usan para el cálculo sin perder datos del usuario.
 
 Apache Hadoop admite una noción del sistema de archivos predeterminado. El sistema de archivos predeterminado implica una autoridad y un esquema predeterminados. También se puede usar para resolver rutas de acceso relativas. Durante el proceso de creación del clúster de HDInsight, puede especificar un contenedor de blobs en Azure Storage como el sistema de archivos predeterminado; también, con HDInsight 3.6, puede seleccionar Azure Storage o Azure Data Lake Storage Gen 1/Azure Data Lake Storage Gen 2 como el sistema de archivos predeterminado con algunas excepciones. Para más información sobre la compatibilidad con el uso de Data Lake Store Gen 1 como almacenamiento predeterminado y como almacenamiento vinculado, consulte [Disponibilidades de los clústeres de HDInsight](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
 
@@ -31,13 +31,16 @@ Azure Storage es una solución de almacenamiento sólida y de uso general, que s
 
 | Tipo de cuenta de almacenamiento | Servicios admitidos | Niveles de rendimiento admitidos | Niveles de acceso admitidos |
 |----------------------|--------------------|-----------------------------|------------------------|
-| Uso general v2   | Blob               | Estándar                    | Frecuente, esporádico, archivo 3    |
+| Uso general v2   | Blob               | Estándar                    | Frecuente, esporádico, archivo*    |
 | Uso general v1   | Blob               | Estándar                    | N/D                    |
-| Almacenamiento de blobs         | Blob               | Estándar                    | Frecuente, esporádico, archivo 3    |
+| Almacenamiento de blobs         | Blob               | Estándar                    | Frecuente, esporádico, archivo*    |
 
 No se recomienda usar el contenedor de blobs predeterminado para almacenar datos empresariales. Conviene eliminar el contenedor de blobs predeterminado después de cada uso para reducir los costos de almacenamiento. Tenga en cuenta que el contenedor predeterminado contiene los registros del sistema y de la aplicación. Asegúrese de recuperar los registros antes de eliminar el contenedor.
 
 No se permite compartir un contenedor de blobs como el sistema de archivos predeterminado entre varios clústeres.
+ 
+ > [!NOTE]  
+ > El nivel de acceso de archivo es un nivel sin conexión que tiene una latencia de recuperación de varias horas y no se recomienda para su uso con HDInsight. Para más información, consulte <a href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#archive-access-tier">Nivel de acceso de archivo</a>.
 
 ## <a name="hdinsight-storage-architecture"></a>Arquitectura de almacenamiento de HDInsight
 El diagrama siguiente proporciona una panorámica de la arquitectura de almacenamiento de HDInsight disponible al utilizar Azure Storage:

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 413decee89e99b8120d271e2e87e703d4d362c33
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 81f76b31f7af3643e2b654e8e26c70d0481d60b8
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999295"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017113"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Uso de Azure Functions Proxies
 
@@ -176,13 +176,13 @@ El comportamiento del proxy puede controlarse mediante varias opciones de config
 
 ### <a name="reservedChars"></a> Caracteres reservados (formato de cadena)
 
-Los proxies leen todas las cadenas en la notación de cadena C#, mediante \\\\\\ como símbolo de escape. Los proxies también interpretan las llaves. Consulte a continuación un conjunto completo de ejemplos.
+Los proxies leen todas las cadenas de un archivo JSON usando \ como un símbolo de escape. Los proxies también interpretan las llaves. Consulte a continuación un conjunto completo de ejemplos.
 
 |Character|Carácter de escape|Ejemplo|
 |-|-|-|
 |{ o }|{{ o }}|`{{ example }}` --> `{ example }`
-| \ | \\\\\\\\ | `example.com\\\text.html` --> `example.com\text.html`
-|"|\\\\\\"| `\\\"example\\\"` --> `"example"`
+| \ | \\\\ | `example.com\\text.html` --> `example.com\text.html`
+|"|\\\"| `\"example\"` --> `"example"`
 
 ### <a name="requestOverrides"></a>Definición de un objeto requestOverrides
 

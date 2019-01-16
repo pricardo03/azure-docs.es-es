@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 227ef61ee4809d376c6ac5e8e8c1a7f9c364b7fc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d2940e1d8328ffaea799ddff4afc9669aaa85a2f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255769"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065637"
 ---
 # <a name="azure-storage-account-overview"></a>Información general acerca de la cuenta de Azure Storage
 
@@ -23,33 +23,13 @@ Para obtener información sobre cómo crear una cuenta de Azure Storage, consult
 
 ## <a name="types-of-storage-accounts"></a>Tipos de cuentas de almacenamiento
 
-Azure Storage proporciona tres tipos de cuentas de almacenamiento. Cada tipo admite diferentes características y tiene su propio modelo de precios. Tenga en cuenta estas diferencias antes de crear una cuenta de almacenamiento para determinar el tipo de cuenta más adecuada para sus aplicaciones. Estos son los tipos de cuentas de almacenamiento:
-
-* **[Cuentas de uso general v2](#general-purpose-v2-accounts)** (recomendadas para la mayoría de los escenarios)
-* **[Cuentas de uso general v1](#general-purpose-v1-accounts)**
-* **[Cuentas de almacenamiento de blobs](#blob-storage-accounts)** 
-
-En la siguiente tabla se describen los tipos de cuentas de almacenamiento y sus capacidades:
-
-| Tipo de cuenta de almacenamiento | Servicios admitidos                       | Niveles de rendimiento admitidos | Niveles de acceso admitidos               | Opciones de replicación                                                | Modelo de implementación<sup>1</sup>  | Cifrado<sup>2</sup> |
-|----------------------|------------------------------------------|-----------------------------|--------------------------------------|--------------------------------------------------------------------|-------------------|------------|
-| Uso general v2   | Blob, archivo, cola, tabla y disco       | Estándar, Premium           | Frecuente, Esporádico, Archivo<sup>3</sup> | LRS, ZRS<sup>4</sup>, GRS, RA-GRS | Resource Manager | Cifrados  |
-| Uso general v1   | Blob, archivo, cola, tabla y disco       | Estándar, Premium           | N/D                                  | LRS, GRS, RA-GRS                                                   | Resource Manager, clásico  | Cifrados  |
-| Almacenamiento de blobs         | Blob (solo blobs en bloques y blobs en anexos) | Estándar                    | Frecuente, Esporádico, Archivo<sup>3</sup>                            | LRS, GRS, RA-GRS                                                   | Resource Manager  | Cifrados  |
-
-<sup>1</sup>Se recomienda usar el modelo de implementación de Azure Resource Manager. Las cuentas de almacenamiento que usan el modelo de implementación clásico aún se pueden crear en algunas ubicaciones; asimismo, se seguirán admitiendo las cuentas clásicas ya existentes. Para obtener más información, consulte [La implementación de Azure Resource Manager frente a la implementación clásica: los modelos de implementación y el estado de los recursos](../../azure-resource-manager/resource-manager-deployment-model.md).
-
-<sup>2</sup>Todas las cuentas de almacenamiento se encriptan mediante Storage Service Encryption (SSE) para los datos en reposo. Para más información, consulte [Cifrado del servicio Azure Storage para datos en reposo](storage-service-encryption.md).
-
-<sup>3</sup>El nivel de archivo está disponible solo en el nivel de un blob individual, y no en el nivel de la cuenta de almacenamiento. Solo se pueden archivar los blobs en bloques y los blocs adjuntos. Para más información, consulte [Azure Blob Storage: niveles de almacenamiento de acceso frecuente, esporádico y de archivo](../blobs/storage-blob-storage-tiers.md).
-
-<sup>4</sup>El almacenamiento con redundancia de zona (ZRS) solo está disponible para las cuentas de almacenamiento de uso general estándar v2. Para obtener más información sobre ZRS, consulte[Almacenamiento con redundancia de zona (ZRS): aplicaciones de Azure Storage de alta disponibilidad](storage-redundancy-zrs.md). Para obtener más información acerca de otras opciones de replicación, consulte [Replicación de Azure Storage](storage-redundancy.md).
+[!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
 ### <a name="general-purpose-v2-accounts"></a>Cuentas de uso general v2.
 
 Las cuentas de almacenamiento de uso general v2 son compatibles con las últimas características de Azure Storage, e incorporan todas las funcionalidades de las cuentas de Blob Storage y de uso general v1. Las cuentas de uso general v2 ofrecen los precios de capacidad por gigabyte más bajos para Azure Storage, así como los precios de transacción más competitivos del sector. Las cuentas de almacenamiento de uso general v2 son compatibles con estos servicios de Azure Storage:
 
-- Blobs (todos los tipos: en bloques, adjuntos, en páginas)
+- Blobs (todos los tipos: en bloques, en páginas y en anexos).
 - Archivos
 - Discos
 - Colas
@@ -98,7 +78,7 @@ Cuando especifique un nombre para la cuenta de almacenamiento, tenga en cuenta e
 Las cuentas de almacenamiento de uso general pueden configurarse para cada uno de los niveles de rendimiento siguientes:
 
 * Un nivel de rendimiento estándar para almacenar blobs, archivos, tablas, colas y discos de máquina virtual de Azure.
-* Un nivel de rendimiento premium para almacenar solo los discos de máquina virtual de Azure. Consulte [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de Azure Virtual Machines](../../virtual-machines/windows/premium-storage.md) para una información general detallada de Premium Storage.
+* Un nivel de rendimiento premium para almacenar solo los discos de máquina virtual de Azure. Consulte, [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de Azure Virtual Machines](../../virtual-machines/windows/premium-storage.md) para ver una introducción detallada de Premium Storage.
 
 ## <a name="access-tiers-for-block-blob-data"></a>Niveles de acceso a datos de blob en bloques
 
@@ -114,7 +94,7 @@ Los niveles de acceso disponibles son:
 * El nivel de almacenamiento de **archivo** está disponible solo para blobs en bloques individuales. Este nivel está destinado a los datos que pueden tolerar varias horas de latencia de recuperación y que permanecerán en el nivel de almacenamiento de archivo durante un mínimo de 180 días. El nivel de almacenamiento de archivo es el más rentable de todos para almacenar datos, pero el acceso a esos datos es más costoso que acceder a los datos del nivel de acceso frecuente o esporádico. 
 
 
-Si hay un cambio en el patrón de uso de datos, también se puede cambiar de nivel de acceso en cualquier momento. Para más información sobre los niveles de acceso, consulte [Azure Blob storage: Premium (preview), hot, cool, and archive storage tiers](../blobs/storage-blob-storage-tiers.md) (Azure Blob Storage: niveles de almacenamiento premium [versión preliminar], esporádico, frecuente y de archivo).
+Si hay un cambio en el patrón de uso de datos, también se puede cambiar de nivel de acceso en cualquier momento. Para obtener más información sobre los niveles de acceso, consulte [Azure Blob Storage: niveles de almacenamiento de archivo, esporádico, frecuente y Premium (versión preliminar)](../blobs/storage-blob-storage-tiers.md).
 
 > [!IMPORTANT]
 > Si cambia el nivel de acceso de una cuenta de almacenamiento o blob existente es posible que deba pagar cargos adicionales. Para más información, consulte la sección [Facturación de la cuenta de almacenamiento](#storage-account-billing).

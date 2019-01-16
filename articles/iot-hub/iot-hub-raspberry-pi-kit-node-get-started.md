@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 8a533b3bf90ac2635ee05c6511c28d18784ddfec
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a4e64259b941a4f2c2727afc8730c6cb0102a061
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343860"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054886"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Conectar Raspberry Pi a Azure IoT Hub (Node.js)
 
@@ -240,6 +240,6 @@ Debería ver el resultado siguiente, que muestra los datos del sensor y los mens
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ha ejecutado una aplicación de ejemplo para recopilar datos de sensor y enviarlos a IoT Hub. Para ver los mensajes que la Raspberry Pi ha enviado a su centro de IoT o enviar mensajes a la Raspberry Pi, consulte [Uso de la extensión Azure IoT Hub Toolkit para Visual Studio Code a fin de enviar y recibir mensajes entre el dispositivo e IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+Ha ejecutado una aplicación de ejemplo para recopilar datos de sensor y enviarlos a IoT Hub. Para ver los mensajes que la Raspberry Pi ha enviado a su centro de IoT o enviar mensajes a la Raspberry Pi, vea [Utilice Azure IoT Toolkit para Visual Studio Code a fin de enviar y recibir mensajes entre el dispositivo e IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

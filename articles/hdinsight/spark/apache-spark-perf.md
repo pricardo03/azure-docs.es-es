@@ -8,13 +8,13 @@ ms.author: maxluk
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/11/2018
-ms.openlocfilehash: a6ab4d751be74b66d9e75a37f88bc8d441f9b003
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 01/08/2019
+ms.openlocfilehash: d1eeedfd91dfe1d4a174a3cbed2c0db826a8d5ab
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653737"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54117867"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Optimización de trabajos de Apache Spark
 
@@ -24,7 +24,7 @@ En las siguientes secciones se describen las recomendaciones y optimizaciones co
 
 ## <a name="choose-the-data-abstraction"></a>Selección de la abstracción de datos
 
-Spark 1.x usa RDD para abstraer datos y luego con Spark 2.x se introdujeron DataFrames y DataSets. Tenga en cuenta las siguientes ventajas relativas:
+Las versiones anteriores de Spark usan RDD para abstraer datos; Spark 1.3 y 1.6 introdujeron DataFrames y DataSets, respectivamente. Tenga en cuenta las siguientes ventajas relativas:
 
 * **DataFrames**
     * La mejor opción en la mayoría de los casos.
@@ -42,7 +42,7 @@ Spark 1.x usa RDD para abstraer datos y luego con Spark 2.x se introdujeron Data
     * Gran sobrecarga de GC.
     * Interrumpe la generación de código en tiempo de ejecución.
 * **RDD**
-    * En Spark 2.x no es necesario usar los RDD, a menos que deba crear un nuevo RDD personalizado.
+    * No es necesario usar RDD, a menos que deba crear un nuevo RDD personalizado.
     * Sin optimización de consultas mediante Catalyst.
     * Sin generación de código en tiempo de ejecución.
     * Gran sobrecarga de GC.

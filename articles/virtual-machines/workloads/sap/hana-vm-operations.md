@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d716a27cc2b4879451a8d5edbca46ca1bbfeaf40
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 96b0c44ff36dac3832e518deeed7f07b11e78c16
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968994"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54160053"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configuraciones y operaciones de infraestructura de SAP HANA en Azure
 En este documento se proporcionan instrucciones para configurar la infraestructura de Azure y sobre el funcionamiento de los sistemas SAP HANA que se implementaron en máquinas virtuales nativas de Azure. En el documento también se incluye información sobre la configuración de la escalabilidad horizontal de SAP HANA para la SKU de máquinas virtuales M128s. Este documento no pretende reemplazar ninguna documentación estándar de SAP, incluido el contenido siguiente:
@@ -317,7 +317,7 @@ En relación con los VNIC de una máquina virtual de escalabilidad horizontal de
 - En última instancia, para el tráfico a **/hana/shared**, implemente una subred de terceros en la red virtual que implemente la configuración de escalabilidad horizontal de SAP HANA y asigne un tercer VNIC que se hospede en esa subred. Utilice el tercer VNIC y la dirección IP asociada para el tráfico al recurso compartido NFS. Después puede aplicar reglas de enrutamiento y de acceso independientes.
 
 >[!IMPORTANT]
->El tráfico de red entre las máquinas virtuales que tienen implementada la escalabilidad horizontal de SAP HANA y el recurso NFS de alta disponibilidad no puede enrutarse en ningún caso mediante [aplicaciones virtuales de red](https://azure.microsoft.com/solutions/network-appliances/) o dispositivos virtuales similares. Por otra parte, los grupos de seguridad de red de Azure no son tales dispositivos. Compruebe las reglas de enrutamiento para asegurarse de que las aplicaciones virtuales de red o dispositivos virtuales similares se desvían al acceder al recurso compartido NFS de alta disponibilidad desde las máquinas virtuales que ejecutan SAP HANA.
+>El tráfico de red entre las máquinas virtuales que tienen implementada la escalabilidad horizontal de SAP HANA y el recurso NFS de alta disponibilidad no puede enrutarse en ningún caso mediante [aplicaciones virtuales de red](https://azure.microsoft.com/solutions/network-appliances/) o dispositivos virtuales similares. Por otra parte, los grupos de seguridad de red de Azure no son tales dispositivos. Compruebe las reglas de enrutamiento para asegurarse de que las aplicaciones virtuales de red o dispositivos virtuales similares se desvían al obtener acceso al recurso compartido NFS de alta disponibilidad desde las máquinas virtuales que ejecutan SAP HANA.
 > 
 
 Si desea compartir el clúster NFS de alta disponibilidad entre las configuraciones de SAP HANA, mueva todas esas configuraciones de HANA a la misma red virtual. 

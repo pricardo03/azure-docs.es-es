@@ -9,17 +9,16 @@ ms.assetid: 9b0fdc59-5bbe-44d1-9ebc-8be14d44def9
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 843b92c20b2ec930ce67659802a4287328a08650
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 77c55657f57af655b5b8154dbcf58472434396a6
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618876"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015499"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Supervisión y administración de canalizaciones de Azure Data Factory mediante Azure Portal y PowerShell
 > [!div class="op_single_selector"]
@@ -162,7 +161,7 @@ Cuando se implementa una factoría de datos y las canalizaciones tienen un perí
 
 ![Diagrama de estado](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
 
-El flujo de transición de estado del conjunto de datos de la factoría de datos es el siguiente: En espera -> En curso /En curso (Validando) -> Listo/Error.
+El flujo de transición de estado del conjunto de datos en la factoría de datos es el siguiente: Espera -> En curso/En curso (validando) -> Listo/error.
 
 El segmento se inicia con un estado **En espera**, mientras se espera a que se cumplan las condiciones previas que deben cumplirse antes de su ejecución. Luego, la actividad comienza a ejecutarse y el segmento pasa al estado **En curso**. La ejecución de esta actividad se completará correctamente o dará error. El segmento se marca como **Listo** o **Error** según el resultado de la ejecución.
 

@@ -5,30 +5,29 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 14453a1603eb414441008ef1381800009f4268e4
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5c46d4e4d23744cf07ccf7857a33990bf405a6a1
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994426"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189021"
 ---
 # <a name="connect-with-excel"></a>Conexión con Excel
 
 Una vez que se ha creado un servidor y se ha implementado en él un modelo tabular, los clientes pueden conectarse y comenzar a explorar los datos. 
 
 ## <a name="before-you-begin"></a>Antes de empezar
+
 La cuenta con la que inicie sesión debe pertenecer a un rol de base de datos modelo con, por lo menos, permisos de lectura. Para más información, consulte [Permisos de usuario y autenticación](analysis-services-manage-users.md). 
 
 ## <a name="connect-in-excel"></a>Conexión en Excel
 
-La conexión a un servidor en Excel se admite mediante Obtener datos en Excel 2016. No se admite la conexión mediante el Asistente para importar tablas en Power Pivot. 
+La conexión a un servidor en Excel se admite mediante Obtener datos en Excel 2016 y versiones posteriores. No se admite la conexión mediante el Asistente para importar tablas en Power Pivot. 
 
-**Conexión en Excel 2016**
-
-1. En Excel 2016, en la cinta de opciones **Datos**, haga clic en **Obtener datos externos** > **De otros orígenes** > **Desde Analysis Services**.
+1. En la cinta **Datos** de Excel, haga clic en **Obtener datos externos** > **Desde otros orígenes** > **Desde Analysis Services**.
 
 2. En el Asistente para conexión de datos, en **Nombre del servidor**, escriba el nombre del servidor incluidos el protocolo y el URI. Por ejemplo, asazure://westcentralus.asazure.windows.net/advworks. Luego, en **Credenciales de inicio de sesión**, seleccione **Utilizar el nombre de usuario y la contraseña siguientes** y escriba el nombre de usuario de la organización (por ejemplo, nancy@adventureworks.com) y la contraseña.
 
@@ -43,6 +42,7 @@ La conexión a un servidor en Excel se admite mediante Obtener datos en Excel 20
 
 
 ## <a name="see-also"></a>Otras referencias
+
 [Bibliotecas de cliente](analysis-services-data-providers.md)   
 [Administración del servidor](analysis-services-manage.md)     
 

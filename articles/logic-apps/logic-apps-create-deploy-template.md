@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: c953d4635ce43ee05fe7c507076c5bd11e9d8c81
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 8714c91079d087b16a62af4af8b381edf6871f8b
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000570"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065739"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Creación de plantillas de Azure Resource Manager para implementar aplicaciones lógicas
 
@@ -34,7 +34,7 @@ En el recurso de la aplicación lógica, puede encontrar esta definición en la 
 * **Conexiones**: hace referencia a recursos independientes que almacenan los metadatos de manera segura acerca de las conexiones del conector, como una cadena de conexión y un token de acceso.
 En el recurso de la aplicación lógica, su aplicación lógica consulta estos recursos en la sección `parameters`.
 
-Puede ver todas estas piezas de las aplicaciones lógicas existentes mediante herramientas como el [Explorador de recursos de Azure](http://resources.azure.com).
+Puede ver todas estas piezas de las aplicaciones lógicas existentes mediante herramientas como el [Explorador de recursos de Azure](http://resources.azure.com). Para la sintaxis y propiedades JSON, vea [Tipos de recursos de Microsoft.Logic](/azure/templates/microsoft.logic/allversions).
 
 Para crear una plantilla para una aplicación lógica que pueda utilizar con implementaciones de grupos de recursos, es preciso definir los recursos y parametrizarlos según sea necesario.
 Por ejemplo, si va a implementar en un entorno de desarrollo, prueba y producción, probablemente deseará usar cadenas de conexión diferentes para una base de datos SQL en cada entorno.

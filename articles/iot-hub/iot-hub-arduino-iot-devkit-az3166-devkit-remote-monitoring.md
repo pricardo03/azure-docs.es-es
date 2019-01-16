@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: 79a44e3f5303aaf0d337333b482c2df670e0b3da
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 954a57bb9253e4f18d61c3a699b6e721568da292
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42144708"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157418"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Conexión de MXChip IoT DevKit al acelerador de la solución de supervisión remota de Azure IoT
 
@@ -82,7 +82,7 @@ Una suscripción de Azure activa. Si no tiene una, puede registrarse a través d
 4. Expanda la sección de la izquierda **EJEMPLOS DE ARDUINO**, vaya a **Ejemplos para MXCHIP AZ3166 > AzureIoT** y seleccione **RemoteMonitoring**. Se abre una nueva ventana de VS Code que contiene la carpeta de proyecto.
 
    > [!NOTE]
-   > Si cierra el panel, puede volver a abrirlo. Utilice `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) para abrir la paleta de comandos, escriba **Arduino** y, a continuación, busque y seleccione **Arduino: ejemplos** .
+   > Si cierra el panel, puede volver a abrirlo. Utilice `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) para abrir la paleta de comandos, escriba **Arduino** y, a continuación, busque y seleccione **Arduino: Ejemplos**.
 
 ## <a name="provision-required-azure-services"></a>Aprovisionamiento de los servicios de Azure necesarios
 
@@ -127,7 +127,7 @@ Si desea cambiar el valor **AZ3166** codificado de forma rígida a un ID de disp
 Si tiene problemas, consulte las [preguntas frecuentes del kit para desarrolladores de IoT](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) o póngase en contacto con nosotros mediante los siguientes canales:
 
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
-* [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: d044b1ad18df6eee1235e881038bbb9734a999ff
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 99ea7e7db9d0cc80bfd37a256fc1be388feaa530
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317354"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043896"
 ---
-# <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Inicio rápido: inicio de sesión y adquisición de un token de acceso por parte de los usuarios desde una aplicación de JavaScript
+# <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Inicio rápido: Inicio de sesión y adquisición de un token de acceso por parte de los usuarios desde una aplicación de JavaScript
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
@@ -31,9 +31,20 @@ En esta guía de inicio rápido aprenderá a usar un código de ejemplo que mues
 ![Funcionamiento de la aplicación de ejemplo que se genera en esta guía de inicio rápido](media/quickstart-v2-javascript/javascriptspa-intro.png)
 
 > [!div renderon="docs"]
-> ## <a name="register-your-application-and-download-your-quickstart-app"></a>Registro de una aplicación y descarga de la aplicación de la guía de inicio rápido
+> ## <a name="register-and-download-your-quickstart-application"></a>Registro y descarga de la aplicación de inicio rápido
+> Tiene dos opciones para comenzar con la aplicación de inicio rápido:
+> * [Rápido] [Opción 1: registrar y configurar de modo automático la aplicación y, a continuación, descargar el código de ejemplo](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
+> * [Manual] [Opción 2: registrar y configurar manualmente la aplicación y el código de ejemplo](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
-> #### <a name="step-1-register-your-application"></a>Paso 1: Registro de la aplicación
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opción 1: registrar y configurar de modo automático la aplicación y, a continuación, descargar el código de ejemplo
+>
+> 1. Vaya a [Azure Portal: registro de aplicaciones (versión preliminar)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs).
+> 1. Escriba un nombre para la aplicación y haga clic en **Registrar**.
+> 1. Siga las instrucciones para descargar y configurar automáticamente la nueva aplicación en un solo clic.
+>
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opción 2: registrar y configurar manualmente la aplicación y el código de ejemplo
+>
+> #### <a name="step-1-register-your-application"></a>Paso 1: Registrar su aplicación
 >
 > 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) para registrar una aplicación.
 > 1. Si la cuenta proporciona acceso a más de un inquilino, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.

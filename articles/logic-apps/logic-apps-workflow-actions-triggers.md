@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: 4b124b79eeacf0df5f1b9dff798ebeea20d82090
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 27c074b12d2b151015e6946c483302387726dfc5
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044780"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190844"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referencia sobre los tipos de desencadenador y de acción del lenguaje de definición de flujo de trabajo en Azure Logic Apps
 
@@ -54,8 +54,8 @@ Los desencadenadores tienen estos elementos de nivel superior, aunque algunos so
 | <*trigger-name*> | string | El nombre del desencadenador | 
 | <*trigger-type*> | string | El tipo de desencadenador como, por ejemplo, "Http" o "ApiConnection" | 
 | <*trigger-inputs*> | Objeto JSON | Las entradas que definen el comportamiento del desencadenador | 
-| <*time-unit*> | string | Unidad de tiempo que describe con qué frecuencia se activa el desencadenador: "Second", "Minute", "Hour", "Day", "Week" o "Month" | 
-| <*number-of-time-units*> | Entero | Un valor que especifica con qué frecuencia se activa el desencadenador según la frecuencia, que es el número de unidades de tiempo que debe esperar hasta que el desencadenador se activa de nuevo <p>Estos son los intervalos mínimo y máximo: <p>- Month: 1-16 meses </br>- Day: 1-500 días </br>- Hour: 1-12 000 horas </br>- Minute: 1-72 000 minutos </br>- Second: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
+| <*time-unit*> | string | La unidad de tiempo que describe la frecuencia con que se activa el desencadenador: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
+| <*number-of-time-units*> | Entero | Un valor que especifica con qué frecuencia se activa el desencadenador según la frecuencia, que es el número de unidades de tiempo que debe esperar hasta que el desencadenador se activa de nuevo <p>Estos son los intervalos mínimo y máximo: <p>- Month: - 1-16 meses </br>- Day: 1-500 días </br>- Hour: 1-12 000 horas </br>- Minute: 1-72 000 minutos </br>- Second: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
 |||| 
 
 *Opcional*
@@ -133,10 +133,10 @@ Este desencadenador comprueba o *sondea* un punto de conexión mediante [API adm
 |-------|------|-------------| 
 | <*APIConnection_trigger_name*> | string | El nombre del desencadenador | 
 | <*connection-name*> | string | El nombre de la conexión a la API administrada que utiliza el flujo de trabajo | 
-| <*method-type*> | string | Método HTTP para comunicación con la API administrada API: "GET", "PUT", "POST", "PATCH", "DELETE" | 
+| <*method-type*> | string | El método HTTP para comunicarse con la API administrada: "GET", "PUT", "POST", "PATCH", "DELETE" | 
 | <*api-operation*> | string | La operación de API a la que llamar | 
-| <*time-unit*> | string | Unidad de tiempo que describe con qué frecuencia se activa el desencadenador: "Second", "Minute", "Hour", "Day", "Week" o "Month" | 
-| <*number-of-time-units*> | Entero | Un valor que especifica con qué frecuencia se activa el desencadenador según la frecuencia, que es el número de unidades de tiempo que debe esperar hasta que el desencadenador se activa de nuevo <p>Estos son los intervalos mínimo y máximo: <p>- Month: 1-16 meses </br>- Day: 1-500 días </br>- Hour: 1-12 000 horas </br>- Minute: 1-72 000 minutos </br>- Second: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
+| <*time-unit*> | string | La unidad de tiempo que describe la frecuencia con que se activa el desencadenador: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
+| <*number-of-time-units*> | Entero | Un valor que especifica con qué frecuencia se activa el desencadenador según la frecuencia, que es el número de unidades de tiempo que debe esperar hasta que el desencadenador se activa de nuevo <p>Estos son los intervalos mínimo y máximo: <p>- Month: - 1-16 meses </br>- Day: 1-500 días </br>- Hour: 1-12 000 horas </br>- Minute: 1-72 000 minutos </br>- Second: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
 |||| 
 
 *Opcional*
@@ -304,10 +304,10 @@ Este desencadenador comprueba o sondea el punto de conexión especificado según
 
 | Valor | Escriba | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*method-type*> | string | Método HTTP que va a usar para sondear el punto de conexión especificado: "GET", "PUT", "POST", "PATCH", "DELETE" | 
+| <*method-type*> | string | El método HTTP que se usará para sondear el punto de conexión especificado: "GET", "PUT", "POST", "PATCH", "DELETE" | 
 | <*endpoint-URL*> | string | La dirección URL HTTP o HTTPS que va a sondear el punto de conexión <p>Tamaño máximo de la cadena: 2 KB | 
-| <*time-unit*> | string | Unidad de tiempo que describe con qué frecuencia se activa el desencadenador: "Second", "Minute", "Hour", "Day", "Week" o "Month" | 
-| <*number-of-time-units*> | Entero | Un valor que especifica con qué frecuencia se activa el desencadenador según la frecuencia, que es el número de unidades de tiempo que debe esperar hasta que el desencadenador se activa de nuevo <p>Estos son los intervalos mínimo y máximo: <p>- Month: 1-16 meses </br>- Day: 1-500 días </br>- Hour: 1-12 000 horas </br>- Minute: 1-72 000 minutos </br>- Second: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
+| <*time-unit*> | string | La unidad de tiempo que describe la frecuencia con que se activa el desencadenador: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
+| <*number-of-time-units*> | Entero | Un valor que especifica con qué frecuencia se activa el desencadenador según la frecuencia, que es el número de unidades de tiempo que debe esperar hasta que el desencadenador se activa de nuevo <p>Estos son los intervalos mínimo y máximo: <p>- Month: - 1-16 meses </br>- Day: 1-500 días </br>- Hour: 1-12 000 horas </br>- Minute: 1-72 000 minutos </br>- Second: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
 |||| 
 
 *Opcional*
@@ -401,7 +401,7 @@ Algunos de los valores, como <*method-type*>, están disponibles para objetos `"
 
 | Valor | Escriba | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*method-type*> | string | Método HTTP que la solicitud de suscripción usa: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
+| <*method-type*> | string | El método HTTP que se usará para la solicitud de suscripción: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
 | <*endpoint-subscribe-URL*> | string | Dirección URL del punto de conexión a donde enviar la solicitud de suscripción | 
 |||| 
 
@@ -409,7 +409,7 @@ Algunos de los valores, como <*method-type*>, están disponibles para objetos `"
 
 | Valor | Escriba | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*method-type*> | string | Método HTTP que se usará para la solicitud de cancelación: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
+| <*method-type*> | string | El método HTTP que se usará para la solicitud de cancelación: "GET", "PUT", "POST", "PATCH" o "DELETE" | 
 | <*endpoint-unsubscribe-URL*> | string | Dirección URL del punto de conexión a donde enviar la solicitud de cancelación | 
 | <*body-content*> | string | Cualquier contenido de mensaje para enviar en la solicitud de suscripción o de cancelación | 
 | <*authentication-method*> | Objeto JSON | El método que usa la solicitud para la autenticación. Para más información, consulte [Autenticación saliente de Scheduler](../scheduler/scheduler-outbound-authentication.md). |
@@ -495,8 +495,8 @@ Este desencadenador se ejecuta según la programación de periodicidad especific
 
 | Valor | Escriba | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*time-unit*> | string | Unidad de tiempo que describe con qué frecuencia se activa el desencadenador: "Second", "Minute", "Hour", "Day", "Week" o "Month" | 
-| <*number-of-time-units*> | Entero | Un valor que especifica con qué frecuencia se activa el desencadenador según la frecuencia, que es el número de unidades de tiempo que debe esperar hasta que el desencadenador se activa de nuevo <p>Estos son los intervalos mínimo y máximo: <p>- Month: 1-16 meses </br>- Day: 1-500 días </br>- Hour: 1-12 000 horas </br>- Minute: 1-72 000 minutos </br>- Second: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
+| <*time-unit*> | string | La unidad de tiempo que describe la frecuencia con que se activa el desencadenador: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
+| <*number-of-time-units*> | Entero | Un valor que especifica con qué frecuencia se activa el desencadenador según la frecuencia, que es el número de unidades de tiempo que debe esperar hasta que el desencadenador se activa de nuevo <p>Estos son los intervalos mínimo y máximo: <p>- Month: - 1-16 meses </br>- Day: 1-500 días </br>- Hour: 1-12 000 horas </br>- Minute: 1-72 000 minutos </br>- Second: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
 |||| 
 
 *Opcional*
@@ -507,7 +507,7 @@ Este desencadenador se ejecuta según la programación de periodicidad especific
 | <*time-zone*> | string | Solo se aplica cuando se especifica una hora de inicio porque este desencadenador no acepta [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Especifique la zona horaria que desea aplicar. | 
 | <*one-or-more-hour-marks*> | Entero o matriz de enteros | Si especifica "Day" o "Semana" para `frequency`, puede especificar uno o varios enteros de 0 a 23, separados por comas, como las horas del día en las que desea ejecutar el flujo de trabajo. <p>Por ejemplo, si especifica "10", "12" y "14", obtendrá 10 a. m., 12 p. m. y 2 p. m. como las marcas de hora. | 
 | <*one-or-more-minute-marks*> | Entero o matriz de enteros | Si especifica "Day" o "Semana" para `frequency`, puede especificar uno o varios enteros de 0 a 59, separados por comas, como los minutos de la hora en los que desea ejecutar el flujo de trabajo. <p>Por ejemplo, puede especificar "30" como la marca de minuto y, utilizando el ejemplo anterior para las horas del día, obtendrá 10:30 a. m., 12:30 p. m. y las 2:30 p. m. | 
-| weekDays | Cadena o matriz de cadenas | Si especifica "Week" para `frequency`, puede especificar uno o varios días, separados por comas, cuando desee ejecutar el flujo de trabajo: "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" y "Sunday" | 
+| weekDays | Cadena o matriz de cadenas | Si especifica "Week" para `frequency`, puede especificar uno o varios días, separados por comas, cuando quiera ejecutar el flujo de trabajo: "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" y "Sunday" | 
 | <*max-runs*> | Entero | De forma predeterminada, las instancias del flujo de trabajo de la aplicación lógica se ejecutan al mismo tiempo o en paralelo hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio en la simultaneidad de desencadenadores](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Entero | Cuando la aplicación lógica está ejecutando el número máximo de instancias, número que puede cambiar en función de la propiedad `runtimeConfiguration.concurrency.runs`, cualquier nueva ejecución se pondrá en esta cola hasta alcanzar el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](#change-waiting-runs). | 
 | <*operation-option*> | string | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). | 
@@ -612,7 +612,7 @@ Para llamar a este desencadenador, debe usar la `listCallbackUrl`API que se desc
 
 | Valor | Escriba | DESCRIPCIÓN | 
 |-------|------|-------------| 
-| <*method-type*> | string | Método que las solicitudes entrantes deben usar para llamar a la aplicación lógica: "GET", "PUT", "POST", "PATCH", "DELETE" |
+| <*method-type*> | string | El método que las solicitudes entrantes deben usar para llamar a la aplicación lógica: "GET", "PUT", "POST", "PATCH", "DELETE" |
 | <*relative-path-for-accepted-parameter*> | string | La ruta de acceso relativa del parámetro que la dirección URL del punto de conexión puede aceptar | 
 | <*required-properties*> | Matriz | Una o más propiedades que requieren valores | 
 | <*max-runs*> | Entero | De forma predeterminada, las instancias del flujo de trabajo de la aplicación lógica se ejecutan al mismo tiempo o en paralelo hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio en la simultaneidad de desencadenadores](#change-trigger-concurrency). | 
@@ -1072,7 +1072,7 @@ Esta acción llama a una [función de Azure](../azure-functions/functions-create
 | Valor | Escriba | DESCRIPCIÓN | 
 |-------|------|-------------|  
 | <*Azure-function-ID*> | string | El identificador de recurso de la función de Azure que quiere llamar. Este es el formato de este valor:<p>"/subscriptions/<*Azure-subscription-ID*>/resourceGroups/<*Azure-resource-group*>/providers/Microsoft.Web/sites/<*Azure-function-app-name*>/functions/<*Azure-function-name*>" | 
-| <*method-type*> | string | El método HTTP que se utiliza para llamar a la función: "GET", "PUT", "POST", "PATCH" o "DELETE" <p>Si no se especifica, "POST" es el método predeterminado. | 
+| <*method-type*> | string | El método HTTP que se usará para llamar a la función: "GET", "PUT", "POST", "PATCH" o "DELETE" <p>Si no se especifica, "POST" es el método predeterminado. | 
 ||||
 
 *Opcional*
@@ -1238,7 +1238,7 @@ Esta acción crea campos o *tokens* fáciles de usar a partir de las propiedades
 | Valor | Escriba | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*JSON-source*> | Objeto JSON | El contenido JSON que desea analizar | 
-| <*JSON-schema*> | Objeto JSON | El esquema JSON que describe el contenido JSON subyacente, que la acción utiliza para analizar el contenido JSON de origen. <p>**Sugerencia**: en el diseñador de Logic Apps, puede proporcionar el esquema, o bien una carga de ejemplo para que la acción pueda generar el esquema. | 
+| <*JSON-schema*> | Objeto JSON | El esquema JSON que describe el contenido JSON subyacente, que la acción utiliza para analizar el contenido JSON de origen. <p>**Sugerencia**: En el diseñador de Logic Apps, puede proporcionar el esquema, o bien una carga de ejemplo para que la acción pueda generar el esquema. | 
 |||| 
 
 *Ejemplo*
@@ -1737,7 +1737,7 @@ Esta acción detiene la ejecución del flujo de trabajo durante el intervalo esp
 | Valor | Escriba | DESCRIPCIÓN | 
 |-------|------|-------------| 
 | <*number-of-units*> | Entero | Para la acción **Delay** es el número de unidades que debe esperar | 
-| <*intervalo*> | string | Para la acción **Delay**, los valores del intervalo de espera pueden ser: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
+| <*intervalo*> | string | Para la acción de **retraso**, el intervalo que se esperará: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
 | <*date-time-stamp*> | string | Para la acción **Delay Until**, la fecha y hora en la que se reanudará la ejecución. Este valor debe usar el [formato UTC de fecha y hora](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). | 
 |||| 
 
@@ -2350,9 +2350,9 @@ Este es un ejemplo que limita las ejecuciones simultáneas a 10 instancias:
 
 1. En la esquina superior derecha del desencadenador, elija el botón de los puntos suspensivos (...) y, a continuación, elija **Configuración**.
 
-2. En **Control de simultaneidad**, establezca **Invalidar predeterminado** en **Activado**. 
+2. En **Control de simultaneidad**, establezca **Límite** en **Activado**. 
 
-3. Arrastre el control deslizante **Grado de paralelismo** al valor que desee. 
+3. Arrastre el control deslizante **Grado de paralelismo** al valor que desee. Para ejecutar la aplicación lógica de manera secuencial, arrastre el valor del control deslizante a **1**.
 
 <a name="change-for-each-concurrency"></a>
 
@@ -2387,9 +2387,9 @@ Este es un ejemplo que limita las ejecuciones simultáneas a 10 iteraciones:
 
 1. En la acción **For each**, en la esquina superior derecha, elija el botón de puntos suspensivos (...) y luego elija **Configuración**.
 
-2. En **Control de simultaneidad**, establezca **Invalidar predeterminado** en **Activado**. 
+2. En **Control de simultaneidad**, establezca **Control de simultaneidad** en **Activado**. 
 
-3. Arrastre el control deslizante **Grado de paralelismo** al valor que desee. 
+3. Arrastre el control deslizante **Grado de paralelismo** al valor que desee. Para ejecutar la aplicación lógica de manera secuencial, arrastre el valor del control deslizante a **1**.
 
 <a name="change-waiting-runs"></a>
 
@@ -2465,7 +2465,7 @@ Establezca la propiedad `operationOptions` en `SingleInstance`:
 
 1. En la esquina superior derecha del desencadenador, elija el botón de los puntos suspensivos (...) y, a continuación, elija **Configuración**.
 
-2. En **Control de simultaneidad**, establezca **Invalidar predeterminado** en **Activado**. 
+2. En **Control de simultaneidad**, establezca **Límite** en **Activado**. 
 
 3. Arrastre el control deslizante **Grado de paralelismo** al número `1`. 
 
@@ -2516,7 +2516,7 @@ Establezca la propiedad `operationOptions` en `Sequential`:
 
 1. En la esquina superior derecha de la acción **For each**, elija el botón de puntos suspensivos (...) y, a continuación, elija **Configuración**.
 
-2. En **Control de simultaneidad**, establezca **Invalidar predeterminado** en **Activado**. 
+2. En **Control de simultaneidad**, establezca **Control de simultaneidad** en **Activado**. 
 
 3. Arrastre el control deslizante **Grado de paralelismo** al número `1`. 
 
@@ -2644,7 +2644,7 @@ Para este tipo de autenticación, la definición del desencadenador o acción pu
 | **secret** | Sí, solo para el tipo de credencial de "Secreto" | <*secret-for-authentication*> | El secreto codificado en base 64 que el cliente usa para solicitar autorización |
 ||||| 
 
-Por ejemplo, este es el formato para el objeto `authentication` cuando su definición de acción o desencadenador usa el tipo de credencial "Secreto": para más información acerca de cómo proteger los parámetros, consulte [Protección de la información confidencial](#secure-info). 
+Por ejemplo, este es el formato para el objeto `authentication` cuando la definición de desencadenador o acción usa el tipo de credencial "Secreto": Para más información acerca de cómo proteger los parámetros, consulte [Protección de la información confidencial](#secure-info). 
 
 ```javascript
 "authentication": {
@@ -2706,7 +2706,7 @@ En la sección `parameters` de la definición de aplicación lógica, defina los
 },
 ```
 
-Si está creando o utilizando una plantilla de implementación de Azure Resource Manager, también tiene que incluir una sección `parameters` externa para la definición de plantilla. Para más información acerca de cómo proteger los parámetros, consulte [Protección del acceso a las aplicaciones lógicas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow). 
+Si está creando o utilizando una plantilla de implementación de Azure Resource Manager, también tiene que incluir una sección `parameters` externa para la definición de plantilla. Para más información acerca de cómo proteger los parámetros, consulte [Protección del acceso a las aplicaciones lógicas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

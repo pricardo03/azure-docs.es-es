@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 50d5fd4efaf9accf48a76d6cde2fdb37cac9c5a0
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0680140d9f4f4e77b5029c30c37f4c531652c6f2
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193848"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119125"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Administrar y mantener el agente de Log Analytics para Windows y Linux
 
-Después de la implementación inicial del agente de Windows o Linux para Log Analytics, debe volver a configurar el agente o quitarlo del equipo si alcanzó la fase de retirada de su ciclo de vida.  Puede administrar fácilmente estas tareas de mantenimiento rutinarias manualmente o de manera automática, lo que reduce los errores de funcionamiento y los gastos.
+Después de la implementación inicial del agente de Windows o Linux para Log Analytics, debe volver a configurar el agente o quitarlo del equipo si alcanzó la fase de retirada de su ciclo de vida. Puede administrar fácilmente estas tareas de mantenimiento rutinarias manualmente o de manera automática, lo que reduce los errores de funcionamiento y los gastos.
 
-## <a name="adding-or-removing-a-workspace"></a>Adición o eliminación de un área de trabajo 
+## <a name="adding-or-removing-a-workspace"></a>Adición o eliminación de un área de trabajo
 
 ### <a name="windows-agent"></a>Agente de Windows
 
@@ -34,10 +34,10 @@ Después de la implementación inicial del agente de Windows o Linux para Log An
 2. Abra el **Panel de control**.
 3. Seleccione **Microsoft Monitoring Agent** y haga clic en la pestaña **Azure Log Analytics**.
 4. Si quiere eliminar un área de trabajo, selecciónela y, después, haga clic en **Quitar**. Repita este paso para cualquier otra área de trabajo de la que quiera que el agente deje de informar.
-5. Si agrega un área de trabajo, haga clic en **Agregar** y en el cuadro de diálogo **Agregar área de trabajo de Log Analytics**, pegue el identificador del área de trabajo y la clave del área de trabajo (clave principal). Si el equipo tiene que notificar a un área de trabajo de Log Analytics en Azure Government Cloud, seleccione Azure Gobierno de EE.UU. de la lista desplegable Azure Cloud. 
+5. Si agrega un área de trabajo, haga clic en **Agregar** y en el cuadro de diálogo **Agregar área de trabajo de Log Analytics**, pegue el identificador del área de trabajo y la clave del área de trabajo (clave principal). Si el equipo tiene que notificar a un área de trabajo de Log Analytics en Azure Government Cloud, seleccione Azure Gobierno de EE.UU. de la lista desplegable Azure Cloud.
 6. Haga clic en **Aceptar** para guardar los cambios.
 
-#### <a name="remove-a-workspace-using-powershell"></a>Quitar un área de trabajo con PowerShell 
+#### <a name="remove-a-workspace-using-powershell"></a>Quitar un área de trabajo con PowerShell
 
 ```PowerShell
 $workspaceId = "<Your workspace Id>"
@@ -46,7 +46,7 @@ $mma.RemoveCloudWorkspace($workspaceId)
 $mma.ReloadConfiguration()
 ```
 
-#### <a name="add-a-workspace-in-azure-commercial-using-powershell"></a>Agregar un área de trabajo en Azure Commercial con PowerShell 
+#### <a name="add-a-workspace-in-azure-commercial-using-powershell"></a>Agregar un área de trabajo en Azure Commercial con PowerShell
 
 ```PowerShell
 $workspaceId = "<Your workspace Id>"
@@ -56,7 +56,7 @@ $mma.AddCloudWorkspace($workspaceId, $workspaceKey)
 $mma.ReloadConfiguration()
 ```
 
-#### <a name="add-a-workspace-in-azure-for-us-government-using-powershell"></a>Agregar un área de trabajo en Azure for US Government con PowerShell 
+#### <a name="add-a-workspace-in-azure-for-us-government-using-powershell"></a>Agregar un área de trabajo en Azure for US Government con PowerShell
 
 ```PowerShell
 $workspaceId = "<Your workspace Id>"
@@ -71,34 +71,37 @@ $mma.ReloadConfiguration()
 >
 
 ### <a name="linux-agent"></a>Agente Linux
-En los pasos siguientes se muestra cómo volver a configurar el agente de Linux si decide registrarlo en un área de trabajo diferente o si desea quitar una área de trabajo de la configuración.  
+En los pasos siguientes se muestra cómo volver a configurar el agente de Linux si decide registrarlo en un área de trabajo diferente o si desea quitar una área de trabajo de la configuración.
 
-1.  Para comprobar que está registrado en un área de trabajo, ejecute el siguiente comando.
+1. Para comprobar que está registrado en un área de trabajo, ejecute el siguiente comando:
 
-    `/opt/microsoft/omsagent/bin/omsadmin.sh -l` 
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -l`
 
-    Debe devolver un estado similar al del siguiente ejemplo: 
+    Debe devolver un estado similar al del ejemplo siguiente:
 
     `Primary Workspace: <workspaceId>   Status: Onboarded(OMSAgent Running)`
 
-    Es importante que el estado también muestre que el agente se está ejecutando, de lo contrario los siguientes pasos para volver a configurar el agente no se completarán correctamente.  
+    Es importante que el estado también muestre que el agente se está ejecutando, de lo contrario los siguientes pasos para volver a configurar el agente no se completarán correctamente.
 
-2. Si ya está registrado en un área de trabajo, quite el área de trabajo registrada mediante al ejecución del siguiente comando.  En caso contrario, si no está registrado, continúe con el paso siguiente.
+2. Si ya está registrado en un área de trabajo, quite el área de trabajo registrada mediante al ejecución del siguiente comando. En caso contrario, si no está registrado, continúe con el paso siguiente.
 
-    `/opt/microsoft/omsagent/bin/omsadmin.sh -X`  
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -X`
+
+3. Para registrarse con otra área de trabajo, ejecute el comando siguiente:
+
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <shared key> [-d <top level domain>]`
     
-3. Para registrarse con otra área de trabajo, ejecute el comando `/opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <shared key> [-d <top level domain>]`. 
-4. Para comprobar que los cambios surten efecto, ejecute el comando.
+4. Para comprobar que los cambios surten efecto, ejecute el siguiente comando:
 
-    `/opt/microsoft/omsagent/bin/omsadmin.sh -l` 
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -l`
 
-    Debe devolver un estado similar al del siguiente ejemplo: 
+    Debe devolver un estado similar al del ejemplo siguiente:
 
     `Primary Workspace: <workspaceId>   Status: Onboarded(OMSAgent Running)`
 
 El servicio del agente no tiene que reiniciarse para que los cambios surtan efecto.
 
-## <a name="update-proxy-settings"></a>Actualizar la configuración de proxy 
+## <a name="update-proxy-settings"></a>Actualizar la configuración de proxy
 Si quiere configurar el agente para comunicarse con el servicio a través de un servidor proxy o la [puerta de enlace de Log Analytics](gateway.md) después de la implementación, use uno de los métodos siguientes para completar esta tarea.
 
 ### <a name="windows-agent"></a>Agente de Windows
@@ -108,25 +111,25 @@ Si quiere configurar el agente para comunicarse con el servicio a través de un 
 1. Inicie sesión en el equipo con una cuenta con derechos administrativos.
 2. Abra el **Panel de control**.
 3. Seleccione **Microsoft Monitoring Agent** y haga clic en la pestaña **Configuración de proxy**.
-4. Haga clic en **Usar un servidor proxy** y proporcione la dirección URL y el número de puerto del servidor proxy o puerta de enlace. Si el servidor proxy o la puerta de enlace de Log Analytics requiere autenticación, escriba el nombre de usuario y la contraseña para autenticarse y luego haga clic en **Aceptar**. 
+4. Haga clic en **Usar un servidor proxy** y proporcione la dirección URL y el número de puerto del servidor proxy o puerta de enlace. Si el servidor proxy o la puerta de enlace de Log Analytics requiere autenticación, escriba el nombre de usuario y la contraseña para autenticarse y luego haga clic en **Aceptar**.
 
-#### <a name="update-settings-using-powershell"></a>Actualizar la configuración con PowerShell 
+#### <a name="update-settings-using-powershell"></a>Actualizar la configuración con PowerShell
 
-Copie el código de PowerShell de ejemplo siguiente, actualícelo con información específica de su entorno y guárdelo con una extensión de nombre de archivo PS1.  Ejecute el script en cada uno de los equipos que se conecta directamente con el servicio Log Analytics.
+Copie el código de PowerShell de ejemplo siguiente, actualícelo con información específica de su entorno y guárdelo con una extensión de nombre de archivo PS1. Ejecute el script en cada uno de los equipos que se conecta directamente con el servicio Log Analytics.
 
 ```PowerShell
 param($ProxyDomainName="https://proxy.contoso.com:30443", $cred=(Get-Credential))
 
-# First we get the Health Service configuration object.  We need to determine if we
-#have the right update rollup with the API we need.  If not, no need to run the rest of the script.
+# First we get the Health Service configuration object. We need to determine if we
+#have the right update rollup with the API we need. If not, no need to run the rest of the script.
 $healthServiceSettings = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
 
 $proxyMethod = $healthServiceSettings | Get-Member -Name 'SetProxyInfo'
 
 if (!$proxyMethod)
 {
-     Write-Output 'Health Service proxy API not present, will not update settings.'
-     return
+    Write-Output 'Health Service proxy API not present, will not update settings.'
+    return
 }
 
 Write-Output "Clearing proxy settings."
@@ -136,24 +139,24 @@ $ProxyUserName = $cred.username
 
 Write-Output "Setting proxy to $ProxyDomainName with proxy username $ProxyUserName."
 $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetNetworkCredential().password)
-```  
+```
 
 ### <a name="linux-agent"></a>Agente Linux
-Siga estos pasos si los equipos Linux necesitan comunicarse a través de un servidor proxy o la puerta de enlace de Log Analytics.  El valor de configuración de proxy tiene la siguiente sintaxis: `[protocol://][user:password@]proxyhost[:port]`.  La propiedad *proxyhost* acepta un nombre de dominio completo o la dirección IP del servidor proxy.
+Siga estos pasos si los equipos Linux necesitan comunicarse a través de un servidor proxy o la puerta de enlace de Log Analytics. El valor de configuración de proxy tiene la siguiente sintaxis: `[protocol://][user:password@]proxyhost[:port]`. La propiedad *proxyhost* acepta un nombre de dominio completo o la dirección IP del servidor proxy.
 
 1. Edite el archivo `/etc/opt/microsoft/omsagent/proxy.conf`. Para ello, ejecute los comandos siguientes y cambie los valores según su configuración específica.
 
     ```
     proxyconf="https://proxyuser:proxypassword@proxyserver01:30443"
     sudo echo $proxyconf >>/etc/opt/microsoft/omsagent/proxy.conf
-    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf 
+    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf
     ```
 
-2. Ejecute el comando siguiente para reiniciar el agente: 
+2. Ejecute el comando siguiente para reiniciar el agente:
 
     ```
     sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
-    ``` 
+    ```
 
 ## <a name="uninstall-agent"></a>Desinstalar agente
 Utilice uno de los procedimientos siguientes para desinstalar al agente de Windows o Linux mediante el asistente para instalación o la línea de comandos.
@@ -161,22 +164,22 @@ Utilice uno de los procedimientos siguientes para desinstalar al agente de Windo
 ### <a name="windows-agent"></a>Agente de Windows
 
 #### <a name="uninstall-from-control-panel"></a>Desinstalar desde el Panel de control
-1. Inicie sesión en el equipo con una cuenta con derechos administrativos.  
+1. Inicie sesión en el equipo con una cuenta con derechos administrativos.
 2. En **Panel de control**, haga clic en **Programas y características**.
 3. En **Programas y características**, haga clic en **Microsoft Monitoring Agent**, haga clic en **Desinstalar** y, después, haga clic en **Sí**.
 
 >[!NOTE]
->También se puede ejecutar el asistente para instalación del agente haciendo doble clic en **MMASetup-<platform>.exe**, que está disponible para su descarga desde un área de trabajo en Azure Portal.
+>También se puede ejecutar el Asistente para instalación del agente; para ello, haga doble clic en **MMASetup-\<plataforma\>.exe**, que está disponible para descargar desde un área de trabajo de Azure Portal.
 
 #### <a name="uninstall-from-the-command-line"></a>Desinstalar desde la línea de comandos
-El archivo descargado para el agente es un paquete de instalación independiente creado con IExpress.  El programa de instalación para el agente y los archivos auxiliares se encuentran en el paquete y deben extraerse para realizar la desinstalación correctamente con la línea de comandos que se muestra en el ejemplo siguiente. 
+El archivo descargado para el agente es un paquete de instalación independiente creado con IExpress. El programa de instalación para el agente y los archivos auxiliares se encuentran en el paquete y deben extraerse para realizar la desinstalación correctamente con la línea de comandos que se muestra en el ejemplo siguiente.
 
-1. Inicie sesión en el equipo con una cuenta con derechos administrativos.  
-2. Para extraer los archivos de instalación del agente, desde un símbolo del sistema con privilegios elevados ejecute `extract MMASetup-<platform>.exe` y se le solicitará la ruta en la que extraer los archivos.  Como alternativa, puede especificar la ruta de acceso pasando los argumentos `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`.  Para obtener más información acerca de los modificadores de la línea de comandos compatibles con IExpress, consulte [Command-line switches for IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) (Modificadores de la línea de comandos para IExpress) y, después, actualice el ejemplo para adaptarlo a sus necesidades.
-3. En el símbolo del sistema, escriba:`%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`.  
+1. Inicie sesión en el equipo con una cuenta con derechos administrativos.
+2. Para extraer los archivos de instalación del agente, desde un símbolo del sistema con privilegios elevados ejecute `extract MMASetup-<platform>.exe` y se le solicitará la ruta en la que extraer los archivos. Como alternativa, puede especificar la ruta de acceso pasando los argumentos `extract MMASetup-<platform>.exe /c:<Path> /t:<Path>`. Para obtener más información acerca de los modificadores de la línea de comandos compatibles con IExpress, consulte [Command-line switches for IExpress](https://support.microsoft.com/help/197147/command-line-switches-for-iexpress-software-update-packages) (Modificadores de la línea de comandos para IExpress) y, después, actualice el ejemplo para adaptarlo a sus necesidades.
+3. En el símbolo del sistema, escriba:`%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`.
 
 ### <a name="linux-agent"></a>Agente Linux
-Para quitar el agente, ejecute el siguiente comando en el equipo Linux.  El argumento *--purge* quita completamente el agente y su configuración.
+Para quitar el agente, ejecute el siguiente comando en el equipo Linux. El argumento *--purge* quita completamente el agente y su configuración.
 
    `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 
@@ -185,10 +188,10 @@ Para quitar el agente, ejecute el siguiente comando en el equipo Linux.  El argu
 ### <a name="windows-agent"></a>Agente de Windows
 Siga estos pasos para configurar al agente de Log Analytics para Windows para informar a un grupo de administración de System Center Operations Manager.
 
-[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
+[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 1. Inicie sesión en el equipo con una cuenta con derechos administrativos.
-2. Abra el **Panel de control**. 
+2. Abra el **Panel de control**.
 3. Haga clic en **Microsoft Monitoring Agent** y, después, en la pestaña **Operations Manager**.
 4. Si los servidores de Operations Manager tienen integración con Active Directory, haga clic en **Actualizar automáticamente asignaciones de grupos de administración desde AD DS**.
 5. Haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar un grupo de administración**.
@@ -199,7 +202,7 @@ Siga estos pasos para configurar al agente de Log Analytics para Windows para in
 10. Haga clic en **Aceptar** para cerrar el cuadro de diálogo **Agregar un grupo de administración** y después haga clic en **Aceptar** para cerrar el cuadro de diálogo **Propiedades de Microsoft Monitoring Agent**.
 
 ### <a name="linux-agent"></a>Agente Linux
-Siga estos pasos para configurar al agente de Log Analytics para Linux para informar a un grupo de administración de System Center Operations Manager. 
+Siga estos pasos para configurar al agente de Log Analytics para Linux para informar a un grupo de administración de System Center Operations Manager.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -209,4 +212,4 @@ Siga estos pasos para configurar al agente de Log Analytics para Linux para info
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte [Troubleshooting the Linux agent](agent-linux-troubleshoot.md) (Solución de problemas del agente Linux) si encuentra problemas durante la instalación del agente o al administrarlo.  
+Consulte [Troubleshooting the Linux agent](agent-linux-troubleshoot.md) (Solución de problemas del agente Linux) si encuentra problemas durante la instalación del agente o al administrarlo.

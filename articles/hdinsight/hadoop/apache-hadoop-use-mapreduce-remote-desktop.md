@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: c0040958cbf748d3eafb3ee60806b064e4e0b1ba
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 43daae3f3cb8a2b95413983464e41a69e69fcf36
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435793"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120571"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight-with-remote-desktop"></a>Uso de MapReduce de Apache Hadoop en HDInsight con Escritorio remoto
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
@@ -74,7 +74,7 @@ Una vez conectado al escritorio para el clúster de HDInsight, siga estos pasos 
 
         hadoop fs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
-    Se mostrará una lista de las palabras contenidas en el archivo **wasb://example/data/gutenberg/davinci.txt**, junto con el número de veces que aparecía cada palabra. El siguiente es un ejemplo de los datos que estarán contenidos en el archivo:
+    Se muestra una lista de las palabras contenidas en el archivo **wasb://example/data/gutenberg/davinci.txt**, junto con el número de veces que aparecía cada palabra. El siguiente es un ejemplo de los datos que estarán contenidos en el archivo:
 
         wreathed        3
         wreathing       1

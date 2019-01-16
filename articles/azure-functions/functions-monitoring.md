@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: da676b5d1cb3c25adc72d04882915ee0440c2d98
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: d0c24fbd749a344d9041e9c50c34e6e58ab8fd38
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002338"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121233"
 ---
 # <a name="monitor-azure-functions"></a>Monitor Azure Functions
 
-[Azure Functions](functions-overview.md) ofrece integración incorporada con [Azure Application Insights](../application-insights/app-insights-overview.md) para las funciones de supervisión. En este artículo se muestra cómo configurar Functions para enviar archivos de registro generados por el sistema a Application Insights.
+[Azure Functions](functions-overview.md) ofrece integración incorporada con [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) para las funciones de supervisión. En este artículo se muestra cómo configurar Functions para enviar archivos de registro generados por el sistema a Application Insights.
 
 ![Explorador de métricas de Application Insights](media/functions-monitoring/metrics-explorer.png)
 
@@ -329,7 +329,7 @@ Como se indicó en la sección anterior, el tiempo de ejecución agrega datos ac
 
 ## <a name="configure-sampling"></a>Configurar el muestreo
 
-Application Insights tiene una característica de [muestreo](../application-insights/app-insights-sampling.md) que le puede ayudar a impedir que se recopilen demasiados datos de telemetría en los momentos de picos de carga. Cuando tasa de datos de telemetría supera un umbral especificado, Application Insights empieza a omitir aleatoriamente algunos de los elementos entrantes. La configuración predeterminada para el número máximo de elementos por segundo es 5. Puede configurar el muestreo en [host.json](functions-host-json.md).  Este es un ejemplo:
+Application Insights tiene una característica de [muestreo](../azure-monitor/app/sampling.md) que le puede ayudar a impedir que se recopilen demasiados datos de telemetría en los momentos de picos de carga. Cuando tasa de datos de telemetría supera un umbral especificado, Application Insights empieza a omitir aleatoriamente algunos de los elementos entrantes. La configuración predeterminada para el número máximo de elementos por segundo es 5. Puede configurar el muestreo en [host.json](functions-host-json.md).  Este es un ejemplo:
 
 ### <a name="version-2x"></a>Versión 2.x 
 
@@ -360,7 +360,7 @@ Application Insights tiene una característica de [muestreo](../application-insi
 ```
 
 > [!NOTE]
-> El [muestreo](../application-insights/app-insights-sampling.md) está habilitado de forma predeterminada. Si parece que faltan datos, es posible que simplemente deba ajustar la configuración de muestreo para adaptarla a su escenario de supervisión en particular.
+> El [muestreo](../azure-monitor/app/sampling.md) está habilitado de forma predeterminada. Si parece que faltan datos, es posible que simplemente deba ajustar la configuración de muestreo para adaptarla a su escenario de supervisión en particular.
 
 ## <a name="write-logs-in-c-functions"></a>Escribir registros en funciones de C#
 
@@ -414,7 +414,7 @@ Esta es una representación de JSON de ejemplo de los datos `customDimensions`:
 En funciones de secuencia de comandos de C#, puede usar el método de extensión `LogMetric` en `ILogger` para crear métricas personalizadas en Application Insights. Este es un ejemplo de una llamada de método:
 
 ```csharp
-logger.LogMetric("TestMetric", 1234); 
+logger.LogMetric("TestMetric", 1234);
 ```
 
 Este código es una alternativa a llamar a `TrackMetric` con [la API de Application Insights para .NET](#custom-telemetry-in-c-functions).
@@ -429,10 +429,10 @@ context.log('JavaScript HTTP trigger function processed a request.' + context.in
 
 ### <a name="logging-custom-metrics"></a>Registro de métricas personalizadas  
 
-En funciones de Node.js, puede usar el método `context.log.metric` para crear métricas personalizadas en Application Insights. Este es un ejemplo de una llamada de método:
+Cuando se ejecuta en la [versión 1.x](functions-versions.md#creating-1x-apps) del sistema en tiempo de ejecución de Functions, las funciones de Node.js pueden usar el método `context.log.metric` para crear métricas personalizadas en Application Insights. Este método no se admite actualmente en la versión 2.x. Este es un ejemplo de una llamada de método:
 
 ```javascript
-context.log.metric("TestMetric", 1234); 
+context.log.metric("TestMetric", 1234);
 ```
 
 Este código es una alternativa a llamar a `trackMetric` con [el SDK de Node.js de Application Insights](#custom-telemetry-in-javascript-functions).

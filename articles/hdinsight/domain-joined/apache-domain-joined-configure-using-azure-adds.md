@@ -9,12 +9,12 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: ced7964fc96138ad7b18ab72d6c479e8db7eab8a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 115604d9b2aa21018742bbedbc737405b52599e4
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436235"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188953"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Configurar un clúster de HDInsight con Enterprise Security Package mediante Azure Active Directory Domain Services
 
@@ -82,6 +82,8 @@ Es más fácil colocar la instancia de Azure AD DS y el clúster de HDInsight en
 Una vez emparejadas las redes virtuales, configure la red virtual de HDInsight para que use un servidor DNS personalizado y escriba las direcciones IP privadas de Azure AD DS como direcciones del servidor DNS. Cuando ambas redes virtuales utilizan los mismos servidores DNS, su nombre de dominio personalizado se resolverá con la IP correcta y podrá obtener acceso a él desde HDInsight. Por ejemplo, si el nombre de dominio es "contoso.com", después de realizar este paso, debe hacer ping en "contoso.com" para resolver la dirección IP correcta de Azure AD DS. 
 
 ![Configuración de servidores DNS personalizados para la red virtual emparejada](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
+
+Si utiliza reglas de grupos de seguridad de red (NSG) en la subred de HDInsight, debe permitir las [direcciones IP necesarias](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ip-1) para el tráfico entrante y saliente. 
 
 **Para probar** si las redes están configuradas correctamente, agregue una máquina virtual Windows a la subred o red virtual de HDInsight y haga ping en el nombre de dominio (debe resolverse en una dirección IP) y luego ejecute **ldp.exe** para acceder al dominio de Azure AD-DS. A continuación, **agregue esta máquina virtual Windows al dominio para confirmar** que todas las llamadas de RPC requeridas se realizaron correctamente entre el cliente y el servidor. También puede usar **nslookup** para confirmar el acceso de red a la cuenta de almacenamiento o a cualquier base de datos externa que pueda usar (por ejemplo, una instancia externa de Hive Metastore o Ranger DB).
 Si un grupo de seguridad de red se encarga de proteger AAD DS, debe asegurarse de que todos los [puertos necesarios](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) estén en la lista blanca que se encuentra en las reglas del grupo de seguridad de red de la subred AAD DS. Si la unión a un dominio de esta máquina virtual Windows se realiza correctamente, puede proceder con el siguiente paso y crear clústeres de ESP.

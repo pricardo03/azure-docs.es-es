@@ -1,23 +1,23 @@
 ---
-title: Características únicas de los blobs en páginas de Azure | Microsoft Docs
-description: Introducción a los blobs en páginas de Azure y sus ventajas, con casos de uso y scripts de ejemplo.
+title: Introducción a blobs en páginas de Azure | Microsoft Docs
+description: Una introducción a los blobs en páginas de Azure y sus ventajas, con casos de uso y scripts de ejemplo.
 services: storage
 author: anasouma
 ms.service: storage
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 01/03/2019
 ms.author: wielriac
 ms.component: blobs
-ms.openlocfilehash: dc15dcb9f7b342d2d5140199ecf34c1a4781fa25
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 6d1c443cfe3454d1b1e50a7270bd78598f69f6de
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022695"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063942"
 ---
-# <a name="unique-features-of-azure-page-blobs"></a>Características únicas de los blobs en páginas de Azure
+# <a name="overview-of-azure-page-blobs"></a>Introducción a blobs en páginas de Azure
 
-Azure Storage ofrece tres tipos de almacenamiento en blobs: en bloques, en anexos y en páginas. Blobs en bloques está compuesto por bloques y son ideales para almacenar archivos de texto o binarios, así como para cargar archivos grandes de forma eficaz. Blobs en anexos también está compuesto por bloques, pero están optimizados para la anexión de operaciones, lo que resulta ideal para escenarios de registro. Los blobs en páginas están compuestos por páginas de 512 bytes de hasta 8 TB en total y se han diseñado para las operaciones aleatorias y frecuentes de lectura/escritura. Blobs en páginas constituye la base de los discos de IaaS de Azure. Este artículo se centra en explicar las características y ventajas de los blobs en páginas.
+Azure Storage ofrece tres tipos de almacenamiento en blobs: Blobs en bloques, en páginas y en anexos. Blobs en bloques está compuesto por bloques y son ideales para almacenar archivos de texto o binarios, así como para cargar archivos grandes de forma eficaz. Blobs en anexos también está compuesto por bloques, pero están optimizados para la anexión de operaciones, lo que resulta ideal para escenarios de registro. Los blobs en páginas están compuestos por páginas de 512 bytes de hasta 8 TB en total y se han diseñado para las operaciones aleatorias y frecuentes de lectura/escritura. Blobs en páginas constituye la base de los discos de IaaS de Azure. Este artículo se centra en explicar las características y ventajas de los blobs en páginas.
 
 Los blobs en páginas son una colección de páginas de 512 bytes que proporcionan la capacidad de leer y escribir intervalos arbitrarios de bytes. Por lo tanto, son ideales para almacenar estructuras de datos esparcidos basadas en índices, como discos de datos y de sistema operativo para máquinas virtuales y bases de datos. Por ejemplo, Azure SQL DB usa blobs en páginas como almacenamiento persistente subyacente para sus bases de datos. Además, los blobs en páginas suelen usarse para archivos con actualizaciones basadas en intervalos.  
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: fad023b7593b0e13b05d081a11333f5e92c8ecef
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: da8fd886afa6028959247caa0c6e007df20fdd1b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602178"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077749"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribución de uso del cliente para asociados de Azure
 
@@ -36,10 +36,8 @@ Se requiere la atribución de uso del cliente en todas las [plantillas de soluci
 
 ## <a name="use-resource-manager-templates"></a>Uso de plantillas de Resource Manager
 
-Muchas soluciones de los asociados se implementan en una suscripción de cliente mediante plantillas de Resource Manager. Si tiene una plantilla de Resource Manager disponible en Azure Marketplace, en GitHub o como un Inicio rápido, el proceso de modificación de la misma para habilitar este nuevo método de seguimiento debería ser sencillo. Si no usa una plantilla de Azure Resource Manager, aquí tiene algunos vínculos que le ayudarán a entender mejor las plantillas de Resource Manager y le proporcionarán información para crear una: 
+Muchas soluciones de los asociados se implementan en una suscripción de cliente mediante plantillas de Resource Manager. Si tiene una plantilla de Resource Manager disponible en Azure Marketplace, en GitHub o como un Inicio rápido, el proceso de modificación de la misma para habilitar este nuevo método de seguimiento debería ser sencillo. Para más información, consulte [Creación e implementación de la primera plantilla de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
 
-*   [Creación e implementación de la primera plantilla de Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)
-*   [Creación de una plantilla de solución para Azure Marketplace](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-solution-template-creation)
 
 ## <a name="add-a-guid-to-your-template"></a>Adición de un identificador único global a una plantilla
 
@@ -270,11 +268,15 @@ Microsoft proporciona a sus asociados una vista de las implementaciones por part
 
 **¿Cómo puedo agregar un GUID a una plantilla?**
 
-El recurso de seguimiento está pensado para conectar la solución del asociado al uso de Azure por parte del cliente. Los datos de uso están vinculados a la identidad de Microsoft Partner Network (MPN ID) de un asociado. 
+El recurso de seguimiento está pensado para conectar la solución del asociado al uso de Azure por parte del cliente. Los datos de uso están vinculados a la identidad de Microsoft Partner Network (MPN ID) de un asociado. La creación de informes está disponibles para los asociados en el CPP.
 
 **Una vez que se ha agregado un identificador único global, ¿se puede cambiar?**
  
 Sí, cualquier cliente o asociado de implementación puede personalizar la plantilla y cambiar o quitar el identificador único global. Se recomienda que los asociados describan de forma proactiva la función de los recursos y el GUID a sus clientes y asociados, para evitar la eliminación o modificación del GUID de seguimiento. El cambio del identificador único global solo afecta a las implementaciones y a los recursos nuevos, no a los existentes.
+
+**¿Cuándo estará disponible la opción de creación de informes?**
+
+Una versión beta de la opción de creación de informes estará disponible pronto. La creación de informes se integrará en CPP.
 
 **¿Puedo realizar un seguimiento de las plantillas implementadas desde un repositorio que no sea de Microsoft, como GitHub?**
 

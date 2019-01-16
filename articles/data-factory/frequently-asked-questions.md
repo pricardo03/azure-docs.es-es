@@ -1,5 +1,5 @@
 ---
-title: 'Azure Data Factory: preguntas más frecuentes | Microsoft Docs'
+title: 'Azure Data Factory: Preguntas más frecuentes | Microsoft Docs'
 description: Obtenga respuestas a las preguntas más frecuentes acerca de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -9,16 +9,15 @@ ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: d900c9c438ed40841639d556643a231075f4f194
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: be0cdeed81c66e1a848b44d2429c1c67bce9b4f3
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249594"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024100"
 ---
 # <a name="azure-data-factory-faq"></a>Preguntas más frecuentes de Azure Data Factory
 Este artículo ofrece respuestas a las preguntas más frecuentes sobre Azure Data Factory.  
@@ -50,7 +49,7 @@ Data Factory proporciona la libertad de modelar cualquier estilo de flujo necesa
 - Flujos delta:
     - Use parámetros y defina el límite máximo de la copia delta al mover tablas de dimensiones o de referencia desde un almacén relacional de forma local o en la nube para cargar los datos en Data Lake. 
 
-Para más información, consulte el siguiente [tutorial: flujos de control](tutorial-control-flow.md).
+Para más información, consulte [Tutorial: Flujos de control](tutorial-control-flow.md).
 
 ### <a name="transform-your-data-at-scale-with-code-free-pipelines"></a>Transformación de los datos a escala con canalizaciones sin código
 La nueva experiencia de herramientas basadas en explorador proporciona la creación e implementación de canalizaciones sin código con una experiencia actual, interactiva y basada en la web.
@@ -92,8 +91,8 @@ Desde el lanzamiento inicial de la versión preliminar pública en 2017, Data Fa
 ## <a name="what-is-integration-runtime"></a>¿Qué es Integration Runtime?
 Integration Runtime es la infraestructura de proceso que Azure Data Factory usa para proporcionar las siguientes funcionalidades de integración de datos en diversos entornos de red:
 
-- **Movimiento de datos**: en el caso del movimiento de datos, Integration Runtime mueve los datos entre los almacenes de origen y de destino, e incluye compatibilidad con conectores integrados, conversión de formato, asignación de columnas y transferencia de datos eficaz y escalable.
-- **Distribución de actividades**: En el caso de la transformación, Integration Runtime permite ejecutar paquetes SSIS de forma nativa.
+- **Movimiento de datos**: Para el movimiento de datos, Integration Runtime mueve los datos entre los almacenes de origen y de destino e incluye funcionalidad de conectores integrados, conversión de formato, asignación de columnas y transferencia de datos eficaz y escalable.
+- **Distribución de actividades**: para la transformación, Integration Runtime permite ejecutar paquetes SSIS de forma nativa.
 - **Ejecución de paquetes SSIS**: ejecuta de forma nativa paquetes SSIS en un entorno de proceso de Azure administrado. Integration Runtime permite también distribuir y supervisar actividades de transformación que se ejecutan en una gran variedad de servicios de proceso, como Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server, etc.
 
 Puede implementar una o varias instancias de Integration Runtime según sea necesario para mover y transformar los datos. Integration Runtime se puede ejecutar en una red de Azure pública o en una red privada (local, Azure Virtual Network o en la nube privada virtual de Amazon Web Services [VPC]). 
@@ -179,5 +178,5 @@ Puede usar la construcción de `@coalesce` en las expresiones para controlar cor
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener instrucciones paso a paso para crear una factoría de datos, consulte los siguientes tutoriales:
 
-- [Guía de inicio rápido: Creación de una factoría de datos](quickstart-create-data-factory-dot-net.md)
+- [Inicio rápido: Crear una factoría de datos](quickstart-create-data-factory-dot-net.md)
 - [Tutorial: Copia de datos en la nube](tutorial-copy-data-dot-net.md)

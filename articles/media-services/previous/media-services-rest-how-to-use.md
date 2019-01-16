@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: juliako;johndeu
-ms.openlocfilehash: 38310ce64335e03c6728092bf1b8ce4752740a83
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 7ea2a84daaa22e0fc7ff4dc90ca41dd906b808c8
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233470"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159747"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Información general sobre la API de REST de operaciones de Media Services
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
@@ -28,7 +28,7 @@ La API de **REST de Media Services Operations** se usa para crear trabajos, acti
 
 Media Services proporciona una API de REST que acepta ambos formatos JSON o XML atom+pub. La API de REST de Media Services requiere encabezados HTTP específicos que cada cliente debe enviar cuando se conecta a Media Services, así como un conjunto de encabezados opcionales. En las secciones siguientes se describen los encabezados y los verbos HTTP que puede usar al crear solicitudes y recibir respuestas de los Media Services.
 
-La autenticación para la API de REST de Media Services se realiza a través de la autenticación de Azure Active Directory que se detalla en el artículo [Usar autenticación de Azure AD para acceder a la API de Azure Media Services con REST](media-services-rest-connect-with-aad.md).
+La autenticación para la API REST de Media Services se realiza a través de la autenticación de Azure Active Directory que se detalla en el artículo [Usar autenticación de Azure AD para acceder a la API de Azure Media Services con REST](media-services-rest-connect-with-aad.md).
 
 ## <a name="considerations"></a>Consideraciones
 
@@ -73,7 +73,7 @@ A continuación se muestra un conjunto de encabezados opcionales:
 | --- | --- | --- |
 | Date |Fecha RFC 1123 |Marca de tiempo de la solicitud |
 | Accept |Tipo de contenido |El tipo de contenido solicitado para la respuesta, por ejemplo, el siguiente:<p> -application/json;odata=verbose<p> - application/atom+xml<p> Las respuestas pueden tener distintos tipos de contenido, como una captura de blob, donde una respuesta correcta contenga la secuencia de blob como la carga. |
-| Accept-Encoding |Gzip, deflate |Codificación GZIP y DEFLATE, según corresponda. En el caso de recursos grandes, Media Services puede ignorar el encabezado y devolver datos sin comprimir. |
+| Accept-Encoding |Gzip, deflate |Codificación GZIP y DEFLATE, según corresponda. Nota: En el caso de recursos grandes, Media Services puede ignorar el encabezado y devolver datos sin comprimir. |
 | Accept-Language |"en", "es", etc. |Especifica el idioma preferido para la respuesta. |
 | Accept-Charset |Tipo de juego de caracteres como "UTF-8" |El valor predeterminado es UTF-8. |
 | X-HTTP-Method |Método HTTP |Permite a los clientes o firewalls que no admiten métodos HTTP como PUT o DELETE usar estos métodos mediante túnel a través de una llamada GET. |

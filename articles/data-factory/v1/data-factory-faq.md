@@ -9,17 +9,16 @@ ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 414a6042d064a1dece7025dc277533d40ef2aa64
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 81c7c98f29c2e507e165a3943395e36a453cbf06
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781920"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024049"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory: preguntas más frecuentes
 > [!NOTE]
@@ -55,10 +54,10 @@ Puede crear factorías de datos mediante una de las siguientes herramientas y SD
 * **Azure PowerShell** : consulte el tutorial [Creación y supervisión de Azure Data Factory mediante Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) para crear una factoría de datos mediante PowerShell. Consulte el contenido de [Referencia de cmdlets de Data Factory][adf-powershell-reference] en MSDN Library para obtener documentación completa de los cmdlets de Factoría de datos.
 * **Biblioteca de clases .NET** Se pueden crear factorías de datos mediante programación con el SDK de .NET de Data Factory. Consulte [Creación, supervisión y administración de las factorías de datos mediante el SDK de .NET](data-factory-create-data-factories-programmatically.md) para un ver tutorial sobre la creación de una factoría de datos con el SDK de .NET. Consulte [Referencia de biblioteca de clases de Data Factory][msdn-class-library-reference] para una amplia documentación sobre el SDK de .NET de Factoría de datos.
 * **API de REST** También puede usar la API de REST expuesta por el servicio Azure Data Factory para crear e implementar factorías de datos. Consulte [Referencia de la API de REST de Data Factory][msdn-rest-api-reference] para ver una amplia documentación sobre la API de REST de Data Factory.
-* **Plantilla de Azure Resource Manager** Consulte [Tutorial: Compilación de la primera Data Factory de Azure con la plantilla de Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md) para obtener más información.
+* **Plantilla de Azure Resource Manager** Consulte [Tutorial: Creación de la primera factoría de datos de Azure con la plantilla de Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md) para detalles.
 
 ### <a name="can-i-rename-a-data-factory"></a>¿Se puede cambiar el nombre de una Factoría de datos?
-No. Al igual que otros recursos de Azure, el nombre de una factoría de datos de Azure no se puede cambiar.
+ No. Al igual que otros recursos de Azure, el nombre de una factoría de datos de Azure no se puede cambiar.
 
 ### <a name="can-i-move-a-data-factory-from-one-azure-subscription-to-another"></a>¿Puedo mover una factoría de datos de una suscripción a Azure a otra?
 Sí. Use el botón **Mover** situado en la hoja de la factoría de datos tal como se muestra en el siguiente diagrama:
@@ -72,7 +71,7 @@ En la tabla siguiente se proporciona una lista de entornos de proceso compatible
 | --- | --- |
 | [Clúster de HDInsight a petición](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) o [clúster HDInsight propio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Actividades de Machine Learning: ejecución de Batch y recurso de actualización](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Actividades de Machine Learning: ejecución de lotes y recurso de actualización](data-factory-azure-ml-batch-execution-activity.md) |
 | [Análisis con Azure Data Lake](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[U-SQL de análisis con Data Lake](data-factory-usql-activity.md) |
 | [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Procedimiento almacenado](data-factory-stored-proc-activity.md) |
 

@@ -9,12 +9,12 @@ ms.date: 12/12/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 2f9800deedb2e8d55362920fed2493a42290e764
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 8d6dcdd4de8fb56935d2f66bfff045b2115d4004
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555853"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063580"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Preguntas frecuentes sobre Service Fabric Mesh
 
@@ -93,9 +93,9 @@ Las siguientes imágenes del sistema operativo de contenedor pueden usarse para 
 
 ## <a name="developer-experience-issues"></a>Problemas de experiencia para el desarrollador
 
-### <a name="dns-resolution-from-an-outbound-container-doesnt-work"></a>La resolución de DNS desde un contenedor de salida no funciona
+### <a name="dns-resolution-from-a-container-doesnt-work"></a>La resolución de DNS desde un contenedor no funciona
 
-La comunicación de servicio a servicio puede producir errores en determinadas circunstancias. Se está investigando este problema. Para mitigarlo:
+La generación de consultas de DNS de un contenedor en el servicio DNS de Service Fabric puede producir un error en determinadas circunstancias. Se está investigando este problema. Para mitigar este problema:
 
 - Use Windows Fall Creators Update (versión 1709 o superior) como imagen del contenedor base.
 - Si el nombre del servicio por sí solo no funciona, pruebe el nombre completo: ServiceName.ApplicationName.

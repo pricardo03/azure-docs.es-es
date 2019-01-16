@@ -4,30 +4,27 @@ description: Se describe cómo solucionar los problemas observados en Azure Data
 services: databox
 author: alkohli
 ms.service: databox
-ms.topic: overview
-ms.date: 10/09/2018
+ms.subservice: disk
+ms.topic: article
+ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 776108b109bc27e0f8059d287e87c67aeca9fbd2
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 8e75aa31941fe7368ef56f344db14d9b376e6238
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091865"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191707"
 ---
-# <a name="troubleshoot-issues-in-azure-data-box-disk-preview"></a>Solución de problemas de Azure Data Box Disk (versión preliminar)
+# <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Solución de problemas de Azure Data Box Disk
 
-Este artículo se aplica a la ejecución de Microsoft Azure Data Box en versión preliminar. En este artículo se describen algunos de los flujos de trabajo complejos y tareas de administración que se pueden realizar en Data Box y Data Box Disk. 
+Este artículo se aplica a Microsoft Azure Data Box Disk y describe los flujos de trabajo que se usan para solucionar cualquier problema que se encuentre al implementar esta solución. 
 
-Puede administrar Data Box Disk mediante Azure Portal. Este artículo se centra en las tareas que se pueden realizar mediante Azure Portal. Use Azure Portal para administrar pedidos, administrar dispositivos y realizar un seguimiento del estado del pedido mientras continúa hacia la finalización.
-
-Este artículo incluye los siguientes tutoriales:
+En este artículo se incluyen las secciones siguientes:
 
 - Descarga de los registros de diagnóstico
 - Consulta de los registros de actividad
-
-
-> [!IMPORTANT]
-> Data Box se encuentra en versión preliminar. Antes de implementar esta solución revise los [términos del servicio de Azure para la versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+- Errores de la herramienta Data Box Disk Unlock
+- Errores de la herramienta Data Box Disk Split Copy
 
 ## <a name="download-diagnostic-logs"></a>Descarga de los registros de diagnóstico
 
@@ -76,20 +73,89 @@ Los registros de actividad se conservan 90 días. Puede consultar cualquier inte
 | No se ha podido desbloquear ni verificar ningún volumen. Póngase en contacto con el soporte técnico de Microsoft  <br><br>La herramienta no puede desbloquear ni verificar ninguna unidad bloqueada. | La herramienta no ha podido desbloquear ninguna de las unidades bloqueadas con la clave de paso proporcionada. Póngase en contacto con el servicio de soporte técnico de Microsoft para conocer los pasos siguientes.                                                |
 | Los siguientes volúmenes están desbloqueados y comprobados. <br>Letras de unidad de volumen: E:<br>No se ha podido desbloquear ningún volumen con las siguientes claves de paso: werwerqomnf, qwerwerqwdfda. <br><br>La herramienta desbloquea algunas unidades y enumera las letras de unidad correctas e incorrectas.| Parcialmente correcto. No se han podido desbloquear algunas de las unidades con la clave de paso proporcionada. Póngase en contacto con el servicio de soporte técnico de Microsoft para conocer los pasos siguientes. |
 | No se han podido encontrar los volúmenes bloqueados. Compruebe que el disco recibido de Microsoft está conectado correctamente y se encuentra en estado bloqueado.          | La herramienta no puede encontrar ninguna unidad bloqueada. O las unidades están ya desbloqueadas o no se han detectado. Asegúrese de que las unidades están conectadas y bloqueadas.                                                           |
-| Error grave: parámetro no válido<br>Nombre del parámetro: invalid_arg<br>USO:<br>DataBoxDiskUnlock /PassKeys:<passkey_list_separated_by_semicolon><br><br>Ejemplo: DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>Ejemplo: DataBoxDiskUnlock /SystemCheck<br>Ejemplo: DataBoxDiskUnlock /Help<br><br>/PassKeys: obtenga esta clave de paso del pedido de Azure Data Box Disk. La clave de paso desbloquea los discos.<br>/Help: esta opción proporciona ayuda sobre el uso del cmdlet y ejemplos.<br>/SystemCheck: esta opción comprueba si el sistema cumple los requisitos para ejecutar la herramienta.<br><br>Presione cualquier tecla para salir. | Parámetro no válido especificado. Los únicos parámetros permitidos son /SystemCheck, /PassKey y /Help.                                                                            |
+| Error irrecuperable: parámetro no válido<br>Nombre del parámetro: invalid_arg<br>USO:<br>DataBoxDiskUnlock /PassKeys:<passkey_list_separated_by_semicolon><br><br>Ejemplo: DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>Ejemplo: DataBoxDiskUnlock /SystemCheck<br>Ejemplo: DataBoxDiskUnlock /Help<br><br>/PassKeys:       obtenga esta clave de paso del pedido de Azure Data Box Disk. La clave de paso desbloquea los discos.<br>/Help:           esta opción proporciona ayuda sobre el uso del cmdlet y ejemplos.<br>/SystemCheck:    esta opción comprueba si el sistema cumple los requisitos para ejecutar la herramienta.<br><br>Presione cualquier tecla para salir. | Parámetro no válido especificado. Los únicos parámetros permitidos son /SystemCheck, /PassKey y /Help.                                                                            |
 
 ## <a name="data-box-disk-split-copy-tool-errors"></a>Errores de la herramienta Data Box Disk Split Copy
 
 |Mensaje de error o advertencias  |Recomendaciones |
 |---------|---------|
 |[Información] Recuperación de contraseña de BitLocker del volumen: m <br>[Error] Excepción detectada al recuperar la clave de BitLocker para el volumen m:<br> La secuencia no contiene elementos.|Este error se produce si el disco de Data Box Disk de destino está sin conexión. <br> Use la herramienta `diskmgmt.msc` en discos en línea.|
-|[Error] Excepción producida: error en la operación de WMI:<br> Method=UnlockWithNumericalPassword, ReturnValue=2150694965, <br>Win32Message=El formato de la contraseña de recuperación que se proporciona no es válida. <br>Las contraseñas de recuperación de BitLocker son 48 dígitos. <br>Compruebe que la contraseña de recuperación tiene el formato correcto e inténtelo de nuevo.|Utilice la herramienta Data Box Disk Unlock para desbloquear por primera vez los discos y vuelva a intentar el comando. Para más información, vaya a: <li> [Desbloqueo de Data Box Disk en clientes Windows](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client). </li><li> [Desbloqueo de Data Box Disk en clientes Linux](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client). </li>|
-|[Error] Excepción producida: existe un archivo DriveManifest.xml existe en la unidad de destino. <br> Esto indica que la unidad de destino se puede haber preparado con otro archivo de diario. <br>Para agregar más datos a la misma unidad, use el archivo de diario anterior. Para eliminar los datos existentes y volver a usar la unidad de destino para un nuevo trabajo de importación, elimine DriveManifest.xml de la unidad. Vuelva a ejecutar este comando con un nuevo archivo de diario.| Este error se recibe al intentar utilizar el mismo conjunto de unidades para varias sesiones de importación. <br> Use un conjunto de unidades solo para una sesión de división y copia.|
+|[Error] Se produjo una excepción: no se pudo realizar la operación WMI:<br> Method=UnlockWithNumericalPassword, ReturnValue=2150694965, <br>Win32Message=El formato de la contraseña de recuperación que se proporciona no es válida. <br>Las contraseñas de recuperación de BitLocker son 48 dígitos. <br>Compruebe que la contraseña de recuperación tiene el formato correcto e inténtelo de nuevo.|Utilice la herramienta Data Box Disk Unlock para desbloquear por primera vez los discos y vuelva a intentar el comando. Para más información, vaya a: <li> [Desbloqueo de Data Box Disk en clientes Windows](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client). </li><li> [Desbloqueo de Data Box Disk en clientes Linux](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client). </li>|
+|[Error] Excepción producida: existe un archivo DriveManifest.xml en la unidad de destino. <br> Esto indica que la unidad de destino se puede haber preparado con otro archivo de diario. <br>Para agregar más datos a la misma unidad, use el archivo de diario anterior. Para eliminar los datos existentes y volver a usar la unidad de destino para un nuevo trabajo de importación, elimine DriveManifest.xml de la unidad. Vuelva a ejecutar este comando con un nuevo archivo de diario.| Este error se recibe al intentar utilizar el mismo conjunto de unidades para varias sesiones de importación. <br> Use un conjunto de unidades solo para una sesión de división y copia.|
 |[Error] Excepción producida: CopySessionId importdata-septiembre-test-1 hace referencia a una sesión de copia anterior y no se puede reutilizar para una nueva sesión de copia.|Este error se notifica al intentar usar el mismo nombre para un nuevo trabajo como un trabajo anterior completado correctamente.<br> Asigne un nombre exclusivo para el trabajo nuevo.|
 |[Info] El nombre del directorio o del archivo de destino supera el límite de longitud de NTFS. |Este mensaje se notifica cuando se ha cambiado el archivo de destino porque la ruta de acceso del archivo es larga.<br> Modifique la opción de disposición en el archivo `config.json` para controlar este comportamiento.|
-|[Error] Excepción producida: secuencia de escape JSON incorrecta. |Este mensaje se notifica cuando el archivo config.json tiene un formato que no es válido. <br> Valide `config.json` mediante [JSONlint](https://jsonlint.com/) antes de guardar el archivo.|
+|[Error] Excepción producida: secuencia de escape JSON no válida. |Este mensaje se notifica cuando el archivo config.json tiene un formato que no es válido. <br> Valide `config.json` mediante [JSONlint](https://jsonlint.com/) antes de guardar el archivo.|
 
+## <a name="deployment-issues-for-linux"></a>Problemas de implementación de Linux
 
+En esta sección se detallan algunos de los principales problemas que se enfrentan durante la implementación de Data Box Disk cuando se usa un cliente Linux para la copia de datos.
+
+### <a name="issue-drive-getting-mounted-as-read-only"></a>Problema: la unidad se montó como solo lectura
+ 
+**Causa** 
+
+Puede deberse a un sistema de archivos no limpio. 
+
+- Volver a montar una unidad como de lectura no funciona con Data Box Disk. Este escenario no es compatible con las unidades descifradas por dislocker. 
+- Volver a montarla como de lectura-escritura no funcionará. Es posible que haya vuelto a montar correctamente el dispositivo con el comando siguiente: 
+
+    `# mount -o remount, rw / mnt / DataBoxDisk / mountVol1 ß`
+
+   Si bien el nuevo montaje se completó correctamente, los datos no se conservarán.
+
+**Resolución**
+
+Si se encuentra con el error anterior, podría probar con una de las resoluciones siguientes:
+
+- Instale [`ntfsfix`](https://linux.die.net/man/8/ntfsfix) (disponible en el paquete `ntfsprogs`) y ejecútelo en la partición pertinente.
+
+- Si tiene acceso a un sistema Windows
+
+    - Cargue la unidad en el sistema Windows.
+    - Abra un símbolo del sistema con privilegio de administración. Ejecute `chkdsk` en el volumen.
+    - Quite de manera segura el volumen y vuelva a intentarlo.
+ 
+### <a name="issue-error-with-data-not-persisting-after-copy"></a>Problema: error con datos que no se conservan después de la copia
+ 
+**Causa** 
+
+Si ve que la unidad no tiene datos después de desmontarla (a pesar de que se hayan copiado datos en ella), es posible que haya vuelto a montarla como de lectura-escritura una vez que se montó como de solo lectura.
+
+**Resolución**
+ 
+Si ese es el caso, consulte la resolución para las [unidades que se montan como de solo lectura](#issue-drive-getting-mounted-as-read-only).
+
+Si no es así, [descargue los registros de diagnóstico](#download-diagnostic-logs) del sistema y [póngase en contacto con Soporte técnico de Microsoft](data-box-disk-contact-microsoft-support.md).
+
+## <a name="deployment-issues-for-windows"></a>Problemas de implementación de Windows
+
+En esta sección se detallan algunos de los principales problemas que se enfrentan durante la implementación de Data Box Disk cuando se usa un cliente Linux para la copia de datos.
+
+### <a name="issue-could-not-unlock-drive-from-bitlocker"></a>Problema: no se pudo desbloquear la unidad desde BitLocker
+ 
+**Causa** 
+
+usó la contraseña en el cuadro de diálogo de BitLocker e intentó desbloquear el disco a través del cuadro de diálogo para desbloquear unidades de BitLocker. Esta acción no funcionará. 
+
+**Resolución**
+
+Para desbloquear las unidades de Data Box Disk, debe usar la herramienta de desbloqueo de Data Box Disk y escribir la contraseña desde Azure Portal.
+ 
+### <a name="issue-could-not-unlock-or-verify-some-volumes-contact-microsoft-support"></a>Problema: no se pudieron desbloquear ni comprobar algunos volúmenes. Póngase en contacto con el soporte técnico de Microsoft
+ 
+**Causa** 
+
+Es posible que se encuentre con el error siguiente en el registro de errores y que no pueda desbloquear ni comprobar algunos volúmenes.
+
+`Exception System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Management.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.`
+ 
+Esto indica que es posible que no se encuentre la versión adecuada de Windows PowerShell en el cliente Windows.
+
+**Resolución**
+
+Puede instalar la [versión 5.0 de Windows PowerShell](https://www.microsoft.com/download/details.aspx?id=54616) y volver a intentar la operación.
+ 
+Si sigue sin poder desbloquear los volúmenes, [póngase en contacto con Soporte técnico de Microsoft](data-box-disk-contact-microsoft-support.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

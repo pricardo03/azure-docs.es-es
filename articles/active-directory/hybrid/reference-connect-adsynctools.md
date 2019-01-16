@@ -8,14 +8,14 @@ ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 586f3c81fad79f49b3506b0bd84a4f7b218d8605
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 54d23bca29c38f258334d7b641b8c1f480da55e1
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426492"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054971"
 ---
-# <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: Referencia de PowerShell ADSyncTools
+# <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect:  Referencia de PowerShell ADSyncTools
 En la siguiente documentación se proporciona información de referencia para el módulo de PowerShell ADSyncTools.psm1 que se incluye con Azure AD Connect.
 
 ## <a name="clear-adsynctoolsconsistencyguid"></a>Clear-ADSyncToolsConsistencyGuid
@@ -338,7 +338,7 @@ Get-ADSyncToolsADuser [-User] <Object> [<CommonParameters>]
 ```
 
 ### <a name="description"></a>Description
-Devuelve una tarea pendiente de objeto de AD: compatibilidad con multibosque
+Devuelve un objeto de AD ACCIÓN: Compatibilidad con varios bosques
 
 ### <a name="examples"></a>EJEMPLOS
 
@@ -1227,7 +1227,7 @@ Update-ADSyncToolsConsistencyGuidMigration [[-DistinguishedName] <String>] [-Imm
 ```
 
 ### <a name="description"></a>Description
-Actualiza los usuarios con el nuevo valor de ConsistencyGuid (ImmutableId) tomado del informe ConsistencyGuid. Esta función admite el modificador WhatIf. Nota: el informe ConsistencyGuid debe importarse con el delimitador de tabulador.
+Actualiza los usuarios con el nuevo valor de ConsistencyGuid (ImmutableId) tomado del informe ConsistencyGuid. Esta función admite el modificador WhatIf. Nota: el informe ConsistencyGuid debe importarse con el delimitador de tabulador
 
 ### <a name="examples"></a>EJEMPLOS
 

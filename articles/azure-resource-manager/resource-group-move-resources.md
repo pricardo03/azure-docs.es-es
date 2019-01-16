@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7734ff6c5992ebb27ff63c0329afa03e5bf96a2a
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 5266959e3c08721b79af8c11eb50b7a659e70ffc
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995089"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158863"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
-En este artículo se explica cómo trasladar recursos de Azure a otra suscripción de Azure o a otro grupo de recursos en la misma suscripción. Puede usar Azure Portal, Azure PowerShell, la CLI de Azure o la API REST para trasladar recursos. 
+En este artículo se explica cómo trasladar recursos de Azure a otra suscripción de Azure o a otro grupo de recursos en la misma suscripción. Puede usar Azure Portal, Azure PowerShell, la CLI de Azure o la API REST para trasladar recursos.
 
 Tanto el grupo de origen como el grupo de destino se bloquean durante la operación de traslado. Las operaciones de escritura y eliminación están bloqueadas en los grupos de recursos hasta que se completa el movimiento. Este bloqueo significa que no puede agregar, actualizar ni eliminar recursos de los grupos de recursos, pero no que los recursos queden bloqueados. Por ejemplo, si mueve un servidor SQL Server y su base de datos a un nuevo grupo de recursos, una aplicación que utiliza la base de datos no experimenta ningún tiempo de inactividad. Todavía puede leer y escribir en la base de datos.
 
@@ -98,7 +98,7 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * Paneles del portal
 * Power BI (tanto Power BI Embedded como Colección de áreas de trabajo de Power BI)
 * Dirección IP pública: la dirección IP de SKU básica se puede mover. Las direcciones IP públicas de SKU Estándar no se pueden mover.
-* Almacén de Recovery Services: debe inscribirse en una versión preliminar privada. Consulte [Limitaciones de Recovery Services](#recovery-services-limitations).
+* Almacén de Recovery Services: debe inscribirse en una [versión preliminar pública limitada](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
 * Azure Cache for Redis: si la instancia de Azure Cache for Redis está configurada con una red virtual, la instancia no se puede mover a otra suscripción. Vea [Virtual Networks limitations](#virtual-networks-limitations) (Limitaciones de las redes virtuales).
 * Scheduler
 * Search: no puede trasladar varios recursos de Search en regiones diferentes en una operación. En su lugar, muévalos en operaciones independientes.
@@ -305,9 +305,9 @@ Es posible que esta operación tarde varios minutos.
 
 ### <a name="recovery-services-limitations"></a>Limitaciones de Recovery Services
 
-Para trasladar un almacén de Recovery Services, debe inscribirse en una versión preliminar privada. Para probarlo, escriba a AskAzureBackupTeam@microsoft.com.
+Para trasladar un almacén de Recovery Services, debe inscribirse en la [versión preliminar pública limitada](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
 
-Actualmente, puede trasladar un almacén de Recovery Services, por región, cada vez. No puede trasladar aquellos almacenes que realizan copias de seguridad de Azure Files, Azure File Sync o SQL en máquinas virtuales de IaaS. 
+Actualmente, puede trasladar un almacén de Recovery Services, por región, cada vez. No puede trasladar aquellos almacenes que realizan copias de seguridad de Azure Files, Azure File Sync o SQL en máquinas virtuales de IaaS.
 
 Si una máquina virtual no se traslada con el almacén, los puntos de recuperación de máquinas virtuales actuales permanecerán en el almacén hasta su expiración. Independientemente de que la máquina virtual se trasladara con el almacén o no, podrá restaurar la máquina virtual desde el historial de copia de seguridad en el almacén.
 

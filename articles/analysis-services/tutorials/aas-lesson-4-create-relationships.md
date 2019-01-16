@@ -1,28 +1,28 @@
 ---
-title: 'Lección 4 del tutorial de Azure Analysis Services: creación de roles | Microsoft Docs'
+title: 'Lección 4 del tutorial de Azure Analysis Services: Creación de relaciones | Microsoft Docs'
 description: En este artículo se describe cómo crear relaciones en el proyecto del tutorial de Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7e791514cc25c645775de260e7f190ee20812d4b
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 4a595e4c955b08bda6fcf49b9ca6a050e8440621
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428500"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187508"
 ---
 # <a name="create-relationships"></a>Creación de relaciones
 
 En esta lección, comprobará las relaciones que se crearon automáticamente cuando importó los datos y agregará nuevas relaciones entre tablas diferentes. Una relación es una conexión entre dos tablas que establecen cómo se deben relacionar los datos de esas tablas. Por ejemplo, las tablas DimProduct y DimProductSubcategory tienen una relación basada en el hecho de que cada producto pertenece a una subcategoría. Para obtener más información, consulte el artículo de [relaciones](https://docs.microsoft.com/sql/analysis-services/tabular-models/relationships-ssas-tabular).
   
-Tiempo estimado para completar esta lección: **10 minutos**  
+Tiempo estimado para completar esta lección: **10 minutos**  
   
 ## <a name="prerequisites"></a>Requisitos previos  
-Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Antes de realizar las tareas de esta lección, debe haber completado la lección anterior: [Lección 3: Marcado como tabla de fechas](../tutorials/aas-lesson-3-mark-as-date-table.md). 
+Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Para poder realizar las tareas de esta lección, debe haber completado la lección anterior: [Lección 3: Marcado como tabla de fechas](../tutorials/aas-lesson-3-mark-as-date-table.md). 
   
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>Revisión de las relaciones existentes e incorporación de nuevas relaciones  
 Al importar los datos mediante Obtener datos, se obtendrán siete tablas de la base de datos AdventureWorksDW2014. Por lo general, al importar datos de un origen relacional, las relaciones existentes se importan automáticamente junto con los datos. A fin de obtener datos para crear automáticamente relaciones en el modelo de datos, debe haber relaciones entre tablas en el origen de datos.
@@ -95,7 +95,7 @@ En algunos casos, debe crear relaciones adicionales entre las tablas del modelo 
      ![aas-lesson4-newinactive](../tutorials/media/aas-lesson4-newinactive.png)
   
 ## <a name="whats-next"></a>Pasos siguientes
-[Lección 5: Creación de columnas calculadas](../tutorials/aas-lesson-5-create-calculated-columns.md)
+[Lección 5: Creación de columnas calculadas](../tutorials/aas-lesson-5-create-calculated-columns.md).
   
   
   

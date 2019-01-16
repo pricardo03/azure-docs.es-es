@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: c8ead3dc34faefce0f113dee2074960fddfa11a1
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: ae50562a9354b9c1e5b2711e5bbeec7b1e0fbbb8
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144598"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078803"
 ---
 # <a name="azure-applications-managed-application-offer-publishing-guide"></a>Aplicaciones de Azure: guía de publicación de ofertas de aplicaciones administradas
 
@@ -41,7 +41,7 @@ Use el tipo de oferta Aplicación de Azure: aplicación administrada cuando se r
 |Implementado en una suscripción a Azure de cliente | Las aplicaciones administradas se deben implementar en la suscripción del cliente y se pueden administrar mediante terceros | 
 |Facturación y medición    |  Los recursos se aprovisionarán en la suscripción a Azure del cliente. Las transacciones de máquinas virtuales de pago por uso (PAYGO) se realizarán con el cliente mediante Microsoft y se facturarán a través de la suscripción a Azure del cliente (PAYGO). 
 En el caso del modelo denominado traiga su propia licencia, Microsoft facturará los costos de infraestructura derivados de la suscripción del cliente, mientras que usted realizará la transacción de las tarifas de licencia de software directamente con el cliente.        |
-|Disco duro virtual (VHD) compatible con Azure    |   Las máquinas virtuales deben estar basadas en Windows o Linux.<ul> <li>Para obtener más información acerca de cómo crear un VHD de Linux, visite la sección Creación de un VHD compatible con Azure (basado en Linux) en [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based).</li> <li>Para obtener más información acerca de cómo crear un VHD de Windows, visite la sección Creación de un VHD compatible con Azure (basado en Windows) en [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based).</li> </ul>      |
+|Disco duro virtual (VHD) compatible con Azure    |   Las máquinas virtuales deben estar basadas en Windows o Linux.<ul> <ul> <li>Para obtener más información acerca de cómo crear un VHD de Linux, consulte [Distribuciones de Linux aprobadas en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Para más información acerca de la creación de un VHD de Windows, consulte [Creación de un disco duro virtual compatible con Azure](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |
 
 >[!NOTE]
 > Las aplicaciones administradas se deben poder implementar mediante Marketplace. Si la comunicación con el cliente es una preocupación, debe ponerse en contacto con los clientes interesados después de habilitar el uso compartido de clientes potenciales.  
@@ -50,7 +50,7 @@ En el caso del modelo denominado traiga su propia licencia, Microsoft facturará
 ## <a name="next-steps"></a>Pasos siguientes
 Si aún no lo ha hecho, 
 
-- [Regístrese](https://azuremarketplace.microsoft.com/sell) en Marketplace
+- [Regístrese](https://azuremarketplace.microsoft.com/sell) en Marketplace.
 
 Si está registrado y está creando una oferta nueva o trabajando en una existente,
 

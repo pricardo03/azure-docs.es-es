@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: d2ff854d291f65848c7e87b88d8020a835b3bdaa
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: fcfb3943109adbc095b90073f041662fb5c65b56
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958668"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078888"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Guía de publicación de ofertas de máquinas virtuales
 
@@ -66,14 +66,15 @@ Use el tipo de oferta de máquina virtual cuando implemente un dispositivo virtu
 | Requisito | Detalles |  
 |:--- |:--- | 
 | Facturación y medición | Su máquina virtual debe admitir las opciones de facturación mensual BYOL o de pago por uso. |  
-| Disco duro virtual (VHD) compatible con Azure | Las máquinas virtuales deben estar basadas en Windows o Linux.<ul> <li>Para obtener más información acerca de cómo crear un VHD de Linux, visite la sección Creación de un VHD compatible con Azure (basado en Linux) en [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based).</li> <li>Para obtener más información acerca de cómo crear un VHD de Windows, visite la sección Creación de un VHD compatible con Azure (basado en Windows) en [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based).</li> </ul> |  
+| Disco duro virtual (VHD) compatible con Azure | Las máquinas virtuales deben estar basadas en Windows o Linux. <ul> <li>Para obtener más información acerca de cómo crear un VHD de Linux, consulte [Distribuciones de Linux aprobadas en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Para más información acerca de la creación de un VHD de Windows, consulte [Creación de un disco duro virtual compatible con Azure](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |  
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Si aún no lo ha hecho, 
 
-- [Regístrese](https://azuremarketplace.microsoft.com/sell) en Marketplace
+- [Regístrese](https://azuremarketplace.microsoft.com/sell) en Marketplace.
 
 Si está registrado y está creando una oferta nueva o trabajando en una existente,
 
 - [Inicie sesión en Cloud Partner Portal](https://cloudpartner.azure.com) para crear o completar la oferta
+- Consulte [Oferta de máquina virtual](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer) para obtener más información.

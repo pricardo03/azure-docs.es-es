@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 01/08/19
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 9d9e97d81e33487a5f23197912eba3802e83a32e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ff7fb909e3f6e26846114c4b7bfdddccd07526ec
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257383"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188903"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integración del centro de datos de Azure Stack: identidad
 Puede implementar Azure Stack mediante Azure Active Directory (Azure AD) o con los Servicios de federación de Active Directory (AD FS) como proveedores de identidades. Deberá escoger antes de implementar Azure Stack. La implementación mediante AD FS también se conoce como implementación de Azure Stack en modo desconectado.
@@ -27,7 +27,7 @@ En la tabla siguiente se muestran las diferencias entre las dos opciones de iden
 |Facturación|Debe ser capacidad<br> Solo Contrato Enterprise (EA)|Capacidad o de pago por uso<br>EA o proveedor de soluciones en la nube (CSP)|
 |Identidad|Debe ser AD FS|Azure AD o AD FS|
 |Marketplace |Compatible<br>Licencias BYOL|Compatible<br>Licencias BYOL|
-|Registro|Recomendado, requiere un medio extraíble<br> y un dispositivo conectado independiente.|Automatizado|
+|Registro|Requerido, requiere un medio extraíble<br> y un dispositivo conectado independiente.|Automatizado|
 |Revisiones y actualizaciones|Requerido, requiere un medio extraíble<br> y un dispositivo conectado independiente.|El paquete de actualización se puede descargar directamente<br> de Internet a Azure Stack.|
 
 > [!IMPORTANT]
@@ -278,7 +278,7 @@ Si decide ejecutar manualmente los comandos, siga estos pasos:
    > [!IMPORTANT]  
    > Debe usar el complemento MMC de AD FS para configurar las reglas de autorización de emisión cuando se usa AD FS de Windows Server 2012 o 2012 R2.
 
-4. Cuando se utiliza el explorador Internet Explorer o Edge para tener acceso a Azure Stack, debe omitir los enlaces de token. En caso contrario, se producirá un error al intentar iniciar sesión. En la instancia de AD FS o en un miembro de la granja de servidores, ejecute el siguiente comando:
+4. Cuando se utiliza el explorador Internet Explorer o Microsoft Edge para tener acceso a Azure Stack, debe omitir los enlaces de token. En caso contrario, se producirá un error al intentar iniciar sesión. En la instancia de AD FS o en un miembro de la granja de servidores, ejecute el siguiente comando:
 
    > [!note]  
    > Este paso no es aplicable cuando se usa AD FS con Windows Server 2012 o 2012 R2. No pasa nada si omite este comando y continúa con la integración.

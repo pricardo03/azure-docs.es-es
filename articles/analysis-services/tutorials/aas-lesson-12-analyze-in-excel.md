@@ -1,19 +1,19 @@
 ---
-title: 'Lección 12 del tutorial de Azure Analysis Services: Analizar en Excel | Microsoft Docs'
+title: 'Lección 12 del tutorial de Azure Analysis Services: Característica Analizar en Excel | Microsoft Docs'
 description: Describe cómo usar Analizar en Excel en el proyecto del tutorial de Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 425c3a351c75c63cb07df66d6122f4d900b4932e
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e5ac04c7bd8174f823cacc67401af8a98b3d8170
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429769"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54186488"
 ---
 # <a name="analyze-in-excel"></a>Analizar en Excel
 
@@ -21,10 +21,10 @@ En esta lección se usa la característica Analizar en Excel para abrir Microsof
   
 Para completar esta lección, Excel debe estar instalado en el mismo equipo que Visual Studio.
   
-Tiempo estimado para completar esta lección: **cinco minutos**  
+Tiempo estimado para completar esta lección: **5 minutos**  
   
 ## <a name="prerequisites"></a>Requisitos previos  
-Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Antes de realizar las tareas de esta lección, debe haber completado la lección anterior: [Lección 11: Creación de roles](../tutorials/aas-lesson-11-create-roles.md).  
+Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Para poder realizar las tareas de esta lección, debe haber completado la lección anterior: [Lección 11: Creación de roles](../tutorials/aas-lesson-11-create-roles.md).  
   
 ## <a name="browse-using-the-default-and-internet-sales-perspectives"></a>Examinar mediante las perspectivas predeterminada y Venta por Internet  
 En estas primeras tareas, examinará el modelo mediante la perspectiva predeterminada, que incluye todos los objetos del modelo, y mediante la perspectiva Venta por Internet. La perspectiva Venta por Internet no incluye el objeto de tabla de clientes.  
@@ -69,7 +69,7 @@ Los roles son una parte importante de los modelos tabulares. Si no hay al menos 
 3.  Cierre Excel sin guardar el libro.  
   
 ## <a name="whats-next"></a>Pasos siguientes
-Vaya a la siguiente lección: [Lección 13: Implementación](../tutorials/aas-lesson-13-deploy.md).
+Vaya a la lección siguiente: [Lección 13: Implementación](../tutorials/aas-lesson-13-deploy.md).
 
   
   

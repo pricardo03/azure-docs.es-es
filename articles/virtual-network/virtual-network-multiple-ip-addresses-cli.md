@@ -1,13 +1,10 @@
 ---
-title: Máquina virtual con varias direcciones IP mediante la CLI de Azure | Microsoft Docs
+title: Máquina virtual con varias direcciones IP mediante la CLI de Azure
+titlesuffix: Azure Virtual Network
 description: Obtenga más información sobre cómo asignar varias direcciones IP a una máquina virtual con la interfaz de la línea de comandos de Azure (CLI).
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: jimdial
-ms.openlocfilehash: 8f82a7d5d9c9f3b85856154973be4ec3fb961f6c
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: b383bd601335e8c828c4c734ad8015b650fdc9f3
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287567"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055122"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Asignación de varias direcciones IP a máquinas virtuales mediante la CLI de Azure
 

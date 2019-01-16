@@ -9,15 +9,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 8c3eac208a4e1b0fd55e56956035b3fb5a23fc00
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1431ba658a6eb898553804f0c81b3babb23f4fe2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730752"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015209"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Guía de implementación de aplicaciones web mediante plantillas de Azure Resource Manager
 
@@ -138,3 +138,4 @@ Para obtener una plantilla de ejemplo, vea [Deploy a Web App certificate from Ke
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para un tutorial sobre la implementación de aplicaciones web con una plantilla, consulte [Aprovisionamiento e implementación predecibles de microservicios en Azure](deploy-complex-application-predictably.md).
+* Para información sobre la sintaxis de JSON y las propiedades de los tipos de recursos de las plantillas, consulte [Azure Resource Manager template reference](/azure/templates/) (Referencia de las plantillas de Azure Resource Manager).

@@ -17,12 +17,12 @@ ms.date: 12/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: a971806b453d34aa8459cb30090024bfca96d342
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: d89a80ac6d6e81fd9cc68e1dc04d4461691994fd
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631200"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157979"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifiesto de aplicación de Azure Active Directory
 
@@ -47,12 +47,9 @@ Para configurar el manifiesto de la aplicación:
 > [!NOTE]
 > Si no ve la columna **Valor de ejemplo** después de la **Descripción**, maximice la ventana del explorador y desplácese o pase el dedo hasta que vea la columna **Valor de ejemplo**.
 
->[!div class="mx-tdBreakAll"]
->[!div class="mx-tdCol2BreakAll"]
-
 | Clave  | Tipo de valor | DESCRIPCIÓN  | Valor de ejemplo |
 |---------|---------|---------|---------|
-| `accessTokenAcceptedVersion` | Int32 que acepta valores null | Especifica la versión de token de acceso aceptada para el recurso de la API actual. Los valores posibles son 1, 2 y null. El valor predeterminado es null, que se tratará como 2. | `2` |
+| `accessTokenAcceptedVersion` | Int32 que acepta valores null | Especifica la versión del token de acceso que espera el recurso. Esto cambia la versión y el formato de JWT generado independientemente del punto de conexión o cliente utilizado para solicitar el token de acceso.<br/><br/>El punto de conexión usado, v1.0 o v2.0, lo elige el cliente y solo afecta a la versión de id_tokens. Los recursos deben configurar explícitamente `accesstokenAcceptedVersion` para indicar el formato del token de acceso admitido.<br/><br/>Los valores posibles de `accesstokenAcceptedVersion` son 1, 2 o un valor null. Si el valor es null, el valor predeterminado es 1, lo que corresponde al punto de conexión v1.0. | `2` |
 | `allowPublicClient` | boolean | Especifica el tipo de aplicación de reserva. Azure AD deduce el tipo de aplicación a partir de replyUrlsWithType, de forma predeterminada. Hay ciertos escenarios en los que Azure AD no puede determinar el tipo de aplicación cliente (por ejemplo, el flujo [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) donde ocurre la solicitud HTTP sin una redireccionamiento de URL). En esos casos, Azure AD interpretará el tipo de aplicación en función del valor de esta propiedad. Si este valor se establece en true, el tipo de aplicación de reserva se establece como cliente público, como una aplicación instalada que se ejecuta en un dispositivo móvil. El valor predeterminado es false, lo que significa que el tipo de aplicación de reserva es un cliente confidencial, como una aplicación web. | `false` |
 | `appId` | Cadena de identificador | Especifica el identificador único de la aplicación que Azure AD asigna a una aplicación. | `"601790de-b632-4f57-9523-ee7cb6ceba95"` |
 | `appRoles` | Tipo de matriz | Especifica la colección de roles que una aplicación puede declarar. Dichos roles se pueden asignar a usuarios, grupos o entidades de servicio. Para ver más ejemplos e información, consulte [Procedimiento para agregar roles de aplicación en la aplicación y recibirlos en el token](howto-add-app-roles-in-azure-ad-apps.md). | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;"description":"Read-only access to device information",<br>&nbsp;&nbsp;&nbsp;"displayName":"Read Only",<br>&nbsp;&nbsp;&nbsp;"id":guid,<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"value":"ReadOnly"<br>&nbsp;&nbsp;}<br>]</code>  |

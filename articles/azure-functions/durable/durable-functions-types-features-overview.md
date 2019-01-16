@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 359594ab91b903033ecc303eccd270988be19810
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: fbfee92343bfecfbe8395f95775ae1f107b99299
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336534"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037283"
 ---
 # <a name="overview-of-function-types-and-features-for-durable-functions-azure-functions"></a>Información general de los tipos de función y características para Durable Functions (Azure Functions)
 
@@ -37,7 +37,7 @@ Encontrará más información y ejemplos en el artículo sobre [Enlaces para Dur
 
 ### <a name="orchestrator-functions"></a>Funciones de Orchestrator
 
-Las funciones de Orchestrator son el corazón de una función durable.  Las funciones de Orchestrator describen la forma y el orden en el que se ejecutan las acciones.  Las funciones del orquestador describen la orquestación en código (C# o JavaScript) como se muestra en [Introducción a Durable Functions](durable-functions-overview.md).  Una orquestación puede tener muchos tipos diferentes de acciones, como [funciones de actividad](#activity-functions), [suborquestaciones](#sub-orchestrations), [espera por eventos externos](#external-events) y [temporizadores](#durable-timers).  
+Las funciones de Orchestrator son el corazón de una función durable.  Las funciones de Orchestrator describen la forma y el orden en el que se ejecutan las acciones.  Las funciones del orquestador describen la orquestación en código (C# o JavaScript) como se muestra en [Durable Functions patterns and technical concepts](durable-functions-concepts.md) (Patrones y conceptos técnicos de Durable Functions).  Una orquestación puede tener muchos tipos diferentes de acciones, como [funciones de actividad](#activity-functions), [suborquestaciones](#sub-orchestrations), [espera por eventos externos](#external-events) y [temporizadores](#durable-timers).  
 
 Una función de orquestador tiene que activarse mediante un [desencadenador de orquestación](durable-functions-bindings.md#orchestration-triggers).
 

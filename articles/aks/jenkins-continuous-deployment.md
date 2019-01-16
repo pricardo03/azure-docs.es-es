@@ -6,13 +6,13 @@ ms.service: container-service
 author: iainfoulds
 ms.author: iainfou
 ms.topic: article
-ms.date: 09/27/2018
-ms.openlocfilehash: d252e275280ed2a5c2129f6b228e9989a33b37fd
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.date: 01/09/2019
+ms.openlocfilehash: 470ba6df76741dd5c9e9eed055cd7848d341082f
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853639"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188460"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implementación desde GitHub en Azure Kubernetes Service (AKS) con la integración e implementación continuas de Jenkins
 
@@ -229,11 +229,6 @@ En la página principal del portal de Jenkins, seleccione **Nuevo elemento** en 
 1. Escriba *azure-vote* como nombre de trabajo. Seleccione **Freestyle project** (Proyecto de estilo libre) y elija **OK** (Aceptar).
 1. En la sección **General**, seleccione **GitHub project** (Proyecto de GitHub) y escriba la dirección URL del repositorio bifurcado, como *https://github.com/\<your-github-account\>/azure-voting-app-redis*.
 1. En la sección **Source code management** (Administración del código fuente), seleccione **Git** y escriba la dirección URL de su repositorio bifurcado *.git*, como *https://github.com/\<your-github-account\>/azure-voting-app-redis.git*.
-    - Para las credenciales, haga clic en **Add** (Agregar) > **Jenkins**.
-    - En **Kind** (Tipo), seleccione **Secret text** (Texto secreto) y especifique el [token de acceso personal a GitHub][git-access-token] como secreto.
-    - Seleccione **Add** (Agregar) cuando haya finalizado.
-
-    ![Credenciales de GitHub](media/aks-jenkins/github-creds.png)
 
 1. En la sección **Build Triggers** (Compilar desencadenadores), seleccione **GitHub hook trigger for GITScm polling** (Desencadenador de enlace de GitHub para sondeo de GITScm).
 1. En **Build Environment** (Entorno de compilación), seleccione **Use secret texts or files** (Usar textos secretos o archivos).

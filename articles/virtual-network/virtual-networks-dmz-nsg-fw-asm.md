@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: cc0e8a3fa749eb2e6f65ef92c2d3cb404cfc8bc0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fdc4885c079a3659d394517f0a10394eff0720c8
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23126933"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119160"
 ---
 # <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>Ejemplo 2: Creación de una red perimetral para proteger las aplicaciones con un Firewall y grupos de seguridad de red
 [Volver a la página de procedimientos recomendados de límites de seguridad][HOME]
@@ -32,7 +32,7 @@ En este ejemplo se creará una red perimetral con un firewall, cuatro servidores
 En este ejemplo hay una suscripción que contiene lo siguiente:
 
 * Dos servicios en la nube: "FrontEnd001" y "BackEnd001"
-* Una red virtual, CorpNetwork, con dos subredes: FrontEnd y BackEnd
+* Una red virtual "CorpNetwork", con dos subredes: "FrontEnd" y "BackEnd"
 * Un único grupo de seguridad de red que se aplica a ambas subredes
 * Un dispositivo virtual de red, en este ejemplo un firewall Barracuda NextGen, conectado a la subred front-end
 * Un servidor Windows que representa un servidor de aplicaciones web ("IIS01")
@@ -52,11 +52,11 @@ Para crear el entorno, siga estos pasos:
 2. Actualice las variables de usuario en el script para que coincida con el entorno en el que se va a ejecutar el script (suscripciones, nombres de servicio, etc.).
 3. Ejecución del script en PowerShell
 
-**Nota**: la región indicada en el script de PowerShell debe coincidir con la región indicada en el archivo xml de configuración de red.
+**Nota**: La región indicada en el script de PowerShell debe coincidir con la región indicada en el archivo xml de configuración de red.
 
 Cuando el script se ejecuta correctamente, se pueden realizar los siguientes pasos posteriores al script:
 
-1. Configure las reglas de firewall, esto se trata en la sección siguiente denominada Reglas de firewall.
+1. Configure las reglas de firewall. Este tema se trata en la sección siguiente denominada: Reglas de firewall.
 2. Opcionalmente, en la sección de referencias hay dos scripts para configurar el servidor web y el servidor de aplicaciones con una aplicación web sencilla para permitir las pruebas con esta configuración de red perimetral.
 
 La siguiente sección explica la mayor parte de las instrucciones de scripts relativas a los grupos de seguridad de red.
@@ -87,7 +87,7 @@ Las reglas del grupo de seguridad de red tratadas anteriormente son muy similare
 ## <a name="firewall-rules"></a>Reglas de firewall
 Deberá instalarse un cliente de administración en el equipo para administrar el firewall y crear las configuraciones necesarias. Consulte la documentación del proveedor de su firewall (o de otro dispositivo virtual de red) acerca de cómo administrar el dispositivo. El resto de esta sección describe la configuración del mismo firewall, a través del cliente de administración de proveedores (es decir, no el Portal de Azure o PowerShell).
 
-Puede encontrar instrucciones para descargar el cliente y conectarse al firewall Barracuda usado en este ejemplo aquí: [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
+Puede encontrar aquí instrucciones para descargar y conectar el cliente al firewall Barracuda usado en este ejemplo: [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
 
 En el firewall, deberán crearse reglas de reenvío. Como en este ejemplo solo se enruta el tráfico entrante de Internet al firewall y después al servidor web, únicamente se necesita un regla NAT de reenvío. En el firewall de Barracuda NextGen usado en este ejemplo, la regla sería una regla NAT de destino ("Dst NAT") para pasar este tráfico.
 
@@ -95,7 +95,7 @@ Para crear la siguiente regla (o comprobar las reglas predeterminadas existentes
 
 Cree una nueva regla y asígnele un nombre, como "WebTraffic". 
 
-El icono de regla de NAT de destino tiene este aspecto: ![Icono de NAT de destino][2]
+El icono de regla de NAT de destino tiene este aspecto:  ![Icono de NAT de destino][2]
 
 La regla debe tener un aspecto similar al siguiente:
 
@@ -152,7 +152,7 @@ Con la activación del conjunto de reglas de firewall finaliza la compilación d
 16. Puesto que no hay reglas de salida en la subred front-end, se permite la respuesta y el usuario de Internet recibe la página web solicitada.
 
 #### <a name="allowed-rdp-to-backend"></a>(Permitido) RDP a back-end
-1. El administrador del servidor en Internet solicita la sesión RDP para AppVM01 en BackEnd001.CloudApp.Net:xxxxx donde xxxxx es el número de puerto asignado de forma aleatoria para RDP a AppVM01 (el puerto asignado puede encontrarse en el Portal de Azure o a través de PowerShell).
+1. El administrador del servidor en Internet solicita la sesión RDP para AppVM01 en BackEnd001.CloudApp.Net:xxxxx donde xxxxx es el número de puerto asignado de forma aleatoria para RDP a AppVM01 (el puerto asignado puede encontrarse en Azure Portal o a través de PowerShell).
 2. Como el firewall solo está escuchando en la dirección FrontEnd001.CloudApp.Net, no participa en este flujo de tráfico.
 3. La subred back-end comienza el procesamiento de las reglas de entrada:
    1. No se aplica la regla 1 (DNS) de grupo de seguridad de red, pasar a la regla siguiente.
@@ -427,7 +427,7 @@ Este script de PowerShell debe ejecutarse localmente en un equipo o servidor con
             Else { Write-Host "The deployment location was found in the network config file." -ForegroundColor Green}}
 
     If ($FatalError) {
-        Write-Host "A fatal error has occured, please see the above messages for more information." -ForegroundColor Red
+        Write-Host "A fatal error has occurred, please see the above messages for more information." -ForegroundColor Red
         Return}
     Else { Write-Host "Validation passed, now building the environment." -ForegroundColor Green}
 
@@ -568,7 +568,7 @@ Guarde este archivo xml con la ubicación actualizada y agregue el vínculo a es
     </NetworkConfiguration>
 
 #### <a name="sample-application-scripts"></a>Scripts de aplicación de ejemplo
-Si desea instalar una aplicación de ejemplo para este y otros ejemplos de red perimetral, hay una en el siguiente vínculo: [Script de aplicación de ejemplo][SampleApp].
+Si quiere instalar una aplicación de ejemplo para este y otros ejemplos de red perimetral, se proporciona uno en el siguiente vínculo: [Script de aplicación de ejemplo][SampleApp]
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-fw-asm/example2design.png "Red perimetral de entrada con grupo de seguridad de red"

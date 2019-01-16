@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: 3505d65b55807010904494079532fe5741e6df77
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 8fd3725a5f3cd45da261aca17bf0f89a3e5a5aa0
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601175"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055190"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Plano técnico de seguridad y cumplimiento de Azure: aplicación web PaaS con clasificación Protegida para Australia
 
@@ -201,7 +201,7 @@ Las siguientes [soluciones de administración](https://docs.microsoft.com/azure/
 
 **Azure Monitor**: [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) ayuda a los usuarios a realizar un seguimiento del rendimiento, mantener la seguridad e identificar tendencias y permite a las organizaciones auditar, crear alertas y archivar datos, incluido el seguimiento de las llamadas a API en sus recursos de Azure.
 
-Azure Network Watcher: [Azure Network Watcher]9 https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) proporciona herramientas para supervisar, diagnosticar, ver las métricas y habilitar o deshabilitar registros de recursos en una red virtual de Azure.  Las entidades de la Commonwealth deben implementar los registros de flujo de Network Watcher para grupos de seguridad de red y máquinas virtuales. Estos registros deben almacenarse en una cuenta de almacenamiento dedicada donde solo se guarden registros de seguridad; el acceso a la cuenta de almacenamiento debe estar protegida con controles de acceso basados en rol.
+Azure Network Watcher: [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) proporciona herramientas para supervisar, diagnosticar, ver las métricas y habilitar o deshabilitar registros de recursos en una red virtual de Azure.  Las entidades de la Commonwealth deben implementar los registros de flujo de Network Watcher para grupos de seguridad de red y máquinas virtuales. Estos registros deben almacenarse en una cuenta de almacenamiento dedicada donde solo se guarden registros de seguridad; el acceso a la cuenta de almacenamiento debe estar protegida con controles de acceso basados en rol.
 
 ## <a name="threat-model"></a>Modelo de amenazas
 

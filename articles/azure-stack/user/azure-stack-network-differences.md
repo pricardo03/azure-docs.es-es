@@ -10,22 +10,22 @@ ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.openlocfilehash: de98387b0c7d5eb3c5ca99f9aa31619397e2aadf
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 4aa62319ee37b2f82455d1a3c7ad2d224988d93e
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944586"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54160070"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Consideraciones para las redes de Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Las redes de Azure Stack tienen muchas de las características proporcionadas por las redes de Azure. Sin embargo, hay algunas diferencias clave que debe conocer antes de implementar una red de Azure Stack.
 
 En este artículo se proporciona información general sobre las consideraciones únicas para las redes de Azure Stack y sus características. Para obtener información acerca de las diferencias de alto nivel entre Azure y Azure Stack, consulte el artículo [Key considerations](azure-stack-considerations.md) (Consideraciones clave).
 
-## <a name="cheat-sheet-networking-differences"></a>Hoja de referencia rápida: diferencias de servicios de red
+## <a name="cheat-sheet-networking-differences"></a>Hoja de referencia rápida: diferencias de redes
 
 | Servicio | Característica | Azure (global) | Azure Stack |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -54,7 +54,6 @@ En este artículo se proporciona información general sobre las consideraciones 
 |  | Sitio de puerta de enlace predeterminado | Azure admite la configuración de un sitio predeterminado para la tunelización forzada. | Todavía no se admite. |
 |  | Cambio del tamaño de la puerta de enlace | Azure permite cambiar el tamaño de la puerta de enlace después de la implementación. | No se permite cambiar el tamaño. |
 |  | Configuración activa/activa | Compatible | Todavía no se admite. |
-|  | Directivas IKE/IPSec | Azure admite configuraciones de directivas IPSec personalizadas. | Todavía no se admite. |
 |  | UsePolicyBasedTrafficSelectors | Azure admite el uso de selectores de tráfico en función de directivas con las conexiones de puerta de enlace basadas en rutas. | Todavía no se admite. |
 | Equilibrador de carga | SKU | Se admiten los equilibradores de carga Estándar y Básico. | Solo se admite el equilibrador de carga Básico.  La propiedad SKU no se admite. |
 |  | Zones | Availability Zones se admite. | Todavía no se admite |
@@ -65,11 +64,9 @@ En este artículo se proporciona información general sobre las consideraciones 
 |  | Obtención de ACL efectivas | Compatible | Todavía no se admite. |
 |  | Habilitar Accelerated Networking | Compatible | Todavía no se admite. |
 |  | reenvío de IP | Deshabilitado de forma predeterminada.  Se puede habilitar. | No se puede alternar esta opción.  Está activada de forma predeterminada. |
-|  | Varias configuraciones de IP por interfaz | Compatible | Todavía no se admite. |
 |  | Grupos de seguridad de la aplicación | Compatible | Todavía no se admite. |
 |  | Etiqueta de nombre DNS interno | Compatible | Todavía no se admite. |
 |  | Versión de dirección IP privada | Se admiten tanto IPv6 como IPv4. | Se admite solo IPv4. |
-|  | Configuración de IP principal | Se admite. Identifica la configuración de IP principal en la interfaz. | Todavía no se admite. |
 | Network Watcher | Funciones de supervisión de red de inquilinos de Network Watcher | Compatible | Todavía no se admite. |
 | CDN | Perfiles de Content Delivery Network | Compatible | Todavía no se admite. |
 | puerta de enlace de aplicaciones | Equilibrio de carga de nivel 7 | Compatible | Todavía no se admite. |

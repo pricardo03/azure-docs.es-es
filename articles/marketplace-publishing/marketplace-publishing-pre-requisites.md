@@ -3,7 +3,7 @@ title: Requisitos previos no técnicos para crear una oferta en Azure Marketplac
 description: Conozca los requisitos para crear e implementar una oferta en Azure Marketplace para que otros usuarios la compren.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 3dae463b-8f48-4f52-8fa8-4e3975f09f43
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: hascipio
-ms.openlocfilehash: ef19380372354b8f34343f9f94ebf6b384996f14
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4b925522186d2d9ae537431c1d96d39b107ad967
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261565"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073176"
 ---
 # <a name="general-prerequisites-for-creating-an-offer-for-the-azure-marketplace"></a>Requisitos previos generales para crear una oferta para Azure Marketplace
 Conozca los requisitos previos generales, centrados en procesos de negocio, que se necesitan para avanzar con el proceso de la creación de ofertas.
@@ -27,11 +28,11 @@ Conozca los requisitos previos generales, centrados en procesos de negocio, que 
 ## <a name="ensure-that-you-are-registered-as-a-seller-with-microsoft"></a>Asegúrese de que está registrado como vendedor con Microsoft
 Para instrucciones detalladas sobre cómo registrar una cuenta de vendedor en Microsoft, vaya a [Creación y registro de cuentas](marketplace-publishing-accounts-creation-registration.md).
 
-* **Si su compañía ya está registrada como vendedor en el Centro de desarrollo y quiere crear una nueva oferta,** inicie sesión en el Portal de publicación con el mismo identificador de correo electrónico con el que se realizó el registro en el Centro de desarrollo. Este paso es necesario para que el Portal de publicación y el Centro de desarrollo están vinculados entre sí.
-* **Si su compañía ya está registrada como vendedor en el Centro de desarrollo y quiere editar una oferta existente,** inicie sesión en el Portal de publicación con la cuenta de administrador o con una que se agregue como cuenta de coadministrador en el Portal de publicación. A continuación, se muestran los pasos para agregar una cuenta de coadministrador.
+* Si su compañía ya está registrada como vendedor en el Centro de desarrollo y quiere crear una nueva oferta, inicie sesión en el Portal de publicación con el mismo identificador de correo electrónico con el que se realizó el registro en el Centro de desarrollo. Este paso es necesario para que el Portal de publicación y el Centro de desarrollo están vinculados entre sí.
+* Si su compañía ya está registrada como vendedor en el Centro de desarrollo y quiere editar una oferta existente, inicie sesión en el Portal de publicación con la cuenta de administrador o con una que se agregue como cuenta de coadministrador en el Portal de publicación. A continuación, se muestran los pasos para agregar una cuenta de coadministrador.
 
-## <a name="steps-to-add-a-co-admin-in-the-publishing-portal"></a>Pasos para agregar coadministradores en el Portal de publicación
-Los administradores del Portal de publicación podrán agregar como coadministradores al resto de los miembros de la compañía que estén utilizando la aplicación. **Si damos por hecho que usted es el administrador** , siga estos pasos para agregar un coadministrador.
+## <a name="steps-to-add-a-coadmin-in-the-publishing-portal"></a>Pasos para agregar coadministradores en el Portal de publicación
+Los administradores del Portal de publicación podrán agregar como coadministradores al resto de los miembros de la compañía que estén utilizando la aplicación. **Si damos por hecho que usted es el administrador**, siga estos pasos para agregar un coadministrador.
 
 > [!NOTE]
 > Para los nuevos usuarios, antes de agregar un coadministrador en el Portal de publicación, asegúrese de que ha creado, al menos, una aplicación en el Portal de publicación. Esto es necesario porque la pestaña **PUBLICADORES** solo se muestra después de crear, como mínimo, una aplicación en el Portal de publicación.
@@ -42,17 +43,17 @@ Los administradores del Portal de publicación podrán agregar como coadministra
 2. Asegúrese de que hay, al menos, una aplicación en la cuenta de administrador antes de intentar agregar un coadministrador.
 3. Cuando realice los pasos anteriores, inicie sesión en el Portal de publicación con el identificador de correo electrónico de coadministrador y, luego, cierre de sesión.
 4. Ahora, inicie sesión en el Portal de publicación con el identificador de correo electrónico de administrador.
-5. Vaya a Publicadores -> seleccione la cuenta -> Administradores -> Agregar nuevo coadministrador (consulte la captura de pantalla siguiente).
+5. Vaya a Publicadores, seleccione la cuenta y elija Administradores -> Agregar nuevo coadministrador (consulte la captura de pantalla siguiente).
    
     ![dibujo](media/marketplace-publishing-pre-requisites/imgAddAdmin_05.png)
 6. Asegúrese de supervisar los identificadores de correo electrónico proporcionados en las distintas fases del proceso de publicación (por ejemplo, el Centro de desarrollo, el Portal de publicación) en las comunicaciones de Microsoft.
-7. En cuanto al registro del Centro de desarrollo, evite usar una cuenta asociada a una sola persona. Esto se recomienda para tener que dejar de depender de una persona.
+7. En cuanto al registro del Centro de desarrollo, evite usar una cuenta asociada a una sola persona. Esta sugerencia elimina la dependencia de un usuario individual.
 8. Si experimenta problemas con el registro en el Centro de desarrollo, cree una incidencia haciendo clic en este [vínculo](https://developer.microsoft.com/en-us/windows/support).
 
-## <a name="steps-to-delete-a-co-admin-in-the-publishing-portal"></a>Pasos para eliminar a un coadministrador en el portal de publicación
-**Dando por hecho que usted es el administrador** , siga estos pasos para eliminar a un coadministrador.
+## <a name="steps-to-delete-a-coadmin-in-the-publishing-portal"></a>Pasos para eliminar a un coadministrador en el portal de publicación
+**Dando por hecho que usted es el administrador**, siga estos pasos para eliminar a un coadministrador.
 
-1. Inicie sesión en el portal de publicación con el identificador de correo electrónico de administrador.
+1. Ahora, inicie sesión en el portal de publicación con el identificador de correo electrónico de administrador.
 2. Vaya a **Publicadores** -> seleccione su cuenta -> **Administradores** -> **Co-Admins** (Coadministradores).
 3. Haga clic en el botón **X** situado junto al coadministrador que desee eliminar (consulte la captura de pantalla siguiente).
    
@@ -66,7 +67,7 @@ Los administradores del Portal de publicación podrán agregar como coadministra
 > 
 
 ## <a name="acquire-an-azure-pay-as-you-go-subscription"></a>Adquisición de una suscripción de Azure de "pago por uso"
-Se trata de la suscripción que usará para crear las imágenes de máquina virtual y entregarlas a [Azure Marketplace](https://azure.microsoft.com/marketplace/). Si no tiene una suscripción, suscríbase en https://account.windowsazure.com/signup?offer=ms-azr-0003p.
+Este valor es la suscripción que usará para crear las imágenes de máquina virtual y entregarlas a [Azure Marketplace](https://azure.microsoft.com/marketplace/). Si no tiene una suscripción, suscríbase en https://account.windowsazure.com/signup?offer=ms-azr-0003p.
 
 ## <a name="sell-from-countries"></a>Países de "Venta-de"
 > [!WARNING]
@@ -81,5 +82,5 @@ Una vez cumplidos los requisitos previos no técnicos, nos encontramos los requi
 * [Requisitos previos técnicos de la plantilla de solución](marketplace-publishing-solution-template-creation-prerequisites.md)
 
 ## <a name="see-also"></a>Otras referencias
-* [Introducción: cómo publicar una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Introducción: Publicación de una oferta en Azure Marketplace](marketplace-publishing-getting-started.md)
 

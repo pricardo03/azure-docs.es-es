@@ -5,24 +5,24 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5aaaee6f9a69f9cb619935f18f614d7572a755d7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 11be6d10589d981335d1f63d06933dba5265348a
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429726"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191843"
 ---
 # <a name="create-partitions"></a>Creación de particiones
 
 En esta lección creará particiones para dividir la tabla FactInternetSales en partes lógicas más pequeñas que se puedan procesar (actualizar) de manera independiente de otras particiones. De forma predeterminada, todas las tablas que incluya en el modelo tienen una partición, que incluye todas las columnas y las filas de la tabla. En el caso de la tabla FactInternetSales, queremos dividir los datos por año: una partición para cada uno de los cinco años de la tabla. Así, cada partición se podrá procesar de manera independiente. Para obtener más información, consulte [Partitions](https://docs.microsoft.com/sql/analysis-services/tabular-models/partitions-ssas-tabular) (Particiones). 
   
-Tiempo estimado para completar esta lección: **15 minutos**  
+Tiempo estimado para completar esta lección: **15 minutos**  
   
 ## <a name="prerequisites"></a>Requisitos previos  
-Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Antes de llevar a cabo las tareas de esta lección, debe haber finalizado la lección anterior: [Lección 9: Creación de jerarquías](../tutorials/aas-lesson-9-create-hierarchies.md).  
+Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Para poder realizar las tareas de esta lección, debe haber completado la lección anterior: [Lección 9: Creación de jerarquías](../tutorials/aas-lesson-9-create-hierarchies.md).  
   
 ## <a name="create-partitions"></a>Creación de particiones  
   
@@ -40,7 +40,7 @@ Este tema forma parte de un tutorial de modelado tabular, que se debe completar 
 
     ![aas-lesson10-query-editor](../tutorials/media/aas-lesson10-query-editor.png)
 
-6.  En el cuadro de diálogo Filtrar filas, en **Mostrar filas donde: OrderDate**, deje **posterior a o igual que** y, en el campo de fecha, escriba **1/1/2010**. Deje seleccionado el operador **Y**, seleccione **anterior a**; luego, en el campo de fecha, escriba **1/1/2011** y haga clic en **Aceptar**.
+6.  En el cuadro de diálogo Filtrar roles, en **Show rows where: OrderDate** (Mostrar las filas donde: OrderDate), deje **is after or equal to** (es posterior o igual a) y, en el campo de datos, escriba **1/1/2010**. Deje seleccionado el operador **Y**, seleccione **anterior a**; luego, en el campo de fecha, escriba **1/1/2011** y haga clic en **Aceptar**.
 
     ![aas-lesson10-filter-rows](../tutorials/media/aas-lesson10-filter-rows.png)
     
@@ -109,4 +109,4 @@ En el Administrador de particiones, observe que en la columna **Procesado por ú
     ![aas-lesson10-process-complete](../tutorials/media/aas-lesson10-process-complete.png)
   
  ## <a name="whats-next"></a>Pasos siguientes
-Vaya a la siguiente lección: [Lección 11: Creación de roles](../tutorials/aas-lesson-11-create-roles.md). 
+Vaya a la lección siguiente: [Lección 11: Creación de roles](../tutorials/aas-lesson-11-create-roles.md). 

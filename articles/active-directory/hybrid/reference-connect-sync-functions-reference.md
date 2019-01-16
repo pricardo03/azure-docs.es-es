@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect Sync: referencia de funciones | Microsoft Docs'
+title: 'Sincronización de Azure AD Connect: Referencia de funciones | Microsoft Docs'
 description: Referencia de expresiones declarativas de aprovisionamiento en la sincronización de Azure AD Connect
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cb6f74a1de3e91868d7b20563a790352486862ee
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: db427d0c171e164cb03d7280103fa85e5add4dd1
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425700"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157486"
 ---
-# <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync: referencia de funciones
+# <a name="azure-ad-connect-sync-functions-reference"></a>Sincronización de Azure AD Connect: Referencia de funciones
 En Azure AD Connect, las funciones se usan para manipular un valor de atributo durante la sincronización.  
 La sintaxis de las funciones se expresa con el siguiente formato:   
 `<output type> FunctionName(<input type> <position name>, ..)`
@@ -394,7 +394,7 @@ Si el atributo proxyAddresses tiene una dirección de correo electrónico princi
 `str ConvertFromBase64(str source, enum Encoding)`
 
 * source: cadena codificada en Base64  
-* Codificación: Unicode, ASCII, UTF8
+* Encoding: Unicode, ASCII, UTF8
 
 **Ejemplo**  
 `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")`  
@@ -410,7 +410,7 @@ Ambos ejemplos devuelven "*Hola a todos*"
 **Sintaxis:**  
 `str ConvertFromUTF8Hex(str source)`
 
-* origen: cadena codificada de 2 bytes UTF8
+* source: cadena codificada de 2 bytes UTF8
 
 **Comentarios:**  
 La diferencia entre esta función y ConvertFromBase64([],UTF8) es que el resultado es descriptivo para el atributo DN.  
@@ -539,7 +539,7 @@ Convierte el valor de una matriz de enteros en su representación de cadena equi
 `str DNComponent(ref dn, num ComponentNumber)`
 
 * dn: el atributo de referencia que interpretar
-* ComponentNumber: el componente en DN que devolver
+* ComponentNumber: el componente en DN para devolver
 
 **Ejemplo:**  
 `DNComponent(CRef([dn]),1)`  
@@ -556,7 +556,7 @@ Convierte el valor de una matriz de enteros en su representación de cadena equi
 
 * dn: el atributo de referencia que interpretar
 * ComponentNumber: el componente en DN que devolver
-* Opciones: DC, ignora todos los componentes con “dc=”
+* Opciones: DC, ignora todos los componentes con "dc="
 
 **Ejemplo:**  
 Si dn es "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com"  
@@ -600,7 +600,7 @@ Si dn es "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com"
 * format: una cadena que representa el formato de conversión.
 
 **Comentarios:**  
-Se pueden encontrar aquí los valores posibles para el formato: [Formatos de fecha y hora definidos por el usuario (función Format)](https://msdn2.microsoft.com/library/73ctwf33\(VS.90\).aspx)
+Los valores posibles para el formato pueden encontrarse aquí: [Formatos de fecha y hora personalizados para la función FORMAT](https://docs.microsoft.com/dax/custom-date-and-time-formats-for-the-format-function).
 
 **Ejemplo:**  
 
@@ -628,7 +628,7 @@ La función GUID genera un nuevo GUID aleatorio.
 
 * condition: cualquier valor o expresión que pueda evaluarse en True o False.
 * valueIfTrue: si la condición se evalúa como true, el valor devuelto.
-* valueIfTrue: si la condición se evalúa como false, el valor devuelto.
+* valueIfFalse: si la condición se evalúa como false, el valor devuelto.
 
 **Ejemplo:**  
 `IIF([employeeType]="Intern","t-" & [alias],[alias])`  
@@ -852,7 +852,7 @@ Si el índice está fuera de los límites, devuelve un valor Null.
 `str Join(mvstr attribute)`  
 `str Join(mvstr attribute, str Delimiter)`
 
-* attribute: atributo de varios valores que contiene cadenas para combinar.
+* : atributo de varios valores que contiene cadenas para combinar.
 * delimiter: cualquier cadena utilizada para separar las subcadenas en la cadena devuelta. Si se omite, se usa el carácter de espacio (""). Si delimitador es una cadena de longitud cero ("") o nada, todos los elementos de la lista se concatenan sin delimitadores.
 
 **Comentarios:**  

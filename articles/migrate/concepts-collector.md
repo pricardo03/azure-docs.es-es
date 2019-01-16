@@ -4,15 +4,15 @@ description: Proporciona información sobre el dispositivo del recopilador de Az
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/08/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 255f5b34e53ddfb1a503130f0bccbac16a420f9a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 6f843fedafd68d4e04d181af2c6d7542baaf0144
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255982"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104219"
 ---
 # <a name="about-the-collector-appliance"></a>Dispositivo del recopilador
 
@@ -36,9 +36,9 @@ El dispositivo del recopilador está conectado constantemente al proyecto de Azu
 
 El dispositivo solo recopila datos de rendimiento de forma continua, no detecta ningún cambio de configuración en el entorno local (por ejemplo, adición de VM, eliminación o adición de disco, entre otros). Si se produce un cambio de configuración en el entorno local, puede hacer lo siguiente para reflejar los cambios en el portal:
 
-- Adición de elementos (VM, discos, núcleos, etc.): Para reflejar estos cambios en Azure Portal, puede detener la detección desde el dispositivo y después iniciarla de nuevo. Así se asegurará de que los cambios se actualizan en el proyecto de Azure Migrate.
+- Adición de elementos (máquinas virtuales, discos, núcleos, etc.): para reflejar estos cambios en Azure Portal, puede detener la detección desde la aplicación y después iniciarla de nuevo. Así se asegurará de que los cambios se actualizan en el proyecto de Azure Migrate.
 
-- Eliminación de VM: Debido a la forma en que está diseñado el dispositivo, la eliminación de las VM no se refleja aunque detenga e inicie la detección. Esto se debe a que los datos de las detecciones posteriores se agregan a las detecciones más antiguas y no se reemplazan. En este caso, puede simplemente omitir la máquina virtual en el portal quitándola del grupo y recalculando la valoración.
+- Eliminación de máquinas virtuales: debido a la forma en que está diseñada la aplicación, la eliminación de las máquinas virtuales no se refleja aunque detenga e inicie la detección. Esto se debe a que los datos de las detecciones posteriores se agregan a las detecciones más antiguas y no se reemplazan. En este caso, puede simplemente omitir la máquina virtual en el portal quitándola del grupo y recalculando la valoración.
 
 > [!NOTE]
 > El dispositivo de detección de una sola vez está en desuso, ya que este método dependía de la configuración de las estadísticas de vCenter Server para la disponibilidad de punto de datos de rendimiento y la media recopilada de los contadores de rendimiento, lo que daba lugar a un cálculo de tamaño insuficiente de las máquinas virtuales para la migración a Azure.
@@ -63,7 +63,7 @@ El recopilador debe pasar algunas comprobaciones de requisitos previos para aseg
     - Si va a migrar a la nube comercial de Azure, seleccione Azure Global.
     - Según la nube especificada aquí, el dispositivo enviará metadatos detectados a los puntos de conexión respectivos.
 - **Compruebe la conexión a Internet**: El recopilador puede conectarse a Internet directamente o a través de un proxy.
-    - La comprobación de requisitos previos comprueba la conectividad a las [direcciones URL obligatorias y opcionales](#connect-to-urls).
+    - La comprobación de requisitos previos comprueba la conectividad a las [direcciones URL obligatorias y opcionales](#urls-for-connectivity).
     - Si tiene una conexión directa a Internet, no es necesario realizar ninguna acción específica, salvo asegurarse de que el recolector puede llegar a las direcciones URL necesarias.
     - Si se conecta a través de un proxy, tenga en cuenta los [requisitos](#connect-via-a-proxy) que se indican más abajo.
 - **Compruebe la sincronización temporal**: El recopilador debe estar sincronizado con el servidor horario de Internet para asegurarse de que se autentiquen las solicitudes al servicio.
@@ -105,7 +105,7 @@ El recopilador debe pasar algunas comprobaciones de requisitos previos para aseg
 
 
 
-### <a name="connect-to-urls"></a>Conectarse a direcciones URL
+### <a name="urls-for-connectivity"></a>Direcciones URL para la conectividad
 
 La comprobación de conectividad se valida mediante la conexión a una lista de direcciones URL.
 
@@ -219,7 +219,7 @@ El dispositivo del recopilador detecta los siguientes metadatos de configuració
 
 #### <a name="performance-counters"></a>contadores de rendimiento
 
- El dispositivo del recopilador recopila los siguientes contadores de rendimiento para cada VM desde el host ESXi en un intervalo de 20 segundos. Estos son los contadores de vCenter y, aunque la terminología indica el promedio, los ejemplos de 20 segundos son contadores en tiempo real. Los datos de rendimiento para las VM comienzan a estar disponibles en el portal dos horas después de haberse iniciado la detección. Se recomienda encarecidamente esperar al menos un día antes de crear evaluaciones basadas en el rendimiento para obtener recomendaciones de tamaño precisas. Si busca una gratificación instantánea, puede crear evaluaciones con criterio de tamaño, por ejemplo *Como local*, que no tendrá en cuenta los datos de rendimiento para el ajuste del tamaño.
+ El dispositivo del recopilador recopila los siguientes contadores de rendimiento para cada VM desde el host ESXi en un intervalo de 20 segundos. Estos son los contadores de vCenter y, aunque la terminología indica el promedio, los ejemplos de 20 segundos son contadores en tiempo real. Los datos de rendimiento para las VM comienzan a estar disponibles en el portal dos horas después de haberse iniciado la detección. Se recomienda encarecidamente esperar al menos un día antes de crear evaluaciones basadas en el rendimiento para obtener recomendaciones de tamaño precisas. Si busca una gratificación instantánea, puede crear evaluaciones con criterio de tamaño, por ejemplo *como local*, que no tendrá en cuenta los datos de rendimiento para el ajuste del tamaño.
 
 **Contador** |  **Impacto en la evaluación**
 --- | ---

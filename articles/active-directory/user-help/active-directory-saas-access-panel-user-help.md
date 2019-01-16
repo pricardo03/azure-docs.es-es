@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
-ms.openlocfilehash: b4229ca7ff96a9806ac82cf9452de496d858f6b4
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: a761e6a42e478aafca75709689a022edec2a64db
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705691"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191044"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-myapps-portal"></a>Solución de problemas de acceso y uso en el portal Mis aplicaciones
 
@@ -49,7 +49,7 @@ El portal Mis aplicaciones requiere un explorador compatible con JavaScript y co
 
 Asegúrese de que cumple los siguientes requisitos de explorador:
 
-- **Microsoft Edge**: en Windows 10 Anniversary Edition, o cualquier versión posterior.
+- **Microsoft Edge**: en Windows 10 Anniversary Edition o versión posterior.
 - **Chrome**: en Windows 7 o posterior y en Mac OS X o posterior.
 - **Firefox 26.0 o versiones posteriores**: en Windows XP SP2 o versiones posteriores y en Mac OS X 10.6 o versiones posteriores.
 - **Internet Explorer 11**: en Windows 7, o cualquier versión posterior (compatibilidad limitada).
@@ -57,7 +57,7 @@ Asegúrese de que cumple los siguientes requisitos de explorador:
 También puede descargar la extensión directamente desde los siguientes sitios:
 
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Microsoft Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
 - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 Si ha instalado la extensión y sigue teniendo problemas, pruebe lo siguiente:

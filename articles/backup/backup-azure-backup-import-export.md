@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: dcedf27f6105dcc1ea6e43feb32d254b491842c7
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 9d91ccd04ed06fb6c256a2d9911202d7df6d08a5
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974444"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188307"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flujo de trabajo de copia de seguridad sin conexión en Azure Backup
 El servicio Azure Backup presenta varias eficiencias integradas para ahorrar costos de almacenamiento y red durante las copias de seguridad iniciales 'completas' de datos en Azure. Las copias de seguridad iniciales completas transfieren grandes cantidades de datos y requieren un mayor ancho de banda de red en comparación con las copias de seguridad sucesivas que solo transfieren los cambios diferenciales e incrementales. A través del proceso de propagación sin conexión, Azure Backup puede usar discos para cargar los datos de copia de seguridad sin conexión en Azure.
@@ -109,7 +109,7 @@ La utilidad *AzureOfflineBackupDiskPrep* prepara las unidades de disco SATA que 
     * El equipo de copia puede acceder a la ubicación de ensayo del flujo de trabajo de propagación sin conexión mediante la misma ruta de acceso de red proporcionada durante el flujo de trabajo de **inicio de la copia de seguridad sin conexión** .
     * BitLocker está habilitado en el equipo de copia.
     * Azure PowerShell 3.7.0 está instalado.
-    * Los exploradores compatibles más recientes (Edge o Internet Explorer 11) están instalados y JavaScript, habilitado. 
+    * Los exploradores compatibles más recientes (Microsoft Edge o Internet Explorer 11) están instalados y JavaScript, habilitado. 
     * El equipo de copia puede acceder a Azure Portal. Si es necesario, el equipo de copia puede ser el mismo que el equipo de origen.
     
     > [!IMPORTANT] 

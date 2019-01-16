@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 830fc1d96825e28aad41aac9afee499b9bc1f7ae
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 02aa4eb37437861d428c6f361b3ff21def56b49b
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356322"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54189837"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Problemas de inicio de sesión en una aplicación desde el panel de acceso
 
@@ -68,7 +68,7 @@ Para el SSO basado en contraseña, los exploradores del usuario final pueden ser
 
 -   Internet Explorer 8, 9, 10, 11 (en Windows 7 o posterior)
 
--   Microsoft Edge en Windows 10 Anniversary Edition o posterior
+-   Microsoft Edge en Windows 10 Anniversary Edition o versión posterior
 
 -   Chrome (en Windows 7 o posterior y en Mac OS X o posterior)
 
@@ -285,7 +285,7 @@ Para configurar el inicio de sesión único para una aplicación ajena a la gale
 
   1. Para configurar la aplicación como SSO iniciado por el IdP, escriba la dirección URL de respuesta y el identificador.
 
-  2. **Opcional:** para configurar la aplicación como SSO iniciado por el SP, la dirección URL de inicio de sesión es obligatoria.
+  2. **Opcional:** Para configurar la aplicación como SSO iniciado por el SP, la dirección URL de inicio de sesión es obligatoria.
 
 12. En **Atributos de usuario**, seleccione el identificador único para los usuarios de la lista desplegable **Identificador de usuario**.
 

@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 14d50a17cf7816cb8e792128f8dd3965781657e5
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 4657bd136592c66b5dab9a712f5f1d6df898876c
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339593"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043964"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Encadenamiento de funciones en Durable Functions: Hello Sequence de ejemplo
 
-El encadenamiento de funciones hace referencia al patrón de ejecución de una secuencia de funciones en un orden concreto. A menudo la salida de una función tiene que aplicarse a la entrada de otra función. Este artículo describe la secuencia de encadenamiento que se crea al completar el inicio rápido de Durable Functions ([ C# ](durable-functions-create-first-csharp.md) o [JavaScript](quickstart-js-vscode.md)). Para más información sobre Durable Functions, consulte [Durable Functions overview](durable-functions-overview.md) (Información general de Durable Functions).
+El encadenamiento de funciones hace referencia al patrón de ejecución de una secuencia de funciones en un orden concreto. A menudo la salida de una función tiene que aplicarse a la entrada de otra función. Este artículo describe la secuencia de encadenamiento que se crea al completar el inicio rápido de Durable Functions ([ C# ](durable-functions-create-first-csharp.md) o [JavaScript](quickstart-js-vscode.md)). Para más información sobre Durable Functions, consulte [Durable Functions patterns and technical concepts](durable-functions-concepts.md) (Patrones y conceptos técnicos de Durable Functions).
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -142,7 +142,7 @@ Como puede ver, el valor de `runtimeStatus` de la instancia es *Completed* (Comp
 > [!NOTE]
 > El punto de conexión HTTP POST que inició la función de orquestador se implementa en la aplicación de ejemplo como una función de desencadenador HTTP denominada "HttpStart". Puede implementar una lógica de inicio similar para otros tipos de desencadenadores, como `queueTrigger`, `eventHubTrigger` o `timerTrigger`.
 
-Observe los registros de ejecución de la función. La función `E1_HelloSequence` se ha iniciado y completado varias veces debido al comportamiento de reproducción descrito en la [introducción](durable-functions-overview.md). Por otro lado, solo ha habido tres de ejecuciones de `E1_SayHello`, puesto que esas ejecuciones de función no se reproducen.
+Observe los registros de ejecución de la función. La función `E1_HelloSequence` se ha iniciado y completado varias veces debido al comportamiento de reproducción descrito en la [introducción](durable-functions-concepts.md). Por otro lado, solo ha habido tres de ejecuciones de `E1_SayHello`, puesto que esas ejecuciones de función no se reproducen.
 
 ## <a name="visual-studio-sample-code"></a>Código de ejemplo de Visual Studio
 

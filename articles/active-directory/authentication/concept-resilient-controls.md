@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
-ms.openlocfilehash: b6640e4ef9751e235c0310b0d725cd7e27ff2b40
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: caabc5a396c015b806778bfc5887b0708897101e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53745737"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101928"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Crear una estrategia de administración de control de acceso resistente con Azure Active Directory
 
@@ -230,7 +230,7 @@ Debe deshacer los cambios realizados como parte del plan de contingencia activad
 Si su organización usa directivas heredadas de MFA por usuario, puede considerar la siguiente alternativa:
 
 1. Si tiene la dirección IP saliente de red corporativa, puede agregarlos como direcciones IP de confianza para habilitar la autenticación solo a la red corporativa.
- 2. Si no tiene el inventario de direcciones IP de salida o tiene que habilitar el acceso dentro y fuera de la red corporativa, puede agregar todo el espacio de direcciones IPv4 como direcciones IP de confianza en una notación CIDR (por ejemplo, 192.168.1.1/24).
+ 2. Si no tiene el inventario de direcciones IP de salida o tiene que habilitar el acceso dentro y fuera de la red corporativa, puede agregar todo el espacio de direcciones IPv4 como direcciones IP de confianza especificando 0.0.0.0/1 y 128.0.0.0/1.
 
 >[!IMPORTANT]
  > Si amplía las direcciones IP de confianza para desbloquear el acceso, no se generarán los eventos de riesgo asociados con las direcciones IP (por ejemplo, viajes imposibles o ubicaciones desconocidas).

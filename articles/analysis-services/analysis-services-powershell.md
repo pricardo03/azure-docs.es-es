@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b4aec7ff560b0695175a18c9c7e429a8ab733345
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 9e7683883963db2cf1911405225fcdbf289de2bb
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633715"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187545"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Administración de Azure Analysis Services con PowerShell
 
@@ -22,11 +22,13 @@ En este artículo se describen los cmdlets de PowerShell que se usan para realiz
 Las tareas de administración del servidor, como crear o eliminar un servidor, suspender o reanudar operaciones del servidor o cambiar el nivel de servicio, usan cmdlets de Azure Resource Manager (recurso) y de Analysis Services (servidor). Otras tareas de administración de bases de datos, como la incorporación y eliminación de miembros de roles, el procesamiento o la creación de particiones, usan los cmdlets incluidos en el mismo módulo de SqlServer que SQL Server Analysis Services.
 
 ## <a name="permissions"></a>Permisos
-Para la mayoría de las tareas de PowerShell, es necesario disponer de privilegios de administración en el servidor de Analysis Services que esté administrando. Las tareas programadas de PowerShell son operaciones desatendidas. La cuenta o el principio de servicio que ejecuta Scheduler debe tener privilegios de administrador en el servidor de Analysis Services. 
+
+Para la mayoría de las tareas de PowerShell, es necesario disponer de privilegios de administración en el servidor de Analysis Services que esté administrando. Las tareas programadas de PowerShell son operaciones desatendidas. La cuenta o entidad de servicio que ejecuta Scheduler debe tener privilegios de administrador en el servidor de Analysis Services. 
 
 Para las operaciones del servidor mediante cmdlets de AzureRm, su cuenta o la cuenta que ejecuta Scheduler también debe pertenecer al rol de propietario para el recurso en [Control de acceso basado en rol (RBAC) de Azure](../role-based-access-control/overview.md). 
 
 ## <a name="resource-management-operations"></a>Operaciones de administración de recursos 
+
 Módulo: [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)
 
 |Cmdlet|DESCRIPCIÓN| 

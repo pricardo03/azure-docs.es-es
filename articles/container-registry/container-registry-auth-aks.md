@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: danlep
-ms.openlocfilehash: 850919f8ca8bb68af544ae528a779e16068424b1
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 0dbdf2261b851b303a0c606e5de70354578c6d2e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752544"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078786"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autenticación con Azure Container Registry desde Azure Kubernetes Service
 
@@ -44,7 +44,7 @@ az role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
 
 ## <a name="access-with-kubernetes-secret"></a>Acceso con un secreto de Kubernetes
 
-En algunos casos, es posible que no pueda asignar el rol necesario a la entidad de servicio de AKS generada automáticamente concediéndole acceso al registro de contenedor de acceso. Por ejemplo, debido al modelo de seguridad de su organización, podría no tener permisos suficientes en el directorio de Azure AD para asignar un rol a la entidad de servicio generada con AKS. En tal caso, puede crear una nueva entidad de servicio y luego concederle acceso al registro de contenedor con un secreto de extracción de imagen de Kubernetes.
+En algunos casos, es posible que no pueda asignar el rol necesario a la entidad de servicio de AKS generada automáticamente concediéndole acceso al registro de contenedor de acceso. Por ejemplo, debido al modelo de seguridad de su organización, podría no tener permisos suficientes en el inquilino de Azure Active Directory para asignar un rol a la entidad de servicio generada con AKS. La asignación de un rol a una entidad de servicio requiere que la cuenta de Azure AD tenga permiso de escritura para el inquilino de Azure AD. Si no tiene permiso, puede crear una nueva entidad de servicio y luego concederle acceso al registro de contenedor con un secreto de extracción de imagen de Kubernetes.
 
 Use el siguiente script para crear una nueva entidad de servicio (usará sus credenciales para el secreto de extracción de imágenes de Kubernetes). Modifique la variable `ACR_NAME` para su entorno antes de ejecutar el script.
 

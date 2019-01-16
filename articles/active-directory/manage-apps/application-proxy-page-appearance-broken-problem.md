@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 6354b4b0224effb1eef063779dba736cb6263286
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 21634c5eeacd9a52c6a970d24b0f8afa3a0d9345
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141635"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191639"
 ---
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>La página de aplicación no se muestra correctamente para una aplicación de proxy de aplicación
 
@@ -28,7 +28,7 @@ Este artículo lo ayuda a solucionar problemas con aplicaciones de proxy de apli
 ## <a name="overview"></a>Información general
 Cuando se publica una aplicación de proxy de aplicación, solo son accesibles las páginas en la raíz al acceder a la aplicación. Si la página no se muestra correctamente, puede que falten algunos recursos de página en la dirección URL interna raíz utilizada para la aplicación. Para resolverlo, asegúrese de que ha publicado *todos* los recursos de la página como parte de la aplicación.
 
-Para comprobar si la desaparición de recursos es el problema, abra la herramienta de seguimiento de red (como Fiddler o las herramientas de F12 en Internet Explorer o Edge), cargue la página y busque errores 404. Eso indica las páginas que actualmente no se encuentran y que tiene que publicar.
+Para comprobar si la desaparición de recursos es el problema, abra la herramienta de seguimiento de red (como Fiddler o las herramientas de F12 en Internet Explorer o Microsoft Edge), cargue la página y busque errores 404. Eso indica las páginas que actualmente no se encuentran y que tiene que publicar.
 
 Como ejemplo de este caso, suponga que ha publicado una aplicación de gastos mediante la dirección URL interna http://myapps/expenses, pero la aplicación utiliza la hoja de estilos http://myapps/style.css. En este caso, la hoja de estilos no está publicada en la aplicación, por lo que, cuando se carga, la aplicación de gastos genera un error 404 al intentar cargar style.css. En este ejemplo, el problema se resuelve publicando la aplicación con una dirección URL interna http://myapp/.
 

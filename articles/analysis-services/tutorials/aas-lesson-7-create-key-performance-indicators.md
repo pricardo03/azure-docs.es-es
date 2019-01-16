@@ -5,24 +5,24 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1e7fc5cd684610a5d96b5986f5c169741055c9b8
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: d238b3bf159a5e540eb9c72ecbcee188bd357b05
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426828"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54186539"
 ---
 # <a name="create-key-performance-indicators"></a>Creación de indicadores clave de rendimiento
 
 En esta lección, creará indicadores clave de rendimiento (KPI). Los KPI se usan para medir el rendimiento de un valor, definido por una medida *Base*, con un valor de *Destino*, también definido por una medida o por un valor absoluto. En aplicaciones cliente de generación de informes, los KPI pueden proporcionar a los profesionales de empresa una manera rápida y sencilla de comprender un resumen de logros empresariales o para identificar tendencias. Para aprender más, consulte [KPI](https://docs.microsoft.com/sql/analysis-services/tabular-models/kpis-ssas-tabular)
   
-Tiempo estimado para completar esta lección: **15 minutos**  
+Tiempo estimado para completar esta lección: **15 minutos**  
   
 ## <a name="prerequisites"></a>Requisitos previos  
-Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Antes de realizar las tareas de esta lección, debe haber completado la lección anterior: [Lección 6: Creación de medidas](../tutorials/aas-lesson-6-create-measures.md).   
+Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Para poder realizar las tareas de esta lección, debe haber completado la lección anterior: [Lección 6: Creación de medidas](../tutorials/aas-lesson-6-create-measures.md).   
   
 ## <a name="create-key-performance-indicators"></a>Creación de indicadores clave de rendimiento  
   
@@ -76,6 +76,6 @@ Este tema forma parte de un tutorial de modelado tabular, que se debe completar 
 6.  En **Seleccionar el estilo de icono**, seleccione el tipo de icono de rombo (rojo), triángulo (amarillo) o círculo (verde) y luego haga clic en **Aceptar**.  
   
 ## <a name="whats-next"></a>Pasos siguientes
-[Lección 8: Creación de perspectivas](../tutorials/aas-lesson-8-create-perspectives.md)
+[Lección 8: Creación de perspectivas](../tutorials/aas-lesson-8-create-perspectives.md).
   
   

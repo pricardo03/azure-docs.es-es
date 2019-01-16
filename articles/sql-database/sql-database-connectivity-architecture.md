@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/20/2018
-ms.openlocfilehash: 62e4171a6895f2f425d67b9d1143fe9d3999a9b9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 01/03/2019
+ms.openlocfilehash: 38b7c478e3b90347086c2dd005630d239db7fd89
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715909"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038218"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitectura de conectividad de Azure SQL
 
@@ -26,18 +26,17 @@ En este artículo se explica la arquitectura de conectividad de Azure SQL Databa
 > [!IMPORTANT]
 > **[Cambio próximo] Para las conexiones de punto de conexión de servicio a los servidores Azure SQL, un comportamiento de conectividad `Default` cambia a `Redirect`.**
 >
-> El cambio entrará en vigor el 10 de noviembre de 2018 para las regiones del sur de Brasil y Europa Occidental. Para todas las demás regiones el cambio entrará en vigor a partir del 2 de enero de 2019.
+> El cambio entrará en vigor en todas las regiones el 2 de enero de 2019 como muy tarde.
 >
 > Para evitar que la conectividad a través de un punto de conexión de servicio se interrumpa en los entornos existentes a causa de este cambio, utilizamos telemetría para lo siguiente:
 > - Para los servidores cuyo acceso a través de puntos de conexión de servicio hemos detectado antes del cambio, cambiamos el tipo de conexión a `Proxy`.
 > - Para todos los demás servidores, el tipo de conexión se cambiará por `Redirect`.
 >
-> Los usuarios del punto de conexión de servicio todavía pueden verse afectados en los escenarios siguientes: 
-> - La aplicación se conecta a un servidor existente con poca frecuencia, por lo que la telemetría no capturó la información acerca de dicha aplicación. 
-> - La lógica de implementación automatizada crea un servidor lógico suponiendo que es el comportamiento predeterminado de las conexiones de punto de conexión de servicio es `Proxy`. 
+> Los usuarios del punto de conexión de servicio todavía pueden verse afectados en los escenarios siguientes:
+> - La aplicación se conecta a un servidor existente con poca frecuencia, por lo que la telemetría no capturó la información acerca de dicha aplicación.
+> - La lógica de implementación automatizada crea un servidor lógico suponiendo que es el comportamiento predeterminado de las conexiones de punto de conexión de servicio es `Proxy`.
 >
 > Si no se pudieron establecer conexiones de punto de conexión de servicio al servidor de Azure SQL y sospecha que este cambio le afecta, compruebe que el tipo de conexión esté establecido explícitamente en `Redirect`. Si es el caso, debe abrir las reglas del firewall de la máquina virtual y los grupos de seguridad de red (NSG) para todas las direcciones IP de Azure en la región que pertenecen a la [etiqueta de servicio](../virtual-network/security-overview.md#service-tags) Sql para los puertos 11000-12000. Si esta no es una opción en su caso, cambie el servidor explícitamente a `Proxy`.
-
 > [!NOTE]
 > Este tema se aplica al servidor de Azure SQL y tanto a las bases de datos de SQL Database como a SQL Data Warehouse que se crean en el servidor de Azure SQL. Para simplificar, SQL Database se utiliza cuando se hace referencia tanto a SQL Database como a SQL Data Warehouse.
 
@@ -131,7 +130,6 @@ Para cambiar la directiva de conexión de Azure SQL Database de un servidor de A
 
 > [!IMPORTANT]
 > Este script requiere el [módulo Azure PowerShell](/powershell/azure/install-azurerm-ps).
->
 
 El siguiente script de PowerShell muestra cómo cambiar la directiva de conexión.
 

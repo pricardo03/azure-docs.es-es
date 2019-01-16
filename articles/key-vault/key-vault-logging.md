@@ -10,16 +10,15 @@ ms.assetid: 43f96a2b-3af8-4adc-9344-bc6041fface8
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 8e3076f2176739f5b9df5776f27d7483c9fd2692
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 2a36993e9406613ad9182d01c3681056114dca18
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000417"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159968"
 ---
 # <a name="azure-key-vault-logging"></a>Registro de Azure Key Vault
 
@@ -39,7 +38,7 @@ Use este tutorial para tener ayuda para empezar a trabajar con el registro de Az
 > [!NOTE]
 > Este tutorial no incluye instrucciones sobre cómo crear almacenes de claves, claves o secretos. Para obtener información, consulte [Introducción a Azure Key Vault](key-vault-get-started.md). O bien, para obtener instrucciones de la interfaz de la línea de comandos entre plataformas, consulte [este tutorial equivalente](key-vault-manage-with-cli2.md).
 >
-> Actualmente, no es posible configurar Azure Key Vault en Azure Portal. En su lugar, siga estas instrucciones de Azure PowerShell.
+> En este artículo se ofrecen instrucciones de Azure PowerShell para actualizar el registro de diagnóstico. Aunque lo mismo puede habilitarse mediante Azure Monitor en la sección **Registros de diagnóstico** de Azure Portal. 
 >
 >
 
@@ -113,7 +112,7 @@ Para habilitar el registro de Key Vault, usaremos el cmdlet Set-AzureRmDiagnosti
 Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
 ```
 
-El resultado de esto incluye:
+El resultado tendrá un aspecto similar al siguiente:
 
     StorageAccountId   : /subscriptions/<subscription-GUID>/resourceGroups/ContosoResourceGroup/providers/Microsoft.Storage/storageAccounts/ContosoKeyVaultLogs
     ServiceBusRuleId   :
@@ -156,7 +155,7 @@ Para mostrar una lista de todos los blobs de este contenedor, escriba:
 Get-AzureStorageBlob -Container $container -Context $sa.Context
 ```
 
-El resultado será similar al siguiente.
+El resultado será similar al siguiente:
 
 **Uri del contenedor: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
 
@@ -230,6 +229,7 @@ Get-AzureRmKeyVault -VaultName 'contosokeyvault'`
 
 Se devolverá una entrada de registro similar al que se muestra a continuación:
 
+```json
     {
         "records":
         [
@@ -250,6 +250,7 @@ Se devolverá una entrada de registro similar al que se muestra a continuación:
             }
         ]
     }
+```
 
 En la tabla siguiente se muestran los nombres y las descripciones de los campos.
 

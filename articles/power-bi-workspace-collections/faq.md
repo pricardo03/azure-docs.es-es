@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: eed970d46c8a895001ce0a6d7d7f37acf6c02a55
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 83f4ebd9c3f5ad05173b045b3fa15804ddc88df6
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249207"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54157571"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Preguntas más frecuentes sobre las colecciones de áreas de trabajo de Power BI
 
@@ -61,7 +61,7 @@ Consulte la documentación del servicio para más información sobre cómo utili
 Sí. Puede usar su suscripción de Azure existente para aprovisionar y usar el servicio Colección de áreas de trabajo de Power BI.
 
 ## <a name="does-my-application-end-user-need-a-power-bi-license"></a>¿Necesitan los usuarios finales de mi aplicación una licencia de Power BI?
-No. Los usuarios finales de su aplicación no tienen que comprar una suscripción de Power BI por separado para acceder a las visualizaciones de datos en aplicación. En el modelo de las colecciones de áreas de trabajo de Power BI, al proveedor de la aplicación se le factura el servicio mediante el medidor de consumo de Azure. Consulte la [página de precios y licencia](https://go.microsoft.com/fwlink/?LinkId=760527).
+ No. Los usuarios finales de su aplicación no tienen que comprar una suscripción de Power BI por separado para acceder a las visualizaciones de datos en aplicación. En el modelo de las colecciones de áreas de trabajo de Power BI, al proveedor de la aplicación se le factura el servicio mediante el medidor de consumo de Azure. Consulte la [página de precios y licencia](https://go.microsoft.com/fwlink/?LinkId=760527).
 
 ## <a name="how-does-user-authentication-work-with-power-bi-workspace-collections"></a>¿Cómo funciona la autenticación de usuarios con las colecciones de áreas de trabajo de Power BI?
 El servicio Colección de áreas de trabajo de Power BI usa tokens de aplicación para realizar la autenticación y la autorización en lugar de la autenticación explícita de usuario final. En el modelo de token de aplicación, la aplicación administra la autenticación y la autorización de sus usuarios finales. A continuación, cuando sea necesario, la aplicación crea
@@ -77,7 +77,7 @@ En el modelo de colecciones de áreas de trabajo de Power BI, no hay ningún req
 Los desarrolladores o empleados que trabajan en la aplicación deben tener una cuenta de usuario de AAD para poder administrar su suscripción de Azure y las colecciones de áreas de trabajo mediante Azure Portal. Las API de programación que permiten a los desarrolladores importar informes, modificar cadenas de conexión y obtener direcciones URL insertadas aprovechan en su lugar tokens de aplicación para la autenticación y, como consecuencia, no necesitan AAD.
 
 ## <a name="where-can-i-learn-more"></a>¿Dónde puedo obtener más información?
-Puede visitar la [página de documentación de las colecciones de áreas de trabajo de Power BI](get-started.md). Puede mantenerse informado sobre este servicio, visitando el [blog de Power BI](https://powerbi.microsoft.com/blog/) o el centro para desarrolladores de Power BI en dev.powerbi.com. También puede formular preguntas en [Stackoverflow](http://stackoverflow.com/questions/tagged/powerbi).
+Puede visitar la [página de documentación de las colecciones de áreas de trabajo de Power BI](get-started.md). Puede mantenerse informado sobre este servicio, visitando el [blog de Power BI](https://powerbi.microsoft.com/blog/) o el centro para desarrolladores de Power BI en dev.powerbi.com. También puede formular preguntas en [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi).
 
 ## <a name="how-do-i-get-started"></a>¿Cómo empiezo?
 ¡Puede empezar ahora de forma gratuita! Si tiene una suscripción a Azure, ahora puede aprovisionar las colecciones de áreas de trabajo de Power BI directamente desde Azure Portal. También puede crear una [cuenta de Azure gratis](https://azure.microsoft.com/free/). Después de aprovisionar el servicio Colección de áreas de trabajo de Power BI, puede usar fácilmente las API de REST de Power BI directamente, o bien usar el SDK para desarrolladores disponible en [GitHub](https://go.microsoft.com/fwlink/?LinkID=746472). Se proporcionan ejemplos de cómo aprovechar el SDK para desarrolladores.

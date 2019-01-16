@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/13/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8cfbc72e239a7a5b38cee6752803e79735e2adc9
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 775de554f39df8359c3852a2d7fa876fd12199d2
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321281"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190853"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escalabilidad horizontal de Azure Analysis Services
 
@@ -74,15 +74,19 @@ En **Información general** > modelo > **Sincronizar el modelo**.
 ![Control deslizante de escalabilidad horizontal](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### <a name="rest-api"></a>API DE REST
+
 Use la operación **sync**.
 
 #### <a name="synchronize-a-model"></a>Sincronización de un modelo   
+
 `POST https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
 #### <a name="get-sync-status"></a>Obtención del estado de sincronización  
+
 `GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
 
 ### <a name="powershell"></a>PowerShell
+
 Antes de usar PowerShell, [instale o actualice la última versión del módulo AzureRM](https://github.com/Azure/azure-powershell/releases). 
 
 Para establecer el número de réplicas de la consulta, use [Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver). Especifique el parámetro opcional `-ReadonlyReplicaCount`.

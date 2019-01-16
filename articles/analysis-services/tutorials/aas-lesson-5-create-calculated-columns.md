@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2d92edd0bda15ecd57a5a29375adae3a51c661c2
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bb0a17d4b7e11dd83439d943abf0bdd34ef915ae
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428137"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187457"
 ---
 # <a name="create-calculated-columns"></a>Crear columnas calculadas
 
@@ -23,10 +23,10 @@ Creará cinco columnas calculadas en tres tablas diferentes. Los pasos son liger
 
 En esta lección también usará por primera vez Expresiones de análisis de datos (DAX). DAX es un lenguaje especial para crear expresiones de fórmula altamente personalizables para modelos tabulares. En este tutorial, se usa DAX para crear columnas calculadas, medidas y filtros de rol. Para obtener más información, vea [DAX in tabular models](https://docs.microsoft.com/sql/analysis-services/tabular-models/understanding-dax-in-tabular-models-ssas-tabular) (DAX en modelos tabulares). 
   
-Tiempo estimado para completar esta lección: **15 minutos**  
+Tiempo estimado para completar esta lección: **15 minutos**  
   
 ## <a name="prerequisites"></a>Requisitos previos  
-Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Antes de realizar las tareas de esta lección, debe haber completado la lección anterior: [Lección 4: Creación de relaciones](../tutorials/aas-lesson-4-create-relationships.md). 
+Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Para poder realizar las tareas de esta lección, debe haber completado la lección anterior: [Lección 4: Creación de relaciones](../tutorials/aas-lesson-4-create-relationships.md). 
   
 ## <a name="create-calculated-columns"></a>Crear columnas calculadas  
   
@@ -42,7 +42,7 @@ Este tema forma parte de un tutorial de modelado tabular, que se debe completar 
   
     Se inserta una nueva columna denominada **Calculated Column 1** a la izquierda de la columna **CalendarQuarter**.  
   
-4.  En la barra de fórmulas sobre la tabla, escriba la siguiente fórmula DAX; Autocompletar le ayuda a escribir los nombres completos de columnas y tablas y enumera las funciones disponibles.  
+4.  En la barra de fórmulas, encima de la tabla, escriba la fórmula DAX siguiente: Autocompletar le ayuda a escribir los nombres completos de columnas y tablas y enumera las funciones que están disponibles.  
   
     ```  
     =RIGHT(" " & FORMAT([MonthNumberOfYear],"#0"), 2) & " - " & [EnglishMonthName]  
@@ -125,7 +125,7 @@ La columna calculada ProductCategoryName se usa para crear una jerarquía en la 
     La columna calculada Margin se usa para analizar los márgenes de beneficios de cada venta.  
   
 ## <a name="whats-next"></a>Pasos siguientes
-[Lección 6: Creación de medidas](../tutorials/aas-lesson-6-create-measures.md)
+[Lección 6: Creación de medidas](../tutorials/aas-lesson-6-create-measures.md).
   
   
   

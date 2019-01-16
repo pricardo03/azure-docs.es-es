@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/27/2018
+ms.date: 01/04/2019
 ms.author: danlep
-ms.openlocfilehash: a1644f68465cffa8cce27257bb91100c111af8a1
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: b18638057def03a02024200edb157e5caf08a669
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857778"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065178"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>Eliminación de imágenes de contenedor en Azure Container Registry
 
@@ -60,7 +60,7 @@ En un registro privado como Azure Container Registry, el nombre de la imagen tam
 myregistry.azurecr.io/marketing/campaign10-18/web:v2
 ```
 
-Para obtener una explicación de los procedimientos recomendados para el etiquetado de imágenes, consulte la entrada del blog en MSDN [Etiquetado de Docker: procedimientos recomendados para el control de versiones y el etiquetado de imágenes de docker][tagging-best-practices].
+Para ver una explicación sobre los procedimientos recomendados de etiquetado de imágenes, consulte la entrada de blog [Docker Tagging: Best practices for tagging and versioning docker images][tagging-best-practices] (Procedimientos recomendados para el control de versiones y el etiquetado de imágenes de docker) de MSDN.
 
 ### <a name="layer"></a>Nivel
 
@@ -239,20 +239,20 @@ Como se mencionó en la sección [Hash de manifiesto](#manifest-digest), la inse
      },
      {
        "digest": "sha256:d2bdc0c22d78cde155f53b4092111d7e13fe28ebf87a945f94b19c248000ceec",
-       "tags": null,
+       "tags": [],
        "timestamp": "2018-07-11T21:32:21.1400513Z"
      }
    ]
    ```
 
-Como puede ver en la salida del último paso de la secuencia, ahora hay un manifiesto huérfano cuya propiedad `"tags"` es `null`. Este manifiesto sigue existiendo en el registro, junto con los datos de cualquier capa única a la que haga referencia. **Para eliminar estas imágenes huérfanas y sus datos de capa, debe eliminar por hash del manifiesto**.
+Como puede ver en la salida del último paso de la secuencia, ahora hay un manifiesto huérfano cuya propiedad `"tags"` es una matriz vacía. Este manifiesto sigue existiendo en el registro, junto con los datos de cualquier capa única a la que haga referencia. **Para eliminar estas imágenes huérfanas y sus datos de capa, debe eliminar por hash del manifiesto**.
 
 ### <a name="list-untagged-images"></a>Enumeración de imágenes sin etiqueta
 
 Puede enumerar todas las imágenes sin etiqueta del repositorio mediante el siguiente comando de la CLI de Azure. Reemplace `<acrName>` y `<repositoryName>` por los valores adecuados para su entorno.
 
 ```azurecli
-az acr repository show-manifests --name <acrName> --repository <repositoryName>  --query "[?tags==null].digest"
+az acr repository show-manifests --name <acrName> --repository <repositoryName> --query "[?!(tags[?'*'])].digest"
 ```
 
 ### <a name="delete-all-untagged-images"></a>Eliminación de todas las imágenes sin etiqueta
@@ -283,7 +283,7 @@ REPOSITORY=myrepository
 # Delete all untagged (orphaned) images
 if [ "$ENABLE_DELETE" = true ]
 then
-    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?tags==null].digest" -o tsv \
+    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?!(tags[?'*'])].digest" -o tsv \
     | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
 else
     echo "No data deleted. Set ENABLE_DELETE=true to enable image deletion."
@@ -310,7 +310,7 @@ $registry = "myregistry"
 $repository = "myrepository"
 
 if ($enableDelete) {
-    az acr repository show-manifests --name $registry --repository $repository --query "[?tags==null].digest" -o tsv `
+    az acr repository show-manifests --name $registry --repository $repository --query "[?!(tags[?'*'])].digest" -o tsv `
     | %{ az acr repository delete --name $registry --image $repository@$_ --yes }
 } else {
     Write-Host "No data deleted. Set `$enableDelete = `$TRUE to enable image deletion."

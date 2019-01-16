@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d727c9c3a9add701263e799dba778b37e637adef
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bc9892882cfd4c3f68118648baaaf278133bb2a8
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194290"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191928"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archivo de novedades de Azure Active Directory
 
@@ -857,7 +857,7 @@ La extensión del explorador Mis aplicaciones ahora está disponible en una cóm
 - Capacidad para iniciar sesión directamente en aplicaciones de SSO de contraseña desde la página de inicio de sesión de la aplicación.
 - Inicio de cualquier aplicación mediante la característica de búsqueda rápida.
 - Accesos directos a aplicaciones usadas recientemente desde la extensión.
-- La extensión está disponible para Edge, Chrome y Firefox.
+- La extensión está disponible en Microsoft Edge, Chrome y Firefox.
  
 Para obtener más información, consulte [Extensión de inicio de sesión seguro de Mis aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction#my-apps-secure-sign-in-extension).
 

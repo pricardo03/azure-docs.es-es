@@ -3,7 +3,7 @@ title: Solución de problemas comunes durante la creación del VHD | Microsoft D
 description: Responde a preguntas sobre solución de problemas comunes y errores durante la creación del VHD.
 services: Azure Marketplace
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: ''
 editor: ''
 ms.assetid: e39563d8-8646-4cb7-b078-8b10ac35b494
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 09/26/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: c4e88a9fbb15dd90d619b159ae1065dfacc1907f
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ROBOTS: NOINDEX
+ms.openlocfilehash: e58a5f8901b2ab53d47095e1d5fd232783e3b1ba
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39713404"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079143"
 ---
 # <a name="how-to-troubleshoot-common-issues-encountered-during-vhd-creation"></a>Solución de problemas comunes detectados durante la creación del VHD
 En este artículo se proporciona ayuda a un publicador o coadministrador de Azure Marketplace que puede experimentar un problema o que tiene preguntas comunes mientras publica o administra sus soluciones de máquina virtual.
@@ -54,4 +55,4 @@ En este artículo se proporciona ayuda a un publicador o coadministrador de Azur
    Consulte el vínculo para obtener información detallada sobre la directiva de soporte técnico: [https://support.microsoft.com/kb/2721672](https://support.microsoft.com/kb/2721672)
 10. Cada vez que trato de crear una imagen desde el VHD, se produce el error ". VHD ya está registrado con el repositorio de imágenes como un recurso" en PowerShell. No he creado ninguna imagen antes ni he encontrado ninguna imagen con este nombre en Azure. ¿Cómo se resuelve este problema?
     
-    Esto suele suceder si el usuario ha aprovisionado una máquina virtual desde este VHD y existe un bloqueo en ese VHD. Compruebe que no haya ninguna máquina virtual asignada desde este VHD. Si el error persiste, cree una incidencia de soporte técnico mediante este vínculo o desde el Portal de publicación sobre este asunto (los detalles se proporcionan en la respuesta a la pregunta 11).
+    Esto suele suceder si el usuario ha aprovisionado una máquina virtual desde este VHD y existe un bloqueo en ese VHD. Compruebe que no haya ninguna máquina virtual asignada desde este VHD. Si el error persiste, cree una incidencia de soporte técnico mediante este vínculo o desde el Portal de publicación (los detalles se proporcionan en la respuesta a la pregunta 11).

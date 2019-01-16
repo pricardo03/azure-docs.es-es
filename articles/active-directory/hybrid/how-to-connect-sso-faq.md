@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e47dcda90682bd1f83dbb5fdc6a106f80853d2d0
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0672fc06130ce58ae3155672c66ac06ae96bc7b9
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424840"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190642"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Preguntas más frecuentes sobre el inicio de sesión único de conexión directa de Azure Active Directory
+# <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Preguntas más frecuentes
 
 En este artículo se ofrece respuesta a las preguntas más frecuentes sobre el inicio de sesión único de conexión directa (SSO de conexión directa) de Azure Active Directory. Siga comprobando si hay contenido nuevo.
 
@@ -107,7 +107,7 @@ Siga estos pasos en el servidor local donde se ejecuta Azure AD Connect:
 
 ### <a name="step-1-disable-the-feature-on-your-tenant"></a>Paso 1. Deshabilite la característica en su inquilino
 
-#### <a name="option-a-disable-using-azure-ad-connect"></a>Opción A: deshabilitar el uso de Azure AD Connect
+#### <a name="option-a-disable-using-azure-ad-connect"></a>Opción A: deshabilitar el uso de Azure AD Connect
 
 1. Ejecute Azure AD Connect, elija **Change user sign-in page** (Cambiar página de inicio de sesión de usuario) y haga clic en **Siguiente**.
 2. Desactive la opción **Enable single sign on** (Habilitar el inicio de sesión único). Continúe con el asistente.
@@ -118,7 +118,7 @@ Cuando haya finalizado con el asistente, el SSO de conexión directa estará des
 
 Para completar el proceso de limpieza, siga los pasos 2 y 3 en el servidor local donde se ejecuta Azure AD Connect.
 
-#### <a name="option-b-disable-using-powershell"></a>Opción B: deshabilitar el uso de PowerShell
+#### <a name="option-b-disable-using-powershell"></a>Opción B: deshabilitar el uso de PowerShell
 
 Ejecute los pasos siguientes en el servidor local donde se ejecuta Azure AD Connect:
 

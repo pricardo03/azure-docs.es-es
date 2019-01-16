@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: raynew
-ms.openlocfilehash: 40ee4fe15b2fde917c1d056a1454b95b9655b465
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 09d3b698edfc99b9340772aa0ffc4e8de20b286d
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999737"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103779"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de compatibilidad para replicar desde una región de Azure a otra
 
@@ -44,6 +44,9 @@ En este artículo se resumen las configuraciones y los componentes admitidos cua
 
 Puede replicar y recuperar máquinas virtuales entre dos regiones cualesquiera dentro del mismo clúster geográfico. Los clústeres geográficos se definen teniendo presente la latencia y la soberanía de datos.
 
+>[!NOTE]
+>Si no puede ver una región dentro de un clúster geográfico durante la habilitación de la replicación, asegúrese de que su suscripción tiene acceso para crear máquinas virtuales en dicha región. Si no es así, presente una solicitud de soporte técnico en la suscripción "Tipo de problema".
+>
 **Clúster geográfico** | **Regiones de Azure**
 -- | --
 América | Centro de Canadá y este de Canadá, centro-sur de EE. UU., centro-oeste de EE. UU., este de EE. UU., este de EE. UU. 2, oeste de EE. UU., oeste de EE. UU. 2 centro de EE. UU., centro-norte de EE. UU.

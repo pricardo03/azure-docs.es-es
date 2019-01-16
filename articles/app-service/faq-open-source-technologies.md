@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: ac80cd5ee1c530736666338e8bc3763b110c688c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 07912dab52cb0569428d070282551eebbdb1c7bc
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388635"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54191452"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre tecnologías de código abierto para Web Apps en Azure
 
@@ -46,7 +46,7 @@ Para activar el registro de PHP:
 11. Cambie el texto por el código siguiente:
    ```php
    //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
-   //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Supress PHP errors to screenini_set('display_errors', 0);
+   //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Suppress PHP errors to screenini_set('display_errors', 0);
    ```
 12. En Azure Portal, en el menú de la aplicación web, reinicie la aplicación.
 
@@ -219,4 +219,4 @@ Después de asegurarse de que MySQL en la aplicación se está ejecutando, prueb
 
 ## <a name="i-get-an-http-403-error-when-i-try-to-import-or-export-my-mysql-in-app-database-by-using-phpmyadmin-how-do-i-resolve-this"></a>Obtengo un error HTTP 403 cuando intento importar o exportar mi base de datos de MySQL en la aplicación mediante el uso de PHPMyadmin. ¿Cómo se resuelve este problema?
 
-Si usa una versión antigua de Chrome, podría tratarse de un problema conocido. Para resolver el problema, actualice a una versión más reciente de Chrome. También puede intentar usar un explorador diferente, como Internet Explorer o Edge, en los que el problema no se produce.
+Si usa una versión antigua de Chrome, podría tratarse de un problema conocido. Para resolver el problema, actualice a una versión más reciente de Chrome. También puede intentar usar un explorador diferente, como Internet Explorer o Microsoft Edge, en los que el problema no se produce.

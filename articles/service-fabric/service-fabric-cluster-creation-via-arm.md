@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: 94ff3aca84eb27df5171df2a7a3b2b0f708a1d24
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ba870cf722f95fb6516e1969350d3d25ba280a8c
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624235"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043794"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Creación de un clúster de Service Fabric con Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -170,7 +170,7 @@ Si tiene un certificado que quiere usar para proteger el clúster, use el siguie
 Si es un certificado firmado por una entidad de certificación que terminará usándose también para otros fines, se recomienda proporcionar un grupo de recursos distinto específicamente para su almacén de claves. Se recomienda colocar el almacén de claves en su propio grupo de recursos. Esto le permite quitar los grupos de recursos de proceso y almacenamiento, incluido el grupo de recursos que tiene el clúster de Service Fabric, sin perder las claves y los secretos. **El grupo de recursos que contiene el almacén de claves *debe estar en la misma región* que el clúster que lo usa.**
 
 ### <a name="use-the-default-five-node-one-node-type-template-that-ships-in-the-module"></a>Uso de la plantilla predeterminada de cinco nodos, un tipo de nodo que se incluye con el módulo
-La plantilla que se usa está disponible en las [plantillas de Azure: plantilla de Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) y [plantilla de Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure).
+La plantilla que se usa está disponible en los [ejemplos de Azure: plantilla de Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) y [plantilla de Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)
 
 Implemente el clúster mediante PowerShell:
 
@@ -288,6 +288,8 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este punto, tiene un clúster seguro que se ejecuta en Azure. Después, [conéctese al clúster](service-fabric-connect-to-secure-cluster.md) y aprenda a [administrar secretos de aplicación](service-fabric-application-secret-management.md).
+
+Para la sintaxis y las propiedades de JSON que se usan en una plantilla, consulte la referencia de la plantilla [Microsoft.ServiceFabric/clusters](/azure/templates/microsoft.servicefabric/clusters).
 
 <!-- Links -->
 [azure-powershell]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps

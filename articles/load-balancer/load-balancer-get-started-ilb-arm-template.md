@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 72101b8b6c945e58e06cea371ce4222cd87bcec7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d029de11c7101e961506f1fa46f5a71c6efb103e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079491"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044015"
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>Creación del equilibrador de carga interno con una plantilla
 
@@ -80,3 +80,4 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
+Para la sintaxis JSON y las propiedades de un equilibrador de carga en una plantilla, consulte [Microsoft.Network/loadBalancers](/azure/templates/microsoft.network/loadbalancers).

@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 172ddd11cb956ab6d74e1ce870e2378205dd1613
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 73c61c62a84642b93ed96cdd80e258a1128fef6a
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993304"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077478"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implementación de instancias de contenedor en una red virtual de Azure
 
@@ -33,26 +33,28 @@ Los grupos de contenedores implementados en una red virtual de Azure permiten es
 
 Se aplican ciertas limitaciones al implementar grupos de contenedores en una red virtual.
 
-* No se admiten contenedores de Windows
 * Para implementar grupos de contenedores en una subred, la subred no puede contener otros tipos de recursos. Quite todos los recursos existentes de una subred existente antes de implementar grupos de contenedores en ella o crear una nueva subred.
 * Los grupos de contenedores implementados en una red virtual no admiten actualmente direcciones IP públicas ni etiquetas de nombre DNS.
 * Debido a los recursos de red adicionales implicados, implementar un grupo de contenedores en una red virtual suele ser algo más lento que implementar una instancia de contenedor estándar.
 
 ## <a name="preview-limitations"></a>Limitaciones de vista previa
 
-Aunque esta característica está en versión preliminar, las siguientes limitaciones se aplican al implementar instancias de contenedor en una red virtual.
+Aunque esta característica está en versión preliminar, las siguientes limitaciones se aplican al implementar instancias de contenedor en una red virtual. 
 
-Regiones **admitidas**:
+**Las regiones admitidas y los límites de recursos**
 
-* Europa del Norte (northeurope)
-* Europa Occidental (westeurope)
-* Oeste de EE. UU. (westus)
-* Este de EE. UU. (eastus)
+| Ubicación | SO | CPU | Memoria (GB) |
+| -------- | :---: | :---: | :-----------: |
+| Europa occidental | Linux | 4 | 14 |
+| Este de EE. UU., Oeste de EE. UU. | Linux | 2 | 3,5 |
+| Este de Australia, Europa del Norte | Linux | 1 | 1.5 |
 
-Recursos de red **no admitidos**:
+Los límites de recursos del contenedor pueden diferir de los límites de las instancias de contenedor que no están en red en estas regiones. Actualmente solo se admiten contenedores de Linux para esta característica. Está prevista la compatibilidad con Windows.
 
-* Grupo de seguridad de red (NSG)
+**Recursos de red y características no admitidos**
+
 * Azure Load Balancer
+* Emparejamiento de redes virtuales de Azure
 
 **La eliminación de recursos de red** requiere [pasos adicionales](#delete-network-resources) cuando se han implementado grupos de contenedores en la red virtual.
 
