@@ -87,7 +87,7 @@ Para realizar las operaciones en este tutorial, necesita un clúster de Spark. P
 
     * Escriba un nombre para el clúster.
     * Para este artículo, cree un clúster con el entorno de ejecución **5.1**.
-    * Asegúrese de que selecciona la casilla **Terminate after \_\_ minutes of inactivity** (Terminar después de ____ minutos de inactividad). Si no se usa el clúster, proporcione una duración (en minutos) para terminar el clúster.
+    * Asegúrese de que selecciona la casilla **Terminate after \_\_ minutes of inactivity** (Terminar después de \_\_ minutos de inactividad). Si no se usa el clúster, proporcione una duración (en minutos) para terminar el clúster.
 
 1. Seleccione **Create cluster** (Crear clúster).
 
@@ -336,7 +336,7 @@ Después de terminar el tutorial, puede finalizar el clúster. Desde el área de
 
 ![Detener un clúster de Databricks](./media/data-lake-storage-handle-data-using-databricks/terminate-databricks-cluster.png "Stop a Databricks cluster")
 
-Si no finaliza manualmente el clúster, este se detendrá automáticamente si seleccionó la casilla **Terminate after \_\_ minutes of inactivity** (Finalizar después de __ minutos de inactividad) al crear el clúster. En tal caso, el clúster se detiene automáticamente si ha estado inactivo durante el tiempo especificado.
+Si no finaliza manualmente el clúster, este se detendrá automáticamente si seleccionó la casilla **Terminate after \_\_ minutes of inactivity** (Finalizar después de \_\_ minutos de inactividad) al crear el clúster. En tal caso, el clúster se detiene automáticamente si ha estado inactivo durante el tiempo especificado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
