@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d77dad52e75253de02fd079d791861356c4c5e1f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 519867b1e0607a769948c86af263c172e810d107
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247082"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078123"
 ---
 # <a name="publish-a-virtual-machine-to-azure-marketplace"></a>Publicación de una máquina virtual en Azure Marketplace
 
@@ -31,35 +31,23 @@ Los siguientes requisitos previos técnicos y de otra índole se aplican a la pu
 
 ### <a name="technical"></a>Requisitos previos técnicos
 
--   [Requisitos previos técnicos para la creación de una imagen de máquina virtual para Azure Marketplace](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites)
-
+-   [Requisitos previos técnicos para la creación de una imagen de máquina virtual para Azure Marketplace](../cloud-partner-portal/virtual-machine/cpp-create-technical-assets.md)
 -   [Creación y carga de un disco duro virtual de Linux](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 -   [Creación y prueba de una máquina virtual de Linux a partir de una imagen](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
-
 -   [Creación y carga de un disco duro virtual con Windows ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
-
 -   [Creación y prueba de una máquina virtual de Windows a partir de una imagen](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
-
--   [Solución de problemas comunes detectados durante la creación del VHD](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting)
-
+-   [Solución de problemas comunes detectados durante la creación del VHD](../cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md)
 -   [Recomendaciones de seguridad para imágenes de Azure Marketplace](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images)
 
 
 ### <a name="non-technical-business-requirements"></a>Requisitos previos no técnicos (empresariales)
 
  -   Su empresa (o sus subsidiarias) se encuentra en uno de los países de venta admitidos por Azure Marketplace.
-
 -   El producto debe contar con una licencia compatible con los modelos de facturación admitidos por Azure Marketplace.
-
 -   Usted es el responsable de poner el soporte técnico a disposición de los clientes de forma comercialmente razonable. Dicho soporte puede ser gratuito, de pago o a través del soporte técnico de la comunidad.
-
 -   Asimismo, es responsable de la concesión de licencias para su software y las dependencias de software de terceros.
-
--   Proporcione contenido que cumpla los criterios para que su oferta se muestre en Azure Marketplace y en el Portal de administración de Azure.
-
+-   Proporcione contenido que cumpla los criterios para que su oferta se muestre en Azure Marketplace y en Azure Portal.
 -   Acepte los términos del contrato del anunciante y de las directivas de participación en Azure Marketplace.
-
 -   Acepte los [términos de uso](https://azure.microsoft.com/support/legal/website-terms-of-use/), la [declaración de privacidad de Microsoft](https://www.microsoft.com/privacystatement/default.aspx) y el [contrato del programa Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 ## <a name="before-you-begin"></a>Antes de empezar
@@ -177,7 +165,7 @@ Usted administra la concesión de licencias del software que se ejecuta en la m�
 
 #### <a name="usage-based-monthly-billed-sku"></a>Facturación mensual de SKU en función del uso
 
-A los clientes se les cobra por hora según las tarifas que hayan establecido los publicadores por los tamaños de máquina virtual. En el caso del modelo de **facturación horaria** de las SKU, el precio total será la suma de los costos de software que cobra el publicador y del costo de infraestructura que cobra Microsoft. Este costo total se mostrará al cliente como precio mensual y por hora cuando se plantee realizar la compra. La facturación en este caso será mensual.
+A los clientes se les cobra por hora según las tarifas que hayan establecido los publicadores por los tamaños de máquina virtual. Si se usa el modelo de **facturación horaria**, el precio total será la suma de los costos de software que cobra el publicador y del costo de infraestructura que cobra Microsoft. Este costo total se mostrará al cliente como precio mensual y por hora cuando se plantee realizar la compra. La facturación en este caso será mensual.
 
 En el modelo basado en el uso, debe definir valores de configuración adicionales.
 
@@ -188,7 +176,7 @@ Al cliente no se le cobra el costo de software durante los primeros 30 o 90 día
 
 **Precio por núcleo**
 
-Puede establecer el precio por núcleo para la SKU. Para ello, basta con que escriba un precio base para un único núcleo y los precios para el resto de los núcleos se calcularán automáticamente. Escriba los precios en USD en el portal y los precios para otras regiones se calcularán automáticamente. Puede comprobar los precios en las demás regiones mediante la opción **Export Pricing Data** (Exportar datos de precios).
+Puede establecer el precio por núcleo para la SKU. Para esta opción, basta con que escriba un precio base para un único núcleo y los precios para el resto de los núcleos se calcularán automáticamente. Escriba los precios en USD en el portal y los precios para otras regiones se calcularán automáticamente. Puede comprobar los precios en las demás regiones mediante la opción **Export Pricing Data** (Exportar datos de precios).
 
 ![Precio por núcleo](./media/cloud-partner-portal-publish-virtual-machine/publishvm6.png)
 
@@ -201,8 +189,8 @@ Puede definir el precio de cada conjunto de núcleos de forma individual si dese
 
 **Precios de exportación e importación**
 
-Tiene la flexibilidad de exportar los precios configurados en el portal para poder realizar cambios en la interfaz de Excel. Esto también permite verificar los precios por región y los precios en la divisa local.
-Al hacer clic en **Export-Pricing** (Exportar precios), se descargará un archivo de Excel con los detalles de precios rellenados previamente. Podrá editarlos en el archivo de Excel y usar después la opción **Import-Pricing** (Importar precios) para importar los cambios realizados.
+Tiene la flexibilidad de exportar los precios configurados en el portal para poder realizar cambios en la interfaz de Excel. Esta opción también permite verificar los precios por región y los precios en la divisa local.
+Al hacer clic en **Export-Pricing** (Exportar precios), se descargará un archivo de Excel con los detalles de precios rellenados previamente. Podrá editarlos en la hoja de cálculo y usar después la opción **Import-Pricing** (Importar precios) para importar los cambios realizados.
 Los precios importados también se reflejarán en el portal.
 
 En este archivo de Excel, los precios de las diferentes regiones se muestran en la divisa local. El tipo de cambio aplicado se actualiza diariamente.
@@ -219,24 +207,18 @@ En este archivo de Excel, los precios de las diferentes regiones se muestran en 
 
 La siguiente sección que hay que completar será la de las imágenes de máquina virtual. Antes de pasar a esta sección, debe tener preparado el disco duro virtual que desea publicar. A continuación se proporcionan algunos vínculos que facilitarán la creación del disco duro virtual:
 
--   [Requisitos previos técnicos para la creación de una imagen de máquina virtual para Azure Marketplace](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites)
-
+-   [Requisitos previos técnicos para la creación de una imagen de máquina virtual para Azure Marketplace](../cloud-partner-portal/virtual-machine/cpp-prerequisites.md)
 -   [Creación y carga de un disco duro virtual con Linux](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 -   [Creación y prueba de una máquina virtual de Linux a partir de una imagen](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
-
 -   [Creación y carga de un disco duro virtual con Windows ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
-
 -   [Creación y prueba de una máquina virtual de Windows a partir de una imagen](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
+-   [Solución de problemas comunes detectados durante la creación del VHD](../cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md)
 
--   [Solución de problemas comunes detectados durante la creación del VHD](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting)
-
-En cuanto el disco duro virtual esté preparado, puede empezar a rellenar esta sección.
-A continuación se exponen algunos detalles de varios campos.
+En cuanto el disco duro virtual esté preparado, puede empezar a rellenar esta sección.  A continuación se exponen algunos detalles de varios campos.
 
 ### <a name="recommended-vm-sizes"></a>Recommended VM Sizes (Tamaños de máquina virtual recomendados)
 
-Seleccione hasta seis tamaños de máquina virtual recomendados. Se trata de las recomendaciones que se muestran al cliente en Azure Marketplace y en la hoja del plan de tarifa de Azure Portal cuando este decide comprar e implementar su imagen. **Estas son solo recomendaciones. El cliente puede seleccionar cualquier tamaño de máquina virtual que admita los discos especificados en su imagen.**  La siguiente captura de pantalla muestra los tamaños de máquina virtual recomendados que verán un cliente en el Azure Portal.
+Seleccione hasta seis tamaños de máquina virtual recomendados. Estas recomendaciones se muestran al cliente en Azure Marketplace y en la hoja del plan de tarifa de Azure Portal cuando este decide comprar e implementar su imagen. *Estos tamaños son solo recomendaciones. El cliente puede seleccionar cualquier tamaño de máquina virtual que admita los discos especificados en su imagen.*  La siguiente captura de pantalla muestra los tamaños de máquina virtual recomendados que verán un cliente en el Azure Portal.
 
 
 ![Recommended VM Sizes (Tamaños de máquina virtual recomendados)](./media/cloud-partner-portal-publish-virtual-machine/publishvm9.png)
@@ -250,7 +232,7 @@ Especifique los puertos que le gustaría que estén abiertos y disponibles. Esto
 
 El siguiente paso es agregar una imagen de máquina virtual para la SKU. Puede agregar hasta ocho versiones de disco por SKU. En Azure Marketplace solo aparecerá el número de versión de disco más alto de una SKU concreta. Las demás versiones se pueden consultar a través de las API.
 
-En **Disk version** (Versión de disco), seleccione **+ Nueva versión**. Esto muestra los siguientes campos que se deben rellenar.
+En **Disk version** (Versión de disco), seleccione **+ Nueva versión**. Esta opción muestra los siguientes campos que se deben rellenar.
 
 #### <a name="vm-image-version"></a>Versión de la imagen de máquina virtual
 
@@ -258,13 +240,13 @@ La versión de imagen de máquina virtual debe seguir el formato de [versión se
 
 #### <a name="os-vhd-url"></a>DIRECCIÓN URL DEL VHD DEL SO
 
-Escriba el [URI de firma de acceso compartido](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#52-get-the-shared-access-signature-uri-for-your-vm-images) creado para el disco duro virtual del sistema operativo.
+Escriba el [URI de firma de acceso compartido](../cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md) creado para el disco duro virtual del sistema operativo.
 
 Si hay discos de datos asociados a esta SKU, puede agregarlos. Para ello, debe hacer clic en el vínculo **+ New data disk** (+ Nuevo disco de datos). Esta acción muestra otros campos que debe rellenar.
 
 #### <a name="lun-vhd-url"></a>DIRECCIÓN URL DEL VHD DEL LUN
 
-Escriba el [URI de firma de acceso compartido](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#52-get-the-shared-access-signature-uri-for-your-vm-images) del disco de datos.
+Escriba el [URI de firma de acceso compartido](../cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md) del disco de datos.
 
 #### <a name="lun-number"></a>Número LUN
 
@@ -277,16 +259,16 @@ Asigne un número a este LUN. Este número se reservará para este disco de dato
 
 | Problema                                                                 | Message                                                                           | Solución                                                           |  Vínculo a la documentación                                                                                |
 |---------------------------------------------------------------------  |-------------------------------------------------------------------------------    |-----------------------------------------------------------    |---------------------------------------------------------------------------------------------------    |
-| Error al copiar imágenes - "?" no se encuentra en la dirección URL de SAS                | Error al copiar imágenes No se puede descargar el blob mediante el identificador URI de SAS indicado.       | Actualización de la dirección URL de SAS mediante las herramientas recomendadas                    | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
-| Error al copiar imágenes: los parámetros "st" y "se" no están en la dirección URL de SAS   | Error al copiar imágenes No se puede descargar el blob mediante la dirección URL de SAS indicada.        | Actualización de la dirección URL de SAS incluyendo las fechas de inicio y finalización             | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
-| Error al copiar imágenes: "sp=rl" no está en la dirección URL de SAS                    | Error al copiar imágenes No se puede descargar el blob mediante la dirección URL de SAS indicada.         | Actualización de la dirección Url de SAS con los permisos establecidos como "Lectura" y "Lista"     | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
-| Error al copiar imágenes: la dirección URL de SAS tiene espacios en blanco en el nombre de disco duro virtual.     | Error al copiar imágenes No se puede descargar el blob mediante la dirección URL de SAS indicada.        | Actualización de la dirección URL de SAS sin espacios en blanco                       | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
-| Error al copiar imágenes: error de autorización de dirección Url de SAS               | Error al copiar imágenes No se puede descargar blob debido a un error de autorización.     | Regeneración de la dirección URL de SAS                                        | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
+| Error al copiar imágenes - "?" no se encuentra en la dirección URL de SAS                | Error: Copiando imágenes. No se puede descargar el blob mediante el identificador URI de SAS indicado.       | Actualización de la dirección URL de SAS mediante las herramientas recomendadas                    | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
+| Error al copiar imágenes: los parámetros "st" y "se" no están en la dirección URL de SAS   | Error: Copiando imágenes. No se puede descargar el blob mediante la dirección URL de SAS indicada.        | Actualización de la dirección URL de SAS incluyendo las fechas de inicio y finalización             | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
+| Error al copiar imágenes: "sp=rl" no está en la dirección URL de SAS                    | Error: Copiando imágenes. No se puede descargar el blob mediante la dirección URL de SAS indicada.         | Actualización de la dirección Url de SAS con los permisos establecidos como "Lectura" y "Lista"     | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
+| Error al copiar imágenes: la dirección URL de SAS tiene espacios en blanco en el nombre de disco duro virtual.     | Error: Copiando imágenes. No se puede descargar el blob mediante la dirección URL de SAS indicada.        | Actualización de la dirección URL de SAS sin espacios en blanco                       | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
+| Error al copiar imágenes: error de autorización de dirección Url de SAS               | Error: Copiando imágenes. No se puede descargar blob debido a un error de autorización.     | Regeneración de la dirección URL de SAS                                        | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
 
 
 ## <a name="to-configure-the-marketplace"></a>Para configurar el Marketplace
 
-Use la vista del Marketplace para configurar los campos que se muestran para la oferta en [Azure Marketplace](https://azuremarketplace.microsoft.com) y en [Azure Portal](https://portal.azure.com/).
+Use la vista de Marketplace para configurar los campos que se muestran para la oferta en [Azure Marketplace](https://azuremarketplace.microsoft.com) y en [Azure Portal](https://portal.azure.com/).
 
 ### <a name="preview-subscription-ids"></a>Preview Subscription Ids (Id. de suscripción de versión preliminar)
 
@@ -296,7 +278,7 @@ Lista de identificadores de suscripciones de Azure a los que le gustaría conced
 
 Seleccione hasta cinco categorías de la lista proporcionada con las que la oferta puede asociarse mejor. Las categorías seleccionadas se usarán para asociar la oferta con las categorías de productos disponibles en [Azure Marketplace](https://azuremarketplace.microsoft.com) y [Azure Portal](https://portal.azure.com/).
 
-Los ejemplos siguientes muestran información del Marketplace en Azure Marketplace y en Azure Portal.
+Los ejemplos siguientes muestran información de Marketplace en Azure Marketplace y en Azure Portal.
 
 **Azure Marketplace**
 
@@ -316,7 +298,6 @@ Los ejemplos siguientes muestran información del Marketplace en Azure Marketpla
 ![publishvm12](./media/cloud-partner-portal-publish-virtual-machine/publishvm12.png)
 
 
-
 ![publishvm13](./media/cloud-partner-portal-publish-virtual-machine/publishvm13.png)
 
 
@@ -329,11 +310,11 @@ Siga estas directrices para los logotipos cargados en Cloud Partner Portal:
 -   Los colores del tema del Portal de Azure son el blanco y el negro. Evite emplear estos colores como fondo de los logotipos. Utilice un color que permita destacar los logotipos en Azure Portal. Nosotros recomendamos usar colores primarios simples.
 
     >[!Note] 
-    >Si utiliza un fondo transparente, asegúrese de que el texto y los logotipos no sean de color azul, blanco o negro.
+    >Si utiliza un fondo transparente, asegúrese de que el texto y los logotipos no sean de color azul, blanco ni negro.
 
 -   No utilice un fondo degradado en el logotipo.
 
--   Evite colocar texto en el logotipo. Esto incluye el nombre de su empresa o marca. El aspecto del logotipo debe ser *plano* y debe evitar degradados.
+-   Evite colocar texto, incluso el nombre de la empresa o la marca, en el logotipo.  El aspecto del logotipo debe ser *plano* y debe evitar degradados.
 
 -   El logotipo no se debe ajustar.
 
@@ -343,7 +324,7 @@ El logotipo de imagen prominente es opcional. El publicador puede decidir no car
 
 #### <a name="guidelines-for-the-hero-logo-icon"></a>Instrucciones para el logotipo de imagen prominente
 
--   El nombre para mostrar del anunciante, el título del plan y el resumen largo de la oferta se muestran con una fuente de color blanco. Evite usar colores claros en el fondo. Los fondos transparentes y de color negro o blanco no pueden usarse en las imágenes prominentes.
+-   El nombre para mostrar del publicador, el título del plan y el resumen largo de la oferta se muestran con una fuente de color blanco. Evite usar colores claros en el fondo. Los fondos transparentes y de color negro o blanco no pueden usarse en las imágenes prominentes.
 
 -   El nombre para mostrar del anunciante, el título del plan, el resumen largo de la oferta y el botón Crear se incrustan mediante programación dentro del logotipo de imagen prominente cuando se publica la oferta. No escriba ningún texto cuando diseñe el logotipo de imagen prominente. Deje un espacio en blanco a la derecha del logotipo. Este espacio debe ser de 415 x 100 píxeles y estar desplazado 370 píxeles de la izquierda.
 
