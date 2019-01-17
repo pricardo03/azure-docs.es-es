@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 898fd7d0416d1e1b27a25cabf524e72a7de44fde
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 902c659d2c51d69f2e9d0ef3a7401326e0e530eb
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269603"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013152"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Introducción a Azure Machine Learning para Visual Studio Code
 
@@ -80,7 +80,8 @@ Antes de iniciar el entrenamiento y la implementación de los modelos de aprendi
 
 1. Haga clic en el icono de Azure en la barra de actividad de Visual Studio Code. Aparecerá la barra lateral de Azure Machine Learning.
 
-   [![Barra lateral](./media/vscode-tools-for-ai/CreateNewWorkspace.gif)](./media/vscode-tools-for-ai/CreateNewWorkspace.gif#lightbox)
+   [![Instalación](./media/vscode-tools-for-ai/CreateaWorkspace.gif)](./media/vscode-tools-for-ai/CreateaWorkspace.gif#lightbox)
+
 
 1. Haga clic con el botón derecho en su suscripción de Azure y seleccione **Crear área de trabajo**. Aparece una lista. En la imagen animada, el nombre de la suscripción es "Evaluación gratuita" y el área de trabajo es "TeamWorkspace". 
 
@@ -96,11 +97,11 @@ Antes de iniciar el entrenamiento y la implementación de los modelos de aprendi
  
 1. Presione Intro y se creará el nuevo experimento. Aparece en el árbol por debajo del nombre de la suscripción.
 
-1. Haga clic con el botón derecho en el nombre del experimento y elija **Attach Folder to Experiment** (Asociar carpeta al experimento). Esta carpeta debe contener los scripts de Python locales. La carpeta se vinculará al experimento en la nube. 
+1. Puede hacer clic con el botón derecho en un experimento en un área de trabajo y seleccionar "Establecer como experimento activo". El experimento **'Activo'** es el que se usa actualmente y la carpeta abierta en VS Code se vinculará a él en la nube. Esta carpeta debe contener los scripts de Python locales.
 
-   Ahora cada experimento se ejecuta con el experimento de forma que todas las métricas clave se almacenarán en el historial del experimento y los modelos que entrene se cargarán automáticamente en Azure Machine Learning y se almacenarán con los registros y las métricas del experimento.
+   Ahora, cada experimento se ejecuta con su experimento, de forma que todas las métricas clave se almacenarán en el historial del experimento y los modelos que entrene se cargarán automáticamente en Azure Machine Learning y se almacenarán con los registros y las métricas del experimento.
 
-   [![Asociación de una carpeta en VS Code](./media/vscode-tools-for-ai/CreateNewExperimentandFolder.gif)](./media/vscode-tools-for-ai/CreateNewExperimentandFolder.gif#lightbox)
+   [![Asociación de una carpeta en VS Code](./media/vscode-tools-for-ai/CreateAnExperiment.gif)](./media/vscode-tools-for-ai/CreateAnExperiment.gif#lightbox)
 
 ### <a name="use-keyboard-shortcuts"></a>Uso de métodos abreviados de teclado
 

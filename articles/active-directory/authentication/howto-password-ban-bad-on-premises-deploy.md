@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 02c2b7560a0a609f6d902af78877d5f0236615d3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5774af4e0550ceb7a51e399fcab203a503a7f23f
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011500"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033611"
 ---
-# <a name="preview-deploy-azure-ad-password-protection"></a>Versión preliminar: Implementación de la protección con contraseña de Azure AD
+# <a name="preview-deploy-azure-ad-password-protection"></a>Vista previa: Implementación de la protección de contraseñas de Azure AD
 
 |     |
 | --- |
@@ -86,6 +86,9 @@ Se necesitan dos instaladores de la protección con contraseña de Azure AD que 
 2. Instale el software del servicio de proxy de la directiva de contraseñas mediante el paquete MSI AzureADPasswordProtectionProxy.msi.
    * No es necesario reiniciar para instalar el software. La instalación del software puede automatizarse mediante procedimientos estándares de MSI, por ejemplo: `msiexec.exe /i AzureADPasswordProtectionProxy.msi /quiet /qn`.
 
+      > [!NOTE]
+      > El servicio Windows Firewall debe estar ejecutándose antes de instalar el paquete MSI AzureADPasswordProtectionProxy.msi; de lo contrario, se producirá un error de instalación. Si la instancia de Windows Firewall está configurada para no ejecutarse, la solución alternativa es habilitar temporalmente e iniciar el servicio durante la instalación. El software de proxy no tiene ninguna dependencia específica en el software de Windows Firewall después de la instalación. Si usa un firewall de terceros, debe configurarse para cumplir los requisitos de implementación (permitir el acceso entrante al puerto 135 y definir el puerto del servidor RPC del proxy en dinámico o estático). [Consulte los requisitos de implementación](howto-password-ban-bad-on-premises-deploy.md#deployment-requirements)
+
 3. Abra una ventana de PowerShell como administrador.
    * El software del proxy de protección con contraseña de Azure AD incluye un nuevo módulo de PowerShell denominado AzureADPasswordProtection. Los pasos siguientes se basan en la ejecución de varios cmdlets de este módulo de PowerShell y, en ellos, se supone que ha abierto una nueva ventana de PowerShell y que ha importado el nuevo módulo como sigue:
       * `Import-Module AzureADPasswordProtection`
@@ -142,7 +145,7 @@ Se necesitan dos instaladores de la protección con contraseña de Azure AD que 
    > [!NOTE]
    > Para que `Register-AzureADPasswordProtectionForest` funcione correctamente debe haber al menos un controlador de dominio de Windows Server 2012 o posterior disponible en el dominio del servidor proxy. Pero no es necesario que el software del agente de controlador de dominio esté instalado en ningún controlador de dominio antes de este paso.
 
-6. Opcional: Configure el servicio de proxy de protección con contraseña de Azure AD para que escuche en un puerto específico.
+6. Opcional: configure el servicio de proxy de protección con contraseña de Azure AD para que escuche en un puerto específico.
    * El software del agente de controlador de dominio de la protección con contraseña de Azure AD usa RPC a través de TCP en los controladores de dominio para comunicarse con el servicio de proxy de protección con contraseña de Azure AD. De forma predeterminada, el servicio de proxy de la directiva de contraseñas de protección con contraseña de Azure AD escucha en cualquier punto de conexión RPC dinámico disponible. Si es necesario debido a la topología de red o a los requisitos de firewall, en su lugar, se puede configurar el servicio para que escuche en un puerto TCP específico.
       * A fin de configurar el servicio para que se ejecute en un puerto estático, use el cmdlet `Set-AzureADPasswordProtectionProxyConfiguration`.
          ```

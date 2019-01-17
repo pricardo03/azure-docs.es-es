@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: c616ad86e6846800d214feeaf100f63e311f78b0
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 248ac7ed2a855dd1df71e6e44d1aa7065ddd8ba4
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282737"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062074"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Creación de un espacio de nombres de Service Bus mediante una plantilla de Azure Resource Manager
 En esta guía de inicio rápido se crea una plantilla de Azure Resource Manager que genera un espacio de nombres de Service Bus del tipo **Mensajería** con una SKU de nivel **estándar**. El artículo también define los parámetros que se especifican para la ejecución de la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades. Para más información sobre la creación de plantillas, consulte [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates] (Creación de plantillas de Azure Resource Manager). Para ver la plantilla completa, consulte la [plantilla de espacio de nombres de Service Bus][Service Bus namespace template] en GitHub.
@@ -96,7 +96,7 @@ Cree un archivo JSON denominado **MyServiceBusNamespace.json** con el siguiente 
 }
 ```
 
-Esta plantilla crea un espacio de nombres de Service Bus estándar.
+Esta plantilla crea un espacio de nombres de Service Bus estándar. Para la sintaxis y las propiedades de JSON, consulte la referencia de la plantilla de los [espacios de nombres](/azure/templates/microsoft.servicebus/namespaces).
 
 ## <a name="create-the-parameters-json"></a>Creación del archivo JSON de parámetros
 En la plantilla que creó en el paso anterior hay una sección denominada `Parameters`. Defina los parámetros para los valores que variarán según el proyecto que vaya a implementar o según el entorno de destino. En esta plantilla se definen los siguientes parámetros: **serviceBusNamespaceName**, **serviceBusSku** y **location**. Para obtener más información acerca de las SKU de Service Bus, consulte las [SKU de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) que desee crear.

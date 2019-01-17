@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: cb2c548a94a91fe9126f684e382e9626adb93dd6
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
+ms.lasthandoff: 01/08/2019
 ms.locfileid: "52319064"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-a-azure-vm-guest-os"></a>Habilitación o deshabilitación una regla del firewall en un SO invitado en una VM de Azure
@@ -35,7 +35,7 @@ El modo de configurar las reglas de firewall depende del nivel de acceso a la m�
 
 ### <a name="online-troubleshooting"></a>Solución de problemas en línea 
 
-#### <a name="mitigation-1-custom-script-extension"></a>Mitigación 1: Custom Script Extension
+#### <a name="mitigation-1-custom-script-extension"></a>Mitigación 1: Custom Script Extension
 
 1.  Cree un script mediante la siguiente plantilla.
 
@@ -51,7 +51,7 @@ El modo de configurar las reglas de firewall depende del nivel de acceso a la m�
 
 2.  Cargue este script en Azure Portal mediante la característica [Custom Script Extension](../extensions/custom-script-windows.md). 
 
-#### <a name="mitigation-2-remote-powershell"></a>Mitigación 2: PowerShell remoto
+#### <a name="mitigation-2-remote-powershell"></a>Mitigación2: PowerShell remoto
 
 Si la máquina virtual está en línea y se puede acceder desde otra máquina virtual en la misma red virtual, puede realizar estas mitigaciones mediante el uso de la otra máquina virtual.
 
@@ -73,7 +73,7 @@ Si la máquina virtual está en línea y se puede acceder desde otra máquina vi
         exit
         ```
 
-#### <a name="mitigation-3-pstools-commands"></a>Mitigación 3: Comandos de PSTools
+#### <a name="mitigation-3-pstools-commands"></a>Mitigación 3: comandos de PSTools
 
 Si la máquina virtual está en línea y se puede acceder desde otra máquina virtual en la misma red virtual, puede realizar estas mitigaciones mediante el uso de la otra máquina virtual.
 
@@ -93,7 +93,7 @@ Si la máquina virtual está en línea y se puede acceder desde otra máquina vi
         netsh advfirewall firewall set rule dir=in name="Remote Desktop - User Mode (TCP-In)" new enable=no
         ```
 
-#### <a name="mitigation-4-remote-registry"></a>Mitigación 4: Registro remoto
+#### <a name="mitigation-4-remote-registry"></a>Mitigación4: Registro remoto
 
 Si la máquina virtual está en línea y se puede acceder desde otra máquina virtual de la misma red virtual, puede usar el [Registro remoto](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry) en la otra máquina virtual.
 

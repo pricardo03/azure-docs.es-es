@@ -10,14 +10,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 1ab2e35c916c6bd6f2d73a328f71710378fac890
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 8dbf7b6f6741998972070234d90e87baca1154a4
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343945"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042468"
 ---
-# <a name="manage-instances-in-durable-functions-azure-functions"></a>Administración de instancias con Durable Functions (Azure Functions)
+# <a name="manage-instances-in-durable-functions-in-azure"></a>Administración de instancias con Durable Functions en Azure
 
 Las instancias de orquestación de [Durable Functions](durable-functions-overview.md) pueden iniciarse, finalizarse, consultarse y recibir eventos de notificación. Toda la administración de instancias se realiza mediante el [enlace de clientes de orquestación](durable-functions-bindings.md). En este artículo se describen los detalles de cada operación de administración de instancias.
 
@@ -36,7 +36,7 @@ Los parámetros de [StartNewAsync](https://azure.github.io/azure-functions-durab
 
 * **Nombre**: el nombre de la función de orquestador que programar.
 * **Entrada**: todos los datos serializables con JSON que deben pasarse como entrada a la función de orquestador.
-* **InstanceId**: (Opcional): el identificador único de la instancia. Si no se especifica, se generará un identificador de instancia aleatorio.
+* **InstanceId**: (Opcional) El identificador único de la instancia. Si no se especifica, se generará un identificador de instancia aleatorio.
 
 A continuación, se muestra un ejemplo de C# sencillo:
 
@@ -520,7 +520,7 @@ Una instancia de orquestación con error se puede *devolver* a un estado correct
 > [!NOTE]
 > Esta API no pretende ser un sustituto para el control de errores y las directivas de reintentos pertinentes. En su lugar, el objetivo es que se use solo en casos donde las instancias de orquestación producen un error por razones inesperadas. Para obtener más detalles sobre el control de errores y las directivas de reintento, consulte el tema sobre [control de errores](durable-functions-error-handling.md).
 
-Un ejemplo de caso de uso para el *rebobinado* es un flujo de trabajo que requiere de una serie de [aprobaciones realizadas por humanos](durable-functions-overview.md#pattern-5-human-interaction). Suponga que hay una serie de funciones de actividad que notifican a alguien cuando se requiere su aprobación y que esperan la respuesta en tiempo real. Después de que todas las actividades de aprobación han recibido respuestas o se ha agotado el tiempo de espera, otra actividad devuelve un error debido a un error de configuración en la aplicación (por ejemplo, una cadena de conexión de base de datos no válida). El resultado es un error de orquestación en el flujo de trabajo. Con `RewindAsync` API (.NET) o `rewindAsync` API (JavaScript), un administrador de aplicaciones puede corregir el error de configuración y *devolver* la orquestación con error de vuelta al estado inmediatamente anterior al error. No es necesario volver a aprobar ninguno de los pasos de interacción humana y, ahora, la orquestación se puede completar correctamente.
+Un ejemplo de caso de uso para el *rebobinado* es un flujo de trabajo que requiere de una serie de [aprobaciones realizadas por humanos](durable-functions-concepts.md#human). Suponga que hay una serie de funciones de actividad que notifican a alguien cuando se requiere su aprobación y que esperan la respuesta en tiempo real. Después de que todas las actividades de aprobación han recibido respuestas o se ha agotado el tiempo de espera, otra actividad devuelve un error debido a un error de configuración en la aplicación (por ejemplo, una cadena de conexión de base de datos no válida). El resultado es un error de orquestación en el flujo de trabajo. Con `RewindAsync` API (.NET) o `rewindAsync` API (JavaScript), un administrador de aplicaciones puede corregir el error de configuración y *devolver* la orquestación con error de vuelta al estado inmediatamente anterior al error. No es necesario volver a aprobar ninguno de los pasos de interacción humana y, ahora, la orquestación se puede completar correctamente.
 
 > [!NOTE]
 > La característica para *rebobinar* no admite el rebobinado de instancias de orquestación que utilizan temporizadores durables.

@@ -10,16 +10,16 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.openlocfilehash: 274fa3153f6a354b121b7fd8338d8e0d2d94f4f4
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 52aea4e47473d4dd27519ae53322b0e72d93f20e
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230819"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062900"
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Creación e implementación de aplicaciones lógicas con plantillas de Azure Resource Manager
 
-Azure Logic Apps proporciona las plantillas de Azure Resource Manager que puede usar no solo para crear aplicaciones lógicas para automatizar los flujos de trabajo, sino también para definir los recursos y parámetros que se usan para la implementación. Puede usar esta plantilla para sus propios escenarios empresariales o personalizar para satisfacer sus requisitos. Obtenga más información sobre la [plantilla de Resource Manager para aplicaciones lógicas](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) y la [estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Azure Logic Apps proporciona las plantillas de Azure Resource Manager que puede usar no solo para crear aplicaciones lógicas para automatizar los flujos de trabajo, sino también para definir los recursos y parámetros que se usan para la implementación. Puede usar esta plantilla para sus propios escenarios empresariales o personalizar para satisfacer sus requisitos. Obtenga más información sobre la [plantilla de Resource Manager para aplicaciones lógicas](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) y la [estructura y sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Para conocer la sintaxis y las propiedades JSON, consulte [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions) (Tipos de recursos de Microsoft.Logic).
 
 ## <a name="define-the-logic-app"></a>Definición de la aplicación lógica
 

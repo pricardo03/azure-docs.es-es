@@ -1,6 +1,6 @@
 ---
-title: Obtener acceso a orígenes de datos locales para Azure Logic Apps | Documentos de Microsoft
-description: Cree y configure la puerta de enlace de datos local para tener acceso a orígenes de datos locales desde aplicaciones lógicas.
+title: Acceso a orígenes de datos locales desde Azure Logic Apps | Microsoft Docs
+description: Conexión a orígenes de datos locales desde aplicaciones lógicas mediante la creación de una puerta de enlace de datos local
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,16 +9,19 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: e8e8d85d2c95c1dda7271de72491594562b7d3c1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 2b9e1c153c3fa9b17145eb6c3c8f3ed02e3bf40f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413713"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064073"
 ---
-# <a name="connect-to-data-sources-on-premises-from-azure-logic-apps-with-on-premises-data-gateway"></a>Conexión a orígenes de datos locales desde Azure Logic Apps con una puerta de enlace de datos local
+# <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conexión a orígenes de datos locales desde Azure Logic Apps
 
-Para tener acceso a orígenes de datos locales desde las aplicaciones lógicas, puede crear un recurso de puerta de enlace de datos en Azure para que las aplicaciones lógicas puedan utilizar los [conectores locales](../logic-apps/logic-apps-gateway-install.md#supported-connections). En este artículo se muestra cómo crear el recurso de puerta de enlace de Azure *después* de [descargar e instalar la puerta de enlace en el quipo local](../logic-apps/logic-apps-gateway-install.md). 
+Para acceder a orígenes de datos locales desde las aplicaciones lógicas, cree un recurso de puerta de enlace de datos local en Azure Portal. Las aplicaciones lógicas pueden usar entonces los [conectores locales](../logic-apps/logic-apps-gateway-install.md#supported-connections). En este artículo se muestra cómo crear el recurso de puerta de enlace de Azure *después* de [descargar e instalar la puerta de enlace en el quipo local](../logic-apps/logic-apps-gateway-install.md). 
+
+> [!TIP]
+> Para conectarse a redes virtuales de Azure, considere la posibilidad de crear en su lugar un [*entorno del servicio de integración*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). 
 
 Para información sobre cómo usar la puerta de enlace con otros servicios, consulte estos artículos:
 
@@ -65,7 +68,7 @@ Después de instalar la puerta de enlace en un equipo local, puede crear un recu
    | **Nombre** | Nombre del recurso de puerta de enlace. | 
    | **Suscripción** | Nombre de la suscripción de Azure, que debe ser la misma suscripción de la aplicación lógica. La suscripción predeterminada se basa en la cuenta de Azure que usó para iniciar sesión. | 
    | **Grupos de recursos** | Nombre del [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) para organizar recursos relacionados. | 
-   | **Ubicación** | Azure restringe esta ubicación a la misma región que se seleccionó para el servicio en la nube de la puerta de enlace durante la [instalación de puerta de enlace](../logic-apps/logic-apps-gateway-install.md). <p>**Nota**: Asegúrese de que la ubicación del recurso de puerta de enlace coincide con la ubicación del servicio en la nube de la puerta de enlace. De lo contrario, es posible que la instalación de la puerta de enlace no aparezca en la lista de puertas de enlace instaladas para que la pueda seleccionar en el paso siguiente. Puede usar regiones diferentes para el recurso de puerta de enlace y la aplicación lógica. | 
+   | **Ubicación** | Azure restringe esta ubicación a la misma región que se seleccionó para el servicio en la nube de la puerta de enlace durante la [instalación de puerta de enlace](../logic-apps/logic-apps-gateway-install.md). <p>**Nota**: Asegúrese de que esta ubicación de recurso de puerta de enlace coincida con la ubicación del servicio en la nube de puerta de enlace. De lo contrario, es posible que la instalación de la puerta de enlace no aparezca en la lista de puertas de enlace instaladas para que la pueda seleccionar en el paso siguiente. Puede usar regiones diferentes para el recurso de puerta de enlace y la aplicación lógica. | 
    | **Nombre de instalación** | Si la instalación de la puerta de enlace no está seleccionada, seleccione la puerta de enlace que instaló anteriormente. | 
    | | | 
 

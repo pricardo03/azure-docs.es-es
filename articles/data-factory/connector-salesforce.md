@@ -9,19 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: jingwang
-ms.openlocfilehash: bc98fc2465c280c41a77823de239a5572c5d27e4
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7550eac600f5b504d80bcc6b5465e24e8d423d2a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409584"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015090"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copia de datos desde y hacia Salesforce mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Seleccione la versión del servicio de Data Factory que está utilizando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1](v1/data-factory-salesforce-connector.md)
 > * [Versión actual](connector-salesforce.md)
 
@@ -168,7 +167,7 @@ Para copiar datos desde y hacia Salesforce, establezca la propiedad type del con
 ```
 
 >[!NOTE]
->Para la compatibilidad con versiones anteriores, cuando se copian datos de Salesforce, se podrá seguir usando el conjunto de datos de tipo "RelationalTable" anterior, pero se sugiere cambiar al nuevo tipo "SalesforceObject".
+>Por compatibilidad con versiones anteriores: Cuando se copian datos de Salesforce, se podrá seguir usando el conjunto de datos de tipo "RelationalTable" anterior, pero se sugiere cambiar al nuevo tipo "SalesforceObject".
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
@@ -227,7 +226,7 @@ Para copiar datos desde Salesforce, establezca el tipo de origen de la actividad
 ```
 
 >[!NOTE]
->Para la compatibilidad con versiones anteriores, cuando se copian datos de Salesforce, se podrá seguir usando la copia de tipo "RelationalTable" anterior, pero se sugiere cambiar al nuevo tipo "SalesforceSource".
+>Por compatibilidad con versiones anteriores: Cuando se copian datos de Salesforce, se podrá seguir usando la copia de tipo "RelationalSource" anterior, pero se sugiere cambiar al nuevo tipo "SalesforceSource".
 
 ### <a name="salesforce-as-a-sink-type"></a>Salesforce como tipo de receptor
 
@@ -239,9 +238,9 @@ Para copiar datos hacia Salesforce, establezca el tipo de receptor de la activid
 | writeBehavior | El comportamiento de escritura de la operación.<br/>Los valores permitidos son: **Insert** y **Upsert**. | No (el valor predeterminado es Insert) |
 | externalIdFieldName | El nombre del campo de identificador externo para la operación de upsert. El campo especificado debe definirse como "Campo de identificador externo" en el objeto de Salesforce. No puede tener valores NULL en los datos de entrada correspondientes. | Sí para "Upsert" |
 | writeBatchSize | El recuento de filas de datos escritos en Salesforce en cada lote. | No (el valor predeterminado es 5000) |
-| ignoreNullValues | Indica si se omiten los valores NULL de los datos de entrada durante la operación de escritura.<br/>Los valores permitidos son **true** y **false**.<br>- **True**: deja los datos del objeto de destino sin cambiar cuando realiza una operación upsert o update. Inserta un valor predeterminado definido al realizar una operación insert.<br/>- **False**: actualiza los datos del objeto de destino a NULL cuando realiza una operación upsert o update. Inserta un valor NULL al realizar una operación insert. | No (el valor predeterminado es false) |
+| ignoreNullValues | Indica si se omiten los valores NULL de los datos de entrada durante la operación de escritura.<br/>Los valores permitidos son **true** y **false**.<br>- **True**: deje los datos del objeto de destino sin cambiar cuando realice una operación upsert o update. Inserta un valor predeterminado definido al realizar una operación insert.<br/>- **False**: actualice los datos del objeto de destino a NULL cuando realice una operación upsert o update. Inserta un valor NULL al realizar una operación insert. | No (el valor predeterminado es false) |
 
-**Ejemplo: Receptor de Salesforce en la actividad de copia**
+**Ejemplo: receptor de Salesforce en la actividad de copia**
 
 ```json
 "activities":[

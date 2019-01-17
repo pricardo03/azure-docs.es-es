@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: c6dee6fc26f540ad93f5a4b4e6e2f9432f757a6c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 00e50d60ed7f13a2f28338891b39b1b55b7adbfa
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076362"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074383"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure
 
@@ -483,12 +483,12 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
 
 El dispositivo STONITH usa una entidad de servicio para la autorización de Microsoft Azure. Siga estos pasos para crear una entidad de servicio.
 
-1. Vaya a <https://portal.azure.com>.
+1. Vaya a <https\://portal.azure.com>
 1. Abra la hoja Azure Active Directory  
    Vaya a Propiedades y anote el identificador del directorio. Se trata del **id. de inquilino**.
 1. Haga clic en Registros de aplicaciones
 1. Haga clic en Agregar
-1. Escriba un nombre, seleccione el tipo de aplicación "Aplicación web o API", escriba una dirección URL de inicio de sesión (por ejemplo, http://localhost)) y haga clic en Crear.
+1. Escriba un nombre, seleccione el tipo de aplicación "Aplicación web o API", escriba una dirección URL de inicio de sesión (por ejemplo, http\://localhost) y haga clic en Crear
 1. La dirección URL de inicio de sesión no se usa y puede ser cualquier dirección URL válida
 1. Seleccione la nueva aplicación y haga clic en las llaves de la pestaña Configuración
 1. Escriba una descripción para la nueva clave, seleccione "Nunca expira" y haga clic en Guardar
@@ -525,11 +525,11 @@ Utilice el siguiente contenido para el archivo de entrada. Debe adaptar el conte
 
 Asigne el rol personalizado "Rol del agente de barrera de Linux" que se creó en el último capítulo a la entidad de servicio. Deje de utilizar el rol de propietario.
 
-1. Vaya a https://portal.azure.com.
+1. Vaya a https\://portal.azure.com
 1. Abra la hoja Todos los recursos
 1. Seleccione la máquina virtual del primer nodo de clúster.
 1. Haga clic en Control de acceso (IAM)
-1. Haga clic en Agregar asignación de roles
+1. Haga clic en Agregar asignación de roles.
 1. Seleccione el rol "Rol de agente de barrera de Linux".
 1. Escriba el nombre de la aplicación que creó anteriormente
 1. Haga clic en Guardar

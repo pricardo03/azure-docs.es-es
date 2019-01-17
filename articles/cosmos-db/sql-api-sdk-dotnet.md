@@ -1,20 +1,19 @@
 ---
 title: 'Azure Cosmos DB: API, SDK y recursos de .NET para SQL'
 description: Obtenga toda la información sobre la API y el SDK de .NET para SQL, incluidas la fechas de lanzamiento, fechas de retirada y cambios realizados entre las versiones del SDK para .NET de Azure Cosmos DB.
-author: rnagpal
+author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
-ms.author: rnagpal
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 715d67a30bbf2c6d1f50ed7c10a013c0d421f48b
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.author: sngun
+ms.openlocfilehash: f135281ad8bfe8222fd799e3d18c4022c627d23c
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337944"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051958"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SDK de Azure Cosmos DB para .NET para SQL API: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -50,10 +49,18 @@ ms.locfileid: "53337944"
 
 ### <a name="a-name3001-preview3001-preview"></a><a name="3.0.0.1-preview"/>3.0.0.1 (versión preliminar)
 * Versión preliminar 1 de la [versión 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) del SDK de .NET para la versión preliminar pública.
-* .NET Standard como destino, que es compatible con .NET Framework 4.6.1+ y .NET Core 2.0 +
+* .NET Standard como destino, que es compatible con .NET Framework 4.6.1+ y .NET Core 2.0+
 * Nuevo modelo de objetos, con CosmosClient de nivel superior y métodos divididos entre las clases CosmosDatabases, CosmosContainers y CosmosItems adecuadas. 
 * Compatibilidad con secuencias. 
 * Actualización de CosmosResponseMessage desde el servidor para devolver el código de estado y solo iniciar la excepción cuando no se devuelve ninguna respuesta. 
+
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+
+* Mejora en la lógica de reintento durante la conmutación por error para las llamadas de ejecución StoredProcedure.
+
+* DocumentClientEventSource se ha vuelto una base de datos única. 
+
+* Corrección en el tiempo de espera de GatewayAddressCache que no respetaba ConnectionPolicy RequestTimeout.
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 
@@ -350,6 +357,7 @@ El servicio rechaza cualquier solicitud realizada a Azure Cosmos DB mediante un 
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [2.2.1](#2.2.1) |24 de diciembre de 2018 |--- |
 | [2.2.0](#2.2.0) |7 de diciembre de 2018 |--- |
 | [2.1.3](#2.1.3) |15 de octubre de 2018 |--- |
 | [2.1.2](#2.1.2) |04 de octubre de 2018 |--- |

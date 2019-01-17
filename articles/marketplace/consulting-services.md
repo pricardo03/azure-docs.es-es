@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: dbd97ba8faacdc387a6e0b78c206f65a201ca246
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 85f88d9234acbb1831ea76188d06ef47199703ca
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261554"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074094"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Servicios de consultoría de Azure Marketplace y AppSource
 Los servicios de consultoría de Azure Marketplace y AppSource brindan a los asociados de Microsoft el objetivo de conectar a los clientes con servicios que les permitan mejorar y extender el uso que hacen de Azure y de sus objetivos empresariales. 
@@ -66,8 +66,8 @@ Los asociados deben tener una **competencia Silver o Gold** en el área pertinen
 |Producto principal |Requisito de idoneidad |
 |---------|---------|
 | Dynamics 365 for Customer Engagement    |   Competencia Silver o Gold de [administración de las relaciones con el cliente en la nube](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency).    | 
-|Dynamics 365 for Finance and Operations, Enterprise Edition  |  Competencia Silver o Gold de [planificación de recursos Enterprise](https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) e ingresos mínimos de 25 000 USD en operaciones en la nube en los 12 últimos meses.       |
-|Dynamics 365 for Finance and Operations, Business Edition  |  Actuar como [proveedor de servicios en la nube (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) o [asociado de registro digital (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) para al menos un cliente.      |
+|Dynamics 365 for Finance and Operations, Enterprise Edition  |  Competencia Silver o Gold de [planificación de recursos Enterprise](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) e ingresos mínimos de 25 000 USD en operaciones en la nube en los 12 últimos meses.       |
+|Dynamics 365 for Finance and Operations, Business Edition  |  Actuar como [proveedor de servicios en la nube (CSP)](https://partner.microsoft.com/cloud-solution-provider) o [asociado de registro digital (DPOR)](https://partner.microsoft.com/membership/digital-partner-of-record) para al menos un cliente.      |
 |Power BI, objetos visuales personalizados de Power BI | Cumplir los criterios de los [asociados de soluciones](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=/Hosted%20Documents/BI%20Partner%20Program%20Overview%20%26%20Incentives.pdf).|
 |PowerApps | Tener publicada una solución [Presentación de asociado]().
 
@@ -84,10 +84,10 @@ Los asociados deben tener una **competencia Silver o Gold** en el área pertinen
 |Dinamarca   |Italia   |     Noruega          |Estados Unidos |
 |Finlandia   |Japón   |     Polonia          
 
-El lanzamiento de los servicios de consultoría se realizará en la región geográfica específica. El primer lanzamiento será en Estados Unidos, Canadá, Reino Unido y Australia. Los catálogos para otros países empezarán a funcionar una vez que los asociados hayan enviado un número significativo, y una atractiva selección, de ofertas de servicios, y Microsoft las haya aprobado.
+El lanzamiento de los servicios de consultoría se realizará en la región geográfica específica. El primer lanzamiento se realizará en: Estados Unidos, Canadá, Reino Unido y Australia. Los catálogos para otros países empezarán a funcionar una vez que los asociados hayan enviado un número significativo, y una atractiva selección, de ofertas de servicios, y Microsoft las haya aprobado.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Procedimientos para registrar los servicios de consultoría en Azure Marketplace y AppSource
-Empiece por [registrar](https://azuremarketplace.microsoft.com/en-us/sell/signup) la información de su empresa en Marketplace. Los anunciantes pueden hacer referencia a [Conviértase en anunciante en los escaparates de Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher) para obtener una lista de comprobación completa de los requisitos del registro. 
+Empiece por [registrar](https://azuremarketplace.microsoft.com/sell/signup) la información de su empresa en Marketplace. Los anunciantes pueden hacer referencia a [Conviértase en anunciante en los escaparates de Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher) para obtener una lista de comprobación completa de los requisitos del registro. 
 
 **¿Qué se puede esperar después del registro?** El equipo de incorporación tardará entre uno y tres días hábiles en enviarle un correo electrónico de bienvenida que incluirá la información de inicio de sesión de Cloud Partner Portal (CPP). [Cloud Partner Portal](https://cloudpartner.azure.com) es el portal de anuncios de ofertas donde los anunciantes envían la información de las ofertas y los envíos. 
 
@@ -124,16 +124,16 @@ Anunciar la oferta de servicio de consultoría en Azure Marketplace y AppSource 
 3. **Envío**: proporcione la información necesaria recogida en las instrucciones. Todo el contenido y material complementario deben enviarse en inglés. 
 4. **Revisión**: nuestro equipo de marketing y editorial revisa su envío y lo optimiza a fin de mejorar la legibilidad, la gramática y la eficacia. 
 5. **Almacenamiento provisional**: su envío se almacena de forma provisional para su revisión. 
-6. **Publicación**: una vez que usted y Microsoft estén satisfechos con el contenido ensayado, su anuncio estará listo para publicarse en Marketplace. La fecha de publicación de su anuncio depende del país especificado en la oferta. Si el catálogo del país seleccionado ya está publicado en Azure Marketplace o AppSource, su anuncio aparecerá al cabo de unas horas. De lo contrario, el anuncio aparecerá tan pronto como se publique el catálogo.
+6. **Publicación**: una vez que usted y Microsoft estén satisfechos con el contenido del almacenamiento provisional, su anuncio estará listo para publicarse en Marketplace. La fecha de publicación de su anuncio depende del país especificado en la oferta. Si el catálogo del país seleccionado ya está publicado en Azure Marketplace o AppSource, su anuncio aparecerá al cabo de unas horas. De lo contrario, el anuncio aparecerá tan pronto como se publique el catálogo.
 
 ## <a name="offer-listings-and-content-review-criteria"></a>Lista de ofertas y criterios de revisión de contenido
 Las ofertas deben incluirse en uno de los siguientes cinco tipos de servicios (puede indicar más de una): 
 
-* **Evaluación**: una evaluación del entorno del cliente para determinar la aplicabilidad de una solución y proporcionar una estimación del costo y el tiempo. 
-* **Sesión informativa**: introducción a una solución o un servicio de consultoría para determinar el interés del cliente mediante marcos, demostraciones y ejemplos de clientes. 
+* **Evaluación:** una evaluación del entorno del cliente para determinar la aplicabilidad de una solución y proporcionar una estimación de costo y tiempo. 
+* **Sesión informativa**: introducción a una solución o un servicio de consultoría para determinar el interés del cliente mediante plataformas, demostraciones y ejemplos de clientes. 
 * **Implementación**: una instalación completa que da como resultado una solución que funciona completamente. Se recomienda limitarse a las soluciones que se puedan implementar en dos semanas o menos. 
 * **Prueba de concepto**: una implementación de ámbito limitado para determinar si una solución cumple los requisitos del cliente. 
-* **Taller**: una interacción interactiva que se lleva a cabo en las instalaciones del cliente. Puede implicar aprendizaje, sesiones informativas, evaluaciones o demostraciones que se crean en los datos o entorno del cliente. 
+* **Taller**: una involucración interactiva que se lleva a cabo en las instalaciones del cliente. Puede implicar aprendizaje, sesiones informativas, evaluaciones o demostraciones que se crean en los datos o entorno del cliente. 
 
 **Nota:** Excepto en el caso del tipo de servicio *Sesión informativa*, los servicios de consultoría se pueden ofrecer en persona (es decir, in situ en la ubicación del cliente o en la instalación del asociado) o de manera virtual (es decir, mediante teleconferencia, conferencia web o implementación remota). Las sesiones informativas se deben ofrecer en persona.
 
@@ -141,15 +141,15 @@ Una vez configurados los elementos necesarios mencionados anteriormente, el equi
 
 #### <a name="listing-title"></a>Título de la lista
 
-El campo de título tiene un límite de 50 caracteres y debe transmitir el tipo de servicio y la duración de la oferta para maximizar la optimización del motor de búsqueda. El formato debe ser el siguiente: NOMBRE: DURACIÓN TIPO
+El campo de título tiene un límite de 50 caracteres y debe transmitir el tipo de servicio y la duración de la oferta para maximizar la optimización del motor de búsqueda. El formato debe ser el siguiente: NOMBRE: TIPO DE DURACIÓN
 
 Ejemplos:
 
 
 |Título de ejemplo  |Formato correcto  |
 |---------|---------|
-|Getting Started with Azure IoT in Manufacturing    |   Manufacturing IoT: 2-Day Assessment      |
-|Workshop on Smart Toasters        |  Smart Toasters: 1-Wk Workshop       |
+|Getting Started with Azure IoT in Manufacturing    |   Manufacturing IoT: Evaluación de 2 días      |
+|Workshop on Smart Toasters        |  Smart Toasters: Taller de 1 hora       |
 |  SQL Server Migration PoC    | SQL Migration: 3-Wk Proof of Concept        |
 
 #### <a name="listing-summaries-and-descriptions"></a>Enumerar resúmenes y descripciones
@@ -180,8 +180,9 @@ En Cloud Partner Portal, puede aplicar formato al anuncio mediante [Markdown](ht
 
 Si aún no lo ha hecho, 
 
-- [Regístrese](https://azuremarketplace.microsoft.com/sell) en Marketplace
+- [Regístrese](https://azuremarketplace.microsoft.com/sell) en Marketplace.
 
 Si se ha registrado y trabaja en Cloud Partner Portal, 
 
 - [Inicie sesión en Cloud Partner Portal](https://cloudpartner.azure.com) para crear o completar la oferta
+- Consulte [Oferta de servicios de consultoría de Azure y Dynamics 365](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) para más información.

@@ -10,16 +10,16 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 1c8abc153084f0c6491cab3677b93f8c450ad908
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 638b29dd2a15d0467c41e20ecfed9f333b34c04d
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229424"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061064"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Creación de un panel de streaming de Customer Insights con Azure Logic Apps y Azure Functions
 
-Azure ofrece herramientas sin servidor que ayudan a generar rápidamente y hospedar aplicaciones en la nube, sin tener que preocuparse de la infraestructura. En este tutorial, puede crear un panel para actuar en función de los comentarios de los clientes, analizarlos con Machine Learning y publicar información en un origen, como Power BI o Azure Data Lake.
+Azure ofrece herramientas [sin servidor](https://azure.microsoft.com/solutions/serverless/) que ayudan a compilar aplicaciones y hospedarlas rápidamente en la nube, sin necesidad de preocuparse de la infraestructura. En este tutorial, puede crear un panel para actuar en función de los comentarios de los clientes, analizarlos con Machine Learning y publicar información en un origen, como Power BI o Azure Data Lake.
 
 Para esta solución, use estos componentes principales de Azure para las aplicaciones sin servidor: [Azure Functions](https://azure.microsoft.com/services/functions/) y [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/).
 Azure Logic Apps ofrece un motor de flujo de trabajo sin servidor en la nube para poder crear orquestaciones de todos los componentes sin servidor y conectarse a más de doscientos servicios y API. Azure Functions proporciona informática sin servidor en la nube. Esta solución usa Azure Functions para marcar tweets de clientes en función de palabras clave predefinidas.
@@ -34,7 +34,7 @@ Puede [compilar la solución completa en Visual Studio](../logic-apps/quickstart
 
    Si es la primera vez que interactúa con Logic Apps, consulte el [inicio rápido de Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md) o el [inicio rápido de Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
-2. En el Diseñador de aplicación lógica, busque y agregue el desencadenador de Twitter que tenga esta acción: **Cuando se publica un tweet nuevo**.
+2. En el Diseñador de aplicación lógica, busque y agregue el desencadenador de Twitter que tenga esta acción: **Cuando se publique un nuevo tweet**
 
 3. Configure el desencadenador para escuchar tweets con una palabra clave o hashtag.
 
@@ -60,10 +60,10 @@ Para detectar la opinión que transmite un texto, puede usar [Azure Cognitive Se
 
 Después de obtener los datos del tweet y la información sobre el tweet, ya puede usar otros conectores relevantes y sus acciones:
 
-* **Power BI: agregar filas a un conjunto de datos de streaming**: ver tweets entrantes en un panel de Power BI.
-* **Azure Data Lake: anexar archivo**: agregar a un conjunto de datos de Azure Data Lake datos de clientes que se incluyen en los trabajos de análisis.
-* **SQL: agregar filas**: almacenar datos en una base de datos para su posterior recuperación.
-* **Slack: Enviar mensaje**: notificar a un canal de Slack sobre comentarios negativos que pueden requerir acciones.
+* **Power BI, incorporación de filas al conjunto de datos de transmisión por secuencias**: vea los tweets entrantes en un panel de Power BI.
+* **Azure Data Lake, anexado de archivos**: agregue datos de los clientes a un conjunto de datos de Azure Data Lake datos para incluirlos en los trabajos de análisis.
+* **SQL, incorporación de filas**: almacene datos en una base de datos para su posterior recuperación.
+* **Slack, envío de mensajes**: notifique a un canal de Slack sobre comentarios negativos que puedan requerir medidas.
 
 También puede crear una función de Azure para poder realizar procesamientos personalizados de los datos. 
 

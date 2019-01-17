@@ -5,15 +5,15 @@ services: storage
 author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 01/03/2019
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: c0672ddb3e6791fae3b9b8c04e9ff98827c9e22f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 03d307a324826a4805da5ed6ff8b995b7c3eab62
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256738"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019314"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Transferencia de datos con AzCopy en Windows
 AzCopy es una utilidad de línea de comandos diseñada para copiar datos a y desde los servicios de Almacenamiento de blobs de Microsoft Azure, File Storage y Table Storage con sencillos comandos diseñados para ofrecer un rendimiento óptimo. Puede copiar datos entre un sistema de archivos y una cuenta de almacenamiento o entre cuentas de almacenamiento.  
@@ -448,9 +448,9 @@ AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.core.windows.net/mytab
 
 La opción `/EntityOperation` indica cómo insertar entidades en la tabla. Los valores posibles son:
 
-* `InsertOrSkip`omite una entidad existente o inserta una nueva entidad si esta no existe en la tabla.
-* `InsertOrMerge`combina una entidad existente o inserta una nueva entidad si esta no existe en la tabla.
-* `InsertOrReplace`reemplaza una entidad existente o inserta una nueva entidad si esta no existe en la tabla.
+* `InsertOrSkip`: omite una entidad existente o inserta una nueva entidad si esta no existe en la tabla.
+* `InsertOrMerge`: combina una entidad existente o inserta una nueva entidad si esta no existe en la tabla.
+* `InsertOrReplace`: reemplaza una entidad existente o inserta una nueva entidad si esta no existe en la tabla.
 
 Tenga en cuenta que no puede especificar la opción `/PKRS` en el escenario de importación. A diferencia del escenario de exportación, en el que debe especificar la opción `/PKRS` para iniciar las operaciones simultáneas, AzCopy inicia de manera predeterminada operaciones simultáneas cuando se importa una tabla. El número predeterminado de operaciones simultáneas que se inician equivale al número de procesadores de núcleo; sin embargo, puede especificar un número diferente para la simultaneidad con la opción `/NC`. Para obtener más detalles, escriba `AzCopy /?:NC` en la línea de comandos.
 
@@ -708,15 +708,15 @@ Especifica el modo recursivo para operaciones de copia. En el modo recursivo, Az
 
 Especifica si el blob de destino es un blob en bloques, un blob en páginas o un blob de anexo. Esta opción solo es aplicable cuando se carga un blob. De lo contrario, se producirá un error. Si el destino es un blob y esta opción no se especifica, AzCopy, de forma predeterminada, creará un blob en bloques.
 
-**Aplicable a:** blobs
+**Aplicable a:** Blobs
 
 ### <a name="checkmd5"></a>/CheckMD5
 
-Calcula un hash MD5 para datos descargados y comprueba que el hash MD5 almacenado en la propiedad Content-MD5 del blob o archivo coincide con el hash calculado. La comprobación MD5 se desactiva de forma predeterminada, por lo que debe especificar esta opción para realizar dicha comprobación cuando se descargan datos.
+Calcula un hash MD5 para datos descargados y comprueba que el hash MD5 almacenado en la propiedad Content-MD5 del blob o archivo coincide con el hash calculado. Si los valores no coinciden, se producirá un error en AzCopy al descargar los datos. La comprobación MD5 se desactiva de forma predeterminada, por lo que debe especificar esta opción para realizar dicha comprobación cuando se descargan datos.
 
-Tenga en cuenta que Azure Storage no garantiza que el hash MD5 almacenado para el blob o archivo esté actualizado. El cliente será el responsable de actualizar el MD5 siempre que el blob o el archivo se modifique.
+Tenga en cuenta que Azure Storage no garantiza que el hash MD5 almacenado para el blob o archivo esté actualizado. El cliente será el responsable de actualizar el MD5 siempre que el blob o el archivo se modifique. En el caso de imágenes de disco (discos administrados o no administrados), Azure Virtual Machines no actualiza el valor MD5 según va cambiando el contenido del disco, por lo tanto, se producirá un error en /CheckMD5 al descargar imágenes de disco.
 
-AzCopy siempre establece la propiedad Content-MD5 para un blob o archivo de Azure después de cargarlo en el servicio.  
+AzCopy v8 siempre establece la propiedad Content-MD5 para un blob o archivo de Azure después de cargarlo en el servicio.  
 
 **Aplicable a:** blobs, archivos
 
@@ -728,7 +728,7 @@ El nombre de las instantáneas del blob transferidas se cambia según este forma
 
 De forma predeterminada, las instantáneas no se copian.
 
-**Aplicable a:** blobs
+**Aplicable a:** Blobs
 
 ### <a name="vverbose-log-file"></a>/V:[verbose-log-file]
 
@@ -855,7 +855,7 @@ De forma predeterminada, AzCopy usa / como carácter delimitador. Sin embargo, A
 
 Esta opción solamente se aplica para descarga de blobs.
 
-**Aplicable a:** blobs
+**Aplicable a:** Blobs
 
 ### <a name="ncnumber-of-concurrent-operations"></a>/NC:"number-of-concurrent-operations"
 
@@ -893,7 +893,7 @@ Cada operación exporta uno de los tres rangos de claves de partición, como se 
 
   [bb, last-partition-key]
 
-**Aplicable a:** tablas
+**Aplicable a:** Tablas
 
 ### <a name="splitsizefile-size"></a>/SplitSize:"file-size"
 
@@ -903,7 +903,7 @@ Si esta opción no se especifica, AzCopy exporta los datos de la tabla a un úni
 
 Si los datos de la tabla se exportan a un blob y el tamaño del archivo exportado alcanza el límite de 200 GB establecido para el tamaño de un blob, AzCopy divide el archivo exportado, incluso si no se ha especificado esta opción.
 
-**Aplicable a:** tablas
+**Aplicable a:** Tablas
 
 ### <a name="entityoperationinsertorskip--insertormerge--insertorreplace"></a>/EntityOperation:"InsertOrSkip" | "InsertOrMerge" | "InsertOrReplace"
 
@@ -913,7 +913,7 @@ Especifica el comportamiento de la importación de los datos de la tabla.
 * InsertOrMerge: combina una entidad existente o inserta una nueva entidad si esta no existe en la tabla.
 * InsertOrReplace: reemplaza una entidad existente o inserta una nueva entidad si esta no existe en la tabla.
 
-**Aplicable a:** tablas
+**Aplicable a:** Tablas
 
 ### <a name="manifestmanifest-file"></a>/Manifest:"manifest-file"
 
@@ -923,7 +923,7 @@ Esta opción es opcional durante la operación de exportación, AzCopy genera un
 
 Esta opción es necesaria durante la operación de importación para localizar los archivos de datos.
 
-**Aplicable a:** tablas
+**Aplicable a:** Tablas
 
 ### <a name="synccopy"></a>/SyncCopy
 
@@ -951,7 +951,7 @@ Especifica el formato del archivo de datos exportados de tabla.
 
 Si no se especifica esta opción, de forma predeterminada, AzCopy exporta el archivo de datos de tabla en formato JSON.
 
-**Aplicable a:** tablas
+**Aplicable a:** Tablas
 
 ## <a name="known-issues-and-best-practices"></a>Problemas conocidos y prácticas recomendadas
 
@@ -981,7 +981,7 @@ Respecto de la propiedad "AzureStorageUseV1MD5":
 * True (valor predeterminado): AzCopy usa la implementación de MD5 .NET.
 * False: AzCopy usa el algoritmo MD5 compatible con FIPS.
 
-Los algoritmos compatibles con FIPS están deshabilitados de manera predeterminada en Windows. Puede cambiar esta configuración de directiva en su máquina. En la ventana Ejecutar (Windows+R), escriba secpol.msc para abrir la ventana **Directiva de seguridad local**. En la ventana **Configuración de seguridad**, vaya a **Configuración de seguridad** > **Directivas locales** > **Opciones de seguridad**. Ubique la directiva **System cryptography: Use FIPS-compliant algorithms for encryption, hashing and signing** (Criptografía de sistema: usar algoritmos compatibles con FIPS para cifrado, hash y firma). Haga doble clic en la directiva para ver el valor en la columna **Configuración de seguridad**.
+Los algoritmos compatibles con FIPS están deshabilitados de manera predeterminada en Windows. Puede cambiar esta configuración de directiva en su máquina. En la ventana Ejecutar (Windows+R), escriba secpol.msc para abrir la ventana **Directiva de seguridad local**. En la ventana **Configuración de seguridad**, vaya a **Configuración de seguridad** > **Directivas locales** > **Opciones de seguridad**. Busque la directiva **System cryptography: Use FIPS-compliant algorithms for encryption, hashing and signing** (Criptografía de sistema: usar algoritmos compatibles con FIPS para cifrado, hash y firma). Haga doble clic en la directiva para ver el valor en la columna **Configuración de seguridad**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -997,10 +997,10 @@ Para más información sobre Azure Storage y AzCopy, consulte los recursos sigui
 
 ### <a name="azure-storage-blog-posts"></a>Publicaciones en blobs de Azure Storage
 * [Introducción a la versión de vista previa de la biblioteca de movimiento de datos de Azure Storage](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
-* [AzCopy: Introducción a la copia sincrónica y el tipo de contenido personalizado](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
-* [AzCopy: Presentación de la disponibilidad general de AzCopy 3.0 y de la versión de vista previa de AzCopy 4.0 compatible con tablas y archivos](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
-* [AzCopy: Optimizada para escenarios de copia a gran escala](https://go.microsoft.com/fwlink/?LinkId=507682)
-* [AzCopy: Compatibilidad para almacenamiento con redundancia geográfica de acceso de lectura](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
-* [AzCopy: Transferencia de datos con modo reiniciable y token SAS](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
-* [AzCopy: Uso de copia de blobs entre cuentas](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
-* [AzCopy: Carga y descarga de archivos para blobs de Azure](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
+* [AzCopy: introducción a la copia sincrónica y al tipo de contenido personalizado](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
+* [AzCopy: presentación de la disponibilidad general de AzCopy 3.0 y de la versión de vista previa de AzCopy 4.0 compatible con tablas y archivos](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
+* [AzCopy: optimizada para escenarios de copia a gran escala](https://go.microsoft.com/fwlink/?LinkId=507682)
+* [AzCopy: compatibilidad para almacenamiento con redundancia geográfica de acceso de lectura](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
+* [AzCopy: transferencia de datos con modo reiniciable y token SAS](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
+* [AzCopy: uso de copia de blobs entre cuentas](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
+* [AzCopy: carga y descarga de archivos para blobs de Azure](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)

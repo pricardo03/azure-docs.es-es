@@ -12,12 +12,12 @@ ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: c23bdba74ab528a0774b73598dbee8888ebfdc7e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6d53de431ea619dfc8865ef23439146517d37764
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076124"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013305"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>¿Qué es la arquitectura de Azure Active Directory?
 Azure Active Directory (Azure AD) le permite administrar el acceso a los servicios y recursos de Azure para los usuarios de forma segura. Con Azure AD se incluye un conjunto completo de funcionalidades de administración de identidades. Para más información sobre las características de Azure AD, consulte [¿Qué es Azure Active Directory?](active-directory-whatis.md)
@@ -34,7 +34,7 @@ En este artículo se tratan los siguientes elementos de la arquitectura:
  *  Centros de datos
 
 ### <a name="service-architecture-design"></a>Diseño de la arquitectura del servicio
-La manera más común de compilar un sistema con datos enriquecidos que sea accesible y pueda usarse es a través de bloques de creación independientes o unidades de escalado para la capa de datos de Azure AD. Esas unidades de escalado se denominan *particiones*. 
+La manera más común de compilar un sistema con datos enriquecidos que sea accesible y pueda usarse es con bloques de creación independientes o unidades de escalado. Para la capa de datos de Azure AD, a las unidades de escalado se les llama *particiones*. 
 
 El nivel de datos tiene varios servicios front-end que proporcionan la funcionalidad de lectura y escritura. En el diagrama siguiente se muestra cómo se entregan los componentes de una partición de directorio único a lo largo de centros de datos geográficamente distribuidos. 
 

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/11/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: ab2ea762ac8cc289ff24136f3cafac2b80fa1a9f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 7ffceaf761d459667e4118e3e10b733898ea2710
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268451"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053983"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Creación y administración de presupuestos de Azure
 
@@ -51,9 +51,7 @@ Para más información sobre cómo asignar permisos a los datos de Cost Manageme
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Crear un presupuesto en Azure Portal
 
-Puede crear un presupuesto de suscripción de Azure durante un período mensual, trimestral o anual. El contenido de navegación en Azure Portal determina si crea un presupuesto para una suscripción o para un grupo de recursos.
-
-En Azure Portal, vaya a **Administración de costos + facturación** &gt; **Suscripciones** &gt; seleccione una suscripción &gt; **Presupuestos**. En este ejemplo, el presupuesto que cree es para la suscripción seleccionada.
+Puede crear un presupuesto de suscripción de Azure durante un período mensual, trimestral o anual. El contenido de navegación en Azure Portal determina si crea un presupuesto para una suscripción o para un grupo de recursos. Por ejemplo, en Azure Portal, vaya a **Suscripciones** &gt; seleccione una suscripción &gt; **Presupuestos**. En este ejemplo, el presupuesto que cree es para la suscripción seleccionada. Si desea crear un presupuesto para un grupo de recursos, vaya a **Grupos de recursos** > seleccione un grupo de recursos > **Presupuestos**.
 
 Después de crear los presupuestos, muestran a un lado una vista sencilla de su gasto actual.
 

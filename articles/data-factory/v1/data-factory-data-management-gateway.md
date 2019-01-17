@@ -9,17 +9,16 @@ ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 988c264ef6052b4b41de493944ac8d39a197a083
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 728adae62677eb2edb1e203df9b0d9f11f6acecf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698764"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022315"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -51,7 +50,7 @@ Data Management Gateway proporciona las siguientes funcionalidades:
 ### <a name="command-flow-and-data-flow"></a>Flujo de comandos y flujo de datos
 Cuando se utiliza una actividad de copia con la que copiar datos entre un entorno local y la nube, se usa una puerta de enlace para transferir información desde el origen de datos local hasta la nube, y viceversa.
 
-A continuación se muestra el flujo de datos genérico y el resumen de los pasos necesarios para copiar con una puerta de enlace de datos: ![Flujo de datos mediante la puerta de enlace](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
+A continuación se encuentran el flujo de datos de alto nivel y el resumen de los pasos para copiar con una puerta de enlace de datos: ![Flujo de datos mediante la puerta de enlace](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
 
 1. El desarrollador de datos crea una puerta de enlace para una instancia de Azure Data Factory mediante [Azure Portal](https://portal.azure.com) o un [cmdlet de PowerShell](https://docs.microsoft.com/powershell/module/azurerm.datafactories/).
 2. El desarrollador de datos crea un servicio vinculado para un almacén de datos local especificando la puerta de enlace. Como parte de la configuración del servicio vinculado, el desarrollador de datos usa la aplicación Setting Credentials (Establecer credenciales) para especificar las credenciales y los tipos de autenticación.  El cuadro de diálogo de la aplicación Setting Credentials (Establecer credenciales) se comunicará con el almacén de datos para probar la conexión y la puerta de enlace para guardar las credenciales.
@@ -152,7 +151,7 @@ En el nivel de Firewall de Windows, normalmente se habilitan estos puertos de sa
 
 > [!NOTE]
 > 1. En función del origen y los receptores, quizá deba agregar a la lista de permitidos del firewall corporativo o de Windows más dominios y puertos de salida.
-> 2. Para algunas bases de datos en la nube (por ejemplo: [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access), etc.), puede que necesite agregar a la lista de permitidos de la configuración del firewall la dirección IP de la máquina de la puerta de enlace.
+> 2. En el caso de algunas bases de datos en la nube (por ejemplo: [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access), etc.), puede que necesite agregar a la lista de permitidos de la configuración del firewall la dirección IP de la máquina de la puerta de enlace.
 >
 >
 
@@ -182,9 +181,9 @@ La puerta de enlace utiliza el servidor proxy para conectarse al servicio en la 
 
 Hay tres opciones de configuración:
 
-* **No utilizar proxy**: la puerta de enlace no usa expresamente ningún proxy para conectarse a servicios en la nube.
-* **Usar proxy del sistema**: la puerta de enlace utiliza la configuración de proxy de diahost.exe.config y diawp.exe.config.  Si no hay ningún proxy configurado en diahost.exe.config y diawp.exe.config, la puerta de enlace se conecta al servicio en la nube directamente sin pasar por el proxy.
-* **Usar proxy personalizado**: establezca la configuración del proxy HTTP que se utilizará para la puerta de enlace, en lugar de usar las configuraciones de diahost.exe.config y diawp.exe.config.  La dirección y el puerto son obligatorios.  El nombre de usuario y la contraseña son opcionales dependiendo de la configuración de autenticación del proxy.  Todas las configuraciones se cifran con el certificado de credencial de la puerta de enlace y se almacenan de forma local en el equipo host de la puerta de enlace.
+* **No utilizar proxy**: La puerta de enlace no usa expresamente ningún proxy para conectarse a servicios en la nube.
+* **Usar proxy del sistema**: La puerta de enlace utiliza la configuración de proxy de diahost.exe.config y diawp.exe.config.  Si no hay ningún proxy configurado en diahost.exe.config y diawp.exe.config, la puerta de enlace se conecta al servicio en la nube directamente sin pasar por el proxy.
+* **Usar proxy personalizado**: Establezca la configuración del proxy HTTP que se utilizará para la puerta de enlace, en lugar de usar las configuraciones de diahost.exe.config y diawp.exe.config.  La dirección y el puerto son obligatorios.  El nombre de usuario y la contraseña son opcionales dependiendo de la configuración de autenticación del proxy.  Todas las configuraciones se cifran con el certificado de credencial de la puerta de enlace y se almacenan de forma local en el equipo host de la puerta de enlace.
 
 El servicio de host de Data Management Gateway se reinicia automáticamente después de guardar la configuración de proxy actualizada.
 
@@ -236,7 +235,7 @@ Además de estos puntos anteriores, también tiene que asegurarse de que Microso
 #### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Posibles síntomas de problemas relacionados con el firewall y el servidor proxy
 Si se producen errores como los siguientes, es probable que se deban a una configuración incorrecta del servidor proxy o del firewall, que impide que la puerta de enlace se conecte a Data Factory para autenticarse. Consulte la sección anterior para garantizar que el firewall y el servidor proxy están configurados correctamente.
 
-1. Al intentar registrar la puerta de enlace, recibirá el siguiente error: "Error al registrar la clave de la puerta de enlace. Antes de volver a intentar registrar la clave de la puerta de enlace, confirme que Data Management Gateway está en estado conectado y el servicio de host de Data Management Gateway se ha iniciado."
+1. Al intentar registrar la puerta de enlace, recibirá el siguiente error: "No se pudo registrar la clave de la puerta de enlace. Antes de volver a intentar registrar la clave de la puerta de enlace, confirme que Data Management Gateway está en estado conectado y el servicio de host de Data Management Gateway se ha iniciado."
 2. Al abrir el Administrador de configuración, verá el estado "Desconectado" o "Conectando". Cuando se consultan los registros de eventos de Windows, en “Visor de eventos” > “Registros de aplicaciones y servicios” > “Data Management Gateway” aparecen mensajes de error como el siguiente: `Unable to connect to the remote server`
    `A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.`
 
@@ -307,7 +306,7 @@ Se puede habilitar o deshabilitar la función de actualización automática real
 Una vez instalada la puerta de enlace, puede iniciar el Administrador de configuración de Data Management Gateway de una de las siguientes maneras:
 
 1. En la ventana **Búsqueda**, escriba **Data Management Gateway** para tener acceso a esta utilidad.
-2. Ejecute el archivo ejecutable **ConfigManager.exe** en la carpeta **C:\Archivos de programa\Microsoft Data Management Gateway\2.0\Shared**.
+2. Ejecute el archivo ejecutable **ConfigManager.exe** en la carpeta: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
 
 ### <a name="home-page"></a>Página de inicio
 En la página principal puede hacer las siguientes acciones:
@@ -439,7 +438,7 @@ En esta sección se proporcionan pasos para mover el cliente de puerta de enlace
 Para cifrar las credenciales en el Editor de Data Factory, realice los siguientes pasos:
 
 1. Inicie el explorador web en la **máquina de la puerta de enlace**y vaya a [Azure Portal](http://portal.azure.com). Busque la factoría de datos si es necesario, ábrala en la página **Data Factory** y haga clic en **Crear e implementar** para iniciar el editor de Data Factory.   
-2. Haga clic en un **Servicio vinculado** existente en la vista de árbol para ver su definición de JSON o cree uno que requiera Data Management Gateway (por ejemplo, SQL Server u Oracle).
+2. Haga clic en un **servicio vinculado** existente en la vista de árbol para ver su definición de JSON o cree uno que requiera una puerta de enlace de administración de datos (por ejemplo: SQL Server u Oracle).
 3. En el editor de JSON, escriba el nombre de la puerta de enlace para la propiedad **gatewayName** .
 4. Escriba el nombre del servidor para la propiedad **Data Source** en **connectionString**.
 5. Escriba el nombre de la base de datos para la propiedad **Initial Catalog** en **connectionString**.    

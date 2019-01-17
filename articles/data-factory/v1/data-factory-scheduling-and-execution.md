@@ -9,17 +9,16 @@ ms.assetid: 088a83df-4d1b-4ac1-afb3-0787a9bd1ca5
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: bd8b682e073e86bb824d31d6ebab20a80f807730
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: a70c3ddb624639411dbee961b1c4d59ac1277147
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054609"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016094"
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Programación y ejecución de Data Factory
 > [!NOTE]
@@ -173,9 +172,9 @@ Cada unidad de datos consumida o producida por la ejecución de una actividad se
 
 En el diagrama se muestran los segmentos de datos por hora para el conjunto de datos de entrada y salida. El diagrama muestra tres segmentos de entrada que están listos para su procesamiento. La actividad 10-11 AM está en curso, produciendo el segmento de salida 10-11 AM. 
 
-Puede acceder al intervalo de tiempo asociado al segmento actual en el JSON del conjunto de datos con las variables: [SliceStart](data-factory-functions-variables.md#data-factory-system-variables) y [SliceEnd](data-factory-functions-variables.md#data-factory-system-variables). De forma similar, puede acceder al intervalo de tiempo asociado con una ventana de actividad con las variables WindowStart y WindowEnd. La programación de una actividad debe coincidir con la programación del conjunto de datos de salida de la actividad. Por lo tanto, los valores de SliceStart y SliceEnd son los mismos que los valores de WindowStart y WindowEnd, respectivamente. Para más información sobre estas variables, vea el artículo [Funciones y variables del sistema](data-factory-functions-variables.md#data-factory-system-variables).  
+Puede acceder al intervalo de tiempo asociado al segmento actual en el JSON del conjunto de datos con las variables [SliceStart](data-factory-functions-variables.md#data-factory-system-variables) y [SliceEnd](data-factory-functions-variables.md#data-factory-system-variables). De forma similar, puede acceder al intervalo de tiempo asociado con una ventana de actividad con las variables WindowStart y WindowEnd. La programación de una actividad debe coincidir con la programación del conjunto de datos de salida de la actividad. Por lo tanto, los valores de SliceStart y SliceEnd son los mismos que los valores de WindowStart y WindowEnd, respectivamente. Para más información sobre estas variables, vea el artículo [Funciones y variables del sistema](data-factory-functions-variables.md#data-factory-system-variables).  
 
-Puede usar estas variables para distintos fines en el JSON de actividad. Por ejemplo, puede usarlas para seleccionar datos de conjuntos de datos de entrada y salida que representen datos de serie temporal (por ejemplo, de 8:00 a 9:00). En el ejemplo también se usan **WindowStart** y **WindowEnd** para seleccionar datos pertinentes para la ejecución de una actividad y copiarlos en un blob con el valor de **folderPath** adecuado. **folderPath** se parametriza para tener una carpeta independiente para cada hora.  
+Puede usar estas variables para distintos fines en el JSON de actividad. Por ejemplo, puede usarlas para seleccionar datos de conjuntos de datos de entrada y salida que representen datos de serie temporal (por ejemplo, de 8:00 a. m. a 9:00 a. m.). En el ejemplo también se usan **WindowStart** y **WindowEnd** para seleccionar datos pertinentes para la ejecución de una actividad y copiarlos en un blob con el valor de **folderPath** adecuado. **folderPath** se parametriza para tener una carpeta independiente para cada hora.  
 
 En el ejemplo anterior, la programación especificada para los conjuntos de entrada y salida es la misma (hora). Si el conjunto de datos de entrada para la actividad está disponible en una frecuencia distinta, digamos cada 15 minutos, la actividad que genera este conjunto de datos de salida sigue ejecutándose una vez cada hora, ya que el conjunto de datos de salida es el que impulsa la programación de la actividad. Para más información, vea [Modelado de conjuntos de datos con distintas frecuencias](#model-datasets-with-different-frequencies).
 
@@ -187,11 +186,11 @@ La tabla siguiente describe las propiedades que puede utilizar en la sección de
 
 | Propiedad | DESCRIPCIÓN | Obligatorio | Valor predeterminado |
 | --- | --- | --- | --- |
-| frequency |Especifica la unidad de tiempo para la producción de segmentos del conjunto de datos.<br/><br/><b>Frecuencia admitida</b>: Minute, Hour, Day, Week, Month. |Sí |N/D |
-| interval |Especifica un multiplicador para frecuencia<br/><br/>”Frequency x interval” determina la frecuencia con la que se produce el segmento.<br/><br/>Si necesita segmentar el conjunto de datos cada hora, establezca <b>frequency</b> en <b>hour</b> e <b>interval</b> en <b>1</b>.<br/><br/><b>Nota:</b> Si especifica Frequency como Minute, se recomienda establecer interval en no menos de 15. |Sí |N/D |
+| frequency |Especifica la unidad de tiempo para la producción de segmentos del conjunto de datos.<br/><br/><b>Frecuencia admitida</b>: Minute, Hour, Day, Week, Month |SÍ |N/D |
+| interval |Especifica un multiplicador para frecuencia<br/><br/>”Frequency x interval” determina la frecuencia con la que se produce el segmento.<br/><br/>Si necesita segmentar el conjunto de datos cada hora, establezca <b>frequency</b> en <b>hour</b> e <b>interval</b> en <b>1</b>.<br/><br/><b>Nota</b>: Si especifica Frequency como Minute, se recomienda establecer interval en no menos de 15 |SÍ |N/D |
 | style |Especifica si el segmento debe producirse al principio o al final del intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Si frequency se establece en Month y style se establece en EndOfInterval, el segmento se produce el último día del mes. Si style se establece en StartOfInterval, el segmento se produce el primer día del mes.<br/><br/>Si frequency se establece en Day y style se establece en EndOfInterval, el segmento se produce la última hora del día.<br/><br/>Si frequency se establece en Hour y style se establece en EndOfInterval, el segmento se produce al final de la hora. Por ejemplo, para un segmento para el período de 1 p.m. – 2 p.m., el segmento se producirá a las 2 p.m. |Sin  |EndOfInterval |
-| anchorDateTime |Define la posición absoluta en el tiempo usada por el programador para calcular los límites del segmento de conjunto de datos. <br/><br/><b>Nota:</b> Si AnchorDateTime tiene partes de fecha más pormenorizadas que la frecuencia, estas se omitirán. <br/><br/>Por ejemplo, si el valor de <b>interval</b> es <b>hourly</b> (frequency: hour e interval: 1) y <b>AnchorDateTime</b> contiene <b>minutes and seconds</b>, las partes <b>minutes and seconds</b> de AnchorDateTime no se tienen en cuenta. |Sin  |01/01/0001 |
-| Offset |Intervalo de tiempo en función del cual se desplazan el inicio y el final de todos los segmentos del conjunto de datos. <br/><br/><b>Nota:</b> Si se especifican anchorDateTime y offset, el resultado es el desplazamiento combinado. |Sin  |N/D |
+| anchorDateTime |Define la posición absoluta en el tiempo usada por el programador para calcular los límites del segmento de conjunto de datos. <br/><br/><b>Nota</b>: Si AnchorDateTime tiene partes de fecha más pormenorizadas que la frecuencia, estas se omitirán. <br/><br/>Por ejemplo, si el valor de <b>interval</b> es <b>hourly</b> (frecuency: hour e interval: 1) y <b>AnchorDateTime</b> contiene <b>minutes and seconds</b>, las partes <b>minutes and seconds</b> de AnchorDateTime no se tienen en cuenta. |Sin  |01/01/0001 |
+| Offset |Intervalo de tiempo en función del cual se desplazan el inicio y el final de todos los segmentos del conjunto de datos. <br/><br/><b>Nota</b>: Si se especifican anchorDateTime y offset, el resultado es el desplazamiento combinado. |Sin  |N/D |
 
 ### <a name="offset-example"></a>Ejemplo de offset
 De forma predeterminada, cada día (`"frequency": "Day", "interval": 1`) se inician los segmentos a las 24:00 UTC (medianoche). Si desea que, en su lugar, la hora de inicio sea a las 6:00 UTC, defina el desplazamiento como se muestra en el siguiente fragmento de código: 
@@ -326,14 +325,14 @@ Vea la sección [Copia secuencial](#copy-sequentially) del anexo para obtener un
 ## <a name="model-datasets-with-different-frequencies"></a>Modelado de conjuntos de datos con distintas frecuencias
 En los ejemplos, las frecuencias de los conjuntos de datos de entrada y salida y de la ventana de programación de actividad eran las mismas. Algunos escenarios requieren que se puedan producir resultados a una frecuencia diferente de las frecuencias de una o más entradas. Data Factory admite el modelado de estos escenarios.
 
-### <a name="sample-1-produce-a-daily-output-report-for-input-data-that-is-available-every-hour"></a>Ejemplo 1: Generación de un informe de salida diario para los datos de entrada que esté disponibles cada hora
+### <a name="sample-1-produce-a-daily-output-report-for-input-data-that-is-available-every-hour"></a>Muestra 1: Generación de un informe de salida diario para los datos de entrada que esté disponible cada hora
 Considere un escenario en el que tiene datos de medida de entrada de sensores disponibles cada hora en Azure Blob Storage. Quiere generar un informe agregado diario con estadísticas como media, máximo y mínimo para el día con la [actividad de Hive de Data Factory](data-factory-hive-activity.md).
 
 A continuación, se muestra cómo puede modelar este escenario con Data Factory:
 
 **Conjunto de datos de entrada**
 
-Se quitan los archivos de entrada de cada hora en la carpeta para el día especificado. La disponibilidad para la entrada se establece en **Hour** (frecuencia: hora, intervalo: 1).
+Se quitan los archivos de entrada de cada hora en la carpeta para el día especificado. La disponibilidad para la entrada se establece en **Hour** (frecuency: hour, interval: 1).
 
 ```json
 {
@@ -362,7 +361,7 @@ Se quitan los archivos de entrada de cada hora en la carpeta para el día especi
 ```
 **Conjunto de datos de salida**
 
-Cada día se crea un archivo de salida en la carpeta del día. La disponibilidad de la salida se establece en **Day** (frecuencia: día e intervalo: 1).
+Cada día se crea un archivo de salida en la carpeta del día. La disponibilidad para la salida se establece en **Day** (frecuency: Day e interval: 1).
 
 ```json
 {
@@ -453,7 +452,7 @@ El enfoque sencillo, en el que Data Factory determina automáticamente los segme
 
 Debe especificar que para cada ejecución de actividad, Data Factory debe usar el segmento de datos de la semana pasada para el conjunto de datos de entrada semanal. Utilice funciones de Azure Data Factory, como se muestra en el siguiente fragmento para implementar este comportamiento.
 
-**Input1: blob de Azure**
+**Input1: Azure blob**
 
 La primera entrada es el blob de Azure que se actualiza diariamente.
 
@@ -483,7 +482,7 @@ La primera entrada es el blob de Azure que se actualiza diariamente.
 }
 ```
 
-**Input2: blob de Azure**
+**Input2: Azure blob**
 
 Input2 es el blob de Azure que se actualiza semanalmente.
 
@@ -513,9 +512,9 @@ Input2 es el blob de Azure que se actualiza semanalmente.
 }
 ```
 
-**Salida: blob de Azure**
+**Output: Azure blob**
 
-Cada día se crea un archivo de salida en la carpeta del día. La disponibilidad de la salida se establece en **day** (frecuencia: día, intervalo: 1).
+Cada día se crea un archivo de salida en la carpeta del día. La disponibilidad para la salida se establece en **Day** (frecuency: Day, interval: 1).
 
 ```json
 {

@@ -1,10 +1,9 @@
 ---
-title: Traffic View en Azure Traffic Manager | Microsoft Docs
+title: Vista de tráfico en Azure Traffic Manager
 description: Introducción a Traffic View de Traffic Manager
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: jeconnoc
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -13,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: d1800fea2212628e7647b5250efa33ebb97957f9
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 9f818715895c2ff2c5d0e1758aaf17a2393287d2
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138079"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050655"
 ---
 # <a name="traffic-manager-traffic-view"></a>Traffic View de Traffic Manager
 

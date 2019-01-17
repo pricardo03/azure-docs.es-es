@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.component: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/03/2018
+ms.date: 01/04/2019
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: 7126a47bd90168c7d86fe9fcc05fab0a60955063
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: dc3a0974eed7b044e137b45ec367c56d7534cee6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40180689"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054085"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>Registre su dispositivo personal en la red de su organización
 Registre su dispositivo personal, que suele ser un teléfono o una tablet, en la red de su organización. Una vez registrado su dispositivo, podrá tener acceso a los recursos restringidos de su organización.
@@ -34,7 +34,7 @@ Durante el registro de su dispositivo en la red de su organización, se producir
 
 - Opcionalmente, en función de las opciones de su organización, puede que se le inscriba automáticamente en la administración de dispositivos móviles, como Microsoft Intune. Para obtener más información sobre cómo inscribirse en Microsoft Intune, consulte [Enroll your device in Intune](https://docs.microsoft.com/intune-user-help/enroll-your-device-in-intune-all) (Inscribir su dispositivo en Intune).
 
-- Seguirá el proceso de inicio de sesión, haciendo uso del nombre de usuario y la contraseña de su cuenta Microsoft personal.
+- Seguirá el proceso de inicio de sesión, haciendo uso del nombre de usuario y la contraseña de su cuenta profesional o educativa.
 
 ## <a name="to-register-your-windows-device"></a>Para registrar su dispositivo Windows
 
@@ -44,30 +44,26 @@ Siga estos pasos para registrar su dispositivo personal en su red.
 
     ![Cuentas en la pantalla Configuración](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
-2. Seleccione **Correo electrónico y cuentas** y, a continuación, seleccione **Join a Microsoft account** (Unirse a una cuenta Microsoft).
+2. Seleccione **Obtener acceso a trabajo o escuela** y seleccione **Conectar** en la pantalla **Obtener acceso a trabajo o escuela**.
 
-    ![Vínculos Correo electrónico y cuentas y Add a Microsoft account (Agregar una cuenta Microsoft)](./media/user-help-register-device-on-network/register-device-email-and-accounts.png)
+    ![Pantalla Obtener acceso a trabajo o escuela con la opción Conectar resaltada](./media/user-help-register-device-on-network/register-device-access-work-school-connect.png)
 
-3. En la pantalla **Add your Microsoft account** (Agregar su cuenta Microsoft), escriba su dirección de correo electrónico de su cuenta Microsoft personal.
+3. En la pantalla **Agregar una cuenta de trabajo o escuela**, escriba la dirección de correo electrónico de su cuenta profesional o educativa y seleccione **Siguiente**. Por ejemplo, alain@contoso.com.
 
-    ![Pantalla Add your Microsoft account (Agregar su cuenta Microsoft), con correo electrónico](./media/user-help-register-device-on-network/register-device-add-accounts.png)
-
-4. En la pantalla **Escribir contraseña**, escriba la contraseña de su cuenta Microsoft personal y, a continuación, seleccione **Iniciar sesión**.
-
-    ![Pantalla Escribir contraseña](./media/user-help-register-device-on-network/register-device-enter-password.png)
+4. Inicie sesión en su cuenta profesional o educativa y seleccione **Iniciar sesión**.
 
 5. Complete el resto del proceso de registro, incluidas la aprobación de su solicitud de verificación de identidad (si usa la verificación en dos pasos) y la configuración de Windows Hello (si es necesario).
 
-## <a name="to-make-sure-youre-registered"></a>Para asegurarse de que se ha registrado
+## <a name="to-verify-that-youre-registered"></a>Para verificar que está registrado
 Puede asegurarse de que se ha registrado fijándose en su configuración.
 
 1. Abra **Configuración** y, a continuación, seleccione **Cuentas**.
 
     ![Cuentas en la pantalla Configuración](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
-2. Seleccione **Correo electrónico y cuentas** y asegúrese de que ve su cuenta Microsoft personal.
+2. Seleccione **Obtener acceso a trabajo o escuela** y asegúrese de que ve su cuenta profesional o educativa.
 
-    ![Pantalla Obtener acceso a trabajo o escuela con cuenta Contoso conectada](./media/user-help-register-device-on-network/register-device-verify-account.png)
+    ![Pantalla Obtener acceso a trabajo o escuela con cuenta Contoso conectada](./media/user-help-register-device-on-network/register-device-setup-verify.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Después de registrar su dispositivo personal en la red de su organización, debe poder tener acceso a la mayoría de sus recursos.

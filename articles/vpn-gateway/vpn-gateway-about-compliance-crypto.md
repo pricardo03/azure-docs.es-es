@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/22/2017
 ms.author: yushwang
-ms.openlocfilehash: d2f3da47f1d4eebe1b81964790ff6612dd78155d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 060e647badcc3bad7b44d7cef3530c36b8ecdf57
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 01/07/2019
 ms.locfileid: "23125183"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Acerca de los requisitos criptográficos y las puertas de enlace de VPN de Azure
@@ -29,7 +29,7 @@ En este artículo se explica cómo configurar puertas de enlace de VPN de Azure 
 ## <a name="about-ipsec-and-ike-policy-parameters-for-azure-vpn-gateways"></a>Acerca de los parámetros de la directiva de IPsec e IKE para puertas de enlace de VPN de Azure
 El protocolo IPsec e IKE estándar admite una gran variedad de algoritmos criptográficos en diversas combinaciones. Si los clientes no solicitan una combinación específica de algoritmos y parámetros criptográficos, las puertas de enlace de VPN de Azure usan un conjunto de propuestas predeterminadas. Los conjuntos de directivas predeterminados se eligieron para maximizar la interoperabilidad con una amplia gama de dispositivos VPN de terceros en las configuraciones predeterminadas. Como resultado, las directivas y el número de propuestas no pueden cubrir todas las posibles combinaciones de algoritmos criptográficos disponibles y puntos fuertes clave.
 
-La directiva predeterminada establecida para la puerta de enlace de VPN de Azure se muestra en el documento: [Acerca de los dispositivos VPN y los parámetros de IPsec o IKE para conexiones de VPN Gateway de sitio a sitio](vpn-gateway-about-vpn-devices.md).
+La directiva predeterminada establecida para la puerta de enlace de VPN de Azure se muestra en el documento: [Acerca de los dispositivos VPN y los parámetros de IPsec/IKE para conexiones de VPN Gateway de sitio a sitio](vpn-gateway-about-vpn-devices.md).
 
 ## <a name="cryptographic-requirements"></a>Requisitos criptográficos
 Para las comunicaciones que requieren determinados algoritmos o parámetros criptográficos, normalmente debido a los requisitos de seguridad o de conformidad con normas, ahora los clientes pueden configurar sus puertas de enlace de VPN de Azure para usar una directiva personalizada de IPsec o IKE con determinados algoritmos criptográficos y puntos fuertes clave, en lugar de los conjuntos de directivas predeterminados de Azure.

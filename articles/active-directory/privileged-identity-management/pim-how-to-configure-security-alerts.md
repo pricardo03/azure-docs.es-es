@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 11/21/2018
+ms.date: 01/04/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 4a715020e37d5885dac26ac0573efe985c3f2cfb
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 0231eaad26fbc3e7157999c0023c5001f37d70d5
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291222"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063292"
 ---
 # <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>Configuración de alertas de seguridad para roles de directorio de Azure AD en PIM
 
@@ -32,7 +32,7 @@ En esta sección se enumeran todas las alertas de seguridad de roles de director
 
 * **Alta**: requiere acción inmediata debido a la infracción de una directiva.
 * **Media**: no requiere acción inmediata, pero indica una posible infracción de una directiva.
-* **Baja**: no requiere acción inmediata pero sugiere un cambio de directiva preferible.
+* **Baja**: no requiere acción inmediata, pero sugiere un cambio de directiva preferible.
 
 ### <a name="administrators-arent-using-their-privileged-roles"></a>Los administradores no están usando sus roles con privilegios
 
@@ -69,7 +69,7 @@ En esta sección se enumeran todas las alertas de seguridad de roles de director
 | | |
 | --- | --- |
 | **Gravedad** | Mediano |
-| **¿Por qué se recibe esta alerta?** | Las cuentas que no han cambiado su contraseña recientemente podrían ser cuentas de servicio o compartidas en las que no se realiza mantenimiento. Estas cuentas en roles con privilegios son vulnerables a los atacantes. |
+| **¿Por qué se recibe esta alerta?** | Cuentas de un rol con privilegios que no han cambiado su contraseña en los últimos 90 días. Estas cuentas podrían ser cuentas de servicio o compartidas que no se mantienen y son vulnerables a los atacantes. |
 | **Solución** | Revise las cuentas de la lista. Si ya no necesitan acceso, quíteles sus roles con privilegios. |
 | **Prevención** | Asegúrese de que las cuentas que se comparten tengan contraseñas seguras que rotan cuando se produce un cambio en los usuarios que conocen la contraseña. </br>Revise con regularidad las cuentas con roles con privilegios mediante [revisiones de acceso](pim-how-to-start-security-review.md) y quite las asignaciones de roles que ya no sean necesarias. |
 | **Acción de mitigación en el portal** | Quítele a la cuenta su rol con privilegios. |

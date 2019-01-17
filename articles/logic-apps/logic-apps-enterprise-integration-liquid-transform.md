@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: 140c92d260ac6423127e478e304cbebcf9c42124
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 27686cf036f69a9a4597c499e9b8b7d66d77e1e9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42143417"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019680"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Realización de transformaciones JSON avanzadas con plantillas Liquid en Azure Logic Apps
 
@@ -34,7 +34,7 @@ Por lo tanto, para realizar una transformación de Liquid en la aplicación lóg
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Creación de una plantilla o asignación de Liquid para la cuenta de integración
 
 1. Para este ejemplo, cree la plantilla de Liquid que aquí se describe.
-Si desea usar algún filtro en la plantilla de Liquid, asegúrese de que empiezan por mayúscula. Más información sobre los [filtros de Liquid](https://shopify.github.io/liquid/basics/introduction/#filters). 
+Si desea usar algún filtro en la plantilla de Liquid, asegúrese de que empiezan por mayúscula. Aprenda más acerca de los [filtros de Liquid](https://shopify.github.io/liquid/basics/introduction/#filters), que usan [DotLiquid](https://dotliquidmarkup.org/) y las convenciones de nomenclatura de C#.
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -80,7 +80,7 @@ Si desea usar algún filtro en la plantilla de Liquid, asegúrese de que empieza
 
 2. En el Diseñador de aplicaciones lógicas, agregue el [desencadenador de solicitud](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) a la aplicación lógica.
 
-3. En el desencadenador, elija **New step** (Nuevo paso). En el cuadro de búsqueda, escriba "liquid" como filtro y seleccione esta acción: **Transform JSON to JSON - Liquid** (Transformar de JSON a JSON: Liquid)
+3. En el desencadenador, elija **New step** (Nuevo paso). En el cuadro de búsqueda, escriba "liquid" como filtro y seleccione esta acción: **Transformar de JSON a JSON - Liquid**
 
    ![Búsqueda y selección de la acción Liquid](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
@@ -117,7 +117,7 @@ Liquid no está limitado únicamente a transformaciones JSON. Estos son otras ac
    ``` json
    {{content.firstName | Append: ' ' | Append: content.lastName}}
    ```
-   Estos son ejemplos de entrada y salida:
+   Estas son las salidas y entradas de ejemplo:
   
    ![Ejemplo de salida JSON a texto](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
 
@@ -130,7 +130,7 @@ Liquid no está limitado únicamente a transformaciones JSON. Estos son otras ac
         {{item}}
     {% endJSONArrayFor -%}]
    ```
-   Estos son ejemplos de entrada y salida:
+   Estas son las salidas y entradas de ejemplo:
 
    ![Ejemplo de salida XML a JSON](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
 
@@ -142,7 +142,7 @@ Liquid no está limitado únicamente a transformaciones JSON. Estos son otras ac
    {{content.firstName | Append: ' ' | Append: content.lastName}}
    ```
 
-   Estos son ejemplos de entrada y salida:
+   Estas son las salidas y entradas de ejemplo:
 
    ![Ejemplo de salida XML a texto](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
 

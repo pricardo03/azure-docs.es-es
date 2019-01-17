@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: c0f2802bae366637fd93d47e33619746b7142f53
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: bb84c7d5e483b0a2abc3b7d1a37de8760513d203
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231634"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063223"
 ---
 # <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>Crear variables para guardar y administrar valores en Azure Logic Apps
 
@@ -28,7 +28,10 @@ Puede crear variables para tipos de datos como, por ejemplo, "entero", "float", 
 * Asignar un valor diferente a la variable.
 * Insertar o *anexar* el valor de la variable como la última hora en una cadena o una matriz.
 
-Las variables solo existen y son globales en la instancia de la aplicación lógica que las crea. Además, persisten en todas las iteraciones de bucle de una instancia de esa aplicación lógica. Cuando se hace referencia a una variable, debe usar el nombre de la variable como token, y no el nombre de la acción; este último se usa de forma habitual para hacer referencia a los resultados de la acción.
+Las variables solo existen y son globales en la instancia de la aplicación lógica que las crea. Además, persisten en todas las iteraciones de bucle de una instancia de esa aplicación lógica. Cuando se hace referencia a una variable, debe usar el nombre de la variable como token, y no el nombre de la acción; este último se usa de forma habitual para hacer referencia a los resultados de la acción. 
+
+> [!IMPORTANT]
+> De forma predeterminada, los ciclos de un bucle "Foreach" se ejecutan en paralelo. Cuando se usan variables en bucles, ejecute el bucle [secuencialmente](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop) para que las variables devuelvan resultados predecibles. 
 
 Si aún no tiene ninguna suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>. 
 
@@ -38,7 +41,7 @@ Para poder seguir los pasos de este artículo, estos son los elementos que neces
 
 * La aplicación lógica en la que desea crear una variable. 
 
-  Si nunca trabajó con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el artículo sobre [Inicio rápido: creación de su primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) e [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * Un [desencadenador](../logic-apps/logic-apps-overview.md#logic-app-concepts) que será el primer paso de la aplicación lógica. 
 
@@ -232,7 +235,7 @@ Si cambia del diseñador al editor de la vista de código, esta es la manera en 
 },
 ```
 
-## <a name="example-create-loop-counter"></a>Ejemplo: crear un contador de bucle
+## <a name="example-create-loop-counter"></a>Ejemplo: Creación de un contador de bucle
 
 Las variables se usan habitualmente para contar el número de veces que se ejecuta un bucle. En este ejemplo se muestra cómo crear y usar variables para esta tarea, mediante la creación de un bucle que cuente los datos adjuntos de un correo electrónico.
 

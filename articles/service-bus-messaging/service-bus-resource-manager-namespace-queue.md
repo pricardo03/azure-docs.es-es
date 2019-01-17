@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 4010f1582b726993a5540898492c76aa543fa2d9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 4d16e6161d2e31ed104f6b1ed9842470dd5faae9
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407746"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062424"
 ---
 # <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Creación de un espacio de nombres de Service Bus y una cola mediante una plantilla de Azure Resource Manager
 
@@ -116,6 +116,8 @@ Crea un espacio de nombres de Service Bus estándar de tipo **Mensajería**con u
         }]
     }]
 ```
+
+Para la sintaxis y las propiedades de JSON, consulte los[espacios de nombres](/azure/templates/microsoft.servicebus/namespaces) y las [colas](/azure/templates/microsoft.servicebus/namespaces/queues).
 
 ## <a name="commands-to-run-deployment"></a>Comandos para ejecutar la implementación
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]

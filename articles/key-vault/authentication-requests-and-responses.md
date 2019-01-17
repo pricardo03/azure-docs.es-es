@@ -10,16 +10,15 @@ ms.assetid: 4c321939-8a5b-42ca-83c4-2f5f647ca13e
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: c7cd9dfa019ca0d8560833b10a3e8a1a37a1e1ac
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4d897512e5c53222cb77906200e1a33e2eeec78e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296557"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074060"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticación, solicitudes y respuestas
 
@@ -65,7 +64,7 @@ En este tema se tratan los detalles específicos del servicio Azure Key Vault. P
 ## <a name="error-responses"></a>Respuestas de error  
  El control de errores utilizará códigos de estado HTTP. Los resultados típicos son:  
 
--   2xx - Correcto: se utiliza para el funcionamiento normal. El cuerpo de la respuesta contendrá el resultado esperado  
+-   2xx: Correcto: se utiliza para el funcionamiento normal. El cuerpo de la respuesta contendrá el resultado esperado  
 
 -   3xx - Redireccionamiento: se puede devolver el 304 "No modificado" para completar una operación GET condicional. Se pueden usar otros códigos 3xx en el futuro para indicar nombres de sistema de dominio y cambios de ruta de acceso.  
 
@@ -117,7 +116,7 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 -   authorization: la dirección del servicio de autorización de OAuth2 que puede utilizarse para obtener un token de acceso para la solicitud.  
 
--   recurso: el nombre del recurso que se va a utilizar en la solicitud de autorización.  
+-   resource: el nombre del recurso que se va a utilizar en la solicitud de autorización.  
 
 ## <a name="see-also"></a>Otras referencias  
  [Información acerca de claves, secretos y certificados](about-keys-secrets-and-certificates.md)

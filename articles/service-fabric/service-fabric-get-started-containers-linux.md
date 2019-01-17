@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/09/2018
+ms.date: 1/4/2019
 ms.author: twhitney
-ms.openlocfilehash: 07c227c198166254eb130604685a4ba5884b783a
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: e02acb0d283257658d4466295e3be323072210b5
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299884"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062373"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Cree la primera aplicación contenedora de Service Fabric en Linux
 > [!div class="op_single_selector"]
@@ -193,6 +193,11 @@ Especifique la asignación de puertos con el formato adecuado. En este artículo
    </ServiceManifestImport>
 ``` 
 
+Se recomienda cifrar la contraseña del repositorio. Consulte [Administración de secretos cifrados en aplicaciones de Service Fabric](service-fabric-application-secret-management.md) para instrucciones.
+
+### <a name="configure-cluster-wide-credentials"></a>Configuración de las credenciales en todo el clúster
+Consulte [esta documentación](
+service-fabric-get-started-containers.md#configure-cluster-wide-credentials)
 
 ## <a name="configure-isolation-mode"></a>Configuración del modo de aislamiento
 Con la versión 6.3 de tiempo de ejecución, se admite el aislamiento de la máquina virtual para los contenedores de Linux, con lo que se admiten dos modos de aislamiento para contenedores: proceso e Hyper-V. Con el modo de aislamiento de Hyper-V, los kernels se aíslan entre cada contenedor y el host del contenedor. El aislamiento de Hyper-V se implementa mediante la opción [Borrar contenedores](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). El modo de aislamiento se especifica para los clústeres de Linux en el elemento `ServicePackageContainerPolicy` del archivo de manifiesto de aplicación. Los modos de aislamiento que se pueden especificar son `process`, `hyperv` y `default`. El valor predeterminado es el modo de aislamiento de proceso. El siguiente fragmento de código muestra cómo el modo de aislamiento se especifica en el archivo de manifiesto de aplicación.
@@ -210,7 +215,7 @@ Con la versión 6.3 de tiempo de ejecución, se admite el aislamiento de la máq
 
 
 ## <a name="configure-resource-governance"></a>Configuración de la regulación de recursos
-La [regulación de recursos](service-fabric-resource-governance.md) restringe los recursos que el contenedor puede usar en el host. El elemento `ResourceGovernancePolicy`, especificado en el manifiesto de la aplicación, se utiliza para declarar los límites de recursos para un paquete de código de servicio. Se pueden establecer límites de recursos para los siguientes recursos: memoria, MemorySwap, CpuShares (peso relativo de CPU), MemoryReservationInMB, BlkioWeight (peso relativo de BlockIO). En este ejemplo, el paquete de servicio Guest1Pkg obtiene un núcleo en los nodos del clúster en los que es situado. Los límites de memoria son absolutos, por lo que el paquete de código está limitado a 1024 MB de memoria (con una reserva de garantía flexible de dicha capacidad). Los paquetes de código (contenedores o procesos) no pueden asignar más memoria de la que establece este límite; si se intenta, el resultado es una excepción de memoria insuficiente. Para que la aplicación del límite de recursos funcione, es necesario haber definido límites de memoria en todos los paquetes de código de un paquete de servicio.
+La [regulación de recursos](service-fabric-resource-governance.md) restringe los recursos que el contenedor puede usar en el host. El elemento `ResourceGovernancePolicy`, especificado en el manifiesto de la aplicación, se utiliza para declarar los límites de recursos para un paquete de código de servicio. Es posible establecer límites para los siguientes recursos: memoria, MemorySwap, CpuShares (peso relativo de CPU), MemoryReservationInMB, BlkioWeight (peso relativo de BlockIO). En este ejemplo, el paquete de servicio Guest1Pkg obtiene un núcleo en los nodos del clúster en los que es situado. Los límites de memoria son absolutos, por lo que el paquete de código está limitado a 1024 MB de memoria (con una reserva de garantía flexible de dicha capacidad). Los paquetes de código (contenedores o procesos) no pueden asignar más memoria de la que establece este límite; si se intenta, el resultado es una excepción de memoria insuficiente. Para que la aplicación del límite de recursos funcione, es necesario haber definido límites de memoria en todos los paquetes de código de un paquete de servicio.
 
 ```xml
 <ServiceManifestImport>

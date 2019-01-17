@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: shlo
-ms.openlocfilehash: e38a0ec39227b0064175c3c39d32bf87970ef9f5
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 90c36e728a8ec91606f93c080258eeca9c3825e6
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423735"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020785"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Actividad ForEach en Azure Data Factory
 La actividad ForEach define un flujo de control repetido en la canalización. Esta actividad se usa para iterar una colección y ejecuta las actividades especificadas en un bucle. La implementación del bucle de esta actividad es similar a la estructura de bucle ForEach de los lenguajes de programación.
@@ -86,7 +85,7 @@ Si **isSequential** está establecido en false, la actividad itera en paralelo c
 En la actividad ForEach, proporcione una matriz que se iterará para la propiedad **items**. Use `@item()` para iterar una sola enumeración en la actividad ForEach. Por ejemplo, si la propiedad **items** es una matriz: [1, 2, 3], `@item()` devuelve 1 en la primera iteración, 2 en la segunda y 3 en la tercera.
 
 ## <a name="iterating-over-a-single-activity"></a>Iteración de una sola actividad
-**Escenario**: Copia del mismo archivo de origen en Azure Blob a varios archivos de destino en Azure Blob.
+**Escenario:** Copia del mismo archivo de origen en un blob de Azure a varios archivos de destino en un blob de Azure.
 
 ### <a name="pipeline-definition"></a>Definición de la canalización
 

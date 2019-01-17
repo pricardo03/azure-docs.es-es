@@ -1,13 +1,10 @@
 ---
-title: Tipos de direcciones IP en Azure (clásico) | Microsoft Docs
+title: Tipos de direcciones IP en Azure (clásico)
+titlesuffix: Azure Virtual Network
 description: Obtenga información sobre las direcciones IP públicas y privadas (clásica) en Azure.
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
-editor: tysonn
-tags: azure-service-management
-ms.assetid: 2f8664ab-2daf-43fa-bbeb-be9773efc978
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
-ms.openlocfilehash: 81699764952e50cb18c1f299c9c4f7c524b0a332
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f96ac14d68d98937cf230b04b45503e21c5e0187
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011711"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024576"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Tipos de direcciones IP y métodos de asignación (clásico) en Azure
 Puede asignar direcciones IP a los recursos de Azure para que se comuniquen con otros recursos de Azure, la red local e Internet. Hay dos tipos de direcciones IP que puede usar en Azure: públicas y privadas.
@@ -44,7 +41,7 @@ Una dirección IP pública se asocia a los siguientes tipos de recursos:
 * Puertas de enlace de aplicaciones
 
 ### <a name="allocation-method"></a>Método de asignación
-Cuando se necesita asignar una dirección IP pública a un recurso de Azure, se asigna *dinámicamente* desde un grupo de dirección IP pública disponible dentro de la ubicación en la que se crea el recurso. Esta dirección IP se libera cuando se detiene el recurso. En el caso de un servicio en la nube, esto sucede cuando se detienen todas las instancias de rol, lo que puede evitarse mediante el uso de una dirección IP *estática* (reservada) (consulte [Cloud Services](#Cloud-services)).
+Cuando se necesita asignar una dirección IP pública a un recurso de Azure, se asigna *dinámicamente* desde un grupo de dirección IP pública disponible dentro de la ubicación en la que se crea el recurso. Esta dirección IP se libera cuando se detiene el recurso. Con un servicio en la nube, esto sucede cuando se detienen todas las instancias de rol, lo que puede evitarse mediante el uso de una dirección IP *estática* (reservada) (consulte [Cloud Services](#Cloud-services)).
 
 > [!NOTE]
 > La lista de intervalos IP desde la que se asignan direcciones IP públicas a recursos de Azure está publicada en [Intervalos IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653).
@@ -63,7 +60,7 @@ Puede asegurarse de que la dirección IP pública de un servicio en la nube sigu
 
 Las direcciones IP públicas estáticas (reservadas) se usan habitualmente en los escenarios en los que hay un servicio en la nube:
 
-* requiere que las reglas de firewall se configuren por los usuarios finales.
+* requiere que los usuarios finales configuren las reglas de firewall.
 * depende de la resolución de nombres DNS externa, y una dirección IP dinámica requeriría actualizar registros A.
 * consume servicios web externos que usan el modelo de seguridad basado en IP.
 * usa certificados SSL vinculados a una dirección IP.
@@ -107,7 +104,7 @@ En el modelo de implementación clásica de Azure, es posible asignar una direcc
 * puerta de enlace de aplicaciones
 
 ### <a name="iaas-vms-and-paas-role-instances"></a>Instancias de rol PaaS y máquinas virtuales IaaS
-Las máquinas virtuales (VM) creadas con el modelo de implementación clásica siempre se colocan en un servicio en la nube de forma parecida a las instancias de rol PaaS. El comportamiento de las direcciones IP privadas son, por lo tanto, similares para estos recursos.
+Las máquinas virtuales (VM) creadas con el modelo de implementación clásica siempre se colocan en un servicio en la nube de forma parecida a las instancias de rol PaaS. El comportamiento de las direcciones IP privadas es, por lo tanto, similar para estos recursos.
 
 Es importante tener en cuenta que un servicio en la nube puede implementarse de dos maneras:
 
@@ -130,7 +127,7 @@ Las direcciones IP privadas estáticas se suelen usar para:
 #### <a name="internal-dns-hostname-resolution"></a>Resolución de nombre de host DNS internos
 Todas las máquinas virtuales de Azure e instancias de rol PaaS se configuran con [servidores DNS administrados por Azure](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) de forma predeterminada, a menos que se configuren explícitamente servidores DNS personalizados. Estos servidores DNS proporcionan la resolución de nombres internos para las instancias de rol y máquinas virtuales que residen en la misma red virtual o servicio en la nube.
 
-Cuando se crea una máquina virtual, se agrega a los servidores DNS administrados por Azure una asignación para el nombre de host a su dirección IP privada. En una máquina virtual con varias tarjetas NIC, el nombre de host se asigna a la dirección IP privada de la tarjeta NIC principal. Sin embargo, esta información de asignación está restringida a los recursos dentro del mismo servicio en la nube o red virtual.
+Cuando se crea una máquina virtual, se agrega a los servidores DNS administrados por Azure una asignación para el nombre de host a su dirección IP privada. Con una máquina virtual con varias tarjetas NIC, el nombre de host se asigna a la dirección IP privada de la tarjeta NIC principal. Sin embargo, esta información de asignación está restringida a los recursos dentro del mismo servicio en la nube o red virtual.
 
 En caso de un servicio en la nube *independiente* , podrá resolver nombres de host de todas las instancias de máquinas virtuales y roles solo dentro del mismo servicio en la nube. En el caso de un servicio en la nube dentro de una red virtual, podrá resolver nombres de host de todas las instancias de máquinas virtuales y roles dentro de la red virtual.
 

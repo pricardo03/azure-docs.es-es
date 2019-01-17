@@ -1,25 +1,24 @@
 ---
-title: Administración de dispositivos de Azure IoT con la extensión Azure IoT Hub Toolkit para Visual Studio Code | Microsoft Docs
-description: Use la extensión Azure IoT Hub Toolkit para Visual Studio Code para la administración de dispositivos de Azure IoT Hub, herramienta que incluye métodos directos y opciones de administración de las propiedades deseadas de los dispositivos gemelos.
+title: Administración de dispositivos de Azure IoT con Azure IoT Tools para Visual Studio Code | Microsoft Docs
+description: Use Azure IoT Tools para Visual Studio Code para la administración de dispositivos de Azure IoT Hub, incluye métodos directos y opciones de administración de las propiedades deseadas de los dispositivos gemelos.
 author: formulahendry
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.tgt_pltfrm: arduino
-ms.date: 8/3/2018
+ms.date: 01/04/2019
 ms.author: junhan
-ms.openlocfilehash: 4b7de0652172de5120e88e7c597fc31037ddbbb3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: ec19045892b975fed7611c7747fa7b2bb4b1515c
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339576"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051143"
 ---
-# <a name="use-azure-iot-hub-toolkit-extension-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Uso de la extensión Azure IoT Hub Toolkit para Visual Studio Code en la administración de dispositivos de Azure IoT Hub
+# <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Uso de Azure IoT Tools para Visual Studio Code para la administración de dispositivos de Azure IoT Hub
 
 ![Diagrama integral](media/iot-hub-get-started-e2e-diagram/2.png)
 
-[Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (anteriormente Azure IoT Toolkit) es una útil extensión de Visual Studio Code que facilita la administración de IoT Hub. Incluye opciones de administración que puede usar para realizar varias tareas.
+[Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) es una útil extensión de Visual Studio Code que facilita la administración de IoT Hub y el desarrollo de aplicaciones de IoT. Incluye opciones de administración que puede usar para realizar varias tareas.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -36,18 +35,18 @@ Los dispositivos gemelos son documentos JSON que almacenan información sobre el
 
 ## <a name="what-you-learn"></a>Conocimientos que adquirirá
 
-Aprenderá a usar la extensión Azure IoT Hub Toolkit para Visual Studio Code con distintas opciones de administración en la máquina de desarrollo.
+Aprenderá a usar Azure IoT Tools para Visual Studio Code con distintas opciones de administración en la máquina de desarrollo.
 
 ## <a name="what-you-do"></a>Qué debe hacer
 
-Ejecute la extensión Azure IoT Hub Toolkit para Visual Studio Code con diversas opciones de administración.
+Ejecute Azure IoT Tools para Visual Studio Code con diversas opciones de administración.
 
 ## <a name="what-you-need"></a>Lo que necesita
 
 * Una suscripción de Azure activa.
 * Un centro de Azure IoT en su suscripción.
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
+* [Azure IoT Tools para VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>Iniciar sesión para acceder a IoT Hub
 
@@ -98,6 +97,6 @@ Para enviar un mensaje desde el IoT Hub al dispositivo, siga estos pasos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ha aprendido a usar la extensión Azure IoT Hub Toolkit para Visual Studio Code con diversas opciones de administración.
+Ha aprendido a usar la extensión Azure IoT Tools para Visual Studio Code con diversas opciones de administración.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

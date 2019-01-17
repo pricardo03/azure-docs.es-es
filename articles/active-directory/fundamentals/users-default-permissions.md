@@ -12,18 +12,18 @@ ms.date: 01/29/2018
 ms.author: lizross
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 496f751c263d17d3c5d8e10321bef8330c2f1a24
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 58354bf95b11e497f05fdf08ba4740b3f55c6d6e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096610"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022791"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>¿Cuales son los permisos de usuario predeterminados en Azure Active Directory?
 En Azure Active Directory (Azure AD), a todos los usuarios se les otorga un conjunto de permisos predeterminados. El acceso de un usuario consta del tipo de usuario, sus [pertenencias a roles](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal) y su propiedad de objetos individuales. En este artículo se describen dichos permisos predeterminados y contiene una comparación de los valores predeterminados de los usuarios miembros e invitados.
 
 ## <a name="member-and-guest-users"></a>Usuarios miembros e invitados
-El conjunto de permisos predeterminados recibido depende de si el usuario es miembro nativo del inquilino (usuario miembro) o si el usuario es un invitado de la colaboración B2B (usuario invitado). Para más información acerca de la colaboración B2B, consulte [¿Qué es la colaboración B2B de Azure AD?](../b2b/what-is-b2b.md) para más información acerca de los usuarios invitados). 
+El conjunto de permisos predeterminados recibido depende de si el usuario es miembro nativo del inquilino (usuario miembro) o si el usuario es un invitado de la colaboración B2B (usuario invitado). Para más información acerca de la colaboración B2B, consulte [¿Qué es la colaboración B2B de Azure AD?](../b2b/what-is-b2b.md) para más información acerca de los usuarios invitados. 
 * Los usuarios miembro pueden registrar aplicaciones, administrar el número de teléfono móvil y la fotografía de su propio perfil, cambiar su contraseña e invitar a los invitados de B2B. Además, los usuarios pueden leer toda la información del directorio (con algunas excepciones). 
 * Los usuarios invitados de B2B de Azure AD tienen permisos de directorio restringidos. Por ejemplo, los usuarios invitados no pueden buscar la información del inquilino más allá de su propia información de perfil. Sin embargo, un usuario invitado puede recuperar información acerca de otro usuario si proporciona el nombre principal de usuario u objectId. Un invitado no puede ver información acerca de otros objetos del inquilino como los grupos y las aplicaciones.
 

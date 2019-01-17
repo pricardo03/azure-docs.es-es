@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 3d9d6aef4fafd6013c86fd5d5883222c0f32b34d
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 4d311794c1c0f2dd6b9a0b2a44983b47bfeef362
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319381"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040547"
 ---
 # <a name="what-is-password-writeback"></a>¿Qué es la escritura diferida de contraseñas?
 
@@ -35,11 +35,11 @@ La escritura diferida de contraseñas se admite en entornos que usan:
 
 La escritura diferida de contraseñas ofrece:
 
-* **Aplicación de las directivas de contraseña de Active Directory local**: cuando un usuario restablece su contraseña, se comprueba que cumple la directiva de Active Directory local antes de confirmarla en ese directorio. En esta revisión se incluye la comprobación del historial, la complejidad, la antigüedad, los filtros de contraseñas y otras restricciones de contraseña que ha definido en el entorno local de Active Directory.
-* **Comentarios con retraso cero**: la escritura diferida de contraseñas es una operación sincrónica. Si la contraseña de un usuario no cumple la directiva o no se puede restablecer o modificar por algún motivo, a dicho usuario se le envía una notificación inmediatamente.
-* **Admite la modificación de contraseñas desde el panel de acceso y Office 365**: si los usuarios con federación o sincronización de hash de contraseñas modifican las contraseñas expiradas o no expiradas, tales contraseñas se escriben en diferido en el entorno local de Active Directory.
-* **Admite escritura diferida de contraseñas cuando un administrador las restablece desde Azure Portal**: siempre que un administrador restablece la contraseña de un usuario en [Azure portal](https://portal.azure.com) y se trata de un usuario con federación o sincronización de hash de contraseñas, la contraseña se escribe en diferido en el entorno local. Esta funcionalidad no se admite en el portal de administración de Office.
-* **No requiere ninguna regla de firewall entrante**: la escritura diferida de contraseñas usa Azure Service Bus Relay como canal de comunicación subyacente. Toda la comunicación es de salida a través del puerto 443.
+* **Cumplimiento de las directivas de contraseña de Active Directory locales**: cuando un usuario restablece su contraseña, se comprueba que cumple la directiva de Active Directory local antes de confirmarla en ese directorio. En esta revisión se incluye la comprobación del historial, la complejidad, la antigüedad, los filtros de contraseñas y otras restricciones de contraseña que ha definido en el entorno local de Active Directory.
+* **Comentarios sin retraso**:  La escritura diferida de contraseñas es una operación sincrónica. Si la contraseña de un usuario no cumple la directiva o no se puede restablecer o modificar por algún motivo, a dicho usuario se le envía una notificación inmediatamente.
+* **Permite el cambio de contraseña en el panel de acceso y Office 365**: si los usuarios con federación o sincronización de hash de contraseñas modifican las contraseñas expiradas o no expiradas, estas se escriben en diferido en el entorno local de Active Directory.
+* **Admite la escritura diferida de contraseñas cuando un administrador las restablece desde Azure Portal**: siempre que un administrador restablece la contraseña de un usuario en [Azure Portal](https://portal.azure.com) y se trata de un usuario con federación o sincronización de hash de contraseñas, la contraseña se escribe en diferido en el entorno local. Esta funcionalidad no se admite en el portal de administración de Office.
+* **No requiere ninguna regla de firewall de entrada**: la escritura diferida de contraseñas usa una retransmisión de Azure Service Bus como canal de comunicación subyacente. Toda la comunicación es de salida a través del puerto 443.
 
 > [!Note]
 > Las cuentas de usuario que se encuentran dentro de grupos protegidos en Active Directory local no se pueden utilizar con la escritura diferida de contraseñas. Para más información sobre los grupos protegidos, vea [Cuentas y grupos protegidos en Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
@@ -60,7 +60,7 @@ Para poder usar la escritura diferida de contraseñas, debe tener una de las sig
 * Microsoft 365 F1
 
 > [!WARNING]
-> Los planes de licencias de Office 365 independientes *no admiten la escritura diferida de contraseñas* y requieren que tenga uno de los planes anteriores para que sirva esta funcionalidad.
+> Los planes de licencias de Office 365 independientes *no admiten "Self-Service Password Reset/Change/Unlock with on-premises writeback"* (Autoservicio de restablecimiento/modificación/desbloqueo de contraseñas con escritura en diferido local) y requieren que tenga uno de los planes anteriores para que sirva esta funcionalidad.
 >
 
 ## <a name="how-password-writeback-works"></a>Funcionamiento de la escritura diferida de contraseñas
@@ -121,9 +121,9 @@ La escritura diferida de contraseñas es un servicio muy seguro. Para garantizar
 
 Después de que un usuario envíe un restablecimiento de contraseña, la solicitud de restablecimiento pasa por varias fases de cifrado antes de que llegue al entorno local. Estos pasos de cifrado garantizan una seguridad y confiabilidad máximas del servicio. A continuación se detalla la descripción de estos pasos:
 
-* **Paso 1: cifrado de contraseñas con la clave RSA de 2048 bits**: cuando el usuario envía una contraseña para que se escriba en diferido en el entorno local, se cifra la propia contraseña enviada con una clave RSA de 2048 bits.
-* **Paso 2: cifrado a nivel de paquete con AES-GCM**: todo el paquete (la contraseña y los metadatos necesarios) se cifra mediante AES-GCM. Este cifrado evita que cualquier persona con acceso directo al canal de Service Bus subyacente vea o manipule el contenido.
-* **Paso 3: toda comunicación se realiza a través de TLS/SSL**: toda comunicación con Service Bus tiene lugar en un canal SSL/TLS. Este cifrado protege el contenido de terceras personas no autorizadas.
+* **Paso 1: Cifrado de contraseña con clave RSA de 2048 bits**: cuando el usuario envía una contraseña para que se escriba en diferido en el entorno local, se cifra la propia contraseña enviada con una clave RSA de 2048 bits.
+* **Paso 2: cifrado a nivel de paquete con AES-GCM**: todo el paquete (la contraseña y los metadatos necesarios) se cifra mediante AES-GCM. Este cifrado evita que cualquier persona con acceso directo al canal de Service Bus subyacente vea o manipule el contenido.
+* **Paso 3: Toda la comunicación se realiza a través de TLS/SSL**: toda comunicación con Service Bus tiene lugar en un canal SSL/TLS. Este cifrado protege el contenido de terceras personas no autorizadas.
 * **Sustitución de clave automática cada seis meses**: todas las claves se sustituyen cada seis meses, o cada vez que la escritura diferida de contraseñas se deshabilita y luego se vuelve a habilitar en Azure AD Connect, para garantizar la máxima seguridad y protección del servicio.
 
 ### <a name="password-writeback-bandwidth-usage"></a>Uso de ancho de banda de la escritura diferida de contraseñas
@@ -169,4 +169,4 @@ Las contraseñas *no* se escriben en diferido en ninguna de las situaciones sigu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Habilitar la escritura diferida de contraseñas siguiendo el tutorial: [Habilitar escritura diferida de contraseñas](tutorial-enable-writeback.md)
+Habilitar la escritura diferida de contraseñas siguiendo el tutorial: [Habilitación de la escritura diferida de contraseñas](tutorial-enable-writeback.md)

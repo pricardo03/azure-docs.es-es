@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: 2d42d2014432b72f35e9b0d9543fe499a6ab721b
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: d56e96ca1fbc96261f6f526c792b0a53c74718ef
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49355382"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063667"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>El inicio de la máquina virtual de Azure está atascado en una actualización de Windows
 
 Este artículo le ayuda a solucionar el problema que surge cuando la máquina virtual (VM) está atascada en la fase de actualización de Windows Update durante el inicio. 
 
 > [!NOTE] 
-> Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [el Administrador de recursos y el clásico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artículo trata sobre el uso del modelo de implementación del Administrador de recursos. Se recomienda usar este modelo para las nuevas implementaciones, en lugar de usar el modelo de implementación clásica.
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artículo trata sobre el uso del modelo de implementación del Administrador de recursos. Se recomienda usar este modelo para las nuevas implementaciones, en lugar de usar el modelo de implementación clásica.
 
  ## <a name="symptom"></a>Síntoma
 
@@ -47,16 +47,16 @@ Según el número de actualizaciones que estén instalándose o revirtiéndose, 
 
 1. Tome una instantánea del disco del sistema operativo de la máquina virtual afectada como copia de seguridad. Para obtener más información, consulte [Instantánea de un disco](../windows/snapshot-copy-managed-disk.md). 
 2. [Conecte el disco del sistema operativo a una máquina virtual de recuperación](troubleshoot-recovery-disks-portal-windows.md).
-3. Una vez que el disco del sistema operativo esté conectado a la máquina virtual de recuperación, abra el **Administrador de discos** y asegúrese de que está **CONECTADO**. Tome nota de la letra de unidad que se asigna al disco del sistema operativo conectado que contiene la carpeta \windows. Si el disco está cifrado, descífrelo antes de continuar con los pasos siguientes en este documento.
+3. Una vez que el disco de sistema operativo está asociado en la máquina virtual de recuperación, ejecute **diskmgmt.msc** para abrir Administración de discos y asegúrese de que el disco asociado esté **conectado**. Tome nota de la letra de unidad que se asigna al disco del sistema operativo conectado que contiene la carpeta \windows. Si el disco está cifrado, descífrelo antes de continuar con los pasos siguientes en este documento.
 
-3. Obtenga la lista de los paquetes de actualización que se encuentran en el disco del sistema operativo conectado:
+4. Abra una instancia del símbolo del sistema con privilegios elevados (Ejecutar como administrador). Ejecute el siguiente comando para obtener la lista de los paquetes de actualización que se encuentran en el disco del sistema operativo asociado:
 
         dism /image:<Attached OS disk>:\ /get-packages > c:\temp\Patch_level.txt
 
     Por ejemplo, si el disco del sistema operativo conectado es la unidad F, ejecute el siguiente comando:
 
         dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
-4. Abra el archivo C:\temp\Patch_level.txt y, a continuación, léalo del final al inicio. Busque la actualización que se encuentre en el estado **Instalación pendiente** o **Desinstalación pendiente**.  A continuación se muestra un ejemplo del estado de actualización:
+5. Abra el archivo C:\temp\Patch_level.txt y, a continuación, léalo del final al inicio. Busque la actualización que se encuentre en el estado **Instalación pendiente** o **Desinstalación pendiente**.  A continuación se muestra un ejemplo del estado de actualización:
 
      ```
     Package Identity : Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
@@ -64,7 +64,7 @@ Según el número de actualizaciones que estén instalándose o revirtiéndose, 
     Release Type : Security Update
     Install Time :
     ```
-5. Elimine la actualización que causó el problema:
+6. Elimine la actualización que causó el problema:
     
     ```
     dism /Image:<Attached OS disk>:\ /Remove-Package /PackageName:<PACKAGE NAME TO DELETE>
@@ -72,10 +72,10 @@ Según el número de actualizaciones que estén instalándose o revirtiéndose, 
     Ejemplo: 
 
     ```
-    dism /Image:F:\ /Remove-Package /Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
+    dism /Image:F:\ /Remove-Package /PackageName:Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5
     ```
 
     > [!NOTE] 
     > Según el tamaño del paquete, la herramienta DISM tardará un rato en procesar la desinstalación. Normalmente, el proceso se completará en un plazo de 16 minutos.
 
-6. Desasocie el disco del sistema operativo y, a continuación, [úselo para recompilar la máquina virtual](troubleshoot-recovery-disks-portal-windows.md). 
+7. [Desconecte el disco del sistema operativo y vuelva a crear la máquina virtual](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk). A continuación, compruebe si se ha resuelto el problema.

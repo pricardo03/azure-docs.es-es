@@ -10,12 +10,12 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 514516dcc28e99d03611c7db6ec09c7b4a48ff0e
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 0fbb389120857a167867a5804c670e181f5232b6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306670"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051448"
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualización de datos con Power BI
 Este tutorial muestra cómo usar Power BI para conectar con SQL Data Warehouse y crear unas visualizaciones básicas.
@@ -77,7 +77,7 @@ Ahora está listo para usar Power BI para analizar los datos de ejemplo Adventur
 
 Para guardar el progreso en cualquier momento, haga clic en **Archivo** y seleccione **Guardar**.
 
-## <a name="using-direct-connnect"></a>Uso de Conexión directa
+## <a name="using-direct-connect"></a>Uso de una conexión directa
 De manera similar a lo que sucede con Azure SQL Database, Conexión directa de SQL Data Warehouse permite aprovechar la aplicación lógica junto con las funcionalidades analíticas de Power BI. Con Conexión directa, las consultas se envían de vuelta a la instancia de Azure SQL Data Warehouse en tiempo real mientras explora los datos.  Esta característica, en combinación con la escala de SQL Data Warehouse, permite crear, en minutos, informes dinámicos sobre terabytes de datos. Además, la introducción del botón Abrir en Power BI permite que los usuarios conecten directamente Power BI a su instancia de SQL Data Warehouse sin recopilar información de otras partes de Azure.
 
 Cuando use Conexión directa, tenga en cuenta lo siguiente:

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: cshoe
-ms.openlocfilehash: ba2441044d63e63b969054e84e163352d2b376e8
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: a44b348e0c41e96c575555f2b5c275e196284c5b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993834"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074552"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions
 
@@ -674,6 +674,10 @@ En C# y otros lenguajes .NET, puede usar un patrón de enlace imperativo, en con
 ## <a name="functionjson-file-schema"></a>Esquema del archivo function.json
 
 El esquema de archivo *function.json* está disponible en [http://json.schemastore.org/function](http://json.schemastore.org/function).
+
+## <a name="testing-bindings"></a>Prueba de enlaces
+
+Al desarrollar funciones localmente, puede probar los enlaces mediante Visual Studio 2017 o Visual Studio Code. Para más información, consulte [Estrategias para probar el código en Azure Functions](functions-test-a-function.md). También puede invocar los enlaces que no son de HTTP mediante las API REST. Para más información, consulte [Ejecución manual de una función no desencadenada por HTTP](functions-manually-run-non-http.md).
 
 ## <a name="handling-binding-errors"></a>Control de errores de enlace
 

@@ -3,31 +3,31 @@ title: Instalación del cliente Chef desde Azure Portal
 description: Obtenga información sobre cómo implementar y configurar el cliente Chef desde Azure Portal.
 keywords: azure, chef, devops, client, install, portal
 ms.service: virtual-machines-linux
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: e121cd038b8becee1e9c4c12659dbbee0696a9f1
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: e5de21e8e493871150d302f1d2c0e31d067affde
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378659"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051335"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Instalación del cliente Chef desde Azure Portal
 Al crear o modificar una máquina virtual Linux o Windows desde Azure Portal, puede agregar la extensión de Chef a la máquina virtual. Este artículo le guiará a través de ese proceso con una nueva máquina virtual Linux.
 
 ## <a name="prerequisites"></a>Requisitos previos
-- **Suscripción de Azure**: si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
+- **Suscripción de Azure**: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
 
-- **Chef**: si no tiene una cuenta de Chef activa, regístrese para obtener una [evaluación gratuita de Hosted Chef](https://manage.chef.io/signup). Para seguir las instrucciones de este artículo, necesitará los siguientes valores de la cuenta de Chef: 
+- **Chef**: si no tiene una cuenta de Chef activa, regístrese para obtener una [evaluación gratuita de Hosted Chef](https://manage.chef.io/signup). Para seguir las instrucciones de este artículo, necesita los siguientes valores de la cuenta de Chef: 
     - clave de organization_validation
     - rb
     - run_list
 
 ## <a name="install-the-chef-extension-on-a-new-linux-virtual-machine"></a>Instalación de la extensión de Chef en una nueva máquina virtual Linux
-En esta sección, primero usará Azure Portal para crear una máquina Linux. Durante el proceso, también verá cómo instalar la extensión de Chef en la nueva máquina virtual.
+En esta sección, primero se usa Azure Portal para crear una máquina Linux. Durante el proceso, también se observa la instalación de la extensión de Chef en la nueva máquina virtual.
 
 1. Vaya a [Azure Portal](http://portal.azure.com).
 
@@ -65,7 +65,7 @@ En esta sección, primero usará Azure Portal para crear una máquina Linux. Dur
 
 1. En la pestaña **Elegir un tamaño**, seleccione el tamaño de la máquina virtual y luego haga clic en **Seleccionar**.
 
-1. En la pestaña **Configuración**, la mayoría de los valores se rellenarán en función de los valores seleccionados en las pestañas anteriores. Seleccione **Extensiones**.
+1. En la pestaña **Configuración**, la mayoría de los valores se rellenan automáticamente en función de los valores seleccionados en las pestañas anteriores. Seleccione **Extensiones**.
 
     ![Las extensiones se agregan a las máquinas virtuales con la pestaña Configuración](./media/chef-extension-portal/add-vm-select-extensions.png)
 
@@ -87,7 +87,7 @@ En esta sección, primero usará Azure Portal para crear una máquina Linux. Dur
     - **Nombre del cliente de validación**: escriba el nombre del cliente de validación de Chef. Por ejemplo, *tarcher-validator*.
     - **Clave de validación**: seleccione un archivo que contenga la clave de validación utilizada al arrancar las máquinas. 
     - **Archivo de configuración de cliente**: seleccione un archivo de configuración para chef-client. Esto se puede dejar en blanco.
-    - **Versión de cliente de Chef**: escriba la versión del cliente de Chef que desea instalar. Esto se puede dejar en blanco. Si el valor está en blanco, se instalará la última versión. 
+    - **Versión de cliente de Chef**: escriba la versión del cliente de Chef que desea instalar. Esto se puede dejar en blanco. En este caso, se instalará la versión más reciente. 
     - **Modo de comprobación SSL**: seleccione **ninguno** o **punto**. Para la demostración se ha seleccionado *Ninguno*.
     - **Entorno de Chef**: escriba el entorno de Chef del que este nodo debe ser miembro. Esto se puede dejar en blanco.
     - **Secreto de contenedor de datos cifrado**: seleccione un archivo que contenga el secreto del contenedor de datos cifrado al que esta máquina debe tener acceso. Esto se puede dejar en blanco.

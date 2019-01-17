@@ -6,18 +6,18 @@ author: bryanla
 manager: mbaldwin
 services: key-vault
 ms.author: bryanla
-ms.date: 11/27/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.prod: ''
 ms.service: key-vault
 ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: 54449e26279e6c6d83a57daa9c8f40819fab4993
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: e3239d57b34af396ee4b23f3b9b01b367eb3daa6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715773"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050122"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticación entre servicios en Azure Key Vault mediante .NET
 
@@ -29,14 +29,14 @@ El uso de credenciales de desarrollador durante el desarrollo local es más segu
 
 La biblioteca `Microsoft.Azure.Services.AppAuthentication` administra la autenticación automáticamente, que a su vez le permite centrarse en la solución, en lugar de en las credenciales.
 
-La biblioteca `Microsoft.Azure.Services.AppAuthentication` admite el desarrollo local con Microsoft Visual Studio, la CLI de Azure o Azure AD Integrated Authentication (Autenticación integrada de Azure AD). Cuando se implementa en Azure App Services o en una máquina virtual (VM) de Azure, la biblioteca usa automáticamente [identidades administradas para servicios de Azure](/azure/active-directory/msi-overview). No se requieren cambios de configuración o código. La biblioteca también admite el uso directo de las [credenciales de cliente](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal) de Azure AD cuando una identidad administrada no está disponible o cuando no se puede determinar el contexto de seguridad del desarrollador durante el desarrollo local.
+La biblioteca `Microsoft.Azure.Services.AppAuthentication` admite el desarrollo local con Microsoft Visual Studio, la CLI de Azure o Azure AD Integrated Authentication (Autenticación integrada de Azure AD). Cuando se implementa en un recurso de Azure que admite una identidad administrada, la biblioteca usa automáticamente [identidades administradas para los recursos de Azure](/azure/active-directory/msi-overview). No se requieren cambios de configuración o código. La biblioteca también admite el uso directo de las [credenciales de cliente](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal) de Azure AD cuando una identidad administrada no está disponible o cuando no se puede determinar el contexto de seguridad del desarrollador durante el desarrollo local.
 
 <a name="asal"></a>
 ## <a name="using-the-library"></a>Uso de la biblioteca
 
 Para aplicaciones. NET, la manera más sencilla de trabajar con una identidad administrada es con el paquete `Microsoft.Azure.Services.AppAuthentication`. Aquí tiene información sobre cómo empezar:
 
-1. Agregue una referencia al paquete de NuGet [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) para la aplicación.
+1. Agregue referencias a los paquetes de NuGet [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) y [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) para la aplicación. 
 
 2. Agregue el siguiente código:
 
@@ -44,16 +44,13 @@ Para aplicaciones. NET, la manera más sencilla de trabajar con una identidad ad
     using Microsoft.Azure.Services.AppAuthentication;
     using Microsoft.Azure.KeyVault;
 
-    // ...
+    // Instantiate a new KeyVaultClient object, with an access token to Key Vault
+    var azureServiceTokenProvider1 = new AzureServiceTokenProvider();
+    var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider1.KeyVaultTokenCallback));
 
-    var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(
-    azureServiceTokenProvider.KeyVaultTokenCallback));
-
-    // or
-
-    var azureServiceTokenProvider = new AzureServiceTokenProvider();
-    string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync(
-       "https://management.azure.com/").ConfigureAwait(false);
+    // Optional: Request an access token to other Azure services
+    var azureServiceTokenProvider2 = new AzureServiceTokenProvider();
+    string accessToken = await azureServiceTokenProvider2.GetAccessTokenAsync("https://management.azure.com/").ConfigureAwait(false);
     ```
 
 La `AzureServiceTokenProvider` clase almacena el token en la memoria y lo recupera de Azure AD justo antes de que expire. Por lo tanto, ya no tiene que comprobar la expiración antes de llamar al método `GetAccessTokenAsync`. Simplemente llame al método cuando desee utilizar el token. 
@@ -234,8 +231,5 @@ Se admiten las siguientes opciones:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre las [identidades administradas para recursos de Azure](/azure/app-service/overview-managed-identity).
-
-- Obtenga información acerca de diferentes maneras de [autenticar y autorizar aplicaciones](/azure/app-service/overview-authentication-authorization).
-
-- Más información sobre los [escenarios de autenticación](/azure/active-directory/develop/active-directory-authentication-scenarios#web-browser-to-web-application) de Azure AD.
+- Obtenga más información sobre las [identidades administradas para recursos de Azure](/azure/active-directory/managed-identities-azure-resources/).
+- Más información sobre los [escenarios de autenticación de Azure AD](/azure/active-directory/develop/active-directory-authentication-scenarios#web-browser-to-web-application).

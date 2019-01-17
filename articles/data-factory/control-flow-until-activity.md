@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: cd4b58dea43e497a2d7a5b977379d95f7004af45
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 9a1623cca1c185ff3dba07ad5fbe354d8662dc68
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052314"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020972"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Actividad Until en Azure Data Factory
 La actividad Until proporciona la misma funcionalidad que una estructura de bucle Do-Until en lenguajes de programación. Ejecuta un conjunto de actividades en un bucle hasta que la condición asociada a la actividad la evalúa como "true". Puede especificar un valor de tiempo de espera para la actividad Until en Data Factory. 
@@ -55,11 +54,11 @@ La actividad Until proporciona la misma funcionalidad que una estructura de bucl
 
 Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-Nombre | Nombre de la actividad `Until`. | string | Sí
-Tipo | Debe establecerse en **Until**. | string | Sí
-expresión | Expresión que debe evaluarse como "true" o "false" | Expresión.  | Sí
-timeout | El tiempo de espera del bucle Do-Until se agota transcurrido el tiempo especificado aquí. | String. `d.hh:mm:ss` (o) `hh:mm:ss`. El valor predeterminado es de 7 días. El valor máximo es 90 días. | Sin 
-Actividades | Conjunto de actividades que se ejecutan hasta que la expresión se evalúa como `true`. | Matriz de actividades. |  Sí
+Nombre | Nombre de la actividad `Until`. | string | SÍ
+Tipo | Debe establecerse en **Until**. | string | SÍ
+expresión | Expresión que debe evaluarse como "true" o "false" | Expresión.  | SÍ
+timeout | El tiempo de espera del bucle Do-Until se agota transcurrido el tiempo especificado aquí. | String. `d.hh:mm:ss` (o) `hh:mm:ss`. El valor predeterminado es de 7 días. El valor máximo es: 90 días. | Sin 
+Actividades | Conjunto de actividades que se ejecutan hasta que la expresión se evalúa como `true`. | Matriz de actividades. |  SÍ
 
 ## <a name="example-1"></a>Ejemplo 1
 
@@ -248,7 +247,7 @@ La canalización establece **folderPath** en el valor de los parámetros **outpu
 ```
 
 ### <a name="powershell-commands"></a>Comandos de PowerShell
-Estos comandos presuponen que ha guardado los archivos JSON en la carpeta C:\ADF. 
+Estos comandos presuponen que ha guardado los archivos JSON en la carpeta: C:\ADF. 
 
 ```powershell
 Connect-AzureRmAccount

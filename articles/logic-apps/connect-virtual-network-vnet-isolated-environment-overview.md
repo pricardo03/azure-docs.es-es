@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 12/03/2018
-ms.openlocfilehash: 5046b1012e0074e9548cad050c16eef25c00cee0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2b11d74436907380811acda3b7427ebe8011afb4
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845202"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061030"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acceso a recursos de Azure Virtual Network desde Azure Logic Apps mediante entornos de servicio de integración (ISE)
 
@@ -33,7 +33,7 @@ En esta introducción se describe cómo un ISE proporciona a las aplicaciones l�
 
 ## <a name="isolated-versus-global"></a>Diferencias entre aislamiento y servicio global
 
-Cuando crea un entorno de servicio integrado (ISE) de Azure, puede seleccionar una red virtual de Azure como entorno de *inserción*. Azure implementa una instancia privada del servicio Logic Apps en la red virtual. Esta acción crea un entorno aislado donde puede crear y ejecutar las aplicaciones lógicas en recursos dedicados. Cuando crea una aplicación lógica, puede seleccionar este entorno como ubicación de la aplicación, lo que proporciona a su aplicación lógica acceso directo a los recursos de la red virtual. 
+Al crear un entorno de servicio integrado (ISE) en Azure, se selecciona la red virtual de Azure donde se desea *insertarlo*. Azure implementa una instancia privada del servicio Logic Apps en la red virtual. Esta acción crea un entorno aislado donde puede crear y ejecutar las aplicaciones lógicas en recursos dedicados. Cuando crea una aplicación lógica, puede seleccionar este entorno como ubicación de la aplicación, lo que proporciona a su aplicación lógica acceso directo a los recursos de la red virtual. 
 
 Las aplicaciones lógicas de una instancia de ISE proporcionan las mismas experiencias de usuario y funcionalidades similares que el servicio global de Logic Apps. No solo puede usar las mismas acciones y conectores integrados del servicio Logic Apps global, sino que también puede usar conectores específicos de ISE. Por ejemplo, a continuación, se muestran algunos conectores estándares que ofrecen versiones que se ejecutan en una instancia de ISE:
  

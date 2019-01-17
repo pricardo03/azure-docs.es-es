@@ -9,17 +9,16 @@ ms.assetid: a6c133c0-ced2-463c-86f0-a07b00c9e37f
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5fb4034d49982d600fe5b0de17d0b198e3ee653e
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 145a1d24e877cc4083706310694005c01c8c8fbf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246723"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020156"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Carga de 1 TB en Azure SQL Data Warehouse en 15 minutos con Data Factory
 > [!NOTE]
@@ -42,7 +41,7 @@ Este artículo proporciona instrucciones paso a paso para mover datos a Azure SQ
 > [!NOTE]
 >  Para obtener información general acerca de las funcionalidades de Data Factory para el movimiento de datos hacia y desde Azure SQL Data Warehouse, consulte el artículo [Movimiento de datos hacia y desde SQL Data Warehouse mediante Azure Data Factory](data-factory-azure-sql-data-warehouse-connector.md).
 >
-> También puede crear canalizaciones utilizando Azure Portal, Visual Studio, PowerShell, etc. Consulte [Tutorial: Copia de datos de Azure Blob Storage en Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para ver un tutorial rápido con instrucciones detalladas para usar la actividad de copia en Azure Data Factory.  
+> También puede crear canalizaciones utilizando Azure Portal, Visual Studio, PowerShell, etc. Vea [Tutorial: Copia de datos de un blob de Azure a Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para ver un tutorial rápido con instrucciones detalladas para usar la actividad de copia en Azure Data Factory.  
 >
 >
 
@@ -148,7 +147,7 @@ En la página **Propiedades** :
     ![Asistente para copia: Página Propiedades](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
 ## <a name="step-2-configure-source"></a>Paso 2: Configuración del origen
-Esta sección muestra los pasos necesarios para configurar el origen: Esta sección muestra los pasos necesarios para configurar el origen: instancia de Azure Blob que contiene los archivos del elemento de línea 1-TB TPC-H.
+En esta sección se muestran los pasos para configurar el origen: blob de Azure que contiene los archivos de elementos de línea TPC-H de 1-TB.
 
 1. Seleccione **Azure Blob Storage** como almacén de datos y haga clic en **Siguiente**.
 

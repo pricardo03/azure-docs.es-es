@@ -9,17 +9,16 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 58f612906af55575e9d42307af924ea0a8501ca1
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: bc8cacd6d52de0367a0ea14748e548b9d32f47ef
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42144674"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016774"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - Alta disponibilidad y escalabilidad (versión preliminar)
 > [!NOTE]
@@ -171,7 +170,7 @@ Estos son los requisitos para el certificado TLS/SSL que se usa para proteger la
 - Se admite cualquier tamaño de clave compatible con Windows Server 2012 R2 para los certificados SSL.
 - El certificado que usa claves CNG no es compatible.
 
-#### <a name="faq-when-would-i-not-enable-this-encryption"></a>P+F: ¿Cuándo no debería habilitar este cifrado?
+#### <a name="faq-when-would-i-not-enable-this-encryption"></a>PREGUNTAS MÁS FRECUENTES: ¿Cuándo no debería habilitar este cifrado?
 Habilitar el cifrado puede agregar determinados costos a la infraestructura (propiedad de certificado público), por lo que puede omitir el paso para habilitar el cifrado en los casos siguientes:
 - Cuando se ejecuta Integration Runtime en una red de confianza o en una red con cifrado transparente como IP/SEC. Puesto que esta comunicación del canal solo está limitada en su red de confianza, no se necesita cifrado adicional.
 - Cuando Integration Runtime no se ejecuta en un entorno de producción. Esto puede ayudar a reducir el costo del certificado TLS/SSL.

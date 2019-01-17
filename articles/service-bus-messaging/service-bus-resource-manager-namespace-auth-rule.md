@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 1250851386b9423b66bdbfd03292de56fd38850d
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 08206086bfb75df49592bab5d72d1cb9e292cbd6
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410109"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064889"
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Creación de una regla de autorización de Service Bus para un espacio de nombres y una cola mediante una plantilla de Azure Resource Manager
 
@@ -148,6 +148,8 @@ Crea un espacio de nombres de Service Bus estándar de tipo **Mensajería**y una
         }
     ]
 ```
+
+Para conocer la sintaxis y las propiedades JSON, consulte [espacios de nombres](/azure/templates/microsoft.servicebus/namespaces), [colas](/azure/templates/microsoft.servicebus/namespaces/queues) y [AuthorizationRules](/azure/templates/microsoft.servicebus/namespaces/authorizationrules).
 
 ## <a name="commands-to-run-deployment"></a>Comandos para ejecutar la implementación
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]

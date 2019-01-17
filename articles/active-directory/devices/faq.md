@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: a0cfd65aa2444956336e5363d20acab61a404c68
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8d1e44eae7e87a450ac5f36e621d559fca92ca74
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309185"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016161"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory
 
@@ -180,6 +180,9 @@ Los usuarios eliminados o deshabilitados que no han iniciado sesión anteriormen
 
 - [Solución de problemas de registro automático de equipos unidos a un dominio en Azure AD para clientes de nivel inferior de Windows](troubleshoot-hybrid-join-windows-legacy.md)
  
+**P: ¿Por qué veo un registro registrado duplicado de Azure AD para mi dispositivo híbrido unido a Azure AD de Windows 10 en la lista de dispositivos de Azure AD?**
+
+**R:** Cuando los usuarios agregan su cuenta a las aplicaciones en un dispositivo unido a un dominio, se les podría preguntar si desean agregarla a Windows. Al hacer clic en "Sí" en el símbolo del sistema, el dispositivo se registraría con Azure AD y el tipo de confianza se marcaría como registrado en Azure AD. Una vez que habilite la unión de Azure AD híbrido en una organización, el dispositivo también se unirá con Azure AD híbrido. Como resultado, se mostrarán dos estados de dispositivo para el mismo dispositivo. Sin embargo, la unión de Azure AD híbrido tiene prioridad sobre el estado registrado en Azure AD. Por tanto, el dispositivo se considerará unión a Azure AD híbrido para cualquier autenticación y evaluación de acceso condicional. Por lo tanto, puede eliminar sin problemas el registro de dispositivos registrados en Azure AD desde el portal de Azure AD. Revise [esta sección](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know) en el artículo de la unión de Azure AD híbrido para aprender a evitar o a limpiar espacio de este estado dual en la máquina de Windows 10. 
 
 ---
 

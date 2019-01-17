@@ -8,17 +8,16 @@ ms.assetid: c6756c37-4e5a-4d1e-ab52-365f149b4128
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 9453099af8d9be21a97808733ffa8f8bfe5a364a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: b39fb3ed6dbcf8fde2dadf0de59d154285eb8587
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047571"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022545"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Solución de problemas con Data Management Gateway
 En este artículo se ofrece información sobre la solución de problemas con Data Management Gateway.
@@ -169,7 +168,7 @@ La puerta de enlace no se puede conectar al servicio en la nube mediante Service
 #### <a name="resolution"></a>Resolución
 Siga estos pasos para poner en línea la puerta de enlace:
 
-1. Permita reglas de salida de direcciones IP en la máquina de la puerta de enlace y en el firewall corporativo. Encontrará las direcciones IP en el Registro de eventos de Windows (id. == 401): intento de acceso a un socket no permitido por sus permisos de acceso XX.XX.XX.XX:9350.
+1. Permita reglas de salida de direcciones IP en la máquina de la puerta de enlace y en el firewall corporativo. Puede buscar las direcciones IP desde el registro de eventos de Windows (Id. == 401): Intento de obtener acceso a un socket de una manera no permitida por los permisos de acceso XX.XX.XX.XX:9350.
 * Configure los valores de proxy en la puerta de enlace. Consulte la sección [Consideraciones sobre el servidor proxy](#proxy-server-considerations) para más información.
 * Habilite los puertos de salida 5671 y 9350-9354 en el Firewall de Windows de la máquina de la puerta de enlace y en el firewall corporativo. Consulte la sección [Puertos y firewall](#ports-and-firewall) para más información. Este paso es opcional, pero se recomienda por motivos de rendimiento.
 

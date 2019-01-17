@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 7774d67d02b2b0f0080cbff2ffc3606b99450f26
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 42be349a5f89a2057d67b5bcab5eda70c5c9e7eb
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404968"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064209"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Creación de un espacio de nombres de Service Bus con un tema, una suscripción y una regla mediante una plantilla de Azure Resource Manager
 
@@ -160,6 +160,8 @@ Crea un espacio de nombres de Service Bus estándar de tipo **Mensajería**con t
         }]
     }]
 ```
+
+Para conocer la sintaxis y las propiedades JSON, consulte [espacios de nombres](/azure/templates/microsoft.servicebus/namespaces), [temas](/azure/templates/microsoft.servicebus/namespaces/topics), [suscripciones](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions) y [reglas](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions/rules).
 
 ## <a name="commands-to-run-deployment"></a>Comandos para ejecutar la implementación
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]

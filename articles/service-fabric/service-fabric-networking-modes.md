@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: 55f388ed15167c5bc7262e194e09e4a92ba50af4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a42236af7e301a21a91a3c1294b20167824dfc84
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866073"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024797"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modos de redes de contenedor de Service Fabric
 
@@ -35,7 +35,7 @@ Cuando un servicio de contenedor se reinicia o se mueve a otro nodo del clúster
 
 ## <a name="set-up-open-networking-mode"></a>Configuración del modo de red abierto
 
-1. Configure la plantilla de Azure Resource Manager. En la sección **fabricSettings**, habilite el servicio DNS y el proveedor de IP: 
+1. Configure la plantilla de Azure Resource Manager. En la sección **fabricSettings** del recurso de clúster, habilite el servicio DNS y el proveedor de IP: 
 
     ```json
     "fabricSettings": [
@@ -77,8 +77,10 @@ Cuando un servicio de contenedor se reinicia o se mueve a otro nodo del clúster
                 }
             ],
     ```
+    
+2. Configure la sección de perfil de red del recurso de conjunto de escalado de máquinas virtuales. Esto permite la configuración de varias direcciones IP en cada nodo del clúster. En el ejemplo siguiente se configuran cinco direcciones IP por nodo de un clúster de Service Fabric de Windows o Linux. Puede tener cinco instancias de servicio que escuchen en el puerto en cada nodo. Para que Azure Load Balancer pueda acceder a las cinco direcciones IP, inscríbalas en el grupo de direcciones de back-end de Azure Load Balancer como se indica a continuación.  También deberá agregar las variables a la parte superior de la plantilla en la sección de variables.
 
-2. Configure la sección de perfil de red para permitir la configuración de varias direcciones IP en cada nodo del clúster. En el ejemplo siguiente se configuran cinco direcciones IP por nodo de un clúster de Service Fabric de Windows o Linux. Puede tener cinco instancias de servicio que escuchen en el puerto en cada nodo. Para que Azure Load Balancer pueda acceder a las cinco direcciones IP, inscríbalas en el grupo de direcciones de back-end de Azure Load Balancer como se indica a continuación.
+    Agregue esta sección a Variables:
 
     ```json
     "variables": {
@@ -97,6 +99,11 @@ Cuando un servicio de contenedor se reinicia o se mueve a otro nodo del clúster
         "lbHttpProbeID0": "[concat(variables('lbID0'),'/probes/FabricHttpGatewayProbe')]",
         "lbNatPoolID0": "[concat(variables('lbID0'),'/inboundNatPools/LoadBalancerBEAddressNatPool')]"
     }
+    ```
+    
+    Agregue esta sección al recurso del conjunto de escalado de máquinas virtuales:
+
+    ```json   
     "networkProfile": {
                 "networkInterfaceConfigurations": [
                   {

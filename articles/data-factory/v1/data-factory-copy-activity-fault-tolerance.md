@@ -8,17 +8,16 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5cfab02fc248139c76bd6123ac942832f8e1a21a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 44703a2547f685aaa0b6c583c39c08ef6a570d56
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052518"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016535"
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Incorporación de tolerancia a errores en la actividad de copia a través de la omisión de filas incompatibles
 
@@ -39,15 +38,15 @@ La actividad de copia admite tres escenarios para detectar, omitir y registrar d
 
 - **Incompatibilidad entre el tipo de datos de origen y el tipo nativo de receptor**
 
-    Por ejemplo: copie los datos desde un archivo CSV en Blob Storage a una base de datos SQL con una definición de esquema que contiene tres columnas de tipo **INT**. Las filas del archivo CSV que contienen datos numéricos, como `123,456,789`, se copian correctamente en el almacén de receptor. Sin embargo, las filas que contienen valores no numéricos, como `123,456,abc`, se detectan como incompatibles y se omiten.
+    Por ejemplo:  Copie datos desde un archivo CSV en Blob Storage a una base de datos SQL con una definición de esquema que contenga tres columnas de tipo **INT**. Las filas del archivo CSV que contienen datos numéricos, como `123,456,789`, se copian correctamente en el almacén de receptor. Sin embargo, las filas que contienen valores no numéricos, como `123,456,abc`, se detectan como incompatibles y se omiten.
 
 - **Error de coincidencia en el número de columnas entre el origen y el receptor**
 
-    Por ejemplo: copie los datos desde un archivo CSV en Blob Storage a una base de datos SQL con una definición de esquema que contiene seis columnas. Las filas del archivo CSV que contiene seis columnas se copian correctamente en el almacén de receptor. Las filas del archivo CSV que contienen más o menos de seis columnas se detectan como incompatibles y se omiten.
+    Por ejemplo:  Copie datos desde un archivo CSV en Blob Storage a una base de datos SQL con una definición de esquema que contenga seis columnas. Las filas del archivo CSV que contiene seis columnas se copian correctamente en el almacén de receptor. Las filas del archivo CSV que contienen más o menos de seis columnas se detectan como incompatibles y se omiten.
 
 - **Infracción de clave principal al escribir en SQL Server, Azure SQL o Azure Cosmos DB**
 
-    Por ejemplo: copie datos desde un servidor SQL a una base de datos SQL. Se define una clave principal en la base de datos SQL de receptor, pero no se define en el servidor SQL de origen. Las filas duplicadas que existen en el origen no se pueden copiar en el receptor. La actividad de copia solo copia la primera fila de los datos de origen en el receptor. Las filas de origen subsiguientes que contienen el valor de clave principal duplicado se detectan como incompatibles y se omiten.
+    Por ejemplo:  Copie datos desde un servidor SQL a una base de datos SQL. Se define una clave principal en la base de datos SQL de receptor, pero no se define en el servidor SQL de origen. Las filas duplicadas que existen en el origen no se pueden copiar en el receptor. La actividad de copia solo copia la primera fila de los datos de origen en el receptor. Las filas de origen subsiguientes que contienen el valor de clave principal duplicado se detectan como incompatibles y se omiten.
 
 >[!NOTE]
 >Esta característica no se aplica cuando la actividad de copia se configura para invocar el mecanismo de carga de datos externos, incluido [PolyBase en Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) o [Unload en Amazon Redshift](data-factory-amazon-redshift-connector.md#use-unload-to-copy-data-from-amazon-redshift). Para cargar datos en SQL Data Warehouse mediante PolyBase, use la compatibilidad de tolerancia a errores nativa de PolyBase especificando "[polyBaseSettings](data-factory-azure-sql-data-warehouse-connector.md#sqldwsink)" en la actividad de copia.
@@ -83,7 +82,7 @@ Una vez que se completa la ejecución de la actividad de copia, puede ver el nú
 
 ![Supervisión de filas incompatibles omitidas](./media/data-factory-copy-activity-fault-tolerance/skip-incompatible-rows-monitoring.png)
 
-Si configura el registro de las filas incompatibles, puede encontrar el archivo de registro en esta ruta de acceso: `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/[copy-activity-run-id]/[auto-generated-GUID].csv` En el archivo de registro, puede ver las filas que se omitieron y la causa principal de la incompatibilidad.
+Si configura el registro de las filas incompatibles, puede encontrar el archivo de registro en esta ruta de acceso: `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/[copy-activity-run-id]/[auto-generated-GUID].csv` En el archivo de registro, verá las filas que se omitieron y la causa principal de la incompatibilidad.
 
 Los datos originales y el error correspondiente se registran en el archivo. A continuación se muestra un ejemplo del contenido del archivo de registro:
 ```

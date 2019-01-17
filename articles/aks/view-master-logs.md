@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 5d8aa2c25bf79278b10b96f93733e3abf89e4783
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 9cf0c378271841277e6dfd770bf8d186494b9d48
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971188"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040751"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Habilitación y revisión de los registros del nodo maestro de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -31,18 +31,15 @@ Log Analytics se habilita y administra en Azure Portal. Para habilitar la recopi
 1. Seleccione el grupo de recursos del clúster de AKS, como *myResourceGroup*. No seleccione el grupo de recursos que contiene los recursos del clúster de AKS individuales, como *MC_myResourceGroup_myAKSCluster_eastus*.
 1. En la parte izquierda, elija **Configuración de diagnóstico**.
 1. Seleccione el clúster de AKS, como *myAKSCluster* y luego elija **Turn on diagnostics** (Activar diagnósticos).
-1. Escriba un nombre, como *myAKSLogs* y luego seleccione la opción **Send to Log Analytics** (Enviar a Log Analytics).
+1. Escriba un nombre, como *myAKSClusterLogs* y seleccione la opción **Send to Log Analytics** (Enviar a Log Analytics).
     * Elija *Configure Log Analytics* (Configurar Log Analytics) y seleccione un área de trabajo existente o **Crear área de trabajo nueva**.
     * Si necesita crear un área de trabajo, proporcione un nombre, un grupo de recursos y una ubicación.
-1. En la lista de registros disponibles, seleccione los registros que quiere habilitar, como *kube-apiserver*, *kube-controller-manager* y *kube-scheduler*. Puede volver y cambiar los registros recopilados una vez que Log Analytics está habilitado.
+1. En la lista de registros disponibles, seleccione los que desea habilitar. De forma predeterminada, los registros *kube-apiserver*, *kube-controller-manager* y *kube-scheduler* están habilitados. Puede habilitar otros, como *kube-audit* y *cluster-autoscaler*. Puede volver y cambiar los registros recopilados una vez que Log Analytics está habilitado.
 1. Cuando esté listo, seleccione **Guardar** para habilitar la recopilación de los registros seleccionados.
 
 La siguiente captura de pantalla de ejemplo del portal muestra la ventana *Configuración de diagnóstico* y luego la opción para crear un área de trabajo de Log Analytics:
 
 ![Habilitación del área de trabajo de Log Analytics para el clúster de AKS de Log Analytics](media/view-master-logs/enable-oms-log-analytics.png)
-
->[!NOTE]
->Las áreas de trabajo de OMS ahora se conocen como áreas de trabajo de Log Analytics.
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Programación de un pod de prueba en el clúster de AKS
 

@@ -9,17 +9,16 @@ ms.assetid: c9297b71-1bb4-4b29-ba3c-4cf1f5575fac
 ms.service: multiple
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f3ebd704129aabecffdaa2589b8b086803a2d092
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: d95534cceb11f7bf20f6966e0205694fc1db021d
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046612"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017606"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Movimiento de datos hacia y desde Azure Cosmos DB mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,9 +40,9 @@ Para copiar datos tal cual hacia y desde archivos JSON u otra colección de Cosm
 ## <a name="getting-started"></a>Introducción
 Puede crear una canalización con una actividad de copia que mueva datos hacia y desde Cosmos DB mediante diferentes herramientas o API.
 
-La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos.
+La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Vea [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
 
-También puede usar las herramientas siguientes para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia. 
+Puede usar las siguientes herramientas para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia. 
 
 Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor: 
 
@@ -60,8 +59,8 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 
 | **Propiedad** | **Descripción** | **Obligatorio** |
 | --- | --- | --- |
-| Tipo |La propiedad type debe establecerse en: **DocumentDb** |Sí |
-| connectionString |Especifique la información necesaria para conectarse a la base de datos de Azure Cosmos DB. |Sí |
+| Tipo |La propiedad type debe establecerse en: **DocumentDb** |SÍ |
+| connectionString |Especifique la información necesaria para conectarse a la base de datos de Azure Cosmos DB. |SÍ |
 
 Ejemplo:
 
@@ -84,7 +83,7 @@ La sección typeProperties es diferente en cada tipo de conjunto de datos y prop
 
 | **Propiedad** | **Descripción** | **Obligatorio** |
 | --- | --- | --- |
-| collectionName |Nombre de la colección de documentos de Cosmos DB. |Sí |
+| collectionName |Nombre de la colección de documentos de Cosmos DB. |SÍ |
 
 Ejemplo:
 
@@ -150,7 +149,7 @@ Para lograr dicha copia independiente del esquema,
 ## <a name="json-examples"></a>Ejemplos de JSON
 En los siguientes ejemplos se proporcionan definiciones JSON que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md) o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Muestran cómo copiar datos hacia y desde Azure Cosmos DB y Azure Blob Storage. Sin embargo, los datos se pueden copiar **directamente** de cualquiera de los orígenes a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Azure Data Factory.
 
-## <a name="example-copy-data-from-azure-cosmos-db-to-azure-blob"></a>Ejemplo: copia de datos de Azure Cosmos DB a Azure Blob
+## <a name="example-copy-data-from-azure-cosmos-db-to-azure-blob"></a>Ejemplo: Copia de datos de Azure Cosmos DB a un blob de Azure
 El ejemplo siguiente muestra:
 
 1. Un servicio vinculado de tipo [DocumentDb](#linked-service-properties).
@@ -299,7 +298,7 @@ La siguiente canalización copia los datos de la colección Person de la base de
   }
 }
 ```
-## <a name="example-copy-data-from-azure-blob-to-azure-cosmos-db"></a>Ejemplo: copia de datos de Azure Blob a Azure Cosmos DB 
+## <a name="example-copy-data-from-azure-blob-to-azure-cosmos-db"></a>Ejemplo: Copia de datos de un blob de Azure a Azure Cosmos DB 
 El ejemplo siguiente muestra:
 
 1. Un servicio vinculado de tipo [DocumentDb](#azure-documentdb-linked-service-properties).
@@ -485,16 +484,16 @@ Azure Cosmos DB es un almacén NoSQL para documentos JSON, en el que se permiten
 ## <a name="appendix"></a>Anexo
 1. **Pregunta:** ¿Admite la actividad de copia la actualización de los registros existentes?
 
-    **Respuesta:** No.
+    **Respuesta:**  No.
 2. **Pregunta:** ¿Cómo hace frente el reintento de una copia en Azure Cosmos DB a los registros ya copiados?
 
-    **Respuesta:** Si los registros tienen un campo "Id" y la operación de copia intenta insertar un registro con el mismo Id., la operación de copia genera un error.  
+    **Respuesta:** Si los registros tienen un campo "Id" y la operación de copia intenta insertar un registro con el mismo identificador, la operación de copia genera un error.  
 3. **Pregunta:** ¿Admite Data Factory el [intervalo o las particiones de datos basadas en hash](../../cosmos-db/sql-api-partition-data.md)?
 
-    **Respuesta:** No.
+    **Respuesta:**  No.
 4. **Pregunta:** ¿Puedo especificar más de una colección de Azure Cosmos DB para una tabla?
 
-    **Respuesta:** No. Solo se puede especificar una colección cada vez.
+    **Respuesta:**  No. Solo se puede especificar una colección cada vez.
 
 ## <a name="performance-and-tuning"></a>Rendimiento y optimización
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Azure Data Factory y las diversas formas de optimizarlo.

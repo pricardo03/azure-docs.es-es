@@ -1,25 +1,24 @@
 ---
 title: Escalado del rendimiento para contenedores de Azure Cosmos DB
 description: En este artículo se describe cómo Azure Cosmos DB escala elásticamente el rendimiento
-services: cosmos-db
-author: dharmas
+author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 7e3f6d053e9466f07e15b0c2c1092fece76c98a4
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: c5e4720a6b830158581d17bbdcb9aba49e13183b
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160671"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064498"
 ---
 # <a name="scaling-throughput-in-azure-cosmos-db"></a>Escalado del rendimiento para contenedores de Azure Cosmos DB
 
 En Azure Cosmos DB, el rendimiento aprovisionado se representa como unidades de solicitud por segundo (RU/s, plural: RU). RU mide el coste de las operaciones de lectura y escritura en el contenedor de Cosmos, tal como se muestra en la imagen siguientes:
 
-![Unidades de solicitud](./media/scale-throughput/figure1.png)
+![Unidades de solicitud](./media/scaling-throughput/request-unit-charge-of-read-and-write-operations.png)
 
 Puede aprovisionar RU en un contenedor de Cosmos o en una base de datos de Cosmos. Las RU aprovisionadas en un contenedor están disponibles exclusivamente para las operaciones que se realicen en ese contenedor. Las RU aprovisionadas en una base de datos se comparten entre todos los contenedores de esa base de datos (excepto con los contenedores con RU asignadas exclusivamente).
 

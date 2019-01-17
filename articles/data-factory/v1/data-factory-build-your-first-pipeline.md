@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial de Data Factory: primera canalización de datos | Microsoft Docs'
+title: 'Tutorial de Data Factory: Primera canalización de datos | Microsoft Docs'
 description: En este tutorial de Azure Data Factory se muestra cómo crear y programar una factoría de datos que procese los datos mediante el script de Hive en un clúster de Hadoop.
 services: data-factory
 documentationcenter: ''
@@ -10,19 +10,18 @@ ms.assetid: 81f36c76-6e78-4d93-a3f2-0317b413f1d0
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 63ae8699af5213634eeac7dfc5045a3fc888b6c0
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 266d16311115f788283eadc60ca16f95b433d6b0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734259"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015957"
 ---
-# <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop
+# <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Tutorial: Compilación de la primera canalización para transformar datos mediante el clúster de Hadoop
 > [!div class="op_single_selector"]
 > * [Introducción y requisitos previos](data-factory-build-your-first-pipeline.md)
 > * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
@@ -33,11 +32,11 @@ ms.locfileid: "45734259"
 
 
 > [!NOTE]
-> Este artículo se aplica a la versión 1 de Data Factory. Si usa la versión actual del servicio Data Factory, consulte [Guía de inicio rápido: Creación de una factoría de datos mediante Data Factory](../quickstart-create-data-factory-dot-net.md).
+> Este artículo se aplica a la versión 1 de Data Factory. Si utiliza la versión actual del servicio Data Factory, consulte el artículo [Inicio rápido: Creación de una factoría de datos con Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 En este tutorial, se crea una instancia de Azure Data Factory con una canalización de datos. La canalización transforma los datos de entrada mediante la ejecución de un script de Hive en un clúster de Azure HDInsight (Hadoop) para generar datos de salida.  
 
-Este artículo se proporciona información general del tutorial y se indican sus requisitos previos. Cuando se cumplan los requisitos previos, puede realizar el tutorial mediante uno de los siguientes SDK o herramientas: Azure Portal, Visual Studio, PowerShell, plantilla de Resource Manager o API de REST. Seleccione una de las opciones de la lista desplegable del principio o los vínculos del final de este artículo para realizar el tutorial mediante una de estas opciones.    
+Este artículo se proporciona información general del tutorial y se indican sus requisitos previos. Una vez que complete los requisitos previos, puede seguir el tutorial con uno de los siguientes SDK o herramientas: Azure Portal, Visual Studio, PowerShell, plantilla de Resource Manager, REST API. Seleccione una de las opciones de la lista desplegable del principio o los vínculos del final de este artículo para realizar el tutorial mediante una de estas opciones.    
 
 ## <a name="tutorial-overview"></a>Información general del tutorial
 En este tutorial, realizará los siguientes pasos:
@@ -45,12 +44,12 @@ En este tutorial, realizará los siguientes pasos:
 1. Crear una **factoría de datos**. Una factoría de datos puede contener una o varias canalizaciones de datos que mueven y procesan datos. 
 
     En este tutorial, se crea una canalización de la factoría de datos. 
-2. Crear una **canalización**. Una canalización puede tener una o varias actividades (ejemplos: actividad de copia, actividad de Hive en HDInsight). Este ejemplo usa la actividad de Hive de HDInsight que ejecuta un script de Hive en un clúster de Hadoop de HDInsight. El script crea primero una tabla que hace referencia a los datos de blog sin procesar almacenados en Azure Blob Storage y, después, divide los datos sin procesar por año y mes.
+2. Crear una **canalización**. Una canalización puede tener una o varias actividades (ejemplos: actividad de copia, actividad de copia de Hive de HDInsight). Este ejemplo usa la actividad de Hive de HDInsight que ejecuta un script de Hive en un clúster de Hadoop de HDInsight. El script crea primero una tabla que hace referencia a los datos de blog sin procesar almacenados en Azure Blob Storage y, después, divide los datos sin procesar por año y mes.
 
     En este tutorial, la canalización usa Actividad de Hive para transformar datos, para lo que ejecuta una consulta de Hive en un clúster de Hadoop de Azure HDInsight. 
 3. Cree **servicios vinculados**. Un servicio vinculado se crea para vincular un almacén de datos o servicio de proceso a la factoría de datos. Un almacén de datos como Azure Storage contiene los datos de entrada y salida de las actividades de la canalización. Un servicio de proceso como un clúster de Hadoop de HDInsight procesa y transforma los datos.
 
-    En este tutorial se crean dos servicios vinculados: **Azure Storage** y **Azure HDInsight**. El servicio vinculado Azure Storage vincula una cuenta de Azure Storage que contiene los datos de entrada/salida con la factoría de datos. El servicio vinculado Azure HDInsight vincula un clúster de Azure HDInsight que se utiliza para transformar los datos con la factoría de datos. 
+    En este tutorial, creará dos servicios vinculados: **Azure Storage** y **Azure HDInsight**. El servicio vinculado Azure Storage vincula una cuenta de Azure Storage que contiene los datos de entrada/salida con la factoría de datos. El servicio vinculado Azure HDInsight vincula un clúster de Azure HDInsight que se utiliza para transformar los datos con la factoría de datos. 
 3. Crear **conjuntos de datos**de entrada y salida. Un conjunto de datos de entrada representa la entrada para una actividad de la canalización y un conjunto de datos de salida representa la salida de la actividad.
 
     En este tutorial, los conjuntos de datos de entrada y salida especifican las ubicaciones de los datos de entrada y salida en Azure Blob Storage. El servicio vinculado Azure Storage especifica qué cuenta de Azure Storage se usa. Un conjunto de datos de entrada especifica el lugar en que se encuentran los archivos de entrada, mientras que un conjunto de datos de salida especifica el lugar en que se colocan los archivos de salida. 
@@ -63,7 +62,7 @@ Este es la **vista de diagrama** de la factoría de datos de ejemplo creada en e
 ![Vista de diagrama en el tutorial de Data Factory](media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)
 
 
-En este tutorial, la carpeta **inputdata** del contenedor de blobs de Azure **adfgetstarted** contiene un archivo llamado input.log. Este archivo de registro tiene entradas de tres meses: enero, febrero y marzo de 2016. Aquí están las filas de ejemplo para cada mes en el archivo de entrada. 
+En este tutorial, la carpeta **inputdata** del contenedor de blobs de Azure **adfgetstarted** contiene un archivo llamado input.log. Este archivo de registro tiene entradas de tres meses: enero, febrero y marzo de 2016. Aquí están las filas de ejemplo para cada mes en el archivo de entrada. 
 
 ```
 2016-01-01,02:01:09,SAMPLEWEBSITE,GET,/blogposts/mvc4/step2.png,X-ARR-LOG-ID=2ec4b8ad-3cf0-4442-93ab-837317ece6a1,80,-,1.54.23.196,Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36,-,http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx,\N,200,0,0,53175,871 
@@ -103,7 +102,7 @@ Una vez que se cumplan los requisitos previos, seleccione uno de los siguientes 
 Azure Portal y Visual Studio proporcionan una forma de generar factorías de datos mediante GUI. Mientras que las opciones de PowerShell, la plantilla de Resource Manager y la API de REST proporcionan una forma de generar factorías de datos mediante scripts/programación.
 
 > [!NOTE]
-> En este tutorial, la canalización de datos transforma los datos de entrada para generar datos de salida. No copia los datos de un almacén de datos de origen a un almacén de datos de destino. Para ver un tutorial acerca de cómo copiar datos mediante Azure Data Factory, consulte [Copia de datos de Blob Storage en SQL Database mediante Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> En este tutorial, la canalización de datos transforma los datos de entrada para generar datos de salida. No copia los datos de un almacén de datos de origen a un almacén de datos de destino. Para ver un tutorial acerca de cómo copiar datos mediante Azure Data Factory, consulte [Tutorial: Copia de datos de Blob Storage en SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
 > Puede encadenar dos actividades (ejecutar una después de otra) haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. Para más información, consulte [Programación y ejecución en Data Factory](data-factory-scheduling-and-execution.md). 
 

@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/02/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: a6f18222e5683d2d9663b699a8f6bab399d4f45b
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 6cf32ba50e83b95d51493244ef8e8646433b0b02
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299867"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024950"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificados de infraestructura de clave pública de Azure Stack
 
@@ -45,7 +45,7 @@ En la lista siguiente se describen los requisitos de certificados que son necesa
 - El formato del certificado debe ser PFX, porque las claves públicas y privadas son necesarias para la instalación de Azure Stack. La clave privada debe tener establecido el atributo de clave de la máquina local.
 - El cifrado de PFX debe ser 3DES (este es el valor predeterminado cuando se exporta desde un cliente de Windows 10 o desde un almacén de certificados de Windows Server 2016).
 - Los archivos PFX de certificado deben tener un valor "Digital Signature" (firma digital) y "KeyEncipherment" (cifrado de clave) en el campo "Key Usage" (uso de clave).
-- Los archivos pfx de certificado deben tener los valores "Autenticación de servidor (1.3.6.1.5.5.7.3.1)" y "Autenticación de cliente (1.3.6.1.5.5.7.3.2)" en el campo de "Uso mejorado de clave".
+- Los archivos PFX de certificado deben tener los valores "Server Authentication (1.3.6.1.5.5.7.3.1)" (Autenticación de servidor (1.3.6.1.5.5.7.3.1)) y "Client Authentication (1.3.6.1.5.5.7.3.2)" (Autenticación de cliente (1.3.6.1.5.5.7.3.2)) en el campo "Enhanced Key Usage" (Uso mejorado de clave).
 - El campo "Issued to:" (Emitido para:) del certificado no debe ser el mismo que su campo "Issued by:" (Emitido por:).
 - Las contraseñas para todos los archivos PFX de certificado deben ser las mismas en el momento de la implementación.
 - La contraseña para el archivo pfx de certificado tiene que ser una contraseña compleja.

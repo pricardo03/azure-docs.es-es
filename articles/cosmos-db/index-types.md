@@ -6,22 +6,22 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/5/2018
 ms.author: rimman
-ms.openlocfilehash: f3c5d7bc1907e94ff2e590fe77cc531ac4b01f4c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 44fe262dc28a016af9eb01f28278b2c3d81d9034
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628775"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034096"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Tipos de índice en Azure Cosmos DB
 
 Hay varias opciones para configurar la directiva de indexación de una ruta de acceso. Puede especificar una o más definiciones de indexación para cada ruta de acceso:
 
-- **Tipo de datos**: Cadena, Número, Punto, Polígono o LineString (solo puede contener una entrada por tipo de datos y ruta de acceso).
+- **Tipo de datos:** String, Number, Point, Polygon o LineString (solo puede contener una entrada por tipo de datos y ruta de acceso).
 
-- **Variante de índice**: Hash (consultas de igualdad), Rango (consultas de igualdad, por rango o por ORDER BY) o Espacial (consultas espaciales).
+- **Tipo de índice:** Hash (consultas de igualdad), Rango (consultas de igualdad, por rango o por ORDER BY) o Espacial (consultas espaciales).
 
-- **Precisión**: para el índice de hash, varía de 1 a 8, tanto para cadenas como para números y el valor predeterminado es 3. Para un índice de Rango, el valor de precisión máximo es -1. Puede variar entre 1 y 100 (precisión máxima) para valores numéricos o de cadena.
+- **Precisión:** para el índice Hash, varía de 1 a 8, tanto para cadenas como para números, y el valor predeterminado es 3. Para un índice de Rango, el valor de precisión máximo es -1. Puede variar entre 1 y 100 (precisión máxima) para valores numéricos o de cadena.
 
 ## <a name="index-kind"></a>Tipo de índice
 
@@ -39,7 +39,7 @@ Estos son ejemplos de consultas que los índices de hash, de rango y espaciales 
 | ---------- | ---------------- |
 | Hash  | Hash over /prop/? (o /) puede utilizarse para servir de forma eficaz las siguientes consultas:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>Hash over /props/[]/? (o / o /props/) puede utilizarse para servir de forma eficaz las siguientes consultas:<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5  |
 | Intervalo  | Range over /prop/? (o /) puede utilizarse para servir de forma eficaz las siguientes consultas:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop   |
-| Espacial     | Range over /prop/? (o /) puede utilizarse para servir de forma eficaz las siguientes consultas:<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --with indexing on points enabled<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --with indexing on polygons enabled.     |
+| Espacial     | Range over /prop/? (o /) puede utilizarse para servir de forma eficaz las siguientes consultas:<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --con indexación en los puntos habilitados<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --with indexing on polygons enabled.     |
 
 ## <a name="default-behavior-of-index-kinds"></a>Comportamiento predeterminado de los tipos de índice
 

@@ -14,12 +14,12 @@ ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: d67b53d80b74d0a6ad3c4264a55a5e277acffd20
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ddf4763b8f5abb81c7d884d9d978c85843410ccb
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083910"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064953"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Instrucciones para buscar ayuda y abrir una incidencia de soporte técnico para Azure Active Directory
 Microsoft proporciona internacionalmente soporte técnico de preventa, facturación y suscripción para Azure Active Directory (Azure AD). El soporte técnico está disponible tanto en línea como por teléfono para las suscripciones de prueba y de pago de Microsoft Azure. El soporte técnico por teléfono y el soporte técnico para la facturación en línea están disponibles en otros idiomas. 
@@ -51,7 +51,7 @@ Si no encuentra una respuesta en estos recursos de autoayuda, puede abrir una in
    
 4. En **Servicio**, seleccione **Azure Active Directory** y **Siguiente**.
 
-5. En la hoja **Problema**, seleccione la [Gravedad](https://azure.microsoft.com/support/plans/response/).
+5. En la hoja **Problema**, seleccione la [gravedad](https://azure.microsoft.com/support/plans/response/).
   
 6. Seleccione un **Tipo de problema** y la **Categoría** de ese tipo. En este momento, se le ofrecerá información de autoayuda para la categoría del problema.
   

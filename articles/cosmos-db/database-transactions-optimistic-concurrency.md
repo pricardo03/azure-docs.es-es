@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: fbb92fd1186881a359f77a9c6b68816763dd8f9b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: cbd09f141128f9103af88b695baf717eaa3c99d5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628759"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038843"
 ---
 # <a name="database-transactions-and-optimistic-concurrency-control"></a>Transacciones entre bases de datos y control de simultaneidad optimista
 
@@ -53,9 +53,9 @@ El control de simultaneidad optimista le permite evitar la pérdida de actualiza
 
 Las actualizaciones simultáneas de un elemento están sujetas al control de simultaneidad optimista mediante la capa del protocolo de comunicación de Azure Cosmos DB Azure Cosmos DB garantiza que la versión del elemento en el lado del cliente que está actualizando (o eliminando) es la misma que la versión del elemento en el contenedor de Azure Cosmos. Esto garantiza que las escrituras están protegidas frente a la sobrescritura accidental por escrituras de otros y viceversa. En un entorno multiusuario, el control de simultaneidad optimista le protege de eliminar o actualizar accidentalmente la versión equivocada de un elemento. Por tanto, los elementos están protegidos contra los desastrosos problemas de "Actualización perdida" o "Eliminación perdida".
 
-Todos los elementos almacenados en un contenedor de Azure Cosmos tienen una propiedad `__etag` definida por el sistema. El servidor genera y actualiza automáticamente el valor de `__etag` cada vez que se actualiza el elemento. `__etag` se puede usar con el encabezado de solicitud if-match proporcionado por el cliente para permitir al servidor decidir si un elemento se puede actualizar de manera condicional. Si el valor del encabezado if-match coincide con el valor de `__etag` en el servidor, el elemento se actualiza. Si el valor del encabezado de solicitud if-match ya no es el actual, el servidor rechaza la operación con un mensaje de respuesta "HTTP 412 Precondition failure" (HTTP 412: error de condición previa). El cliente puede, posteriormente, volver a obtener el elemento para adquirir la versión actual de este en el servidor o invalidar la versión del elemento en el servidor con su propio valor `__etag` para el elemento. Además, `__etag` puede emplearse con el encabezado if-none-match para determinar si hay que volver a recuperar un recurso. 
+Todos los elementos almacenados en un contenedor de Azure Cosmos tienen una propiedad `_etag` definida por el sistema. El servidor genera y actualiza automáticamente el valor de `_etag` cada vez que se actualiza el elemento. `_etag` se puede usar con el encabezado de solicitud if-match proporcionado por el cliente para permitir al servidor decidir si un elemento se puede actualizar de manera condicional. Si el valor del encabezado if-match coincide con el valor de `_etag` en el servidor, el elemento se actualiza. Si el valor del encabezado de solicitud if-match ya no es el actual, el servidor rechaza la operación con un mensaje de respuesta "HTTP 412 Precondition failure" (HTTP 412: error de condición previa). El cliente puede, posteriormente, volver a obtener el elemento para adquirir la versión actual de este en el servidor o invalidar la versión del elemento en el servidor con su propio valor `_etag` para el elemento. Además, `_etag` puede emplearse con el encabezado if-none-match para determinar si hay que volver a recuperar un recurso. 
 
-El valor __etag del elemento cambia cada vez que se actualiza este. En el caso de operaciones de reemplazo de elemento, se debe expresar explícitamente el encabezado if-match como parte de las opciones de la solicitud. Para ver un ejemplo, consulte el código de ejemplo de [GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L398-L446). Los valores `__etag` se comprueban de forma implícita para todos los elementos escritos que toca un procedimiento almacenado. Si no se detecta ningún conflicto, el procedimiento almacenado revertirá la transacción y se producirá una excepción. Con este método, se aplicarán de forma atómica todas las operaciones de escritura del procedimiento almacenado o ninguna de ellas. Esto constituye una señal para que la aplicación vuelva a aplicar las actualizaciones y reintente la solicitud original del cliente.
+El valor _etag del elemento cambia cada vez que este se actualiza. En el caso de operaciones de reemplazo de elemento, se debe expresar explícitamente el encabezado if-match como parte de las opciones de la solicitud. Para ver un ejemplo, consulte el código de ejemplo de [GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L398-L446). Los valores `_etag` se comprueban de forma implícita para todos los elementos escritos que toca un procedimiento almacenado. Si no se detecta ningún conflicto, el procedimiento almacenado revertirá la transacción y se producirá una excepción. Con este método, se aplicarán de forma atómica todas las operaciones de escritura del procedimiento almacenado o ninguna de ellas. Esto constituye una señal para que la aplicación vuelva a aplicar las actualizaciones y reintente la solicitud original del cliente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

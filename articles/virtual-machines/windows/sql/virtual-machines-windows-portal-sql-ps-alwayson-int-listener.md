@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: ee7b403c2ebdc590bd428eff880769ae83632585
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 76ebdc85db2c65b1ad99c1e7abe5e697f1c1284c
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228222"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064005"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configuración de uno o varios agentes de escucha de grupo de disponibilidad AlwaysOn: Resource Manager
 En este tema se muestra cómo llevar a cabo dos tareas:
@@ -45,7 +45,7 @@ Configure Firewall de Windows para permitir el acceso de SQL Server. Las reglas 
 
 Si restringe el acceso con Azure Network Security Group, asegúrese de que las reglas de permiso incluyan las direcciones IP de back-end de VM con SQL Server, y direcciones IP flotantes del equilibrador de carga para la escucha de grupo de disponibilidad y la dirección IP principal del clúster, si corresponde.
 
-## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Script de ejemplo: Crear un equilibrador de carga interno con PowerShell
+## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Script de ejemplo: creación de un equilibrador de carga interno con PowerShell
 > [!NOTE]
 > Si ha creado el grupo de disponibilidad con la [plantilla Microsoft](virtual-machines-windows-portal-sql-alwayson-availability-groups.md), ya se ha creado el equilibrador de carga interno. 
 > 
@@ -176,7 +176,7 @@ Para probar la conexión:
 1. Use la utilidad **sqlcmd** para probar la conexión. Por ejemplo, el siguiente script establece una conexión **sqlcmd** con la réplica principal por medio del agente de escucha con autenticación de Windows:
    
     ```
-    sqlmd -S <listenerName> -E
+    sqlcmd -S <listenerName> -E
     ```
    
     Si el agente de escucha usa un puerto distinto del predeterminado (1433), especifíquelo en la cadena de conexión. Por ejemplo, el siguiente comando sqlcmd se conecta a un agente de escucha en el puerto 1435: 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 39edcb97f062693d11fd5c0ce332c206ebd4b54a
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 12219e2df875d317aece73cabebdfb55115f7b41
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43343560"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021091"
 ---
 # <a name="border-connectivity"></a>Conectividad de borde 
 El planeamiento de la integración de red es un requisito previo importante para la correcta implementación, operación y administración de sistemas integrados de Azure Stack. El planeamiento de conectividad de borde comienza con la elección de si se debe usar el enrutamiento dinámico con el protocolo de puerta de enlace de borde (BGP). Esto requiere la asignación de un número de sistema autónomo de BGP de 16 bits (público o privado) o el uso del enrutamiento estático, en el cual se asigna una ruta estática predeterminada a los dispositivos de borde.
@@ -29,9 +29,9 @@ El planeamiento de la integración de red es un requisito previo importante para
 > Los conmutadores de la parte superior del rack (Tor) requieren vínculos superiores de capa 3 con direcciones IP de punto a punto (/30 redes) configuradas en las interfaces físicas. No se admite el uso de vínculos superiores de capa 2 con conmutadores de Tor que admiten operaciones de Azure Stack. 
 
 ## <a name="bgp-routing"></a>Enrutamiento BGP
-El uso de un protocolo de enrutamiento dinámico, como BGP, garantiza que el sistema siempre sea consciente de los cambios de red y facilita su administración. 
+El uso de un protocolo de enrutamiento dinámico, como BGP, garantiza que el sistema siempre sea consciente de los cambios de red y facilita su administración. Para una seguridad mejorada, se puede establecer una contraseña en el emparejamiento BGP entre el Tor y el borde. 
 
-Como se muestra en el siguiente diagrama, la publicidad del espacio IP privado en el conmutador de Tor se restringe mediante una lista de prefijos. La lista de prefijos deniegan las subredes IP privadas y su aplicación como un mapa de ruta en la conexión entre el Tor y el borde.
+Como se muestra en el siguiente diagrama, la publicidad del espacio IP privado en el conmutador de Tor se bloquea mediante una lista de prefijos. La lista de prefijos deniega la publicidad de la red privada y se aplica como un mapa de ruta en la conexión entre el Tor y el borde.
 
 El equilibrador de carga de software (SLB) que se ejecuta dentro de los niveles de la solución de Azure Stack se empareja con los dispositivos Tor para que pueda anunciar dinámicamente las direcciones VIP.
 

@@ -9,20 +9,19 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f475135f019994900f39a0a4007e8c4cf49af484
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 96d16552cfadca9b345d0f0cd0a344249897f571
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054643"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020955"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Movimiento de datos de SAP HANA mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Seleccione la versión del servicio de Data Factory que está utilizando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1](data-factory-sap-hana-connector.md)
 > * [Versión 2 (versión actual)](../connector-sap-hana.md)
 
@@ -37,14 +36,14 @@ Puede copiar datos de un almacén de datos de SAP HANA local a cualquier almacé
 Este conector es compatible con cualquier versión de base de datos de SAP HANA. Admite la copia de datos de modelos de información de HANA (como las vistas de análisis y cálculo) y las tablas de fila o columna mediante consultas SQL.
 
 Para habilitar la conectividad a la instancia de SAP HANA, instale los componentes siguientes:
-- **Data Management Gateway**: el servicio Data Factory admite la conexión a almacenes de datos locales (incluido SAP HANA) mediante un componente denominado Data Management Gateway. Para obtener información acerca de Data Management Gateway e instrucciones paso a paso sobre cómo configurar la puerta de enlace, consulte el artículo [Movimiento de datos entre orígenes locales y la nube](data-factory-move-data-between-onprem-and-cloud.md). La puerta de enlace es necesaria incluso si SAP HANA se hospeda en una máquina virtual (VM) de IaaS de Azure. Puede instalar la puerta de enlace en la misma máquina virtual como almacén de datos o en una máquina virtual diferente, siempre y cuando la puerta de enlace se pueda conectar a la base de datos.
+- **Data Management Gateway** el servicio Data Factory admite la conexión a almacenes de datos locales (incluido SAP HANA) mediante un componente denominado puerta de enlace de administración de datos. Para obtener información acerca de Data Management Gateway e instrucciones detalladas acerca de cómo configurar la puerta de enlace, consulte el artículo [Movimiento de datos entre orígenes locales y la nube con Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md). La puerta de enlace es necesaria incluso si SAP HANA se hospeda en una máquina virtual (VM) de IaaS de Azure. Puede instalar la puerta de enlace en la misma máquina virtual como almacén de datos o en una máquina virtual diferente, siempre y cuando la puerta de enlace se pueda conectar a la base de datos.
 - **Controlador ODBC de SAP HANA** en la máquina de puerta de enlace. Puede descargar el controlador ODBC de SAP HANA desde el [centro de descarga de software de SAP](https://support.sap.com/swdc). Busque con la palabra clave **SAP HANA CLIENT for Windows** (Cliente SAP HANA para Windows). 
 
 ## <a name="getting-started"></a>Introducción
 Puede crear una canalización con actividad de copia que mueva los datos desde un almacén de datos SAP HANA local mediante el uso de diferentes herramientas o API. 
 
-- La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos. 
-- También puede usar las herramientas siguientes para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia. 
+- La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Vea [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos. 
+- Puede usar las siguientes herramientas para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia. 
 
 Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
 
@@ -52,7 +51,7 @@ Tanto si usa las herramientas como las API, realice los pasos siguientes para cr
 2. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia. 
 3. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. 
 
-Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para ver un ejemplo con definiciones de JSON para entidades de Data Factory que se emplean para copiar datos de un almacén de datos de SAP HANA local, consulte la sección [Ejemplo con definiciones de JSON: copia de datos de SAP HANA a un blob de Azure](#json-example-copy-data-from-sap-hana-to-azure-blob) de este artículo. 
+Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para ver un ejemplo con definiciones de JSON para entidades de Data Factory que se emplean para copiar datos de una plataforma de SAP HANA local, consulte la sección [Ejemplo JSON: Copia de datos de SAP HANA a un blob de Azure](#json-example-copy-data-from-sap-hana-to-azure-blob) de este artículo. 
 
 En las secciones siguientes, se proporcionan detalles sobre las propiedades JSON que se usan para definir entidades de Data Factory específicas de un almacén de datos de SAP HANA:
 
@@ -61,11 +60,11 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 
 Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-Servidor | Nombre del servidor en el que reside la instancia de SAP HANA. Si el servidor usa un puerto personalizado, especifique `server:port`. | string | Sí
-authenticationType | Tipo de autenticación. | cadena. "Basic" o "Windows" | Sí 
-nombre de usuario | Nombre del usuario que tiene acceso al servidor SAP | string | Sí
-contraseña | Contraseña del usuario. | string | Sí
-gatewayName | Nombre de la puerta de enlace que debe usar el servicio Data Factory para conectarse a la instancia de SAP HANA local. | string | Sí
+Servidor | Nombre del servidor en el que reside la instancia de SAP HANA. Si el servidor usa un puerto personalizado, especifique `server:port`. | string | SÍ
+authenticationType | Tipo de autenticación. | cadena. "Basic" o "Windows" | SÍ 
+nombre de usuario | Nombre del usuario que tiene acceso al servidor SAP | string | SÍ
+contraseña | Contraseña del usuario. | string | SÍ
+gatewayName | Nombre de la puerta de enlace que debe usar el servicio Data Factory para conectarse a la instancia de SAP HANA local. | string | SÍ
 encryptedCredential | La cadena de credenciales cifrada. | string | Sin 
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
@@ -83,9 +82,9 @@ Si el origen es de tipo **RelationalSource** (que incluye SAP HANA), están disp
 
 | Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
-| query | Especifica la consulta SQL para leer datos de la instancia de SAP HANA. | Consulta SQL. | Sí |
+| query | Especifica la consulta SQL para leer datos de la instancia de SAP HANA. | Consulta SQL. | SÍ |
 
-## <a name="json-example-copy-data-from-sap-hana-to-azure-blob"></a>Ejemplo con definiciones de JSON: copia de datos de SAP HANA a un blob de Azure
+## <a name="json-example-copy-data-from-sap-hana-to-azure-blob"></a>Ejemplo JSON: Copia de datos de SAP HANA a un blob de Azure
 En el siguiente ejemplo se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). En este ejemplo, se muestra cómo copiar datos de una instancia de SAP HANA local a Azure Blob Storage. Sin embargo, se pueden copiar datos **directamente** a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Azure Data Factory.  
 
 > [!IMPORTANT]
@@ -165,7 +164,7 @@ Las propiedades de frecuencia e intervalo definen la programación. En este caso
 ```
 
 ### <a name="azure-blob-output-dataset"></a>Conjunto de datos de salida de blob de Azure
-Este conjunto de datos define el conjunto de datos de salida del blob de Azure. La propiedad type se establece en AzureBlob. La sección typeProperties proporciona el lugar donde se almacenan los datos copiados desde la instancia de SAP HANA. Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1). La ruta de acceso de la carpeta para el blob se evalúa dinámicamente según la hora de inicio del segmento que se está procesando. La ruta de acceso de la carpeta usa las partes year, month, day y hours de la hora de inicio.
+Este conjunto de datos define el conjunto de datos de salida del blob de Azure. La propiedad type se establece en AzureBlob. La sección typeProperties proporciona el lugar donde se almacenan los datos copiados desde la instancia de SAP HANA. Los datos se escriben en un blob nuevo cada hora (frecuencia: hora, intervalo: 1). La ruta de acceso de la carpeta para el blob se evalúa dinámicamente según la hora de inicio del segmento que se está procesando. La ruta de acceso de la carpeta usa las partes year, month, day y hours de la hora de inicio.
 
 ```json
 {

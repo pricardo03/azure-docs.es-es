@@ -9,19 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: abnarain
-ms.openlocfilehash: cbe4d3931a5e7b279218a1f56a3842efbc238780
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 1874473b3ad091ce1da0a48367548cd4432737a2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053574"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016501"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformación de datos mediante la ejecución de scripts de U-SQL en Azure Data Lake Analytics 
-> [!div class="op_single_selector" title1="Seleccione la versión del servicio de Data Factory que está utilizando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1](v1/data-factory-usql-activity.md)
 > * [Versión actual](transform-data-using-data-lake-analytics.md)
 
@@ -60,7 +59,7 @@ Para usar la autenticación de la entidad de servicio, especifique las siguiente
 | **servicePrincipalKey** | Especifique la clave de la aplicación.           | SÍ      |
 | **tenant**              | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarlo, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | SÍ      |
 
-**Ejemplo: autenticación de la entidad de servicio**
+**Ejemplo: Autenticación de entidad de servicio**
 ```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
@@ -130,7 +129,7 @@ En la tabla siguiente se describen los nombres y descripciones de las propiedade
 | prioridad            | Determina qué trabajos de todos los están en cola deben seleccionarse para ejecutarse primero. Cuanto menor sea el número, mayor será la prioridad. | Sin        |
 | parameters          | Parámetros para pasar el script de U-SQL.    | Sin        |
 | runtimeVersion      | Versión en tiempo de ejecución del motor de U-SQL que se usará. | Sin        |
-| compilationMode     | <p>Modo de compilación de U-SQL. Debe ser uno de estos valores: **Semántico:** solo realiza comprobaciones de semántica y comprobaciones de integridad necesarias, **Completo:** realiza la compilación completa, incluida la comprobación de sintaxis, optimización, generación de código, etc., **SingleBox:** realiza la compilación completa, con la opción TargetType establecida en SingleBox. Si no se especifica ningún valor para esta propiedad, el servidor determina el modo de compilación óptimo. | Sin  |
+| compilationMode     | <p>Modo de compilación de U-SQL. Debe ser uno de los valores siguientes: **Semantic:** solo realiza comprobaciones semánticas y comprobaciones de integridad necesarias. **Full:** realiza la compilación completa (comprobación de sintaxis, optimización, generación de código, etc.), **SingleBox:** realiza la compilación completa, con la opción TargetType establecida en SingleBox. Si no se especifica ningún valor para esta propiedad, el servidor determina el modo de compilación óptimo. | Sin  |
 
 Para ver la definición del script, consulte [Definición del script SearchLogProcessing.txt](#sample-u-sql-script). 
 

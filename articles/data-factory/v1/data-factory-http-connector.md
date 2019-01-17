@@ -8,17 +8,16 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 06eb11132d7e3968850aadb4bfdaa53261f14ada
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: f7e070788d2fc11addcafc30d9f232f194f44782
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167484"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017266"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Movimiento de datos desde un origen HTTP mediante Azure Data Factory
 
@@ -57,7 +56,7 @@ En la tabla siguiente se describen los elementos JSON específicos del servicio 
 | Tipo | La propiedad **type** debe establecerse en **Http**. | SÍ |
 | URL | La dirección URL base para el servidor web. | SÍ |
 | authenticationType | Especifica el tipo de autenticación. Los valores permitidos son: **Anonymous**, **Basic**, **Digest**, **Windows** y **ClientCertificate**. <br><br> Consulte las secciones posteriores de este artículo para obtener más propiedades y ejemplos de JSON para estos tipos de autenticación. | SÍ |
-| enableServerCertificateValidation | Especifique si desea habilitar la validación de certificados SSL de servidor si el origen es un servidor web HTTPS. Si el servidor HTTPS usa un certificado autofirmado, establezca esta propiedad en **false**. | Sin <br /> (el valor predeterminado es **true**) |
+| enableServerCertificateValidation | Especifique si desea habilitar la validación de certificados SSL de servidor si el origen es un servidor web HTTPS. Si el servidor HTTPS usa un certificado autofirmado, establezca esta propiedad en **false**. | Sin <br /> (El valor predeterminado es: **true**) |
 | gatewayName | El nombre de la instancia de Data Management Gateway que se usará para conectarse a un origen HTTP local. | Sí, si va a copiar datos de un origen HTTP local. |
 | encryptedCredential | Las credenciales cifradas para acceder al punto de conexión HTTP. El valor se genera automáticamente cuando configura la información de autenticación en el Asistente para copia o al usar el cuadro de diálogo **ClickOnce**. | Sin <br /> (se aplica solo cuando copia datos de un servidor HTTP local) |
 
@@ -108,7 +107,7 @@ Si utiliza **certThumbprint** para la autenticación y el certificado está inst
 3. Haga clic con el botón derecho en el certificado del almacén personal y seleccione **Todas las tareas** >**Administrar claves privadas**.
 3. En la pestaña **Seguridad**, agregue la cuenta de usuario en que se ejecuta el servicio de host de Data Management Gateway con acceso de lectura al certificado.  
 
-**Ejemplo: Uso del certificado de cliente**
+**Ejemplo: Uso de un certificado de cliente**
 
 Este servicio vinculado vincula su factoría de datos a un servidor de web HTTP local. Usa un certificado de cliente que está instalado en la máquina que tiene Data Management Gateway instalado.
 
@@ -130,7 +129,7 @@ Este servicio vinculado vincula su factoría de datos a un servidor de web HTTP 
 }
 ```
 
-**Ejemplo: Uso del certificado de cliente en un archivo**
+**Ejemplo: Uso de un certificado de cliente en un archivo**
 
 Este servicio vinculado vincula su factoría de datos a un servidor de web HTTP local. Usa un certificado de cliente en la máquina que tiene Data Management Gateway instalado.
 
@@ -163,11 +162,11 @@ La sección **typeProperties** es diferente para cada tipo de conjunto de datos.
 |:--- |:--- |:--- |
 | Tipo | La propiedad **type** del conjunto de datos debe establecerse en **Http**. | SÍ |
 | relativeUrl | Dirección URL relativa al recurso que contiene los datos. Cuando no se especifica la ruta de acceso, se solo se usa la dirección URL especificada en la definición del servicio vinculado. <br><br> Para construir la dirección URL dinámica, puede usar [funciones de Data Factory y variables del sistema](data-factory-functions-variables.md). Ejemplo: **relativeUrl**: **$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)**. | Sin  |
-| requestMethod | El método HTTP. Los valores permitidos son **GET** y **POST**. | Sin  <br />(el valor predeterminado es **GET**) |
+| requestMethod | Método HTTP. Los valores permitidos son **GET** y **POST**. | Sin  <br />(el valor predeterminado es **GET**) |
 | additionalHeaders | Encabezados de solicitud HTTP adicionales. | Sin  |
-| requestBody | El cuerpo de la solicitud HTTP. | Sin  |
-| formato | Si quiere *recuperar los datos de un punto de conexión HTTP tal cual* sin analizarlos, omita la opción **format**. <br><br> Si quiere analizar el contenido de la respuesta HTTP durante la copia, se admiten los siguientes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. Para más información, consulte las secciones [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format) y [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). |Sin  |
-| compresión | Especifique el tipo y el nivel de compresión de los datos. Tipos admitidos: **GZip**, **Deflate**, **BZip2** y **ZipDeflate**. Niveles admitidos: **Optimal** y **Fastest**. Para más información, consulte el artículo sobre [formatos de compresión de archivos en Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Sin  |
+| requestBody | Cuerpo de la solicitud HTTP. | Sin  |
+| formato | Si quiere *recuperar los datos de un punto de conexión HTTP tal cual* sin analizarlos, omita la opción **format**. <br><br> Si desea analizar el contenido de la respuesta HTTP durante la copia, se admiten los siguientes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. Para más información, consulte las secciones [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format) y [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). |Sin  |
+| compresión | Especifique el tipo y el nivel de compresión de los datos. Tipos que se admiten: **GZip**, **Deflate**, **BZip2** y **ZipDeflate**. Niveles que se admiten: **Optimal** y **Fastest**. Para más información, consulte el artículo sobre [formatos de compresión de archivos en Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Sin  |
 
 **Ejemplo: Uso del método GET (predeterminado)**
 
@@ -234,7 +233,7 @@ Para más información, consulte [Formatos de compresión de archivos en Azure D
 
 En los siguientes ejemplos se proporcionan definiciones JSON que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). En los ejemplos se muestra cómo copiar datos de un origen HTTP a Azure Blob Storage. Sin embargo, los datos se pueden copiar *directamente* de cualquiera de los orígenes a cualquiera de los receptores [admitidos](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Azure Data Factory.
 
-**Ejemplo: Copia de datos del origen HTTP a Azure Blob Storage**
+**Ejemplo: Copia de datos de un origen HTTP a Azure Blob Storage**
 
 La solución Data Factory de este ejemplo contiene las siguientes entidades de Data Factory:
 
@@ -305,7 +304,7 @@ Si se establece **external** en **true**, se informa al servicio de Data Factory
 
 ### <a name="azure-blob-output-dataset"></a>Conjunto de datos de salida del blob de Azure
 
-Los datos se escriben en un nuevo blob cada hora (**frequency**: **hour**, **interval**: **1**).
+Los datos se escriben en un nuevo blob cada hora (**frecuencia**: **hora**, **intervalo**: **1**).
 
 ```json
 {

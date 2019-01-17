@@ -9,21 +9,20 @@ ms.assetid: 3c20aa95-a8a1-4aae-9180-a6a16d64a109
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 848616bb69aa0eae384b9c4e7ea1c2ac3da3c04e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 1ccf66da14bbbd4993f29da2e40d996cb564864e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167127"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024916"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copia de datos con una instancia local de Oracle como origen o destino mediante Azure Data Factory
 
-> [!div class="op_single_selector" title1="Seleccione la versión del servicio de Data Factory que está utilizando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1](data-factory-onprem-oracle-connector.md)
 > * [Versión 2 (versión actual)](../connector-oracle.md)
 
@@ -70,7 +69,7 @@ Este conector de Oracle admite dos versiones de controladores:
     > Actualmente, el controlador de Microsoft para Oracle solo permite la copia de datos desde Oracle. El controlador no admite la escritura en Oracle. La funcionalidad de conexión de prueba de la pestaña **Diagnósticos de Data Management Gateway** no admite este controlador. Como alternativa, puede usar al Asistente para copiar para validar la conectividad.
     >
 
-- **Proveedor de datos de Oracle para .NET:** es posible usar el proveedor de datos de Oracle para copiar datos desde Oracle o en Oracle. Este componente se incluye en [Oracle Data Access Components for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/) (Componentes de acceso a datos Oracle para Windows). Instale la versión adecuada (32 o 64 bits) en la máquina en la que está instalada la puerta de enlace. [Proveedor de datos de Oracle para NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) puede tener acceso a bases de datos Oracle 10g Release 2 o versiones posteriores.
+- **Proveedor de datos de Oracle para .NET**: es posible usar el proveedor de datos de Oracle para copiar datos desde Oracle o en Oracle. Este componente se incluye en [Oracle Data Access Components for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/) (Componentes de acceso a datos Oracle para Windows). Instale la versión adecuada (32 o 64 bits) en la máquina en la que está instalada la puerta de enlace. [Proveedor de datos de Oracle para NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) puede tener acceso a bases de datos Oracle 10g Release 2 o versiones posteriores.
 
     Si selecciona **Instalación de XCopy**, complete los pasos que se describen en el archivo readme.htm. Se recomienda seleccionar el instalador que tiene interfaz de usuario (no el instalador de XCopy).
 
@@ -82,7 +81,7 @@ Si utiliza el asistente para copia para crear la canalización de copia, el tipo
 
 Puede crear una canalización con una actividad de copia. La canalización mueve los datos a o desde una base de datos de Oracle local mediante el uso de diferentes herramientas o API.
 
-La manera más fácil de crear una canalización es usar el Asistente para copiar. Consulte [Tutorial: Creación de una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
+La manera más fácil de crear una canalización es usar el Asistente para copiar. Vea [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
 
 También puede usar una de las herramientas siguientes para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, una **plantilla de Azure Resource Manager**, la **API de .NET** y la **API de REST**. Consulte el [tutorial de la actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso sobre cómo crear una canalización que tenga una actividad de copia.
 
@@ -111,7 +110,7 @@ En la tabla siguiente se describen los elementos JSON específicos del servicio 
 **Ejemplo: Uso del controlador de Microsoft**
 
 > [!TIP]
-> Si aparece un error que dice "ORA-01025: parámetro UPI fuera del intervalo" y tiene la versión 8i de Oracle, agregue `WireProtocolMode=1` a la cadena de conexión y vuelva a intentarlo:
+> Si ve un error "ORA-01025: parámetro UPI fuera del intervalo" y tiene la versión 8i de Oracle, agregue `WireProtocolMode=1` a la cadena de conexión y vuelva a intentarlo.
 
 ```json
 {
@@ -201,7 +200,7 @@ El ejemplo consta de las siguientes entidades de Data Factory:
 * Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
 * Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [OracleSource](data-factory-onprem-oracle-connector.md#copy-activity-properties) como origen y [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) como receptor.
 
-En el ejemplo de copian datos de una tabla de una base de datos de Oracle local en un blob cada hora. Para obtener más información acerca de las diferentes propiedades que se usan en el ejemplo, vea las secciones que siguen los ejemplos.
+En el ejemplo de copian datos de una tabla de una base de datos de Oracle local en un blob cada hora. Para obtener más información acerca de las diferentes propiedades que se usan en el ejemplo, vea las secciones posteriores a los ejemplos.
 
 **Servicio vinculado de Oracle**
 

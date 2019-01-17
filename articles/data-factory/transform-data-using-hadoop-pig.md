@@ -8,19 +8,18 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 9e769cc436011defe89b12680150e6f9c3b3faf8
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: a29bd64c6b18d41028c8952f531698bbfa9e01e2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049328"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014716"
 ---
 # <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Transformación de datos mediante la actividad Pig de Hadoop en Azure Data Factory
-> [!div class="op_single_selector" title1="Seleccione la versión del servicio de Data Factory que está utilizando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1](v1/data-factory-pig-activity.md)
 > * [Versión actual](transform-data-using-hadoop-pig.md)
 
@@ -59,10 +58,10 @@ Si no está familiarizado con Azure Data Factory, vea [Introduction to Azure Dat
 
 | Propiedad            | DESCRIPCIÓN                              | Obligatorio |
 | ------------------- | ---------------------------------------- | -------- |
-| Nombre                | Nombre de la actividad                     | Sí      |
-| Descripción         | Texto que describe para qué se usa la actividad. | Sin        |
-| Tipo                | Para la actividad de Hive, el tipo de actividad es HDinsightPig | Sí      |
-| linkedServiceName   | Referencia al clúster de HDInsight registrado como servicio vinculado en Data Factory. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos). | Sí      |
+| Nombre                | Nombre de la actividad                     | SÍ      |
+| description         | Texto que describe para qué se usa la actividad. | Sin        |
+| Tipo                | Para la actividad de Hive, el tipo de actividad es HDinsightPig | SÍ      |
+| linkedServiceName   | Referencia al clúster de HDInsight registrado como servicio vinculado en Data Factory. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos). | SÍ      |
 | scriptLinkedService | Referencia a un servicio vinculado de Azure Storage que se utiliza para almacenar el script de Pig que se va a ejecutar. Si no se especifica este servicio vinculado, se usará el servicio vinculado de Azure Storage definido en el servicio vinculado de HDInsight. | Sin        |
 | scriptPath          | Proporcione la ruta de acceso al archivo de script almacenado en Azure Storage al que hace referencia scriptLinkedService. El nombre del archivo distingue mayúsculas de minúsculas. | Sin        |
 | getDebugInfo        | Especifica si se copian los archivos de registro en el almacenamiento de Azure Storage que usa el clúster de HDInsight o que está especificado por scriptLinkedService. Valores permitidos: Ninguno, Siempre o Error. Valor predeterminado: Ninguno. | Sin        |

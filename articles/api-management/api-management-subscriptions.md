@@ -1,6 +1,6 @@
 ---
 title: Suscripciones en Azure API Management | Microsoft Docs
-description: Obtenga información sobre el concepto de Suscripciones en Azure API Management.
+description: Información acerca del concepto de las suscripciones en Azure API Management.
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -13,55 +13,59 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 45a65c7a94f3e6917b2882f27c9ad7d764ef97d7
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 1f7c2bde631e42ac94ce4c0394d13e369f6ea23f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52621763"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54049765"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Suscripciones en Azure API Management
 
-Suscripciones es un concepto importante en Azure API Management (APIM). Es la forma más habitual de obtención de acceso de los consumidores de API a las API publicadas a través de una instancia de APIM. En este artículo se proporciona información general del concepto.
+Las suscripciones son un concepto importante en Azure API Management. Son la forma más habitual para los consumidores de obtener acceso a las API publicadas mediante una instancia de API Management. En este artículo se proporciona información general del concepto.
 
-## <a name="what-is-subscriptions"></a>Qué es Suscripciones
+## <a name="what-are-subscriptions"></a>¿Qué son las suscripciones?
 
-Al publicar las API a través de Azure APIM, la forma más fácil y habitual de proteger el acceso a esas API es mediante el uso de claves de suscripción. Es decir, los desarrolladores que necesiten usar las API publicadas deberán incluir una clave de suscripción válida en las solicitudes HTTP al realizar llamadas a esas API. De lo contrario, la puerta de enlace de API rechazará las llamadas inmediatamente y no se reenviarán a los servicios de back-end.
+Al publicar las API mediante API Management, es sencillo y frecuente proteger el acceso a ellas mediante claves de suscripción. Los desarrolladores que necesiten usar las API publicadas deben incluir una clave de suscripción válida en las solicitudes HTTP al realizar llamadas a esas API. De lo contrario, la puerta de enlace de API Management rechaza las llamadas inmediatamente. No se reenvían a los servicios back-end.
 
-Para obtener una clave de suscripción para tener acceso a las API, es necesaria una suscripción. La suscripción es básicamente un contenedor con nombre para un par de claves de suscripción. Suscripciones puede obtenerse por medio de desarrolladores que deben usar las API publicadas, con o sin la aprobación de los publicadores de API. Los publicadores de API también pueden crear Suscripciones directamente, en nombre de los consumidores de API.
+Para obtener una clave de suscripción para acceder a las API se necesita una suscripción. Una suscripción es básicamente un contenedor con nombre para un par de claves de suscripción. Los desarrolladores que necesiten usar las API publicadas pueden obtener suscripciones. Y no necesitan aprobación de los publicadores de API. Los publicadores de API también pueden crear suscripciones directamente para los consumidores de API.
 
 > [!TIP]
-> APIM también admite otros mecanismos para proteger el acceso a API, entre los que se incluyen [OAuth2.0](api-management-howto-protect-backend-with-aad.md), [certificados de cliente](api-management-howto-mutual-certificates-for-clients.md) y [listas blancas de direcciones IP](https://docs.microsoft.com/azure/api-management/api-management-access-restriction-policies#RestrictCallerIPs)
+> API Management también admite otros mecanismos para proteger el acceso a las API, por ejemplo:
+> - [OAuth2.0](api-management-howto-protect-backend-with-aad.md)
+> - [Certificados de cliente](api-management-howto-mutual-certificates-for-clients.md)
+> - [Lista de direcciones IP permitidas](https://docs.microsoft.com/azure/api-management/api-management-access-restriction-policies#RestrictCallerIPs)
 
-## <a name="scope-of-subscriptions"></a>Ámbito de Suscripciones
+## <a name="scope-of-subscriptions"></a>Ámbito de las suscripciones
 
-Suscripciones se puede asociar a diversos ámbitos: producto, todas las API o una API individual.
+Las suscripciones se pueden asociar a diversos ámbitos: producto, todas las API o una API individual.
 
 ### <a name="subscriptions-for-a-product"></a>Suscripciones para un producto
 
-Tradicionalmente, Suscripciones en APIM se ha asociado siempre a un solo ámbito del [producto de API](api-management-terminology.md). Los desarrolladores encontrarían la lista de productos en el Portal para desarrolladores y enviarían solicitudes de suscripción para los productos que desean usar. Una vez aprobada una solicitud de suscripción (automáticamente o por medio de publicadores de API), el desarrollador puede usar las claves en esta para tener acceso a todas las API del producto.
+Tradicionalmente, las suscripciones en API Management se han asociado siempre a un solo ámbito del [producto de API](api-management-terminology.md). Los desarrolladores encontraron la lista de productos en el Portal para desarrolladores. A continuación, enviarían las solicitudes de suscripción para los productos que deseaban usar. Una vez aprobada una solicitud de suscripción (automáticamente o por parte de los publicadores de API), el desarrollador puede usar las claves de esta para acceder a todas las API del producto.
 
 ![Suscripciones de producto](./media/api-management-subscriptions/product-subscription.png)
 
 > [!TIP]
-> En determinadas situaciones, es posible que los publicadores de API deseen publicar un producto de API para el público sin el requisito de Suscripciones. Pueden desactivar la opción **Requerir suscripción** en la página **Configuración** del producto en Azure Portal. Como resultado, se puede tener acceso a todas las API del producto sin una clave de API.
+> En determinadas situaciones, es posible que los publicadores de API deseen publicar un producto de API para el público sin necesidad de suscripciones. Pueden anular la selección de la opción **Require subscription** (Requerir suscripción) en la página **Settings** (Configuración) del producto en Azure Portal. Como resultado, se puede tener acceso a todas las API del producto sin una clave de API.
 
 ### <a name="subscriptions-for-all-apis-or-an-individual-api"></a>Suscripciones para todas las API o una API individual
 
 > [!NOTE]
 > Actualmente, esta característica está disponible solo en el nivel de consumo de API Management.
 
-Cuando especificamos el nivel de [consumo](https://aka.ms/apimconsumptionblog) de APIM, realizamos algunos cambios para transmitir la administración de claves. En primer lugar, agregamos dos ámbitos más de suscripción: todas las API y una sola API. El ámbito de Suscripciones ya no se limita a un producto de API. Ahora es posible crear claves que conceden acceso a una API (o a todas las API de una instancia de APIM), sin necesidad de crear un producto y agregar las API a este primero. Además, cada instancia de APIM incluye ahora una suscripción inalterable a todas las API, lo que hace que probar y depurar API dentro de la consola de prueba resulte más fácil y sencillo.
+Cuando introdujimos el nivel de [consumo](https://aka.ms/apimconsumptionblog) de API Management, realizamos algunos cambios para optimizar la administración de claves:
+- En primer lugar, agregamos dos ámbitos más de suscripción: todas las API y una API individual. El ámbito de las suscripciones ya no se limita a un producto de API. Ahora es posible crear claves que concedan acceso a una API (o a todas las API de una instancia de API Management), sin necesidad de crear un producto y agregar las API a este primero. Además, cada instancia de API Management incluye ahora de una suscripción inmutable para todas las API. Esta suscripción facilita y agiliza la prueba y la depuración de las API de la consola de prueba.
 
-En segundo lugar, APIM permite ahora Suscripciones "independientes". Ya no es necesario que Suscripciones se asocie a una cuenta de desarrollador. Esto es útil en situaciones como, por ejemplo, cuando varios desarrolladores o equipos comparten una suscripción.
+- En segundo lugar, API Management permite ahora suscripciones **independientes**. Ya no es necesario que Suscripciones se asocie a una cuenta de desarrollador. Esta característica es útil en situaciones como, por ejemplo, cuando varios desarrolladores o equipos comparten una suscripción.
 
-Por último, los publicadores de API ahora pueden [crear Suscripciones](api-management-howto-create-subscriptions.md) directamente en Azure Portal:
+- Por último, los publicadores de API ahora pueden [crear suscripciones](api-management-howto-create-subscriptions.md) directamente en Azure Portal:
 
-![Suscripciones flexibles](./media/api-management-subscriptions/flexible-subscription.png)
+    ![Suscripciones flexibles](./media/api-management-subscriptions/flexible-subscription.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre API Management:
 
-+ Aprenda otros [conceptos](api-management-terminology.md) en API Management
-+ Siga nuestros [tutoriales](import-and-publish.md) para obtener más información sobre API Management
-+ Consulte nuestra [página de preguntas más frecuentes](api-management-faq.md) para ver las preguntas habituales
++ Aprenda otros [conceptos](api-management-terminology.md) en API Management.
++ Siga nuestros [tutoriales](import-and-publish.md) para más información sobre API Management.
++ Consulte nuestra [página de preguntas frecuentes](api-management-faq.md) para ver las preguntas habituales.

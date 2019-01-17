@@ -8,17 +8,16 @@ ms.assetid: 14762e82-76d9-41c4-ba9f-14a54da29c36
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: ac0e1945e75ee7aea346c103a671b4a47b9e5994
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 865bfdae199bca7ebee888be527db239d34511d1
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048621"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017623"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notas de la versión de Data Management Gateway
 > [!NOTE]
@@ -43,32 +42,32 @@ Ya no se conservan las notas de la versión aquí. Puede obtener las notas de la
 ### <a name="enhancements-"></a>Mejoras-
 - Puede agregar entradas DNS a la lista de Service Bus permitidos en vez de incluir todas las direcciones IP de Azure en la lista de permitidas del firewall (en caso necesario). Puede encontrar la entrada DNS correspondiente en Azure Portal (Data Factory -> "Crear e implementar" -> "Puertas de enlace" -> "serviceUrls" (en JSON)
 - El conector HDFS admite ahora certificados públicos autofirmados para poder omitir la validación de SSL.
-- Solucionado: problema con la puerta de enlace sin conexión durante la actualización (debido a la distorsión del reloj)
+- Problema corregido: Problema con la puerta de enlace sin conexión durante la actualización (debido a la distorsión del reloj)
 
 
 ## <a name="2963132"></a>2.9.6313.2
 ### <a name="enhancements-"></a>Mejoras-
 -   Puede agregar entradas DNS a la lista blanca de Service Bus en vez de incluir todas las direcciones IP de Azure en la lista blanca del firewall (en caso necesario). Más detalles aquí.
 -   Ahora puede copiar hasta 4,75 TB de datos (tamaño máximo admitido para blob en bloques) en un único blob en bloques, y viceversa (el límite anterior era 195 GB).
--   Problema solucionado: memoria agotada al descomprimir varios archivos pequeños durante la actividad de copia.
--   Problema solucionado: índice fuera de rango al copiar de Document DB a una instancia de SQL Server local con la característica de idempotencia.
--   Problema solucionado: el script de limpieza SQL no funciona en la instancia de SQL Server local desde el Asistente para copia.
--   Problema solucionado: nombre de columna con espacio al final no funciona en la actividad de copia.
+-   Problema corregido: memoria agotada al descomprimir varios archivos pequeños durante la actividad de copia.
+-   Problema corregido: índice fuera de rango al copiar de Document DB a una instancia de SQL Server local con la característica de idempotencia.
+-   Problema corregido: el script de limpieza SQL no funciona en la instancia de SQL Server local desde el Asistente para copia.
+-   Problema corregido: el nombre de columna con espacio al final no funciona en la actividad de copia.
 
 ## <a name="28662833"></a>2.8.66283.3
 ### <a name="enhancements-"></a>Mejoras-
-- Problema solucionado: falta de credenciales durante el reinicio de máquina de puerta de enlace.
-- Solucionado: problema de registro durante la restauración de la puerta de enlace mediante un archivo de copia de seguridad.
+- Problema corregido: Problema con la falta de credenciales durante el reinicio de la máquina de puerta de enlace.
+- Problema corregido: problema de registro durante la restauración de la puerta de enlace mediante un archivo de copia de seguridad.
 
 
 ## <a name="2762401"></a>2.7.6240.1
 ### <a name="enhancements-"></a>Mejoras-
-- Problema solucionado: lectura incorrecta de valor NULL decimal desde Oracle como origen.
+- Problema corregido: lectura incorrecta de valor NULL decimal desde Oracle como origen.
 
 ## <a name="2661922"></a>2.6.6192.2
 ### <a name="whats-new"></a>Novedades
 - Los clientes pueden proporcionar comentarios en la experiencia de registro de la puerta de enlace.
-- Nuevo formato de compresión compatible: ZIP (Deflate).
+- Nuevo formato de compresión compatible: ZIP (Deflate)
 
 ### <a name="enhancements-"></a>Mejoras-
 - Mejora del rendimiento del origen de HDFS y el receptor de Oracle.

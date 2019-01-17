@@ -9,17 +9,16 @@ ms.assetid: 4b9a6a4f-8cf5-4e0a-a06f-8133a2b7bc58
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 505f7345af6224b767d6d3719c123d91f54e48f5
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 632e605a6f7c9885f3854ca1f7b69ed337a1eacc
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054299"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025885"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la actividad de copia
 
@@ -73,7 +72,7 @@ Como referencia, la tabla siguiente muestra la cantidad de procesamiento de copi
     </tr>
     <tr>
         <td>Red</td>
-        <td>Interfaz de Internet: 10 Gbps; interfaz de intranet: 40 Gbps</td>
+        <td>Interfaz de Internet: 10 Gbps. Interfaz de intranet: 40 Gbps</td>
     </tr>
     </table>
 
@@ -194,11 +193,11 @@ Al activar la característica de almacenamiento provisional, primero se copian l
 
 En el escenario de copia en la nube (tanto en almacenes de datos de origen y recepción), no se utiliza la puerta de enlace. El servicio de Data Factory realiza las operaciones de copia.
 
-![Copias almacenadas provisionalmente: escenario de modelo en la nube](media/data-factory-copy-activity-performance/staged-copy-cloud-scenario.png)
+![Copias almacenadas provisionalmente: escenario de nube](media/data-factory-copy-activity-performance/staged-copy-cloud-scenario.png)
 
 En el escenario de copia híbrida, en el que el origen se encuentra en el entorno local y el receptor está en la nube, la puerta de enlace mueve los datos desde el almacén de datos de origen a un almacén de datos provisional. El servicio de Data Factory también mueve los datos desde el almacén de datos provisional al almacén de datos receptor. Con el flujo invertido también se permite copiar datos de un almacén de datos en la nube a uno local a través del almacenamiento provisional.
 
-![Copias almacenadas provisionalmente: escenario de modelo híbrido](media/data-factory-copy-activity-performance/staged-copy-hybrid-scenario.png)
+![Copias almacenadas provisionalmente: escenario híbrido](media/data-factory-copy-activity-performance/staged-copy-hybrid-scenario.png)
 
 Cuando activa el movimiento de datos mediante un almacenamiento provisional, puede especificar si quiere que los datos se compriman antes de moverlos del almacén de datos de origen al provisional y luego descomprimirlos antes de moverlos desde un almacenamiento de datos provisional a un almacén de datos receptor.
 
@@ -276,7 +275,7 @@ Para optimizar el rendimiento del servicio Data Factory con la actividad de copi
 ## <a name="considerations-for-data-management-gateway"></a>Consideraciones sobre Data Management Gateway
 **Configuración de puerta de enlace**: se recomienda usar una máquina dedicada para hospedar Data Management Gateway. Vea [Consideraciones sobre el uso de Data Management Gateway](data-factory-data-management-gateway.md#considerations-for-using-gateway).  
 
-**Supervisión y escalado vertical u horizontal de la puerta de enlace**: una sola puerta de enlace con uno o varios nodos de puerta de enlace puede atender varias ejecuciones de actividad de copia simultáneamente. Para ver una instantánea casi en tiempo real del uso de recursos (CPU, memoria, red [entrada y salida], etc.) en una máquina de puerta de enlace, además del número de trabajos simultáneos en ejecución frente al límite de Azure Portal, vea [Supervisión de la puerta de enlace en el portal](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). Si depende mucho del movimiento de datos híbridos con un gran número de ejecuciones de actividad de copia simultáneas o con grandes volúmenes de datos que copiar, considere la posibilidad de [escalar vertical u horizontalmente la puerta de enlace](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) con el fin de mejorar el uso de recursos o aprovisionar más recursos para ampliar la capacidad de copia. 
+**Supervisión y escalado vertical u horizontal de la puerta de enlace**: una sola puerta de enlace lógica con uno o varios nodos de puerta de enlace puede atender varias ejecuciones de actividad de copia simultáneamente. Para ver una instantánea casi en tiempo real del uso de recursos (CPU, memoria, red [entrada y salida], etc.) en una máquina de puerta de enlace, además del número de trabajos simultáneos en ejecución frente al límite de Azure Portal, vea [Supervisión de la puerta de enlace en el portal](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). Si depende mucho del movimiento de datos híbridos con un gran número de ejecuciones de actividad de copia simultáneas o con grandes volúmenes de datos que copiar, considere la posibilidad de [escalar vertical u horizontalmente la puerta de enlace](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) con el fin de mejorar el uso de recursos o aprovisionar más recursos para ampliar la capacidad de copia. 
 
 ## <a name="considerations-for-the-source"></a>Consideraciones sobre el origen
 ### <a name="general"></a>General
@@ -289,14 +288,14 @@ Si copia los datos de Blob Storage a SQL Data Warehouse, considere el uso de **P
 ### <a name="file-based-data-stores"></a>Almacenes de datos basados en archivos
 *(Incluye Blob Storage, Data Lake Store, Amazon S3, sistemas de archivos locales y HDFS local)*
 
-* **Tamaño de archivo medio y número de archivos**: la actividad de copia transfiere datos de archivo en archivo. Siendo la misma cantidad de datos la que se va a mover, el rendimiento general es menor si los datos constan de muchos archivos pequeños en lugar de algunos grandes, debido a la fase de arranque de cada archivo. Por lo tanto, si es posible, combine archivos pequeños en archivos de mayor tamaño para obtener una capacidad de proceso mayor.
+* **Tamaño de archivo promedio y recuento de archivos**: la actividad de copia transfiere datos de archivo en archivo. Siendo la misma cantidad de datos la que se va a mover, el rendimiento general es menor si los datos constan de muchos archivos pequeños en lugar de algunos grandes, debido a la fase de arranque de cada archivo. Por lo tanto, si es posible, combine archivos pequeños en archivos de mayor tamaño para obtener una capacidad de proceso mayor.
 * **Formato de archivo y compresión**: para ver más formas de mejorar el rendimiento, consulte las secciones [Consideraciones sobre serialización y deserialización](#considerations-for-serialization-and-deserialization) y [Consideraciones sobre la compresión](#considerations-for-compression).
 * Para el escenario de **sistema de archivos local**, en el que se necesita **Data Management Gateway**, consulte la sección [Consideraciones sobre Data Management Gateway](#considerations-for-data-management-gateway).
 
 ### <a name="relational-data-stores"></a>Almacenes de datos relacionales
 *(Incluye SQL Database, SQL Data Warehouse, Amazon Redshift, bases de datos SQL Server y Oracle, MySQL, DB2, Teradata, Sybase y bases de datos PostgreSQL, etc.)*
 
-* **Patrón de datos**: el esquema de tabla afecta al rendimiento de la copia. Un tamaño de fila grande le ofrece un mejor rendimiento que el tamaño de fila pequeño para copiar la misma cantidad de datos. El motivo es que la base de datos puede recuperar más eficazmente menos lotes de datos que contienen menos filas.
+* **Patrón de datos**: El esquema de tabla afecta al rendimiento de la copia. Un tamaño de fila grande le ofrece un mejor rendimiento que el tamaño de fila pequeño para copiar la misma cantidad de datos. El motivo es que la base de datos puede recuperar más eficazmente menos lotes de datos que contienen menos filas.
 * **Consulta o procedimiento almacenado**: optimice la lógica de la consulta o del procedimiento almacenado que se especifica en el origen de la actividad de copia para que capture los datos de forma más eficiente.
 * Además, para el escenario de **bases de datos relacionales locales**, como SQL Server y Oracle, que requieren el uso de **Data Management Gateway**, consulte la sección [Consideraciones sobre Data Management Gateway](#considerations-on-data-management-gateway).
 
@@ -313,7 +312,7 @@ Si va a copiar datos de **Blob Storage** a **SQL Data Warehouse**, considere la 
 
 * **Comportamiento de copia**: si copia datos de un almacén de datos basado en archivos diferente, la actividad de copia presenta tres opciones mediante la propiedad **copyBehavior**. Conserva la jerarquía, aplana la jerarquía o combina archivos. Conservar o aplanar la jerarquía supone poca o ninguna sobrecarga sobre el rendimiento, mientras que combinar archivos hace que aumente dicha sobrecarga.
 * **Formato de archivo y compresión**: consulte las secciones [Consideraciones sobre serialización y deserialización](#considerations-for-serialization-and-deserialization) y [Consideraciones sobre la compresión](#considerations-for-compression) para conocer más formas de mejorar el rendimiento.
-* **Almacenamiento de blobs**: actualmente, Almacenamiento de blobs solo admite blobs en bloques para optimizar la transferencia de datos y el rendimiento.
+* **Blob Storage**: actualmente, Blob Storage solo admite blobs en bloques para optimizar la transferencia de datos y el rendimiento.
 * En escenarios de **sistemas de archivos locales** que requieran el uso de **Data Management Gateway**, consulte la sección [Consideraciones sobre Data Management Gateway](#considerations-for-data-management-gateway).
 
 ### <a name="relational-data-stores"></a>Almacenes de datos relacionales
@@ -354,9 +353,9 @@ Cuando el conjunto de datos de entrada o salida es un archivo, puede configurar 
 
 **Códec**: la actividad de copia admite los tipos de compresión gzip, bzip2 y Deflate. HDInsight de Azure puede consumir los tres tipos de procesamiento. Cada códec de compresión tiene sus ventajas. Por ejemplo, bzip2 tiene el rendimiento de copia más bajo, pero obtiene el mejor rendimiento de consulta de Hive porque puede dividirlo para el procesamiento. Gzip es la opción más equilibrada y es la que se usa con mayor frecuencia. Elija el códec que mejor se adapte a su escenario de principio a fin.
 
-**Nivel:** para cada códec de compresión, puede elegir entre dos opciones: compresión más rápida y compresión más óptima. La operación de compresión más rápida comprime los datos tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima. La opción de compresión óptima dedica más tiempo a la compresión y produce una cantidad mínima de datos. Puede probar ambas opciones para ver cuál proporciona un mejor rendimiento general en su caso.
+**Nivel**: para cada códec de compresión, puede elegir entre dos opciones: compresión más rápida y compresión más óptima. La operación de compresión más rápida comprime los datos tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima. La opción de compresión óptima dedica más tiempo a la compresión y produce una cantidad mínima de datos. Puede probar ambas opciones para ver cuál proporciona un mejor rendimiento general en su caso.
 
-**Una consideración**: para copiar una gran cantidad de datos entre un almacén local y la nube, considere el uso de Almacenamiento de blobs provisional con compresión. El uso de almacenamiento provisional resulta de utilidad cuando el ancho de banda de la red corporativa y los servicios de Azure son el factor limitador, y si quiere que el conjunto de datos de entrada y el conjunto de datos de salida estén ambos en formato sin comprimir. En concreto, puede dividir una única actividad de copia en dos. La primera copia del origen en un blob de almacenamiento provisional en formato comprimido. La segunda copia los datos comprimidos del almacenamiento provisional y los descomprime mientras se escriben en el receptor.
+**Una consideración**: para copiar una gran cantidad de datos entre un almacén local y la nube, considere el uso de Blob Storage provisional con compresión. El uso de almacenamiento provisional resulta de utilidad cuando el ancho de banda de la red corporativa y los servicios de Azure son el factor limitador, y si quiere que el conjunto de datos de entrada y el conjunto de datos de salida estén ambos en formato sin comprimir. En concreto, puede dividir una única actividad de copia en dos. La primera copia del origen en un blob de almacenamiento provisional en formato comprimido. La segunda copia los datos comprimidos del almacenamiento provisional y los descomprime mientras se escriben en el receptor.
 
 ## <a name="considerations-for-column-mapping"></a>Consideraciones sobre la asignación de columnas
 La propiedad **columnMappings** se puede establecer en la actividad de copia para asignar todas las columnas de entrada, o un subconjunto de ellas, a las columnas de salida. Después de que el servicio de movimiento de datos lee los datos del origen, debe realizar la asignación de columnas en los datos antes de escribirlos en el receptor. Este procesamiento adicional reduce la capacidad de proceso de la copia.
@@ -369,7 +368,7 @@ Si el tamaño de los datos que quiere copiar es grande, puede ajustar la lógica
 Tenga cuidado con el número de conjuntos de datos y actividades de copia que necesitan Data Factory para conectarse al mismo almacén de datos al mismo tiempo. Muchos trabajos de copia simultáneos podrían limitar un almacén de datos y llevar a una degradación en el rendimiento, reintentos internos de trabajos de copia y, en ocasiones, errores de ejecución.
 
 ## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>Escenario de ejemplo: Copia de una instancia local de SQL Server a Blob Storage
-**Escenario**: se crea una canalización para copiar datos de una instancia de SQL Server local a Almacenamiento de blobs en formato CSV. Para acelerar el trabajo de copia, los archivos CSV se deben comprimir en formato bzip2.
+**Escenario**: se crea una canalización para copiar datos de una instancia de SQL Server local a Blob Storage en formato CSV. Para acelerar el trabajo de copia, los archivos CSV se deben comprimir en formato bzip2.
 
 **Análisis y pruebas**: el rendimiento de la actividad de copia es inferior a 2 MBps, que es mucho más lento que la referencia de rendimiento.
 
@@ -377,33 +376,33 @@ Tenga cuidado con el número de conjuntos de datos y actividades de copia que ne
 
 1. **Lectura de datos**: la puerta de enlace abre una conexión a SQL Server y envía la consulta. SQL Server responde enviando el flujo de datos a la puerta de enlace a través de la intranet.
 2. **Serialización y compresión de datos**: la puerta de enlace serializa el flujo de datos en formato CSV y comprime los datos en una secuencia bzip2.
-3. **Escritura de datos**: la puerta de enlace carga la secuencia bzip2 en Almacenamiento de blobs a través de Internet.
+3. **Escritura de datos**: la puerta de enlace carga la secuencia bzip2 en Blob Storage a través de Internet.
 
-Como puede ver, los datos se procesan y se mueven en streaming de forma secuencial: SQL Server > LAN > Puerta de enlace > WAN > Almacenamiento de blobs. **El rendimiento general viene determinado por el rendimiento mínimo a través de la canalización**.
+Como puede ver, los datos se procesan y se mueven en streaming de manera secuencial: SQL Server > LAN > puerta de enlace > WAN > Blob Storage. **El rendimiento general viene determinado por el rendimiento mínimo a través de la canalización**.
 
 ![flujo de datos](./media/data-factory-copy-activity-performance/case-study-pic-1.png)
 
 Puede que uno o varios de los siguientes factores provoquen el cuello de botella en el rendimiento:
 
-* **Origen:** el propio SQL Server tiene un rendimiento bajo debido a cargas intensas.
+* **Origen**: el propio SQL Server tiene un rendimiento bajo debido a cargas intensas.
 * **Data Management Gateway**
   * **LAN**: la puerta de enlace se encuentra lejos de la máquina de SQL Server y tiene una conexión de ancho de banda bajo.
   * **Puerta de enlace**: la puerta de enlace ha alcanzado sus limitaciones de carga para llevar a cabo las siguientes operaciones:
-    * **Serialización:** la serialización del flujo de datos a formato CSV tiene un rendimiento bajo.
+    * **Serialización**: la serialización del flujo de datos a formato CSV tiene un rendimiento bajo.
     * **Compresión**: ha elegido un códec de compresión lenta (por ejemplo, bzip2, a 2,8 MBps con Core i7).
   * **WAN**: el ancho de banda entre la red corporativa y los servicios de Azure es bajo (por ejemplo, T1 = 1544 kbps. T2 = 6312 kbps).
-* **Receptor**: el Almacenamiento de blobs tiene un rendimiento bajo. (Esta situación es improbable porque su SLA garantiza un mínimo de 60 MBps).
+* **Receptor**: Blob Storage tiene un rendimiento bajo. (Esta situación es improbable porque su SLA garantiza un mínimo de 60 MBps).
 
 En este caso, la compresión de datos bzip2 podría estar ralentizando la canalización entera. El cambio a un códec de compresión gzip podría aliviar este cuello de botella.
 
-## <a name="sample-scenarios-use-parallel-copy"></a>Escenarios de ejemplo: uso de la copia en paralelo
-**Escenario I:** se copian 1000 archivos de 1 MB del sistema de archivos local a Almacenamiento de blobs.
+## <a name="sample-scenarios-use-parallel-copy"></a>Escenarios de ejemplo: Uso de copia en paralelo
+**Escenario I:** se copian 1000 archivos de 1 MB del sistema de archivos local a Blob Storage.
 
-**Análisis y optimización del rendimiento**: por ejemplo, si ha instalado la puerta de enlace en una máquina de cuatro núcleos, Data Factory usa 16 copias en paralelo para mover los archivos del sistema de archivos a Blob Storage de manera simultánea. Esta ejecución en paralelo debe tener como resultado un alto rendimiento. También puede especificar explícitamente el número de copias en paralelo. Al copiar muchos archivos pequeños, las copias en paralelo ayudan considerablemente al rendimiento al usar los recursos de forma más eficaz.
+**Análisis y optimización del rendimiento**: por ejemplo, si ha instalado la puerta de enlace en una máquina de cuatro núcleos, Data Factory usa 16 copias en paralelo para mover los archivos del sistema de archivos a Blob Storage de manera simultánea. Esta ejecución en paralelo debe tener como resultado un alto rendimiento. También puede especificar explícitamente el número de copias en paralelo. Al copiar muchos archivos pequeños, las copias en paralelo ayudan considerablemente al rendimiento al usar los recursos de forma más eficaz.
 
 ![Escenario 1.](./media/data-factory-copy-activity-performance/scenario-1.png)
 
-**Escenario II**: se copian 20 blobs de 500 MB cada uno de Almacenamiento de blobs a Data Lake Store Analytics y luego se optimiza el rendimiento.
+**Escenario II**: se copian 20 blobs de 500 MB cada uno de Blob Storage a Data Lake Store Analytics y luego se optimiza el rendimiento.
 
 **Análisis y optimización del rendimiento**: en este escenario, Data Factory copia los datos de Blob Storage a Data Lake Store mediante una única copia (**parallelCopies** se establece en 1) y unidades de movimiento de datos de nube única. El rendimiento que observe estará próximo al que se describe en la [sección de referencia de rendimiento](#performance-reference).   
 
@@ -418,9 +417,9 @@ En este caso, la compresión de datos bzip2 podría estar ralentizando la canali
 ## <a name="reference"></a>Referencia
 Estas son algunas referencias para la supervisión y la optimización del rendimiento para algunos de los almacenes de datos admitidos:
 
-* Azure Storage (que incluyeBlob Storage y Table Storage): [Objetivos de escalabilidad de Azure Storage](../../storage/common/storage-scalability-targets.md) y [Lista de comprobación de rendimiento y escalabilidad de Azure Storage](../../storage/common/storage-performance-checklist.md)
+* Azure Storage (incluido Blob Storage y Table Storage): [Objetivos de escalabilidad de Azure Storage](../../storage/common/storage-scalability-targets.md) y [Lista de comprobación de rendimiento y escalabilidad de Azure Storage](../../storage/common/storage-performance-checklist.md)
 * Azure SQL Database: puede [supervisar el rendimiento](../../sql-database/sql-database-single-database-monitor.md) y comprobar el porcentaje de unidades de transacción de base de datos (DTU).
 * Azure SQL Data Warehouse: su capacidad se mide en unidades de almacenamiento de datos (DWU); consulte [Administración de la potencia de proceso en Azure SQL Data Warehouse (información general)](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
-* Azure Cosmos DB: [Niveles de rendimiento de Azure Cosmos DB](../../cosmos-db/performance-levels.md)
-* Instancia de SQL Server local: [Supervisión y optimización del rendimiento](https://msdn.microsoft.com/library/ms189081.aspx)
-* Servidor de archivos local: [Performance Tuning for File Servers](https://msdn.microsoft.com/library/dn567661.aspx)
+* Azure Cosmos DB: [Niveles de rendimiento en Azure Cosmos DB](../../cosmos-db/performance-levels.md)
+* SQL Server local: [Supervisión y optimización del rendimiento](https://msdn.microsoft.com/library/ms189081.aspx)
+* Servidor de archivos local: [Performance tuning for file servers](https://msdn.microsoft.com/library/dn567661.aspx) (Ajuste del rendimiento para los servidores de archivos)

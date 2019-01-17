@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: 1c850b16492f725114fb23a8503f6345e1509212
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 3cd0766fa4308df41172c323aa933e1c048f1e9d
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868674"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074009"
 ---
 # <a name="requirements-by-listing-type"></a>Requisitos por tipo de publicación  
 Los requisitos de contenido de marketing y técnicos varían en función del escaparate, el tipo de oferta y el tipo de anuncio. Revise las siguientes especificaciones para verificar el cumplimiento.  
@@ -40,7 +40,7 @@ En la tabla siguiente se describen los requisitos previos para publicar en AppSo
 | ***Aplicación de software como servicio (SaaS) para la empresa*** | La aplicación debe cumplir los siguientes requisitos.<ul> <li>Ser una aplicación SaaS de línea de negocio</li> <li>Centrarse en el proceso empresarial</li> <li>Dirigirse a los clientes de la empresa</li> <li>Permitir a los usuarios usar las credenciales profesionales para iniciar sesión, como el nombre de usuario y la contraseña</li> </ul> | Obligatorio |  
 | ***Período de evaluación gratuita y experiencia de evaluación*** | La aplicación debe incluir una de las siguientes opciones para que un cliente pueda usar la aplicación de forma gratuita durante un tiempo limitado.<ul> <li>Proporcionar un método `try`, par que los clientes puedan iniciar una prueba de la aplicación en AppSource</li> <li>Proporcionar una opción `request trial` en AppSource, para que los clientes puedan solicitar una versión de evaluación de la aplicación</li> </ul>La prueba gratuita que proporcione debe ofrecer al cliente un período de tiempo previamente establecido para probar la aplicación sin ningún coste adicional. | Obligatorio |  
 | ***Solución de fácil configuración y lista para usar*** | La aplicación debe ser fácil y rápida de configurar e instalar sin necesidad de realizar ninguna personalización. | Obligatorio |  
-| ***Administración de clientes potenciales*** | Debe habilitar CRM para aceptar los datos de clientes potenciales antes de recibir clientes potenciales desde el escaparate.<ul> <li>Ejemplos de CRM son Marketo, Microsoft Dynamics o Salesforce</li> </ul> | Obligatorio |  
+| ***Administración de clientes potenciales*** | Habilite CRM para aceptar los datos de clientes potenciales antes de recibir clientes potenciales desde el escaparate.<ul> <li>Ejemplos de CRM son Marketo, Microsoft Dynamics o Salesforce</li> </ul> | Obligatorio |  
 | ***Directiva de privacidad y términos de uso*** | La aplicación debe proporcionar un vínculo a la página de la directiva de privacidad mediante una dirección URL pública. Los términos de uso deben especificarse como texto durante la publicación. | Obligatorio |  
 | ***Soporte técnico*** | La aplicación debe proporcionar un vínculo a la página de asistencia al cliente mediante una dirección URL pública. Si la aplicación es una versión de evaluación, debe proporcionar soporte técnico sin costo adicional durante el período de evaluación. | Obligatorio |  
 
@@ -52,7 +52,7 @@ A continuación, se indican los requisitos previos para los tipos de publicació
 | ***Directivas de participación*** | La aplicación debe seguir las directivas de participación de Azure Marketplace.<ul> <li>Para más información sobre las directivas de participación, visite la página Directivas de participación de Azure Marketplace en [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies).</li></ul> | list<br />transacción<br />evaluación |  
 | ***Integración con Microsoft*** | Su oferta debe usar o ampliar los tipos de servicio de Microsoft Azure, como proceso, red o almacenamiento. La oferta debe orientarse a una de las categorías existentes de Azure Marketplace, como bases de datos, seguridad o red.<ul> <li>Para más información sobre las ofertas de Marketplace, viste la página de aplicaciones de Marketplace en [azuremarketplace.microsoft.com/marketplace/apps](https://azuremarketplace.microsoft.com/marketplace/apps).</li> </ul> | list<br />transacción<br />evaluación |  
 | ***Audiencia*** | La oferta debe orientarse a profesionales de TI, desarrolladores de nube u otros roles de cliente técnicos. | list<br />transacción<br />evaluación |  
-| ***Administración de clientes potenciales*** | Debe habilitar CRM (Marketo, Microsoft Dynamics o Salesforce) para aceptar datos de clientes potenciales antes de recibir clientes potenciales del escaparate. | list<br />transacción<br />evaluación |  
+| ***Administración de clientes potenciales*** | Habilite el sistema de CRM (Marketo, Microsoft Dynamics o Salesforce) para aceptar datos de clientes potenciales antes de recibir clientes potenciales del escaparate. | list<br />transacción<br />evaluación |  
 | ***Directiva de privacidad y términos de uso*** | La aplicación debe proporcionar un vínculo a la página de la directiva de privacidad mediante una dirección URL pública. Los términos de uso deben especificarse como texto durante la publicación. | list<br />transacción<br />evaluación |  
 | ***Soporte técnico*** | La oferta debe proporcionar un vínculo a la página de asistencia al cliente mediante una dirección URL pública. Si la oferta es una versión de evaluación, debe proporcionar soporte técnico sin costo adicional durante el período de evaluación. | transacción<br />evaluación |    
 
@@ -164,9 +164,8 @@ El tipo de publicación de anuncio incluye los siguientes tipos de oferta en los
 | Requisito | Detalles |  
 |:--- |:--- | 
 | Facturación y medición | Su máquina virtual debe admitir las opciones de facturación mensual BYOL o de pago por uso. |  
-| Disco duro virtual (VHD) compatible con Azure | Las máquinas virtuales deben estar basadas en Windows o Linux.<ul> <li>Para obtener más información acerca de cómo crear un VHD de Linux, visite la sección Creación de un VHD compatible con Azure (basado en Linux) en [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based).</li> <li>Para obtener más información acerca de cómo crear un VHD de Windows, visite la sección Creación de un VHD compatible con Azure (basado en Windows) en [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based).</li> </ul> |  
+| Disco duro virtual (VHD) compatible con Azure | Las máquinas virtuales deben estar basadas en Windows o Linux.<ul> <li>Para obtener más información acerca de cómo crear un VHD de Linux, consulte [Distribuciones de Linux aprobadas en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Para más información acerca de la creación de un VHD de Windows, consulte [Creación de un disco duro virtual compatible con Azure](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |  
 
 ## <a name="next-steps"></a>Pasos siguientes
 *   Visite la página [Guía del anunciante de Azure Marketplace y AppSource](./marketplace-publishers-guide.md).  
- 
----  
+

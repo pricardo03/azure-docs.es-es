@@ -4,22 +4,20 @@ description: Describe las funciones para usar en una plantilla de Azure Resource
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2018
+ms.date: 01/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: d802af1d48405518f26f4b52ecc3023cbb15caff
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 110b909106f5b9eae639639adf418647e3e8bea9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407361"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022349"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funciones de implementación para las plantillas de Azure Resource Manager 
 
@@ -97,6 +95,8 @@ Puede usar deployment() para establecer un vínculo con otra plantilla basada en
     "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
 }
 ```  
+
+Si vuelve a implementar una plantilla desde el historial de implementación en el portal, la plantilla se implementará como un archivo local. La propiedad `templateLink` no se devuelve en la función de la implementación. Si la plantilla se basa en `templateLink` para construir un vínculo con otra plantilla, no use el portal para volver a implementarla. En su lugar, use los comandos que utilizó originalmente para implementar la plantilla.
 
 ### <a name="example"></a>Ejemplo
 

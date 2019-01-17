@@ -4,16 +4,16 @@ description: Aprenda sobre la solución de problemas relacionados con los runboo
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/04/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 41eb31ecabb20ec9eec3db13d5eda9f9cfbe6c69
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f5663842a4d861ed6eb76de859b870aa7114cb04
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015473"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063648"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Solución de problemas relativos a errores con runbooks
 
@@ -39,7 +39,7 @@ Este error se produce si el nombre de activo de credencial no es válido o si el
 Para determinar cuál es el problema, siga estos pasos:  
 
 1. Asegúrese de que el nombre de activo de la credencial de Automation que use para conectarse a Azure no contenga caracteres especiales, incluido el carácter **@**.  
-2. Compruebe que puede utilizar el nombre de usuario y la contraseña que se almacenan en la credencial de Azure Automation en su editor local ISE de PowerShell. Puede comprobar si el nombre de usuario y la contraseña son correctos mediante la ejecución de los siguientes cmdlets en el ISE de PowerShell:  
+2. Compruebe que puede usar el nombre de usuario y la contraseña que se almacenan en la credencial de Azure Automation en su editor local de ISE de PowerShell. Puede comprobar si el nombre de usuario y la contraseña son correctos mediante la ejecución de los siguientes cmdlets en el ISE de PowerShell:  
 
    ```powershell
    $Cred = Get-Credential  
@@ -94,13 +94,15 @@ Este error se produce si el nombre de la suscripción no es válido o si el usua
 Para determinar si se ha autenticado correctamente en Azure y tener acceso a la suscripción que intenta seleccionar, siga estos pasos:  
 
 1. Pruebe el script fuera de Azure Automation para asegurarse de que funciona de forma independiente.
-2. Asegúrese de que ejecuta el cmdlet **Add-AzureAccount** antes de ejecutar el cmdlet **Select-AzureSubscription**.  
-3. Si continúa recibiendo este mensaje de error, modifique el código agregando el parámetro **-AzureRmContext** a continuación del cmdlet **Add-AzureAccount** y luego ejecute el código.
+2. Asegúrese de que ejecuta el cmdlet `Add-AzureAccount` antes que el cmdlet `Select-AzureSubscription`. 
+3. Agregue `Disable-AzureRmContextAutosave –Scope Process` al principio del runbook. De esta forma se garantiza que las credenciales solo se aplican a la ejecución del runbook actual.
+4. Si continúa recibiendo este mensaje de error, modifique el código; para ello, agregue el parámetro **-AzureRmContext** a continuación del cmdlet `Add-AzureAccount` y luego ejecute el código.
 
    ```powershell
+   Disable-AzureRmContextAutosave –Scope Process
+
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
--ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
    $context = Get-AzureRmContext
 
@@ -147,21 +149,24 @@ Este error se puede resolver con la actualización de los módulos de Azure a la
 
 En su cuenta de Automation, haga clic en **Módulos** y en **Actualizar módulos de Azure**. La actualización tarda aproximadamente 15 minutos, una vez que se ha vuelto a ejecutar el runbook que producía un error. Para más información acerca de cómo actualizar los módulos, consulte [Actualización de módulos de Azure en Azure Automation](../automation-update-azure-modules.md).
 
-### <a name="child-runbook-auth-failure"></a>Escenario: Se produce un error en un runbook secundario cuando se trabaja con varias suscripciones
+### <a name="runbook-auth-failure"></a>Escenario: se produce un error en los runbooks cuando se trabaja con varias suscripciones
 
 #### <a name="issue"></a>Problema
 
-Al ejecutar runbooks secundarios con `Start-AzureRmRunbook`, el runbook secundario no puede administrar los recursos de Azure.
+Al ejecutar runbooks con `Start-AzureRmAutomationRunbook`, el runbook no puede administrar los recursos de Azure.
 
 #### <a name="cause"></a>Causa
 
-El runbook secundario no está utilizando el contexto correcto cuando se ejecuta.
+El runbook no está utilizando el contexto correcto cuando se ejecuta.
 
 #### <a name="resolution"></a>Resolución
 
-Si trabaja con varias suscripciones, se puede perder el contexto de suscripción al invocar runbooks secundarios. Para asegurarse de que el contexto de suscripción se pasa a los runbooks secundarios, agregue el parámetro `AzureRmContext` al cmdlet y pase el contexto a él.
+Si trabaja con varias suscripciones, se puede perder el contexto de la suscripción al invocar runbooks. Para asegurarse de que el contexto de la suscripción se pasa a los runbooks, agregue el parámetro `AzureRmContext` al cmdlet y pase el contexto a él. También se recomienda usar el cmdlet `Disable-AzureRmContextAutosave` con el ámbito **Proceso** para asegurarse de que las credenciales que usa solo se emplean con el runbook actual.
 
 ```azurepowershell-interactive
+# Ensures that any credentials apply only to the execution of this runbook
+Disable-AzureRmContextAutosave –Scope Process
+
 # Connect to Azure with RunAs account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
@@ -222,11 +227,11 @@ The job was tried three times but it failed
 
 Este error puede deberse a las siguientes razones:
 
-1. Límite de memoria. Se han documentado límites en la cantidad de memoria asignada a un espacio aislado con los [límites del servicio Automation](../../azure-subscription-service-limits.md#automation-limits), de modo que un trabajo puede producir un error, si está utilizando más de 400 MB de memoria.
+1. Límite de memoria. Los límites documentados sobre la cantidad de memoria que se asigna a un espacio aislado se encuentran en [Límites del servicio Automation](../../azure-subscription-service-limits.md#automation-limits). Un trabajo puede producir un error si emplea más de 400 MB de memoria.
 
-1. Sockets de red. Los espacios aislados de Azure se limitan a 1000 sockets de red simultáneos como se describe en [Límites del servicio Automation](../../azure-subscription-service-limits.md#automation-limits).
+2. Sockets de red. Los espacios aislados de Azure se limitan a 1000 sockets de red simultáneos como se describe en [Límites del servicio Automation](../../azure-subscription-service-limits.md#automation-limits).
 
-1. Módulo incompatible. Este error puede ocurrir si las dependencias del módulo no son correctas. Si no lo son, el runbook normalmente devuelve un mensaje similar a "Comando no encontrado" o "No se puede enlazar el parámetro".
+3. Módulo incompatible. Este error puede ocurrir si las dependencias del módulo no son correctas. Si no lo son, el runbook normalmente devuelve un mensaje similar a "Comando no encontrado" o "No se puede enlazar el parámetro".
 
 #### <a name="resolution"></a>Resolución
 
@@ -328,9 +333,9 @@ El runbook se ejecutó por encima del límite de tres horas permitido por la dis
 
 La solución recomendada consiste en ejecutar el runbook en un [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
 
-Los Hybrid Worker no están limitados por el límite de runbook de tres horas de [distribución equilibrada](../automation-runbook-execution.md#fair-share) como los espacios aislados de Azure. Aunque los Hybrid Runbook Workers no están restringidos por el límite de distribución equilibrada de tres horas, los runbooks ejecutados en Hybrid Runbook Workers deben desarrollarse para admitir comportamientos de reinicio en caso de problemas inesperados con la infraestructura local.
+Los Hybrid Worker no están limitados por el límite de runbook de tres horas de [distribución equilibrada](../automation-runbook-execution.md#fair-share) como los espacios aislados de Azure. Aunque los Hybrid Runbook Workers no están restringidos por el límite de uso compartido equitativo de tres horas, los runbooks ejecutados en ellos deben desarrollarse para admitir comportamientos de reinicio en caso de problemas inesperados con la infraestructura local.
 
-Otra opción es optimizar el runbook mediante la creación de [runbooks secundarios](../automation-child-runbooks.md). Si el runbook secundario recorre en bucle la misma función en varios recursos, como una operación de base de datos en varias bases de datos, la función se puede mover a un runbook secundario. Cada uno de estos runbooks secundarios se ejecutan en paralelo en procesos independientes, lo que reduce el tiempo que el runbook principal tarda en completarse.
+Otra opción es optimizar el runbook mediante la creación de [runbooks secundarios](../automation-child-runbooks.md). Si el runbook secundario recorre en bucle la misma función en varios recursos, como una operación de base de datos en varias bases de datos, la función se puede mover a un runbook secundario. Cada uno de estos runbooks secundarios se ejecuta en paralelo en procesos independientes. Este comportamiento reduce la cantidad total de tiempo que tarda en completarse el runbook primario.
 
 Los cmdlets de PowerShell que habilitan el escenario de runbook secundario son:
 
@@ -354,7 +359,7 @@ El webhook que intenta invocar está deshabilitado o ha expirado.
 
 #### <a name="resolution"></a>Resolución
 
-Si el webhook está deshabilitado, puede volver a habilitarlo a través de Azure Portal. Si el webhook ha expirado, dicho webhook debe eliminarse y volver a crearse. Solo puede [renovar un webhook](../automation-webhooks.md#renew-webhook) si ya no ha expirado.
+Si el webhook está deshabilitado, puede volver a habilitarlo a través de Azure Portal. Si el webhook ha expirado, debe eliminarse y crearse de nuevo. Solo puede [renovar un webhook](../automation-webhooks.md#renew-webhook) si ya no ha expirado.
 
 ### <a name="429"></a>Escenario: 429: Actualmente la tasa de solicitud es demasiado grande. Vuelva a intentarlo.
 
@@ -375,7 +380,7 @@ Este error puede producirse al recuperar la salida de trabajo de un runbook que 
 Hay dos maneras de resolver este error:
 
 * Edite el runbook y reduzca el número de flujos de trabajo que emite.
-* Reduzca el número de flujos para recuperar cuando se ejecuta el cmdlet. Para ello, puede especificar el parámetro `-Stream Output` para el cmdlet `Get-AzureRmAutomationJobOutput` para recuperar solo los flujos de salida. 
+* Reduzca el número de flujos para recuperar cuando se ejecuta el cmdlet. Para seguir este comportamiento, puede especificar el parámetro `-Stream Output` para el cmdlet `Get-AzureRmAutomationJobOutput` a fin de recuperar solo los flujos de salida. 
 
 ## <a name="common-errors-when-importing-modules"></a>Errores comunes al importar módulos
 

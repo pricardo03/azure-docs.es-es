@@ -9,23 +9,22 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: 58fffafe9658919a96d1aef2881424c0d324e688
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d103061289991fb149b7c8d76430b37a6b385f80
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876484"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064379"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Ejecución y desencadenadores de canalización en Azure Data Factory
-> [!div class="op_single_selector" title1="Seleccione la versión del servicio de Data Factory que está utilizando:"]
+> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
 > * [Versión 1](v1/data-factory-scheduling-and-execution.md)
 > * [Versión actual](concepts-pipeline-execution-triggers.md)
 
-Una _ejecución de canalización_ en Azure Data Factory define una instancia de dicha ejecución. Por ejemplo, supongamos que tiene una canalización que se ejecuta las 8:00 a. m., 9:00 a. m. y 10:00 a. m. En este caso, hay tres ejecuciones independientes de la canalización o ejecuciones de canalización. Cada canalización ejecutar tiene un identificador de canalización único. El identificador de ejecución es un GUID que define de forma exclusiva una ejecución de canalización concreta. 
+Una _ejecución de canalización_ en Azure Data Factory define una instancia de dicha ejecución. Por ejemplo, supongamos que tiene una canalización que se ejecuta las 8:00 a. m., 9:00 a. m. y 10:00 a. m. En este caso, hay tres ejecuciones independientes de la canalización o ejecuciones de canalización. Cada canalización ejecutar tiene un identificador de canalización único. El identificador de ejecución es un GUID que define de forma exclusiva una ejecución de canalización concreta.
 
 Normalmente las instancias de ejecuciones de canalización se crean al pasar argumentos a parámetros que se definen en las canalizaciones. Puede ejecutar una canalización manualmente o mediante un _desencadenador_. En este artículo se proporcionan detalles sobre ambas maneras de ejecutar una canalización.
 
@@ -85,7 +84,7 @@ Puede ejecutar manualmente la canalización mediante uno de los métodos siguien
 - SDK de Python
 
 ### <a name="rest-api"></a>API DE REST
-El comando de ejemplo siguiente muestra cómo ejecutar manualmente la canalización mediante la API de REST:  
+El comando de ejemplo siguiente muestra cómo ejecutar manualmente la canalización mediante la API de REST:
 
 ```
 POST
@@ -176,7 +175,7 @@ Un desencadenador de programación ejecuta canalizaciones según una programaci�
 Para más información sobre los desencadenadores de programación y ejemplos, consulte [Creación de un desencadenador que ejecuta una canalización en una programación](how-to-create-schedule-trigger.md).
 
 ## <a name="schedule-trigger-definition"></a>Definición de desencadenador de programación
-Cuando se crea un desencadenador de programación, debe especificar la programación y periodicidad mediante una definición de JSON. 
+Cuando se crea un desencadenador de programación, debe especificar la programación y periodicidad mediante una definición de JSON.
 
 Para hacer que el desencadenador de programación dé inicio a una ejecución de canalización, incluya una referencia de canalización de la canalización en particular en la definición del desencadenador. Las canalizaciones y los desencadenadores tienen una relación de varios a varios. Varios desencadenadores pueden comenzar una única canalización. Un único desencadenador puede iniciar varias canalizaciones.
 
@@ -293,7 +292,7 @@ En la tabla siguiente se muestra cómo la propiedad **startTime** controla una e
 
 Veamos un ejemplo de lo que sucede cuando startTime se encuentra en el pasado, con periodicidad, pero sin programación. Suponga que la fecha actual es 2017-04-08 13:00, la hora de inicio es 2017-04-07 14:00, y la periodicidad es cada dos días. (El valor de **recurrence** se define estableciendo la propiedad **frequency** en "day" y la propiedad **interval** en 2). Tenga en cuenta que el valor de **startTime** se encuentra en el pasado y tiene lugar antes de la hora actual.
 
-En estas condiciones, la primera ejecución será el 2017-04-09 a las 14:00. El motor de Scheduler calcula las repeticiones de la ejecución desde la hora de inicio. Se descartan las instancias en el pasado. El motor utiliza la instancia siguiente que tiene lugar en el futuro. En este escenario, la hora de inicio es 2017-04-07 a las 2:00 p. m. La siguiente instancia es dos días a partir de ese momento, que es 2017-04-09 a las 2:00 p. m.
+En estas condiciones, la primera ejecución será el 4 de septiembre de 2017 a las 14:00. El motor de Scheduler calcula las repeticiones de la ejecución desde la hora de inicio. Se descartan las instancias en el pasado. El motor utiliza la instancia siguiente que tiene lugar en el futuro. En este escenario, la hora de inicio es 2017-04-07 a las 2:00 p. m. La siguiente instancia es dos días a partir de ese momento, que es 2017-04-09 a las 2:00 p. m.
 
 La hora de la primera ejecución es la misma si **startTime** es 2017-04-05 14:00 o 2017-04-01 14:00. Después de la primera ejecución, las ejecuciones posteriores se calculan mediante la programación. Por lo tanto, las ejecuciones siguientes se realizan el 2017-04-11 a las 2:00 p. m., luego el 2017-04-13 a las 2:00 p. m., después el 2017-04-15 a las 2:00 p. m. y así sucesivamente.
 
@@ -313,7 +312,7 @@ En la siguiente tabla se describen los elementos de **schedule** con detalle:
 | **minutes** | Minutos de la hora en la que se ejecuta el desencadenador. |- Entero<br />- Matriz de enteros|
 | **hours** | Horas del día en la que se ejecuta el desencadenador. |- Entero<br />- Matriz de enteros|
 | **weekDays** | Días de la semana en los que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia semanal.|<br />- Monday<br />- Tuesday<br />- Wednesday<br />- Thursday<br />- Friday<br />- Saturday<br />- Sunday<br />- Matriz de valores de día (el tamaño máximo de la matriz es 7)<br /><br />Los valores de día no distinguen mayúsculas de minúsculas.|
-| **monthlyOccurrences** | Días del mes en los que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia mensual. |- Matriz de objetos de **monthlyOccurrence**: `{ "day": day,  "occurrence": occurrence }`.<br />- El atributo **day** es el día de la semana en el que se ejecuta el desencadenador. Por ejemplo, una propiedad **monthlyOccurrences** con un valor de **day** de `{Sunday}` significa todos los domingos del mes. Se necesita un atributo **day**.<br />- El atributo **occurrence** es la repetición del elemento **day** especificado durante el mes. Por ejemplo, una propiedad **monthlyOccurrences** valores de **day** y **occurrence** de `{Sunday, -1}` implica el último domingo del mes. El atributo **occurrence** es opcional.|
+| **monthlyOccurrences** | Días del mes en los que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia mensual. |- Matriz de objetos de **monthlyOccurrence**: `{ "day": day, "occurrence": occurrence }`.<br />- El atributo **day** es el día de la semana en el que se ejecuta el desencadenador. Por ejemplo, una propiedad **monthlyOccurrences** con un valor de **day** de `{Sunday}` significa todos los domingos del mes. Se necesita un atributo **day**.<br />- El atributo **occurrence** es la repetición del elemento **day** especificado durante el mes. Por ejemplo, una propiedad **monthlyOccurrences** valores de **day** y **occurrence** de `{Sunday, -1}` implica el último domingo del mes. El atributo **occurrence** es opcional.|
 | **monthDays** | Día del mes en el que se ejecuta el desencadenador. El valor solo se puede especificar con una frecuencia mensual. |- Cualquier valor <= -1 y >= -31<br />- Cualquier valor >= 1 y <= 31<br />- Matriz de valores|
 
 ## <a name="tumbling-window-trigger"></a>Desencadenador de ventana de saltos de tamaño constante
@@ -373,7 +372,7 @@ En la siguiente tabla se muestra una comparación entre el desencadenador de ven
 | **Funcionalidad de reintento** |  Se admite. Las ejecuciones de canalización erróneas tienen una directiva de reintentos predeterminada de 0 u otra especificada por el usuario en la definición del desencadenador. Realiza un reintento automáticamente cuando se produce un error en la ejecución de la canalización debido a los límites de simultaneidad/servidor/limitación (es decir, códigos de estado 400: Error de usuario, 429: Demasiadas solicitudes y 500: Error interno del servidor). | No compatible. |
 | **Concurrency** |  Se admite. Los usuarios pueden establecer explícitamente límites de simultaneidad para el desencadenador. Permite entre 1 y 50 ejecuciones simultáneas de canalizaciones desencadenadas. | No compatible. |
 | **Variables del sistema** | Admite el uso de las variables del sistema **WindowStart** y **WindowEnd**. Los usuarios pueden acceder a `triggerOutputs().windowStartTime` y `triggerOutputs().windowEndTime` como variables del sistema del desencadenador en la definición del desencadenador. Los valores se utilizan como la hora de inicio y la hora de finalización de la ventana, respectivamente. Por ejemplo, para un desencadenador de la ventana de saltos de tamaño constante que se ejecuta cada hora, para la ventana de 1:00 a. m. a 2:00 a. m., la definición es `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` y `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | No compatible. |
-| **Relación de canalización a desencadenador** | Admite las relaciones uno a uno. Solo se puede desencadenar una canalización. | Admite relaciones muchos a muchos. Varios desencadenadores pueden comenzar una única canalización. Un único desencadenador puede iniciar varias canalizaciones. | 
+| **Relación de canalización a desencadenador** | Admite las relaciones uno a uno. Solo se puede desencadenar una canalización. | Admite relaciones muchos a muchos. Varios desencadenadores pueden comenzar una única canalización. Un único desencadenador puede iniciar varias canalizaciones. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea los siguientes tutoriales:

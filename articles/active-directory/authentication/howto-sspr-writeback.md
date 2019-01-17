@@ -10,16 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e8a09a9fc87bff692b5d5b4c54f87839f2591b63
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: ce1bcb26b3a3510b22ced57471016999156bb0cf
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086954"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040666"
 ---
-# <a name="how-to-configure-password-writeback"></a>Cómo configurar la escritura diferida de contraseñas
-
-Se recomienda que use la característica de actualización automática de [Azure AD Connect](../hybrid/how-to-connect-install-express.md) si quiere utilizar la escritura diferida de contraseñas.
+# <a name="how-to-configure-password-writeback"></a>Procedimiento: Configurar la escritura diferida de contraseñas
 
 En los pasos siguientes se da por supuesto que ya ha configurado Azure AD Connect en su entorno mediante la configuración [Rápida](../hybrid/how-to-connect-install-express.md) o [Personalizada](../hybrid/how-to-connect-install-custom.md).
 
@@ -39,6 +37,24 @@ Para tareas de solución de problemas comunes relacionadas con la escritura dife
 > La escritura diferida de contraseñas dejará de funcionar para los clientes que usan versiones de Azure AD Connect 1.0.8641.0 y anteriores cuando el [servicio de Azure Access Control (ACS) se retire el 7 de noviembre de 2018](../develop/active-directory-acs-migration.md). Las versiones de Azure AD Connect 1.0.8641.0 y anteriores ya no permitirán la escritura diferida de contraseñas a partir de ese momento porque dependen de ACS para esa funcionalidad.
 >
 > Para evitar una interrupción en el servicio y actualizar desde una versión anterior de Azure AD Connect a una versión más reciente, consulte el artículo [Azure AD Connect: actualización de una versión anterior a la versión más reciente](../hybrid/how-to-upgrade-previous-version.md)
+>
+
+## <a name="licensing-requirements-for-password-writeback"></a>Requisitos de licencia para la escritura diferida de contraseñas
+
+**El restablecimiento de contraseñas de autoservicio/cambio/desbloqueo con escritura diferida local es una característica premium de Azure AD**. Para más información sobre licencias, consulte la [página de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+
+Para poder usar la escritura diferida de contraseñas, debe tener una de las siguientes licencias asignadas en el inquilino:
+
+* Azure AD Premium P1
+* Azure AD Premium P2
+* Enterprise Mobility + Security E3 o A3
+* Enterprise Mobility + Security E5 o A5
+* Microsoft 365 E3 o A3
+* Microsoft 365 E5 o A5
+* Microsoft 365 F1
+
+> [!WARNING]
+> Los planes de licencias de Office 365 independientes *no admiten "Self-Service Password Reset/Change/Unlock with on-premises writeback"* (Autoservicio de restablecimiento/modificación/desbloqueo de contraseñas con escritura en diferido local) y requieren que tenga uno de los planes anteriores para que sirva esta funcionalidad.
 >
 
 ## <a name="active-directory-permissions"></a>Permisos de Active Directory

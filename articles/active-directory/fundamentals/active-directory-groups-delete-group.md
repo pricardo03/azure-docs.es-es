@@ -12,21 +12,21 @@ ms.date: 08/29/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 6c08022b47fb1a118e95a54eedf9b5239496ebf7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 405e86506f13472886878eb18557121c752e9464
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092237"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062305"
 ---
 # <a name="delete-a-group-using-azure-active-directory"></a>Eliminación de un grupo con Azure Active Directory
 Puede eliminar un grupo de Azure Active Directory (Azure AD) por infinidad de motivos, pero normalmente será porque:
 
-- Ha establecido incorrectamente el **Tipo de grupo** en la opción incorrecta
+- Ha establecido incorrectamente el **Tipo de grupo** en la opción incorrecta.
 
-- Ha creado un grupo incorrecto o duplicado por error 
+- Ha creado un grupo incorrecto o duplicado por error. 
 
-- Ya no necesita el grupo
+- Ya no necesita el grupo.
 
 ## <a name="to-delete-a-group"></a>Para eliminar un grupo
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de administrador global del directorio.

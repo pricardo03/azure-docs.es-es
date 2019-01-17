@@ -1,21 +1,19 @@
 ---
 title: 'Azure Cosmos DB: API, SDK y recursos de .NET Core para SQL'
 description: Aprenda todo lo necesario sobre el SDK y la API de .NET Core para SQL como, por ejemplo, fechas de lanzamiento, fechas de retirada y cambios realizados de una versión a otra del SDK para .NET Core de Azure Cosmos DB.
-services: cosmos-db
-author: rnagpal
+author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
-ms.author: rnagpal
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d947974575cf996ed880f2c1b5f8f7700b81ffd3
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.author: sngun
+ms.openlocfilehash: 5eb04f30fd6766b8df65998b8a4d53797b8341ba
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413513"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053558"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>SDK de .NET Core de Azure Cosmos DB para API de SQL: notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -57,6 +55,14 @@ El SDK de .NET Core para Azure Cosmos DB incluye paridad de características con
 * Nuevo modelo de objetos, con CosmosClient de nivel superior y métodos divididos entre las clases CosmosDatabases, CosmosContainers y CosmosItems adecuadas.
 * Compatibilidad con secuencias.
 * Actualización de CosmosResponseMessage desde el servidor para devolver el código de estado y solo iniciar la excepción cuando no se devuelve ninguna respuesta.
+
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+
+* Mejora en la lógica de reintento durante la conmutación por error para las llamadas de ejecución StoredProcedure.
+
+* DocumentClientEventSource se ha vuelto una base de datos única. 
+
+* Corrección en el tiempo de espera de GatewayAddressCache que no respetaba ConnectionPolicy RequestTimeout.
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 
@@ -227,7 +233,8 @@ Si tiene preguntas relacionadas con este SDK, publíquelas en [StackOverflow](ht
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
-| [2.2.0](#2.2.0) |07 de diciembre de 2018 |--- |
+| [2.2.1](#2.2.1) |24 de diciembre de 2018 |--- |
+| [2.2.0](#2.2.0) |7 de diciembre de 2018 |--- |
 | [2.1.3](#2.1.3) |15 de octubre de 2018 |--- |
 | [2.1.2](#2.1.2) |04 de octubre de 2018 |--- |
 | [2.1.1](#2.1.1) |27 de septiembre de 2018 |--- |

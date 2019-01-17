@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: eb88501c5daf0b79d22f4407a372c4606a173db1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5856824ba4aec2998ad38ac73cc5acc0840584cd
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987703"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023845"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuales de una plantilla de Azure Resource Manager
 
@@ -436,7 +436,7 @@ Existen muchas extensiones que se pueden instalar en una máquina virtual, pero 
 }
 ```
 
-El script start.ps1 puede realizar muchas tareas de configuración. Por ejemplo, no se inicializan los discos de datos que se agregan a las máquinas virtuales en el ejemplo; puede usar uno personalizado para inicializarlos. Si tiene varias tareas de inicio para realizar, puede utilizar el archivo start.ps1 para llamar a otros scripts de PowerShell en Azure Storage. En el ejemplo se usa PowerShell, pero puede usar cualquier método de scripting que esté disponible en el sistema operativo que esté utilizando.
+El script start.ps1 puede realizar muchas tareas de configuración. Por ejemplo, no se inicializan los discos de datos que se agregan a las máquinas virtuales en el ejemplo; puede usar un script personalizado para inicializarlos. Si tiene varias tareas de inicio para realizar, puede utilizar el archivo start.ps1 para llamar a otros scripts de PowerShell en Azure Storage. En el ejemplo se usa PowerShell, pero puede usar cualquier método de scripting que esté disponible en el sistema operativo que esté utilizando.
 
 Puede ver el estado de las extensiones instaladas en la configuración de extensiones del portal:
 
@@ -448,7 +448,7 @@ También puede obtener información de la extensión mediante el comando de Powe
 
 Cuando se implementa una plantilla, Azure realiza un seguimiento de los recursos implementados como un grupo y asigna automáticamente un nombre para este grupo implementado. El nombre de la implementación es el mismo que el de la plantilla.
 
-Si le preocupa el estado de los recursos de la implementación, puede usar la hoja Grupo de recursos de Azure Portal:
+Si le preocupa el estado de los recursos de la implementación, consulte el grupo de recursos de Azure Portal:
 
 ![Obtención de la información de implementación](./media/template-description/virtual-machines-deployment-info.png)
     
@@ -459,3 +459,4 @@ No pasa nada por usar la misma plantilla para crear o actualizar recursos existe
 - Cree su propia plantilla con las [Creación de plantillas de Azure Resource Manager](../../resource-group-authoring-templates.md).
 - Implemente la plantilla que creó mediante [Creación de una máquina virtual Windows con una plantilla de Resource Manager](ps-template.md).
 - Aprenda a administrar la máquina virtual que ha creado repasando el tema [Creación y administración de máquinas virtuales Windows con el módulo de Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Para información sobre la sintaxis de JSON y las propiedades de los tipos de recursos de las plantillas, consulte [Azure Resource Manager template reference](/azure/templates/) (Referencia de las plantillas de Azure Resource Manager).

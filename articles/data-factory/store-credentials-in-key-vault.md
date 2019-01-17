@@ -8,16 +8,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/22/2017
 ms.author: jingwang
-ms.openlocfilehash: 3428fb5034435d9f3444347329171d803136177c
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 60dd0bdd529b4ee8fc8377093d49b8a27fb9b3f1
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944675"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016655"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Almacenamiento de credenciales en Azure Key Vault
 
@@ -47,7 +46,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Ke
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en **AzureKeyVault**. | SÍ |
+| Tipo | La propiedad type debe establecerse en: **AzureKeyVault**. | SÍ |
 | baseUrl | Especifique la dirección URL de Azure Key Vault. | SÍ |
 
 **Uso de la IU de creación:**
@@ -80,7 +79,7 @@ Al configurar un campo en un servicio vinculado que hace referencia a un secreto
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del campo debe establecerse en **AzureKeyVaultSecret**. | SÍ |
+| Tipo | La propiedad type del campo debe establecerse en: **AzureKeyVaultSecret**. | SÍ |
 | secretName | El nombre del secreto en Azure Key Vault. | SÍ |
 | secretVersion | La versión del secreto en Azure Key Vault.<br/>Si no se especifica, siempre se usa la versión más reciente del secreto.<br/>Si se especifica, se usa la versión dada.| Sin  |
 | store | Hace referencia a un servicio vinculado de Azure Key Vault que se usa para almacenar las credenciales. | SÍ |

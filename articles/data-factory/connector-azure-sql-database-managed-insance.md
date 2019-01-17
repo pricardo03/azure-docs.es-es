@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 561e672436c38cd0b3e637b794662483fc630676
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: df8d337e7950400a86dcab14de4484f4811f43e2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706728"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025086"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-using-azure-data-factory"></a>Copia de datos hacia y desde Instancia administrada de Azure SQL Database mediante Azure Data Factory
 
@@ -50,7 +49,7 @@ Las siguientes propiedades se admiten en el servicio vinculado de Instancia admi
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type se debe establecer en: **SqlServer** | SÍ |
+| Tipo | La propiedad type debe establecerse en: **SqlServer** | SÍ |
 | connectionString |Especifique la información de connectionString necesaria para conectarse a la instancia administrada mediante autenticación de SQL o autenticación de Windows. Consulte el ejemplo siguiente. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |SÍ |
 | userName |Especifique el nombre de usuario si usa la autenticación de Windows. Ejemplo: **nombreDeDominio\\nombreDeUsuario**. |Sin  |
 | contraseña |Especifique la contraseña de la cuenta de usuario que se especificó para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sin  |
@@ -59,7 +58,7 @@ Las siguientes propiedades se admiten en el servicio vinculado de Instancia admi
 >[!TIP]
 >Si recibió un error con código de error como "UserErrorFailedToConnectToSqlServer" y un mensaje como "The session limit for the database is XXX and has been reached" (El límite de sesión de la base de datos es XXX y ya se ha alcanzado), agregue `Pooling=false` a la cadena de conexión e inténtelo de nuevo.
 
-**Ejemplo 1: Uso de autenticación de SQL**
+**Ejemplo 1: Uso de la autenticación de SQL**
 
 ```json
 {
@@ -80,7 +79,7 @@ Las siguientes propiedades se admiten en el servicio vinculado de Instancia admi
 }
 ```
 
-**Ejemplo 2: Uso de autenticación de Windows**
+**Ejemplo 2: Uso de la autenticación de Windows**
 
 ```json
 {
@@ -114,7 +113,7 @@ Para copiar datos desde y hacia Instancia administrada de Azure SQL Database, es
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos se debe establecer en: **SqlServerTable** | SÍ |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **SqlServerTable** | SÍ |
 | tableName |Nombre de la tabla o vista en la instancia de base de datos a la que hace referencia el servicio vinculado. | No para el origen, sí para el receptor |
 
 **Ejemplo**
@@ -249,9 +248,9 @@ Para copiar datos en Instancia administrada de Azure SQL Database, establezca el
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en: **SqlSink**. | SÍ |
-| writeBatchSize |Inserta datos en la tabla SQL cuando el tamaño del búfer alcanza el valor writeBatchSize.<br/>Los valores permitidos son: enteros (número de filas). |No (valor predeterminado = 10000) |
-| writeBatchTimeout |Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera.<br/>Los valores permitidos son: intervalos de tiempo.  Ejemplo: "00:30:00" (30 minutos). |Sin  |
+| Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en: **SqlSink** | SÍ |
+| writeBatchSize |Inserta datos en la tabla SQL cuando el tamaño del búfer alcanza el valor writeBatchSize.<br/>Los valores permitidos son: enteros (número de filas). |No (valor predeterminado: 10000) |
+| writeBatchTimeout |Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera.<br/>Los valores permitidos son: intervalos de tiempo. Ejemplo: "00:30:00" (30 minutos). |Sin  |
 | preCopyScript |Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en la instancia administrada. Solo se invocará una vez por cada copia que se ejecute. Puede usar esta propiedad para limpiar los datos cargados previamente. |Sin  |
 | sqlWriterStoredProcedureName |Nombre del procedimiento almacenado que define cómo aplicar datos de origen en la tabla de destino, por ejemplo, cómo realizar operaciones Upsert o transformaciones con su propia lógica de negocios. <br/><br/>Tenga en cuenta que este procedimiento almacenado se **invocará por lote**. Si desea realizar una operación que solo se ejecuta una vez y que no tiene nada que ver con los datos de origen, como por ejemplo, eliminar o truncar, use la propiedad `preCopyScript`. |Sin  |
 | storedProcedureParameters |Parámetros del procedimiento almacenado.<br/>Los valores permitidos son: pares nombre-valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. |Sin  |
@@ -260,7 +259,7 @@ Para copiar datos en Instancia administrada de Azure SQL Database, establezca el
 > [!TIP]
 > Cuando se copian datos en Instancia administrada de Azure SQL Database, la actividad de copia anexa datos a la tabla receptora de forma predeterminada. Para llevar a cabo una operación UPSERT o una lógica de negocios adicional, use el procedimiento almacenado de SqlSink. Obtenga más información en [Invocación del procedimiento almacenado para el receptor de SQL](#invoking-stored-procedure-for-sql-sink).
 
-**Ejemplo 1: Anexo de datos**
+**Ejemplo 1: Anexo de datos**
 
 ```json
 "activities":[
@@ -292,7 +291,7 @@ Para copiar datos en Instancia administrada de Azure SQL Database, establezca el
 ]
 ```
 
-**Ejemplo 2: Invocación de un procedimiento almacenado durante la copia para actualizar e insertar**
+**Ejemplo 2: Invocación de un procedimiento almacenado durante la copia para realizar la operación UPSERT**
 
 Obtenga más información en [Invocación del procedimiento almacenado para el receptor de SQL](#invoking-stored-procedure-for-sql-sink).
 
@@ -406,7 +405,7 @@ Al copiar datos en Instancia administrada de Azure SQL Database, se puede config
 
 Cuando los mecanismos de copia integrada no prestan el servicio, se puede usar un procedimiento almacenado. Normalmente, se suele realizar al realizar operaciones UPSERT (actualización e inserción) y procesos adicionales (combinación de columnas, búsqueda de valores adicionales, inserción en varias tablas, etc.) antes de la inserción final de los datos de origen en la tabla de destino.
 
-En el ejemplo siguiente se muestra cómo usar un procedimiento almacenado para realizar una operación UPSERT en una tabla de la instancia administrada. Supongamos que los datos de entrada y la tabla "Marketing" del receptor tienen tres columnas (ProfileID, State y Category), realice una operación UPSERT en función de la columna "ProfileID" y aplíquela solo a una categoría específica.
+En el ejemplo siguiente se muestra cómo usar un procedimiento almacenado para realizar una operación UPSERT en una tabla de la instancia administrada. Supongamos que los datos de entrada y la tabla "Marketing" del receptor tienen tres columnas: ProfileID, State y Category. realice una operación UPSERT en función de la columna "ProfileID" y aplíquela solo a una categoría específica.
 
 **Conjunto de datos de salida**
 

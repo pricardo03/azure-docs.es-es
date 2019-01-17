@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 5bb36c693db5b2d7d46b772fd8b92bcda3667dc7
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f1607a7d795e3934881429feb18c711a75995e31
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039435"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062951"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Habilitación de las soluciones Update Management, Change Tracking e Inventory en varias máquinas virtuales
 
@@ -59,6 +59,24 @@ Si el área de trabajo seleccionada no está vinculada a una cuenta de Automatio
 
 ![No hay área de trabajo](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
+Al habilitar las soluciones, solo en determinadas regiones se puede vincular un área de trabajo de Log Analytics y una cuenta de Automation.
+
+En la tabla siguiente se muestran las asignaciones admitidas:
+
+|**Región del área de trabajo de Log Analytics**|**Región de Azure Automation**|
+|---|---|
+|AustraliaSoutheast|AustraliaSoutheast|
+|CanadaCentral|CanadaCentral|
+|CentralIndia|CentralIndia|
+|EastUS|EastUS2|
+|JapanEast|JapanEast|
+|SoutheastAsia|SoutheastAsia|
+|WestCentralUS|WestCentralUS|
+|WestEurope|WestEurope|
+|UKSouth|UKSouth|
+|USGovVirginia|USGovVirginia|
+|EastUS2EUAP|CentralUSEUAP|
+
 Anule la selección de las casillas que haya junto a las máquinas virtuales que no desee habilitar. Ya se ha anulado la selección de las máquinas virtuales que no se puedan habilitar.
 
 Haga clic en **Habilitar** para habilitar la solución. La solución tarda hasta 15 minutos en habilitarse.
@@ -80,13 +98,13 @@ Después de quitar estas soluciones, puede realizar los pasos siguientes para de
 
 1. En Azure Portal, abra su cuenta de Automation y, en la página de la cuenta de Automation, seleccione **Área de trabajo vinculada** en la sección **Recursos relacionados** de la izquierda.
 
-1. En la página Desvincular área de trabajo, haga clic en **Desvincular área de trabajo**.
+2. En la página Desvincular área de trabajo, haga clic en **Desvincular área de trabajo**.
 
    ![Página Desvincular área de trabajo](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
 
    Recibirá un aviso para comprobar que desea continuar.
 
-1. Aunque Azure Automation trate de desvincular la cuenta del área de trabajo de Log Analytics, puede seguir el progreso en **Notificaciones** en el menú.
+3. Aunque Azure Automation trate de desvincular la cuenta del área de trabajo de Log Analytics, puede seguir el progreso en **Notificaciones** en el menú.
 
 Si ha usado la solución de administración de actualizaciones, también puede quitar los siguientes elementos que ya no necesite después de quitar la solución.
 
@@ -108,7 +126,7 @@ Al incorporar varias máquinas, puede haber algunas en las que aparezca **No se 
 
 **Causa**: este error muestra que la máquina virtual que intenta incorporar depende de otra área de trabajo.
 
-**Solución**: haga clic en **Use as configuration** (Usar como configuración) para cambiar la cuenta de Automation y el área de trabajo de Log Analytics de destino.
+**Solución**: Haga clic en **Use as configuration** (Usar como configuración) para cambiar la cuenta de Automation y el área de trabajo de Log Analytics de destino.
 
 ### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>La máquina virtual depende de un área de trabajo que no está disponible en esta suscripción
 
@@ -118,11 +136,11 @@ Al incorporar varias máquinas, puede haber algunas en las que aparezca **No se 
 * No existe, o bien
 * Está en un grupo de recursos al que no tiene permisos de acceso
 
-**Solución**: busque la cuenta de Automation asociada al área de trabajo que la depende la máquina virtual e incorpore la máquina virtual, cambiando la configuración del ámbito.
+**Solución**: busque la cuenta de Automation asociada al área de trabajo de la que depende la máquina virtual e incorpore la máquina virtual, para lo cual debe cambiar la configuración del ámbito.
 
 ### <a name="vm-operating-system-version-or-distribution-is-not-supported"></a>La versión o distribución del sistema operativo de la máquina virtual no son compatibles
 
-**Causa:** la solución no es compatible con todas las distribuciones de Linux o todas las versiones de Windows.
+**Causa:** la solución no se admite en todas las distribuciones de Linux o todas las versiones de Windows.
 
 **Solución:** consulte la [lista de clientes admitidos](automation-update-management.md#clients) para la solución.
 

@@ -9,17 +9,16 @@ ms.assetid: f8d46e1e-5c37-4408-80fb-c54be532a4ab
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f68e1077ebc26245b25eae3b0310db74b6d1357e
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4d3c67974bc1dd0e52d3de457071d550a6379e36
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046452"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023109"
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Inserción de datos en un índice de Azure Search mediante el uso de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,9 +38,9 @@ La puerta de enlace de administración de datos conecta orígenes de datos local
 ## <a name="getting-started"></a>Introducción
 Puede crear una canalización con una actividad de copia que inserte datos de un almacén de datos de origen en un índice de Azure Search mediante el uso de distintas herramientas o API.
 
-La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos.
+La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Vea [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
 
-También puede usar las herramientas siguientes para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia. 
+Puede usar las siguientes herramientas para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia. 
 
 Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor: 
 
@@ -49,7 +48,7 @@ Tanto si usa las herramientas como las API, realice los pasos siguientes para cr
 2. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia. 
 3. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. 
 
-Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Si desea obtener un ejemplo con definiciones de JSON para entidades de Data Factory que se utilizan con el fin de copiar datos de un índice de Azure Search, consulte la sección [Ejemplo de JSON: Copia de datos de un servidor SQL Server local a un índice de Azure Search](#json-example-copy-data-from-on-premises-sql-server-to-azure-search-index) de este artículo. 
+Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para ver un ejemplo con definiciones de JSON para entidades de Data Factory que se emplean para copiar datos al índice de Azure Search, consulte la sección [Ejemplo JSON: Copia de datos de un servidor SQL Server local a un índice de Azure Search](#json-example-copy-data-from-on-premises-sql-server-to-azure-search-index) de este artículo. 
 
 Las secciones siguientes proporcionan detalles sobre las propiedades JSON que se usan para definir entidades de Data Factory específicas de índices de Azure Search:
 
@@ -59,9 +58,9 @@ En la tabla siguiente se proporcionan descripciones de los elementos JSON espec�
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | -------- | ----------- | -------- |
-| Tipo | La propiedad type debe establecerse en **AzureSearch**. | Sí |
-| URL | La URL del servicio Azure Search. | Sí |
-| key | La clave de administración del servicio Azure Search. | Sí |
+| Tipo | La propiedad type debe establecerse en: **AzureSearch**. | SÍ |
+| URL | La URL del servicio Azure Search. | SÍ |
+| key | La clave de administración del servicio Azure Search. | SÍ |
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 
@@ -69,8 +68,8 @@ Para una lista completa de las secciones y propiedades disponibles para definir 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | -------- | ----------- | -------- |
-| Tipo | La propiedad type debe establecerse en **AzureSearchIndex**.| Sí |
-| indexName | Nombre del índice de Azure Search. Data Factory no crea el índice. El índice debe existir en Azure Search. | Sí |
+| Tipo | La propiedad type debe establecerse en **AzureSearchIndex**.| SÍ |
+| indexName | Nombre del índice de Azure Search. Data Factory no crea el índice. El índice debe existir en Azure Search. | SÍ |
 
 
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
@@ -110,7 +109,7 @@ En la tabla siguiente se especifica si se admite o no un tipo de datos de Azure 
 | Matriz de cadenas | N |
 | GeographyPoint | N |
 
-## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-search-index"></a>Ejemplo de JSON: Copia de datos de un servidor SQL Server local a un índice de Azure Search
+## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-search-index"></a>Ejemplo JSON: Copia de datos de un servidor SQL Server local a un índice de Azure Search
 
 El ejemplo siguiente muestra:
 

@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: 73eda631d43da87b4472615c2b6a28244372c613
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d1d7c5df1b49a1f8c2fe4fbae4d8c8fdbd481e0e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339270"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053915"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>SDK de dispositivo IoT de Azure para C
 
@@ -75,11 +75,11 @@ Hay varias herramientas de código abierto que le ayudan a administrar IoT Hub.
 
 * Una aplicación de Windows llamada [device explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
 
-* Una extensión de Visual Studio Code multiplataforma llamada [Azure IoT Hub Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (anteriormente Azure IoT Toolkit).
+* Una extensión de Visual Studio Code multiplataforma llamada [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
 * Una herramienta de la CLI de Python multiplataforma denominada [extensión de IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension).
 
-En este tutorial se utiliza la herramienta gráfica *device explorer*. Puede usar la *extensión Azure IoT Hub Toolkit para VS Code* si realiza sus desarrollos en VS Code. También puede usar la herramienta *extensión de IoT para la CLI de Azure 2.0* si prefiere usar una herramienta de la CLI.
+En este tutorial se utiliza la herramienta gráfica *device explorer*. Puede usar *Azure IoT Tools para VS Code* si desarrolla en VS Code. También puede usar la herramienta *extensión de IoT para la CLI de Azure 2.0* si prefiere usar una herramienta de la CLI.
 
 La herramienta device explorer usa las bibliotecas del servicio Azure IoT para realizar varias funciones en IoT Hub, entre las que se incluye la adición de dispositivos. Si usa la herramienta device explorer para agregar un dispositivo, obtiene una cadena de conexión para el dispositivo. Esta cadena de conexión se necesita para ejecutar las aplicaciones de ejemplo.
 

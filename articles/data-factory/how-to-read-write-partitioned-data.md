@@ -9,16 +9,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: shlo
-ms.openlocfilehash: 24464d110b00508cfb3fde4ab1a050773511e255
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f2d780900a0cd24f2d70499573a4055dc836ae0b
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091056"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013577"
 ---
 # <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory"></a>Lectura o escritura de datos con particiones en Azure Data Factory versión 2
 
@@ -180,5 +179,5 @@ Definición de la canalización:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener un tutorial completo acerca de cómo crear una factoría de datos con una canalización, consulte [Inicio rápido: Crear una factoría de datos](quickstart-create-data-factory-powershell.md). 
+Para obtener un tutorial completo acerca de cómo crear una factoría de datos con una canalización, consulte [Inicio rápido: Creación de una factoría de datos](quickstart-create-data-factory-powershell.md). 
 

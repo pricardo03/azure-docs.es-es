@@ -9,19 +9,19 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 12/06/2018
-ms.openlocfilehash: b0fd2466d72b1aae65a54b9e9813a5af51bf1672
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 31f3cf9bd8f83c5da32569ed370de1ed35299749
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997534"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062390"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-through-an-integration-service-environment-ise"></a>Conectarse a redes virtuales de Azure desde Azure Logic Apps a través de un entorno de servicio de integración (ISE)
 
 > [!NOTE]
 > Esta funcionalidad está en *versión preliminar privada*. Para solicitar acceso, [cree su solicitud para unirse aquí](https://aka.ms/iseprivatepreview).
 
-Para escenarios donde sus cuentas de integración y las aplicaciones lógicas necesitan tener acceso a una [red virtual de Azure](../virtual-network/virtual-networks-overview.md), cree un [*entorno de servicio de integración* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Un ISE es un entorno aislado y privado que usa almacenamiento dedicado y otros recursos que existen de forma independiente del servicio Logic Apps público o *global*. Esta separación también reduce los posibles efectos que podrían tener otros inquilinos de Azure en el rendimiento de la aplicación. Puede *insertar* este ISE en su instancia de Azure Virtual Network, que luego implementa el servicio Logic Apps en la red virtual. Al crear aplicaciones lógicas o cuentas de integración, seleccionará este ISE como ubicación. Así, las aplicaciones lógicas y las cuentas de integración tienen acceso directo a recursos tales como las máquinas virtuales, los servidores, los sistemas y los servicios de la red virtual. 
+Para escenarios donde sus cuentas de integración y las aplicaciones lógicas necesitan tener acceso a una [red virtual de Azure](../virtual-network/virtual-networks-overview.md), cree un [*entorno de servicio de integración* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Un ISE es un entorno aislado y privado que usa almacenamiento especializado y otros recursos que existen de forma independiente del servicio Logic Apps público o "global". Esta separación también reduce los posibles efectos que podrían tener otros inquilinos de Azure en el rendimiento de la aplicación. Puede *insertar* este ISE en su instancia de Azure Virtual Network, que luego implementa el servicio Logic Apps en la red virtual. Al crear aplicaciones lógicas o cuentas de integración, seleccionará este ISE como ubicación. Así, las aplicaciones lógicas y las cuentas de integración tienen acceso directo a recursos tales como las máquinas virtuales, los servidores, los sistemas y los servicios de la red virtual. 
 
 ![Selección del entorno de servicio de integración](./media/connect-virtual-network-vnet-isolated-environment/select-logic-app-integration-service-environment.png)
 
@@ -40,6 +40,9 @@ Para más información sobre los entornos de servicio de integración, consulte 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción de Azure. Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>. 
+
+  > [!IMPORTANT]
+  > Las aplicaciones lógicas, las acciones integradas y los conectores que se ejecutan en la instancia de ISE utilizan un plan de tarifa diferente, no uno basado en el consumo. Para obtener más información, consulte [Precios de Logic Apps](../logic-apps/logic-apps-pricing.md).
 
 * Una instancia de [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Si no tiene una red virtual, aprenda a [crear una](../virtual-network/quick-create-portal.md). 
 
@@ -109,9 +112,9 @@ En la lista de resultados, seleccione **Entorno de servicio de integración (ver
    | **Grupos de recursos** | SÍ | <*nombre del grupo de recursos de Azure*> | El grupo de recursos de Azure donde quiere crear el entorno. |
    | **Nombre del Entorno del servicio de integración** | SÍ | <*nombre del entorno*> | El nombre de su entorno. | 
    | **Ubicación** | SÍ | <*región del centro de datos de Azure*> | La región del centro de datos de Azure donde se implementará el entorno. | 
-   | **Capacity** | SÍ | 0, 1, 2, 3 | Número de unidades de procesamiento que se utilizará para este recurso ISE | 
+   | **Capacidad adicional** | SÍ | 0, 1, 2, 3 | Número de unidades de procesamiento que se utilizará para este recurso ISE | 
    | **Red virtual** | SÍ | <*Azure-virtual-network-name*> | La red virtual de Azure donde quiere insertar su entorno para que las aplicaciones lógicas de ese entorno puedan acceder a la red virtual. Si no dispone de una red, debe crear una aquí. <p>**Importante**: *Solo* puede realizar esta inserción cuando se crea el ISE. Sin embargo, para poder crear esta relación, asegúrese de [configurar el control de acceso basado en roles en la red virtual para Azure Logic Apps](#vnet-access). | 
-   | **Subredes** | SÍ | <*intervalo de direcciones IP*> | Una instancia de ISE requiere cuatro subredes *vacías*. Estas subredes no están delegadas a ningún servicio y se utilizan para crear recursos en su entorno. *No se puede cambiar* este intervalo de direcciones IP una vez creado el entorno. <p><p>Para crear cada subred, [siga los pasos descritos en esta tabla](#create-subnet). Cada subred debe cumplir estos criterios: <p>-No existir en el mismo intervalo de direcciones que la red virtual seleccionada ni en ninguna otra dirección IP privada donde se conecte la red virtual. <br>- Usar un nombre que no comience con un número ni con un guión. <br>- Usar el [formato Enrutamiento de interdominios sin clases (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). <br>- Requerir un espacio de direcciones de clase B. <br>- Incluir un valor `/27`. Por ejemplo, cada subred incluida aquí especifica un intervalo de direcciones de 32 bits: `10.0.0.0/27`, `10.0.0.32/27`, `10.0.0.64/27`, y `10.0.0.96/27`. <br>- No puede estar vacío. |
+   | **Subredes** | SÍ | <*subnet-resource-list*> | Una instancia de ISE necesita cuatro subredes *vacías* para la creación de recursos en el entorno. Por lo tanto, asegúrese de que estas subredes *no se delegan* a cualquier servicio. *No se pueden cambiar* estas direcciones de subred una vez creado el entorno. <p><p>Para crear cada subred, [siga los pasos descritos en esta tabla](#create-subnet). Cada subred debe cumplir estos criterios: <p>- No puede estar vacío. <br>- Usar un nombre que no comience con un número ni con un guión. <br>- Usar el [formato Enrutamiento de interdominios sin clases (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) y un espacio de direcciones de clase B. <br>Incluir al menos un `/27` en el espacio de direcciones de manera que la subred obtenga al menos 32 de ellas. Para más información sobre cómo calcular el número de direcciones, consulte los [bloques IPv4 CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks). Por ejemplo:  <p>- `10.0.0.0/24` tiene 256 direcciones porque 2<sup>(32-24)</sup> es 2<sup>8</sup> o 256. <br>- `10.0.0.0/27` tiene 32 direcciones porque 2<sup>(32-27)</sup> es 2<sup>5</sup> o 32. <br>- `10.0.0.0/28` tiene solo 16 direcciones porque 2<sup>(32-28)</sup> es 2<sup>4</sup> o 16. |
    |||||
 
    <a name="create-subnet"></a>

@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 74a5d687535915fab7d518faaf916b98ab262c4b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 731df55a11f4671670a65dac8a83927d81da454c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053905"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015804"
 ---
 # <a name="wait-activity-in-azure-data-factory"></a>Actividad Wait en Azure Data Factory
 Cuando use una actividad Wait en una canalización, esta espera durante el período de tiempo especificado antes de continuar con la ejecución de actividades sucesivas. 
@@ -40,9 +39,9 @@ Cuando use una actividad Wait en una canalización, esta espera durante el perí
 
 Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
-Nombre | Nombre de la actividad `Wait`. | string | Sí
-Tipo | Debe establecerse en **Wait**. | string | Sí
-waitTimeInSeconds | El número de segundos que esperará la canalización antes de seguir con el procesamiento. | Entero | Sí
+Nombre | Nombre de la actividad `Wait`. | string | SÍ
+Tipo | Debe establecerse en **Wait**. | string | SÍ
+waitTimeInSeconds | El número de segundos que esperará la canalización antes de seguir con el procesamiento. | Entero | SÍ
 
 ## <a name="example"></a>Ejemplo
 

@@ -9,20 +9,19 @@ ms.assetid: c1644e17-4560-46bb-bf3c-b923126671f1
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 88e56f522545f9c1f38bf0d0fdbcebdc171c294b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c7a3893c35031d05ea8aade0ad5d30b5a56176fd
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046537"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015141"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Movimiento de datos de DB2 mediante la actividad de copia de Azure Data Factory
-> [!div class="op_single_selector" title1="Seleccione la versión del servicio de Data Factory que está utilizando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1](data-factory-onprem-db2-connector.md)
 > * [Versión 2 (versión actual)](../connector-db2.md)
 
@@ -34,7 +33,7 @@ En este artículo se describe cómo se puede usar la actividad de copia en Azure
 
 Data Factory actualmente solo admite mover datos desde una base de datos DB2 a un [almacén de datos de receptor compatible](data-factory-data-movement-activities.md#supported-data-stores-and-formats). No se admite el movimiento de datos desde otros almacenes de datos a una base de datos DB2.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Data Factory admite la conexión a una base de datos DB2 local mediante la [puerta de enlace de administración de datos](data-factory-data-management-gateway.md). Para instrucciones paso a paso sobre cómo configurar la canalización de datos de la puerta de enlace para mover los datos, consulte el artículo [Movimiento de datos entre orígenes locales y la nube](data-factory-move-data-between-onprem-and-cloud.md).
 
 Se requiere una puerta de enlace incluso si DB2 está hospedada en una máquina virtual de IaaS de Azure. Puede instalarla en la misma máquina virtual de IaaS en la que está el almacén de datos. Si la puerta de enlace se puede conectar a la base de datos, es posible instalar la puerta de enlace en otra máquina virtual.
@@ -73,7 +72,7 @@ Tanto si usa las herramientas como las API, realice los pasos siguientes para cr
 2. Cree conjuntos de datos con el fin de representar los datos de entrada y salida para la operación de copia. 
 3. Cree una canalización con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. 
 
-Cuando se usa el Asistente para copia, se crean automáticamente definiciones de JSON para las entidades de canalizaciones, los conjuntos de datos y los servicios vinculados de Data Factory. Al usar herramientas o API (excepto la API de .NET), se definen las entidades de Data Factory con el formato JSON. El [ejemplo de JSON: Copiar datos de DB2 a Azure Blob Storage](#json-example-copy-data-from-db2-to-azure-blob) muestra las definiciones de JSON para las entidades de Data Factory que se usan para copiar datos de un almacén de datos DB2 local.
+Cuando se usa el Asistente para copia, se crean automáticamente definiciones de JSON para las entidades de canalizaciones, los conjuntos de datos y los servicios vinculados de Data Factory. Al usar herramientas o API (excepto la API de .NET), se definen las entidades de Data Factory con el formato JSON. En el [Ejemplo de JSON: Copiar datos de DB2 a Azure Blob Storage](#json-example-copy-data-from-db2-to-azure-blob) se muestran las definiciones de JSON para las entidades de Data Factory que se usan para copiar datos de un almacén de datos DB2 local.
 
 Las secciones siguientes proporcionan detalles sobre las propiedades JSON que se usan para definir entidades de Data Factory específicas de un almacén de datos de DB2.
 
@@ -82,14 +81,14 @@ En la tabla siguiente se enumeran las propiedades JSON que son específicas de u
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| **type** |Esta propiedad se debe establecer en **OnPremisesDB2**. |Sí |
-| **server** |Nombre del servidor DB2. |Sí |
-| **database** |Nombre de la base de datos DB2. |Sí |
+| **type** |Esta propiedad se debe establecer en **OnPremisesDB2**. |SÍ |
+| **server** |Nombre del servidor DB2. |SÍ |
+| **database** |Nombre de la base de datos DB2. |SÍ |
 | **schema** |Nombre del esquema de la base de datos DB2. Esta propiedad distingue mayúsculas de minúsculas. |Sin  |
-| **authenticationType** |Tipo de autenticación que se usa para conectarse a la base de datos DB2. Los valores posibles son: Anonymous, Basic y Windows. |Sí |
+| **authenticationType** |Tipo de autenticación que se usa para conectarse a la base de datos DB2. Los valores posibles son: Anonymous, Basic y Windows. |SÍ |
 | **username** |Nombre de la cuenta de usuario si se usa autenticación Basic o Windows. |Sin  |
 | **password** |Contraseña para la cuenta de usuario. |Sin  |
-| **gatewayName** |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la base de datos DB2 local. |Sí |
+| **gatewayName** |Nombre de la puerta de enlace que debe usar el servicio Factoría de datos para conectarse a la base de datos DB2 local. |SÍ |
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 Para una lista de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [creación de conjuntos de datos](data-factory-create-datasets.md) . Las secciones como **structure**, **availability** y **policy** del código JSON del conjunto de datos son similares para todos los tipos de conjunto de datos (Azure SQL, Azure Blob Storage, Azure Table Storage, etc.).
@@ -112,7 +111,7 @@ En el caso de la actividad de copia, si el origen es de tipo **RelationalSource*
 > [!NOTE]
 > Los nombres de esquema y tabla distinguen mayúsculas de minúsculas. En la instrucción de consulta, escriba los nombres de propiedades entre "" (comillas dobles).
 
-## <a name="json-example-copy-data-from-db2-to-azure-blob-storage"></a>Ejemplo de JSON: Copiar datos de DB2 a Azure Blob Storage
+## <a name="json-example-copy-data-from-db2-to-azure-blob-storage"></a>Ejemplo JSON: Copiar datos de DB2 a Azure Blob Storage
 Este ejemplo proporciona definiciones JSON de ejemplo que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). En el ejemplo se muestra cómo copiar datos desde una base de datos DB2 a Blob Storage. Sin embargo, es posible copiar los datos a [cualquier tipo de receptor de almacén de datos compatible](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia de Azure Data Factory.
 
 El ejemplo consta de las siguientes entidades de Data Factory:
