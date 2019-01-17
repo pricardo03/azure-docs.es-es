@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 632e605a6f7c9885f3854ca1f7b69ed337a1eacc
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 572f4535044e077ed245b0a231ccc9fa973a8a9b
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025885"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331654"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la actividad de copia
 
@@ -108,7 +108,7 @@ Una **unidad de movimiento de datos (DMU) de nube** es una medida que representa
 Para reemplazar esta configuración predeterminada, especifique un valor para la propiedad **cloudDataMovementUnits** de la manera siguiente. Los **valores admitidos** para la propiedad **cloudDataMovementUnits** son 2, 4, 8, 16, 32. El **número real de DMS de nube** que usa la operación de copia en tiempo de ejecución es igual o inferior al valor configurado, según el patrón de datos. Para más información sobre el nivel de ganancia de rendimiento que puede obtener al configurar más unidades para un origen y un receptor de copia específicos, consulte la [referencia de rendimiento](#performance-reference).
 
 ```json
-"activities":[  
+"activities":[
     {
         "name": "Sample copy activity",
         "description": "",
@@ -135,7 +135,7 @@ Para reemplazar esta configuración predeterminada, especifique un valor para la
 ### <a name="parallelcopies"></a>parallelCopies
 Puede usar la propiedad **parallelCopies** para indicar el paralelismo que quiere que use la actividad de copia. Esta propiedad se puede considerar como el número máximo de subprocesos dentro de la actividad de copia que se pueden leer del origen o escribir en los almacenes de datos receptores en paralelo.
 
-Para cada ejecución de actividad de copia, Data Factory determina el número de copias en paralelo que se usarán para copiar datos del almacén de datos de origen al almacén de datos de destino. El número predeterminado de copias en paralelo que use dependerá del tipo de origen y receptor que vaya a emplear.  
+Para cada ejecución de actividad de copia, Data Factory determina el número de copias en paralelo que se usarán para copiar datos del almacén de datos de origen al almacén de datos de destino. El número predeterminado de copias en paralelo que use dependerá del tipo de origen y receptor que vaya a emplear.
 
 | Origen y receptor | Recuento predeterminado de copias en paralelo determinado por servicio |
 | --- | --- |
@@ -146,7 +146,7 @@ Para cada ejecución de actividad de copia, Data Factory determina el número de
 Normalmente, el comportamiento predeterminado debe proporcionar el mejor rendimiento. Sin embargo, para controlar la carga en las máquinas que hospedan los almacenes de datos, o para optimizar el rendimiento de la copia, puede optar por reemplazar el valor predeterminado y especificar un valor para la propiedad **parallelCopies** . El valor debe estar entre 1 y 32 (ambos inclusive). En tiempo de ejecución, y para obtener el mejor rendimiento, la actividad de copia usa un valor inferior o igual al valor que ha establecido.
 
 ```json
-"activities":[  
+"activities":[
     {
         "name": "Sample copy activity",
         "description": "",
@@ -176,7 +176,7 @@ Puntos a tener en cuenta:
 >
 >
 
-Para un uso mejor de estas dos propiedades, y para mejorar el rendimiento del movimiento de datos, consulte los [casos de uso de ejemplo](#case-study-use-parallel-copy). No es necesario configurar **parallelCopies** para aprovechar el comportamiento predeterminado. Si configura **parallelCopies** y lo hace en un valor demasiado pequeño, es posible que varias DMU de nube no se utilicen completamente.  
+Para un uso mejor de estas dos propiedades, y para mejorar el rendimiento del movimiento de datos, consulte los [casos de uso de ejemplo](#case-study-use-parallel-copy). No es necesario configurar **parallelCopies** para aprovechar el comportamiento predeterminado. Si configura **parallelCopies** y lo hace en un valor demasiado pequeño, es posible que varias DMU de nube no se utilicen completamente.
 
 ### <a name="billing-impact"></a>Impacto en la facturación
 Es **importante** recordar que se cobra en función del tiempo total de la operación de copia. Si un trabajo de copia solía tardar una hora con una unidad de nube y ahora tarda 15 minutos con cuatro unidades de nube, la factura general será casi igual. Por ejemplo, va a utilizar cuatro unidades de nube. La primera gasta 10 minutos, la segunda 10 minutos, la tercera 5 minutos y la cuarta 5 minutos, todas ellas en una única ejecución de actividad de copia. Se le cobra por el tiempo total de copia (movimiento de datos), que es 10 + 10 + 5 + 5 = 30 minutos. El uso de **parallelCopies** no afecta a la facturación.
@@ -216,7 +216,7 @@ Configure la opción **enableStaging** de la actividad de copia para especificar
 Este es un ejemplo de definición de actividad de copia con las propiedades que se han descrito en la tabla anterior:
 
 ```json
-"activities":[  
+"activities":[
 {
     "name": "Sample copy activity",
     "type": "Copy",
@@ -273,9 +273,9 @@ Para optimizar el rendimiento del servicio Data Factory con la actividad de copi
 3. **Expanda la configuración a todo el conjunto de datos**. Cuando esté satisfecho con los resultados de la ejecución y el rendimiento, puede expandir la definición y el período activo de canalización para cubrir todo el conjunto de datos.
 
 ## <a name="considerations-for-data-management-gateway"></a>Consideraciones sobre Data Management Gateway
-**Configuración de puerta de enlace**: se recomienda usar una máquina dedicada para hospedar Data Management Gateway. Vea [Consideraciones sobre el uso de Data Management Gateway](data-factory-data-management-gateway.md#considerations-for-using-gateway).  
+**Configuración de puerta de enlace**: se recomienda usar una máquina dedicada para hospedar Data Management Gateway. Vea [Consideraciones sobre el uso de Data Management Gateway](data-factory-data-management-gateway.md#considerations-for-using-gateway).
 
-**Supervisión y escalado vertical u horizontal de la puerta de enlace**: una sola puerta de enlace lógica con uno o varios nodos de puerta de enlace puede atender varias ejecuciones de actividad de copia simultáneamente. Para ver una instantánea casi en tiempo real del uso de recursos (CPU, memoria, red [entrada y salida], etc.) en una máquina de puerta de enlace, además del número de trabajos simultáneos en ejecución frente al límite de Azure Portal, vea [Supervisión de la puerta de enlace en el portal](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). Si depende mucho del movimiento de datos híbridos con un gran número de ejecuciones de actividad de copia simultáneas o con grandes volúmenes de datos que copiar, considere la posibilidad de [escalar vertical u horizontalmente la puerta de enlace](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) con el fin de mejorar el uso de recursos o aprovisionar más recursos para ampliar la capacidad de copia. 
+**Supervisión y escalado vertical u horizontal de la puerta de enlace**: una sola puerta de enlace lógica con uno o varios nodos de puerta de enlace puede atender varias ejecuciones de actividad de copia simultáneamente. Para ver una instantánea casi en tiempo real del uso de recursos (CPU, memoria, red [entrada y salida], etc.) en una máquina de puerta de enlace, además del número de trabajos simultáneos en ejecución frente al límite de Azure Portal, vea [Supervisión de la puerta de enlace en el portal](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). Si depende mucho del movimiento de datos híbridos con un gran número de ejecuciones de actividad de copia simultáneas o con grandes volúmenes de datos que copiar, considere la posibilidad de [escalar vertical u horizontalmente la puerta de enlace](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) con el fin de mejorar el uso de recursos o aprovisionar más recursos para ampliar la capacidad de copia.
 
 ## <a name="considerations-for-the-source"></a>Consideraciones sobre el origen
 ### <a name="general"></a>General
@@ -404,7 +404,7 @@ En este caso, la compresión de datos bzip2 podría estar ralentizando la canali
 
 **Escenario II**: se copian 20 blobs de 500 MB cada uno de Blob Storage a Data Lake Store Analytics y luego se optimiza el rendimiento.
 
-**Análisis y optimización del rendimiento**: en este escenario, Data Factory copia los datos de Blob Storage a Data Lake Store mediante una única copia (**parallelCopies** se establece en 1) y unidades de movimiento de datos de nube única. El rendimiento que observe estará próximo al que se describe en la [sección de referencia de rendimiento](#performance-reference).   
+**Análisis y optimización del rendimiento**: en este escenario, Data Factory copia los datos de Blob Storage a Data Lake Store mediante una única copia (**parallelCopies** se establece en 1) y unidades de movimiento de datos de nube única. El rendimiento que observe estará próximo al que se describe en la [sección de referencia de rendimiento](#performance-reference).
 
 ![Escenario 2.](./media/data-factory-copy-activity-performance/scenario-2.png)
 

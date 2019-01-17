@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 85f88d9234acbb1831ea76188d06ef47199703ca
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 53281af4cf3ce49272ffe9fc48ab0f85cea276b2
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074094"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213628"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Servicios de consultoría de Azure Marketplace y AppSource
 Los servicios de consultoría de Azure Marketplace y AppSource brindan a los asociados de Microsoft el objetivo de conectar a los clientes con servicios que les permitan mejorar y extender el uso que hacen de Azure y de sus objetivos empresariales. 
@@ -69,7 +69,7 @@ Los asociados deben tener una **competencia Silver o Gold** en el área pertinen
 |Dynamics 365 for Finance and Operations, Enterprise Edition  |  Competencia Silver o Gold de [planificación de recursos Enterprise](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) e ingresos mínimos de 25 000 USD en operaciones en la nube en los 12 últimos meses.       |
 |Dynamics 365 for Finance and Operations, Business Edition  |  Actuar como [proveedor de servicios en la nube (CSP)](https://partner.microsoft.com/cloud-solution-provider) o [asociado de registro digital (DPOR)](https://partner.microsoft.com/membership/digital-partner-of-record) para al menos un cliente.      |
 |Power BI, objetos visuales personalizados de Power BI | Cumplir los criterios de los [asociados de soluciones](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=/Hosted%20Documents/BI%20Partner%20Program%20Overview%20%26%20Incentives.pdf).|
-|PowerApps | Tener publicada una solución [Presentación de asociado]().
+|PowerApps | Tener publicada una solución [Presentación de asociado](https://appsource.microsoft.com/partners).
 
 <b> Para más información, consulte las [competencias a través de Microsoft Partner Network](https://partner.microsoft.com/membership/competencies).</b>
  

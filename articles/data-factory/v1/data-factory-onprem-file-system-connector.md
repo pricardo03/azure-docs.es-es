@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1cd7e504a614203218cb06b337becf36b992cf1d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 2d586f28b426732433c027c950f8193e7503c72b
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018235"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330813"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Copia de datos hacia y desde el sistema de archivos local mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +41,7 @@ Puede copiar datos de los siguientes almacenes de datos **a un sistema de archiv
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
 > [!NOTE]
-> La actividad de copia no elimina el archivo de origen una vez copiado correctamente en el destino. Si necesita eliminar el archivo de origen tras una copia correcta, cree una actividad personalizada para tal fin y úsela en la canalización. 
+> La actividad de copia no elimina el archivo de origen una vez copiado correctamente en el destino. Si necesita eliminar el archivo de origen tras una copia correcta, cree una actividad personalizada para tal fin y úsela en la canalización.
 
 ## <a name="enabling-connectivity"></a>Habilitación de la conectividad
 Data Factory admite la conexión hacia y desde el sistema de archivos local mediante **Data Management Gateway**. Debe instalar Data Management Gateway en el entorno local para que el servicio de Data Factory se conecte a cualquier almacén de datos local compatible, incluido el sistema de archivos. Para más información al respecto y para obtener instrucciones paso a paso sobre la configuración de una puerta de enlace, consulte [Movimiento de datos entre orígenes locales y la nube con la puerta de enlace de administración de datos](data-factory-move-data-between-onprem-and-cloud.md). Aparte de la puerta de enlace de administración de datos, no es necesario instalar otros archivos binarios para la comunicación hacia y desde un sistema de archivos local. Debe instalar y usar Data Management Gateway incluso si el sistema de archivos está en la máquina virtual de IaaS de Azure. Para información más detallada sobre la puerta de enlace, consulte el artículo sobre [Data Management Gateway](data-factory-data-management-gateway.md).
@@ -57,7 +57,7 @@ Puede usar las siguientes herramientas para crear una canalización: **Azure Por
 
 Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
 
-1. Crear una **factoría de datos**. Una factoría de datos puede contener una o más canalizaciones. 
+1. Crear una **factoría de datos**. Una factoría de datos puede contener una o más canalizaciones.
 2. Cree **servicios vinculados** para vincular almacenes de datos de entrada y salida a la factoría de datos. Por ejemplo, si va a copiar datos de una instancia de Azure Blob Storage a un sistema de archivos local, creará dos servicios vinculados para vincular su sistema de archivos local y la cuenta de Azure Storage a su factoría de datos. Para información sobre las propiedades de los servicios vinculados que son específicas de un sistema de archivos local, consulte la sección [Propiedades del servicio vinculado](#linked-service-properties).
 3. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia. En el ejemplo mencionado en el último paso, se crea un conjunto de datos para especificar el contenedor de blobs y la carpeta que contiene los datos de entrada. Y se crea otro conjunto de datos para especificar la carpeta y el nombre de archivo (opcional) en el sistema de archivos. Para información sobre las propiedades de los conjuntos de datos que son específicas del sistema de archivos local, consulte [Propiedades del conjunto de datos](#dataset-properties).
 4. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. En el ejemplo que se ha mencionado anteriormente, se usa BlobSource como origen y FileSystemSink como receptor en la actividad de copia. De igual forma, si va a copiar desde un sistema de archivos local hacia Azure Blob Storage, usará FileSystemSource y BlobSink en la actividad de copia. Para información sobre las propiedades de la actividad de copia que son específicas del sistema de archivos local, consulte la sección [Propiedades de la actividad de copia](#copy-activity-properties). Para obtener más información sobre cómo usar un almacén de datos como origen o receptor, haga clic en el vínculo de la sección anterior para el almacén de datos.
@@ -161,7 +161,7 @@ En este ejemplo, {Slice} se reemplaza por el valor de la variable del sistema Sl
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
 "fileName": "{Hour}.csv",
 "partitionedBy":
- [
+[
     { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
     { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
     { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
@@ -254,7 +254,7 @@ Además, se recomienda usar la propiedad **encryptedCredential** en lugar de usa
 
 **Conjunto de datos de entrada del sistema de archivos local:**
 
-Los datos se seleccionan de un archivo nuevo cada hora. Las propiedades folderPath y fileName se determinan en función de la hora de inicio del segmento.  
+Los datos se seleccionan de un archivo nuevo cada hora. Las propiedades folderPath y fileName se determinan en función de la hora de inicio del segmento.
 
 El valor `"external": "true"` informa a Data Factory de que el conjunto de datos es externo a la factoría de datos y no la produce ninguna actividad de dicha factoría.
 
@@ -383,13 +383,13 @@ Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1
 La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de JSON de canalización, el tipo **source** se establece en **FileSystemSource** y el tipo **sink** se establece en **BlobSink**.
 
 ```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
+{
+  "name":"SamplePipeline",
+  "properties":{
     "start":"2015-06-01T18:00:00",
     "end":"2015-06-01T19:00:00",
     "description":"Pipeline for copy activity",
-    "activities":[  
+    "activities":[
       {
         "name": "OnpremisesFileSystemtoBlob",
         "description": "copy activity",
@@ -423,8 +423,8 @@ La canalización contiene una actividad de copia que está configurada para usar
           "timeout": "01:00:00"
         }
       }
-     ]
-   }
+    ]
+  }
 }
 ```
 
@@ -572,13 +572,13 @@ Los datos se copian en un archivo nuevo cada hora. Los valores de folderPath y f
 La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de JSON de canalización, el tipo **source** se establece en **SqlSource** y el tipo **sink** en **FileSystemSink**. La consulta SQL especificada para la propiedad **SqlReaderQuery** selecciona los datos de la última hora que se van a copiar.
 
 ```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
+{
+  "name":"SamplePipeline",
+  "properties":{
     "start":"2015-06-01T18:00:00",
     "end":"2015-06-01T20:00:00",
     "description":"pipeline for copy activity",
-    "activities":[  
+    "activities":[
       {
         "name": "AzureSQLtoOnPremisesFile",
         "description": "copy activity",
@@ -613,11 +613,10 @@ La canalización contiene una actividad de copia que está configurada para usar
           "timeout": "01:00:00"
         }
       }
-     ]
-   }
+    ]
+  }
 }
 ```
-
 
 También puede asignar columnas del conjunto de datos de origen a las del conjunto de datos receptor en la definición de actividad de copia. Para más información, consulte [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Asignación de columnas de conjunto de datos de Azure Data Factory).
 

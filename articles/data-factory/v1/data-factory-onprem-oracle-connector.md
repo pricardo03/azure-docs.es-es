@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1ccf66da14bbbd4993f29da2e40d996cb564864e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: aa6f891cc68d19e638bb2b7281f4b332de26bd26
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024916"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332649"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copia de datos con una instancia local de Oracle como origen o destino mediante Azure Data Factory
 
@@ -73,7 +73,7 @@ Este conector de Oracle admite dos versiones de controladores:
 
     Si selecciona **Instalación de XCopy**, complete los pasos que se describen en el archivo readme.htm. Se recomienda seleccionar el instalador que tiene interfaz de usuario (no el instalador de XCopy).
 
-    Después de instalar el proveedor, reinicie el servicio de host de la puerta de enlace de administración de datos en la máquina con el applet Servicios o el Administrador de configuración de la puerta de enlace de administración de datos.  
+    Después de instalar el proveedor, reinicie el servicio de host de la puerta de enlace de administración de datos en la máquina con el applet Servicios o el Administrador de configuración de la puerta de enlace de administración de datos.
 
 Si utiliza el asistente para copia para crear la canalización de copia, el tipo de controlador se determina automáticamente. El controlador de Microsoft se usa de forma predeterminada, a menos que la versión de la puerta de enlace sea anterior a la versión 2.7 o seleccione Oracle como receptor.
 
@@ -87,12 +87,12 @@ También puede usar una de las herramientas siguientes para crear una canalizaci
 
 Tanto si usa las herramientas como las API, complete los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
 
-1. Crear una **factoría de datos**. Una factoría de datos puede contener una o más canalizaciones. 
+1. Crear una **factoría de datos**. Una factoría de datos puede contener una o más canalizaciones.
 2. Cree **servicios vinculados** para vincular almacenes de datos de entrada y salida a la factoría de datos. Por ejemplo, si copia datos de una base de datos de Oracle a Azure Blob Storage, crea dos servicios vinculados para vincular la base de datos de Oracle y la cuenta de Azure Storage a su factoría de datos. Para conocer las propiedades de los servicios vinculados que son específicas de Oracle, consulte [Propiedades del servicio vinculado](#linked-service-properties).
 3. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia. En el ejemplo mencionado en el paso anterior, cree un conjunto de datos para especificar la tabla de la base de datos de Oracle que contiene los datos de entrada. Cree también otro conjunto de datos para especificar el contenedor de blobs y la carpeta que contiene los datos copiados de la base de datos de Oracle. Para conocer las propiedades del conjunto de datos que son específicas de Oracle, consulte [Propiedades del conjunto de datos](#dataset-properties).
-4. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. En el ejemplo anterior, se usa **OracleSource** como origen y **BlobSink** como receptor para la actividad de copia. De igual forma, si realiza la copia de Azure Blob Storage a una base de datos de Oracle, usa **BlobSource** y **OracleSink** en la actividad de copia. Para conocer las propiedades de la actividad de copia que son específicas de la base de datos de Oracle, consulte [Propiedades de la actividad de copia](#copy-activity-properties). Para obtener más información sobre cómo usar un almacén de datos como origen o receptor, seleccione el vínculo para el almacén de datos en la sección anterior. 
+4. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. En el ejemplo anterior, se usa **OracleSource** como origen y **BlobSink** como receptor para la actividad de copia. De igual forma, si realiza la copia de Azure Blob Storage a una base de datos de Oracle, usa **BlobSource** y **OracleSink** en la actividad de copia. Para conocer las propiedades de la actividad de copia que son específicas de la base de datos de Oracle, consulte [Propiedades de la actividad de copia](#copy-activity-properties). Para obtener más información sobre cómo usar un almacén de datos como origen o receptor, seleccione el vínculo para el almacén de datos en la sección anterior.
 
-Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory: servicios vinculados, conjuntos de datos y la canalización. Al usar herramientas o API (excepto para la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para ver ejemplos con definiciones de JSON de entidades de Data Factory que se usan para copiar datos a una base de datos de Oracle local o desde ella, consulte [Ejemplos de JSON](#json-examples-for-copying-data-to-and-from-oracle-database).
+Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory: servicios vinculados, conjuntos de datos y la canalización. Al usar herramientas o API (excepto para la API de .NET), se definen estas entidades de Data Factory con el formato JSON. Para ver ejemplos con definiciones de JSON de entidades de Data Factory que se usan para copiar datos a una base de datos de Oracle local o desde ella, consulte [Ejemplos de JSON](#json-examples-for-copying-data-to-and-from-oracle-database).
 
 Las secciones siguientes proporcionan detalles sobre las propiedades JSON que se usan para definir entidades de Data Factory.
 
@@ -136,8 +136,7 @@ Para obtener información acerca de los formatos permitidos, consulte [Proveedor
     "properties": {
         "type": "OnPremisesOracle",
         "typeProperties": {
-            "connectionString": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=<host name>)(PORT=<port number>))(CONNECT_DATA=(SERVICE_NAME=<service ID>)));
-User Id=<user name>;Password=<password>;",
+            "connectionString": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=<host name>)(PORT=<port number>))(CONNECT_DATA=(SERVICE_NAME=<service ID>))); User Id=<user name>;Password=<password>;",
             "gatewayName": "<gateway name>"
         }
     }
@@ -146,7 +145,7 @@ User Id=<user name>;Password=<password>;",
 
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 
-Para ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte [Creación de conjuntos de datos](data-factory-create-datasets.md). 
+Para ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte [Creación de conjuntos de datos](data-factory-create-datasets.md).
 
 Las secciones del archivo JSON de un conjunto de datos, como structure, availability y policy, son similares para todos los tipos de datos (por ejemplo, para Oracle, Azure Blob Storage y almacenamiento de tablas de Azure).
 
@@ -158,7 +157,7 @@ La sección **typeProperties** es diferente en cada tipo de conjunto de datos y 
 
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
 
-Para ver una lista completa de las secciones y propiedades que hay disponibles para definir actividades, consulte [Creación de canalizaciones](data-factory-create-pipelines.md). 
+Para ver una lista completa de las secciones y propiedades que hay disponibles para definir actividades, consulte [Creación de canalizaciones](data-factory-create-pipelines.md).
 
 Las propiedades como nombre, descripción, tablas de entrada y salida, y directivas están disponibles para todos los tipos de actividades.
 
@@ -188,7 +187,7 @@ En la actividad de copia, si el origen es de tipo **OracleSource**, están dispo
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>Ejemplos de JSON para copiar datos a la base de datos de Oracle y desde esta
 
-En los siguientes ejemplos se proporcionan definiciones JSON que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Los ejemplos muestran cómo copiar datos desde una base de datos de Oracle a Azure Blob Storage y viceversa. Sin embargo, los datos se pueden copiar en cualquiera de los receptores indicados en [Formatos y almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Azure Data Factory.   
+En los siguientes ejemplos se proporcionan definiciones JSON que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Los ejemplos muestran cómo copiar datos desde una base de datos de Oracle a Azure Blob Storage y viceversa. Sin embargo, los datos se pueden copiar en cualquiera de los receptores indicados en [Formatos y almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Azure Data Factory.
 
 **Ejemplo: Copia de datos de Oracle a Azure Blob Storage**
 
@@ -254,12 +253,12 @@ Si se establece **external**: **true**, se informa al servicio Data Factory de q
             "anchorDateTime": "2014-02-27T12:00:00",
             "frequency": "Hour"
         },
-        "policy": {     
-            "externalData": {        
-                "retryInterval": "00:01:00",    
-                "retryTimeout": "00:10:00",       
-                "maximumRetry": 3       
-            }     
+        "policy": {
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
+            }
         }
     }
 }
@@ -327,16 +326,16 @@ Los datos se escriben en un nuevo blob cada hora (**frecuencia**: **hora**, **in
 
 **Canalización con actividad de copia**
 
-La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de JSON de canalización, el tipo **source** se establece en **OracleSource** y el tipo **sink**, en **BlobSink**.  La consulta SQL que especifica con la propiedad **oracleReaderQuery** selecciona los datos de la última hora que se van a copiar.
+La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de JSON de canalización, el tipo **source** se establece en **OracleSource** y el tipo **sink**, en **BlobSink**. La consulta SQL que especifica con la propiedad **oracleReaderQuery** selecciona los datos de la última hora que se van a copiar.
 
 ```json
-{  
+{
     "name":"SamplePipeline",
-    "properties":{  
+    "properties":{
         "start":"2014-06-01T18:00:00",
         "end":"2014-06-01T19:00:00",
         "description":"pipeline for a copy activity",
-        "activities":[  
+        "activities":[
             {
                 "name": "OracletoBlob",
                 "description": "copy activity",
@@ -378,7 +377,7 @@ La canalización contiene una actividad de copia que está configurada para usar
 
 **Ejemplo: Copia de datos desde una instancia de Azure Blob Storage a Oracle**
 
-En este ejemplo se muestra cómo se copian datos de una cuenta de Azure Blob Storage a una base de datos Oracle local. Sin embargo, puede copiar datos *directamente* desde cualquiera de los orígenes enumerados en [Almacenes de datos y formatos que se admiten](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia de Azure Data Factory.  
+En este ejemplo se muestra cómo se copian datos de una cuenta de Azure Blob Storage a una base de datos Oracle local. Sin embargo, puede copiar datos *directamente* desde cualquiera de los orígenes enumerados en [Almacenes de datos y formatos que se admiten](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia de Azure Data Factory.
 
 El ejemplo consta de las siguientes entidades de Data Factory:
 
@@ -503,16 +502,16 @@ En el ejemplo se supone que ha creado una tabla denominada **MyTable** en Oracle
 
 **Canalización con actividad de copia**
 
-La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de JSON de canalización, el tipo **source** se establece en **BlobSource** y el tipo **sink**, en **OracleSink**.  
+La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de JSON de canalización, el tipo **source** se establece en **BlobSource** y el tipo **sink**, en **OracleSink**.
 
 ```json
-{  
+{
     "name":"SamplePipeline",
-    "properties":{  
+    "properties":{
         "start":"2014-06-01T18:00:00",
         "end":"2014-06-05T19:00:00",
         "description":"pipeline with a copy activity",
-        "activities":[  
+        "activities":[
             {
                 "name": "AzureBlobtoOracle",
                 "description": "Copy Activity",
@@ -558,7 +557,7 @@ La canalización contiene una actividad de copia que está configurada para usar
 
 **Mensaje de error**
 
-    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .Net Framework Data Provider. It may not be installed.  
+    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .Net Framework Data Provider. It may not be installed.
 
 **Causas posibles:**
 
@@ -584,7 +583,7 @@ La canalización contiene una actividad de copia que está configurada para usar
 
 Es posible que deba ajustar la cadena de consulta en la actividad de copia en función de cómo estén configuradas las fechas en la base de datos de Oracle. A continuación se facilita un ejemplo (mediante el uso de la función **to_date**):
 
-    "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
+    "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
 
 
 ## <a name="type-mapping-for-oracle"></a>Asignación de tipos para Oracle

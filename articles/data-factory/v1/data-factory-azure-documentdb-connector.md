@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d95534cceb11f7bf20f6966e0205694fc1db021d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: af528f210f4464c973d88fab7eeb1572effc87bc
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017606"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330405"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Movimiento de datos hacia y desde Azure Cosmos DB mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -28,9 +28,9 @@ ms.locfileid: "54017606"
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory. Si utiliza la versión actual del servicio Data Factory, consulte el artículo sobre el [conector de Azure Cosmos DB en V2](../connector-azure-cosmos-db.md).
 
-En este artículo se explica cómo usar la actividad de copia en Azure Data Factory para mover datos hacia y desde Azure Cosmos DB (API de SQL). Se basa en la información general que ofrece el artículo [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md). 
+En este artículo se explica cómo usar la actividad de copia en Azure Data Factory para mover datos hacia y desde Azure Cosmos DB (API de SQL). Se basa en la información general que ofrece el artículo [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md).
 
-Puede copiar datos de cualquier almacén de datos de origen admitido hacia Azure Cosmos DB o desde Azure Cosmos DB hacia cualquier almacén de datos receptor admitido. Consulte la tabla de [almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores. 
+Puede copiar datos de cualquier almacén de datos de origen admitido hacia Azure Cosmos DB o desde Azure Cosmos DB hacia cualquier almacén de datos receptor admitido. Consulte la tabla de [almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
 > [!IMPORTANT]
 > El conector de Azure Cosmos DB solo admite la API de SQL.
@@ -42,17 +42,17 @@ Puede crear una canalización con una actividad de copia que mueva datos hacia y
 
 La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Vea [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
 
-Puede usar las siguientes herramientas para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia. 
+Puede usar las siguientes herramientas para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia.
 
-Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor: 
+Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
 
 1. Cree **servicios vinculados** para vincular almacenes de datos de entrada y salida a la factoría de datos.
-2. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia. 
-3. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. 
+2. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia.
+3. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida.
 
-Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para ver ejemplos con definiciones de JSON para entidades de Data Factory que se usan para copiar datos con Cosmos DB como origen o destino, consulte la sección [Ejemplos de JSON](#json-examples) de este artículo. 
+Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON. Para ver ejemplos con definiciones de JSON para entidades de Data Factory que se usan para copiar datos con Cosmos DB como origen o destino, consulte la sección [Ejemplos de JSON](#json-examples) de este artículo.
 
-En las secciones siguientes se proporcionan detalles sobre las propiedades JSON que se usan para definir entidades de Data Factory específicas de Cosmos DB: 
+En las secciones siguientes se proporcionan detalles sobre las propiedades JSON que se usan para definir entidades de Data Factory específicas de Cosmos DB:
 
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 En la tabla siguiente se proporciona la descripción de los elementos JSON específicos del servicio vinculado Azure Cosmos DB.
@@ -105,7 +105,7 @@ Ejemplo:
 }
 ```
 ### <a name="schema-by-data-factory"></a>Esquema de Data Factory
-En los almacenes de datos sin esquemas como Azure Cosmos DB, el servicio Data Factory deduce el esquema de una de las maneras siguientes:  
+En los almacenes de datos sin esquemas como Azure Cosmos DB, el servicio Data Factory deduce el esquema de una de las maneras siguientes:
 
 1. Si especifica la estructura de los datos mediante la propiedad **structure** en la definición del conjunto de datos, el servicio Data Factory respeta esta estructura como estructura del esquema. En este caso, si una fila no contiene un valor para una columna, se le proporcionará un valor nulo.
 2. Si no especifica la estructura de los datos mediante la propiedad **structure** en la definición del conjunto de datos, el servicio Data Factory deduce el esquema utilizando la primera fila en los datos. En este caso, si la primera fila no contiene el esquema completo, algunas columnas se pueden perder en el resultado de la operación de copia.
@@ -142,7 +142,7 @@ Con este conector de Cosmos DB, le resultará muy sencillo
 * Exportar documentos JSON de la colección de Cosmos DB a varios almacenes basados en archivos.
 * Migrar datos entre dos colecciones de Cosmos DB como están.
 
-Para lograr dicha copia independiente del esquema, 
+Para lograr dicha copia independiente del esquema,
 * Cuando use el Asistente para copia, active la opción **"Export as-is to JSON files or Cosmos DB collection"** (Exportar tal cual a archivos JSON o colección de Cosmos DB).
 * Al usar la edición de JSON, no especifique la sección "structure" en los conjuntos de datos de Cosmos DB ni la propiedad "nestingSeparator" en el receptor u origen de Cosmos DB en la actividad de copia. Para importar desde archivos JSON o exportar a ellos, en el conjunto de datos de almacén de archivos, especifique el tipo de formato como "JsonFormat", configure "filePattern" y omita la configuración de formato restante; vea la sección [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format) para obtener detalles.
 
@@ -249,13 +249,13 @@ Documentos JSON de ejemplo en la colección Person de una base de datos de Cosmo
 ```
 Cosmos DB admite la consulta de documentos mediante una sintaxis similar a la de SQL en documentos jerárquicos JSON.
 
-Ejemplo: 
+Ejemplo:
 
 ```sql
 SELECT Person.PersonId, Person.Name.First AS FirstName, Person.Name.Middle as MiddleName, Person.Name.Last AS LastName FROM Person
 ```
 
-La siguiente canalización copia los datos de la colección Person de la base de datos de Azure Cosmos DB en un blob de Azure. Como parte de la actividad de copia, se han especificado los conjuntos de datos de entrada y de salida.  
+La siguiente canalización copia los datos de la colección Person de la base de datos de Azure Cosmos DB en un blob de Azure. Como parte de la actividad de copia, se han especificado los conjuntos de datos de entrada y de salida.
 
 ```JSON
 {
@@ -298,7 +298,7 @@ La siguiente canalización copia los datos de la colección Person de la base de
   }
 }
 ```
-## <a name="example-copy-data-from-azure-blob-to-azure-cosmos-db"></a>Ejemplo: Copia de datos de un blob de Azure a Azure Cosmos DB 
+## <a name="example-copy-data-from-azure-blob-to-azure-cosmos-db"></a>Ejemplo: Copia de datos de un blob de Azure a Azure Cosmos DB
 El ejemplo siguiente muestra:
 
 1. Un servicio vinculado de tipo [DocumentDb](#azure-documentdb-linked-service-properties).
@@ -434,7 +434,7 @@ La siguiente canalización copia datos de Azure Blob en la colección Person de 
             "nestingSeparator": ".",
             "writeBatchSize": 2,
             "writeBatchTimeout": "00:00:00"
-          }
+          },
           "translator": {
               "type": "TabularTranslator",
               "ColumnMappings": "FirstName: Name.First, MiddleName: Name.Middle, LastName: Name.Last, BusinessEntityID: BusinessEntityID, PersonType: PersonType, NameStyle: NameStyle, Title: Title, Suffix: Suffix, EmailPromotion: EmailPromotion, rowguid: rowguid, ModifiedDate: ModifiedDate"
@@ -487,7 +487,7 @@ Azure Cosmos DB es un almacén NoSQL para documentos JSON, en el que se permiten
     **Respuesta:**  No.
 2. **Pregunta:** ¿Cómo hace frente el reintento de una copia en Azure Cosmos DB a los registros ya copiados?
 
-    **Respuesta:** Si los registros tienen un campo "Id" y la operación de copia intenta insertar un registro con el mismo identificador, la operación de copia genera un error.  
+    **Respuesta:** Si los registros tienen un campo "Id" y la operación de copia intenta insertar un registro con el mismo identificador, la operación de copia genera un error.
 3. **Pregunta:** ¿Admite Data Factory el [intervalo o las particiones de datos basadas en hash](../../cosmos-db/sql-api-partition-data.md)?
 
     **Respuesta:**  No.
