@@ -1,22 +1,23 @@
 ---
-title: Introducción a los grupos de seguridad de Azure | Microsoft Docs
+title: Introducción a los grupos de seguridad de Azure
+titlesuffix: Azure Virtual Network
 description: Obtenga información sobre los grupos de seguridad de red y de aplicación. Los grupos de seguridad le ayudan a filtrar el tráfico de red entre los recursos de Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: jdial
-ms.openlocfilehash: ad5205bcf063cd3375e68ef609c71ced2f551b61
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 52cac856fbec79842cc4661f38342cb972ea40df
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311769"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159067"
 ---
 # <a name="security-groups"></a>Grupos de seguridad
 <a name="network-security-groups"></a>
@@ -70,15 +71,18 @@ Las reglas de seguridad aumentada permiten simplificar la definición de segurid
 * **MicrosoftContainerRegistry** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Microsoft Container Registry. Si especifica *MicrosoftContainerRegistry* como valor, el tráfico a MicrosoftContainerRegistry se permite o se deniega. Si solo desea permitir el acceso a MicrosoftContainerRegistry en una [región](https://azure.microsoft.com/regions) específica, puede especificar la región en el siguiente formato: MicrosoftContainerRegistry.[nombre de región]. 
 * **AzureContainerRegistry** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure Container Registry. Si especifica *AzureContainerRegistry* como valor, el tráfico a AzureContainerRegistry se permite o deniega. Si solo desea permitir el acceso a AzureContainerRegistry en una [región](https://azure.microsoft.com/regions) específica, puede especificar la región en el siguiente formato: AzureContainerRegistry.[nombre de región]. 
 * **AppService** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure App Service. Si especifica *AppService* como valor, el tráfico a AppService se permite o se deniega. Si solo desea permitir el acceso a AppService en una [región](https://azure.microsoft.com/regions) específica, puede especificar la región en el siguiente formato: AppService.[nombre de región]. 
-* **AppServiceManagement** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure App Service Management. Si especifica *AppServiceManagement* como valor, el tráfico a AppServiceManagement se permite o se deniega. Si solo desea permitir el acceso a AppServiceManagement en una [región](https://azure.microsoft.com/regions) específica, puede especificar la región en el siguiente formato: AppServiceManagement.[nombre de región]. 
-* **ApiManagement** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure API Management. Si especifica *ApiManagement* como valor, el tráfico a ApiManagement se permite o se deniega. Si solo desea permitir el acceso a ApiManagement en una [región](https://azure.microsoft.com/regions) específica, puede especificar la región en el siguiente formato: ApiManagement.[nombre de región]. 
+* **AppServiceManagement** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure App Service Management. Si especifica *AppServiceManagement* como valor, el tráfico a AppServiceManagement se permite o se deniega. 
+* **ApiManagement** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure API Management. Si especifica *ApiManagement* como valor, el tráfico a ApiManagement se permite o se deniega.  
 * **AzureConnectors** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure Connectors. Si especifica *AzureConnectors* como valor, el tráfico a AzureConnectors se permite o se deniega. Si solo desea permitir el acceso a AzureConnectors en una [región](https://azure.microsoft.com/regions) específica, puede especificar la región en el siguiente formato: AzureConnectors.[nombre de región]. 
-* **GatewayManager** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure Gateway Manager. Si especifica *GatewayManager* como valor, el tráfico a GatewayManager se permite o se deniega. Si solo desea permitir el acceso a GatewayManager en una [región](https://azure.microsoft.com/regions) específica, puede especificar la región en el siguiente formato: GatewayManager.[nombre de región]. 
+* **GatewayManager** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure Gateway Manager. Si especifica *GatewayManager* como valor, el tráfico a GatewayManager se permite o se deniega.  
 * **AzureDataLake** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure Data Lake. Si especifica *AzureDataLake* como valor, el tráfico a AzureDataLake se permite o se deniega. 
 * **AzureActiveDirectory** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio Azure Active Directory. Si especifica *AzureActiveDirectory* como valor, el tráfico a AzureActiveDirectory se permite o se deniega.  
+* **AzureMonitor** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio AzureMonitor. Si especifica *AzureMonitor* como valor, el tráfico a AzureMonitor se permite o se deniega. 
+* **ServiceFabric** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio ServiceFabric. Si especifica *ServiceFabric* como valor, el tráfico a ServiceFabric se permite o se deniega. 
+* **AzureMachineLearning** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio AzureMachineLearning. Si especifica *AzureMachineLearning* como valor, el tráfico a AzureMachineLearning se permite o se deniega. 
 
 > [!NOTE]
-> Las etiquetas de servicios de los servicios de Azure indican los prefijos de dirección de la nube específica que se va a usar. No se admiten etiquetas de servicio regionales en nubes nacionales, solo en formato global. Por ejemplo, *Storage* y *Sql*.
+> Las etiquetas de servicios de los servicios de Azure indican los prefijos de dirección de la nube específica que se va a usar. 
 
 > [!NOTE]
 > Si implementa un [punto de conexión de servicio de red virtual](virtual-network-service-endpoints-overview.md) para un servicio, como Azure Storage o Azure SQL Database, Azure agrega una [ruta](virtual-networks-udr-overview.md#optional-default-routes) a una subred de red virtual para el servicio. Los prefijos de dirección de la ruta son los mismos prefijos de dirección, o intervalos CIDR, que la etiqueta de servicio correspondiente.

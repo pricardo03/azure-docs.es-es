@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/27/2018
 ms.author: johnkem
 ms.component: metrics
-ms.openlocfilehash: a5e38f1400b99c6030799121d37721c26e16649c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ac2987b6329d85c06d78d93341fe71f5c9120fcd
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721145"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54105464"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Creación de una alerta de métrica clásica con una plantilla de Resource Manager
 En este artículo se describe cómo se puede utilizar una [plantilla de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para configurar alertas de métrica de Azure. Esto permite configurar automáticamente las alertas en los recursos cuando se crean para asegurarse de que todos los recursos se supervisan correctamente.
@@ -186,7 +186,7 @@ Una alerta en una plantilla de Resource Manager suele ser más útil al crear un
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "newStorageAccountName": {
@@ -404,4 +404,4 @@ Una alerta en una plantilla de Resource Manager suele ser más útil al crear un
 ## <a name="next-steps"></a>Pasos siguientes
 * [Más información sobre alertas](alerts-overview.md)
 * [Agregue la Configuración de diagnóstico](../../azure-monitor/platform/diagnostic-logs-stream-template.md) a la plantilla de Resource Manager
-
+* Para conocer las propiedades y la sintaxis de JSON, consulte la referencia de la plantilla [Microsoft.Insights/alertrules](/azure/templates/microsoft.insights/alertrules).

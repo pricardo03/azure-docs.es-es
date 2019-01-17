@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: dekapur
-ms.openlocfilehash: f91a6b305a3d531aa1c733685f6d896ed07054ae
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 321a69768935a9cb220bf5c2ae96c30274dc590d
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257612"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159459"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Creación de un clúster independiente con Windows Server
 Puede usar Azure Service Fabric para crear clústeres de Service Fabric en las máquinas virtuales o los equipos que ejecutan Windows Server. Es decir, podrá implementar y ejecutar aplicaciones de Service Fabric en cualquier entorno donde haya un conjunto de equipos con Windows Server que estén conectados entre sí, ya sea de manera local o con algún proveedor de servicios en la nube. Service Fabric proporciona un paquete de instalación para crear clústeres de Service Fabric, llamado paquete independiente de Windows Server.
@@ -104,7 +104,7 @@ El administrador de clúster que implemente y configure el clúster debe tener p
     Passed                     : True
     ```
 
-2. Cree el clúster: ejecute el script *CreateServiceFabricCluster.ps1* para implementar el clúster de Service Fabric en las máquinas de la configuración. 
+2. Cree el clúster:  ejecute el script *CreateServiceFabricCluster.ps1* para implementar el clúster de Service Fabric en todas las máquinas de la configuración. 
     ```powershell
     .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -AcceptEULA
     ```
@@ -114,7 +114,7 @@ El administrador de clúster que implemente y configure el clúster debe tener p
 > 
 > 
 
-### <a name="step-1c-create-an-offline-internet-disconnected-cluster"></a>Paso 1C: Creación de un clúster sin conexión (desconectado de internet)
+### <a name="step-1c-create-an-offline-internet-disconnected-cluster"></a>Paso 1C: Creación de un clúster sin conexión (desconectado de Internet)
 El paquete en tiempo de ejecución de Service Fabric se descarga automáticamente durante la creación del clúster. Al implementar un clúster en máquinas sin conexión a internet, debe descargar el paquete en tiempo de ejecución de Service Fabric por separado y proporcionar su ruta de acceso durante la creación del clúster.
 El paquete en tiempo de ejecución se puede descargar por separado desde otra máquina conectada a internet, desde el [vínculo de descarga: Service Fabric en tiempo de ejecución para Windows Server](https://go.microsoft.com/fwlink/?linkid=839354). Copie el paquete en tiempo de ejecución donde vaya a implementar el clúster desconectado y cree el clúster mediante la ejecución de `CreateServiceFabricCluster.ps1` con el parámetro `-FabricRuntimePackagePath` incluido, tal y como se muestra en este ejemplo: 
 
@@ -201,7 +201,7 @@ De forma predeterminada, el producto recopila datos de telemetría sobre el uso 
 * CommitQueueLength
 * Número de nodos
 * IsContextComplete: True/False
-* ClusterId: se trata de un GUID generado aleatoriamente para cada clúster
+* ClusterId: es un GUID generado aleatoriamente para cada clúster
 * ServiceFabricVersion
 * Dirección IP de la máquina virtual o la máquina desde la que se carga la telemetría
 

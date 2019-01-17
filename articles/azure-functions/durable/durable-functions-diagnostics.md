@@ -10,20 +10,20 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 5a09bd8db89f85c785d3d701a3b7180e4616e52c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 4f6d49a60df09e78c3cbeee22d43827ecc9f9f64
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713238"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54118428"
 ---
-# <a name="diagnostics-in-durable-functions-azure-functions"></a>Diagnóstico con Durable Functions (Azure Functions)
+# <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnóstico con Durable Functions en Azure
 
 Existen varias opciones para diagnosticar problemas con [Durable Functions](durable-functions-overview.md). Algunas de ellas son las mismas que para las funciones normales y otras son exclusivas de Durable Functions.
 
 ## <a name="application-insights"></a>Application Insights
 
-[Application Insights](../../application-insights/app-insights-overview.md) es la manera recomendada para realizar el diagnóstico y la supervisión en Azure Functions. Lo mismo se aplica a Durable Functions. Para introducción al aprovechamiento de Application Insights en las aplicaciones de función, consulte [Supervisión de Azure Functions](../functions-monitoring.md).
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) es la manera recomendada para realizar el diagnóstico y la supervisión en Azure Functions. Lo mismo se aplica a Durable Functions. Para introducción al aprovechamiento de Application Insights en las aplicaciones de función, consulte [Supervisión de Azure Functions](../functions-monitoring.md).
 
 La extensión Azure Durable Functions también emite *eventos de seguimiento* que permiten realizar el seguimiento de la ejecución de un extremo de una orquestación al otro. Estos se pueden encontrar y consultar mediante la herramienta [Application Insights Analytics](../../azure-monitor/app/analytics.md) de Azure Portal.
 

@@ -1,11 +1,11 @@
 ---
-title: Configuración de entornos de ensayo para aplicaciones web - Azure App Service | Microsoft Docs
+title: Configuración de entornos de ensayo para aplicaciones web en Azure App Service | Microsoft Docs
 description: Aprenda a utilizar la publicación de ensayo para aplicaciones web en Azure App Service.
 services: app-service
 documentationcenter: ''
 author: cephalin
 writer: cephalin
-manager: erikre
+manager: jpconnoc
 editor: mollybos
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.service: app-service
@@ -13,60 +13,67 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 01/03/2019
 ms.author: cephalin
-ms.custom: seodec18
-ms.openlocfilehash: 85fa047fbe94904c2bd665ff0318426920661e76
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1d0f89285095e7edd67883a2bad1411f6e8942d2
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730843"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54107206"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configuración de entornos de ensayo en Azure App Service
 <a name="Overview"></a>
 
-Al implementar la aplicación web, la aplicación web en Linux, el back-end móvil y la aplicación API en [App Service](https://go.microsoft.com/fwlink/?LinkId=529714), puede implementarlas en una ranura de implementación independiente en lugar de en la ranura de producción predeterminada si realiza la ejecución en el nivel de plan **Estándar**, **Premium** o **Aislado** de App Service. Las ranuras de implementación son realmente aplicaciones activas con sus propios nombres de host. Los elementos de contenido y configuraciones de aplicaciones se pueden intercambiar entre dos ranuras de implementación, incluida la ranura de producción. La implementación de la aplicación en un espacio de implementación ofrece las ventajas siguientes:
+> [!NOTE]
+> Esta guía paso a paso muestra cómo administrar espacios mediante una nueva página de administración de versiones preliminares. Los clientes acostumbrados a la página de administración existente pueden seguir usando la página de administración de espacios existente como antes. 
+>
+
+Al implementar la aplicación web, la aplicación web en Linux, el back-end móvil y la aplicación API en [App Service](https://go.microsoft.com/fwlink/?LinkId=529714), puede implementarlas en una ranura de implementación independiente en lugar de en la ranura de producción predeterminada si realiza la ejecución en el nivel de plan **Estándar**, **Premium** o **Aislado** de App Service. Las ranuras de implementación son realmente aplicaciones activas con sus propios nombres de host. Los elementos de contenido y configuraciones de aplicaciones se pueden intercambiar entre dos ranuras de implementación, incluida la ranura de producción. La implementación de la aplicación en un espacio que no sea de producción ofrece las siguientes ventajas:
 
 * Puede validar los cambios en la aplicación en una ranura de implementación de ensayo antes de intercambiarla con la ranura de producción.
-* La implementación de una aplicación en una ranura en primer lugar y su intercambio con la de la producción garantiza que todas las instancias de la ranura estén activas antes de colocarse en producción. Esto elimina tiempos de inactividad a la hora de implementar la aplicación. El redireccionamiento del tráfico es impecable y no se anulan las solicitudes como consecuencia de las operaciones de intercambio. Este flujo de trabajo completo puede automatizarse mediante la configuración de [Intercambio automático](#Auto-Swap) .
-* Después del intercambio, la ranura con la aplicación de ensayo anterior ahora ocupa la aplicación de producción anterior. Si los cambios intercambiados en el espacio de producción no son los esperados, puede realizar el mismo intercambio inmediatamente para volver a obtener el "último sitio en buen estado".
+* La implementación de una aplicación en un espacio y su posterior paso a producción garantiza que todas las instancias del espacio están preparadas antes de dicho paso a producción. Esto elimina tiempos de inactividad a la hora de implementar la aplicación. El redireccionamiento del tráfico es perfecta y no se pierde ninguna solicitud en las operaciones de intercambio. Todo este flujo de trabajo se puede automatizar mediante la configuración de [Intercambio automático](#Auto-Swap) cuando no sea necesario realizar ninguna validación antes del intercambio.
+* Después del intercambio, la ranura con la aplicación de ensayo anterior ahora ocupa la aplicación de producción anterior. Si las modificaciones que se han intercambiado en el espacio de producción no son los que esperaba, puede volver a realizar un intercambio inmediatamente para tener el "último sitio que sabe que funciona correctamente".
 
-Cada nivel del plan de App Service admite un número distinto de ranuras de implementación. Para averiguar el número de ranuras que admite el nivel de la aplicación, consulte [Límites de App Service](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits). Para escalar la aplicación a un nivel diferente, el nivel de destino debe admitir el número de ranuras que la aplicación ya usa. Por ejemplo, si la aplicación tiene más de 5 ranuras, no se puede reducir verticalmente al nivel **Estándar**, porque dicho nivel solo admite 5 ranuras de implementación.
+Cada nivel del plan de App Service admite un número distinto de ranuras de implementación. Para averiguar el número de ranuras que admite el nivel de la aplicación, consulte [Límites de App Service](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits). Para escalar la aplicación a un nivel diferente, el nivel de destino debe admitir el número de ranuras que la aplicación ya usa. Por ejemplo, si la aplicación tiene más de cinco espacios, no se puede reducir verticalmente al nivel **Estándar**, ya que dicho nivel solo admite cinco espacios de implementación.
 
 <a name="Add"></a>
 
-## <a name="add-a-deployment-slot"></a>Incorporación de una ranura de implementación
-La aplicación se debe estar ejecutando en el nivel **Estándar**, **Premium** o **Aislado* para permitir varias ranuras de implementación.
+## <a name="add-slot"></a>Incorporación de espacios
+Para poder habilitar varias espacios de implementación, la aplicación debe ejecutarse en los niveles **Estándar**, **Premium** o **Aislado**.
 
-1. En [Azure Portal](https://portal.azure.com/), abra la [hoja de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources) de la aplicación.
-2. Elija la opción **Ranuras de implementación** y, a continuación, haga clic en **Agregar ranura**.
+1. En [Azure Portal](https://portal.azure.com/), abra la [página de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources) de la aplicación.
+
+2. En el panel de navegación izquierdo, elija la opción **Espacios de implementación (versión preliminar)** y haga clic en **Agregar espacio**.
    
-    ![Agregar una nueva ranura de implementación][QGAddNewDeploymentSlot]
+    ![Agregar una nueva ranura de implementación](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
    > [!NOTE]
-   > Si la aplicación ya no está en el nivel **Estándar**, **Premium** o **Aislado*, recibirá un mensaje que indica los niveles compatibles para habilitar la publicación de ensayo. Llegados a este punto, tiene la opción de seleccionar **Actualizar** e ir a la pestaña **Escala** de la aplicación antes de continuar.
+   > Si la aplicación no está aún en los niveles **Estándar**, **Premium** o **Aislado**, recibirá un mensaje que indica los niveles compatibles para habilitar la publicación almacenada provisionalmente. Llegados a este punto, tiene la opción de seleccionar **Actualizar** e ir a la pestaña **Escala** de la aplicación antes de continuar.
    > 
-   > 
-3. En la hoja **Agregar una ranura**, asigne un nombre a la ranura y seleccione si la configuración de la aplicación se debe clonar de otra ranura de implementación existente. Haga clic en la marca de verificación para continuar.
-   
-    ![Origen de configuración][ConfigurationSource1]
-   
-    La primera vez que agrega una ranura, solo tendrá dos opciones: clonar o no la configuración de la ranura predeterminada en producción.
-    Después de haber creado varios espacios, podrá clonar la configuración de un espacio que no sea el de producción:
-   
-    ![Orígenes de configuración][MultipleConfigurationSources]
-4. En la hoja de recursos de la aplicación, haga clic en **Ranuras de implementación** y, a continuación, haga clic en una ranura de implementación para abrir la hoja de recursos de esa ranura, con un conjunto de métricas y una configuración como cualquier otra aplicación. El nombre de la ranura se muestra en la parte superior de la hoja para recordarle que está viendo la ranura de implementación.
-   
-    ![Título de la ranura de implementación][StagingTitle]
-5. Haga clic en la dirección URL de la aplicación en la hoja del espacio. Observe que el espacio de implementación tiene su propio nombre de host y que se trata también de una aplicación activa. Para limitar el acceso público a la ranura de implementación, consulte [Aplicación web de App Service: bloquear acceso web a ranuras de implementación que no son de producción](https://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
 
-No hay ningún contenido después de la creación de un espacio de implementación. Puede implementar el espacio desde una rama de repositorio diferente o desde un repositorio completamente diferente. También puede cambiar la configuración del espacio. Utilice el perfil de publicación o las credenciales de implementación asociadas al espacio de implementación para ver las actualizaciones del contenido.  Por ejemplo, [puede publicar en esta ranura mediante Git](deploy-local-git.md).
+3. En el cuadro de diálogo **Agregar espacio**, asigne un nombre al espacio y seleccione si desea que la configuración de la aplicación se clone de otro espacio de implementación existente. Haga clic en **Agregar** para continuar.
+   
+    ![Origen de configuración](./media/web-sites-staged-publishing/ConfigurationSource1.png)
+   
+    La configuración se puede clonar de un espacio existente. La configuración que se puede clonar incluye los valores de la aplicación, las cadenas de conexión, versiones del marco del lenguaje, los sockets web, la versión de HTTP y el valor de bits de la plataforma.
+
+4. Tras agregar el espacio, haga clic en **Cerrar** para cerrar el cuadro de diálogo. El nuevo espacio se muestra en la página **Espacios de implementación (versión preliminar)**. De forma predeterminada, en el espacio nuevo el valor de **Tráfico %** es 0, y todo el tráfico de los clientes se enruta al espacio de producción.
+
+5. Haga clic en el nuevo espacio de implementación para abrir su página de recursos.
+   
+    ![Título de la ranura de implementación](./media/web-sites-staged-publishing/StagingTitle.png)
+
+    Como las restantes aplicaciones de App Service, el espacio de ensayo tiene una página de administración. La configuración del espacio se puede cambiar. El nombre del espacio se muestra en la parte superior de la página para recordarle que está viendo el espacio de implementación.
+
+6. Haga clic en la dirección URL de la aplicación en la página de recursos del espacio. El espacio de implementación tiene su propio nombre de host y es también una aplicación activa. Para limitar el acceso público al espacio de implementación, consulte [Restricciones de IP estáticas de Azure App Service](app-service-ip-restrictions.md).
+
+El nuevo espacio de implementación no tiene contenido, aunque se clone la configuración de otro espacio. Por ejemplo, [puede publicar en esta ranura mediante Git](app-service-deploy-local-git.md). La implementación en el espacio se puede realizar desde otra rama del repositorio o desde otro repositorio. 
 
 <a name="AboutConfiguration"></a>
 
 ## <a name="which-settings-are-swapped"></a>¿Qué configuración se intercambia?
-Cuando crea un clon de la configuración de otro espacio de implementación, la configuración clonada se puede editar. Además, algunos elementos de configuración seguirán el contenido a través de un intercambio (no son específicos del espacio) mientras que otros elementos de configuración permanecerán en el mismo espacio después de un intercambio (son específicos del espacio). Las listas siguientes muestran la configuración que cambia cuando se intercambian las ranuras.
+Cuando crea un clon de la configuración de otro espacio de implementación, la configuración clonada se puede editar. Además, algunos elementos de configuración siguen al contenido en los intercambios (no son específicos del espacio), mientras que otros permanecen en el mismo espacio después de un intercambio (específicos del espacio). Las listas siguientes muestran la configuración que cambia cuando se intercambian las ranuras.
 
 **Configuraciones que se intercambian**:
 
@@ -75,102 +82,121 @@ Cuando crea un clon de la configuración de otro espacio de implementación, la 
 * Cadenas de conexión (puede configurarse para ajustarse a un espacio)
 * Asignaciones de controlador
 * Configuración de supervisión y diagnóstico
+* Certificados públicos
 * Contenido de WebJobs
 * Conexiones híbridas
 
-**Configuraciones que no se intercambian**:
+**Valores que no se intercambian**:
 
 * Extremos de publicación
 * Nombres de dominio personalizados
-* Certificados SSL y enlaces
+* Certificados privados y enlaces SSL
 * Configuración de escala
 * Programadores de WebJobs
 
-Para establecer una configuración de aplicación o una cadena de conexión que se ajuste a una ranura (no intercambiada), obtenga acceso a la hoja **Configuración de la aplicación** para una ranura específica y seleccione el cuadro **Configuración de ranuras** para los elementos de configuración que se deben ajustar a la ranura. Marcar un elemento de configuración como ranura específica tiene el efecto de establecer ese elemento como no intercambiable en todas las ranuras de implementación asociadas con la aplicación.
+<!-- VNET, IP restrictions, CORS, hybrid connections? -->
 
-![Configuración de ranura][SlotSettings]
+Para configurar que un valor de una aplicación o una cadena de conexión se quede en un espacio (que no se intercambie), vaya a la página **Configuración de la aplicación** de dicho espacio específico y seleccione el cuadro **Configuración de espacios** en los elementos de la configuración que deben permanecer en el espacio. Marcar un elemento de la configuración como específico de un espacio indica a App Service que no se puede intercambiar.
+
+![Configuración de espacios](./media/web-sites-staged-publishing/SlotSetting.png)
 
 <a name="Swap"></a>
 
-## <a name="swap-deployment-slots"></a>Intercambio de ranuras de implementación 
-Puede intercambiar ranuras de implementación en la vista **Información general** o **Ranuras de implementación** de la hoja de recursos de la aplicación.
+## <a name="swap-two-slots"></a>Intercambio de dos espacios 
+Los espacios de implementación se pueden intercambiar en la página **Espacios de implementación (versión preliminar)** de la aplicación. 
+
+También se pueden intercambiar desde las páginas **Información general** y **Espacios de implementación**, pero así es como se hacía antes. En esta guía se muestra cómo usar la nueva interfaz de usuario de la página **Espacios de implementación (versión preliminar)**.
 
 > [!IMPORTANT]
-> Antes de colocar una aplicación de una ranura de implementación en producción, asegúrese de que todos los valores específicos que no son de ranura están configurados exactamente como desea que estén en el destino de intercambio.
+> Antes de cambiar una aplicación de un espacio de implementación a producción, asegúrese de que todos los valores están configurados exactamente como desea que estén en el destino de intercambio.
 > 
 > 
 
-1. Para intercambiar las ranuras de implementación, haga clic en el botón **Intercambiar** en la barra de comandos de la aplicación o en la barra de comandos de una ranura de implementación.
+Para intercambiar espacios de implementación, siga estos pasos:
+
+1. Vaya a la página **Espacios de implementación (versión preliminar)** y haga clic en **Cambiar**.
    
-    ![Botón de cambio][SwapButtonBar]
+    ![Botón de cambio](./media/web-sites-staged-publishing/SwapButtonBar.png)
 
-2. Asegúrese de que el origen y el destino del intercambio estén correctamente establecidos. Normalmente, el destino de intercambio es la ranura de producción. Haga clic en **Aceptar** para completar la operación. Cuando termine la operación, los espacios de implementación se habrán intercambiado.
+    El cuadro de diálogo **Cambiar** muestra los valores de los espacios de origen y de destino seleccionados que van a cambiar.
+
+2. Seleccione los espacios **Origen** y **Destino**. Por lo general, el destino suele ser el espacio de producción. Además, haga clic en las pestañas **Cambios de origen** y **Cambios de destino**, y compruebe que los cambios en la configuración son los esperados. En cuanto termine, puede intercambiar los espacios. Para ello solo debe hacer clic en **Cambiar**.
 
     ![Intercambio completo](./media/web-sites-staged-publishing/SwapImmediately.png)
 
-    Para el tipo de intercambio **Intercambio con vista previa**, consulte [Intercambio con vista previa (intercambio en varias fases)](#Multi-Phase).  
+    Para ver cómo funcionaría el espacio de destino con la nueva configuración antes de que se realice el intercambio, no haga clic en **Cambiar**, siga las instrucciones de [Intercambio con vista previa](#Multi-Phase).
+
+3. Cuando haya terminado, haga clic en **Cerrar** para cerrar el cuadro de diálogo.
 
 <a name="Multi-Phase"></a>
 
-## <a name="swap-with-preview-multi-phase-swap"></a>Intercambio con vista previa (intercambio en varias fases)
-
-Intercambio con vista previa o en varias fases simplifican la validación de elementos de configuración específicos de ranura, como cadenas de conexión.
-Para las cargas de trabajo críticas, desea validar que la aplicación se comporte según lo esperado al aplicarse la configuración de la ranura de producción, debiendo llevar a cabo dicha validación *antes* de que la aplicación se coloque en producción. Intercambio con vista previa es lo que necesita.
+### <a name="swap-with-preview-multi-phase-swap"></a>Intercambio con vista previa (intercambio en varias fases)
 
 > [!NOTE]
 > El intercambio con vista previa no se admite en las aplicaciones web en Linux.
 
-Al usar la opción **Intercambio con vista previa** (consulte [Intercambiar ranuras de implementación](#Swap)), App Service hace lo siguiente:
+Antes de usar producción como espacio de destino, valide que la aplicación se ejecuta con la nueva configuración antes de que se produzca el intercambio. El espacio de origen también se ha preparado antes de que finalice el intercambio, algo que también es conveniente para aplicaciones críticas.
 
-- Mantiene la ranura de destino sin cambios para que la carga de trabajo existente en esa ranura (por ejemplo, producción) no se vea afectada.
-- Aplica los elementos de configuración de la ranura de destino a la ranura de origen, incluidas las cadenas de conexión específicas de ranura y la configuración de aplicación.
-- Reinicia los procesos de trabajo en la ranura de origen con estos elementos de configuración ya mencionados.
-- Al completar el intercambio: se mueve la ranura de origen previamente activada en la ranura de destino. La ranura de destino se mueve en la ranura de origen como en un intercambio manual.
-- Al cancelar el intercambio: se vuelven a aplicar los elementos de configuración de la ranura de origen a la ranura de origen.
+Al iniciar un intercambio con vista previa, App Service realiza las siguientes acciones:
 
-Puede previsualizar exactamente cómo se comportará la aplicación con la configuración de la ranura de destino. Una vez completada la validación, completará el intercambio en un paso independiente. Este paso tiene la ventaja añadida de que la ranura de origen ya se ha activado con la configuración deseada y los clientes no experimentarán tiempos de inactividad.  
+- Mantiene el espacio de destino sin cambios para que su carga de trabajo (por ejemplo, producción) no se vea afectada.
+- Aplica los elementos de configuración de el espacio de destino al espacio de origen, incluidas las cadenas de conexión específicas del espacio y la configuración de la aplicación.
+- Reinicia los procesos de trabajo del espacio de origen, para lo que usa con estos elementos de configuración. Puede examinar el espacio de origen y ver cómo se ejecuta la aplicación con los cambios en la configuración.
 
-En los cmdlets de Azure PowerShell se incluyen ejemplos para los cmdlets de Azure PowerShell disponibles para el intercambio de varias fases se incluyen para la sección de ranuras de implementación.
+Si completa el intercambio en un paso independiente, App Service mueve el espacio de origen preparado al espacio de destino y este al espacio de origen. Si cancela el intercambio, App Service vuelve a aplicar los elementos de configuración del espacio de origen en el espacio de origen.
+
+Para realizar un intercambio con vista previa, siga estos pasos.
+
+1. Siga los pasos que se indican en [Intercambio de espacios de implementación](#Swap), pero seleccione **Realizar intercambio con versión preliminar** .
+
+    ![Intercambio con vista previa](./media/web-sites-staged-publishing/SwapWithPreview.png)
+
+    El cuadro de diálogo muestra cómo cambia la configuración del espacio de origen en la fase 1 y cómo cambian tanto el espacio de origen como la de destino en la fase 2.
+
+2. Cuando esté listo para iniciar el intercambio, haga clic en **Iniciar intercambio**.
+
+    Cuando se complete la fase 1, se le notificará en el cuadro de diálogo. Obtenga una vista previa del intercambio en el espacio de origen, para lo que debe ir a `https://<app_name>-<source-slot-name>.azurewebsites.net`. 
+
+3. Cuando esté listo para completar el intercambio pendiente, seleccione **Completar intercambio** en **Acción de intercambio** y haga clic en **Cancelar intercambio**.
+
+    Para cancelar un intercambio pendiente, seleccione **Cancelar intercambio** y haga clic en **Cancelar intercambio**.
+
+4. Cuando haya terminado, haga clic en **Cerrar** para cerrar el cuadro de diálogo.
+
+Para automatizar un intercambio en varias fases, consulte [Automatización con Azure PowerShell](#automate-with-azure-powershell).
+
+<a name="Rollback"></a>
+
+## <a name="roll-back-swap"></a>Reversión de intercambios
+Si aparecen errores en el espacio de destino (por ejemplo, el espacio de producción) después de un intercambio de espacios, restaure los espacios al estado que tenían antes del intercambio. Para ello, vuelva a intercambiarlos de inmediato.
 
 <a name="Auto-Swap"></a>
 
 ## <a name="configure-auto-swap"></a>Configuración de intercambio automático
-El intercambio automático optimiza los escenarios de DevOps donde desee implementar continuamente la aplicación sin arranques en frío ni tiempos de inactividad para los clientes finales de la aplicación. Cuando se configura una ranura de implementación para el intercambio automático en producción, cada vez que inserte una actualización de código para esa ranura, App Service coloca automáticamente la aplicación en producción, una vez que ya esté activa en la ranura.
-
-> [!IMPORTANT]
-> Al habilitar el intercambio automático para una ranura, asegúrese de que la configuración de ranura sea exactamente la configuración prevista para la ranura de destino (normalmente la ranura de producción).
-> 
-> 
 
 > [!NOTE]
 > El intercambio automático no se admite en aplicaciones web en Linux.
 
-Es fácil configurar el intercambio automático para un espacio. Siga estos pasos:
+El intercambio automático optimiza los escenarios de DevOps en los que se desee implementar una aplicación continuamente sin arranques en frío ni tiempos de inactividad para los clientes finales de la aplicación. Cuando un espacio se intercambia automáticamente a producción, cada vez que se insertan los cambios de código en dicho espacio, App Service cambia automáticamente la aplicación a producción después de que se haya preparado en el espacio de origen.
 
-1. En **Ranuras de implementación**, seleccione una ranura que no sea de producción y elija **Configuración de la aplicación** en la hoja de recursos de esa ranura.  
-   
-    ![][Autoswap1]
-2. Seleccione **Activado** para **Intercambio automático**, elija la ranura de destino deseada en **Ranura de intercambio automático** y haga clic en **Guardar** en la barra de comandos. Asegúrese de que la configuración del espacio sea exactamente la configuración prevista para el espacio de destino.
-   
-    La pestaña **Notificaciones** parpadea en color verde indicando que se ha completado con **éxito** una vez finalizada la operación.
-   
-    ![][Autoswap2]
-   
    > [!NOTE]
-   > Para probar el intercambio automático para la aplicación, puede seleccionar primero una ranura de destino que no sea de producción en **Ranura de intercambio automático** para familiarizarse con la característica.  
+   > Antes de configurar el intercambio automático en el espacio de producción, considere la posibilidad de probarlo en un espacio de destino que no sea de producción.
    > 
-   > 
-3. Ejecute una inserción de código para este espacio de implementación. El intercambio automático se realiza después de un breve tiempo y la actualización se refleja en la dirección URL de la ranura de destino.
 
-<a name="Rollback"></a>
+Para configurar el intercambio automático, siga estos pasos:
 
-## <a name="roll-back-a-production-app-after-swap"></a>Reversión de una aplicación de producción después de un intercambio
-Si se identifican errores en producción después del intercambio de espacios, revierta los espacios a sus estados anteriores. Para ello, intercambie los mismos dos espacios inmediatamente.
+1. Vaya a la página de recursos de la aplicación. Seleccione **Espacios de implementación (versión preliminar)** > *\<espacio de origen deseado >* > **Configuración de la aplicación**.
+   
+2. En **Intercambio automático**, seleccione **Activado** y, después, elija el espacio de destino que desee en **Espacio de intercambio automático** y haga clic en **Guardar** en la barra de comandos. 
+   
+    ![](./media/web-sites-staged-publishing/AutoSwap02.png)
+
+3. Ejecute una inserción de código en el espacio de origen. El intercambio automático se realiza después de un breve tiempo y la actualización se refleja en la dirección URL de la ranura de destino.
 
 <a name="Warm-up"></a>
 
-## <a name="custom-warm-up-before-swap"></a>Preparación personalizada antes del intercambio
-Es posible que, cuando utilice [Intercambio automático](#Auto-Swap), algunas aplicaciones necesiten acciones de preparación personalizadas. El elemento de configuración `applicationInitialization` en el archivo web.config permite especificar acciones de inicialización personalizadas antes de recibir una solicitud. La operación de intercambio espera a que se complete la preparación personalizada. He aquí un fragmento de ejemplo del archivo web.config.
+## <a name="custom-warm-up"></a>Preparación personalizada
+Al usar [Intercambio automático](#Auto-Swap), algunas aplicaciones pueden requerir acciones de preparación personalizadas antes del intercambio. El elemento de configuración `applicationInitialization` de web.config permite especificar las acciones de inicialización personalizadas que se van a realizar. La operación espera hasta que se completa esta preparación personalizada antes de realizar el intercambio con el espacio de destino. He aquí un fragmento de ejemplo del archivo web.config.
 
     <system.webServer>
         <applicationInitialization>
@@ -179,54 +205,89 @@ Es posible que, cuando utilice [Intercambio automático](#Auto-Swap), algunas ap
         </applicationInitialization>
     </system.webServer>
 
-## <a name="monitor-swap-progress"></a>Supervisión del progreso de intercambio
+## <a name="monitor-swap"></a>Supervisión del intercambio
 
-En ocasiones, la operación de intercambio tarda algún tiempo en completarse, por ejemplo, cuando la aplicación que se intercambia tiene un período de preparación largo. Puede obtener más información sobre las operaciones de intercambio en el [registro de actividad](../azure-monitor/platform/activity-logs-overview.md) en [Azure Portal](https://portal.azure.com).
+Si la operación de intercambio tarda mucho tiempo en completarse, puede obtener información acerca de ella en el [registro de actividad](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 
-En la página de aplicación del portal, en el panel de navegación izquierdo, seleccione **Registro de actividad**.
+En la página de recursos de la aplicación, en el panel de navegación izquierdo, seleccione **Registro de actividad**.
 
-Una operación de intercambio aparece en la consulta de registro como `Slotsswap`. Puede expandirla y seleccionar una de los suboperaciones o errores para ver los detalles.
+Una operación de intercambio aparece en la consulta de registro como `Swap Web App Slots`. Puede expandirla y seleccionar una de los suboperaciones o errores para ver los detalles.
 
-![Registro de actividad para el intercambio de ranuras](media/web-sites-staged-publishing/activity-log.png)
+## <a name="route-traffic"></a>Enrutamiento del tráfico
+
+De forma predeterminada, todas las solicitudes que realiza el cliente a la dirección URL de producción de la aplicación (`http://<app_name>.azurewebsites.net`) se enrutan al espacio de producción. Una parte del tráfico se puede enrutar a otro espacio. Esta característica es útil si se necesitan los comentarios de los usuarios al respecto de una nueva actualización, pero dicha actualización aún no está lista para enviarla a producción.
+
+### <a name="route-production-traffic-automatically"></a>Enrutamiento automático del tráfico de producción
+
+Para enrutar el tráfico de producción de manera automática, siga estos pasos:
+
+1. Vaya a la página de recursos de la aplicación y seleccione **Espacios de implementación (versión preliminar)**.
+
+2. En la columna **Tráfico %** del espacio que se desea enrutar, especifique un porcentaje (entre 0 y 100) que represente la cantidad del tráfico total que desea enrutar. Haga clic en **Save**(Guardar).
+
+    ![](./media/web-sites-staged-publishing/RouteTraffic.png)
+
+Una vez que el valor se guarda, el porcentaje especificado de clientes se enruta aleatoriamente al espacio que no es de producción. 
+
+Una vez un cliente se enruta automáticamente a un espacio concreto, "permanece anclado" en dicho espacio todo el tiempo que dure su sesión. En el explorador del cliente, para ver a qué espacio está anclada la sesión debe examinar la cookie `x-ms-routing-name` en los encabezados HTTP. Las solicitudes que se enrutan a al espacio "de ensayo" tienen la cookie `x-ms-routing-name=staging`. Las solicitudes que se enrutan al espacio de producción tienen la cookie `x-ms-routing-name=self`.
+
+### <a name="route-production-traffic-manually"></a>Enrutamiento manual del tráfico de producción
+
+Además del enrutamiento automático del tráfico, App Service puede enrutar solicitudes a un espacio concreto. Esto es útil cuando desee que los usuarios puedan escoger el enrutamiento a la aplicación beta, o la exclusión voluntaria de la misma. Para enrutar el tráfico de producción de manera manual se usa el parámetro de consulta `x-ms-routing-name`.
+
+Para permitir que los usuarios opten por la exclusión del enrutamiento a la aplicación beta, por ejemplo, puede poner este vínculo en la página web:
+
+```HTML
+<a href="<webappname>.azurewebsites.net/?x-ms-routing-name=self">Go back to production app</a>
+```
+
+La cadena `x-ms-routing-name=self` especifica la ranura de producción. Una vez que el explorador del cliente accede al vínculo, no solo se redirige al espacio de producción, sino también cada solicitud posterior tiene la cookie `x-ms-routing-name=self` que ancla la sesión al espacio de producción.
+
+Para permitir a los usuarios participar en la aplicación de la versión beta, establezca el mismo parámetro de consulta con el nombre de la ranura que no es de producción, por ejemplo:
+
+```
+<webappname>.azurewebsites.net/?x-ms-routing-name=staging
+```
 
 <a name="Delete"></a>
 
-## <a name="delete-a-deployment-slot"></a>Eliminación de una ranura de implementación
-En la hoja para una ranura de implementación, abra la hoja de la ranura de implementación, haga clic en **Información general** (la página predeterminada) y haga clic en **Eliminar** en la barra de comandos.  
+## <a name="delete-slot"></a>Eliminación de espacios
 
-![Eliminación de una ranura de implementación][DeleteStagingSiteButton]
+Vaya a la página de recursos de la aplicación. Seleccione **Espacios de implementación (versión preliminar)** > *\<espacio que se elimina >* > **Información general**. En la barra de comandos, haga clic en **Eliminar**.  
+
+![Eliminación de una ranura de implementación](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 
 <!-- ======== AZURE POWERSHELL CMDLETS =========== -->
 
 <a name="PowerShell"></a>
 
-## <a name="automate-with-azure-powershell"></a>Automatización con Azure PowerShell
+## <a name="automate-with-powershell"></a>Automatización con PowerShell
 
 Azure PowerShell es un módulo que proporciona cmdlets para administrar Azure mediante Windows PowerShell, incluida la compatibilidad para administrar ranuras de implementación de Azure App Service.
 
-* Para obtener información acerca de cómo instalar y configurar Azure PowerShell y cómo autenticar Azure PowerShell con su suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).  
+Para obtener información acerca de cómo instalar y configurar Azure PowerShell y cómo autenticar Azure PowerShell con su suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).  
 
 - - -
-### <a name="create-a-web-app"></a>Creación de una aplicación web
+### <a name="create-web-app"></a>Crear una aplicación web
 ```PowerShell
 New-AzureRmWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```
 
 - - -
-### <a name="create-a-deployment-slot"></a>Creación de una ranura de implementación
+### <a name="create-slot"></a>Creación de espacios
 ```PowerShell
 New-AzureRmWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot [deployment slot name] -AppServicePlan [app service plan name]
 ```
 
 - - -
-### <a name="initiate-a-swap-with-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-source-slot"></a>Inicio de un intercambio con vista previa (intercambio en varias fases) y aplicación de configuración de la ranura de destino a la ranura de origen
+### <a name="initiate-swap-with-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-source-slot"></a>Inicio de un intercambio con vista previa (intercambio en varias fases) y aplicación de la configuración del espacio de destino al espacio de origen
 ```PowerShell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
 - - -
-### <a name="cancel-a-pending-swap-swap-with-review-and-restore-source-slot-configuration"></a>Cancelación de un intercambio pendiente (intercambio con vista previa) y restauración de configuración de la ranura de origen
+### <a name="cancel-pending-swap-swap-with-review-and-restore-source-slot-configuration"></a>Cancelación de un intercambio pendiente (intercambio con vista previa) y restauración de la configuración del espacio de origen
 ```PowerShell
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01
 ```
@@ -238,13 +299,13 @@ $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
-### <a name="monitor-swap-events-in-the-activity-log"></a>Supervisión de los eventos de intercambio en el registro de actividad
+### <a name="monitor-swap-events-in-the-activity-log"></a>Supervisión de eventos de intercambio en el registro de actividad
 ```PowerShell
 Get-AzureRmLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller SlotSwapJobProcessor  
 ```
 
 - - -
-### <a name="delete-deployment-slot"></a>Eliminación de una ranura de implementación
+### <a name="delete-slot"></a>Eliminación de espacios
 ```
 Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
@@ -254,27 +315,9 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 
 <a name="CLI"></a>
 
-## <a name="automate-with-azure-cli"></a>Automatización con la CLI de Azure
+## <a name="automate-with-cli"></a>Automatización con la interfaz de la línea de comandos
 
 Para información sobre los comandos de la [CLI de Azure](https://github.com/Azure/azure-cli) que se usan con las ranuras de implementación, consulte [az webapp deployment slot](/cli/azure/webapp/deployment/slot).
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Aplicación web de Azure App Service: bloquear acceso web a ranuras de implementación que no son de producción](https://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)  
-[Introducción a App Service en Linux](../app-service/containers/app-service-linux-intro.md)  
-[Evaluación gratuita de Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/)
-
-<!-- IMAGES -->
-[QGAddNewDeploymentSlot]:  ./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png
-[AddNewDeploymentSlotDialog]: ./media/web-sites-staged-publishing/AddNewDeploymentSlotDialog.png
-[ConfigurationSource1]: ./media/web-sites-staged-publishing/ConfigurationSource1.png
-[MultipleConfigurationSources]: ./media/web-sites-staged-publishing/MultipleConfigurationSources.png
-[SiteListWithStagedSite]: ./media/web-sites-staged-publishing/SiteListWithStagedSite.png
-[StagingTitle]: ./media/web-sites-staged-publishing/StagingTitle.png
-[SwapButtonBar]: ./media/web-sites-staged-publishing/SwapButtonBar.png
-[SwapConfirmationDialog]:  ./media/web-sites-staged-publishing/SwapConfirmationDialog.png
-[DeleteStagingSiteButton]: ./media/web-sites-staged-publishing/DeleteStagingSiteButton.png
-[SwapDeploymentsDialog]: ./media/web-sites-staged-publishing/SwapDeploymentsDialog.png
-[Autoswap1]: ./media/web-sites-staged-publishing/AutoSwap01.png
-[Autoswap2]: ./media/web-sites-staged-publishing/AutoSwap02.png
-[SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
-
+[Bloqueo del acceso a espacios que no sean de producción](app-service-ip-restrictions.md)

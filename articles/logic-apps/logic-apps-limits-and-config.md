@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: 62235c0c06621169997cc4ad16816c0a4d638e78
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: e5c5d1a3e0316c96a6df7e01e6d6796d6a72506a
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853836"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159033"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
@@ -85,10 +85,10 @@ Estos son los límites de ejecución de una única aplicación lógica:
 
 | NOMBRE | Límite | Notas | 
 | ---- | ----- | ----- | 
-| Simultaneidad de desencadenadores | 50 | El límite predeterminado es 20. Este límite describe el número máximo de instancias de aplicaciones lógicas que se pueden ejecutar al mismo tiempo o en paralelo. <p><p>Para cambiar el límite predeterminado a un valor comprendido entre 1 y 50 (ambos inclusive), consulte [Cambio en la simultaneidad de desencadenadores](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) o [Desencadenamiento secuencial de instancias](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
-| Número máximo de ejecuciones en espera | 100 | El límite predeterminado es 10. Este límite describe el número máximo de instancias de aplicaciones lógicas que se pueden poner en espera de ejecución en caso de que la aplicación lógica ya esté ejecutando el número máximo de instancias simultáneas. <p><p>Para cambiar el límite predeterminado a un valor comprendido entre 0 y 100 (ambos inclusive), consulte [Cambio del límite de ejecuciones en espera](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
-| Elementos foreach | 100 000 | Este límite describe el número máximo de elementos de matriz que puede procesar un bucle "for each". <p><p>Para filtrar matrices más grandes, puede usar la [acción de consulta](../connectors/connectors-native-query.md). | 
-| Iteraciones foreach | 50 | El límite predeterminado es 20. Este límite describe el número máximo de iteraciones de bucles "for each" que se pueden ejecutar al mismo tiempo o en paralelo. <p><p>Para cambiar el límite predeterminado a un valor comprendido entre 1 y 50 (ambos inclusive), consulte [Cambio de la simultaneidad de los bucles "for each"](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) o [Ejecución secuencial de bucles "for each"](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
+| Simultaneidad de desencadenadores | 50 cuando se limita la simultaneidad | Al activar el control de simultaneidad para un desencadenador, el límite predeterminado es 25. Este límite describe el número máximo de instancias de aplicaciones lógicas que se pueden ejecutar al mismo tiempo o en paralelo. <p><p>Para cambiar el límite predeterminado a un valor comprendido entre 1 y 50 (ambos inclusive), consulte [Cambio en la simultaneidad de desencadenadores](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) o [Desencadenamiento secuencial de instancias](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
+| Número máximo de ejecuciones en espera | 100 cuando se limita la simultaneidad | Al activar el control de simultaneidad para un desencadenador, el límite predeterminado es 10. Este límite describe el número máximo de instancias de aplicaciones lógicas que se pueden poner en espera de ejecución en caso de que la aplicación lógica ya esté ejecutando el número máximo de instancias simultáneas. <p><p>Para cambiar el límite predeterminado a un valor comprendido entre 0 y 100 (ambos inclusive), consulte [Cambio del límite de ejecuciones en espera](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
+| Elementos de matriz de foreach | 100 000 | Este límite describe el número máximo de elementos de matriz que puede procesar un bucle "for each". <p><p>Para filtrar matrices más grandes, puede usar la [acción de consulta](../connectors/connectors-native-query.md). | 
+| Simultaneidad de foreach | 50 cuando se limita la simultaneidad | Al activar el control de simultaneidad para este bucle, el límite predeterminado es 20. Este límite describe el número máximo de iteraciones de bucles "for each" que se pueden ejecutar al mismo tiempo o en paralelo. <p><p>Para cambiar el límite predeterminado a un valor comprendido entre 1 y 50 (ambos inclusive), consulte [Cambio en el límite de la simultaneidad de los bucles "for each"](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) o [Ejecución secuencial de bucles "for each"](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
 | Elementos SplitOn | 100 000 | | 
 | Iteraciones Until | 5.000 | | 
 |||| 
@@ -101,11 +101,11 @@ Estos son los límites de ejecución de una única aplicación lógica:
 
 | NOMBRE | Límite | Notas | 
 | ---- | ----- | ----- | 
-| Acción: Ejecuciones por cada 5 minutos | 300 000 | El límite predeterminado es 100 000. Para cambiar el límite predeterminado, consulte [Ejecución de la aplicación lógica en modo de "alto rendimiento"](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), que está en versión preliminar. O bien puede distribuir la carga de trabajo entre varias aplicaciones lógicas según sea necesario. | 
+| Acción: Ejecuciones por cada 5 minutos | 300 000 | El límite predeterminado es 100 000. Para cambiar el límite predeterminado, consulte [Ejecución de la aplicación lógica en modo de "alto rendimiento"](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), que está en versión preliminar. O bien puede distribuir la carga de trabajo entre varias aplicaciones lógicas según sea necesario. | 
 | Acción: Llamadas salientes simultáneas | Aproximadamente 2500 | Puede reducir el número de solicitudes simultáneas o la duración según sea necesario. | 
-| Punto de conexión en tiempo de ejecución: llamadas entrantes simultáneas | ~1000 | Puede reducir el número de solicitudes simultáneas o la duración según sea necesario. | 
-| Punto de conexión en tiempo de ejecución: llamadas de lectura por 5 minutos  | 60 000 | Puede distribuir una carga de trabajo entre varias aplicaciones, según sea necesario. | 
-| Punto de conexión en tiempo de ejecución: llamadas de invocación por 5 minutos | 45 000 | Puede distribuir una carga de trabajo entre varias aplicaciones, según sea necesario. | 
+| Punto de conexión en tiempo de ejecución: Llamadas entrantes simultáneas | ~1000 | Puede reducir el número de solicitudes simultáneas o la duración según sea necesario. | 
+| Punto de conexión en tiempo de ejecución: Llamadas de lectura cada 5 minutos  | 60 000 | Puede distribuir una carga de trabajo entre varias aplicaciones, según sea necesario. | 
+| Punto de conexión en tiempo de ejecución: Invocación de llamadas cada 5 minutos | 45 000 | Puede distribuir una carga de trabajo entre varias aplicaciones, según sea necesario. | 
 | Rendimiento de contenido cada 5 minutos | 600 MB | Puede distribuir una carga de trabajo entre varias aplicaciones, según sea necesario. | 
 |||| 
 
@@ -119,9 +119,9 @@ Si quiere superar estos límites en el procesamiento normal, o ejecutar pruebas 
 
 | NOMBRE | Límite | Notas |
 |------|-------|-------|
-| FTP | 50 MB | Para evitar este límite, consulte [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md) (Controlar mensajes grandes con fragmentación). En cambio, puede que algunos conectores y API no admitan la fragmentación ni el límite predeterminado. | 
-| SFTP | 50 MB | Para evitar este límite, use el [conector de SFTP-SSH](../connectors/connectors-sftp-ssh.md) o consulte [Control de mensajes grandes con la fragmentación ](../logic-apps/logic-apps-handle-large-messages.md). En cambio, puede que algunos conectores y API no admitan la fragmentación ni el límite predeterminado. | 
-| SFTP-SSH | 1 GB | Para evitar este límite, consulte [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md) (Controlar mensajes grandes con fragmentación). En cambio, puede que algunos conectores y API no admitan la fragmentación ni el límite predeterminado. | 
+| FTP | 50 MB | Para superar este límite, consulte [Control de mensajes grandes con la fragmentación de Azure Logic Apps](../logic-apps/logic-apps-handle-large-messages.md). En cambio, puede que algunos conectores y API no admitan la fragmentación ni el límite predeterminado. | 
+| SFTP | 50 MB | Para superar este límite, use el [conector de SFTP-SSH](../connectors/connectors-sftp-ssh.md) o consulte [Control de mensajes grandes con la fragmentación de Azure Logic Apps](../logic-apps/logic-apps-handle-large-messages.md). En cambio, puede que algunos conectores y API no admitan la fragmentación ni el límite predeterminado. | 
+| SFTP-SSH | 1 GB | Para superar este límite, consulte [Control de mensajes grandes con la fragmentación de Azure Logic Apps](../logic-apps/logic-apps-handle-large-messages.md). En cambio, puede que algunos conectores y API no admitan la fragmentación ni el límite predeterminado. | 
 |||| 
 
 <a name="request-limits"></a>
@@ -238,10 +238,10 @@ Use el nivel gratuito solo en escenarios de exploración, y no en escenarios de 
 | ---- | ----- | ----- | 
 | Esquema | 8 MB | Para cargar archivos mayores de 2 MB, use el [URI del blob](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
 | Asignación (archivo XSLT) | 2 MB | | 
-| Punto de conexión en tiempo de ejecución: llamadas de lectura por 5 minutos | 60 000 | Puede distribuir la carga de trabajo entre varias cuentas según sea necesario. | 
-| Punto de conexión en tiempo de ejecución: llamadas de invocación por 5 minutos | 45 000 | Puede distribuir la carga de trabajo entre varias cuentas según sea necesario. | 
-| Punto de conexión en tiempo de ejecución: llamadas de seguimiento por 5 minutos | 45 000 | Puede distribuir la carga de trabajo entre varias cuentas según sea necesario. | 
-| Punto de conexión en tiempo de ejecución: llamadas simultáneas de bloqueo | ~1000 | Puede reducir el número de solicitudes simultáneas o la duración según sea necesario. | 
+| Punto de conexión en tiempo de ejecución: Llamadas de lectura cada 5 minutos | 60 000 | Puede distribuir la carga de trabajo entre varias cuentas según sea necesario. | 
+| Punto de conexión en tiempo de ejecución: Invocación de llamadas cada 5 minutos | 45 000 | Puede distribuir la carga de trabajo entre varias cuentas según sea necesario. | 
+| Punto de conexión en tiempo de ejecución: Seguimiento de llamadas cada 5 minutos | 45 000 | Puede distribuir la carga de trabajo entre varias cuentas según sea necesario. | 
+| Punto de conexión en tiempo de ejecución: Bloqueo de llamadas simultáneas | ~1000 | Puede reducir el número de solicitudes simultáneas o la duración según sea necesario. | 
 ||||  
 
 <a name="b2b-protocol-limits"></a>
@@ -259,7 +259,7 @@ Estos son los límites que se aplican a los protocolos B2B:
 
 <a name="configuration"></a>
 
-## <a name="configuration-ip-addresses"></a>Configuración: direcciones IP
+## <a name="configuration-ip-addresses"></a>Configuración: Direcciones IP
 
 ### <a name="azure-logic-apps-service"></a>Servicio Azure Logic Apps
 

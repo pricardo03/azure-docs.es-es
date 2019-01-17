@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: a36ad31531e41782f5be457450737a74f476c543
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 478b1352d0bf2eec9af62e519b50e61dea6cc8fc
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584883"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158438"
 ---
 # <a name="api-management-advanced-policies"></a>Directivas avanzadas de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -103,7 +103,7 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 ```
 
 #### <a name="example"></a>Ejemplo
- En este ejemplo se muestra cómo filtrar contenido quitando elementos de datos de la respuesta recibida del servicio back-end al usar el producto `Starter`. Para ver una demostración de la configuración y el uso de esta directiva, vea [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Episodio 177 de Cloud Cover: más características API Management con Vlad Vinogradsky) y avance al minuto 34:30. Empiece en el minuto 31:50 para ver una introducción a la [API de previsión de Dark Sky](https://developer.forecast.io/) empleada en esta demostración.
+ En este ejemplo se muestra cómo filtrar contenido quitando elementos de datos de la respuesta recibida del servicio back-end al usar el producto `Starter`. Para ver una demostración de la configuración y el uso de esta directiva, consulte el [Episodio 177 de Cloud Cover: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Más características de API Management con Vlad Vinogradsky) y avance hasta el minuto 34:30. Empiece en el minuto 31:50 para ver una introducción a la [API de previsión de Dark Sky](https://developer.forecast.io/) empleada en esta demostración.
 
 ```xml
 <!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
@@ -449,7 +449,7 @@ status code and media type. If no example or schema found, the content is empty.
 > [!NOTE]
 >  Cuando solamente se especifica `interval`, los reintentos se llevan a cabo a intervalos **fijos**.
 > Cuando solamente se especifican `interval` y `delta`, se utiliza el algoritmo de reintentos de intervalo **lineal**, en el que el tiempo de espera entre reintentos se calcula según la siguiente fórmula: `interval + (count - 1)*delta`.
-> Cuando se especifican `interval`, `max-interval` y `delta`, se aplica un algoritmo de reintentos de intervalo **exponencial**, en el que el tiempo de espera entre los reintentos crece exponencialmente desde el valor de `interval` al valor de `max-interval` según la siguiente fórmula: `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
+> Cuando se especifican `interval`, `max-interval` y `delta`, se aplica un algoritmo de reintentos de intervalo **exponencial**, en el que el tiempo de espera entre los reintentos aumenta exponencialmente desde el valor de `interval` al valor de `max-interval` según la siguiente fórmula: `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
 
 ### <a name="usage"></a>Uso
  Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva. Tenga en cuenta que esta directiva heredará las restricciones de uso de directivas secundarias.
@@ -649,7 +649,7 @@ status code and media type. If no example or schema found, the content is empty.
 |Atributo|DESCRIPCIÓN|Obligatorio|Valor predeterminado|
 |---------------|-----------------|--------------|-------------|
 |mode="cadena"|Determina si se trata de una solicitud nueva o de una copia de la solicitud actual. En el modo de salida, mode=copy no inicializa el cuerpo de la solicitud.|Sin |Nuevo|
-|response-variable-name="cadena"|El nombre de la variable de contexto que va a recibir un objeto de respuesta. Si la variable no existe, se crea con la ejecución correcta de la directiva y estará accesible a través de la colección [`context.Variable`](api-management-policy-expressions.md#ContextVariables).|SÍ|N/D|
+|response-variable-name="cadena"|El nombre de la variable de contexto que va a recibir un objeto de respuesta. Si la variable no existe, se creará tras la ejecución correcta de la directiva y se podrá acceder a ella a través de la colección [`context.Variable`](api-management-policy-expressions.md#ContextVariables).|SÍ|N/D|
 |timeout="entero"|Intervalo de tiempo de espera en segundos antes de que se produzca un error de la llamada a la dirección URL.|Sin |60|
 |ignore-error|Si es true y la solicitud tiene como resultado un error:<br /><br /> -   Si se especificó response-variable-name, contendrá un valor nulo.<br />-   Si no se especificó response-variable-name, no se actualizará context.Request.|Sin |false|
 |Nombre|Especifica el nombre del encabezado que se va a establecer.|SÍ|N/D|

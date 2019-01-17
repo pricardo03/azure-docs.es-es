@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: 23cbdb4d72a6b88563d9d2c2bd0e4e3c8223377f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c86fd2affa08999ae574f55315c6a0b32fa58fca
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723678"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076797"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Uso de las Herramientas de Azure HDInsight para Visual Studio Code
 
@@ -127,7 +127,7 @@ Puede vincular un clúster normal mediante un nombre de usuario administrado de 
 
 1. Para abrir la paleta de comandos, presione **CTRL+MAYÚS+P** y, después, escriba **HDInsight: Link a Cluster** (HDInsight: vincular un clúster).
 2. Seleccione **Generic Livy Endpoint** (Punto de conexión de Livy genérico).
-3. Escriba el punto de conexión de Livy genérico, por ejemplo: http://10.172.41.42:18080.
+3. Escriba el punto de conexión de Livy genérico, por ejemplo: http\://10.172.41.42:18080.
 4. Seleccione **Basic** (Básico) cuando necesite autorización para el punto de conexión de Livy genérico; en caso contrario, seleccione **None** (Ninguno).
 5. Si ha seleccionado **Basic** en el paso 4, escriba el nombre de usuario.
 6. Si ha seleccionado **Basic** en el paso 4, escriba la contraseña.

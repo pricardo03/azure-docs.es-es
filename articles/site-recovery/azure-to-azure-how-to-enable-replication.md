@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 797cef2d3a0e2cfeb28411c30a7da8a5b6f2d953
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 79ad4b3598c227ad2c2e3b76562cf95a30e82ad3
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834526"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101554"
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Replicación de máquinas virtuales de Azure en otra región de Azure
 
@@ -37,7 +37,7 @@ Habilite la replicación. En este procedimiento se supone que la región princip
     - **Ubicación de origen**: la región de Azure desde la que se quieren proteger las máquinas virtuales. En este ejemplo, la ubicación de origen es "Asia Oriental".
     - **Modelo de implementación**: el modelo de implementación de Azure de las máquinas de origen.
     - **Suscripción de origen**: suscripción a la que pertenecen sus máquinas virtuales de origen. Puede tratarse de cualquier suscripción dentro del mismo inquilino de Azure Active Directory donde exista el almacén de Recovery Services.
-    - **Grupo de recursos**: el grupo de recursos al que pertenecen las máquinas virtuales de origen. Todas las máquinas virtuales del grupo de recursos seleccionado se enumeran para su protección en el paso siguiente.
+    - **Grupos de recursos**: el grupo de recursos al que pertenecen las máquinas virtuales de origen. Todas las máquinas virtuales del grupo de recursos seleccionado se enumeran para su protección en el paso siguiente.
 
     ![Habilitar replicación](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
 
@@ -65,7 +65,7 @@ Habilite la replicación. En este procedimiento se supone que la región princip
     - **Directiva de replicación**: define la configuración del historial de retención del punto de recuperación y la frecuencia de instantánea coherente con la aplicación. De manera predeterminada, Azure Site Recovery crea una directiva de replicación nueva con la configuración predeterminada de 24 horas para la retención del punto de recuperación y 60 minutos para la frecuencia de instantánea coherente con la aplicación.
 
     ![Habilitar replicación](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
-
+  
 ## <a name="customize-target-resources"></a>Personalizar los recursos de destino
 
 Puede modificar la configuración de destino predeterminada utilizada por Site Recovery.
@@ -79,7 +79,13 @@ Puede modificar la configuración de destino predeterminada utilizada por Site R
     - En **Cuentas de almacenamiento de destino**, seleccione la cuenta que desea usar.
 
         ![Habilitar replicación](./media/site-recovery-replicate-azure-to-azure/customize.PNG)
-
+1. Haga clic en **Personalizar:** para modificar la configuración de replicación.
+   - En **Coherencia con múltiples máquinas virtuales**, seleccione las máquinas virtuales que desea replicar juntas. 
+   - Todas las máquinas de un grupo de replicación tendrán puntos de recuperación compartidos coherentes con los bloqueos y coherentes con la aplicación cuando conmutan por error. Habilitar la coherencia de múltiples máquinas virtuales puede afectar al rendimiento de la carga de trabajo (ya que consume mucha CPU) y solo debe utilizarse si las máquinas ejecutan la misma carga de trabajo y necesita coherencia entre varias máquinas. Por ejemplo, si una aplicación tiene 2 máquinas virtuales SQL y 2 servidores web, solo debe agregar máquinas virtuales SQL como parte del grupo de replicación.
+   - Puede elegir tener un máximo de 16 máquinas virtuales en un grupo de replicación.
+   - Si habilita la coherencia entre varias máquinas virtuales, las máquinas del grupo de replicación se comunican entre sí a través del puerto 20004. Asegúrese de que no haya ninguna aplicación de firewall que bloquee la comunicación interna entre las máquinas virtuales en el puerto 20004. Si desea que las máquinas virtuales de Linux formen parte de un grupo de replicación, asegúrese de que el tráfico saliente en el puerto 20004 se abra manualmente según las instrucciones de la versión específica de Linux.
+![Habilitar replicación](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
+    
 2. Haga clic en **Crear recurso de destino** > **Habilitar replicación**.
 3. Después de que las máquinas virtuales están habilitadas para la replicación, puede comprobar el estado de mantenimiento de las máquinas virtuales en **Elementos replicados**.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 097fd93955a4ca3fd96ae6452fa3b503b029ffc3
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: b07c71a9365fca3a2e5d7c837acf689af980afdd
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313231"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075828"
 ---
 # <a name="ocr-cognitive-skill"></a>Aptitud cognitiva de OCR
 
@@ -44,7 +44,7 @@ Los parámetros distinguen mayúsculas de minúsculas.
 | Nombre de parámetro     | DESCRIPCIÓN |
 |--------------------|-------------|
 | detectOrientation | Permite la detección automática de la orientación de la imagen. <br/> Valores válidos: true / false.|
-|defaultLanguageCode | <p>  Código de idioma del texto de entrada. Los lenguajes compatibles incluyen: <br/> zh-Hans (chino simplificado) <br/> zh-Hant (chino tradicional) <br/>cs (checo) <br/>da (danés) <br/>nl (neerlandés) <br/>en (inglés) <br/>fi (finés)  <br/>fr (francés) <br/>  de (alemán) <br/>el (griego) <br/> hu (húngaro) <br/> it (italiano) <br/>  ja (japonés) <br/> ko (coreano) <br/> nb (noruego) <br/>   pl (polaco) <br/> pt (portugués) <br/>  ru (ruso) <br/>  es (español) <br/>  sv (sueco) <br/>  tr (turco) <br/> ar (árabe) <br/> ro (rumano) <br/> sr-Cyrl (serbio cirílico) <br/> sr-Latn (serbio latino) <br/>  sk (eslovaco) <br/>  unk (desconocido) <br/><br/> Si el código de idioma no está especificado o es nulo, el idioma se detecta de forma automática. </p> |
+|defaultLanguageCode | <p>  Código de idioma del texto de entrada. Los lenguajes compatibles incluyen: <br/> zh-Hans (chino simplificado) <br/> zh-Hant (chino tradicional) <br/>cs (checo) <br/>da (danés) <br/>nl (neerlandés) <br/>en (inglés) <br/>fi (finés)  <br/>fr (francés) <br/>  de (alemán) <br/>el (griego) <br/> hu (húngaro) <br/> it (italiano) <br/>  ja (japonés) <br/> ko (coreano) <br/> nb (noruego) <br/>   pl (polaco) <br/> pt (portugués) <br/>  ru (ruso) <br/>  es (español) <br/>  sv (sueco) <br/>  tr (turco) <br/> ar (árabe) <br/> ro (rumano) <br/> sr-Cyrl (serbio cirílico) <br/> sr-Latn (serbio latino) <br/>  sk (eslovaco) <br/>  unk (desconocido) <br/><br/> Si el código de idioma no está especificado o es nulo, el idioma que se establezca será "inglés". Si el idioma se establece explícitamente en "unk", el idioma se detectará automáticamente. </p> |
 | textExtractionAlgorithm | "impreso" o "manuscrito". El algoritmo OCR de reconocimiento de texto "manuscrito" se encuentra actualmente en versión preliminar y solo se admite en inglés. |
 
 ## <a name="skill-inputs"></a>Entradas de aptitudes

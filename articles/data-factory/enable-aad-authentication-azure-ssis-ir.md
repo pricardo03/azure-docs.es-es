@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 12/25/2018
+ms.date: 1/9/2019
 ms.author: douglasl
-ms.openlocfilehash: be14eb59cb89676b0d69b94246f35ad6dfc7eed9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 5cc625e07f1c92c53491e83f4049bad12cd9d1a1
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792654"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158268"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Habilitar la autenticación de Azure Active Directory para Azure-SSIS Integration Runtime
 
@@ -114,10 +114,28 @@ En el paso siguiente, necesita  [Microsoft SQL Server Management Studio](https:
 9.  Borre la ventana de consulta, escriba el siguiente comando T-SQL y seleccione **Ejecutar** en la barra de herramientas.
 
     ```sql
+    ALTER ROLE dbmanager ADD MEMBER [SSISIrGroup]
+    ```
+
+    El comando debería completarse correctamente y conceder al usuario contenido la capacidad de crear una base de datos (SSISDB).
+
+10.  Si la SSISDB se creó mediante la autenticación de SQL y desea cambiarla para que use la autenticación de Azure AD en la instancia de Azure-SSIS IR para acceder a ella, haga clic con el botón derecho en la base de datos **SSISDB** y seleccione **Nueva consulta**.
+
+11.  En la ventana de consulta, escriba el siguiente comando T-SQL y seleccione  **Ejecutar**  en la barra de herramientas.
+
+    ```sql
+    CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
+    ```
+
+    El comando debería completarse correctamente y crear el usuario contenido para representar al grupo.
+
+12.  Borre la ventana de consulta, escriba el siguiente comando T-SQL y seleccione **Ejecutar** en la barra de herramientas.
+
+    ```sql
     ALTER ROLE db_owner ADD MEMBER [SSISIrGroup]
     ```
 
-    El comando debería completarse correctamente y conceder al usuario contenido la capacidad de crear una base de datos.
+    El comando debería completarse correctamente y conceder al usuario contenido la capacidad de acceder a SSISDB.
 
 ## <a name="enable-azure-ad-on-azure-sql-database-managed-instance"></a>Habilitación de Azure AD en Instancia administrada de Azure SQL Database
 
@@ -127,15 +145,15 @@ La instancia administrada de Azure SQL Database admite la creación de una base 
 
 1.   En Azure Portal, seleccione **Todos los servicios** -> **Servidores SQL** en el panel de navegación izquierdo.
 
-1.   Seleccione la instancia administrada que quiera configurar con la autenticación de Azure AD.
+2.   Seleccione la instancia administrada que quiera configurar con la autenticación de Azure AD.
 
-1.   En la sección **Configuración** de la hoja, haga clic en **Administrador de Active Directory**.
+3.   En la sección **Configuración** de la hoja, haga clic en **Administrador de Active Directory**.
 
-1.   En la barra de comandos, seleccione **Establecer administrador**.
+4.   En la barra de comandos, seleccione **Establecer administrador**.
 
-1.   Seleccione una cuenta de usuario de Azure AD para que sea el administrador del servidor y, después, seleccione **Seleccionar**.
+5.   Seleccione una cuenta de usuario de Azure AD para que sea el administrador del servidor y, después, seleccione **Seleccionar**.
 
-1.   En la barra de comandos, seleccione **Guardar**.
+6.   En la barra de comandos, seleccione **Guardar**.
 
 ### <a name="add-the-managed-identity-for-your-adf-as-a-user-in-azure-sql-database-managed-instance"></a>Agregar la identidad administrada para ADF como usuario en la instancia administrada de Azure SQL Database
 
@@ -168,7 +186,18 @@ En el paso siguiente, necesita  [Microsoft SQL Server Management Studio](https:
     ALTER SERVER ROLE [securityadmin] ADD MEMBER [{the managed identity name}]
     ```
     
-    El comando debería completarse correctamente y conceder a la identidad administrada para ADF la capacidad de crear una base de datos.
+    El comando debería completarse correctamente y conceder a la identidad administrada para ADF la capacidad de crear una base de datos (SSISDB).
+
+8.  Si la SSISDB se creó mediante la autenticación de SQL y desea cambiarla para que use la autenticación de Azure AD en la instancia de Azure-SSIS IR para acceder a ella, haga clic con el botón derecho en la base de datos **SSISDB** y seleccione **Nueva consulta**.
+
+9.  En la ventana de consulta, escriba el siguiente comando T-SQL y seleccione  **Ejecutar**  en la barra de herramientas.
+
+    ```sql
+    CREATE USER [{the managed identity name}] FOR LOGIN [{the managed identity name}] WITH DEFAULT_SCHEMA = dbo
+    ALTER ROLE db_owner ADD MEMBER [{the managed identity name}]
+    ```
+
+    El comando debería completarse correctamente y conceder a la identidad administrada para ADF la capacidad de acceder a SSISDB.
 
 ## <a name="provision-azure-ssis-ir-in-azure-portaladf-app"></a>Aprovisionar Azure-SSIS IR en Azure Portal o ADF
 

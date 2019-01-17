@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 61b804b876c91b5fcd12ce15bd7e2438f5d897a0
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 923ba21574cce201c7b073b3078145239dd8c0ec
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617424"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121607"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Creación de su primera aplicación Java de Reliable Actors de Service Fabric en Linux
 > [!div class="op_single_selector"]
@@ -51,8 +51,8 @@ Para empezar a trabajar con Reliable Actors, solo es necesario comprender cuatro
 * **Interfaz de actor**. La interfaz de actor se usa para definir una interfaz pública fuertemente tipada de un actor. En la terminología del modelo de Reliable Actors, la interfaz de actor define los tipos de mensajes que el actor puede entender y procesar. Otros actores y aplicaciones de cliente usan la interfaz de actor para "enviar" (asincrónicamente) mensajes al actor. Reliable Actors pueden implementar varias interfaces.
 * **Clase ActorProxy**. La clase ActorProxy la usan las aplicaciones cliente para invocar los métodos expuestos a través de una interfaz de actor. La clase ActorProxy ofrece dos funciones importantes:
   
-  * Resolución de nombre: Es capaz de ubicar el actor en el clúster (encontrar el nodo del cluster en el que se hospeda).
-  * Control de errores: Puede reintentar las invocaciones de métodos y volver a resolver la ubicación del actor, por ejemplo, tras un error que requiere que el actor se reubique en otro nodo del clúster.
+  * Resolución de nombres: Es capaz de ubicar el actor en el clúster (encontrar el nodo en que se hospeda el clúster).
+  * Control de errores: Puede volver a intentar invocar a los métodos y volver a resolver la ubicación del actor, por ejemplo, tras un error que requiera que el actor se reubique en otro nodo del clúster.
 
 Conviene destacar las siguientes reglas que pertenecen a las interfaces de actor:
 
@@ -179,7 +179,7 @@ public static void main(String[] args) throws Exception {
             ActorRuntime.registerActorAsync(HelloWorldActorImpl.class, (context, actorType) -> new FabricActorService(context, actorType, (a,b)-> new HelloWorldActorImpl(a,b)), Duration.ofSeconds(10));
             Thread.sleep(Long.MAX_VALUE);
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Exception occured", e);
+            logger.log(Level.SEVERE, "Exception occurred", e);
             throw e;
         }
     }

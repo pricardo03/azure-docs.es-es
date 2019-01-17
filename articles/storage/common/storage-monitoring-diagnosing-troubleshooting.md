@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.component: common
-ms.openlocfilehash: 64e7b6ad79fc26f8ab2ba796bbca2909417b113c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: e451fd2c2dad5c411d0a8faa8e9c044648759001
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626004"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121743"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -71,7 +71,7 @@ Para obtener una guía práctica para la solución de problemas integral en apli
 * [Apéndices]
   * [Apéndice 1: Uso de Fiddler para capturar tráfico HTTP y HTTPS]
   * [Apéndice 2: Uso de Wireshark para capturar tráfico de red]
-  * [Apéndice 3: Uso del Analizador de mensajes de Microsoft para capturar tráfico de red]
+  * [Apéndice 3: Uso de Microsoft Message Analyzer para capturar tráfico de red]
   * [Apéndice 4: Uso de Excel para ver métricas y datos de registro]
   * [Apéndice 5: Supervisión mediante Application Insights para Azure DevOps]
 
@@ -125,7 +125,7 @@ Puede usar [Azure Portal](https://portal.azure.com) para ver el estado del servi
 [Azure Portal](https://portal.azure.com) también puede proporcionar notificaciones sobre los incidentes que afectan a los diversos servicios de Azure.
 Nota: Anteriormente esta información estaba disponible, junto con los datos históricos, en el [Panel de servicios de Azure](http://status.azure.com).
 
-Mientras que [Azure Portal](https://portal.azure.com) recopila información sobre el estado del servicio desde el interior de los centros de datos de Azure (esto es, una supervisión desde el interior al exterior), también puede adoptar un método que vaya del exterior al interior para generar transacciones sintéticas que accedan periódicamente a la aplicación web hospedada por Azure desde varias ubicaciones. Los servicios que ofrecen [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) y Application Insights para Azure DevOps son algunos de ejemplos de este enfoque. Para obtener más información sobre Application Insights para Azure DevOps, consulte el apéndice "[Apéndice 5: Supervisión mediante Application Insights para Azure DevOps](#appendix-5)".
+Mientras que [Azure Portal](https://portal.azure.com) recopila información sobre el estado del servicio desde el interior de los centros de datos de Azure (esto es, una supervisión desde el interior al exterior), también puede adoptar un método que vaya del exterior al interior para generar transacciones sintéticas que accedan periódicamente a la aplicación web hospedada por Azure desde varias ubicaciones. Los servicios que ofrecen [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) y Application Insights para Azure DevOps son algunos de ejemplos de este enfoque. Para más información sobre Application Insights para Azure DevOps, consulte el "[Apéndice 5: Supervisión mediante Application Insights para Azure DevOps](#appendix-5)".
 
 ### <a name="monitoring-capacity"></a>Supervisión de la capacidad
 Las métricas de Storage solo almacenan las métricas de capacidad de Blob service, porque los blob suelen representar la mayor parte de los datos almacenados (en el momento de la escritura, no se pueden usar las métricas de Storage para supervisar la capacidad de las tablas y las colas). Puede encontrar estos datos en la tabla **$MetricsCapacityBlob** si habilitó la supervisión de Blob service. Las métricas de Almacenamiento registran estos datos una vez al día, y puede usar el valor de **RowKey** para saber si la fila contiene una entidad relacionada con datos de usuarios (valor **data**) o con datos de análisis (valor **analytics**). Cada entidad almacenada contiene información sobre la cantidad de almacenamiento utilizada (**Capacity**, medida en bytes) y el número actual de contenedores (**ContainerCount**) y BLOB (**ObjectCount**) que se están usando en la cuenta de almacenamiento. Para más información sobre las métricas de capacidad almacenadas en la tabla **$MetricsCapacityBlob** , consulte [Esquema de tabla de métricas de Storage Analytics](https://msdn.microsoft.com/library/azure/hh343264.aspx).
@@ -220,9 +220,9 @@ La biblioteca de cliente de Almacenamiento para .NET le permite recopilar datos 
 ### <a name="using-network-logging-tools"></a>Uso de herramientas de registro de red
 Puede capturar el tráfico entre el cliente y el servidor para proporcionar información detallada sobre los datos que están intercambiando el cliente y el servidor y sobre las condiciones de la red subyacente. Algunas herramientas útiles de redes son:
 
-* [Fiddler](http://www.telerik.com/fiddler) es un proxy de depuración web gratuito que permite examinar los encabezados y los datos de carga útil de los mensajes de solicitud y respuesta HTTP y HTTPS. Para más información, consulte [Apéndice 1: Uso de Fiddler para capturar tráfico HTTP y HTTPS](#appendix-1).
-* [Microsoft Network Monitor (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) y [Wireshark](http://www.wireshark.org/) son analizadores de protocolos de red gratuitos que le permiten ver información detallada del paquete de una amplia variedad de protocolos de red. Para obtener más información acerca de Wireshark, consulte "[Apéndice 2: Uso de Wireshark para capturar tráfico de red](#appendix-2)".
-* El Analizador de mensajes de Microsoft es una herramienta de Microsoft que sustituye a Netmon y que, además de capturar los datos de los paquetes de red, lo ayuda a ver y analizar los datos de registro capturados con otras herramientas. Para obtener más información, vea "[Apéndice 3: Uso del Analizador de mensajes de Microsoft para capturar tráfico de red](#appendix-3)".
+* [Fiddler](http://www.telerik.com/fiddler) es un proxy de depuración web gratuito que permite examinar los encabezados y los datos de carga útil de los mensajes de solicitud y respuesta HTTP y HTTPS. Para más información, consulte el [Apéndice 1: Uso de Fiddler para capturar tráfico HTTP y HTTPS](#appendix-1).
+* [Microsoft Network Monitor (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) y [Wireshark](http://www.wireshark.org/) son analizadores de protocolos de red gratuitos que le permiten ver información detallada del paquete de una amplia variedad de protocolos de red. Para más información sobre Wireshark, consulte el "[Apéndice 2: Uso de Wireshark para capturar tráfico de red](#appendix-2)".
+* El Analizador de mensajes de Microsoft es una herramienta de Microsoft que sustituye a Netmon y que, además de capturar los datos de los paquetes de red, lo ayuda a ver y analizar los datos de registro capturados con otras herramientas. Para más información, consulte el "[Apéndice 3: Uso de Microsoft Message Analyzer para capturar tráfico de red](#appendix-3)".
 * Si quiere realizar una prueba de conectividad básica para comprobar que el equipo cliente puede conectarse al servicio de almacenamiento de Azure a través de la red, no puede hacerlo con la herramienta de **ping** estándar que hay en el cliente. Sin embargo, puede usar la herramienta [**tcping**](http://www.elifulkerson.com/projects/tcping.php) para comprobar la conectividad.
 
 En muchos casos, los datos de registro de Almacenamiento y de la biblioteca de cliente de Almacenamiento bastarán para diagnosticar un problema, pero en algunos escenarios, puede que necesite información más detallada de la que pueden proporcionar estas herramientas de registro de red. Por ejemplo, si usa Fiddler para ver los mensajes HTTP y HTTPS, puede ver los datos de encabezados y cargas que se envían a los servicios de almacenamiento y desde ellos. Con esta información, puede examinar la manera en la que una aplicación cliente reintenta las operaciones de almacenamiento. Los analizadores de protocolos, como Wireshark, operan en el nivel de paquetes, por lo que le permiten ver datos de TCP. Con esta información, podría solucionar los problemas de conectividad y pérdida de paquetes. El Analizador de mensajes puede operar en los niveles HTTP y TCP.
@@ -372,9 +372,9 @@ Para ver cuántas solicitudes envía su aplicación cliente y comprobar la exist
 #### <a name="investigating-network-latency-issues"></a>Investigación de problemas de latencia de red
 Normalmente, la latencia de un extremo a otro provocada por la red se debe a estados transitorios. Puede investigar los problemas de red tanto transitorios como persistentes, como los paquetes descartados, con herramientas como Wireshark o el Analizador de mensajes de Microsoft.
 
-Para obtener más información sobre el uso de Wireshark para solucionar problemas de red, consulte "[Apéndice 2: Uso de Wireshark para capturar tráfico de red]".
+Para más información sobre el uso de Wireshark para solucionar problemas de red, consulte el "[Apéndice 2: Uso de Wireshark para capturar tráfico de red]".
 
-Para obtener más información sobre el uso del Analizador de mensajes de Microsoft para solucionar problemas de red, consulte "[Apéndice 3: Uso del Analizador de mensajes de Microsoft para capturar tráfico de red]".
+Para más información sobre cómo usar Microsoft Message Analyzer para solucionar problemas de red, consulte el "[Apéndice 3: Uso de Microsoft Message Analyzer para capturar tráfico de red]".
 
 ### <a name="metrics-show-low-AverageE2ELatency-and-low-AverageServerLatency"></a>Las métricas muestran una AverageE2ELatency baja y una AverageServerLatency baja, pero el cliente tiene latencia alta
 En este escenario, la causa más probable es un retraso en las solicitudes de almacenamiento que llegan al servicio de almacenamiento. Debe investigar por qué las solicitudes del cliente no llegan hasta el servicio BLOB.
@@ -389,9 +389,9 @@ Compruebe también si el cliente está realizando varios reintentos y, si es as�
 
 Si no hay ningún problema en el cliente, debe investigar los problemas de red potenciales, como la pérdida de paquetes. Puede emplear herramientas como Wireshark o el Analizador de mensajes de Microsoft para investigar los problemas de red.
 
-Para obtener más información sobre el uso de Wireshark para solucionar problemas de red, consulte "[Apéndice 2: Uso de Wireshark para capturar tráfico de red]".
+Para más información sobre el uso de Wireshark para solucionar problemas de red, consulte el "[Apéndice 2: Uso de Wireshark para capturar tráfico de red]".
 
-Para obtener más información sobre el uso del Analizador de mensajes de Microsoft para solucionar problemas de red, consulte "[Apéndice 3: Uso del Analizador de mensajes de Microsoft para capturar tráfico de red]".
+Para más información sobre cómo usar Microsoft Message Analyzer para solucionar problemas de red, consulte el "[Apéndice 3: Uso de Microsoft Message Analyzer para capturar tráfico de red]".
 
 ### <a name="metrics-show-high-AverageServerLatency"></a>Las métricas muestran una AverageServerLatency alta
 En el caso de que la **AverageServerLatency** de las solicitudes de descarga de BLOB sea alta, debe usar los registros del registro de Almacenamiento para ver si se repiten varias solicitudes del mismo BLOB (o conjunto de BLOB). Con las solicitudes de carga de blobs, debe investigar qué tamaño de bloques está usando el cliente (por ejemplo, los bloques con un tamaño inferior a 64 K pueden provocar sobrecargas, salvo que las lecturas se realicen también en fragmentos de menos de 64 K), y si hay varios clientes que están cargando bloques al mismo blob en paralelo. Además, también debe comprobar las métricas por minuto para ver si, en el número de solicitudes, hay picos que hacen que se superen los objetivos de escalabilidad por segundo. Consulte también "[Las métricas muestran un aumento de PercentTimeoutError]".
@@ -401,7 +401,7 @@ Si observa que la **AverageServerLatency** de las solicitudes de descarga de blo
 Si los valores de **AverageServerLatency** son altos, esto también puede ser síntoma de un diseño poco adecuado de las tablas o las consultas que genere operaciones de examen o que siga el antipatrón anexar/anteponer. Consulte “[Las métricas muestran un aumento de PercentThrottlingError]” para más información.
 
 > [!NOTE]
-> Encontrará una lista de comprobación completa aquí: [Lista de comprobación de rendimiento y escalabilidad de Microsoft Azure Storage](storage-performance-checklist.md).
+> Puede encontrar aquí una lista de comprobación completa del rendimiento: [Lista de comprobación de rendimiento y escalabilidad de Microsoft Azure Storage](storage-performance-checklist.md).
 > 
 > 
 
@@ -452,14 +452,14 @@ Las métricas muestran un aumento de **PercentTimeoutError** en uno de los servi
 > 
 > 
 
-La métrica **PercentTimeoutError** es una agregación de las siguientes métricas: **ClientTimeoutError**, **AnonymousClientTimeoutError**, **SASClientTimeoutError**, **ServerTimeoutError**, **AnonymousServerTimeoutError** y **SASServerTimeoutError**.
+La métrica **PercentTimeoutError** es la suma de las siguientes métricas: **ClientTimeoutError**, **AnonymousClientTimeoutError**, **SASClientTimeoutError**, **ServerTimeoutError**, **AnonymousServerTimeoutError** y **SASServerTimeoutError**.
 
 Los errores de tiempo de espera del servidor son errores del servidor. Los errores de tiempo de espera del cliente suceden porque una operación que se lleva a cabo en el servidor superó el tiempo de espera especificado por el cliente. Por ejemplo, un cliente que utiliza la biblioteca de cliente de Almacenamiento puede establecer un tiempo de espera de una operación con la propiedad **ServerTimeout** de la clase **QueueRequestOptions**.
 
 Los errores de tiempo de espera del servidor indican que existe un problema con el servicio de almacenamiento que se debe investigar más. Puede utilizar las métricas para ver si está alcanzando los límites de escalabilidad del servicio y para identificar los picos de tráfico que puedan estar provocando este problema. Si el problema es intermitente, puede que se deba a la actividad de equilibrio de carga del servicio. Si el problema es persistente y no se debe a que la aplicación alcance los límites de escalabilidad del servicio, debe informar al soporte técnico de que existe un problema. Si se producen errores de tiempo de espera del cliente, debe decidir si el tiempo de espera está configurado con un valor adecuado en el cliente y cambiar el valor del tiempo de espera establecido en el cliente o investigar cómo puede mejorar el rendimiento de las operaciones en el servicio de almacenamiento. Por ejemplo, puede optimizar las consultas de tabla o reducir el tamaño de los mensajes.
 
 ### <a name="metrics-show-an-increase-in-PercentNetworkError"></a>Las métricas muestran un aumento de PercentNetworkError
-Las métricas muestran un aumento de **PercentNetworkError** en uno de los servicios de almacenamiento. La métrica **PercentNetworkError** es una agregación de las métricas siguientes: **NetworkError**, **AnonymousNetworkError** y **SASNetworkError**. Se producen cuando el servicio de almacenamiento detecta un error de red al realizar una solicitud de almacenamiento el cliente.
+Las métricas muestran un aumento de **PercentNetworkError** en uno de los servicios de almacenamiento. La métrica **PercentNetworkError** es la suma de las siguientes métricas: **NetworkError**, **AnonymousNetworkError** y **SASNetworkError**. Se producen cuando el servicio de almacenamiento detecta un error de red al realizar una solicitud de almacenamiento el cliente.
 
 El motivo más común de este error es que un cliente se desconecte antes de que expire un tiempo de espera en el servicio de almacenamiento. Investigue el código en el cliente para comprender por qué y cuándo se desconecta el cliente del servicio de almacenamiento. También puede utilizar Wireshark, el Analizador de mensajes de Microsoft o Tcping para investigar los problemas de conectividad de red desde el cliente. Estas herramientas se describen en los [Apéndices].
 
@@ -471,12 +471,12 @@ Si la aplicación cliente inicia errores HTTP 403 (prohibido), uno de los motivo
 | Microsoft.WindowsAzure.Storage |Información |3 |85d077ab-… |Iniciando operación con ubicación Primary según modo de ubicación PrimaryOnly. |
 | Microsoft.WindowsAzure.Storage |Información |3 |85d077ab -… |A partir de una solicitud sincrónica a https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14. |
 | Microsoft.WindowsAzure.Storage |Información |3 |85d077ab -… |Esperando respuesta. |
-| Microsoft.WindowsAzure.Storage |Advertencia |2 |85d077ab -… |Se inició una excepción mientras se esperaba respuesta: el servidor remoto devolvió un error: (403) Prohibido. |
+| Microsoft.WindowsAzure.Storage |Advertencia |2 |85d077ab -… |Excepción que se produce mientras se espera una respuesta: El servidor remoto devolvió un error: 403 Prohibido. |
 | Microsoft.WindowsAzure.Storage |Información |3 |85d077ab -… |Respuesta recibida. Código de estado = 403, Id. de solicitud = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
-| Microsoft.WindowsAzure.Storage |Advertencia |2 |85d077ab -… |Se inició una excepción durante la operación: el servidor remoto devolvió un error: (403) Prohibido... |
-| Microsoft.WindowsAzure.Storage |Información |3 |85d077ab -… |Comprobando si se debe reintentar la operación. Número de reintentos = 0, Código de estado HTTP = 403, Excepción = El servidor remoto devolvió un error: (403) Prohibido. |
+| Microsoft.WindowsAzure.Storage |Advertencia |2 |85d077ab -… |Excepción producida durante la operación: El servidor remoto devolvió un error: 403 Prohibido. |
+| Microsoft.WindowsAzure.Storage |Información |3 |85d077ab -… |Comprobando si se debe reintentar la operación. Número de reintentos = 0, Código de estado HTTP = 403, Excepción = El servidor remoto devolvió un error: 403 Prohibido. |
 | Microsoft.WindowsAzure.Storage |Información |3 |85d077ab -… |La siguiente ubicación se estableció como Primary, de acuerdo con el modo de ubicación. |
-| Microsoft.WindowsAzure.Storage |Error |1 |85d077ab -… |La directiva de reintentos no permitió un reintento. Error: El servidor remoto devolvió un error: (403) Prohibido. |
+| Microsoft.WindowsAzure.Storage |Error |1 |85d077ab -… |La directiva de reintentos no permitió un reintento. Error: El servidor remoto devolvió un error: 403 Prohibido. |
 
 En este escenario, debe investigar el motivo por el que el token de SAS expira antes de que el cliente envíe el token al servidor:
 
@@ -534,7 +534,7 @@ Entradas del registro:
 | de8b1c3c-... |A partir de una solicitud sincrónica a https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |Preparándose para escribir datos de solicitud. |
-| e2d06d78-... |Se inició una excepción mientras se esperaba respuesta: el servidor remoto devolvió un error: (404) No encontrado... |
+| e2d06d78-... |Excepción que se produce mientras se espera una respuesta: El servidor remoto devolvió un error: 404 No encontrado. |
 | e2d06d78-... |Respuesta recibida. Código de estado = 404, Id. de solicitud = 353ae3bc-..., Content-MD5 = , ETag = . |
 | e2d06d78-... |Los encabezados de respuesta se procesaron correctamente y se continuó con el resto de la operación. |
 | e2d06d78-... |Descargando el cuerpo de respuesta. |
@@ -544,14 +544,14 @@ Entradas del registro:
 | e2d06d78-... |Esperando respuesta. |
 | de8b1c3c-... |Escribiendo datos de solicitud. |
 | de8b1c3c-... |Esperando respuesta. |
-| e2d06d78-... |Se inició una excepción mientras se esperaba respuesta: el servidor remoto devolvió un error: (409) Conflicto... |
+| e2d06d78-... |Excepción que se produce mientras se espera una respuesta: El servidor remoto devolvió un error: 409 Conflicto. |
 | e2d06d78-... |Respuesta recibida. Código de estado = 409, Id. de solicitud = c27da20e-..., Content-MD5 = , ETag = . |
 | e2d06d78-... |Descargando el cuerpo de respuesta del error. |
-| de8b1c3c-... |Se inició una excepción mientras se esperaba respuesta: el servidor remoto devolvió un error: (404) No encontrado... |
+| de8b1c3c-... |Excepción que se produce mientras se espera una respuesta: El servidor remoto devolvió un error: 404 No encontrado. |
 | de8b1c3c-... |Respuesta recibida. Código de estado = 404, Id. de solicitud = 0eaeab3e-..., Content-MD5 = , ETag = . |
-| de8b1c3c-... |Se inició una excepción durante la operación: el servidor remoto devolvió un error: (404) No encontrado... |
-| de8b1c3c-... |La directiva de reintentos no permitió un reintento. Error: El servidor remoto devolvió un error: (404) No encontrado. |
-| e2d06d78-... |La directiva de reintentos no permitió un reintento. Error: El servidor remoto devolvió un error: (409) Conflicto. |
+| de8b1c3c-... |Excepción producida durante la operación: El servidor remoto devolvió un error: 404 No encontrado. |
+| de8b1c3c-... |La directiva de reintentos no permitió un reintento. Error: El servidor remoto devolvió un error: 404 No encontrado. |
+| e2d06d78-... |La directiva de reintentos no permitió un reintento. Error: El servidor remoto devolvió un error: 409 Conflicto. |
 
 En este ejemplo, el registro muestra que el cliente está intercalando las solicitudes del método **CreateIfNotExists** (identificador de solicitud e2d06d78…) con las solicitudes del método **UploadFromStream** (de8b1c3c-...). Esta intercalación sucede porque la aplicación cliente está invocando a estos métodos de forma asincrónica. Modifique el código asincrónico del cliente para que cree el contenedor antes de tratar de cargar datos en un blob de ese contenedor. Lo ideal es que cree todos los contenedores de antemano.
 
@@ -623,7 +623,7 @@ El motivo más probable de este escenario es que el cliente envió una solicitud
 Si este problema se produce a menudo, debe investigar por qué el cliente no recibe correctamente las confirmaciones del servicio Tabla. Si el problema es intermitente, debe interceptar el error “HTTP (404) No encontrado” y registrarlo en el cliente, pero permitir que el cliente continúe.
 
 ### <a name="the-client-is-receiving-409-messages"></a>El cliente recibe mensajes HTTP 409 (conflicto)
-En la tabla siguiente se muestra un extracto del registro del servidor de dos operaciones de cliente: **DeleteIfExists** seguido inmediatamente de **CreateIfNotExists** con el mismo nombre de contenedor de blobs. Cada operación de cliente hace que se envíen dos solicitudes al servidor: primero, una solicitud **GetContainerProperties** para comprobar si existe el contenedor y, luego, la solicitud **DeleteContainer** o **CreateContainer**.
+En la tabla siguiente se muestra un extracto del registro del servidor de dos operaciones de cliente: **DeleteIfExists** seguido inmediatamente por **CreateIfNotExists** con el mismo nombre de contenedor de blobs. Cada operación de cliente hace que se envíen dos solicitudes al servidor: primero, una solicitud **GetContainerProperties** para comprobar si existe el contenedor y, luego, la solicitud **DeleteContainer** o **CreateContainer**.
 
 | Timestamp | Operación | Resultado | Nombre del contenedor | Id. de solicitud de cliente |
 | --- | --- | --- | --- | --- |
@@ -677,8 +677,8 @@ Para más información, consulte [Uso del emulador de Azure Storage para desarro
 ### <a name="you-are-encountering-problems-installing-the-Windows-Azure-SDK"></a>Se producen problemas al instalar el SDK de Azure para .NET
 Cuando trata de instalar el SDK, se produce un error al tratar de instalar el emulador de almacenamiento en la máquina local. El registro de instalación contiene uno de los siguientes mensajes:
 
-* CAQuietExec: Error: No se puede acceder a la instancia de SQL
-* CAQuietExec: Error: No se puede crear la base de datos
+* CAQuietExec:  Error: No se puede acceder a la instancia de SQL
+* CAQuietExec:  Error: No se puede crear la base de datos
 
 El motivo es un problema relacionado con la instalación de LocalDB existente. De forma predeterminada, el emulador de almacenamiento utiliza LocalDB para hacer que los datos sean persistentes al simular los servicios de almacenamiento de Azure. Puede restablecer la instancia de LocalDB ejecutando los siguientes comandos en una ventana del símbolo del sistema antes de tratar de instalar el SDK.
 
@@ -698,11 +698,11 @@ Si las secciones de solución de problemas anteriores no contienen el problema q
 * Puede utilizar la información de las métricas para buscar en los datos de registro del lado servidor información más detallada sobre los errores que se producen. Con esta información, puede que le resulte más fácil solucionar el problema.
 * Si la información de los registros del lado servidor no basta para solucionar el problema correctamente, puede utilizar los registros del lado cliente de la biblioteca de cliente de Almacenamiento para investigar el comportamiento de la aplicación cliente, y herramientas como Fiddler, Wireshark o el Analizador de mensajes de Microsoft para investigar la red.
 
-Para obtener más información acerca del uso de Fiddler, vea "[Apéndice 1: Uso de Fiddler para capturar tráfico HTTP y HTTPS]".
+Para más información sobre el uso de Fiddler, consulte el "[Apéndice 1: Uso de Fiddler para capturar tráfico HTTP y HTTPS]".
 
-Para más información acerca del uso de Wireshark, consulte "[Apéndice 2: Uso de Wireshark para capturar tráfico de red]".
+Para más información sobre el uso de Wireshark, consulte el "[Apéndice 2: Uso de Wireshark para capturar tráfico de red]".
 
-Para más información sobre el uso del Analizador de mensajes de Microsoft, consulte "[Apéndice 3: Uso del Analizador de mensajes de Microsoft para capturar tráfico de red]".
+Para obtener más información sobre el uso de Microsoft Message Analyzer, vea "[apéndice 3: Uso de Microsoft Message Analyzer para capturar tráfico de red]".
 
 ## <a name="appendices"></a>Apéndices
 En los apéndices, se describen varias herramientas que pueden resultarle útiles al diagnosticar y solucionar problemas relacionados con Azure Storage (y otros servicios). Estas herramientas no forman parte de Azure Storage y algunas son productos de terceros. Por eso, las herramientas de las que se habla en estos apéndices no se incluyen en ningún contrato de asistencia que pueda tener con Microsoft Azure o Azure Storage. Por este motivo, dentro de su proceso de evaluación, deberá examinar las opciones de asistencia y licencias disponibles que ofrecen los proveedores de estas herramientas.
@@ -754,7 +754,7 @@ Aparte de esto, puede optar por ver los datos de TCP como los ve el nivel de apl
 > 
 > 
 
-### <a name="appendix-3"></a>Apéndice 3: Uso del Analizador de mensajes de Microsoft para capturar tráfico de red
+### <a name="appendix-3"></a>Apéndice 3: Uso de Microsoft Message Analyzer para capturar tráfico de red
 Puede usar el Analizador de mensajes de Microsoft para capturar el tráfico HTTP y HTTPS de manera similar a como se hace en Fiddler, y capturar el tráfico de red de forma similar a como lo hace Wireshark.
 
 #### <a name="configure-a-web-tracing-session-using-microsoft-message-analyzer"></a>Configurar una sesión de traza web con el Analizador de mensajes de Microsoft
@@ -805,7 +805,7 @@ Asimismo, también puede usar la característica Application Insights para Azure
 * Comprobar que el servicio web está disponible y responde adecuadamente. Tanto si la aplicación es un sitio web como si es una aplicación para dispositivo que utiliza un servicio web, puede probar la URL cada pocos minutos desde ubicaciones de todo el mundo e informar si hay algún problema.
 * Diagnosticar rápidamente los problemas de rendimiento o las excepciones del servicio web. Averigüe si la CPU u otros recursos se están ampliando, observe el seguimiento de la pila de las excepciones y busque fácilmente en los seguimientos de registros. Si el rendimiento de la aplicación desciende por debajo de los límites aceptables, Microsoft puede enviarle un correo electrónico. Puede supervisar servicios web de .NET y de Java.
 
-Puede encontrar más información en [¿Qué es Application Insights?](../../application-insights/app-insights-overview.md)
+Puede encontrar más información en [¿Qué es Application Insights?](../../azure-monitor/app/app-insights-overview.md)
 
 <!--Anchors-->
 [Introducción]: #introduction
@@ -863,7 +863,7 @@ Puede encontrar más información en [¿Qué es Application Insights?](../../app
 [Apéndices]: #appendices
 [Apéndice 1: Uso de Fiddler para capturar tráfico HTTP y HTTPS]: #appendix-1
 [Apéndice 2: Uso de Wireshark para capturar tráfico de red]: #appendix-2
-[Apéndice 3: Uso del Analizador de mensajes de Microsoft para capturar tráfico de red]: #appendix-3
+[Apéndice 3: Uso de Microsoft Message Analyzer para capturar tráfico de red]: #appendix-3
 [Apéndice 4: Uso de Excel para ver métricas y datos de registro]: #appendix-4
 [Apéndice 5: Supervisión mediante Application Insights para Azure DevOps]: #appendix-5
 

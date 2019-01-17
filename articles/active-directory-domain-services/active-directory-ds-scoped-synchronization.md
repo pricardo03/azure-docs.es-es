@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: 1df9b07d5a0a9e5018fc024038e65723c606ef71
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: ae51151bd20d2c715d868e916f7bc633040efa40
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442988"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121537"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Configuración de la sincronización con ámbito entre Azure AD y un dominio administrado
 En este artículo se muestra cómo configurar solo cuentas de usuario específicas para sincronizarlas entre el directorio de Azure AD y el dominio administrado de Azure AD Domain Services.
@@ -79,7 +79,7 @@ Lleva a cabo los pasos siguientes para configurar la sincronización de ámbito 
   > Debe incluir el grupo "Administradores de controladores de dominio de AAD" en la lista de grupos configurados para la sincronización con ámbito. Si no incluye este grupo, el dominio administrado será inutilizable.
   >
 
-4. Ahora, cree el dominio administrado y habilite para él la sincronización son ámbito basada en grupos. Incluya la propiedad ```"filteredSync" = "Enabled"``` en el parámetro ```Properties```. Por ejemplo, consulte el siguiente fragmento de script, copiado de la [Tarea 7: Aprovisionamiento del dominio administrado de Azure AD Domain Services](active-directory-ds-enable-using-powershell.md#task-7-provision-the-azure-ad-domain-services-managed-domain).
+4. Ahora, cree el dominio administrado y habilite para él la sincronización son ámbito basada en grupos. Incluya la propiedad ```"filteredSync" = "Enabled"``` en el parámetro ```Properties```. Por ejemplo, vea el siguiente fragmento de script, que se ha copiado de [Tarea 7: Aprovisionamiento del dominio administrado de Azure AD Domain Services](active-directory-ds-enable-using-powershell.md#task-7-provision-the-azure-ad-domain-services-managed-domain).
 
   ```powershell
   $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
@@ -173,7 +173,7 @@ foreach ($id in $newGroupIds)
     }
     catch
     {
-        Write-Error "Exception occured assigning Object-ID: $id. Exception: $($_.Exception)."
+        Write-Error "Exception occurred assigning Object-ID: $id. Exception: $($_.Exception)."
     }
 }
 

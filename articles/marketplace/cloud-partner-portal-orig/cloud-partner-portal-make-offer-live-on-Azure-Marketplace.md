@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: ff3ca665382efc9133a4c4ce3f3fde25c03c5e52
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: ad22f1944d3fe9a088b66da4cf4df7136db497f7
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48809051"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075348"
 ---
 <a name="make-your-virtual-machine-offer-live-on-azure-marketplace"></a>Publicación de la oferta de máquina virtual en Azure Marketplace
 =========================================================
@@ -57,7 +57,7 @@ Una vez que haya completado este paso correctamente, aparecerá un elemento emer
 
 **Certificación (\<5 días)**
 
-En este paso se ejecutan varias pruebas para comprobar que la imagen de máquina virtual cumple los requisitos de Azure Certified. [Aquí](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites) se encuentran todas las instrucciones que requiere para pasar los requisitos de certificación.
+En este paso se ejecutan varias pruebas para comprobar que la imagen de máquina virtual cumple los requisitos de Azure Certified. [Aquí](../cloud-partner-portal/virtual-machine/cpp-prerequisites.md) se encuentran todas las instrucciones que requiere para pasar los requisitos de certificación.
 
 Dado que este paso puede tardar varios días, puede cerrar sesión en Cloud Partner Portal. Le enviaremos una notificación por correo electrónico si hay errores que deba solucionar. Si todo se completa correctamente, el proceso pasará automáticamente al paso de aprovisionamiento.
 
@@ -75,11 +75,11 @@ Además, si ha configurado la característica de generación de clientes potenci
 
 Recibirá un correo electrónico de notificación informando de que su oferta ha completado correctamente los pasos necesarios para tener acceso a su vista previa. Durante este paso, debe obtener una vista previa de su oferta y asegurarse de que todo tiene el aspecto que debería y que la máquina virtual se implementa correctamente en el entorno de ensayo.
 
-**Solamente las suscripciones de la lista blanca pueden realizar esta verificación.**\*
+*Solamente las suscripciones de la lista de permitidos pueden realizar esta verificación.*
 
 **Aprobación del publicador**
 
-Cuando haya comprobado que todo está correcto y funciona adecuadamente en la vista previa, está listo para comenzar a trabajar. Para ello, haga clic en Publicar en la pestaña Estado y darán comienzo los pasos para publicar su oferta en producción y en el sitio web. Normalmente, pasarán varias horas entre el momento en que hace clic en Publicar y la publicación efectiva de la oferta en el sitio web. Le enviaremos una notificación por correo electrónico una vez que su oferta esté oficialmente publicada en el sitio web.
+Cuando haya comprobado que todo está correcto y funciona adecuadamente en la vista previa, está listo para comenzar a trabajar. Haga clic en **Publicar** en la pestaña **Estado** y darán comienzo los pasos para publicar su oferta en producción y en el sitio web. Normalmente, pasarán varias horas entre el momento en que hace clic en Publicar y la publicación efectiva de la oferta en el sitio web. Le enviaremos una notificación por correo electrónico una vez que su oferta esté oficialmente publicada en el sitio web.
 
 ![Secuencia 5 de publicación de la oferta: publicación](./media/cloud-partner-portal-offer-go-live-azure-marketplace/golive.png)
 
@@ -94,7 +94,7 @@ Durante el proceso de publicación, puede encontrar algún error. De ser así, r
 
 ![Secuencia 6 de publicación de la oferta: mensaje de error](./media/cloud-partner-portal-offer-go-live-azure-marketplace/errormessage.png)
 
-Si se producen errores durante el proceso de publicación, es necesario corregirlos y, a continuación, hacer clic en "Publicar" para reiniciar el proceso. Debe empezar al principio de los pasos de publicación, en Validar los requisitos previos, para volver a publicar después de cualquier corrección de errores.
+Si se producen errores durante el proceso de publicación, debe corregirlos y, a continuación, hacer clic en "Publicar" para reiniciar el proceso. Debe empezar al principio de los pasos de publicación, en Validar los requisitos previos, para volver a publicar después de cualquier corrección de errores.
 
 Si tiene problemas para resolver un error, debe abrir una solicitud de soporte técnico para obtener ayuda de nuestros ingenieros de soporte técnico.
 

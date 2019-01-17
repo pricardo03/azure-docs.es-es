@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ce2ad3e699b930f801ad47083d6cfcf6a7937a5c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: f2823ec32b6658aa22c38294c09c9738c9121c39
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433453"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121590"
 ---
 # <a name="string-claims-transformations"></a>Transformaciones de notificaciones de cadena
 
@@ -31,7 +31,7 @@ Comparar dos notificaciones y emitir una excepción si no son iguales según la 
 | ---- | ----------------------- | --------- | ----- |
 | inputClaim | inputClaim1 | string | Tipo de la primera notificación, que se va a comparar. |
 | inputClaim | inputClaim2 | string | Tipo de la segunda notificación, que se va a comparar. |
-| InputParameter | stringComparison | string | Comparación de cadena, uno de los valores: Ordinal, OrdinalIgnoreCase. |
+| InputParameter | stringComparison | string | comparación de cadenas, uno de los valores: Ordinal, OrdinalIgnoreCase. |
 
 La transformación de notificaciones **AssertStringClaimsAreEqual** siempre se ejecuta desde un [perfil técnico de validación](validation-technical-profile.md) llamado por un [perfil técnico autofirmado](self-asserted-technical-profile.md). Los metadatos de un perfil técnico autoafirmado **UserMessageIfClaimsTransformationStringsAreNotEqual** controlan el mensaje de error que se presenta al usuario.
 
@@ -82,7 +82,7 @@ El perfil técnico autoafirmado llama al perfil técnico **login-NonInteractive*
     - **inputClaim2**: someone@outlook.com
  - Parámetros de entrada:
     - **stringComparison**: ordinalIgnoreCase
-- Resultado: error emitido
+- Resultado: aparece un error
 
 ## <a name="changecase"></a>ChangeCase 
 
@@ -184,7 +184,7 @@ Use esta transformación de notificaciones para comprobar si una notificación e
     - **inputClaim1**: someone@contoso.com
     - **inputClaim2**: someone@outlook.com
 - Parámetros de entrada:
-    - **operator**: NOT EQUAL
+    - **operator**:  NOT EQUAL
     - **ignoreCase**: true
 - Notificaciones de salida:
     - **outputClaim**: true
@@ -197,7 +197,7 @@ Determina si un valor de notificación es igual al valor del parámetro de entra
 | ---- | ----------------------- | --------- | ----- |
 | inputClaim | inputClaim1 | string | Tipo de la notificación, que se va a comparar. |
 | InputParameter | operator | string | Valores posibles: `EQUAL` o `NOT EQUAL`. |
-| InputParameter | compareTo | string | Comparación de cadena, uno de los valores: Ordinal, OrdinalIgnoreCase. |
+| InputParameter | compareTo | string | comparación de cadenas, uno de los valores: Ordinal, OrdinalIgnoreCase. |
 | InputParameter | ignoreCase | boolean | Especifica si la comparación distingue entre mayúsculas y minúsculas en las cadenas que se están comparando. |
 | OutputClaim | outputClaim | boolean | El valor ClaimType que se genera después de que se haya invocado esta transformación de notificaciones. |
 
@@ -238,7 +238,7 @@ Crea una cadena aleatoria mediante el generador de números aleatorios. Si el ge
 | InputParameter | randomGeneratorType | string | Especifica el valor aleatorio que se genera, `GUID` (identificador único global) o `INTEGER` (un número). |
 | InputParameter | stringFormat | string | [Opcional] Formato del valor aleatorio. |
 | InputParameter | base64 | boolean | [Opcional] Convertir el valor aleatorio en base64. Si se aplica el formato de cadena, el valor después del formato de cadena está codificado en base64. |
-| InputParameter | maximumNumber | int | [Opcional] Solo para randomGeneratorType `INTEGER`. Especifique el número de máximo. |
+| InputParameter | maximumNumber | int | [Opcional] Solo para randomGeneratorType `INTEGER`. Especifique el número máximo. |
 | InputParameter | seed  | int | [Opcional] Solo para randomGeneratorType `INTEGER`. Especifique el valor de inicialización del valor aleatorio. Nota: El mismo valor de inicialización genera la misma secuencia de números aleatorios. |
 | OutputClaim | outputClaim | string | El valor ClaimType que se genera después de que se haya invocado esta transformación de notificaciones. El valor aleatorio. |
 
@@ -290,7 +290,7 @@ El ejemplo siguiente genera un valor entero aleatorio entre 0 y 1000. El valor p
 
 ## <a name="formatstringclaim"></a>FormatStringClaim
 
-Da formato a una notificación de acuerdo con la cadena de formato proporcionada. Esta transformación usa el método de C# `String.Format`.
+Da formato a una notificación de acuerdo con la cadena de formato proporcionada. Esta transformación usa el método `String.Format` de C#.
 
 | item | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
@@ -392,7 +392,7 @@ La transformación de notificaciones busca el texto del elemento y devuelve su v
     <InputClaim ClaimTypeReferenceId="responseCode" TransformationClaimType="mapFromClaim" />
   </InputClaims>
   <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />         
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />         
   </OutputClaims>
 </ClaimsTransformation>
 ```
@@ -402,7 +402,7 @@ La transformación de notificaciones busca el texto del elemento y devuelve su v
 - Notificaciones de entrada:
     - **mapFromClaim**: B2C_V1_90001
 - Notificaciones de salida:
-    - **restrictionValueClaim**: No se puede iniciar sesión porque eres menor.
+    - **restrictionValueClaim**: You cant sign in because you are a minor.
 
 ## <a name="lookupvalue"></a>LookupValue
 
@@ -415,7 +415,7 @@ Buscar un valor de notificación en una lista de valores en función del valor d
 | InputParameter | errorOnFailedLookup | boolean | Controlar si se devuelve un error cuando una búsqueda no tiene resultados. |
 | OutputClaim | inputParameterId | string | El valor ClaimType que se genera después de que se haya invocado esta transformación de notificaciones. El valor del identificador coincidente. |
 
-En el ejemplo siguiente se busca el nombre de dominio en una de las colecciones inpuParameters. La transformación de notificaciones busca el nombre de dominio en el identificador y devuelve su valor (un identificador de aplicación).
+En el ejemplo siguiente se busca el nombre de dominio en una de las colecciones inputParameters. La transformación de notificaciones busca el nombre de dominio en el identificador y devuelve su valor (un identificador de aplicación).
 
 ```XML
  <ClaimsTransformation Id="DomainToClientId" TransformationMethod="LookupValue">
@@ -540,8 +540,8 @@ Puede usar esta transformación de notificaciones para comprobar si una notifica
 - Parámetros de entrada:
     - **matchTo**: V1
     - **stringComparison**: ordinalIgnoreCase 
-    - **stringMatchMsg**: B2C_V1_90005
-    - **stringMatchMsgCode**: The TOS is upgraded to v2
+    - **stringMatchMsg**:  B2C_V1_90005
+    - **stringMatchMsgCode**:  The TOS is upgraded to v2
 - Notificaciones de salida:
     - **outputClaim1**: B2C_V1_90005
     - **outputClaim2**: The TOS is upgraded to v2
@@ -586,7 +586,7 @@ Por ejemplo, la siguiente transformación de notificaciones comprueba si el valo
 - Parámetros de entrada:
     - **matchTo**: Minor
     - **stringComparison**: ordinalIgnoreCase 
-    - **outputClaimIfMatched**: B2C_V1_90001
+    - **outputClaimIfMatched**:  B2C_V1_90001
 - Notificaciones de salida:
     - **isMinorResponseCode**: B2C_V1_90001
     - **isMinor**: true

@@ -12,12 +12,12 @@ ms.author: mlandzic
 ms.reviewer: sstein
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: dd6a9ee00ba6244e5a0d04f654e6b57db8896ea6
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: a1ad976be258c418c115d0dbd79d4d6700a15b31
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603954"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158421"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Información general sobre las consultas elásticas de Azure SQL Database (versión preliminar)
 
@@ -108,11 +108,11 @@ El uso de una consulta elástica para realizar tareas de informes en una capa de
 
 Con los siguientes pasos, se configuran consultas de bases de datos elásticas para escenarios de particionamiento horizontal que requieren acceso a un conjunto de tablas ubicadas, por lo general, en varias bases de datos SQL remotas:
 
-* [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx) miClaveMaestra
-* [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx) miCredencial
+* [CREATE MASTER KEY](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql) miClaveMaestra
+* [CREATE DATABASE SCOPED CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql) miCredencial
 * Cree un [mapa de particiones](sql-database-elastic-scale-shard-map-management.md) que represente su capa de datos mediante la biblioteca de cliente de bases de datos elásticas.
-* [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx) miOrigenDeDatos de tipo **SHARD_MAP_MANAGER**
-* [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx) miTabla
+* [CREATE/DROP EXTERNAL DATA SOURCE](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql) miOrigenDeDatos de tipo **SHARD_MAP_MANAGER**
+* [CREATE/DROP EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) miTabla
 
 Una vez que realice estos pasos, puede acceder a la tabla con partición horizontal "miTabla" como si fuera una tabla local. Azure SQL Database abre automáticamente varias conexiones paralelas con las bases de datos remotas donde se almacenan las tablas, procesa las solicitudes en las bases de datos remotas y devuelve los resultados.
 Obtenga más información sobre los pasos necesarios para el escenario de particionamiento horizontal en [Consulta de bases de datos elásticas para particionamiento horizontal](sql-database-elastic-query-horizontal-partitioning.md).
@@ -146,7 +146,7 @@ La consulta elástica se incluye en el costo de las bases de datos de Azure SQL 
 
 ## <a name="feedback"></a>Comentarios
 
-Escriba más abajo sus comentarios sobre su experiencia con las consultas elásticas, en los foros de MSDN o en Stackoverflow. Estamos interesados en todo tipo de comentarios sobre el servicio (defectos, particularidades, deficiencias de característica, etc.).
+Escriba más abajo sus comentarios sobre su experiencia con las consultas elásticas, en los foros de MSDN o en Stack Overflow. Estamos interesados en todo tipo de comentarios sobre el servicio (defectos, particularidades, deficiencias de característica, etc.).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

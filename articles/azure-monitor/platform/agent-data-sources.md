@@ -1,6 +1,6 @@
 ---
-title: Configuración de los orígenes de datos de agente en Azure Monitor | Microsoft Docs
-description: Los orígenes de datos definen los datos de registro que Azure Monitor recopila de agentes y otros orígenes conectados.  En este artículo se describe el concepto de cómo Azure Monitor usa los orígenes de datos, se explican los detalles de cómo configurarlos y se brinda un resumen de los distintos orígenes de datos disponibles.
+title: Configuración de orígenes de datos de agentes en Log Analytics | Microsoft Docs
+description: Los orígenes de datos definen los datos de registro que Log Analytics recopila de agentes y otros orígenes conectados.  En este artículo se describe el concepto de cómo Log Analytics usa los orígenes de datos, se explican los detalles de cómo configurarlos y se brinda un resumen de los distintos orígenes de datos disponibles.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,22 +11,22 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2018
+ms.date: 01/07/2018
 ms.author: bwren
-ms.openlocfilehash: 19878477888b37592105927ea03a849d3da7c891
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: d9bedeeb2e354dab8bc6a7be56826f28914326be
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434943"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54101537"
 ---
-# <a name="agent-data-sources-in-azure-monitor"></a>Orígenes de datos de agente en Azure Monitor
-Los orígenes de datos que configura definen los datos que recopila Azure Monitor de los agentes.  Los datos de los agentes se almacenan como [datos de registro](data-collection.md) con un conjunto de registro.  Cada origen de datos crea registros de un tipo determinado, donde cada tipo tiene su propio conjunto de propiedades.
+# <a name="agent-data-sources-in-log-analytics"></a>Orígenes de datos de agentes en Log Analytics
+Los orígenes de datos que configura definen los datos que recopila Log Analytics de los agentes.  Los datos de los agentes se almacenan como [datos de registro](data-collection.md) con un conjunto de registro.  Cada origen de datos crea registros de un tipo determinado, donde cada tipo tiene su propio conjunto de propiedades.
 
 ![Recopilación de datos de registro](media/agent-data-sources/overview.png)
 
 ## <a name="summary-of-data-sources"></a>Resumen de orígenes de datos
-En la tabla siguiente se enumeran los orígenes de datos de agente que actualmente se encuentran disponibles en Azure Monitor.  Cada uno de ellos tiene un vínculo a un artículo independiente, donde se proporcionan detalles con respecto al origen de datos determinado.   También se proporciona información sobre el método y la frecuencia de recopilación. 
+En la tabla siguiente se enumeran los orígenes de datos de agentes que actualmente se encuentran disponibles en Log Analytics.  Cada uno de ellos tiene un vínculo a un artículo independiente, donde se proporcionan detalles con respecto al origen de datos determinado.   También se proporciona información sobre el método y la frecuencia de recopilación. 
 
 
 | Origen de datos | Plataforma | Microsoft Monitoring Agent | Agente de Operations Manager | Almacenamiento de Azure | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
@@ -45,21 +45,21 @@ Los orígenes de datos se configuran en el menú **Datos** en **Configuración a
 
 ![Configurar eventos de Windows](./media/agent-data-sources/configure-events.png)
 
-1. En Azure Portal, seleccione **Áreas de trabajo** > el área de trabajo > **Configuración avanzada**.
+1. En Azure Portal, seleccione **Log Analytics** > el área de trabajo > **Configuración avanzada**.
 2. Seleccione **Datos**.
 3. Haga clic en el origen de datos que quiere configurar.
 4. Siga el vínculo a la documentación correspondiente a cada origen de datos de la tabla anterior para obtener detalles sobre su configuración.
 
 
 ## <a name="data-collection"></a>Colección de datos
-Las configuraciones de orígenes de datos se entregan en cuestión de minutos a los agentes que están directamente conectados con Azure Monitor.  Los datos especificados se recopilan desde el agente y se entregan directamente a Azure Monitor a intervalos específicos a cada origen de datos.  Consulte la documentación de cada origen de datos para ver estas especificaciones.
+Las configuraciones de orígenes de datos se entregan en cuestión de minutos a los agentes que están directamente conectados con Log Analytics.  Los datos especificados se recopilan desde el agente y se entregan directamente a Log Analytics a intervalos específicos a cada origen de datos.  Consulte la documentación de cada origen de datos para ver estas especificaciones.
 
-En el caso de los agentes de System Center Operations Manager de un grupo de administración conectado, la configuración de origen de datos se convierte en módulos de administración y se proporciona al grupo de administración cada 5 minutos, de manera predeterminada.  El agente descarga el módulo de administración de la forma habitual y recopila los datos especificados. En función del origen de datos, los datos se enviarán a un servidor de administración que los reenvía a Azure Monitor o el agente los enviará a Azure Monitor sin pasar por el servidor de administración. Consulte [Detalles de la recopilación de datos para las soluciones de supervisión en Azure](../../azure-monitor/insights/solutions-inventory.md) para más información.  Puede leer detalles sobre cómo conectar Operations Manager y Azure Monitor y modificar la frecuencia con que la configuración se proporciona en [Configuración de integración con System Center Operations Manager](../../log-analytics/log-analytics-om-agents.md).
+En el caso de los agentes de System Center Operations Manager de un grupo de administración conectado, la configuración de origen de datos se convierte en módulos de administración y se proporciona al grupo de administración cada 5 minutos, de manera predeterminada.  El agente descarga el módulo de administración de la forma habitual y recopila los datos especificados. En función del origen de datos, los datos se enviarán a un servidor de administración que los reenvía a Log Analytics o el agente los enviará a Log Analytics sin pasar por el servidor de administración. Consulte [Detalles de la recopilación de datos para las soluciones de supervisión en Azure](../../azure-monitor/insights/solutions-inventory.md) para más información.  Puede leer detalles sobre cómo conectar Operations Manager y Log Analytics y modificar la frecuencia con que la configuración se proporciona en [Configuración de integración con System Center Operations Manager](../../log-analytics/log-analytics-om-agents.md).
 
-Si el agente no puede conectarse a Azure Monitor u Operations Manager, continuará recopilando datos para entregarlos cuando se establezca la conexión.  Si el volumen de datos alcanza el tamaño máximo de la memoria caché del cliente o si el agente no es capaz de establecer conexión en un plazo de 24 horas, los datos pueden perderse.
+Si el agente no puede conectarse a Log Analytics u Operations Manager, continuará recopilando datos para entregarlos cuando se establezca la conexión.  Si el volumen de datos alcanza el tamaño máximo de la memoria caché del cliente o si el agente no es capaz de establecer conexión en un plazo de 24 horas, los datos pueden perderse.
 
 ## <a name="log-records"></a>Entradas de registros
-Todos los datos que recopila Azure Monitor se almacenan en el área de trabajo como registros.  Los registros que recopilan distintos orígenes de datos tendrán su propio conjunto de propiedades y se identificar por su propiedad **Type** .  Consulte la documentación de cada origen de datos y solución para obtener detalles sobre cada tipo de registro.
+Todos los datos que recopila Log Analytics se almacenan en el área de trabajo como registros.  Los registros que recopilan distintos orígenes de datos tendrán su propio conjunto de propiedades y se identificar por su propiedad **Type** .  Consulte la documentación de cada origen de datos y solución para obtener detalles sobre cada tipo de registro.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Conozca las [soluciones de supervisión](../../azure-monitor/insights/solutions.md) que agregan funcionalidad a Azure Monitor y que también recopilan datos en el área de trabajo.

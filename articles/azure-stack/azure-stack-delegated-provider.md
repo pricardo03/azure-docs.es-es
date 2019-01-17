@@ -11,27 +11,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: 77819c5592fe8b61ed4e3fcb5f874fc0bf5ca602
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 1efe64d2057a4dccc0d82a8a99bfbf3eaa719521
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077991"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159118"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Delegación de ofertas en Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Como operador de Azure Stack, es posible que a menudo desee delegar en otras personas las tareas de registro de usuarios y creación de suscripciones. Por ejemplo, si es un proveedor de servicios puede desear que los distribuidores registren a los clientes y los administren en su nombre. Si forma parte de un grupo central de TI en una empresa, puede que quiera delegar el registro de usuarios a otro miembro de TI.
 
-La delegación facilita llegar a más usuarios y administrarlos, de lo que podría hacer por sí solo, como se muestra en la ilustración siguiente. 
+La delegación permite que sea más fácil llegar a más usuarios y administrarlos, de lo que podría hacer por sí solo, como se muestra en la ilustración siguiente:
 
 ![Niveles de delegación](media/azure-stack-delegated-provider/image1.png)
 
-Con la delegación, el proveedor delegado administra una oferta (oferta delegada) y los clientes finales obtienen suscripciones bajo dicha oferta sin intervención del administrador del sistema. 
+Con la delegación, el proveedor delegado administra una oferta (oferta delegada) y los clientes finales obtienen suscripciones bajo dicha oferta sin intervención del administrador del sistema.
 
 ## <a name="understand-delegation-roles-and-steps"></a>Descripción de los roles y pasos de delegación
 
@@ -49,15 +49,15 @@ Los roles siguientes forman parte de la delegación:
 
 Hay dos pasos básicos para configurar la delegación:
 
-1. *Para crear una suscripción a un proveedor delegado*, suscriba un usuario a una oferta que solo contenga el servicio de suscripciones. Los usuarios que se suscriben a esta oferta, pueden ampliar las ofertas delegadas a otros usuarios si los suscriben a dichas ofertas.
+1. **Crear una suscripción de proveedor delegado**: suscribir un usuario a una oferta que solo contenga el servicio de suscripción. Los usuarios que se suscriben a esta oferta, pueden ampliar las ofertas delegadas a otros usuarios si los suscriben a dichas ofertas.
 
-2. *Delegar una oferta en el proveedor delegado*. Esta oferta permite al proveedor delegado crear suscripciones o ampliar la oferta a sus usuarios. El proveedor delegado puede aprovechar ahora la oferta y ofrecerla a otros usuarios.
+2. **Delegar una oferta en el proveedor delegado**: Esta oferta permite al proveedor delegado crear suscripciones o ampliar la oferta a sus usuarios. El proveedor delegado puede aprovechar ahora la oferta y ofrecerla a otros usuarios.
 
-El gráfico siguiente muestra los pasos para configurar la delegación.
+En la siguiente ilustración se muestra los pasos para configurar la delegación:
 
 ![Crear el proveedor delegado y habilitarlo para que puedan suscribir a los usuarios](media/azure-stack-delegated-provider/image2.png)
 
-**Requisitos del proveedor delegado**
+#### <a name="delegated-provider-requirements"></a>Requisitos del proveedor delegado
 
 Para actuar como proveedor delegado, un usuario debe establecer una relación con el proveedor principal mediante la creación de una suscripción. Esta suscripción proporciona a los proveedores delegados el derecho a presentar las ofertas delegadas en nombre del proveedor principal.
 
@@ -82,12 +82,12 @@ Para usar este tutorial, necesita dos cuentas de Azure AD además de su cuenta d
 
 1. Para crear una oferta que permita a un usuario convertirse en un proveedor delegado:
 
-   a.  [Cree un plan](azure-stack-create-plan.md).
-       Este plan debe incluir solo el servicio de suscripciones. En este artículo se usa un plan denominado **PlanForDelegation** como ejemplo.
+    a.  [Cree un plan](azure-stack-create-plan.md).
+       Este plan debe incluir solo el servicio de suscripción. En este artículo se usa un plan denominado **PlanForDelegation** como ejemplo.
 
    b.  [Cree una oferta](azure-stack-create-offer.md) en función de este plan. En este artículo se usa una oferta denominada **OfferToDP** como ejemplo.
 
-   c.  Agregue el proveedor delegado como un suscriptor a esta oferta seleccionando **Suscripciones** > **Agregar** > **Nueva suscripción de inquilino**.
+   c.  Agregue el proveedor delegado como un suscriptor a esta oferta; para ello, seleccione **Suscripciones**, **Agregar** y **Nueva suscripción de inquilino**.
 
    ![Agregue el proveedor delegado como un suscriptor](media/azure-stack-delegated-provider/image3.png)
 
@@ -101,11 +101,11 @@ El siguiente paso es crear el plan y la oferta que va a delegar y que usarán lo
 1. Como operador de Azure Stack, [cree un plan](azure-stack-create-plan.md) y [una oferta](azure-stack-create-offer.md) basada en él. En este artículo se usa una oferta denominada **DelegatedOffer** como ejemplo.
 
    > [!NOTE]
-   > Esta oferta no tiene que ser pública, pero puede hacerla pública si lo desea. No obstante, en la mayoría de los casos, solo deseará que los proveedores delegados tengan acceso a ella. Una vez que delegue una oferta privada tal como se describe en los pasos siguientes, el proveedor delegado tendrá acceso a la misma.
+   > Esta oferta no tiene que ser pública, pero puede hacerla pública. No obstante, en la mayoría de los casos, solo deseará que los proveedores delegados tengan acceso a ella. Una vez que delegue una oferta privada tal como se describe en los pasos siguientes, el proveedor delegado tendrá acceso a la misma.
 
-1. Delegue la oferta. Vaya a **DelegatedOffer**. En **Configuración** seleccione **Proveedores delegados** > **Agregar**.
+2. Delegue la oferta. Vaya a **DelegatedOffer**. En **Configuración**, seleccione **Proveedores delegados** y, luego, **Agregar**.
 
-1. Seleccione la suscripción del proveedor delegado en el cuadro de lista desplegable y seleccione **Delegar**.
+3. Seleccione la suscripción del proveedor delegado en el cuadro de lista desplegable y elija **Delegar**.
 
    ![Agregar proveedor delegado](media/azure-stack-delegated-provider/image4.png)
 
@@ -113,28 +113,28 @@ El siguiente paso es crear el plan y la oferta que va a delegar y que usarán lo
 
 Inicie sesión en el portal de usuarios como proveedor delegado y luego cree una oferta nueva usando la oferta delegada como plantilla.
 
-1. Seleccione **+ Crear un recurso** > **Ofertas + Planes de inquilinos** > **Oferta**.
+1. Seleccione **+ Crear un recurso**, **Ofertas + Planes de inquilinos** y **Oferta**.
 
     ![Crear una nueva oferta](media/azure-stack-delegated-provider/image5.png)
 
-1. Asigne un nombre a la oferta. En este artículo se usa **ResellerOffer** como ejemplo. Seleccione la oferta delegada en la que basarse y, después seleccione **Crear**.
+2. Asigne un nombre a la oferta. En este ejemplo se usa **ResellerOffer**. Seleccione la oferta delegada en la que basarse y, después seleccione **Crear**.
 
    ![Asignar un nombre](media/azure-stack-delegated-provider/image6.png)
 
    >[!IMPORTANT]
-   >Es importante saber que los proveedores delegados solo pueden elegir las ofertas que les hayan delegado. No pueden hacer cambios en dichas ofertas. Solo un operador de Azure Stack puede cambiar estas ofertas, por ejemplo, cambiar sus planes y cuotas. Un proveedor delegado no construye una oferta a partir de planes de base y de planes complementarios. 
+   >Es importante saber que los proveedores delegados solo pueden elegir las ofertas que les hayan delegado. No pueden hacer cambios en dichas ofertas. Solo un operador de Azure Stack puede cambiarlas, por ejemplo, modificar sus planes y cuotas. Un proveedor delegado no construye una oferta a partir de planes base y de planes complementarios.
 
 3. El proveedor delegado puede exponer estas ofertas mediante la dirección URL de su propio portal. Para hacer pública la oferta, seleccione **Examinar** y, a continuación, **Ofertas**. Seleccione la oferta y, a continuación, seleccione **Cambiar estado**.
 
 4. Las ofertas delegadas públicas solo son visibles en el portal delegado. Para buscar y cambiar esta dirección URL:
 
-    a.  Seleccione **Examinar** > **Todos los servicios** y, en la categoría **GENERAL**, seleccione **Suscripciones**. Seleccione la suscripción del proveedor delegado. Por ejemplo, **DPSubscription** > **Propiedades**.
+     a.  Seleccione **Examinar**, **Todos los servicios** y, en la categoría **GENERAL**, seleccione **Suscripciones**. Seleccione la suscripción de proveedor delegado; por ejemplo, **DPSubscription** y, luego, **Propiedades**.
 
     b.  Copie la URL del portal en una ubicación diferente, como el Bloc de notas.
 
     ![Selección de la suscripción del proveedor delegado](media/azure-stack-delegated-provider/dpportaluri.png)  
 
-   Ha terminado de crear una oferta delegada como proveedor delegado. Cierre sesión como proveedor delegado y cierre la ventana del explorador que está usando.
+   Ha terminado de crear una oferta delegada como proveedor delegado. Cierre sesión como proveedor delegado y cierre la ventana del explorador.
 
 ### <a name="sign-up-for-the-offer"></a>Suscribirse a la oferta
 
@@ -147,17 +147,17 @@ Inicie sesión en el portal de usuarios como proveedor delegado y luego cree una
 
    ![Ver y seleccionar ofertas](media/azure-stack-delegated-provider/image8.png)
 
-Ha finalizado el proceso de delegación de una oferta. Ahora, un usuario puede subscribirse a esta oferta obteniendo una suscripción para ella.
+Ha finalizado el proceso de delegación de una oferta. Ahora, un usuario puede registrarse para esta oferta y obtener una suscripción a ella.
 
 ## <a name="move-subscriptions-between-delegated-providers"></a>Paso de suscripciones entre proveedores delegados
 
-Si es necesario, se puede pasar una suscripción entre suscripciones de proveedor delegado nuevas o existentes que pertenezcan al mismo inquilino del directorio. Para ello, se usa el cmdlet de PowerShell [Move-AzsSubscription](https://docs.microsoft.com/powershell/module/azs.subscriptions.admin).
+Si es necesario, se puede pasar una suscripción entre suscripciones de proveedor delegado nuevas o existentes que pertenezcan al mismo inquilino del directorio. Para ello, se usa el cmdlet [Move-AzsSubscription](/powershell/module/azs.subscriptions.admin) de PowerShell.
 
 Resulta útil cuando:
-- Incorpora un nuevo miembro del equipo que adoptará el rol de proveedor delegado y desea asignarle suscripciones de usuario que se crearon antes en la suscripción de proveedor predeterminada.
-- Tiene varias suscripciones de los proveedores delegados en el mismo inquilino de directorio (Azure Active Directory) y tiene que mover suscripciones de usuario entre ellas. Podría ser el caso cuando un miembro del equipo se mueve entre los equipos y su suscripción debe asignarse al nuevo equipo.
 
+* Incorpora un nuevo miembro del equipo que adoptará el rol de proveedor delegado y desea asignarle suscripciones de usuario que se crearon antes en la suscripción de proveedor predeterminada.
+* Tiene varias suscripciones de los proveedores delegados en el mismo inquilino de directorio (Azure Active Directory) y tiene que mover suscripciones de usuario entre ellas. Este caso podría darse cuando un miembro del equipo se mueve entre los equipos y su suscripción debe asignarse al nuevo equipo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Aprovisionar una máquina virtual](azure-stack-provision-vm.md)
+* [Aprovisionar una máquina virtual](azure-stack-provision-vm.md)

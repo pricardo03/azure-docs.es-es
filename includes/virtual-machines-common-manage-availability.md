@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e6c5f4623f3483dcfb0dde0f55b77161eee2c562
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: aff3f47624fe21e1d0f020e8e5732e60b4b53657
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035153"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54084062"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Información sobre los reinicios de máquinas virtuales: mantenimiento frente a tiempo de inactividad
 Hay tres escenarios que pueden afectar a la máquina virtual de Azure: mantenimiento de hardware no planeado, tiempo de inactividad inesperado y mantenimiento planeado.
@@ -32,7 +32,7 @@ Para reducir el impacto del tiempo de parada debido a uno o más de estos evento
 
 * [Configure varias máquinas virtuales en un conjunto de disponibilidad para la redundancia]
 * [Uso de Managed Disks para las máquinas virtuales de un conjunto de disponibilidad]
-* [Uso de eventos programados para responder de manera proactiva a eventos que afectan a la máquina virtual ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
+* [Uso de eventos programados para responder de manera proactiva a eventos que afectan a la máquina virtual](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
 * [Configure cada nivel de aplicación en conjuntos separados de disponibilidad]
 * [Combinación de un equilibrador de carga con conjuntos de disponibilidad]
 * [Uso de zonas de disponibilidad para protegerse frente a errores en el nivel de centro de datos]
@@ -65,6 +65,10 @@ Si tiene previsto usar máquinas virtuales con [discos no administrados](../arti
 1. **Mantenga todos los discos (sistema operativo y datos) asociados a una máquina virtual en la misma cuenta de almacenamiento.**
 2. **Revise los [límites](../articles/storage/common/storage-scalability-targets.md) en el número de discos no administrados de una cuenta de almacenamiento** antes de agregar más discos duros virtuales a esta
 3. **Utilice una cuenta de almacenamiento independiente para cada máquina virtual de un conjunto de disponibilidad.** No comparta las cuentas de almacenamiento con varias máquinas virtuales del mismo conjunto de disponibilidad. Las máquinas virtuales de distintos conjuntos de disponibilidad pueden compartir las cuentas de almacenamiento si se siguen los procedimientos recomendados anteriores. ![Dominios de error de discos no administrados](./media/virtual-machines-common-manage-availability/umd-updated.png)
+
+## <a name="use-scheduled-events-to-proactively-respond-to-vm-impacting-events"></a>Uso de eventos programados para responder de manera proactiva a eventos que afectan a la máquina virtual
+
+Cuando se suscribe a [eventos programados](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events), se le notifica a la máquina virtual sobre próximos eventos de mantenimiento que pueden afectar a su funcionamiento. Si los eventos programados están habilitados, se le da a la máquina virtual una cantidad mínima de tiempo antes de que se lleve a cabo la actividad de mantenimiento. Por ejemplo, las actualizaciones del sistema operativo del host que pueden afectar a la máquina virtual se ponen en cola como eventos en los que se especifica el impacto, así como la hora en que se efectuará el mantenimiento si no se realiza ninguna acción. Los eventos de programación también se ponen en cola cuando Azure detecta un error inminente del hardware que podría afectar a la máquina virtual, lo cual permite al usuario decidir cuándo se debe realizar la recuperación. Los clientes pueden usar el evento para realizar determinadas tareas antes del mantenimiento, como guardar el estado, conmutar por error a la base de datos secundaria, etc. Después de completar la lógica para controlar correctamente el evento de mantenimiento, puede aprobar el evento programado pendiente para permitir que la plataforma continúe con el mantenimiento.
 
 ## <a name="configure-each-application-tier-into-separate-availability-sets"></a>Configure cada nivel de aplicación en conjuntos separados de disponibilidad
 Si las máquinas virtuales son casi idénticas y tienen la misma función en su aplicación, recomendamos que configure un conjunto de disponibilidad para cada nivel de la aplicación.  Si coloca dos niveles diferentes en el mismo conjunto de disponibilidad, todas las máquinas virtuales en un mismo nivel de aplicación se podrían reiniciar simultáneamente. Al configurar al menos dos máquinas virtuales en un conjunto de disponibilidad para cada nivel, se garantiza que al menos haya disponible una en cada nivel.

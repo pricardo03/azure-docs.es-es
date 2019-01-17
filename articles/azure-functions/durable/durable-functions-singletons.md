@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4832a48489a043493639bdedd6c6adf3c828de11
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 3eaa5de1b1378ba78a7c57172fd0a155f72cd6c5
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434705"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102523"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Orquestadores singleton con Durable Functions (Azure Functions)
 
@@ -91,7 +91,7 @@ De forma predeterminada, los identificadores de instancia son identificadores ú
 > Al desarrollar de forma local en JavaScript, deberá establecer la variable de entorno `WEBSITE_HOSTNAME` en `localhost:<port>`, por ejemplo `localhost:7071` para usar métodos en `DurableOrchestrationClient`. Para obtener más información sobre este requisito, vea el [problema de GitHub](https://github.com/Azure/azure-functions-durable-js/issues/28).
 
 > [!NOTE]
-> En este ejemplo hay una posible condición de carrera. Si dos instancias de **HttpStartSingle** se ejecutan al mismo tiempo puede que el resultado sean dos instancias creadas diferentes del singleton, en la que una sobrescribirá a la otra. Según los requisitos, esto puede tener efectos secundarios no deseados. Por este motivo, es importante asegurarse de que no hay dos solicitudes que puedan ejecutar esta función de desencadenador simultáneamente.
+> En este ejemplo hay una posible condición de carrera. Si dos instancias de **HttpStartSingle** se ejecutan simultáneamente, ambas llamadas de función notificarán un resultado satisfactorio, pero realmente solo se iniciará una instancia de orquestación. Según los requisitos, esto puede tener efectos secundarios no deseados. Por este motivo, es importante asegurarse de que no hay dos solicitudes que puedan ejecutar esta función de desencadenador simultáneamente.
 
 Los detalles de implementación de la función de orquestador no importan realmente. Podría tratarse de una función de orquestador normal, con un principio y un final, o de una que se ejecuta sin fin (es decir, una [orquestación infinita](durable-functions-eternal-orchestrations.md)). Lo importante es que haya solo una instancia en ejecución cada vez.
 

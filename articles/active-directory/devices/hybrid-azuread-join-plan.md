@@ -1,5 +1,5 @@
 ---
-title: Configuración de dispositivos híbridos unidos a Azure Active Directory | Microsoft Docs
+title: Planeación de la implementación de Unión a Azure Active Directory híbrido en Azure Active Directory (Azure AD) | Microsoft Docs
 description: Aprenda a configurar dispositivos híbridos unidos a Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: c951d4f646fdaec9731ec4b6320e5f625ad91a42
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: bddd183c517c611373afd1df64f22bfcd6a0cea8
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993301"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102285"
 ---
-# <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Planeamiento de la implementación de unión a Azure Active Directory híbrido
+# <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrucciones: Planeamiento de la implementación de la unión a Azure Active Directory híbrido
 
 De forma similar a un usuario, un dispositivo se está convirtiendo en otra identidad que debe proteger y usar también para proteger los recursos en cualquier momento y lugar. Puede lograr este objetivo incluyendo las identidades de los dispositivos en Azure AD mediante uno de los métodos siguientes:
 
@@ -54,7 +54,6 @@ Para planear la implementación de Azure AD híbrido, debe familiarizarse con:
 
 
  
-
 
 ## <a name="review-supported-devices"></a>Revisión de los dispositivos compatibles 
 
@@ -112,6 +111,11 @@ Si su organización requiere acceso a Internet a través de un servidor proxy sa
 
 La unión a Azure AD híbrido es un proceso para registrar automáticamente los dispositivos unidos al dominio en el entorno local con Azure AD. Hay casos en los que es mejor que no todos los dispositivos se registren automáticamente. Si esto es así, consulte [Control de la unión de los dispositivos híbridos a Azure AD](hybrid-azuread-join-control.md).
 
+Si los dispositivos de Windows 10 unidos a un dominio ya están [registrados en Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/devices/overview#azure-ad-registered-devices) para el inquilino, debe considerar la posibilidad de eliminar ese estado antes de habilitar Unión a Azure AD híbrido. El hecho de que un dispositivo tenga los dos estados, unido a Azure AD híbrido y registrado en Azure, no está admitido. A partir de la versión Windows 10 1809, se han realizado los siguientes cambios para evitar este estado dual: 
+ - Cualquier estado registrado en Azure AD existente se eliminará automáticamente cuando el dispositivo se una a Azure AD híbrido. 
+ - Puede impedir que el dispositivo unido al dominio se registre en Azure AD mediante la incorporación de esta clave del Registro: HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001
+
+
 ## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Revisión del control de la unión de dispositivos a Azure AD híbrido
 
 La unión a Azure AD híbrido es un proceso para registrar automáticamente los dispositivos unidos al dominio en el entorno local con Azure AD. Hay casos en los que es mejor que no todos los dispositivos se registren automáticamente. Esto es así, por ejemplo, durante el lanzamiento inicial para comprobar que todo funciona según lo previsto.
@@ -146,7 +150,7 @@ Desde la versión 1.1.819.0, Azure AD Connect proporciona un asistente para conf
 
 ## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Compatibilidad con el identificador de inicio de sesión alternativo en la unión a Azure AD híbrido
 
-La unión a Azure AD híbrido para Windows 10 proporciona compatibilidad limitada para los [identificadores de inicio de sesión alternativos](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) dependiendo del tipo de identificador de inicio de sesión alternativo, [el método de autenticación](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), el tipo de dominio y la versión de Windows 10. Hay dos tipos de identificadores de inicio de sesión alternativos que pueden existir en su entorno.
+La unión a Azure AD híbrido para Windows 10 proporciona compatibilidad limitada para los [identificadores de inicio de sesión alternativos](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) dependiendo del tipo de identificador de inicio de sesión alternativo, [el método de autenticación](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), el tipo de dominio y la versión de Windows 10. Hay dos tipos de identificadores de inicio de sesión alternativos que pueden existir en su entorno:
 
  - Identificador de inicio de sesión alternativo enrutable: Un identificador de inicio de sesión alternativo enrutable tiene un dominio comprobado válido, que está registrado con un registrador de dominios. Por ejemplo, si contoso.com es el dominio principal, contoso.org y contoso.co.uk son dominios válidos que pertenezcan a Contoso y [están comprobados en Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
  

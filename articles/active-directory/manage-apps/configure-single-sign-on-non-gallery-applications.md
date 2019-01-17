@@ -1,37 +1,33 @@
 ---
-title: Configuración de inicio de sesión único de Azure AD SSO para aplicaciones |Microsoft Docs
-description: Aprenda cómo conectar de forma autónoma aplicaciones a Azure Active Directory mediante SAML y SSO basado en contraseña
+title: 'Inicio de sesión único en aplicaciones que no están en la galería: Azure Active Directory | Microsoft Docs'
+description: Configuración del inicio de sesión único (SSO) en aplicaciones que no estén en la galería en Azure Active Directory (Azure AD)
 services: active-directory
 author: barbkess
-documentationcenter: na
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/12/2018
+ms.date: 01/08/2019
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dd42f6317f684fcc5ad9da94c1b09ab1870ccf76
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: bb2fcbad3d415a8ac7a8e0c3237fcb97042defd7
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408141"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121352"
 ---
-# <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configuración del inicio de sesión único en aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory
+# <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Configuración del inicio de sesión único en aplicaciones que no estén en la galería en Azure Active Directory
 
-En este artículo se trata de una característica que permite a los administradores configurar un inicio de sesión único a aplicaciones que no están presentes en la Galería de aplicaciones de Azure Active Directory *sin escribir código*. Esta característica se publicó en la versión preliminar técnica el 18 de noviembre de 2015 y se incluye en [Azure Active Directory Premium](../fundamentals/active-directory-whatis.md). Si por el contrario desea obtener instrucciones para desarrolladores sobre cómo integrar aplicaciones personalizadas con Azure AD a través de código, consulte [Escenarios de autenticación para Azure AD](../develop/authentication-scenarios.md).
+En este artículo se trata de una característica que permite a los administradores configurar un inicio de sesión único a aplicaciones que no están presentes en la Galería de aplicaciones de Azure Active Directory *sin escribir código*. Si por el contrario desea obtener instrucciones para desarrolladores sobre cómo integrar aplicaciones personalizadas con Azure AD a través de código, consulte [Escenarios de autenticación para Azure AD](../develop/authentication-scenarios.md).
 
 La Galería de aplicaciones de Azure Active Directory proporciona una lista de las aplicaciones que se sabe que admiten un formulario de inicio de sesión único en Azure Active Directory, tal como se describe en [este artículo](what-is-single-sign-on.md). Una vez que un especialista en TI o un integrador de sistemas de la organización ha encontrado la aplicación que desea conectar, puede empezar por seguir las instrucciones detalladas que se proporcionan en Azure Portal para habilitar el inicio de sesión único.
 
-Los clientes con licencia de [Azure Active Directory Premium](../fundamentals/active-directory-whatis.md) también obtienen estas funcionalidades adicionales:
+Estas funcionalidades también están disponibles, según el contrato de licencia. Consulte la [página de precios](https://azure.microsoft.com/pricing/details/active-directory/)para obtener más información. 
 
-* Integración de autoservicio de cualquier aplicación que admita proveedores de identidades SAML 2.0 (iniciado por el proveedor de servicios o por el proveedor de identidades)
-* Integración de autoservicio de cualquier aplicación web que tenga una página de inicio de sesión basada en HTML que use [SSO basado en contraseña](what-is-single-sign-on.md#password-based-sso)
+- Integración de autoservicio de cualquier aplicación que admita proveedores de identidades SAML 2.0 (iniciado por el proveedor de servicios o por el proveedor de identidades)
+- Integración de autoservicio de cualquier aplicación web que tenga una página de inicio de sesión basada en HTML que use [SSO basado en contraseña](what-is-single-sign-on.md#password-based-sso)
 * Conexión autoservicio de las aplicaciones que usan el protocolo SCIM para el aprovisionamiento de usuarios ([se describe aquí](use-scim-to-provision-users-and-groups.md))
 * Capacidad para agregar vínculos a cualquier aplicación del [iniciador de aplicaciones de Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) o del [panel de acceso de Azure AD](what-is-single-sign-on.md#linked-sso)
 

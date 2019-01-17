@@ -12,23 +12,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: 4bad339ca704f14f57c120db5e731d0dbfeb8d59
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 3445974cf832b7ed594f704615482e1d9b0e351c
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793451"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54159373"
 ---
-# <a name="azure-stack-managed-disks-differences-and-considerations"></a>Managed Disks de Azure Stack: Diferencias y consideraciones
-En este artículo se resumen las diferencias conocidas entre Managed Disks de Azure Stack y Managed Disks para Azure. Para obtener información acerca de las diferencias de alto nivel entre Azure y Azure Stack, consulte el artículo [Key considerations](azure-stack-considerations.md) (Consideraciones clave).
+# <a name="azure-stack-managed-disks-differences-and-considerations"></a>Managed Disks de Azure Stack: diferencias y consideraciones
 
-Managed Disks simplifica la administración de discos para las máquinas virtuales de IaaS, ya que administra las [cuentas de almacenamiento](/azure/azure-stack/azure-stack-manage-storage-accounts) asociadas a los discos de la máquina virtual.
+En este artículo se resumen las diferencias conocidas entre [Managed Disks de Azure Stack](azure-stack-manage-vm-disks.md) y [Managed Disks para Azure](../../virtual-machines/windows/managed-disks-overview.md). Para obtener información acerca de las diferencias de alto nivel entre Azure y Azure Stack, consulte el artículo [Key considerations](azure-stack-considerations.md) (Consideraciones clave).
+
+Managed Disks simplifica la administración de discos para las máquinas virtuales de IaaS, ya que administra las [cuentas de almacenamiento](../azure-stack-manage-storage-accounts.md) asociadas a los discos de la máquina virtual.
 
 > [!Note]  
-> Managed Disks en Azure Stack está disponible desde 1808.
+> Managed Disks en Azure Stack está disponible desde la actualización 1808. Está habilitado de forma predeterminada al crear máquinas virtuales mediante el portal de Azure Stack a partir de la actualización 1811.
   
 
 ## <a name="cheat-sheet-managed-disk-differences"></a>Hoja de referencia rápida: diferencias de Managed Disks
@@ -48,28 +49,32 @@ Managed Disks simplifica la administración de discos para las máquinas virtual
 |Análisis de rendimiento de discos |Compatibilidad con métricas agregadas y por disco |Todavía no se admite |
 |Migración      |Proporciona herramientas para migrar desde máquinas virtuales de Azure Resource Manager no administradas existentes sin necesidad de volver a crear la máquina virtual  |Todavía no se admite |
 
-> [!Note]  
+> [!NOTE]  
 > Las E/S por segundo y el rendimiento de Managed Disks en Azure Stack es un número extremo, en lugar de un número aprovisionado, que puede resultar afectado por el hardware y las cargas de trabajo que se ejecutan en Azure Stack.
 
-
 ## <a name="metrics"></a>Métricas
+
 También hay diferencias en las métricas de almacenamiento:
-- Con Azure Stack, los datos de transacción de las métricas de almacenamiento no distinguen el ancho de banda de red interna o externa.
+
+- Con Azure Stack, los datos de transacción de las métricas de almacenamiento no distinguen el ancho de banda de red interna ni externa.
 - Los datos de transacción de Azure Stack en las métricas de almacenamiento no incluyen el acceso de la máquina virtual a los discos montados.
 
-
 ## <a name="api-versions"></a>Versiones de API
+
 Managed Disks de Azure Stack admite las versiones de API siguientes:
+
 - 2017-03-30
 
 ## <a name="known-issues"></a>Problemas conocidos
-Después de aplicar la actualización 1809, se pueden producir los problemas siguientes al implementar máquinas virtuales con Managed Disks:
 
-   - Si la suscripción se creó antes de la actualización 1808, se puede producir un error en la implementación de máquinas virtuales con Managed Disks con un mensaje de error interno. Para resolver el error, siga estos pasos en cada suscripción:
-      1. En el portal del inquilino, vaya a **Suscripciones** y busque la suscripción. Haga clic en **Proveedores de recursos**, después en **Microsoft.Compute** y luego en **Volver a registrar**.
-      2. En la misma suscripción, vaya a **Control de acceso (IAM)**, y compruebe que **Azure Stack – Managed Disk** (Azure Stack - Disco administrado) aparece en la lista.
-   - Si ha configurado un entorno de varios inquilinos, se puede producir un error con un mensaje de error interno en la implementación de máquinas virtuales en una suscripción asociada con un directorio de invitados. Para solucionar el error, siga los pasos de [este artículo](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) para volver a configurar cada uno de los directorios de invitado.
+Después de aplicar las actualizaciones posteriores a la 1808, se pueden producir los siguientes problemas al implementar máquinas virtuales con Managed Disks:
+
+- Si la suscripción se creó antes de la actualización 1808, se puede producir un error en la implementación de máquinas virtuales con Managed Disks con un mensaje de error interno. Para resolver el error, siga estos pasos en cada suscripción:
+   1. En el portal del inquilino, vaya a **Suscripciones** y busque la suscripción. Haga clic en **Proveedores de recursos**, después en **Microsoft.Compute** y luego en **Volver a registrar**.
+   2. En la misma suscripción, vaya a **Control de acceso (IAM)**, y compruebe que **Azure Stack – Managed Disk** (Azure Stack - Disco administrado) aparece en la lista.
+- Si ha configurado un entorno de varios inquilinos, se puede producir un error con un mensaje de error interno en la implementación de máquinas virtuales en una suscripción asociada con un directorio de invitados. Para solucionar el error, siga los pasos de [este artículo](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) para volver a configurar cada uno de los directorios de invitado.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Más información sobre máquinas virtuales de Azure Stack](azure-stack-compute-overview.md)
+
+- [Más información sobre máquinas virtuales de Azure Stack](azure-stack-compute-overview.md)
