@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: sngun
-ms.openlocfilehash: 70aa5c62afb6706fa9084d1ed081f70517d8d89e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 8fd99b1c68be08ca7c2f4b7cdeaaa8b5b64859e4
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039442"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54197427"
 ---
 # <a name="create-and-manage-resources-of-an-azure-cosmos-db-sql-api-account-using-a-java-application"></a>Creación y administración de recursos de una cuenta de SQL API de Azure Cosmos DB con una aplicación Java
 
@@ -75,7 +75,7 @@ Ahora vamos a empezar a trabajar con el código. Vamos a clonar una aplicación 
 
 Este paso es opcional. Si está interesado en aprender cómo se crean los recursos de base de datos en el código, puede revisar los siguientes fragmentos de código. En caso contrario, puede ir directamente a [Ejecutar la aplicación](#run-the-app). 
 
-* Inicialización de `AsyncDocumentClient`. [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client) proporciona una representación lógica del cliente para el servicio de base de datos de Azure Cosmos DB. Este cliente se usa para configurar y ejecutar solicitudes en el servicio.
+* Inicialización de `AsyncDocumentClient`. [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient) proporciona una representación lógica del cliente para el servicio de base de datos de Azure Cosmos DB. Este cliente se usa para configurar y ejecutar solicitudes en el servicio.
 
     ```java
     client = new AsyncDocumentClient.Builder()
@@ -86,7 +86,7 @@ Este paso es opcional. Si está interesado en aprender cómo se crean los recurs
              .build();
     ```
 
-* Creación de [Database](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._database).
+* Creación de [Database](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.database).
 
     ```java
     Database databaseDefinition = new Database();
@@ -97,7 +97,7 @@ Este paso es opcional. Si está interesado en aprender cómo se crean los recurs
             .await();
     ```
 
-* Creación de [DocumentCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._document_collection).
+* Creación de [DocumentCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.documentcollection).
 
     ```java
     DocumentCollection collectionDefinition = new DocumentCollection();
@@ -110,7 +110,7 @@ Este paso es opcional. Si está interesado en aprender cómo se crean los recurs
             .await();
     ```
 
-* Creación de documentos mediante el método [createDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._document).
+* Creación de documentos mediante el método [createDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.document).
 
     ```java
     // Any Java object within your code
@@ -127,7 +127,7 @@ Este paso es opcional. Si está interesado en aprender cómo se crean los recurs
 
     ```
 
-* Las consultas SQL a través de JSON se realizan con el método [queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client.querydocuments?view=azure-java-stable).
+* Las consultas SQL a través de JSON se realizan con el método [queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient.querydocuments?view=azure-java-stable).
 
     ```java
     FeedOptions queryOptions = new FeedOptions();

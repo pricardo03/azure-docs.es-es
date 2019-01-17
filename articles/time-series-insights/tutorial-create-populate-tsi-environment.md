@@ -9,12 +9,12 @@ ms.date: 12/05/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: c2aeab6888cf93be75742028b0354c45a1834d51
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 58b19a039bb6aebcd2687ab80cdd29c5f378645e
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537289"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200214"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Tutorial: Creación de un entorno de Azure Time Series Insights
 
@@ -41,7 +41,7 @@ La cuenta de inicio de sesión de Azure también debe ser miembro del rol Propie
 
 ## <a name="overview"></a>Información general
 
-El entorno de ETI es donde se recopilan y almacenan los datos del dispositivo. Una vez almacenados en el entorno de TSI, puede utilizar el [explorador de TSI](time-series-quickstart.md) y la [API de consulta de TSI](/rest/api/time-series-insights/time-series-insights-reference-queryapi) para consultar y analizar los datos.
+El entorno de ETI es donde se recopilan y almacenan los datos del dispositivo. Una vez almacenados en el entorno de TSI, puede utilizar el [explorador de TSI](time-series-quickstart.md) y la [API de consulta de TSI](/rest/api/time-series-insights/ga-query-api) para consultar y analizar los datos.
 
 Como todos los dispositivos, simulados o físicos, IoT Hub es el punto de conexión que utilizan los dispositivos para conectar y transmitir datos de forma segura a la nube de Azure. Como se discutió en [¿Qué es Azure Time Series Insights?](time-series-insights-overview.md), IoT Hub también sirve como origen del evento para la transmisión de datos al entorno de TSI. 
 
