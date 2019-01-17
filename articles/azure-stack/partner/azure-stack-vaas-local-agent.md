@@ -13,12 +13,13 @@ ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 0608da33e816b40f7fadbeb1b5da3feb926c28aa
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ROBOTS: NOINDEX
+ms.openlocfilehash: f0ffb4a4c4ea12292639b5a94b7f2990db6e45bd
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334064"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247816"
 ---
 # <a name="deploy-the-local-agent"></a>Implementación del agente local
 
@@ -138,4 +139,4 @@ Un agente se identifica de forma única por su nombre. De forma predeterminada, 
 
 - [Solución de problemas de la validación como servicio](azure-stack-vaas-troubleshoot.md)
 - [Validation as a Service key concepts](azure-stack-vaas-key-concepts.md) (Conceptos clave de la validación como servicio)
-- [Guía de inicio rápido: Uso del portal de validación como servicio para programar la primera prueba](azure-stack-vaas-schedule-test-pass.md)
+- [Inicio rápido: Uso del portal de validación como servicio para programar la primera prueba](azure-stack-vaas-schedule-test-pass.md)

@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: 18ca854f1e04127a900c1b753245ed6e2a331d68
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: b98b42be170c37710435d1aad61707a4ed01851f
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628175"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214427"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>Eliminación de contenedores según el prefijo del nombre de contenedor
 
@@ -49,8 +49,8 @@ Este script usa los siguientes comandos para eliminar contenedores según el pre
 | Get-Help | Notas |
 |---|---|
 | [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) | Obtiene una cuenta de Storage especificada o todas las cuentas de Storage de un grupo de recursos o la suscripción. |
-| [Get-AzStorageContainer](/powershell/module/azure.storage/get-AzStoragecontainer) | Enumera los contenedores de almacenamiento asociados con una cuenta de almacenamiento. |
-| [Remove-AzStorageContainer](/powershell/module/azure.storage/remove-AzStoragecontainer) | Elimina el contenedor de almacenamiento especificado. |
+| [Get-AzStorageContainer](/powershell/module/az.storage/Get-AzStorageContainer) | Enumera los contenedores de almacenamiento asociados con una cuenta de almacenamiento. |
+| [Remove-AzStorageContainer](/powershell/module/az.storage/Remove-AzStorageContainer) | Elimina el contenedor de almacenamiento especificado. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

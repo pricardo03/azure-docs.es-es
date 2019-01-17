@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/01/2018
 ms.author: rogarana
-ms.openlocfilehash: 2c83526ac5fd6fb6c757bffab08414d940694998
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: eddf85df3f9efb6a742e226e9582e2e284cbd4cf
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635432"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215140"
 ---
 # <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>Migración de blobs entre cuentas de almacenamiento mediante AzCopy en Windows
 
@@ -68,8 +68,8 @@ Este script usa los siguientes comandos para copiar datos de una cuenta de almac
 
 | Get-Help | Notas |
 |---|---|
-| [Get-AzStorageContainer](/powershell/module/azure.storage/Get-AzStorageContainer) | Devuelve los contenedores de almacenamiento asociados con esta cuenta de Storage. |
-| [New-AzStorageContext](/powershell/module/azure.storage/New-AzStorageContext) | Crea un contexto de Azure Storage. |
+| [Get-AzStorageContainer](/powershell/module/az.storage/Get-AzStorageContainer) | Devuelve los contenedores de almacenamiento asociados con esta cuenta de Storage. |
+| [New-AzStorageContext](/powershell/module/az.storage/New-AzStorageContext) | Crea un contexto de Azure Storage. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
