@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/19/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: d5a7cf597bb19f6c4a180b0dc306c86ae91875cf
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.reviewer: unknown
+ms.openlocfilehash: 2024c4d8a251ad2066332a403db3d7f8c3dce975
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161674"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354117"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>Corrección de problemas comunes con certificados de PKI en Azure Stack
 
@@ -117,7 +117,7 @@ Deben cumplirse los siguientes requisitos previos en el equipo donde se ejecuta 
 1. En un equipo que cumpla los requisitos previos, abra un símbolo del sistema administrativo de PowerShell y ejecute el siguiente comando para instalar AzsReadinessChecker:
   
    ```powershell
-   Install-Module Microsoft.AzureStack.ReadinessChecker- Force
+   Install-Module Microsoft.AzureStack.ReadinessChecker -Force
    ```
 
 2. Desde el símbolo del sistema de PowerShell, ejecute el siguiente cmdlet para establecer la contraseña PFX. Reemplace *PFXpassword* por la contraseña real:
@@ -131,7 +131,7 @@ Deben cumplirse los siguientes requisitos previos en el equipo donde se ejecuta 
    - En `-ExportPFXPath`, especifique la ubicación y el nombre del archivo PFX que se va a exportar. En el ejemplo siguiente, la ruta de acceso es `.\certificates\ssl_new.pfx`:
 
    ```powershell
-   Repair-AzsPfxCertificate -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx`
+   Repair-AzsPfxCertificate -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx
    ```  
 
 4. Cuando se haya completado la herramienta, compruebe el éxito en el resultado:
