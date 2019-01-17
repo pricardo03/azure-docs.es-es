@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1e91bcdf3980b0f03967c09b0b7a75aa3d3a520a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 234b78a97c2663121d0d585154695887a58b9522
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014631"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351750"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Copia de datos de ServiceNow con Azure Data Factory
 
@@ -115,7 +115,7 @@ Para copiar datos de ServiceNow, establezca el tipo de origen de la actividad de
 Tenga en cuenta lo siguiente cuando especifique el esquema y la columna para ServiceNow en la consulta, y **consulte los [consejos de rendimiento](#performance-tips) en la implicación de rendimiento de copia**.
 
 - **Esquema:** especifica el esquema como `Actual` o `Display` en la consulta de ServiceNow, que puede considerar como el parámetro de `sysparm_display_value` verdadero o falso al llamar a las [API Restful de ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
-- **Columna:** el nombre de columna del valor real del esquema `Actual` es `[columne name]_value`, mientras que el valor de visualización del esquema `Display` es `[columne name]_display_value`. Tenga en cuenta que el nombre de columna se debe asignar al esquema que se usa en la consulta.
+- **Columna:** el nombre de columna del valor real del esquema `Actual` es `[column name]_value`, mientras que el valor de visualización del esquema `Display` es `[column name]_display_value`. Tenga en cuenta que el nombre de columna se debe asignar al esquema que se usa en la consulta.
 
 **Consulta de ejemplo:**
 `SELECT col_value FROM Actual.alm_asset` OR 

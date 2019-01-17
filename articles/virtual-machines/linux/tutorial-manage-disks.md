@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 69ffd2dd4df8ca0a64036f7a96c88d5c83353211
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 2716838b28bc6dc5155ab7fbb6e1b4966b63f4dc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685385"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266117"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Tutorial: Administración de discos de Azure con la CLI de Azure
 
@@ -126,7 +126,7 @@ Después de que se ha conectado un disco a la máquina virtual, es necesario con
 Cree una conexión SSH con la máquina virtual. Reemplace la dirección IP de ejemplo por la dirección IP pública de la máquina virtual:
 
 ```azurecli-interactive
-ssh azureuser@52.174.34.95
+ssh 10.101.10.10
 ```
 
 Cree particiones del disco con `fdisk`.
@@ -196,12 +196,16 @@ Cuando se toma una instantánea de un disco, Azure crea una copia de solo lectur
 Antes de crear una instantánea de un disco de máquina virtual, se necesitan el identificador o el nombre del disco. Use el comando [az vm show](/cli/azure/vm#az-vm-show) para devolver el identificador del disco. En este ejemplo, el identificador del disco se almacena en una variable para que se pueda usar en un paso posterior.
 
 ```azurecli-interactive
-osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
+osdiskid=$(az vm show \
+   -g myResourceGroupDisk \
+   -n myVM \
+   --query "storageProfile.osDisk.managedDisk.id" \
+   -o tsv)
 ```
 
 Ahora que tiene el identificador del disco de la máquina virtual, el siguiente comando crea una instantánea del disco.
 
-```azurcli
+```azurecli-interactive
 az snapshot create \
     --resource-group myResourceGroupDisk \
     --source "$osdiskid" \
@@ -213,7 +217,10 @@ az snapshot create \
 Esta instantánea se puede convertir en un disco, que se puede usar para volver a crear la máquina virtual.
 
 ```azurecli-interactive
-az disk create --resource-group myResourceGroupDisk --name mySnapshotDisk --source osDisk-backup
+az disk create \
+   --resource-group myResourceGroupDisk \
+   --name mySnapshotDisk \
+   --source osDisk-backup
 ```
 
 ### <a name="restore-virtual-machine-from-snapshot"></a>Restauración de la máquina virtual a partir de la instantánea
@@ -221,7 +228,9 @@ az disk create --resource-group myResourceGroupDisk --name mySnapshotDisk --sour
 Para demostrar la recuperación de la máquina virtual, elimine la máquina virtual existente.
 
 ```azurecli-interactive
-az vm delete --resource-group myResourceGroupDisk --name myVM
+az vm delete \
+--resource-group myResourceGroupDisk \
+--name myVM
 ```
 
 Cree una nueva máquina virtual en el disco de instantáneas.
@@ -241,13 +250,19 @@ Todos los discos de datos se deben volver a conectar a la máquina virtual.
 En primer lugar, busque el nombre del disco de datos mediante el comando [az disk list](/cli/azure/disk#az-disk-list). En este ejemplo se coloca el nombre del disco en una variable denominada *datadisk*, que se usa en el paso siguiente.
 
 ```azurecli-interactive
-datadisk=$(az disk list -g myResourceGroupDisk --query "[?contains(name,'myVM')].[name]" -o tsv)
+datadisk=$(az disk list \
+   -g myResourceGroupDisk \
+   --query "[?contains(name,'myVM')].[id]" \
+   -o tsv)
 ```
 
 Use el comando [az vm disk attach](/cli/azure/vm/disk#az-vm-disk-attach) para adjuntar el disco.
 
 ```azurecli-interactive
-az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk
+az vm disk attach \
+   –g myResourceGroupDisk \
+   --vm-name myVM \
+   --disk $datadisk
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

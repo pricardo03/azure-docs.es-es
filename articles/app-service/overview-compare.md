@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2cf73607f0cb286f06a5aa043fd8b30816e6a80f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 05afbd9a621752b8b665c7d2f68cd8cfcc8a1d1a
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53729702"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322034"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparación de Azure App Service, Virtual Machines, Service Fabric y Cloud Services
 
@@ -53,7 +53,7 @@ La siguiente tabla compara las funcionalidades de App Service, Cloud Services, V
 | Escalado horizontal a varias instancias sin volver a implementar |X |X |X |X |Máquinas virtuales puede escalar horizontalmente hasta varias instancias, pero los servicios que se ejecutan en este servicio se deben escribir para controlar este escalado horizontal. Tiene que configurar un equilibrador de carga para enrutar las solicitudes entre las máquinas y asegurarse de que tiene más de una instancia de máquina virtual en el [conjunto de disponibilidad](../virtual-machines/windows/manage-availability.md). |
 | Soporte para SSL |X |X |X |X |En el caso de las aplicaciones web de App Service, solo se admite SSL para nombres de dominio personalizados para el modo Básico y Estándar. Para más información sobre el uso de SSL con aplicaciones web, consulte [Configuración de un certificado SSL para un sitio web Azure](app-service-web-tutorial-custom-ssl.md). |
 | Integración de Visual Studio |X |X |X |X | |
-| Depuración remota |X |X |X | | |
+| Depuración remota |X |X |X |X | |
 | Código de implementación con TFS |X |X |X |X | |
 | Aislamiento de red con [Azure Virtual Network](/azure/virtual-network/) |X |X |X |X |Consulte también [Integración de redes virtuales de Azure Websites](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) |
 | Soporte técnico para el [Administrador de tráfico de Azure](/azure/traffic-manager/) |X |X |X |X | |

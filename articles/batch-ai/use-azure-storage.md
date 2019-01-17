@@ -12,12 +12,12 @@ ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1e9a4c6355c60b18bb78aae362c1e2f142e2d864
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: c1ebcae04b51fbf18da22872e3e4160a37a7e2fe
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408007"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201166"
 ---
 # <a name="store-batch-ai-job-input-and-output-with-azure-storage"></a>Almacenamiento de salidas y entradas de los trabajos de Batch AI con Azure Storage
 
@@ -79,7 +79,7 @@ Para montar un volumen de Azure Storage a un trabajo creado con la CLI de Azure,
 - < FILE_SHARE_NAME >: el nombre del recurso compartido de archivos.
 - <BLOB_CONTAINER_NAME>: el nombre del contenedor de blobs.
 
-Para montar los volúmenes de Azure Storage con el SDK de Azure Batch AI, establezca la propiedad `mount_volumes` (Python) o `MountVolumes` (C#, Java) en `JobCreateParameters`. Debe proporcionar las credenciales de la cuenta de almacenamiento al montar volúmenes con el SDK de Azure Batch AI. Consulte los esquemas para el montaje de volúmenes en [Python](https://docs.microsoft.com/python/api/azure-mgmt-batchai/azure.mgmt.batchai.models.MountVolumes?view=azure-python), [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.batchai.models.mountvolumes?view=azure-dotnet) y [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.management.batchai._mount_volumes?view=azure-java-stable).
+Para montar los volúmenes de Azure Storage con el SDK de Azure Batch AI, establezca la propiedad `mount_volumes` (Python) o `MountVolumes` (C#, Java) en `JobCreateParameters`. Debe proporcionar las credenciales de la cuenta de almacenamiento al montar volúmenes con el SDK de Azure Batch AI. Consulte los esquemas para el montaje de volúmenes en [Python](https://docs.microsoft.com/python/api/azure-mgmt-batchai/azure.mgmt.batchai.models.MountVolumes?view=azure-python), [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.batchai.models.mountvolumes?view=azure-dotnet) y [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.management.batchai.mountvolumes?view=azure-java-stable).
 
 ### <a name="mount-volumes-to-a-cluster"></a>Montaje de volúmenes a un clúster
 

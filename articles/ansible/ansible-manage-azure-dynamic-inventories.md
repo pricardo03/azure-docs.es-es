@@ -7,13 +7,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 08/09/2018
-ms.topic: article
-ms.openlocfilehash: bdaf53728fb54114a41f9454fa3f6057ae042136
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.topic: tutorial
+ms.openlocfilehash: cf404b84377a37f9a97f7e7c9c9f86402fe999e0
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054000"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359670"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Uso de Ansible para administrar sus inventarios dinámicos de Azure
 Ansible puede utilizarse para extraer información de inventario de varios orígenes (incluidos orígenes en la nube como Azure) en un *inventario dinámico*. En este artículo, usará [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) para configurar un inventario dinámico de Azure con Ansible en el que crear dos máquinas virtuales, etiquetará una de esas máquinas virtuales e instalará Nginx en la máquina virtual etiquetada.

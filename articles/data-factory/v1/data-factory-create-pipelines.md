@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e1fe5af1769a0a1a83a3ce849a7eb1874369ce9a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: fb0448e5ad5bd91c63c2fcde9887ec23544bed3f
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023378"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331357"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Canalizaciones y actividades en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -28,15 +28,15 @@ ms.locfileid: "54023378"
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory. Si utiliza la versión actual del servicio Data Factory, consulte [Pipelines in V2](../concepts-pipelines-activities.md) (Canalizaciones en V2).
 
-Este artículo ayuda a conocer las canalizaciones y actividades de Azure Data Factory y a usarlas para construir flujos de trabajo controlados por datos de un extremo para los escenarios de procesamiento de datos y movimiento de datos.  
+Este artículo ayuda a conocer las canalizaciones y actividades de Azure Data Factory y a usarlas para construir flujos de trabajo controlados por datos de un extremo para los escenarios de procesamiento de datos y movimiento de datos.
 
 > [!NOTE]
-> En este artículo se considera que ha repasado antes los artículos [Introducción a Azure Data Factory](data-factory-introduction.md). Si no tiene experiencia práctica con la creación de factorías de datos, repasar los tutoriales sobre [transformación](data-factory-build-your-first-pipeline.md) o [traslado de datos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) puede ayudarlo a comprender mejor este artículo.  
+> En este artículo se considera que ha repasado antes los artículos [Introducción a Azure Data Factory](data-factory-introduction.md). Si no tiene experiencia práctica con la creación de factorías de datos, repasar los tutoriales sobre [transformación](data-factory-build-your-first-pipeline.md) o [traslado de datos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) puede ayudarlo a comprender mejor este artículo.
 
 ## <a name="overview"></a>Información general
-Una factoría de datos puede tener una o más canalizaciones. Una canalización es una agrupación lógica de actividades que realizan una tarea. Las actividades de una canalización definen las acciones que se van a realizar en los datos. Por ejemplo, puede utilizar una actividad de copia para copiar datos de un servidor SQL Server local en una instancia de Azure Blob Storage. Después, utilice una actividad de Hive que ejecute un script de Hive en un clúster de Azure HDInsight para procesar o transformar datos de Blob Storage con el fin de generar datos de salida. Finalmente, use una segunda actividad de copia para copiar los datos de salida en un almacén de Azure SQL Data Warehouse en función de qué soluciones de generación de informes de inteligencia empresarial (BI) estén integradas. 
+Una factoría de datos puede tener una o más canalizaciones. Una canalización es una agrupación lógica de actividades que realizan una tarea. Las actividades de una canalización definen las acciones que se van a realizar en los datos. Por ejemplo, puede utilizar una actividad de copia para copiar datos de un servidor SQL Server local en una instancia de Azure Blob Storage. Después, utilice una actividad de Hive que ejecute un script de Hive en un clúster de Azure HDInsight para procesar o transformar datos de Blob Storage con el fin de generar datos de salida. Finalmente, use una segunda actividad de copia para copiar los datos de salida en un almacén de Azure SQL Data Warehouse en función de qué soluciones de generación de informes de inteligencia empresarial (BI) estén integradas.
 
-Una actividad puede tomar diversos [conjuntos de datos](data-factory-create-datasets.md), o ninguno, y generar uno o varios [conjuntos de datos](data-factory-create-datasets.md). En el siguiente diagrama se muestra la relación entre la canalización, la actividad y el conjunto de datos en Data Factory: 
+Una actividad puede tomar diversos [conjuntos de datos](data-factory-create-datasets.md), o ninguno, y generar uno o varios [conjuntos de datos](data-factory-create-datasets.md). En el siguiente diagrama se muestra la relación entre la canalización, la actividad y el conjunto de datos en Data Factory:
 
 ![Relación entre la canalización, la actividad y el conjunto de datos](media/data-factory-create-pipelines/relationship-pipeline-activity-dataset.png)
 
@@ -61,7 +61,7 @@ Para más información, consulte el artículo sobre [actividades de movimiento d
 
 Para más información, consulte el artículo sobre [actividades de transformación de datos](data-factory-data-transformation-activities.md).
 
-### <a name="custom-net-activities"></a>Actividades personalizadas de .NET 
+### <a name="custom-net-activities"></a>Actividades personalizadas de .NET
 Si necesita mover datos con un almacén de datos como origen o destino que no sea compatible con la actividad de copia, o bien transformar datos con su propia lógica, cree una **actividad personalizada de .NET**. Consulte el artículo [Uso de actividades personalizadas en una canalización de Azure Data Factory](data-factory-use-custom-activities.md)para obtener más información sobre la creación y el uso de una actividad personalizada.
 
 ## <a name="schedule-pipelines"></a>Programar canalizaciones
@@ -73,7 +73,7 @@ Vamos a fijarnos un poco más en cómo se define una canalización en formato JS
 ```json
 {
     "name": "PipelineName",
-    "properties": 
+    "properties":
     {
         "description" : "pipeline description",
         "activities":
@@ -85,7 +85,7 @@ Vamos a fijarnos un poco más en cómo se define una canalización en formato JS
         "isPaused": true/false,
         "pipelineMode": "scheduled/onetime",
         "expirationTime": "15.00:00:00",
-        "datasets": 
+        "datasets":
         [
         ]
     }
@@ -96,7 +96,7 @@ Vamos a fijarnos un poco más en cómo se define una canalización en formato JS
 | --- | --- | --- |
 | Nombre |Nombre de la canalización. Especifique un nombre que represente la acción que realizará la canalización. <br/><ul><li>Número máximo de caracteres: 260</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> |SÍ |
 | description | Especifique el texto que describe para qué se usa la canalización. |SÍ |
-| actividades | La sección **activities** puede contener una o más actividades definidas. Vea la sección siguiente para obtener más información sobre el elemento JSON de actividades. | SÍ |  
+| actividades | La sección **activities** puede contener una o más actividades definidas. Vea la sección siguiente para obtener más información sobre el elemento JSON de actividades. | SÍ |
 | start | Fecha y hora de inicio para la canalización. Debe estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: `2016-10-14T16:32:41Z`. <br/><br/>Se puede especificar una hora local, por ejemplo, una hora EST. Aquí tiene un ejemplo: `2016-02-27T06:00:00-05:00`, que es 06:00 EST.<br/><br/>Las propiedades start y end juntas especifican un período activo para la canalización. Los segmentos de salida solo se producen en este período activo. |Sin <br/><br/>Si se especifica un valor para la propiedad end, hay que especificar un valor para la propiedad start.<br/><br/>Las horas de inicio y finalización pueden estar vacías para crear una canalización. Debe especificar ambos valores para establecer un período activo para que se ejecute la canalización. Si no especifica horas de inicio y finalización al crear una canalización, puede establecerlas más adelante mediante el cmdlet Set-AzureDataFactoryPipelineActivePeriod. |
 | end | Fecha y hora de finalización para la canalización. Si se especifica, debe estar en formato ISO. Por ejemplo: `2016-10-14T17:32:41Z` <br/><br/>Se puede especificar una hora local, por ejemplo, una hora EST. Aquí tiene un ejemplo: `2016-02-27T06:00:00-05:00`, que es 6 a. m. EST.<br/><br/>Para ejecutar la canalización indefinidamente, especifique 9999-09-09 como valor de la propiedad end. <br/><br/> Una canalización solo está activa entre su hora de inicio y de finalización. No se ejecuta antes de la hora de inicio ni después de la hora de finalización. Si la canalización está en pausa, no se ejecutará, independientemente de su hora de inicio y de finalización. Para que se ejecute una canalización, no debe estar en pausa. Consulte [Programación y ejecución](data-factory-scheduling-and-execution.md) para comprender cómo funciona la programación y la ejecución en Azure Data Factory. |Sin  <br/><br/>Si se especifica un valor para la propiedad start, hay que especificar un valor para la propiedad end.<br/><br/>Consulte las notas para la propiedad **start** . |
 | isPaused | Si se establece en True, la canalización no se ejecuta. Está en estado de pausa. Valor predeterminado = false. Puede utilizar esta propiedad para habilitar o deshabilitar una canalización. |Sin  |
@@ -110,10 +110,10 @@ La sección **activities** puede contener una o más actividades definidas. Cada
 ```json
 {
     "name": "ActivityName",
-    "description": "description", 
+    "description": "description",
     "type": "<ActivityType>",
-    "inputs":  "[]",
-    "outputs":  "[]",
+    "inputs": "[]",
+    "outputs": "[]",
     "linkedServiceName": "MyLinkedService",
     "typeProperties":
     {
@@ -142,7 +142,6 @@ En la tabla siguiente se describen las propiedades en la definición JSON de la 
 | policy |Directivas que afectan al comportamiento en tiempo de ejecución de la actividad. Si no se especifica, se usan las directivas predeterminadas. |Sin  |
 | scheduler | La propiedad "scheduler" se utiliza para definir la programación deseada para la actividad. Sus subpropiedades son las mismas que las de la [propiedad availability de un conjunto de datos](data-factory-create-datasets.md#dataset-availability). |Sin  |
 
-
 ### <a name="policies"></a>Directivas
 Las directivas afectan al comportamiento en tiempo de ejecución de una actividad, concretamente cuando se procesa el segmento de una tabla. En la tabla siguiente se proporciona los detalles.
 
@@ -157,7 +156,7 @@ Las directivas afectan al comportamiento en tiempo de ejecución de una activida
 | longRetryInterval |timespan |00:00:00 |El retraso entre reintentos largos |
 
 ## <a name="sample-copy-pipeline"></a>Canalización de copia de ejemplo
-En la canalización de ejemplo siguiente, hay una actividad del tipo **Copy** in the **actividades** . En este ejemplo, [Copiar actividad](data-factory-data-movement-activities.md) copia datos desde un almacén de Azure Blob Storage en una base de datos SQL de Azure. 
+En la canalización de ejemplo siguiente, hay una actividad del tipo **Copy** in the **actividades** . En este ejemplo, [Copiar actividad](data-factory-data-movement-activities.md) copia datos desde un almacén de Azure Blob Storage en una base de datos SQL de Azure.
 
 ```json
 {
@@ -199,19 +198,19 @@ En la canalización de ejemplo siguiente, hay una actividad del tipo **Copy** in
     "start": "2016-07-12T00:00:00Z",
     "end": "2016-07-13T00:00:00Z"
   }
-} 
+}
 ```
 
 Tenga en cuenta los siguientes puntos:
 
 * En la sección de actividades, solo hay una actividad con **type** establecido en **Copy**.
-* La entrada de la actividad está establecida en **InputDataset**, mientras que la salida está establecida en **OutputDataset**. Vea el artículo [Conjuntos de datos](data-factory-create-datasets.md) para definir conjuntos de datos en JSON. 
-* En la sección **typeProperties**, **BlobSource** se especifica como el tipo de origen y **SqlSink** como el tipo de receptor. En la sección [Actividades de movimiento de datos](#data-movement-activities), haga clic en el almacén de datos que quiere usar como origen o un receptor para obtener más información sobre cómo mover datos con ese almacén de datos como origen o destino. 
+* La entrada de la actividad está establecida en **InputDataset**, mientras que la salida está establecida en **OutputDataset**. Vea el artículo [Conjuntos de datos](data-factory-create-datasets.md) para definir conjuntos de datos en JSON.
+* En la sección **typeProperties**, **BlobSource** se especifica como el tipo de origen y **SqlSink** como el tipo de receptor. En la sección [Actividades de movimiento de datos](#data-movement-activities), haga clic en el almacén de datos que quiere usar como origen o un receptor para obtener más información sobre cómo mover datos con ese almacén de datos como origen o destino.
 
-Para obtener un tutorial completo de creación de esta canalización, consulte [Tutorial: Copia de datos de Blob Storage en SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+Para obtener un tutorial completo de creación de esta canalización, consulte [Tutorial: Copia de datos de Blob Storage en SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="sample-transformation-pipeline"></a>Canalización de transformación de ejemplo
-En la canalización de ejemplo siguiente, hay una actividad del tipo **HDInsightHive** in the **actividades** . En este ejemplo, el [actividad de HDInsight Hive](data-factory-hive-activity.md) transforma los datos de Azure Blob Storage mediante la ejecución de un archivo de script de Hive en un clúster de Azure HDInsight Hadoop. 
+En la canalización de ejemplo siguiente, hay una actividad del tipo **HDInsightHive** in the **actividades** . En este ejemplo, el [actividad de HDInsight Hive](data-factory-hive-activity.md) transforma los datos de Azure Blob Storage mediante la ejecución de un archivo de script de Hive en un clúster de Azure HDInsight Hadoop.
 
 ```json
 {
@@ -258,39 +257,38 @@ En la canalización de ejemplo siguiente, hay una actividad del tipo **HDInsight
 }
 ```
 
-Tenga en cuenta los siguientes puntos: 
+Tenga en cuenta los siguientes puntos:
 
 * En la sección de actividades, solo hay una actividad con **type** establecido en **HDInsightHive**.
 * El archivo de script de Hive, **partitionweblogs.hql**, se almacena en la cuenta de Azure Storage (especificada por la propiedad scriptLinkedService, llamada **AzureStorageLinkedService**) en una carpeta denominada **script** del contenedor **adfgetstarted**.
 * La sección `defines` se usa para especificar la configuración de tiempo de ejecución que se pasa al script de Hive como valores de configuración de Hive (por ejemplo, `${hiveconf:inputtable}`, `${hiveconf:partitionedtable}`).
 
-La sección **typeProperties** es diferente para cada actividad de transformación. Para obtener información sobre las propiedades de tipo compatibles con una actividad de transformación, haga clic en la actividad de transformación de la tabla [Actividades de transformación de datos](#data-transformation-activities). 
+La sección **typeProperties** es diferente para cada actividad de transformación. Para obtener información sobre las propiedades de tipo compatibles con una actividad de transformación, haga clic en la actividad de transformación de la tabla [Actividades de transformación de datos](#data-transformation-activities).
 
-Para obtener un tutorial completo de creación de esta canalización, consulte [Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md). 
+Para obtener un tutorial completo de creación de esta canalización, consulte [Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md).
 
 ## <a name="multiple-activities-in-a-pipeline"></a>Varias actividades en una canalización
-Las dos canalizaciones de ejemplo anteriores solo tienen una actividad, pero se pueden tener más de una actividad en una canalización.  
+Las dos canalizaciones de ejemplo anteriores solo tienen una actividad, pero se pueden tener más de una actividad en una canalización.
 
-Si tiene varias actividades en una canalización y la salida de una actividad no es la entrada de otra actividad, las actividades se pueden ejecutar en paralelo si los segmentos de datos de entrada para las actividades están listos. 
+Si tiene varias actividades en una canalización y la salida de una actividad no es la entrada de otra actividad, las actividades se pueden ejecutar en paralelo si los segmentos de datos de entrada para las actividades están listos.
 
 Puede encadenar dos actividades haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. La segunda actividad se ejecuta solo cuando la primera de ellas se completa correctamente.
 
 ![Encadenamiento de las actividades de la misma canalización](./media/data-factory-create-pipelines/chaining-one-pipeline.png)
 
-En este ejemplo, la canalización tiene dos actividades: Activity1 y Activity2. Activity1 toma Dataset1 como entrada y genera una salida Dataset2. La actividad toma Dataset2 como entrada y genera una salida Dataset3. Como la salida de Activity1 (Dataset2) es la entrada de Activity2, Activity2 solo se ejecuta después de que la actividad se complete correctamente y genere el segmento de Dataset2. Si se produce un error en Activity1 por algún motivo y no genera el segmento de Dataset2, Activity2 no se ejecuta en dicho segmento (por ejemplo: de 09:00 a 10:00). 
+En este ejemplo, la canalización tiene dos actividades: Activity1 y Activity2. Activity1 toma Dataset1 como entrada y genera una salida Dataset2. La actividad toma Dataset2 como entrada y genera una salida Dataset3. Como la salida de Activity1 (Dataset2) es la entrada de Activity2, Activity2 solo se ejecuta después de que la actividad se complete correctamente y genere el segmento de Dataset2. Si se produce un error en Activity1 por algún motivo y no genera el segmento de Dataset2, Activity2 no se ejecuta en dicho segmento (por ejemplo: de 09:00 a 10:00).
 
 También puede encadenar actividades que se encuentran en diferentes canalizaciones.
 
 ![Encadenamiento de las actividades de dos canalizaciones](./media/data-factory-create-pipelines/chaining-two-pipelines.png)
 
-En este ejemplo, Pipeline1 solo tiene una actividad que toma Dataset1 como entrada y genera Dataset2 como salida. Pipeline2 también tiene únicamente una actividad que toma Dataset2 como entrada y Dataset3 como salida. 
+En este ejemplo, Pipeline1 solo tiene una actividad que toma Dataset1 como entrada y genera Dataset2 como salida. Pipeline2 también tiene únicamente una actividad que toma Dataset2 como entrada y Dataset3 como salida.
 
-Para obtener más información, vea [Programación y ejecución](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
-
+Para obtener más información, vea [Programación y ejecución](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 ## <a name="create-and-monitor-pipelines"></a>Creación y supervisión de canalizaciones
-Puede crear canalizaciones utilizando una de estas herramientas o SDK. 
+Puede crear canalizaciones utilizando una de estas herramientas o SDK.
 
-- Asistente para copia 
+- Asistente para copia
 - Azure Portal
 - Visual Studio
 - Azure PowerShell
@@ -299,15 +297,14 @@ Puede crear canalizaciones utilizando una de estas herramientas o SDK.
 - API de .NET
 
 Vea los siguientes tutoriales para obtener instrucciones paso a paso sobre cómo crear canalizaciones con una de estas herramientas o SDK.
- 
+
 - [Creación de una canalización con una actividad de transformación de datos](data-factory-build-your-first-pipeline.md)
 - [Creación de una canalización con una actividad de movimiento de datos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 
-Una vez que se haya creado o implementado la canalización, puede administrar y supervisar sus canalizaciones utilizando las hojas de Azure Portal o la aplicación de supervisión y administración. Vaya a los siguientes temas para obtener instrucciones paso a paso. 
+Una vez que se haya creado o implementado la canalización, puede administrar y supervisar sus canalizaciones utilizando las hojas de Azure Portal o la aplicación de supervisión y administración. Vaya a los siguientes temas para obtener instrucciones paso a paso.
 
 - [Supervisión y administración de canalizaciones con las hojas de Azure Portal](data-factory-monitor-manage-pipelines.md)
 - [Supervisión y administración de canalizaciones con la aplicación de supervisión y administración](data-factory-monitor-manage-app.md)
-
 
 ## <a name="onetime-pipeline"></a>Canalización de una vez
 Puede crear y programar una canalización que se ejecute periódicamente (por ejemplo, cada hora y diariamente) entre las horas de inicio y finalización que especifique en la definición de la canalización. Para más información, consulte [Programación de actividades](#scheduling-and-execution) . También puede crear una canalización que se ejecute una sola vez. Para ello, establezca la propiedad **pipelineMode** en **onetime** en la definición de la canalización,como se muestra en el siguiente ejemplo de JSON. El valor predeterminado de esta propiedad es **scheduled**.
@@ -339,10 +336,10 @@ Puede crear y programar una canalización que se ejecute periódicamente (por ej
                     {
                         "name": "OutputDataset"
                     }
-                ]
+                ],
                 "name": "CopyActivity-0"
             }
-        ]
+        ],
         "pipelineMode": "OneTime"
     }
 }
@@ -351,13 +348,10 @@ Puede crear y programar una canalización que se ejecute periódicamente (por ej
 Tenga en cuenta lo siguiente:
 
 * No se especifican las horas de **inicio** y **finalización** de la canalización.
-* La disponibilidad (**availability**) de los conjuntos de datos de entrada y salida se especifica (**frequency** e **interval**), incluso aunque Data Factory no use los valores.  
+* La disponibilidad (**availability**) de los conjuntos de datos de entrada y salida se especifica (**frequency** e **interval**), incluso aunque Data Factory no use los valores.
 * La vista Diagrama no muestra las canalizaciones de una vez. Este comportamiento es así por diseño.
 * Las canalizaciones de una vez no se pueden actualizar. Puede clonar una canalización de una vez, cambiarle el nombre, actualizar las propiedades e implementarla para crear otra.
 
-
 ## <a name="next-steps"></a>Pasos siguientes
-- Para obtener más información sobre los conjuntos de datos, vea el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). 
-- Si quiere conocer más detalles sobre cómo programar y ejecutar canalizaciones en Azure Data Factory, consulte [este artículo](data-factory-scheduling-and-execution.md). 
-  
-
+- Para obtener más información sobre los conjuntos de datos, vea el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md).
+- Si quiere conocer más detalles sobre cómo programar y ejecutar canalizaciones en Azure Data Factory, consulte [este artículo](data-factory-scheduling-and-execution.md).

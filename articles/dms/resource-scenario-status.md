@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/08/2019
-ms.openlocfilehash: 9e153cca321e94233cfda2a03cf52ba85a0f6b02
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.date: 01/15/2019
+ms.openlocfilehash: e9f1b1a3df92c08b913a56aadc8eb8a9e80c7fdf
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102812"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320062"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Estado de los escenarios de migración que admite Azure Database Migration Service
 Azure Database Migration Service está diseñado para admitir una serie de escenarios de migración (pares de origen/destino) para las migraciones sin conexión (de un solo uso) y en línea (sincronización continua). Azure Database Migration Service proporciona una cobertura de escenarios que amplían constantemente. Nos encargamos de agregar nuevos escenarios de forma regular. En este artículo se identifican los escenarios de migración que actualmente son compatibles con Azure Database Migration Service y el estado (versión preliminar privada [o limitada], versión preliminar pública o disponibilidad general) de cada escenario.
@@ -45,10 +45,10 @@ En la siguiente tabla se muestra la compatibilidad de Azure Database Migration S
 | **Azure SQL DB MI**  | SQL Server  | ✔ |
 |   | SQL de RDS  | ✔ |
 |   | Oracle  | ✔  |
-| **Máquina virtual de Azure SQL**  | SQL Server  | ✔ |
+| **Máquina virtual de Azure SQL**  | SQL Server | ✔ |
 |   | Oracle  |   |
-| **Cosmos DB**  | MongoDB  | ✔ |
-| **Azure DB para MySQL**  | MySLQ  |  |
+| **Cosmos DB**  | MongoDB | ✔ |
+| **Azure DB para MySQL**  | MySQL |  |
 |   | MySQL de RDS  |  |
 | **Azure DB para PostgresSQL**  | PostgreSQL |  |
 |  | PostgreSQL de RDS  |  |
@@ -67,7 +67,7 @@ En la siguiente tabla se muestra la compatibilidad de Azure Database Migration S
 | **Máquina virtual de Azure SQL**  | SQL Server  |   |
 |   | Oracle  | ✔  |
 | **Cosmos DB**  | MongoDB  | ✔ |
-| **Azure DB para MySQL**  | MySLQ  | ✔ |
+| **Azure DB para MySQL**  | MySQL | ✔ |
 |   | MySQL de RDS  | ✔ |
 | **Azure DB para PostgresSQL**  | PostgreSQL | ✔ |
 |  | PostgreSQL de RDS  | ✔ |

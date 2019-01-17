@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 8640d89c5fb9e38fc6c982e21147361ad690964a
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: f4f588ad9123ec98cbae9f9bf03c08ec551a31a5
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584452"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232760"
 ---
 # <a name="tutorial-build-an-image-processing-app---c35"></a>Tutorial: Compilación de una aplicación de procesamiento de imágenes: C&#35;
 
@@ -97,9 +97,6 @@ Puede ejecutar la aplicación de ejemplo para ver cómo interactúa con usted y 
    |Recognize Text (OCR) | Usa la operación [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) para reconocer y extraer texto impreso de una imagen. Puede elegir el idioma que se usará o permitir que Computer Vision lo detecte automáticamente. |
    |Recognize Text V2 (English) | Usa las operaciones [Recognize Text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) y [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) operaciones para reconocer y extraer texto manuscrito o impreso de una imagen de forma asincrónica. |
    |Get Thumbnail | Usa la operación [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) para generar una miniatura de una imagen local o remota. |
-
-   > [!IMPORTANT]
-   > Microsoft recibe las imágenes cargadas y puede usarlas para mejorar Computer Vision API y los servicios relacionados. Al enviar una imagen, confirma que ha seguido nuestro [Código de conducta del desarrollador](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
 
    En la captura de pantalla siguiente se muestra la página proporcionada para el escenario Analyze Image, después de analizar una imagen de ejemplo.
    ![Captura de pantalla de la página Analizar imagen](../Images/Analyze_Image_Example.PNG)

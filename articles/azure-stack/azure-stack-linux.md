@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: 3154c3a5a677f208973d442ff3875bb5ee8df6a1
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.reviewer: unknown
+ms.openlocfilehash: 98a1235532ec4cc225ac6a5117265e145b21034b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160637"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245179"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Agregar imágenes de Linux a Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Puede implementar máquinas virtuales Linux en Azure Stack agregando una imagen basada en Linux a Marketplace de Azure Stack. La manera más fácil de agregar una imagen de Linux a Azure Stack es con la administración de Marketplace. Estas imágenes se prepararon y probaron para que sean compatibles con Azure Stack.
 

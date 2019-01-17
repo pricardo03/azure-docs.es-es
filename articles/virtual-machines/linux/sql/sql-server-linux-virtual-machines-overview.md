@@ -3,21 +3,22 @@ title: Introducción a SQL Server en máquinas virtuales Linux de Azure | Micros
 description: Aprenda a ejecutar ediciones completas de SQL Server en máquinas virtuales Linux de Azure. Obtenga vínculos directos a todas las imágenes de máquina virtual de SQL Server y al contenido relacionado.
 services: virtual-machines-linux
 documentationcenter: ''
-author: rothja
-manager: jhubbard
+author: MashaMSFT
+manager: craigg
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: get-started-article
 ms.workload: iaas-sql-server
 ms.date: 04/10/2018
-ms.author: jroth
-ms.openlocfilehash: 9c24536d8d5647e4a2c19afa17c35050e1f11c20
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 18f9dd5318c6aecff8819178168469d9334e5e29
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31424132"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332411"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Introducción a SQL Server en SQL Server en máquinas virtuales de Azure (Linux)
 
@@ -69,7 +70,7 @@ Al configurar SQL Server en Linux, instale el paquete del motor de base de datos
 
 * [Información general sobre Virtual Network](../../../virtual-network/virtual-networks-overview.md)
 * [Direcciones IP en Azure](../../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
-* [Creación de un nombre de dominio completo en Azure Portal](../portal-create-fqdn.md)
+* [Crear un nombre de dominio completo en el Portal de Azure](../portal-create-fqdn.md)
 
 ### <a name="sql"></a>SQL
 

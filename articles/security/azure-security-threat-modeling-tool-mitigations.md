@@ -3,9 +3,9 @@ title: 'Mitigaciones: Microsoft Threat Modeling Tool (Azure) | Microsoft Docs'
 description: Página Mitigaciones de Microsoft Threat Modeling Tool, que presenta posibles soluciones para las amenazas generadas más expuestas.
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 07ef1fd3d81d795c9164741d22b5a689f86bd720
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24aa49fd4ccccda372d2632ef4aee22bd5cb2bf6
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23043440"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359143"
 ---
 # <a name="microsoft-threat-modeling-tool-mitigations"></a>Mitigaciones de Microsoft Threat Modeling Tool
 
 Threat Modeling Tool es un elemento básico del Ciclo de vida de desarrollo de seguridad (SDL) de Microsoft. Permite a los arquitectos de software identificar y mitigar los posibles problemas de seguridad en una fase temprana, cuando son relativamente sencillos y poco costosos de resolver. En consecuencia, reduce en gran medida el costo total de desarrollo. Además, hemos diseñado la herramienta pensando en expertos no relacionados con la seguridad, lo que facilita el modelado de amenazas para todos los programadores, ya que se proporcionan instrucciones claras sobre cómo crear y analizar los modelos de amenazas.
 
-Visite  **[Threat Modeling Tool](./azure-security-threat-modeling-tool.md)** .
+Visite **[Threat Modeling Tool](./azure-security-threat-modeling-tool.md)**.
 
 ## <a name="mitigation-categories"></a>Categorías de mitigación
 
 Las mitigaciones de la Herramienta de modelado de amenazas se clasifican según el marco de seguridad de aplicación web, que consta de las siguientes acciones:
 
-| Categoría | Descripción |
+| Categoría | DESCRIPCIÓN |
 | -------- | ----------- |
 | **[Auditoría y registro](./azure-security-threat-modeling-tool-auditing-and-logging.md)** | ¿Quién hizo qué y cuándo? La auditoría y el registro hacen referencia a cómo registra la aplicación los eventos relacionados con la seguridad. |
 | **[Autenticación](./azure-security-threat-modeling-tool-authentication.md)** | ¿Quién es usted? La autenticación es el proceso en el que una entidad demuestra la identidad de otra entidad, normalmente por medio de credenciales, como un nombre de usuario y una contraseña. |
@@ -53,4 +53,4 @@ En consecuencia, utiliza estas categorías para centrarse y priorizar el trabajo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Visite  **[Amenazas de Threat Modeling Tool](./azure-security-threat-modeling-tool-threats.md)**  para obtener más información sobre las categorías de amenaza que la herramienta usa para generar las amenazas de diseño posibles.
+Visite **[Amenazas de Threat Modeling Tool](./azure-security-threat-modeling-tool-threats.md)** para obtener más información sobre las categorías de amenaza que la herramienta usa para generar las amenazas de diseño posibles.

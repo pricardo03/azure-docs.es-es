@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: a4b1b4a7e106ad9dcd1746030daac562d7f123bc
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 6fbfaaa82095fbf093560e65076b40a392356da8
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041533"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330167"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replicación en base de datos agrupadas y únicas de SQL Database
 
@@ -111,6 +111,7 @@ Cree una publicación y una suscripción de inserción. Para más información, 
 
 ## <a name="see-also"></a>Otras referencias  
 
+- [Replicación transaccional](sql-database-managed-instance-transactional-replication.md)
 - [Create a Publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication) (Creación de una publicación)
 - [Create a Push Subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) (Creación de una suscripción de inserción)
 - [Tipos de replicación](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)

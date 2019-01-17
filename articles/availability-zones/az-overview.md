@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 08/31/2018
 ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 360f5cca3da5e9987b5e057449fb9c2cbb910552
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 665db66bc7302710ed73ae46aad0e9afcfd44400
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157843"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258465"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>¿Qué son las zonas de disponibilidad en Azure?
 Las zonas de disponibilidad son una oferta que protege las aplicaciones y datos de los errores del centro de datos. Las zonas de disponibilidad son ubicaciones físicas exclusivas dentro de una región de Azure. Cada zona de disponibilidad consta de uno o varios centros de datos equipados con alimentación, refrigeración y redes independientes. Para garantizar la resistencia, hay tres zonas independientes como mínimo en todas las regiones habilitadas. La separación física de las zonas de disponibilidad dentro de una región protege las aplicaciones y los datos frente a los errores del centro de datos. Los servicios con redundancia de zona replican las aplicaciones y los datos entre zonas de disponibilidad para protegerlos frente a puntos de error únicos. Con las zonas de disponibilidad, Azure ofrece el mejor Acuerdo de Nivel de Servicio del sector de tiempo de actividad de máquina virtual, con un 99,99 %. En el [SLA de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) completo se explica la disponibilidad garantizada de Azure como un conjunto.
@@ -40,7 +40,7 @@ Para lograr una continuidad del negocio integral en Azure, cree la arquitectura 
 ## <a name="regions-that-support-availability-zones"></a>Regiones que admiten zonas de disponibilidad
 
 - Centro de EE. UU.
-- Este de EE. UU. 2 (versión preliminar)
+- Este de EE. UU. 2
 - Centro de Francia
 - Europa del Norte
 - Sudeste asiático 

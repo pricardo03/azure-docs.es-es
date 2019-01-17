@@ -11,18 +11,18 @@ ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8f7e414d2aa4962534a90a295e104f8e8ebabbd9
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 81afda4227484c19b49ffc4c399e52576629da34
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079245"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321881"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Tutorial: Preparación de datos para el modelado de regresión
 
 En este tutorial, aprenderá a preparar datos para el modelado de regresión mediante el SDK de preparación de datos de Azure Machine Learning. Realizará varias transformaciones para filtrar y combinar dos conjuntos de datos diferentes de taxis de la ciudad de Nueva York.  
 
-Este tutorial es el primero de una serie de dos partes. Después de completar la serie de tutoriales, puede predecir el costo de un viaje en taxi mediante el entrenamiento de un modelo sobre las características de los datos. Estas características incluyen el día y la hora de la recogida, el número de pasajeros y la ubicación de la recogida.
+Este tutorial es la **primera de dos partes**. Después de completar la serie de tutoriales, puede predecir el costo de un viaje en taxi mediante el entrenamiento de un modelo sobre las características de los datos. Estas características incluyen el día y la hora de la recogida, el número de pasajeros y la ubicación de la recogida.
 
 En este tutorial, hizo lo siguiente:
 

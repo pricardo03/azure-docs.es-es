@@ -1,6 +1,6 @@
 ---
-title: Programación del entorno de ejecución para la integración de SSIS en Azure | Microsoft Docs
-description: En este artículo se describe cómo programar el inicio y la detención de una instancia de Integration Runtime (IR) de SSIS en Azure mediante Azure Automation y Data Factory.
+title: Programación de una instancia de Integration Runtime de SSIS en Azure | Microsoft Docs
+description: En este artículo se describe cómo programar el inicio y la detención de una instancia de Integration Runtime de SSIS en Azure mediante Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -8,96 +8,266 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 1/9/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 7e93e83f7594d30d223d37454e09943beba6d3ce
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 9f1ee309156a39078ffdfeed2c75d86476ac8b48
+ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976744"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54158659"
 ---
-# <a name="how-to-start-and-stop-the-azure-ssis-integration-runtime-on-a-schedule"></a>Inicio y detención del entorno de ejecución para la integración de SSIS en Azure según una programación
-En este artículo se describe cómo programar el inicio y la detención de una instancia de Integration Runtime (IR) de SSIS en Azure mediante Azure Automation y Azure Data Factory. La ejecución de una instancia de Integration Runtime (IR) para la integración de SSIS (SQL Server Integration Services) en Azure lleva un costo asociado. Por lo tanto, normalmente es preferible ejecutar la instancia de Integration Runtime solo cuando haya que ejecutar paquetes de SSIS en Azure y detenerla cuando ya no se necesite. Puede usar la interfaz de usuario de Data Factory o Azure PowerShell para [iniciar o detener manualmente una instancia de IR de SSIS en Azure](manage-azure-ssis-integration-runtime.md)).
+# <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Inicio y detención del entorno de ejecución para la integración de SSIS en Azure según una programación
+En este artículo se describe cómo programar el inicio y la detención de una instancia de Integration Runtime (IR) de SSIS en Azure mediante Azure Data Factory (ADF). El entorno de ejecución para la integración de SSIS en Azure es un recurso de proceso de ADF dedicado a la ejecución de paquetes de SQL Server Integration Services (SSIS). La ejecución del entorno de ejecución para la integración de SSIS en Azure lleva asociado un costo. Por lo tanto, normalmente es preferible ejecutar la instancia de IR solo cuando haya que ejecutar paquetes SSIS en Azure y detenerla cuando ya no se necesite. Puede usar la interfaz de usuario o la aplicación de ADF, o Azure PowerShell, para [iniciar o detener manualmente la instancia de IR](manage-azure-ssis-integration-runtime.md).
 
-Por ejemplo, puede crear actividades web con webhooks en un runbook de PowerShell de Azure Automation y encadenar una actividad Ejecución de paquetes SSIS entre ellos. Las actividades web pueden iniciar y detener la instancia de Integration Runtime para la integración de SSIS en Azure inmediatamente antes y después de que el paquete se ejecute. Para más información sobre la actividad de Ejecución de paquetes SSIS, vea [Ejecución de un paquete de SSIS mediante una actividad de SSIS de Azure Data Factory](how-to-invoke-ssis-package-ssis-activity.md).
-
-## <a name="overview-of-the-steps"></a>Información general de los pasos
-
-Estos son los pasos de alto nivel que se describen en este artículo:
-
-1. **Creación y prueba de un runbook de Azure Automation**. En este paso, va a crear un runbook de PowerShell con el script que inicia o detiene una instancia de Integration Runtime de SSIS en Azure. Después, pruebe el runbook en ambos escenarios de inicio y detención y confirme que la instancia de IR se inicia o se detiene. 
-2. **Creación de dos programaciones para el runbook.** En la primera programación, va a configurar el runbook con la operación START (Iniciar). En la segunda programación, va a configurar el runbook con la operación STOP (Detener). En ambas programaciones, especifique la cadencia en la que se va a ejecutar el runbook. Por ejemplo, puede querer programar la primera de ellas para que se ejecute a las 8 a. m. cada día y la segunda para que se ejecute a las 11 p. m. todos los días. Cuando se ejecuta el primer runbook, inicia la instancia de Integration Runtime de SSIS en Azure. Cuando se ejecuta el segundo runbook, la detiene. 
-3. **Cree dos webhooks para el runbook**, uno para la operación de inicio y otro para la operación de detención. Utilice las direcciones URL de estos webhooks al configurar las actividades web en una canalización de Data Factory. 
-4. **Creación de una canalización de Data Factory.** La canalización que se va a crear consta de tres actividades. La primera actividad **Web** invoca al primer webhook para que inicie la instancia de Integration Runtime de SSIS en Azure. La actividad **Stored Procedure** ejecuta un script SQL que ejecuta el paquete de SSIS. La segunda actividad **Web** detiene la instancia de IR de SSIS en Azure. Para más información sobre cómo invocar un paquete de SSIS desde una canalización de Data Factory mediante el uso de la actividad Stored Procedure, consulte [Invocación de un paquete de SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). A continuación, va a crear un desencadenador de programación para programar la canalización para que se ejecute a la cadencia que haya especificado.
+Como alternativa, puede crear actividades web en las canalizaciones de ADF para iniciar o detener la instancia de IR según la programación (por ejemplo, iniciarla por la mañana antes de ejecutar las cargas de trabajo de ETL diarias y detenerla por la tarde después de que hayan terminado).  También puede encadenar una actividad Ejecutar paquetes SSIS entre dos actividades web que inician y detienen la instancia de IR, por lo que esta se iniciará y detendrá a petición, justo a tiempo antes o después de la ejecución del paquete. Para más información sobre la actividad Ejecutar paquete SSIS, consulte el artículo [Ejecución de un paquete de SSIS mediante una actividad Ejecutar paquete de SSIS de Azure Data Factory](how-to-invoke-ssis-package-ssis-activity.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
-Si todavía no ha aprovisionado una instancia de Integration Runtime de SSIS en Azure, aprovisiónela ahora siguiendo las instrucciones del [tutorial](tutorial-create-azure-ssis-runtime-portal.md). 
+Si todavía no ha aprovisionado el entorno de ejecución para la integración de SSIS en Azure, aprovisiónelo ahora según las instrucciones del [tutorial](tutorial-create-azure-ssis-runtime-portal.md). 
 
-## <a name="create-and-test-an-azure-automation-runbook"></a>Creación y prueba de un runbook de Azure Automation
-En esta sección se realizarán los pasos siguientes: 
+## <a name="create-and-schedule-adf-pipelines-that-start-and-or-stop-azure-ssis-ir"></a>Creación y programación de canalizaciones de ADF que inician o detienen el entorno de ejecución para la integración de SSIS en Azure
+En esta sección se muestra cómo usar las actividades web en las canalizaciones de ADF para iniciar o detener el entorno de ejecución para la integración de SSIS en Azure al programar o iniciar y detener a petición. Se le guiará para que cree tres canalizaciones: 
 
-1. Creación de una cuenta de Azure Automation
-2. Creación de un runbook de PowerShell en la cuenta de Azure Automation El script de PowerShell asociado al runbook inicia o detiene una instancia de Integration Runtime de SSIS en Azure en función del comando que se haya especificado para el parámetro OPERATION. 
-3. Pruebe el runbook en ambos escenarios de inicio y detención para confirmar que funciona. 
+1. La primera canalización contiene una actividad web que inicia el entorno de ejecución para la integración de SSIS en Azure. 
+2. La segunda canalización contiene una actividad web que detiene el entorno de ejecución para la integración de SSIS en Azure.
+3. La tercera canalización contiene una actividad Ejecutar paquete SSIS encadenada entre dos actividades web que inician y detienen el entorno de ejecución para la integración de SSIS en Azure. 
 
-### <a name="create-an-azure-automation-account"></a>Creación de una cuenta de Azure Automation
-Si no tiene una cuenta de Azure Automation, cree una siguiendo las instrucciones de este paso. Para obtener instrucciones detalladas, consulte [Creación de una cuenta de Azure Automation](../automation/automation-quickstart-create-account.md). Como parte de este paso, va a crear una cuenta **de ejecución de Azure** (una entidad de servicio en su instancia de Azure Active Directory) y la va a agregar al rol **Colaborador** de su suscripción a Azure. Asegúrese de que es igual que la suscripción que contiene la factoría de datos que tiene la instancia de Integration Runtime de SSIS en Azure. Azure Automation utiliza esta cuenta para autenticarse en Azure Resource Manager y trabajar con sus recursos. 
+Después de crear y probar esas canalizaciones, cree un desencadenador de programación y asócielo a una de ellas. El desencadenador de programación define una programación para la ejecución de la canalización asociada. 
 
-1. Inicie el explorador web **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
-2. Inicie sesión en [Azure Portal](https://portal.azure.com/).    
+Por ejemplo, puede crear dos desencadenadores, el primero se programa para ejecutarse diariamente a las 6 a. m. y se asocia a la primera canalización, mientras que el otro se programa para ejecutarse diariamente a las 6 p. m. y se asocia a la segunda canalización.  De este modo dispone de un período entre las 6 a. m. y las 6 p. m. todos los días en el que la instancia de IR se ejecuta, lista para ejecutar sus cargas de trabajo diarias de ETL.  
+
+Si crea un tercer desencadenador que se programe para ejecutarse diariamente a medianoche y se asocie a la tercera canalización, esa canalización se ejecutará a medianoche todos los días, iniciará el entorno de ejecución de integración (IR) inmediatamente antes de la ejecución del paquete, ejecutará el paquete y detendrá inmediatamente la instancia de IR tras la ejecución, por lo que la instancia de IR no se ejecutará inútilmente.
+
+### <a name="create-your-adf"></a>Creación de la aplicación de ADF
+
+1. Inicie sesión en el [portal de Azure](https://portal.azure.com/).    
+2. En el menú de la izquierda, haga clic en **Nuevo**, **Datos y análisis** y **Factoría de datos**. 
+   
+   ![New->DataFactory](./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png)
+   
+3. En la página **Nueva factoría de datos**, escriba **MyAzureSsisDataFactory** en **Nombre**. 
+      
+   ![Página New data factory (Nueva factoría de datos)](./media/tutorial-create-azure-ssis-runtime-portal/new-azure-data-factory.png)
+ 
+   La aplicación de ADF debe tener un nombre único global. Si recibe el siguiente error, cambie el nombre de la aplicación de ADF (por ejemplo, yournameMyAzureSsisDataFactory) e intente crearla de nuevo. Consulte el artículo [Azure Data Factory: reglas de nomenclatura](naming-rules.md) para conocer las reglas de nomenclatura de los artefactos de ADF.
+  
+   `Data factory name MyAzureSsisDataFactory is not available`
+      
+4. Seleccione la **suscripción** de Azure en la que quiere crear la aplicación de ADF. 
+5. Para el **grupo de recursos**, realice uno de los siguientes pasos:
+     
+   - Seleccione en primer lugar **Usar existente**y después un grupo de recursos de la lista desplegable. 
+   - Seleccione **Crear nuevo** y escriba el nombre del nuevo grupo de recursos.   
+         
+   Para más información sobre los grupos de recursos, consulte el artículo [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).
+   
+6. En **Versión**, seleccione **V2**.
+7. En la lista desplegable **Ubicación**, seleccione una de las ubicaciones compatibles con la creación de ADF.
+8. Seleccione **Anclar al panel**.     
+9. Haga clic en **Create**(Crear).
+10. En el panel de Azure, verá el icono siguiente con el estado: **Deploying Data Factory** (Implementando Data Factory). 
+
+   ![icono implementando factoría de datos](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
+   
+11. Una vez completada la creación, puede ver la página ADF tal y como se muestra a continuación.
+   
+   ![Página principal Factoría de datos](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
+   
+12. Haga clic en **Crear y supervisar** para iniciar la interfaz de usuario o la aplicación de ADF en una pestaña independiente.
+
+### <a name="create-your-pipelines"></a>Creación de las canalizaciones
+
+1. En la página de **introducción**, seleccione **Crear canalización**. 
+
+   ![Página de introducción](./media/how-to-schedule-azure-ssis-integration-runtime/get-started-page.png)
+   
+2. En el cuadro de herramientas **Actividades**, expanda el menú **General**, arrastre una actividad **web** y colóquela en la superficie del diseñador de canalizaciones. En la pestaña **General** de la ventana de propiedades, cambie el nombre de la actividad a**startMyIR**. Cambie a la pestaña **Configuración** y realice los pasos siguientes.
+
+    1. En **Dirección URL**, escriba la siguiente dirección URL de API REST que inicia el entorno de ejecución para la integración de SSIS en Azure y reemplace `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}` y `{integrationRuntimeName}` por los valores reales de la instancia de IR: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/start?api-version=2018-06-01` También puede copiar y pegar el identificador de recurso de la instancia de IR de su página de supervisión en la interfaz de usuario o la aplicación de ADF para remplazar el siguiente elemento de la anterior dirección URL: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}`
+    
+       ![Identificador de recurso del entorno de ejecución para la integración de SSIS en ADF](./media/how-to-schedule-azure-ssis-integration-runtime/adf-ssis-ir-resource-id.png)
+  
+    2. En **Method** (Método) seleccione **POST**. 
+    3. En **Body** (Cuerpo), especifique `{"message":"Start my IR"}`. 
+    4. En **Autenticación**, seleccione **MSI** para utilizar la identidad administrada de ADF. Para más información, consulte el artículo [Identidad de servicio de Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
+    5. En **Recurso**, escriba `https://management.azure.com/`.
+    
+       ![IR de SSIS de programación de actividades web en ADF](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png)
+  
+3. Clone la primera canalización para crear otra, cambie el nombre de actividad a **stopMyIR** y reemplace las propiedades siguientes.
+
+    1. En **Dirección URL**, escriba la siguiente dirección URL de API REST que detiene el entorno de ejecución para la integración de SSIS en Azure y reemplace `{subscriptionId}`, `{resourceGroupName}`, `{factoryName}` y `{integrationRuntimeName}` por los valores reales del entorno de ejecución de integración: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/integrationRuntimes/{integrationRuntimeName}/stop?api-version=2018-06-01`
+    
+    2. En **Body** (Cuerpo), especifique `{"message":"Stop my IR"}`. 
+
+4. Cree una tercera canalización, arrastre una actividad **Ejecutar paquete SSIS** del cuadro de herramientas **Actividades** y colóquela en la superficie del diseñador de canalizaciones, y configúrela según las instrucciones del artículo [Ejecución de un paquete de SSIS mediante una actividad Ejecutar paquete de SSIS de Azure Data Factory](how-to-invoke-ssis-package-ssis-activity.md).  También puede usar una actividad **Procedimiento almacenado** en su lugar y configurarla según las instrucciones del artículo [Ejecución de un paquete de SSIS mediante una actividad de procedimiento almacenado de Azure Data Factory](how-to-invoke-ssis-package-stored-procedure-activity.md).  Luego, encadene la actividad Ejecutar paquete SSIS o Procedimiento almacenado entre dos actividades web que inicien y detengan la instancia de IR, de forma similar a las actividades web de la primera y segunda canalización.
+
+   ![IR de SSIS a petición de actividades web en ADF](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-on-demand-ssis-ir.png)
+
+5. Asigne a la identidad administrada para la aplicación de ADF un rol de **colaborador** para sí misma, de manera que las actividades web de las canalizaciones puedan llamar a la API REST para iniciar o detener los entornos de ejecución para la integración de SSIS en Azure aprovisionados en ella.  En nuestra página de ADF en Azure Portal, haga clic en **Control de acceso (IAM)** y en **+ Add role assignment** (+ Agregar asignación de rol) y luego realice las siguientes acciones en la hoja **Agregar asignación de rol**.
+
+    1. En **Rol**, seleccione **Colaborador**. 
+    2. En **Asignar acceso a**, seleccione **Usuario, grupo o entidad de servicio de Azure AD**. 
+    3. En **Seleccionar**, busque el nombre ADF y selecciónelo. 
+    4. Haga clic en **Save**(Guardar).
+    
+   ![Asignaciones de roles de identidad administrada de ADF](./media/how-to-schedule-azure-ssis-integration-runtime/adf-managed-identity-role-assignment.png)
+
+6. Valide la aplicación de ADF y todos los valores de canalización, haga clic en **Validate all/Validate** (Validar todo/Validar) en la barra de herramientas de la fábrica o la canalización. Para cerrar **Factory/Pipeline Validation Output** (Resultado de validación de la fábrica/canalización), haga clic en el botón **>>**.  
+
+   ![Comprobar la canalización](./media/how-to-schedule-azure-ssis-integration-runtime/validate-pipeline.png)
+
+### <a name="test-run-your-pipelines"></a>Serie de pruebas de las canalizaciones
+
+1. Seleccione **Serie de pruebas** en la barra de herramientas de cada canalización y vea la ventana **Salida** en el panel inferior. 
+
+   ![Serie de pruebas](./media/how-to-schedule-azure-ssis-integration-runtime/test-run-output.png)
+    
+2. Para probar la tercera canalización, inicie SQL Server Management Studio (SSMS). En la ventana **Conectar al servidor**, realice las acciones siguientes. 
+
+    1. En **Nombre del servidor**, escriba **&lt;el nombre del servidor Azure SQL Database&gt;.database.windows.net**.
+    2. Seleccione **Opciones >>**.
+    3. En **Conectar una base de datos**, seleccione **SSISDB**.
+    4. Seleccione **Conectar**. 
+    5. Expanda **Catálogos de Integration Services** -> **SSISDB** -> Su carpeta -> **Proyectos** -> Su proyecto de SSIS -> **Paquetes** . 
+    6. Haga clic con el botón derecho en el paquete SSIS especificado para ejecutarlo y luego seleccione **Informes** -> **Informes estándar** -> **Todas las ejecuciones**. 
+    7. Compruebe que se ejecutó. 
+
+   ![Comprobación de la ejecución del paquete de SSIS](./media/how-to-schedule-azure-ssis-integration-runtime/verify-ssis-package-run.png)
+
+### <a name="schedule-your-pipelines"></a>Programación de las canalizaciones
+
+Ahora que las canalizaciones funcionan tal como esperaba, puede crear desencadenadores para ejecutarlas a las cadencias especificadas. Para más información sobre la asociación de desencadenadores y canalizaciones, consulte el artículo [Desencadenamiento de la canalización de forma programada](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
+
+1. En la barra de herramientas de la canalización, seleccione **Desencadenador** y luego, **Nuevo/Editar**. 
+
+   ![Desencadenador -> Nuevo/Editar](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-new-menu.png)
+
+2. En el panel **Add Triggers** (Agregar desencadenadores), seleccione **+ Nuevo**.
+
+   ![Agregar desencadenadores: nuevo](./media/how-to-schedule-azure-ssis-integration-runtime/add-triggers-new.png)
+
+3. En **Nuevo desencadenador**, lleve a cabo las siguientes acciones: 
+
+    1. En **Nombre**, escriba el nombre del desencadenador. En el ejemplo siguiente, **Ejecutar diariamente** es el nombre del desencadenador. 
+    2. En **Tipo**, seleccione **Programación**. 
+    3. En **Fecha de inicio (UTC)**, seleccione una fecha y hora de inicio en UTC. 
+    4. En **Periodicidad**, especifique la cadencia para el desencadenador. En el ejemplo siguiente, es **A diario** una vez. 
+    5. En **Fin**, seleccione **Sin fin** o escriba una fecha y hora de finalización después de seleccionar **El día**. 
+    6. Seleccione **Activado** para activar el desencadenador inmediatamente después de publicar la configuración completa de ADF. 
+    7. Seleccione **Next** (Siguiente).
+
+   ![Desencadenador -> Nuevo/Editar](./media/how-to-schedule-azure-ssis-integration-runtime/new-trigger-window.png)
+    
+4. En la página **Trigger Run Parameters** (Parámetros de ejecución de desencadenador), revise si hay alguna advertencia y seleccione **Finalizar**. 
+5. Publique la configuración completa de ADF seleccionando **Publicar todo** en la barra de herramientas de fábrica. 
+
+   ![Publicar todo](./media/how-to-schedule-azure-ssis-integration-runtime/publish-all.png)
+
+### <a name="monitor-your-pipelines-and-triggers-in-azure-portal"></a>Supervisión de las canalizaciones y los desencadenadores en Azure Portal
+
+1. Para supervisar las ejecuciones de los desencadenadores y las ejecuciones de las canalizaciones, utilice la pestaña **Supervisar** de la izquierda de la interfaz de usuario o la aplicación de ADF. Para ver el procedimiento detallado, consulte el artículo sobre [supervisión de la canalización](quickstart-create-data-factory-portal.md#monitor-the-pipeline).
+
+   ![Ejecuciones de la canalización](./media/how-to-schedule-azure-ssis-integration-runtime/pipeline-runs.png)
+
+2. Para ver las ejecuciones de actividad asociadas a una ejecución de canalización, seleccione el primer vínculo (**View Activity Runs** [Ver ejecuciones de actividad]) de la columna **Actions** (Acciones). En el caso de la tercera canalización, verá tres ejecuciones de actividad, una por cada actividad encadenada en la canalización (actividad web para iniciar la instancia de IR, actividad de procedimiento almacenado para ejecutar el paquete y actividad web para detener la instancia de IR). Para ver de nuevo las ejecuciones de canalización, seleccione el vínculo **Pipelines** (Canalizaciones) de la parte superior.
+
+   ![Ejecuciones de actividad](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
+
+3. Para ver las ejecuciones de desencadenador, seleccione **Trigger Runs** (Ejecuciones de desencadenador) en la lista desplegable **Pipeline Runs** (Ejecuciones de canalización) de la parte superior. 
+
+   ![Ejecuciones de desencadenador](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-runs.png)
+
+### <a name="monitor-your-pipelines-and-triggers-with-powershell"></a>Supervisión de las canalizaciones y los desencadenadores con PowerShell
+
+Utilice scripts como los de los ejemplos siguientes para supervisar las canalizaciones y los desencadenadores.
+
+1. Obtenga el estado de la ejecución de una canalización.
+
+  ```powershell
+  Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $myPipelineRun
+  ```
+
+2. Obtenga información sobre un desencadenador.
+
+  ```powershell
+  Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name  "myTrigger"
+  ```
+
+3. Obtenga el estado de la ejecución de un desencadenador.
+
+  ```powershell
+  Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "myTrigger" -TriggerRunStartedAfter "2018-07-15" -TriggerRunStartedBefore "2018-07-16"
+  ```
+
+## <a name="create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir"></a>Creación y programación de un runbook de Azure Automation que inicia o detiene el entorno de ejecución para la integración de SSIS en Azure
+
+En esta sección, aprenderá a crear un runbook de Azure Automation que ejecute el script de PowerShell, mediante el inicio o detención del entorno de ejecución para la integración de SSIS en Azure según una programación.  Esto resulta útil cuando se quieren ejecutar otros scripts antes o después de iniciar y detener la instancia de IR para su procesamiento anterior o posterior.
+
+### <a name="create-your-azure-automation-account"></a>Creación de la cuenta de Azure Automation
+
+Si aún no tiene una cuenta de Azure Automation, cree una según las instrucciones de este paso. Para ver el procedimiento detallado, consulte el artículo [Creación de una cuenta de Azure Automation](../automation/automation-quickstart-create-account.md). Como parte de este paso, va a crear una cuenta **de ejecución de Azure** (una entidad de servicio en su instancia de Azure Active Directory) y le va a asignar el rol **Colaborador** en su suscripción a Azure. Asegúrese de que se trata de la misma suscripción que contiene la aplicación de ADF con el entorno de ejecución para la integración de SSIS en Azure. Azure Automation utilizará esta cuenta para autenticarse en Azure Resource Manager y trabajar con sus recursos. 
+
+1. Inicie el explorador web **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario o la aplicación de ADF solo se admite en los exploradores web Microsoft Edge y Google Chrome.
+2. Inicie sesión en el [portal de Azure](https://portal.azure.com/).    
 3. Seleccione **Nuevo** en el menú de la izquierda, seleccione **Supervisión y administración** y seleccione **Automation**. 
 
-    ![Nuevo -> Supervisión y administración -> Automation](./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png)
-2. En la ventana **Agregar una cuenta de Automation**, siga estos pasos: 
+   ![Nuevo -> Supervisión y administración -> Automation](./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png)
+    
+2. En el panel **Agregar cuenta de Automation**, lleve a cabo las siguientes acciones.
 
-    1. Especifique un **nombre** para la cuenta de automatización. 
-    2. Seleccione la **suscripción** que tenga la factoría de datos con la instancia de Integration Runtime de SSIS en Azure. 
-    3. En **Grupo de recursos**, seleccione **Crear nuevo** para seleccionar un nuevo grupo de recursos o seleccione **Usar existente** para seleccionar un grupo de recursos existente. 
-    4. Seleccione una **ubicación** para la cuenta de Automation. 
-    5. Confirme que **Crear cuenta de ejecución** está establecido en **Sí**. Se crea una entidad de servicio en la instancia de Azure Active Directory. Se agrega al rol de **colaborador** de la suscripción a Azure.
-    6. Seleccione **Anclar al panel** para que se vea en el panel del portal. 
+    1. En **Nombre**, escriba un nombre para la cuenta de Azure Automation. 
+    2. En **Suscripción**, seleccione la suscripción que tiene la aplicación de ADF con el entorno de ejecución para la integración de SSIS en Azure. 
+    3. En **Grupo de recursos**, seleccione **Crear nuevo** para crear un grupo de recursos o **Usar existente** para seleccionar un grupo de recursos existente. 
+    4. En **Ubicación**, seleccione la ubicación para la cuenta de Azure Automation. 
+    5. Seleccione **Sí** para confirmar la **creación de la cuenta de Azure**. Se creará una entidad de servicio en la instancia de Azure Active Directory y se le asignará un rol **Colaborador** en la suscripción de Azure.
+    6. Seleccione **Anclar al panel** para que se muestre permanentemente en el panel de Azure. 
     7. Seleccione **Crear**. 
 
-        ![Nuevo -> Supervisión y administración -> Automation](./media/how-to-schedule-azure-ssis-integration-runtime/add-automation-account-window.png)
-3. Verá el **estado de implementación** en el panel y en las notificaciones. 
+   ![Nuevo -> Supervisión y administración -> Automation](./media/how-to-schedule-azure-ssis-integration-runtime/add-automation-account-window.png)
+   
+3. Verá el estado de implementación de la cuenta de Azure Automation en el panel de Azure y las notificaciones. 
     
-    ![Implementando automatización](./media/how-to-schedule-azure-ssis-integration-runtime/deploying-automation.png) 
-4. Verá la página principal de la cuenta de automatización una vez creada correctamente. 
+   ![Implementando automatización](./media/how-to-schedule-azure-ssis-integration-runtime/deploying-automation.png) 
+    
+4. Cuando la haya creado, verá la página principal de su cuenta de Azure Automation. 
 
-    ![Página principal de Automation](./media/how-to-schedule-azure-ssis-integration-runtime/automation-home-page.png)
+   ![Página principal de Automation](./media/how-to-schedule-azure-ssis-integration-runtime/automation-home-page.png)
 
-### <a name="import-data-factory-modules"></a>Importación de módulos de Data Factory
+### <a name="import-adf-modules"></a>Importación de módulos ADF
 
-1. Seleccione **Módulos** en la sección **RECURSOS COMPARTIDOS** del menú de la izquierda y compruebe si tiene **AzureRM.Profile** y **AzureRM.DataFactoryV2** en la lista de módulos.
+1. Seleccione **Módulos** en la sección **RECURSOS COMPARTIDOS** del menú de la izquierda y compruebe si tiene **AzureRM.DataFactoryV2** + **AzureRM.Profile** en la lista de módulos.
 
-    ![Comprobación de los módulos necesarios](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image1.png)
+   ![Comprobación de los módulos necesarios](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image1.png)
 
-2.  Vaya al módulo [AzureRM.DataFactoryV2](https://www.powershellgallery.com/packages/AzureRM.DataFactoryV2/) en la Galería de PowerShell, seleccione **Implementar en Azure Automation**, seleccione su cuenta de Automation y luego, **Aceptar**. Vuelva a la vista **Módulos** en la sección **RECURSOS COMPARTIDOS** del menú izquierdo y espere hasta que vea que el **ESTADO** del módulo **AzureRM.DataFactoryV2** cambia a **Disponible**.
+2.  Si no tiene **AzureRM.DataFactoryV2**, vaya al módulo [AzureRM.DataFactoryV2](https://www.powershellgallery.com/packages/AzureRM.DataFactoryV2/) en la Galería de PowerShell, elija **Implementar en Azure Automation**, seleccione su cuenta de Azure Automation y luego, **Aceptar**. Vuelva a la vista **Módulos** en la sección **RECURSOS COMPARTIDOS** del menú izquierdo y espere hasta que vea que el **ESTADO** del módulo **AzureRM.DataFactoryV2** cambia a **Disponible**.
 
     ![Comprobación del módulo de factoría de datos](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image2.png)
 
-3.  Vaya al módulo [AzureRM.Profile](https://www.powershellgallery.com/packages/AzureRM.profile/) en la Galería de PowerShell, haga clic en **Implementar en Azure Automation**, seleccione su cuenta de Automation y luego, **Aceptar**. Vuelva a la vista **Módulos** en la sección **RECURSOS COMPARTIDOS** del menú izquierdo y espere hasta que vea que el **ESTADO** del módulo **AzureRM.Profile** cambia a **Disponible**.
+3.  Si no tiene **AzureRM.Profile**, vaya al módulo [AzureRM.Profile](https://www.powershellgallery.com/packages/AzureRM.profile/) en la Galería de PowerShell, elija **Implementar en Azure Automation**, seleccione su cuenta de Azure Automation y luego, **Aceptar**. Vuelva a la vista **Módulos** en la sección **RECURSOS COMPARTIDOS** del menú izquierdo y espere hasta que vea que el **ESTADO** del módulo **AzureRM.Profile** cambia a **Disponible**.
 
     ![Comprobación del módulo Perfil](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image3.png)
 
-### <a name="create-a-powershell-runbook"></a>Creación de un runbook de PowerShell
-El siguiente procedimiento proporciona los pasos para crear un runbook de PowerShell. El script asociado al runbook inicia o detiene una instancia de Integration Runtime de SSIS en Azure en función del comando que se haya especificado para el parámetro **OPERATION**. En esta sección no se ofrecen todos los detalles para crear un runbook. Para más información, consulte el artículo [Creación de un runbook de Azure Automation](../automation/automation-quickstart-create-runbook.md).
+### <a name="create-your-powershell-runbook"></a>Creación del runbook de PowerShell
+
+En la siguiente sección se ofrecen los pasos para la creación de un runbook de PowerShell. El script asociado al runbook inicia o detiene el entorno de ejecución para la integración de SSIS en Azure en función del comando que se especifique para el parámetro **OPERATION**. En esta sección no se ofrecen todos los detalles para crear un runbook. Para más información, consulte el artículo [Creación de un runbook de Azure Automation](../automation/automation-quickstart-create-runbook.md).
 
 1. Cambie a la pestaña **Runbooks** y seleccione **+ Agregar un runbook** en la barra de herramientas. 
 
-    ![Botón Agregar un runbook](./media/how-to-schedule-azure-ssis-integration-runtime/runbooks-window.png)
+   ![Botón Agregar un runbook](./media/how-to-schedule-azure-ssis-integration-runtime/runbooks-window.png)
+   
 2. Seleccione **Crear un runbook nuevo** y realice los pasos siguientes: 
 
     1. En **Nombre**, escriba **StartStopAzureSsisRuntime**.
     2. En **Tipo de runbook**, seleccione **PowerShell**.
     3. Seleccione **Crear**.
     
-        ![Botón Agregar un runbook](./media/how-to-schedule-azure-ssis-integration-runtime/add-runbook-window.png)
-3. Copie y pegue el siguiente script en la ventana de script del runbook. Guardar y, después, publique el runbook con los botones **Guardar** y **Publicar** de la barra de herramientas. 
+   ![Botón Agregar un runbook](./media/how-to-schedule-azure-ssis-integration-runtime/add-runbook-window.png)
+   
+3. Copie y pegue el siguiente script de PowerShell en la ventana de script del runbook. Guarde y luego publique el runbook con los botones **Guardar** y **Publicar** de la barra de herramientas. 
 
     ```powershell
     Param
@@ -152,261 +322,59 @@ El siguiente procedimiento proporciona los pasos para crear un runbook de PowerS
     "##### Completed #####"    
     ```
 
-    ![Edición de un runbook de PowerShell](./media/how-to-schedule-azure-ssis-integration-runtime/edit-powershell-runbook.png)
-5. Pruebe el runbook seleccionando el botón **Iniciar** en la barra de herramientas. 
+   ![Edición de un runbook de PowerShell](./media/how-to-schedule-azure-ssis-integration-runtime/edit-powershell-runbook.png)
+    
+4. Pruebe el runbook seleccionando el botón **Iniciar** en la barra de herramientas. 
 
-    ![Botón Iniciar runbook](./media/how-to-schedule-azure-ssis-integration-runtime/start-runbook-button.png)
-6. En la ventana **Iniciar runbook**, realice los pasos siguientes: 
+   ![Botón Iniciar runbook](./media/how-to-schedule-azure-ssis-integration-runtime/start-runbook-button.png)
+    
+5. En el panel **iniciar Runbook**, lleve a cabo las acciones siguientes: 
 
-    1. En **RESOURCE GROUP NAME** (Nombre del grupo de recursos), escriba el nombre del grupo de recursos con la factoría de datos que tenga la instancia de IR de SSIS en Azure. 
-    2. En **DATA FACTORY NAME** (Nombre de factoría de datos), escriba el nombre de la factoría de datos que tenga instancia de IR de SSIS en Azure. 
-    3. En **AZURESSISNAME** (Nombre de SSIS en Azure), escriba el nombre de la instancia de IR de SSIS en Azure. 
+    1. En **NOMBRE DEL GRUPO DE RECURSOS**, escriba el nombre del grupo de recursos que tiene la aplicación de ADF con el entorno de ejecución para la integración de SSIS en Azure. 
+    2. En **NOMBRE DE LA FACTORÍA DE DATOS**, escriba el nombre de la aplicación de ADF con el entorno de ejecución para la integración de SSIS en Azure. 
+    3. En **AZURESSISNAME** (Nombre de SSIS en Azure), escriba el nombre del entorno de ejecución para la integración de SSIS en Azure. 
     4. En **OPERATION** (Operación), escriba **START** (Iniciar). 
     5. Seleccione **Aceptar**.  
 
-        ![Ventana Iniciar runbook](./media/how-to-schedule-azure-ssis-integration-runtime/start-runbook-window.png)
-7. En la ventana de trabajo, seleccione el icono **Salida**. En la ventana de salida del trabajo, espere hasta ver el mensaje **### Completed ###** (Completado) después de ver **### Starting ###** (Iniciando). Se tardan veinte minutos aproximadamente en iniciar una instancia de Integration Runtime de SSIS en Azure. Cierre la ventana **Trabajo** y vuelva a la ventana **Runbook**.
+   ![Ventana Iniciar runbook](./media/how-to-schedule-azure-ssis-integration-runtime/start-runbook-window.png)
+   
+6. En la ventana de trabajo, seleccione el icono **Salida**. En la ventana de salida, espere hasta ver el mensaje **### Completed ###** (Completado) después de ver **### Starting ###** (Iniciando). Se tardan 20 minutos aproximadamente en iniciar un entorno de ejecución para la integración de SSIS en Azure. Cierre la ventana **Trabajo** y vuelva a la ventana **Runbook**.
 
-    ![IR de SSIS en Azure: iniciado](./media/how-to-schedule-azure-ssis-integration-runtime/start-completed.png)
-8.  Repita los dos pasos anteriores, pero utilice **STOP** (Detener) como valor de **OPERATION**. Vuelva a iniciar el runbook seleccionando el botón **Iniciar** en la barra de herramientas. Especifique el nombre del grupo de recursos, el nombre de la factoría de datos y el nombre de la instancia de Integration Runtime de SSIS en Azure. En **OPERATION** (Operación), escriba **STOP** (Detener). 
+   ![IR de SSIS en Azure: iniciado](./media/how-to-schedule-azure-ssis-integration-runtime/start-completed.png)
+    
+7. Repita los dos pasos anteriores, pero utilice **STOP** como valor de **OPERATION**. Inicie de nuevo el runbook seleccionando el botón **Iniciar** en la barra de herramientas. Escriba los nombres del grupo de recursos, el archivo ADF y el entorno de ejecución para la integración de SSIS en Azure. En **OPERATION** (Operación), escriba **STOP** (Detener). En la ventana de salida, espere hasta ver el mensaje **### Completed ###** (Completado) después de ver **### Stopping###** (Deteniendo). No se tarda tanto en detener un entorno de ejecución para la integración de SSIS en Azure como en iniciarlo. Cierre la ventana **Trabajo** y vuelva a la ventana **Runbook**.
 
-    En la ventana de salida del trabajo, espere hasta ver el mensaje **### Completed ###** (Completado) después de ver **### Stopping ###** (Deteniendo). La detención de una instancia de IR de SSIS en Azure no tarda tanto como iniciarla. Cierre la ventana **Trabajo** y vuelva a la ventana **Runbook**.
+## <a name="create-schedules-for-your-runbook-to-startstop-azure-ssis-ir"></a>Creación de programaciones para que el runbook inicie o detenga el entorno de ejecución para la integración de SSIS en Azure
 
-## <a name="create-schedules-for-the-runbook-to-startstop-the-azure-ssis-ir"></a>Creación de programaciones para que el runbook inicie o detenga la instancia de IR de SSIS en Azure
-En la sección anterior, ha creado un runbook de Azure Automation que puede iniciar o detener una instancia de Integration Runtime de SSIS en Azure. En esta sección, va a crear dos programaciones para el runbook. Al configurar la primera programación, especifique START para el parámetro OPERATION. De igual forma, al configurar la segunda programación, especifique STOP para OPERATION. Para ver los pasos detallados necesarios para crear programaciones, consulte [Creación de una programación](../automation/automation-schedules.md#creating-a-schedule).
+En la sección anterior, ha creado un runbook de Azure Automation que puede iniciar o detener un entorno de ejecución para la integración de SSIS en Azure. En esta sección, va a crear dos programaciones para el runbook. Al configurar la primera programación, especifique **START** para **OPERATION**. De igual forma, al configurar la segunda programación, especifique **STOP** para **OPERATION**. Para ver el procedimiento detallado para crear programaciones, consulte el artículo [Creación de una programación](../automation/automation-schedules.md#creating-a-schedule).
 
 1. En la ventana **Runbook**, seleccione **Programaciones** y seleccione **+ Agregar una programación** en la barra de herramientas. 
 
-    ![IR de SSIS en Azure: iniciado](./media/how-to-schedule-azure-ssis-integration-runtime/add-schedules-button.png)
-2. En la ventana **Programar Runbook**, realice los pasos siguientes: 
+   ![IR de SSIS en Azure: iniciado](./media/how-to-schedule-azure-ssis-integration-runtime/add-schedules-button.png)
+   
+2. En el panel **Programar Runbook**, lleve a cabo las acciones siguientes: 
 
     1. Seleccione **Vincular una programación a su Runbook**. 
     2. Seleccione **Crear una programación nueva**.
-    3. En la ventana **Nueva programación**, escriba **Iniciar IR a diario** en **Nombre**. 
-    4. En la sección **Se inicia el**, especifique una hora unos minutos después de la hora actual. 
+    3. En el panel **Nueva programación**, escriba **Iniciar IR a diario** como **Nombre**. 
+    4. En **Se inicia el**, especifique una hora que se unos minutos posterior a la hora actual. 
     5. En **Periodicidad**, seleccione **Periódico**. 
-    6. En la sección **Repetir cada**, seleccione **Día**. 
+    6. En **Repetir cada**, escriba **1** y seleccione **Día**. 
     7. Seleccione **Crear**. 
 
-        ![Programación para el inicio de una instancia de IR de SSIS en Azure](./media/how-to-schedule-azure-ssis-integration-runtime/new-schedule-start.png)
-3. Cambie a la pestaña **Configuración de ejecución y parámetros**. Especifique el nombre del grupo de recursos, el nombre de la factoría de datos y el nombre de la instancia de Integration Runtime de SSIS en Azure. En **OPERATION** (Operación), escriba **START** (Iniciar). Seleccione **Aceptar**. Vuelva a seleccionar **Aceptar** para ver la programación en la página **Programaciones** del runbook. 
+   ![Programación para el inicio de una instancia de IR de SSIS en Azure](./media/how-to-schedule-azure-ssis-integration-runtime/new-schedule-start.png)
+    
+3. Cambie a la pestaña **Configuración de ejecución y parámetros**. Especifique los nombres del grupo de recursos, el archivo ADF y el entorno de ejecución para la integración de SSIS en Azure. Para **OPERATION**, especifique **START** y seleccione **Aceptar**. Vuelva a seleccionar **Aceptar** para ver la programación en la página **Programaciones** del runbook. 
 
-    ![Programación para el inicio de la instancia de IR de SSIS en Azure](./media/how-to-schedule-azure-ssis-integration-runtime/start-schedule.png)
-4. Repita los dos pasos anteriores para crear una programación denominada **Detener IR a diario**. Esta vez, especifique la hora en al menos 30 minutos después de la hora que ha especificado en la programación **Iniciar IR a diario**. En **OPERATION**, especifique **STOP**. 
-5. En la ventana **Runbook**, seleccione **Trabajos** en el menú de la izquierda. Debería ver los trabajos creados por las programaciones en las horas y estados especificados. Puede ver detalles sobre el trabajo, como una salida similar a la que ha visto al probar el runbook. 
+   ![Programación para el inicio de la instancia de IR de SSIS en Azure](./media/how-to-schedule-azure-ssis-integration-runtime/start-schedule.png)
+    
+4. Repita los dos pasos anteriores para crear una programación denominada **Detener IR a diario**. Especifique una hora que sea al menos 30 minutos posterior a la hora que ha especificado en la programación **Iniciar IR a diario**. Para **OPERATION**, especifique **STOP** y seleccione **Aceptar**. Vuelva a seleccionar **Aceptar** para ver la programación en la página **Programaciones** del runbook. 
 
-    ![Programación para el inicio de la instancia de IR de SSIS en Azure](./media/how-to-schedule-azure-ssis-integration-runtime/schedule-jobs.png)
-6. Cuando haya realizado las pruebas, para deshabilitar las programaciones, edítelas y seleccione **NO** en **Habilitado**. Seleccione **Programaciones** en el menú de la izquierda, seleccione **Iniciar IR a diario o Detener IR a diario** y seleccione **No** para **Habilitado**. 
+5. En la ventana **Runbook**, seleccione **Trabajos** en el menú de la izquierda. Debería ver los trabajos creados por las programaciones en las horas especificadas, con sus estados. Puede ver detalles del trabajo, como su salida, similares a los que ha visto después de probar el runbook. 
 
-## <a name="create-webhooks-to-start-and-stop-the-azure-ssis-ir"></a>Creación de webhooks para iniciar y detener la instancia de IR de SSIS en Azure
-Siga las instrucciones de [Creación de un webhook](../automation/automation-webhooks.md#creating-a-webhook) para crear dos webhooks para el runbook. En el primero, especifique START en OPERATION y, en el segundo, especifique STOP en OPERATION. Guarde las direcciones URL de ambos webhooks en algún lugar (por ejemplo, un archivo de texto o un cuaderno de OneNote). Utilizará estas direcciones URL al configurar las actividades Web en una canalización de Data Factory. La siguiente imagen muestra un ejemplo de cómo crear un webhook que inicia la instancia de IR de SSIS en Azure:
-
-1. En la ventana **Runbook**, seleccione **Webhooks** en el menú de la izquierda y seleccione **+ Agregar webhook** en la barra de herramientas. 
-
-    ![Webhooks -> Agregar webhook](./media/how-to-schedule-azure-ssis-integration-runtime/add-web-hook-menu.png)
-2. En la ventana **Agregar webhook**, seleccione **Crear nuevo webhook** y realice las siguientes acciones: 
-
-    1. En **Nombre**, escriba **StartAzureSsisIR**. 
-    2. Confirme que **Habilitado** está establecido en **Sí**. 
-    3. Copie la **URL** y guárdela en algún lugar. Este paso es importante. No verá la dirección URL después. 
-    4. Seleccione **Aceptar**. 
-
-        ![Ventana Nuevo webhook](./media/how-to-schedule-azure-ssis-integration-runtime/new-web-hook-window.png)
-3. Cambie a la pestaña **Configuración de ejecución y parámetros**. Especifique el nombre del grupo de recursos, el nombre de la factoría de datos y el nombre de la instancia de Integration Runtime de SSIS en Azure. En **OPERATION** (Operación), escriba **START** (Iniciar). Haga clic en **OK**. A continuación, haga clic en **Crear**. 
-
-    ![Webhook: configuración de ejecución y parámetros](./media/how-to-schedule-azure-ssis-integration-runtime/webhook-parameters.png)
-4. Repita los tres pasos anteriores para crear otro webhook denominado **StopAzureSsisIR**. No se olvide de copiar la dirección URL. Al especificar los parámetros y los parámetros de ejecución, escriba **STOP** en **OPERATION**. 
-
-Debe tener dos direcciones URL, una para el webhook **StartAzureSsisIR** y otra para el webhook **StopAzureSsisIR**. Puede enviar una solicitud HTTP POST a estas direcciones URL para iniciar o detener la instancia de IR de SSIS en Azure. 
-
-## <a name="create-and-schedule-a-data-factory-pipeline-that-startsstops-the-ir"></a>Creación y programación de una canalización de Data Factory que inicia o detiene el entorno de ejecución de integración
-En esta sección se muestra cómo utilizar una actividad Web para invocar a los webhooks que se crearon en la sección anterior.
-
-La canalización que se va a crear consta de tres actividades. 
-
-1. La primera actividad **Web** invoca al primer webhook para que inicie la instancia de Integration Runtime de SSIS en Azure. 
-2. La actividad **Ejecución de paquetes SSIS** o **Procedimiento almacenado** ejecuta el paquete SSIS.
-3. La segunda actividad **Web** invoca al webhook para que detenga la instancia de Integration Runtime de SSIS en Azure. 
-
-Después de crear y probar la canalización, cree un desencadenador de programación y asócielo a la canalización. El desencadenador de programación define una programación para la canalización. Suponga que va a crear un desencadenador que está programado para ejecutarse diariamente a las 11 p. m. El desencadenador ejecuta la canalización a las 11 p. m. todos los días. La canalización inicia la instancia de IR de SSIS en Azure, ejecuta el paquete de SSIS y, finalmente, detiene dicha instancia. 
-
-### <a name="create-a-data-factory"></a>Crear una factoría de datos
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/).    
-2. En el menú de la izquierda, haga clic en **Nuevo**, **Datos y análisis** y **Factoría de datos**. 
-   
-   ![New->DataFactory](./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png)
-3. En la página **Nueva factoría de datos**, escriba **MyAzureSsisDataFactory** en el **nombre**. 
-      
-     ![Página New data factory (Nueva factoría de datos)](./media/tutorial-create-azure-ssis-runtime-portal/new-azure-data-factory.png)
- 
-   El nombre de la instancia de Azure Data Factory debe ser **único de forma global**. Si recibe el siguiente error, cambie el nombre de la factoría de datos (por ejemplo, yournameMyAzureSsisDataFactory) e intente crearla de nuevo. Consulte el artículo [Azure Data Factory: reglas de nomenclatura](naming-rules.md) para conocer las reglas de nomenclatura de los artefactos de Data Factory.
-  
-       `Data factory name �MyAzureSsisDataFactory� is not available`
-3. Seleccione la **suscripción** de Azure donde desea crear la factoría de datos. 
-4. Para el **grupo de recursos**, realice uno de los siguientes pasos:
-     
-      - Seleccione en primer lugar **Usar existente**y después un grupo de recursos de la lista desplegable. 
-      - Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos.   
-         
-      Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
-4. Seleccione **V2** para la **versión**.
-5. Seleccione la **ubicación** de Data Factory. En la lista solo se muestran las ubicaciones que se admiten para la creación de factorías de datos.
-6. Seleccione **Anclar al panel**.     
-7. Haga clic en **Create**(Crear).
-8. En el panel, verá el icono siguiente con el estado: **Implementando factoría de datos**. 
-
-    ![icono implementando factoría de datos](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
-9. Una vez completada la creación, verá la página **Data Factory** tal como se muestra en la imagen.
-   
-   ![Página principal Factoría de datos](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
-10. Haga clic en **Author & Monitor** (Creación y supervisión) para iniciar la interfaz de usuario de Data Factory en una pestaña independiente.
-
-### <a name="create-a-pipeline"></a>Crear una canalización
-
-1. En la página **Introducción** (Introducción), haga clic en **Create pipeline** (Crear canalización). 
-
-   ![Página de introducción](./media/how-to-schedule-azure-ssis-integration-runtime/get-started-page.png)
-2. En el cuadro de herramientas **Activities** (Actividades), expanda **General** (General), arrastre la actividad **web** y colóquela en la superficie del diseñador de canalizaciones. En la pestaña **General** de la ventana **Properties** (Propiedades), cambie el nombre de la actividad a **StartIR**.
-
-   ![Primera actividad Web: pestaña General](./media/how-to-schedule-azure-ssis-integration-runtime/first-web-activity-general-tab.png)
-3. Cambie a la pestaña **Settings** (Configuración) de la ventana de **Properties** (Propiedades) y realice las siguientes acciones: 
-
-    1. En **URL**, pegue la dirección URL del webhook que inicia la instancia de IR de SSIS en Azure. 
-    2. En **Method** (Método) seleccione **POST**. 
-    3. En **Body** (Cuerpo), especifique `{"message":"hello world"}`. 
-   
-        ![Primera actividad Web: pestaña Configuración](./media/how-to-schedule-azure-ssis-integration-runtime/first-web-activity-settnigs-tab.png)
-
-4. Arrastre y coloque la actividad Procedimiento almacenado de la sección **General** del cuadro de herramientas **Actividades**. Establezca el nombre de la actividad en **RunSSISPackage**. 
-
-5. Si selecciona la actividad Ejecución de paquetes SSIS, siga las instrucciones de [Run an SSIS package using the SSIS activity in Azure Data Factory](how-to-invoke-ssis-package-ssis-activity.md) (Ejecución de un paquete SSIS mediante la actividad SSIS en Azure Data Factory) para completar la creación de la actividad.  Asegúrese de especificar un número suficiente de reintentos que tengan frecuencia bastante como para esperar a que el entorno de ejecución de integración de Azure-SSIS esté disponible, ya que tarda hasta 30 minutos en iniciarse. 
-
-    ![Configuración de los reintentos](media/how-to-schedule-azure-ssis-integration-runtime/retry-settings.png)
-
-6. Si selecciona la actividad Procedimiento almacenado, siga las instrucciones de [Invocación de un paquete de SSIS mediante una actividad de procedimiento almacenado de Azure Data Factory](how-to-invoke-ssis-package-stored-procedure-activity.md) para completar la creación de la actividad. Asegúrese de insertar un script de Transact-SQL que espere hasta que esté disponible el entorno de ejecución de integración de Azure-SSIS, ya que tarda hasta 30 minutos en iniciarse.
-    ```sql
-    DECLARE @return_value int, @exe_id bigint, @err_msg nvarchar(150)
-
-    -- Wait until Azure-SSIS IR is started
-    WHILE NOT EXISTS (SELECT * FROM [SSISDB].[catalog].[worker_agents] WHERE IsEnabled = 1 AND LastOnlineTime > DATEADD(MINUTE, -10, SYSDATETIMEOFFSET()))
-    BEGIN
-        WAITFOR DELAY '00:00:01';
-    END
-
-    EXEC @return_value = [SSISDB].[catalog].[create_execution] @folder_name=N'YourFolder',
-        @project_name=N'YourProject', @package_name=N'YourPackage',
-        @use32bitruntime=0, @runincluster=1, @useanyworker=1,
-        @execution_id=@exe_id OUTPUT 
-
-    EXEC [SSISDB].[catalog].[set_execution_parameter_value] @exe_id, @object_type=50, @parameter_name=N'SYNCHRONIZED', @parameter_value=1
-
-    EXEC [SSISDB].[catalog].[start_execution] @execution_id = @exe_id, @retry_count = 0
-
-    -- Raise an error for unsuccessful package execution, check package execution status = created (1)/running (2)/canceled (3)/
-    -- failed (4)/pending (5)/ended unexpectedly (6)/succeeded (7)/stopping (8)/completed (9) 
-    IF (SELECT [status] FROM [SSISDB].[catalog].[executions] WHERE execution_id = @exe_id) <> 7 
-    BEGIN
-        SET @err_msg=N'Your package execution did not succeed for execution ID: '+ CAST(@execution_id as nvarchar(20))
-        RAISERROR(@err_msg, 15, 1)
-    END
-    ```
-
-7. Conecte la actividad **Web** a la actividad **Ejecución de paquetes SSIS** o **Procedimiento almacenado**. 
-
-    ![Conexión de las actividades Web y Stored Procedure](./media/how-to-schedule-azure-ssis-integration-runtime/connect-web-sproc.png)
-
-8. Arrastre y coloque otra actividad **Web** a la derecha de la actividad **Ejecución de paquetes SSIS** o **Procedimiento almacenado**. Establezca el nombre de la actividad en **StopIR**. 
-9. Cambie a la pestaña **Settings** (Configuración) de la ventana de **Properties** (Propiedades) y realice las siguientes acciones: 
-
-    1. En **URL**, pegue la dirección URL del webhook que detiene la instancia de IR de SSIS en Azure. 
-    2. En **Method** (Método) seleccione **POST**. 
-    3. En **Body** (Cuerpo), especifique `{"message":"hello world"}`.  
-10. Conecte la actividad **Ejecución de paquetes SSIS** o **Procedimiento almacenado** a la actividad **Web** más reciente.
-
-    ![Canalización completa](./media/how-to-schedule-azure-ssis-integration-runtime/full-pipeline.png)
-11. Para comprobar la configuración de canalización, haga clic en **Validate** (Comprobar) en la barra de herramientas. Para cerrar **Pipeline Validation Report** (Informe de comprobación de la canalización), haga clic en el botón **>>**. 
-
-    ![Comprobar la canalización](./media/how-to-schedule-azure-ssis-integration-runtime/validate-pipeline.png)
-
-### <a name="test-run-the-pipeline"></a>Realización de la serie de pruebas de la canalización
-
-1. Seleccione **Test Run** (Serie de pruebas) en la barra de herramientas de la canalización. Verá la salida en la ventana **Salida** del panel inferior. 
-
-    ![Serie de pruebas](./media/how-to-schedule-azure-ssis-integration-runtime/test-run-output.png)
-2. En la página **Runbook** de la cuenta de Azure Automation, puede comprobar que los trabajos se ejecutaron para iniciar y detener la instancia de IR de SSIS en Azure. 
-
-    ![Trabajos de runbook](./media/how-to-schedule-azure-ssis-integration-runtime/runbook-jobs.png)
-3. Inicie SQL Server Management Studio. En la ventana **Conectar al servidor**, realice las acciones siguientes: 
-
-    1. En **Nombre del servidor**, especifique **&lt;base de datos de SQL Azure&gt;.database.windows.net**.
-    2. Seleccione **Opciones >>**.
-    3. En **Conectar una base de datos**, seleccione **SSISDB**.
-    4. Seleccione **Conectar**. 
-    5. Expanda **Catálogos de Integration Services** -> **SSISDB** -> Su carpeta -> **Proyectos** -> Su proyecto de SSIS -> **Paquetes** . 
-    6. Haga clic con el botón derecho en el paquete de SSIS y seleccione **Informes** -> **Informes estándar** -> **Todas las ejecuciones**. 
-    7. Compruebe que se ejecuta el paquete de SSIS. 
-
-        ![Comprobación de la ejecución del paquete de SSIS](./media/how-to-schedule-azure-ssis-integration-runtime/verify-ssis-package-run.png)
-
-### <a name="schedule-the-pipeline"></a>Programación de la canalización 
-Ahora que la canalización funciona de la manera prevista, puede crear un desencadenador para ejecutar esta canalización en una cadencia especificada. Para más información acerca de cómo asociar un desencadenador de programación a una canalización, consulte [Desencadenamiento de la canalización de forma programada](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
-
-1. En la barra de herramientas de la canalización, seleccione **Desencadenador** y seleccione **Nuevo/Editar**. 
-
-    ![Desencadenador -> Nuevo/Editar](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-new-menu.png)
-2. En la ventana **Agregar desencadenadores**, seleccione **+ Nuevo**.
-
-    ![Agregar desencadenadores: nuevo](./media/how-to-schedule-azure-ssis-integration-runtime/add-triggers-new.png)
-3. En **Nuevo desencadenador**, lleve a cabo las siguientes acciones: 
-
-    1. En **Nombre**, especifique un nombre para el desencadenador. En el ejemplo siguiente, **Ejecutar diariamente** es el nombre del desencadenador. 
-    2. En **Tipo**, seleccione **Programación**. 
-    3. En **Fecha de inicio**, seleccione una fecha y hora de inicio. 
-    4. En **Periodicidad**, especifique la cadencia para el desencadenador. En el ejemplo siguiente, es una vez a diario. 
-    5. En **Fin**, puede especificar la fecha y hora seleccionando la opción **El día**. 
-    6. Seleccione **Activado**. El desencadenador se activa inmediatamente después de publicar la solución en Data Factory. 
-    7. Seleccione **Next** (Siguiente).
-
-        ![Desencadenador -> Nuevo/Editar](./media/how-to-schedule-azure-ssis-integration-runtime/new-trigger-window.png)
-4. En la página **Trigger Run Parameters** (Parámetros de ejecución de desencadenador), revise la advertencia y seleccione **Finish** (Finalizar). 
-5. Para publicar la solución en Data Factory, seleccione **Publicar todo** en el panel de la izquierda. 
-
-    ![Publicar todo](./media/how-to-schedule-azure-ssis-integration-runtime/publish-all.png)
-
-### <a name="monitor-the-pipeline-and-trigger-in-the-azure-portal"></a>Supervisión de la canalización y el desencadenador en Azure Portal
-
-1. Para supervisar las ejecuciones del desencadenador y las ejecuciones de canalización, utilice la pestaña **Supervisar** de la izquierda. Para obtener instrucciones detalladas, consulte [Supervisar la canalización](quickstart-create-data-factory-portal.md#monitor-the-pipeline).
-
-    ![Ejecuciones de la canalización](./media/how-to-schedule-azure-ssis-integration-runtime/pipeline-runs.png)
-2. Para ver las ejecuciones de actividad asociadas con la de una canalización, seleccione el primer vínculo (**View Activity Runs** [Ver ejecuciones de actividad]) de la columna **Actions** (Acciones). Verá las ejecuciones de las tres actividades asociadas a cada actividad de la canalización (primera actividad Web, actividad Stored Procedure y la segunda actividad Web). Para volver a la vista de ejecuciones de canalización, seleccione el vínculo **Pipelines** (Canalizaciones) de la parte superior.
-
-    ![Ejecuciones de actividad](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
-3. También puede ver las ejecuciones de desencadenador al seleccionar **ejecuciones de desencadenador** en la lista desplegable que hay junto a las **ejecuciones de canalización** en la parte superior. 
-
-    ![Ejecuciones de desencadenador](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-runs.png)
-
-### <a name="monitor-the-pipeline-and-trigger-with-powershell"></a>Supervisión de la canalización y el desencadenador con PowerShell
-
-Use scripts como los ejemplos siguientes para supervisar la canalización y el desencadenador.
-
-1. Obtenga el estado de la ejecución de una canalización.
-
-  ```powershell
-  Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $myPipelineRun
-  ```
-
-2. Obtenga información sobre el desencadenador.
-
-  ```powershell
-  Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name  "myTrigger"
-  ```
-
-3. Obtenga el estado de la ejecución de un desencadenador.
-
-  ```powershell
-  Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "myTrigger" -TriggerRunStartedAfter "2018-07-15" -TriggerRunStartedBefore "2018-07-16"
-  ```
+   ![Programación para el inicio de la instancia de IR de SSIS en Azure](./media/how-to-schedule-azure-ssis-integration-runtime/schedule-jobs.png)
+    
+6. Cuando haya terminado las pruebas, edite las programaciones para deshabilitarlas. Seleccione **Programaciones** en el menú de la izquierda, elija **Iniciar IR a diario o Detener IR a diario** y seleccione **No** para **Habilitado**. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea la siguiente entrada de blog:

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: 342b19927d290f5ff519d3fae5b84bcfa2b9d9cf
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 98b7481c22cc5f3c233de4c516d4be5f64bbe143
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711759"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198021"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-java-sdk-v7"></a>Cómo cargar, descargar y enumerar blobs mediante el SDK para Java v7
 
@@ -96,7 +96,7 @@ A continuación, explicaremos el código de ejemplo para ayudarle a comprender s
 
 Lo primero que hay que hacer es crear las referencias a los objetos usados para acceder a Blob Storage y administrarlo. Estos objetos dependen unos de otros: cada uno es utilizado por el siguiente de la lista.
 
-* Cree una instancia del objeto [CloudStorageAccount](/java/api/com.microsoft.azure.management.storage._storage_account) que apunte a la cuenta de almacenamiento.
+* Cree una instancia del objeto [CloudStorageAccount](/java/api/com.microsoft.azure.management.storage.storageaccount) que apunte a la cuenta de almacenamiento.
 
     El objeto **CloudStorageAccount** es una representación de su cuenta de almacenamiento, que le permite establecer las propiedades de la cuenta de almacenamiento mediante programación, así como acceder a estas. Con el objeto **CloudStorageAccount** se puede crear una instancia del objeto **CloudBlobClient**, que es necesario para acceder a Blob service.
 

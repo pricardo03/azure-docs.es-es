@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: a7b91bfdc616e19fde9f74246d05cf14ecbd335e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5ba596a85abbb529990efdf7b15ac50515de011b
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117272"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214460"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Supervisión continua con Azure Monitor
 
@@ -47,7 +47,7 @@ Las aplicaciones solo son tan fiables como su infraestructura subyacente. Tener 
 - Agregue [soluciones de supervisión](insights/solutions-inventory.md) para diferentes aplicaciones y servicios en su entorno.
 
 
-La [infraestructura como código](/devops/learn/what-is-infrastructure-as-code) es la administración de infraestructura en un modelo descriptivo, empleando las mismas versiones usadas por los equipos de DevOps para el código fuente. Agrega fiabilidad y escalabilidad a su entorno y le permite aprovechar procesos similares que solían administrar sus aplicaciones.
+La [infraestructura como código](/azure/devops/learn/what-is-infrastructure-as-code) es la administración de infraestructura en un modelo descriptivo, empleando las mismas versiones usadas por los equipos de DevOps para el código fuente. Agrega fiabilidad y escalabilidad a su entorno y le permite aprovechar procesos similares que solían administrar sus aplicaciones.
 
 -  Use [plantillas de Resource Manager](platform/template-workspace-configuration.md) para habilitar la supervisión y configurar alertas a través de un gran conjunto de recursos.
 - Use [Azure Policy](../governance/policy/overview.md) para hacer cumplir distintas reglas a través de sus recursos. Esto garantiza que esos recursos se mantengan compatibles con los estándares corporativos y los acuerdos de nivel de servicio. 
@@ -63,7 +63,7 @@ Tanto la integración continua como la implementación continua le permite integ
 
 
 - Use [Azure Pipelines](/azure/devops/pipelines) para implementar la implementación continua y automatizar todo su proceso desde la confirmación del código hasta la producción en función de sus pruebas de CI/CD.
-- Use [puertas de calidad](/devops/pipelines/release/approvals/gates) para integrar la supervisión en su implementación anterior o posterior. Esto garantiza su cumplimiento de las métricas de mantenimiento o rendimiento clave (KPI), ya que sus aplicaciones abarcan desde el desarrollo hasta la producción, y ninguna diferencia en el entorno de infraestructura o escala afecta negativamente a sus KPI.
+- Use [puertas de calidad](/azure/devops/pipelines/release/approvals/gates) para integrar la supervisión en su implementación anterior o posterior. Esto garantiza su cumplimiento de las métricas de mantenimiento o rendimiento clave (KPI), ya que sus aplicaciones abarcan desde el desarrollo hasta la producción, y ninguna diferencia en el entorno de infraestructura o escala afecta negativamente a sus KPI.
 - [Mantenga instancias de supervisión independientes](../azure-monitor/app/separate-resources.md) entre sus diferentes entornos de implementación, por ejemplo desarrollo, prueba, valor controlado y producto. Esto garantiza que los datos recopilados sean pertinentes en las aplicaciones e infraestructura asociadas. Si debe poner datos en correlación entre entornos, puede usar [gráficos de varios recursos en el Explorador de métricas](../azure-monitor/platform/metrics-charts.md) o crear [consultas de recursos cruzados en Log Analytics](log-query/cross-workspace-query.md).
 
 

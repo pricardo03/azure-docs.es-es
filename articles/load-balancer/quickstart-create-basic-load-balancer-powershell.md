@@ -5,6 +5,7 @@ description: En esta guía de inicio rápido, se explica cómo crear un equilibr
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2018
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 5d76a1ac58606df82fc7e25dc8071d91da8298f5
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: dfb9db14f37efeb5ad83ef54fcc4613724d28a15
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261031"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229747"
 ---
 # <a name="get-started"></a>Guía de inicio rápido: Creación de un equilibrador de carga básico con Azure PowerShell
 En esta guía de inicio rápido, se explica cómo crear un equilibrador de carga básico utilizando Azure PowerShell. Para probar el equilibrador de carga, implemente dos máquinas virtuales que ejecuten Windows Server y equilibre la carga de una aplicación web entre ellas.

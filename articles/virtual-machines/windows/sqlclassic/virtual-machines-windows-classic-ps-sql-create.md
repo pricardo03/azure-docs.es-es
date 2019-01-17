@@ -3,7 +3,7 @@ title: Creación de una máquina virtual de SQL Server en Azure PowerShell (impl
 description: Ofrece pasos y scripts de PowerShell para crear una máquina virtual de Azure con imágenes de la galería de máquinas virtuales de SQL Server. En este tema se usa el modelo de implementación clásica.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-service-management
 ms.assetid: b73be387-9323-4e08-be53-6e5928e3786e
@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/07/2017
-ms.author: jroth
-ms.openlocfilehash: 66f44e27562f33373e0b67fe6e0ebf9c6bf99e03
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: ad8b59a9290c533a3687b5ff8956d8682fb6d9e9
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29399668"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332292"
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Aprovisionamiento de una máquina virtual de SQL mediante Azure PowerShell (clásico)
 
@@ -196,7 +197,7 @@ New-AzureVM –ServiceName $svcname -VMs $vm1
 
 Después de iniciar sesión en el equipo con Escritorio remoto, configure SQL Server según las instrucciones de los [Pasos para configurar la conectividad de SQL Server en una máquina virtual de Azure](virtual-machines-windows-classic-sql-connect.md#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Puede encontrar instrucciones adicionales para el aprovisionamiento de máquinas virtuales con PowerShell en la [documentación de máquinas virtuales](../classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 

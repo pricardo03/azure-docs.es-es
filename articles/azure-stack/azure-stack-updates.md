@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
-ms.openlocfilehash: 67f363d14489340755251369b422475032d1e671
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: ca09427de2f18612146ff03e4eef705006823ca8
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222503"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302619"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Introducción a la administración de actualizaciones en Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack*
 
 Los paquetes de actualización de Microsoft para los sistemas integrados de Azure Stack normalmente se publican alrededor del cuarto martes de cada mes. Consulte a su OEM sobre su proceso de notificación específico para garantizar que su organización recibe notificaciones de actualización. También puede consultar esta biblioteca de documentación en **Información general** > **Notas de la versión** para información sobre las versiones que se encuentran en soporte activo. 
 
@@ -47,7 +47,7 @@ Cuando se instalan las actualizaciones, puede ver el estado general a medida que
 Se recomienda firmemente notificar a los usuarios cualquier operación de mantenimiento, así como programar ventanas de mantenimiento normal durante el horario no laborable si es posible. Las operaciones de mantenimiento pueden afectar tanto a las cargas de trabajo de inquilino como a las operaciones del portal.
 
 
-- Antes de iniciar la instalación de esta actualización, ejecute [Test-AzureStack](azure-stack-diagnostic-test.md) con los siguientes parámetros para validar el estado de Azure Stack y resolver todos los problemas operativos detectados, lo que incluye advertencias y errores. Repase también las alertas activas y resuelva las que requieran alguna acción.  
+- Antes de iniciar la instalación de esta actualización, ejecute [Test-AzureStack](azure-stack-diagnostic-test.md) con los parámetros siguientes para validar el estado de Azure Stack y resolver todos los problemas operativos detectados, incluidas todas las advertencias y errores. Repase también las alertas activas y resuelva las que requieran alguna acción.  
 
   ```PowerShell
   Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary

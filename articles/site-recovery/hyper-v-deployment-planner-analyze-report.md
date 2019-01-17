@@ -2,18 +2,18 @@
 title: Análisis del informe de Azure Site Recovery Deployment Planner para la recuperación ante desastres de máquinas virtuales de Hyper-V en Azure | Microsoft Docs
 description: En este artículo se describe cómo analizar un informe generado por Azure Site Recovery Deployment Planner para la recuperación ante desastres de máquinas virtuales de Hyper-V en Azure.
 services: site-recovery
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 4c857afb6fbec8501c1f5836935dd6e78f89e67d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: mayg
+ms.openlocfilehash: 5fbcfd102518dc231ad61c54e626c14381bf5a02
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847752"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321626"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Análisis del informe de Azure Site Recovery Deployment Planner
 En este artículo se describen las hojas que contiene el informe de Excel generado por Azure Site Recovery Deployment Planner en un escenario de Hyper-V en Azure.
@@ -33,7 +33,7 @@ La hoja de cálculo de resumen local proporciona una introducción al entorno de
 
 **Número medio de discos en cada máquina virtual compatible**: el número medio de discos calculado para todas las máquinas virtuales compatibles.
 
-**Tamaño medio de disco (GB)**: el tamaño medio de disco calculado en todas las máquinas virtuales compatibles.
+**Average disk size (GB)** (Tamaño medio de disco [GB]): el tamaño medio de disco calculado en todas las máquinas virtuales compatibles.
 
 **Desired RPO (minutes)** (RPO deseado [en minutos]): el objetivo de punto de recuperación predeterminado o el valor pasado para el parámetro "DesiredRPO" en el momento de la generación de informes para calcular el ancho de banda necesario.
 
@@ -53,7 +53,7 @@ La hoja de recomendaciones del informe de Hyper-V a Azure tiene los siguientes d
 
 **Number of Hyper-V servers profiled** (Número de servidores de Hyper-V para los que se han generado perfiles): número de servidores de Hyper-V para los que se genera el informe de sus máquinas virtuales. Seleccione el número para ver el nombre de los servidores de Hyper-V. Se abre la hoja On-premises Storage Requirement (Requisitos de almacenamiento local) para mostrar todos los servidores junto con sus requisitos de almacenamiento. 
 
-**RPO deseado**: el objetivo de punto de recuperación para la implementación. De manera predeterminada, se calcula el ancho de banda de red necesario para los valores de RPO de 15, 30 y 60 minutos. En función de la selección, los valores afectados se actualizan en la hoja. Si ha usado el parámetro DesiredRPOinMin al generar el informe, ese valor se muestra en el resultado de RPO deseado.
+**RPO deseado**: el objetivo de punto de recuperación de la implementación. De manera predeterminada, se calcula el ancho de banda de red necesario para los valores de RPO de 15, 30 y 60 minutos. En función de la selección, los valores afectados se actualizan en la hoja. Si ha usado el parámetro DesiredRPOinMin al generar el informe, ese valor se muestra en el resultado de RPO deseado.
 
 ### <a name="profiling-overview"></a>Información general sobre la generación de perfiles
 ![Información general sobre la generación de perfiles](media/hyper-v-deployment-planner-analyze-report/profiling-overview-h2a.png)
@@ -62,9 +62,9 @@ La hoja de recomendaciones del informe de Hyper-V a Azure tiene los siguientes d
 
 **Máquinas virtuales compatibles**: número de máquinas virtuales que se pueden proteger en Azure mediante Azure Site Recovery. Es el número total de máquinas virtuales compatibles para las que se calculan el ancho de banda de red, el número de cuentas de almacenamiento y el número de núcleos de Azure necesarios. Los detalles de todas las máquinas virtuales compatibles están disponibles en la sección "Máquinas virtuales compatibles".
 
-**Máquinas virtuales no compatibles**: el número de máquinas virtuales de las que se ha generado el perfil que no son compatibles para la protección con Site Recovery. Los motivos de dicha incompatibilidad se indican en la sección "Máquinas virtuales no compatibles". Si VMListFile contiene los nombres de las máquinas virtuales para las que no se han generado perfiles, dichas máquinas se excluyen del número de máquinas virtuales no compatibles. Estas máquinas aparecen como "Datos no encontrados" al final de la sección "Máquinas virtuales no compatibles".
+**Incompatible Virtual Machines** (Máquinas virtuales no compatibles): el número de máquinas virtuales de las que se ha generado el perfil que no son compatibles para la protección con Site Recovery. Los motivos de dicha incompatibilidad se indican en la sección "Máquinas virtuales no compatibles". Si VMListFile contiene los nombres de las máquinas virtuales para las que no se han generado perfiles, dichas máquinas se excluyen del número de máquinas virtuales no compatibles. Estas máquinas aparecen como "Datos no encontrados" al final de la sección "Máquinas virtuales no compatibles".
 
-**RPO deseado**: el objetivo de punto de recuperación deseado, en minutos. El informe se genera para tres valores de RPO: 15 (valor predeterminado), 30 y 60 minutos. La recomendación que se hace sobre el ancho de banda en el informe se cambia en función de la selección que se realice en la lista desplegable **Desired RPO** (RPO deseado) de la parte superior derecha de la hoja. Si el informe se ha generado mediante el parámetro -DesiredRPO con un valor personalizado, dicho valor personalizado se muestra como valor predeterminado en la lista desplegable **Desired RPO** (RPO deseado).
+**Desired RPO** (RPO deseado): el objetivo de punto de recuperación deseado, en minutos. El informe se genera para tres valores de RPO: 15 (valor predeterminado), 30 y 60 minutos. La recomendación que se hace sobre el ancho de banda en el informe se cambia en función de la selección que se realice en la lista desplegable **Desired RPO** (RPO deseado) de la parte superior derecha de la hoja. Si el informe se ha generado mediante el parámetro -DesiredRPO con un valor personalizado, dicho valor personalizado se muestra como valor predeterminado en la lista desplegable **Desired RPO** (RPO deseado).
 
 ### <a name="required-network-bandwidth-mbps"></a>Ancho de banda de red requerido (Mbps)
 ![Ancho de banda de red requerido](media/hyper-v-deployment-planner-analyze-report/required-network-bandwidth-h2a.png)
@@ -152,17 +152,17 @@ Puede darse el caso de que sepa que no puede establecer un ancho de banda de má
 ## <a name="vm-storage-placement-recommendation"></a>Recomendación de selección de ubicación de almacenamiento de máquina virtual 
 ![Selección de ubicación de almacenamiento de máquina virtual](media/hyper-v-deployment-planner-analyze-report/vm-storage-placement-h2a.png)
 
-**Tipo de almacenamiento en disco**: cuenta de almacenamiento Estándar o Premium, que se usa para replicar todas las máquinas virtuales correspondientes que se mencionan en la columna **VMs to Place** (Máquinas virtuales que se colocan).
+**Disk Storage Type** (Tipo de almacenamiento en disco): cuenta de almacenamiento estándar o premium, que se usa para replicar todas las máquinas virtuales correspondientes que se mencionan en la columna **VMs to Place** (Máquinas virtuales para colocar).
 
-**Prefijo sugerido**: el prefijo de tres caracteres sugerido que se puede usar para asignar un nombre a la cuenta de almacenamiento. Puede usar su propio prefijo, pero el que sugiere la herramienta sigue la [convención de nomenclatura de particiones de las cuentas de almacenamiento](https://aka.ms/storage-performance-checklist).
+**Suggested Prefix** (Prefijo sugerido): el prefijo de tres caracteres sugerido que se puede usar para asignar un nombre a la cuenta de almacenamiento. Puede usar su propio prefijo, pero el que sugiere la herramienta sigue la [convención de nomenclatura de particiones de las cuentas de almacenamiento](https://aka.ms/storage-performance-checklist).
 
-**Nombre de cuenta sugerido**: el nombre de la cuenta de almacenamiento después de incluir el prefijo sugerido. Reemplace el nombre entre corchetes angulares (< y >) por una entrada personalizada.
+**Suggested Account Name** (Nombre de cuenta sugerido): el nombre de la cuenta de almacenamiento después de incluir el prefijo sugerido. Reemplace el nombre entre corchetes angulares (< y >) por una entrada personalizada.
 
-**Cuenta de almacenamiento del registro**: todos los registros de la replicación se almacenan en una cuenta de almacenamiento Estándar. En el caso de las máquinas virtuales que se replican en una cuenta de almacenamiento Premium, configure una cuenta de almacenamiento Estándar adicional para el almacenamiento de registros. Varias cuentas de almacenamiento de replicación Premium puede usar una única cuenta de almacenamiento de registros Estándar. Las máquinas virtuales que se replican en las cuentas de almacenamiento Estándar usan la misma cuenta de almacenamiento para los registros.
+**Log Storage Account** (Cuenta de almacenamiento del registro): todos los registros de la replicación se almacenan en una cuenta de almacenamiento estándar. En el caso de las máquinas virtuales que se replican en una cuenta de almacenamiento Premium, configure una cuenta de almacenamiento Estándar adicional para el almacenamiento de registros. Varias cuentas de almacenamiento de replicación Premium puede usar una única cuenta de almacenamiento de registros Estándar. Las máquinas virtuales que se replican en las cuentas de almacenamiento Estándar usan la misma cuenta de almacenamiento para los registros.
 
-**Nombre de cuenta de registros sugerido**: el nombre de la cuenta de registros de almacenamiento después de incluir el prefijo sugerido. Reemplace el nombre entre corchetes angulares (< y >) por una entrada personalizada.
+**Suggested Log Account Name** (Nombre de cuenta de registros sugerido): el nombre de la cuenta de registro de almacenamiento después de incluir el prefijo sugerido. Reemplace el nombre entre corchetes angulares (< y >) por una entrada personalizada.
 
-**Resumen de la selección de ubicación**: un resumen de la carga total de máquinas virtuales en la cuenta de almacenamiento en el momento de la replicación y la conmutación por error real o de prueba. El resumen incluye:
+**Placement Summary** (Resumen de la selección de ubicación): un resumen de la carga total de máquinas virtuales en la cuenta de almacenamiento en el momento de la replicación y la conmutación por error real o de prueba. El resumen incluye:
 
 * El número total de máquinas virtuales asignadas a la cuenta de almacenamiento. 
 * IOPS totales de lectura y escritura en todas las máquinas virtuales colocadas en esta cuenta de almacenamiento.
@@ -189,11 +189,11 @@ El informe de Excel generado por Azure Site Recovery Deployment Planner proporci
 
 Por ejemplo, si las características de carga de trabajo de un disco lo colocan en la categoría P20 o P30, pero el tamaño lo asigna a un tipo de disco de almacenamiento Premium inferior, la herramienta marca la máquina virtual como **Sí**\*. La herramienta también recomienda que cambie el tamaño del disco de origen para poder encuadrarlo en el tipo de disco de almacenamiento Premium recomendado o que cambie el tipo de disco de destino después de la conmutación por error.
 
-**Tipo de almacenamiento**: Estándar o Premium.
+**Storage Type** (Tipo de almacenamiento): estándar o premium.
 
-**Prefijo sugerido**: el prefijo de tres caracteres de la cuenta de almacenamiento.
+**Suggested Prefix** (Prefijo sugerido): el prefijo de tres caracteres de la cuenta de almacenamiento.
 
-**Cuenta de almacenamiento**: el nombre que utiliza el prefijo sugerido para la cuenta de almacenamiento.
+**Storage Account** (Cuenta de almacenamiento): el nombre que utiliza el prefijo sugerido para la cuenta de almacenamiento.
 
 **Peak R/W IOPS (with Growth Factor)** (Valor máximo de IOPS de lectura y escritura [con factor de crecimiento]): el valor máximo de IOPS de lectura/escritura en carga de trabajo en el disco (el percentil 95 es el predeterminado), incluido el factor de crecimiento futuro (el valor predeterminado es el 30 %). Las IOPS totales de lectura y escritura de una máquina virtual no siempre es la suma de las IOPS de lectura y escritura de los discos individuales de la máquina virtual. Las IOPS máximas de lectura y escritura de las máquinas virtuales es el valor máximo de la suma de las IOPS de lectura y escritura de sus discos individuales durante cada minuto del período de generación de perfiles.
 
@@ -205,11 +205,11 @@ Por ejemplo, si las características de carga de trabajo de un disco lo colocan 
 
 **Tamaño del disco (GB)**: el tamaño total de todos los discos de la máquina virtual. La herramienta también muestra el tamaño de los discos individuales de la máquina virtual.
 
-**Núcleos**: el número de núcleos de CPU de la máquina virtual.
+**Cores** (Núcleos): el número de núcleos de CPU en la máquina virtual.
 
-**Memoria (MB)**: la memoria RAM de la máquina virtual.
+**Memory (MB)** (Memoria [MB]): la memoria RAM de la máquina virtual.
 
-**NIC**: el número de NIC de la máquina virtual.
+**NICs** (Tarjetas NIC): el número de tarjetas NIC de la máquina virtual.
 
 **Tipo de arranque**: el tipo de arranque de la máquina virtual. Puede ser BIOS o EFI.
 
@@ -260,11 +260,11 @@ El informe de Excel generado por Azure Site Recovery Deployment Planner proporci
 
 **Tamaño del disco (GB)**: el tamaño total configurado de todos los discos de la máquina virtual. La herramienta también muestra el tamaño de los discos individuales de la máquina virtual.
 
-**Núcleos**: el número de núcleos de CPU de la máquina virtual.
+**Cores** (Núcleos): el número de núcleos de CPU en la máquina virtual.
 
-**Memoria (MB)**: la cantidad de memoria RAM de la máquina virtual.
+**Memory (MB)** (Memoria [MB]): la cantidad de memoria RAM en la máquina virtual.
 
-**NIC**: el número de NIC de la máquina virtual.
+**NICs** (Tarjetas NIC): el número de tarjetas NIC de la máquina virtual.
 
 **Tipo de arranque**: el tipo de arranque de la máquina virtual. Puede ser BIOS o EFI.
 

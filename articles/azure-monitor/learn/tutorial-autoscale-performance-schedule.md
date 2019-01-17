@@ -9,12 +9,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.component: autoscale
-ms.openlocfilehash: d676af42b80d12ac0e537ce0c2bc008e196990c6
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: bf9cf931964fec9b2089cce100757e044788a972
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53587087"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262326"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Creación de una configuración de escalado automático de recursos de Azure basado en los datos de rendimiento o una programación
 
@@ -63,7 +63,7 @@ Los pasos siguientes le ayudarán a rellenar la pantalla de escalado automático
   ![Navegación a la configuración de escalado automático](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
-## <a name="create-recurrance-profile"></a>Creación del perfil de periodicidad
+## <a name="create-recurrence-profile"></a>Creación del perfil de periodicidad
 
 1. Haga clic en el vínculo **Add a scale condition** (Agregar una condición de escalado) bajo el perfil predeterminado.
 

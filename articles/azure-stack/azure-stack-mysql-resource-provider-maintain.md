@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/11/2019
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: 76a164ffcf918ebedcf4647f24a61ca3a271e967
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.reviewer: jiahan
+ms.openlocfilehash: e0de6b26499b4a5166db411eccee543be43c8352
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361922"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245997"
 ---
 # <a name="mysql-resource-provider-maintenance-operations"></a>Operaciones de mantenimiento del proveedor de recursos de MySQL
 
@@ -94,7 +94,7 @@ $session | Remove-PSSession
 
 *Estas instrucciones se aplican solo a sistemas integrados de Azure Stack.*
 
-Al usar los proveedores de recursos de SQL y MySQL con los sistemas integrados de Azure Stack, el operador se encarga de rotar los siguientes secretos de infraestructura del proveedor de recursos para asegurarse de que no caduquen:
+Al usar los proveedores de recursos de SQL y MySQL con los sistemas integrados de Azure Stack, el operador de Azure Stack se encarga de rotar los siguientes secretos de infraestructura del proveedor de recursos para asegurarse de que no caduquen:
 
 - Certificado SSL externo [proporcionado durante la implementación](azure-stack-pki-certs.md).
 - La contraseña de la cuenta de administrador local de la máquina virtual del proveedor de recursos proporcionada durante la implementación.

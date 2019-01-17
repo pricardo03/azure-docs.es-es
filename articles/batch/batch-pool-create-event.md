@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: danlep
-ms.openlocfilehash: f8c0adf96d027f58a35dbe570f1b19c311cd84b9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 794b3c83ff58967ef8169bed98f7b369335029ae
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246521"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259847"
 ---
 # <a name="pool-create-event"></a>Evento de creación del grupo
 
@@ -59,7 +59,7 @@ ms.locfileid: "51246521"
 |targetDedicated|Int32|El número de nodos de proceso solicitados para el grupo.|
 |enableAutoScale|Booleano|Especifica si el tamaño del grupo se ajusta automáticamente con el tiempo.|
 |enableInterNodeCommunication|Booleano|Especifica si el grupo está configurado para la comunicación directa entre nodos.|
-|isAutoPool|Booleano|Especifica si el grupo se creó a través del mecanismo AutoPool de un trabajo.|
+|isAutoPool|Booleano|Especifica si se ha creado el grupo a través del mecanismo AutoPool de un trabajo.|
 |maxTasksPerNode|Int32|El número máximo de tareas que pueden ejecutarse simultáneamente en un solo nodo de ejecución en el grupo.|
 |vmFillType|string|Define cómo el servicio de Batch distribuye las tareas entre los nodos de proceso del grupo. Los valores válidos son Spread o Pack.|
 

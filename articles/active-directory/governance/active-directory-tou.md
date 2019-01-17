@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 12/20/2018
+ms.date: 01/10/2019
 ms.author: rolyon
-ms.openlocfilehash: 859d81239cfad9eb5396a30f5db316bc73285831
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 341565bf621fa63ad578489cd04bcfff3510265b
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188438"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229479"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Característica Condiciones de uso de Azure Active Directory
 Azure AD Terms of Use ofrece un método sencillo que pueden usar las organizaciones para presentar información a los usuarios finales. Esta presentación garantiza que los usuarios ven las declinaciones de responsabilidades pertinentes de los requisitos legales o de cumplimiento. En este artículo se describe cómo empezar a trabajar con Condiciones de uso.
@@ -87,9 +87,7 @@ Una vez que haya finalizado el documento de términos de uso, use el procedimien
 
 1. Para requerir a los usuarios finales que vean los Términos de uso antes de aceptarlos, establezca **Requerir a los usuarios que expandan los términos de uso** en **Activado**.
 
-1. Para requerir a los usuarios finales que acepten sus Términos de uso en todos los dispositivos desde los que obtienen acceso, establezca **Requerir que los usuarios concedan su consentimiento en todos los dispositivos** en **Activado**.
-
-    Si no ve la opción de configuración **Require users to consent on every device** (Requerir que los usuarios den su consentimiento en todos los dispositivos), es porque esta característica aún no se ha implementado en su región. Se espera que esta característica se implemente completamente a principios de enero de 2019. Para obtener más información, consulte [Términos de uso por dispositivo](#per-device-terms-of-use).
+1. Para requerir a los usuarios finales que acepten sus Términos de uso en todos los dispositivos desde los que obtienen acceso, establezca **Requerir que los usuarios concedan su consentimiento en todos los dispositivos** en **Activado**. Para obtener más información, consulte [Términos de uso por dispositivo](#per-device-terms-of-use).
 
 1. Si desea hacer expirar autorizaciones de términos de uso en una programación, establezca **Expirar autorizaciones** en **Activado**. Al establecerse en Activado, se muestran dos opciones de configuración de la programación adicionales.
 
@@ -253,9 +251,6 @@ El siguiente procedimiento describe cómo agregar un idioma a los términos de u
 ## <a name="per-device-terms-of-use"></a>Términos de uso por dispositivo
 
 La opción de configuración **Requerir que los usuarios concedan su consentimiento en todos los dispositivos** le permite requerir a los usuarios finales que acepten sus Términos de uso en todos los dispositivos desde los que obtienen acceso. Al usuario final se le pedirá que se una a su dispositivo en Azure AD. Al conectarse el dispositivo, el id. de dispositivo se usa para exigir los Términos de uso en cada dispositivo.
-
-> [!NOTE]
-> Si no ve la opción de configuración **Require users to consent on every device** (Requerir que los usuarios den su consentimiento en todos los dispositivos) durante la creación de una nueva instancia de Términos de uso, es porque esta característica aún no se ha implementado en su región. Se espera que esta característica se implemente completamente a principios de enero de 2019.
 
 Esta es una lista de las plataformas y el software admitidos.
 

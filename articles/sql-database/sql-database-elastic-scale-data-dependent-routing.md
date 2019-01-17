@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 2a862a6f1165b0cdd4dfe46e638dc6b10eae9ee5
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 46febbeb2675c38bf68c6ba0b911f799b268e208
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191333"
+ms.locfileid: "54201115"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>Usar el enrutamiento dependiente de datos para enrutar una consulta a la base de datos adecuada
 
@@ -68,7 +68,7 @@ public SqlConnection OpenConnectionForKey<TKey>(TKey key, string connectionStrin
 
 * El parámetro **key** se usa como clave de búsqueda en el mapa de particiones para determinar la base de datos adecuada para la solicitud.
 * El elemento **connectionString** se usa para pasar únicamente las credenciales de usuario para la conexión deseada. Ningún nombre de base de datos o de servidor se incluye en esta *connectionString*, dado que el método determina la base de datos y el servidor a través de **ShardMap**.
-* El valor de **connectionOptions** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper._connection_options), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions)) se debe establecer en **ConnectionOptions.Validate** si se trata de un entorno donde las asignaciones de las particiones pueden cambiar y las filas pueden moverse a otras bases de datos como resultado de operaciones de división o combinación. Esta validación implica una breve consulta al mapa de particiones local en la base de datos de destino (no al mapa de particiones global) antes de que se entregue la conexión a la aplicación.
+* El valor de **connectionOptions** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper.connectionoptions), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions)) se debe establecer en **ConnectionOptions.Validate** si se trata de un entorno donde las asignaciones de las particiones pueden cambiar y las filas pueden moverse a otras bases de datos como resultado de operaciones de división o combinación. Esta validación implica una breve consulta al mapa de particiones local en la base de datos de destino (no al mapa de particiones global) antes de que se entregue la conexión a la aplicación.
 
 Si se produce un error de validación de la asignación de particiones local (lo que indica que el caché es incorrecto), Shard Map Manager consulta la asignación de particiones global para obtener el nuevo valor correcto de la consulta, actualizar el caché, y obtener y devolver la conexión de base de datos adecuada.
 

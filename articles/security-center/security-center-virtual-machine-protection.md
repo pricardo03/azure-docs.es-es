@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
+ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9c1eff58be52b0b4bd9561db51986c9f509d64ee
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 3a2ccd04cd7ec36cafdf56830b9ad8249f89eb7e
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723236"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321597"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protección de las aplicaciones y las máquinas en Azure Security Center
 El Centro de seguridad de Azure analiza el estado de seguridad de los recursos de Azure. Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea recomendaciones que lo guiarán por el proceso de configuración de los controles necesarios. Las recomendaciones se aplican a los tipos de recursos de Azure: máquinas virtuales, equipos, aplicaciones, redes, SQL e identidad y acceso.
@@ -44,7 +44,6 @@ En **Compute & apps** (Procesos y aplicaciones), existen las siguientes pestaña
 - **Cloud Services**: lista de todos los roles web y de trabajo que supervisa Security Center.
 - **App Services (versión preliminar)**: muestra la lista actual de los entornos de App Service y el estado de seguridad actual de cada uno.
 - **Contenedores (versión preliminar)**: lista de los contenedores hospedados en equipos IaaS Linux y evaluaciones de seguridad de sus configuraciones de Docker.
-- **Conjuntos de escalado de máquina virtual (versión preliminar)**: enumera los conjuntos de escalado y recomendaciones para cada uno.
 - **Recursos de proceso (versión preliminar)**: enumera las recomendaciones para los recursos de proceso, como clústeres de Service Fabric y centros de eventos.
 
 Para continuar, seleccione **Procesos y aplicaciones** en **Protección de seguridad de recursos**.
@@ -162,24 +161,6 @@ Hay tres tipos de iconos representados en esta lista:
 
     ![Corrección de App Service](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
 
-## <a name="virtual-machine-scale-sets-preview"></a>Conjuntos de escalado de máquinas virtuales (versión preliminar)
-Security Center detecta automáticamente si tiene conjuntos de escalado y recomienda instalar a Microsoft Monitoring Agent en estos conjuntos de escalado. 
-
-Para la instalación de Microsoft Monitoring Agent: 
-
-1. Seleccione la recomendación **Instalar el agente de supervisión en conjuntos de escalado de máquinas virtuales**. Obtiene una lista de conjuntos de escalado no supervisados.
-2. Seleccione un conjunto de escalado en mal estado. Siga las instrucciones para instalar al agente de supervisión con un área de trabajo completada existente o cree una nueva. Asegúrese de establecer el [plan de tarifa](security-center-pricing.md) del área de trabajo si aún no está establecido.
-
- ![Instalación de MMA](./media/security-center-virtual-machine-recommendations/install-mms.png)
-
-Si quiere establecer nuevos conjuntos de escalado para instalar automáticamente Microsoft Monitoring Agent:
-1. Vaya a Azure Policy y haga clic en **Definiciones**.
-2. Busque la directiva **Implementar el agente de Log Analytics para conjuntos de escalado de máquinas virtuales de Windows** y haga clic en ella.
-3. Haga clic en **Asignar**.
-4. Elija el **ámbito** y el **área de trabajo de Log Analytics** y haga clic en **Asignar**.
-
-Si desea configurar todos los conjuntos de escalado existentes para instalar Microsoft Monitoring Agent, en Azure Policy, vaya a **Corrección** y aplique la directiva existente en conjuntos de escalado existentes.
-
 
 ## <a name="compute-and-app-recommendations"></a>Recomendaciones de proceso y aplicación
 |Tipo de recurso|Puntuación segura|Recomendación|DESCRIPCIÓN|
@@ -238,11 +219,7 @@ Si desea configurar todos los conjuntos de escalado existentes para instalar Mic
 |Máquina|30|Instale una solución de evaluación de la vulnerabilidad en sus máquinas virtuales.|Instale una solución de evaluación de la vulnerabilidad en sus máquinas virtuales.|
 |Máquina|1|Migrar las máquinas virtuales a recursos de Azure Resource Manager nuevos|Use Azure Resource Manager para las máquinas virtuales a fin de proporcionar mejoras de seguridad como las siguientes: mayor control de acceso (RBAC), mejor auditoría, gobierno e implementación basados en Resource Manager, acceso a identidades administradas, acceso a secretos de Key Vault, autenticación basada en Azure AD y compatibilidad con etiquetas y grupos de recursos para facilitar la administración de seguridad. |
 |Máquina|30|Corregir vulnerabilidades mediante una solución de evaluación de vulnerabilidades|Las máquinas virtuales para las que se implementa una solución de evaluación de vulnerabilidades de terceros se evalúan de forma continua en relación con las vulnerabilidades de la aplicación y del sistema operativo. Cada vez que se encuentran vulnerabilidades de este tipo, es posible obtener más información sobre ellas como parte de la recomendación.|
-|Conjunto de escalado de máquina virtual |4|Habilitar registros de diagnóstico en Virtual Machine Scale Sets|Habilite los registros y consérvelos por hasta un año. Esto le permite volver a crear seguimientos de actividad para fines de investigación. Esto es útil cuando se produce un incidente de seguridad o se pone en peligro su red.|
-|Conjunto de escalado de máquina virtual|35|Corregir vulnerabilidades en la configuración de seguridad en conjuntos de escalado de máquinas virtuales|Corrija vulnerabilidades en la configuración de seguridad en conjuntos de escalado de máquinas virtuales para protegerlas de ataques. |
-|Conjunto de escalado de máquina virtual|5|Corregir errores de estado de protección de puntos de conexión en conjuntos de escalado de máquinas virtuales|Corrija los errores de estado de la protección de puntos de conexión en conjuntos de escalado de sus máquinas virtuales para protegerlas de amenazas y vulnerabilidades. |
-|Conjunto de escalado de máquina virtual|10|Instalar una solución de protección de punto de conexión en conjuntos de escalado de máquinas virtuales|Instale una solución de protección de punto de conexión en los conjuntos de escalado de máquinas virtuales para protegerlos frente a amenazas y vulnerabilidades. |
-|Conjunto de escalado de máquina virtual|40|Instalar actualizaciones del sistema en conjuntos de escalado de máquinas virtuales|Instale actualizaciones faltantes de seguridad y críticas para proteger sus conjuntos de escalado de máquinas virtuales de Windows y Linux. |
+
  
 
 

@@ -5,13 +5,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/10/2018
-ms.openlocfilehash: 3760e2a5ccae1d21574412ec223cade03bebda1e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/15/2019
+ms.openlocfilehash: 49c9d908970425165fcdd76171c20ab65454f42a
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548942"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318586"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Planes de tarifa de Azure Database for PostgreSQL
 
@@ -53,14 +53,14 @@ Los recursos de proceso se proporcionan como núcleos virtuales, que representan
 | Centro-Sur de EE. UU | X | X |
 | Oeste de EE. UU. | X | X |
 | Oeste de EE. UU. 2 |  | X |
+| Sur de Brasil | X | X |
 | Centro de Canadá | X | X |
 | Este de Canadá | X | X |
-| Sur de Brasil | X | X |
 | Europa del Norte | X | X |
 | Europa occidental |  | X |
 | Centro de Francia |  | X |
-| Oeste de Reino Unido |  | X |
 | Sur de Reino Unido 2 |  | X |
+| Oeste de Reino Unido |  | X |
 | Asia oriental | X | X |
 | Sudeste asiático | X | X |
 | Este de Australia |  | X |
@@ -68,17 +68,22 @@ Los recursos de proceso se proporcionan como núcleos virtuales, que representan
 | Centro de Australia 2 |  | X |
 | Sudeste de Australia |  | X |
 | India Central | X | X |
-| Oeste de la India | X | X |
 | Sur de la India |  | X |
+| Oeste de la India | X | X |
 | Este de Japón | X | X |
 | Oeste de Japón | X | X |
 | Corea Central |  | X |
 | Corea del Sur |  | X |
+| Este de China 1 | X |  |
+| Este de China 2 |  | X |
+| Norte de China 1 | X |  |
+| Norte de China 2 |  | X |
 | Centro de Alemania |  | X |
 | Departamento de Defensa de EE. UU. Centro  | X |  |
 | Departamento de Defensa de EE. UU. Este  | X |  |
 | Gobierno de EE. UU.: Arizona |  | X |
 | Gobierno de EE. UU.: Texas |  | X |
+| Gobierno de EE. UU. - Virginia |  | X |
 
 ## <a name="storage"></a>Storage
 

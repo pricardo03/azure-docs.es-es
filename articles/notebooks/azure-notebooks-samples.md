@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 238d84c32a145c00648ce3923efaa86a8fa3d08e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: f71f1e086e584d1d26b067de001bf83d15bf7961
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971723"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243685"
 ---
 # <a name="discover-and-use-sample-notebooks"></a>Detección y uso de los cuadernos de ejemplo
 
@@ -33,7 +33,7 @@ Una vez que identifique un cuaderno que le gustaría explorar, estos son algunos
 
 - El [juego de iniciación de Azure Notebooks](https://notebooks.azure.com/#sample-redirect) incluye introducciones a Python, R y F#, junto con cuadernos que muestran el acceso a los datos, Azure Machine Learning Services y algunos ejercicios de ciencia de datos.
 - [Introducción a los cuadernos de Jupyter Notebook](https://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb) (jupyter.org)
-- [Introducción a la ciencia de datos](https://github.com/jakevdp/PythonDataScienceHandbook/tree/master/code_listings) de Jake Vanderplas.
+- [Introducción a la ciencia de datos](https://github.com/jakevdp/PythonDataScienceHandbook/tree/master/notebooks) de Jake Vanderplas.
 - [Galería de cuadernos interesantes](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) (proyecto de Jupyter en GitHub)
 - [nbviewer.jupyter.org](https://nbviewer.jupyter.org)
 - Instrucciones físicas del [departamento de física de la Escuela Imperial de Londres](https://notebooks.azure.com/cvanbreu/libraries)

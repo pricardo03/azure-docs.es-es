@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 6750276cf31d0c804b38cdf3ea6e41a4505c93f1
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: ccdfbc38cb39f2c0aa839dc56022192e9e389d95
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971825"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54187424"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Reescribir encabezados HTTP a Application Gateway (versión preliminar pública)
 
 Los encabezados HTTP permiten que el cliente y el servidor pasen información adicional con la solicitud o la respuesta. La reescritura de estos encabezados HTTP permite alcanzar varios escenarios importantes, como agregar campos de encabezado relacionados con la seguridad (como HSTS/ X-XSS-Protection) o quitar campos de encabezado de respuesta que pueden revelar información confidencial, como el nombre del servidor back-end.
 
-Ahora, Application Gateway admite la capacidad de reescribir los encabezados de las solicitudes HTTP entrantes, así como las respuestas HTTP salientes. Podrá agregar, quitar o actualizar los encabezados HTTP de solicitud y respuesta mientras los paquetes de solicitud/respuesta se mueven entre los grupos de back-end y de cliente. Puede reescribir tanto campos de encabezado estándar (definidos en [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)) como no estándar.
+Ahora, Application Gateway admite la capacidad de reescribir los encabezados de las solicitudes HTTP entrantes, así como las respuestas HTTP salientes. Podrá agregar, quitar o actualizar los encabezados HTTP de solicitud y respuesta mientras los paquetes de solicitud/respuesta se mueven entre los grupos de back-end y de cliente. Puede reescribir tanto campos de encabezado estándar como no estándar.
 
 > [!NOTE] 
 >
@@ -84,7 +84,11 @@ Puede reescribir el valor en los encabezados a:
 
 - Una combinación de las anteriores.
 
-Las variables de servidor mencionadas anteriormente son las variables que proporcionan información sobre el servidor, la conexión con el cliente y la solicitud actual en la conexión. Esta función admite la reescritura de encabezados en las siguientes variables de servidor:
+## <a name="server-variables"></a>Variables de servidor
+
+Las variables de servidor almacenan información útil en un servidor web. Estas variables proporcionan información sobre el servidor, la conexión con el cliente y la solicitud actual en la conexión, como la dirección IP del cliente o el tipo de explorador web. Cambian dinámicamente; por ejemplo, cuando se carga una nueva página o se publica un formulario.  Con estas variables, los usuarios pueden establecer encabezados de solicitud, así como encabezados de respuesta. 
+
+Esta función admite la reescritura de encabezados en las siguientes variables de servidor:
 
 | Variables de servidor admitidas | DESCRIPCIÓN                                                  |
 | -------------------------- | :----------------------------------------------------------- |
@@ -100,7 +104,7 @@ Las variables de servidor mencionadas anteriormente son las variables que propor
 | http_status                | estado de la sesión, por ejemplo: 200, 400, 403, etc.                       |
 | http_version               | protocolo de la solicitud, que suele ser “HTTP/1.0”, “HTTP/1.1” o “HTTP/2.0”. |
 | query_string               | la lista de pares de variable-valor que aparecen después de “?” en la URL solicitada. |
-| received_byte              | longitud de la solicitud (incluida la línea de la solicitud, el encabezado y el cuerpo de la solicitud). |
+| received_bytes             | longitud de la solicitud (incluida la línea de la solicitud, el encabezado y el cuerpo de la solicitud). |
 | request_query              | argumentos en la línea de la solicitud.                                |
 | request_scheme             | esquema de la solicitud (“HTTP” o “HTTPS”).                            |
 | request_uri                | URI original completo de la solicitud (con argumentos).                   |

@@ -10,19 +10,19 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 31f0517cd4d61fa324072eae954404c899451cc3
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 93ca61c610856ebba64bff46b2338090f317ad56
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117408"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302041"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Acceso a los registros de auditoría de Azure AD B2C
 
 Azure Active Directory B2C (Azure AD B2C) emite registros de auditoría que contienen información sobre los recursos de B2C, los tokens emitidos y el acceso de administrador. Este artículo proporciona un breve resumen de la información disponible a través de los registros de auditoría e instrucciones sobre cómo acceder a estos datos del inquilino de Azure AD B2C.
 
 > [!IMPORTANT]
-> Los registros de auditoría solo se conservan durante siete días. Si necesita un periodo de retención mayor, planee la descarga y el almacenamiento de los registros mediante alguno de los métodos que se muestran a continuación. 
+> Los registros de auditoría solo se conservan durante siete días. Si necesita un periodo de retención mayor, planee la descarga y el almacenamiento de los registros mediante alguno de los métodos que se muestran a continuación.
 
 ## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Información general sobre las actividades disponibles en la categoría B2C de los registros de auditoría
 La categoría **B2C** de los registros de auditoría contiene los siguientes tipos de actividades:
@@ -43,7 +43,7 @@ En el ejemplo siguiente se muestran los datos capturados cuando un usuario inici
 
 ## <a name="accessing-audit-logs-through-the-azure-portal"></a>Acceso a los registros de auditoría a través de Azure Portal
 1. Vaya a [Azure Portal](https://portal.azure.com). Asegúrese de que se encuentra en el directorio B2C.
-2. Abra **Azure Active Directory** en la barra de favoritos del lado izquierdo 
+2. Abra **Azure Active Directory** en la barra de favoritos del lado izquierdo
     
     ![Registros de auditoría - Botón AAD](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
 
@@ -56,14 +56,14 @@ En el ejemplo siguiente se muestran los datos capturados cuando un usuario inici
 
     ![Registros de auditoría - Categoría](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
 
-Se ve una lista de actividades registradas durante los últimos siete días. 
+Se ve una lista de actividades registradas durante los últimos siete días.
 - Use la lista desplegable **Tipo de recurso de actividad** para filtrar por los tipos de actividad descritos arriba
 - Use la lista desplegable **Intervalo de fechas** para filtrar el intervalo de fechas de las actividades mostradas
 - Si hace clic en una fila determinada de la lista, un cuadro contextual a la derecha muestra los atributos adicionales asociados a la actividad
 - Haga clic en **Descargar** para descargar las actividades como un archivo csv
 
 ## <a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Acceso a los registros de auditoría a través de la API de informes de Azure AD
-Los registros de auditoría se publican en la misma canalización que otras actividades de Azure Active Directory, por lo que son accesibles a través de la [API de informes de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference). 
+Los registros de auditoría se publican en la misma canalización que otras actividades de Azure Active Directory, por lo que son accesibles a través de la [API de informes de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference).
 
 ### <a name="prerequisites"></a>Requisitos previos
 Para autenticarse en la API de informes de Azure AD, debe registrar una aplicación. Asegúrese de seguir los pasos de [Requisitos previos para acceder a la API de informes de Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).
@@ -82,7 +82,7 @@ El script siguiente proporciona un ejemplo de uso de PowerShell para consultar l
 # Constants
 $ClientID       = "your-client-application-id-here"       # Insert your application's Client ID, a Globally Unique ID (registered by Global Admin)
 $ClientSecret   = "your-client-application-secret-here"   # Insert your application's Client Key/Secret string
-$loginURL       = "https://login.microsoftonline.com"     
+$loginURL       = "https://login.microsoftonline.com"
 $tenantdomain   = "your-b2c-tenant.onmicrosoft.com"       # AAD B2C Tenant; for example, contoso.onmicrosoft.com
 $resource       = "https://graph.windows.net"             # Azure AD Graph API resource URI
 $7daysago       = "{0:s}" -f (get-date).AddDays(-7) + "Z" # Use 'AddMinutes(-5)' to decrement minutes, for example
@@ -93,13 +93,13 @@ $body       = @{grant_type="client_credentials";resource=$resource;client_id=$Cl
 $oauth      = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
 
 # Parse audit report items, save output to file(s): auditX.json, where X = 0 thru n for number of nextLink pages
-if ($oauth.access_token -ne $null) {   
+if ($oauth.access_token -ne $null) {
     $i=0
     $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
-    $url = 'https://graph.windows.net/' + $tenantdomain + '/activities/audit?api-version=beta&$filter=category eq ''B2C''and activityDate gt ' + $7daysago 
+    $url = 'https://graph.windows.net/' + $tenantdomain + '/activities/audit?api-version=beta&$filter=category eq ''B2C''and activityDate gt ' + $7daysago
 
     # loop through each query page (1 through n)
-    Do{
+    Do {
         # display each event on the console window
         Write-Output "Fetching data using Uri: $url"
         $myReport = (Invoke-WebRequest -UseBasicParsing -Headers $headerParams -Uri $url)
@@ -117,4 +117,3 @@ if ($oauth.access_token -ne $null) {
     Write-Host "ERROR: No Access Token"
 }
 ```
-

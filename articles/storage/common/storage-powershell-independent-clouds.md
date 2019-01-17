@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 842a9354cf20648393c3262736c0a1e9654a3c70
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f7d5fcf1905200bc214a3ff42db9b7b511768dd0
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628347"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214902"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Administración del almacenamiento en las nubes independientes mediante PowerShell
 
@@ -37,7 +37,7 @@ Los ejemplos requieren la versión 0.7 o posterior del módulo Az de Azure Power
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
-Ejecute el cmdlet [Get-AzEnvironment](/powershell/module/az.profile/get-Azenvironment) para ver los entornos de Azure disponibles:
+Ejecute el cmdlet [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment) para ver los entornos de Azure disponibles:
    
 ```powershell
 Get-AzEnvironment
@@ -71,7 +71,7 @@ El sufijo de punto de conexión para cada uno de estos entornos es diferente del
 
 ### <a name="get-endpoint-using-get-azenvironment"></a>Obtención del punto de conexión mediante Get-AzEnvironment 
 
-Puede recuperar el sufijo del punto de conexión mediante [Get-AzEnvironment](/powershell/module/az.profile/get-azenvironment). El punto de conexión es la propiedad *StorageEndpointSuffix* del entorno. Los siguientes fragmentos de código muestran cómo hacerlo. Todos estos comandos devuelven algo parecido a "core.cloudapp.net" o "core.cloudapi.de", etc. Adjunte esto al servicio de almacenamiento para acceder a ese servicio. Por ejemplo, "queue.core.cloudapi.de" accederá al servicio de cola en la nube de Alemania.
+Puede recuperar el sufijo del punto de conexión mediante [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment). El punto de conexión es la propiedad *StorageEndpointSuffix* del entorno. Los siguientes fragmentos de código muestran cómo hacerlo. Todos estos comandos devuelven algo parecido a "core.cloudapp.net" o "core.cloudapi.de", etc. Adjunte esto al servicio de almacenamiento para acceder a ese servicio. Por ejemplo, "queue.core.cloudapi.de" accederá al servicio de cola en la nube de Alemania.
 
 Este fragmento de código recupera todos los entornos y el sufijo de punto de conexión para cada uno de ellos.
 

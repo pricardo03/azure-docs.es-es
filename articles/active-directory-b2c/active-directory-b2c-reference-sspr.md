@@ -10,18 +10,19 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c9d6a66a9d54c75fbb20775f0ae4de4d22a7d599
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3d2019101abf1086a58d0224ab31f2aa27afe8de
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840878"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54350598"
 ---
 # <a name="set-up-self-service-password-reset-for-your-customers"></a>Configuración del autoservicio de restablecimiento de contraseña para los consumidores
+
 Con la característica de autoservicio de restablecimiento de contraseña, los consumidores que se registraron para obtener cuentas locales pueden restablecer sus contraseñas ellos mismos. De esta manera, se reduce considerablemente la carga del personal de soporte técnico, especialmente si la aplicación tiene millones de consumidores que la usan de forma periódica. Actualmente, solo se admite como método de recuperación el uso de una dirección de correo electrónico verificada.
 
 > [!NOTE]
-> La información de este artículo se aplica al autoservicio de restablecimiento de contraseña usado en el contexto del flujo de usuario de **inicio de sesión** V1, que usa **Local Account SignIn** como proveedor de identidades. Si necesita invocar flujos de usuario de restablecimiento de contraseña totalmente personalizables desde su aplicación, consulte [este artículo](active-directory-b2c-reference-policies.md#create-a-password-reset-user-flow).
+> La información de este artículo se aplica al autoservicio de restablecimiento de contraseña usado en el contexto del flujo de usuario de **inicio de sesión** V1, que usa **Local Account SignIn** como proveedor de identidades. Si necesita invocar flujos de usuario de restablecimiento de contraseña totalmente personalizables desde su aplicación, consulte [este artículo](active-directory-b2c-reference-policies.md).
 > 
 > 
 

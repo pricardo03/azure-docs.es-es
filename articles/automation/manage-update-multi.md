@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 01/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2ba34a6d1ecc33e8a4d355aeacb0da8a764a784d
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 3897225ef6ed7fcc0db75e82058e5b5b273ccbd4
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679536"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214035"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Administración de actualizaciones para varias máquinas
 
@@ -113,7 +113,11 @@ En la tabla siguiente se describen los orígenes conectados compatibles con esta
 
 ### <a name="collection-frequency"></a>Frecuencia de recopilación
 
-Para cada equipo Windows administrado, se ejecuta un examen dos veces al día. Cada 15 minutos, se llama a la API de Windows para consultar la hora de la última actualización y determinar si ha cambiado el estado. Si el estado ha cambiado, se inicia un examen de cumplimiento. Para cada equipo Linux administrado, se ejecuta un examen cada 3 horas.
+Después de que un equipo completa un examen de cumplimiento de las actualizaciones, el agente reenvía la información de forma masiva a Azure Log Analytics. En un equipo Windows, el examen de cumplimiento se ejecuta cada 12 horas de forma predeterminada.
+
+Además del examen programado, el examen de cumplimiento de las actualizaciones se inicia a los 15 minutos del reinicio de MMA, así como antes y después de la instalación de actualizaciones.
+
+En un equipo Linux, el examen de cumplimiento se realiza cada 3 horas de forma predeterminada. Si se reinicia el agente MMA, se inicia un examen de cumplimiento al cabo de 15 minutos.
 
 Puede que transcurran entre 30 minutos y 6 horas antes de que se muestren los datos actualizados de los equipos administrados.
 

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 68f7df2ab004477fae5df1d200fcd44929465e93
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 2e1c155a371fa96e4f772f632a9585948b012e54
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233130"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232250"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Crear o combinar ramas paralelas de las acciones de los flujos de trabajo en Azure Logic Apps
 
@@ -37,7 +37,7 @@ Para ejecutar pasos independientes al mismo tiempo, puede agregar ramas paralela
 
 ![Ejecución de pasos en paralelo](media/logic-apps-control-flow-branches/parallel.png)
 
-La aplicación lógica espera a que todas las ramas finalicen antes de continuar con el flujo de trabajo. Las ramas paralelas se ejecutan solo cuando sus valores de propiedad `runAfter` coinciden con estado del paso primario terminado. Por ejemplo, `branchAction1` y `branchAction2` están configuradas para ejecutarse solo cuando `parentAction` se completa con el estado `Succeded`.
+La aplicación lógica espera a que todas las ramas finalicen antes de continuar con el flujo de trabajo. Las ramas paralelas se ejecutan solo cuando sus valores de propiedad `runAfter` coinciden con estado del paso primario terminado. Por ejemplo, `branchAction1` y `branchAction2` están configuradas para ejecutarse solo cuando `parentAction` se completa con el estado `Succeeded`.
 
 > [!NOTE]
 > Antes de empezar, la aplicación lógica tiene que tener un paso al que se puedan agregar ramas paralelas.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: ac36499475ffe02ae4d5140f35507530e6cf089e
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 898080f445c54c93543a481bdd0487c70e772160
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994341"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214408"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Introducción a Azure Data Lake Storage Gen2 (versión preliminar)
 
@@ -51,7 +51,7 @@ Azure Storage es escalable de forma natural si obtiene acceso a través de las i
 
 ### <a name="cost-effectiveness"></a>Rentabilidad
 
-Una de las numerosas ventajas de la creación de Data Lake Storage Gen2 sobre Azure Blob Storage es el bajo costo de la capacidad de almacenamiento y las transacciones. A diferencia de otros servicios de almacenamiento en nube, no es necesario mover ni transformar los datos almacenados en Data Lake Storage Gen2 antes de realizar el análisis. Para más información sobre los precios, consulte [Precios de Azure Storage]((https://azure.microsoft.com/pricing/details/storage)).
+Una de las numerosas ventajas de la creación de Data Lake Storage Gen2 sobre Azure Blob Storage es el bajo costo de la capacidad de almacenamiento y las transacciones. A diferencia de otros servicios de almacenamiento en nube, no es necesario mover ni transformar los datos almacenados en Data Lake Storage Gen2 antes de realizar el análisis. Para más información sobre los precios, consulte [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage).
 
 Además, características como el [espacio de nombres jerárquico](data-lake-storage-namespace.md) mejoran significativamente el rendimiento general de muchos trabajos de análisis. Esta mejora del rendimiento significa que se requerirá menos eficacia de proceso para procesar la misma cantidad de datos, lo que genera un menor costo total de propiedad (TCO) para el trabajo de análisis de un extremo a otro.
 

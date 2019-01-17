@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: d73951fa0ded48961e74c4c0c752de37dca62618
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: ab59e3b42d76de6e32ae60e4412f2e20ac29569d
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188035"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54228969"
 ---
 # <a name="adding-a-shard-using-elastic-database-tools"></a>Incorporación de una partición con herramientas de Elastic Database
 
@@ -29,7 +29,7 @@ Si el nuevo intervalo de valores de clave no forma parte todavía de una asignac
 
 ### <a name="example--adding-a-shard-and-its-range-to-an-existing-shard-map"></a>Ejemplo: incorporación de una partición y su intervalo a una asignación de partición existente
 
-En este ejemplo se utilizan los métodos TryGetShard ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.trygetshard) y [.NET](https://docs.microsoft.com/previous-versions/azure/dn823929(v=azure.100))), CreateShard ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.createshard) y [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard)) y CreateRangeMapping ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.createrangemapping) y [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)), y se crea una instancia de la clase ShardLocation ([Java](/java/api/com.microsoft.azure.elasticdb.shard.base.shardlocation) y [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation.shardlocation#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardLocation.)). En el ejemplo siguiente, se ha creado una base de datos denominada **sample_shard_2** y todos los objetos de esquema necesarios en su interior para contener el intervalo [300, 400).  
+En este ejemplo se utilizan los métodos TryGetShard ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.trygetshard) y [.NET](https://docs.microsoft.com/previous-versions/azure/dn823929(v=azure.100))), CreateShard ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.createshard) y [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard)) y CreateRangeMapping ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.createrangemapping) y [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)), y se crea una instancia de la clase ShardLocation ([Java](/java/api/com.microsoft.azure.elasticdb.shard.base.shardlocation) y [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation)). En el ejemplo siguiente, se ha creado una base de datos denominada **sample_shard_2** y todos los objetos de esquema necesarios en su interior para contener el intervalo [300, 400).  
 
 ```csharp
 // sm is a RangeShardMap object.

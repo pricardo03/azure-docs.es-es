@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 820a918b9ab5dd7a399dc43bcfed29fb3b94e99b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: f372c2a85a9a03c7ead779bd4db64722891c9a4c
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971110"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321575"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilación de una solución de IoT con Stream Analytics
 
@@ -36,7 +36,7 @@ Necesita cumplir con estos requisitos previos para completar esta solución:
 ## <a name="scenario-introduction-hello-toll"></a>Introducción al escenario: "peajes".
 Una estación de peaje es un fenómeno común. Se encuentra en muchas autopistas, puentes y túneles de todo el mundo. Cada estación de peaje tiene varias cabinas. En cabinas manuales, se detiene y paga el peaje a un operador. En cabinas automatizadas, un sensor situado en la parte superior de cada cabina escanea una tarjeta RFID que está ubicada en el parabrisas del vehículo al pasar la cabina de peaje. Es fácil imaginar el paso de los vehículos a través de estos peajes como si fuera un flujo de eventos sobre los que se pueden realizar operaciones interesantes.
 
-![Imagen de automóviles en cabinas de peaje](media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth .jpg)
+![Imagen de automóviles en cabinas de peaje](media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth.jpg)
 
 ## <a name="incoming-data"></a>Datos de entrada
 Esta solución funciona con dos secuencias de datos. Los sensores instalados a la entrada y la salida de las estaciones de peaje producen la primera secuencia. La segunda secuencia es un conjunto de datos de búsqueda estática que tiene datos de registro del vehículo.

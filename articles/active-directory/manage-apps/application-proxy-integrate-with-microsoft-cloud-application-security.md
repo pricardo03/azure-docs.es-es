@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 33da0b09339460d66650c492ec125461bc0980b0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 3be75f2fe004939eff6bf6cc960759db69bfb93a
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730822"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215106"
 ---
 # <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>Configuración de la supervisión del acceso a las aplicaciones en tiempo real con Microsoft Cloud App Security y Azure Active Directory
 Configure una aplicación local en Azure Active Directory (Azure AD) para usar Microsoft Cloud App Security (MCAS) para la supervisión en tiempo real. MCAS usa Control de aplicaciones de acceso condicional para supervisar y controlar sesiones en tiempo real basadas en directivas de acceso condicional. Puede aplicar estas directivas a aplicaciones locales que usen el proxy de aplicación en Azure Active Directory (Azure AD).
@@ -27,7 +27,7 @@ Estos son algunos ejemplos de los tipos de directivas que puede crear con MCAS:
 - Usar certificados de cliente o de cumplimiento de dispositivos para bloquear el acceso a determinadas aplicaciones desde dispositivos no administrados.
 - Restringir las sesiones de usuario desde redes no corporativas. Puede dar acceso restringido a los usuarios que acceden a una aplicación desde fuera de la red corporativa. Por ejemplo, este acceso restringido puede impedir que el usuario descargue los documentos confidenciales.
 
-Para obtener más información, vea [Protect apps with Microsoft Cloud App Security Conditional Access App Control](/cloud-app-security/proxy-intro-aad.md) (Proteger aplicaciones con el Control de aplicaciones de acceso condicional de Microsoft Cloud App Security).
+Para obtener más información, vea [Protect apps with Microsoft Cloud App Security Conditional Access App Control](/cloud-app-security/proxy-intro-aad) (Proteger aplicaciones con el Control de aplicaciones de acceso condicional de Microsoft Cloud App Security).
 
 ## <a name="requirements"></a>Requisitos
 

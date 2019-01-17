@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b85737adb8f1c9481fb4b7b2005d2856d2bce9f5
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: bb6e27f92f60712cce71ba6fca53b40af00ee714
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544590"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354457"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Planes de tarifa de Azure Database for MariaDB
 
@@ -53,8 +53,7 @@ El almacenamiento que se aprovisiona es la cantidad de capacidad de almacenamien
 
 Puede agregar capacidad de almacenamiento adicional durante y después de la creación del servidor. El plan Básico no proporciona una garantía de IOPS. En los planes de tarifa Uso general y Memoria optimizada, el valor de IOPS se escala con el tamaño de almacenamiento aprovisionado en una proporción 3:1.
 
-Puede supervisar el consumo de E/S en Azure Portal o mediante los comandos de la CLI de Azure. Las métricas pertinentes que se deben supervisar son el límite de almacenamiento, el porcentaje de almacenamiento, el almacenamiento usado y el porcentaje de E/S.
-<!--[storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md)-->
+Puede supervisar el consumo de E/S en Azure Portal o mediante los comandos de la CLI de Azure. Las métricas pertinentes que se deben supervisar son el [límite de almacenamiento, el porcentaje de almacenamiento, el almacenamiento usado y el porcentaje de E/S](concepts-monitoring.md).
 
 ### <a name="reaching-the-storage-limit"></a>Alcance del límite de almacenamiento
 
@@ -64,7 +63,7 @@ Mientras el servicio intenta hacer que el servidor sea de solo lectura, se bloqu
 
 Recomendamos que configure una alerta que le envíe una notificación cada vez que su almacenamiento en servidor esté cerca del umbral para que pueda evitar entrar en el estado de solo lectura. 
 
-<!--For more information, see the documentation on [how to set up an alert](howto-alert-on-metric.md).-->
+Para obtener más información, consulte la documentación sobre [cómo configurar una alerta](howto-alert-metric.md).
 
 ## <a name="backup"></a>Copia de seguridad
 

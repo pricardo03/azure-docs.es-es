@@ -3,7 +3,7 @@ title: Aplicación de revisiones automatizada para máquinas virtuales SQL Serve
 description: Explica la característica Automated Patching para máquinas virtuales SQL Server que se ejecutan en Azure mediante el modelo de implementación clásica.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/07/2018
-ms.author: jroth
-ms.openlocfilehash: 4bb13ec9d835959273801c2f53c8d736491080a6
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: aa912e3eb76d72e7a79c83d7e51d493310bd36b3
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061342"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331323"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Automated Patching para SQL Server en Azure Virtual Machines (implementación clásica)
 > [!div class="op_single_selector"]
@@ -39,7 +40,7 @@ Aplicación de revisión automatizada se basa en la [Extensión Agente de IaaS d
 > [!IMPORTANT] 
 > Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager. Para ver la versión de Resource Manager de este artículo, consulte [Aplicación de revisión automatizada para SQL Server en Azure Virtual Machines (Resource Manager)](../sql/virtual-machines-windows-sql-automated-patching.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Para utilizar Aplicación de revisión automatizada, tenga en cuenta los siguientes requisitos previos:
 
 **Sistema operativo**:
@@ -62,7 +63,7 @@ Para utilizar Aplicación de revisión automatizada, tenga en cuenta los siguien
 
 * [Instale la extensión IaaS de SQL Server](../classic/sql-server-agent-extension.md).
 
-## <a name="settings"></a>Settings
+## <a name="settings"></a>Configuración
 En la siguiente tabla se describen las opciones que pueden configurarse para Aplicación de revisión automatizada. Para las máquinas virtuales clásicas, debe usar PowerShell para configurar estas opciones.
 
 | Configuración | Valores posibles | DESCRIPCIÓN |
@@ -82,7 +83,7 @@ En el ejemplo siguiente, se usa PowerShell para configurar Aplicación de revisi
 
 Según este ejemplo, la siguiente tabla describe el efecto práctico en la máquina virtual de Azure de destino:
 
-| . | Efecto |
+| Parámetro | Efecto |
 | --- | --- |
 | **DayOfWeek** |Las revisiones instaladas cada jueves. |
 | **MaintenanceWindowStartingHour** |Inicia las actualizaciones a las 11:00 a.m. |

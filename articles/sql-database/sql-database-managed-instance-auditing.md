@@ -13,13 +13,13 @@ author: vainolo
 ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 045314980d0051e8b5ef71bdf95023084eff1880
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.date: 01/12/2019
+ms.openlocfilehash: 716c4caa1b28cc40470d366e5fc6901de9462f9a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063885"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267273"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introducción a la auditoría de Instancia administrada de Azure SQL Database mediante T-SQL
 
@@ -172,9 +172,9 @@ Existen varios métodos que puede usar para ver los registros de auditoría de b
 
 - Use la función del sistema `sys.fn_get_audit_file` (T-SQL) para devolver los datos de registro de auditoría en formato tabular. Para más información sobre el uso de esta función, vea la [documentación de sys.fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
-- Puede explorar los registros de auditoría con una herramienta como el Explorador de Azure Storage. En Azure Storage, los registros de auditoría se guardan como una colección de archivos de blob dentro de un contenedor llamado "sqldbauditlogs". Para obtener más información sobre la jerarquía de la carpeta de almacenamiento, las convenciones de nomenclatura y el formato del registro, vea la referencia del formato de registro de auditoría de blobs.
+- Puede explorar los registros de auditoría con una herramienta como el [Explorador de Azure Storage](https://azure.microsoft.com/en-us/features/storage-explorer/). En Azure Storage, los registros de auditoría se guardan como una colección de archivos de blob dentro de un contenedor llamado "sqldbauditlogs". Para obtener más información sobre la jerarquía de la carpeta de almacenamiento, las convenciones de nomenclatura y el formato del registro, vea la [referencia del formato de registro de auditoría de blobs](https://go.microsoft.com/fwlink/?linkid=829599).
 
-- Para una lista completa de métodos de consumo del registro de auditoría, consulte el [Get started with SQL database auditing](https://docs.microsoft.com/ azure/sql-database/sql-database-auditing) (Introducción a la auditoría de base de datos SQL).
+- Para una lista completa de métodos de consumo del registro de auditoría, consulte el [Get started with SQL database auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) (Introducción a la auditoría de base de datos SQL).
 
 > [!IMPORTANT]
 > El método para ver los registros de auditoría desde Azure Portal (panel "Registros de auditoría") está disponible actualmente para Instancia administrada.

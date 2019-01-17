@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 1d092d0afcb4c9689a55f9af2940884867a17089
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: b5f1247c43dcbd836c684dbf41bafd0d319e5f7c
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104597"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230482"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Esquema de configuración de Azure Diagnostics 1.3 y posterior
 > [!NOTE]
@@ -613,7 +613,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Atributo|Escriba|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|Opcional. Especifica la cantidad máxima de almacenamiento del sistema de archivos que está disponible para los datos especificados.<br /><br /> El valor predeterminado es 0.|  
-|**scheduledTransferLogLevelFilterr**|**cadena**|Opcional. Especifica el nivel de gravedad mínimo para las entradas de registro que se van a transferir. El valor predeterminado es **Undefined**, que transfiere todos los registros. Otros valores posibles (en orden de mayor a menor información) son **Verbose**, **Information**, **Warning**, **Error** y **Critical**.|  
+|**scheduledTransferLogLevelFilter**|**cadena**|Opcional. Especifica el nivel de gravedad mínimo para las entradas de registro que se van a transferir. El valor predeterminado es **Undefined**, que transfiere todos los registros. Otros valores posibles (en orden de mayor a menor información) son **Verbose**, **Information**, **Warning**, **Error** y **Critical**.|  
 |**scheduledTransferPeriod**|**duration**|Opcional. Especifica el intervalo existente entre las transferencias programadas de datos, redondeado al minuto más cercano.<br /><br /> El valor predeterminado es PT0S.|  
 |**sinks** |**cadena**| Agregado en 1.5. Opcional. Apunta a una ubicación de receptor para enviar datos de diagnóstico. Por ejemplo, Application Insights o Event Hubs.|  
 

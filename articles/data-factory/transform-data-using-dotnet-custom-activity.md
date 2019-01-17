@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: douglasl
-ms.openlocfilehash: 34a3b00fdc0644294a97272be7b3a06715c029a1
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 0236d9118389b4f8fb79453b425c70f09e94bbb8
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121335"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213814"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Uso de actividades personalizadas en una canalización de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -26,7 +26,7 @@ ms.locfileid: "54121335"
 Hay dos tipos de actividades que puede usar en una canalización de Azure Data Factory.
 
 - [Actividades de movimiento de datos](copy-activity-overview.md) para mover datos entre [almacenes de datos de origen y receptor compatibles](copy-activity-overview.md#supported-data-stores-and-formats).
-- [Actividades de transformación de datos](transform-data.md) para transformar datos mediante procesos como Azure HDInsight, Azure Batch y Azure Machine Learning. 
+- [Actividades de transformación de datos](transform-data.md) para transformar datos mediante procesos como Azure HDInsight, Azure Batch y Azure Machine Learning.
 
 Para mover datos desde y hacia un almacén de datos incompatible con Data Factory, o para transformar o procesar datos de algún modo incompatible con Data Factory, puede crear una **actividad personalizada** con su propia lógica de desplazamiento o transformación de datos y usarla en una canalización. La actividad personalizada ejecuta la lógica del código personalizado en un grupo de máquinas virtuales de **Azure Batch**.
 
@@ -36,7 +36,7 @@ Consulte los artículos siguientes si no está familiarizado con el servicio Azu
 * Cmdlet [New-AzureRmBatchAccount](/powershell/module/azurerm.batch/New-AzureRmBatchAccount?view=azurermps-4.3.1) para crear una cuenta de Azure Batch o [Azure Portal](../batch/batch-account-create-portal.md) para crear la cuenta de Azure Batch con Azure Portal. Consulte el artículo [Using PowerShell to manage Azure Batch Account](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) (Administración de cuentas de Azure Batch con PowerShell) para instrucciones detalladas sobre el uso del cmdlet.
 * [New-AzureBatchPool](/powershell/module/azurerm.batch/New-AzureBatchPool?view=azurermps-4.3.1) para crear un grupo de Lote de Azure.
 
-## <a name="azure-batch-linked-service"></a>Servicio vinculado de Azure Batch 
+## <a name="azure-batch-linked-service"></a>Servicio vinculado de Azure Batch
 El siguiente JSON define un servicio vinculado de Azure Batch de ejemplo. Para obtener información detallada, vea [Compute environments supported by Azure Data Factory](compute-linked-services.md) (Entornos de proceso compatibles con Azure Data Factory).
 
 ```json
@@ -61,40 +61,40 @@ El siguiente JSON define un servicio vinculado de Azure Batch de ejemplo. Para o
 }
 ```
 
- Para más información sobre el servicio vinculado de Azure Batch, vea el artículo [Servicios vinculados de proceso](compute-linked-services.md). 
+ Para más información sobre el servicio vinculado de Azure Batch, vea el artículo [Servicios vinculados de proceso](compute-linked-services.md).
 
 ## <a name="custom-activity"></a>Actividad personalizada
 
-El siguiente fragmento de código JSON define una canalización con una actividad personalizada simple. La definición de actividad tiene una referencia al servicio vinculado de Azure Batch. 
+El siguiente fragmento de código JSON define una canalización con una actividad personalizada simple. La definición de actividad tiene una referencia al servicio vinculado de Azure Batch.
 
 ```json
 {
-    "name": "MyCustomActivityPipeline",
-    "properties": {
-      "description": "Custom activity sample",
-      "activities": [{
-        "type": "Custom",
-        "name": "MyCustomActivity",
-        "linkedServiceName": {
-          "referenceName": "AzureBatchLinkedService",
+  "name": "MyCustomActivityPipeline",
+  "properties": {
+    "description": "Custom activity sample",
+    "activities": [{
+      "type": "Custom",
+      "name": "MyCustomActivity",
+      "linkedServiceName": {
+        "referenceName": "AzureBatchLinkedService",
+        "type": "LinkedServiceReference"
+      },
+      "typeProperties": {
+        "command": "helloworld.exe",
+        "folderPath": "customactv2/helloworld",
+        "resourceLinkedService": {
+          "referenceName": "StorageLinkedService",
           "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-          "command": "helloworld.exe",
-          "folderPath": "customactv2/helloworld",
-          "resourceLinkedService": {
-            "referenceName": "StorageLinkedService",
-            "type": "LinkedServiceReference"
-          }
         }
-      }]
-    }
+      }
+    }]
   }
+}
 ```
 
-En este ejemplo, el archivo helloworld.exe es una aplicación personalizada que se almacena en la carpeta customactv2/helloworld de la cuenta de Azure Storage usada en la propiedad resourceLinkedService. La actividad personalizada envía esta aplicación personalizada para ejecutarla en Azure Batch. Puede reemplazar el comando en cualquier aplicación preferida que se pueda ejecutar en el sistema operativo de destino de los nodos del grupo de Azure Batch. 
+En este ejemplo, el archivo helloworld.exe es una aplicación personalizada que se almacena en la carpeta customactv2/helloworld de la cuenta de Azure Storage usada en la propiedad resourceLinkedService. La actividad personalizada envía esta aplicación personalizada para ejecutarla en Azure Batch. Puede reemplazar el comando en cualquier aplicación preferida que se pueda ejecutar en el sistema operativo de destino de los nodos del grupo de Azure Batch.
 
-En la tabla siguiente se describen los nombres y descripciones de las propiedades que son específicas de esta actividad. 
+En la tabla siguiente se describen los nombres y descripciones de las propiedades que son específicas de esta actividad.
 
 | Propiedad              | DESCRIPCIÓN                              | Obligatorio |
 | :-------------------- | :--------------------------------------- | :------- |
@@ -116,31 +116,31 @@ La actividad personalizada establece la cuenta de usuario automático de Azure B
 
 ## <a name="executing-commands"></a>Ejecución de comandos
 
-Puede ejecutar directamente un comando mediante la actividad personalizada. En el ejemplo siguiente se ejecuta un comando "echo hello world" en los nodos de grupo de destino de Azure Batch y se imprime la salida en stdout. 
+Puede ejecutar directamente un comando mediante la actividad personalizada. En el ejemplo siguiente se ejecuta un comando "echo hello world" en los nodos de grupo de destino de Azure Batch y se imprime la salida en stdout.
 
-  ```json
-  {
-    "name": "MyCustomActivity",
-    "properties": {
-      "description": "Custom activity sample",
-      "activities": [{
-        "type": "Custom",
-        "name": "MyCustomActivity",
-        "linkedServiceName": {
-          "referenceName": "AzureBatchLinkedService",
-          "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-          "command": "cmd /c echo hello world"
-        }
-      }]
-    }
-  } 
-  ```
+```json
+{
+  "name": "MyCustomActivity",
+  "properties": {
+    "description": "Custom activity sample",
+    "activities": [{
+      "type": "Custom",
+      "name": "MyCustomActivity",
+      "linkedServiceName": {
+        "referenceName": "AzureBatchLinkedService",
+        "type": "LinkedServiceReference"
+      },
+      "typeProperties": {
+        "command": "cmd /c echo hello world"
+      }
+    }]
+  }
+}
+```
 
 ## <a name="passing-objects-and-properties"></a>Pasar objetos y propiedades
 
-En este ejemplo se muestra cómo usar las propiedades referenceObjects y extendedProperties para pasar objetos de Data Factory y propiedades definidas por el usuario a la aplicación personalizada. 
+En este ejemplo se muestra cómo usar las propiedades referenceObjects y extendedProperties para pasar objetos de Data Factory y propiedades definidas por el usuario a la aplicación personalizada.
 
 
 ```json
@@ -169,13 +169,13 @@ En este ejemplo se muestra cómo usar las propiedades referenceObjects y extende
           }]
         },
         "extendedProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "aSampleSecureString"
-            },
-            "PropertyBagPropertyName1": "PropertyBagValue1",
-            "propertyBagPropertyName2": "PropertyBagValue2",
-            "dateTime1": "2015-04-12T12:13:14Z"              
+          "connectionString": {
+            "type": "SecureString",
+            "value": "aSampleSecureString"
+          },
+          "PropertyBagPropertyName1": "PropertyBagValue1",
+          "propertyBagPropertyName2": "PropertyBagValue2",
+          "dateTime1": "2015-04-12T12:13:14Z"
         }
       }
     }]
@@ -183,21 +183,21 @@ En este ejemplo se muestra cómo usar las propiedades referenceObjects y extende
 }
 ```
 
-Al ejecutar la actividad, las propiedades referenceObjects y extendedProperties se almacenan en los siguientes archivos que se implementan en la misma carpeta de ejecución del archivo SampleApp.exe: 
+Al ejecutar la actividad, las propiedades referenceObjects y extendedProperties se almacenan en los siguientes archivos que se implementan en la misma carpeta de ejecución del archivo SampleApp.exe:
 
 - activity.json
 
-  Almacena extendedProperties y las propiedades de la actividad personalizada. 
+  Almacena extendedProperties y las propiedades de la actividad personalizada.
 
 - linkedServices.json
 
-  Almacena una matriz de servicios vinculados definidos en la propiedad referenceObjects. 
+  Almacena una matriz de servicios vinculados definidos en la propiedad referenceObjects.
 
 - datasets.json
 
-  Almacena una matriz de conjuntos de datos definidos en la propiedad referenceObjects. 
+  Almacena una matriz de conjuntos de datos definidos en la propiedad referenceObjects.
 
-En el siguiente código de ejemplo se muestra cómo SampleApp.exe puede obtener acceso a la información necesaria de los archivos JSON: 
+En el siguiente código de ejemplo se muestra cómo SampleApp.exe puede obtener acceso a la información necesaria de los archivos JSON:
 
 ```csharp
 using Newtonsoft.Json;
@@ -224,76 +224,76 @@ namespace SampleApp
 
 ## <a name="retrieve-execution-outputs"></a>Recuperar los resultados de la ejecución
 
-  Puede iniciar una ejecución de canalización mediante el siguiente comando de PowerShell: 
+Puede iniciar una ejecución de canalización mediante el siguiente comando de PowerShell:
 
-  ```.powershell
-  $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
-  ```
-  Durante la ejecución de la canalización, puede comprobar la salida de la ejecución mediante los comandos siguientes: 
+```.powershell
+$runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
+```
+Durante la ejecución de la canalización, puede comprobar la salida de la ejecución mediante los comandos siguientes:
 
-  ```.powershell
-  while ($True) {
-      $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+```.powershell
+while ($True) {
+    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
 
-      if(!$result) {
-          Write-Host "Waiting for pipeline to start..." -foregroundcolor "Yellow"
-      }
-      elseif (($result | Where-Object { $_.Status -eq "InProgress" } | Measure-Object).count -ne 0) {
-          Write-Host "Pipeline run status: In Progress" -foregroundcolor "Yellow"
-      }
-      else {
-          Write-Host "Pipeline '"$pipelineName"' run finished. Result:" -foregroundcolor "Yellow"
-          $result
-          break
-      }
-      ($result | Format-List | Out-String)
-      Start-Sleep -Seconds 15
-  }
+    if(!$result) {
+        Write-Host "Waiting for pipeline to start..." -foregroundcolor "Yellow"
+    }
+    elseif (($result | Where-Object { $_.Status -eq "InProgress" } | Measure-Object).count -ne 0) {
+        Write-Host "Pipeline run status: In Progress" -foregroundcolor "Yellow"
+    }
+    else {
+        Write-Host "Pipeline '"$pipelineName"' run finished. Result:" -foregroundcolor "Yellow"
+        $result
+        break
+    }
+    ($result | Format-List | Out-String)
+    Start-Sleep -Seconds 15
+}
 
-  Write-Host "Activity `Output` section:" -foregroundcolor "Yellow"
-  $result.Output -join "`r`n"
+Write-Host "Activity `Output` section:" -foregroundcolor "Yellow"
+$result.Output -join "`r`n"
 
-  Write-Host "Activity `Error` section:" -foregroundcolor "Yellow"
-  $result.Error -join "`r`n"
-  ```
+Write-Host "Activity `Error` section:" -foregroundcolor "Yellow"
+$result.Error -join "`r`n"
+```
 
-  Los archivos **stdout** y **stderr** de la aplicación personalizada se guardan en el contenedor **adfjobs** del servicio vinculado de Azure Storage definido al crear el servicio vinculado de Azure Batch con un GUID de la tarea. Puede obtener la ruta de acceso detallada de la salida de la ejecución de la actividad tal como se muestra en el siguiente fragmento de código: 
+Los archivos **stdout** y **stderr** de la aplicación personalizada se guardan en el contenedor **adfjobs** del servicio vinculado de Azure Storage definido al crear el servicio vinculado de Azure Batch con un GUID de la tarea. Puede obtener la ruta de acceso detallada de la salida de la ejecución de la actividad tal como se muestra en el siguiente fragmento de código:
 
-  ```shell
-  Pipeline ' MyCustomActivity' run finished. Result:
+```shell
+Pipeline ' MyCustomActivity' run finished. Result:
 
-  ResourceGroupName : resourcegroupname
-  DataFactoryName   : datafactoryname
-  ActivityName      : MyCustomActivity
-  PipelineRunId     : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-  PipelineName      : MyCustomActivity
-  Input             : {command}
-  Output            : {exitcode, outputs, effectiveIntegrationRuntime}
-  LinkedServiceName : 
-  ActivityRunStart  : 10/5/2017 3:33:06 PM
-  ActivityRunEnd    : 10/5/2017 3:33:28 PM
-  DurationInMs      : 21203
-  Status            : Succeeded
-  Error             : {errorCode, message, failureType, target}
+ResourceGroupName : resourcegroupname
+DataFactoryName   : datafactoryname
+ActivityName      : MyCustomActivity
+PipelineRunId     : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+PipelineName      : MyCustomActivity
+Input             : {command}
+Output            : {exitcode, outputs, effectiveIntegrationRuntime}
+LinkedServiceName :
+ActivityRunStart  : 10/5/2017 3:33:06 PM
+ActivityRunEnd    : 10/5/2017 3:33:28 PM
+DurationInMs      : 21203
+Status            : Succeeded
+Error             : {errorCode, message, failureType, target}
 
-  Activity Output section:
-  "exitcode": 0
-  "outputs": [
-    "https://<container>.blob.core.windows.net/adfjobs/<GUID>/output/stdout.txt",
-    "https://<container>.blob.core.windows.net/adfjobs/<GUID>/output/stderr.txt"
-  ]
-  "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US)"
-  Activity Error section:
-  "errorCode": ""
-  "message": ""
-  "failureType": ""
-  "target": "MyCustomActivity"
-  ```
-Si desea usar el contenido de stdout.txt en actividades de bajada, puede obtener la ruta al archivo stdout.txt en la expresión "\@activity('MyCustomActivity').output.outputs[0]". 
+Activity Output section:
+"exitcode": 0
+"outputs": [
+  "https://<container>.blob.core.windows.net/adfjobs/<GUID>/output/stdout.txt",
+  "https://<container>.blob.core.windows.net/adfjobs/<GUID>/output/stderr.txt"
+]
+"effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US)"
+Activity Error section:
+"errorCode": ""
+"message": ""
+"failureType": ""
+"target": "MyCustomActivity"
+```
+Si desea usar el contenido de stdout.txt en actividades de bajada, puede obtener la ruta al archivo stdout.txt en la expresión "\@activity('MyCustomActivity').output.outputs[0]".
 
   > [!IMPORTANT]
-  > - Los archivos activity.json, linkedServices.json y datasets.json se almacenan en la carpeta de tiempo de ejecución de la tarea de Batch. En este ejemplo, los archivos activity.json, linkedServices.json y datasets.json se almacenan en la ruta de acceso "https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/". Si es necesario, deberá limpiarlos por separado. 
-  > - En cuanto a los servicios vinculados que usan un entorno de ejecución de integración autohospedado, la información confidencial (como claves o contraseñas) se cifra mediante el entorno de ejecución de integración autohospedado para garantizar que las credenciales permanecen en el entorno de red privada que haya definido el cliente. Si el código de la aplicación personalizada hace referencia de esta forma a algunos campos confidenciales, es posible que estos no estén presentes. Si es necesario, use SecureString en extendedProperties en lugar de usar la referencia al servicio vinculado. 
+  > - Los archivos activity.json, linkedServices.json y datasets.json se almacenan en la carpeta de tiempo de ejecución de la tarea de Batch. En este ejemplo, los archivos activity.json, linkedServices.json y datasets.json se almacenan en la ruta de acceso "https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/". Si es necesario, deberá limpiarlos por separado.
+  > - En cuanto a los servicios vinculados que usan un entorno de ejecución de integración autohospedado, la información confidencial (como claves o contraseñas) se cifra mediante el entorno de ejecución de integración autohospedado para garantizar que las credenciales permanecen en el entorno de red privada que haya definido el cliente. Si el código de la aplicación personalizada hace referencia de esta forma a algunos campos confidenciales, es posible que estos no estén presentes. Si es necesario, use SecureString en extendedProperties en lugar de usar la referencia al servicio vinculado.
 
 ## <a name="pass-outputs-to-another-activity"></a>Resultados del paso a otra actividad
 
@@ -318,15 +318,15 @@ Para acceder a las propiedades de tipo *SecureString* desde una actividad person
 
 ## <a name="compare-v2-v1"></a> Comparación de la actividad personalizada de la versión 2 y la actividad de DotNet de la versión 1 (personalizada)
 
-  En la versión 1 de Azure Data Factory, puede implementar una actividad de DotNet (personalizada) mediante la creación de un proyecto de la biblioteca de clases .NET con una clase que implementa el método `Execute` de la interfaz `IDotNetActivity`. Los servicios vinculados, los conjuntos de datos y las propiedades extendidas de la carga de JSON de una actividad de DotNet (personalizada) se pasan al método de ejecución como objetos fuertemente tipados. Para detalles sobre el comportamiento de la versión 1, consulte la [actividad de DotNet (personalizada) en la versión 1](v1/data-factory-use-custom-activities.md). Debido a esta implementación, el código de la actividad de DotNet de la versión 1 tiene como destino .NET Framework 4.5.2. La actividad de DotNet de la versión 1 también se debe ejecutar en nodos de grupo de Azure Batch basados en Windows. 
+En la versión 1 de Azure Data Factory, puede implementar una actividad de DotNet (personalizada) mediante la creación de un proyecto de la biblioteca de clases .NET con una clase que implementa el método `Execute` de la interfaz `IDotNetActivity`. Los servicios vinculados, los conjuntos de datos y las propiedades extendidas de la carga de JSON de una actividad de DotNet (personalizada) se pasan al método de ejecución como objetos fuertemente tipados. Para detalles sobre el comportamiento de la versión 1, consulte la [actividad de DotNet (personalizada) en la versión 1](v1/data-factory-use-custom-activities.md). Debido a esta implementación, el código de la actividad de DotNet de la versión 1 tiene como destino .NET Framework 4.5.2. La actividad de DotNet de la versión 1 también se debe ejecutar en nodos de grupo de Azure Batch basados en Windows.
 
-  En la actividad personalizada de Azure Data Factory V2, no es necesario que implemente ninguna interfaz .NET. Ahora puede ejecutar directamente comandos, scripts y su propio código personalizado, compilado como ejecutable. Para configurar esta implementación, debe especificar la propiedad `Command` en conjunto con la propiedad `folderPath`. La actividad personalizada carga el ejecutable y sus dependencias en `folderpath` y ejecuta el comando en su lugar. 
+En la actividad personalizada de Azure Data Factory V2, no es necesario que implemente ninguna interfaz .NET. Ahora puede ejecutar directamente comandos, scripts y su propio código personalizado, compilado como ejecutable. Para configurar esta implementación, debe especificar la propiedad `Command` en conjunto con la propiedad `folderPath`. La actividad personalizada carga el ejecutable y sus dependencias en `folderpath` y ejecuta el comando en su lugar.
 
-  El ejecutable puede acceder a los servicios vinculados, a los conjuntos de datos (definidos en referenceObjects) y a las propiedades extendidas definidas en la carga de JSON de una actividad personalizada de Data Factory v2. Puede acceder a las propiedades requeridas mediante un serializador JSON como se muestra en el ejemplo de código SampleApp.exe anterior. 
+El ejecutable puede acceder a los servicios vinculados, a los conjuntos de datos (definidos en referenceObjects) y a las propiedades extendidas definidas en la carga de JSON de una actividad personalizada de Data Factory v2. Puede acceder a las propiedades requeridas mediante un serializador JSON como se muestra en el ejemplo de código SampleApp.exe anterior.
 
-  Con los cambios introducidos en la actividad personalizada de Data Factory V2, puede escribir su lógica de código personalizado en el lenguaje que desee y ejecutarlo en sistemas operativos Windows o Linux que sean compatibles con Azure Batch. 
+Con los cambios introducidos en la actividad personalizada de Data Factory V2, puede escribir su lógica de código personalizado en el lenguaje que desee y ejecutarlo en sistemas operativos Windows o Linux que sean compatibles con Azure Batch.
 
-  En la tabla siguiente se describen las diferencias entre la actividad personalizada de la versión 2 de Data Factory y la actividad de DotNet (personalizada) de la versión 1 de Data Factory: 
+En la tabla siguiente se describen las diferencias entre la actividad personalizada de la versión 2 de Data Factory y la actividad de DotNet (personalizada) de la versión 1 de Data Factory:
 
 
 |Diferencias      | Actividad personalizada      | Actividad de DotNet (personalizada) de la versión 1      |
@@ -340,25 +340,25 @@ Para acceder a las propiedades de tipo *SecureString* desde una actividad person
 |Registro      |Escribe directamente en STDOUT      |Se implementa el registrador en el archivo DLL de .Net      |
 
 
-  Si tiene código .NET ya existente escrito para la actividad de DotNet (personalizada) de la versión 1, deberá modificar el código para que funcione con la versión actual de la actividad personalizada. Siga estas directrices de alto nivel para actualizar el código:  
+Si tiene código .NET ya existente escrito para la actividad de DotNet (personalizada) de la versión 1, deberá modificar el código para que funcione con la versión actual de la actividad personalizada. Siga estas directrices de alto nivel para actualizar el código:
 
-   - Cambie el proyecto de una biblioteca de clases .Net a una aplicación de consola. 
-   - Inicie la aplicación con el método `Main`. El método `Execute` de la interfaz `IDotNetActivity` ya no es necesario. 
-   - Lea y analice los servicios vinculados, los conjuntos de datos y la actividad con un serializador JSON y como objetos fuertemente tipados. Pase los valores de las propiedades requeridas a la lógica del código personalizado principal. Consulte el código SampleApp.exe anterior como ejemplo. 
-   - Ya no se admite el objeto del registrador. La salida del ejecutable se puede imprimir en la consola y se guarda en stdout.txt. 
-   - Ya no es necesario el paquete NuGet Microsoft.Azure.Management.DataFactories. 
-   - Compile el código, cargue el ejecutable y sus dependencias en Azure Storage y defina la ruta de acceso en la propiedad `folderPath`. 
+  - Cambie el proyecto de una biblioteca de clases .Net a una aplicación de consola.
+  - Inicie la aplicación con el método `Main`. El método `Execute` de la interfaz `IDotNetActivity` ya no es necesario.
+  - Lea y analice los servicios vinculados, los conjuntos de datos y la actividad con un serializador JSON y como objetos fuertemente tipados. Pase los valores de las propiedades requeridas a la lógica del código personalizado principal. Consulte el código SampleApp.exe anterior como ejemplo.
+  - Ya no se admite el objeto del registrador. La salida del ejecutable se puede imprimir en la consola y se guarda en stdout.txt.
+  - Ya no es necesario el paquete NuGet Microsoft.Azure.Management.DataFactories.
+  - Compile el código, cargue el ejecutable y sus dependencias en Azure Storage y defina la ruta de acceso en la propiedad `folderPath`.
 
-Para un ejemplo completo de cómo el archivo DLL entero y el ejemplo de canalización que se describen en el artículo [Uso de actividades personalizadas en una canalización de Azure Data Factory](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) de la versión 1 de Data Factory se pueden reescribir como una actividad personalizada de Data Factory, consulte un [ejemplo de la actividad personalizada de Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
+Para un ejemplo completo de cómo el archivo DLL entero y el ejemplo de canalización que se describen en el artículo [Uso de actividades personalizadas en una canalización de Azure Data Factory](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) de la versión 1 de Data Factory se pueden reescribir como una actividad personalizada de Data Factory, consulte un [ejemplo de la actividad personalizada de Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample).
 
 ## <a name="auto-scaling-of-azure-batch"></a>Escalado automático de Azure Batch
-También puede crear un grupo de Azure Batch con la característica **autoescala** . Por ejemplo, podría crear un grupo de Azure Batch con 0 VM dedicadas y una fórmula de escalado automático basada en el número de tareas pendientes. 
+También puede crear un grupo de Azure Batch con la característica **autoescala** . Por ejemplo, podría crear un grupo de Azure Batch con 0 VM dedicadas y una fórmula de escalado automático basada en el número de tareas pendientes.
 
-La fórmula del ejemplo obtiene el comportamiento siguiente: Cuando el grupo se crea inicialmente, se inicia con una máquina virtual. La métrica $PendingTasks define el número de tareas que están en ejecución o activas (en cola).  La fórmula busca el número promedio de tareas pendientes en los últimos 180 segundos y establece TargetDedicated en consecuencia. Garantiza que TargetDedicated nunca supera las 25 VM. Por tanto, a medida que se envían nuevas tareas, el grupo crece automáticamente y a medida que estás se completan, las VM se liberan una a una y el escalado automático las reduce. startingNumberOfVMs y maxNumberofVMs se pueden adaptar a sus necesidades.
+La fórmula del ejemplo obtiene el comportamiento siguiente: Cuando el grupo se crea inicialmente, se inicia con una máquina virtual. La métrica $PendingTasks define el número de tareas que están en ejecución o activas (en cola). La fórmula busca el número promedio de tareas pendientes en los últimos 180 segundos y establece TargetDedicated en consecuencia. Garantiza que TargetDedicated nunca supera las 25 VM. Por tanto, a medida que se envían nuevas tareas, el grupo crece automáticamente y a medida que estás se completan, las VM se liberan una a una y el escalado automático las reduce. startingNumberOfVMs y maxNumberofVMs se pueden adaptar a sus necesidades.
 
 Fórmula de escalado automático:
 
-``` 
+```
 startingNumberOfVMs = 1;
 maxNumberofVMs = 25;
 pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
@@ -368,11 +368,10 @@ $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 
 Para más información, consulte [Escalado automático de los nodos de proceso en un grupo de Azure Batch](../batch/batch-automatic-scaling.md) .
 
-Si el grupo usa el valor predeterminado de la propiedad [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), el servicio Batch puede tardar de 15 a 30 minutos en preparar la máquina virtual antes de ejecutar la actividad personalizada.  Si el grupo usa otro valor de autoScaleEvaluationInterval diferente, el servicio Batch podría tardar el valor de autoScaleEvaluationInterval más 10 minutos.
-
+Si el grupo usa el valor predeterminado de la propiedad [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), el servicio Batch puede tardar de 15 a 30 minutos en preparar la máquina virtual antes de ejecutar la actividad personalizada. Si el grupo usa otro valor de autoScaleEvaluationInterval diferente, el servicio Batch podría tardar el valor de autoScaleEvaluationInterval más 10 minutos.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Vea los siguientes artículos, en los que se explica cómo transformar datos de otras maneras: 
+Vea los siguientes artículos, en los que se explica cómo transformar datos de otras maneras:
 
 * [Actividad de U-SQL](transform-data-using-data-lake-analytics.md)
 * [Actividad de Hive](transform-data-using-hadoop-hive.md)

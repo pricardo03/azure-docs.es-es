@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 697815aeca9b8a07e3cece877d610436b2b8ac83
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: c60f835939b790a05bb536388b961a277e3101e3
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278294"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215344"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Inicie, detenga e informe sobre el servicio de prueba de Chaos.
@@ -47,9 +47,9 @@ Para obtener el siguiente segmento de los eventos de Chaos, puede especificar el
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --continuation-token | El parámetro continuation token se utiliza para obtener el siguiente conjunto de resultados. Un token de continuación con un valor no vacío se incluye en la respuesta de la API cuando los resultados del sistema no caben en una única respuesta. Cuando este valor se pasa a la siguiente llamada de la API, la API devuelve el siguiente conjunto de resultados. Si no hay más resultados, el token de continuación no contiene ningún valor. El valor de este parámetro no debe ser la dirección URL codificada. |
-| --end-time-utc | El valor de hora del archivo de Windows que representa la hora de finalización del intervalo de tiempo para el que se genera un informe de Chaos. Consulte [Método DateTime.ToFileTimeUtc](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) para más información. |
+| --end-time-utc | El valor de hora del archivo de Windows que representa la hora de finalización del intervalo de tiempo para el que se genera un informe de Chaos. Consulte [Método DateTime.ToFileTimeUtc](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) para más información. |
 | --max-results | El número máximo de resultados que se devuelven como parte de las consultas paginadas. Este parámetro define el límite superior en el número de resultados devueltos. Los resultados devueltos pueden ser menos que el número máximo de resultados especificado si no caben en el mensaje según las restricciones del tamaño máximo del mensaje definidas en la configuración. Si este parámetro es cero o no se especifica, la consulta paginada incluye tantos resultados como quepan en el mensaje devuelto. |
-| --start-time-utc | El valor de hora del archivo de Windows que representa la hora de inicio del intervalo de tiempo para el que se genera un informe de Chaos. Consulte [Método DateTime.ToFileTimeUtc](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) para más información. |
+| --start-time-utc | El valor de hora del archivo de Windows que representa la hora de inicio del intervalo de tiempo para el que se genera un informe de Chaos. Consulte [Método DateTime.ToFileTimeUtc](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) para más información. |
 | --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales

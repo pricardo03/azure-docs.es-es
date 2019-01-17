@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 1d4760eb6490ce458e699ad9bc59a57cb473ef6d
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 8ccd2bfe78ca7b0fabac2b8c9bfd6ba002782a41
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104129"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352825"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Conexión de equipos Windows al servicio Log Analytics de Azure
 
@@ -100,7 +100,7 @@ En la tabla siguiente se resaltan los parámetros de Log Analytics específicos 
 |OPINSIGHTS_PROXY_USERNAME               | Nombre de usuario para acceder a un proxy autenticado |
 |OPINSIGHTS_PROXY_PASSWORD               | Contraseña para acceder a un proxy autenticado |
 
-1. Para extraer los archivos de instalación del agente, desde un símbolo del sistema con privilegios elevados ejecute `MMASetup-<platform>.exe /c` y se le solicitará la ruta en la que extraer los archivos.  Como alternativa, puede especificar la ruta de acceso pasando los argumentos `MMASetup-<platform>.exe /c /t:<Path>`.  
+1. Para extraer los archivos de instalación del agente, desde un símbolo del sistema con privilegios elevados ejecute `MMASetup-<platform>.exe /c` y se le solicitará la ruta en la que extraer los archivos.  Como alternativa, puede especificar la ruta de acceso pasando los argumentos `MMASetup-<platform>.exe /c /t:<Full Path>`.  
 2. Para instalar el agente de forma silenciosa y configurarlo para que informe a un área de trabajo en la nube comercial de Azure, vaya a la carpeta en la que extrajo los archivos de instalación y escriba: 
    
      ```dos

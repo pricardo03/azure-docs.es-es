@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/12/2018
+ms.date: 01/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: f10a3c02e98db5777b5231aec04951a7ed1ad9ad
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: b6d0b702a334bf1127f570bff026fa4332331209
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310687"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260146"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Apéndice de Azure Disk Encryption 
 
@@ -103,7 +103,7 @@ Antes de empezar, revise el artículo de [Requisitos previos](azure-security-dis
      ```
 
 ### <a name="bkmk_prereq-script"></a> Uso del script de PowerShell de requisitos previos de Azure Disk Encryption
-Si ya está familiarizado con los requisitos previos para Azure Disk Encryption, puede usar el [script de PowerShell de requisitos previos de Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Para un ejemplo de uso de este script de PowerShell, consulte la [guía de inicio rápido para el cifrado de máquinas virtuales](quick-encrypt-vm-powershell.md). Puede quitar los comentarios de una sección del script, a partir de la línea 211, para cifrar todos los discos de las máquinas virtuales de un grupo de recursos existente. 
+Si ya está familiarizado con los requisitos previos para Azure Disk Encryption, puede usar el [script de PowerShell de requisitos previos de Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Para un ejemplo de uso de este script de PowerShell, consulte la [guía de inicio rápido para el cifrado de máquinas virtuales](quick-encrypt-vm-powershell.md). Puede quitar los comentarios de una sección del script, a partir de la línea 211, para cifrar todos los discos de las máquinas virtuales de un grupo de recursos existente. 
 
 En la siguiente tabla se muestran los parámetros que se pueden usar en el script de PowerShell: 
 

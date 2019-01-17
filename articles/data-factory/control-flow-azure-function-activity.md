@@ -9,16 +9,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 01/09/2019
 ms.author: douglasl
-ms.openlocfilehash: 4b185236e5925152acb5f8a733e117186a2318cf
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 0fd9b679411dd06336fd65bcb400b152316146fa
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53740899"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54188647"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Actividad de las funciones de Azure en Azure Data Factory
 
@@ -26,7 +25,7 @@ La actividad de las funciones de Azure permite ejecutar [Azure Functions](../azu
 
 ## <a name="azure-function-linked-service"></a>Servicio vinculado de la función de Azure
 
-El tipo de valor devuelto de la función de Azure tiene que ser un elemento JObject válido. Nada produce un error y genera el error de usuario genérico *Error al llamar al punto de conexión*.
+El tipo de valor devuelto de la función de Azure tiene que ser un elemento `JObject` válido. (Tenga en cuenta que [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) *no* es un `JObject`.) Ningún tipo de valor devuelto diferente de `JObject` produce un error y genera el error de usuario genérico *Error al llamar al punto de conexión*.
 
 | **Propiedad** | **Descripción** | **Obligatorio** |
 | --- | --- | --- |

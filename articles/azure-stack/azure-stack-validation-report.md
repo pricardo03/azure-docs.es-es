@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/23/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: 1b2b06c02dc54c4369dd8490b714d1444d4b3b01
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.reviewer: unknown
+ms.openlocfilehash: 0eed7943d782bda134c2df2de6cf9eeeb58bfa3b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986192"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243872"
 ---
 # <a name="azure-stack-validation-report"></a>Informe de validación de Azure Stack
 Use la herramienta Azure Stack Readiness Checker para ejecutar validaciones que admitan la implementación y el mantenimiento de un entorno de Azure Stack. La herramienta escribe los resultados en un archivo de informe .json. El informe muestra los datos resumidos y detallados sobre el estado de los requisitos previos para la implementación de Azure Stack. El informe también muestra información acerca de la rotación de secretos para las implementaciones de Azure Stack existentes.  

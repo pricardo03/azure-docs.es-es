@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 0bc44dc31de4a45127468b956d01d7c3f8d92985
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 47b58e74f57640098751b38c1a4fb504838c9ced
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54122826"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54242365"
 ---
 Puede sacar provecho de numerosas oportunidades para supervisar las máquinas virtuales recopilando, viendo y analizando datos de registro y de diagnóstico. Para llevar a cabo una [supervisión](../articles/azure-monitor/overview.md) sencilla de una máquina virtual, puede usar la pantalla Información general correspondiente en Azure Portal. Puede usar [extensiones](../articles/virtual-machines/windows/extensions-features.md) a fin de configurar los diagnósticos en las máquinas virtuales para recopilar datos de métricas adicionales. También puede usar opciones de supervisión más avanzadas, como [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) y [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -31,7 +31,7 @@ Puede configurar y supervisar la recopilación de [datos de diagnóstico](https:
 
 ## <a name="alerts"></a>Alertas
 
-Puede crear [alertas](../articles/azure-monitor/platform/alerts-overview.md) basadas en métricas de rendimiento concretas. Algunos problemas de los que se puede alertar son, por ejemplo, cuando el uso promedio de la CPU supera un umbral concreto o cuando el espacio libre en disco disponible cae por debajo de una cantidad determinada. Es posible configurar alertas en [Azure Portal](../articles/monitoring-and-diagnostics/insights-alerts-portal.md), con [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md) o la [CLI de Azure](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md).
+Puede crear [alertas](../articles/azure-monitor/platform/alerts-overview.md) basadas en métricas de rendimiento concretas. Algunos problemas de los que se puede alertar son, por ejemplo, cuando el uso promedio de la CPU supera un umbral concreto o cuando el espacio libre en disco disponible cae por debajo de una cantidad determinada. Es posible configurar alertas en [Azure Portal](../articles/azure-monitor/platform/alerts-classic-portal.md), con [Azure PowerShell](../articles/azure-monitor/platform/alerts-classic-portal.md#with-powershell) o la [CLI de Azure](../articles/azure-monitor/platform/alerts-classic-portal.md#with-azure-cli).
 
 ## <a name="azure-service-health"></a>Azure Service Health
 

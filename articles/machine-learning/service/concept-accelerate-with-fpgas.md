@@ -11,12 +11,12 @@ author: tedway
 ms.reviewer: jmartens
 ms.date: 10/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: bc08025f070fb31d83fed26bfec00cec11cee061
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 3aa98026d7293f1486f5450cc9ab17057807c031
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313639"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306134"
 ---
 # <a name="what-are-fpgas-and-project-brainwave"></a>¿Qué son las matrices de puertas programables (FPGA) y Project Brainwave?
 
@@ -39,7 +39,7 @@ El diagrama y la tabla siguientes muestran cómo se comparan las FPGA con otros 
 
 ## <a name="project-brainwave-on-azure"></a>Project Brainwave en Azure
 
-[Project Brainwave](https://www.microsoft.com/research/project/project-brainwave/) es una arquitectura de hardware de Microsoft. Se basa en los dispositivos de FPGA de Intel, cuyos datos usan los científicos de datos y los desarrolladores para acelerar los cálculos de inteligencia artificial en tiempo real. Esta arquitectura habilitada para FPGA ofrece rendimiento, flexibilidad y escalado, y está disponible en Azure.
+[Project Brainwave](https://www.microsoft.com/en-us/research/project/project-brainwave/) es una arquitectura de hardware de Microsoft. Se basa en los dispositivos de FPGA de Intel, cuyos datos usan los científicos de datos y los desarrolladores para acelerar los cálculos de inteligencia artificial en tiempo real. Esta arquitectura habilitada para FPGA ofrece rendimiento, flexibilidad y escalado, y está disponible en Azure.
 
 Las FPGA permiten alcanzar una latencia baja para las solicitudes de inferencia en tiempo real. Las solicitudes asincrónicas (procesamiento por lotes) no son necesarias. El procesamiento por lotes puede causar latencia porque se deben procesar más datos. Las implementaciones de Project Brainwave de unidades de procesamiento neuronal no requieren procesamiento por lotes; por lo tanto, la latencia puede ser muchas veces menor en comparación con los procesadores de CPU y GPU.
 

@@ -1,18 +1,18 @@
 ---
 title: Revisión del informe de estimación de costos en Azure Site Recovery Deployment Planner | Microsoft Docs
 description: En este artículo se describe cómo revisar el informe de estimación de costos en Azure Site Recovery Deployment Planner para VMware para la recuperación ante desastres de Azure.
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 46ec116b357df8cc5de889f64d4620544c062979
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: mayg
+ms.openlocfilehash: d1e406567b5f56f6ad08e4d276202ebf43d92534
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848347"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321500"
 ---
 # <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Revisión del informe de estimación de costos en Site Recovery Deployment Planner para la recuperación ante desastres de VMware en Azure
 
@@ -28,13 +28,13 @@ El resumen le ayuda a comprender lo que debe pagar por los servicios de almacena
  
 Puede ver el costo mensual o anual. Obtenga más información sobre las [regiones de destino admitidas](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) y las [monedas admitidas](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).
 
-**Cost by components** (Costo por componentes): el costo total de recuperación ante desastres se divide en cuatro componentes: el costo de la licencia de Compute, Storage, Network y Azure Site Recovery. El costo se calcula en función del consumo en el que se incurrirá durante la replicación y en el transcurso del simulacro de recuperación ante desastres por los servicios de proceso, almacenamiento (premium y estándar), circuito ExpressRoute o VPN configurados entre el sitio local y Azure, y la licencia de Azure Site Recovery.
+**Cost by components** (Costo por componentes): el costo total de recuperación ante desastres se divide en cuatro componentes: costo de proceso, almacenamiento, red y licencia de Azure Site Recovery. El costo se calcula en función del consumo en el que se incurrirá durante la replicación y en el transcurso del simulacro de recuperación ante desastres por los servicios de proceso, almacenamiento (premium y estándar), circuito ExpressRoute o VPN configurados entre el sitio local y Azure, y la licencia de Azure Site Recovery.
 
 **Cost by states**: el costo total de recuperación ante desastres se clasifica según dos estados diferentes: replicación y simulacro de recuperación ante desastres. 
 
-**Replication cost** (Costo de replicación):  el costo en el que se incurrirá durante la replicación. Incluye el costo de almacenamiento, red y licencia de Azure Site Recovery. 
+**Replication cost** (Costo de replicación):  costo en el que se incurrirá durante la replicación. Incluye el costo de almacenamiento, red y licencia de Azure Site Recovery. 
 
-**DR-Drill cost** (Costo del simulacro de recuperación ante desastres): el costo en el que se incurrirá durante las conmutaciones por error de prueba. Azure Site Recovery pone en marcha las máquinas virtuales durante la conmutación por error de prueba. El costo del simulacro de recuperación ante desastres incluye el costo de los servicios de proceso y almacenamiento de las máquinas virtuales en ejecución. 
+**DR-Drill cost** (Costo del simulacro de recuperación ante desastres): costo en el que se incurrirá durante las conmutaciones por error de prueba. Azure Site Recovery pone en marcha las máquinas virtuales durante la conmutación por error de prueba. El costo del simulacro de recuperación ante desastres incluye el costo de los servicios de proceso y almacenamiento de las máquinas virtuales en ejecución. 
 
 **Azure storage cost per Month/Year**: muestra el costo total en el que se incurrirá por el almacenamiento premium y estándar por la replicación y el simulacro de recuperación ante desastres.
 

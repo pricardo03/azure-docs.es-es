@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 4cd6b375385326889226f6d4284815dfa0f47c49
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 14f74c26822ac1dc9e781ada82809bf3a4166f18
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971314"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54190908"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre la configuración y administración de Web Apps en Azure
 
@@ -188,7 +188,7 @@ Para capturar un seguimiento F12, tiene dos opciones:
 3. Compruebe que esté seleccionada la pestaña **Red** y luego seleccione el botón verde **Reproducir**.
 4. Realice los pasos que reproducen el problema.
 5. Seleccione el botón rojo **Detener**.
-6. Seleccione el botón **Guardar** (icono de disco) y guarde el archivo HAR (en Internet Explorer y Edge) *o* haga clic con el botón derecho en él y seleccione **Save as HAR with content** (Guardar como HAR con contenido) (en Chrome).
+6. Seleccione el botón **Guardar** (icono de disco) y guarde el archivo HAR (en Internet Explorer y Microsoft Edge) *o* haga clic con el botón derecho en él y seleccione **Save as HAR with content** (Guardar como HAR con contenido) (en Chrome).
 
 ### <a name="f12-console-output"></a>Salida de consola de F12
 

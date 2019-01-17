@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 2299dd6c723aa3059c293170c655918e5236ca0e
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 5842c5edd0402d61f564ab15e34e8f69c0e718d7
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138167"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213457"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>No se puede utilizar RDP en Azure Virtual Machines porque el servicio cliente DHCP está deshabilitado
 
@@ -62,7 +62,7 @@ Para resolver este problema, use el control de serie a fin de habilitar DHCP o [
 
 ### <a name="use-serial-control"></a>Uso del control serie
 
-1. Conéctese a una [consola serie y abra la instancia de CMD](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
+1. Conéctese a una [consola serie y abra la instancia de CMD](serial-console-windows.md#use-cmd-or-powershell-in-serial-console).
 ). Si la consola serie no está habilitada en la máquina virtual, consulte [Restablecimiento de la interfaz de red](reset-network-interface.md).
 2. Compruebe si el protocolo DHCP está deshabilitado en la interfaz de red:
 
@@ -95,7 +95,7 @@ Para resolver este problema, use el control de serie a fin de habilitar DHCP o [
 
 #### <a name="dhcp-client-service-is-stopped-because-of-an-access-denied-error"></a>El servicio cliente DHCP se ha detenido debido a un error de denegación de acceso
 
-1. Conéctese a [Serial Console](serial-console-windows.md#) y abra una instancia de PowerShell.
+1. Conéctese a [Serial Console](serial-console-windows.md) y abra una instancia de PowerShell.
 2. Descargue la herramienta Monitor de procesos ejecutando el siguiente script:
 
    ```

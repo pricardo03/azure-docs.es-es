@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.openlocfilehash: 9b721ab614bf1797604fe342de117c78ba703f96
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 01/10/2019
+ms.openlocfilehash: c84b814ddc06c583fc2f07288c7aa5cd65cc70a0
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557604"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232131"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Características en vista previa (GB) de Azure Stream Analytics
 
@@ -26,10 +26,6 @@ Las características siguientes se encuentran en la versión preliminar pública
 ### <a name="integration-with-azure-machine-learning"></a>Integración con Azure Machine Learning
 
 Puede escalar los trabajos de Stream Analytics con las funciones de Machine Learning (ML). Para obtener más información acerca de cómo puede usar las funciones de Machine Learning en un trabajo de Stream Analytics, visite [Escalado del trabajo de Análisis de transmisiones con funciones de Azure Machine Learning](stream-analytics-scale-with-machine-learning-functions.md). Eche un vistazo a un escenario realista con [Análisis de opiniones mediante Azure Stream Analytics y Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
-
-### <a name="session-windows"></a>Ventanas de sesión
-
-Stream Analytics ofrece compatibilidad nativa para las funciones de ventana, lo que permite a los desarrolladores crear trabajos de procesamiento de flujo complejos con un mínimo esfuerzo. Las [ventanas de sesión](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics) agrupan eventos que llegan a la misma hora, filtrando los periodos en los que no hay ningún dato. Para obtener más información acerca de las funciones de ventana, visite [Introducción a las funciones de ventana de Stream Analytics](stream-analytics-window-functions.md).
 
 ### <a name="blob-output-partitioning-by-custom-time"></a>Particiones de salida de blob por tiempo personalizado
 

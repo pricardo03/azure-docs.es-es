@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 7d079f543f8b564c396560c97225897c12f3cd24
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 9a1d328f79405b14ffd84e07cb915566bd686c8e
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975651"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54120961"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Documentación de referencia de Swagger de Azure Digital Twins
 
@@ -55,7 +55,7 @@ Puede seleccionar cada modelo de objetos de la lista para obtener un resumen má
 
 ![Modelo de Swagger][3]
 
-Los modelos de objetos de Swagger generados resultan prácticos para ver todos los [objetos y las API](./concepts-objectmodel-spatialgraph.md) de Azure Digital Twins que están disponibles. Los desarrolladores pueden hacer uso de este recurso al crear soluciones en Azure Digital Twins.
+Los modelos de objetos de Swagger generados resultan prácticos para ver todos los [objetos y las API](./concepts-objectmodel-spatialgraph.md) de Azure Digital Twins que están disponibles. Los desarrolladores utilizar recurso al crear soluciones en Azure Digital Twins.
 
 ## <a name="endpoint-summary"></a>Resumen de puntos de conexión
 
@@ -79,7 +79,7 @@ Después de seleccionar un punto de conexión específico, verá **Try it out** 
 
 ![Prueba de Swagger][5]
 
-Al expandir esa sección se muestran los campos de entrada para cada parámetro obligatorio y opcional. Escriba los valores según corresponda y seleccione **Ejecutar**.
+Al expandir esa sección se muestran los campos de entrada para cada parámetro obligatorio y opcional. Escriba los valores correctos y seleccione **Ejecución**.
 
 ![Swagger probado][6]
 
@@ -102,9 +102,9 @@ Para más información sobre las solicitudes de pruebas interactivas protegidas 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre los modelos de objeto de Azure Digital Twins y el grafo de inteligencia espacial, lea [Descripción de los modelos de objetos de Azure Digital Twins](./concepts-objectmodel-spatialgraph.md).
+- Para más información sobre los modelos de objeto de Azure Digital Twins y el grafo de inteligencia espacial, lea [Descripción de los modelos de objetos de Azure Digital Twins](./concepts-objectmodel-spatialgraph.md).
 
-Para aprender cómo autenticar con Management API, lea [Autenticación con las API](./security-authenticating-apis.md).
+- Para aprender cómo autenticar con Management API, lea [Autenticación con las API](./security-authenticating-apis.md).
 
 <!-- Images -->
 [1]: media/how-to-use-swagger/swagger_management_top.PNG

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 095ecdccde930db20ee858bfce7fc0811163cdd9
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 1b55a2b053b86d3260fdca201357445d2556c444
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038269"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199041"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtro y preprocesamiento de la telemetría en el SDK de Application Insights
 
@@ -282,7 +282,7 @@ En ApplicationInsights.config:
 
 ### <a name="java-telemetry-initializers"></a>Inicializadores de telemetría de Java
 
-[Documentación del SDK de Java](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility._telemetry_initializer?view=azure-java-stable)
+[Documentación del SDK de Java](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.telemetryinitializer?view=azure-java-stable)
 
 ```Java
 public interface TelemetryInitializer

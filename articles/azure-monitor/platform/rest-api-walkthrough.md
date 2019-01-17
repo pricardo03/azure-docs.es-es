@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
 ms.component: ''
-ms.openlocfilehash: c11bd2cc5f660ec72aa35ea21a378e6afb7d604a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0f08101c7948d7f3e211f8764458c2eaeacb0859
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53439772"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330626"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Tutorial sobre la API de REST de supervisión de Azure
 En este artículo se describe cómo realizar la autenticación, para que el código pueda usar la [referencia de API de REST de Microsoft Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
@@ -389,7 +389,7 @@ $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-x
 Invoke-RestMethod -Uri $request `
                   -Headers $authHeader `
                   -Method Get `
-                  -OutFile ".\contostweets-metricdef-results.json" `
+                  -OutFile ".\contosotweets-metricdef-results.json" `
                   -Verbose
 ```
 > [!NOTE]
@@ -459,7 +459,7 @@ $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-x
 Invoke-RestMethod -Uri $request `
     -Headers $authHeader `
     -Method Get `
-    -OutFile ".\contostweets-metrics-results.json" `
+    -OutFile ".\contosotweets-metrics-results.json" `
     -Verbose
 ```
 
@@ -507,7 +507,7 @@ $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-x
 Invoke-RestMethod -Uri $request `
     -Headers $authHeader `
     -Method Get `
-    -OutFile ".\contostweets-metrics-multiple-results.json" `
+    -OutFile ".\contosotweets-metrics-multiple-results.json" `
     -Verbose
 ```
 El cuerpo de respuesta JSON resultante sería similar al siguiente ejemplo:

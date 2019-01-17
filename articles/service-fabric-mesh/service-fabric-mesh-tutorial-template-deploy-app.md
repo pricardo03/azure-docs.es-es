@@ -12,17 +12,17 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 01/11/2019
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 19a9ae18c7fbf3b0f663396099f065c76969206f
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 97b1efbcb02277028782764ca1018b195ab21277
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890388"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246371"
 ---
-# <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: implementar una aplicación en Service Fabric Mesh mediante una plantilla
+# <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: Implementar una aplicación en Service Fabric Mesh mediante una plantilla
 
 Este tutorial es la primera parte de una serie. Obtendrá información sobre cómo implementar una aplicación de Azure Service Fabric Mesh mediante una plantilla.  La aplicación se compone de un servicio front-end web ASP.NET y un servicio back-end ASP.NET Core Web API, que se encuentran en Docker Hub.  Extraiga las dos imágenes de contenedor de Docker Hub y luego insértelas en su propio registro privado. A continuación, cree una plantilla de Azure RM para la aplicación e implemente la aplicación desde el registro de contenedor en Service Fabric Mesh. Cuando haya terminado, tendrá una sencilla aplicación de lista de tareas pendientes que se ejecuta en Service Fabric Mesh.
 
@@ -236,7 +236,7 @@ Los servicios se especifican en la plantilla como propiedades del recurso de apl
   },
   "resources": [
     {
-      "apiVersion": "2018-07-01-preview",
+      "apiVersion": "2018-09-01-preview",
       "name": "MyMeshApplication",
       "type": "Microsoft.ServiceFabricMesh/applications",
       "location": "[parameters('location')]",
@@ -319,7 +319,7 @@ Los servicios se especifican en la plantilla como propiedades del recurso de apl
       }
     },
     {
-      "apiVersion": "2018-07-01-preview",
+      "apiVersion": "2018-09-01-preview",
       "name": "ServiceAVolume",
       "type": "Microsoft.ServiceFabricMesh/volumes",
       "location": "[parameters('location')]",
@@ -375,7 +375,7 @@ Esta información proviene de la sección ```outputs``` de la plantilla ARM. Com
 ```json
   "outputs": {
     "publicIPAddress": {
-      "value": "[reference('helloWorldGateway').ipAddress]",
+      "value": "[reference('todolistappGateway').ipAddress]",
       "type": "string"
     }
   }
@@ -386,7 +386,7 @@ Esta información proviene de la sección ```outputs``` de la plantilla ARM. Com
 Una vez que la aplicación se ha implementado correctamente, obtenga la dirección IP pública del punto de conexión de servicio. El comando de implementación devuelve la dirección IP pública del punto de conexión de servicio. Si lo desea, también puede consultar el recurso de red para buscar la dirección IP pública del punto de conexión de servicio. El nombre de los recursos de red de esta aplicación es `todolistappNetwork`; puede obtener información sobre él mediante el siguiente comando. 
 
 ```azurecli
-az mesh network show --resource-group myResourceGroup --name todolistappNetwork
+az mesh gateway show --resource-group myResourceGroup --name todolistappGateway
 ```
 
 Vaya a la dirección IP en un explorador web.

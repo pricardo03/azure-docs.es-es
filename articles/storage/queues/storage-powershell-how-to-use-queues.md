@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: rogarana
 ms.component: queues
-ms.openlocfilehash: fef6858383028d62a16472bd530bf456d01ee7d3
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 016d6b1991085e3ed881deb68317dbde0ee46326
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634429"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213236"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Operaciones en Azure Queue Storage con Azure PowerShell
 
@@ -77,7 +77,7 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-queue"></a>Creación de una cola
 
-En el siguiente ejemplo, primero se establece una conexión a Azure Storage mediante el contexto de cuenta de almacenamiento, en el cual se incluyen el nombre de la cuenta y su clave de acceso. A continuación llama al cmdlet [New-AzStorageQueue](/powershell/module/azure.storage/new-AzStoragequeue) para crear una cola llamada "queuename".
+En el siguiente ejemplo, primero se establece una conexión a Azure Storage mediante el contexto de cuenta de almacenamiento, en el cual se incluyen el nombre de la cuenta y su clave de acceso. A continuación llama al cmdlet [New-AzStorageQueue](/powershell/module/az.storage/New-AzStorageQueue) para crear una cola llamada "queuename".
 
 ```powershell
 $queueName = "howtoqueue"
@@ -88,7 +88,7 @@ Para obtener información sobre las convenciones de nomenclatura del servicio Co
 
 ## <a name="retrieve-a-queue"></a>Recuperar una cola
 
-Puede consultar y recuperar una cola específica o una lista de todas las colas de una cuenta de almacenamiento. Los ejemplos siguientes muestran cómo recuperar todas las colas de la cuenta de almacenamiento y una cola específica; ambos comandos usan el cmdlet [Get-AzStorageQueue](/powershell/module/azure.storage/get-AzStoragequeue).
+Puede consultar y recuperar una cola específica o una lista de todas las colas de una cuenta de almacenamiento. Los ejemplos siguientes muestran cómo recuperar todas las colas de la cuenta de almacenamiento y una cola específica; ambos comandos usan el cmdlet [Get-AzStorageQueue](/powershell/module/az.storage/Get-AzStorageQueue).
 
 ```powershell
 # Retrieve a specific queue

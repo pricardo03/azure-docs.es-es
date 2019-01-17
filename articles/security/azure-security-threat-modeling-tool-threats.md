@@ -3,9 +3,9 @@ title: 'Amenazas: Microsoft Threat Modeling Tool (Azure) | Microsoft Docs'
 description: Página de categorías de amenazas de Microsoft Threat Modeling Tool, que contiene categorías para todas las amenazas generadas expuestas.
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 704f9995828866d4d2e4969e3aa922ed1e23c4ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fd7c5fd929163dc7fcd22fbb045dee0fe3070394
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23043310"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359041"
 ---
 # <a name="microsoft-threat-modeling-tool-threats"></a>Amenazas de Microsoft Threat Modeling Tool
 
 Threat Modeling Tool es un elemento básico del Ciclo de vida de desarrollo de seguridad (SDL) de Microsoft. Permite a los arquitectos de software identificar y mitigar los posibles problemas de seguridad en una fase temprana, cuando son relativamente sencillos y poco costosos de resolver. En consecuencia, reduce en gran medida el costo total de desarrollo. Además, hemos diseñado la herramienta pensando en expertos no relacionados con la seguridad, lo que facilita el modelado de amenazas para todos los programadores, ya que se proporcionan instrucciones claras sobre cómo crear y analizar los modelos de amenazas.
 
-> Visite  **[Threat Modeling Tool](./azure-security-threat-modeling-tool.md)** .
+> Visite **[Threat Modeling Tool](./azure-security-threat-modeling-tool.md)**.
 
 La Herramienta de modelado de amenazas le ayuda a dar respuesta a determinadas preguntas como las siguientes:
 
@@ -37,7 +37,7 @@ La Herramienta de modelado de amenazas le ayuda a dar respuesta a determinadas p
 
 Para ayudarle a formular mejor los tipos de pregunta planteados, Microsoft utiliza el modelo STRIDE, que clasifica los distintos tipos de amenazas y simplifica las conversaciones de seguridad global.
 
-| Categoría | Descripción |
+| Categoría | DESCRIPCIÓN |
 | -------- | ----------- |
 | **Suplantación de identidad** | Implica el acceso y uso ilícitos de la información de autenticación de otro usuario, como el nombre de usuario y la contraseña. |
 | **Alteración de datos** | Implica la modificación malintencionada de los datos. Entre los ejemplos se incluyen los cambios no autorizados realizados en los datos persistentes, como los que se encuentran en una base de datos, y la alteración de datos a medida que fluyen entre dos equipos a través de una red abierta, como Internet. |
@@ -48,4 +48,4 @@ Para ayudarle a formular mejor los tipos de pregunta planteados, Microsoft utili
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Continúe con  **[Mitigaciones de Threat Modeling Tool](./azure-security-threat-modeling-tool-mitigations.md)**  para conocer las distintas maneras en que puede mitigar estas amenazas con Azure.
+Continúe con **[Mitigaciones de Threat Modeling Tool](./azure-security-threat-modeling-tool-mitigations.md)** para conocer las distintas maneras en que puede mitigar estas amenazas con Azure.

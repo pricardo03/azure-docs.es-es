@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: anwestg
-ms.reviewer: ''
-ms.openlocfilehash: 80948b973e6d20b4760e97311c5a65886cf91f8f
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.reviewer: anwestg
+ms.openlocfilehash: b721545f27135e36b2999de5acc61e77539a94b2
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51617033"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247323"
 ---
 # <a name="app-service-on-azure-stack-update-4-release-notes"></a>Notas de la versión de la actualización 4 de App Service en Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Estas notas de la versión describen las mejoras y correcciones de la actualización 4 de Azure App Service en Azure Stack y los problemas conocidos. Los problemas conocidos se dividen en aquellos que están relacionados directamente con el proceso de actualización y aquellos que están relacionados con la compilación (posteriores a la instalación).
 
@@ -207,10 +207,10 @@ Si decide realizar una implementación en una red virtual existente y en una dir
  * Origen: Cualquiera
  * Intervalo de puertos de origen: *
  * Destino: Direcciones IP
- * Intervalo de direcciones IP de destino: intervalo de direcciones IP del servidor de archivos
+ * Intervalo de direcciones IP de destino: Intervalo de direcciones IP del servidor de archivos
  * Intervalo de puertos de destino: 445
  * Protocolo: TCP
- * Acción: Permitir
+ * Acción: PERMITIR
  * Prioridad: 700
  * Nombre: Outbound_Allow_SMB445
 

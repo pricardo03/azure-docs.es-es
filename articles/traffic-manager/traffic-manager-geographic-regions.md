@@ -4,6 +4,7 @@ description: En este artículo se muestra la jerarquía de país o región usada
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -11,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 1609daa4edbc3db9384941d575c141faaa799fb6
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 26e54ba507ecab5d12ceb4169baaa52f99c20792
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138249"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232437"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Jerarquía de país o región usada por Azure Traffic Manager para el método de enrutamiento de tráfico geográfico
 

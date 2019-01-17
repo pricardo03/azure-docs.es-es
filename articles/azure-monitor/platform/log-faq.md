@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: a2213ac9b31623aed18855ce87e7e00870b05247
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: c3aef8c0c05c8f018a3218e15fd102163b89084f
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107234"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214749"
 ---
 # <a name="log-analytics-faq"></a>Preguntas frecuentes sobre Log Analytics
 En este artículo de preguntas frecuentes de Microsoft, se presenta una lista con las preguntas frecuentes sobre Log Analytics en Microsoft Azure. Si tiene alguna otra pregunta sobre Log Analytics, vaya al [foro de discusión](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) y publíquela. Si una pregunta es frecuente, se agrega a este artículo para que se pueda encontrar de forma rápida y sencilla.
@@ -63,7 +63,7 @@ R: Para ver los registros de la VM, debe tener permiso de lectura para aquellos 
 
 ### <a name="q-why-can-i-can-access-my-workspace-in-oms-portal-but-i-get-the-error-you-have-no-access-in-the-azure-portal"></a>P: ¿por qué puedo acceder a mi espacio de trabajo en el portal de OMS, pero aparece el error "No tiene acceso" en Azure Portal?  
 
-R: Para obtener acceso a un área de trabajo en Azure, debe tener asignados permisos de Azure. Hay algunos casos donde es posible que no tenga los permisos de acceso adecuados. En ese caso, el administrador debe otorgarle permisos en Azure.Consulte [Traslado del portal de OMS a Azure](/../../azure-monitor/platform/oms-portal-transition.md) para obtener más información.
+R: Para obtener acceso a un área de trabajo en Azure, debe tener asignados permisos de Azure. Hay algunos casos donde es posible que no tenga los permisos de acceso adecuados. En ese caso, el administrador debe otorgarle permisos en Azure.Consulte [Traslado del portal de OMS a Azure](oms-portal-transition.md) para obtener más información.
 
 ### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>P: ¿por qué no puedo ver la entrada del Diseñador de vistas en los registros? 
 R: El Diseñador de vistas solo está disponible en los registros de los usuarios asignados que tengan permiso de colaborador o superior.
