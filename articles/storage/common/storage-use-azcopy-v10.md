@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.author: artemuwka
 ms.component: common
-ms.openlocfilehash: af45081df280f5542b5ba70892ee74c05b3e99cc
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 2d0f3292a12505249ebc8594c58234a0c6e81a8a
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808128"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212505"
 ---
 # <a name="transfer-data-with-the-azcopy-v10-preview"></a>Transferencia de datos con AzCopy v10 (versión preliminar)
 
@@ -55,7 +55,7 @@ AzCopy v10 no requiere instalación. Abra una aplicación de línea de comandos 
 
 AzCopy v10 permite usar las siguientes opciones al autenticarse en Azure Storage:
 - **Azure Active Directory [Tipos admitidos en blob y ADLS Gen2]**. Use ```.\azcopy login``` para iniciar sesión con Azure Active Directory.  El usuario debe tener [asignado el rol "Colaborador de datos de blobs de almacenamiento"](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) para escribir en el almacenamiento de blobs mediante la autenticación de Azure Active Directory.
-- **Tokens de SAS [admitidos en Blob service y File service]**. Anexe el token de SAS a la ruta de acceso de blob en la línea de comandos para usarlo. Puede generar el token de SAS mediante Azure Portal, el [Explorador de Azure Storage](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-AzStorageblobsastoken) u otras herramientas que prefiera. Para más información, consulte los [ejemplos](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
+- **Tokens de SAS [admitidos en Blob service y File service]**. Anexe el token de SAS a la ruta de acceso de blob en la línea de comandos para usarlo. Puede generar el token de SAS mediante Azure Portal, el [Explorador de Azure Storage](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken) u otras herramientas que prefiera. Para más información, consulte los [ejemplos](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
 
 ## <a name="getting-started"></a>Introducción
 

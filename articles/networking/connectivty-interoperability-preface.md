@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 4e077e496479d146306bd301f303b4e8c0f97d05
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: b090633ee33582a235a92ab7100741e0be48cb27
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191877"
+ms.locfileid: "54200163"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-setup"></a>Interoperabilidad de las características de conectividad del back-end de Azure: Prueba de configuración
 
@@ -43,7 +43,7 @@ La pieza central de la configuración de prueba es la red virtual del concentrad
 
 ###  <a name="site-to-site-vpn-over-expressroute"></a>VPN de sitio a sitio con ExpressRoute
 
-You can configure a site-to-site VPN by using ExpressRoute Microsoft peering to privately exchange data between your on-premises network and your Azure VNets. Esta configuración le asegura un intercambio de datos con confidencialidad, autenticidad, integridad y antirreproducción. Para más información sobre cómo configurar una VPN IPsec de sitio a sitio en modo de túnel con emparejamiento de Microsoft de ExpressRoute, consulte [Configuración de una VPN de sitio a sitio a través del emparejamiento de Microsoft de ExpressRoute][S2S-Over-ExR]. 
+You can configure a site-to-site VPN by using ExpressRoute Microsoft peering to privately exchange data between your on-premises network and your Azure VNets. Esta configuración le asegura un intercambio de datos con confidencialidad, autenticidad, integridad y antirreproducción. Para más información acerca de cómo configurar una VPN IPsec de sitio a sitio en modo de túnel con emparejamiento de Microsoft de ExpressRoute, consulte [Configuración de una VPN de sitio a sitio a través del emparejamiento de Microsoft de ExpressRoute][S2S-Over-ExR]. 
 
 La limitación principal de la configuración de una VPN de sitio a sitio que use el emparejamiento de Microsoft es el rendimiento. El rendimiento a través del túnel IPsec está limitado por la capacidad de la puerta de enlace de VPN. El rendimiento de la puerta de enlace de VPN es menor que el de ExpressRoute. En este escenario, el uso del túnel IPsec para el tráfico de seguridad alta y con emparejamiento privado para el tráfico restante ayuda a optimizar el uso de ancho de banda de ExpressRoute.
 
@@ -71,11 +71,11 @@ Para más información, consulte [¿Qué es VPN Gateway?][VPN] e [Implementació
 
 Obtenga información acerca de los [detalles de configuración][Configuration] de la topología de prueba.
 
-Obtenga información sobre el [análisis del plano de control][Control-Analysis] de la configuración de la prueba de las vistas de otras redes virtuales y VLAN de la topología.
+Obtenga información acerca del [análisis del plano de control][Control-Analysis] de la configuración de prueba y de las vistas de otras redes virtuales y VLAN de la topología.
 
 Obtenga información acerca del [análisis del plano de datos][Data-Analysis] de la configuración de prueba y de las vistas de las características de supervisión de red de Azure.
 
-Consulte [P+F de ExpressRoute][ExR-FAQ] para información sobre:
+Consulte [P+F de ExpressRoute][ExR-FAQ] para obtener información acerca de:
 -   Cuántos circuitos de ExpressRoute puede conectar a una puerta de enlace de ExpressRoute.
 -   Cuántas puertas de enlace de ExpressRoute puede conectar a un circuito de ExpressRoute.
 -   Los límites de escala de ExpressRoute.
@@ -89,6 +89,12 @@ Consulte [P+F de ExpressRoute][ExR-FAQ] para información sobre:
 [VPN]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways
 [VNet]: https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal
 [Configuration]: connectivty-interoperability-configuration.md
-[Control-Analysis]connectivty-interoperability-control-plane.md [Data-Analysis]: connectivty-interoperability-data-plane.md [ExR-FAQ]: https://docs.microsoft.com/azure/expressroute/expressroute-faqs [S2S-Over-ExR]: https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering [ExR-S2S-CoEx]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager [Hub-n-Spoke]: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke [Deploy-NVA]: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-haa
+[Control-Analysis]: connectivty-interoperability-control-plane.md
+[Data-Analysis]: connectivty-interoperability-data-plane.md
+[ExR-FAQ]: https://docs.microsoft.com/azure/expressroute/expressroute-faqs
+[S2S-Over-ExR]: https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering
+[ExR-S2S-CoEx]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager
+[Hub-n-Spoke]: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+[Deploy-NVA]: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha
 
 

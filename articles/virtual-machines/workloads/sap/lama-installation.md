@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 17/07/2018
 ms.author: sedusch
-ms.openlocfilehash: 2a0934fa3bb46eebba02029a8292b9bee6b12c62
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: d5d344f47fa46e9fe0adea048db200ec67a3fadc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728232"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262593"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Conector de SAP LaMa para Azure
 
@@ -116,7 +116,7 @@ en la parte inferior del sitio web.
 
 ## <a name="provision-a-new-adaptive-sap-system"></a>Aprovisionamiento de un nuevo sistema SAP adaptable
 
-Puede implementar manualmente una nueva máquina virtual o usar una de las plantillas de Azure del [repositorio de inicio rápido](https://github.com/Azure/azure-quickstart-templates). Este repositorio contiene plantillas para [ASCS de SAP NetWeaver](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-ascs), [servidores de aplicaciones de SAP NetWeaver](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-apps) y la [base de datos](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-db). También puede usar estas plantillas para aprovisionar nuevos hosts como parte de la copia o la clonación de un sistema, etc.
+Puede implementar manualmente una nueva máquina virtual o usar una de las plantillas de Azure del [repositorio de inicio rápido](https://github.com/Azure/azure-quickstart-templates). Este repositorio contiene plantillas para [ASCS de SAP NetWeaver](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-ascs), [servidores de aplicaciones de SAP NetWeaver](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-apps) y la [base de datos](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-database). También puede usar estas plantillas para aprovisionar nuevos hosts como parte de la copia o la clonación de un sistema, etc.
 
 Se recomienda usar una subred independiente para todas las máquinas virtuales que quiera administrar con SAP LaMa y no usar direcciones IP dinámicas para impedir el "robo" de direcciones IP al implementar nuevas máquinas virtuales cuando las instancias de SAP no están preparadas.
 

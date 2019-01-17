@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 30f20e2671b4428f08c38eeb93ec90f0b745eea6
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 58486ab821b6b01f531f62445a9d4ade1336569a
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819124"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332020"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Configuración de registros de flujo de grupos de seguridad de red mediante la API de REST
 
@@ -32,7 +32,7 @@ ms.locfileid: "51819124"
 Los registros de flujo de grupos de seguridad de red son una característica de Network Watcher que permite ver información acerca del tráfico IP de entrada y de salida en un grupo de seguridad de red. Estos registros de flujo se escriben en formato JSON y muestran los flujos de entrada y salida en función de cada regla, la NIC a la que se aplica el flujo, información de 5-tupla sobre el flujo (IP de origen/destino, puerto de origen/destino, protocolo), y si se permitió o denegó el tráfico.
 
 > [!NOTE] 
-> La versión 2 de los registros de flujo solo está disponible en la región Centro-oeste de EE. UU. La configuración está disponible mediante Azure Portal y API REST. Si habilita los registros de la versión 2 en una región no admitida, hará que los registros de la versión 1 se envíen a su cuenta de almacenamiento.
+> La versión 2 de los registros de flujo solo está disponible en la región Centro-oeste de EE. UU. Si habilita los registros de la versión 2 en una región no admitida, hará que los registros de la versión 1 se envíen a su cuenta de almacenamiento.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: c26f9c319a8260f4c19933d640310923b9c36db7
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 768a9d930314882f88eab630365475d69aa5f83b
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134835"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213729"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Error "Can't Access this Corporate Application" al usar una aplicación de Proxy de aplicación
 
@@ -62,7 +62,7 @@ Estos errores indican que el conector no puede alcanzar la aplicación back-end.
 
 Este tipo de error indica que el usuario no se ha asignado a la aplicación, ya sea en Azure Active Directory o en la aplicación de back-end.
 
-Para información sobre cómo asignar usuarios a la aplicación en Azure, consulte la [documentación de configuración](https://docs.microsoft.com/azure/active-directory/application-proxy-add-on-premises-application#add-a-test-user).
+Para información sobre cómo asignar usuarios a la aplicación en Azure, consulte la [documentación de configuración](application-proxy-add-on-premises-application.md#test-the-application).
 
 Si confirma que el usuario está asignado a la aplicación en Azure, compruebe la configuración del usuario en la aplicación de back-end. Si está utilizando la delegación limitada de kerberos o la autenticación integrada de Windows, consulte la página de solución de problemas de KCD para obtener directrices.
 

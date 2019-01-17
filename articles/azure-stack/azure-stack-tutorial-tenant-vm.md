@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: jeffgilb
-ms.reviewer: ''
+ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: d106d9f79498678f08142f952e09c5125c6e5d6c
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 7c4f8fd3d7a4885893a126c63776a5e241dc0f91
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721524"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246541"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>Tutorial: Máquinas virtuales disponibles para los usuarios de Azure Stack
 
@@ -108,7 +108,7 @@ Ahora que ha creado una oferta, puede probarla. Inicie sesión como usuario, sus
 
 1. **Suscripción a una oferta**
 
-   a. Inicie sesión en el portal de usuarios con una cuenta de usuario y seleccione el icono **Obtener una suscripción**.
+    a. Inicie sesión en el portal de usuarios con una cuenta de usuario y seleccione el icono **Obtener una suscripción**.
    - En un sistema integrado, la dirección URL varía en función de la región y el nombre de dominio externo del operador y tendrá el formato https://portal.&lt;*región*&gt;.&lt;*FQDN*&gt;.
    - Si usa el Kit de desarrollo de Azure Stack, la dirección del portal es https://portal.local.azurestack.external.
 
@@ -127,7 +127,7 @@ Ahora que ha creado una oferta, puede probarla. Inicie sesión como usuario, sus
 
    Desde el portal de usuarios puede aprovisionar una máquina virtual mediante la nueva suscripción.
 
-   a. Inicie sesión en el portal de usuario con una cuenta de usuario.
+    a. Inicie sesión en el portal de usuario con una cuenta de usuario.
       - En un sistema integrado, la dirección URL varía en función de la región y el nombre de dominio externo del operador y tendrá el formato https://portal.&lt;*región*&gt;.&lt;*FQDN*&gt;.
    - Si usa el Kit de desarrollo de Azure Stack, la dirección del portal es https://portal.local.azurestack.external.
 

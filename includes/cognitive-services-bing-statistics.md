@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: scottwhi
 ms.custom: include file
-ms.openlocfilehash: a8d588b186652ab86ee1e8152bd9be08f0f1ef04
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6016b13fe7d3e1f3b673bd2446d2f68b04878cd6
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52978805"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193479"
 ---
 Las estadísticas de Bing proporcionan análisis para Bing Search APIs. El análisis incluye el volumen de llamadas, las cadenas de consulta principales, la distribución geográfica y mucho más. Para habilitar Estadísticas de Bing en la suscripción de pago de Bing Search, vaya al [panel de Azure](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7), seleccione la suscripción de pago y haga clic en Habilitar Estadísticas de Bing. Si habilita Estadísticas de Bing, la tasa de suscripción se incrementa ligeramente (consulte los [precios](https://aka.ms/bingstatisticspricing)).
 
@@ -85,7 +85,7 @@ A continuación, se muestran las métricas posibles. Cada métrica considera las
 
 - **Distribución de códigos de respuesta**: códigos de estado HTTP de todas las llamadas durante el período de notificación.
 
-- **Distribución del origen de llamada**: tipos de exploradores utilizados por los usuarios. Por ejemplo, Edge, Chrome, Safari y FireFox. Las llamadas realizadas desde fuera de un explorador, como bots, Postman o mediante cURL desde una aplicación de consola, se agrupan en Bibliotecas. El origen se determina mediante el valor del encabezado User-Agent de la solicitud. Si la solicitud no incluye el encabezado User-Agent, Bing intenta derivar el origen de otras señales.  
+- **Distribución del origen de llamada**: tipos de exploradores utilizados por los usuarios. Por ejemplo, Microsoft Edge, Chrome, Safari y FireFox. Las llamadas realizadas desde fuera de un explorador, como bots, Postman o mediante cURL desde una aplicación de consola, se agrupan en Bibliotecas. El origen se determina mediante el valor del encabezado User-Agent de la solicitud. Si la solicitud no incluye el encabezado User-Agent, Bing intenta derivar el origen de otras señales.  
 
 - **Distribución de búsqueda segura**: distribución de valores de búsqueda segura. Por ejemplo, desactivado, moderado o estricto. El parámetro de consulta `safeSearch` contiene el valor, si se especifica. En caso contrario, Bing establece el valor de forma predeterminada en moderado.  
 

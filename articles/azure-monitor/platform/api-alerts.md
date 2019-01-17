@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.openlocfilehash: d4701143a24fdf89b1c61744a9661fffdbb61ed3
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: d6096967c33866f9498f413a4a73fc1d7eae9ede
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278056"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231366"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Creación y administración de reglas de alerta de Log Analytics con la API de REST
 La API REST de alertas de Log Analytics le permite crear y administrar alertas en Log Analytics.  En este artículo encontrará información detallada sobre la API y varios ejemplos para realizar distintas operaciones.
@@ -255,7 +255,7 @@ Para agregar la asociación de un grupo de acciones a una alerta, especifique el
       "properties": {
         "Type": "Alert",
         "Name": "test-alert",
-        "Description": "I need to put a descriptio here",
+        "Description": "I need to put a description here",
         "Threshold": {
           "Operator": "gt",
           "Value": 12
@@ -289,7 +289,7 @@ De manera predeterminada, el asunto del correo electrónico para las alertas es:
       "properties": {
         "Type": "Alert",
         "Name": "test-alert",
-        "Description": "I need to put a descriptio here",
+        "Description": "I need to put a description here",
         "Threshold": {
           "Operator": "gt",
           "Value": 12
@@ -323,7 +323,7 @@ Los detalles del webhook personalizado se deben enviar junto con los detalles de
       "properties": {
         "Type": "Alert",
         "Name": "test-alert",
-        "Description": "I need to put a descriptio here",
+        "Description": "I need to put a description here",
         "Threshold": {
           "Operator": "gt",
           "Value": 12

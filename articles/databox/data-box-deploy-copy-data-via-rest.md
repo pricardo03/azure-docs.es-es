@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: alkohli
-ms.openlocfilehash: 88880fbfe0f6020a0a982c42b6df0e9eb71b2fc9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: fa0883c18e0d586e6e9b35fb19dbe304388045b5
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53550514"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215293"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Tutorial: Copia de datos a Azure Data Box Blob Storage mediante API REST  
 
@@ -154,7 +154,7 @@ El primer paso es crear un contenedor, ya que los blobs siempre se cargan en un 
 
    ![Menú contextual Crear contenedores de blobs](media/data-box-deploy-copy-data-via-rest/create-blob-container-1.png)
 
-4. Aparecerá un cuadro de texto debajo de la carpeta **Contenedores de blobs**. Escriba el nombre del contenedor de blobs. Para más información sobre las reglas y restricciones en la nomenclatura de los contenedores de blobs, consulte [Creación del contenedor y establecimiento de los permisos](/articles/storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions).
+4. Aparecerá un cuadro de texto debajo de la carpeta **Contenedores de blobs**. Escriba el nombre del contenedor de blobs. Para más información sobre las reglas y restricciones en la nomenclatura de los contenedores de blobs, consulte [Creación del contenedor y establecimiento de los permisos](../storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions).
 5. Presione **ENTRAR** cuando termine para crear el contenedor de blobs o **Esc** para cancelar la operación. Una vez que el contenedor de blobs se ha creado correctamente, se mostrará en la carpeta **Contenedores de blobs** de la cuenta de almacenamiento seleccionada.
 
    ![Contenedor de blobs creado](media/data-box-deploy-copy-data-via-rest/create-blob-container-2.png)

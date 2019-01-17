@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 3215ee4adf907524626b4919b637ce23b9e0e782
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 686d736798a4d949e3590d988f399d7da82d4fee
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750187"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231995"
 ---
 # <a name="service-remoting-in-java-with-reliable-services"></a>Comunicación remota en Java con Reliable Services
 > [!div class="op_single_selector"]
@@ -91,8 +91,8 @@ El marco de trabajo de comunicación remota propaga las excepciones generadas en
 La creación de ServiceProxy es una operación ligera, por lo que se puede crear todas las veces que se necesite. Las instancias de ServiceProxy pueden volver a usarse siempre que se necesiten. Si una llamada a procedimiento remoto inicia una excepción, se puede reutilizar la misma instancia de proxy. Cada ServiceProxy contiene un cliente de comunicación que se usa para enviar mensajes a través de la conexión. Mientras se invocan llamadas remotas, se realizan comprobaciones internas para determinar si el cliente de comunicación es válido. En función de los resultados de esas comprobaciones, el cliente de comunicación se vuelve a crear si es necesario. Por lo tanto, si se produce una excepción, no es necesario volver a crear `ServiceProxy`.
 
 ### <a name="serviceproxyfactory-lifetime"></a>Duración de ServiceProxyFactory
-[FabricServiceProxyFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client._fabric_service_proxy_factory) es un tejido que crea un proxy para distintas interfaces remotas. Si usa la API `ServiceProxyBase.create` para crear el proxy, el marco crea un `FabricServiceProxyFactory`.
-Resulta útil crear uno manualmente cuando necesite invalidar las propiedades [IServiceRemotingClientFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client._service_remoting_client_factory).
+[FabricServiceProxyFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.fabricserviceproxyfactory) es un tejido que crea un proxy para distintas interfaces remotas. Si usa la API `ServiceProxyBase.create` para crear el proxy, el marco crea un `FabricServiceProxyFactory`.
+Resulta útil crear uno manualmente cuando necesite invalidar las propiedades [IServiceRemotingClientFactory](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.client.serviceremotingclientfactory).
 Factory es una operación costosa. `FabricServiceProxyFactory` mantiene la memoria caché de los clientes de comunicación.
 El procedimiento recomendado consiste en almacenar `FabricServiceProxyFactory` en caché lo más posible.
 
@@ -102,7 +102,8 @@ Toda la excepción remota generada por la API de servicio se vuelve a enviar al 
 ServiceProxy controla todas las excepciones de conmutación por error para la partición de servicio para la que se crea. Vuelve a resolver los puntos de conexión si existen excepciones de conmutación por error (excepciones no transitorias) y recupera la llamada con el punto de conexión correcto. El número de reintentos para la excepción de conmutación por error es indefinido.
 En el caso de TransientExceptions, solo recupera la llamada.
 
-[OperationRetrySettings] proporciona los parámetros de reintento predeterminados. (https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings)) Se pueden configurar estos valores pasando el objeto OperationRetrySettings al constructor ServiceProxyFactory.
+[OperationRetrySettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client.operationretrysettings) proporciona los parámetros de reintento predeterminados.
+Se pueden configurar estos valores pasando el objeto OperationRetrySettings al constructor ServiceProxyFactory.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Protección de la comunicación para Reliable Services](service-fabric-reliable-services-secure-communication-java.md)

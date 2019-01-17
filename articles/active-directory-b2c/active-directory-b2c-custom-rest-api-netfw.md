@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b8718e02bc0306db1ac8cd4f5b133ebdb17a4ec3
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: fb0ad8efcd73b304ea5c68f0d3c45a38ce1b80e8
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557298"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304914"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integración de intercambios de notificaciones de API de REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario
 
@@ -50,7 +50,7 @@ Información general:
 * Uso del servicio REST en el recorrido del usuario.
 * Envío de notificaciones de entrada y su lectura en el código.
 * Validación del nombre del usuario.
-* Devolución de un número de fidelidad. 
+* Devolución de un número de fidelidad.
 * Incorporación del número de fidelidad a JSON Web Token (JWT).
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -77,11 +77,11 @@ Complete los pasos del artículo [Introducción a las directivas personalizadas]
 ## <a name="step-2-prepare-the-rest-api-endpoint"></a>Paso 2: Preparación del punto de conexión de API REST
 
 ### <a name="step-21-add-data-models"></a>Paso 2.1: Incorporación de modelos de datos
-Los modelos representan los datos de notificaciones de entrada y de notificaciones de salida en el servicio RESTful. El código lee los datos de entrada, para lo que deserializa el modelo de notificaciones de entrada de una cadena JSON en un objeto de C# (el modelo). ASP.NET Web API deserializa automáticamente el modelo de notificaciones de salida en JSON y luego escribe los datos serializados en el cuerpo del mensaje de respuesta HTTP. 
+Los modelos representan los datos de notificaciones de entrada y de notificaciones de salida en el servicio RESTful. El código lee los datos de entrada, para lo que deserializa el modelo de notificaciones de entrada de una cadena JSON en un objeto de C# (el modelo). ASP.NET Web API deserializa automáticamente el modelo de notificaciones de salida en JSON y luego escribe los datos serializados en el cuerpo del mensaje de respuesta HTTP.
 
 Cree un modelo que represente las notificaciones de entrada, para lo que debe seguir estos pasos:
 
-1. Si el Explorador de soluciones no está abierto, seleccione **Ver** > **Explorador de soluciones**. 
+1. Si el Explorador de soluciones no está abierto, seleccione **Ver** > **Explorador de soluciones**.
 2. En el Explorador de soluciones, haga clic con el botón derecho en la carpeta **Modelos**, seleccione **Agregar** y **Clase**.
 
     ![Agregar modelo](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-model.png)
@@ -128,7 +128,7 @@ Cree un modelo que represente las notificaciones de entrada, para lo que debe se
                 this.userMessage = message;
                 this.status = (int)status;
                 this.version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            }    
+            }
         }
     }
     ```
@@ -241,20 +241,20 @@ La notificación `loyaltyNumber` aún no se ha definido en nuestro esquema. Agre
 </BuildingBlocks>
 ```
 
-## <a name="step-5-add-a-claims-provider"></a>Paso 5: Incorporación de un proveedor de notificaciones 
-Todos los proveedores de notificaciones deben tener uno o varios perfiles técnicos, que determinan los puntos de conexión y los protocolos necesarios para comunicarse con el proveedor de notificaciones. 
+## <a name="step-5-add-a-claims-provider"></a>Paso 5: Incorporación de un proveedor de notificaciones
+Todos los proveedores de notificaciones deben tener uno o varios perfiles técnicos, que determinan los puntos de conexión y los protocolos necesarios para comunicarse con el proveedor de notificaciones.
 
-Un proveedor de notificaciones puede tener varios perfiles técnicos por distintas razones. Por ejemplo, se pueden definir varios perfiles técnicos porque el proveedor de notificaciones admita varios protocolos, los puntos de conexión pueden tener con distintas funcionalidades o las versiones pueden contener notificaciones que tienen diferentes niveles de seguridad. Puede ser aceptable liberar notificaciones confidenciales en un recorrido del usuario, pero no en otro. 
+Un proveedor de notificaciones puede tener varios perfiles técnicos por distintas razones. Por ejemplo, se pueden definir varios perfiles técnicos porque el proveedor de notificaciones admita varios protocolos, los puntos de conexión pueden tener con distintas funcionalidades o las versiones pueden contener notificaciones que tienen diferentes niveles de seguridad. Puede ser aceptable liberar notificaciones confidenciales en un recorrido del usuario, pero no en otro.
 
 El siguiente fragmento de código de XML contiene un proveedor de reclamaciones con dos perfiles técnicos:
 
-* **TechnicalProfile Id="REST-API-SignUp"**: define el servicio RESTful. 
-   * `Proprietary` se describe como protocolo de un proveedor basado en REST. 
-   * `InputClaims` define las notificaciones que se enviarán desde Azure AD B2C al servicio REST. 
+* **TechnicalProfile Id="REST-API-SignUp"**: define el servicio RESTful.
+   * `Proprietary` se describe como protocolo de un proveedor basado en REST.
+   * `InputClaims` define las notificaciones que se enviarán desde Azure AD B2C al servicio REST.
 
    En este ejemplo, el contenido de la notificación `givenName` se envía al servicio REST como `firstName`, el contenido de la notificación `surname` se envía al servicio REST como `lastName` y `email` se envía tal cual. El elemento `OutputClaims` define las notificaciones que se recuperan del servicios REST para Azure AD B2C.
 
-* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: agrega un perfil técnico de validación a un perfil técnico existente (definido en la directiva de base). Durante el recorrido del registro, el perfil técnico de validación invoca el perfil técnico anterior. Si el servicio REST devuelve un error HTTP 409 (un error de conflicto), el mensaje de error se muestra al usuario. 
+* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: agrega un perfil técnico de validación a un perfil técnico existente (definido en la directiva de base). Durante el recorrido del registro, el perfil técnico de validación invoca el perfil técnico anterior. Si el servicio REST devuelve un error HTTP 409 (un error de conflicto), el mensaje de error se muestra al usuario.
 
 Busque el nodo `<ClaimsProviders>` y agregue el siguiente fragmento de código XML al nodo `<ClaimsProviders>`:
 
@@ -329,7 +329,7 @@ Después de agregar la nueva notificación, el código del usuario de confianza 
 
 2. Seleccione **Marco de experiencia de identidad**.
 
-3. Abra **Todas las directivas**. 
+3. Abra **Todas las directivas**.
 
 4. Seleccione **Cargar directiva**.
 
@@ -354,7 +354,7 @@ Después de agregar la nueva notificación, el código del usuario de confianza 
 
     ![Prueba de la directiva](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-test.png)
 
-4.  En el campo **Nombre propio**, escriba un nombre (que no sea "Test").  
+4. En el campo **Nombre propio**, escriba un nombre (que no sea "Test").  
     Azure AD B2C registra al usuario y envía un número de fidelidad a la aplicación. Observe el número de este JWT.
 
 ```
@@ -381,7 +381,7 @@ Después de agregar la nueva notificación, el código del usuario de confianza 
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>(Opcional) Descargue el código y los archivos de la directiva completos
 * Una vez completado el tutorial [Introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md), le recomendamos que compile su escenario mediante sus archivos de directiva personalizados. Hemos proporcionado [archivos de directiva de ejemplo](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw) para que los tenga como referencia.
 * El código completo se puede descargar en [Ejemplo de solución de Visual Studio para referencia](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/).
-    
+
 ## <a name="next-steps"></a>Pasos siguientes
 * [Secure your RESTful API with basic authentication (username and password)](active-directory-b2c-custom-rest-api-netfw-secure-basic.md) (Protección de las API de RESTful con autenticación básica [nombre de usuario y contraseña])
 * [Secure your RESTful API with client certificates](active-directory-b2c-custom-rest-api-netfw-secure-cert.md) (Protección de las API de RESTful con certificados de cliente)

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: ccdfbc38cb39f2c0aa839dc56022192e9e389d95
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 3e40dbb96b27df4b228c52e7a8f70d047a556c31
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187424"
+ms.locfileid: "54198532"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Reescribir encabezados HTTP a Application Gateway (versión preliminar pública)
 
@@ -116,8 +116,6 @@ Esta función admite la reescritura de encabezados en las siguientes variables d
 ## <a name="limitations"></a>Limitaciones
 
 - Esta función para reescribir encabezados HTTP solo está disponible actualmente mediante Azure PowerShell, la API de Azure y Azure SDK. La compatibilidad mediante el portal y la CLI de Azure estará disponible en breve.
-
-- Después de aplicar una reescritura de encabezados en su instancia de Application Gateway, no tiene que usar el portal para realizar cambios posteriores en esa instancia de Application Gateway hasta que la función se admita en el portal. Si usa el portal para realizar cambios en Application Gateway después de aplicar una regla de reescritura, la regla de reescritura de encabezados. Puede seguir realizando cambios con Azure PowerShell, las API de Azure o Azure SDK.
 
 - La compatibilidad de la reescritura de encabezados HTTP solo se admite en la nueva SKU [Standard_V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). La función no se admitirá en las SKU anteriores.
 
