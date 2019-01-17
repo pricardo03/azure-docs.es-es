@@ -9,20 +9,19 @@ ms.assetid: f54a26a4-baa4-4255-9791-5a8f935898e2
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 05833599059c2724529f9fd23edcd86934793835
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1ba8db3ebe2caf4c37d147f744326b6e631cb556
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048863"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022060"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Movimiento de datos de un origen de tabla web mediante Azure Data Factory
-> [!div class="op_single_selector" title1="Seleccione la versión del servicio de Data Factory que está utilizando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versión 1](data-factory-web-table-connector.md)
 > * [Versión 2 (versión actual)](../connector-web-table.md)
 
@@ -36,7 +35,7 @@ Factoría de datos solo admite actualmente el movimiento de datos desde una tabl
 > [!IMPORTANT]
 > Actualmente, este conector web solo permite extraer contenido de tablas de una página HTML. Para recuperar datos de un punto de conexión HTTP/s, utilice el [conector HTTP](data-factory-http-connector.md) en su lugar.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para utilizar este conector de tabla web, debe configurar Integration Runtime autohospedado (también conocido como Data Management Gateway) y configurar la propiedad `gatewayName` en el servicio vinculado del receptor. Por ejemplo, para copiar de la tabla web a Azure Blob Storage, configure el servicio vinculado de Azure Storage de la siguiente manera:
 
@@ -56,8 +55,8 @@ Para utilizar este conector de tabla web, debe configurar Integration Runtime au
 ## <a name="getting-started"></a>Introducción
 Puede crear una canalización con una actividad de copia que mueva los datos desde un almacén de datos Cassandra local mediante el uso de diferentes herramientas o API. 
 
-- La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos. 
-- También puede usar las herramientas siguientes para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia. 
+- La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Vea [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos. 
+- Puede usar las siguientes herramientas para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia. 
 
 Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
 
@@ -65,7 +64,7 @@ Tanto si usa las herramientas como las API, realice los pasos siguientes para cr
 2. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia. 
 3. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. 
 
-Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para ver un ejemplo con definiciones de JSON para entidades de Data Factory que se emplean para copiar datos de una tabla web, consulte la sección [Ejemplo con definiciones de JSON: copia de datos de una tabla web a un blob de Azure](#json-example-copy-data-from-web-table-to-azure-blob) de este artículo. 
+Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para ver un ejemplo con definiciones de JSON para entidades de Data Factory que se emplean para copiar datos de una tabla web, consulte la sección [Ejemplo JSON: Copia de datos de una tabla web a un blob de Azure](#json-example-copy-data-from-web-table-to-azure-blob) de este artículo. 
 
 En las secciones siguientes, se proporcionan detalles sobre las propiedades JSON que se usan para definir entidades de Data Factory específicas de una tabla web:
 
@@ -74,9 +73,9 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Tipo |La propiedad type debe establecerse en: **Web** |Sí |
-| URL |Dirección URL para el origen de Web |Sí |
-| authenticationType |Anonymous. |Sí |
+| Tipo |La propiedad type debe establecerse en: **Web** |SÍ |
+| URL |Dirección URL para el origen de Web |SÍ |
+| authenticationType |Anonymous. |SÍ |
 
 ### <a name="using-anonymous-authentication"></a>Uso de autenticación anónima
 
@@ -102,9 +101,9 @@ La sección **typeProperties** es diferente en cada tipo de conjunto de datos y 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo |Tipo del conjunto de datos. Debe establecerse en **WebTable** |Sí |
-| path |Dirección URL relativa al recurso que contiene la tabla. |No. Cuando no se especifica la ruta de acceso, se solo se usa la dirección URL especificada en la definición de servicio vinculado. |
-| index |Índice de la tabla en el recurso. Consulte la sección [Obtención de índice de una tabla en una página HTML](#get-index-of-a-table-in-an-html-page) para saber los pasos necesarios para obtener el índice de una tabla en una página HTML. |Sí |
+| Tipo |Tipo del conjunto de datos. Debe establecerse en **WebTable** |SÍ |
+| path |Dirección URL relativa al recurso que contiene la tabla. | No. Cuando no se especifica la ruta de acceso, se solo se usa la dirección URL especificada en la definición de servicio vinculado. |
+| index |Índice de la tabla en el recurso. Consulte la sección [Obtención de índice de una tabla en una página HTML](#get-index-of-a-table-in-an-html-page) para saber los pasos necesarios para obtener el índice de una tabla en una página HTML. |SÍ |
 
 **Ejemplo:**
 
@@ -135,7 +134,7 @@ Por otra parte, las propiedades disponibles en la sección typeProperties de la 
 En este momento, cuando el origen de la actividad de copia es de tipo **WebSource**, no se admite ninguna propiedad adicional.
 
 
-## <a name="json-example-copy-data-from-web-table-to-azure-blob"></a>Ejemplo con definiciones de JSON: copia de datos de una tabla web a un blob de Azure
+## <a name="json-example-copy-data-from-web-table-to-azure-blob"></a>Ejemplo JSON: Copia de datos de una tabla web a un blob de Azure
 El ejemplo siguiente muestra:
 
 1. Un servicio vinculado de tipo [Web](#linked-service-properties).

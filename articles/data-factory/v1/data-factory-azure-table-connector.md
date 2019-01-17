@@ -9,17 +9,16 @@ ms.assetid: 07b046b1-7884-4e57-a613-337292416319
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3a24e919f1bbde6188e3655399f1ef843fbec23b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 6ab3e918feda3dcf898928f159ebf8e317a95527
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052997"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331850"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Movimiento de datos hacia y desde Tabla de Azure mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,9 +35,9 @@ Puede copiar datos de cualquier almacén de datos de origen compatible a Azure T
 ## <a name="getting-started"></a>Introducción
 Puede crear una canalización con una actividad de copia que mueva datos con Azure Table Storage como origen o destino mediante el uso de diferentes herramientas o API.
 
-La manera más fácil de crear una canalización es usar el **Asistente para copia**. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos.
+La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Vea [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
 
-También puede usar las herramientas siguientes para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia. 
+Puede usar las siguientes herramientas para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia. 
 
 Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor: 
 
@@ -46,12 +45,12 @@ Tanto si usa las herramientas como las API, realice los pasos siguientes para cr
 2. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia. 
 3. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. 
 
-Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Para obtener ejemplos con definiciones de JSON para entidades de Data Factory que se utilizan para copiar datos con Azure Table Storage como origen o destino, consulte la sección [Ejemplos de JSON](#json-examples) de este artículo. 
+Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON. Para obtener ejemplos con definiciones de JSON para entidades de Data Factory que se utilizan para copiar datos con Azure Table Storage como origen o destino, consulte la sección [Ejemplos de JSON](#json-examples) de este artículo.
 
 Las secciones siguientes proporcionan detalles sobre las propiedades JSON que se usan para definir entidades de Data Factory específicas de Azure Table Storage: 
 
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
-Hay dos tipos de servicios vinculados que puede usar para vincular un almacenamiento de blobs de Azure a una Factoría de datos de Azure. Se trata del servicio vinculado **AzureStorage** y el servicio vinculado **AzureStorageSas**. El servicio vinculado de Azure Storage proporciona a la factoría de datos acceso global a Azure Storage. Mientras que el servicio vinculado de SAS (firma de acceso compartido) de Azure Storage proporciona a la factoría de datos acceso restringido/controlado por tiempo a Azure Storage. No existen otras diferencias entre estos dos servicios vinculados. Elija el servicio vinculado que se adapte a sus necesidades. En las siguientes secciones se ofrecen más detalles sobre estos dos servicios vinculados.
+Hay dos tipos de servicios vinculados que puede usar para vincular un almacenamiento de blobs de Azure a una Factoría de datos de Azure. Son las siguientes: Servicio vinculado **AzureStorage** y servicio vinculado **AzureStorageSas**. El servicio vinculado de Azure Storage proporciona a la factoría de datos acceso global a Azure Storage. Mientras que el servicio vinculado de SAS (firma de acceso compartido) de Azure Storage proporciona a la factoría de datos acceso restringido/controlado por tiempo a Azure Storage. No existen otras diferencias entre estos dos servicios vinculados. Elija el servicio vinculado que se adapte a sus necesidades. En las siguientes secciones se ofrecen más detalles sobre estos dos servicios vinculados.
 
 [!INCLUDE [data-factory-azure-storage-linked-services](../../../includes/data-factory-azure-storage-linked-services.md)]
 
@@ -81,7 +80,7 @@ Por otra parte, las propiedades disponibles en la sección typeProperties de la 
 
 | Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
-| AzureTableSourceQuery |Utilice la consulta personalizada para leer los datos. |Cadena de consulta de tabla de Azure. Consulte los ejemplos en la sección siguiente. |No. Cuando se especifica un elemento tableName sin azureTableSourceQuery, se copian todos los registros de la tabla en el destino. Si también se especifica azureTableSourceQuery, los registros de la tabla que satisfacen los requisitos de la consulta se copian en el destino. |
+| AzureTableSourceQuery |Utilice la consulta personalizada para leer los datos. |Cadena de consulta de tabla de Azure. Consulte los ejemplos en la sección siguiente. | No. Cuando se especifica un elemento tableName sin azureTableSourceQuery, se copian todos los registros de la tabla en el destino. Si también se especifica azureTableSourceQuery, los registros de la tabla que satisfacen los requisitos de la consulta se copian en el destino. |
 | azureTableSourceIgnoreTableNotFound |Indica si se omite la excepción de la tabla inexistente. |TRUE<br/>FALSE |Sin  |
 
 ### <a name="azuretablesourcequery-examples"></a>ejemplos de azureTableSourceQuery
@@ -105,13 +104,13 @@ Si la columna de la Tabla de Azure es de tipo datetime:
 | azureTablePartitionKeyName |Especifique el nombre de la columna cuyos valores se usan como claves de partición. Si no se especifica, se utiliza AzureTableDefaultPartitionKeyValue como clave de la partición. |Un nombre de columna. |Sin  |
 | azureTableRowKeyName |Especifique el nombre de la columna cuyos valores se usan como claves de fila. Si no se especifica, use un GUID para cada fila. |Un nombre de columna. |Sin  |
 | azureTableInsertType |Modo de insertar datos en la tabla de Azure.<br/><br/>Esta propiedad controla si los valores de las filas existentes en la tabla de salida con claves de partición y de fila coincidentes se van a reemplazar o a combinar. <br/><br/>Consulte los temas [Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) (Insertar o combinar entidad) e [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) (Insertar o remplazar entidad) para más información sobre cómo funcionan estas opciones (combinación y reemplazo). <br/><br> Esta configuración se aplica en el nivel de fila, no en el nivel de tabla, y ninguna opción elimina filas de la tabla de salida que no existan en la entrada. |merge (predeterminado)<br/>replace |Sin  |
-| writeBatchSize |Inserta datos en la tabla de Azure cuando se alcanza el valor de writeBatchSize o writeBatchTimeout. |Entero (número de filas) |No (valor predeterminado = 10000) |
+| writeBatchSize |Inserta datos en la tabla de Azure cuando se alcanza el valor de writeBatchSize o writeBatchTimeout. |Entero (número de filas) |No (valor predeterminado: 10000) |
 | writeBatchTimeout |Inserta datos en la tabla de Azure cuando se alcanza el valor de writeBatchSize o writeBatchTimeout. |timespan<br/><br/>Ejemplo: "00:20:00" (20 minutos) |No (el valor predeterminado de intervalo de tiempo del cliente de almacenamiento es 90 segundos) |
 
 ### <a name="azuretablepartitionkeyname"></a>azureTablePartitionKeyName
 Asigne una columna de origen a una columna de destino con la propiedad JSON de traductor para poder usar la columna de destino como azureTablePartitionKeyName.
 
-En el ejemplo siguiente, la columna de origen DivisionID se asigna a la columna de destino DivisionID.  
+En el ejemplo siguiente, la columna de origen DivisionID se asigna a la columna de destino: DivisionID.  
 
 ```JSON
 "translator": {
@@ -253,48 +252,48 @@ Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1
 La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de JSON de canalización, el tipo **source** se establece en **AzureTableSource** y el tipo **sink**, en **BlobSink**. La consulta SQL especificada con la propiedad **AzureTableSourceQuery** selecciona los datos de la partición predeterminada cada hora, que se van a copiar.
 
 ```JSON
-{  
+{
     "name":"SamplePipeline",
-    "properties":{  
+    "properties":{
         "start":"2014-06-01T18:00:00",
         "end":"2014-06-01T19:00:00",
         "description":"pipeline for copy activity",
-        "activities":[  
+        "activities":[
             {
                 "name": "AzureTabletoBlob",
                 "description": "copy activity",
                 "type": "Copy",
                 "inputs": [
-                      {
+                    {
                         "name": "AzureTableInput"
                     }
                 ],
                 "outputs": [
-                      {
-                            "name": "AzureBlobOutput"
-                      }
+                    {
+                        "name": "AzureBlobOutput"
+                    }
                 ],
                 "typeProperties": {
-                      "source": {
+                    "source": {
                         "type": "AzureTableSource",
                         "AzureTableSourceQuery": "PartitionKey eq 'DefaultPartitionKey'"
-                      },
-                      "sink": {
+                    },
+                    "sink": {
                         "type": "BlobSink"
-                      }
+                    }
                 },
                 "scheduler": {
-                      "frequency": "Hour",
-                      "interval": 1
-                },                
+                    "frequency": "Hour",
+                    "interval": 1
+                },
                 "policy": {
-                      "concurrency": 1,
-                      "executionPriorityOrder": "OldestFirst",
-                      "retry": 0,
-                      "timeout": "01:00:00"
+                    "concurrency": 1,
+                    "executionPriorityOrder": "OldestFirst",
+                    "retry": 0,
+                    "timeout": "01:00:00"
                 }
             }
-         ]    
+        ]
     }
 }
 ```
@@ -420,13 +419,13 @@ El ejemplo copia los datos a una tabla denominada "MyTable" en la tabla de Azure
 La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de JSON de canalización, el tipo **source** se establece en **BlobSource** y el tipo **sink**, en **AzureTableSink**.
 
 ```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
+{
+  "name":"SamplePipeline",
+  "properties":{
     "start":"2014-06-01T18:00:00",
     "end":"2014-06-01T19:00:00",
     "description":"pipeline with copy activity",
-    "activities":[  
+    "activities":[
       {
         "name": "AzureBlobtoTable",
         "description": "Copy Activity",
@@ -454,7 +453,7 @@ La canalización contiene una actividad de copia que está configurada para usar
         "scheduler": {
           "frequency": "Hour",
           "interval": 1
-        },                        
+        },
         "policy": {
           "concurrency": 1,
           "executionPriorityOrder": "OldestFirst",
@@ -462,8 +461,8 @@ La canalización contiene una actividad de copia que está configurada para usar
           "timeout": "01:00:00"
         }
       }
-      ]
-   }
+    ]
+  }
 }
 ```
 ## <a name="type-mapping-for-azure-table"></a>Asignación de tipos para tabla de Azure
@@ -497,12 +496,12 @@ Defina el conjunto de datos de origen de Blob como se indica a continuación, ju
     "name": " AzureBlobInput",
     "properties":
     {
-         "structure":
-          [
-                { "name": "userid", "type": "Int64"},
-                { "name": "name", "type": "String"},
-                { "name": "lastlogindate", "type": "Datetime", "culture": "fr-fr", "format": "ddd-MM-YYYY"}
-          ],
+        "structure":
+        [
+            { "name": "userid", "type": "Int64"},
+            { "name": "name", "type": "String"},
+            { "name": "lastlogindate", "type": "Datetime", "culture": "fr-fr", "format": "ddd-MM-YYYY"}
+        ],
         "type": "AzureBlob",
         "linkedServiceName": "StorageLinkedService",
         "typeProperties": {

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: def99a1b98970c09f28e7bfc7f44084c0f5b3c6e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 72a666db6157300942b966b88d9c3369495b9fd4
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018405"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331241"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Copia de datos hacia y desde SQL Data Warehouse mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -28,7 +28,7 @@ ms.locfileid: "54018405"
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory. Si utiliza la versión actual del servicio Data Factory, consulte [Conector de Azure SQL Data Warehouse en V2](../connector-azure-sql-data-warehouse.md).
 
-En este artículo se explica el uso de la actividad de copia en Azure Data Factory para mover datos con Azure SQL Data Warehouse como origen o destino. Se basa en la información general que ofrece el artículo [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md).  
+En este artículo se explica el uso de la actividad de copia en Azure Data Factory para mover datos con Azure SQL Data Warehouse como origen o destino. Se basa en la información general que ofrece el artículo [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md).
 
 > [!TIP]
 > Para obtener el mejor rendimiento posible, use PolyBase para cargar datos en Azure SQL Data Warehouse. Consulte [Movimiento de datos hacia y desde Azure SQL Data Warehouse mediante Azure Data Factory](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) para obtener más información. Para un tutorial con un caso de uso, consulte [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md) (Carga de 1 TB en Azure SQL Data Warehouse en 15 minutos con Azure Data Factory).
@@ -62,7 +62,7 @@ Tanto si usa las herramientas como las API, realice los pasos siguientes para cr
 3. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia. En el ejemplo mencionado en el último paso, se crea un conjunto de datos para especificar el contenedor de blobs y la carpeta que contiene los datos de entrada. Además, se crea otro conjunto de datos para especificar la tabla SQL en la instancia de Azure SQL Data Warehouse que contiene los datos copiados del almacenamiento de blobs. Para información sobre las propiedades del conjunto de datos que son específicas de Azure SQL Data Warehouse, consulte la sección [Propiedades del conjunto de datos](#dataset-properties).
 4. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. En el ejemplo que se ha mencionado anteriormente, se usa BlobSource como origen y SqlSink como receptor para la actividad de copia. De igual forma, si va a copiar desde Azure SQL Data Warehouse hacia Azure Blob Storage, usará SqlSource y BlobSink en la actividad de copia. Para información sobre las propiedades de actividad de copia que son específicas de Azure SQL Data Warehouse, consulte la sección [Propiedades de la actividad de copia](#copy-activity-properties). Para obtener más información sobre cómo usar un almacén de datos como origen o receptor, haga clic en el vínculo de la sección anterior para el almacén de datos.
 
-Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON.  Si desea obtener ejemplos con definiciones de JSON para entidades de Data Factory que se utilizan con el fin de copiar datos con Azure SQL Data Warehouse como origen o destino, consulte la sección [Ejemplos de JSON](#json-examples-for-copying-data-to-and-from-sql-data-warehouse) de este artículo.
+Cuando se usa el Asistente, se crean automáticamente definiciones de JSON para estas entidades de Data Factory (servicios vinculados, conjuntos de datos y la canalización). Al usar herramientas o API (excepto la API de .NET), se definen estas entidades de Data Factory con el formato JSON. Si desea obtener ejemplos con definiciones de JSON para entidades de Data Factory que se utilizan con el fin de copiar datos con Azure SQL Data Warehouse como origen o destino, consulte la sección [Ejemplos de JSON](#json-examples-for-copying-data-to-and-from-sql-data-warehouse) de este artículo.
 
 Las secciones siguientes proporcionan detalles sobre las propiedades JSON que se usan para definir entidades de Data Factory específicas de Azure SQL Data Warehouse:
 
@@ -132,9 +132,9 @@ CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
 AS
 SET NOCOUNT ON;
 BEGIN
-     select *
-     from dbo.UnitTestSrcTable
-     where dbo.UnitTestSrcTable.stringData != stringData
+    select *
+    from dbo.UnitTestSrcTable
+    where dbo.UnitTestSrcTable.stringData != stringData
     and dbo.UnitTestSrcTable.identifier != identifier
 END
 GO
@@ -194,29 +194,29 @@ PolyBase de SQL Data Warehouse admite directamente Azure Blob y Azure Data Lake 
 
 Si no se cumplen los requisitos, Azure Data Factory comprobará la configuración y volverá automáticamente al mecanismo BULKINSERT para realizar el movimiento de datos.
 
-1. El **servicio vinculado de origen** es del tipo: **AzureStorage** o **AzureDataLakeStore con autenticación de la entidad de servicio**.  
+1. El **servicio vinculado de origen** es del tipo: **AzureStorage** o **AzureDataLakeStore con autenticación de la entidad de servicio**.
 2. El **conjunto de datos de entrada** es del tipo: **AzureBlob** o **AzureDataLakeStore**, y el tipo de formato de las propiedades `type` es **OrcFormat**, **ParquetFormat** o **TextFormat** con las siguientes configuraciones:
 
-   1. `rowDelimiter` debe ser **\n**.
-   2. `nullValue` se establece en **una cadena vacía** ("") o `treatEmptyAsNull` se establece en **true**.
-   3. `encodingName` se establece en **utf-8**, que es el valor **predeterminado**.
-   4. `escapeChar`, `quoteChar`, `firstRowAsHeader` y `skipLineCount` no se especifican.
-   5. `compression` puede ser **no compression**, **GZip** o **Deflate**.
+    1. `rowDelimiter` debe ser **\n**.
+    2. `nullValue` se establece en **una cadena vacía** ("") o `treatEmptyAsNull` se establece en **true**.
+    3. `encodingName` se establece en **utf-8**, que es el valor **predeterminado**.
+    4. `escapeChar`, `quoteChar`, `firstRowAsHeader` y `skipLineCount` no se especifican.
+    5. `compression` puede ser **no compression**, **GZip** o **Deflate**.
 
     ```JSON
     "typeProperties": {
-       "folderPath": "<blobpath>",
-       "format": {
-           "type": "TextFormat",     
-           "columnDelimiter": "<any delimiter>",
-           "rowDelimiter": "\n",       
-           "nullValue": "",           
-           "encodingName": "utf-8"    
-       },
-       "compression": {  
-           "type": "GZip",  
-           "level": "Optimal"  
-       }  
+        "folderPath": "<blobpath>",
+        "format": {
+            "type": "TextFormat",
+            "columnDelimiter": "<any delimiter>",
+            "rowDelimiter": "\n",
+            "nullValue": "",
+            "encodingName": "utf-8"
+        },
+        "compression": {
+            "type": "GZip",
+            "level": "Optimal"
+        }
     },
     ```
 
@@ -234,7 +234,7 @@ Si los datos de origen no cumplen los criterios especificados en la sección ant
 Para usar esta característica, cree un [servicio vinculado de Azure Storage](data-factory-azure-blob-connector.md#azure-storage-linked-service) que haga referencia a la cuenta de Azure Storage que tenga el almacenamiento de blobs provisional y, después, especifique las propiedades `enableStaging` y `stagingSettings` de la actividad de copia como se muestra en el siguiente código:
 
 ```json
-"activities":[  
+"activities":[
 {
     "name": "Sample copy activity from SQL Server to SQL Data Warehouse via PolyBase",
     "type": "Copy",
@@ -281,7 +281,7 @@ En la tabla siguiente se proporcionan ejemplos sobre cómo especificar la propie
 | dbo |My.Table |[My.Table] o [dbo].[My.Table] |
 | dbo1 |My.Table |[dbo1].[My.Table] |
 
-Si ve el siguiente error, podría deberse a un problema con el valor especificado para la propiedad tableName. Consulte en la tabla la forma correcta de especificar los valores para la propiedad tableName de JSON.  
+Si ve el siguiente error, podría deberse a un problema con el valor especificado para la propiedad tableName. Consulte en la tabla la forma correcta de especificar los valores para la propiedad tableName de JSON.
 
 ```
 Type=System.Data.SqlClient.SqlException,Message=Invalid object name 'stg.Account_test'.,Source=.Net SqlClient Data Provider
@@ -293,7 +293,7 @@ Actualmente, la característica PolyBase en Data Factory solo acepta el mismo n�
 ```
 All columns of the table must be specified in the INSERT BULK statement.
 ```
-El valor NULL es una forma especial de valor predeterminado. Si la columna admite valores NULL, los datos de entrada (en el blob) para esa columna pueden estar vacíos (no pueden faltar en el conjunto de datos de entrada). PolyBase insertará valores NULL para ellos en Azure SQL Data Warehouse.  
+El valor NULL es una forma especial de valor predeterminado. Si la columna admite valores NULL, los datos de entrada (en el blob) para esa columna pueden estar vacíos (no pueden faltar en el conjunto de datos de entrada). PolyBase insertará valores NULL para ellos en Azure SQL Data Warehouse.
 
 ## <a name="auto-table-creation"></a>Creación automáticamente de tablas
 Si usa el Asistente para copia para copiar datos desde SQL Server o Azure SQL Database en Azure SQL Data Warehouse y la tabla que corresponde a la tabla de origen no existe en el almacén de destino, Data Factory puede crear la tabla automáticamente en el almacenamiento de datos mediante el esquema de tabla de origen.
@@ -515,13 +515,13 @@ Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1
 La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de JSON de canalización, el tipo **source** se establece en **SqlDWSource** y el tipo **sink**, en **BlobSink**. La consulta SQL especificada para la propiedad **SqlReaderQuery** selecciona los datos de la última hora que se van a copiar.
 
 ```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
+{
+  "name":"SamplePipeline",
+  "properties":{
     "start":"2014-06-01T18:00:00",
     "end":"2014-06-01T19:00:00",
     "description":"pipeline for copy activity",
-    "activities":[  
+    "activities":[
       {
         "name": "AzureSQLDWtoBlob",
         "description": "copy activity",
@@ -545,7 +545,7 @@ La canalización contiene una actividad de copia que está configurada para usar
             "type": "BlobSink"
           }
         },
-       "scheduler": {
+        "scheduler": {
           "frequency": "Hour",
           "interval": 1
         },
@@ -556,8 +556,8 @@ La canalización contiene una actividad de copia que está configurada para usar
           "timeout": "01:00:00"
         }
       }
-     ]
-   }
+    ]
+  }
 }
 ```
 > [!NOTE]
@@ -699,13 +699,13 @@ El ejemplo copia los datos a una tabla denominada "MyTable" en Azure SQL Data Wa
 La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de JSON de canalización, el tipo **source** se establece en **BlobSource** y el tipo **sink**, en **SqlDWSink**.
 
 ```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
+{
+  "name":"SamplePipeline",
+  "properties":{
     "start":"2014-06-01T18:00:00",
     "end":"2014-06-01T19:00:00",
     "description":"pipeline with copy activity",
-    "activities":[  
+    "activities":[
       {
         "name": "AzureBlobtoSQLDW",
         "description": "Copy Activity",
@@ -730,7 +730,7 @@ La canalización contiene una actividad de copia que está configurada para usar
             "allowPolyBase": true
           }
         },
-       "scheduler": {
+        "scheduler": {
           "frequency": "Hour",
           "interval": 1
         },
@@ -741,8 +741,8 @@ La canalización contiene una actividad de copia que está configurada para usar
           "timeout": "01:00:00"
         }
       }
-      ]
-   }
+    ]
+  }
 }
 ```
 Para ver un tutorial, consulte los artículos [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md) (Carga de 1 TB en Azure SQL Data Warehouse en menos de 15 minutos con Azure Data Factory) y [Carga de datos en SQL Data Warehouse con Data Factory](../../sql-data-warehouse/sql-data-warehouse-get-started-load-with-azure-data-factory.md) en la documentación de Azure SQL Data Warehouse.

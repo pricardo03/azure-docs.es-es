@@ -10,17 +10,16 @@ ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 2c00e42284783439b0a01f6ba6bab31be053b1c9
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 95c49eec6964984894f75ecd0a9e50c9c947683b
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736417"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015821"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocación de programas Spark desde canalizaciones de Azure Data Factory
 
@@ -46,7 +45,7 @@ La actividad de Spark es una de las [actividades de transformación de datos](da
 > - La actividad de Spark no admite clústeres de HDInsight Spark que usan una instancia de Azure Data Lake Store como almacenamiento principal.
 > - La actividad de Spark admite solo los clústeres de HDInsight Spark existentes (los suyos propios). No admite un servicio vinculado de HDInsight a petición.
 
-## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>Tutorial: Creación de una canalización con actividad de Spark
+## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>Tutorial: Crear una canalización con la actividad de Spark
 Estos son los pasos habituales para crear una canalización de Data Factory con una actividad de Spark: 
 
 * Creación de una factoría de datos.
@@ -74,7 +73,7 @@ Para crear una factoría de datos, siga estos pasos:
 1. En la hoja **Nueva factoría de datos**, en **Nombre**, escriba **SparkDF**.
 
    > [!IMPORTANT]
-   > El nombre de la instancia de Azure Data Factory debe ser único de forma global. Si aparece el error "El nombre SparkDF de factoría de datos no está disponible", cambie dicho nombre. Por ejemplo, use yournameSparkDFdate y vuelva a crear la factoría de datos. Para más información acerca de las reglas de nomenclatura, consulte [Data Factory: Naming rules](data-factory-naming-rules.md) (Data Factory: reglas de nomenclatura).
+   > El nombre de la instancia de Azure Data Factory debe ser único de forma global. Si aparece el error "El nombre SparkDF de factoría de datos no está disponible", cambie dicho nombre. Por ejemplo, use yournameSparkDFdate y vuelva a crear la factoría de datos. Para más información acerca de las reglas de nomenclatura, consulte [Azure Data Factory: Reglas de nomenclatura](data-factory-naming-rules.md).
 
 1. En **Suscripción**, seleccione la suscripción de Azure en la que desea que se cree la factoría de datos.
 
@@ -122,7 +121,7 @@ En este paso, se crea un servicio vinculado de HDInsight para vincular el clúst
 
 1. Copie y pegue el fragmento de código siguiente en la ventana Borrador-1. En el editor de JSON, realice los siguientes pasos:
 
-    a. Especifique el identificador URI del clúster de HDInsight Spark. Por ejemplo: `https://<sparkclustername>.azurehdinsight.net/`.
+     a. Especifique el identificador URI del clúster de HDInsight Spark. Por ejemplo: `https://<sparkclustername>.azurehdinsight.net/`.
 
     b. Especifique el nombre del usuario que tiene acceso al clúster de Spark.
 
@@ -219,7 +218,7 @@ En este paso, crea una canalización con una actividad de HDInsightSpark. Actual
     ```
     Tenga en cuenta los siguientes puntos:
 
-    a. La propiedad de **tipo** se establece en **HDInsightSpark**.
+     a. La propiedad de **tipo** se establece en **HDInsightSpark**.
 
     b. La propiedad **rootPath** se establece en **adfspark\\pyFiles**, donde adfspark es el contenedor de blobs y pyFiles es la carpeta de archivos en ese contenedor. En este ejemplo, la instancia de Blob Storage es la que está asociada con el clúster de Spark. Puede cargar el archivo en una cuenta de almacenamiento diferente. Si lo hace, cree un servicio vinculado de Storage para vincular esa cuenta de almacenamiento con la factoría de datos. A continuación, especifique el nombre del servicio vinculado como un valor de la propiedad **sparkJobLinkedService**. Para más información sobre esta y otras propiedades que admite la actividad de Spark, consulte [Propiedades de la actividad de Spark](#spark-activity-properties).
 

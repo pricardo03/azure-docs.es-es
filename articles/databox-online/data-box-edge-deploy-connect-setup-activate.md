@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: f4ca513e3c2e2345dc0005b95ddb7927c0164ffe
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: e5477807e4cff6dc745ccfd0383fd216719a7aa5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383024"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259621"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge-preview"></a>Tutorial: Conexión, configuración y activación de Azure Data Box Edge (versión preliminar) 
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Conectarse a un dispositivo físico
-> * Configurar y activar el dispositivo físico
+> * Configuración y activación del dispositivo físico
 
 > [!IMPORTANT]
 > Data Box Edge se encuentra en versión preliminar. Antes de solicitar e implementar esta solución, revise los [términos del servicio de Azure para la versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
@@ -85,14 +85,17 @@ El panel muestra los distintos valores necesarios para configurar y registrar el
     - Si DHCP está habilitado en el entorno, las interfaces de red se configuran automáticamente. Se asignan automáticamente una dirección IP, la subred, la puerta de enlace y DNS.
     - Si DHCP no está habilitado, puede asignar direcciones IP estáticas si es necesario.
     - Puede configurar la interfaz de red como IPv4.
-   
+
+    >[!NOTE] 
+    > Se recomienda no cambiar la dirección IP local de la interfaz de red de estática a DHCP, a menos que se tenga otra dirección IP para conectarse al dispositivo. Si se usara una interfaz de red y cambiara a DHCP, no habría forma de determinar la dirección DHCP. Si desea cambiar a una dirección DHCP, espere a que el dispositivo se haya registrado con el servicio y, después, realice el cambio. Luego, puede ver las direcciones IP de todos los adaptadores de las **propiedades del dispositivo** de su servicio en Azure Portal.
+
 1. (Opcional) En el panel izquierdo, seleccione **Configuración de proxy web** y, después, configure el servidor proxy web. Aunque la configuración del proxy web es opcional, si usa un proxy web, solo puede configurarlo aquí.
    
    ![La página "Configuración de proxy web"](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-4.png)
    
    En la página **Configuración de proxy web** haga lo siguiente:
    
-    a. En el cuadro **URL de proxy web** , escriba la dirección URL en este formato: `http://host-IP address or FDQN:Port number`. No se admiten direcciones URL HTTPS.
+    a. En el cuadro **URL de proxy web** , escriba la dirección URL en este formato: `http://host-IP address or FQDN:Port number`. No se admiten direcciones URL HTTPS.
 
    b. En **Autenticación**, seleccione **No** o **NTLM**.
 
@@ -138,7 +141,7 @@ En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * A conectarse a un dispositivo físico
-> * A configurar y activar el dispositivo físico
+> * Configuración y activación del dispositivo físico
 
 
 Para aprender a transferir datos con Data Box Edge, consulte:

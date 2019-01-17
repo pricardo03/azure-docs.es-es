@@ -1,13 +1,9 @@
 ---
-title: 'Tutorial: Enrutar el tráfico para mejorar la respuesta del sitio web mediante Azure Traffic Manager | Microsoft Docs'
+title: 'Tutorial: Enrutar el tráfico para mejorar la respuesta del sitio web mediante Azure Traffic Manager'
 description: Este artículo del tutorial describe cómo crear un perfil de Traffic Manager para crear un sitio web con alta capacidad de respuesta.
 services: traffic-manager
-documentationcenter: ''
 author: kumudd
-manager: jeconnoc
-editor: ''
 Customer intent: As an IT Admin, I want to route traffic so I can improve website response by choosing the endpoint with lowest latency.
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -15,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: kumud
-ms.openlocfilehash: 087dcda5826d96ad064c472fc897be7e61133387
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 1b12e17bb8dd666bd48e937b7fed40e40f22ecf0
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392527"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200775"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Tutorial: Mejorar la respuesta del sitio web mediante Traffic Manager 
 
