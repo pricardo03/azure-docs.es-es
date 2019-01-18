@@ -160,6 +160,8 @@ items:
       items:
       - name: Actualización de Mobility Service para máquinas virtuales de Azure
         href: azure-to-azure-autoupdate.md
+      - name: Actualizaciones en Azure Site Recovery
+        href: service updates-how-to.md
   - name: Recuperación ante desastres de VMware a Azure
     items:
     - name: Configuración de las redes
@@ -234,6 +236,8 @@ items:
         href: vmware-azure-manage-process-server.md
       - name: Administración de servidores vCenter
         href: vmware-azure-manage-vcenter.md
+      - name: Actualizaciones en Azure Site Recovery
+        href: service updates-how-to.md
       - name: Quitar servidores y deshabilitar la protección
         href: site-recovery-manage-registration-and-protection.md
       - name: Eliminación de un almacén
@@ -274,6 +278,8 @@ items:
         href: vmware-azure-manage-process-server.md
       - name: Quitar servidores y deshabilitar la protección
         href: site-recovery-manage-registration-and-protection.md
+      - name: Actualizaciones en Azure Site Recovery
+        href: service updates-how-to.md
       - name: Eliminación de un almacén
         href: delete-vault.md
   - name: Recuperación ante desastres de máquinas virtuales de Azure Stack
@@ -320,8 +326,12 @@ items:
         href: hyper-v-azure-failback.md
     - name: administración
       items:
+      - name: Actualización de los servidores de Windows Server configurados con Site Recovery
+        href: upgrade-2012R2-to-2016.md
       - name: Quitar servidores y deshabilitar la protección
         href: site-recovery-manage-registration-and-protection.md
+      - name: Actualizaciones en Azure Site Recovery
+        href: service updates-how-to.md
       - name: Eliminación de un almacén
         href: delete-vault.md
       - name: Actualización de los servidores de Windows Server configurados con Site Recovery
@@ -442,9 +452,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Actualizaciones del servicio
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: 1029557aed09aba06f7fce63bc4681969a6b3733
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: c81028216a6af1fac6b6da261395d4fded3d8500
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103510"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382490"
