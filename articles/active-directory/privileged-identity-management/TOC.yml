@@ -7,9 +7,9 @@ items:
     href: pim-configure.md
 - name: Conceptos
   items:
-  - name: Requisitos de suscripción
+  - name: Requisitos de licencia
     href: subscription-requirements.md
-  - name: Roles de directorio que puede administrar
+  - name: Roles que no puede administrar
     href: pim-roles.md
   - name: Protección del acceso con privilegios
     href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
@@ -19,8 +19,6 @@ items:
     href: pim-resource-roles-overview-dashboards.md
   - name: Notificaciones por correo electrónico
     href: pim-email-notifications.md
-  - name: Tipos de asignación
-    href: pim-resource-roles-eligible-visibility.md
   - name: Microsoft Graph API
     href: pim-apis.md
 - name: Guías de procedimientos
@@ -41,8 +39,8 @@ items:
       href: pim-resource-roles-discover-resources.md
     - name: Concesión de acceso a otros usuarios para administrar PIM
       href: pim-how-to-give-access-to-pim.md
-    - name: Habilitación de la administración de suscripciones
-      href: pim-resource-roles-enable-subscription-management.md
+    - name: Elevación de los privilegios de acceso para administrar todas las suscripciones
+      href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
   - name: Administración de los roles de directorio
     items:
     - name: Asignación de roles
@@ -94,9 +92,9 @@ items:
       - name: Finalización de una revisión de acceso
         href: pim-resource-roles-complete-access-review.md
   expanded: true
-ms.openlocfilehash: 235d0444428072aa10558989904b92222e6fdbd1
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 2f68fbbf3ad2a8e2aa39d74a69c2bda12c5ec97a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723370"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433210"
