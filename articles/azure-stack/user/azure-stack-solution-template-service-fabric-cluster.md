@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: shnatara
-ms.openlocfilehash: abb77f59e49a98c1195dcd2e7b622b2b8e3fd7b8
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 151f6fa7880db03909c522147d9c1f74508f51a1
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087294"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351856"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Implementación de un clúster de Service Fabric en Azure Stack
 
@@ -118,7 +118,7 @@ Use el siguiente script para crear el identificador de KeyVault y agregar el *ce
    ``` 
 
 
-Para más información, consulte [Administración de Key Vault en Azure Stack mediante PowerShell](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-kv-manage-powershell).
+Para más información, consulte [Administración de Key Vault en Azure Stack mediante PowerShell](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-key-vault-manage-powershell).
 
 ## <a name="deploy-the-marketplace-item"></a>Implementación de un elemento de Marketplace
 
@@ -138,10 +138,10 @@ Para más información, consulte [Administración de Key Vault en Azure Stack me
 
    En *Huella digital del certificado de cliente de administración*, especifique la huella digital del *certificado de cliente de administración*. (Consulte los [requisitos previos](#prerequisites)).
    
-   - Instancia de Key Vault de origen: especifique toda la cadena de *identificador de Key Vault* a partir de los resultados del script. 
-   - Dirección URL del certificado de clúster: especifique la dirección URL completa del *identificador de secreto* a partir de los resultados del script. 
-   - Huella digital del certificado de clúster: especifique la *huella digital del certificado de clúster* a partir de los resultados del script.
-   - Huella digital del certificado de cliente de administración: especifique la *huella digital del certificado de cliente de administración* que ha creado en los requisitos previos. 
+   - Source Key Vault (Almacén de claves de origen):  especifique toda la cadena del *identificador de keyVault* a partir de los resultados del script. 
+   - Cluster Certificate URL (URL del certificado de clúster): especifique la dirección URL completa del *identificador del secreto* a partir de los resultados del script. 
+   - Cluster Certificate thumbprint (Huella digital del certificado de clúster): especifique la *huella digital del certificado de clúster* a partir de los resultados del script.
+   - Admin Client Certificate Thumbprints (Huella digital de certificado de cliente de administración): especifique la *huella digital del certificado de cliente de administración* que ha creado en los requisitos previos. 
 
    ![Salida del script](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 
@@ -158,7 +158,7 @@ Puede acceder al clúster de Service Fabric mediante el uso de Service Fabric Ex
 ### <a name="use-service-fabric-explorer"></a>Uso de Service Fabric Explorer
 1.  Compruebe que el explorador web tiene acceso al certificado de cliente de administración y puede autenticarse en el clúster de Service Fabric.  
 
-    a. Abra Internet Explorer y vaya a **Opciones de Internet** > **Contenido** > **Certificados**.
+     a. Abra Internet Explorer y vaya a **Opciones de Internet** > **Contenido** > **Certificados**.
   
     b. En Certificados, seleccione **Importar** para iniciar el *Asistente para importación de certificados*y, a continuación, haga clic en **Siguiente**. En la página *Archivo para importar* haga clic en **Examinar**y seleccione el **certificado de cliente de administración** que proporcionó a la plantilla de Azure Resource Manager.
         
@@ -173,7 +173,7 @@ Puede acceder al clúster de Service Fabric mediante el uso de Service Fabric Ex
        ![Almacén de certificados](media/azure-stack-solution-template-service-fabric-cluster/image9.png)  
 1. Para buscar el nombre de dominio completo del clúster de Service Fabric:  
 
-    a. Vaya al grupo de recursos que está asociado con el clúster de Service Fabric y busque el recurso *Dirección IP pública*. Seleccione el objeto asociado a la dirección IP pública para abrir la hoja *Dirección IP pública*.  
+     a. Vaya al grupo de recursos que está asociado con el clúster de Service Fabric y busque el recurso *Dirección IP pública*. Seleccione el objeto asociado a la dirección IP pública para abrir la hoja *Dirección IP pública*.  
 
       ![Dirección IP pública](media/azure-stack-solution-template-service-fabric-cluster/image10.png)   
 
@@ -198,7 +198,7 @@ Puede acceder al clúster de Service Fabric mediante el uso de Service Fabric Ex
 
 1. Una vez completada la instalación, configure las variables de entorno del sistema para asegurarse de que se puede acceder a los cmdlets de Service Fabric desde PowerShell.  
     
-    a. Vaya a **Panel de control** > **Sistema y seguridad** > **Sistema** y, finalmente, seleccione **Configuración avanzada del sistema**.  
+     a. Vaya a **Panel de control** > **Sistema y seguridad** > **Sistema** y, finalmente, seleccione **Configuración avanzada del sistema**.  
     
       ![Panel de control](media/azure-stack-solution-template-service-fabric-cluster/image15.png) 
 

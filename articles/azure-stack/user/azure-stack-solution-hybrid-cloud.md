@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/18/2018
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: e4da34be5b1e9eb2675f540fe4069cfd3dc1d056
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.reviewer: anajod
+ms.openlocfilehash: 1629c4b62fb04e057c38261a33fd3bc759b279c1
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49410008"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267409"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Tutorial: Implementación de una solución en la nube híbrida con Azure y Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Este tutorial muestra cómo implementar una solución en la nube híbrida que usa la nube pública de Azure y la nube privada de Azure Stack.
 
@@ -79,11 +79,11 @@ Antes de comenzar este tutorial, asegúrese de que se cumplen los requisitos sig
 
     ![Marketplace de Azure Stack](media/azure-stack-solution-hybrid-cloud/image1.png)
 
-3. En **Marketplace**, seleccione **Compute** (Proceso) y, a continuación, elija **More** (Más). En **More** (Más), seleccione la imagen **Free SQL Server License: SQL Server 2017 Developer on Windows Server**.
+3. En **Marketplace**, seleccione **Compute** (Proceso) y, a continuación, elija **More** (Más). En **Más**, seleccione **Free SQL Server License: SQL Server 2017 Developer en Windows Server**.
 
     ![Selección de una imagen de máquina virtual](media/azure-stack-solution-hybrid-cloud/image2.png)
 
-4. En **Free SQL Server License: SQL Server 2017 Developer on Windows Server**, seleccione **Create** (Crear).
+4. En **Free SQL Server License: SQL Server 2017 Developer en Windows Server** seleccione **Crear**.
 
 5. En **Basics>Configure basic settings** (Aspectos básicos>Configurar), escriba un nombre para la máquina virtual (VM) en **Name** (Nombre), escriba un nombre de usuario para el usuario SA de SQL Server SA en **User name** (Nombre de usuario) y escriba la contraseña del usuario SA en **Password** (Contraseña).  En la lista desplegable **Subscription** (Suscripción), seleccione la suscripción en la que se va a realizar la implementación. Para **Resource group** (Grupo de recursos), utilice **Choose existing** (Elegir existente) y coloque la máquina virtual en el mismo grupo de recursos que la aplicación web de Azure Stack.
 
@@ -308,7 +308,7 @@ Cuando se crea la aplicación web en un entorno de App Service, esta se inicia c
 
     ![Habilitar escalado automático](media/azure-stack-solution-hybrid-cloud/image17.png)
 
-3. Escriba un nombre para **Nombre de la configuración de escalado automático**. Para la regla de escalado automático **Predeterminada**, seleccione **Escalado basado en una métrica**. Establecer el valor de **Límites de instancia** en **Mínimo: 1**, **Máximo: 10** y **Predeterminado: 1**.
+3. Escriba un nombre para **Nombre de la configuración de escalado automático**. Para la regla de escalado automático **Predeterminada**, seleccione **Escalado basado en una métrica**. Establezca el valor de **Límites de instancia** en **Mínimo: 1**, **Máximo: 10** y **Predeterminado: 1**.
 
     ![Configuración del escalado automático](media/azure-stack-solution-hybrid-cloud/image18.png)
 

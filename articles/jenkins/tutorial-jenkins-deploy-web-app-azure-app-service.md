@@ -8,12 +8,12 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 786fc427e4cb631c4aedd0f795daebebd9fb15bc
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 3554151490215f128efc6725b7aaa0628d503366
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077443"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260139"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implementación desde GitHub en Azure App Service con la integración e implementación continuas de Jenkins
 
@@ -165,7 +165,7 @@ Esta es la salida que genera el comando **`create-for-rbac`**:
    | Propiedad | Valor | DESCRIPCIÓN | 
    |----------|-------|-------------| 
    | **Subscription ID** | <*yourAzureSubscription-ID*> | El valor GUID de la suscripción de Azure <p>**Sugerencia**: si no conoce el identificador de suscripción de Azure, ejecute este comando de la CLI de Azure en la línea de comandos o en Cloud Shell y, a continuación, utilice el valor GUID `id`: <p>`az account list` | 
-   | **Id. de cliente** | <*yourAzureServicePrincipal-ID*> | El valor GUID `appId` que se generó anteriormente para la entidad de servicio de Azure. | 
+   | **Id. de cliente** | <*yourAzureServicePrincipal-ID*> | El valor GUID `appId` que se generó anteriormente para la entidad de servicio de Azure | 
    | **Secreto de cliente** | <*yourSecurePassword*> | El valor `password` o "secreto" que proporcionó para la entidad de servicio de Azure | 
    | **Id. de inquilino** | <*yourAzureActiveDirectoryTenant-ID*> | El valor GUID `tenant` para el inquilino de Azure Active Directory | 
    | **Id** | <*yourAzureServicePrincipalName*> | El valor `displayName` de la entidad de servicio de Azure. | 

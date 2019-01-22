@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 0db76e80b2ff7400e7c2914efbd2bbcb24d9b005
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4ee1c9edf8cb10cae1a8a6e1c15f9bcf6e9a8ff8
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034325"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359466"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Creación de su primera función durable en JavaScript
 
@@ -94,7 +94,7 @@ Hemos agregado un orquestador para coordinar las funciones de actividad. Ahora a
 
 ## <a name="create-an-activity-function"></a>Creación de una función de actividad
 
-1. Repita los pasos de la sección anterior para crear una tercera función mediante la plantilla de desencadenador HTTP. Esta vez, llame a la función `SayHello`.
+1. Repita los pasos de la sección anterior para crear una tercera función mediante la plantilla de desencadenador HTTP. Esta vez, llame a la función `E1_SayHello`.
 
 2. Abra el archivo index.js de la nueva función y reemplace el contenido por el código siguiente:
 
@@ -121,9 +121,11 @@ Azure Functions Core Tools le permite ejecutar un proyecto de Azure Functions en
 
     ![Salida local de Azure](../media/functions-create-first-function-vs-code/functions-vscode-f5.png)
 
-4. Pegue la dirección URL de la solicitud HTTP en la barra de direcciones del explorador y observe el estado de la orquestación.
+4. Reemplace `{functionName}` por `OrchestratorFunction`.
 
-5. Para detener la depuración, presione Mayús + F1.
+5. Mediante una herramienta como [Postman](https://www.getpostman.com/) o [cURL](https://curl.haxx.se/), envíe una petición HTTP POST al punto de conexión de la dirección URL.
+
+6. Para detener la depuración, presione Mayús + F1 en VS Code.
 
 Después de comprobar que la función se ejecuta correctamente en el equipo local es el momento de publicar el proyecto en Azure.
 

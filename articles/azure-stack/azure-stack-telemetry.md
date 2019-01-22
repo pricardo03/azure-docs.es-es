@@ -15,16 +15,16 @@ ms.topic: get-started-article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: comartin
-ms.openlocfilehash: 6b73cf04d768381bcc0e27cc76b6c2a25d4d9a2c
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 190a80d5807dcc8ad9666d3ba450691bc6453b41
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341062"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265624"
 ---
 # <a name="azure-stack-telemetry"></a>Telemetría de Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 La telemetría de Azure Stack carga automáticamente datos del sistema en Microsoft mediante la Experiencia del usuario asociada. Los equipos de Microsoft utilizan los datos que la telemetría de Azure Stack reúne para mejorar las experiencias de los clientes. Estos datos también se utilizan para análisis de seguridad, estado, calidad y rendimiento.
 
@@ -33,7 +33,7 @@ Para un operador de Azure Stack, la telemetría puede proporcionar información 
 > [!NOTE]
 > También se puede configurar Azure Stack para reenviar la información de uso a Azure con fines de facturación. Esta información es necesaria para los clientes de Azure Stack de varios nodos que eligen la facturación de pago por uso. Los informes de uso se controlan de forma independiente de la telemetría y no son necesarios para los clientes de varios nodos que eligen el modelo de capacidad o para los usuarios del Kit de desarrollo de Azure Stack. En estos escenarios, los informes de uso se pueden desactivar [mediante el script de registro](https://docs.microsoft.com/azure/azure-stack/azure-stack-usage-reporting).
 
-La telemetría de Azure Stack se basa en el componente Experiencia del usuario y telemetría asociadas de Windows Server 2016, que usa la tecnología de registro de seguimientos [ETW (Seguimiento de eventos para Windows)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) para recopilar y almacenar eventos y datos. Los componentes de Azure Stack usan la misma tecnología para publicar eventos y datos que se recopilan mediante las API de seguimiento y registro de eventos del sistema operativo. Algunos ejemplos de estos componentes de Azure Stack incluyen estos proveedores: de recursos de red, de recursos de almacenamiento, de recursos de supervisión y de recursos de actualización. El componente Experiencia del usuario y telemetría asociadas cifra los datos mediante SSL y usa la asignación de certificados para transmitir datos al servicio Microsoft Data Management a través de HTTPS.
+La telemetría de Azure Stack se basa en el componente Experiencia del usuario y telemetría asociadas de Windows Server 2016, que usa la tecnología de registro de seguimientos [ETW (Seguimiento de eventos para Windows)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) para recopilar y almacenar eventos y datos. Los componentes de Azure Stack usan la misma tecnología para publicar eventos y datos que se recopilan mediante las API de seguimiento y registro de eventos del sistema operativo. Entre los ejemplos de estos componentes de Azure Stack se incluyen los siguientes proveedores: Recursos de red, recursos de almacenamiento, recursos de supervisión y recursos de actualización. El componente Experiencia del usuario y telemetría asociadas cifra los datos mediante SSL y usa la asignación de certificados para transmitir datos al servicio Microsoft Data Management a través de HTTPS.
 
 > [!IMPORTANT]
 > Para habilitar el flujo de datos de telemetría, el puerto 443 (HTTPS) debe estar abierto en la red. El componente Experiencia del usuario y telemetría asociadas se conecta al servicio Microsoft Data Management en https://v10.vortex-win.data.microsoft.com. El componente Experiencia del usuario y telemetría asociadas también se conecta a https://settings-win.data.microsoft.com para descargar la información de la configuración.
@@ -112,7 +112,7 @@ Se puede usar el Editor del Registro de Windows para establecer manualmente el n
 Antes de implementar Azure Stack en el host del kit de desarrollo, inicie CloudBuilder.vhdx y ejecute el siguiente script en una ventana de PowerShell con privilegios elevados:
 
 ```powershell
-### Get current AllowTelmetry value on DVM Host
+### Get current AllowTelemetry value on DVM Host
 (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
 -Name AllowTelemetry).AllowTelemetry
 ### Set & Get updated AllowTelemetry value for ASDK-Host

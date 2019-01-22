@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Translator Speech API con C#'
+title: 'Inicio rápido: Translator Speech API, C#'
 titlesuffix: Azure Cognitive Services
 description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Translator Speech API.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a05ab716c8aea958e13ebba0dc9ceb09bf3d7cce
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: b873dbd3132e549c529280400d5a9644174232f9
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913536"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259029"
 ---
-# <a name="quickstart-translator-speech-api-with-c"></a>Guía de inicio rápido: Translator Speech API con C# 
+# <a name="quickstart-translator-speech-api-with-c"></a>Inicio rápido: Translator Speech API con C# 
 <a name="HOLTop"></a>
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
@@ -26,7 +26,7 @@ En este artículo se muestra cómo usar Translator Speech API para traducir pala
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Se requiere [Visual Studio 2017](https://www.visualstudio.com/downloads/) para ejecutar este código en Windows. (La edición gratuita de Community Edition funcionará). Si usa Mac OS o Linux, también puede usar el editor de texto [Visual Studio Code] (https://code.visualstudio.com/Download) como alternativa.
+Se requiere [Visual Studio 2017](https://www.visualstudio.com/downloads/) para ejecutar este código en Windows. (La edición gratuita de Community Edition funcionará). Si usa Mac OS o Linux, también puede usar el editor de texto [Visual Studio Code](https://code.visualstudio.com/Download) como alternativa.
 
 Necesitará un archivo .wav llamado "speak.wav" en la misma carpeta que el ejecutable que compile con el código siguiente. Este archivo .wav debe estar en PCM estándar, formato mono de 16 bits, a 16 kHz.
 

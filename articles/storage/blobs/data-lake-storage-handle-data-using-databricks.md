@@ -6,14 +6,14 @@ author: jamesbak
 ms.service: storage
 ms.author: jamesbak
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 01/14/2019
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 6b2812e31174c4e5d61ae9941563e39357de9522
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: e4e75c65178c4bbedcf781c2fbf2149a94a702cd
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107096"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321201"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutorial: Extracción, transformación y carga de datos mediante Azure Databricks
 
@@ -42,6 +42,30 @@ Para completar este tutorial:
 * [Cree una cuenta de Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
 * Descargue (**small_radio_json.json**) desde el repositorio [U-SQL Examples and Issue Tracking](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) (Ejemplos y seguimiento de problemas de U-SQL) y anote la ruta donde guarde el archivo.
 * Inicie sesión en el [Azure Portal](https://portal.azure.com/).
+
+## <a name="set-aside-storage-account-configuration"></a>Reserva de la configuración de la cuenta de almacenamiento
+
+Necesitará el nombre de la cuenta de almacenamiento y un identificador URI del punto de conexión del sistema de archivos.
+
+Para obtener el nombre de la cuenta de almacenamiento en Azure Portal, elija **Todos los servicios** y filtre por el término *almacenamiento*. Luego, seleccione **Cuentas de almacenamiento** y localice su cuenta de almacenamiento.
+
+Para obtener el identificador URI del punto de conexión del sistema de archivos, elija **Propiedades**y en el panel Propiedades, busque el valor del campo **Primary ADLS FILE SYSTEM ENDPOINT** (PUNTO DE CONEXIÓN DEL SISTEMA DE ARCHIVOS ADLS principal).
+
+Pegue los dos valores en un archivo de texto, ya que los necesitará pronto.
+
+<a id="service-principal"/>
+
+## <a name="create-a-service-principal"></a>Creación de una entidad de servicio
+
+Cree a una entidad de servicio siguiendo la guía de este tema: [Uso del portal para crear una aplicación de Azure AD y una entidad de servicio que puedan acceder a los recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+Hay varias acciones concretas que tendrá que hacer al realizar los pasos de este artículo.
+
+:heavy_check_mark: Al realizar los pasos que se describen en la sección [Creación de una aplicación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application) del artículo, asegúrese de que en el campo **URL de inicio de sesión** del cuadro de diálogo **Crear** selecciona el identificador URI del punto de conexión que acaba de recopilar.
+
+:heavy_check_mark: Al realizar los pasos que se describen en la sección [Asignación de la aplicación a un rol](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role), asegúrese de asignar la aplicación al **rol de colaborador de Blob Storage**.
+
+:heavy_check_mark: Al realizar los pasos que se describen en la sección [Obtención de valores para el inicio de sesión](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) del artículo, pegue el identificador del inquilino, el identificador de la aplicación y los valores de la clave de autenticación en una clave de texto, ya que los necesitará pronto.
 
 ## <a name="create-the-workspace"></a>Creación del área de trabajo
 
@@ -87,7 +111,7 @@ Para realizar las operaciones en este tutorial, necesita un clúster de Spark. P
 
     * Escriba un nombre para el clúster.
     * Para este artículo, cree un clúster con el entorno de ejecución **5.1**.
-    * Asegúrese de que selecciona la casilla **Terminate after \_\_ minutes of inactivity** (Terminar después de \_\_ minutos de inactividad). Si no se usa el clúster, proporcione una duración (en minutos) para terminar el clúster.
+    * Asegúrese de que selecciona la casilla **Terminate after \_\_ minutes of inactivity** (Terminar después de ____ minutos de inactividad). Si no se usa el clúster, proporcione una duración (en minutos) para terminar el clúster.
 
 1. Seleccione **Create cluster** (Crear clúster).
 
@@ -101,35 +125,36 @@ En primer lugar, va a crear un cuaderno en el área de trabajo de Azure Databric
 
 1. En [Azure Portal](https://portal.azure.com), vaya al área de trabajo de Azure Databricks que ha creado y, después, seleccione **Launch Workspace** (Iniciar área de trabajo).
 
-1. A la izquierda, seleccione **Workspace** (Área de trabajo). En la lista desplegable **Workspace** (Área de trabajo), seleccione **Create** > **Notebook** (Crear > Cuaderno).
+2. A la izquierda, seleccione **Workspace** (Área de trabajo). En la lista desplegable **Workspace** (Área de trabajo), seleccione **Create** > **Notebook** (Crear > Cuaderno).
 
     ![Creación de un cuaderno en Databricks](./media/data-lake-storage-handle-data-using-databricks/databricks-create-notebook.png "Create notebook in Databricks")
 
-1. En el cuadro de diálogo **Create Notebook** (Crear cuaderno), escriba un nombre para el cuaderno. Seleccione **Scala** como lenguaje y, a continuación, seleccione el clúster de Spark que creó anteriormente.
+3. En el cuadro de diálogo **Create Notebook** (Crear cuaderno), escriba un nombre para el cuaderno. Seleccione **Scala** como lenguaje y, a continuación, seleccione el clúster de Spark que creó anteriormente.
 
     ![Proporcionar detalles para un cuaderno en Databricks](./media/data-lake-storage-handle-data-using-databricks/databricks-notebook-details.png "Provide details for a notebook in Databricks")
 
     Seleccione **Crear**.
 
-1. Escriba el código siguiente en la primera celda del cuaderno y ejecute el código. Reemplace los marcadores de posición que se muestran entre paréntesis en el ejemplo por los suyos propios:
+4. Copie y pegue el siguiente bloque de código en la primera celda, pero no ejecute el código aún.
 
     ```scala
-    %python%
-    configs = {"fs.azure.account.auth.type": "OAuth",
-        "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-        "fs.azure.account.oauth2.client.id": "<service-client-id>",
-        "fs.azure.account.oauth2.client.secret": "<service-credentials>",
-        "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token"}
-     
+    val configs = Map(
+    "fs.azure.account.auth.type" -> "OAuth",
+    "fs.azure.account.oauth.provider.type" -> "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+    "fs.azure.account.oauth2.client.id" -> "<application-id>",
+    "fs.azure.account.oauth2.client.secret" -> "<authentication-key>"),
+    "fs.azure.account.oauth2.client.endpoint" -> "https://login.microsoftonline.com/<tenant-id>/oauth2/token",
+    "fs.azure.createRemoteFileSystemDuringInitialization"->"true")
+
     dbutils.fs.mount(
-        source = "abfss://<file-system-name>@<account-name>.dfs.core.windows.net/[<directory-name>]",
-        mount_point = "/mnt/<mount-name>",
-        extra_configs = configs)
+    source = "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/<directory-name>",
+    mountPoint = "/mnt/<mount-name>",
+    extraConfigs = configs)
     ```
 
-1. Seleccione las teclas Mayús+Entrar para ejecutar el código.
+5. En este bloque de código, reemplace los valores `storage-account-name`, `application-id`, `authentication-id` y `tenant-id` del marcador de posición de este bloque de código por los valores que recopiló al completar los pasos de las secciones [Reserva de la configuración de la cuenta de almacenamiento](#config) y [Creación de una entidad de servicio](#service-principal) de este artículo. Establezca los valores `file-system-name`, `directory-name`, y `mount-name` del marcador en los nombres que desee dar al sistema de archivos, directorio y punto de montaje.
 
-Ahora el sistema de archivos se crea para la cuenta de almacenamiento.
+6. Presione las teclas **MAYÚS + ENTRAR** para ejecutar el código de este bloque.
 
 ## <a name="upload-the-sample-data"></a>Cargar los datos de ejemplo
 
@@ -336,7 +361,7 @@ Después de terminar el tutorial, puede finalizar el clúster. Desde el área de
 
 ![Detener un clúster de Databricks](./media/data-lake-storage-handle-data-using-databricks/terminate-databricks-cluster.png "Stop a Databricks cluster")
 
-Si no finaliza manualmente el clúster, este se detendrá automáticamente si seleccionó la casilla **Terminate after \_\_ minutes of inactivity** (Finalizar después de \_\_ minutos de inactividad) al crear el clúster. En tal caso, el clúster se detiene automáticamente si ha estado inactivo durante el tiempo especificado.
+Si no finaliza manualmente el clúster, este se detendrá automáticamente si seleccionó la casilla **Terminate after \_\_ minutes of inactivity** (Finalizar después de __ minutos de inactividad) al crear el clúster. En tal caso, el clúster se detiene automáticamente si ha estado inactivo durante el tiempo especificado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

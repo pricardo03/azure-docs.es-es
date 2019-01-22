@@ -3,7 +3,7 @@ title: Creación de una máquina virtual Windows de SQL Server con Azure PowerSh
 description: Este tutorial muestra cómo crear una máquina virtual Windows de SQL Server 2017 con Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
@@ -11,14 +11,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 02/15/2018
-ms.author: jroth
-ms.openlocfilehash: bebb153d5ff840a0eed7d6afffccd03a5236592d
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.date: 12/21/2018
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: aa4ea4e724ec383fc9f22bd56572d2fd0e844abc
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42023621"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332445"
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Inicio rápido: Creación de una máquina virtual Windows de SQL Server con Azure PowerShell
 
@@ -47,11 +48,11 @@ Para realizar los pasos de esta guía, se requiere la versión 3.6 del módulo A
    Connect-AzureRmAccount
    ```
 
-1. Debería ver una pantalla de inicio de sesión para escribir sus credenciales. Use el mismo correo electrónico y la misma contraseña que usa para iniciar sesión en el portal de Azure.
+1. Debería ver una pantalla para escribir sus credenciales. Use el mismo correo electrónico y la misma contraseña que usa para iniciar sesión en el portal de Azure.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-1. Defina una variable con un nombre único de grupo de recursos. Para simplificar el resto de la guía de inicio rápido, el resto de los comandos usan este nombre como base de otros nombres de recursos.
+1. Defina una variable con un nombre único de grupo de recursos. Para simplificar el resto del inicio rápido, los restantes comandos usan este nombre como base de otros nombres de recursos.
 
    ```PowerShell
    $ResourceGroupName = "sqlvm1"
@@ -122,11 +123,11 @@ Para realizar los pasos de esta guía, se requiere la versión 3.6 del módulo A
 
 ## <a name="create-the-sql-vm"></a>Creación de la máquina virtual con SQL
 
-1. Defina sus credenciales para iniciar sesión en la máquina virtual. El nombre de usuario es "azureadmin". Asegúrese de cambiar la contraseña antes de ejecutar el comando.
+1. Defina las credenciales con las que inicia sesión en la máquina virtual. El nombre de usuario es "azureadmin". Asegúrese de que cambia \<contraseña> antes de ejecutar el comando.
 
    ``` PowerShell
    # Define a credential object
-   $SecurePassword = ConvertTo-SecureString 'Change.This!000' `
+   $SecurePassword = ConvertTo-SecureString '<password>' `
       -AsPlainText -Force
    $Cred = New-Object System.Management.Automation.PSCredential ("azureadmin", $securePassword)
    ```
@@ -136,7 +137,7 @@ Para realizar los pasos de esta guía, se requiere la versión 3.6 del módulo A
    ```PowerShell
    # Create a virtual machine configuration
    $VMName = $ResourceGroupName + "VM"
-   $VMConfig = New-AzureRmVMConfig -VMName $VMName -VMSize Standard_DS13 | `
+   $VMConfig = New-AzureRmVMConfig -VMName $VMName -VMSize Standard_DS13_V2 | `
       Set-AzureRmVMOperatingSystem -Windows -ComputerName $VMName -Credential $Cred -ProvisionVMAgent -EnableAutoUpdate | `
       Set-AzureRmVMSourceImage -PublisherName "MicrosoftSQLServer" -Offer "SQL2017-WS2016" -Skus "SQLDEV" -Version "latest" | `
       Add-AzureRmVMNetworkInterface -Id $Interface.Id
@@ -148,9 +149,9 @@ Para realizar los pasos de esta guía, se requiere la versión 3.6 del módulo A
    > [!TIP]
    > Se tarda unos minutos en crearla.
 
-## <a name="install-the-sql-iaas-agent"></a>Instalación del Agente de IaaS de SQL Server
+## <a name="install-the-sql-iaas-agent"></a>Instalación del Agente de IaaS de SQL
 
-Para obtener las características de máquina virtual SQL e integración del portal, debe instalar la [Extensión del Agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Para instalar al agente en la nueva máquina virtual, ejecute el comando siguiente después de crearlo.
+Para obtener las características de máquina virtual SQL e integración del portal, debe instalar la [Extensión del Agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Para instalar al agente en la nueva máquina virtual, ejecute el siguiente comando después de crearla.
 
    ```PowerShell
    Set-AzureRmVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
@@ -158,37 +159,37 @@ Para obtener las características de máquina virtual SQL e integración del por
 
 ## <a name="remote-desktop-into-the-vm"></a>Escritorio remoto en la máquina virtual
 
-1. Use el comando siguiente para recuperar la dirección IP pública para la nueva máquina virtual.
+1. Use el siguiente comando para recuperar la dirección IP pública para la nueva máquina virtual.
 
    ```PowerShell
    Get-AzureRmPublicIpAddress -ResourceGroupName $ResourceGroupName | Select IpAddress
    ```
 
-1. A continuación, tome la dirección IP devuelta y pásela como parámetro de línea de comandos a **mstsc** para iniciar una sesión de Escritorio remoto en la nueva máquina virtual.
+1. Use la dirección IP devuelta como parámetro de línea de comandos a **mstsc** para iniciar una sesión de Escritorio remoto en la nueva máquina virtual.
 
    ```
    mstsc /v:<publicIpAddress>
    ```
 
-1. Cuando se le pidan credenciales, elija introducir las de una cuenta diferente. Escriba el nombre de usuario con una barra diagonal inversa; por ejemplo, `\azureadmin` y la contraseña que ha definido anteriormente en esta guía de inicio rápido.
+1. Cuando se le pidan credenciales, elija introducir las de una cuenta diferente. Escriba el nombre de usuario con una barra diagonal inversa (por ejemplo, `\azureadmin`) y la contraseña que ha definido anteriormente en esta guía de inicio rápido.
 
 ## <a name="connect-to-sql-server"></a>Conexión con SQL Server
 
 1. Después de iniciar sesión en la sesión de Escritorio remoto, inicie **SQL Server Management Studio 2017** desde el menú Inicio.
 
-1. En el cuadro de diálogo **Conectar con el servidor**, mantenga los valores predeterminados. El nombre de servidor es el de la máquina virtual. La autenticación se establece en **Autenticación de Windows**. Haga clic en **Conectar**.
+1. En el cuadro de diálogo **Conectar con el servidor**, mantenga los valores predeterminados. El nombre de servidor es el de la máquina virtual. La autenticación se establece en **Autenticación de Windows**. Seleccione **Conectar**.
 
-Ahora está conectado a SQL Server localmente. Si desea conectarse de forma remota, deberá [configurar la conectividad](virtual-machines-windows-sql-connect.md) desde el portal o manualmente.
+Ya está conectado a SQL Server localmente. Si desea conectarse de forma remota, deberá [configurar la conectividad](virtual-machines-windows-sql-connect.md) desde el portal o manualmente.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si no necesita que la VM se ejecute continuamente, puede detenerla cuando no se esté usando y así evitar cargos innecesarios. El siguiente comando detiene la VM, pero la deja disponible para usarla en el futuro.
+Si no necesita que la máquina virtual se ejecute continuamente, puede detenerla cuando no se esté usando y así evitar cargos innecesarios. El siguiente comando detiene la VM, pero la deja disponible para usarla en el futuro.
 
 ```PowerShell
 Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 
-También puede eliminar de forma definitiva todos los recursos asociados a la máquina virtual con el comando **Remove-AzureRmResourceGroup**. Como esta acción también elimina la máquina virtual definitivamente, use este comando con cuidado.
+También puede eliminar de forma definitiva todos los recursos asociados a la máquina virtual con el comando **Remove-AzureRmResourceGroup**. Si lo hace, también se elimina la máquina virtual de forma permanente, así que use este comando con cuidado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

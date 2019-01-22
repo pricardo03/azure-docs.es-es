@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/09/2018
+ms.date: 01/14/2019
 ms.author: patricka
-ms.reviewer: ''
-ms.openlocfilehash: 1bc4fcda360a899fb2f58e2ac26270d160227a65
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.reviewer: fiseraci
+ms.openlocfilehash: 4ffbf552b2c35039ceadfdf6940873a22cb194aa
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902848"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306546"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Información general sobre identidades en Azure Stack
 
 Azure Stack requiere un proveedor de identidades como Azure Active Directory (Azure AD) o Servicios de federación de Active Directory (AD FS) respaldados por Active Directory (AD). La elección de un proveedor es una decisión puntual que solo se toma la primera vez que implementa Azure Stack. Los conceptos y la información detallada sobre la autorización que encontrará en este artículo pueden ayudarle a realizar su elección entre los proveedores de identidades.
 
-La decisión entre Azure AD y AD FS podría estar determinada por el modo en el que se implementa Azure Stack:
+La decisión entre Azure AD y AD FS se determina por el modo en el que se implementa Azure Stack:
 
 - Cuando se implementa en modo conectado, puede usar Azure AD o AD FS.
 - Cuando se implementa en modo desconectado, sin una conexión a Internet, solo se admite AD FS.
@@ -34,7 +34,7 @@ La decisión entre Azure AD y AD FS podría estar determinada por el modo en el 
 Para más información sobre estas opciones, que dependen de su entorno de Azure Stack, consulte los siguientes artículos:
 
 - Kit de implementación de Azure Stack: [Consideraciones de identidad](azure-stack-datacenter-integration.md#identity-considerations).
-- Sistemas integrados de Azure Stack: [Decisiones sobre el planeamiento de la implementación para sistemas integrados de Azure Stack](azure-stack-deployment-decisions.md).
+- Sistemas integrados de Azure Stack: [Decisiones del planeamiento de la implementación en sistemas integrados de Azure Stack](azure-stack-deployment-decisions.md).
 
 ## <a name="common-concepts-for-identity"></a>Conceptos comunes sobre identidad
 
@@ -64,7 +64,7 @@ En Azure Stack, las cuentas de usuario:
 - Están restringidas al directorio donde primero se registran, que es el directorio de la organización.
 - Se pueden importar desde los directorios locales. Para más información, consulte [Integración de los directorios locales con Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect).
 
-Al iniciar sesión en el portal del inquilino de su organización, use la dirección URL *https://portal.local.azurestack.external*. Al iniciar sesión en el portal de Azure Stack desde dominios que no sean el utilizado para registrar Azure Stack, el nombre de dominio usado para registrar Azure Stack se deben anexar a la dirección URL del portal. Por ejemplo, si Azure Stack se ha registrado con fabrikam.onmicrosoft.com y el registro la cuenta de usuario es admin@contoso.com, la dirección URL que se usa para iniciar sesión en el portal de usuarios sería: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
+Al iniciar sesión en el portal del inquilino de su organización, use la dirección URL *https://portal.local.azurestack.external*. Al iniciar sesión en el portal de Azure Stack desde dominios que no sean el utilizado para registrar Azure Stack, el nombre de dominio usado para registrar Azure Stack se deben anexar a la dirección URL del portal. Por ejemplo, si Azure Stack se ha registrado en fabrikam.onmicrosoft.com y el registro la cuenta de usuario es admin@contoso.com, la dirección URL que se usa para iniciar sesión en el portal de usuarios sería: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ### <a name="guest-users"></a>Usuarios invitados
 
@@ -81,7 +81,7 @@ Puede registrar aplicaciones en Azure AD o AD FS y luego ofrecérselas a los usu
 Las aplicaciones incluyen:
 
 - **Aplicación web**: algunos ejemplos son Azure Portal y Azure Resource Manager. Estas aplicaciones admiten llamadas API web.
-- **Cliente nativo**: algunos ejemplos son Azure PowerShell, Visual Studio y la interfaz de la línea de comandos (CLI) de Azure.
+- **Cliente nativo**: algunos ejemplos son Azure PowerShell, Visual Studio y la CLI de Azure.
 
 Las aplicaciones pueden admitir dos tipos de inquilinos:
 
@@ -100,7 +100,7 @@ Al registrar una aplicación, se crean dos objetos:
 
 - **Objeto de aplicación**: representación global de la aplicación en todos los inquilinos. Esta relación es de uno a uno con la aplicación de software y solo existe en el directorio donde la aplicación se registra primero.
 
-- **Objeto de entidad de servicio**: credencial que se crea para una aplicación en el directorio donde la aplicación se registró por primera vez. Una entidad de servicio también se crea en el directorio de cada inquilino adicional donde se usa esa aplicación. Esta relación puede ser de uno a varios con la aplicación de software.
+- **Objeto de entidad de servicio**: credencial que se crea para una aplicación en el directorio en que la aplicación se registró por primera vez. Una entidad de servicio también se crea en el directorio de cada inquilino adicional donde se usa esa aplicación. Esta relación puede ser de uno a varios con la aplicación de software.
 
 Para más información sobre los objetos de aplicación y de entidad de servicio, consulte [Objetos de aplicación y de entidad de servicio de Azure Active Directory (Azure AD)](/azure/active-directory/develop/active-directory-application-objects).
 
@@ -155,8 +155,8 @@ Para aplicaciones y usuarios, la arquitectura de Azure Stack se define en cuatro
 
 Para autenticarse con el proveedor de identidades y recibir un token JWT, debe tener la siguiente información:
 
-1. **Dirección URL del sistema de identidad (autoridad)**: la dirección URL en la que puede comunicarse con el proveedor de identidades. Por ejemplo, *https://login.windows.net*.
-2. **Identificador URI del identificador de la aplicación de Azure Resource Manager**: el identificador único de Azure Resource Manager que se registra en el proveedor de identidades. También es único para cada instalación de Azure Stack.
+1. **Dirección URL del sistema de identidad (autoridad)**: dirección URL a través de la que se puede acceder al proveedor de identidades. Por ejemplo, *https://login.windows.net*.
+2. **Identificador URI del identificador de aplicación de Azure Resource Manager**: el identificador único de Azure Resource Manager que se registra en el proveedor de identidades. También es único para cada instalación de Azure Stack.
 3. **Credenciales**: la credencial que se usa para autenticarse con el proveedor de identidades.
 4. **Dirección URL de Azure Resource Manager**: la dirección URL es la ubicación del servicio Azure Resource Manager. Por ejemplo, *https://management.azure.com* o *https://management.local.azurestack.external*.
 

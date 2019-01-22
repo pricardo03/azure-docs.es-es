@@ -15,18 +15,18 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 50f5662fa574b512ab607e17dbdfcf1861e2f5c6
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: b123caebfdba94b8b5e1c7bcf1c8a998d5199fda
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954919"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259757"
 ---
-# <a name="tutorial-offer-highly-available-sql-databases"></a>Oferta de bases de datos SQL de alta disponibilidad
+# <a name="tutorial-offer-highly-available-sql-databases"></a>Tutorial: Oferta de bases de datos SQL de alta disponibilidad
 
-Como operador de Azure Stack, puede configurar máquinas virtuales de servidor para hospedar bases de datos de SQL Server. Una vez que se haya creado correctamente un servidor de hospedaje de SQL y se administre por parte de Azure Stack, los usuarios suscritos a servicios de SQL pueden crear fácilmente bases de datos SQL.
+Como operador de Azure Stack, puede configurar máquinas virtuales de servidor para hospedar bases de datos de SQL Server. Una vez que se haya creado correctamente un servidor de hospedaje de SQL y Azure Stack lo administre, los usuarios suscritos a servicios de SQL pueden crear fácilmente bases de datos SQL.
 
-Este tutorial muestra cómo usar una plantilla de inicio rápido de Azure Stack para crear un [grupo de disponibilidad AlwaysOn de SQL Server](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017), agregarlo como servidor de hospedaje SQL de Azure Stack y, a continuación, crear una base de datos SQL alta disponibilidad.
+Este tutorial muestra cómo usar una plantilla de inicio rápido de Azure Stack para crear un [grupo de disponibilidad AlwaysOn de SQL Server](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017), agregarlo como servidor de hospedaje SQL de Azure Stack y, a continuación, crear una base de datos SQL de alta disponibilidad.
 
 Lo qué aprenderá:
 
@@ -35,7 +35,7 @@ Lo qué aprenderá:
 > * Creación de un servidor de hospedaje SQL de Azure Stack
 > * Creación de una base de datos SQL de alta disponibilidad
 
-En este tutorial, creará un grupo de disponibilidad AlwaysOn de SQL Server para dos máquinas virtuales, que se configurará con los elementos disponibles de Marketplace para Azure Stack. 
+En este tutorial, utilizará los elementos disponibles de Marketplace para Azure Stack para crear y configurar un grupo de disponibilidad AlwaysOn de SQL Server para dos máquinas virtuales. 
 
 Antes de comenzar los pasos descritos en este tutorial, asegúrese de que el [proveedor de recursos de SQL Server](azure-stack-sql-resource-provider-deploy.md) ha instalado correctamente y ha puesto a disposición de los usuarios los siguientes elementos en el Marketplace para Azure Stack:
 
@@ -43,7 +43,7 @@ Antes de comenzar los pasos descritos en este tutorial, asegúrese de que el [pr
 > Todos los elementos siguientes son necesarios para utilizar la plantilla de inicio rápido de Azure Stack.
 
 - Imagen de Marketplace de [Windows Server 2016 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer).
-- SQL Server 2016 SP1 o SP2 (Developer, Standard o Enterprise) en la imagen de servidor de Windows Server 2016. Este tutorial se usa la imagen de Marketplace [SQL Server 2016 SP2 Enterprise en Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.sqlserver2016sp2enterprisewindowsserver2016).
+- SQL Server 2016 SP1 o SP2 (Developer, Standard o Enterprise) en la imagen del servidor de Windows Server 2016. Este tutorial se usa la imagen de Marketplace [SQL Server 2016 SP2 Enterprise en Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.sqlserver2016sp2enterprisewindowsserver2016).
 - [Extensión IaaS de SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension), versión 1.2.30 o superior. La extensión IaaS de SQL instala los componentes que son necesarios para los elementos de Marketplace de SQL Server para todas las versiones de Windows. Permite que los parámetros específicos de SQL se configuren en máquinas virtuales de SQL. Si la extensión no está instalada en el Marketplace local, el aprovisionamiento de SQL generará un error.
 - [Extensión de script personalizada para Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension), versión 1.9.1 o superior. La extensión de script personalizada es una herramienta que puede usarse para iniciar automáticamente las tareas de personalización de la máquina virtual posteriores a la implementación.
 - [Extensión DSC (configuración de estado deseado) de PowerShell](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm), versión 2.76.0.0 o superior. DSC es una plataforma de administración de Windows PowerShell que permite implementar y administrar datos de configuración de servicios de software y administrar el entorno en el que se ejecutan estos servicios.
@@ -87,7 +87,7 @@ Siga los pasos de esta sección para implementar el grupo de disponibilidad Alwa
     [![](media/azure-stack-tutorial-sqlrp/4-sm.PNG "Creación de implementación personalizada")](media/azure-stack-tutorial-sqlrp/4-lg.PNG#lightbox)
 
 
-6. En el portal de administración, seleccione **Grupos de recursos** y, a continuación, el nombre del grupo de recursos que creó para la implementación personalizada (**resource-group** en este ejemplo). Vea el estado de la implementación para asegurarse de que todas las implementaciones se han completado correctamente.<br><br>A continuación, revise los elementos del grupo de recursos y seleccione el elemento de la dirección IP pública **SQLPIPsql\<nombre del grupo de recursos\>**. Anote la dirección IP pública y nombre de dominio completo de la dirección IP pública del equilibrador de carga. Deberá proporcionar esta información al operador de Azure Stack para que pueda crear un servidor de hospedaje SQL aprovechando este grupo de disponibilidad AlwaysOn de SQL.
+6. En el portal de administración, seleccione **Grupos de recursos** y, a continuación, el nombre del grupo de recursos que creó para la implementación personalizada (**resource-group** en este ejemplo). Vea el estado de la implementación para asegurarse de que todas las implementaciones se han completado correctamente.<br><br>A continuación, revise los elementos del grupo de recursos y seleccione el elemento de la dirección IP pública **SQLPIPsql\<nombre del grupo de recursos\>**. Anote la dirección IP pública y el nombre de dominio completo de la dirección IP pública del equilibrador de carga. Deberá proporcionar esta información al operador de Azure Stack para que pueda crear un servidor de hospedaje SQL aprovechando este grupo de disponibilidad AlwaysOn de SQL.
 
    > [!NOTE]
    > La implementación de la plantilla tardará varias horas en completarse.

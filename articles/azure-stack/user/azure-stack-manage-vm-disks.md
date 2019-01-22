@@ -14,16 +14,16 @@ ms.topic: get-started-article
 ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviewer: jiahan
-ms.openlocfilehash: 2e3cec4564c509cd225a9bcd43185f6f5b344e8c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 473fb95de5da4a14c81d0fa3a5aafa33302d9ab2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833469"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258686"
 ---
 # <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>Aprovisionamiento de almacenamiento en discos de máquina virtual en Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 En este artículo se describe cómo aprovisionar almacenamiento en disco de máquina virtual mediante el portal de Azure Stack o PowerShell.
 
@@ -70,13 +70,13 @@ Cada disco no administrado que agregue se debe colocar en un contenedor independ
 ### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>Uso del portal para crear y asociar un nuevo disco de datos
 
 1.  En el portal, seleccione **Máquinas virtuales**.    
-    ![Ejemplo: Panel de la máquina virtual](media/azure-stack-manage-vm-disks/vm-dashboard.png)
+    ![Ejemplo: Panel de máquinas virtuales](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
 2.  Seleccione una máquina virtual que se haya aprovisionado anteriormente.   
     ![Ejemplo: Selección de una máquina virtual en el panel](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
 3.  En la máquina virtual, seleccione **Discos** > **Asociar nuevo**.       
-    ![Ejemplo: Asociación de un nuevo disco a la máquina virtual](media/azure-stack-manage-vm-disks/Attach-disks.png)    
+    ![Ejemplo: Conexión de un nuevo disco a la máquina virtual](media/azure-stack-manage-vm-disks/Attach-disks.png)    
 
 4.  En el panel **Asociar nuevo disco**, seleccione **Ubicación**. De forma predeterminada, la ubicación se establece en el mismo contenedor que alberga el disco del sistema operativo.      
     ![Ejemplo: Establecimiento de la ubicación del disco](media/azure-stack-manage-vm-disks/disk-location.png)
@@ -85,7 +85,7 @@ Cada disco no administrado que agregue se debe colocar en un contenedor independ
     ![Ejemplo: Selección de un contenedor](media/azure-stack-manage-vm-disks/select-container.png)
 
 6.  En la página **Asociar nuevo disco**, actualice los valores de **Nombre**, **Tipo**, **Tamaño** y **Almacenamiento en caché de host** del disco. A continuación, seleccione **Aceptar** para guardar la nueva configuración de disco de la máquina virtual.  
-    ![Ejemplo: Finalización de la asociación del disco](media/azure-stack-manage-vm-disks/complete-disk-attach.png)  
+    ![Ejemplo: Finalización de la conexión del disco](media/azure-stack-manage-vm-disks/complete-disk-attach.png)  
 
 7.  Una vez que Azure Stack crea el disco y lo asocia a la máquina virtual, el nuevo disco aparece en la configuración de disco de la máquina virtual en **DISCOS DE DATOS**.   
     ![Ejemplo: Visualización del disco](media/azure-stack-manage-vm-disks/view-data-disk.png)
@@ -96,7 +96,7 @@ Cada disco no administrado que agregue se debe colocar en un contenedor independ
 1.  [Prepare un archivo .vhd](https://docs.microsoft.com/azure/virtual-machines/windows/classic/createupload-vhd) para usarlo como disco de datos de una máquina virtual. Cargue ese archivo .vhd en una cuenta de almacenamiento que se use con la máquina virtual a la que quiere asociar al archivo .vhd.
 
   Considere usar un contenedor diferente para el archivo .vhd en lugar del que alberga el disco del sistema operativo.   
-  ![Ejemplo: Carga de un archivo de disco duro virtual](media/azure-stack-manage-vm-disks/upload-vhd.png)
+  ![Ejemplo: Carga de un archivo VHD](media/azure-stack-manage-vm-disks/upload-vhd.png)
 
 2.  Una vez cargado el archivo .vhd, está listo para asociar el disco duro virtual a una máquina virtual. En el menú de la izquierda, haga clic en **Máquinas virtuales**.  
  ![Ejemplo: Selección de una máquina virtual en el panel](media/azure-stack-manage-vm-disks/vm-dashboard.png)
@@ -105,7 +105,7 @@ Cada disco no administrado que agregue se debe colocar en un contenedor independ
   ![Ejemplo: Selección de una máquina virtual en el panel](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
 4.  En la página de la máquina virtual, seleccione **Discos** > **Asociar existente**.   
-  ![Ejemplo: Asociación de un disco existente](media/azure-stack-manage-vm-disks/attach-disks2.png)
+  ![Ejemplo: Conexión de un disco existente](media/azure-stack-manage-vm-disks/attach-disks2.png)
 
 5.  En la página **Asociar disco existente**, seleccione **Archivo VHD**. Se abre la página **Cuentas de almacenamiento**.    
   ![Ejemplo: Selección de un archivo de disco duro virtual](media/azure-stack-manage-vm-disks/select-vhd.png)
@@ -114,10 +114,10 @@ Cada disco no administrado que agregue se debe colocar en un contenedor independ
   ![Ejemplo: Selección de un contenedor](media/azure-stack-manage-vm-disks/select-container2.png)
 
 7.  En **Asociar disco existente**, el archivo que seleccionó aparece en **Archivo VHD**. Actualice el valor de **Almacenamiento en caché de host** del disco y luego seleccione **Aceptar** para guardar la configuración del nuevo disco de la máquina virtual.    
-  ![Ejemplo: Asociación del archivo VHD](media/azure-stack-manage-vm-disks/attach-vhd.png)
+  ![Ejemplo: Conexión del archivo de disco duro virtual](media/azure-stack-manage-vm-disks/attach-vhd.png)
 
 8.  Una vez que Azure Stack crea el disco y lo asocia a la máquina virtual, el nuevo disco aparece en la configuración de disco de la máquina virtual en **Discos de datos**.   
-  ![Ejemplo: Finalización de la asociación del disco](media/azure-stack-manage-vm-disks/complete-disk-attach.png)
+  ![Ejemplo: Finalización de la conexión del disco](media/azure-stack-manage-vm-disks/complete-disk-attach.png)
 
 
 ## <a name="use-powershell-to-add-multiple-unmanaged-disks-to-a-vm"></a>Uso de PowerShell para agregar varios discos no administrados a una máquina virtual
@@ -129,45 +129,45 @@ El cmdlet **Add-AzureRmVMDataDisk** agrega un disco de datos a una máquina virt
 En los ejemplos siguientes se usan comandos de PowerShell para crear una máquina virtual con tres discos de datos, cada uno de ellos colocado en un contenedor diferente.
 
 El primer comando crea un objeto de máquina virtual y, a continuación, lo almacena en la variable *$VirtualMachine*. El comando asigna un nombre y un tamaño a la máquina virtual.
-  ```
+  ```powershell
   $VirtualMachine = New-AzureRmVMConfig -VMName "VirtualMachine" `
                                       -VMSize "Standard_A2"
   ```
 
 Los tres siguientes comandos asignan rutas de acceso de tres discos de datos a las variables *$DataDiskVhdUri01*, *$DataDiskVhdUri02* y *$DataDiskVhdUri03*. Defina un nombre de ruta de acceso diferente en la dirección URL para distribuir los discos a diferentes contenedores.     
-  ```
+  ```powershell
   $DataDiskVhdUri01 = "https://contoso.blob.local.azurestack.external/test1/data1.vhd"
   ```
 
-  ```
+  ```powershell
   $DataDiskVhdUri02 = "https://contoso.blob.local.azurestack.external/test2/data2.vhd"
   ```
 
-  ```
+  ```powershell
   $DataDiskVhdUri03 = "https://contoso.blob.local.azurestack.external/test3/data3.vhd"
   ```
 
 Los tres comandos finales agregan discos de datos a la máquina virtual almacenada en *$VirtualMachine*. Cada comando especifica el nombre, la ubicación y propiedades adicionales del disco. El identificador URI de cada disco se almacena en *$DataDiskVhdUri01*, *$DataDiskVhdUri02* y *DataDiskVhdUri03 $*.
-  ```
+  ```powershell
   $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk1' `
                   -Caching 'ReadOnly' -DiskSizeInGB 10 -Lun 0 `
                   -VhdUri $DataDiskVhdUri01 -CreateOption Empty
   ```
 
-  ```
+  ```powershell
   $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk2' `
                  -Caching 'ReadOnly' -DiskSizeInGB 11 -Lun 1 `
                  -VhdUri $DataDiskVhdUri02 -CreateOption Empty
   ```
 
-  ```
+  ```powershell
   $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk3' `
                   -Caching 'ReadOnly' -DiskSizeInGB 12 -Lun 2 `
                   -VhdUri $DataDiskVhdUri03 -CreateOption Empty
   ```
 
 Use los siguientes comandos de PowerShell para agregar la configuración de red y de disco del sistema operativo a la máquina virtual y, a continuación, inicie la nueva máquina virtual.
-  ```
+  ```powershell
   #set variables
   $rgName = "myResourceGroup"
   $location = "local"
@@ -192,7 +192,7 @@ Use los siguientes comandos de PowerShell para agregar la configuración de red 
   $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
       -AllocationMethod Dynamic
 
-  # Create a network security group cnfiguration
+  # Create a network security group configuration
   $nsgName = "myNsg"
   $rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
       -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
@@ -218,34 +218,34 @@ Use los siguientes comandos de PowerShell para agregar la configuración de red 
 ### <a name="add-data-disks-to-an-existing-virtual-machine"></a>Adición de discos de datos a una máquina virtual existente
 En los ejemplos siguientes se usan comandos de PowerShell para agregar tres discos de datos a una máquina virtual existente.
 El primer comando obtiene la máquina virtual llamada VirtualMachine mediante el cmdlet **Get-AzureRmVM**. El comando almacena la máquina virtual en la variable *$VirtualMachine* .
-  ```
+  ```powershell
   $VirtualMachine = Get-AzureRmVM -ResourceGroupName "myResourceGroup" `
                                   -Name "VirtualMachine"
   ```
 Los tres siguientes comandos asignan rutas de acceso de tres discos de datos a las variables $DataDiskVhdUri01, $DataDiskVhdUri02 y $DataDiskVhdUri03.  Los diferentes nombres de ruta de acceso de vhduri indican contenedores diferentes para la colocación de los discos.
-  ```
+  ```powershell
   $DataDiskVhdUri01 = "https://contoso.blob.local.azurestack.external/test1/data1.vhd"
   ```
-  ```
+  ```powershell
   $DataDiskVhdUri02 = "https://contoso.blob.local.azurestack.external/test2/data2.vhd"
   ```
-  ```
+  ```powershell
   $DataDiskVhdUri03 = "https://contoso.blob.local.azurestack.external/test3/data3.vhd"
   ```
 
 
   Los tres siguientes comandos agregan los discos de datos a la máquina virtual almacenada en la variable *$VirtualMachine*. Cada comando especifica el nombre, la ubicación y propiedades adicionales del disco. El identificador URI de cada disco se almacena en *$DataDiskVhdUri01*, *$DataDiskVhdUri02* y *DataDiskVhdUri03 $*.
-  ```
+  ```powershell
   Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk1" `
                         -VhdUri $DataDiskVhdUri01 -LUN 0 `
                         -Caching ReadOnly -DiskSizeinGB 10 -CreateOption Empty
   ```
-  ```
+  ```powershell
   Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk2" `
                         -VhdUri $DataDiskVhdUri02 -LUN 1 `
                         -Caching ReadOnly -DiskSizeinGB 11 -CreateOption Empty
   ```
-  ```
+  ```powershell
   Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk3" `
                         -VhdUri $DataDiskVhdUri03 -LUN 2 `
                         -Caching ReadOnly -DiskSizeinGB 12 -CreateOption Empty
@@ -253,7 +253,7 @@ Los tres siguientes comandos asignan rutas de acceso de tres discos de datos a l
 
 
   El comando final actualiza el estado de la máquina virtual almacenada en *$VirtualMachine* en *ResourceGroupName*.
-  ```
+  ```powershell
   Update-AzureRmVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
   ```
 <!-- Pending scripts  

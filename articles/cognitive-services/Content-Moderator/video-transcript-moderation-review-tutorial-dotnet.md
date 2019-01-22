@@ -1,27 +1,27 @@
 ---
 title: 'Tutorial: Moderación de vídeos y transcripciones en .NET: Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Se describe cómo usar Content Moderator para moderar vídeos y transcripciones en. NET.
+description: Este tutorial le ayudará a aprender a crear una solución completa de moderación de vídeo y transcripción con moderación asistida por máquina y la creación de la revisión humana en bucle.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: tutorial
-ms.date: 1/27/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: e5958eeb4aca4cdc41bbc263a4cc38378927874b
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 45f1b4d16bd982e17b67d6fb337e0d917f635851
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118581"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332700"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Tutorial: Moderación de vídeos y transcripciones
 
 La API de vídeo de Content Moderator le permite moderar vídeos y crear revisiones de vídeo en la herramienta de revisión humana. 
 
-Este detallado tutorial le servirá para aprender a crear una solución completa de moderación de vídeo y transcripción con moderación asistida por máquina y la creación de la revisión humana en bucle.
+Este tutorial le ayudará a aprender a crear una solución completa de moderación de vídeo y transcripción con moderación asistida por máquina y la creación de la revisión humana en bucle.
 
 Descargue la [aplicación de consola de C#](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) para este tutorial. La aplicación de consola usa el SDK y los paquetes relacionados para realizar las siguientes tareas:
 
@@ -241,7 +241,7 @@ El código sigue estos pasos:
 
 - Realiza comprobaciones para asegurarse de que la configuración de `App.config` contiene todos los datos necesarios
 - Realiza comprobaciones para asegurarse de que el binario `ffmpeg` está presente
-- Genera el nombre de archivo de salida mediante la anexión de `_c.mp4` al nombre base del archivo (como `Example.mp4` -> `E>xample_c.mp4`)
+- Genera el nombre de archivo de salida mediante la anexión de `_c.mp4` al nombre base del archivo (como `Example.mp4` -> `Example_c.mp4`)
 - Genera una cadena de línea de comandos para llevar a cabo la conversión
 - Inicia un proceso `ffmpeg` mediante la línea de comandos
 - Espera a que el vídeo se procese

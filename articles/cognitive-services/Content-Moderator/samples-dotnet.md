@@ -1,22 +1,22 @@
 ---
 title: 'Ejemplos de código: Content Moderator, .NET'
-description: Uso de Content Moderator en sus aplicaciones
+description: Uso de Content Moderator en sus aplicaciones de .NET mediante el SDK.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: sample
-ms.date: 01/10/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: c5465a2de0924037eb93b9de652e93e85f166737
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 6911b9b718edfc84a7c219be448dee06f4a0f835
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223158"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259197"
 ---
-# <a name="net-sdk-samples"></a>Ejemplos de SDK de .NET
+# <a name="content-moderator-net-sdk-samples"></a>Ejemplos del SDK de .NET de Content Moderator
 
 En la lista siguiente se incluyen vínculos a ejemplos de código compilados mediante el SDK de Azure Content Moderator para .NET.
 
@@ -38,7 +38,7 @@ En la lista siguiente se incluyen vínculos a ejemplos de código compilados med
 > Hay un límite máximo de **5 listas de términos** y cada lista **no debe superar los 10 000 términos**.
 >
 
-- **Moderación de vídeos**: [examine un vídeo para buscar contenido explícito y para adultos y obtener resultados](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoModeration/Program.cs). Consulte el [inicio rápido](video-moderation-api.md).
+- **Moderación de vídeo**: [examine un vídeo para buscar contenido explícito y para adultos y obtener resultados](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoModeration/Program.cs). Consulte el [inicio rápido](video-moderation-api.md).
 
 ## <a name="review"></a>Revisión
 
@@ -47,4 +47,4 @@ En la lista siguiente se incluyen vínculos a ejemplos de código compilados med
 - **Revisiones de vídeos**: [cree revisiones de vídeo con intervención humana](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoReviews/Program.cs). Consulte el [inicio rápido](video-reviews-quickstart-dotnet.md).
 - **Revisiones de transcripciones de vídeos**: [cree revisiones de transcripciones de vídeos con intervención humana](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoTranscriptReviews/Program.cs). Consulte el [inicio rápido](video-reviews-quickstart-dotnet.md).
 
-Vea todos los ejemplos de .NET en los [ejemplos de .NET para Content Moderator en GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator).
+Consulte todos los ejemplos de .NET en los [ejemplos de .NET para Content Moderator en GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator).

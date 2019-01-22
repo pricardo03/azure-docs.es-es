@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: ff512ac3bef1ce721860172dbaf9d9b68512a518
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: b33a646c52ca5ce85e0525b04e9be5009cc6f90d
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064702"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352944"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Inicio rápido: Ingesta de datos del centro de eventos a Azure Data Explorer
 
@@ -189,7 +189,7 @@ Con la aplicación de generación de datos, ahora puede ver el flujo de datos de
     ![Conjunto de resultados de mensajes](media/ingest-data-event-hub/message-result-set.png)
 
     > [!NOTE]
-    > ADX tiene una directiva de agregación (procesamiento por lotes) para la ingesta de datos diseñada para optimizar el proceso. La directiva está configurada en 5 minutos, por lo que puede experimentar una latencia.
+    > Azure Data Explorer tiene una directiva de agregación (procesamiento por lotes) para la ingesta de datos diseñada para optimizar dicho proceso. La directiva está configurada en 5 minutos, por lo que puede experimentar una latencia.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

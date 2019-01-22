@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: ad490630d3ce5d625bce05c75c20fa71a7aa2d29
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b9e9c0b141987f8af563944c8eee216b8218846c
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014548"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352893"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carga de datos de forma incremental de Azure SQL Database a Azure Blob Storage
 En este tutorial, creará una instancia de Azure Data Factory con una canalización que carga los datos diferenciales de una tabla en una base de datos SQL de Azure en Azure Blob Storage. 
@@ -135,7 +135,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 Ejecute el siguiente comando para crear un procedimiento almacenado en la base de datos SQL:
 
 ```sql
-CREATE PROCEDURE sp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
+CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
 AS
 
 BEGIN
@@ -302,7 +302,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
     ![Actividad de procedimiento almacenado: cuenta SQL](./media/tutorial-incremental-copy-portal/sp-activity-sql-account-settings.png)
 26. Cambie a la pestaña **Stored Procedure** (Procedimiento almacenado) y realice los pasos siguientes: 
 
-    1. Como **Stored procedure name** (Nombre del procedimiento almacenado), seleccione **sp_write_watermark**. 
+    1. En **Stored procedure name** (Nombre del procedimiento almacenado), seleccione **usp_write_watermark**. 
     2. Para especificar valores para los parámetros del procedimiento almacenado, haga clic en **Import parameter** (Importar parámetro) y escriba los valores siguientes: 
 
         | NOMBRE | type | Valor | 

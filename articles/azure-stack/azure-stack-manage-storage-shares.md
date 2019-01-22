@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 00fa1a78155e1add547b8b165f52cf3c1fba2dfe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6d4a40b07ef70d8dd43eb410ba396057551cd483
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249904"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304420"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Administración de la capacidad de almacenamiento para Azure Stack 
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 La información en este artículo ayuda al operador en la nube de Azure Stack a supervisar y administrar la capacidad de almacenamiento de su implementación de Azure Stack. La infraestructura de almacenamiento Azure Stack asigna un subconjunto de la capacidad total de almacenamiento de la implementación de Azure Stack a los **servicios de almacenamiento**. Los servicios de almacenamiento almacenan los datos del inquilino en recursos compartidos de volúmenes que corresponden a los nodos de la implementación.
 
@@ -79,7 +79,7 @@ Utilice PowerShell o el portal de administración para supervisar los recursos c
 
 ### <a name="use-powershell"></a>Uso de PowerShell
 Como operador en la nube, puede supervisar la capacidad de almacenamiento de un recurso compartido mediante el cmdlet **AzsStorageShare Get** de PowerShell. El cmdlet Get-AzsStorageShare devuelve el espacio total, el asignado y el disponible en bytes en cada uno de los recursos compartidos.   
-![Ejemplo: Devolver el espacio libre para los recursos compartidos](media/azure-stack-manage-storage-shares/free-space.png)
+![Ejemplo: Devolución del espacio libre para recursos compartidos](media/azure-stack-manage-storage-shares/free-space.png)
 
 - **Capacidad total** es el espacio total en bytes que está disponible en el recurso compartido. Este espacio se utiliza para los datos y metadatos que mantienen los servicios de almacenamiento.
 - **Capacidad usada** es la cantidad de datos en bytes que utilizan todas las extensiones de los archivos que almacenan los datos del inquilino y los metadatos asociados.
@@ -90,7 +90,7 @@ Como operador en la nube, puede utilizar el portal de administración para ver l
 1. Inicie sesión en el [portal de administración](https://adminportal.local.azurestack.external).
 2. Seleccione **Todos los servicios** > **Almacenamiento** para abrir la lista de recursos compartidos de archivos donde puede ver la información de uso. 
 
-  ![Ejemplo: Recursos compartidos de archivos de almacenamiento](media/azure-stack-manage-storage-shares/storage-file-shares.png)
+  ![Ejemplo: Recursos compartidos de almacenamiento](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
   - **TOTAL** es el espacio total en bytes que está disponible en el recurso compartido. Este espacio se utiliza para los datos y metadatos que mantienen los servicios de almacenamiento.
   - **USADO** es la cantidad de datos en bytes que utilizan todas las extensiones de los archivos que almacenan los datos del inquilino y los metadatos asociados.
@@ -106,7 +106,7 @@ Cuando utiliza el portal de administración, recibe alertas sobre los recursos c
 
 **Crítico**: Cuando la utilización de un recurso compartido de archivos supera el 90 %, recibirá una alerta *crítica* en el portal de administración: ![Ejemplo: Alerta crítica](media/azure-stack-manage-storage-shares/alert-critical.png)
 
-**Ver detalles**: en el portal de administración, puede abrir los detalles de una alerta ver las opciones de mitigación: ![Ejemplo: Ver detalles de alerta](media/azure-stack-manage-storage-shares/alert-details.png)
+**Ver detalles**: en el portal de administración, puede abrir los detalles de una alerta ver las opciones de mitigación: ![Ejemplo: Ver detalles de la alerta](media/azure-stack-manage-storage-shares/alert-details.png)
 
 
 ## <a name="manage-available-space"></a>Administración del espacio disponible
@@ -188,7 +188,7 @@ La migración consolida todos los blobs de contenedores en el nuevo recurso comp
   Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name
   ````
 
-  ![Ejemplo: Estado de la migración](media/azure-stack-manage-storage-shares/migration-status1.png)
+  ![Ejemplo: Estado de migración](media/azure-stack-manage-storage-shares/migration-status1.png)
 
 6.  Puede cancelar un trabajo de migración en curso. Los trabajos de migración cancelados se procesan de forma asincrónica. Puede realizar el seguimiento de la cancelación mediante $jobid:
 

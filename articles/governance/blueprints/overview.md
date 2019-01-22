@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: f1ebbc10109563b771c5417a0449efec12138526
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: bea01e8f017622f1407bbac993e50112140cc472
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967698"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246252"
 ---
 # <a name="what-is-azure-blueprints"></a>¿Qué es Azure Blueprint?
 
@@ -48,7 +48,7 @@ Una [directiva](../policy/overview.md) es un sistema de denegación explícita y
 
 La inclusión de una directiva en un plano técnico permite la creación del diseño o el patrón correcto durante la asignación del plano técnico. La inclusión de la directiva garantiza que solo se pueden realizar en el entorno cambios aprobados o esperados para proteger el cumplimiento continuo en el ámbito del plano técnico.
 
-Una directiva puede incluirse como uno de los muchos _artefactos_ en una definición de plano técnico. Los planos técnicos también permiten usar parámetros con las directivas y las iniciativas.
+Se puede incluir una directiva como uno de muchos _artefactos_ en una definición de plano técnico. Los planos técnicos también permiten usar parámetros con las directivas y las iniciativas.
 
 ## <a name="blueprint-definition"></a>Definición del plano técnico
 

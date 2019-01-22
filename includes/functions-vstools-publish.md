@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: b290cada86401d91313939a7673998810cb82551
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3ac7d8cc4705fe1b6e80f1e0c7e26d847d761cf6
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51028153"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54357025"
 ---
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Publicar**.
 
@@ -21,7 +21,7 @@ ms.locfileid: "51028153"
 
     ![Elegir un destino de publicación](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
 
-    Cuando habilita **Ejecutar desde ZIP**, la aplicación de función de Azure se ejecuta directamente desde el paquete de implementación. Para más información, consulte [Run your Azure Functions from a package file](../articles/azure-functions/run-functions-from-deployment-package.md) (Ejecución de Azure Functions desde un archivo de paquete).
+    Cuando habilita **Ejecutar desde ZIP**, la aplicación de función de Azure entra en modo de solo lectura y se ejecuta directamente desde el paquete de implementación. Para más información, consulte [Run your Azure Functions from a package file](../articles/azure-functions/run-functions-from-deployment-package.md) (Ejecución de Azure Functions desde un archivo de paquete).
      
     >[!CAUTION]
     >Al elegir **Seleccionar existente**, todos los archivos de la aplicación de función existente en Azure se sobrescriben con los archivos del proyecto local. Use esta opción solo al volver a publicar actualizaciones en una aplicación de función existente.

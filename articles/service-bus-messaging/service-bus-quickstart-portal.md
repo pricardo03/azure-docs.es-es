@@ -1,6 +1,6 @@
 ---
-title: 'Guía de inicio rápido: Uso de Azure Portal para enviar y recibir mensajes desde Azure Service Bus | Microsoft Docs'
-description: En esta guía de inicio rápido, aprenderá a enviar y recibir mensajes de Service Bus mediante Azure Portal
+title: 'Inicio rápido: Uso de Azure Portal para crear una cola de Service Bus | Microsoft Docs'
+description: En este inicio rápido, aprenderá a crear una cola de Service Bus con Azure Portal. Después, usará una aplicación cliente de ejemplo para enviar mensajes a la cola y recibirlos desde ella.
 services: service-bus-messaging
 author: spelluru
 manager: timlt
@@ -8,17 +8,16 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/22/2018
+ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: bfe6c48b2e83c1ebbbad446f79cebd1f513db57e
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 69c9a6d2d059ffbac5fe3e0ddb103eaec51123c3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002678"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264027"
 ---
-# <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>Inicio rápido: Envío y recepción de mensajes mediante Azure Portal y .NET
-
+# <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Inicio rápido: Uso de Azure Portal para crear una cola de Service Bus
 Microsoft Azure Service Bus es un agente de mensajes de integración empresarial que proporciona mensajería segura y una absoluta confiabilidad. Un escenario típico de Service Bus implica normalmente el desacoplamiento de dos o más aplicaciones, servicios o procesos, y la transferencia de los cambios de estado o de datos. Estos escenarios pueden implicar la programación de varios trabajos por lotes en otras aplicaciones o servicios, o desencadenar la realización de pedidos. Por ejemplo, una empresa minorista puede enviar los datos de un punto de ventas a un área de operaciones o centro de distribución regional para indicar las actualizaciones de reposición y de inventario. En este escenario, la aplicación cliente envía y recibe mensajes de una cola de Service Bus.  
 
 ![queue](./media/service-bus-quickstart-portal/quick-start-queue.png)

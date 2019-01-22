@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 58829bcd1b3c38b70929167beae5d8866483d616
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 0e1c5e4c3e4b40fd04ca9d48aba9b1e5194d4261
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716504"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330932"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Tutorial: Incorporación de un dominio personalizado a Front Door
 En este tutorial se muestra cómo agregar un dominio personalizado a Front Door. Si se usa Azure Front Door Service para la entrega de aplicaciones, es necesario un dominio personalizado si desea que su nombre de dominio se vea en la solicitud del usuario final. El hecho de tener un nombre de dominio visible puede ser cómodo para sus clientes y útil con fines de personalización de marca.
@@ -43,7 +43,7 @@ Si usa Azure para hospedar sus [dominios DNS](https://docs.microsoft.com/azure/d
 
 ## <a name="create-a-cname-dns-record"></a>Creación de un registro DNS de CNAME
 
-Para poder usar un dominio personalizado con Front Door, antes hay que crear un registro de nombre canónico (CNAME) con su proveedor de dominios para señalar a su host de front-end predeterminado de Front Door (como por ejemplo, contose.azurefd.net). Un registro CNAME es un tipo de registro de DNS que asigna un nombre de dominio de origen a un nombre de dominio de destino. En el caso de Azure Front Door Service, el nombre del dominio de origen es su nombre de dominio personalizado, mientras que el nombre del dominio de destino es el nombre de host predeterminado de Front Door. Una vez que Front Door compruebe el registro CNAME que cree, el tráfico dirigido al dominio personalizado de origen (como www.contoso.com) se enruta al host del front-end predeterminado de la instancia de Front Door del destino especificado (como contoso.azurefd.net). 
+Para poder usar un dominio personalizado con Front Door, antes hay que crear un registro de nombre canónico (CNAME) con su proveedor de dominios para señalar a su host de front-end predeterminado de Front Door (como por ejemplo, contoso.azurefd.net). Un registro CNAME es un tipo de registro de DNS que asigna un nombre de dominio de origen a un nombre de dominio de destino. En el caso de Azure Front Door Service, el nombre del dominio de origen es su nombre de dominio personalizado, mientras que el nombre del dominio de destino es el nombre de host predeterminado de Front Door. Una vez que Front Door compruebe el registro CNAME que cree, el tráfico dirigido al dominio personalizado de origen (como www.contoso.com) se enruta al host del front-end predeterminado de la instancia de Front Door del destino especificado (como contoso.azurefd.net). 
 
 Un dominio personalizado y su subdominio no se pueden asociar con más de una instancia de Front Door a la vez. Sin embargo, puede utilizar diferentes subdominios del mismo dominio personalizado para distintas instancias de Front Door. Para ello debe usar varios registros CNAME. También puede asignar un dominio personalizado con diferentes subdominios a la misma instancia de Front Door.
 
@@ -92,7 +92,7 @@ Por ejemplo, este es el procedimiento para el registrador de dominios GoDaddy:
 
     - Points to (Apunta a): escriba el nombre del host de front-end de Front Door predeterminado, incluido el nombre de subdominio afdverify. Por ejemplo, afdverify.contoso.azurefd.net. 
 
-    - TTL: deje seleccionado *1 Hour* (1 hora).
+    - TTL: deje seleccionado *1 Hour* (1 hora).
 
 6. Seleccione **Guardar**.
  
@@ -173,7 +173,7 @@ Por ejemplo, este es el procedimiento para el registrador de dominios GoDaddy:
 
     - Points to (Apunta a): escriba el nombre de host predeterminado de Front Door. Por ejemplo, contoso.azurefd.net. 
 
-    - TTL: deje seleccionado *1 Hour* (1 hora).
+    - TTL: deje seleccionado *1 Hour* (1 hora).
 
 6. Seleccione **Guardar**.
  

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: overview
-ms.date: 10/22/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 076948e7434802af7f0ad47f279335009817d40e
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f7fef00cfff9295036d7545470f86e27314e6451
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209608"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258705"
 ---
 # <a name="what-is-azure-content-moderator"></a>¿Qué es Azure Content Moderator?
 
@@ -41,7 +41,7 @@ El servicio Content Moderator consta de varias API de servicio de web disponible
 
 El servicio Content Moderator incluye API para los escenarios siguientes.
 
-| . | Descripción |
+| . | DESCRIPCIÓN |
 | ------ | ----------- |
 |[**Moderación de texto**](text-moderation-api.md)| Analiza si el texto contiene contenido ofensivo, sexualmente explícito o sugerente, blasfemias e información personal identificable (PII).|
 |[**Listas de términos personalizada**](try-terms-list-api.md)| Analiza el texto con respecto a una lista personalizada de términos, además de los términos integrados. Use listas personalizadas para bloquear o permitir el contenido en función de sus propias directivas de contenido.|  
@@ -58,6 +58,9 @@ El servicio Content Moderator también incluye [herramienta de revisión humana]
 
 Las API de revisión se pueden usar para configurar las revisiones por parte del equipo del contenido de texto, imagen y vídeo, según los filtros que especifique. A continuación, los moderadores humanos pueden tomar las decisiones finales con respecto a la moderación. La entrada humana no entrena el servicio, pero el trabajo combinado del servicio y los equipos de revisión humana permite a los desarrolladores lograr un equilibrio adecuado entre eficacia y precisión.
 
+## <a name="data-privacy-and-security"></a>Seguridad y privacidad de los datos
+Al igual que sucede con todas las instancias de Cognitive Services, los desarrolladores que usan el servicio Content Moderator deben estar al tanto de las directivas de Microsoft sobre los datos de los clientes. Para más información, consulte la [página de Cognitive Services](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) en Microsoft Trust Center.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para empezar a usar Content Moderator, siga la [guía de inicio rápido](quick-start.md).
+Comience a usar el servicio Content Moderator siguiendo las instrucciones de [Try Content Moderator on the web](quick-start.md) (Probar Content Moderator en la web).

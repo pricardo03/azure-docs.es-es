@@ -6,14 +6,14 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 10/26/2018
+ms.date: 12/27/2018
 ms.author: dkshir
-ms.openlocfilehash: 077dee19bbe32379bc88919117b3c61177828094
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 465dd2a69ad42b8b6a88268eb35a1aa7d8d922c5
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556108"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229403"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Tutorial: Aprovisionamiento del edificio y supervisión de las condiciones de trabajo con Azure Digital Twins
 
@@ -30,6 +30,7 @@ En este tutorial, aprenderá a:
 ## <a name="prerequisites"></a>Requisitos previos
 
 En este tutorial se supone que ha [terminado de configurar Azure Digital Twins](tutorial-facilities-setup.md). Antes de continuar, asegúrese de que:
+
 - Una [cuenta de Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Hay una instancia de Digital Twins en ejecución. 
 - Los [ejemplos en C# de Digital Twins](https://github.com/Azure-Samples/digital-twins-samples-csharp) se han descargado y extraído en su equipo de trabajo. 
@@ -37,6 +38,7 @@ En este tutorial se supone que ha [terminado de configurar Azure Digital Twins](
 - Tiene [Visual Studio Code](https://code.visualstudio.com/) para explorar el código de ejemplo. 
 
 ## <a name="define-conditions-to-monitor"></a>Definición de las condiciones que se van a supervisar
+
 Puede definir un conjunto de condiciones específicas para supervisar en los datos del dispositivo o del sensor, llamado *buscador de coincidencias*. Luego, puede definir funciones llamadas *funciones definidas por el usuario*. Las funciones definidas por el usuario ejecutan lógica personalizada en los datos que proceden de los espacios y los dispositivos, cuando se producen las condiciones especificadas por los buscadores de coincidencias. Para más información, lea [Procesamiento de datos y funciones definidas por el usuario](concepts-user-defined-functions.md). 
 
 En el proyecto de ejemplo **occupancy-quickstart**, abra el archivo **src\actions\provisionSample.yaml** en Visual Studio Code. Observe la sección que comienza con el tipo **matchers**. Cada entrada con este tipo crea un buscador de coincidencias con el **nombre** especificado. El buscador de coincidencias supervisará un sensor de tipo **dataTypeValue**. Observe cómo se relaciona con el espacio denominado *Focus Room A1*, que tiene un nodo **devices**, que contiene algunos sensores. Para aprovisionar un buscador de coincidencias que realice el seguimiento de uno de estos sensores, asegúrese de que su valor de **dataTypeValue** coincida con el valor de **dataType** del sensor. 
@@ -48,14 +50,15 @@ Agregue el siguiente buscador de coincidencias debajo de los buscadores de coinc
         dataTypeValue: Temperature
 ```
 
-Este buscador de coincidencias realizará el seguimiento del sensor SAMPLE_SENSOR_TEMPERATURE que agregó en el [primer tutorial](tutorial-facilities-setup.md). Estas líneas también están presentes en el archivo *provisionSample.yaml* como líneas con comentarios. Para quitarles la marca de comentario, elimine el carácter `#` delante de cada línea. 
+Este buscador de coincidencias realizará el seguimiento del sensor SAMPLE_SENSOR_TEMPERATURE que agregó en el [primer tutorial](tutorial-facilities-setup.md). Estas líneas también están presentes en el archivo *provisionSample.yaml* como líneas con comentarios. Para quitarles la marca de comentario, elimine el carácter `#` delante de cada línea.
 
-<a id="udf" />
+<a id="udf"></a>
 
 ## <a name="create-a-user-defined-function"></a>Creación de una función definida por el usuario
+
 Puede usar funciones definidas por el usuario para personalizar el procesamiento de los datos de los sensores. Estas funciones son código JavaScript personalizado que se puede ejecutar en la instancia de Azure Digital Twins cuando se producen determinadas condiciones que describen los buscadores de coincidencias. Se pueden crear buscadores de coincidencias y funciones definidas por el usuario para todos los sensores que quiera supervisar. Para más información, lea [Procesamiento de datos y funciones definidas por el usuario](concepts-user-defined-functions.md). 
 
-En el archivo provisionSample.yaml de ejemplo, busque una sección que comience por el tipo **userdefinedfunctions**. En esta sección se proporciona una función definida por el usuario con un **nombre** determinado. Dicha función actúa sobre la lista de buscadores de coincidencias en **matcherNames**. Tenga en cuenta que puede especificar su propio archivo de JavaScript para la UDF como **script**. 
+En el archivo provisionSample.yaml de ejemplo, busque una sección que comience por el tipo **userdefinedfunctions**. En esta sección se proporciona una función definida por el usuario con un **nombre** determinado. Dicha función actúa sobre la lista de buscadores de coincidencias en **matcherNames**. Tenga en cuenta que puede especificar su propio archivo de JavaScript para la UDF como **script**.
 
 Fíjese también en la sección denominada **roleassignments**. Esta sección asigna el rol Administrador de espacios a la función definida por el usuario y le permite acceder a los eventos que proceden de cualquiera de los espacios aprovisionados. 
 
@@ -188,7 +191,7 @@ Fíjese también en la sección denominada **roleassignments**. Esta sección as
 > [!TIP]
 > Si recibe un mensaje de error que dice algo como que la operación de E/S se anuló debido a una salida de subproceso o una solicitud de aplicación en medio del aprovisionamiento, pruebe a volver a ejecutar el comando. Esto puede ocurrir si el cliente HTTP ha agotado el tiempo de espera debido a algún problema en la red.
 
-<a id="simulate" />
+<a id="simulate"></a>
 
 ## <a name="simulate-sensor-data"></a>Simulación de los datos de los sensores
 
@@ -202,7 +205,7 @@ En esta sección, usará el proyecto denominado *device-connectivity* en el ejem
     dotnet restore
     ```
 
-1. Abra el archivo **appSettings.json** en el editor y edite los valores siguientes:
+1. Abra el archivo [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) en el editor y edite los valores siguientes:
 
     a. **DeviceConnectionString**: asigne el valor de `ConnectionString` en la ventana de salida de la sección anterior. Copie esta cadena completamente, entre comillas, para que el simulador se conecte correctamente con la instancia de IoT Hub.
 
@@ -233,6 +236,7 @@ En esta sección, usará el proyecto denominado *device-connectivity* en el ejem
    > Como el ejemplo de simulación no se comunica directamente con la instancia de Digital Twin, no requiere autenticación.
 
 ## <a name="get-results-of-the-user-defined-function"></a>Obtención de los resultados de la función definida por el usuario
+
 La función definida por el usuario se ejecuta cada vez que una instancia recibe datos del dispositivo y de los sensores. En esta sección se consulta su instancia de Azure Digital Twins para obtener los resultados de la función definida por el usuario. Verá casi en tiempo real cuando una sala está disponible, el aire es puro y la temperatura es la adecuada. 
 
 1. Abra la ventana de comandos que usó para aprovisionar el ejemplo, o una nueva, y vaya otra vez a la carpeta **occupancy-quickstart\src** del ejemplo.

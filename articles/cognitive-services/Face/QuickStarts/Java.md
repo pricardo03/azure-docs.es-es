@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Detección de caras en una imagen con la API REST de Azure y Java'
+title: 'Inicio rápido: Detección de caras en una imagen con la API REST de Azure y Java'
 titleSuffix: Azure Cognitive Services
 description: En este tutorial, usará la API REST de Azure Face con Java para detectar caras en una imagen.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: 7656d8247cfb16df9989638b7e8ad2ffd3ff445f
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 2c035734d443eba01af6f167681ae289401dbcb4
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51851677"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212879"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Guía de inicio rápido: Detección de caras en una imagen mediante la API REST y Java
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Inicio rápido: Detección de caras en una imagen mediante la API REST y Java
 
 En este tutorial, usará la API REST de Azure Face con Java para detectar caras humanas en una imagen.
 
@@ -31,14 +31,16 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 ## <a name="create-the-java-project"></a>Creación del proyecto de Java
 
 Cree una nueva aplicación de Java de la línea de comandos en el IDE y agregue una clase **Main** con un método **main**. A continuación, descargue las siguientes bibliotecas globales del repositorio de Maven al directorio `lib` del proyecto:
-* `org.apache.httpcomponents:httpclient:4.2.4`
+* `org.apache.httpcomponents:httpclient:4.5.6`
+* `org.apache.httpcomponents:httpcore:4.4.10`
 * `org.json:json:20170516`
+* `commons-logging:commons-logging:1.1.2`
 
 ## <a name="add-face-detection-code"></a>Adición del código de detección de caras
 
 Abra la clase main del proyecto. Aquí, agregará el código necesario para cargar imágenes y detectar caras.
 
-### <a name="import-packages"></a>Importar paquetes
+### <a name="import-packages"></a>Importación de paquetes
 
 Agregue las siguientes instrucciones `import` en la parte superior del archivo.
 
@@ -54,7 +56,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -62,7 +64,7 @@ import org.json.JSONObject;
 
 ### <a name="add-essential-fields"></a>Adición de los campos esenciales
 
-Agregue los siguientes campos a la clase **Main**. Estos datos especifican cómo conectarse al servicio Face y dónde obtener los datos de entrada. Deberá actualizar el campo `subscriptionKey` con el valor de la clave de suscripción y es posible que deba cambiar la cadena `uriBase` para que contenga el identificador de la región correcta (consulte la [documentación de Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obtener una lista de los puntos de conexión de todas las regiones. También es posible que desee establecer el valor de `imageWithFaces` en una ruta de acceso que apunte a un archivo de imagen diferente.
+Agregue los siguientes campos a la clase **Main**. Estos datos especifican cómo conectarse al servicio Face y dónde obtener los datos de entrada. Deberá actualizar el campo `subscriptionKey` con el valor de la clave de suscripción y es posible que deba cambiar la cadena `uriBase` para que contenga el identificador de la región correcta (consulte la [documentación de Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obtener una lista de los puntos de conexión de todas las regiones). También es posible que desee establecer el valor de `imageWithFaces` en una ruta de acceso que apunte a un archivo de imagen diferente.
 
 El campo `faceAttributes` es simplemente una lista de determinados tipos de atributos. Especificará qué información recuperar sobre las caras detectadas.
 
@@ -92,7 +94,7 @@ private static final String faceAttributes =
 Agregue el siguiente código al método **main**. Construye una llamada REST a Face API para detectar información de caras en la imagen remota (la cadena `faceAttributes` especifica qué atributos de cara recuperar). A continuación, escribe los datos de salida en una cadena JSON.
 
 ```Java
-HttpClient httpclient = new DefaultHttpClient();
+HttpClient httpclient = HttpClientBuilder.create().build();
 
 try
 {

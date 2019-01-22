@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/5/2018
+ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 88aa9a9003363f86db9214c62adff962bbd345cf
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d1c948527c919ed8f81f16cf30a986591b414662
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344166"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263571"
 ---
 # <a name="what-is-azure-security-center"></a>¿Qué es el Centro de seguridad de Azure?
 
@@ -52,9 +52,11 @@ Además, Security Center protege las máquinas virtuales y los servidores que no
 
 Los eventos recopilado de los agentes y de Azure se correlacionan en el motor de análisis de seguridad para brindarle recomendaciones a medida (tareas de protección) que debe seguir para garantizar que las cargas de trabajo sean seguras, además de alertas de detección de amenazas. Debe investigar estas alertas tan pronto como sea posible para asegurarse de que no haya ataques malintencionados en sus cargas de trabajo.
 
+Al habilitar Security Center, la directiva de seguridad integrada en Security Center se refleja en Azure Policy como una iniciativa integrada en la categoría de Security Center. La iniciativa integrada se asigna automáticamente a todas las suscripciones registradas de Security Center (niveles Gratis o Estándar). La iniciativa integrada contiene solo las directivas de auditoría. Para más información acerca de las directivas de Security Center en Azure Policy, consulte [Uso de directivas de seguridad](tutorial-security-policy.md).
+
 ## <a name="strengthen-security-posture"></a>Reforzamiento de la posición de seguridad
 
-Azure Security Center le permite reforzar su posición de seguridad. Esto significa que lo ayuda a identificar y a llevar a cabo las tareas de protección recomendadas como procedimientos recomendados de seguridad e implementarlas en todas sus máquinas, servicios de datos y aplicaciones. Esto incluye administrar y aplicar las directivas de seguridad y asegurarse de que sus máquinas virtuales de Azure, los servidores que no son de Azure y los servicios PaaS de Azure cumplen con estas directivas. Security Center proporciona las herramientas que necesita para tener una visión global de las cargas de trabajo, centrando la visibilidad en el estado de la seguridad de la red.
+Azure Security Center le permite reforzar su posición de seguridad. Esto significa que lo ayuda a identificar y a llevar a cabo las tareas de protección recomendadas como procedimientos recomendados de seguridad e implementarlas en todas sus máquinas, servicios de datos y aplicaciones. Esto incluye administrar y aplicar las directivas de seguridad y asegurarse de que sus máquinas virtuales de Azure, los servidores que no son de Azure y los servicios PaaS de Azure cumplen con estas directivas. Security Center proporciona las herramientas que necesita para tener una visión global de las cargas de trabajo, centrando la visibilidad en el estado de la seguridad de la red. 
 
 ### <a name="manage-organization-security-policy-and-compliance"></a>Administración de la directiva de seguridad y del cumplimiento de la organización
 

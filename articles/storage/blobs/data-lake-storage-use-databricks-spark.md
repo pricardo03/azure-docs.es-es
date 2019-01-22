@@ -6,14 +6,14 @@ author: dineshmurthy
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 01/14/2019
 ms.author: dineshm
-ms.openlocfilehash: b0382d31f9d16228ca3447ace9c7d4f171b206f6
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e72a4f71a42a892d14fad076b124426f0c32ac7d
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548993"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321813"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Tutorial: Acceso a los datos de Data Lake Storage Gen2 (versión preliminar) con Azure Databricks mediante Spark
 
@@ -36,12 +36,31 @@ En este tutorial se muestra cómo consumir y consultar los datos de los vuelos d
 2. Seleccione **Descargar** y guarde los resultados en el equipo.
 3. Anote el nombre del archivo y la ruta de acceso de la descarga; necesitará esta información en un paso posterior.
 
-Para completar este tutorial, necesita una cuenta de almacenamiento con funcionalidades de análisis. Para crear uno, se recomienda completar nuestro [inicio rápido](data-lake-storage-quickstart-create-account.md) sobre el tema. Una vez creado, vaya a la cuenta de almacenamiento para recuperar la configuración.
+Para completar este tutorial, necesita una cuenta de almacenamiento con funcionalidades de análisis. Para crear uno, se recomienda completar nuestro [inicio rápido](data-lake-storage-quickstart-create-account.md) sobre el tema. 
 
-1. En **Configuración**, seleccione **Claves de acceso**.
-2. Seleccione el botón **Copiar** junto a **key1** para copiar el valor de la clave.
+## <a name="set-aside-storage-account-configuration"></a>Reserva de la configuración de la cuenta de almacenamiento
 
-El nombre de cuenta y la clave se necesitan en los pasos posteriores de este tutorial. Abra un editor de texto y reserve el nombre de cuenta y la clave para futuras referencias.
+Necesitará el nombre de la cuenta de almacenamiento y un identificador URI del punto de conexión del sistema de archivos.
+
+Para obtener el nombre de la cuenta de almacenamiento en Azure Portal, elija **Todos los servicios** y filtre por el término *almacenamiento*. Luego, seleccione **Cuentas de almacenamiento** y localice su cuenta de almacenamiento.
+
+Para obtener el identificador URI del punto de conexión del sistema de archivos, elija **Propiedades**y en el panel Propiedades, busque el valor del campo **Primary ADLS FILE SYSTEM ENDPOINT** (PUNTO DE CONEXIÓN DEL SISTEMA DE ARCHIVOS ADLS principal).
+
+Pegue los dos valores en un archivo de texto, ya que los necesitará pronto.
+
+<a id="service-principal"/>
+
+## <a name="create-a-service-principal"></a>Creación de una entidad de servicio
+
+Cree a una entidad de servicio siguiendo la guía de este tema: [Uso del portal para crear una aplicación de Azure AD y una entidad de servicio que puedan acceder a los recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+Hay varias acciones concretas que tendrá que hacer al realizar los pasos de este artículo.
+
+:heavy_check_mark: Al realizar los pasos que se describen en la sección [Creación de una aplicación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application) del artículo, asegúrese de que en el campo **URL de inicio de sesión** del cuadro de diálogo **Crear** selecciona el identificador URI del punto de conexión que acaba de recopilar.
+
+:heavy_check_mark: Al realizar los pasos que se describen en la sección [Asignación de la aplicación a un rol](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role), asegúrese de asignar la aplicación al **rol de colaborador de Blob Storage**.
+
+:heavy_check_mark: Al realizar los pasos que se describen en la sección [Obtención de valores para el inicio de sesión](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) del artículo, pegue el identificador del inquilino, el identificador de la aplicación y los valores de la clave de autenticación en una clave de texto, ya que los necesitará pronto.
 
 ## <a name="create-a-databricks-cluster"></a>Creación de un clúster de Databricks
 
@@ -63,22 +82,24 @@ El paso siguiente consiste en crear un clúster de Databricks para crear un áre
 14. Escriba el nombre que desee en el campo **Nombre** y seleccione **Python** como lenguaje.
 15. Todos los demás campos pueden dejarse con los valores predeterminados.
 16. Seleccione **Crear**.
-17. Pegue el código siguiente en la celda **Cmd 1**. Reemplace los marcadores de posición que se muestran entre paréntesis en el ejemplo por los suyos propios:
+17. Copie y pegue el siguiente bloque de código en la primera celda, pero no ejecute el código aún.
 
-    ```scala
-    %python%
+    ```Python
     configs = {"fs.azure.account.auth.type": "OAuth",
-        "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-        "fs.azure.account.oauth2.client.id": "<service-client-id>",
-        "fs.azure.account.oauth2.client.secret": "<service-credentials>",
-        "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token"}
-        
+           "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+           "fs.azure.account.oauth2.client.id": "<application-id>",
+           "fs.azure.account.oauth2.client.secret": "<authentication-id>",
+           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token",
+           "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
+
     dbutils.fs.mount(
-        source = "abfss://dbricks@<account-name>.dfs.core.windows.net/folder1",
-        mount_point = "/mnt/flightdata",
-        extra_configs = configs)
+    source = "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/folder1",
+    mount_point = "/mnt/flightdata",
+    extra_configs = configs)
     ```
-18. Presione **MAYÚS + ENTRAR** para ejecutar la celda de código.
+18. En este bloque de código, reemplace los valores `storage-account-name`, `application-id`, `authentication-id` y `tenant-id` del marcador de posición de este bloque de código por los valores que recopiló al completar los pasos de las secciones [Reserva de la configuración de la cuenta de almacenamiento](#config) y [Creación de una entidad de servicio](#service-principal) de este artículo. Reemplace el marcador de posición `file-system-name` por cualquier nombre que desee asignar al sistema de archivos.
+
+19. Presione las teclas **MAYÚS + ENTRAR** para ejecutar el código de este bloque.
 
 ## <a name="ingest-data"></a>Introducción de datos
 

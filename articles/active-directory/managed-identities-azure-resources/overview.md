@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: daveba
-ms.openlocfilehash: 3b9c8ea3dba5fdbd3e25293873ab1ae6854b3b83
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5397ab76afa8c28623f1522ffa773b0895e19f02
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728115"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303945"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>¿Qué es Managed Identities for Azure Resources?
 
@@ -38,9 +38,9 @@ La característica Managed Identities for Azure Resources se incluye gratuitamen
 
 Los siguientes términos se usan en las identidades administradas para el conjunto de documentación de los recursos de Azure:
 
-- **Id. de cliente**: un identificador único generado por Azure AD que está asociado a una aplicación y entidad de servicio durante su aprovisionamiento inicial.
-- **Id. de entidad**: identificador de objeto del objeto de entidad de servicio para la identidad administrada que se usa para conceder acceso basado en roles a un recurso de Azure.
-- **Azure Instance Metadata Service (IMDS)**: un punto de conexión REST al que pueden acceder todas las máquinas virtuales IaaS creadas con Azure Resource Manager. El punto de conexión está disponible en una dirección IP no enrutable conocida (169.254.169.254) a la que se puede acceder solo desde dentro de la máquina virtual.
+- **Id. de cliente**: un identificador único que genera Azure AD y que está asociado a una aplicación y entidad de servicio durante su aprovisionamiento inicial.
+- **Id. de entidad de seguridad**: identificador de objeto del objeto de entidad de servicio de la identidad administrada que se usa para conceder acceso basado en roles a los recursos de Azure.
+- **Azure Instance Metadata Service (IMDS)**: un punto de conexión de REST al que pueden acceder todas las máquinas virtuales IaaS creadas mediante Azure Resource Manager. El punto de conexión está disponible en una dirección IP no enrutable conocida (169.254.169.254) a la que se puede acceder solo desde dentro de la máquina virtual.
 
 ## ¿Cómo funcionan las identidades administradas para los recursos de Azure?<a name="how-does-it-work"></a>
 

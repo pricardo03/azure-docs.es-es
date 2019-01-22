@@ -5,6 +5,7 @@ description: En este tutorial, se explica cómo crear un equilibrador de carga e
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines across availability zones in a region, so that the customers can still access the web service if a datacenter is unavailable.
 ms.service: load-balancer
 ms.devlang: na
@@ -14,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 18b5f82a5181f0bbf7024b302b802684ef676c8f
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d2e81e4f2eda730dc064699f42ba7bfb49648082
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255343"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230839"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Equilibrio de carga de máquinas virtuales en distintas zonas de disponibilidad con Load Balancer Estándar mediante Azure Portal
 
-El equilibrio de carga proporciona un mayor nivel de disponibilidad al distribuir las solicitudes entrantes entre varias máquinas virtuales. En este tutorial, se explican los pasos necesarios para crear un equilibrador de carga estándar público que equilibre la carga de las máquinas virtuales entre distintas zonas de disponibilidad. Esto le ayudará a proteger sus aplicaciones y sus datos en el caso improbable de que se produzca una pérdida o un error en la totalidad de un centro de datos. Con la redundancia de zona, aunque se produzcan errores en una o varias zonas disponibilidad, la ruta de los datos puede mantenerse a salvo siempre que una zona de la región permanezca en buen estado. Aprenderá a:
+El equilibrio de carga proporciona un mayor nivel de disponibilidad al distribuir las solicitudes entrantes entre varias máquinas virtuales. En este tutorial, se explican los pasos necesarios para crear una instancia de Standard Load Balancer público que equilibre la carga de las máquinas virtuales entre zonas de disponibilidad. Esto le ayudará a proteger sus aplicaciones y sus datos en el caso improbable de que se produzca una pérdida o un error en la totalidad de un centro de datos. Con la redundancia de zona, aunque se produzcan errores en una o varias zonas disponibilidad, la ruta de los datos puede mantenerse a salvo siempre que una zona de la región permanezca en buen estado. Aprenderá a:
 
 > [!div class="checklist"]
 > * Crear un equilibrador de carga estándar

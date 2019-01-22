@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 01/14/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9ddad471236877977fec620565d8f110e265ff72
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c614ae9d157c6e4121701cb22213706020ee20a7
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867905"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303333"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>¿Qué es el control de acceso basado en rol (RBAC)?
 
@@ -78,7 +78,7 @@ Azure introdujo las operaciones de datos (actualmente en versión preliminar) qu
 
 ### <a name="scope"></a>Ámbito
 
-*Ámbito* es el límite al que se aplica el acceso. Cuando se asigna un rol, es posible limitar aún más las acciones permitidas si se define un ámbito. Esto resulta útil si desea convertir a alguien en [Colaborador del sitio web](built-in-roles.md#website-contributor), pero solo para un grupo de recursos.
+*Ámbito* es el conjunto de recursos al que se aplica el acceso. Cuando se asigna un rol, es posible limitar aún más las acciones permitidas si se define un ámbito. Esto resulta útil si desea convertir a alguien en [Colaborador del sitio web](built-in-roles.md#website-contributor), pero solo para un grupo de recursos.
 
 En Azure, puede especificar un ámbito en varios niveles: [grupo de administración](../azure-resource-manager/management-groups-overview.md), suscripción, grupo de recursos o recurso. Los ámbitos se estructuran en una relación de elementos primarios y secundarios.
 
@@ -99,6 +99,12 @@ El diagrama siguiente muestra un ejemplo de una asignación de roles. En este ej
 ![Asignación de roles para controlar el acceso](./media/overview/rbac-overview.png)
 
 Puede crear asignaciones de roles mediante Azure Portal, la CLI de Azure, Azure PowerShell, los SDK de Azure o las API de REST. Puede tener hasta 2000 asignaciones de roles en cada suscripción. Para crear y quitar las asignación de roles, debe tener el permiso `Microsoft.Authorization/roleAssignments/*`. Este permiso se concede a través de los roles [Propietario](built-in-roles.md#owner) o [Administrador de acceso de usuario](built-in-roles.md#user-access-administrator).
+
+## <a name="multiple-role-assignments"></a>Asignaciones de varios roles
+
+Por tanto, ¿qué ocurre si tiene varias asignaciones de roles que se superponen? RBAC es un modelo de suma, por lo que los permisos efectivos son la suma de las asignaciones de rol. Considere el ejemplo siguiente, donde a un usuario se le concede el rol Colaborador en el ámbito de la suscripción y el rol Lector en un grupo de recursos. La adición de los permisos de Colaborador y los permisos de Lector es realmente el rol Colaborador del grupo de recursos. Por consiguiente, en este caso, la asignación del rol Lector no tiene ningún impacto.
+
+![Asignaciones de varios roles](./media/overview/rbac-multiple-roles.png)
 
 ## <a name="deny-assignments"></a>Asignaciones de denegación
 
@@ -129,4 +135,4 @@ Los siguientes son los pasos de alto nivel que RBAC usa para determinar si tiene
 - [Inicio rápido: Concesión de acceso a un usuario mediante RBAC y Azure Portal](quickstart-assign-role-user-portal.md)
 - [Administración del acceso mediante RBAC y Azure Portal](role-assignments-portal.md)
 - [Descripción de los distintos roles en Azure](rbac-and-directory-admin-roles.md)
-- [Adopción de la nube empresarial: administración del acceso a los recursos en Azure](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)
+- [Adopción de la nube empresarial: Administración del acceso a recursos de Azure](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)

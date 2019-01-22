@@ -10,18 +10,17 @@ ms.topic: overview
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: cffa9f566c6b2f4feb0fd7426eeea54a4644fda8
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 43f8af4f2afc0f7210e49dc5b483a8d2757e6aba
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140156"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215361"
 ---
-# <a name="azure-event-hubs---a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs: una plataforma de streaming de macrodatos y un servicio de ingesta de eventos.
+# <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs: una plataforma de streaming de macrodatos y un servicio de ingesta de eventos
+Azure Event Hubs es una plataforma de streaming de macrodatos y un servicio de ingesta de eventos. Puede recibir y procesar millones de eventos por segundo. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento.
 
-Azure Event Hubs es una plataforma de streaming de macrodatos y servicio de ingesta de eventos de gran escalabilidad capaz de recibir y procesar millones de eventos por segundo. Event Hubs puede procesar y almacenar eventos, datos o telemetría generados por dispositivos y software distribuido. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. 
-
-Event Hubs se usa en algunos de los siguientes escenarios comunes:
+Los siguientes escenarios son algunos de los casos donde se puede usar Event Hubs:
 
 - Detección de anomalías (fraude/valores atípicos)
 - Registro de aplicaciones
@@ -34,21 +33,21 @@ Event Hubs se usa en algunos de los siguientes escenarios comunes:
 
 ## <a name="why-use-event-hubs"></a>¿Por qué usar Event Hubs?
 
-Los datos solo son valiosos cuando existe una forma sencilla de procesarlos y obtener información oportuna a partir de los orígenes de datos. Event Hubs ofrece una plataforma de procesamiento de secuencias distribuida con baja latencia y una integración perfecta, con servicios de datos y análisis dentro y fuera de Azure para crear una canalización de macrodatos completa.
+Los datos solo son valiosos cuando existe una forma sencilla de procesarlos y obtener información oportuna a partir de los orígenes de datos. Event Hubs ofrece una plataforma distribuida de procesamiento de secuencias con baja latencia e integración perfecta, con servicios de datos y análisis dentro y fuera de Azure para crear una canalización de macrodatos completa.
 
-Event Hubs representa la "puerta principal" de una canalización de eventos, conocida a menudo como un *agente de ingesta de eventos* en las arquitecturas de la solución. Un agente de ingesta de eventos es un componente o servicio que se encuentra entre los publicadores de eventos y los consumidores de eventos para desacoplar la producción de un flujo de eventos del consumo de esos eventos. Event Hubs ofrece una plataforma de streaming unificada con búfer de retención de tiempo, lo que desacopla los productores de eventos de los consumidores de eventos. 
+Event Hubs representa la "puerta principal" de una canalización de eventos, conocida a menudo como un *agente de ingesta de eventos* en las arquitecturas de la solución. Un agente de ingesta de eventos es un componente o servicio que se encuentra entre los publicadores de eventos y los consumidores de eventos para desacoplar la producción de un flujo de eventos del consumo de esos eventos. Event Hubs ofrece una plataforma de streaming unificada con búfer de retención de tiempo, de forma que los productores de eventos se desacoplan de los consumidores de eventos. 
 
 En las secciones siguientes se describen las características clave del servicio Azure Event Hubs: 
 
 ## <a name="fully-managed-paas"></a>PaaS completamente administrada 
 
-Event Hubs es un servicio administrado con poca sobrecarga de administración o configuración, para que pueda centrarse en las soluciones empresariales. [Event Hubs para ecosistemas de Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) le ofrece la experiencia de PaaS de Kafka sin tener que administrar, configurar ni ejecutar los clústeres.
+Event Hubs es una plataforma como servicio (PaaS) completamente administrada con poca sobrecarga de administración o configuración, para que pueda centrarse en las soluciones empresariales. [Event Hubs para ecosistemas de Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) le ofrece la experiencia de PaaS de Kafka sin tener que administrar, configurar ni ejecutar los clústeres.
 
 ## <a name="support-for-real-time-and-batch-processing"></a>Compatibilidad con procesamiento por lotes y en tiempo real
 
-Ingiera, almacene en búfer y procese la secuencia en tiempo real para obtener información práctica y útil. Event Hubs usa un [modelo de consumidor con particiones](event-hubs-features.md#partitions), que permite que varias aplicaciones procesen la secuencia de manera simultánea y permite controlar la velocidad del procesamiento.
+Ingiera, almacene en búfer y procese la secuencia en tiempo real para obtener información práctica y útil. Event Hubs usa un [modelo de consumidor con particiones](event-hubs-features.md#partitions), que permite que varias aplicaciones procesen la secuencia de manera simultánea y le deja controlar la velocidad del procesamiento.
 
-[Capture](event-hubs-capture-overview.md) los datos casi en tiempo real en una instancia de [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) o de [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) para realizar la retención a largo plazo o el procesamiento por microlotes. Puede lograr esto en la misma secuencia que usa para derivar un análisis en tiempo real. La configuración de Capture es rápida, su ejecución no tiene costes administrativos y se escala automáticamente con las  [unidades de procesamiento](event-hubs-features.md#throughput-units) de Event Hubs. Event Hubs Capture permite centrarse en el procesamiento de datos en lugar de hacerlo en la captura de datos.
+[Capture](event-hubs-capture-overview.md) los datos casi en tiempo real en una instancia de [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) o de [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) para la retención a largo plazo o el procesamiento por microlotes. Puede lograr este comportamiento en la misma secuencia que usa para derivar análisis en tiempo real. La configuración de la captura de datos de eventos es rápida. Su ejecución no conlleva gastos administrativos y se escala automáticamente con las  [unidades de procesamiento](event-hubs-features.md#throughput-units) de Event Hubs. Event Hubs le permite centrarse en el procesamiento de datos en lugar de hacerlo en la captura de datos.
 
 Azure Event Hubs también se integra con [Azure Functions](/azure/azure-functions/) para una arquitectura sin servidor.
 
@@ -58,19 +57,18 @@ Con Event Hubs, puede comenzar con los flujos de datos en megabytes y aumentar a
 
 ## <a name="rich-ecosystem"></a>Ecosistema enriquecido
 
-[Event Hubs para ecosistemas de Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) permite que aplicaciones y clientes de [Apache Kafka (1.0 y posteriores)](https://kafka.apache.org/) se comuniquen con Event Hubs sin tener que administrar ningún clúster.
+[Event Hubs para ecosistemas de Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) permite que aplicaciones y clientes de [Apache Kafka (1.0 y posteriores)](https://kafka.apache.org/) se comuniquen con Event Hubs. No es necesario configurar ni administrar sus propios clústeres de Kafka.
  
-Con un ecosistema amplio disponible en diversos [lenguajes (.NET, Java, Python, Go, Node.js)](https://github.com/Azure/azure-event-hubs), puede empezar a procesar fácilmente los flujos desde Event Hubs. Todos los lenguajes de cliente compatibles proporcionan integración de nivel bajo. El ecosistema también proporciona una integración sin problemas con servicios de Azure como Stream Analytics y Azure Functions, lo que permite crear arquitecturas sin servidor.
+Con un ecosistema amplio disponible en diversos [lenguajes (.NET, Java, Python, Go, Node.js)](https://github.com/Azure/azure-event-hubs), puede empezar a procesar fácilmente los flujos desde Event Hubs. Todos los lenguajes de cliente compatibles proporcionan integración de nivel bajo. El ecosistema también proporciona una perfecta integración con servicios de Azure como Azure Stream Analytics y Azure Functions, lo que permite crear arquitecturas sin servidor.
 
 ## <a name="key-architecture-components"></a>Componentes clave de la arquitectura
-
-Event Hubs proporciona una funcionalidad de control del flujo de mensajes pero tiene características diferentes de la mensajería empresarial tradicional. Las funcionalidades de Event Hubs se basan en un alto rendimiento y en escenarios de procesamiento de eventos. Event Hubs contiene los siguientes [componentes clave](event-hubs-features.md):
+Event Hubs contiene los siguientes [componentes clave](event-hubs-features.md):
 
 - **Productores de eventos**: una entidad que envía datos a un centro de eventos. Los publicadores de eventos pueden publicar eventos mediante HTTPS, AMQP 1.0 o Apache Kafka (1.0 y posterior)
 - **Particiones**: cada consumidor solo lee un subconjunto específico, o partición, de la secuencia de mensajes.
-- **Grupos de consumidores**: vista (estado, posición o desplazamiento) de todo un centro de eventos. Los grupos de consumidores habilitan varias aplicaciones consumidoras para que cada una tenga una vista separada del flujo de eventos y para que lean el flujo de forma independiente a su propio ritmo y con sus propios desplazamientos.
+- **Grupos de consumidores**: vista (estado, posición o desplazamiento) de todo un centro de eventos. Los grupos de consumidores permiten consumir aplicaciones y que cada una tenga una vista independiente de la secuencia de eventos. Leen la secuencia de forma independiente, a su propio ritmo y con sus propios desplazamientos.
 - **Unidades de procesamiento**: unidades de capacidad compradas previamente que controlan la capacidad de rendimiento de Event Hubs.
-- **Receptores de eventos**: cualquier entidad que lea datos de evento de un centro de eventos. Todos los consumidores de Event Hubs se conectan a través de la sesión de AMQP 1.0, y los eventos se entregan a través de la sesión a medida que están disponibles. Todos los consumidores de Kafka se conectan a través del protocolo de 1.0 de Kafka y las versiones posteriores.
+- **Receptores de eventos**: cualquier entidad que lea datos de evento de un centro de eventos. Todos los consumidores de Event Hubs se conectan a través de la sesión de AMQP 1.0. El servicio Event Hubs entrega eventos a través de una sesión a medida que están disponibles. Todos los consumidores de Kafka se conectan a través del protocolo de 1.0 de Kafka y las versiones posteriores.
 
 La siguiente ilustración muestra la arquitectura de procesamiento del flujo de Event Hubs:
 

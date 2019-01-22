@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 4809c09b5aa7b8212981cc13589602a365a23a37
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: d82e80530d375a9d0f0a6d3f491d3070942ca02f
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113621"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331918"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Cree una función en Azure que se desencadena mediante un temporizador
 
@@ -43,15 +43,15 @@ Después, cree una función en la nueva Function App.
 
 ## <a name="create-a-timer-triggered-function"></a>Creación de una función desencadenada por un temporizador
 
-1. Expanda su instancia de Function App y haga clic en el botón **+**, que se encuentra junto a **Functions**. Si se trata de la primera función de Function App, seleccione **Función personalizada**. Se muestra el conjunto completo de plantillas de funciones.
+1. Expanda su instancia de Function App y haga clic en el botón **+**, que se encuentra junto a **Functions**. Si se trata de la primera función de Function App, seleccione **En el portal** y, después, **Continuar**. En caso contrario, vaya al paso tres.
 
-    ![Página de inicio rápido de Functions en Azure Portal](./media/functions-create-scheduled-function/add-first-function.png)
+   ![Página de inicio rápido de Functions en Azure Portal](./media/functions-create-scheduled-function/function-app-quickstart-choose-portal.png)
 
-2. En el campo de búsqueda, escriba `timer` y seleccione el idioma que desee para la plantilla del desencadenador de un temporizador. 
+2. Elija **Más plantillas** y, a continuación, **Finish and view templates** (Finalizar y ver plantillas).
 
-    ![Elija la plantilla de función desencadenada mediante un temporizador.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
+    ![Guía de inicio rápido de Functions para elegir más plantillas](./media/functions-create-scheduled-function/add-first-function.png)
 
-3. Configure el nuevo desencadenador según la configuración especificada en la tabla que aparece debajo de la imagen.
+3. En el campo de búsqueda, escriba `timer` y configure el nuevo desencadenador según la configuración especificada en la tabla que aparece debajo de la imagen.
 
     ![Creación de una función desencadenada mediante un temporizador en Azure Portal.](./media/functions-create-scheduled-function/functions-create-timer-trigger-2.png)
 
@@ -60,13 +60,13 @@ Después, cree una función en la nueva Function App.
     | **Nombre** | Valor predeterminado | Define el nombre de la función desencadenada por el temporizador. |
     | **Programación** | 0 \*/1 \* \* \* \* | [Expresión CRON](functions-bindings-timer.md#cron-expressions) de seis campos que programa la función para que se ejecute cada minuto. |
 
-2. Haga clic en **Create**(Crear). Se crea una función en el lenguaje elegido que se ejecuta cada minuto.
+4. Haga clic en **Create**(Crear). Se crea una función en el lenguaje elegido que se ejecuta cada minuto.
 
-3. Vea la información de seguimiento que se escribe en los registros para comprobar la ejecución.
+5. Vea la información de seguimiento que se escribe en los registros para comprobar la ejecución.
 
     ![Visor de registros de las funciones en Azure Portal.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
 
-Ahora puede cambiar la programación de la función para que se ejecute una vez cada hora, en lugar de cada minuto. 
+Ahora puede cambiar la programación de la función para que se ejecute una vez cada hora, en lugar de cada minuto.
 
 ## <a name="update-the-timer-schedule"></a>Actualizar la programación del temporizador
 

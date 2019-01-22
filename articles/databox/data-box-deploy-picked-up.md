@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/30/2018
+ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 42ed9091ff7ab8059ba253f62726b30899d6e697
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: b948616aa21d390cedc877b0a09e272815abc82a
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036062"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358565"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Tutorial: Devolución de Azure Data Box y comprobación de la carga de datos en Azure
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá sobre temas como:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de comenzar, asegúrese de que ha completado el [Tutorial: Copia de datos en Azure Data Box y comprobación de los mismos](data-box-deploy-copy-data.md).
+Antes de comenzar, asegúrese de que ha completado [Tutorial: Copia de datos a Azure Data Box y comprobación de](data-box-deploy-copy-data.md).
 
 ## <a name="ship-data-box-back"></a>Devolución de Data Box
 
@@ -37,9 +37,7 @@ Antes de comenzar, asegúrese de que ha completado el [Tutorial: Copia de datos 
 
     Si el dispositivo se vende en Europa, la pantalla de tinta electrónica no muestra la etiqueta de envío. En su lugar, la etiqueta de envío de devolución se incluye en el bolsillo transparente bajo la etiqueta de reenvío. Retire la etiqueta de envío anterior y asegúrese de que la etiqueta de envío sea claramente visible.
     
-3. Programe una recogida con UPS, si está devolviendo el dispositivo en Estados Unidos. Si va a devolver el dispositivo en Europa con DHL, para solicitar la recogida de DHL, visite su sitio Web y especifique el número de factura de porte aéreo. Visite el sitio Web de DHL Express del país y elija **Book a Courier Collection > eReturn Shipment** (Reservar una colección Courier > Envío eReturn). 
-
-    Especifique el número de factura de porte aéreo y haga clic en **Schedule Pickup** (Programar la recogida) para organizar la recogida.
+3. Programe una recogida con UPS si está devolviendo el dispositivo. Para programar una recogida, llame a UPS local (número gratuito específico del país) o entregue Data Box en el lugar más cercano de entrega.
 
 4. Una vez que el transportista recoge y examina el dispositivo Data Box, el estado del pedido en el portal se actualiza a **Picked up** (Recogido). También se muestra un identificador de seguimiento.
 

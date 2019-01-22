@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8b9097a62ca4bfa67fb5eb35e06f7834df6691e7
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 07239e3411bc8df06cdff731343649867b59a3c9
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622812"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213101"
 ---
 # <a name="tutorial-how-to-download-and-use-a-script-to-access-sign-in-logs"></a>Tutorial: Descarga y uso de un script para acceder a los registros de inicio de sesión
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a generar un script para descargar todos los regist
 
 Necesita:
 
-* Un inquilino de Azure Active Directory con una licencia premium (P1 y P2). 
+* Un inquilino de Azure Active Directory con una licencia premium (P1 y P2). Tenga en cuenta que si no tuvo ningún dato de actividades antes de la actualización, los datos tardarán un par de días en mostrarse en los informes después de actualizar a una licencia premium. 
 * Un usuario con el rol **Administrador global**, **Administrador de seguridad**, **Lector de seguridad** o **Lector de informes** en el inquilino. Además, cualquier usuario puede acceder a sus propios inicios de sesión. 
 * Si quiere ejecutar el script descargado en la máquina de Windows 10, [configure el módulo AzureRM y establezca la directiva de ejecución](concept-sign-ins.md#running-the-script-on-a-windows-10-machine).
 

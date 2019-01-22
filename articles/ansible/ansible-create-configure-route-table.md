@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/17/2018
-ms.openlocfilehash: 5d7a16ebda088d0ed42021e9def20a398e914ad9
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 29672a75408e42fb9239e5d826784b46e7280805
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158133"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332275"
 ---
 # <a name="create-change-or-delete-an-azure-route-table-using-ansible"></a>Creación, modificación o eliminación de una tabla de rutas de Azure mediante Ansible
 Azure enruta automáticamente el tráfico entre redes locales, las redes virtuales y las subredes de Azure. Si desea cambiar algún enrutamiento predeterminado en Azure, debe crear una [tabla de rutas](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
@@ -51,7 +51,7 @@ ansible-playbook route_table_create.yml
 ## <a name="associate-a-route-table-to-a-subnet"></a>Asociación de una tabla de rutas a una subred
 Una subred puede tener una tabla de ruta asociada a ella o ninguna. Una tabla de rutas se puede asociar a varias subredes o a ninguna. Como las tablas de rutas no se asocian a las redes virtuales, debe asociar una tabla de rutas a cada subred con la que desea asociarla. Todo el tráfico que sale de la subred se enruta según las rutas que se crearon dentro de las tablas de rutas, las [rutas predeterminadas](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#default) y las rutas propagadas desde una red local, si la red virtual está conectada a una puerta de enlace de red virtual de Azure (ExpressRoute, o VPN, si se usa BGP con una puerta de enlace de VPN). Solo puede asociar una tabla de rutas a las subredes de las redes virtuales que existen en la misma suscripción y ubicación de Azure de la tabla de rutas.
 
-En esta sección se muestra un cuaderno de estrategias de Ansible de ejemplo que crea una red virtual y un envío y, posteriormente, asocia una tabla de rutas a la subred.
+En esta sección se muestra un cuaderno de estrategias de Ansible de ejemplo que crea una red virtual y una subred y, posteriormente, asocia una tabla de rutas a la subred.
 
 ```yml
 - hosts: localhost

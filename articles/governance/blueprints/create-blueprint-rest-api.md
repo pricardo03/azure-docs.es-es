@@ -4,17 +4,17 @@ description: Utilice los planos técnicos de Azure Blueprint para crear, definir
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 11/07/2018
+ms.date: 01/15/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9e44a44b76e79375076f71cf808d6d30eebc5cdb
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: b66a1c2c12a97ea8754377a138b51a4ca1739c21
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311429"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320691"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definición y asignación de un plano técnico de Azure Blueprint con API REST
 
@@ -68,7 +68,7 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
 
 En cada identificador URI de la API REST, hay variables usadas que se deben reemplazar por sus propios valores:
 
-- `{YourMG}`: reemplácelo por el nombre del grupo de administración
+- `{YourMG}`: reemplácelo por el identificador del grupo de administración
 - `{subscriptionId}`: reemplácelo por el identificador de suscripción
 
 1. Cree el objeto _blueprint_ inicial. El **cuerpo de la solicitud** incluye propiedades sobre el plano técnico, cualquier grupo de recursos que se vaya a crear y todos los parámetros en el nivel del plano técnico. Los parámetros se establecen durante la asignación y son utilizados por los artefactos que se agregan en pasos posteriores.
@@ -130,7 +130,7 @@ En cada identificador URI de la API REST, hay variables usadas que se deben reem
      }
      ```
 
-1. Agregue una asignación de roles a la suscripción. El **cuerpo de la solicitud** define el _tipo_de artefacto, las propiedades se alinean con el identificador de definición de rol y las identidades de la entidad de servicio se pasan como una matriz de valores. En el siguiente ejemplo, las identidades de la entidad de servicio a las que se ha asignado el rol especificado se configuran con un parámetro que se establece durante la asignación de planos técnicos.
+1. Agregue una asignación de roles a la suscripción. El **cuerpo de la solicitud** define el _tipo_de artefacto, las propiedades se alinean con el identificador de definición de rol y las identidades de la entidad de servicio se pasan como una matriz de valores. En el siguiente ejemplo, las identidades de la entidad de servicio a las que se ha asignado el rol especificado se configuran con un parámetro que se establece durante la asignación de planos técnicos. Este ejemplo se usa el rol integrado _Colaborador_ con el GUID `b24988ac-6180-42a0-ab88-20f7382dd24c`.
 
    - URI DE LA API REST
 
@@ -150,7 +150,7 @@ En cada identificador URI de la API REST, hay variables usadas que se deben reem
      }
      ```
 
-1. Agregue la asignación de directivas a la suscripción. El **cuerpo de la solicitud** define el _tipo_ de artefacto, las propiedades que se alinean con una definición de directiva o iniciativa y configura la asignación de directivas para que utilice los parámetros definidos del plano técnico que se van a configurar durante la asignación del plano técnico.
+1. Agregue la asignación de directivas a la suscripción. El **cuerpo de la solicitud** define el _tipo_ de artefacto, las propiedades que se alinean con una definición de directiva o iniciativa y configura la asignación de directivas para que utilice los parámetros definidos del plano técnico que se van a configurar durante la asignación del plano técnico. En este ejemplo se usa la directiva integrada _Aplicar una etiqueta y su valor predeterminado a los grupos de recursos_ con el GUID `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
    - URI DE LA API REST
 
@@ -178,7 +178,7 @@ En cada identificador URI de la API REST, hay variables usadas que se deben reem
      }
      ```
 
-1. Agregue otra asignación de directiva para la etiqueta Storage (reutilizando el parámetro _storageAccountType_) en la suscripción. Este artefacto de asignación de directivas adicional muestra que un parámetro definido en el plano técnico lo puede utilizar más de un artefacto. En el ejemplo, **storageAccountType** se usa para establecer una etiqueta en el grupo de recursos. Este valor proporciona información acerca de la cuenta de almacenamiento que se crea en el paso siguiente.
+1. Agregue otra asignación de directiva para la etiqueta Storage (reutilizando el parámetro _storageAccountType_) en la suscripción. Este artefacto de asignación de directivas adicional muestra que un parámetro definido en el plano técnico lo puede utilizar más de un artefacto. En el ejemplo, **storageAccountType** se usa para establecer una etiqueta en el grupo de recursos. Este valor proporciona información acerca de la cuenta de almacenamiento que se crea en el paso siguiente. En este ejemplo se usa la directiva integrada _Aplicar una etiqueta y su valor predeterminado a los grupos de recursos_ con el GUID `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
    - URI DE LA API REST
 
@@ -292,7 +292,7 @@ En cada identificador URI de la API REST, hay variables usadas que se deben reem
      }
      ```
 
-1. Agregue la asignación de roles en el grupo de recursos. Similar a la entrada anterior de asignación de roles, el ejemplo siguiente utiliza el identificador de definición para el rol **Propietario** y le proporciona un parámetro diferente del plano técnico.
+1. Agregue la asignación de roles en el grupo de recursos. Similar a la entrada anterior de asignación de roles, el ejemplo siguiente utiliza el identificador de definición para el rol **Propietario** y le proporciona un parámetro diferente del plano técnico. Este ejemplo se usa el rol integrado _Propietario_ con el GUID `8e3af657-a8ff-443c-a75c-2fe8c4bcb635`.
 
    - URI DE LA API REST
 

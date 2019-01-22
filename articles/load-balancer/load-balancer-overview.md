@@ -12,14 +12,14 @@ ms.topic: overview
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: 7b0a837bf23145c5ac5e5775d4324582fa3a6b20
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: e66acd6a94b891ac3f727fddb7a88a9c56f465d3
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120842"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246575"
 ---
 # <a name="what-is-azure-load-balancer"></a>¿Qué es Azure Load Balancer?
 
@@ -153,7 +153,13 @@ Un equilibrador de carga interno permite los siguientes tipos de equilibrio de c
 *Ilustración: equilibrio de carga de aplicaciones de niveles múltiples mediante equilibradores de carga público e interno*
 
 ## <a name="pricing"></a>Precios
-El uso de Load Balancer Estándar se cobra según el número de reglas de equilibrio de carga configuradas y la cantidad de datos de entrada y salida procesados. Para más información sobre los precios de Load Balancer Estándar, vaya la página [Precios de Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
+
+Se cobra el uso de Standard Load Balancer.
+
+- Número de reglas de salida y equilibrio de carga configuradas (las reglas NAT de entrada no cuentan para el número total de reglas)
+- Cantidad de datos procesados entrantes y salientes con independencia de la regla. 
+
+Para más información sobre los precios de Load Balancer Estándar, vaya la página [Precios de Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
 
 Load Balancer Básico se ofrece sin cargo.
 

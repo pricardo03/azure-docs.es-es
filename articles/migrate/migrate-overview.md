@@ -4,15 +4,15 @@ description: Proporciona información general acerca del servicio Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 01/02/2019
+ms.date: 01/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c511ef8fc4ae580f869ef90da3e2c8764a146881
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 737dc40bafa519d59bcbc0ff6510a89cb3a840fa
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969138"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263210"
 ---
 # <a name="about-azure-migrate"></a>Acerca de Azure Migrate
 
@@ -29,7 +29,7 @@ Azure Migrate le ayuda a:
 
 ## <a name="current-limitations"></a>Limitaciones actuales
 
-- Solo puede evaluar máquinas virtuales de VMware locales para la migración a máquinas virtuales de Azure. Las máquinas virtuales de VMware las debe administrar vCenter Server (versiones 5.5, 6.0 o 6.5).
+- Solo puede evaluar máquinas virtuales de VMware locales para la migración a máquinas virtuales de Azure. Las máquinas virtuales de VMware las debe administrar vCenter Server (versiones 5.5, 6.0, 6.5 o 6.7).
 - Si desea evaluar servidores físicos y máquinas virtuales Hyper-V, utilice [Azure Site Recovery Deployment Planner](https://aka.ms/asr-dp-hyperv-doc) para Hyper-V y nuestras [herramientas de asociados](https://azure.microsoft.com/migration/partners/) para las máquinas físicas.
 - Puede detectar hasta 1500 máquinas virtuales en una sola detección y hasta 1500 en un solo proyecto. Además, puede evaluar hasta 1500 máquinas virtuales en una valoración única.
 - Si desea detectar un entorno más grande puede dividir la detección y crear varios proyectos. [Más información](how-to-scale-assessment.md). Azure Migrate admite hasta 20 proyectos por suscripción.
@@ -38,7 +38,8 @@ Azure Migrate le ayuda a:
     **Geografía** | **Ubicación de almacenamiento**
     --- | ---
     Azure Government | Gobierno de EE. UU. - Virginia
-    Europa | Europa del Norte o Europa Occidental
+    Asia | Sudeste asiático
+    Europa | Norte de Europa y Oeste de Europa
     Estados Unidos | Este de EE. UU. o Centro-oeste de EE. UU.
 
     La geografía asociada al proyecto de migración se usa para almacenar los metadatos que se detectan desde el entorno local. Los metadatos se almacenan en una de las regiones basadas en la geografía especificada para el proyecto de migración. Si utiliza la visualización de dependencias mediante la creación de un área de trabajo de Log Analytics, el área de trabajo se crea en la misma región que el proyecto.

@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
 ms.date: 12/03/2018
-ms.openlocfilehash: 507425a6cffc6f3b49e117ebf5a604bf0d252164
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 7fecc280d4e92df88f5f8e9b9e571273328d2458
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542023"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352320"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>¿Qué es Azure Database for MariaDB?
 
@@ -45,7 +45,7 @@ El servicio Azure Database for MariaDB ofrece varios niveles de servicio: Básic
 
 ## <a name="monitoring-and-alerting"></a>Supervisión y alertas
 
-¿Cómo se decide cuándo escalar o reducir verticalmente? Utilice las características de supervisión y alertas de rendimiento integradas de Azure Database for MariaDB, combinadas con la clasificación del rendimiento basado en los núcleos virtuales. Con estas herramientas puede evaluar rápidamente el impacto de ajustar la escala de los núcleos virtuales en función de sus necesidades de rendimiento actuales o futuras. <!--See [Alerts](howto-alert-on-metric.md) for details.-->
+¿Cómo se decide cuándo escalar o reducir verticalmente? Utilice las características de supervisión y alertas de rendimiento integradas de Azure Database for MariaDB, combinadas con la clasificación del rendimiento basado en los núcleos virtuales. Con estas herramientas puede evaluar rápidamente el impacto de ajustar la escala de los núcleos virtuales en función de sus necesidades de rendimiento actuales o futuras. Vea las [Alertas](howto-alert-metric.md) para obtener más información.
 
 ## <a name="keep-your-app-and-business-running"></a>Mantenimiento de la aplicación y el negocio en funcionamiento
 
@@ -55,7 +55,7 @@ El Acuerdo de Nivel de Servicio de Azure, con una disponibilidad líder del sect
 
 Los servicios de base de datos de Azure tienen una tradición de seguridad de datos que Azure Database for MariaDB mantiene. Azure Database for MariaDB ofrece características que limitan el acceso, prtegen los datos en reposo y en movimiento, y le ayudan a supervisar la actividad. Para obtener más información sobre la seguridad de plataforma de Azure, vaya al [Centro de confianza de Azure](https://www.microsoft.com/en-us/trustcenter/security).
 
-El servicio Azure Database for MariaDB usa el cifrado de almacenamiento de los datos en reposo. Los datos, incluidas las copias de seguridad, se cifran en el disco. (Los archivos temporales creados por el motor cuando ejecuta consultas no se cifran en el disco). El servicio usa el cifrado AES de 256 bits que se incluye en el cifrado de Azure Storage. Las claves las administra el sistema. El cifrado de almacenamiento siempre está activado y no se puede deshabilitar.
+El servicio Azure Database for MariaDB usa el cifrado de almacenamiento de los datos en reposo y cumple la norma FIPS 140-2. Los datos, incluidas las copias de seguridad, se cifran en el disco. (Los archivos temporales creados por el motor cuando ejecuta consultas no se cifran en el disco). El servicio usa el cifrado AES de 256 bits que se incluye en el cifrado de Azure Storage. Las claves las administra el sistema. El cifrado de almacenamiento siempre está activado y no se puede deshabilitar.
 
 De forma predeterminada, el servicio Azure Database for MariaDB está configurado para exigir la [seguridad de la conexión SSL](./concepts-ssl-connection-security.md) para los datos en movimiento a través de la red. Aplicar conexiones SSL entre el servidor de base de datos y las aplicaciones cliente ayuda a proteger contra los ataques de tipo "man in the middle" mediante el cifrado del flujo de datos entre el servidor y la aplicación. Tiene la opción de deshabilitar el requisito de SSL para conectar el servicio de base de datos en caso de que la aplicación cliente no admita la conectividad SSL.
 

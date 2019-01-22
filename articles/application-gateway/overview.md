@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 10/11/2018
+ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: 6badfabb3ad20b5c17b3bb2bf09ae13f63568d05
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 21aac318542f9d30cb44d940392d05367f1f7b9f
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714759"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246473"
 ---
 # <a name="what-is-azure-application-gateway"></a>¿Qué es Azure Application Gateway?
 
@@ -78,7 +78,7 @@ Por ejemplo, las solicitudes para `http://contoso.com/video/*` se enrutan a Vide
 
 ## <a name="multiple-site-hosting"></a>Hospedaje de varios sitios
 
-El hospedaje de varios sitios permite configurar más de un sitio web en la misma instancia de la puerta de enlace de aplicaciones. Esta característica permite configurar una topología más eficaz para las implementaciones al agregar hasta 20 sitios web en una puerta de enlace de aplicaciones. Cada sitio web se puede dirigir a su propio grupo. Por ejemplo, la puerta de enlace de aplicaciones puede atender el tráfico para `contoso.com` y `fabrikam.com` desde dos grupos de servidores denominados ContosoServerPool y FabrikamServerPool.
+El hospedaje de varios sitios permite configurar más de un sitio web en la misma instancia de la puerta de enlace de aplicaciones. Esta característica permite configurar una topología más eficaz para las implementaciones al agregar hasta 100 sitios web a una sola puerta de enlace de aplicaciones. Cada sitio web se puede dirigir a su propio grupo. Por ejemplo, la puerta de enlace de aplicaciones puede atender el tráfico para `contoso.com` y `fabrikam.com` desde dos grupos de servidores denominados ContosoServerPool y FabrikamServerPool.
 
 Las solicitudes para `http://contoso.com` se enrutan a ContosoServerPool y para `http://fabrikam.com` se enrutan a FabrikamServerPool.
 

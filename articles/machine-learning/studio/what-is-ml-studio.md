@@ -1,6 +1,7 @@
 ---
-title: 'Información general: Azure Machine Learning Studio | Microsoft Docs'
-description: Información general de Machine Learning Studio, una herramienta de arrastrar y colocar para crear rápidamente modelos desde una biblioteca lista para usar de algoritmos y módulos.
+title: ¿Qué es?
+titleSuffix: Azure Machine Learning Studio
+description: Azure Machine Learning Studio es una herramienta de arrastrar y colocar que permite crear rápidamente modelos desde una biblioteca con elementos que están listos para usarse, como algoritmos y módulos.
 keywords: azure machine learning, machine learning studio
 services: machine-learning
 documentationcenter: ''
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: b1c0d3da6dba4bf56baaf583d89c58fdc13ef83f
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 04c9803909fb5dfd1072840a0c1d7e33814ad1a3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250525"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264367"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>¿Qué es Azure Machine Learning Studio?
 Microsoft Azure Machine Learning Studio es una herramienta de arrastrar y colocar que le permite crear, probar e implementar soluciones de análisis predictivo en sus datos. Machine Learning Studio publica modelos como servicios web que pueden utilizarse fácilmente en aplicaciones personalizadas o herramientas de BI como Excel.

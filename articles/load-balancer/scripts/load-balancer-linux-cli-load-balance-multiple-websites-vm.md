@@ -15,14 +15,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
-ms.openlocfilehash: a8a7514624387d0fc00d32e4d47042e4a3b130f0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 41f8a403694eec897ba4a6eb147ab71757d5caa5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444426"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263944"
 ---
-# <a name="azure-cli-script-example-load-balance-multiple-websites"></a>Ejemplo de script de la CLI de Azure: equilibrio de carga entre varios sitios web
+# <a name="azure-cli-script-example-load-balance-multiple-websites"></a>Ejemplo de script de la CLI de Azure: Equilibrio de carga entre varios sitios web
 
 En este ejemplo de script de la CLI de Azure se crea una red virtual con dos máquinas virtuales que son miembros de un conjunto de disponibilidad. Un equilibrador de carga dirige el tráfico de dos direcciones IP independientes a las dos máquinas virtuales. Después de ejecutar el script, podría implementar software de servidor web en las máquinas virtuales y hospedar varios sitios web, cada uno con su propia dirección IP.
 

@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: 0a629b9b068694960178c1c5727ba2f38b0e8af7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 7d45c11345312fe48312bd4e744433397a17a62d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190345"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359330"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Creación de un servidor de Azure Database for MariaDB mediante la CLI de Azure
 
@@ -59,10 +59,10 @@ version | **10.2** | La versión del motor principal de MariaDB.
 admin-user | **myadmin** | El nombre del usuario del inicio de sesión del administrador. El parámetro **admin-user** no puede ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ni **public**.
 admin-password | *La contraseña* | La contraseña del usuario administrador. Debe tener entre 8 y 128 caracteres. Debe contener caracteres de tres de las siguientes categorías: Letras del alfabeto inglés mayúsculas y minúsculas, números y caracteres no alfanuméricos.
 
-El valor del parámetro **sku-name** sigue la convención *plan de tarifa*\_*generación de proceso*\_*núcleos virtuales* como en los ejemplos siguientes:
-+ `--sku-name B_Gen5_4` se asigna al plan de tarifa básico, la generación de procesos Gen 5 y 4 núcleos virtuales.
-+ `--sku-name GP_Gen5_32` se asigna al plan de tarifa de uso general, la generación de procesos Gen 5 y 32 núcleos virtuales.
-+ `--sku-name MO_Gen5_2` se asigna al plan de tarifa optimizada para memoria, la generación de procesos Gen 5 y 2 núcleos virtuales.
+El valor del parámetro sku-name sigue la convención {plan de tarifa}\_{generación de proceso}\_{núcleos virtuales} como en los ejemplos siguientes:
++ `--sku-name B_Gen5_1` se asigna a Básico, Gen 5 y 1 núcleo virtual. Esta opción es la SKU más pequeña disponible.
++ `--sku-name GP_Gen5_32` se asigna a De uso general, Gen 5 y 32 núcleos virtuales.
++ `--sku-name MO_Gen5_2` se asigna a Optimizado para memoria, Gen 5 y 2 núcleos virtuales.
 
 Para más información acerca de los valores válidos por región y sobre los planes, consulte [planes de tarifa](./concepts-pricing-tiers.md).
 

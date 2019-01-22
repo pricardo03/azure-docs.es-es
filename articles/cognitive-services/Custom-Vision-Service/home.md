@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: overview
-ms.date: 10/26/2018
+ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: 5e8e675b32bfd4c741b82b1ab341a80adbb0529d
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: d9b5473e87d83912dd2f33c00e983e346226e4aa
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741647"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54242954"
 ---
 # <a name="what-is-azure-custom-vision"></a>¿Qué es Azure Custom Vision?
 
@@ -27,7 +27,7 @@ Custom Vision Service usa un algoritmo de aprendizaje automático para clasifica
 
 ### <a name="classification-and-object-detection"></a>Clasificación y detección de objetos
 
-La funcionalidad de Custom Vision puede dividirse en dos características. **Clasificación de imágenes**: asigna una distribución de las clasificaciones a cada imagen. **Detección de objetos**: es similar, pero también devuelve las coordenadas de la imagen donde pueden encontrarse las etiquetas aplicadas.
+La funcionalidad de Custom Vision puede dividirse en dos características. **Clasificación de imágenes**: asigna una distribución de las clasificaciones a cada imagen. Se admiten tanto los modelos de clasificación de varias clases (una etiqueta por imagen) como de varias etiquetas (un número cualquiera de etiquetas por imagen). La **detección de objetos** es similar a la clasificación de varias etiquetas, pero también devuelve las coordenadas de la imagen donde se pueden encontrar las etiquetas aplicadas.
 
 ### <a name="optimization"></a>Optimización
 
@@ -39,6 +39,10 @@ Además, puede elegir entre diversas variedades del algoritmo de Custom Vision q
 Custom Vision Service está disponible como un conjunto de SDK nativos, así como mediante una interfaz basada en web en la [página principal de Custom Vision](https://customvision.ai/). Puede crear, probar y entrenar un modelo mediante una de las interfaces, o ambas.
 
 ![Página principal de Custom Vision en una ventana del explorador Chrome](media/browser-home.png)
+
+## <a name="data-privacy-and-security"></a>Seguridad y privacidad de los datos
+
+Al igual que sucede con todas las instancias de Cognitive Services, los desarrolladores que usan Custom Vision Service deben estar al tanto de las directivas de Microsoft sobre los datos de clientes. Para más información, consulte la [página de Cognitive Services](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) en Microsoft Trust Center.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

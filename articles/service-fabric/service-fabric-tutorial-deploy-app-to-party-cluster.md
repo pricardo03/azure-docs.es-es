@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 01/14/2019
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: fe6df20d294a3b1802d396085c36a6587dc45730
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 076ddbd722966709cbe386123acafb57f5def0be
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249088"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318464"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Tutorial: Implementación de una aplicación de Service Fabric en un clúster en Azure
 
@@ -28,8 +28,8 @@ Este tutorial es la segunda parte de una serie. En él se muestra cómo implemen
 
 En este tutorial, aprenderá a:
 > [!div class="checklist"]
-> * Crear un clúster de entidad.
-> * Implementar una aplicación en un clúster remoto mediante Visual Studio
+> * Crear un clúster.
+> * Implementar una aplicación en un clúster remoto con Visual Studio.
 
 En esta serie de tutoriales, se aprende a:
 > [!div class="checklist"]
@@ -49,91 +49,77 @@ Antes de empezar este tutorial:
 
 ## <a name="download-the-voting-sample-application"></a>Descarga de la aplicación de ejemplo de votación
 
-Si no compiló la aplicación de ejemplo de votación en la [primera parte de esta serie de tutoriales](service-fabric-tutorial-create-dotnet-app.md), puede descargarla. En una ventana Comandos, ejecute el código siguiente para clonar el repositorio de la aplicación de ejemplo en la máquina local.
+Si no compiló la aplicación de ejemplo de votación en la [primera parte de esta serie de tutoriales](service-fabric-tutorial-create-dotnet-app.md), puede descargarla. En una ventana Comandos, ejecute el siguiente código para clonar el repositorio de la aplicación de ejemplo en la máquina local.
 
 ```git
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart 
 ```
 
-## <a name="publish-to-a-service-fabric-cluster"></a>Publicación en un clúster de Service Fabric
+Abra la aplicación en Visual Studio, que se ejecuta como administrador, y compile la aplicación.
 
-Ahora que la aplicación está lista, puede implementarla en un clúster directamente desde Visual Studio. Un [clúster de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-anywhere) es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios.
+## <a name="create-a-cluster"></a>Creación de un clúster
 
-En este tutorial, tiene dos opciones para implementar la aplicación de votación en un clúster de Service Fabric mediante Visual Studio:
+Ahora que la aplicación está lista, cree un clúster de Service Fabric e implemente la aplicación en él. Un [clúster de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-anywhere) es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios.
 
-* Publicar en un clúster de prueba (entidad). 
-* Publicar en un clúster existente en su suscripción. Los clústeres de Service Fabric se pueden crear desde [Azure Portal](https://portal.azure.com) mediante los scripts de [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) o de la [CLI de Azure](./scripts/cli-create-cluster.md), o desde una [plantilla de Azure Resource Manager](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+En este tutorial, cree un clúster de prueba de tres nodos en el entorno de desarrollo integrado de Visual Studio y, después, publique la aplicación en dicho clúster. Para obtener información acerca de cómo crear clústeres de producción, consulte el [tutorial para crear y administrar clústeres](service-fabric-tutorial-create-vnet-and-windows-cluster.md). También puede implementar la aplicación en un clúster existente que creó anteriormente a través de [Azure Portal](https://portal.azure.com), mediante scripts de [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) o de la [CLI de Azure](./scripts/cli-create-cluster.md), o desde un [plantilla de Azure Resource Manager](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 > [!NOTE]
-> Muchos servicios usan el proxy inverso para comunicarse entre ellos. Tanto los clústeres creados desde Visual Studio como los clústeres de entidad tienen el proxy inverso habilitado de forma predeterminada. Si va a usar un clúster existente, debe [habilitar el proxy inverso en el clúster](service-fabric-reverseproxy-setup.md).
+> La aplicación de votación y muchas otras aplicaciones usan el proxy inverso de Service Fabric para comunicarse entre servicios. Los clústeres creados desde Visual Studio tienen el proxy inverso habilitado de forma predeterminada. Si va a realizar la implementación en un clúster existente, debe [habilitar el proxy inverso en el clúster](service-fabric-reverseproxy-setup.md) para que la aplicación de votación funcione.
 
 
-### <a name="find-the-voting-web-service-endpoint-for-your-azure-subscription"></a>Búsqueda del punto de conexión del servicio web de votación para la suscripción de Azure
+### <a name="find-the-votingweb-service-endpoint"></a>Buscar el punto de conexión de servicio VotingWeb
 
-Para publicar la aplicación de votación en su propia suscripción de Azure, busque el punto de conexión del servicio web de front-end. Si utiliza un clúster de entidad, conéctese al puerto 8080 mediante el ejemplo de votación de apertura automática. No es preciso configurarlo en el equilibrador de carga del clúster de entidad.
-
-El servicio web de front-end está escuchando en un puerto específico. Cuando la aplicación se implementa en un clúster de Azure, el clúster y la aplicación se ejecutan detrás de un equilibrador de carga de Azure. El puerto de la aplicación se debe abrir mediante una regla del equilibrador de carga de Azure para el clúster. El puerto abierto envía el tráfico entrante a través del servicio web. El puerto se encuentra en el archivo **VotingWeb/PackageRoot/ServiceManifest.xml** del elemento **Endpoint**. Un ejemplo es el puerto 8080.
+El servicio web de front-end de la aplicación de votación está escuchando un puerto específico (el 8080 si ha seguido en los pasos descritos en [la primera parte de esta serie de tutoriales](service-fabric-tutorial-create-dotnet-app.md)). Cuando la aplicación se implementa en un clúster de Azure, el clúster y la aplicación se ejecutan detrás de un equilibrador de carga de Azure. El puerto de la aplicación se debe abrir en Azure Load Balancer mediante una regla. Dicha regla envía el tráfico entrante a través del equilibrador de carga al servicio web. El puerto se encuentra en el archivo **VotingWeb/PackageRoot/ServiceManifest.xml** del elemento **Endpoint**. 
 
 ```xml
 <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="8080" />
 ```
 
-Para la suscripción de Azure, abra este puerto mediante una regla de equilibrio de carga en Azure con un [script de PowerShell](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) o mediante el equilibrador de carga para este clúster de [Azure Portal](https://portal.azure.com).
+Tome nota del punto de conexión de servicio, ya que se necesita en un paso posterior.  Si va a realizar la implementación en un clúster existente, abra este puerto mediante la creación de una regla y un sondeo de equilibrio de carga en Azure Load Balancer mediante un [script de PowerShell](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) o a través del equilibrador de carga de este clúster de [Azure Portal](https://portal.azure.com).
 
-### <a name="join-a-party-cluster"></a>Unión a un clúster de entidad
+### <a name="create-a-test-cluster-in-azure"></a>Creación de un clúster de prueba en Azure
+En el Explorador de soluciones, haga clic con el botón derecho en **Voting** y seleccione **Publicar**.
 
-> [!NOTE]
->  Para publicar la aplicación en su propio clúster en una suscripción de Azure, vaya a la sección [Publicación de la aplicación mediante Visual Studio](#publish-the-application-by-using-visual-studio). 
+En **Punto de conexión**, seleccione **Crear nuevo clúster**.  Si va a realizar la implementación en un clúster existente, seleccione el punto de conexión del clúster en la lista.  Se abre el cuadro de diálogo Crear clúster de Service Fabric.
 
-Los Party Cluster son clústeres de Service Fabric gratuitos, de duración limitada, hospedados en Azure y operados por el equipo de Service Fabric. Cualquiera puede implementar aplicaciones y aprender todo lo relacionado con la plataforma. El clúster usa un único certificado autofirmado para la seguridad tanto de nodo a nodo como de cliente a nodo.
+En la pestaña **Clúster**, escriba el **nombre del clúster** (por ejemplo, "mytestcluster"), seleccione su suscripción, seleccione una región para el clúster (como Centro-sur de EE. UU.), escriba el número de nodos del clúster (se recomiendan tres nodos para un clúster de prueba) y escriba un grupo de recursos (como "mytestclustergroup"). Haga clic en **Next**.
 
-Inicie sesión y [únase a un clúster de Windows](https://aka.ms/tryservicefabric). Para descargar el certificado PFX en el equipo, seleccione el vínculo **PFX**. Seleccione el vínculo **How to connect to a secure Party cluster?** (Cómo conectarse a un clúster de entidad seguro) y copie la contraseña del certificado. El certificado, la contraseña del certificado y el valor de **Punto de conexión** se usan en los pasos siguientes.
+![Creación de un clúster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
-![PFX y punto de conexión](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
+En la pestaña **Certificado**, escriba la contraseña y la ruta de acceso de salida del certificado del clúster. Los certificados autofirmados se crean como los archivos PFX y se guardan en la ruta de acceso de salida especificada.  El certificado se usa tanto para la seguridad de nodo a nodo como para la de cliente a nodo.  No se deben usar certificados autofirmados en clústeres de producción.  Este certificado lo usa Visual Studio para autenticarse con el clúster e implementar aplicaciones. Seleccione **Importar certificado** para instalar el archivo PFX en el almacén CurrentUser\My certificate del equipo.  Haga clic en **Next**.
 
-> [!Note]
-> Hay un número limitado de clústeres de entidad por hora. Si se produce un error al intentar suscribirse a un clúster de entidad, espere y vuelva a intentarlo. O bien siga estos pasos en el tutorial [implementación de una aplicación .NET](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) para crear un clúster de Service Fabric en su suscripción de Azure e implementar la aplicación en él. Si aún no tiene una suscripción a Azure, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
->
+![Creación de un clúster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
 
-En el equipo Windows, instale el archivo PFX en el almacén de certificados **CurrentUser\My**.
+En la pestaña **Detalle de máquina virtual**, escriba el **nombre de usuario** y la **contraseña** de la cuenta de administrador del clúster.  Seleccione la **imagen de máquina virtual** de los nodos del clúster y el **tamaño de máquina virtual** de cada uno de los nodos del clúster.  Haga clic en la pestaña **Advanced** (Opciones avanzadas).
 
-```powershell
-PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString 873689604 -AsPlainText -Force)
+![Creación de un clúster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/vm-detail.png)
 
+En **Puertos**, escriba el punto de conexión de servicio VotingWeb del paso anterior (por ejemplo, 8080).  Cuando se crea el clúster, se abren estos puertos en Azure Load Balancer para reenviar el tráfico al clúster.  Haga clic en **Crear** para crear el clúster, lo que tarda varios minutos.
 
-   PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+![Creación de un clúster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/advanced.png)
 
-Thumbprint                                Subject
-----------                                -------
-3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
-```
+## <a name="publish-the-application-to-the-cluster"></a>Publicación de la aplicación en el clúster
 
-Recuerde la huella digital para el paso siguiente.
+Cuando el clúster nuevo esté listo, puede implementar la aplicación Voting directamente desde Visual Studio.
 
-> [!Note]
-> De manera predeterminada, el servicio front-end web está configurado para escuchar en el puerto 8080 el tráfico entrante. El puerto 8080 está abierto en el clúster de entidad. Si necesita cambiar el puerto de la aplicación, cámbielo a uno de los puertos abiertos en el clúster de entidad.
->
+En el Explorador de soluciones, haga clic con el botón derecho en **Voting** y seleccione **Publicar**. Aparece el cuadro de diálogo **Publicar**.
 
-### <a name="publish-the-application-by-using-visual-studio"></a>Publicación de la aplicación mediante Visual Studio
+En **Punto de conexión**, seleccione el punto de conexión del clúster que creó en el paso anterior.  Por ejemplo, "mytestcluster.southcentral.cloudapp.azure.com:19000". Si selecciona **Parámetros de conexión avanzada** , se debería rellenar automáticamente la información del certificado.  
+![Publicar una aplicación de Service Fabric](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
 
-Ahora que la aplicación está lista, puede implementarla en un clúster directamente desde Visual Studio.
+Seleccione **Publicar**.
 
-1. Haga clic con el botón derecho en **Voting** (Votación) en el Explorador de soluciones. Elija **Publicar**. Aparece el cuadro de diálogo **Publicar**.
+Una vez que aplicación esté implementada, abra un explorador y escriba la dirección del clúster, seguida de **:8080**. O especifique otro puerto si hay uno configurado. Un ejemplo es `http://mytestcluster.southcentral.cloudapp.azure.com:8080`. Se ve la aplicación en ejecución en el clúster de Azure. En la página web de votación, pruebe a agregar y eliminar opciones de votación y a votar por una o varias de estas opciones.
 
-2. Copie el valor de **Punto de conexión** de la página del clúster de entidad o de la suscripción de Azure en el campo **Punto de conexión**. Un ejemplo es `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Seleccione **Parámetros de conexión avanzada**.  Asegúrese de que los valores **FindValue** y **ServerCertThumbprint** coinciden con la huella digital del certificado instalado en un paso anterior de un clúster de entidad o el certificado que coincide con la suscripción de Azure.
-
-    ![Publicación de la aplicación de Service Fabric](./media/service-fabric-quickstart-dotnet/publish-app.png)
-
-    Todas las aplicaciones del clúster deben tener un nombre único. Los clústeres de entidad son un entorno público compartido, por lo que pueden entrar en conflicto con una aplicación existente. Si se produce un conflicto de nombres, cambie el nombre del proyecto de Visual Studio y vuelva a implementarlo.
-
-3. Seleccione **Publicar**.
-
-4. Para acceder a la aplicación de votación en el clúster, abra un explorador y escriba la dirección del clúster, seguida de **: 8080**. O especifique otro puerto si hay uno configurado. Un ejemplo es `http://zwin7fh14scd.westus.cloudapp.azure.com:8080`. Se ve la aplicación en ejecución en el clúster de Azure. En la página web de votación, pruebe a agregar y eliminar opciones de votación y a votar por una o varias de estas opciones.
-
-    ![Ejemplo de votación de Service Fabric](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
+![Ejemplo de votación de Service Fabric](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-screenshot-new-azure.png)
 
 
 ## <a name="next-steps"></a>Pasos siguientes
+En esta parte del tutorial, ha aprendido a:
+
+> [!div class="checklist"]
+> * Crear un clúster.
+> * Implementar una aplicación en un clúster remoto con Visual Studio.
 
 Avance hasta el siguiente tutorial:
 > [!div class="nextstepaction"]

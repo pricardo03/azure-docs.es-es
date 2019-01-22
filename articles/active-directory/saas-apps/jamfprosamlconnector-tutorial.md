@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: e30ede3e69711fefcf5026202ed7b004d00cb02e
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: ebd9f2115116e8f9cf976c86e4914f0b7f6beb39
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810821"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322119"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>Tutorial: Integración de Azure Active Directory con Jamf Pro
 
@@ -155,7 +155,7 @@ Para configurar el inicio de sesión único de Azure AD con Jamf Pro, realice lo
 
     e. Pegue el valor `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` en el cuadro de texto **GROUP ATTRIBUTE NAME** (NOMBRE DE ATRIBUTO DE GRUPO).
 
-7. En la misma página, desplácese a la sección **PROVEEDOR DE IDENTIDADES** en la sección **Inicio de sesión único** y realice los pasos siguientes:
+7. En la misma página, desplácese a **PROVEEDOR DE IDENTIDADES**, en la sección **Inicio de sesión único**, y siga estos pasos:
 
     ![Configuración de Jamf Pro](./media/jamfprosamlconnector-tutorial/configure3.png)
 

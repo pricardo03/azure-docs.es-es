@@ -8,12 +8,12 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 51952196bd2c44ba79e96266436860106a0753c4
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 875eb20a05a96d094a17229699bb2d87b3377a62
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793519"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359908"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Preguntas acerca de la copia de seguridad de archivos de Azure
 En este artículo se ofrecen respuestas a preguntas habituales acerca de la copia de seguridad de archivos de Azure. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. También se pueden publicar preguntas sobre el servicio Azure Backup en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -94,11 +94,14 @@ Sí. Si ha elegido **Retener datos de copia de seguridad** cuando detuvo la prot
 
 ## <a name="manage-backup"></a>Administración de copias de seguridad
 
+### <a name="can-i-use-powershell-to-configuremanagerestore-backups-of-azure-file-shares-br"></a>¿Se puede usar PowerShell para configurar/administrar/restaurar copias de seguridad de los recursos compartidos de Azure File? <br/>
+Sí. Consulte [aquí](backup-azure-afs-automation.md) la documentación detallada
+
 ### <a name="can-i-access-the-snapshots-taken-by-azure-backups-and-mount-it-br"></a>¿Puedo acceder a las instantáneas realizadas por las instancias de Azure Backup y montarlas? <br/>
 Es posible acceder a todas las instantáneas realizadas por Azure Backup desde el portal, PowerShell o la CLI. Para más información acerca de las instantáneas de recurso compartido de Azure Files, consulte [Información general de instantáneas de recurso compartido de Azure Files (versión preliminar)](../storage/files/storage-snapshots-files.md).
 
 ### <a name="what-is-the-maximum-retention-i-can-configure-for-backups-br"></a>¿Cuál es la retención máxima que puedo configurar para las copias de seguridad? <br/>
-La copia de seguridad de recursos compartidos de archivos de Azure ofrece la posibilidad de retener las copias de seguridad diarias durante 120 días como máximo.
+La copia de seguridad de los recursos compartidos de archivos de Azure ofrece la capacidad de configurar directivas con retención de hasta 180 días. Sin embargo, con la opción de [Copia de seguridad a petición en PowerShell](backup-azure-afs-automation.md#trigger-an-on-demand-backup) puede conservar un punto de recuperación incluso durante 10 años.
 
 ### <a name="what-happens-when-i-change-the-backup-policy-for-an-azure-file-share-br"></a>¿Qué ocurre cuando se cambia la directiva de copia de seguridad de un recurso compartido de archivos de Azure? <br/>
 Cuando se aplica una nueva directiva en los recursos compartidos de archivos, se siguen las opciones de programación y retención de la nueva directiva. Si se amplía la retención, los puntos de recuperación existentes se marcarán para mantenerlos de acuerdo con la nueva directiva. Si se reduce la retención, se marcan para eliminarse, y se eliminan, en el siguiente trabajo de limpieza.

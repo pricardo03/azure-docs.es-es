@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Flex Global View | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Flex Global View.
+title: 'Tutorial: Integración de Azure Active Directory con el sistema de inicio de sesión único GTNexus | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y GTNexus SSO System.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,22 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/08/2019
 ms.author: jeedes
-ms.openlocfilehash: ae466dc4bce6ab7068622272651c22d70fc84fff
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 646c9b1c3a1f10cae678e6788379eb6bbd144e78
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54067503"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263499"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-flex-global-view"></a>Tutorial: Integración de Azure Active Directory con Flex Global View
+# <a name="tutorial-azure-active-directory-integration-with-gtnexus-sso-system"></a>Tutorial: Integración de Azure Active Directory con el sistema de inicio de sesión único GTNexus
 
-En este tutorial, aprenderá a integrar Flex Global View con Azure Active Directory (Azure AD).
-Dicha integración proporciona las siguientes ventajas:
+En este tutorial aprenderá a integrar GTNexus SSO System con Azure Active Directory (Azure AD).
+La integración de GTNexus SSO System con Azure AD le proporciona las siguientes ventajas:
 
-* Desde Azure AD puede controlar quién tiene acceso a Flex Global View.
-* Puede permitir que los usuarios inicien sesión automáticamente en Flex Global View (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede controlar en Azure AD quién tiene acceso a GTNexus SSO System.
+* Puede permitir que los usuarios inicien sesión automáticamente en GTNexus SSO System (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -35,22 +35,22 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para configurar la integración de Azure AD con Flex Global View, se necesitan los siguientes elementos:
+Para configurar la integración de Azure AD con GTNexus SSO System, necesita lo siguiente:
 
 * Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
-* Suscripción de Flex Global View con el inicio de sesión único habilitado
+* Una suscripción habilitada para el inicio de sesión único en GTNexus SSO System
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Flex Global View admite el inicio de sesión único iniciado por **IDP**
+* GTNexus SSO System admite el inicio de sesión único iniciado por **IDP**
 
-## <a name="adding-flex-global-view-from-the-gallery"></a>Incorporación de Flex Global View desde la galería
+## <a name="adding-gtnexus-sso-system-from-the-gallery"></a>Incorporación de GTNexus SSO System desde la galería
 
-Para configurar la integración de Flex Global View en Azure AD, deberá agregarlo desde la galería a la lista de aplicaciones SaaS administradas.
+Para configurar la integración de GTNexus SSO System en Azure AD, tiene que agregar GTNexus SSO System desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Flex Global View desde la galería, siga estos pasos:**
+**Para agregar GTNexus SSO System desde la galería, realice los pasos siguientes:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
@@ -64,31 +64,31 @@ Para configurar la integración de Flex Global View en Azure AD, deberá agregar
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Flex Global View**, seleccione **Flex Global View** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **GTNexus SSO System**, seleccione **GTNexus SSO System** en el panel de resultados y, a continuación, haga clic en el botón **Agregar** para agregar la aplicación.
 
-     ![Flex Global View en la lista de resultados](common/search-new-app.png)
+     ![GTNexus SSO System en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Flex Global View con un usuario de prueba llamado **Britta Simon**.
-Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Flex Global View.
+En esta sección, configurará y probará el inicio de sesión único de Azure AD con GTNexus SSO System con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de GTNexus SSO System.
 
-Para configurar y probar el inicio de sesión único de Azure AD con Flex Global View, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con GTNexus SSO System, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Flex Global View](#configure-flex-global-view-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
-3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Flex Global View](#create-flex-global-view-test-user)**: para tener un homólogo de Britta Simon en Flex Global View que esté vinculado a la representación del usuario en Azure AD.
+2. **[Configuración del inicio de sesión único de GTNexus SSO System](#configure-gtnexus-sso-system-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de GTNexus SSO System](#create-gtnexus-sso-system-test-user)**: para tener un homólogo de Britta Simon en GTNexus SSO System que esté vinculado a la representación del usuario en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-Para configurar el inicio de sesión único de Azure AD con Flex Global View, siga estos pasos:
+Para configurar el inicio de sesión único de Azure AD con GTNexus SSO System, realice los pasos siguientes:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Flex Global View**, seleccione **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **GTNexus SSO System**, seleccione **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
@@ -110,7 +110,7 @@ Para configurar el inicio de sesión único de Azure AD con Flex Global View, si
 
     ![imagen](common/browse-upload-metadata.png)
 
-    c. Una vez que se haya cargado correctamente el archivo de metadatos, los valores **Identificador** y **Dirección URL de respuesta** se rellenan automáticamente en el cuadro de texto de la sección Flex Global View:
+    c. Una vez que se haya cargado correctamente el archivo de metadatos, los valores **Identificador** y **Dirección URL de respuesta** se rellenan automáticamente en el cuadro de texto de la sección GTNexus SSO System:
 
     ![imagen](common/idp-intiated.png)
 
@@ -121,9 +121,9 @@ Para configurar el inicio de sesión único de Azure AD con Flex Global View, si
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-### <a name="configure-flex-global-view-single-sign-on"></a>Configuración del inicio de sesión único en Flex vista Global
+### <a name="configure-gtnexus-sso-system-single-sign-on"></a>Configuración del inicio de sesión único de GTNexus SSO System
 
-Para configurar el inicio de sesión único en **Flex Global View**, es preciso enviar el archivo **XML de metadatos de federación** al [equipo de soporte técnico de Flex Global View](mailto:support@gtnexus.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **GTNexus SSO System**, es preciso enviar el archivo **XML de metadatos de federación** al [equipo de soporte técnico de GTNexus SSO System](mailto:support@gtnexus.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -152,15 +152,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, concederá acceso a Britta Simon a Flex Global View para que use el inicio de sesión único de Azure.
+En esta sección, permitirá que Britta Simon use el inicio de sesión único de Azure al concederle acceso a GTNexus SSO System.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **Flex Global View**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**, **GTNexus SSO System**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Flex Global View**.
+2. En la lista de aplicaciones, seleccione **GTNexus SSO System**.
 
-    ![Vínculo a Flex Global View en la lista de aplicaciones](common/all-applications.png)
+    ![Vínculo de GTNexus SSO System en la lista de aplicaciones](common/all-applications.png)
 
 3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
@@ -176,15 +176,15 @@ En esta sección, concederá acceso a Britta Simon a Flex Global View para que u
 
 7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="create-flex-global-view-test-user"></a>Creación de un usuario de prueba de Flex Global View
+### <a name="create-gtnexus-sso-system-test-user"></a>Creación de un usuario de prueba de GTNexus SSO System
 
-En esta sección, creará un usuario llamado Britta Simon en Flex Global View. Trabaje en conjunción con el [equipo de soporte técnico de Flex Global View](mailto:support@gtnexus.com) para agregar los usuarios de la plataforma Flex Global View. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará una usuaria llamada Britta Simon en GTNexus SSO System. Colabore con el  [equipo de soporte técnico de GTNexus SSO System](mailto:support@gtnexus.com) para agregar los usuarios a la plataforma de GTNexus SSO System. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Flex Global View del panel de acceso, debería iniciar sesión automáticamente en la versión de Flex Global View para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de GTNexus SSO System en el panel de acceso, debería iniciar sesión automáticamente en la versión de GTNexus SSO System para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

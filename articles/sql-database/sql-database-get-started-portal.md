@@ -11,19 +11,19 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/21/2018
-ms.openlocfilehash: b8ff482f2aec406ef4c1c545db7844a861317518
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 1/9/2019
+ms.openlocfilehash: b11eb08a960e81ab938a9b15a1153c44706231c5
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994426"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198294"
 ---
 # <a name="quickstart-create-an-azure-sql-database-in-the-azure-portal"></a>Inicio rápido: Creación de una instancia de Azure SQL Database en Azure Portal
 
 Azure SQL Database es una *base de datos como servicio* que permite ejecutar y escalar bases de datos de SQL Server de alta disponibilidad en la nube. En este inicio rápido se muestra cómo comenzar mediante la creación y la posterior consulta de una base de datos de Azure SQL desde Azure Portal. 
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+Si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.microsoft.com/free/).
 
 Para seguir todos los pasos de este artículo de inicio rápido debe iniciar sesión en [Azure Portal](https://portal.azure.com/).
 
@@ -35,36 +35,36 @@ Para crear una base de datos SQL que contenga los datos de ejemplo AdventureWork
 
 1. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
    
-1. Seleccione **Bases de datos**y, después, **SQL Database**.
+1. Seleccione **Bases de datos** y, luego, **SQL Database**.
    
-1. En el formulario **SQL Database**, escriba o seleccione los siguientes valores: 
+1. En el formulario **Crear base de datos SQL**, escriba o seleccione los siguientes valores: 
    
    - **Nombre de base de datos**: Escriba *mySampleDatabase*.
-   - **Suscripción**: Abra la lista desplegable y seleccione la suscripción correcta, en caso de que no aparezca.  
+   - **Suscripción**: Abra la lista desplegable y seleccione la suscripción correcta, en caso de que no aparezca.
    - **Grupo de recursos**: Seleccione **Crear nuevo**, escriba *myResourceGroup* y seleccione **Aceptar**. 
-   - **Seleccionar origen**: Abra la lista desplegable y seleccione **Sample (AdventureWorksLT)** [Ejemplo (AdventureWorksLT)]. 
-   
-   >[!IMPORTANT]
-   >Asegúrese de seleccionar los datos de **Sample (AdventureWorksLT)** para poder seguir este y otros artículos de inicio rápido de Azure SQL Database que usan estos datos. 
-   
+   - **Seleccionar origen**: Abra la lista desplegable y seleccione **Sample (AdventureWorksLT)** [Ejemplo (AdventureWorksLT)].
+    
+    >[!IMPORTANT]
+    >Asegúrese de seleccionar los datos de **Sample (AdventureWorksLT)** para poder seguir este y otros artículos de inicio rápido de Azure SQL Database que usan estos datos.
+  
    ![Crear una instancia de Azure SQL Database](./media/sql-database-get-started-portal/create-database-1.png)
    
-1. Seleccione **Servidor**y, después, seleccione **Create a new server** (Crear un servidor). 
+1. En **Servidor**, seleccione **Crear nuevo**. 
    
 1. En el formulario **Nuevo servidor** , escriba o seleccione los siguientes valores: 
    
    - **Nombre del servidor**: Escriba *mysqlserver*.
    - **Inicio de sesión del administrador del servidor**: escriba *azureuser*. 
-   - **Contraseña**: escriba *Azure1234567*. 
+   - **Contraseña**: Escriba *Azure1234567*. 
    - **Confirmar contraseña**: vuelva a escribir la contraseña.
    - **Ubicación**: abra la lista desplegable y seleccione cualquier ubicación válida.  
    
    >[!IMPORTANT]
-   >Recuerde o grabe el inicio de sesión y la contraseña del administrador del servidor, con el fin de poder iniciar sesión en el servidor y en las bases de datos en este y otros artículos de inicio rápido. Si olvida la contraseña o el inicio de sesión, puede obtener el nombre de inicio de sesión o restablecer la contraseña en la página de **SQL server**. Para abrir la página de **SQL server**, seleccione el nombre del servidor en la página de **información general** de la base de datos después de la creación de esta.
+   >No olvide registrar el inicio de sesión y la contraseña del administrador del servidor, con el fin de poder iniciar sesión en el servidor y las bases de datos en este y otros inicios rápidos. Si olvida la contraseña o el inicio de sesión, puede obtener el nombre de inicio de sesión o restablecer la contraseña en la página de **SQL server**. Para abrir la página de **SQL server**, seleccione el nombre del servidor en la página de **información general** de la base de datos después de la creación de esta.
    
+    ![Crear un servidor](./media/sql-database-get-started-portal/create-database-server.png)
+
 1. Elija **Seleccionar**.
-   
-   ![Crear un servidor](./media/sql-database-get-started-portal/create-database-server.png)
    
 1. En el formulario **SQL Database**, seleccione **Plan de tarifa**. Explore la cantidad de almacenamiento y de DTU disponibles para cada nivel de servicio.
    
@@ -92,7 +92,7 @@ Ahora que ha creado una instancia de Azure SQL Database, use la herramienta de c
 
 1. En la página **SQL Database** de su base de datos, seleccione **Editor de consultas (versión preliminar)** en el menú de la izquierda. 
    
-   ![Iniciar sesión en el Editor de consultas](./media/sql-database-get-started-portal/query-editor-login.png)
+   ![Inicio de sesión en el Editor de consultas](./media/sql-database-get-started-portal/query-editor-login.png)
    
 1. Escriba su información de inicio de sesión y seleccione **Aceptar**.
    
@@ -113,7 +113,7 @@ Ahora que ha creado una instancia de Azure SQL Database, use la herramienta de c
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Guarde el grupo de recursos, el servidor SQL y la base de datos SQL si desea ir a la sección [Pasos siguientes](#next-steps) y aprender a conectarse y consultar la base de datos mediante varios de métodos diferentes. 
+Mantenga este grupo de recursos, el servidor SQL y la base de datos SQL si quiere ir a [Pasos siguientes](#next-steps). Los pasos siguientes muestran cómo conectarse a la base de datos y consultarla mediante distintos métodos. 
 
 Cuando haya terminado con estos recursos, puede eliminarlos como se indica a continuación:
 
@@ -123,8 +123,8 @@ Cuando haya terminado con estos recursos, puede eliminarlos como se indica a con
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Debe crear una regla de firewall de nivel de servidor para conectarse a Azure SQL Database desde herramientas locales o remotas. Para más información, consulte [Creación de una regla de firewall de nivel de servidor](sql-database-get-started-portal-firewall.md).
-- Después de crear una regla de firewall de nivel de servidor, puede usar varias herramientas y lenguajes para [conectarse y consultar](sql-database-connect-query.md) la base de datos. 
+- Cree una regla de firewall de nivel de servidor para conectarse a su instancia de Azure SQL Database desde herramientas locales o remotas. Para más información, consulte [Creación de una regla de firewall de nivel de servidor](sql-database-get-started-portal-firewall.md).
+- Después de crear una regla de firewall de nivel de servidor, puede usar varias herramientas y lenguajes para [conectarse a la base de datos y realizar consultas en ella](sql-database-connect-query.md). 
   - [Conexión y consulta con SQL Server Management Studio](sql-database-connect-query-ssms.md)
   - [Conexión y consulta de datos con Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - Para crear instancias de Azure SQL Database mediante la CLI de Azure, consulte [Ejemplos de la CLI de Azure para Azure SQL Database](sql-database-cli-samples.md).

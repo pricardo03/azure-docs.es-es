@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 00c001b5c0c2c3dab86477fca798ec651f7b6c93
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 5ce8217629cff702ecd3ec274d77918e54efacc6
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189973"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359126"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Realización de pedidos de Azure Data Box
 
@@ -22,7 +22,7 @@ Azure Data Box es una solución híbrida que permite importar datos locales en A
 En En este tutorial se describe cómo se puede solicitar Azure Data Box. En este tutorial, obtendrá información sobre lo siguiente:
 
 > [!div class="checklist"]
-> * Suscribirse a Data Box Disk
+> * Requisitos previos para implementar Data Box
 > * Realizar un pedido de Data Box
 > * Seguimiento del pedido
 > * Cancelar el pedido
@@ -63,7 +63,7 @@ Para solicitar un dispositivo, siga estos pasos en Azure Portal.
 4. Compruebe si el servicio Data Box está disponible en su región. Escriba o seleccione la siguiente información y haga clic en **Aplicar**. 
     |Configuración  |Valor  |
     |---------|---------|
-    |Subscription     | Seleccione una suscripción EA, CSP o de pago por uso para el servicio Data Box. <br> La suscripción está vinculada a la cuenta de facturación.       |
+    |Subscription     | Seleccione una suscripción patrocinada por EA, CSP o Azure para el servicio Data Box. <br> La suscripción está vinculada a la cuenta de facturación.       |
     |Tipo de transferencia     | Seleccione **Importar en Azure**.        |
     |País de origen     |   Seleccione el país en que residen los datos actualmente.         |
     |Región de Azure de destino     |     Seleccione la región de Azure a la que desea transferir los datos.        |
@@ -79,7 +79,7 @@ Para solicitar un dispositivo, siga estos pasos en Azure Portal.
     |NOMBRE     |  Especifique un nombre descriptivo para hacer un seguimiento del pedido. <br> El nombre puede tener entre 3 y 24 caracteres que pueden ser letras, números y guiones. <br> El nombre debe empezar y terminar con una letra o un número.      |
     |Grupos de recursos     |   Uso uno existente o cree uno nuevo. <br> Un grupo de recursos es un contenedor lógico para los recursos que se pueden administrar o implementar conjuntamente.         |
     |Región de Azure de destino     | Seleccione la región de la cuenta de almacenamiento. <br> Para más información, vaya a [Disponibilidad por región](data-box-overview.md#region-availability).        |
-    |Cuentas de almacenamiento     | En función de la región de Azure especificada, seleccione una o varias cuentas de almacenamiento en la lista filtrada una cuenta de almacenamiento existente. Data Box se puede vincular con un máximo de diez cuentas de almacenamiento. <br> También puede crear una nueva **cuenta de uso general v1**, **cuenta de uso general v2** o **cuenta de almacenamiento de blobs**.        |
+    |Cuentas de almacenamiento     | En función de la región de Azure especificada, seleccione una o varias cuentas de almacenamiento en la lista filtrada una cuenta de almacenamiento existente. Data Box se puede vincular con un máximo de diez cuentas de almacenamiento. <br> También puede crear una nueva **cuenta de uso general v1**, **cuenta de uso general v2** o **cuenta de almacenamiento de blobs**. No puede utilizar cuentas de almacenamiento que tengan reglas configuradas. Las cuentas de almacenamiento deben **permitir el acceso desde todas las redes** en la sección de firewalls y redes virtuales.|
     
 7. En **Dirección de envío**, escriba su nombre y apellidos, el nombre y la dirección postal de la empresa y un número de teléfono válido. Haga clic en **Validar la dirección**. El servicio valida la dirección de envío para conocer la disponibilidad del servicio. Si el servicio está disponible para la dirección de envío especificada, recibirá una notificación al respecto. Haga clic en **Next**.
 
@@ -94,7 +94,7 @@ Para solicitar un dispositivo, siga estos pasos en Azure Portal.
 
 ## <a name="track-the-order"></a>Seguimiento del pedido
 
-Tras realizar el pedido, puede hacer un seguimiento del estado del mismo desde Azure Portal. Vaya al pedido y, después, vaya a **Información general** para ver el estado. El portal muestra el pedido en estado **Ordered** (Pedido).
+Tras realizar el pedido, puede hacer un seguimiento del estado del mismo desde Azure Portal. Vaya al pedido de Data Box y, después, vaya a **Información general** para ver el estado. El portal muestra el pedido en estado **Ordered** (Pedido).
 
 Si el dispositivo no está disponible, recibe una notificación. Si el dispositivo está disponible, Microsoft identifica que está listo para el envío y prepara dicho envío. Durante la preparación del dispositivo, se producen las siguientes acciones:
 

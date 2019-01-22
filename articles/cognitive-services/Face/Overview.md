@@ -9,12 +9,12 @@ ms.component: face-api
 ms.topic: overview
 ms.date: 10/29/2018
 ms.author: sbowles
-ms.openlocfilehash: a15b6678b15bf5d1a3078494e12da3a08c57bed3
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 1916aa94dcf7528ce898ef37eac29c1017f03f15
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633468"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231893"
 ---
 # <a name="what-is-the-azure-face-api"></a>¿Qué es Azure Face API?
 
@@ -72,10 +72,14 @@ Para más información acerca de la identificación de personas, consulte [Ident
 
 Las aplicaciones de ejemplo siguientes muestran algunas de las maneras en que se puede usar Face API.
 
-- [Microsoft Face API: Biblioteca de cliente Windows y ejemplo](https://github.com/Microsoft/Cognitive-Face-Windows): una aplicación de ejemplo WPF que demuestra varios escenarios de detección, análisis e identificación facial.
+- [Microsoft Face API: biblioteca de cliente Windows y ejemplo](https://github.com/Microsoft/Cognitive-Face-Windows): una aplicación de WPF que demuestra varios escenarios de detección, análisis e identificación de caras.
 - [Aplicación FamilyNotes UWP](https://github.com/Microsoft/Windows-appsample-familynotes): una aplicación de Plataforma universal de Windows (UWP) que usa la identificación facial junto con la voz, Cortana, la escritura manuscrita y la cámara en un escenario de uso compartido de notas en familia.
+
+## <a name="data-privacy-and-security"></a>Seguridad y privacidad de los datos
+
+Al igual que sucede con todas las instancias de Cognitive Services, los desarrolladores que usan el servicio Face deben estar al tanto de las directivas de Microsoft sobre los datos de los clientes. Para más información, consulte la [página de Cognitive Services](https://www.microsoft.com/en-us/trustcenter/cloudservices/cognitiveservices) en Microsoft Trust Center.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Siga una guía de inicio rápido para implementar un escenario sencillo de identificación facial en el código.
-- [Guía de inicio rápido: Detección de caras en una imagen con el SDK para .NET con C#](quickstarts/csharp.md) (otros lenguajes disponibles)
+- [Inicio rápido: Detección de caras en una imagen con .NET SDK con C#](quickstarts/csharp.md) (otros lenguajes disponibles)

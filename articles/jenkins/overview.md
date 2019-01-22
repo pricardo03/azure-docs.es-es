@@ -1,6 +1,6 @@
 ---
 title: Introducción sobre Jenkins y Azure
-description: Hospede la compilación de Jenkins e implemente el servidor de automatización en Azure y use los recursos de proceso y almacenamiento de Azure para extender sus canalizaciones de integración y entrega continuas (CI/CD).
+description: Hospede la compilación de Jenkins e implemente el servidor de Automation en Azure y use los recursos de proceso y almacenamiento de Azure para extender las canalizaciones de integración y entrega continuas (CI/CD).
 ms.service: jenkins
 keywords: jenkins, azure, devops, introducción
 author: tomarchermsft
@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: overview
 ms.date: 07/25/2018
-ms.openlocfilehash: 1f09e1711cbbbd8f05a982e620b1e09184320d13
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 69e9a49bf83be5b58faf3e71ab0ffbfb6c6f11a1
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078973"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329726"
 ---
 # <a name="azure-and-jenkins"></a>Azure y Jenkins
 

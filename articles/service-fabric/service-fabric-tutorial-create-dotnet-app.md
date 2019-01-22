@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/28/2018
+ms.date: 01/14/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 1af74cc44391c95fba781cbce14e9118ca36c14b
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 038a70f5cce5b78f6c0e95316e66de42fa529954
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078501"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321745"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tutorial: Creación e implementación de una aplicación con un servicio de front-end de ASP.NET Core Web API y un servicio back-end con estado
 
@@ -326,8 +326,6 @@ En el Explorador de soluciones, abra *VotingWeb/PackageRoot/ServiceManifest.xml*
 
 Actualice también el valor de la propiedad de dirección URL de la aplicación en el proyecto Voting para que un explorador web se abra en el puerto correcto al depurar la aplicación.  En el Explorador de soluciones, seleccione el proyecto **Voting** y actualice la propiedad **dirección URL de la aplicación** a **8080**.
 
-![Dirección URL de la aplicación](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
-
 ### <a name="deploy-and-run-the-voting-application-locally"></a>Implementación y ejecución local de la aplicación Voting
 Ya puede continuar y ejecutar la aplicación Voting para depuración. En Visual Studio, presione **F5** para implementar la aplicación en el clúster local de Service Fabric en modo de depuración. La aplicación presentará un error si no abrió Visual Studio anteriormente como **administrador**.
 
@@ -454,12 +452,7 @@ En este paso se conectan los dos servicios y se hace que la aplicación web de f
 
 Service Fabric proporciona una flexibilidad completa en el modo de comunicación con los servicios confiables. Dentro de una única aplicación, es posible que tenga servicios que sean accesibles a través de TCP. Puede haber también otros servicios que podrían estar accesibles a través de una API de REST de HTTP e incluso otros servicios que pueden estar accesibles a través de sockets web. Para más información sobre las opciones disponibles y sus inconvenientes, consulte [Conexión y comunicación con servicios en Service Fabric](service-fabric-connect-and-communicate-with-services.md).
 
-En este tutorial se usa la [Web API de ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) y el [proxy inverso de Service Fabric](service-fabric-reverseproxy.md) para que el servicio web VotingWeb de front-end pueda comunicarse con el servicio VotingData de back-end. El proxy inverso está configurado de manera predeterminada para usar el puerto 19081 y debería funcionar para este tutorial. Este puerto se establece en la plantilla ARM que se usa para configurar el clúster. Para encontrar qué puerto se usa, busque en la plantilla del clúster en el recurso **Microsoft.ServiceFabric/clusters** o examine el elemento HttpApplicationGatewayEndpoint en el manifiesto de clúster.
-
-> [!NOTE]
-> El proxy inverso solo es compatible con un clúster que ejecuta Windows 8, y las versiones posteriores, o Windows Server 2012, y las versiones posteriores.
-
-<u>Recurso Microsoft.ServiceFabric/clusters reverseProxyEndpointPort</u>
+En este tutorial se usa la [Web API de ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) y el [proxy inverso de Service Fabric](service-fabric-reverseproxy.md) para que el servicio web VotingWeb de front-end pueda comunicarse con el servicio VotingData de back-end. El proxy inverso está configurado de manera predeterminada para usar el puerto 19081 y debería funcionar para este tutorial. El puerto del proxy inverso se establece en la plantilla de Azure Resource Manager utilizada para configurar el clúster. Para ver qué puerto se utiliza, busque en la plantilla de clúster en el recurso **Microsoft.ServiceFabric/clusters**: 
 
 ```json
 "nodeTypes": [
@@ -472,13 +465,10 @@ En este tutorial se usa la [Web API de ASP.NET Core](service-fabric-reliable-ser
           }
         ],
 ```
-Para ver el elemento HttpApplicationGatewayEndpoint en el manifiesto de clúster local Service Fabric:
-1. Abra una ventana del explorador y vaya a http://localhost:19080.
-2. Haga clic en **Manifiesto**.
+Para encontrar el puerto del proxy inverso que se usa en el clúster de desarrollo local, consulte el elemento **HttpApplicationGatewayEndpoint** en el manifiesto del clúster de Service Fabric local:
+1. Abra un ventana del explorador y vaya a http://localhost:19080 para abrir la herramienta Service Fabric Explorer.
+2. Seleccione **Cluster -> Manifest** (Clúster -> Manifiesto).
 3. Anote el puerto del elemento HttpApplicationGatewayEndpoint. El valor predeterminado debería ser 19081. Si no es 19081, deberá cambiar el puerto del método GetProxyAddress del siguiente código VotesController.cs.
-
-
-
 
 <a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
 
@@ -622,9 +612,9 @@ Cuando se depura una aplicación en Visual Studio, se usa un clúster de desarro
 
 Para ver lo que ocurre en el código, siga estos pasos:
 
-1. Abra el archivo **VotingWeb\VotesController.cs** y establezca un punto de interrupción en el método **Put** (línea 63) de la API web.
+1. Abra el archivo **VotingWeb\VotesController.cs** y establezca un punto de interrupción en el método **Put** (línea 72) de la API web.
 
-2. Abra el archivo **VotingData\VoteDataController.cs** y establezca un punto de interrupción en el método **Put** (línea 53) de la API web.
+2. Abra el archivo **VotingData\VoteDataController.cs** y establezca un punto de interrupción en el método **Put** (línea 54) de la API web.
 
 3. Presione **F5** para iniciar la aplicación en modo de depuración.
 

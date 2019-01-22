@@ -1,22 +1,22 @@
 ---
-title: 'Guía de inicio rápido: Uso de la CLI de Azure y de Java para enviar y recibir mensajes desde Azure Service Bus | Microsoft Docs'
-description: En esta guía de inicio rápido, aprenderá a enviar y recibir mensajes de Azure Service Bus mediante la CLI de Azure y una aplicación Java de ejemplo
+title: 'Inicio rápido: Uso de la CLI de Azure para crear una cola de Service Bus | Microsoft Docs'
+description: En este inicio rápido, aprenderá a utilizar la CLI de Azure para crear una cola de Service Bus. Después, puede usar una aplicación de Java de ejemplo para enviar mensajes a la cola y recibirlos desde ella.
 services: service-bus-messaging
 author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 09/22/2018
+ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 522447b73454016bff5188d07b27702fa21cb748
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 781bca5c3083df9db326e4dc71438c71a7c02bc3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998683"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258331"
 ---
-# <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>Inicio rápido: Envío y recepción de mensajes mediante la CLI de Azure y Java
+# <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Inicio rápido: Uso de la CLI de Azure para crear una cola de Service Bus
 
 Microsoft Azure Service Bus es un agente de mensajes de integración empresarial que proporciona mensajería segura y gran confiabilidad. Un escenario típico de Service Bus implica normalmente el desacoplamiento de dos o más aplicaciones, servicios o procesos (no es necesario que las aplicaciones estén en línea al mismo tiempo), la transferencia de los cambios de estado o de datos, y el envío de mensajes entre las aplicaciones. 
 
@@ -24,7 +24,7 @@ Por ejemplo, una empresa minorista puede enviar los datos de un punto de ventas 
 
 ![queue](./media/service-bus-quickstart-cli/quick-start-queue.png)
 
-En esta guía de inicio rápido se describe cómo enviar y recibir mensajes con Service Bus, mediante la CLI de Azure y la biblioteca Java de Service Bus. Por último, si le interesa obtener más información técnica, puede [leer una explicación](#understand-the-sample-code) de los elementos clave del ejemplo de código.
+En este inicio rápido se describe cómo enviar y recibir mensajes con Service Bus mediante la CLI de Azure y la biblioteca Java de Service Bus. Por último, si le interesa obtener más información técnica, puede [leer una explicación](#understand-the-sample-code) de los elementos clave del ejemplo de código.
 
 Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita][] antes de empezar.
 
@@ -34,7 +34,7 @@ Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita][] antes 
 
 Haga clic en el botón de Cloud Shell en el menú de la esquina superior derecha de Azure Portal y, en la lista desplegable **Seleccionar entorno**, seleccione **Bash**. 
 
-## <a name="use-cli-to-create-resources"></a>Uso de la CLI para crear recursos
+## <a name="use-the-azure-cli-to-create-resources"></a>Uso de la CLI de Azure para crear recursos
 
 En Cloud Shell, desde el símbolo del sistema de Bash emita los comandos siguientes para aprovisionar los recursos de Service Bus. Asegúrese de reemplazar todos los marcadores de posición por los valores apropiados:
 
@@ -266,7 +266,7 @@ void registerReceiver(QueueClient queueClient) throws Exception {
 En este artículo, ha creado un espacio de nombres de Service Bus y otros recursos necesarios para enviar y recibir mensajes de una cola. Para más información sobre cómo escribir código para enviar y recibir mensajes, pase al tutorial siguiente de Service Bus:
 
 > [!div class="nextstepaction"]
-> [Actualización de inventario mediante la CLI y Java](./service-bus-tutorial-topics-subscriptions-cli.md)
+> [Actualización del inventario mediante la CLI de Azure y Java](./service-bus-tutorial-topics-subscriptions-cli.md)
 
 [cuenta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

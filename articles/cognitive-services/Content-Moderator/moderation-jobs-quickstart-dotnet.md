@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Inicio de trabajos de moderación mediante .NET: Content Moderator'
+title: 'Inicio rápido: Inicio de trabajos de moderación mediante .NET: Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Cómo iniciar trabajos de moderación mediante el SDK de Azure Content Moderator para .NET.
 services: cognitive-services
@@ -8,18 +8,18 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 6045d6daf2abace6e2b38bd6fd6e22516e3a60a0
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f55906aa9de6faa5979ecedbc3ef288f164fd6c8
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227454"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261952"
 ---
-# <a name="quickstart-start-moderation-jobs-using-net"></a>Guía de inicio rápido: Inicio de trabajos de moderación mediante .NET
+# <a name="quickstart-start-moderation-jobs-using-net"></a>Inicio rápido: Inicio de trabajos de moderación mediante .NET
 
-En este artículo se proporciona información y ejemplos de código que le ayudarán a empezar a usar el [SDK de Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) con las siguientes finalidades:
+En este artículo se proporciona información y ejemplos de código que le ayudarán a empezar a usar el [SDK de Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para:
  
 - Iniciar un trabajo de moderación para examinar y crear revisiones para moderadores humanos
 - Obtener el estado de la revisión pendiente
@@ -28,16 +28,15 @@ En este artículo se proporciona información y ejemplos de código que le ayuda
 
 En este artículo se da por supuesto que ya está familiarizado con Visual Studio y C#.
 
-## <a name="sign-up-for-content-moderator"></a>Suscribirse a Content Moderator
+## <a name="sign-up-for-content-moderator"></a>Registro en Content Moderator
 
-Antes de poder usar los servicios de Content Moderator mediante la API REST o el SDK, necesita una clave de suscripción.
-Consulte el [inicio rápido](quick-start.md) para más información sobre cómo puede obtener la clave.
+Antes de poder usar los servicios de Content Moderator mediante la API REST o el SDK, necesita una clave de suscripción. Siga las instrucciones de [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse a Content Moderator y obtener su clave.
 
-## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Suscribirse a una cuenta de la herramienta de revisión si no se ha completado el paso anterior
+## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Registro para obtener una cuenta de la herramienta de revisión, si no lo ha hecho en el paso anterior
 
-Si ha obtenido Content Moderator desde Azure Portal, [suscríbase también a la cuenta de la herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/) y cree un equipo de revisión. Necesita el identificador de equipo y la herramienta de revisión para llamar a la API de revisión para iniciar un trabajo y ver las revisiones en la herramienta de revisión.
+Si ha obtenido Content Moderator desde Azure Portal, [regístrese también para obtener la cuenta de la herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/) y cree un equipo de revisión. Necesita el identificador de equipo y la herramienta de revisión para llamar a la API de revisión para iniciar un trabajo y ver las revisiones en la herramienta de revisión.
 
-## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Asegurarse de que la clave de API puede llamar a la API de revisión para la creación de revisiones
+## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Garantizar que la clave de API puede llamar a la API de revisión para la creación de revisiones
 
 Tras completar los pasos anteriores, puede acabar con dos claves de Content Moderator si ha empezado desde Azure Portal. 
 

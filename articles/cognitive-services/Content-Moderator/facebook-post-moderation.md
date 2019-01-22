@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: Moderación de contenido de Facebook: Azure Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Modere páginas de Facebook con Content Moderator.
+description: En este tutorial, aprenderá a utilizar Content Moderator basado en aprendizaje automático para ayudar a moderar los comentarios y las publicaciones de Facebook.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: tutorial
-ms.date: 09/18/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 048f2f40714fd7675c073337825d75443e58039b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 085ddaf757f2a11b4db4aadb22ad16009d29231e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255438"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260454"
 ---
 # <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>Tutorial: Moderación de contenido de Facebook con Content Moderator
 
@@ -35,7 +35,7 @@ La siguiente ilustración muestra los bloques de creación de la solución.
 
 ## <a name="create-a-content-moderator-team"></a>Creación de un equipo de Content Moderator
 
-Consulte la página [Inicio rápido](quick-start.md) para registrarse en Content Moderator y crear un equipo.
+Consulte el artículo de inicio rápido [Try Content Moderator on the web](quick-start.md) (Probar Content Moderator en la web) para registrarse en Content Moderator y crear un equipo.
 
 ## <a name="configure-image-moderation-workflow-threshold"></a>Configuración del flujo de trabajo de moderación de imágenes (umbral)
 
@@ -152,10 +152,6 @@ La solución envía todas las imágenes y el texto que se publican en la página
 ## <a name="license"></a>Licencia
 
 Todos los SDK de Microsoft Cognitive Services y los ejemplos tienen una licencia de MIT. Para más información, consulte [LICENCIA](https://microsoft.mit-license.org/).
-
-## <a name="developer-code-of-conduct"></a>Código de conducta del desarrollador
-
-Se espera que los desarrolladores que usen Cognitive Services, incluidos este ejemplo y la biblioteca cliente, cumplan con el "Código de conducta del desarrollador de Microsoft Cognitive Services" que se encuentra en http://go.microsoft.com/fwlink/?LinkId=698895.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,18 +10,18 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 0b232ed8bacfeb896fd5ee6ff9e2a58b71dc1517
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 92c493a59cc14d61b09e59bdf0fa23be72b7137a
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163003"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232556"
 ---
 # <a name="what-methods-are-available-for-authentication"></a>¿Qué métodos están disponibles para la autenticación?
 
 Escuchamos en las noticias que las contraseñas se roban y las identidades se ponen en peligro. Requerir un segundo factor además de una contraseña aumenta de forma inmediata la seguridad de una organización. Microsoft Azure Active Directory (Azure AD) incluye funciones, como Azure Multi-factor Authentication (Azure MFA) y el autoservicio de restablecimiento de contraseñas (SSPR) de Azure AD, para ayudar a los administradores a proteger las organizaciones y a los usuarios con métodos de autenticación adicionales.
 
-Cuando un usuario necesita tener acceso a una aplicación confidencial, restablece su contraseña o habilita Windows Hello, puede que se le pida que proporcione una prueba adicional de que realmente es quien pretende.
+Hay muchos escenarios, como inicio de sesión en una aplicación, restablecimiento de contraseña, habilitación de Windows Hello, etc. en los que se pedirá a los usuarios que proporcionen verificación adicional de que son quienes dicen ser.
 
 La comprobación adicional puede producirse en forma de algún método de autenticación, como es:
 
@@ -43,7 +43,7 @@ El autoservicio de restablecimiento de contraseñas proporciona a los usuarios l
 El autoservicio de restablecimiento de contraseñas incluye:
 
 * **Cambio de contraseña:** conozco mi contraseña, pero deseo cambiarla.
-* **Restablecimiento de contraseña:** no puedo iniciar sesión y deseo restablecer la contraseña mediante uno o varios métodos de autenticación aprobados.
+* **Restablecimiento de contraseña:** no puedo iniciar sesión y quiero restablecer la contraseña mediante uno o varios métodos de autenticación aprobados.
 * **Desbloqueo de cuenta:** no puedo iniciar sesión porque mi cuenta está bloqueada y deseo desbloquearla con uno o varios métodos de autenticación aprobados.
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
@@ -56,6 +56,6 @@ El siguiente paso es profundizar en el autoservicio de restablecimiento de contr
 
 Para empezar a trabajar con el autoservicio de restablecimiento de contraseñas, consulte el [artículo sobre el inicio rápido para habilitar SSPR](quickstart-sspr.md).
 
-Para más información sobre el autoservicio de restablecimiento de contraseñas, lea el artículo sobre su [funcionamiento en Azure AD](concept-sspr-howitworks.md)
+Más información sobre el autoservicio de restablecimiento de contraseña en el artículo [Cómo funciona: Autoservicio de restablecimiento de contraseña de Azure AD](concept-sspr-howitworks.md)
 
-Más información sobre Azure Multi-factor Authentication en el artículo [Funcionamiento de Azure Multi-factor Authentication](concept-mfa-howitworks.md)
+Más información sobre Azure Multi-factor Authentication en el artículo [Cómo funciona: Azure Multi-Factor Authentication](concept-mfa-howitworks.md)

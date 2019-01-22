@@ -9,22 +9,22 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5165dd16b77a242ca83d3e5864b6e60f3e12a567
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: dfb6ccac01933ea114694de361c2f1d4d5a649b0
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002644"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230533"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Creación de un servicio Azure Search en el portal
 
-Azure Search es un recurso independiente que se usa para agregar una experiencia de búsqueda a las aplicaciones personalizadas. Si bien Azure Search se integra fácilmente con muchos otros servicios de Azure, también puede usarlo solo, con aplicaciones hospedadas en servidores de red o con software en ejecución en otras plataformas de nube. 
+Azure Search es un recurso independiente que se usa para agregar una experiencia de búsqueda a las aplicaciones personalizadas. Aunque Azure Search se integra fácilmente con otros servicios de Azure, también puede usarlo solo, con aplicaciones de servidores de red o con software que se ejecuta en otras plataformas de nube. 
 
 En este artículo, aprenderá a crear un recurso de Azure Search en [Azure Portal](https://portal.azure.com/). 
 
 ![Recurso de Azure Search en el portal](media/search-create-service-portal/azure-search-resource-label.png)
 
-¿Prefiere PowerShell? Use la [plantilla de servicio](https://azure.microsoft.com/resources/templates/101-azure-search-create/) de Azure Resource Manager. Para obtener ayuda acerca de cómo empezar, vea [Administración del servicio Azure Search con PowerShell](search-manage-powershell.md) para conocer el contexto.
+¿Prefiere PowerShell? Use la [plantilla de servicio](https://azure.microsoft.com/resources/templates/101-azure-search-create/) de Azure Resource Manager. Para obtener ayuda para empezar, consulte [Administración de Azure Search con PowerShell](search-manage-powershell.md).
 
 ## <a name="subscribe-free-or-paid"></a>Suscripción (gratuita o de pago)
 

@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 23e6d044a1c08fb585e01d61a97deaf87e24cbb9
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: aa221569cec6df298db4a90560ac7ea0992dd120
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743109"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318735"
 ---
 # <a name="tutorial-uploading-images-to-the-bing-visual-search-api"></a>Tutorial: Carga de imágenes en Bing Visual Search API
 
@@ -628,7 +628,7 @@ La función `addShopping()` crea un vínculo para cada uno de los resultados de 
 
 ### <a name="products-insights"></a>Conclusiones de Products
 
-La función `addProducts()` crea un vínculo para cada uno de los resultados de compra devueltos, para lo cual recorre en iteración la lista de acciones `Products` y anexa una etiqueta `<img>` al elemento `<div>` exterior de cada una.
+La función `addProducts()` crea un vínculo con los resultados de los productos devueltos, para lo cual recorre en iteración la lista de acciones `Products` y anexa una etiqueta `<img>` al elemento `<div>` exterior de cada una.
 
 ```javascript
 

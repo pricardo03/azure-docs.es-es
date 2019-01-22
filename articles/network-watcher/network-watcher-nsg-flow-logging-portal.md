@@ -17,14 +17,14 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 2ec2ac6508dfbf0c1a42f72dc393fa8b841ab877
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: ce2d69e26909231383f3538d51387f27d8202a43
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822473"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332479"
 ---
-# <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: registrar el tráfico de red hacia y desde una máquina virtual mediante Azure Portal
+# <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registro del tráfico de red de entrada y salida de una máquina virtual mediante Azure Portal
 
 Un grupo de seguridad de red (NSG) le permite filtrar el tráfico entrante y el tráfico saliente en una máquina virtual (VM). Puede registrar el tráfico de red que fluye a través de un NSG gracias a la capacidad de registro de flujos de NSG de Network Watcher. En este tutorial, aprenderá a:
 
@@ -38,7 +38,7 @@ Un grupo de seguridad de red (NSG) le permite filtrar el tráfico entrante y el 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 > [!NOTE] 
-> La versión 2 de los registros de flujo solo está disponible en la región Centro-oeste de EE. UU. La configuración está disponible mediante Azure Portal y API REST. Si habilita los registros de la versión 2 en una región no admitida, hará que los registros de la versión 1 se guarden en su cuenta de almacenamiento.
+> La versión 2 de los registros de flujo solo está disponible en la región Centro-oeste de EE. UU. Si habilita los registros de la versión 2 en una región no admitida, hará que los registros de la versión 1 se envíen a su cuenta de almacenamiento.
 
 ## <a name="create-a-vm"></a>Crear una VM
 
@@ -212,7 +212,7 @@ El valor de **mac** en la salida anterior es la dirección MAC de la interfaz de
 | T            | Protocolo               | Si el protocolo del flujo es TCP (T) o UDP (U).                                  |
 | O            | Dirección              | Si el tráfico es entrante (I) o saliente (O).                                     |
 | Una             | .                 | Si el tráfico está permitido (A) o si está denegado (D).  
-| C            | Estado de flujo **solo versión 2** | Captura el estado del flujo. Los posibles estados son: **B**: inicio, cuando se crea el flujo. No se proporcionan las estadísticas. **C**: continuación de un flujo en curso. Las estadísticas se proporcionan a intervalos de cinco minutos. **E**: final, cuando termina el flujo. Se proporcionan las estadísticas. |
+| C            | Estado de flujo **solo versión 2** | Captura el estado del flujo. Los estados posibles son**B**: Begin (Comienzo), cuando se crea el flujo. No se proporcionan estadísticas. **C**: Continuación de un flujo en curso. Se proporcionan estadísticas a intervalos de cinco minutos. **E**: End (Final), cuando termina el flujo. Se proporcionan las estadísticas. |
 | 30 | Paquetes enviados: origen a destino **solo versión 2** | El número total de paquetes TCP o UDP enviados desde el origen al destino desde la última actualización. |
 | 16978 | Bytes enviados: origen a destino **solo versión 2** | El número total de bytes de paquetes TCP o UDP enviados desde el origen al destino desde la última actualización. Los bytes de paquete incluyen el encabezado y la carga del paquete. | 
 | 24 | Paquetes enviados: destino a origen **solo versión 2** | El número total de paquetes TCP o UDP enviados desde el destino al origen desde la última actualización. |

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/07/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 9d5533932ef9ab521b623c18a0c3a27b663c56f8
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 05f4b0b7accc3b13984864e82589c6fa639ce88d
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077409"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321660"
 ---
 # <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>Tutorial: Creación de una conexión de punto a sitio mediante Azure Virtual WAN (Versión preliminar)
 
@@ -117,7 +117,7 @@ Una configuración de P2S define los parámetros para conectarse a los clientes 
 4. Seleccione **Incluir puerta de enlace de punto a sitio**.
 5. Elija los valores de **Unidades de escalado de puerta de enlace** y **Configuración de punto a sitio**, junto con un **grupo de direcciones** para los clientes.
 6. Haga clic en **Confirmar**. 
-7. La operación puede tardar hasta 30 minutos en completarse.
+7. La operación puede tardar un máximo de 30 minutos en completarse.
 
 ## <a name="vnet"></a>6. Conexión de la red virtual a un concentrador
 

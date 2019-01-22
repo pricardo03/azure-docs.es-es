@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 59354b7f4a1a82d1fa2fd105bd743ecb73526434
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 966536b7129a91f4c6fd8dd7bf0270be660bdf81
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716113"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332071"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introducción a Azure Cloud Services y ASP.NET
 
@@ -357,7 +357,7 @@ Una vez creada la solución, se asegurará de que el código es único en proyec
 
 ### <a name="set-project-references"></a>Establecimiento de preferencias del proyecto
 1. En el proyecto ContosoAdsWeb, establezca una referencia al proyecto ContosoAdsCommon. Haga clic con el botón derecho en el proyecto ContosoAdsWeb y después haga clic en **Referencias** - **Agregar referencias**. En el cuadro de diálogo **Administrador de referencias**, seleccione **Solución – Proyectos** en el panel izquierdo, seleccione **ContosoAdsCommon** y haga clic en **Aceptar**.
-2. En el proyecto ContosoAdsWorker, establezca una referencia al proyecto ContosAdsCommon.
+2. En el proyecto ContosoAdsWorker, establezca una referencia al proyecto ContosoAdsCommon.
 
     ContosoAdsCommon contendrá el modelo de datos y la clase de contexto de Entity Framework, que usarán tanto el front-end como el back-end.
 3. En el proyecto ContosoAdsWorker, establezca una referencia en `System.Drawing`.
@@ -380,7 +380,7 @@ En esta sección configurará Azure Storage y cadenas de conexión de SQL para p
 3. En el proyecto ContosoAdsCloudService, haga clic con el botón derecho en ContosoAdsWeb bajo **Roles** y después haga clic en **Propiedades**.
 
     ![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)
-4. En la ventana de propiedades del **rol ContosoAdsWeb**, haga clic en la pestaña **Configuración** y en **Agregar configuración**.
+4. En la ventana de propiedades del **rol ContosoAdsWeb**, haga clic en la pestaña **Configuración** y, después, en **Agregar configuración**.
 
     Deje **Configuración del servicio** establecido en **Todas las configuraciones**.
 5. Agregue un nuevo valor llamado *StorageConnectionString*. Establezca **Tipo** en *ConnectionString* y **Valor** en *UseDevelopmentStorage=true*.

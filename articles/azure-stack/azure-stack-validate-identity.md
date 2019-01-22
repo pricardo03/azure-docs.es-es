@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
-ms.reviewer: ''
-ms.openlocfilehash: 61562450d484f34385b4e6e111bf62326eaca159
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.reviewer: unknown
+ms.openlocfilehash: 9ca777275aa4aa09a16c0248f6e3b1ecc76ac5b2
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888382"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267341"
 ---
 # <a name="validate-azure-identity"></a>Validación de la identidad de Azure 
 Use la herramienta Azure Stack Readiness Checker (AzsReadinessChecker) para validar que su instancia de Azure Active Directory (Azure AD) está lista para usarse con Azure Stack. Valide la solución de identidad de Azure antes de empezar la implementación de Azure Stack.  
@@ -48,7 +48,7 @@ Deben cumplirse los siguientes requisitos previos.
 **Entorno de Azure Active Directory:**
  - Identifique la cuenta de Azure AD que va a usar con Azure Stack y compruebe que es administrador global de Azure Active Directory.
  - Identifique el nombre del inquilino de Azure AD. El nombre del inquilino debe ser el nombre de dominio *principal* de Azure Active Directory. Por ejemplo, *contoso.onmicrosoft.com*. 
- - Identifique la clase AzureEnvironement que va a usar. Los valores admitidos para el parámetro de nombre de entorno son AzureCloud, AzureChinaCloud o AzureUSGovernment dependiendo de la suscripción a Azure que esté utilizando.
+ - Identifique la clase AzureEnvironment que va a usar. Los valores admitidos para el parámetro de nombre de entorno son AzureCloud, AzureChinaCloud o AzureUSGovernment dependiendo de la suscripción a Azure que esté utilizando.
 
 ## <a name="validate-azure-identity"></a>Validación de la identidad de Azure 
 1. En un equipo que cumpla los requisitos previos, abra un símbolo del sistema administrativo de PowerShell y ejecute el siguiente comando para instalar AzsReadinessChecker:  
@@ -137,7 +137,7 @@ Invoke-AzsAzureIdentityValidation Completed
 ````
 **Causa**: la cuenta no puede iniciar sesión en el entorno de Azure Active Directory especificado (AADDirectoryTenantName). En este ejemplo, *AzureChinaCloud* se especifica como valor de *AzureEnvironment*.
 
-**Resolución**: confirme que la cuenta es válida para el entorno de Azure especificado. En PowerShell, ejecute el siguiente comando para comprobar que la cuenta es válida para un entorno concreto: Login-AzureRmAccount – EnvironmentName AzureChinaCloud 
+**Resolución**: confirme que la cuenta es válida para el entorno de Azure especificado. En PowerShell, ejecute el siguiente comando para comprobar que la cuenta es válida para un entorno concreto:   Login-AzureRmAccount – EnvironmentName AzureChinaCloud 
 ### <a name="account-is-not-an-administrator"></a>La cuenta no es de administrador 
  
 ````PowerShell

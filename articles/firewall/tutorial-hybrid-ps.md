@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/14/2018
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: abbbec05dfb6d81a65941619a36b7f3afcdc1fba
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: fc02f754682046ead3f546fc1253e1c9ac0a63b9
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435572"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261475"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Tutorial: Implementación y configuración de Azure Firewall en una red híbrida con Azure PowerShell
 
@@ -50,7 +50,7 @@ En este tutorial es necesario ejecutar PowerShell de forma local. Debe tener ins
 Hay tres requisitos clave para que este escenario funcione correctamente:
 
 - Una ruta definida por el usuario en la subred de radio que apunte a la dirección IP de Azure Firewall como puerta de enlace predeterminada. La propagación de las rutas BGP debe **deshabilitarse** en esta tabla de rutas.
-- Una ruta definida por el usuario en la subred de la puerta de enlace de concentrador debe apuntar a la dirección IP del firewall como próximo salto para las redes de radio.
+- Una ruta definida por el usuario en la subred de la puerta de enlace del centro debe apuntar a la dirección IP del firewall como próximo salto para las redes de radio.
 - No se requiere ninguna ruta definida por el usuario en la subred de Azure Firewall, ya que obtiene las rutas de BGP.
 - Asegúrese de establecer **AllowGatewayTransit** al emparejar VNet-Hub con VNet-Spoke y **UseRemoteGateways** al emparejar VNet-Spoke con VNet-Hub.
 
@@ -60,7 +60,7 @@ Consulte la sección [Creación de rutas](#create-routes) en este tutorial para 
 >Azure Firewall debe tener conectividad directa a Internet. Si ha habilitado la tunelización forzada a local a través de Application Gateway o ExpressRoute, deberá configurar UDR 0.0.0.0/0 con el valor **NextHopType** establecido en **Internet** y, a continuación, asignarlo a **AzureFirewallSubnet**.
 
 >[!NOTE]
->El tráfico entre redes virtuales emparejadas directamente se enruta directamente aunque UDE apunte a Azure Firewall como puerta de enlace predeterminada. Para enviar tráfico de subred a subred al firewall en este escenario, el UDR debe contener el prefijo de red de la subred de destino de forma explícita en ambas subredes.
+>El tráfico entre redes virtuales emparejadas directamente se enruta directamente aunque una ruta definida por el usuario apunte a Azure Firewall como puerta de enlace predeterminada. Para enviar tráfico de subred a subred al firewall en este escenario, una UDR debe contener el prefijo de red de la subred de destino de forma explícita en ambas subredes.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/07/2018
+ms.date: 01/16/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fd2c5c0aab9b9b9f2977b3a38b9e08c51e98d451
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 9a63344df4aeea16aa89924b287a0dacafda4046
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973492"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352383"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Tutorial: Creación de plantillas vinculadas de Azure Resource Manager
 
@@ -158,7 +158,7 @@ La plantilla vinculada crea una cuenta de almacenamiento. La plantilla vinculada
 
 ## <a name="upload-the-linked-template"></a>Carga de la plantilla vinculada
 
-La plantilla principal y la plantilla vinculada deben ser accesibles desde donde se ejecuta la implementación. En este tutorial, use el método de implementación de Cloud Shell que utilizó en [Tutorial: Creación de plantillas de Azure Resource Manager con recursos dependientes](./resource-manager-tutorial-create-templates-with-dependent-resources.md). La plantilla principal (azuredeploy.json) se carga en el shell. La plantilla vinculada (linkedTemplate.json) se debe compartir en algún lugar seguro. El siguiente script de PowerShell crea una cuenta de Azure Storage, carga la plantilla en dicha cuenta y genera un token de SAS para conceder acceso limitado al archivo de plantilla. Para simplificar el tutorial, el script descarga una plantilla vinculada completada en una ubicación compartida. Si desea usar la plantilla vinculada que creó, puede usar la instancia de [Cloud Shell](https://shell.azure.com) para cargar la plantilla vinculada y luego modificar el script para utilizar su propia plantilla vinculada.
+La plantilla principal y la plantilla vinculada deben ser accesibles desde donde se ejecuta la implementación. En este tutorial, use el método de implementación de Cloud Shell que utilizó en [Tutorial: Creación de plantillas de Azure Resource Manager con recursos dependientes](./resource-manager-tutorial-create-templates-with-dependent-resources.md). La plantilla principal (azuredeploy.json) se carga en el shell. La plantilla vinculada (linkedTemplate.json) se debe compartir en algún lugar seguro. El siguiente script de PowerShell crea una cuenta de Azure Storage, carga la plantilla en dicha cuenta y genera un token de SAS para conceder acceso limitado al archivo de plantilla. Para simplificar el tutorial, el script descarga una plantilla vinculada completada de una ubicación compartida. Si desea usar la plantilla vinculada que creó, puede usar la instancia de [Cloud Shell](https://shell.azure.com) para cargar la plantilla vinculada y luego modificar el script para utilizar su propia plantilla vinculada.
 
 > [!NOTE]
 > El script limita el uso del token SAS a un plazo de ocho horas. Si necesita más tiempo para completar este tutorial, aumente la hora de expiración.
