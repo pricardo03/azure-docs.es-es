@@ -3,9 +3,9 @@ title: 'Introducción: Microsoft Azure Threat Modeling Tool | Microsoft Docs'
 description: Se trata de una información general más amplia que se centra en el funcionamiento de Threat Modeling Tool.
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: 340c92d2830069a9d957f4ece79416a707062629
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.author: jegeib
+ms.openlocfilehash: 6315e6d39a3b68854beb6563d075e3c79ca93a69
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096781"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359483"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Introducción a Threat Modeling Tool
 
-El equipo de herramientas de seguridad empresarial y en la nube publicó la versión preliminar de Threat Modeling Tool a principios de este año como una  **[herramienta que se descarga al hacer clic](https://aka.ms/tmtpreview)**. El cambio en el mecanismo de entrega nos permite insertar las mejoras y correcciones de errores más recientes para los clientes cada vez que abran la herramienta, facilitando el mantenimiento y el uso.
+Microsoft Threat Modeling Tool 2018 2018 se lanzó para que tuviese disponibilidad general en septiembre de 2018, como una opción gratuita de **[hacer clic para descargar](https://aka.ms/threatmodelingtool)**. El cambio en el mecanismo de entrega nos permite insertar las mejoras y correcciones de errores más recientes para los clientes cada vez que abran la herramienta, facilitando el mantenimiento y el uso.
 Este artículo le guía por el proceso de empezar a usar la solución de modelado de amenazas SDL de Microsoft y le muestra cómo utilizar la herramienta para desarrollar modelos de amenazas excepcionales como columna vertebral del proceso de seguridad.
 
 Este artículo se basa en los conocimientos actuales de la solución de modelado de amenazas SDL. Para una revisión rápida, consulte **[Aplicaciones web de modelado de amenazas](https://msdn.microsoft.com/library/ms978516.aspx)** y una versión archivada del artículo de MSDN sobre el **[descubrimiento de defectos de seguridad con el enfoque STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** publicado en 2006.
@@ -68,13 +68,13 @@ En esta sección, seguimos a:
 Van a realizar el proceso de desarrollo de su primer modelo de amenaza.
 
 > Ricardo: Hola Cristina, trabajé en el diagrama del modelo de amenaza y quería asegurarme de que los detalles son correctos. ¿Podrías ayudarme a comprobarlo?
-> Cristina: Por supuesto. Vamos a echar un vistazo.
+> Cristina: Totalmente. Vamos a echar un vistazo.
 > Ricardo abre la herramienta y comparte la pantalla con Cristina.
 
 ![Modelo de amenaza básica](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
 > Cristina: Bien, parece sencillo, pero ¿puedes guiarme para comprobarlo?
-> Ricardo: Claro. Este es el análisis:
+> Ricardo: Por supuesto. Este es el análisis:
 > - El usuario se dibuja como una entidad externa: un cuadrado
 > - Van a enviar comandos a nuestro servidor web: el círculo
 > - El servidor web va a consultar una base de datos: dos líneas paralelas
@@ -143,4 +143,4 @@ El enfoque del modelado de amenazas que hemos presentado en esta guía es mucho 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Envíe sus preguntas, comentarios y preocupaciones a tmtextsupport@microsoft.com. **[Descargue](https://aka.ms/tmtpreview)** Threat Modeling Tool para empezar.
+Envíe sus preguntas, comentarios y preocupaciones a tmtextsupport@microsoft.com. **[Descargue](https://aka.ms/threatmodelingtool)** Threat Modeling Tool para empezar.
