@@ -9,25 +9,18 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/08/2017
 ms.custom: seodec2018
-ms.openlocfilehash: 40291b105eb39b44da0b0697f5808d819291e457
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 5a39021367c2f51125876081e9174eb372d7b9c9
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630220"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353165"
 ---
-# <a name="indexes-in-azure-search"></a>Índices en Azure Search
-> [!div class="op_single_selector"]
-> * [Información general](search-what-is-an-index.md)
-> * [Portal](search-create-index-portal.md)
-> * [.NET](search-create-index-dotnet.md)
-> * [REST](search-create-index-rest-api.md)
-> 
-> 
+# <a name="indexes-and-indexing-overview-in-azure-search"></a>Introducción a los índices y la indización en Azure Search
 
-En Azure Search, un *índice* es un almacén persistente de *documentos* y otras construcciones usadas por el servicio Azure Search. Un documento es una sola unidad de datos habilitada para búsquedas. Por ejemplo, un minorista de comercio electrónico podría tener un documento para cada objeto que vende, una organización de noticias podría tener un documento para cada artículo, etc. Estos conceptos pueden equipararse a equivalentes de base de datos más conocidos: un *índice* es conceptualmente similar a una *tabla* y los *documentos* son más o menos equivalentes a las *filas* de una tabla.
+En Azure Search, un *índice* es un almacén persistente de *documentos* y otras construcciones que se usa para las búsquedas de texto completo y filtrado en los servicios de Azure Search. Un documento es una sola unidad de datos habilitada para búsquedas. Por ejemplo, un minorista de comercio electrónico podría tener un documento para cada objeto que vende, una organización de noticias podría tener un documento para cada artículo, etc. Estos conceptos pueden equipararse a equivalentes de base de datos más conocidos: un *índice* es conceptualmente similar a una *tabla* y los *documentos* son más o menos equivalentes a las *filas* de una tabla.
 
-Cuando agregue o cargue documentos y envíe consultas de búsqueda a Azure Search, envíe las solicitudes a un índice específico del servicio de búsqueda.
+Cuando agrega o carga documentos o cuando envía consultas de búsqueda a Azure Search, está enviando las solicitudes a un índice específico del servicio de búsqueda. El proceso de agregar documentos a un índice se denomina *indización*.
 
 ## <a name="field-types-and-attributes-in-an-azure-search-index"></a>Tipos de campo y atributos en un índice de Azure Search
 Al definir el esquema, debe especificar el nombre, el tipo y los atributos de cada campo del índice. El tipo de campo permite clasificar los datos que se almacenan en ese campo. Los atributos se establecen en campos individuales para especificar cómo se usa el campo. En la tabla siguiente se enumeran los tipos y los atributos que puede especificar.

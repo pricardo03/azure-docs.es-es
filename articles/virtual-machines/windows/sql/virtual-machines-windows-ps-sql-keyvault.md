@@ -3,7 +3,7 @@ title: Integración de Key Vault con SQL Server en máquinas virtuales Windows e
 description: Aprenda a automatizar la configuración de cifrado de SQL Server para su uso con Azure Key Vault. Este tema explica cómo usar la integración de Azure Key Vault con máquinas virtuales de SQL Server creadas con Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/30/2018
-ms.author: jroth
-ms.openlocfilehash: d80526768c59bbb746408a026915b3228747e18a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 6ad8eea21c10726b2c3eaf1e10bfd5efba4d1e48
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251177"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358701"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Configurar la integración de Azure Key Vault para SQL Server en Azure Virtual Machines (Resource Manager)
 
@@ -36,6 +37,10 @@ Si ejecuta SQL Server con máquinas locales, hay una serie de [pasos que puede s
 Cuando se habilita esta característica, automáticamente se instala el conector de SQL Server, se configura el proveedor EKM para obtener acceso a Azure Key Vault y se crea la credencial para que pueda tener acceso a su almacén. Si examinamos los pasos descritos en la documentación local que se mencionó anteriormente, puede ver que esta característica automatiza los pasos 2 y 3. Lo único que aún tiene que hacer manualmente es crear el Almacén de claves y las claves. Desde allí, se automatiza toda la configuración de la máquina virtual de SQL. Cuando esta característica haya completado el programa de instalación, puede ejecutar instrucciones de T-SQL para empezar a cifrar sus bases de datos o copias de seguridad como lo haría normalmente.
 
 [!INCLUDE [AKV Integration Prepare](../../../../includes/virtual-machines-sql-server-akv-prepare.md)]
+
+  >[!NOTE]
+  > La versión 1.0.4.0 del proveedor EKM está instalada en la VM con SQL Server a través de la [extensión IaaS de SQL](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension). Al actualizar la extensión IaaS de SQL no se actualizará la versión del proveedor. Considere la posibilidad de actualizar manualmente la versión del proveedor EKM si es necesario (por ejemplo, al migrar a una instancia administrada de SQL).
+
 
 ## <a name="enabling-and-configuring-akv-integration"></a>Habilitación y configuración de la integración de Almacén de claves de Azure
 Puede habilitar la integración de Almacén de claves de Azure durante el aprovisionamiento o configurarlo para las máquinas virtuales existentes.

@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 01/15/2019
 ms.author: dobett
-ms.openlocfilehash: 26bccc07e402288db696bce8a2371cab9ef7aff9
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3725117b90ec2574737686881e47967f3d9a9e39
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055088"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320097"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glosario de términos de IoT Hub
 En este artículo se enumeran algunos de los términos comunes que se utilizan en los artículos de IoT Hub.
@@ -59,7 +59,7 @@ Las [herramientas de Azure IoT](https://marketplace.visualstudio.com/items?itemN
 [Azure Storage](../storage/common/storage-introduction.md) es una solución de almacenamiento en la nube. Incluye el servicio Blob Storage que se puede usar para almacenar datos de objetos no estructurados. Algunos tutoriales de IoT Hub utilizan Blob Storage.
 
 ## <a name="back-end-app"></a>Aplicación de back-end
-En el contexto de [IoT Hub](#iot-hub), una aplicación de back-end es una aplicación que se conecta a uno de los puntos de conexión orientados al servicio en un centro de IoT. Por ejemplo, una aplicación de back-end podría recuperar mensajes [del dispositivo a la nube](#device-to-cloud) o administrar el [registro de identidad](#identity-registry). Normalmente, una aplicación de back-end se ejecuta en la nube pero, en muchos de los tutoriales, las aplicaciones de back-end son aplicaciones de consola que se ejecutan en el equipo de desarrollo local.
+En el contexto de [IoT Hub](#iot-hub), una aplicación de back-end es una aplicación que se conecta a uno de los puntos de conexión orientados al servicio en un centro de IoT. Por ejemplo, una aplicación de back-end podría recuperar mensajes [del dispositivo a la nube](#device-to-cloud) o administrar el [registro de identidades](#identity-registry). Normalmente, una aplicación de back-end se ejecuta en la nube pero, en muchos de los tutoriales, las aplicaciones de back-end son aplicaciones de consola que se ejecutan en el equipo de desarrollo local.
 
 ## <a name="built-in-endpoints"></a>Puntos de conexión integrados
 Todas las instancias de IoT Hub incluyen un [punto de conexión](iot-hub-devguide-endpoints.md) integrado que es compatible con Event Hubs. Puede utilizar cualquier mecanismo que funcione con Event Hubs para leer mensajes del dispositivo a la nube desde este punto de conexión.
@@ -114,9 +114,6 @@ Los datos del dispositivo hacen referencia a los datos por dispositivo almacenad
 ## <a name="device-identity"></a>Identidad del dispositivo
 La identidad del dispositivo es el identificador único asignado a cada dispositivo registrado del [registro de identidad](#identity-registry).
 
-## <a name="module-identity"></a>Identidad de módulo
-La identidad de módulo es el identificador único asignado a cada módulo que pertenece a un dispositivo. La identidad de módulo también se registra en el [registro de identidades](#identity-registry).
-
 ## <a name="device-management"></a>Administración de dispositivos
 La administración de dispositivos abarca el ciclo de vida completo asociado a la administración de dispositivos de la solución de IoT, incluidos la planeación, el aprovisionamiento, la configuración, la supervisión y la retirada.
 
@@ -131,15 +128,6 @@ El aprovisionamiento de dispositivos es el proceso de agregar los [datos del dis
 
 ## <a name="device-twin"></a>Dispositivo gemelo
 Un [dispositivo gemelo](iot-hub-devguide-device-twins.md) es un documento JSON que almacena información sobre el estado de los dispositivos, como metadatos, configuraciones y condiciones. [IoT Hub](#iot-hub) conserva un dispositivo gemelo por cada dispositivo que se aprovisiona en el centro de IoT. Los dispositivos gemelos permiten sincronizar las [condiciones de dispositivo](#device-condition) y las configuraciones entre el dispositivo y el back-end de soluciones. Puede consultar los dispositivos gemelos para buscar dispositivos específicos y consultar el estado de las operaciones de larga duración.
-
-## <a name="module-twin"></a>Módulo gemelo
-De forma similar al dispositivo gemelo, un módulo gemelo es un documento JSON que almacena información sobre el estado de los módulos, como metadatos, configuraciones y condiciones. IoT Hub persiste un módulo gemelo para cada identidad de módulo aprovisionado en una identidad del dispositivo del centro de IoT. Los módulos gemelos permiten sincronizar las condiciones de módulo y las configuraciones entre el módulo y el back-end de soluciones. Puede consultar los módulos gemelos para buscar módulos específicos y consultar el estado de las operaciones de larga duración.
-
-## <a name="twin-queries"></a>Consultas gemelas
-Las [consultas de dispositivos y módulos gemelos](iot-hub-devguide-query-language.md) usan el lenguaje de consulta de IoT Hub de tipo SQL para recuperar información de los dispositivos o módulos gemelos. Puede usar el mismo lenguaje de consulta de IoT Hub para recuperar información sobre los [trabajos](#job) que se ejecuten en IoT Hub.
-
-## <a name="twin-synchronization"></a>Sincronización de gemelos
-La sincronización de gemelos usa las [propiedades deseadas](#desired-properties) en los dispositivos o módulos gemelos para configurar los dispositivos o módulos y recuperar las [propiedades notificadas](#reported-properties) de los dispositivos para almacenarlas en el gemelo.
 
 ## <a name="direct-method"></a>Método directo
 Un [método directo](iot-hub-devguide-direct-methods.md) es una manera de desencadenar un método para ejecutarse en un dispositivo mediante la invocación de una API en su IoT Hub.
@@ -190,6 +178,17 @@ Los aceleradores de soluciones de Azure IoT agrupan varios servicios de Azure en
 
 ## <a name="job"></a>Trabajo
 El back-end de solución puede utilizar [trabajos](iot-hub-devguide-jobs.md) para programar y realizar el seguimiento de actividades en un conjunto de dispositivos registrados con IoT Hub. Las actividades incluyen actualizar las [propiedades deseadas](#desired-properties) del dispositivo gemelo, actualizar las [etiquetas](#tags) del dispositivo gemelo e invocar [métodos directos](#direct-method). [IoT Hub](#iot-hub) también usa trabajos para [importar y exportar](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) elementos desde el [registro de identidades](#identity-registry).
+
+## <a name="modules"></a>Módulos
+En el lado del dispositivo, los SDK de dispositivo de IoT Hub le permiten crear [módulos](iot-hub-devguide-module-twins.md), donde cada uno abre una conexión independiente a IoT Hub. Esta funcionalidad le permite usar espacios de nombres distintos para distintos componentes del dispositivo.
+
+La identidad del módulo y el módulo gemelo proporcionan las mismas funcionalidades que la [identidad del dispositivo](#device-identity) y el [dispositivo gemelo](#device-twin), pero con una mayor granularidad. Esto permite a los dispositivos compatibles, como dispositivos basados en el sistema operativo o dispositivos de firmware que administran varios componentes, aislar la configuración y las condiciones de cada uno de esos componentes.
+
+## <a name="module-identity"></a>Identidad de módulo
+La identidad de módulo es el identificador único asignado a cada módulo que pertenece a un dispositivo. La identidad de módulo también se registra en el [registro de identidades](#identity-registry).
+
+## <a name="module-twin"></a>Módulo gemelo
+De forma similar al dispositivo gemelo, un módulo gemelo es un documento JSON que almacena información sobre el estado de los módulos, como metadatos, configuraciones y condiciones. IoT Hub persiste un módulo gemelo para cada identidad de módulo aprovisionado en una identidad del dispositivo del centro de IoT. Los módulos gemelos permiten sincronizar las condiciones de módulo y las configuraciones entre el módulo y el back-end de soluciones. Puede consultar los módulos gemelos para buscar módulos específicos y consultar el estado de las operaciones de larga duración.
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/) es uno de los protocolos de mensajería que admite [IoT Hub](#iot-hub) para la comunicación con dispositivos. Para obtener más información acerca de los protocolos de mensajería que admite IoT Hub, consulte [Enviar y recibir mensajes con IoT Hub](iot-hub-devguide-messaging.md).
@@ -256,6 +255,12 @@ Los dispositivos recopilan datos de telemetría, como la velocidad del viento o 
 
 ## <a name="token-service"></a>Servicio de token
 Se puede utilizar un servicio de token a fin de implementar un mecanismo de autenticación para los dispositivos. Usa una [directiva de acceso compartido](#shared-access-policy) de IoT Hub con permisos **DeviceConnect** para crear *tokens centrados en el dispositivo*. Estos tokens permiten que un dispositivo se conecte al centro de IoT. Un dispositivo utiliza un mecanismo de autenticación personalizado para autenticarse con el servicio de token. Si el dispositivo se autentica correctamente, el servicio de token emite un token de SAS para que el dispositivo pueda tener acceso al centro de IoT.
+
+## <a name="twin-queries"></a>Consultas gemelas
+Las [consultas de dispositivos y módulos gemelos](iot-hub-devguide-query-language.md) usan el lenguaje de consulta de IoT Hub de tipo SQL para recuperar información de los dispositivos o módulos gemelos. Puede usar el mismo lenguaje de consulta de IoT Hub para recuperar información sobre los [trabajos](#job) que se ejecuten en IoT Hub.
+
+## <a name="twin-synchronization"></a>Sincronización de gemelos
+La sincronización de gemelos usa las [propiedades deseadas](#desired-properties) en los dispositivos o módulos gemelos para configurar los dispositivos o módulos y recuperar las [propiedades notificadas](#reported-properties) de los dispositivos para almacenarlas en el gemelo.
 
 ## <a name="x509-client-certificate"></a>Certificado de cliente X.509
 Un dispositivo puede usar un certificado X.509 para autenticarse con [IoT Hub](#iot-hub). Un certificado X.509 es una alternativa al uso de un [token de SAS](#shared-access-signature).

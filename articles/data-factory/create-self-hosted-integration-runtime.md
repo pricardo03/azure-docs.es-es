@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/15/2019
 ms.author: abnarain
-ms.openlocfilehash: 9a3e061902de53859ea98791048453db8cf00085
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f8827f3013ee83d8f4846e7e15d34ea7c6553f24
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021125"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331816"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creación y configuración de un entorno de ejecución de integración autohospedado
 El entorno de ejecución de integración (IR) es la infraestructura de proceso que Azure Data Factory usa para proporcionar funcionalidades de integración de datos en distintos entornos de red. Para más información acerca del entorno de ejecución de integración, consulte [Introducción al entorno de ejecución de integración](concepts-integration-runtime.md).
@@ -86,7 +86,7 @@ Para instalar el entorno de ejecución de integración autohospedado, descargue 
 ## <a name="install-and-register-self-hosted-ir-from-the-download-center"></a>Instalación y registro de IR autohospedado desde el Centro de descarga
 
 1. Vaya a la [página de descarga del entorno de ejecución de integración Microsoft](https://www.microsoft.com/download/details.aspx?id=39717).
-2. Haga clic en **Descargar**, seleccione la versión apropiada (**32 bits** o **64 bits**) y seleccione **Siguiente**.
+2. Seleccione **Descargar**, haga clic en la versión de 64 bits (no se admite la de 32 bits) y, finalmente, seleccione **Siguiente**.
 3. Ejecute el archivo MSI directamente o guárdelo en el disco duro para ejecutarlo más adelante.
 4. En la página **principal**, seleccione un idioma y, después, seleccione **Siguiente**.
 5. Acepte los términos de licencia del software de Microsoft y seleccione **Siguiente**.

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: f135281ad8bfe8222fd799e3d18c4022c627d23c
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 470813b1a51db183476dd046dc102eb89d73debd
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051958"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354586"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SDK de Azure Cosmos DB para .NET para SQL API: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -265,7 +265,7 @@ ms.locfileid: "54051958"
 ### <a name="a-name180180"></a><a name="1.8.0"/>1.8.0
 * Se ha agregado compatibilidad con cuentas de base de datos de varias regiones.
 * Se ha agregado compatibilidad con el reintento en solicitudes limitadas.  El usuario puede personalizar el número de reintentos y el tiempo de espera máximo mediante la configuración de la propiedad ConnectionPolicy.RetryOptions.
-* Se ha agregado una nueva interfaz IDocumentClient que define las firmas de todas las propiedades y métodos de DocumenClient.  Como parte de este cambio, también se han cambiado los métodos de extensión que crean IQueryable y IOrderedQueryable por los métodos de la propia clase DocumentClient.
+* Se ha agregado una nueva interfaz IDocumentClient que define las firmas de todas las propiedades y métodos de DocumentClient.  Como parte de este cambio, también se han cambiado los métodos de extensión que crean IQueryable y IOrderedQueryable por los métodos de la propia clase DocumentClient.
 * Se ha agregado la opción de configuración para definir el valor de ServicePoint.ConnectionLimit para un identificador URI de punto de conexión dado de Azure Cosmos DB.  Use ConnectionPolicy.MaxConnectionLimit para cambiar el valor predeterminado, que está establecido en 50.
 * Se ha dejado de utilizar IPartitionResolver y su implementación.  La compatibilidad con IPartitionResolver está ahora obsoleta. Se recomienda usar colecciones con particiones para conseguir un almacenamiento y un rendimiento más elevados.
 

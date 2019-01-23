@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ea6aae349bfbec0d1b6538010df42e7a0fb22d8e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: aaf8671ec4bfc4bcf6fecaa357f6ae983eb04499
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196107"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330525"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Recursos de variables en Azure Automation
 
@@ -31,7 +31,7 @@ Las variables de Automation se conservan para que sigan estando disponibles, inc
 Cuando se crea una variable, puede especificar que se almacene cifrada. Cuando se cifra una variable, se almacena de forma segura en Azure Automation y su valor no se puede recuperar del cmdlet [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) que se incluye como parte del módulo Azure PowerShell. Es la única manera de que se puede recuperar un valor cifrado desde la actividad **Get-AutomationVariable** en un runbook o una configuración de DSC.
 
 >[!NOTE]
->Los recursos protegidos en Azure Automation incluyen credenciales, certificados, conexiones y variables cifradas. Estos recursos se cifran y se almacenan en Azure Automation con una clave única que se genera para cada cuenta de Automation. Esta clave se almacena en Key Vault. Antes de almacenar un recurso seguro, la clave se carga desde Key Vault y luego se usa para cifrar el recurso.
+>Los recursos protegidos en Azure Automation incluyen credenciales, certificados, conexiones y variables cifradas. Estos recursos se cifran y se almacenan en Azure Automation con una clave única que se genera para cada cuenta de Automation. Esta clave se almacena en una instancia de Key Vault administrada por el sistema. Antes de almacenar un recurso seguro, la clave se carga desde Key Vault y luego se usa para cifrar el recurso. Este proceso se administra mediante Azure Automation.
 
 ## <a name="variable-types"></a>Tipos de variables
 

@@ -9,18 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/15/2019
 ms.author: juliako
-ms.openlocfilehash: dbd8dea32bbd4cacefd64e91541ab20b1056731e
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: f5fc1385bff92851db81cd4ed397d66cb8a832f2
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379047"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54350938"
 ---
 # <a name="storage-accounts"></a>Cuentas de almacenamiento
 
-Al crear una cuenta de Media Services, debe proporcionar el nombre de un recurso de cuenta de Azure Storage. La cuenta de almacenamiento especificada está asociada a su cuenta de Media Services. 
+Al crear una cuenta de Media Services, debe proporcionar el nombre de un recurso de cuenta de Azure Storage. La cuenta de almacenamiento especificada está asociada a su cuenta de Media Services. La cuenta de Media Services y la cuenta de almacenamiento asociada a ella deben formar parte del mismo centro de datos y del mismo grupo de recursos.
 
 Debe tener una cuenta de almacenamiento **Principal** y puede tener cualquier número de cuentas de almacenamiento **Secundarias** asociadas a su cuenta de Media Services. Media Services admite cuentas de **Uso general v2** (GPv2) o **Uso general v1** (GPv1). 
 

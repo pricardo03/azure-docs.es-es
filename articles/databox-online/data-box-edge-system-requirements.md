@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 01/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 4d6060c1774b2ad09c3b813bc107b73309dae801
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 05f6208788060459e67a787507a56adeed980e2d
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020224"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319001"
 ---
 # <a name="azure-data-box-edge-system-requirements-preview"></a>Requisitos del sistema de Azure Data Box Edge (versión preliminar)
 
@@ -76,7 +76,9 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 
 > [!NOTE]
 > - Las direcciones IP del dispositivo (origen) siempre se deben establecer en todas las interfaces de red habilitadas para la nube.
-> - Las IP de destino, por su parte, se deben establecer en [Intervalos IP de centro de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+> - Las IP de destino, por su parte, se deben establecer en los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+
+### <a name="url-patterns-for-gateway-feature"></a>Patrones de dirección URL para la característica de puerta de enlace
 
 |    Patrón de URL                                                                                                                                                                                                                                                                                                                                                                                                                                                      |    Componente o funcionalidad                                                                           |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
@@ -89,6 +91,15 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 |    https://\*.partners.extranet.microsoft.com/\*                                                                                                                                                                                                                                                                                                                                                                                                                    |    Paquete de soporte                                                                                      |
 |    http://\*.data.microsoft.com                                                                                                                                                                                                                                                                                                                                                                                                                                     |    Para información acerca del servicio de telemetría en Windows, consulte la actualización para la experiencia del usuario y la telemetría de diagnóstico.      |
 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                         |
+
+
+### <a name="url-patterns-for-compute-feature"></a>Patrones de dirección URL para la característica de proceso
+
+| Patrón de URL                      | Componente o funcionalidad                     |   |
+|----------------------------------|---------------------------------------------|---|
+| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Registro de contenedor de Microsoft (obligatorio)               |   |
+| https://\*.azurecr.io                     | Registros de contenedor personal y de terceros (opcional) |   |
+| https://\*.azure-devices.net              | Acceso de IoT Hub (obligatorio)                             |   |
 
 ## <a name="internet-bandwidth"></a>Ancho de banda de Internet
 

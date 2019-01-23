@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 91dd0f262d1a7e661a6f9e0c4974087503dde3e1
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 83c5e1405c402a1c6c98f9dbcaaf74891eb75e6d
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48241533"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330643"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Arquitectura de Azure Blockchain Workbench
 
@@ -44,6 +44,8 @@ En la aplicación web, los usuarios autorizados pueden tener acceso a la consola
 * Implementar contratos inteligentes proporcionados por Microsoft para escenarios populares. Por ejemplo, un escenario de transferencia de recursos.
 * Cargar e implementar sus propios contratos inteligentes.
 * Asignar a un usuario acceso al contrato inteligente en el contexto de un rol específico.
+
+Para obtener más información, consulte las[Aplicaciones cliente de ejemplo de Azure Blockchain Workbench en GitHub](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-development-kit/connect/mobile/blockchain-workbench/workbench-client).
 
 ## <a name="gateway-service-api"></a>API del servicio de puerta de enlace
 

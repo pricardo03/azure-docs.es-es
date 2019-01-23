@@ -9,12 +9,12 @@ ms.date: 11/27/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: jeconnoc
-ms.openlocfilehash: ecdb36af786d96a5b343d11cd689642d59528445
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 81d9fc7babef7c1d14a0acc420d0c16c05b83215
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888543"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354338"
 ---
 # <a name="state-management-with-service-fabric"></a>Administración del estado con Service Fabric
 
@@ -30,7 +30,7 @@ Los contenedores suelen usar discos temporales. Sin embargo, los discos temporal
 
 ### <a name="service-fabric-reliable-volume"></a>Volumen confiable de Service Fabric
 
-El volumen confiable de Service Fabric es un controlador de volumen de Docker utilizado para montar un volumen local en un contenedor. Las escrituras y lecturas son operaciones locales y rápidas. Los datos se replican en nodos secundarios, para que ofrezcan una alta disponibilidad. La conmutación por error también es rápida. Cuando se bloquea un contenedor, conmuta a un nodo que ya tiene una copia de los datos. Para consultar un ejemplo, vea la información sobre cómo [implementar una aplicación con un volumen confiable de Service Fabric](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/counter).
+El volumen confiable de Service Fabric es un controlador de volumen de Docker utilizado para montar un volumen local en un contenedor. Las escrituras y lecturas son operaciones locales y rápidas. Los datos se replican en nodos secundarios, para que ofrezcan una alta disponibilidad. La conmutación por error también es rápida. Cuando se bloquea un contenedor, conmuta a un nodo que ya tiene una copia de los datos. Para consultar un ejemplo, consulte cómo [implementar una aplicación con un volumen confiable de Service Fabric](service-fabric-mesh-howto-deploy-app-sfreliable-disk-volume.md).
 
 ### <a name="azure-files-volume"></a>Volumen de Azure Files
 

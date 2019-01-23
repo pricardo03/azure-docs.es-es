@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 01/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2a28c8056e6dc25148299415a63a32993e874e01
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 9687276323598d8600aa6930df8ef18bcc171cc1
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284547"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358837"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Recursos de conexión en Azure Automation
 
@@ -23,7 +23,17 @@ Un recurso de conexión de Automation contiene la información necesaria para co
 Cuando crea una conexión, debe especificar un *tipo de conexión*. El tipo de conexión es una plantilla que define un conjunto de propiedades. La conexión define valores para cada propiedad definida en su tipo de conexión. Los tipos de conexión se agregan a Azure Automation en módulos de integración o se crean con la [API de Azure Automation](https://msdn.microsoft.com/library/azure/mt163818.aspx) si el módulo de integración incluye un tipo de conexión y se importa en su cuenta de Automation. En caso contrario, debe crear un archivo de metadatos para especificar un tipo de conexión de Automation.  Para obtener más información sobre esto, consulte [Módulos de integración](automation-integration-modules.md).  
 
 >[!NOTE]
->Los recursos protegidos en Azure Automation incluyen credenciales, certificados, conexiones y variables cifradas. Estos recursos se cifran y se almacenan en Azure Automation con una clave única que se genera para cada cuenta de Automation. Esta clave se almacena en Key Vault. Antes de almacenar un recurso seguro, la clave se carga desde Key Vault y luego se usa para cifrar el recurso.
+>Los recursos protegidos en Azure Automation incluyen credenciales, certificados, conexiones y variables cifradas. Estos recursos se cifran y se almacenan en Azure Automation con una clave única que se genera para cada cuenta de Automation. Esta clave se almacena en una instancia de Key Vault administrada por el sistema. Antes de almacenar un recurso seguro, la clave se carga desde Key Vault y luego se usa para cifrar el recurso. Este proceso se administra mediante Azure Automation.
+
+## <a name="connection-types"></a>Tipos de conexión
+
+Hay tres tipos de conexiones integradas disponibles en Azure Automation:
+
+* **Azure**: esta conexión puede usarse para administrar recursos clásicos.
+* **AzureClassicCertificate**: esta conexión la usa la cuenta **AzureClassicRunAs**.
+* **AzureServicePrincipal**: esta conexión la usa la cuenta **AzureRunAs**.
+
+En la mayoría de los casos no es necesario crear un recurso de conexión, ya que se crea con la creación de una [cuenta RunAs](manage-runas-account.md).
 
 ## <a name="windows-powershell-cmdlets"></a>Cmdlets de Windows PowerShell
 

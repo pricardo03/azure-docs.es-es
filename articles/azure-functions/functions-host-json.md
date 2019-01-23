@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 4da64f01f3b4f39bd10fd3cb1b67910ffca886b8
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: e24c5b2be1df41d84fa4461250f51cb009f77529
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413275"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331224"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Referencia de host.json para Azure Functions 2.x  
 
-> [!div class="op_single_selector" title1="Seleccione la versión del tiempo de ejecución de Azure Funciones que está utilizando: "]
+> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [Versión 1](functions-host-json-v1.md)
 > * [Versión 2](functions-host-json.md)
 
@@ -108,6 +108,9 @@ Controla la [característica de muestreo de Application Insights](./functions-mo
     }
 }
 ```
+
+> [!NOTE]
+> Los muestreos de registros pueden provocar que algunas ejecuciones no aparezcan en la hoja de supervisión de Application Insights.
 
 |Propiedad  |Valor predeterminado | DESCRIPCIÓN |
 |---------|---------|---------| 

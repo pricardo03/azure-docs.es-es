@@ -15,12 +15,12 @@ ms.component: compliance
 ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: d3cc5f5a7642ba827a46ab5cbc2b0da2cda38731
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 4d1a9696587ae128b35970414c6c8753179c3f81
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385132"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332581"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Administración del acceso de los invitados con las revisiones de acceso de Azure AD
 
@@ -43,11 +43,11 @@ También puede solicitar a los usuarios invitados que revisen su propio acceso. 
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>Creación y realización de una revisión de acceso para invitados
 
-En primer lugar, habilite las revisiones de acceso para que aparezcan en los paneles de acceso del revisor. Como administrador global o administrador de cuentas de usuario, vaya a la [página de revisiones de acceso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/). 
+En primer lugar, como administrador global o administrador de cuenta de usuario, vaya a la [página de revisiones de acceso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) para asegurarse de que las revisiones de acceso están listas para su organización. 
 
 Azure AD ofrece varios escenarios para revisar el acceso de los usuarios invitados.
 
-Seleccione uno de los siguientes:
+Puede revisar:
 
  - Un grupo de Azure AD con uno o más invitados como miembros.
  - Una aplicación conectada a Azure AD con uno o más usuarios invitados asignados a ella. 
@@ -86,7 +86,7 @@ Puede usar revisiones de acceso para asegurarse de que los usuarios que han sido
 
 1. Para inicie una revisión de acceso para la aplicación, seleccione la revisión para incluir solo a los invitados y que los usuarios revisen su propio acceso. Para más información, consulte el artículo sobre la [creación de una revisión de acceso](create-access-review.md).
 
-2. Se pide a cada invitado que revise su propio acceso a la aplicación. De forma predeterminada, cada invitado que haya aceptado una invitación recibirá un correo electrónico de Azure AD con un vínculo a la revisión de acceso del panel de acceso de la organización. Azure AD proporciona instrucciones para los invitados en el artículo sobre [cómo revisar el acceso](perform-access-review.md).
+2. Se pide a cada invitado que revise su propio acceso a la aplicación. De forma predeterminada, cada invitado que haya aceptado una invitación recibirá un correo electrónico de Azure AD. Dicho correo electrónico tiene un vínculo a la revisión de acceso en el panel de acceso de su organización. Azure AD proporciona instrucciones para los invitados en el artículo sobre [cómo revisar el acceso](perform-access-review.md).
 
 3. Cuando los revisores hayan proporcionado la información, detenga la revisión de acceso y aplique los cambios. Para más información, consulte el artículo sobre la [realización de una revisión de acceso](complete-access-review.md).
 
@@ -109,7 +109,7 @@ En algunas organizaciones, los invitados pueden no ser conscientes de a qué gru
 > [!NOTE]
 > Las versiones anteriores de Azure Portal no permitieron el acceso administrativo a los usuarios con el UserType de Guest. En algunos casos, un administrador del directorio podría haber cambiado el valor UserType a Member mediante PowerShell. Si anteriormente se produjo este cambio en el directorio, la consulta anterior podría no incluir todos los usuarios invitados que históricamente tenían derechos de acceso administrativo. En este caso, debe cambiar el UserType del invitado o incluir manualmente el invitado en la pertenencia al grupo.
 
-1. Cree un grupo de seguridad en Azure AD con los invitados como miembros, si aún no existe un grupo adecuado. Por ejemplo, puede crear un grupo con la pertenencia mantenida de forma manual para los invitados. O bien, puede crear un grupo dinámico con un nombre como "Invitados de Contoso" para los usuarios del inquilino Contoso que tengan el valor Guest en el atributo UserType.  Por motivos de eficacia, asegúrese del grupo está compuesto principalmente de invitados: no seleccione un grupo que tenga usuarios que no necesiten revisarse.
+1. Cree un grupo de seguridad en Azure AD con los invitados como miembros, si aún no existe un grupo adecuado. Por ejemplo, puede crear un grupo con la pertenencia mantenida de forma manual para los invitados. O bien, puede crear un grupo dinámico con un nombre como "Invitados de Contoso" para los usuarios del inquilino Contoso que tengan el valor Guest en el atributo UserType.  Por motivos de eficacia, asegúrese de que el grupo está compuesto principalmente de invitados: no seleccione un grupo que tenga usuarios miembros, ya que no es necesario revisarlos.  Además, tenga en cuenta que un usuario invitado que sea miembro del grupo puede ver a los demás miembros del grupo.
 
 2. Para comenzar con la revisión de acceso para ese grupo, seleccione los revisores para que sean los propios miembros. Para más información, consulte el artículo sobre la [creación de una revisión de acceso](create-access-review.md).
 

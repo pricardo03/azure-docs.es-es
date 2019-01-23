@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: df3222c361e4a8f6451326d967d574b1eb8eed1b
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: aafeeab50a60116ac93cbfa8acb0375224453b03
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157452"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353998"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Uso de los perfiles de la versión de la API con Ruby en Azure Stack
 
@@ -33,7 +33,7 @@ El SDK de Ruby para Resource Manager de Azure Stack proporciona herramientas que
 Un perfil de API es una combinación de los proveedores de recursos y las versiones del servicio. Puede usar un perfil de API para combinar los diferentes tipos de recursos.
 
 - Para usar las últimas versiones de todos los servicios, use el perfil **más reciente** de la gema de acumulación del SDK de Azure.
-- Para usar los servicios compatibles con Azure Stack, utilice el perfil **V2017_03_09** de la gema de acumulación del SDK de Azure.
+- Para usar los servicios compatibles con Azure Stack, utilice el perfil **V2018_03_01** de la gema de acumulación del SDK de Azure.
 - Para usar la última versión de **API de un servicio**, utilice el perfil **más reciente** de la gema específica. Por ejemplo, si desea usar solo la última **versión de API** del servicio de proceso, utilice el perfil **más reciente** de la gema **Compute**.
 - Para usar la **versión de API** de un servicio, utilice las versiones de API específicas definidas dentro de la gema.
 
@@ -72,12 +72,12 @@ El SDK de Ruby para Azure Resource Manager está en versión preliminar y probab
 
 ## <a name="use-the-azuresdk-gem"></a>Uso de la gema azure_sdk
 
-La gema, **azure_sdk**, es una acumulación de todas las gemas admitidas en el SDK de Ruby. Esta gema consta de un perfil  **más reciente** , que admite la última versión de todos los servicios. Presenta un perfil con versión  **V2017_03_09** profile, que se crea para Azure Stack.
+La gema, **azure_sdk**, es una acumulación de todas las gemas admitidas en el SDK de Ruby. Esta gema consta de un perfil  **más reciente** , que admite la última versión de todos los servicios. Presenta al perfil **V2017_03_09** con dos versiones y a los perfiles **V2018_03_01** que se compilan para Azure Stack.
 
 Puede instalar la gema de acumulación azure_sdk con el siguiente comando:  
 
 ```Ruby  
-gem install 'azure_sdk
+gem install 'azure_sdk'
 ```
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -90,7 +90,7 @@ Para usar el SDK de Ruby de Azure con Azure Stack, debe proporcionar los siguien
 | Id. de cliente | AZURE_CLIENT_ID | El identificador de aplicación de la entidad de servicio que guardó al crear esta última en la sección anterior de este documento.  |
 | Id. de suscripción | AZURE_SUBSCRIPTION_ID | El [identificador de suscripción](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) es su forma de tener acceso a las ofertas de Azure Stack. |
 | Secreto del cliente | AZURE_CLIENT_SECRET | El secreto de aplicación de la entidad de servicio que guardó al crear esta última. |
-| Punto de conexión de Resource Manager | ARM_ENDPOINT | Consulte [Punto de conexión de Resource Manager de Azure Stack](#The-azure-stack-resource-manager-endpoint).  |
+| Punto de conexión de Resource Manager | ARM_ENDPOINT | Consulte el [punto de conexión de Resource Manager de Azure Stack](#The-azure-stack-resource-manager-endpoint).  |
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>Punto de conexión de Resource Manager de Azure Stack
 
@@ -127,11 +127,12 @@ Para establecer las variables de entorno, en el símbolo del sistema de Windows,
 
 ## <a name="existing-api-profiles"></a>Perfiles de API existentes
 
-La gema de acumulación Azure_sdk tiene los dos perfiles siguientes:
+La gema de acumulación Azure_sdk tiene los tres perfiles siguientes:
 
-1. **V2017_03_09**  
+1. Perfil **V2018_03_01** creado para Azure Stack. Use este perfil para utilizar todas las versiones más recientes de los servicios disponibles en Azure Stack.
+2. **V2017_03_09**  
   Perfil creado para Azure Stack. Use este perfil para que los servicios sean lo más compatibles posible con Azure Stack.
-2. **Más reciente**  
+3. **Más reciente**  
   El perfil consta de las versiones más recientes de todos los servicios. Use las versiones más recientes de todos los servicios.
 
 Para más información sobre los perfiles de API y Azure Stack, consulte [Resumen de perfiles de API](azure-stack-version-profiles.md#summary-of-api-profiles).
@@ -158,7 +159,7 @@ options = {
 }
 
 # Target profile built for Azure Stack
-client = Azure::Resources::Profiles::V2017_03_09::Mgmt::Client.new(options)
+client = Azure::Resources::Profiles::V2018_03_01::Mgmt::Client.new(options)
 ```
 
 El cliente del perfil se puede usar para tener acceso a proveedores de recursos individuales, como proceso, almacenamiento y red:
@@ -172,7 +173,7 @@ purchase_plan_obj = profile_client.compute.model_classes.purchase_plan.new
 
 # Option 2: To access the models associated with Compute
 # Notice Namespace: Azure::Profiles::<Profile Name>::<Service Name>::Mgmt::Models::<Model Name>
-purchase_plan_obj = Azure::Profiles::V2017_03_09::Compute::Mgmt::Models::PurchasePlan.new
+purchase_plan_obj = Azure::Profiles::V2018_03_01::Compute::Mgmt::Models::PurchasePlan.new
 ```
 
 ## <a name="define-azure-stack-environment-setting-functions"></a>Definición de las funciones de configuración del entorno de Azure Stack
@@ -201,27 +202,27 @@ end
 
 Se pueden usar los ejemplos siguientes en GitHub como referencia para crear soluciones con perfiles de la API de Azure Stack y Ruby:
 
-- [Administración de recursos y grupos de recursos de Azure con Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/tree/master/Hybrid)
-- [Administración de máquinas virtuales con Ruby](https://github.com/Azure-Samples/compute-ruby-manage-vm/tree/master/Hybrid)
-- [Implementación de una máquina virtual habilitada para SSH con una plantilla en Ruby](https://github.com/Azure-Samples/resource-manager-ruby-template-deployment/tree/master/Hybrid)
+- [Administración de recursos y grupos de recursos de Azure con Ruby](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups)
+- [Administración de máquinas virtuales con Ruby](https://github.com/Azure-Samples/Hybrid-Compute-Ruby-Manage-VM)
+- [Implementación de una máquina virtual habilitada para SSH con una plantilla en Ruby](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Template-Deployment)
 
 ### <a name="sample-resource-manager-and-groups"></a>Grupos y Resource Manager de ejemplo
 
 Para ejecutar el ejemplo, asegúrese de haber instalado Ruby. Si usa Visual Studio Code, descargue también la extensión SDK de Ruby.
 
 > [!NOTE]  
-> Puede obtener el repositorio del ejemplo en "[Administración de recursos y grupos de recursos de Azure con Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/tree/master/Hybrid)".
+> Puede obtener el repositorio del ejemplo en "[Administración de recursos y grupos de recursos de Azure con Ruby](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups)".
 
 1. Clone el repositorio:
 
    ```bash
-   git clone https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups.git
+   git clone https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups.git
    ```
 
 2. Instale las dependencias con una agrupación de trabajos:
 
    ```Bash
-   cd resource-manager-ruby-resources-and-groups\Hybrid\
+   cd Hybrid-Resource-Manager-Ruby-Resources-And-Groups
    bundle install
    ```
 
@@ -269,7 +270,7 @@ Para ejecutar el ejemplo, asegúrese de haber instalado Ruby. Si usa Visual Stud
 7. Cree el cliente del perfil que tenga como destino el perfil de Azure Stack:
 
    ```ruby  
-   client = Azure::Resources::Profiles::V2017_03_09::Mgmt::Client.new(options)
+   client = Azure::Resources::Profiles::V2018_03_01::Mgmt::Client.new(options)
    ```
 
 8. Para autenticar la entidad de servicio con Azure Stack, los puntos de conexión deben definirse con **get_active_directory_settings()**. Este método usa la variable de entorno **ARM_Endpoint** que definió al establecer sus variables de entorno:

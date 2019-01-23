@@ -6,22 +6,22 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7aeb9a9557694f8773af4fe67f47950bf82afe87
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: d91a7ba8d2c05e2d24738764438ce91325743699
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621418"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330864"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Activos de certificados en Azure Automation
 
 Los certificados se pueden almacenar de manera segura en Azure Automation de manera que los runbooks o las configuraciones de DSC pueden tener acceso a ellos mediante el uso de la actividad **Get-AzureRmAutomationCertificate** para recursos de Azure Resource Manager. Esta funcionalidad le permite crear runbooks y configuraciones de DSC que usan certificados para autenticación o agregarlos a Azure o a recursos de terceros.
 
 >[!NOTE]
->Los recursos protegidos en Azure Automation incluyen credenciales, certificados, conexiones y variables cifradas. Estos recursos se cifran y se almacenan en Azure Automation con una clave única que se genera para cada cuenta de Automation. Esta clave se almacena en Key Vault. Antes de almacenar un recurso seguro, la clave se carga desde Key Vault y luego se usa para cifrar el recurso.
+>Los recursos protegidos en Azure Automation incluyen credenciales, certificados, conexiones y variables cifradas. Estos recursos se cifran y se almacenan en Azure Automation con una clave única que se genera para cada cuenta de Automation. Esta clave se almacena en una instancia de Key Vault administrada por el sistema. Antes de almacenar un recurso seguro, la clave se carga desde Key Vault y luego se usa para cifrar el recurso. Este proceso se administra mediante Azure Automation.
 
 ## <a name="azurerm-powershell-cmdlets"></a>Cmdlets de AzureRM PowerShell
 En AzureRM, los cmdlets de la tabla siguiente se usan para crear y administrar recursos de credenciales de automatización con Windows PowerShell. Se incluyen como parte del [módulo de AzureRM Automation](/powershell/azure/overview) que está disponible para su uso en las configuraciones de DSC y los runbooks denominados "Automation".
@@ -57,7 +57,7 @@ La función de la tabla siguiente se usa para obtener acceso a los certificados 
 
 ## <a name="creating-a-new-certificate"></a>Creación de un certificado nuevo
 
-Cuando crea un certificado nuevo, debe cargar un archivo .cer o .pfx a Azure Automation. Si marca el certificado como exportable, podrá transferirlo fuera del almacén de certificados de Azure Automation. Si no es exportable, solo se puede usar para firmar dentro del runbook o la configuración de DSC. Azure Automation requiere que el certificado tenga el **proveedor de servicios criptográficos AES y RSA mejorado de Microsoft**.
+Cuando crea un certificado nuevo, debe cargar un archivo .cer o .pfx a Azure Automation. Si marca el certificado como exportable, podrá transferirlo fuera del almacén de certificados de Azure Automation. Si no es exportable, solo se puede usar para firmar dentro del runbook o la configuración de DSC. Azure Automation requiere que el certificado tenga como proveedor a: **proveedor de servicios criptográficos AES y RSA mejorado de Microsoft**.
 
 ### <a name="to-create-a-new-certificate-with-the-azure-portal"></a>Para crear un certificado nuevo con el portal de Azure
 

@@ -11,23 +11,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 01/16/2019
 ms.author: anwestg
-ms.openlocfilehash: e8a75afe2c7dbe91c7c98d0d35c319088f40748f
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: cfbf71d4cfbd01eb8544d4b577292c5d7f8faf66
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612685"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359109"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Actualización de Azure App Service en Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 > [!IMPORTANT]  
-> Aplique la actualización 1809 al sistema integrado de Azure Stack o implemente el Kit de desarrollo de Azure Stack más reciente antes de implementar Azure App Service 1.4.
->
->
+> Aplique la actualización 1809 o posterior al sistema integrado de Azure Stack o implemente el kit de desarrollo de Azure Stack más reciente antes de implementar Azure App Service 1.4. Antes de actualizar el proveedor de recursos, revise las notas de la versión para obtener información sobre las nuevas funciones, correcciones y problemas conocidos que podrían afectar a la implementación.
 
 Siguiendo las instrucciones de este artículo, puede actualizar el [proveedor de recursos de App Service](azure-stack-app-service-overview.md) implementado en un entorno de Azure Stack que esté conectado a Internet.
 
@@ -64,7 +62,7 @@ Para actualizar la implementación de App Service en Azure Stack, siga estos pas
 
 5. Revise y acepte los términos de licencia de terceros y haga clic en **Siguiente**.
 
-6. Asegúrese de que la información del punto de conexión de Azure Resource Manager de Azure Stack y el inquilino de Active Directory son correctos. Si usó la configuración predeterminada durante la implementación del Kit de desarrollo de Azure Stack, puede aceptar los valores predeterminados aquí. Sin embargo, si personalizó las opciones cuando implementó Azure Stack, debe editar los valores de esta ventana. Por ejemplo, si se usa el sufijo de dominio *mycloud.com*, el punto de conexión de Azure Resource Manager de Azure Stack debe cambiarse a *management.region.mycloud.com*. Después de confirmar su información, haga clic en **Siguiente**.
+6. Asegúrese de que la información del punto de conexión de Azure Resource Manager de Azure Stack y el inquilino de Active Directory son correctos. Si usó la configuración predeterminada durante la implementación del Kit de desarrollo de Azure Stack, puede aceptar los valores predeterminados aquí. Sin embargo, si personalizó las opciones al implementar Azure Stack, debe editar los valores en esta ventana. Por ejemplo, si se usa el sufijo de dominio *mycloud.com*, el punto de conexión de Azure Resource Manager de Azure Stack debe cambiarse a *management.region.mycloud.com*. Después de confirmar su información, haga clic en **Siguiente**.
 
     ![Información de la nube de Azure Stack][2]
 

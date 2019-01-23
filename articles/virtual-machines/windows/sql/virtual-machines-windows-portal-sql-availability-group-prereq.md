@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 2d8a98e6ab38f4156b6e2f5bda81b44e1789a6ed
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 11e255c8cc32f17efa9fc9e8f39e869fba032d75
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253081"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359840"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Realización de los requisitos previos para crear grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure.
 
@@ -108,7 +108,7 @@ La nueva red virtual tiene una subred denominada **Admin**. Los controladores de
 
     Si **SQL-HA-RG** no está visible, haga clic en **Grupos de recursos** y filtre por el nombre del grupo de recursos para encontrarlo.
 2. Haga clic en **autoHAVNET** en la lista de recursos. 
-3. En la red virtual **autoHAVNET**, en **Configuración**, haga clic en **Subredes**.
+3. En la red virtual **autoHAVNET**, en **Configuración**, seleccione **Subredes**.
 
     Observe la subred que ya ha creado.
 
@@ -189,7 +189,7 @@ La siguiente tabla muestra la configuración de estas dos máquinas:
 | **Subred** |admin |
 | **Dirección IP pública** |*Mismo nombre que la máquina virtual* |
 | **Grupo de seguridad de red** |*Mismo nombre que la máquina virtual* |
-| **El conjunto de disponibilidad** |adavailabilityset </br>**Dominios de error**: 2</br>**Dominios de actualización**: 2|
+| **El conjunto de disponibilidad** |adavailabilityset </br>**Dominios de error**: 2 </br>**Dominios de actualización**: 2|
 | **Diagnóstico** |habilitado |
 | **Cuenta de almacenamiento de información de diagnóstico** |*Se crea automáticamente* |
 
@@ -370,7 +370,7 @@ A continuación, cree tres máquinas virtuales: dos de SQL Server y una para el 
 | Selección del elemento adecuado de la galería |**Windows Server 2016 Datacenter** |**SQL Server 2016 SP1 Enterprise en Windows Server 2016** |**SQL Server 2016 SP1 Enterprise en Windows Server 2016** |
 | Configuración de máquina virtual: **Datos básicos** |**Nombre** = clúster-fsw<br/>**Nombre de usuario** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Suscripción** = su suscripción<br/>**Grupo de recursos** = SQL-HA-GR<br/>**Ubicación** = Su ubicación de Azure |**Nombre** = sqlserver-0<br/>**Nombre de usuario** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Suscripción** = su suscripción<br/>**Grupo de recursos** = SQL-HA-GR<br/>**Ubicación** = Su ubicación de Azure |**Nombre** = sqlserver-1<br/>**Nombre de usuario** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Suscripción** = su suscripción<br/>**Grupo de recursos** = SQL-HA-GR<br/>**Ubicación** = Su ubicación de Azure |
 | Configuración de máquina virtual: **Tamaño** |**TAMAÑO** = DS1\_V2 (1 vCPU; 3,5 GB) |**TAMAÑO** = DS1\_V2 (2 vCPU, 7 GB)</br>El tamaño debe admitir el almacenamiento SSD (soporte de disco Premium. )) |**TAMAÑO** = DS1\_V2 (2 vCPU, 7 GB) |
-| Configuración de máquina virtual: **Configuración** |**Storage**: use Managed Disks.<br/>**Red virtual** = autoHAVNET<br/>**Subred** = sqlsubnet(10.1.1.0/24)<br/>**Dirección IP pública** generada automáticamente.<br/>**Grupo de seguridad de red** = ninguno<br/>**Diagnósticos de supervisión** = habilitado<br/>**Cuenta de almacenamiento de diagnósticos** = usar una cuenta de almacenamiento generada automáticamente<br/>**Conjunto de disponibilidad** = sqlAvailabilitySet<br/> |**Storage**: use Managed Disks.<br/>**Red virtual** = autoHAVNET<br/>**Subred** = sqlsubnet(10.1.1.0/24)<br/>**Dirección IP pública** generada automáticamente.<br/>**Grupo de seguridad de red** = ninguno<br/>**Diagnósticos de supervisión** = habilitado<br/>**Cuenta de almacenamiento de diagnósticos** = usar una cuenta de almacenamiento generada automáticamente<br/>**Conjunto de disponibilidad** = sqlAvailabilitySet<br/> |**Storage**: use Managed Disks.<br/>**Red virtual** = autoHAVNET<br/>**Subred** = sqlsubnet(10.1.1.0/24)<br/>**Dirección IP pública** generada automáticamente.<br/>**Grupo de seguridad de red** = ninguno<br/>**Diagnósticos de supervisión** = habilitado<br/>**Cuenta de almacenamiento de diagnósticos** = usar una cuenta de almacenamiento generada automáticamente<br/>**Conjunto de disponibilidad** = sqlAvailabilitySet<br/> |
+| Configuración de máquina virtual: **Configuración** |**Almacenamiento**: Usar discos administrados.<br/>**Red virtual** = autoHAVNET<br/>**Subred** = sqlsubnet(10.1.1.0/24)<br/>**Dirección IP pública** generada automáticamente.<br/>**Grupo de seguridad de red** = ninguno<br/>**Diagnósticos de supervisión** = habilitado<br/>**Cuenta de almacenamiento de diagnósticos** = usar una cuenta de almacenamiento generada automáticamente<br/>**Conjunto de disponibilidad** = sqlAvailabilitySet<br/> |**Almacenamiento**: Usar discos administrados.<br/>**Red virtual** = autoHAVNET<br/>**Subred** = sqlsubnet(10.1.1.0/24)<br/>**Dirección IP pública** generada automáticamente.<br/>**Grupo de seguridad de red** = ninguno<br/>**Diagnósticos de supervisión** = habilitado<br/>**Cuenta de almacenamiento de diagnósticos** = usar una cuenta de almacenamiento generada automáticamente<br/>**Conjunto de disponibilidad** = sqlAvailabilitySet<br/> |**Almacenamiento**: Usar discos administrados.<br/>**Red virtual** = autoHAVNET<br/>**Subred** = sqlsubnet(10.1.1.0/24)<br/>**Dirección IP pública** generada automáticamente.<br/>**Grupo de seguridad de red** = ninguno<br/>**Diagnósticos de supervisión** = habilitado<br/>**Cuenta de almacenamiento de diagnósticos** = usar una cuenta de almacenamiento generada automáticamente<br/>**Conjunto de disponibilidad** = sqlAvailabilitySet<br/> |
 | Configuración de máquina virtual: **Configuración de SQL Server** |No aplicable |**Conectividad de SQL** = privado (dentro de la red virtual)<br/>**Puerto** = 1433<br/>**Autenticación SQL** = deshabilitar<br/>**Configuración de almacenamiento** = general<br/>**Aplicación de revisiones automatizada** = el domingo a las 2:00<br/>**Copia de seguridad automatizada** = deshabilitado</br>**Integración de Azure Key Vault** = Deshabilitada |**Conectividad de SQL** = privado (dentro de la red virtual)<br/>**Puerto** = 1433<br/>**Autenticación SQL** = deshabilitar<br/>**Configuración de almacenamiento** = general<br/>**Aplicación de revisiones automatizada** = el domingo a las 2:00<br/>**Copia de seguridad automatizada** = deshabilitado</br>**Integración de Azure Key Vault** = Deshabilitada |
 
 <br/>
@@ -462,6 +462,10 @@ Para agregar características de clúster de conmutación por error, realice los
 6. Haga clic en **Instalar** para agregar las características.
 
 Repita los pasos en la otra máquina virtual con SQL Server.
+
+  >[!NOTE]
+  > Ahora este paso, junto con la unión real de las VM con SQL Server al clúster de conmutación por error, se puede automatizar con una plantilla de inicio rápido de Azure. Para obtener más información, consulte [Create WSFC, listener, and configure ILB for an Always On availability group on a SQL Server VM with Azure Quickstart Template](virtual-machines-windows-sql-availability-group-quickstart-template.md) (Creación del clúster WSFC y el agente de escucha y configuración de ILB para un grupo de disponibilidad AlwaysOn en una VM con SQL Server con plantillas de inicio rápido de Azure).
+
 
 ## <a name="a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"> Configuración del firewall en cada máquina virtual con SQL Server
 

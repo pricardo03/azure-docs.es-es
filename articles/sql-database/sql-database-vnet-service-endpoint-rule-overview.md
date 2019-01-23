@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 12/20/2018
-ms.openlocfilehash: 33e0b66541e5ead5f3c05d2310ecc07e8a62324c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 1/16/2019
+ms.openlocfilehash: 2c022bd002700426eea2c6b38a667cd5a1381c02
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728132"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359857"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Uso de reglas y puntos de conexión del servicio Virtual Network para Azure SQL
 
@@ -118,8 +118,9 @@ Para Azure SQL Database, la característica de las reglas de red virtual tiene l
 
 - Las reglas de red virtual solo se aplican a las redes virtuales de Azure Resource Manager, y no a las redes del [modelo de implementación clásico][arm-deployment-model-568f].
 
-- La activación de puntos de conexión de servicio de red virtual en Azure SQL Database también habilita los puntos de conexión para los servicios MySQL y PostgreSQL de Azure. Sin embargo, con los puntos de conexión activados, se producirá un error al intentar conectarse desde los puntos de conexión con las instancias de MySQL o PostgreSQL.
-  - El motivo subyacente es que MySQL y PostgreSQL no admiten ACLing actualmente.
+- La activación de puntos de conexión de servicio de red virtual en Azure SQL Database también habilita los puntos de conexión para los servicios MySQL y PostgreSQL de Azure. Sin embargo, con los puntos de conexión activados, se puede producir un error al intentar conectarse desde los puntos de conexión con las instancias de MySQL o PostgreSQL.
+  - El motivo subyacente es que es probable que MySQL y PostgreSQL no tengan una regla de red virtual configurada. Debe configurar una regla de red virtual de Azure Database for MySQL y PostgreSQL y la conexión se realizará correctamente.
+
 - En el firewall, los intervalos de direcciones IP se aplican a los siguientes elementos de red, pero no las reglas de red virtual:
   - [Red privada virtual (VPN) de sitio a sitio (S2S)][vpn-gateway-indexmd-608y]
   - Entorno local a través de [ExpressRoute][expressroute-indexmd-744v]

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 9e589c582e52aafb9bdd93f80a702b581b883a59
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 9ec8ecf7b875b32d0ea5715e407b444fa1b25c50
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044389"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354474"
 ---
 # <a name="azure-cosmos-db-sql-language-reference"></a>Referencia de lenguaje SQL de Azure Cosmos DB 
 
@@ -2332,7 +2332,7 @@ SELECT STARTSWITH("abc", "b"), STARTSWITH("abc", "a")
  **Sintaxis**  
   
 ```  
-SUBSTRING(<str_expr>, <num_expr> [, <num_expr>])  
+SUBSTRING(<str_expr>, <num_expr>, <num_expr>)  
 ```  
   
  **Argumentos**  
@@ -2343,7 +2343,7 @@ SUBSTRING(<str_expr>, <num_expr> [, <num_expr>])
   
 -   `num_expr`  
   
-     Es cualquier expresión numérica válida.  
+     Cualquier expresión numérica válida para denotar el carácter inicial y final.    
   
  **Tipos de valor devuelto**  
   
@@ -2544,7 +2544,7 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"])
 ```  
   
 ####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
-Devuelve un valor booleano que indica si la matriz contiene el valor especificado. Puede especificar si la coincidencia es completa o parcial. 
+Devuelve un valor booleano que indica si la matriz contiene el valor especificado. Puede buscar una coincidencia parcial o total de un objeto mediante el uso de una expresión booleana dentro del comando. 
 
  **Sintaxis**  
   
@@ -2564,7 +2564,7 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
 
 -   `bool_expr`  
   
-     Es cualquier expresión booleana.       
+     Es cualquier expresión booleana. Si se establece en ' true' y el valor de búsqueda especificado es un objeto, el comando busca una coincidencia parcial (el objeto de búsqueda es un subconjunto de uno de los objetos). Si se establece en 'false', el comando busca una coincidencia total de todos los objetos dentro de la matriz. Si no se especifica, el valor predeterminado es 'false'. 
   
  **Tipos de valor devuelto**  
   

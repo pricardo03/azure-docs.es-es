@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 43da5b32fe3ad8891f89544d0f9bdbd1d4d127d0
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: fc32cf40266bdad1aa5365b30a27210ad735f299
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606189"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354389"
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: Crear una aplicación de escritorio de Windows
 Con Azure Active Directory (Azure AD) B2C, puede agregar eficaces características de administración de identidades autoservicio a sus aplicaciones de escritorio en pocos pasos. En este artículo se le mostrará cómo crear una aplicación de "lista de tareas pendientes" de Windows Presentation Foundation (WPF) para .NET que incluya tareas de registro, inicio de sesión y administración de perfiles de usuarios. La aplicación permitirá registrarse e iniciar sesión mediante un nombre de usuario o un correo electrónico. También será posible registrarse e iniciar sesión con cuentas sociales, como Facebook y Google.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Obtener un directorio de Azure AD B2C
-Para poder usar Azure AD B2C, debe crear un directorio o inquilino. Un directorio es un contenedor para todos los usuarios, las aplicaciones, los grupos, etc. Si aún no tiene uno, [cree un directorio B2C](active-directory-b2c-get-started.md) antes de continuar con esta guía.
+Para poder usar Azure AD B2C, debe crear un directorio o inquilino. Un directorio es un contenedor para todos los usuarios, las aplicaciones, los grupos, etc. Si aún no tiene uno, [cree un directorio B2C](tutorial-create-tenant.md) antes de continuar con esta guía.
 
 ## <a name="create-an-application"></a>Creación de una aplicación
 A continuación, debe crear una aplicación en su directorio B2C. Esto proporciona a Azure AD la información que necesita para comunicarse de forma segura con la aplicación. Para crear una aplicación, siga [estas instrucciones](active-directory-b2c-app-registration.md). Asegúrese de:
@@ -31,16 +31,14 @@ A continuación, debe crear una aplicación en su directorio B2C. Esto proporcio
 * Copiar el **id. de aplicación** asignado a la aplicación. Lo necesitará más adelante.
 
 ## <a name="create-your-policies"></a>Crear sus directivas
-En Azure AD B2C, cada experiencia del usuario se define mediante una [directiva](active-directory-b2c-reference-policies.md). Este ejemplo de código contiene tres experiencias de identidad: registro, inicio de sesión y edición de perfil. Tendrá que crear una directiva de cada tipo, como se describe en el [artículo de referencia de las directivas](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). Cuando cree las tres directivas, asegúrese de:
+En Azure AD B2C, cada experiencia del usuario se define mediante una [directiva](active-directory-b2c-reference-policies.md). Este ejemplo de código contiene tres experiencias de identidad: registro, inicio de sesión y edición de perfil. Cuando cree las directivas, asegúrese de realizar estos pasos:
 
 * Elegir **User ID sign-up** (Registro con id. de usuario) o **Email sign-up** (Registro con correo electrónico) en la hoja de proveedores de identidades.
 * Seleccionar **Nombre para mostrar** y otros atributos de registro en la directiva de registro.
 * Elegir las notificaciones **Nombre para mostrar** e **Id. de objeto** como notificaciones de aplicación en todas las directivas. Puede elegir también otras notificaciones.
 * Copiar el **nombre** de cada directiva después de crearla. Debe tener el prefijo `b2c_1_`. Necesitará estos nombres de directiva más adelante.
 
-[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
-
-Cuando haya creado correctamente las tres directivas, estará listo para crear su aplicación.
+Cuando haya creado correctamente la directiva, estará listo para crear su aplicación.
 
 ## <a name="download-the-code"></a>Descargar el código
 El código de este tutorial [se mantiene en GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet). Para generar el ejemplo a medida que avanza, puede [descargar un proyecto de esqueleto como archivo .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/skeleton.zip). También puede clonar el esqueleto:

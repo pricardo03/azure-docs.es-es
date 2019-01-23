@@ -1,6 +1,6 @@
 ---
 title: Escritura de código para realizar el seguimiento de solicitudes con Azure Application Insights | Microsoft Docs
-description: Escribir código para realizar un seguimiento de solicitudes con Application Insights para que pueda obtener perfiles para sus solicitudes
+description: Escriba código para realizar un seguimiento de solicitudes con Application Insights para que pueda obtener perfiles para sus solicitudes.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -12,19 +12,20 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 20f408d9dd32c3fd7a0e319e4051483e3aa54dd9
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 978f9a341eec2f16b9f6fe3d164e97805d7a8e93
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54082462"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359651"
 ---
-# <a name="write-code-to-track-requests-with-application-insights"></a>Escritura de código para realizar el seguimiento de solicitudes con Azure Application Insights
+# <a name="write-code-to-track-requests-with-application-insights"></a>Escritura de código para realizar el seguimiento de solicitudes con Application Insights
 
-Para ver los perfiles de la aplicación en la página Rendimiento, Application Insights tiene que realizar un seguimiento de las solicitudes para la aplicación. Application Insights puede realizar automáticamente un seguimiento de solicitudes para las aplicaciones que se basan en marcos de trabajo que ya estén instrumentados, como ASP.net y ASP.Net Core. Pero para otras aplicaciones, como los roles de Azure Cloud Service y las API sin estado de Service Fabric, es necesario escribir código para indicar a Application Insights dónde empiezan y terminan las solicitudes. Una vez que ha escrito este código, se enviará telemetría de las solicitudes a Application Insights, podrá ver los datos de telemetría en la página Rendimiento y se recopilarán perfiles para dichas solicitudes. 
+Para ver los perfiles de la aplicación en la página Rendimiento, Azure Application Insights tiene que realizar un seguimiento de las solicitudes para la aplicación. Application Insights puede realizar automáticamente un seguimiento de solicitudes para las aplicaciones que se basan en marcos de trabajo ya instrumentados. Dos ejemplos son ASP.NET y ASP.NET Core. 
 
-Estos son los pasos que tiene que seguir para realizar un seguimiento manual de solicitudes:
+Pero para otras aplicaciones, como los roles de trabajo de Azure Cloud Services y las API sin estado de Service Fabric, es necesario escribir código para indicar a Application Insights dónde empiezan y terminan las solicitudes. Una vez escrito este código, la telemetría de solicitudes se envía a Application Insights. Puede ver la telemetría en la página Rendimiento y los perfiles se recopilan para dichas solicitudes. 
 
+Para realizar un seguimiento de las solicitudes manualmente, haga lo siguiente:
 
   1. Agregue el código siguiente al principio de la duración de la aplicación:  
 
@@ -36,7 +37,7 @@ Estos son los pasos que tiene que seguir para realizar un seguimiento manual de 
         ```
       Para más información acerca de la configuración de esta clave de instrumentación global, consulte [Using Service Fabric with Application Insights](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md) (Uso de Service Fabric con Application Insights).  
 
-  1. Con respecto a cualquier parte del código que desee instrumentar, agregue una instrucción `StartOperation<RequestTelemetry>` **USING** a su alrededor, como se muestra en el ejemplo siguiente:
+  1. Con respecto a cualquier parte del código que quiera instrumentar, agregue una instrucción `StartOperation<RequestTelemetry>` **USING** a su alrededor, como se muestra en el ejemplo siguiente:
 
         ```csharp
         using Microsoft.ApplicationInsights;

@@ -7,36 +7,36 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 01/07/2018
+ms.date: 01/14/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 509125e7c93f34b9ce28c58cb1ec96db1074d995
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5bffeacaa07f90a11c374061eb6c0d36fc8f86a9
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119652"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351465"
 ---
-# <a name="associate-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Asociación de un recurso de Cognitive Services con un conjunto de aptitudes en Azure Search 
+# <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Asociación de un recurso de Cognitive Services con un conjunto de aptitudes en Azure Search 
 
-Los algoritmos de IA que impulsan las directivas de [Cognitive Search](cognitive-search-concept-intro.md) para el procesamiento de datos no estructurados se basan en [**recursos de Cognitive Services**](https://azure.microsoft.com/services/cognitive-services/). Recursos como [**Computer Vision**](https://azure.microsoft.com/services/cognitive-services/computer-vision/) ofrecen análisis de imagen y reconocimiento óptico de caracteres (OCR) que extraen texto y estructuras de los archivos de imágenes, mientras que [**Text Analytics**](https://azure.microsoft.com/services/cognitive-services/text-analytics/) ofrece un procesamiento de lenguaje natural como el reconocimiento de entidades y la extracción de frases clave, por nombrar algunos.
+Los algoritmos de IA que impulsan las [canalizaciones de Cognitive Search](cognitive-search-concept-intro.md) para el procesamiento de datos no estructurados se basan en [**recursos de Cognitive Services**](https://azure.microsoft.com/services/cognitive-services/). Recursos como [**Computer Vision**](https://azure.microsoft.com/services/cognitive-services/computer-vision/) ofrecen análisis de imagen y reconocimiento óptico de caracteres (OCR) para extraer texto y estructuras de los archivos de imágenes, mientras que [**Text Analytics**](https://azure.microsoft.com/services/cognitive-services/text-analytics/) ofrece procesamientos de lenguaje natural tales como el reconocimiento de entidades y la extracción de frases clave, por nombrar algunos.
 
-Puede enriquecer un número limitado de documentos de manera gratuita, o bien puede asociar un recurso de Cognitive Services facturable para cargas de trabajo más grandes y más frecuentes. En este artículo, aprenderá a asociar un recurso de Cognitive Services con el conjunto de aptitudes cognitivas para enriquecer los datos durante el indexado.
+Puede enriquecer un número limitado de documentos de manera gratuita o bien puede asociar un recurso de Cognitive Services facturable para cargas de trabajo más grandes y más frecuentes. En este artículo, aprenderá a asociar un recurso de Cognitive Services con el conjunto de aptitudes cognitivas para enriquecer los datos durante el [indexado de Azure Search](search-what-is-an-index.md).
 
 Si la canalización consta exclusivamente de [aptitudes personalizadas](cognitive-search-create-custom-skill-example.md), no es necesario asociar un recurso de Cognitive Services.
 
 > [!NOTE]
 > A partir del 21 de diciembre de 2018, podrá asociar un recurso de Cognitive Services con un conjunto de aptitudes de Azure Search. Esto nos permite cobrar por la ejecución del conjunto de aptitudes. En esta fecha, también empezamos a cobrar por la extracción de imágenes como parte de la fase de descifrado de documentos. La extracción de texto de documentos continuará ofreciéndose sin costo adicional.
 >
-> La ejecución de [aptitudes cognitivas integradas](cognitive-search-predefined-skills.md) se carga en el [precio de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) con la misma tarifa que tendría si hubiese realizado la tarea independientemente de Azure Search. La extracción de imágenes se cobra al precio de la versión preliminar, tal y como se describe en la [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+> La ejecución de [aptitudes cognitivas integradas](cognitive-search-predefined-skills.md) se carga en el [precio de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services) con la misma tarifa que tendría si hubiese realizado la tarea directamente. La extracción de imágenes es un evento facturable de Azure Search que actualmente se ofrece a precios de la versión preliminar. Para obtener más información, consulte la [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400) o [cómo funciona la facturación](search-sku-tier.md#how-billing-works).
 
 
 ## <a name="use-free-resources"></a>Uso de recursos gratis
 
-Puede usar una opción de procesamiento gratis y limitada que le da derecho a 20 enriquecimientos de documentos de manera diaria, lo que basta para completar el tutorial de Cognitive Search y los ejercicios de inicio rápido. 
+Puede usar una opción de procesamiento limitada y gratuita para completar los ejercicios del tutorial y la guía de inicio rápido de Cognitive Search. 
 
 > [!Important]
-> A partir del 1 de febrero de 2019, la opción **Gratis (enriquecimientos limitados)** queda restringida a 20 documentos al día. 
+> A partir del 1 de febrero de 2019, la opción **Gratuita (enriquecimientos limitados)** estará restringida a 20 documentos al día. 
 
 1. Abra el Asistente para la **importación de datos**.
 

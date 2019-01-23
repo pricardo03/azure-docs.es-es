@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: 52d20004f43b5c553a17c44f3f35d30fd5693286
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 4befcbb6b2297c6f80fb577b1fe22053a8c77ada
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995072"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331085"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(EN DESUSO) Canalización completa de CI/CD para implementar una aplicación de varios contenedores en Azure Container Service con ACS Engine y modo Docker Swarm mediante Azure DevOps
 
@@ -131,7 +131,7 @@ Hay cinco imágenes de contenedor para compilar para la aplicación *MyShop*. Ca
 * ProductsApi
 * Proxy
 * RatingsApi
-* RecommandationsApi
+* RecommendationsApi
 * ShopFront
 
 Necesita dos pasos de Docker para cada imagen, uno para compilarla y otro para insertar la imagen en Azure Registry Container. 

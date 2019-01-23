@@ -6,22 +6,22 @@ documentationcenter: ''
 author: juliako
 manager: femila
 editor: ''
-ms.assetid: b197fce8-3b9b-4189-8d08-486810c0426f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 01/15/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 337ee0edc3d6e644415b2b3f7524d829d0e3c692
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 5059e4c00fc3bcbee76f8f5a3746b4d8783d901b
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50246473"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359279"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Códecs y formatos de flujo de trabajo del Codificador multimedia Premium
+
 > [!NOTE]
 > Si tiene preguntas sobre Premium Encoder, envíe un correo electrónico a mepd@microsoft.com.
 > 
@@ -38,9 +38,11 @@ Este documento contiene una lista de los formatos de archivo de entrada y salida
 **Flujo de trabajo del Codificador multimedia premium** admite los subtítulos que se describen en [esta](#closed_captioning) sección. 
 
 ## <a id="input_formats"></a>Códecs y formatos de entrada de flujo de trabajo del Codificador multimedia Premium
+
 En la sección siguiente se enumeran los códecs y formatos de archivo que admite este procesador multimedia como entrada.
 
 ### <a name="input-containerfile-formats"></a>Formatos de archivo/contenedor de entrada
+
 * Adobe® Flash® F4V
 * MXF/SMPTE 377M
 * GXF
@@ -51,6 +53,7 @@ En la sección siguiente se enumeran los códecs y formatos de archivo que admit
 * AVI (sin comprimir de 8 bits/10 bits)
 
 ### <a name="input-video-codecs"></a>Códecs de vídeo de entrada
+
 * AVC 8 bits/10 bits, hasta 4:2:2, incluido AVCIntra
 * Avid DNxHD (en MXF)
 * DVCPro/DVCProHD (en MXF)
@@ -61,6 +64,7 @@ En la sección siguiente se enumeran los códecs y formatos de archivo que admit
 * Windows Media Video/VC-1
 
 ### <a name="input-audio-codecs"></a>Códecs de audio de entrada
+
 * AES (SMPTE 331M y 302M, AES3-2003)
 * Dolby® E
 * Dolby® Digital (AC3)
@@ -71,9 +75,11 @@ En la sección siguiente se enumeran los códecs y formatos de archivo que admit
 * WAV/PCM
 
 ## <a id="output_format"></a>Códecs y formatos de salida de flujo de trabajo del Codificador multimedia Premium
+
 En la sección siguiente se enumeran los códecs y formatos de archivo que se admiten como salida de este procesador multimedia.
 
 ### <a name="output-containerfile-formats"></a>Formatos de archivo/contenedor de salida
+
 * Adobe® Flash® F4V
 * MXF (OP1a, XDCAM y AS02)
 * DPP (incluido AS11)
@@ -85,6 +91,7 @@ En la sección siguiente se enumeran los códecs y formatos de archivo que se ad
 * MPEG-TS 
 
 ### <a name="output-video-codecs"></a>Códecs de vídeo de salida
+
 * AVC (H.264; 8 bits; hasta Perfil alto, Nivel 5.2; 4K Ultra HD; AVC Intra)
 * Avid DNxHD (en MXF)
 * DVCPro/DVCProHD (en MXF)
@@ -92,8 +99,13 @@ En la sección siguiente se enumeran los códecs y formatos de archivo que se ad
 * MPEG-1
 * Windows Media Video/VC-1
 * Creación de miniaturas JPEG
+* HEVC (H.265; 8 bits y 10 bits, Perfil Main y Main 10)
+
+  El soporte técnico para HDR 10 está disponible en determinados escenarios; póngase en contacto con mepd@microsoft.com para obtener más información.
+
 
 ### <a name="output-audio-codecs"></a>Códecs de audio de salida
+
 * AES (SMPTE 331M y 302M, AES3-2003)
 * Dolby® Digital (AC3)
 * Dolby® Digital Plus (E-AC3) hasta 7.1
@@ -106,6 +118,7 @@ En la sección siguiente se enumeran los códecs y formatos de archivo que se ad
 >Si utiliza la codificación en Dolby® Digital (AC3), la salida solo puede escribirse en un archivo ISO MP4.
 
 ## <a id="closed_captioning"></a>Compatibilidad con subtítulos
+
 En la entrada, el **flujo de trabajo del Codificador multimedia Premium** admite:
 
 1. Archivos SCC
@@ -122,14 +135,18 @@ En la salida, están disponibles las siguientes opciones:
 5. Archivo de subtítulos SRT
 6. Secuencias de subtítulos DVB
 
-Nota: no todos los formatos de salida anteriores se admiten para la entrega mediante streaming en Azure Media Services.
+> [!NOTE]
+> No todos los formatos de salida anteriores son compatibles con la entrega mediante streaming en Azure Media Services.
 
 ## <a name="known-issues"></a>Problemas conocidos
+
 Si el vídeo de entrada no contiene subtítulos, el recurso de salida seguirá conteniendo un archivo TTML vacío. 
 
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
+
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios
+
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 51c0fefc0d18127da1f5fc513b493407510a071b
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 4bae38b7596504d8de452e445c05e1c973aba78a
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994443"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354608"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Métricas de Azure Storage en Azure Monitor
 
@@ -341,6 +341,7 @@ Azure Storage proporciona las siguientes métricas de capacidad en Azure Monitor
 | BlobCapacity | El total de almacenamiento de blobs que se utiliza en la cuenta de almacenamiento. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 <br/> Dimensión: BlobType ([definición](#metrics-dimensions)) |
 | BlobCount    | El número de objetos BLOB almacenados en la cuenta de almacenamiento. <br/><br/> Unidad: Recuento <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 <br/> Dimensión: BlobType ([definición](#metrics-dimensions)) |
 | ContainerCount    | El número de contenedores que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Recuento <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
+| IndexCapacity     | Cantidad de almacenamiento que usa el índice jerárquico de ADLS Gen2. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
 
 ### <a name="table-storage"></a>Almacenamiento de tablas
 
@@ -368,7 +369,7 @@ Azure Storage proporciona las siguientes métricas de capacidad en Azure Monitor
 
 ## <a name="transaction-metrics"></a>Métricas de transacciones
 
-Las métricas de transacciones se envían de Azure Storage a Azure Monitor cada minuto. Todas las métricas de transacciones están disponibles a nivel tanto de cuenta como de servicio (Blob Storage, Table Storage, Azure Files y Queue Storage). El intervalo de agregación define el intervalo de tiempo en el que se presentan los valores de las métricas. Los intervalos de agregación compatible para todas las métricas de transacciones son PT1H y PT1M.
+Se emiten en todas las solicitudes enviadas a una cuenta de almacenamiento de Azure Storage a Azure Monitor. En caso de que no haya actividad en la cuenta de almacenamiento, no habrá ningún dato en las métricas de transacciones del período. Todas las métricas de transacciones están disponibles a nivel tanto de cuenta como de servicio (Blob Storage, Table Storage, Azure Files y Queue Storage). El intervalo de agregación define el intervalo de tiempo en el que se presentan los valores de las métricas. Los intervalos de agregación compatible para todas las métricas de transacciones son PT1H y PT1M.
 
 Azure Storage proporciona las siguientes métricas de transacciones en Azure Monitor.
 

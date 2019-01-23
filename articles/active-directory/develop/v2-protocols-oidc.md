@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 756d00786005fb6de26ff363d4e233fc28b48687
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 01d73d9c42f99dde02a801af9967430c9735932d
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426849"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320963"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 y el protocolo OpenID Connect
 
@@ -33,11 +33,11 @@ OpenID Connect es un protocolo de autenticación basado en OAuth 2.0 que se pued
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) amplía el protocolo de *autorización* de OAuth 2.0 para usarlo como un protocolo de *autenticación*, lo que le permite realizar inicios de sesión únicos mediante OAuth. OpenID Connect presenta el concepto de un *token de identificador*, que es un token de seguridad que permite al cliente comprobar la identidad del usuario. El token de identificador también obtiene información de perfil básica sobre el usuario. Como OpenID Connect amplía OAuth 2.0, las aplicaciones pueden adquirir de forma segura *tokens de acceso*, que se pueden usar para obtener acceso a los recursos protegidos mediante un [servidor de autorización](active-directory-v2-protocols.md#the-basics). El punto de conexión de v2.0 también permite que las aplicaciones de terceros registradas con Azure AD emitan tokens de acceso para los recursos protegidos, como las API web. Para más información sobre cómo configurar una aplicación para emitir tokens de acceso, consulte [Cómo registrar una aplicación con el punto de conexión v2.0](quickstart-v2-register-an-app.md). Se recomienda usar OpenID Connect si compila una [aplicación web](v2-app-types.md#web-apps) hospedada en un servidor y a la que se obtiene acceso a través de un explorador.
 
-## <a name="protocol-diagram-sign-in"></a>Diagrama de protocolo: inicio de sesión
+## <a name="protocol-diagram-sign-in"></a>Diagrama de protocolo: Inicio de sesión
 
 El diagrama siguiente muestra los pasos de un flujo de inicio de sesión más básico. En este artículo se describe detalladamente cada paso.
 
-![Protocolo OpenID Connect: inicio de sesión](./media/v2-protocols-oidc/convergence_scenarios_webapp.png)
+![Protocolo OpenID Connect: Inicio de sesión](./media/v2-protocols-oidc/convergence_scenarios_webapp.png)
 
 ## <a name="fetch-the-openid-connect-metadata-document"></a>Captura del documento de metadatos de OpenID Connect
 
@@ -86,7 +86,7 @@ Cuando su aplicación web deba autenticar al usuario, puede dirigirlo al punto d
 * La solicitud debe incluir el parámetro `nonce` .
 
 > [!IMPORTANT]
-> Para solicitar correctamente un token de identificador, el registro de la aplicación del [portal de registro](https://apps.dev.microsoft.com) tiene que tener la opción **[Concesión implícita](v2-oauth2-implicit-grant-flow.md)** habilitada para el cliente web. Si no está habilitada, se devolverá el error `unsupported_response`: "The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'" ("No se permite el valor proporcionado para el parámetro de entrada "response_type" para este cliente. El valor esperado es "code"")
+> Para solicitar correctamente un token de identificador, el registro de la aplicación del [portal de registro](https://apps.dev.microsoft.com) tiene que tener la opción **[Concesión implícita](v2-oauth2-implicit-grant-flow.md)** habilitada para el cliente web. Si no está habilitado, se devolverá un error `unsupported_response`: "The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'" ("No se permite el valor proporcionado para el parámetro de entrada "response_type" para este cliente. El valor esperado es "code"")
 
 Por ejemplo: 
 
@@ -207,13 +207,13 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 Cuando redirige al usuario a `end_session_endpoint`, el punto de conexión v2.0 borra la sesión del usuario del explorador. Sin embargo, el usuario puede permanecer con la sesión iniciada en otras aplicaciones que usan cuentas de Microsoft para la autenticación. Para permitir que esas aplicaciones cierren la sesión del usuario de manera simultánea, el punto de conexión v2.0 envía una solicitud HTTP GET al elemento `LogoutUrl` registrado de todas las aplicaciones en las que tiene una sesión iniciada. Las aplicaciones deben responder a esta solicitud mediante la eliminación de la sesión que identifica al usuario y la devolución de una respuesta `200`. Si quiere admitir el inicio de sesión único en la aplicación, debe implementar este elemento `LogoutUrl` en el código de la aplicación. Para configurar `LogoutUrl`, hágalo en el portal de registro de aplicaciones.
 
-## <a name="protocol-diagram-access-token-acquisition"></a>Diagrama de protocolo: adquisición de token de acceso
+## <a name="protocol-diagram-access-token-acquisition"></a>Diagrama de protocolo: Obtención de tokens de acceso
 
 Muchas aplicaciones web no solo deben iniciar la sesión del usuario, sino también obtener acceso a un servicio web en nombre del usuario mediante OAuth. En este escenario se combina OpenID Connect para la autenticación de usuario, al tiempo que se obtiene, a la vez, un código de autorización que puede usar para obtener tokens de acceso si usa el flujo de código de autorización de OAuth.
 
 El flujo completo de adquisición de tokens e inicio de sesión de OpenID Connect es similar al diagrama siguiente. En las secciones siguientes del artículo se describe detalladamente cada paso.
 
-![Protocolo OpenID Connect: adquisición de tokens](./media/v2-protocols-oidc/convergence_scenarios_webapp_webapi.png)
+![Protocolo OpenID Connect: Obtención de tokens](./media/v2-protocols-oidc/convergence_scenarios_webapp_webapi.png)
 
 ## <a name="get-access-tokens"></a>Obtención de tokens de acceso
 Para obtener tokens de acceso, modifique la solicitud de inicio de sesión:

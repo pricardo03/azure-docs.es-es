@@ -8,35 +8,29 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 9256a4daf6564761553b495e559805a46e4eae32
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: a5de2ca04a193f97a2a65a043f744abb8e0ea758
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050734"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359228"
 ---
 # <a name="use-inspec-for-compliance-automation-of-your-azure-infrastructure"></a>Uso de InSpec para automatizar el cumplimiento de normativas en una infraestructura de Azure
-[InSpec](https://www.chef.io/inspec/) es una plataforma sin costo y de código abierto que permite probar y auditar aplicaciones e infraestructuras. InSpec compara el estado real del sistema con el estado deseado que usted expresa en código de InSpec, que puede leer y escribir fácilmente. InSpec detecta infracciones y muestra los resultados en informes, pero le permite decidir cómo corregirlas. Puede usar InSpec para validar el estado de las máquinas virtuales que se ejecutan en Azure. También puede utilizar InSpec para analizar y validar el estado de los recursos y grupos de recursos dentro de una suscripción.
+[InSpec](https://www.chef.io/inspec/) es el lenguaje de código abierto de Chef para describir reglas de seguridad y cumplimiento que se pueden compartir entre los ingenieros de software, las operaciones y los ingenieros de seguridad. InSpec compara el estado real de la infraestructura con el estado deseado que usted expresa en código de InSpec que puede leer y escribir fácilmente. InSpec detecta infracciones y muestra los resultados en informes, pero le permite decidir cómo corregirlas.
+
+Puede usar InSpec para validar el estado de los recursos y grupos de recursos dentro de una suscripción, incluidas las máquinas virtuales, las configuraciones de red, la configuración de Azure Active Directory y mucho más.
 
 Este artículo describe las ventajas de usar InSpec para facilitar la seguridad y cumplimiento de normas en Azure.
 
 ## <a name="make-compliance-easy-to-understand-and-assess"></a>Cumplimiento fácil de entender y evaluar
-Con InSpec, transformará sus requisitos en código de lenguaje natural, ejecutable y con control de versiones. Esto le permite organizar las pruebas en perfiles que admiten composición, donde define y personaliza excepciones según sea necesario.
+La documentación de cumplimiento escrito en hojas de cálculo o los documentos de Word dejan los requisitos abiertos a la interpretación. Con InSpec, transformará sus requisitos en código de lenguaje natural, ejecutable y con control de versiones. El código acaba con las especulaciones sobre qué debería evaluarse reemplazándolas por pruebas tangibles con una intención bien definida.
 
 ## <a name="detect-fleet-wide-issues-and-prioritize-their-remediation"></a>Detección de problemas globales y priorización de su corrección
-El modo de detección sin agente de InSpec le permite evaluar rápidamente (a escala) el nivel de riesgo. Los metadatos integrados para la puntuación de la gravedad ayudan a determinar en qué áreas centrar las estrategias de corrección.
-
-## <a name="inspect-machines-data-and-new-saas-apis"></a>Inspección de máquinas, datos y nuevas API de SaaS
-Las funcionalidades de cumplimiento de la API en la nube de InSpec permiten realizar aserciones generales y específicas sobre el cumplimiento en la nube y elaborar continuamente informes al respecto.
+El modo de detección sin agente de InSpec le permite evaluar rápidamente (a escala) el nivel de riesgo. Los metadatos integrados para la puntuación de la gravedad ayudan a determinar en qué áreas centrar las estrategias de corrección. También puede escribir reglas rápidamente en respuesta a las nuevas vulnerabilidades o reglamentos e implementarlas inmediatamente.
 
 ## <a name="satisfy-audits"></a>Cumplimiento de auditorías
-Con InSpec, puede responder a las cuestiones que se formulan en una auditoría en cualquier momento, no solo en intervalos predeterminados, como trimestral o anualmente. Cuando llegue un ciclo de auditoría, InSpec le permitirá saber exactamente su nivel de cumplimiento, con lo que las conclusiones de los auditores no le pillarán por sorpresa.
-
-## <a name="reduce-ambiguity-and-miscommunication-regarding-rules"></a>Menor ambigüedad y falta de comunicación en lo que respecta a las normas
-En ocasiones, las configuraciones y procesos que se describen en los documentos pueden interpretarse de varias maneras. El código ejecutable acaba con las especulaciones sobre qué debería evaluarse reemplazándolas por pruebas tangibles con un propósito bien definido.
-
-## <a name="keep-up-with-rapidly-changing-threat-and-compliance-landscapes"></a>Rápida adaptación a nuevos escenarios de cumplimiento y amenazas
-InSpec permite escribir y publicar código de detección en el mismo día y escribir nuevas reglas para responder rápidamente a nuevas normativas. De esta manera, las modificaciones que se produzcan en las normativas o las amenazas no supondrán ya una emergencia.
+Con InSpec, puede responder a las cuestiones que se formulan en una auditoría en cualquier momento, no solo en intervalos predeterminados, como trimestral o anualmente. Al ejecutar pruebas de InSpec de forma continua, podrá saber exactamente su historial y nivel de cumplimiento, con lo que las conclusiones de los auditores no le pillarán por sorpresa.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Creación de una máquina virtual Windows en Azure mediante Chef](/azure/virtual-machines/windows/chef-automation)
+
+* Probar InSpec en Azure Cloud Shell [![Iniciar Cloud Shell](https://shell.azure.com/images/launchcloudshell.png "Iniciar Cloud Shell")](https://shell.azure.com)

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: 063b13f76e2fcbe4df0b13d7e77e34718ec756d4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 31a708f3a0da76ab13e789b099f312cca1f86e08
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041295"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332258"
 ---
 # <a name="frequently-asked-questions-azure-backup"></a>Preguntas más frecuentes sobre Azure Backup
 
@@ -57,14 +57,13 @@ Si bloquea el grupo de recursos, el servicio Azure Backup no podrá eliminar los
  No. La fecha y hora del equipo local tiene el valor local actualizado con el horario de verano actual aplicado. Puede que el establecimiento de la hora de las copias de seguridad programadas difiera de la hora local debido al horario de verano.
 
 ### <a name="how-many-data-disks-can-i-attach-to-a-vm-backed-up-by-azure-backup"></a>¿Cuántos discos de datos se pueden conectar a una máquina virtual de la cual Azure Backup ha realizado una copia de seguridad?
-Azure Backup puede realizar una copia de seguridad de máquinas virtuales con hasta 16 discos. Se proporciona compatibilidad con 16 discos en la [versión 2 más reciente](backup-upgrade-to-vm-backup-stack-v2.md) de la pila de copia de seguridad de máquinas virtuales de Azure.
+Azure Backup puede realizar una copia de seguridad de máquinas virtuales con hasta 16 discos. Se proporciona compatibilidad con 16 discos en la [restauración instantánea](backup-instant-restore-capability.md).
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>¿Admite Azure Backup los discos administrados SSD estándar?
-Azure Backup admite los [discos administrados SSD estándar](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). Estos discos proporcionan un nuevo tipo de almacenamiento duradero para las máquinas virtuales de Azure. Se proporciona compatibilidad con los discos administrados SSD en la [versión 2 más reciente](backup-upgrade-to-vm-backup-stack-v2.md) de la pila de copia de seguridad de máquinas virtuales de Azure.
+Azure Backup admite los [discos administrados SSD estándar](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). Estos discos proporcionan un nuevo tipo de almacenamiento duradero para las máquinas virtuales de Azure. Se proporciona compatibilidad con discos SSD administrados en la [restauración instantánea](backup-instant-restore-capability.md).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>¿Podemos realizar copias de seguridad de una máquina virtual con un disco habilitado para el Acelerador de escritura?
-No se pueden tomar instantáneas en un disco habilitado para el Acelerador de escritura. No obstante, el servicio Azure Backup puede excluir este tipo de disco de la copia de seguridad. La exclusión de discos habilitados para el Acelerador de escritura de las máquinas virtuales solo se admite en las suscripciones actualizadas de la versión 2 de la pila de copia de seguridad de máquinas virtuales de Azure. Para actualizar a la versión 2 de la pila de copia de seguridad de máquinas virtuales de Azure, consulte este [artículo](backup-upgrade-to-vm-backup-stack-v2.md). Esta característica está actualmente disponible en las regiones Este de Japón, Europa del Norte, Sudeste Asiático, Este de EE. UU., Oeste de EE. UU. 2, Europa occidental y Este de EE. UU. 2.
-
+No se pueden tomar instantáneas en un disco habilitado para el Acelerador de escritura. No obstante, el servicio Azure Backup puede excluir este tipo de disco de la copia de seguridad. La exclusión de discos habilitados para el Acelerador de escritura de las máquinas virtuales solo se admite en las suscripciones actualizadas a Restauración instantánea.
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Tengo una máquina virtual con discos habilitados para el Acelerador de escritura (WA) y SAP HANA instalada. ¿Cómo puedo realizar la copia de seguridad?
 Azure Backup no puede realizar la copia de seguridad de un disco habilitado para el Acelerador de escritura pero puede excluirlo de la copia. Sin embargo, la copia de seguridad no proporcionará coherencia de base de datos ya que no se ha realizado la copia de seguridad de la información contenida en este disco. Puede realizar copias de seguridad de discos con esta configuración si desea realizar la copia de seguridad de un disco de sistema operativo y la copia de seguridad de aquellos discos que no estén habilitados para el Acelerador de escritura.
@@ -77,7 +76,7 @@ Tenemos una versión preliminar privada para una copia de seguridad de SAP HANA 
 ### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>¿Cómo decidir si es necesario restaurar solo los discos o una máquina virtual completa?
 Considere la restauración de máquinas virtuales como una opción de creación rápida para una máquina virtual de Azure. Esta opción cambia los nombres de los discos, los contenedores usados por esos discos, las direcciones IP públicas y los nombres de las interfaces de red. El cambio conserva recursos exclusivos cuando se crea una máquina virtual. La máquina virtual no se agrega a un conjunto de disponibilidad.
 
-Elija la opción de restauración de disco si desea:
+Puede usar la opción de restauración de disco si quiere:
   * Personalizar la máquina virtual que se crea. Por ejemplo, para cambiar el tamaño.
   * Agregar opciones de configuración que no existían en el momento de la copia de seguridad
   * Controlar la convención de nomenclatura para los recursos que se crean.
@@ -104,7 +103,7 @@ Sí. Incluso si elimina la máquina virtual, puede ir al elemento de la copia de
 Para una máquina virtual de Azure con discos administrados, se puede habilitar la restauración en los conjuntos de disponibilidad proporcionando una opción en una plantilla mientras se restaura como discos administrados. Esta plantilla tiene el parámetro de entrada denominado **Conjuntos de disponibilidad**.
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>¿Cómo se consiguen rendimientos de restauración más rápidos?
-Para mejorar el rendimiento de restauración, se recomienda actualizar a la versión 2 de la pila de copia de seguridad de máquinas virtuales y usar la [característica Instant RP](backup-upgrade-to-vm-backup-stack-v2.md).
+Para mejorar el rendimiento de restauración, nos estamos trasladando a la funcionalidad [restauración instantánea](backup-instant-restore-capability.md).
 
 ## <a name="manage-vm-backups"></a>Administrar copias de seguridad de máquina virtual
 

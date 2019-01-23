@@ -11,24 +11,26 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/16/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: e4e1b3cb823d08948c31aa6486c08a930a377dfa
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 147242e7d5d62204198360f580848cd997850d09
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161963"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332530"
 ---
-# <a name="report-azure-stack-usage-data-to-azure"></a>Notificar los datos de uso de Azure Stack a Azure 
+# <a name="report-azure-stack-usage-data-to-azure"></a>Notificar los datos de uso de Azure Stack a Azure
 
-Los datos de uso, también denominados datos de consumo, representan la cantidad de recursos usados. 
+Los datos de uso, también denominados datos de consumo, representan la cantidad de recursos usados.
 
 Los sistemas de varios nodos de Azure Stack que usan el modelo de facturación basado en el consumo deben notificar los datos de uso a Azure para la facturación. Los operadores de Azure Stack deben configurar su instancia de Azure Stack para informar de los datos de uso a Azure.
 
-> [!NOTE]
-> Los informes de datos de uso son obligatorios para los usuarios de varios nodos de Azure Stack con una licencia de modelo de pago por uso. Es opcional para los clientes con una licencia de modelo de capacidad (vea la [página sobre cómo comprar Azure Stack](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)). Para los usuarios del Kit de desarrollo de Azure Stack, los operadores de Azure Stack pueden notificar los datos de uso y probar la característica. Sin embargo, no se cobrará a los usuarios por el uso. 
+> [!IMPORTANT]
+> Todas las cargas de trabajo [se deben implementar con suscripciones de inquilino](#are-users-charged-for-the-infrastructure-vms) a fin de cumplir los términos de licencia de Azure Stack.
+
+Los informes de datos de uso son obligatorios para los usuarios de varios nodos de Azure Stack con una licencia de modelo de pago por uso. Es opcional para los clientes con una licencia de modelo de capacidad (vea la [página sobre cómo comprar Azure Stack](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)). Para los usuarios del Kit de desarrollo de Azure Stack, los operadores de Azure Stack pueden notificar los datos de uso y probar la característica. Sin embargo, no se cobrará a los usuarios por el uso.
 
 ![flujo de facturación](media/azure-stack-usage-reporting/billing-flow.png)
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0b38c61f4fe884137204cba6d99d5e383b3259a0
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b7f5d4683f0042b95399b86cd4f53c93518c3c56
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338897"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330682"
 ---
 # <a name="speech-service-rest-apis"></a>API REST del servicio Voz
 
@@ -272,7 +272,7 @@ Esta tabla enumera los encabezados obligatorios y opcionales para las solicitude
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Clave de suscripción del servicio Voz. | Se necesita este encabezado, o bien `Authorization`. |
 | `Authorization` | Un token de autorización precedido por la palabra `Bearer`. Para más información, consulte [Autenticación](#authentication). | Se necesita este encabezado, o bien `Ocp-Apim-Subscription-Key`. |
-| `Content-type` | Describe el formato y el códec de los datos de audio proporcionados. Los valores aceptados son: `audio/wav; codec=audio/pcm; samplerate=16000` y `audio/ogg; codec=audio/pcm; samplerate=16000`. | Obligatorio |
+| `Content-type` | Describe el formato y el códec de los datos de audio proporcionados. Los valores aceptados son: `audio/wav; codecs=audio/pcm; samplerate=16000` y `audio/ogg; codecs=opus`. | Obligatorio |
 | `Transfer-Encoding` | Especifica que se están enviando datos de audio fragmentados en lugar de un único archivo. Use este encabezado solo si hay fragmentación de los datos de audio. | Opcional |
 | `Expect` | Si usa la transferencia fragmentada, envíe `Expect: 100-continue`. El servicio Voz confirma la solicitud inicial y espera datos adicionales.| Obligatorio si se envían datos de audio fragmentados. |
 | `Accept` | Si se proporciona, debe ser `application/json`. El servicio Voz proporciona resultados en JSON. Algunas plataformas de solicitud web proporcionan un valor predeterminado incompatible si no se especifica uno, por lo que es recomendable incluir siempre `Accept`. | Opcional pero recomendable. |
@@ -296,7 +296,7 @@ Esta es una solicitud HTTP típica. El ejemplo siguiente incluye el nombre de ho
 ```HTTP
 POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
 Accept: application/json;text/xml
-Content-Type: audio/wav; codec=audio/pcm; samplerate=16000
+Content-Type: audio/wav; codecs=audio/pcm; samplerate=16000
 Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 Host: westus.stt.speech.microsoft.com
 Transfer-Encoding: chunked
@@ -330,7 +330,7 @@ Este ejemplo de código muestra cómo enviar audio en fragmentos. Solo el primer
     request.Method = "POST";
     request.ProtocolVersion = HttpVersion.Version11;
     request.Host = host;
-    request.ContentType = @"audio/wav; codec=""audio/pcm""; samplerate=16000";
+    request.ContentType = @"audio/wav; codecs=audio/pcm; samplerate=16000";
     request.Headers["Ocp-Apim-Subscription-Key"] = args[1];
     request.AllowWriteStreamBuffering = false;
 
@@ -469,7 +469,10 @@ Esta es una lista de formatos de audio admitidos que se envían en cada solicitu
 
 ### <a name="request-body"></a>Cuerpo de la solicitud
 
-Texto que se envía como cuerpo de una solicitud `POST` HTTP. Puede ser texto sin formato (ASCII o UTF-8) o formato SSML ([Lenguaje de marcado de síntesis de voz](speech-synthesis-markup.md)) (UTF-8). Las solicitudes de texto sin formato usan la voz y el idioma predeterminados del servicio Voz. Con SSML puede especificar el idioma y la voz.
+El cuerpo de cada solicitud `POST` se envía como [lenguaje de marcado de síntesis de voz (SSML)](speech-synthesis-markup.md). SSML le permite elegir la voz y el idioma de la voz sintetizada que devuelve el servicio de texto a voz. Para ver una lista completa de voces compatibles, consulte [compatibilidad con idiomas](language-support.md#text-to-speech).
+
+> [!NOTE]
+> Si usa una voz personalizada, el cuerpo de una solicitud puede enviarse como texto sin formato (ASCII o UTF-8).
 
 ### <a name="sample-request"></a>Solicitud de ejemplo
 

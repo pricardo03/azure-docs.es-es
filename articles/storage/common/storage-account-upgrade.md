@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: tamram
-ms.openlocfilehash: 7f97b72dc7b3456488d97009bde590b0e29918e6
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 500d5217a35cdc569964195558b6e4a2c023c614
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631445"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352145"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Actualización a una cuenta de almacenamiento de uso general v2
 
@@ -21,7 +21,8 @@ Las cuentas de almacenamiento de uso general v2 son compatibles con las últimas
 Actualizar a una cuenta de almacenamiento de uso general v2 desde la cuenta de uso general v1 o de Blob Storage es sencillo. Puede usar Azure Portal, PowerShell, o la CLI de Azure para realizar la actualización. 
 
 > [!NOTE]
-> El cambio de la capa de almacenamiento puede conllevar cargos adicionales. Para más información, consulte la sección [Precios y facturación](#pricing-and-billing).
+> Actualizar la cuenta de almacenamiento a una cuenta de uso general v2 es gratuito.
+> Cambiar el nivel de almacenamiento de acceso puede causar cambios en la factura. Para más información, consulte la sección [Precios y facturación](#pricing-and-billing).
 
 ## <a name="upgrade-using-the-azure-portal"></a>Actualización con Azure Portal
 
@@ -62,8 +63,8 @@ Los niveles de acceso le permiten elegir el almacenamiento más rentable en func
 
 De forma predeterminada, se crea una nueva cuenta de almacenamiento en el nivel de almacenamiento de acceso frecuente, y se actualiza una cuenta de almacenamiento de uso general v1 a la capa de acceso frecuente. Si está explorando qué nivel de acceso debe usar para los datos después de la actualización, considere su escenario. Hay dos escenarios típicos del usuario para migrar a una cuenta de uso general v2:
 
-* Tiene una cuenta de almacenamiento de uso general v1 y desea evaluar un cambio a una cuenta de almacenamiento de uso general v2 con la capa de almacenamiento correcta para datos de blob.
-* Ha decidido usar una cuenta de almacenamiento de uso general v2 o ya tiene una, y quiere evaluar si debe usar el nivel de almacenamiento de acceso frecuente o esporádico para los datos de blob.
+* Tiene una cuenta de almacenamiento de uso general v1 y desea evaluar una actualización a una cuenta de almacenamiento de uso general v2 con el nivel de almacenamiento de acceso correcto para datos de blob.
+* Ha decidido usar una cuenta de almacenamiento de uso general v2 o ya tiene una y quiere evaluar si debe usar el nivel de almacenamiento de acceso frecuente o esporádico para los datos de blob.
 
 En ambos casos, la principal prioridad es estimar el costo de almacenamiento, acceso y uso de los datos almacenados en una cuenta de almacenamiento de uso general v2 y compararlo con los costos actuales.
 
@@ -71,9 +72,9 @@ En ambos casos, la principal prioridad es estimar el costo de almacenamiento, ac
 ## <a name="pricing-and-billing"></a>Precios y facturación
 Todas las cuentas de Blob Storage usan un modelo de precios para el almacenamiento de blobs basado en el nivel de cada blob. Al usar una cuenta de almacenamiento, se aplican las siguientes consideraciones de facturación:
 
-* **Costos de almacenamiento**: además de la cantidad de datos almacenados, el costo varía en función de la capa de almacenamiento. El costo por gigabyte disminuye a medida que el nivel es más esporádico.
+* **Costos de almacenamiento**: además de la cantidad de datos almacenados, el costo varía en función del nivel de almacenamiento de acceso. El costo por gigabyte disminuye a medida que el nivel es más esporádico.
 
-* **Costos de acceso a datos**: los gastos de acceso a los datos aumentan a medida que el nivel es más esporádico. En el nivel de almacenamiento esporádico y de archivo se cobra un cargo de acceso a datos por gigabyte por las operaciones de lectura.
+* **Costos de acceso a datos**: los gastos de acceso a los datos aumentan a medida que el nivel es más esporádico. En el nivel de almacenamiento de acceso esporádico y de archivo se cobra un cargo de acceso a datos por gigabyte por las operaciones de lectura.
 
 * **Costos de transacciones**: hay un cargo por transacción para todos los niveles, que aumenta a medida que el nivel es más esporádico.
 
@@ -81,7 +82,7 @@ Todas las cuentas de Blob Storage usan un modelo de precios para el almacenamien
 
 * **Costos de transferencia de datos salientes**: las transferencias de datos salientes (los datos que se transfieren fuera de una región de Azure) conllevan un cargo por el uso del ancho de banda por gigabyte, lo que es coherente con las cuentas de almacenamiento de uso general.
 
-* **Cambio del nivel de almacenamiento**: el cambio de la capa de almacenamiento de la cuenta que pasa de esporádico a frecuente conlleva un cargo igual a la lectura de todos los datos existentes en la cuenta de almacenamiento. Sin embargo, cambiar el nivel de almacenamiento de la cuenta de frecuente a esporádico genera un cargo igual que escribir todos los datos en el nivel de acceso esporádico (solo cuentas de GPv2).
+* **Cambio del nivel de almacenamiento de acceso**: el cambio del nivel de almacenamiento de acceso de la cuenta que pasa de esporádico a frecuente conlleva un cargo igual a la lectura de todos los datos existentes en la cuenta de almacenamiento. Sin embargo, cambiar el nivel de almacenamiento de acceso de la cuenta de frecuente a esporádico genera un cargo igual que escribir todos los datos en el nivel de acceso esporádico (solo cuentas de uso general v2).
 
 > [!NOTE]
 > Para más información acerca del modelo de precios de las cuentas de almacenamiento, consulte la página [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/). Para más información acercas los cargos por la transferencia de datos salientes, consulte la página [Detalles de precios de ancho de banda](https://azure.microsoft.com/pricing/details/data-transfers/).
@@ -156,7 +157,7 @@ Para calcular los costos de acceso a los datos en las cuentas de Blob Storage, e
 El costo de transferencia de datos de replicación geográfica para cuentas de Blob Storage también puede calcularse mediante la valoración de la cantidad de datos escritos cuando se usa una cuenta de almacenamiento GRS o RA-GRS.
 
 > [!NOTE]
-> Para ver un ejemplo más detallado sobre cómo calcular los costos del uso de la capa de almacenamiento frecuente o esporádico, eche un vistazo a la pregunta *'¿Qué son los niveles de acceso frecuente y esporádico y cómo se puede determinar el que debe usarse?'* de la página [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
+> Para ver un ejemplo más detallado sobre cómo calcular los costos del uso del nivel de almacenamiento de acceso frecuente o esporádico, eche un vistazo a la pregunta *'¿Qué son los niveles de acceso frecuente y esporádico y cómo se puede determinar el que debe usarse?'* de la página [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,12 +8,12 @@ ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 86c8e8c10811b1478ae2c853f1efef5b6b5caa83
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 782f68c52285e787b9dfc6d21352ab2d53876085
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406335"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353148"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Novedades en Azure Data Catalog
 De forma periódica se publican actualizaciones de **Azure Data Catalog**. No todas las versiones incluyen nuevas características de cara al usuario, ya que algunas se centran en las funcionalidades del servicio back-end. En esta página se resaltan las nuevas funcionalidades de cara al usuario que se han agregado al servicio Azure Data Catalog.
@@ -137,7 +137,7 @@ A partir de mayo de 2016 se han agregado las siguientes funcionalidades a Azure 
 
 * Un glosario empresarial que permite a los administradores del Catálogo definir términos y jerarquías empresariales para crear un vocabulario empresarial común. Los usuarios pueden etiquetar recursos de datos registrados con términos del glosario para que resulte más fácil de detectar y comprender el contenido del catálogo. Para más información, consulte [Configuración del glosario empresarial para el etiquetado regulado](data-catalog-how-to-business-glossary.md)  
 * Mejoras en el glosario empresarial del catálogo de datos que permite a los usuarios actualizar varios términos de glosario en una sola operación. Los usuarios pueden seleccionar varios términos para editar los campos siguientes:
-  * Término primario: el usuario puede seleccionar un nuevo término primario y todos los términos seleccionados se actualizan para ser secundarios del término primario seleccionado. Si los términos seleccionados tienen el mismo elemento primario, este último se muestra en el cuadro de texto. De lo contrario, el campo de término primario está en blanco.   
+  * Término primario: el usuario puede seleccionar un nuevo término primario y todos los términos seleccionados se actualizan para ser secundarios respecto al término primario seleccionado. Si los términos seleccionados tienen el mismo elemento primario, este último se muestra en el cuadro de texto. De lo contrario, el campo de término primario está en blanco.   
   * Etiquetas y partes interesadas: los usuarios pueden agregar y quitar etiquetas y partes interesadas para varios términos de glosario utilizando el mismo modo que para el etiquetado de varios recursos de datos.
 
 > [!NOTE]
@@ -153,7 +153,7 @@ A partir de febrero de 2016 se han agregado las siguientes funcionalidades a Azu
 
 * Una experiencia de selección de origen de datos recientemente rediseñada en la herramienta de registro de origen de datos de Azure Data Catalog. La herramienta de registro de origen de datos se ha actualizado para facilitarle la búsqueda y selección en los orígenes de datos compatibles con Azure Data Catalog.
 * Compatibilidad con diez idiomas adicionales en el portal de Azure Data Catalog y en la herramienta de registro de origen de datos. Además del inglés, la experiencia de Azure Data Catalog ahora está disponible en alemán, español, francés, italiano, japonés, coreano, portugués (Brasil), ruso, chino simplificado y chino tradicional. La experiencia de usuario de Azure Data Catalog se traduce en función de las preferencias de idioma establecidas en Windows o en el explorador web del usuario.
-* Compatibilidad con la replicación geográfica de datos de Azure Data Catalog para continuidad empresarial y recuperación ante desastres. Todo el contenido de Azure Data Catalog como, por ejemplo, anotaciones de micromecenazgo y metadatos de origen de datos, ahora se replica entre dos regiones de Azure sin costo adicional para los clientes. Las regiones de Azure están emparejadas previamente, con una separación de al menos 804 km de distancia, y siguen la asignación que se describe en [Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure](../best-practices-availability-paired-regions.md).
+* Compatibilidad con la replicación geográfica de datos de Azure Data Catalog para continuidad empresarial y recuperación ante desastres. Todo el contenido de Azure Data Catalog como, por ejemplo, anotaciones de micromecenazgo y metadatos de origen de datos, ahora se replica entre dos regiones de Azure sin costo adicional para los clientes. Las regiones de Azure están emparejadas previamente, con una separación de al menos 804 km de distancia, y siguen la asignación que se describe en [Continuidad empresarial y recuperación ante desastres (BCDR): Regiones emparejadas de Azure](../best-practices-availability-paired-regions.md).
 * Compatibilidad para cambiar la suscripción de Azure de Azure Data Catalog. Los administradores de Azure Data Catalog pueden usar la página de Configuración en el portal de Azure Data Catalog para seleccionar una suscripción de Azure diferente para la facturación.
 
 ## <a name="whats-new-for-january-2016"></a>Novedades de enero de 2016

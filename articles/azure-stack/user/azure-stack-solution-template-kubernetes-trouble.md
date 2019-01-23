@@ -11,19 +11,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 472dfc04cea65cab39d177bb214c417d229b71d2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: dc6994cd682997dd00e76b57b4996ebad1f73fbb
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956727"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352401"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Solucionar problemas de implementación de Kubernetes en Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 > [!Note]  
 > Kubernetes en Azure Stack está en versión preliminar.
@@ -90,7 +90,7 @@ Puede recopilar registros en las máquinas virtuales que admiten el clúster de 
 3.  Revise los archivos de creación de la máquina virtual. Puede que haya tenido los siguientes problemas:  
     - Es posible que la clave pública no sea válida. Revise la clave que ha creado.  
     - Puede que la creación de máquinas virtuales haya desencadenado un error interno o un error de creación. Los errores pueden deberse a diversos factores, como las limitaciones de capacidad de la suscripción de Azure Stack.
-    - Asegúrese de que el nombre de dominio completo (FDQN) de la máquina virtual comienza con un prefijo duplicado.
+    - Asegúrese de que el nombre de dominio completo (FQDN) de la máquina virtual comienza con un prefijo duplicado.
 4.  Si la máquina virtual es **correcta**, evalúe la instancia de DVM. Si la instancia de DVM tiene un mensaje de error:
 
     - Es posible que la clave pública no sea válida. Revise la clave que ha creado.  

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2016
 ms.author: yushwang
-ms.openlocfilehash: c510bb060d5c0dc866c3802fab751c1cbeff3745
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 623ed10e155012780f039bf7b9148be34143454d
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42143153"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353284"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Conectividad de alta disponibilidad entre locales y de red virtual a red virtual
 En este artículo se proporciona información general sobre las opciones de configuración de alta disponibilidad para la conectividad entre locales y de red virtual a red virtual con instancias de Azure VPN Gateway.
@@ -49,7 +49,8 @@ Esta configuración proporciona varios túneles activos desde la propia instanci
 3. Se necesita BGP para esta configuración. Cada puerta de enlace de red local que representa un dispositivo VPN debe tener una dirección IP de par BGP única especificada en la propiedad "BgpPeerIpAddress".
 4. Los campos de la propiedad AddressPrefix en cada puerta de enlace de red local no deben superponerse. Debe especificar la propiedad "BgpPeerIpAddress" en formato CIDR /32 en el campo AddressPrefix, por ejemplo, 10.200.200.254/32.
 5. Debería usar BGP para anunciar los mismos prefijos que los de la red local a su instancia de Azure VPN Gateway y el tráfico se reenviará a través de estos túneles simultáneamente.
-6. Cada conexión cuenta para el número máximo de túneles para su instancia de Azure VPN Gateway, 10 para las SKU Básica y Estándar, y 30 para la SKU HighPerformance. 
+6. Debe usar el enrutamiento multidireccional de igual costo (ECMP).
+7. Cada conexión cuenta para el número máximo de túneles para su instancia de Azure VPN Gateway, 10 para las SKU Básica y Estándar, y 30 para la SKU HighPerformance. 
 
 En esta configuración, Azure VPN Gateway sigue en modo activo-en espera, por lo que se producirán el mismo comportamiento de conmutación por error y una breve interrupción, como se ha descrito [antes](#activestandby). Sin embargo, esta configuración protege contra errores o interrupciones en la red local y los dispositivos VPN.
 

@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 9784d08a8e3e471a8b516c3bc285430c537857a8
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 5b418f28cb8cb48d8c9ee369289c899c7f6525bc
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044185"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331969"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guía de diseño de tablas de Azure Storage: Diseño de tablas escalables y eficaces
 
@@ -213,7 +213,7 @@ En la sección [Descripción general de Table service](#overview) se describen a
 * La segunda opción más eficaz es una ***Consulta por rango*** que use **PartitionKey** y filtre un rango de valores **RowKey** para devolver más de una entidad. El valor **PartitionKey** identifica una partición específica y los valores **RowKey** identifican un subconjunto de las entidades de esa partición. Por ejemplo: $filter=PartitionKey eq 'Sales”, RowKey ge 'S' y RowKey lt 'T'  
 * En tercer lugar, tiene un ***Examen de partición*** que usa **PartitionKey** y filtra otra propiedad no clave y que puede devolver más de una entidad. El valor **PartitionKey** identifica una partición específica y los valores de propiedad seleccionan un subconjunto de las entidades de esa partición. Por ejemplo: $filter=PartitionKey eq 'Sales' y LastName eq 'Smith'  
 * Un ***Examen de tabla*** no incluye la **PartitionKey** y es ineficaz, ya que busca en todas las particiones que componen la tabla todas las entidades coincidentes. Realizará un recorrido de tabla independientemente de si su filtro usa **RowKey**. Por ejemplo: $filter=LastName eq 'Jones'  
-* Las consultas que devuelven varias entidades las devuelven ordenadas en orden **PartitionKey** y **RowKey**. Para evitar reordenar las entidades del cliente, seleccione un **RowKey** que defina el criterio de ordenación más común.  
+* Las consultas de Azure Table Storage que devuelven varias entidades las devuelven ordenadas según los campos **PartitionKey** y **RowKey**. Para evitar reordenar las entidades del cliente, seleccione un **RowKey** que defina el criterio de ordenación más común. Los resultados de consulta devueltos por la Table API de Azure en Azure Cosmos DB no se ordenan por clave de fila ni por clave de partición. Para obtener una lista detallada de las diferencias entre características, consulte las [diferencias entre Table API de Azure Cosmos DB y Azure Table Storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 Al usar "**or**" para especificar un filtro basado en valores **RowKey**, se generará un examen de partición y no se tratará como una consulta de intervalo. Por lo tanto, debe evitar las consultas que usan filtros como: $filter=PartitionKey eq 'Sales' y (RowKey eq '121' o RowKey eq '322')  
 
@@ -251,7 +251,13 @@ Muchos diseños deben cumplir los requisitos para habilitar la búsqueda de enti
 * [Patrón de entidades de índice](#index-entities-pattern) : mantener las entidades de índice para habilitar búsquedas eficaces que devuelvan listas de entidades.  
 
 ### <a name="sorting-data-in-the-table-service"></a>Ordenación de los datos de Table service
-Table service devuelve entidades ordenadas en orden ascendente según **PartitionKey** y, a continuación, por **RowKey**. Estas claves son valores de cadena y para asegurarse de que los valores numéricos se ordenen correctamente, debe convertirlos a una longitud fija y rellenarlos con ceros. Por ejemplo, si el valor de identificador de empleado que utiliza como **RowKey** es un valor entero, debe convertir el identificador de empleado **123** en **00000123**.  
+
+Los resultados de consulta devueltos por Table service se encuentran en orden ascendente según el campo **PartitionKey** y, a continuación, según **RowKey**.
+
+> [!NOTE]
+> Los resultados de consulta devueltos por la Table API de Azure en Azure Cosmos DB no se ordenan por clave de fila ni por clave de partición. Para obtener una lista detallada de las diferencias entre características, consulte las [diferencias entre Table API de Azure Cosmos DB y Azure Table Storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+
+Las claves en la tabla de Azure Storage son valores de cadena y para asegurarse de que los valores numéricos se ordenen correctamente, debe convertirlos a una longitud fija y rellenarlos con ceros. Por ejemplo, si el valor de identificador de empleado que utiliza como **RowKey** es un valor entero, debe convertir el identificador de empleado **123** en **00000123**. 
 
 Muchas aplicaciones tienen requisitos para utilizar datos ordenados en distintos órdenes: por ejemplo, ordenar los empleados por su nombre o por su fecha de contratación. Los patrones siguientes de la sección [Patrones de diseño de tabla](#table-design-patterns) tratan cómo alternar órdenes de clasificación para sus entidades:  
 

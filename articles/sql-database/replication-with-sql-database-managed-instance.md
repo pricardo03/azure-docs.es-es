@@ -1,59 +1,33 @@
 ---
-title: Replicación con Instancia administrada de Azure SQL Database | Microsoft Docs
-description: Obtenga más información acerca del uso de replicación de SQL Server con Instancia administrada de Azure SQL Database
+title: Configuración de la replicación con Instancia administrada de Azure SQL Database | Microsoft Docs
+description: Más información sobre cómo configurar la replicación transaccional en Instancia administrada de Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: howto
 author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 09/25/2018
-ms.openlocfilehash: 4a272b028e1e3ef2778227f259c0b1b980af885d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/16/2019
+ms.openlocfilehash: 568b239cf41c802cc5d25b638f6d1501f58eccdf
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547605"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54360095"
 ---
-# <a name="replication-with-sql-database-managed-instance"></a>Replicación con Instancia administrada de SQL Database
+# <a name="configure-replication-in-azure-sql-database-managed-instance"></a>Configuración de la replicación con Instancia administrada de Azure SQL Database
 
-La replicación está disponible para su versión preliminar en [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md). Una Instancia administrada puede hospedar las bases de datos del publicador, distribuidor y suscriptor.
-
-## <a name="common-configurations"></a>Configuraciones comunes
-
-En general, el publicador y el distribuidor deben estar en la nube o en el entorno local. Se admiten las siguientes configuraciones:
-
-- **Publicador con distribuidor local en Instancia administrada**
-
-   ![Replication-with-azure-sql-db-single-managed-instance-publisher-distributor](./media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
-
-   Las bases de datos del publicador y del distribuidor se configuran en una sola Instancia administrada.
-
-- **Publicador con distribuidor remoto en Instancia administrada**
-
-   ![Replication-with-azure-sql-db-separate-managed-instances-publisher-distributor](./media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
-
-   El publicador y el distribuidor se configuran en dos Instancias administradas. En esta configuración:
-
-  - Las dos Instancias administradas están en la misma red virtual.
-
-  - Las dos Instancias administradas están en la misma ubicación.
-
-- **Publicador y distribuidor locales con suscriptor en la Instancia administrada**
-
-   ![Replication-from-on-premises-to-azure-sql-db-subscriber](./media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
-
-   En esta configuración, una Azure SQL Database es un suscriptor. Esta configuración admite la migración desde el entorno local a Azure. En el rol de suscriptor, la base de datos SQL no requiere la Instancia administrada. Sin embargo, puede usar una Instancia administrada de SQL Database como paso de migración desde el entorno local a Azure. Para obtener más información acerca de los suscriptores de Azure SQL Database, consulte [Replication to SQL Database](replication-to-sql-database.md) (Replicación a SQL Database).
+La replicación transaccional permite replicar datos de las bases de datos de SQL Server o Instancia administrada de Azure SQL Database en la Instancia administrada, así como insertar los cambios realizados en las bases de datos de Instancia administrada en otra instancia de SQL Server, Base de datos única de Azure o Instancia administrada. La replicación está disponible en su versión preliminar pública en [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md). Una Instancia administrada puede hospedar las bases de datos del publicador, distribuidor y suscriptor. Consulte [Transactional replication configurations](sql-database-managed-instance-transactional-replication.md#common-configurations) (Configuraciones de replicación transaccional) para ver las configuraciones disponibles.
 
 ## <a name="requirements"></a>Requisitos
 
 Se requiere el publicador y el distribuidor en Azure SQL Database:
 
-- Instancia administrada de Azure SQL Database.
+- Instancia administrada de Azure SQL Database no debe estar en la configuración de recuperación ante desastres geográfica.
 
    >[!NOTE]
    >Las bases de datos de SQL Azure Database que no están configuradas con Instancia administrada solo pueden ser suscriptores.
@@ -74,7 +48,13 @@ Admite:
 
 - Los suscriptores pueden ser bases de datos únicas y locales de Azure SQL Database o bases de datos agrupadas en grupos elásticos de Azure SQL Database.
 
-- Replicación unidireccional o bidireccional
+- Replicación unidireccional o bidireccional.
+
+No se admiten las siguientes características:
+
+- Suscripciones actualizables.
+
+- Replicación geográfica activa.
 
 ## <a name="configure-publishing-and-distribution-example"></a>Configuración del ejemplo de publicación y distribución
 
@@ -87,7 +67,7 @@ Admite:
 
    En los scripts de ejemplo siguientes, reemplace `<Publishing_DB>` por el nombre de esta base de datos.
 
-4. Cree un usuario de base de datos con autenticación de SQL para el distribuidor. Consulte [Creación de usuarios de base de datos](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Utilice una contraseña segura.
+4. Cree un usuario de base de datos con autenticación de SQL para el distribuidor. Utilice una contraseña segura.
 
    En los scripts de ejemplo siguientes, use `<SQL_USER>` y `<PASSWORD>` con el usuario y la contraseña de la base de datos de esta cuenta de SQL Server.
 
@@ -188,15 +168,8 @@ Admite:
                 @job_password = N'<PASSWORD>'
    GO
    ```
-
-## <a name="limitations"></a>Limitaciones
-
-No se admiten las siguientes características:
-
-- Suscripciones actualizables
-
-- Replicación geográfica activa
-
+   
 ## <a name="see-also"></a>Otras referencias
 
+- [Replicación transaccional](sql-database-managed-instance-transactional-replication.md)
 - [¿Qué es la Instancia administrada?](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)

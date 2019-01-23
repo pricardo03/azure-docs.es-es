@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: jegeib
-ms.openlocfilehash: 8b0700e76bbcc0913b376e607f706f540b1df2bb
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 4e08491ae898fef16af1e199a76a4c07a6c226b9
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307082"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358667"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Microsoft Threat Modeling Tool
 
@@ -46,7 +46,7 @@ La tabla siguiente contiene vínculos importantes para ayudarle a comenzar con T
 
 | Paso  | DESCRIPCIÓN                                                                                   |
 | ----- | --------------------------------------------------------------------------------------------- |
-| **1** | [Descarga de Threat Modeling Tool](https://aka.ms/tmtpreview)                                |
+| **1** | [Descarga de Threat Modeling Tool](https://aka.ms/threatmodelingtool)                                |
 | **2** | [Lea nuestra guía de introducción](./azure-security-threat-modeling-tool-getting-started.md)    |
 | **3** | [Conozca las características](./azure-security-threat-modeling-tool-feature-overview.md)   |
 | **4** | [Obtenga información acerca de las categorías de amenaza generadas](./azure-security-threat-modeling-tool-threats.md)   |

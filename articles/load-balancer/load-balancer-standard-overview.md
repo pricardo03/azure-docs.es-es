@@ -5,22 +5,23 @@ description: Introducción a las características de Azure Load Balancer Estánd
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: feaa0058aed566b40d3f2da548da1d961d5c82f3
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 2eb2fbb1d184bf58923748278d4989a271adf434
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438768"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352587"
 ---
-# <a name="azure-load-balancer-standard-overview"></a>Introducción a Azure Load Balancer Estándar
+# <a name="azure-standard-load-balancer-overview"></a>Introducción a Azure Standard Load Balancer
 
 Azure Load Balancer permite escalar las aplicaciones y crear alta disponibilidad para sus servicios. Load Balancer se puede usar para escenarios de entrada y de salida, proporciona baja latencia y alta capacidad de proceso, y puede escalar hasta millones de flujos para todas las aplicaciones TCP y UDP. 
 
@@ -89,12 +90,12 @@ Load Balancer Estándar proporciona métricas multidimensionales mediante Azure 
 
 | Métrica | DESCRIPCIÓN |
 | --- | --- |
-| Disponibilidad de VIP | Load Balancer estándar usa continuamente la ruta de acceso a los datos desde una región hasta el servidor front-end de Load Balancer y, finalmente, hasta la pila de SDN que respalda la máquina virtual. Siempre que permanezcan las instancias correctas, la medida sigue la misma ruta de acceso que el tráfico con equilibrio de carga de las aplicaciones. También se valida la ruta de acceso a los datos usada por los clientes. La medida es invisible para la aplicación y no interfiere con otras operaciones.|
-| Disponibilidad de DIP | Load Balancer estándar usa un servicio de sondeo de estado distribuido que supervisa el estado del punto de conexión de la aplicación de acuerdo con lo que se ha configurado. Esta métrica proporciona una vista agregada o filtrada por punto de conexión de cada punto de conexión de instancia individual del grupo de Load Balancer.  Puede ver cómo Load Balancer observa el estado de su aplicación según se indica en la configuración de sondeo de estado.
-| Paquetes SYN | Load Balancer estándar no finaliza las conexiones TCP ni interactúa con los flujos de paquetes TCP o UDP. Los flujos y los protocolos de enlace son siempre entre el origen y la instancia de máquina virtual. Para solucionar mejor los escenarios de protocolo TCP, puede hacer uso de estos contadores de paquetes SYN para saber el número de intentos de conexión TCP realizados. La métrica indica el número de paquetes TCP SYN recibidos.|
-| Conexiones SNAT | Load Balancer Estándar informa del número de flujos salientes enmascarados en el servidor front-end de dirección IP pública. Los puertos SNAT son un recurso agotable. Esta métrica puede proporcionar una indicación de la dependencia que su aplicación tiene de SNAT en los flujos salientes originados.  Los contadores de los flujos de salida de SNAT que se realizaron con éxito y los que tuvieron algún error se notifican y se pueden utilizar para solucionar problemas y comprender el estado de los flujos de salida.|
-| Contadores de bytes | Load Balancer estándar informa de los datos procesados por servidor front-end.|
-| Contadores de paquetes | Load Balancer estándar informa de los paquetes procesados por servidor front-end.|
+| Disponibilidad de VIP | Standard Load Balancer usa continuamente la ruta de acceso a los datos desde una región hasta el servidor front-end de Load Balancer y, finalmente, hasta la pila de SDN que respalda la máquina virtual. Siempre que permanezcan las instancias correctas, la medida sigue la misma ruta de acceso que el tráfico con equilibrio de carga de las aplicaciones. También se valida la ruta de acceso a los datos usada por los clientes. La medida es invisible para la aplicación y no interfiere con otras operaciones.|
+| Disponibilidad de DIP | Load Balancer Estándar usa un servicio de sondeo de mantenimiento distribuido que supervisa el mantenimiento del punto de conexión de la aplicación de acuerdo con la configuración. Esta métrica proporciona una vista agregada o filtrada por punto de conexión de cada punto de conexión de instancia individual del grupo de Load Balancer.  Puede ver cómo Load Balancer observa el estado de su aplicación según se indica en la configuración de sondeo de estado.
+| Paquetes SYN | Load Balancer Estándar no finaliza las conexiones TCP ni interactúa con los flujos de paquetes TCP o UDP. Los flujos y los protocolos de enlace son siempre entre el origen y la instancia de máquina virtual. Para solucionar mejor los escenarios de protocolo TCP, puede hacer uso de estos contadores de paquetes SYN para saber el número de intentos de conexión TCP realizados. La métrica indica el número de paquetes TCP SYN recibidos.|
+| Conexiones SNAT | Standard Load Balancer informa del número de flujos salientes enmascarados en el servidor front-end de dirección IP pública. Los puertos SNAT son un recurso agotable. Esta métrica puede proporcionar una indicación de la dependencia que su aplicación tiene de SNAT en los flujos salientes originados.  Los contadores de los flujos de salida de SNAT que se realizaron con éxito y los que tuvieron algún error se notifican y se pueden utilizar para solucionar problemas y comprender el estado de los flujos de salida.|
+| Contadores de bytes | Standard Load Balancer informa de los datos procesados por front-end.|
+| Contadores de paquetes | Standard Load Balancer informa de los paquetes procesados por front-end.|
 
 Consulte la [explicación detallada de los diagnóstico de Load Balancer Estándar](load-balancer-standard-diagnostics.md).
 
@@ -202,7 +203,7 @@ Las SKU no son mutables. Siga los pasos de esta sección para cambiar de una SKU
 
 ## <a name="region-availability"></a>Disponibilidad en regiones
 
-Load Balancer estándar está disponible actualmente en todas las regiones de la nube pública.
+Standard Load Balancer está disponible actualmente en todas las regiones de la nube pública.
 
 ## <a name="sla"></a>Contrato de nivel de servicio
 
@@ -210,7 +211,12 @@ Load Balancer Estándar está disponible con un SLA del 99,99 %.  Consulte el [S
 
 ## <a name="pricing"></a>Precios
 
-Standard Load Balancer es un producto que se factura según el número de reglas de equilibrio de carga configuradas y de todos los datos de entrada y salida procesados. Para más información sobre los precios de Load Balancer Estándar, visite la página [Precios de Load Balancer](https://aka.ms/lbpricing).
+Se cobra por el uso de Standard Load Balancer.
+
+- Número de reglas de salida y para equilibrio de cargas configuradas (las reglas NAT de entrada no cuentan para el número total de reglas).
+- Cantidad de datos procesados entrantes y salientes, independientemente de la regla. 
+
+Para más información sobre los precios de Load Balancer Estándar, vaya la página [Precios de Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
 
 ## <a name="limitations"></a>Limitaciones
 

@@ -1,26 +1,8 @@
 ---
-title: 'Preguntas más frecuentes (P+F) sobre Machine Learning Studio: Azure | Microsoft Docs'
-description: 'Azure Machine Learning Studio: preguntas más frecuentes sobre facturación, funcionalidades y limitaciones de un servicio en la nube para un modelado de predicción optimizado.'
-keywords: introducción de aprendizaje automático, modelo predictivo, qué es el aprendizaje automático
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 06/02/2017
-ms.openlocfilehash: 23de87bb566764540f1a7bf152d72bfdc0e3719f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091307"
+título: Preguntas más frecuentes (P+F) sobre Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: "Azure Machine Learning Studio: preguntas más frecuentes sobre facturación, funcionalidades y limitaciones de un servicio en la nube para un modelado de predicción optimizado".
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: conceptual
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 02/06/2017
 ---
 # <a name="azure-machine-learning-studio-faq-billing-capabilities-limitations-and-support"></a>Preguntas más frecuentes sobre Azure Machine Learning Studio: facturación, funcionalidades, limitaciones y soporte técnico
 Estas son algunas de las preguntas más frecuentes (P+F) y las respuestas correspondientes sobre Azure Machine Learning, un servicio en la nube para el desarrollo de modelos predictivos y la aplicación de soluciones mediante servicios web. Estas preguntas más frecuentes incluyen cuestiones sobre cómo usar el servicio; por ejemplo, el modelo de facturación, las funcionalidades, las limitaciones y el soporte técnico.

@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 16026adc2eb0179cd2b42f449494cbbc6547b946
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: c2d121106218c0965cd8f4e07776cf8d2578543f
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651459"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354168"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Uso del paquete de contenido de Power BI de Azure Active Directory
 
@@ -101,13 +101,45 @@ Si quiere actualizar el paquete de contenido a una versión más reciente, siga 
 
 Una vez que compruebe que la nueva versión del paquete de contenido funciona según lo esperado, puede quitar la versión anterior, si es necesario; para ello, elimine los informes subyacentes y los conjuntos de datos asociados con ese paquete de contenido.
 
-## <a name="still-having-issues"></a>¿Sigue teniendo problemas? 
+## <a name="troubleshoot-content-pack-errors"></a>Solución de errores de los paquetes de contenido
 
-Consulte nuestra [guía de solución de problemas](troubleshoot-content-pack.md). Para obtener ayuda general con Power BI, visite estos [artículos de Ayuda](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
+Mientras trabaja con el paquete de contenido, es posible que se encuentre con los siguientes errores: 
+
+- [Error al actualizar](#refresh-failed) 
+- [Error al actualizar las credenciales del origen de datos ](#failed-to-update-data-source-credentials) 
+- [La importación de datos tarda demasiado](#data-import-is-too-slow) 
+
+Para obtener ayuda general con Power BI, visite estos [artículos de Ayuda](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
+
+### <a name="refresh-failed"></a>Error al actualizar 
+ 
+**¿Cómo aparece este error?**: correo electrónico desde Power BI o estado de error en el historial de actualización. 
+
+
+| Causa | Solución |
+| ---   | ---        |
+| Los errores de actualización pueden producirse cuando se han restablecido las credenciales de los usuarios que se conectan al paquete de contenido, pero no se actualizan en la configuración de conexión del paquete de contenido. | En Power BI, busque el conjunto de datos correspondiente al panel de registros de actividad de Azure AD (**registros de actividad de Azure Active Directory**), elija programar la actualización y, luego, escriba sus credenciales de Azure AD. |
+| Una actualización puede producir un error debido a problemas de datos en el paquete de contenido subyacente. | [Abra una incidencia de soporte técnico](../fundamentals/active-directory-troubleshooting-support-howto.md).|
  
+ 
+### <a name="failed-to-update-data-source-credentials"></a>Error al actualizar las credenciales del origen de datos 
+ 
+**¿Cómo aparece este error?**: en Power BI, cuando se conecta al paquete de contenido de registros de actividad de Azure AD. 
+
+| Causa | Solución |
+| ---   | ---        |
+| El usuario que se conecta no es un administrador global, un lector de seguridad o un administrador de seguridad. | Use una cuenta que sea administrador global, lector de seguridad o administrador de seguridad para acceder a los paquetes de contenido. |
+| El inquilino no es Premium o no tiene al menos un usuario con un archivo de licencia Premium. | [Abra una incidencia de soporte técnico](../fundamentals/active-directory-troubleshooting-support-howto.md).|
  
+### <a name="data-import-is-too-slow"></a>La importación de datos es demasiado lenta 
+ 
+**¿Cómo aparece este error?**: en Power BI, después de conectar el paquete de contenido, el proceso de importación de datos comienza a preparar su panel para los registros de actividad de Azure AD. Verá el mensaje: **Importando datos...**  sin ningún progreso adicional.  
+
+| Causa | Solución |
+| ---   | ---        |
+| Según el tamaño de su inquilino, este paso puede tardar desde algunos minutos hasta media hora. | Si el mensaje no cambia para mostrar el panel dentro de una hora, [abra una incidencia de soporte técnico](../fundamentals/active-directory-troubleshooting-support-howto.md).|
+  
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Instalación del paquete de contenido de Power BI](quickstart-install-power-bi-content-pack.md).
-* [Solución de errores de los paquetes de contenido](troubleshoot-content-pack.md)
 * [¿Qué son los informes de Azure AD?](overview-reports.md)

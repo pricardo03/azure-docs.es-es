@@ -7,12 +7,12 @@ ms.author: andrela
 ms.custom: mvc
 ms.topic: conceptual
 ms.date: 11/14/2018
-ms.openlocfilehash: 9385ccf61f8cb8de0b3a459ac00c05b32d2630e4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 99039c4d6abb8a839886e9d623e92c9fb2c41787
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536889"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353335"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>¿Qué es Azure Database for MySQL?
 Azure Database for MySQL es un servicio de base de datos relacional de Microsoft Cloud basado en el motor de base de datos de [MySQL Community Edition](https://www.mysql.com/products/community/), versiones 5.6 y 5.7. Azure Database for MySQL ofrece lo siguiente:
@@ -47,7 +47,7 @@ El Acuerdo de Nivel de Servicio (SLA) de Azure, con una disponibilidad del 99,99
 ## <a name="secure-your-data"></a>Protección de los datos
 La tradicional seguridad de los datos de los servicios de bases de datos de Azure se mantiene en Azure Database for MySQL con características que limitan el acceso, protegen los datos en reposo y en movimiento, y le ayudan a supervisar la actividad. Para obtener más información sobre la seguridad de plataforma de Azure, vaya al [Centro de confianza de Azure](https://www.microsoft.com/en-us/trustcenter/security).
 
-El servicio Azure Database for MySQL usa el cifrado de almacenamiento de los datos en reposo. Los datos, incluidas las copias de seguridad, se cifran en el disco (a excepción de los archivos temporales creados por el motor durante la ejecución de consultas). El servicio usa el cifrado AES de 256 bits que se incluye en el cifrado de almacenamiento de Azure y las claves están administradas por el sistema. El cifrado de almacenamiento siempre está activado y no se puede deshabilitar.
+El servicio Azure Database for MySQL usa el cifrado de almacenamiento de los datos en reposo y cumple con la norma FIPS 140-2. Los datos, incluidas las copias de seguridad, se cifran en el disco (a excepción de los archivos temporales creados por el motor durante la ejecución de consultas). El servicio usa el cifrado AES de 256 bits que se incluye en el cifrado de almacenamiento de Azure y las claves están administradas por el sistema. El cifrado de almacenamiento siempre está activado y no se puede deshabilitar.
 
 De forma predeterminada, el servicio Azure Database for MySQL está configurado para requerir la [seguridad de la conexión SSL](./concepts-ssl-connection-security.md) para los datos en movimiento en la red. La exigencia de conexiones SSL entre el servidor de base de datos y las aplicaciones cliente ayuda a proteger contra los ataques de tipo "man in the middle" dado que los datos se cifran entre el servidor y la aplicación. Tiene la opción de deshabilitar el requisito de SSL para conectar el servicio de base de datos en caso de que la aplicación cliente no admita la conectividad SSL.
 

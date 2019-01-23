@@ -6,14 +6,14 @@ author: jamesbak
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/15/2019
 ms.author: jamesbak
-ms.openlocfilehash: 95aff0bb37a91c1e2ac117f2f3b90c726e9f88d8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 791598da593c25a135c05d72b6846053af3ff344
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792897"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353862"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Inicio rápido: Configuración de clústeres en HDInsight
 
@@ -25,6 +25,10 @@ Un clúster de Hadoop se compone de varias máquinas virtuales (nodos) que se us
 >La facturación del clúster de HDInsight se inicia una vez creado el clúster y solo se detiene cuando se elimina. Se facturan por minuto realizando una prorrata, por lo que siempre debe eliminar aquellos que ya no se estén utilizando. Aprenda a [eliminar un clúster](../../hdinsight/hdinsight-delete-cluster.md).
 
 En esta guía de inicio rápido, se usa una cuenta de almacenamiento con funcionalidades de Data Lake Storage Gen2 como capa de datos. Con su servicio de espacio de nombres jerárquico y el [controlador de Hadoop](data-lake-storage-abfs-driver.md), Data Lake Storage Gen2 está optimizado para el procesamiento y el análisis distribuidos. Los datos almacenados en una cuenta de almacenamiento que tiene Data Lake Storage Gen2 habilitado continúan incluso después de eliminar un clúster de HDInsight.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+- Deberá crear una identidad administrada asignada por el usuario y, a continuación, asignarle el **rol de colaborador de Blob Storage**. Consulte [Creación, enumeración, eliminación o asignación de un rol a una identidad administrada asignada por el usuario mediante Azure Portal](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
 
 ## <a name="cluster-setup-methods"></a>Métodos de configuración de clústeres
 
@@ -102,10 +106,9 @@ Aunque una instalación local de Hadoop usa el sistema de archivos distribuido d
 
 Durante la configuración, como punto de conexión de almacenamiento predeterminado puede especificar Data Lake Storage. El almacenamiento predeterminado contiene los registros del sistema y de la aplicación. De manera opcional, puede especificar más cuentas de almacenamiento vinculadas con Data Lake Storage Gen2 habilitado a las que el clúster puede acceder. El clúster de HDInsight y las cuentas de almacenamiento dependientes deben estar en la misma ubicación de Azure.
 
-![Configuración de almacenamiento de clúster: puntos de conexión de almacenamiento compatible con HDFS](media/data-lake-storage-quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
+![Configuración de almacenamiento de clúster: puntos de conexión de almacenamiento compatibles con HDFS](media/data-lake-storage-quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
 
-> [!IMPORTANT]
-> No olvide **deshabilitar el acceso a Data Lake Store**. Esta configuración hace referencia a la antigua funcionalidad de *Data Lake Store* y debe deshabilitarse para que las características de *Data Lake Storage* funcionen correctamente.
+En la **identidad administrada asignada por el usuario**, no olvide seleccionar la que creó como requisito previo de este artículo.
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../../includes/hdinsight-secure-transfer.md)]
 

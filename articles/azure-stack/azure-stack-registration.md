@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 15c86d1d5af3ba4d373f8dfb199d9ea56edb60b4
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 7413ebac82adce9f034d5ceec16ec76b9ad53f82
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002491"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359551"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registro de Azure Stack con Azure
 
@@ -33,7 +33,7 @@ La información de este artículo describe el registro de los sistemas integrado
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Necesitará lo siguiente antes de registrar:
+Necesitará lo siguiente antes de realizar el registro:
 
  - Comprobar las credenciales
  - Establecer el modo de lenguaje de PowerShell
@@ -52,9 +52,9 @@ Antes de registrar Azure Stack con Azure, debe tener:
 
 - El nombre de usuario y la contraseña de una cuenta que sea propietaria de la suscripción.
 
-- La cuenta de usuario debe tener acceso a la suscripción de Azure y contar con permisos para crear aplicaciones de identidad y entidades de servicio en el directorio asociado a esa suscripción.
+- La cuenta de usuario debe tener acceso a la suscripción de Azure y contar con permisos para crear aplicaciones de identidad y entidades de servicio en el directorio asociado a esa suscripción. Se recomienda registrar Azure Stack con Azure con la administración con privilegios mínimos mediante la [creación de una cuenta de servicio que se usará para el registro](azure-stack-registration-role.md) en lugar del uso de credenciales de administrador global.
 
-- Haber registrado el proveedor de recursos de Azure Stack (para más información, consulte la sección Registro de un proveedor de recursos de Azure Stack).
+- Haber registrado el proveedor de recursos de Azure Stack (para más información, consulte la siguiente sección Registro de un proveedor de recursos de Azure Stack).
 
 Después del registro, no se necesita el permiso de administrador global de Azure Active Directory. Pero algunas operaciones pueden requerir la credencial de administrador global. Por ejemplo, un script del instalador del proveedor de recursos o una nueva característica que necesita la concesión de un permiso. Puede restablecer temporalmente los permisos de administrador global de la cuenta o usar una cuenta de administrador global independiente que sea propietaria de la *suscripción del proveedor predeterminada*.
 
@@ -68,11 +68,11 @@ Para registrar correctamente Azure Stack, el modo de lenguaje de PowerShell debe
 $ExecutionContext.SessionState.LanguageMode
 ```
 
-Asegúrese de que la salida devuelve **FullLanguageMode**. Si se devuelve cualquier otro modo de lenguaje, el tendrá que ejecutarse en otro equipo o el modo de lenguaje tendrá que establecerse en **FullLanguageMode** antes de continuar.
+Asegúrese de que la salida devuelve **FullLanguageMode**. Si se devuelve cualquier otro modo de lenguaje, el registro tiene que ejecutarse en otra máquina o el modo de lenguaje tiene que establecerse en **FullLanguageMode** antes de continuar.
 
 ### <a name="install-powershell-for-azure-stack"></a>Instalación de PowerShell para Azure Stack
 
-Para registrarse en Azure, es preciso usar la versión más reciente de PowerShell para Azure Stack.
+Para registrarse en Azure, use la versión más reciente de PowerShell para Azure Stack.
 
 Si no está instalada aún la versión más reciente, consulte [Instalación de PowerShell para Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
 
@@ -147,7 +147,7 @@ Los entornos conectados pueden acceder a Internet y a Azure. Para estos entornos
    Import-Module .\RegisterWithAzure.psm1
    ```
 
-6. A continuación, en la misma sesión de PowerShell, asegúrese de que ha iniciado sesión en el contexto correcto de Azure PowerShell. Se trata de la cuenta de Azure que se usó para registrar el proveedor de recursos de Azure Stack anterior. PowerShell que se ejecuta:
+6. A continuación, en la misma sesión de PowerShell, asegúrese de que ha iniciado sesión en el contexto correcto de Azure PowerShell. Se trata de la cuenta de Azure que se usó para registrar el proveedor de recursos de Azure Stack anteriormente. PowerShell que se ejecuta:
 
    ```PowerShell  
       Add-AzureRmAccount -EnvironmentName "<environment name>"
@@ -170,7 +170,7 @@ Los entornos conectados pueden acceder a Internet y a Azure. Para estos entornos
    ```
    Para más información acerca del cmdlet Set-AzsRegistration, consulte [Referencia del registro](#registration-reference).
 
-  El proceso tardará entre 10 y 15 minutos. Cuando finalice el comando, verá el mensaje **"Your environment is now registered and activated using the provided parameters."** (El entorno ya está registrado y se ha activado mediante los parámetros proporcionados)
+  El proceso tarda entre 10 y 15 minutos. Cuando finalice el comando, verá el mensaje **"Your environment is now registered and activated using the provided parameters."** (El entorno ya está registrado y se ha activado mediante los parámetros proporcionados).
 
 ## <a name="register-connected-with-capacity-billing"></a>Registro conectado con la facturación por capacidad
 
@@ -306,9 +306,21 @@ Puede usar el icono de **administración de regiones** para comprobar si el regi
 
 2. En el panel, seleccione **Region management** (Administración de regiones).
 
+3. Seleccione **Propiedades**. Esta hoja muestra el estado y los detalles de su entorno. El estado puede ser **Registrado** o **No registrado**.
+
     [ ![Icono de administración de regiones](media/azure-stack-registration/admin1sm.png "icono de administración de regiones") ](media/azure-stack-registration/admin1.png#lightbox)
 
-3. Seleccione **Propiedades**. Esta hoja muestra el estado y los detalles de su entorno. El estado puede ser **Registrado** o **No registrado**. Si el estado es registrado, también muestra el identificador de la suscripción de Azure que usó para registrar Azure Stack, junto con el grupo de recursos de registro y el nombre.
+    Si ya se ha registrado, las propiedades incluyen:
+    
+    - **Identificador de suscripción para el registro**: identificador de suscripción de Azure registrado y asociado con Azure Stack.
+    - **Grupo de recursos de registro**: grupo de recursos de Azure de la suscripción asociada que contiene los recursos de Azure Stack.
+
+4. Utilice Azure Portal para ver los registros de aplicaciones de Azure Stack. Inicie sesión en Azure Portal con una cuenta asociada a la suscripción que usó para registrar Azure Stack. Cambie al inquilino asociado con Azure Stack.
+5. Vaya a **Azure Active Directory > Registros de aplicaciones > Ver todas las aplicaciones**.
+
+    ![Registros de aplicaciones](media/azure-stack-registration/app-registrations.png)
+
+    Los registros de aplicaciones de Azure Stack tienen el prefijo **Azure Stack**.
 
 Como alternativa, puede comprobar si el registro es correcto mediante la característica de administración de Marketplace. Si ve una lista de elementos de marketplace en la hoja de administración de Marketplace, significa que su registro se realizó correctamente. Sin embargo, en entornos desconectados, no verá los elementos de marketplace en la característica de administración de Marketplace. Pero, puede usar la herramienta sin conexión para comprobar el registro.
 
@@ -353,7 +365,7 @@ El registro se tendrá que actualizar o renovar en las siguientes circunstancias
 
 #### <a name="remove-the-activation-resource-from-azure-stack"></a>Eliminación del recurso de activación de Azure Stack
 
-En primer lugar, tendrá que eliminar el recurso de activación de Azure Stack y, después, el recurso de registro de Azure.  
+En primer lugar, debe eliminar el recurso de activación de Azure Stack y, después, el recurso de registro de Azure.  
 
 Para quitar el recurso de activación de Azure Stack, ejecute los siguientes cmdlets de PowerShell en su entorno de Azure Stack:  
 
@@ -443,11 +455,11 @@ Para ejecutar el cmdlet, necesitará:
 | MarketplaceSyndicationEnabled | True/False | Determina si la característica de administración de Marketplace está disponible o no en el portal. Se establece en true si se registra con conectividad a Internet. Se establece en false si se registra en entornos sin conexión. Para los registros sin conexión, puede usar la [herramienta de redifusión sin conexión](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) para descargar elementos de Marketplace. |
 | UsageReportingEnabled | True/False | Azure Stack informa de las métricas de uso de forma predeterminada. Los operadores que tienen usos de capacidad o admiten un entorno desconectado deben desactivar los informes de uso. Los valores permitidos para este parámetro son: True y False. |
 | AgreementNumber | string |  |
-| RegistrationName | string | Establezca un nombre único para el registro si ejecuta el script de registro en más de una instancia de Azure Stack mediante el mismo identificador de suscripción de Azure. El valor predeterminado del parámetro es **AzureStackRegistration**. Sin embargo, si usa el mismo nombre en más de una instancia de Azure Stack, el script no se ejecutará correctamente. |
+| RegistrationName | string | Establezca un nombre único para el registro si ejecuta el script de registro en más de una instancia de Azure Stack mediante el mismo identificador de suscripción de Azure. El valor predeterminado del parámetro es **AzureStackRegistration**. Sin embargo, si usa el mismo nombre en más de una instancia de Azure Stack, el script no se ejecuta correctamente. |
 
 ### <a name="get-azsregistrationtoken"></a>Get-AzsRegistrationToken
 
-Get-AzsRegistrationToken generará un token de registro a partir de los parámetros de entrada.
+Get-AzsRegistrationToken genera un token de registro a partir de los parámetros de entrada.
 
 ```PowerShell  
     Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String>

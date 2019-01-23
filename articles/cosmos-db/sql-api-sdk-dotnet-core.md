@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 5eb04f30fd6766b8df65998b8a4d53797b8341ba
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 95ebdd74fa8be433c7a31f79ad36d4645bc57318
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053558"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354525"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>SDK de .NET Core de Azure Cosmos DB para API de SQL: notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -121,7 +121,7 @@ El SDK de .NET Core para Azure Cosmos DB incluye paridad de características con
 ### <a name="a-name191191"></a><a name="1.9.1"/>1.9.1
 
 * Se ha corregido KeyNotFoundException para el orden de particiones cruzadas por consultas en casos excepcionales.
-* Se ha corregido el error, donde no se ha respetado el atributo JsonPropery de la cláusula select para consultas LINQ.
+* Se ha corregido el error, donde no se ha respetado el atributo JsonProperty de la cláusula select para consultas LINQ.
 
 ### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
 

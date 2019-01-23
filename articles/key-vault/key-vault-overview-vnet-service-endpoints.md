@@ -10,12 +10,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: 1d53fc6cef022f627bb1cd1f832ebf65698207a9
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 2c035b7c6bbd687ca2922d5f52e2ddaa0c96e50c
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002437"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351431"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Puntos de conexión de servicio de red virtual para Azure Key Vault
 
@@ -74,6 +74,7 @@ Esta es una lista de servicios de confianza que tienen permiso para acceder a un
 |Azure SQL Database|[Cifrado de datos transparente con compatibilidad con Bring Your Own Key para Azure SQL Database y Data Warehouse](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
 |Azure Storage|[Storage Service Encryption mediante claves administradas por el cliente en Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Azure Data Lake Store|[Cifrado de datos en Azure Data Lake Store](../data-lake-store/data-lake-store-encryption.md) con una clave administrada de cliente.|
+|Azure Databricks|[Servicio de análisis rápido, sencillo y de colaboración basado en Apache Spark](../azure-databricks/what-is-azure-databricks.md)|
 
 
 

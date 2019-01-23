@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: addd901e1b3a9bb537278082763081a7e39b21da
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 06130a5ade63e23fdcd139902a19694a510393a3
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824292"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332309"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introducción al registro de flujo de grupos de seguridad de red
 
@@ -33,10 +33,12 @@ Aunque los registros de flujo tienen como destino los NSG, no se muestran como l
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
- 
+Puede analizar los registros de flujo y obtener información sobre el tráfico de red mediante el [análisis del tráfico](traffic-analytics.md).
+
 Las mismas directivas de retención vistas en otros registros se aplican a los registros de flujo. Puede establecer la directiva de retención de registros de 1 a 2147483647 días. Si no se establece una directiva de retención, los registros se mantendrán indefinidamente.
 
-También puede analizar los registros de flujo con [análisis de tráfico](traffic-analytics.md).
+> [!NOTE] 
+> Si se usa la característica de directiva de retención con el registro de flujo de NSG, es posible que se presente un gran volumen de operaciones de almacenamiento, con sus respectivos costos. Si no necesita la característica de directiva de retención, se recomienda que establezca este valor en 0.
 
 
 ## <a name="log-file"></a>Archivo de registro
@@ -63,7 +65,7 @@ Los registros de flujo incluyen las siguientes propiedades:
                     * **Protocol**: el protocolo del flujo. Los valores válidos son **T** para TCP y **U** para UDP
                     * **Traffic Flow**: la dirección del flujo de tráfico. Los valores válidos son **I** para el correo entrante y **O** para el saliente.
                     * **Decisión de tráfico**: indica si el tráfico se permitió o se denegó. Los valores válidos son **A** para permitido y **D** para denegado.
-                    * **Estado de flujo, solo versión 2**: captura el estado del flujo. Los posibles estados son: **B**: inicio, cuando se crea el flujo. No se proporcionan las estadísticas. **C**: continuación de un flujo en curso. Las estadísticas se proporcionan a intervalos de cinco minutos. **E**: final, cuando termina el flujo. Se proporcionan las estadísticas.
+                    * **Estado de flujo, solo versión 2**: captura el estado del flujo. Los estados posibles son**B**: inicio, cuando se crea el flujo. No se proporcionan las estadísticas. **C**: continuación de un flujo en curso. Las estadísticas se proporcionan a intervalos de cinco minutos. **E**: final, cuando termina el flujo. Se proporcionan las estadísticas.
                     * **Paquetes: origen a destino, solo versión 2** El número total de paquetes TCP o UDP enviados desde el origen al destino desde la última actualización.
                     * **Bytes enviados: origen a destino, solo versión 2** El número total de bytes de paquetes TCP o UDP enviados desde el origen al destino desde la última actualización. Los bytes de paquete incluyen el encabezado y la carga del paquete.
                     * **Paquetes: destino a origen, solo versión 2** El número total de paquetes TCP o UDP enviados desde el destino al origen desde la última actualización.
@@ -71,7 +73,7 @@ Los registros de flujo incluyen las siguientes propiedades:
 
 ## <a name="nsg-flow-logs-version-2"></a>Versión 2 de los registros de flujo de NSG
 > [!NOTE] 
-> La versión 2 de los registros de flujo solo está disponible en la región Centro-oeste de EE. UU. La configuración está disponible mediante Azure Portal y API REST. Si habilita los registros de la versión 2 en una región no admitida, hará que los registros de la versión 1 se envíen a su cuenta de almacenamiento.
+> La versión 2 de los registros de flujo solo está disponible en la región Centro-oeste de EE. UU. Si habilita los registros de la versión 2 en una región no admitida, hará que los registros de la versión 1 se envíen a su cuenta de almacenamiento.
 
 La versión 2 de los registros presenta el estado de flujo. Puede configurar qué versión de los registros de flujo recibe. Para saber cómo habilitar los registros de flujo, consulte [Habilitación del registro de flujo de NSG](network-watcher-nsg-flow-logging-portal.md).
 
@@ -86,6 +88,12 @@ Para los estados de continuación *C* y finalización *E*, los recuentos de paqu
 Para los estados de continuación *C* y finalización *E*, los recuentos de paquetes y bytes son recuentos agregados desde el momento del registro de la tupla de flujo anterior. Con referencia a la conversación de ejemplo anterior, el número total de paquetes transferidos es 1021+52+8005+47 = 9125. El número total de bytes transferidos es 588096+29952+4610880+27072 = 5256000.
 
 El texto que sigue es un ejemplo de un registro de flujo. Como puede ver, hay varios registros que siguen la lista de propiedades que se describe en la sección anterior.
+
+## <a name="nsg-flow-logging-considerations"></a>Consideraciones acerca del registro de flujo de NSG
+
+**Habilitar el registro de flujo de NSG en todos los NSG asociados a un recurso**: En Azure, el registro de flujo en Azure se configura en el recurso de NSG. Un flujo solo se asociará a una regla de NSG. En escenarios en los que se utilizan varios NSG, se recomienda que los registros de flujo de NSG estén habilitados en todos los NSG aplicados a la interfaz de red o subred de un recurso para garantizar que todo el tráfico se registre. Consulte [cómo se evalúa el tráfico](../virtual-network/security-overview.md#how-traffic-is-evaluated) para obtener más información sobre los grupos de seguridad de red. 
+
+**Costos del registro de flujo**: El registro de flujos de NSG se factura según el volumen de registros generados. Un volumen de tráfico elevado puede producir un volumen de registro de flujo elevado, con los costos asociados. Los precios del registro de flujos de NSG no incluyen los costos de almacenamiento subyacentes. Si se usa la característica de directiva de retención con el registro de flujo de NSG, es posible que se presente un gran volumen de operaciones de almacenamiento, con sus respectivos costos. Si no necesita la característica de directiva de retención, se recomienda que establezca este valor en 0. Consulte [precios de Network Watcher](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) y [precios de Azure Storage](https://azure.microsoft.com/en-us/pricing/details/storage/) para obtener más detalles.
 
 ## <a name="sample-log-records"></a>Entradas de registro de ejemplo
 

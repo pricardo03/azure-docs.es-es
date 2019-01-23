@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9dbe88e1e179df4560d5094cf3f58ca770541323
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e6e0904efdb86376688710a94920cdb44c2804ec
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842279"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353131"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Inicio de sesión con una aplicación iOS
 
@@ -29,7 +29,7 @@ La plataforma Microsoft Identity utiliza estándares abiertos como OAuth2 y Open
 Si no está familiarizado con OAuth2 o con OpenID Connect, es posible que gran parte de esta configuración de ejemplo no tenga mucho sentido para usted. Se recomienda que consulte una breve [información general sobre el protocolo que hemos documentado aquí](active-directory-b2c-reference-protocols.md).
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Obtener un directorio de Azure AD B2C
-Para poder usar Azure AD B2C, debe crear un directorio o inquilino. Un directorio es un contenedor de todos los usuarios, aplicaciones, grupos, etc. Antes de continuar, si no tiene un directorio B2C, [créelo](active-directory-b2c-get-started.md) .
+Para poder usar Azure AD B2C, debe crear un directorio o inquilino. Un directorio es un contenedor de todos los usuarios, aplicaciones, grupos, etc. Antes de continuar, si no tiene un directorio B2C, [créelo](tutorial-create-tenant.md) .
 
 ## <a name="create-an-application"></a>Creación de una aplicación
 A continuación, debe crear una aplicación en su directorio B2C. El registro de la aplicación proporciona a Azure AD la información que necesita para comunicarse de forma segura con la aplicación. Para crear una aplicación móvil, siga [estas instrucciones](active-directory-b2c-app-registration.md). Asegúrese de:
@@ -39,13 +39,11 @@ A continuación, debe crear una aplicación en su directorio B2C. El registro de
 * Configure un **URI de redireccionamiento** con un esquema personalizado (por ejemplo, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). Necesitará este URI más adelante.
 
 ## <a name="create-your-user-flows"></a>Creación de flujos de usuario
-En Azure AD B2C, cada experiencia del usuario se define mediante un [flujo de usuario](active-directory-b2c-reference-policies.md). Esta aplicación contiene una experiencia de identidad: una combinación de inicio de sesión y registro. Cree este flujo de usuario, como se describe en el [artículo de referencia de flujo de usuario](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). Cuando cree el flujo de usuario, asegúrese de hacer lo siguiente:
+En Azure AD B2C, cada experiencia del usuario se define mediante un [flujo de usuario](active-directory-b2c-reference-policies.md). Esta aplicación contiene una experiencia de identidad: una combinación de inicio de sesión y registro. Cuando cree el flujo de usuario, asegúrese de hacer lo siguiente:
 
 * En **Atributos de registro**, seleccione **Nombre para mostrar**.  Puede seleccionar también otros atributos.
 * En **Notificaciones de aplicación**, seleccione las notificaciones **Nombre para mostrar** e **Identificador de objeto del usuario**. Puede elegir también otras notificaciones.
 * Copiar el **nombre** de cada flujo de usuario después de crearlo Cuando se guarda el flujo de usuario, el nombre tiene como prefijo `b2c_1_`.  Esta información la necesitará más adelante.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Después de haber creado los flujos de usuario, está listo para compilar la aplicación.
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 42a4ea1e4dc352e56fbd65f69c9ed71e3b0c1038
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 65ccf45ea8ea1f8f553be0b2c599f5c1433fc3e8
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "51238082"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359721"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configuración manual de grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure
 
@@ -51,6 +51,9 @@ En la tabla siguiente se enumeran los requisitos previos que debe completar ante
 
 
 Antes de comenzar con este tutorial, debe completar los requisitos de [Finalización de requisitos previos para crear grupos de disponibilidad AlwaysOn en Azure Virtual Machines](virtual-machines-windows-portal-sql-availability-group-prereq.md). Si estos requisitos previos ya se han completado, puede ir a [Creación del clúster](#CreateCluster).
+
+  >[!NOTE]
+  > Muchos de los pasos descritos en este tutorial se pueden automatizar mediante una plantilla de inicio rápido de Azure. Para obtener más información, consulte [Create WSFC, listener, and configure ILB for an Always On availability group on a SQL Server VM with Azure Quickstart Template](virtual-machines-windows-sql-availability-group-quickstart-template.md) (Creación del clúster WSFC y el agente de escucha y configuración de ILB para un grupo de disponibilidad AlwaysOn en una VM con SQL Server con plantillas de inicio rápido de Azure).
 
 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
@@ -296,7 +299,7 @@ Ahora ya puede configurar un grupo de disponibilidad siguiendo estos pasos:
 
     ![Asistente para nuevo grupo de disponibilidad, seleccionar sincronización de datos iniciales](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. En la página **Seleccionar sincronización de datos iniciales**, seleccione **Completa** y especifique una ubicación de red compartida. Para la ubicación, utilice el [recurso compartido de copia de seguridad que creó](#backupshare). En el ejemplo, era **\\\\\<Primer servidor SQL Server\>\Backup\\**. Haga clic en **Next**.
+8. En la página **Seleccionar sincronización de datos iniciales**, seleccione **Completa** y especifique una ubicación de red compartida. Para la ubicación, utilice el [recurso compartido de copia de seguridad que creó](#backupshare). En el ejemplo, era ***\\\\\<Primer servidor SQL Server\>\Backup\\\**. Haga clic en **Next**.
 
    >[!NOTE]
    >La sincronización completa realiza una copia de seguridad completa de la base de datos en la primera instancia de SQL Server y la restaura en la segunda instancia. Para bases de datos grandes, no se recomienda la sincronización completa porque puede llevar mucho tiempo. Puede reducir este tiempo realizando manualmente una copia de seguridad de la base de datos y restaurándola con `NO RECOVERY`. Si ya se ha restaurado la base de datos con `NO RECOVERY` en el segundo servidor SQL Server antes de configurar el grupo de disponibilidad, elija **Solo unirse**. Si desea realizar la copia de seguridad después de configurar el grupo de disponibilidad, elija **Omitir la sincronización de datos iniciales**.

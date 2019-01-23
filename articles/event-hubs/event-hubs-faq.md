@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 7308b122d878c225aa98a19a303bc9520f3201ef
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: bcbb249c6cb3c886b94f8ad68dd668cb8858ac77
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088247"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354599"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Preguntas frecuentes sobre Event Hubs
 
@@ -181,6 +181,9 @@ Capture usa la cuenta de almacenamiento que se especifique al habilitarlo en un 
 Para obtener una lista de todas las cuotas de los centros Event Hubs, consulte [Cuotas](event-hubs-quotas.md).
 
 ## <a name="troubleshooting"></a>solución de problemas
+
+### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>¿Por qué no puedo crear un espacio de nombres después de eliminarlo de otra suscripción? 
+Cuando elimine un espacio de nombres de una suscripción, espere 4 horas antes de volver a crearlo con el mismo nombre en otra suscripción. 
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-event-hubs-and-their-suggested-actions"></a>¿Cuáles son algunas de las excepciones generadas por los centros Event Hubs y sus acciones sugeridas?
 

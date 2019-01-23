@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.openlocfilehash: d0307b26741a6bbbf29626e670467cdd72697646
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a662a61d737dbb620d07fa6d114649e70c082796
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33943588"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329776"
 ---
-# <a name="manually-migrate-a-classic-vm-to-a-new-arm-managed-disk-vm-from-the-vhd"></a>Migración manual de una máquina virtual clásica a una nueva máquina virtual de disco administrada con ARM desde VHD 
+# <a name="migrate-a-classic-vm-to-use-a-managed-disk"></a>Migración de una VM clásica para usar Managed Disks 
 
 
 Esta sección lo ayudará a migrar las máquinas virtuales de Azure existentes desde el modelo de implementación clásico a [Managed Disks](managed-disks-overview.md) en el modelo de implementación de Resource Manager.
@@ -35,33 +35,33 @@ Esta sección puede ayudarlo a tomar la mejor decisión sobre los tipos de disco
 
 ### <a name="location"></a>Ubicación
 
-Elija una ubicación donde Azure Managed Disks esté disponible. Si va a migrar a Managed Disks Premium, asegúrese que Premium Storage también está disponible en la región a la que planea migrar. Consulte [Servicios de Azure por región](https://azure.microsoft.com/regions/#services) para información actualizada sobre las ubicaciones disponibles.
+Elija una ubicación donde Managed Disks esté disponible. Si va a migrar a Managed Disks con almacenamiento Premium, asegúrese también de que el almacenamiento Premium esté disponible en esa región. Consulte [Servicios de Azure por región](https://azure.microsoft.com/regions/#services) para información actualizada sobre las ubicaciones disponibles.
 
 ### <a name="vm-sizes"></a>Tamaños de VM
 
-Si va a migrar a Managed Disks Premium, debe actualizar el tamaño de la VM a un tamaño compatible con Premium Storage disponible en la región donde se ubica la VM. Revise los tamaños de VM compatibles con Premium Storage. Las especificaciones de tamaño de las máquinas virtuales de Azure se muestran en [Tamaños de máquinas virtuales](sizes.md).
+Si va a migrar a Managed Disks con almacenamiento Premium, debe actualizar el tamaño de la VM a un tamaño compatible con Premium Storage disponible en la región donde se ubica la VM. Revise los tamaños de VM compatibles con Premium Storage. Las especificaciones de tamaño de las máquinas virtuales de Azure se muestran en [Tamaños de máquinas virtuales](sizes.md).
 Repase las características de rendimiento de las máquinas virtuales que trabajan con Premium Storage y elija el tamaño de máquina virtual que se mejor se ajuste a su carga de trabajo. Procure que haya suficiente ancho de banda disponible en la máquina virtual para dirigir el tráfico de disco.
 
 ### <a name="disk-sizes"></a>Tamaños de disco
 
-**Managed Disks Premium**
+**Premium**
 
-Hay siete tipos de Managed Disks Premium que se pueden usar con la máquina virtual y cada uno de ellos tiene sus límites específicos de rendimiento y E/S por segundo. Considere estos límites a la hora de elegir el tipo de disco Premium para la VM según las necesidades de capacidad, rendimiento, escalabilidad y cargas máximas de la aplicación.
+Hay siete tipos de almacenamiento Premium que se pueden usar con la VM, y cada uno de ellos tiene sus límites específicos de rendimiento y E/S por segundo. Considere estos límites a la hora de elegir el tipo de disco Premium para la VM según las necesidades de capacidad, rendimiento, escalabilidad y cargas máximas de la aplicación.
 
-| Tipo de discos Premium  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
+| Tipo de discos Premium  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
-| Tamaño del disco           | 128 GB| 512 GB| 128 GB| 512 GB            | 1.024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| IOPS por disco       | 120   | 240   | 500   | 2300              | 5000              | 7500              | 7500              | 
-| Rendimiento de disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo | 
+| Tamaño del disco           | 128 GB| 512 GB| 128 GB| 512 GB            | 1.024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| IOPS por disco       | 120   | 240   | 500   | 2300              | 5000              | 7500              | 7500              | 
+| Rendimiento de disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo | 
 
-**Discos administrados Estándar**
+**Estándar**
 
-Hay siete tipos de discos administrados Estándar que se pueden usar con la máquina virtual. Cada uno de ellos tiene una capacidad distinta, pero los mismos límites de rendimiento y E/S por segundo. Elija el tipo de disco administrado Estándar según las necesidades de capacidad de la aplicación.
+Hay siete tipos de discos estándar que se pueden usar con la VM. Cada uno de ellos tiene una capacidad distinta, pero los mismos límites de rendimiento y E/S por segundo. Elija el tipo de disco administrado Estándar según las necesidades de capacidad de la aplicación.
 
-| Tipo de disco Estándar  | S4               | S6               | S10              | S20              | S30              | S40              | S50              | 
+| Tipo de disco Estándar  | S4               | S6               | S10              | S20              | S30              | S40              | S50              | 
 |---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------| 
-| Tamaño del disco           | 30 GB            | 64 GB            | 128 GB           | 512 GB           | 1.024 GB (1 TB)   | 2048 GB (2 TB)    | 4095 GB (4 TB)   | 
-| IOPS por disco       | 500              | 500              | 500              | 500              | 500              | 500             | 500              | 
+| Tamaño del disco           | 30 GB            | 64 GB            | 128 GB           | 512 GB           | 1.024 GB (1 TB)   | 2048 GB (2 TB)    | 4095 GB (4 TB)   | 
+| IOPS por disco       | 500              | 500              | 500              | 500              | 500              | 500             | 500              | 
 | Rendimiento de disco | 60 MB por segundo | 60 MB por segundo | 60 MB por segundo | 60 MB por segundo | 60 MB por segundo | 60 MB por segundo | 60 MB por segundo | 
 
 
@@ -73,7 +73,7 @@ De forma predeterminada, la directiva de almacenamiento en caché de los discos 
 
 ### <a name="pricing"></a>Precios
 
-Revise el [precio de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/). Los precios de Managed Disks Premium son iguales que los de Unmanaged Disks Premium. Sin embargo, los precios de Managed Disks Estándar son distintos a los de los Unmanaged Disks Estándar.
+Revise el [precio de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/). Los precios de los discos administrados premium son iguales que para los discos no administrados premium. Sin embargo, los precios de discos administrados estándar son distintos a los de los discos no administrados estándar.
 
 
 ## <a name="checklist"></a>Lista de comprobación
@@ -96,77 +96,104 @@ Prepare la aplicación para el tiempo de inactividad. Para realizar una migraci�
 Este elemento requiere la versión 6.0.0 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). También tiene que ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
 
 
-1.  En primer lugar, establezca los parámetros comunes:
+Cree variables para los parámetros comunes.
 
-    ```powershell
-    $resourceGroupName = 'yourResourceGroupName'
-    
-    $location = 'your location' 
-    
-    $virtualNetworkName = 'yourExistingVirtualNetworkName'
-    
-    $virtualMachineName = 'yourVMName'
-    
-    $virtualMachineSize = 'Standard_DS3'
-    
-    $adminUserName = "youradminusername"
-    
-    $adminPassword = "yourpassword" | ConvertTo-SecureString -AsPlainText -Force
-    
-    $imageName = 'yourImageName'
-    
-    $osVhdUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd'
-    
-    $dataVhdUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/datadisk1.vhd'
-    
-    $dataDiskName = 'dataDisk1'
-    ```
+```powershell
+$resourceGroupName = 'yourResourceGroupName'
 
-2.  Cree un disco administrado de SO mediante el VHD de la VM clásica.
+$location = 'your location' 
 
-    Asegúrese de que proporcionó el URI completo del VHD del SO al parámetro $osVhdUri. Además, escriba **-AccountType** como **Premium_LRS** o **Standard_LRS** según el tipo de discos al que migra (Premium o Estándar).
+$virtualNetworkName = 'yourExistingVirtualNetworkName'
 
-    ```powershell
-    $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk (New-AzureRmDiskConfig '
-    -AccountType Premium_LRS -Location $location -CreateOption Import -SourceUri $osVhdUri) '
-    -ResourceGroupName $resourceGroupName
-    ```
+$virtualMachineName = 'yourVMName'
 
-3.  Conecte el disco de SO a la nueva VM.
+$virtualMachineSize = 'Standard_DS3'
 
-    ```powershell
-    $VirtualMachine = New-AzureRmVMConfig -VMName $virtualMachineName -VMSize $virtualMachineSize
-    $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -ManagedDiskId $osDisk.Id '
-    -StorageAccountType Premium_LRS -DiskSizeInGB 128 -CreateOption Attach -Windows
-    ```
+$adminUserName = "youradminusername"
 
-4.  Cree un disco de datos administrado desde el archivo de VHD de datos y agréguelo a la VM nueva.
+$adminPassword = "yourpassword" | ConvertTo-SecureString -AsPlainText -Force
 
-    ```powershell
-    $dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk (New-AzureRmDiskConfig '
-    -AccountType Premium_LRS -Location $location -CreationDataCreateOption Import '
-    -SourceUri $dataVhdUri ) -ResourceGroupName $resourceGroupName
+$imageName = 'yourImageName'
+
+$osVhdUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd'
+
+$dataVhdUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/datadisk1.vhd'
+
+$dataDiskName = 'dataDisk1'
+```
+
+Cree un disco administrado de SO mediante el VHD de la VM clásica. Asegúrese de que proporcionó el URI completo del VHD del SO al parámetro $osVhdUri. Además, escriba **-AccountType** como **Premium_LRS** o **Standard_LRS** según el tipo de discos al que migra (premium o estándar).
+
+```powershell
+$osDisk = New-AzureRmDisk -DiskName $osDiskName '
+   -Disk (New-AzureRmDiskConfig '
+   -AccountType Premium_LRS '
+   -Location $location '
+   -CreateOption Import '
+   -SourceUri $osVhdUri) '
+   -ResourceGroupName $resourceGroupName
+```
+
+Conecte el disco de SO a la nueva VM.
+
+```powershell
+$VirtualMachine = New-AzureRmVMConfig -VMName $virtualMachineName -VMSize $virtualMachineSize
+$VirtualMachine = Set-AzureRmVMOSDisk '
+   -VM $VirtualMachine '
+   -ManagedDiskId $osDisk.Id '
+   -StorageAccountType Premium_LRS '
+   -DiskSizeInGB 128 '
+   -CreateOption Attach -Windows
+```
+
+Cree un disco de datos administrado desde el archivo de VHD de datos y agréguelo a la VM nueva.
+
+```powershell
+$dataDisk1 = New-AzureRmDisk '
+   -DiskName $dataDiskName '
+   -Disk (New-AzureRmDiskConfig '
+   -AccountType Premium_LRS '
+   -Location $location '
+   -CreationOption Import '
+   -SourceUri $dataVhdUri ) '
+   -ResourceGroupName $resourceGroupName
     
-    $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name $dataDiskName '
-    -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
-    ```
+$VirtualMachine = Add-AzureRmVMDataDisk '
+   -VM $VirtualMachine '
+   -Name $dataDiskName '
+   -CreateOption Attach '
+   -ManagedDiskId $dataDisk1.Id '
+   -Lun 1
+```
 
-5.  Establezca la dirección IP pública, la red virtual y la NIC para crear la VM nueva.
+Establezca la dirección IP pública, la red virtual y la NIC para crear la VM nueva.
 
-    ```powershell
-    $publicIp = New-AzureRmPublicIpAddress -Name ($VirtualMachineName.ToLower()+'_ip') '
-    -ResourceGroupName $resourceGroupName -Location $location -AllocationMethod Dynamic
+```powershell
+$publicIp = New-AzureRmPublicIpAddress '
+   -Name ($VirtualMachineName.ToLower()+'_ip') '
+   -ResourceGroupName $resourceGroupName '
+   -Location $location '
+   -AllocationMethod Dynamic
     
-    $vnet = Get-AzureRmVirtualNetwork -Name $virtualNetworkName -ResourceGroupName $resourceGroupName
+$vnet = Get-AzureRmVirtualNetwork '
+   -Name $virtualNetworkName '
+   -ResourceGroupName $resourceGroupName
     
-    $nic = New-AzureRmNetworkInterface -Name ($VirtualMachineName.ToLower()+'_nic') '
-    -ResourceGroupName $resourceGroupName -Location $location -SubnetId $vnet.Subnets[0].Id '
-    -PublicIpAddressId $publicIp.Id
+$nic = New-AzureRmNetworkInterface '
+   -Name ($VirtualMachineName.ToLower()+'_nic') '
+   -ResourceGroupName $resourceGroupName '
+   -Location $location '
+   -SubnetId $vnet.Subnets[0].Id '
+   -PublicIpAddressId $publicIp.Id
     
-    $VirtualMachine = Add-AzureRmVMNetworkInterface -VM $VirtualMachine -Id $nic.Id
+$VirtualMachine = Add-AzureRmVMNetworkInterface '
+   -VM $VirtualMachine '
+   -Id $nic.Id
     
-    New-AzureRmVM -VM $VirtualMachine -ResourceGroupName $resourceGroupName -Location $location
-    ```
+New-AzureRmVM -VM $VirtualMachine '
+   -ResourceGroupName $resourceGroupName '
+   -Location $location
+```
 
 > [!NOTE]
 >Puede que en esta guía no se contemplen otros pasos necesarios para admitir su aplicación.

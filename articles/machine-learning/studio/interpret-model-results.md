@@ -1,26 +1,8 @@
 ---
-title: Cómo interpretar los resultados del modelo de Machine Learning Studio - Azure | Microsoft Docs
-description: Cómo elegir el conjunto de parámetros óptimo para un algoritmo que use y visualice resultados del modelo de puntuación.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 6230e5ab-a5c0-4c21-a061-47675ba3342c
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/29/2017
-ms.openlocfilehash: 9f8ff93efb74bca427cf74351af9d2442f9ab757
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276492"
+título: Interpretación de los resultados del modelo en Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: Cómo elegir el conjunto de parámetros óptimo para un algoritmo que use y visualice resultados del modelo de puntuación.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 29/11/2017
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Interpretar los resultados del modelo en Azure Machine Learning Studio
 En este tema se explica cómo ver e interpretar los resultados de predicción en Azure Machine Learning Studio. Después de entrenar un modelo y realizar predicciones sobre él ("puntuar el modelo"), deberá comprender e interpretar el resultado de predicción.

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/27/2018
+ms.date: 01/16/2019
 ms.author: jingwang
-ms.openlocfilehash: a5df9d4d323158ee52c872b0122fdd28d9f74979
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 161683b48ae66edc621981142c538f8bce44a2b6
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019867"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352179"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Copia de datos de HDFS mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,6 +39,9 @@ En concreto, este conector HDFS admite las siguientes funcionalidades:
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para copiar datos desde una instancia de HDFS que no es accesible públicamente, debe configurar un entorno de ejecución de integración autohospedado. Consulte el artículo sobre el [entorno Integration Runtime (autohospedado)](concepts-integration-runtime.md) para obtener más información.
+
+> [!NOTE]
+> Asegúrese de que Integration Runtime puede obtener acceso a **TODOS** los [servidor de nodo de nombres]:[puerto de nodo de nombres] y [servidores de nodos de datos]:[puerto de nodo de datos] del clúster de Hadoop. El [puerto de nodo de nombres] predeterminado es 50070 y el [puerto de nodo de datos] es 50075.
 
 ## <a name="getting-started"></a>Introducción
 

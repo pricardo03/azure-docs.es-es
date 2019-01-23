@@ -3,7 +3,7 @@ title: Automated Backup v2 para máquinas virtuales Azure con SQL Server 2016/20
 description: Se explica la característica Automated Backup para SQL Server 2016/2017 en máquinas virtuales que se ejecutan en Azure. Este artículo trata exactamente sobre las máquinas virtuales que usan Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
-ms.author: jroth
-ms.openlocfilehash: 664a0036b8aa753de9636688d22afff0163f031f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 432df6d73b2eaa42645fe25ad9c743b7fcef06a8
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246827"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331662"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Automated Backup v2 para Azure Virtual Machines (Resource Manager)
 
@@ -107,7 +108,7 @@ Tiene una VM con SQL Server que contiene varias bases de datos de gran tamaño.
 El lunes, se habilita Automated Backup v2 con las siguientes opciones:
 
 - Programación de copia de seguridad: Manual
-- Frecuencia de copia de seguridad completa: Diaria
+- Frecuencia de copia de seguridad completa: Diario
 - Hora de inicio de copia de seguridad completa: 22:00
 - Período de tiempo de copia de seguridad completa: 6 horas
 
@@ -331,7 +332,7 @@ Otra opción es aprovechar las ventajas de la característica integrada Correo e
 ## <a name="next-steps"></a>Pasos siguientes
 Automated Backup v2 configura Managed Backup en Azure Virtual Machines. Por lo tanto, es importante [revisar la documentación de la Copia de seguridad administrada](https://msdn.microsoft.com/library/dn449496.aspx) para comprender el comportamiento y las implicaciones.
 
-Puede encontrar directrices adicionales sobre la copia de seguridad y la restauración para SQL Server en Azure Virtual Machines en el siguiente artículo: [Copias de seguridad y restauración para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).
+Puede encontrar directrices adicionales sobre la copia de seguridad y la restauración para SQL Server en VM de Azure en el siguiente artículo: [Copias de seguridad y restauración para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).
 
 Para más información acerca de otras tareas de automatización disponibles, consulte la [extensión Agente de IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 

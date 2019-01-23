@@ -3,9 +3,9 @@ title: Microsoft Threat Modeling Tool (Azure) | Microsoft Docs
 description: Información acerca de todas las características disponibles en Threat Modeling Tool
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 76e49fc0e680acbc2b7b7c62b69fbf72d6690acf
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8bbc13aa77c50c6ae02ecc67869035e7ec85effa
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
-ms.locfileid: "26754752"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359347"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Información general de las características de Threat Modeling Tool
 
@@ -107,7 +107,7 @@ Las propiedades del elemento varían en función de los elementos seleccionados.
 
 | Propiedad del elemento                               | Detalles      |
 | --------------------------------------- | ------------ |
-| **Name** | Resulta útil para asignar nombres a los procesos, almacenes, elementos interactivos y flujos para que se reconozcan con facilidad. |
+| **Nombre** | Resulta útil para asignar nombres a los procesos, almacenes, elementos interactivos y flujos para que se reconozcan con facilidad. |
 | **Fuera de ámbito** | Si se selecciona, el elemento se saca de la matriz de generación de amenazas (no se recomienda). |
 | **Motivo de elegir Fuera de ámbito** | Campo de justificación para que los usuarios sepan por qué se seleccionó la opción de fuera de ámbito. |
 
@@ -205,7 +205,7 @@ Una vez que haya terminado de cambiar las prioridades y de actualizar el estado 
 
 ![Informe](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * Para contribuir con una plantilla para la comunidad, vaya a nuestra página de [GitHub](https://github.com/Microsoft/threat-modeling-templates). 
 * Para empezar a usar la herramienta, vaya a la página de [Descarga](https://aka.ms/tmtpreview).

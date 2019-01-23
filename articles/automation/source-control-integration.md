@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/26/2018
+ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 95355a6d1a0aff9829d75789df86f37768d25e22
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 94d948267286ad716aa200cb5aa858acf2eb2624
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342245"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330779"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integración del control de código fuente en Azure Automation
 
@@ -59,6 +59,9 @@ En la página **Resumen del control de código fuente**, rellene la información
 |DESCRIPCIÓN     | Campo de texto para proporcionar detalles adicionales.        |
 
 ![Resumen de control de código fuente](./media/source-control-integration/source-control-summary.png)
+
+> [!NOTE]
+> Asegúrese de que ha iniciado sesión con la cuenta correcta al configurar el control de código fuente. Si tiene dudas, abra una nueva pestaña en el explorador, cierre la sesión de visualstudio.com o github.com y vuelva a intentar establecer la conexión con el control de código fuente.
 
 ## <a name="syncing"></a>Sincronización
 

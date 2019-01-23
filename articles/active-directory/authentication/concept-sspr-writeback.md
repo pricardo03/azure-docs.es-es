@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 01/16/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 4d311794c1c0f2dd6b9a0b2a44983b47bfeef362
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 06a3ac4520a40369c095e57f8e92978fdb280b51
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040547"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359600"
 ---
 # <a name="what-is-password-writeback"></a>¿Qué es la escritura diferida de contraseñas?
 
@@ -42,7 +42,7 @@ La escritura diferida de contraseñas ofrece:
 * **No requiere ninguna regla de firewall de entrada**: la escritura diferida de contraseñas usa una retransmisión de Azure Service Bus como canal de comunicación subyacente. Toda la comunicación es de salida a través del puerto 443.
 
 > [!Note]
-> Las cuentas de usuario que se encuentran dentro de grupos protegidos en Active Directory local no se pueden utilizar con la escritura diferida de contraseñas. Para más información sobre los grupos protegidos, vea [Cuentas y grupos protegidos en Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
+> Las cuentas de usuario que se encuentran dentro de grupos protegidos en Active Directory local no se pueden utilizar con la escritura diferida de contraseñas. Las cuentas de administrador que se encuentran dentro de grupos protegidos en AD local no se pueden utilizar con la escritura diferida de contraseñas. Para más información sobre los grupos protegidos, vea [Cuentas y grupos protegidos en Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
 >
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Requisitos de licencia para la escritura diferida de contraseñas
@@ -58,6 +58,7 @@ Para poder usar la escritura diferida de contraseñas, debe tener una de las sig
 * Microsoft 365 E3 o A3
 * Microsoft 365 E5 o A5
 * Microsoft 365 F1
+* Microsoft 365 Empresa
 
 > [!WARNING]
 > Los planes de licencias de Office 365 independientes *no admiten "Self-Service Password Reset/Change/Unlock with on-premises writeback"* (Autoservicio de restablecimiento/modificación/desbloqueo de contraseñas con escritura en diferido local) y requieren que tenga uno de los planes anteriores para que sirva esta funcionalidad.

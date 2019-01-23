@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: e1c563f33030795d52cc686bf52497f927ace6bc
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 3f13cb2626394d16a127b172bb69c4ab88121cdb
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017708"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352536"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Actividad de procedimiento almacenado de SQL Server
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -76,7 +76,7 @@ El siguiente procedimiento usa la actividad del procedimiento almacenado en una 
 2. Cree el siguiente **procedimiento almacenado**, que inserta datos en **sampletable**.
 
     ```SQL
-    CREATE PROCEDURE sp_sample @DateTime nvarchar(127)
+    CREATE PROCEDURE usp_sample @DateTime nvarchar(127)
     AS
 
     BEGIN
@@ -108,7 +108,7 @@ El siguiente procedimiento usa la actividad del procedimiento almacenado en una 
    ![Página principal de Data Factory](media/data-factory-stored-proc-activity/data-factory-home-page.png)
 
 ### <a name="create-an-azure-sql-linked-service"></a>Crear un servicio vinculado SQL de Azure.
-Después de crear la factoría de datos, cree un servicio vinculado de Azure SQL que conecte Azure SQL Database, que contiene la tabla sampletable y el procedimiento almacenado sp_sample, con la factoría de datos.
+Después de crear la factoría de datos, cree un servicio vinculado de Azure SQL que conecte Azure SQL Database (que contiene la tabla sampletable y el procedimiento almacenado usp_sample) con la factoría de datos.
 
 1. En la hoja **Crear e implementar**, haga clic en la hoja **Data Factory** para que **SProcDF** inicie Data Factory Editor.
 2. Haga clic en **Nuevo almacén de datos** en la barra de comandos y elija **Azure SQL Database**. Debería ver el script JSON para crear un servicio vinculado SQL de Azure en el editor.
@@ -160,7 +160,7 @@ Ahora, vamos a crear una canalización con una actividad de procedimiento almace
 Tenga en cuenta las siguientes propiedades: 
 
 - La propiedad **type** se establece en **SqlServerStoredProcedure**. 
-- El valor de **storedProcedureName** de las propiedades de tipo se establece en **sp_sample** (nombre del procedimiento almacenado).
+- El valor de **storedProcedureName** de las propiedades de tipo se establece en **usp_sample** (nombre del procedimiento almacenado).
 - La sección **storedProcedureParameters** contiene un parámetro llamado **DateTime**. El nombre y el uso de mayúsculas y minúsculas en el parámetro JSON deben coincidir con los del parámetro de la definición del procedimiento almacenado. Si necesita pasar null para un parámetro, use la sintaxis: `"param1": null` null (todo en minúsculas).
  
 1. Haga clic en **... Más** en la barra de comandos y en **Nueva canalización**.
@@ -174,7 +174,7 @@ Tenga en cuenta las siguientes propiedades:
                 {
                     "type": "SqlServerStoredProcedure",
                     "typeProperties": {
-                        "storedProcedureName": "sp_sample",
+                        "storedProcedureName": "usp_sample",
                         "storedProcedureParameters": {
                             "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
                         }
@@ -340,7 +340,7 @@ CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable2(Id);
 **Procedimiento almacenado:**
 
 ```SQL
-CREATE PROCEDURE sp_sample2 @DateTime nvarchar(127) , @Scenario nvarchar(127)
+CREATE PROCEDURE usp_sample2 @DateTime nvarchar(127) , @Scenario nvarchar(127)
 
 AS
 
@@ -355,7 +355,7 @@ Ahora, pase el parámetro **Escenario** y el valor desde la actividad de procedi
 ```JSON
 "typeProperties":
 {
-    "storedProcedureName": "sp_sample",
+    "storedProcedureName": "usp_sample",
     "storedProcedureParameters":
     {
         "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)",
@@ -394,7 +394,7 @@ Ahora, pase el parámetro **Escenario** y el valor desde la actividad de procedi
             {
                 "type": "SqlServerStoredProcedure",
                 "typeProperties": {
-                    "storedProcedureName": "sp_sample2",
+                    "storedProcedureName": "usp_sample2",
                     "storedProcedureParameters": {
                         "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)",
                         "Scenario": "Document sample"

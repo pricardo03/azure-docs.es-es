@@ -11,12 +11,12 @@ ms.component: core
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4a4f1691162ab9c9fbd5bc8802ecf7ebc4894d74
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: e143c0c8ef09af49aed656d479bcad4dd35e2211
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193678"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351805"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemas conocidos y solución de problemas del servicio Azure Machine Learning
  
@@ -44,12 +44,8 @@ No podrá implementar modelos en FPGA hasta que haya solicitado y se haya aproba
 ## <a name="databricks"></a>Databricks
 
 Problemas de Databricks y Azure Machine Learning.
-
-1. Recomendación para el clúster de Databricks:
-   
-   Cree el clúster de Azure Databricks como v4.x con Python 3. Se recomienda un clúster de alta simultaneidad.
  
-2. Error de instalación del SDK de AML en Databricks cuando se instalan varios paquetes.
+1. Error de instalación del SDK de AML en Databricks cuando se instalan varios paquetes.
 
    Algunos paquetes, como `psutil`, pueden provocar conflictos. Para evitar errores de instalación, inmovilice la versión lib para instalar paquetes. Este problema está relacionado con Databricks y no con el SDK de Azure ML, aunque también se puede encontrar en otras bibliotecas. Ejemplo:
    ```python
@@ -57,12 +53,13 @@ Problemas de Databricks y Azure Machine Learning.
    ```
    Como alternativa, puede usar scripts de init si sigue experimentando problemas de instalación con las bibliotecas de Python. Este no es un enfoque oficialmente compatible. Puede hacer referencia a [este documento](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
 
-3. Al usar Machine Learning automatizado en Databricks, si ve `Import error: numpy.core.multiarray failed to import`
+2. Mientras utiliza Automated Machine Learning en Databricks, si quiere cancelar una ejecución del experimento y comenzar una nueva, reinicie el clúster de Azure Databricks.
 
-   Solución alternativa: importe la biblioteca de Python `numpy==1.14.5` a su clúster de Databricks con el procedimiento para crear una biblioteca que [instalar y adjuntar](https://docs.databricks.com/user-guide/libraries.html#create-a-library).
+3. En la configuración de Automated Machine Learning, cuando tenga más de diez iteraciones, establezca "show_output" como "False" al enviar la ejecución.
+
 
 ## <a name="azure-portal"></a>Azure Portal
-Si ve directamente el área de trabajo desde un vínculo de recurso compartido desde el SDK o el portal, no podrá ver la página de información general normal con la información de suscripción en la extensión. Tampoco será capaz de cambiar a otra área de trabajo. Si necesita ver otra área de trabajo, la solución consiste en ir directamente a la [Azure Portal](https://portal.azure.com) y buscar el nombre del área de trabajo.
+Si ve directamente el área de trabajo desde un vínculo de recurso compartido desde el SDK o el portal, no podrá ver la página de información general normal con la información de suscripción en la extensión. Tampoco será capaz de cambiar a otra área de trabajo. Si necesita ver otra área de trabajo, la solución consiste en ir directamente a [Azure Portal](https://portal.azure.com) y buscar el nombre de la misma.
 
 ## <a name="diagnostic-logs"></a>Registros de diagnóstico
 A veces puede resultar útil proporcionar información de diagnóstico al solicitar ayuda. Aquí es donde se encuentran los archivos de registro:

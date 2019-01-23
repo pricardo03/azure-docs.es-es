@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 01/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: 958f4f46ec6ba407df7c739b7c62aa1489458485
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 1dad960b0877cddf3be9afc01e3e687ebe4702c0
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408283"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54357834"
 ---
 # <a name="configure-openvpn-for-azure-point-to-site-vpn-gateway-preview"></a>Configuración de OpenVPN para la puerta de enlace de VPN de punto a sitio de Azure (versión preliminar)
 
@@ -47,7 +47,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 ## <a name="vnet"></a>1. Configuración de una VPN de punto a sitio
 
-Si no dispone de un entorno de punto a sitio funcionando, siga las instrucciones para crear uno. Consulte [Creación de una VPN de punto a sitio](vpn-gateway-howto-point-to-site-resource-manager-portal.md) para crear y configurar una puerta de enlace de VPN de punto a sitio con autenticación de certificados nativos de Azure.
+Si no dispone de un entorno de punto a sitio funcionando, siga las instrucciones para crear uno. Consulte [Creación de una VPN de punto a sitio](vpn-gateway-howto-point-to-site-resource-manager-portal.md) para crear y configurar una puerta de enlace de VPN de punto a sitio con autenticación de certificados nativos de Azure. Tenga en cuenta que no se admite la SKU básica de punto a sitio para IKEv2.
 
 ## <a name="cmdlets"></a>2. Instalación de los cmdlets de PowerShell
 

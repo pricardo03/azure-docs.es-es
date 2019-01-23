@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 01/16/2019
 ms.author: sethm
-ms.openlocfilehash: 570c1adc2f4615e78cbe5656c13b0e22b863baf7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 3fcbf2b3160d57e56a59ba9c374c9b1b2a75a159
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192696"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330252"
 ---
 # <a name="store-service-principal-credentials-in-key-vault"></a>Almacenamiento de credenciales de entidad de servicio en Key Vault
 
@@ -83,7 +83,7 @@ Para crear un almacén de claves, siga estos pasos:
 
 2. En el panel **Secreto**, seleccione **Generar o importar**.
 
-3. En el panel **Crear un secreto**, seleccione **Manual** en la lista de opciones.
+3. En el panel **Crear un secreto**, seleccione **Manual** en la lista de opciones. Si ha creado la entidad de servicio mediante certificados, seleccione los certificados en la lista desplegable y, a continuación, cargue el archivo.
 
 4. Escriba el **id. de la aplicación** copiado de la entidad de servicio como el nombre de la clave. El nombre de la clave solo puede contener caracteres alfanuméricos y el carácter de guion (-).
 

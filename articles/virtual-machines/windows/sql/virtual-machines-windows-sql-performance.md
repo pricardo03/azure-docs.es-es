@@ -3,7 +3,7 @@ title: Directrices de rendimiento para SQL Server en Azure | Microsoft Docs
 description: Ofrece directrices para optimizar el rendimiento de SQL Server en máquinas virtuales de Microsoft Azure.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/26/2018
-ms.author: jroth
-ms.openlocfilehash: 395994e2ac017bcdadaca4defad4ec0f910cea17
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 120f88e6bb8b2c6a1408ef98eadfcbb520b5cdb3
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258136"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332666"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Directrices de rendimiento para SQL Server en Azure Virtual Machines
 
@@ -51,8 +52,8 @@ Para más información sobre *cómo* y *por qué* llevar a cabo estas optimizaci
 
 En aplicaciones sensibles al rendimiento, se recomienda usar los siguientes [tamaños de máquinas virtuales](../sizes.md):
 
-* **SQL Server Enterprise Edition**: DS3_v2 o versiones posteriores
-* **Ediciones de SQL Server Standard y Web**: DS2_v2 o versiones posteriores
+* **SQL Server Enterprise Edition**: DS3_v2 o superior
+* **Ediciones de SQL Server Standard y Web**: DS2_v2 o superior
 
 [Serie DSv2](../sizes-general.md#dsv2-series): las máquinas virtuales admiten el almacenamiento Premium, lo que se recomienda para optimizar el rendimiento. Los tamaños recomendados aquí son líneas de base, pero el tamaño real de la máquina que seleccione depende de las demandas de carga de trabajo. Las máquinas virtuales de la serie DSv2 son máquinas virtuales de uso general adecuadas para una gran variedad de cargas de trabajo, mientras que otros tamaños de máquinas están optimizados para tipos específicos de carga de trabajo. Por ejemplo, la [serie M](../sizes-memory.md#m-series) ofrece la mayor cantidad de vCPU y memoria para las mayores cargas de trabajo de SQL Server. Las [series GS](../sizes-memory.md#gs-series) y [DSv2 series 11-15](../sizes-memory.md#dsv2-series-11-15) están optimizadas para grandes requisitos de memoria. Ambas series también están disponibles en [ tamaños de núcleo limitados](../../windows/constrained-vcpu.md), lo que ahorra dinero para cargas de trabajo con menores exigencias de proceso. Las máquinas de la [serie Ls](../sizes-storage.md) están optimizadas para un alto rendimiento de disco y E/S. Es importante considerar la carga de trabajo específica de SQL Server y aplicarla a la selección de una serie y tamaño de máquina virtual.
 
@@ -69,9 +70,9 @@ Además, se recomienda crear su cuenta de almacenamiento de Azure en el mismo ce
 
 En una máquina virtual de Azure hay tres tipos de disco principales:
 
-* **Disco del sistema operativo**: Al crear una máquina virtual de Azure, la plataforma conectará al menos un disco (etiquetado como unidad **C**) a la máquina virtual como disco del sistema operativo. El disco es un VHD almacenado como blob en páginas en almacenamiento.
-* **Disco temporal**: las máquinas virtuales de Azure contienen otro disco denominado disco temporal (etiquetados como unidad **D**:). Se trata de un disco en el nodo que se puede usar para el espacio de desecho.
-* **Discos de datos**: También puede conectar más discos a la máquina virtual como discos de datos. Estos se guardarán en el almacenamiento como blobs en páginas.
+* **Disco del sistema operativo**: al crear una máquina virtual de Azure, la plataforma conectará al menos un disco (etiquetado como unidad **C**) a la máquina virtual como disco del sistema operativo. El disco es un VHD almacenado como blob en páginas en almacenamiento.
+* **Disco temporal**: las máquinas virtuales de Azure contienen otro disco denominado disco temporal (etiquetado como unidad **D**:). Se trata de un disco en el nodo que se puede usar para el espacio de desecho.
+* **Discos de datos**: También puede conectar discos adicionales a la máquina virtual como discos de datos y estos se almacenarán en el almacenamiento como blobs en páginas.
 
 En las siguientes secciones se incluyen recomendaciones sobre cómo usar cada uno de estos discos.
 
@@ -85,21 +86,21 @@ La directiva del almacenamiento en caché predeterminada en el disco del sistema
 
 La unidad de almacenamiento temporal, etiquetada como la unidad **D**:, no se conserva en el almacenamiento de blobs de Azure. No almacene archivos de base de datos de usuarios ni archivos de registro de transacciones de usuarios en la unidad **D:**.
 
-En máquinas virtuales de las series D, Dv2 y G, la unidad temporal está ubicada en discos SSD. Si la carga de trabajo implica un uso intensivo de TempDB (por ejemplo, con objetos temporales o combinaciones complejas), el almacenamiento de TempDB en la unidad **D** podría dar lugar a un mayor rendimiento de TempDB y la reducción de su latencia. Para ver un escenario de ejemplo, consulte la explicación de TempDB en la siguiente entrada de blog: [Storage Configuration Guidelines for SQL Server on Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/) (Instrucciones de configuración de almacenamiento para SQL Server en máquinas virtuales de Azure).
+En máquinas virtuales de las series D, Dv2 y G, la unidad temporal está ubicada en discos SSD. Si la carga de trabajo implica un uso intensivo de TempDB (por ejemplo, con objetos temporales o combinaciones complejas), el almacenamiento de TempDB en la unidad **D** podría dar lugar a un mayor rendimiento de TempDB y la reducción de su latencia. Para ver un escenario de ejemplo, consulte la explicación de TempDB en la siguiente entrada de blog: [Storage Configuration Guidelines for SQL Server on Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/) (Instrucciones de configuración del almacenamiento para SQL Server en máquinas virtuales de Azure).
 
 En las máquinas virtuales que admiten Premium Storage(series DS, DSv2 y GS), se recomienda almacenar TempDB en un disco que admita Premium Storage y que tenga habilitado el almacenamiento en caché de lectura. Esta recomendación tiene una excepción: si se realiza un uso de TempDB intensivo en cuanto a escritura, podrá lograr un mayor rendimiento si almacena esta base de datos en la unidad **D** local, que en estos tamaños de equipos también está ubicada en un disco SSD.
 
 ### <a name="data-disks"></a>Discos de datos
 
-* **Uso de discos de datos para los archivos de datos y de registro**: si no usa seccionamiento de discos, utilice dos [discos P30](../premium-storage.md#scalability-and-performance-targets) de Premium Storage, uno para los archivos de registro y otro para los archivos de datos y TempDB. Cada disco de Premium Storage proporciona un número de IOPS y ancho de banda (MB/s) según su tamaño, como se describe en el artículo sobre el [Uso de Premium Storage para discos](../premium-storage.md). Si usa una técnica de fragmentación de discos, como los espacios de almacenamiento, puede lograr un rendimiento óptimo si tiene dos grupos: uno para los archivos de registro y otro para los archivos de datos. Sin embargo, si planea usar instancias de clúster de conmutación por error de SQL Server (FCI), debe configurar un grupo.
+* **Uso de discos de datos para archivos de datos y de registro.**: si no usa seccionamiento de discos, utilice dos [discos P30](../premium-storage.md#scalability-and-performance-targets) de Premium Storage, uno para los archivos de registro y otro para los archivos de datos y TempDB. Cada disco de Premium Storage proporciona un número de IOPS y ancho de banda (MB/s) según su tamaño, como se describe en el artículo sobre el [Uso de Premium Storage para discos](../premium-storage.md). Si usa una técnica de fragmentación de discos, como los espacios de almacenamiento, puede lograr un rendimiento óptimo si tiene dos grupos: uno para los archivos de registro y otro para los archivos de datos. Sin embargo, si planea usar instancias de clúster de conmutación por error de SQL Server (FCI), debe configurar un grupo.
 
    > [!TIP]
-   > Para obtener los resultados de las pruebas realizadas en varias configuraciones de discos y cargas de trabajo, consulte la siguiente entrada de blog: [Storage Configuration Guidelines for SQL Server on Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/) (Instrucciones de configuración de almacenamiento para SQL Server en máquinas virtuales de Azure).
+   > Para obtener resultados de la pruebas con varias configuraciones de discos y cargas de trabajo, consulte la siguiente entrada de blog: [Storage Configuration Guidelines for SQL Server on Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/) (Instrucciones de configuración del almacenamiento para SQL Server en máquinas virtuales de Azure).
 
    > [!NOTE]
    > Al aprovisionar una máquina virtual de SQL Server en el portal, tiene la opción de modificar la configuración de almacenamiento. Según la configuración, Azure configura uno o varios discos. Varios discos se combinan en un único grupo de almacenamiento con seccionamiento. Los archivos de datos y de registro residen juntos en esta configuración. Para más información, consulte [Configuración del almacenamiento para máquinas virtuales de SQL Server](virtual-machines-windows-sql-server-storage-configuration.md).
 
-* **Seccionamiento de discos**: para disfrutar de un mayor rendimiento, puede agregar más discos de datos y usar el seccionamiento de discos. Para determinar el número de discos de datos, debe analizar el número de IOPS y ancho de banda necesario para los archivos de registro, así como para los datos y los archivos TempDB. Observe que diferentes tamaños de máquinas virtuales tienen distintos límites en el número de IOPS y ancho de banda admitidos. Vea las tablas de IOPS por [tamaño de máquina virtual](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Use estas directrices:
+* **Seccionamiento del disco**: para disfrutar de un mayor rendimiento, puede agregar más discos de datos y usar el seccionamiento de discos. Para determinar el número de discos de datos, debe analizar el número de IOPS y ancho de banda necesario para los archivos de registro, así como para los datos y los archivos TempDB. Observe que diferentes tamaños de máquinas virtuales tienen distintos límites en el número de IOPS y ancho de banda admitidos. Vea las tablas de IOPS por [tamaño de máquina virtual](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Use estas directrices:
 
   * Para Windows 8/Windows Server 2012 o posterior, use [espacios de almacenamiento](https://technet.microsoft.com/library/hh831739.aspx) con las siguientes directrices:
 
@@ -136,9 +137,9 @@ En las máquinas virtuales que admiten Premium Storage(series DS, DSv2 y GS), se
      > [!WARNING]
      > Detenga el servicio SQL Server al cambiar la configuración de la caché de los discos de máquina virtual de Azure para evitar la posibilidad de que se produzcan daños en la base de datos.
 
-* **Tamaño de unidad de asignación de NTFS**: al formatear el disco de datos, se recomienda usar un tamaño de unidad de asignación de 64 KB para los archivos de datos y de registro, además de TempDB.
+* **Tamaño de la unidad de asignación de NTFS**: al formatear el disco de datos, se recomienda usar un tamaño de unidad de asignación de 64 KB para los archivos de datos y de registro, además de TempDB.
 
-* **Prácticas recomendadas de administración de discos**: al quitar un disco de datos o cambiar su tipo de caché, detenga el servicio SQL Server durante el cambio. Cuando se modifica la configuración de almacenamiento en caché en el disco del sistema operativo, Azure detiene la máquina virtual, cambia el tipo de caché y reinicia la máquina virtual. Cuando se modifica la configuración de la caché de un disco de datos, no se detiene la máquina virtual, pero el disco de datos se desconecta de la máquina virtual durante el cambio y, posteriormente, se vuelve a conectar.
+* **Procedimientos recomendados de administración de discos**: al quitar un disco de datos o cambiar su tipo de caché, detenga el servicio SQL Server durante el cambio. Cuando se modifica la configuración de almacenamiento en caché en el disco del sistema operativo, Azure detiene la máquina virtual, cambia el tipo de caché y reinicia la máquina virtual. Cuando se modifica la configuración de la caché de un disco de datos, no se detiene la máquina virtual, pero el disco de datos se desconecta de la máquina virtual durante el cambio y, posteriormente, se vuelve a conectar.
 
   > [!WARNING]
   > De no detenerse el servicio SQL Server durante estas operaciones, podrían producirse daños en la base de datos.
@@ -174,11 +175,11 @@ En las máquinas virtuales que admiten Premium Storage(series DS, DSv2 y GS), se
 
 Algunas implementaciones pueden lograr ventajas de rendimiento adicionales mediante técnicas de configuración más avanzadas. En la siguiente lista se destacan algunas características de SQL Server que pueden ayudarle a lograr un mejor rendimiento:
 
-* **Copia de seguridad para el almacenamiento de Azure**: al realizar copias de seguridad para SQL Server que se ejecutan en máquinas virtuales de Azure, puede usar [Copia de seguridad de SQL Server a URL](https://msdn.microsoft.com/library/dn435916.aspx). Esta característica está disponible a partir de SQL Server 2012 SP1 CU2 y se recomienda para las copias de seguridad en los discos de datos conectados. Al realizar copias de seguridad o restaurar en o desde el almacenamiento de Azure, siga las recomendaciones que se ofrecen en [Solución de problemas y prácticas recomendadas de copia de seguridad de SQL Server en URL y restauración a partir de copias de seguridad almacenadas en Azure Storage](https://msdn.microsoft.com/library/jj919149.aspx). También puede automatizar estas copias de seguridad con [Automated Backup para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
+* **Crear una copia de seguridad en Azure Storage**: al realizar copias de seguridad para SQL Server que se ejecutan en máquinas virtuales de Azure, puede usar una [Copia de seguridad en URL de SQL Server](https://msdn.microsoft.com/library/dn435916.aspx). Esta característica está disponible a partir de SQL Server 2012 SP1 CU2 y se recomienda para las copias de seguridad en los discos de datos conectados. Al realizar copias de seguridad o restaurar en o desde el almacenamiento de Azure, siga las recomendaciones que se ofrecen en [Solución de problemas y prácticas recomendadas de copia de seguridad de SQL Server en URL y restauración a partir de copias de seguridad almacenadas en Azure Storage](https://msdn.microsoft.com/library/jj919149.aspx). También puede automatizar estas copias de seguridad con [Automated Backup para SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
 
     Antes de SQL Server 2012, puede usar la [Herramienta de copia de seguridad de SQL Server a Azure](https://www.microsoft.com/download/details.aspx?id=40740). Esta herramienta puede ayudar a aumentar el rendimiento de la copia de seguridad con varios destinos de franjas de copia de seguridad.
 
-* **Archivos de datos de SQL Server en Azure**: esta nueva característica, [Archivos de datos de SQL Server en Azure](https://msdn.microsoft.com/library/dn385720.aspx), está disponible a partir de SQL Server 2014. La ejecución de SQL Server con archivos de datos en Azure muestra características de rendimiento comparables con el uso de discos de datos de Azure.
+* **Archivos de datos de SQL Server en Azure**: esta nueva característica ([Archivos de datos de SQL Server en Azure](https://msdn.microsoft.com/library/dn385720.aspx)) está disponible a partir de SQL Server 2014. La ejecución de SQL Server con archivos de datos en Azure muestra características de rendimiento comparables con el uso de discos de datos de Azure.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

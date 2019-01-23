@@ -10,12 +10,12 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 5b302be582bd22a7b38601c90f5fe475062afb26
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0d9d10214f8bc61a914de3f72ddae13679f2811e
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239678"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358514"
 ---
 # <a name="integrate-other-services-with-sql-data-warehouse"></a>Integrar otros servicios con SQL Data Warehouse
 Además de su funcionalidad básica, SQL Data Warehouse permite a los usuarios integrar muchos de los otros servicios de Azure. Algunos de estos servicios son:
@@ -30,7 +30,7 @@ SQL Data Warehouse se sigue integrando con más servicios en Azure y más [asoci
 ## <a name="power-bi"></a>Power BI
 La integración de Power BI le permite combinar la capacidad de procesamiento de SQL Data Warehouse con los informes dinámicos y la visualización de Power BI. La integración de Power BI actualmente incluye:
 
-* **Conexión directa**: una conexión más avanzada con aplicación de lógica en SQL Data Warehouse. La aplicación proporciona un análisis más rápido a mayor escala.
+* **Direct Connect**: una conexión más avanzada con aplicación de lógica en SQL Data Warehouse. La aplicación proporciona un análisis más rápido a mayor escala.
 * **Open in Power BI**: el botón "Open in Power BI" (Abrir en Power BI) pasa la información de la instancia a Power BI para lograr una conexión más fluida.
 
 Para más información, consulte [Integración con Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md) o la [documentación de Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/06/24/exploring-azure-sql-data-warehouse-with-power-bi.aspx).
@@ -41,13 +41,13 @@ Azure Data Factory ofrece a los usuarios una plataforma administrada para crear 
 * **Procedimientos almacenados**: coordinar la ejecución de procedimientos almacenados en SQL Data Warehouse.
 * **Copia**: use ADF para mover datos a SQL Data Warehouse. Esta operación puede utilizar el mecanismo estándar de movimiento de datos de ADF o PolyBase en segundo plano. 
 
-Para más información, consulte el tema sobre la [integración con Azure Data Factory](sql-data-warehouse-get-started-visualize-with-power-bi.md).
+Para más información, consulte el tema sobre la [integración con Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json).
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
 Azure Machine Learning es un servicio de análisis totalmente administrado que permite crear modelos complejos aprovechando un amplio conjunto de herramientas de predicción. SQL Data Warehouse se admite como origen y destino para estos modelos con la siguiente funcionalidad:
 
-* **Lectura de datos:** producir modelos a escala usando T-SQL en SQL Data Warehouse.
-* **Escritura de datos:** confirmar los cambios de cualquier modelo en SQL Data Warehouse.
+* **Lectura de datos**: producir modelos a escala usando T-SQL en SQL Data Warehouse.
+* **Escritura de datos**: confirmar los cambios de cualquier modelo en SQL Data Warehouse.
 
 Para más información, consulte el tema sobre la [integración con Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md).
 

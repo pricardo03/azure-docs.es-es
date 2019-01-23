@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 01/14/2019
 ms.author: juliako
-ms.openlocfilehash: 8df43a9b2c518e77d14dd5cb392b042b0b4846e2
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 8543f00ccaecd8fd3f46132b05c2af925e6de10a
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407973"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352366"
 ---
 # <a name="using-a-cloud-dvr"></a>Uso de una DVR en la nube
 
@@ -35,7 +35,10 @@ Cada objeto **LiveOutput** se asocia a un **recurso**, que utiliza para grabar e
 Un objeto **LiveEvent** admite hasta tres **LiveOutput** en ejecución simultánea, por lo que puede crear como máximo tres grabaciones o archivos desde una transmisión en vivo. Esto le permite publicar y archivar distintas partes de un evento, según sea necesario. Suponga que tiene que difundir una fuente lineal en vivo e ininterrumpida y crea "grabaciones" de los distintos programas durante todo el día para ofrecerlas a los clientes como contenido a petición que pueden ver para ponerse al día. En este escenario, cree primero un objeto LiveOutput principal, con una ventana de archivo corta de una hora o menos: esta es la transmisión en vivo principal que los usuarios sintonizarán. Podría crear un **StreamingLocator** para este **LiveOutput** y publicarlo en la aplicación o en el sitio web como la fuente "En vivo". Mientras el **LiveEvent** se encuentra en ejecución, puede crear mediante programación un segundo objeto **LiveOutput** simultáneo al inicio de un programa o 5 minutos antes para ofrecer algunos manipuladores que se recortan más adelante. Este segundo **LiveOutput** puede eliminarse 5 minutos después de que finalice el programa. Con este segundo **recurso**, puede crear otro **StreamingLocator** para publicar este programa como un recurso a petición en el catálogo de la aplicación. Puede repetir este proceso varias veces para otros límites o aspectos destacados del programa que desea compartir como vídeos a petición, todo esto mientras la fuente "En vivo" del primer objeto **LiveOutput** continúa con la difusión de la fuente lineal. 
 
 > [!NOTE]
-> Los objetos **LiveOutput** se inician al crearlos y se detienen cuando se eliminan. Cuando se elimina el objeto **LiveOutput**, no se elimina el **recurso** subyacente ni el contenido del recurso.  
+> Los objetos **LiveOutput** se inician al crearlos y se detienen cuando se eliminan. Cuando se elimina el objeto **LiveOutput**, no se elimina el **recurso** subyacente ni su contenido. 
+>
+> Si ha publicado **localizadores de streaming** en el recurso para el objeto **LiveOutput**, el evento (hasta la longitud de ventana DVR) seguirá visible hasta la hora de finalización del **localizador de streaming**  o hasta que elimine el localizador, lo que ocurra primero.   
+  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: a0f002266764ace07482023a0412366b90acec63
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: c779344f4cb0544009952423b6771b75482c3061
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789864"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353969"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de problemas de Azure Backup: Problemas con el agente o la extensión
 
@@ -52,7 +52,7 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 * Este problema también puede ocurrir si se desencadenan varias copias de seguridad al día. Actualmente recomendamos solo una copia de seguridad por día, ya que los puntos de restauración instantáneos se retienen durante 7 días y solo 18 puntos de restauración instantáneos se pueden asociar a una máquina virtual en cualquier momento dado. <br>
 
 Acción recomendada:<br>
-Para resolver este problema, elimine el bloqueo en el grupo de recursos de la máquina virtual y vuelva a intentar la operación para desencadenar la limpieza. 
+Para resolver este problema, elimine el bloqueo en el grupo de recursos de la máquina virtual y vuelva a intentar la operación para desencadenar la limpieza.
 > [!NOTE]
     > El servicio Backup crea un grupo de recursos diferente al de la máquina virtual para guardar la colección de puntos de restauración. Es conveniente que los clientes no bloqueen el grupo de recursos que se ha creado para que lo utilice el servicio Backup. El formato de nombres del grupo de recursos creado por el servicio Backup es: AzureBackupRG_`<Geo>`_`<number>`, por ejemplo: AzureBackupRG_northeurope_1
 
@@ -105,14 +105,14 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 **Código de error**: UserErrorUnsupportedDiskSize <br>
 **Mensaje de error**: Azure Backup no admite actualmente tamaños de disco mayores que 1023 GB. <br>
 
-La operación de copia de seguridad podría generar un error al realizar una copia de seguridad de una máquina virtual con un tamaño de disco mayor que 1023 GB, ya que el almacén no se actualiza a la pila de copia de seguridad de máquina virtual de Azure V2. Al actualizar a la pila de copia de seguridad de máquina virtual de Azure V2, se admitirán hasta 4 TB. Revise estas [ventajas](backup-upgrade-to-vm-backup-stack-v2.md) y [consideraciones](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade) y después continúe con la actualización según estas [instrucciones](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
+La operación de copia de seguridad podría generar un error al realizar una copia de seguridad de una máquina virtual con un tamaño de disco mayor que 1023 GB, ya que el almacén no está actualizado a restauración instantánea. La actualización a restauración instantánea le proporcionará compatibilidad con hasta 4 TB, como podrá ver en el siguiente [artículo](backup-instant-restore-capability.md).  
 
 ## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported: actualmente Azure Backup no admite discos SSD estándar.
 
 **Código de error**: UserErrorStandardSSDNotSupported <br>
 **Mensaje de error**: actualmente Azure Backup no admite discos SSD estándar. <br>
 
-Actualmente Azure Backup admite discos SSD estándar solo para los almacenes que se actualizan a la pila de copia de seguridad de máquina virtual de Azure V2. Revise estas [ventajas](backup-upgrade-to-vm-backup-stack-v2.md) y [consideraciones](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade) y después continúe con la actualización según estas [instrucciones](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).
+Actualmente Azure Backup admite discos SSD estándar solo para los almacenes que se actualizan a [restauración instantánea](backup-instant-restore-capability.md).
 
 
 ## <a name="causes-and-solutions"></a>Causas y soluciones
@@ -122,33 +122,8 @@ Según el requisito de implementación, la máquina virtual no tiene acceso a In
 
 Para poder funcionar correctamente, la extensión de copia de seguridad requiere conectividad a las direcciones IP públicas de Azure. La extensión envía comandos a un punto de conexión de Azure Storage (dirección URL de HTTPS) para administrar las instantáneas de la máquina virtual. Si la extensión no tiene acceso a la red Internet pública, se produce un error en la copia de seguridad.
 
-Es posible implementar un servidor proxy para enrutar el tráfico de la máquina virtual.
-##### <a name="create-a-path-for-https-traffic"></a>Crear una ruta de acceso para el tráfico HTTPS
-
-1. Si tiene alguna restricción de red implementada (por ejemplo, un grupo de seguridad de red), implemente un servidor proxy HTTPS para enrutar el tráfico.
-2. Para permitir el acceso a Internet desde el servidor proxy HTTPS, agregue las reglas al grupo de seguridad de red, si dispone de uno.
-
-Para aprender a configurar un proxy HTTPS para las copias de seguridad de la máquina virtual, consulte [Preparación del entorno para la copia de seguridad de Azure Virtual Machines](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
-
-La máquina virtual de la que se ha realizado la copia de seguridad o el servidor proxy mediante el cual se ha enrutado el tráfico requieren acceso a las direcciones IP públicas de Azure
-
 ####  <a name="solution"></a>Solución
-Para solucionar este problema, pruebe uno de los métodos siguientes:
-
-##### <a name="allow-access-to-azure-storage-that-corresponds-to-the-region"></a>Permitir el acceso al almacenamiento de Azure que corresponda a la región.
-
-Puede usar [etiquetas de servicio](../virtual-network/security-overview.md#service-tags) para permitir conexiones al almacenamiento en la región específica. Asegúrese de que la regla que permite el acceso a la cuenta de almacenamiento tenga mayor prioridad que la que bloquea el acceso a Internet.
-
-![Grupo de seguridad de red con etiquetas de almacenamiento para una región](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
-
-Para entender el procedimiento paso a paso para configurar etiquetas de servicio, vea [este vídeo](https://youtu.be/1EjLQtbKm1M).
-
-> [!WARNING]
-> Las etiquetas de servicio de almacenamiento se encuentran en versión preliminar. Solo están disponibles en determinadas regiones. Para ver la lista de regiones, consulte el apartado [Etiquetas de servicio para almacenamiento](../virtual-network/security-overview.md#service-tags).
-
-Si usa Azure Managed Disks, necesitará abrir otro puerto (8443) en los firewalls.
-
-Además, si la subred no tiene una ruta para el tráfico saliente de Internet, deberá agregar un punto de conexión de servicio con la etiqueta de servicio "Microsoft.Storage" a la subred.
+Para resolver el problema de red, consulte [Establecimiento de conectividad de red](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>El agente está instalado en la máquina virtual, pero no responde (en máquinas virtuales Windows)
 

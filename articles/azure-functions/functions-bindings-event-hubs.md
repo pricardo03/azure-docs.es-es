@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/08/2017
 ms.author: cshoe
-ms.openlocfilehash: bc7ed9051f95877760bccec65ff2fa7f49e44993
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 1df948d2b3127ede7129d26401cd5f0c80e964fb
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002159"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331748"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Enlaces de Azure Event Hubs para Azure Functions
 
@@ -423,6 +423,7 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 |**consumerGroup** |**ConsumerGroup** | Una propiedad opcional que establece el [grupo de consumidores](../event-hubs/event-hubs-features.md#event-consumers) que se usará para suscribirse a los eventos del centro. Si se pasa por alto, se utilizará el grupo de consumidores `$Default`. |
 |**cardinalidad** | N/D | Para JavaScript. Defínalo como `many` para permitir el procesamiento por lotes.  Si se omite o se define como `one`, se pasa un único mensaje a la función. |
 |**conexión** |**Connection** | El nombre de una configuración de aplicación que contenga la cadena de conexión para el espacio de nombres del centro de eventos. Copie esta cadena de conexión haciendo clic en el botón **Información de conexión** del [espacio de nombres](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), no del propio centro de eventos. Esta cadena de conexión debe tener al menos permisos de lectura para activar el desencadenador.|
+|**path**|**EventHubName**|El nombre del centro de eventos. Puede hacer referencia al nombre a través de la configuración de la aplicación `%eventHubName%`|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

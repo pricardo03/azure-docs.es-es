@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 06719f3a92dae805081ea85c346df97ebed0e0dc
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: a885fda23bb76091705ebe388f40a6eae7b56416
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078077"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351516"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación
 
@@ -84,7 +84,7 @@ Add-Type -AssemblyName System.Web
 [System.Web.Security.Membership]::GeneratePassword(16,3)
 ```
 
-Para usar una plantilla de Resource Manager, consulte [Tutorial: Integración de Azure Key Vault en la implementación de la plantilla de Resource Manager](./resource-manager-tutorial-use-key-vault.md#prepare-the-key-vault).
+Si quiere usar la plantilla de Resource Manager: Vea [Tutorial: Integración de Azure Key Vault en Resource Manager Template Deployment](./resource-manager-tutorial-use-key-vault.md#prepare-the-key-vault).
 
 > [!NOTE]
 > Cada servicio de Azure tiene unos requisitos de contraseña concretos. Por ejemplo, los requisitos de la máquina virtual de Azure se encuentran en [¿Cuáles son los requisitos de contraseña al crear una máquina virtual?](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).

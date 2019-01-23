@@ -9,20 +9,26 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 01/16/2019
 ms.author: juliako
-ms.openlocfilehash: 8f3bcc3c631f17880c66e482234effcc4ea6424d
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: e286617897ecc9201c3880affd0a974f7330305a
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744558"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359650"
 ---
 # <a name="streaming-endpoints"></a>Extremos de streaming
 
 En Microsoft Azure Media Services (AMS), la entidad [Puntos de conexión de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) representa un servicio de streaming que puede entregar contenido directamente a una aplicación de reproducción cliente o a una red Content Delivery Network (CDN) para la distribución posterior. La secuencia de salida del servicio de punto de conexión de streaming puede ser streaming en vivo o un recurso de vídeo a petición en la cuenta de Media Services. Cuando se crea una cuenta de Media Services, se genera automáticamente un punto de conexión de streaming **predeterminado** en estado detenido. No se puede eliminar el punto de conexión de streaming **predeterminado**. Es posible crear puntos de conexión de streaming adicionales en la cuenta. Para iniciar el streaming de vídeos, debe iniciar el punto de conexión de streaming desde el cual quiere reproducir el vídeo. 
 
-## <a name="streamingendpoint-types"></a>Tipos de StreamingEndpoint  
+## <a name="naming-convention"></a>Convención de nomenclatura
+
+Para el punto de conexión predeterminado: `{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+
+Para los puntos de conexión adicionales: `{EndpointName}-{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+
+## <a name="types"></a>Tipos  
 
 Existen dos tipos de **StreamingEndpoint**: **Estándar** y **Premium**. El tipo se define por el número de unidades de escalado (`scaleUnits`) que se asignan para el punto de conexión de streaming. 
 
@@ -37,13 +43,16 @@ En la tabla se describen los tipos:
 
 En la mayoría de los casos, tendrá la red CDN habilitada. Sin embargo, si prevé una simultaneidad máxima inferior a 500 visores, se recomienda deshabilitar la red CDN, ya que esta escala mejor con simultaneidad.
 
+> [!NOTE]
+> El punto de conexión de streaming `hostname` y la dirección URL de streaming permanecen igual habilite o no la red CDN.
+
 ### <a name="detailed-explanation-of-how-caching-works"></a>Explicación detallada de cómo funciona el almacenamiento en caché
 
 No hay ningún valor de ancho de banda específico al agregar la red CDN porque la cantidad de ancho de banda necesaria para un punto de conexión de streaming con red CDN habilitada varía. Un lote depende del tipo de contenido, su popularidad, la velocidad de bits y los protocolos. La red CDN solo almacena en caché lo que se solicita. Esto significa que se servirá contenido popular directamente desde la red CDN: siempre que el fragmento de vídeo esté almacenado en caché. Es probable que el contenido en vivo se almacene en caché porque suele haber muchas personas mirando exactamente lo mismo. El contenido a petición puede ser un poco más complejo porque podría haber parte del contenido que fuera popular y otra que no. Si hay millones de recursos de vídeo que no son populares (solo 1 o 2 visores a la semana), pero hay miles de personas que miran vídeos diferentes, la red CDN pasa a ser mucho menos efectiva. Con estos errores de caché, se aumenta la carga en el punto de conexión de streaming.
  
 También debe tener en cuenta cómo funciona el streaming adaptable. Cada fragmento de vídeo individual se almacena en caché como entidad propia. Por ejemplo, si la primera vez que una persona mira un determinado vídeo, omite parte y mira solo unos segundos aquí y allá, solo los fragmentos de vídeo asociados con lo que miró esa persona se almacenan en caché de la red CDN. Con el streaming adaptable, se suelen tener de 5 a 7 velocidades de bits de vídeo distintas. Si una persona está mirando a una velocidad de bits y otra persona a una velocidad de bits diferente, se almacenan en caché cada uno por separado en la red CDN. Incluso si dos personas están mirando a la misma velocidad de bits podrían transmitir en streaming a través de protocolos diferentes. Cada protocolo (HLS, MPEG-DASH, Smooth Streaming) se almacena en caché por separado. Por lo tanto, cada velocidad de bits y protocolo se almacenan en caché por separado y solo se almacenan en caché los fragmentos de vídeo que se han solicitado.
  
-## <a name="streamingendpoint-properties"></a>Propiedades de StreamingEndpoint 
+## <a name="properties"></a>Properties (Propiedades) 
 
 En esta sección se proporcionan detalles sobre algunas de las propiedades de StreamingEndpoint. Para obtener ejemplos de cómo crear un nuevo punto de conexión de streaming y las descripciones de todas las propiedades, vea [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create) (Punto de conexión de streaming). 
 

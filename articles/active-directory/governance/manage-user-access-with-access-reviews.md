@@ -15,12 +15,12 @@ ms.component: compliance
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 5af1d91a51b090821b5bbb314834db0d5cbe6a26
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 9ada31066b905ca4335acf78ae87534e4c359651
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45606865"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331867"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Administración del acceso de los usuarios con las revisiones de acceso de Azure AD
 
@@ -44,11 +44,11 @@ Puede tener uno o más usuarios como revisores en una revisión de acceso.
 
 2. Decida si cada usuario revisará su propio acceso o bien si uno o más usuarios revisarán el acceso de todos.
 
-3. Habilite las revisiones de acceso para que aparezcan en los paneles de acceso de los revisores. Como administrador global o administrador de cuentas de usuario, vaya a la [página de revisiones de acceso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+3. Como administrador global o administrador de cuentas de usuario, vaya a la [página de revisiones de acceso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-4. Inicie la revisión de acceso. Para más información, consulte el artículo sobre la [creación de una revisión de acceso](create-access-review.md).
+4. Cree la revisión de acceso. Para más información, consulte el artículo sobre la [creación de una revisión de acceso](create-access-review.md).
 
-5. Pida a los revisores que proporcionen sus datos de entrada. De forma predeterminada, cada uno recibe un correo electrónico de Azure AD con un vínculo al panel de acceso, en el que podrán [realizar la revisión de acceso](perform-access-review.md).
+5. Cuando se inicie la revisión de acceso, pida a los revisores que proporcionen una entrada. De forma predeterminada, cada uno recibe un correo electrónico de Azure AD con un vínculo al panel de acceso, en el que podrán [realizar la revisión de acceso](perform-access-review.md).
 
 6. Si los revisores no han proporcionado información, puede pedir a Azure AD que les envíe un recordatorio. De forma predeterminada, Azure AD envía automáticamente un recordatorio hacia la mitad del plazo de finalización a los revisores que no hayan respondido.
 

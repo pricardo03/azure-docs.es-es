@@ -8,12 +8,12 @@ ms.assetid: 0c771e7a-6fcd-417f-9247-897177719567
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 07323f1b0541555ef71919e026ecaf2494056dad
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ec646ad1e9e1330a7e0b3f3f0576cee9d58c08e1
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406505"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353267"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Método y proceso de adopción de Azure Data Catalog
 Este artículo le ayudará a empezar a adoptar **Azure Data Catalog** en su organización. Para adoptar correctamente **Azure Data Catalog**, es aconsejable que se centre en tres elementos clave: definir la visión, identificar los principales casos de uso empresariales de la organización y elegir un proyecto piloto.
@@ -66,7 +66,7 @@ Estas son algunas sugerencias para identificar los casos de uso:
 * **Definir los objetivos del equipo** : ¿cómo logra el equipo sus objetivos? No se centre aún en Data Catalog, ya que en esta etapa debe ser objetivo. Recuerde que se trata de los resultados de la empresa, no de la tecnología.
 * **Definir el problema de la empresa** : ¿cuáles son los problemas a los que se enfrenta el equipo en lo relativo a la búsqueda y obtención de información sobre los activos de datos? Por ejemplo, la información acerca de los orígenes de datos importantes se puede encontrar en los libros de Excel de una carpeta de red y el equipo puede dedicar mucho tiempo a buscar dichos libros.
 * **Conocer la cultura del equipo en relación con el cambio** : muchos desafíos de la adopción están relacionados con la resistencia al cambio, en lugar de con la implementación de una herramienta nueva. La forma en que un equipo responde ante el cambio es importante a la hora de identificar los casos de uso, ya que el proceso existente se podría usar simplemente porque "así se ha hecho siempre" o "Si no ha dejado de funcionar, ¿por qué repararlo?". Es más fácil adoptar una herramienta o proceso nuevos cuando las personas afectadas conocen el valor que va a aportar el cambio y aprecian la importancia de los problemas que va a resolver.
-* **Centrarse en los activos de datos en todo momento** : al hablar de los problemas empresariales a los que se enfrenta a un equipo, es preciso "no andar por las ramas" y centrarse en lo que es relevante para sacar más provecho a los activos de datos de la empresa.
+* **Centrarse en los activos de datos en todo momento** : al hablar de los problemas empresariales a los que se enfrenta a un equipo, es preciso "no andarse por las ramas" y centrarse en lo que es relevante para sacar más provecho a los recursos de datos de la empresa.
 
 Estos son algunos casos de uso de ejemplo relacionados con Data Catalog:
 

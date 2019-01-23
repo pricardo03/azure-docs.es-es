@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: shlo
-ms.openlocfilehash: e733b82e1b5870d98de5d65771bd621d9bffdf44
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4188fb413cc1001b6e4813fe69518a016c8c0656
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024899"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354270"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Actividad de obtención de metadatos en Azure Data Factory
 La actividad GetMetadata se puede usar para recuperar **metadatos** de cualquier dato en Azure Data Factory. Esta actividad se puede usar en los siguientes escenarios:
@@ -33,7 +33,7 @@ La siguiente funcionalidad está disponible en el flujo de control:
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
-La actividad GetMetadata toma un conjunto de datos como entrada necesaria y genera información de metadatos disponible como salida de actividades. En la actualidad, se admiten los conectores siguientes con los metadatos recuperables correspondientes, y el tamaño máximo de metadatos admitidos es de hasta **1MB**.
+La actividad GetMetadata toma un conjunto de datos como entrada necesaria y genera información de metadatos disponible como salida de actividades. En la actualidad, se admiten los conectores siguientes con los metadatos recuperables correspondientes. Además, el tamaño máximo de metadatos admitido es de hasta **1 MB**.
 
 >[!NOTE]
 >Si ejecuta la actividad GetMetadata en una instancia de Integration Runtime autohospedada, se admite la funcionalidad más reciente en la versión 3.6 o una versión posterior. 

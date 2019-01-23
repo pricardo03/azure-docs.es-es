@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: f6a6a1deb55bf16c65982c0d58cd6d92559596af
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a57161fd379269f69ce4e83730a29588d9028b7a
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728283"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351618"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalación y actualización de Azure Backup Server
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ En este artículo se explica cómo preparar el entorno para la copia de segurida
 >
 >
 
-También puede proteger las cargas de trabajo de Infraestructura como servicio (IaaS), como es el caso de las máquinas virtuales de Azure.
+Una instancia de MABS implementada en una máquina virtual de Azure puede crear copias de seguridad de máquinas virtuales en Azure, pero deben encontrarse en el mismo dominio para habilitar dicha operación. El proceso para realizar una copia de una máquina virtual de Azure es el mismo que al realizar una copia de seguridad de máquinas virtuales locales, aunque implementar MABS en Azure tiene algunas limitaciones. Para obtener más información sobre las limitaciones, consulte [DPM como máquina virtual de Azure](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
 > Azure cuenta con dos modelos de implementación para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se proporcionan información y procedimientos para restaurar las máquinas virtuales implementadas mediante el modelo de Resource Manager.

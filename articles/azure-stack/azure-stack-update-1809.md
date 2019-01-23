@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 97b7defded39e572a1fecae3e93d389014b15a6b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: f4a1bf9e2fee9278713315c98f25dbc820a553a1
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077970"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352417"
 ---
 # <a name="azure-stack-1809-update"></a>Actualización de Azure Stack 1809
 
@@ -134,7 +134,7 @@ Para obtener más información acerca de estos puntos vulnerables, haga clic en 
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-- Instale la revisión más reciente de Azure Stack para la actualización 1808 antes de aplicar la 1809. Para más información, consulte [KB 4481066: Revisión de Azure Stack 1.1808.9.117](https://support.microsoft.com/help/4481066/).
+- Instale la revisión más reciente de Azure Stack para la actualización 1808 antes de aplicar la 1809. Para más información, consulte [KB 4481066: Revisión de Azure Stack 1.1808.9.117](https://support.microsoft.com/help/4481066/). Aunque Microsoft recomienda la versión más reciente disponible, la versión mínima necesaria para instalar 1809 es la 1.1808.5.110.
 
   > [!TIP]  
   > Suscríbase a las siguientes fuentes *RRS* o *Atom* para mantenerse al día con las revisiones de Azure Stack:
@@ -251,6 +251,8 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 - Operador de Azure Stack: si recibe una alerta de memoria insuficiente y no se pueden implementar las máquinas virtuales del inquilino debido a un **error de creación de máquina virtual de Fabric**, es posible que la marca de Azure Stack supere la memoria disponible. Use la [herramienta de planeamiento de capacidad de Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) para comprender mejor la capacidad disponible para las cargas de trabajo.
 
 ### <a name="compute"></a>Proceso
+
+- Al crear una [máquina virtual de la serie Dv2](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), las VM D11 14v2 le permitirán crear 4, 8, 16 y 32 discos de datos respectivamente. Sin embargo, el panel de creación de la VM muestra 8, 16, 32 y 64 discos de datos.
 
 <!-- 3235634 – IS, ASDK -->
 - Para implementar máquinas virtuales con tamaños que contiene un sufijo **v2**; por ejemplo, **Standard_A2_v2**, especifique el sufijo como **Standard_A2_v2** (v minúscula). No use **Standard_A2_V2** (v mayúscula). Esto funciona en Azure global y es una incoherencia en Azure Stack.

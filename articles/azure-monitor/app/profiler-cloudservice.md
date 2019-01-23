@@ -1,5 +1,5 @@
 ---
-title: Generación de perfiles de servicios activos en la nube de Azure con Application Insights | Microsoft Docs
+title: Generación de perfiles de Azure Cloud Services con Application Insights | Microsoft Docs
 description: Habilitación de Application Insights Profiler para Azure Cloud Services.
 services: application-insights
 documentationcenter: ''
@@ -12,44 +12,42 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6ae662c57c5196ff495edafeee0d6ba5f79e76d1
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 01147f19a6a10361609c01bc6b3f1ac07d1ff86b
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54082570"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358039"
 ---
-# <a name="profile-live-azure-cloud-services-with-application-insights"></a>Generación de perfiles de servicios activos en la nube de Azure con Application Insights
+# <a name="profile-live-azure-cloud-services-with-application-insights"></a>Generación de perfiles de Azure Cloud Services con Application Insights
 
 También puede implementar Application Insights Profiler en estos servicios:
-* [Azure App Service](../../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Aplicaciones de Service Fabric](profiler-servicefabric.md ?toc=/azure/azure-monitor/toc.json)
-* [Máquinas virtuales](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Azure App Service](profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Aplicaciones de Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Virtual Machines](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
-Application Insights Profiler se instala con la extensión de Windows Azure Diagnostics (WAD). Solo tiene que configurar WAD para instalar el generador de perfiles y enviar perfiles al recurso de Application Insights.
+Application Insights Profiler se instala con la extensión de Azure Diagnostics. Solo tiene que configurar Azure Diagnostics para instalar Profiler y enviar perfiles al recurso de Application Insights.
 
-## <a name="enable-profiler-for-your-azure-cloud-service"></a>Habilitación del generador de perfiles para Azure Cloud Services
-1. Compruebe que está utilizando [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) o una versión posterior.  Es suficiente con confirmar que los archivos *ServiceConfiguration.\*.cscfg* tienen un valor de `osFamily` de "5" o posterior.
-1. Agregue [el SDK de Application Insights a Cloud Services](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
+## <a name="enable-profiler-for-azure-cloud-services"></a>Habilitación de Profiler para Azure Cloud Services
+1. Asegúrese de que está utilizando [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) o una versión posterior. Es suficiente con confirmar que los archivos *ServiceConfiguration.\*.cscfg* tienen un valor de `osFamily` de "5" o posterior.
+
+1. Agregue el [SDK de Application Insights a Azure Cloud Services](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
+
 1. Realice un seguimiento de las solicitudes con Application Insights:
 
-    Para los roles web de ASP.Net, Application Insights puede realizar un seguimiento de las solicitudes automáticamente.
+    * Para los roles web de ASP.NET, Application Insights puede realizar un seguimiento de las solicitudes automáticamente.
 
-    Para los roles de trabajo, [agregue código para realizar el seguimiento de solicitudes.](profiler-trackrequests.md ?toc=/azure/azure-monitor/toc.json)
+    * Para los roles de trabajo, [agregue código para realizar el seguimiento de solicitudes](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json).
 
-    
+1. Lleve a cabo los siguientes pasos para configurar la extensión de Azure Diagnostics para habilitar Profiler:
 
-1. Configure la extensión de Windows Azure Diagnostics (WAD) para habilitar Profiler.
+     a. Busque el archivo *diagnostics.wadcfgx* de [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) correspondiente a su rol de aplicación, como se muestra aquí:  
 
+      ![Ubicación del archivo de configuración de diagnósticos](./media/profiler-cloudservice/cloudservice-solutionexplorer.png)  
 
+      Si no encuentra el archivo, consulte [Set up diagnostics for Azure Cloud Services and Virtual Machines](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#enable-diagnostics-in-cloud-service-projects-before-deploying-them) (Configuración de diagnósticos para Azure Cloud Services y Virtual Machines).
 
-    1. Busque el archivo *diagnostics.wadcfgx* de [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) correspondiente a su rol de aplicación, como se muestra aquí:  
-
-       ![Ubicación del archivo de configuración de diagnósticos](./media/profiler-cloudservice/cloudservice-solutionexplorer.png)  
-
-        Si no encuentra el archivo, para aprender a habilitar la extensión de Diagnostics en el proyecto de Azure Cloud Services, consulte [Configuración de diagnósticos para Azure Cloud Services y máquinas virtuales](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#enable-diagnostics-in-cloud-service-projects-before-deploying-them).
-
-    1. Agregue la siguiente sección `SinksConfig` como elemento secundario de `WadCfg`:  
+    b. Agregue la siguiente sección `SinksConfig` como elemento secundario de `WadCfg`:  
 
       ```xml
       <WadCfg>
@@ -63,17 +61,19 @@ Application Insights Profiler se instala con la extensión de Windows Azure Diag
       </WadCfg>
       ```
 
-    >   **NOTA:** Si el archivo diagnostics.wadcfgx* también contiene otro receptor de tipo `ApplicationInsights`, las tres claves de instrumentación siguientes deben coincidir:  
-    >  * La clave que usa la aplicación.  
-    >  * La clave que usa el receptor `ApplicationInsights`.  
-    >  * La clave que usa el receptor `ApplicationInsightsProfiler`.  
+    > [!NOTE]
+    > Si el archivo *diagnostics.wadcfgx* también contiene otro receptor de tipo ApplicationInsights, las tres claves de instrumentación siguientes tienen que coincidir:  
+    > * La clave que usa la aplicación. 
+    > * La clave que usa el receptor ApplicationInsights. 
+    > * La clave que usa el receptor ApplicationInsightsProfiler. 
     >
-    > Puede encontrar el valor real de la clave de instrumentación que usa el receptor `ApplicationInsights` en los archivos *ServiceConfiguration.\*.cscfg*.  
-    > Después de la versión de Azure SDK para Visual Studio 15.5, solo es preciso que coincidan las claves de instrumentación que usan la aplicación y el receptor `ApplicationInsightsProfiler`.
-1. Implemente el servicio con la nueva configuración de diagnóstico y Application Insights Profiler se configurará para ejecutarse en su servicio.
+    > Puede encontrar el valor real de la clave de instrumentación que usa el receptor `ApplicationInsights` en los archivos *ServiceConfiguration.\*.cscfg*. 
+    > Después de la versión de Azure SDK para Visual Studio 15.5, solo es preciso que coincidan las claves de instrumentación que usan la aplicación y el receptor ApplicationInsightsProfiler.
+
+1. Implemente el servicio con la nueva configuración de Diagnostics, y Application Insights Profiler se configurará para ejecutarse en el servicio.
  
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Genere tráfico para su aplicación (por ejemplo, inicie una [prueba de disponibilidad](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability)). A continuación, espere de 10 a 15 minutos para que se empiecen a enviar seguimientos a la instancia de Application Insights.
-- Consulte [Seguimientos de Profiler](https://docs.microsoft.com/azure/application-insights/app-insights-profiler-overview?toc=/azure/azure-monitor/toc.json) en Azure Portal.
-- Obtenga ayuda para solucionar problemas de Profiler en la sección [Solución de problemas](profiler-troubleshooting.md ?toc=/azure/azure-monitor/toc.json) de Profiler.
+* Genere tráfico para su aplicación (por ejemplo, inicie una [prueba de disponibilidad](https://docs.microsoft.com/azure/application-insights/monitor-web-app-availability)). A continuación, espere de 10 a 15 minutos para que se empiecen a enviar seguimientos a la instancia de Application Insights.
+* Consulte [Seguimientos de Profiler](https://docs.microsoft.com/azure/application-insights/profiler-overview?toc=/azure/azure-monitor/toc.json) en Azure Portal.
+* Para solucionar los problemas de Profiler, consulte [Solución de problemas de Profiler](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).

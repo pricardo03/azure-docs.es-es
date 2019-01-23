@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 382027782044a5a1011976560b7460047544f521
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a882ad2bbb700c7d1a1c812d7a05aa14b8038f9a
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237971"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359942"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configuración de una instancia de clúster de conmutación por error de SQL Server en Azure Virtual Machines
 
@@ -71,10 +71,12 @@ Antes de continuar, es preciso que sepa varias cosas y otras que deben estar en 
 ### <a name="what-to-know"></a>Lo que necesita saber
 Debe estar familiarizado con el funcionamiento de las siguientes tecnologías:
 
-- [Tecnologías de clúster de Windows](https://technet.microsoft.com/library/hh831579.aspx)
-- [Instancias del clúster de conmutación por error de SQL Server](https://msdn.microsoft.com/library/ms189134.aspx).
+- [Tecnologías de clúster de Windows](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
+- [Instancias del clúster de conmutación por error de SQL Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server).
 
-También debe tener conocimientos generales de las siguientes tecnologías:
+Una diferencia importante es que en un clúster de conmutación por error invitado de VM de IaaS de Azure, se recomienda una sola NIC por servidor (nodo de clúster) y una sola subred. La red de Azure tiene redundancia física, que hace que las NIC y subredes adicionales sean innecesarias en un clúster invitado de VM de IaaS de Azure. Aunque el informe de validación del clúster emita una advertencia acerca de que los nodos solo son accesibles en una única red, esta advertencia puede omitirse en los clústeres de conmutación por error invitados de VM de IaaS de Azure. 
+
+Además, debe tener conocimientos generales de las siguientes tecnologías:
 
 - [Solución hiperconvergida con Espacios de almacenamiento directo en Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
 - [Grupos de recursos de Azure](../../../azure-resource-manager/resource-group-portal.md)
@@ -97,7 +99,7 @@ Para poder seguir las instrucciones de este artículo, debe tener:
 
 Una vez que cumpla los requisitos previos, puede pasar a la creación de un clúster de conmutación por error. El primer paso es crear las máquinas virtuales.
 
-## <a name="step-1-create-virtual-machines"></a>Paso 1: Crear máquinas virtuales
+## <a name="step-1-create-virtual-machines"></a>Paso 1: Creación de máquinas virtuales
 
 1. Inicie sesión en [Azure Portal](http://portal.azure.com) con su suscripción.
 
@@ -112,11 +114,11 @@ Una vez que cumpla los requisitos previos, puede pasar a la creación de un clú
    - Haga clic en **Create**(Crear).
    - En la hoja **Crear conjunto de disponibilidad**, configure los siguientes valores:
       - **Nombre**: nombre del conjunto de disponibilidad.
-      - **Suscripción**: su suscripción a Azure.
-      - **Grupo de recursos**: si desea utilizar un grupo existente, haga clic en **Usar existente** y seleccione el grupo en la lista desplegable. De lo contrario, elija **Crear nuevo** y escriba el nombre del grupo.
+      - **Suscripción**: Su suscripción de Azure.
+      - **Grupo de recursos**: si quiere utilizar un grupo existente, haga clic en **Usar existente** y seleccione el grupo en la lista desplegable. De lo contrario, elija **Crear nuevo** y escriba el nombre del grupo.
       - **Ubicación**: establezca la ubicación en la que planea crear las máquinas virtuales.
       - **Dominios de error**: use el valor predeterminado (3).
-      - **Dominios de actualización**: use el valor predeterminado (5).
+      - **Dominios de actualización**: Use el valor predeterminado (5).
    - Haga clic en **Crear** para crear el conjunto de disponibilidad.
 
 1. Cree las máquinas virtuales en el conjunto de disponibilidad.
@@ -345,7 +347,7 @@ Después de haber configurado el clúster de conmutación por error y todos los 
    >[!NOTE]
    >Si usó una imagen de la galería de Azure Marketplace con SQL Server, las herramientas de SQL Server estaban incluidas en la imagen. Si no usó esta imagen, instale las herramientas de SQL Server por separado. Consulte [Descarga de SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
-## <a name="step-5-create-azure-load-balancer"></a>Paso 5: Crear un equilibrador de carga de Azure
+## <a name="step-5-create-azure-load-balancer"></a>Paso 5: Creación del equilibrador de carga de Azure
 
 En máquinas virtuales de Azure, los clústeres usan un equilibrador de carga para mantener una dirección IP que es preciso que esté en los nodos de clúster de uno en uno. En esta solución, el equilibrador de carga que retiene la dirección IP para la FCI de SQL Server.
 
@@ -368,7 +370,7 @@ Para crear el equilibrador de carga:
    - **Virtual Network**: la misma red que la de las máquinas virtuales.
    - **Subred**: la misma subred que la de las máquinas virtuales.
    - **Dirección IP privada**: la misma dirección IP que asignó al recurso de red de clúster de la FCI de SQL Server.
-   - **Suscripción**: su suscripción a Azure.
+   - **Suscripción**: Su suscripción de Azure.
    - **Grupo de recursos**: use el mismo grupo de recursos que las máquinas virtuales.
    - **Ubicación**: use la misma ubicación de Azure que las máquinas virtuales.
    Vea la siguiente imagen:
@@ -395,11 +397,11 @@ Para crear el equilibrador de carga:
 
 1. En la hoja **Add health probe** (Agregar sonda de mantenimiento), <a name="probe"></a>establezca los parámetros del sondeo de mantenimiento:
 
-   - **Nombre**: el nombre del sondeo de mantenimiento.
+   - **Nombre**: nombre del sondeo de estado.
    - **Protocolo**: TCP.
    - **Puerto**: se establece en un puerto TCP disponible. Dicho puerto requiere un puerto de firewall abierto. Use el [mismo puerto](#ports) que configuró para el sondeo de mantenimiento en el firewall.
    - **Intervalo**: 5 segundos.
-   - **Umbral incorrecto**: dos errores consecutivos.
+   - **Umbral incorrecto**: 2 errores consecutivos.
 
 1. Haga clic en Aceptar.
 
@@ -414,10 +416,10 @@ Para crear el equilibrador de carga:
    - **Nombre**: nombre de las reglas de equilibrio de carga.
    - **Dirección IP de front-end**: use la dirección IP del recurso de red del clúster de la FCI de SQL Server.
    - **Puerto**: establecido para el puerto TCP de la FCI de SQL Server. El puerto de la instancia predeterminado es 1433.
-   - **Puerto de back-end**: este valor utiliza el mismo puerto que el valor **Puerto** cuando se habilita **IP flotante (Direct Server Return)**.
-   - **Grupo back-end**: use el nombre del grupo back-end que configuró anteriormente.
-   - **Sondeo de mantenimiento**: utilice el sondeo de mantenimiento que configuró anteriormente.
-   - **Persistencia de la sesión**: no.
+   - **Puerto back-end**: este valor utiliza el mismo puerto que el valor **Puerto** cuando se habilita **IP flotante (Direct Server Return)**.
+   - **Grupo de back-end**: use el nombre del grupo de back-end que configuró anteriormente.
+   - **Sondeo de mantenimiento**: utilice el sondeo de estado que configuró anteriormente.
+   - **Persistencia de la sesión**: Ninguno.
    - **Tiempo de espera de inactividad (minutos)**: 4.
    - **IP flotante (Direct Server Return)**: habilitado
 

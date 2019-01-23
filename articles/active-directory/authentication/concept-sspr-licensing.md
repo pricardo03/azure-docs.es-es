@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 01/11/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 6da0bddc3f6c90d0ecd3a554988f510e1063caac
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 6a23ea08ee14efbc7850e555d9ad84daf855638f
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043046"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320742"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Licensing requirements for Azure AD self-service password reset (Requisitos de concesión de licencias del autoservicio de restablecimiento de contraseña de Azure AD)
 
@@ -33,15 +33,15 @@ El autoservicio de restablecimiento de contraseña de Azure AD se ofrece con lic
 * Restablecimiento de contraseña de autoservicio para usuarios en la nube
    * Soy un **usuario solo de nube** y he olvidado mi contraseña.
       * Me gustaría **cambiarla** por otra que conozca.
-   * Esta funcionalidad se incluye en las ediciones Basic, Premium P1 o Premium P2 de Azure AD.
+   * Esta funcionalidad se incluye en las ediciones Basic, Premium P1 o Premium P2 de Azure AD, o Microsoft 365 Empresa.
 
 * Autoservicio de restablecimiento/cambio/desbloqueo **con escritura diferida local**
    * Soy un **usuario de implementación híbrida**, mi cuenta de usuario de Active Directory local se sincroniza con mi cuenta de Azure AD con Azure AD Connect. Me gustaría cambiar la contraseña, la he olvidado o se ha bloqueado.
       * Me gustaría cambiar mi contraseña o restablecerla a otra que conozca, o desbloquear mi cuenta, **y** que ese cambio se sincronice con Active Directory local.
-   * Esta funcionalidad se incluye en las ediciones Premium P1 o Premium P2 de Azure AD.
+   * Esta funcionalidad se incluye en las ediciones Premium P1 o Premium P2 de Azure AD, o Microsoft 365 Empresa.
 
 > [!WARNING]
-> Los planes de licencias de Office 365 independientes *no admiten "Self-Service Password Reset/Change/Unlock with on-premises writeback"* (Autoservicio de restablecimiento/modificación/desbloqueo de contraseñas con escritura en diferido local) y requieren un plan que incluya la versión Premium P1 o P2 de Azure AD para que sirva la funcionalidad.
+> Los planes de licencias de Office 365 independientes *no admiten "Self-Service Password Reset/Change/Unlock with on-premises writeback"* (Autoservicio de restablecimiento/modificación/desbloqueo de contraseñas con escritura en diferido local) y requieren un plan que incluya la versión Premium P1 o P2 de Azure AD, o Microsoft 365 Empresa para que sirva la funcionalidad.
 >
 
 En las páginas siguientes, encontrará información adicional sobre licencias, incluidos los costos:
@@ -50,6 +50,7 @@ En las páginas siguientes, encontrará información adicional sobre licencias, 
 * [Características y funcionalidades de Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/microsoft-365/enterprise)
+* [Descripción del servicio Microsoft 365 Empresa](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-business-service-description)
 
 ## <a name="enable-group-or-user-based-licensing"></a>Habilitar licencias basadas en grupos o usuarios
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee441a8c9a0d8a70a2797f090a143189cdb6872a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 54e562cca800a19829b985e3fd529368350104a1
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211543"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329487"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificación y resolución de problemas de asignación de licencias de un grupo en Azure Active Directory
 
@@ -53,7 +53,7 @@ En las secciones siguientes se muestra una descripción de cada problema potenci
 
 ## <a name="not-enough-licenses"></a>No hay suficientes licencias
 
-**Problema:** no hay suficientes licencias disponibles para uno de los productos especificados en el grupo. Necesita adquirir más licencias para el producto o liberar las licencias sin usar de otros usuarios o grupos.
+**Problema:** No hay suficientes licencias disponibles para uno de los productos especificados en el grupo. Necesita adquirir más licencias para el producto o liberar las licencias sin usar de otros usuarios o grupos.
 
 Para ver cuántas licencias hay disponibles, vaya a **Azure Active Directory** > **Licencias** > **Todos los productos**.
 
@@ -63,7 +63,7 @@ Para ver qué usuarios y grupos consumen las licencias, seleccione un producto. 
 
 ## <a name="conflicting-service-plans"></a>Planes de servicio en conflicto
 
-**Problema:** uno de los productos especificados en el grupo contiene un plan de servicio que entra en conflicto con otro plan de servicio que ya está asignado al usuario a través de un producto diferente. Algunos planes de servicio se configuran de tal forma que no puedan asignarse al mismo usuario como otro plan de servicio relacionado.
+**Problema:** Uno de los productos especificados en el grupo contiene un plan de servicio que entra en conflicto con otro plan de servicio que ya está asignado al usuario a través de un producto diferente. Algunos planes de servicio se configuran de tal forma que no puedan asignarse al mismo usuario como otro plan de servicio relacionado.
 
 Considere el ejemplo siguiente. Un usuario tiene una licencia de Office 365 Enterprise *E1* asignada directamente, con todos los planes habilitados. Se ha agregado el usuario a un grupo que tiene asignado el producto Office 365 Enterprise *E3*. El producto E3 contiene planes de servicio que no pueden superponerse con los planes incluidos en E1, por lo que la asignación de licencia de grupo genera el error “Planes de servicio en conflicto”. En este ejemplo, los planes de servicio en conflicto son:
 
@@ -78,7 +78,7 @@ El administrador es la única persona competente para decidir cómo resolver el 
 
 ## <a name="other-products-depend-on-this-license"></a>Otros productos dependen de esta licencia
 
-**Problema:** uno de los productos especificados en el grupo contiene un plan de servicio que debe habilitarse para que otro plan de servicio, de otro producto, funcione. Este error se produce cuando Azure AD intenta quitar el plan del servicio subyacente. Por ejemplo, esto puede ocurrir cuando se elimina el usuario del grupo.
+**Problema:** Uno de los productos que se especifica en el grupo contiene un plan de servicio que debe estar habilitado para otro plan de servicio, en otro producto, para funcionar. Este error se produce cuando Azure AD intenta quitar el plan del servicio subyacente. Por ejemplo, esto puede ocurrir cuando se elimina el usuario del grupo.
 
 Para solucionar este problema, debe asegurarse de que el plan necesario todavía está asignado a los usuarios a través de algún otro método o que los servicios dependientes están deshabilitados para esos usuarios. Después, puede quitar correctamente la licencia de grupo a esos usuarios.
 
@@ -86,7 +86,7 @@ Para solucionar este problema, debe asegurarse de que el plan necesario todavía
 
 ## <a name="usage-location-isnt-allowed"></a>No se permite la ubicación de uso
 
-**Problema:** algunos servicios de Microsoft no están disponibles en todas las ubicaciones por las leyes y los reglamentos locales. Antes de poder asignar una licencia a un usuario, debe especificar la propiedad **Ubicación de uso** para el usuario. Puede especificar la ubicación en la sección **Usuario** > **Perfil** > **Configuración** de Azure Portal.
+**Problema:** Algunos servicios de Microsoft no están disponibles en todas las ubicaciones debido a las leyes y los reglamentos locales. Antes de poder asignar una licencia a un usuario, debe especificar la propiedad **Ubicación de uso** para el usuario. Puede especificar la ubicación en la sección **Usuario** > **Perfil** > **Configuración** de Azure Portal.
 
 Cuando Azure AD intenta asignar una licencia de grupo a un usuario cuya ubicación de uso no se admite, se produce un error y se registra en el usuario.
 
@@ -118,6 +118,12 @@ Azure AD intenta asignar todas las licencias especificadas en el grupo a cada us
 
 Puede ver los usuarios con los que se han producido errores de asignación y comprobar a qué productos ha afectado esta situación.
 
+## <a name="what-happens-when-a-group-with-licenses-assigned-is-deleted"></a>¿Qué ocurre cuando se elimina un grupo con licencias asignadas?
+
+Debe quitar todas las licencias asignadas a un grupo antes de poder eliminar el grupo. Sin embargo, quitar las licencias de todos los usuarios en el grupo puede llevar tiempo. Al quitar las asignaciones de licencias de un grupo, puede haber errores si el usuario tiene asignada una licencia dependiente o si hay un problema de conflicto de dirección de proxy que prohíbe la eliminación de la licencia. Si un usuario tiene una licencia que depende de una licencia que se va a quitar debido a la eliminación del grupo, la asignación de la licencia para el usuario se convierte de heredada a directa.
+
+Por ejemplo, piense en un grupo que tiene asignado Office 365 E3/E5 con un plan de servicio de Skype Empresarial habilitado. Imagine también que algunos miembros del grupo tienen licencias de Audioconferencia asignadas directamente. Cuando se elimina el grupo, las licencias basadas en el grupo intentarán quitar Office 365 E3/E5 de todos los usuarios. Dado que Audioconferencia depende de Skype Empresarial, para los usuarios con Audioconferencia asignada, las licencias basadas en grupos convierten las licencias de Office 365 E3/E5 a una asignación de licencias directa.
+
 ## <a name="how-do-you-manage-licenses-for-products-with-prerequisites"></a>¿Cómo se administran las licencias de productos con requisitos previos?
 
 Algunos productos de Microsoft Online que puede tener son *complementos*. Los complementos precisan de un plan de servicio de requisitos previos habilitado para un usuario o un grupo antes de poder asignarles una licencia. Cuando se usan licencias basadas en grupo, el sistema solicita que mantenga en el mismo grupo los planes de servicios de requisitos previos y de complementos. Esto se hace para garantizar que los usuarios que se agregan al grupo puedan recibir el producto de trabajo completo. Vea el siguiente ejemplo:
@@ -146,8 +152,6 @@ De ahora en adelante, cualquier usuario que se agregue a este grupo utiliza una 
 
 > [!TIP]
 > Puede crear varios grupos para cada plan de servicio de requisitos previos. Por ejemplo, si los usuarios usan las versiones Office 365 Enterprise E1 y Office 365 Enterprise E3, puede crear dos grupos para proporcionar licencias de Microsoft Workplace Analytics: una con E1 como requisito previo y la otra con E3. Esto le permite distribuir el complemento a los usuarios de E1 y E3 sin tener que usar licencias adicionales.
-
-
 
 ## <a name="how-do-you-force-license-processing-in-a-group-to-resolve-errors"></a>¿Cómo se puede forzar el procesamiento de licencias de un grupo para resolver errores?
 

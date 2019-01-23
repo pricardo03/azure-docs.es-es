@@ -8,13 +8,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
-ms.date: 08/19/2018
-ms.openlocfilehash: bd31de8f60fff5630141f708714083fe76220d11
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 01/16/2019
+ms.openlocfilehash: c33b1d46ecf710f050fc998ce27f6448337c6b78
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410160"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352519"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Envío, recepción y procesamiento por lotes de mensajes en Azure Logic Apps
 
@@ -46,24 +46,31 @@ Para seguir este ejemplo, necesita estos elementos:
 
 ## <a name="create-batch-receiver"></a>Creación de la receptora de lotes
 
-Antes de poder enviar mensajes a un lote, ese lote debe existir como el destino adonde enviar esos mensajes. Primero, debe crear la aplicación lógica "batch receiver", que comienza con el desencadenador **Batch**. De este modo, al crear la aplicación lógica "batch sender", podrá seleccionar la aplicación lógica batch receiver. La receptora de lotes continúa recopilando los mensajes hasta que se cumplan los criterios especificados para liberar y procesar esos mensajes. Si bien las receptoras de lotes no necesitan saber nada sobre las remitentes de lotes, las remitentes de lotes deben conocer el destino adonde enviar los mensajes. 
+Antes de poder enviar mensajes a un lote, ese lote debe existir como el destino adonde enviar esos mensajes. Primero, debe crear la aplicación lógica "batch receiver", que comienza con el desencadenador **Batch**. De este modo, al crear la aplicación lógica "batch sender", podrá seleccionar la aplicación lógica batch receiver. La receptora de lotes continúa recopilando los mensajes hasta que se cumplan los criterios especificados para liberar y procesar esos mensajes. Si bien las receptoras de lotes no necesitan saber nada sobre las remitentes de lotes, estas últimas sí necesitan conocer el destino adonde enviar los mensajes. 
 
 1. En [Azure Portal](https://portal.azure.com) o Visual Studio, cree una aplicación lógica con este nombre: "BatchReceiver" 
 
-2. En el Diseñador de Logic Apps, agregue el desencadenador de **lotes** que inicia el flujo de trabajo de la aplicación lógica. En el cuadro de búsqueda, escriba "lotes" como filtro. Seleccione este desencadenador: **Batch messages**
+2. En el Diseñador de Logic Apps, agregue el desencadenador de **lotes** que inicia el flujo de trabajo de la aplicación lógica. En el cuadro de búsqueda, escriba "lotes" como filtro. Seleccione este desencadenador: **Mensajes de lote**
 
    ![Adición del desencadenador "Mensajes de lote"](./media/logic-apps-batch-process-send-receive-messages/add-batch-receiver-trigger.png)
 
-3. Establezca las propiedades de la receptora de lotes: 
+3. Establezca las siguientes propiedades para la receptora de lotes: 
 
    | Propiedad | DESCRIPCIÓN | 
    |----------|-------------|
    | **Batch Mode** | - **Inline**: para definir los criterios de versión en el desencadenador de lotes <br>- **Cuenta de integración**: para definir varias configuraciones de criterios de lanzamiento a través de una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). Con una cuenta de integración, puede mantener todas estas configuraciones en un mismo lugar, en lugar de en aplicaciones lógicas independientes. | 
    | **Nombre del lote** | El nombre del lote, que es "TestBatch" en este ejemplo, y solo se aplica al modo por lotes **Inline** |  
-   | **Release Criteria** | Solo se aplica al modo por lotes **Inline** y selecciona los criterios que deben cumplirse antes de procesar cada lote: <p>- **Basado en el número de mensajes**: el número de mensajes que se recopilan en el lote, por ejemplo, 10 mensajes <br>- **En función del tamaño**: el tamaño máximo de lote en bytes, por ejemplo, 100 MB <br>- **Basado en la programación**: el intervalo y la frecuencia entre las liberaciones de lotes, por ejemplo, 10 minutos. La periodicidad mínima es de 60 segundos o 1 minuto. Los valores de minutos fraccionarios se redondean eficazmente hasta 1 minuto. Para especificar una fecha y hora de inicio, seleccione **Mostrar opciones avanzadas**. <br>- **Seleccionar todo**: use todos los criterios especificados. | 
+   | **Release Criteria** | Solo se aplica al modo por lotes **Inline** y selecciona los criterios que deben cumplirse antes de procesar cada lote: <p>- **Basado en el número de mensajes**: se publica el lote en función del número de mensajes recopilados por el lote. <br>- **Basado en el tamaño**: se publica el lote en función del tamaño total en bytes de todos los mensajes recopilados por el lote. <br>- **Programación**: se publica el lote según la periodicidad de la programación, que especifica un intervalo y una frecuencia. En las opciones avanzadas, también puede seleccionar una zona horaria y proporcionar una fecha y hora de inicio. <br>- **Seleccionar todo**: se usan todos los criterios especificados. | 
+   | **Message Count** | Número de mensajes que se recopilan en el lote, por ejemplo, 10 mensajes. El límite de un lote es de 8000 mensajes. | 
+   | **Tamaño de lote** | Tamaño total en bytes que se recolectará en el lote, por ejemplo, 10 MB. El límite de tamaño de lote es de 80 MB. | 
+   | **Programación** | Intervalo y frecuencia entre las publicaciones de lotes, por ejemplo, 10 minutos. La periodicidad mínima es de 60 segundos o 1 minuto. Los minutos fraccionarios se redondean eficazmente hasta 1 minuto. Para especificar una zona horaria o una fecha y hora de inicio, seleccione **Mostrar opciones avanzadas**. | 
    ||| 
-   
-   En este ejemplo se han seleccionado todos los criterios:
+
+   > [!NOTE]
+   > 
+   > Si cambia los criterios de publicación mientras el desencadenador aún tiene mensajes procesados por lote sin enviar, el desencadenador utiliza los criterios de publicación actualizados para administrar los mensajes no enviados. 
+
+   En el siguiente ejemplo se muestran todos los criterios, pero para realizar sus pruebas, use solo uno:
 
    ![Proporcionar detalles del desencadenador de lotes](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-criteria.png)
 
@@ -76,7 +83,7 @@ Antes de poder enviar mensajes a un lote, ese lote debe existir como el destino 
 
    2. En el cuadro de búsqueda, escriba "enviar correo electrónico" como filtro.
    En función de su proveedor de correo electrónico, seleccione un conector de correo electrónico.
-      
+
       Por ejemplo, si tienes una cuenta personal, como @outlook.com o @hotmail.com, seleccione el conector de Outlook.com. 
       Si tiene una cuenta de Gmail, seleccione el conector de Gmail. 
       En este ejemplo se utiliza Office 365 Outlook. 
@@ -98,7 +105,7 @@ Antes de poder enviar mensajes a un lote, ese lote debe existir como el destino 
 
      ![En la lista de contenido dinámico, seleccione "Nombre de la partición"](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details.png)
 
-     En una sección posterior, puede especificar una clave de partición única que divida el lote de destino en subconjuntos lógicos a donde pueda enviar mensajes. 
+     Más adelante, en el remitente de lotes, puede especificar una clave de partición única que divida el lote de destino en subconjuntos lógicos en los que puede enviar mensajes. 
      Cada conjunto tiene un número único generado por la aplicación lógica remitente de lotes. 
      Esta funcionalidad le permite usar un único lote con varios subconjuntos y definir cada subconjunto con el nombre que proporcione.
 
@@ -127,7 +134,7 @@ Ahora cree una o más aplicaciones lógicas remitentes de lotes que envíen mens
 
 * Asegúrese de que la receptora de lotes y la remitente de lotes compartan la misma región de Azure *y* suscripción a Azure. Si no es así, no puede seleccionar la receptora de lotes al crear la remitente de lotes, ya que no se verán entre ellas.
 
-1. Cree otra aplicación lógica con este nombre: "BatchSender".
+1. Cree otra aplicación lógica con este nombre: "BatchSender"
 
    1. En el cuadro de búsqueda, escriba "periodicidad" para el filtro. 
    Seleccione este desencadenador: **Periodicidad: Programación**
@@ -143,9 +150,9 @@ Ahora cree una o más aplicaciones lógicas remitentes de lotes que envíen mens
    1. En el desencadenador Periodicidad, elija **Nuevo paso**.
 
    2. En el cuadro de búsqueda, escriba "lotes" como filtro. 
-   Seleccione la lista **Acciones** y esta acción: **Choose a Logic Apps workflow with batch trigger - Send messages to batch**
+   En la lista de **acciones**, seleccione la siguiente: **Choose a Logic Apps workflow with batch trigger - Send messages to batch** (Escoger un flujo de trabajo de Logic Apps con el desencadenador de lotes: Enviar mensajes al lote)
 
-      ![Seleccione "Escoja un flujo de trabajo de Logic Apps con el desencadenador de lotes"](./media/logic-apps-batch-process-send-receive-messages/send-messages-batch-action.png)
+      ![Seleccione "Choose a Logic Apps workflow with batch trigger"](./media/logic-apps-batch-process-send-receive-messages/send-messages-batch-action.png)
 
    3. Seleccione la aplicación lógica receptora de lotes que creó anteriormente.
 
@@ -156,9 +163,9 @@ Ahora cree una o más aplicaciones lógicas remitentes de lotes que envíen mens
       > 
       > Si está utilizando Visual Studio y no ve ninguna receptora de lote para seleccionar, compruebe que ha implementado la receptora de lotes en Azure. Si no lo ha hecho, aprenda cómo [implementar su aplicación de lógica receptora de lotes en Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure). 
 
-   4. Seleccione esta acción: **Batch_messages - <*la receptora de lotes*>**
+   4. Seleccione esta acción: **Batch_messages - <*su-receptor-de-lotes*>**
 
-      ![Seleccione esta acción: "Batch_messages - <la receptora de lotes"](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
+      ![Seleccione esta acción: "Batch_messages - <su-aplicación-lógica>"](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
 
 3. Establezca las propiedades de la remitente de lotes:
 

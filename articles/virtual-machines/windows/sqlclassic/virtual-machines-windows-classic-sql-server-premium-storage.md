@@ -3,7 +3,7 @@ title: Uso de Azure Premium Storage con SQL Server | Microsoft Docs
 description: En este artículo se usan los recursos creados con el modelo de implementación clásica y se proporcionan instrucciones sobre cómo usar Azure Premium Storage con SQL Server que se ejecuta en Azure Virtual Machines.
 services: virtual-machines-windows
 documentationcenter: ''
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
-ms.author: jroth
-ms.openlocfilehash: 0b7e7f43724b3facd04b8da05ca054fd5ea0022b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: ac5b3bec9915574dd33d40ae2dcbc5aa3c91280a
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317763"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332173"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Usar Azure Premium Storage con SQL Server en máquinas virtuales
 ## <a name="overview"></a>Información general
@@ -39,7 +40,7 @@ Es importante comprender el proceso de extremo a extremo para usar Azure Premium
 * Enfoques de migración posibles.
 * Ejemplo completo que muestra los pasos de Azure, Windows y SQL Server para la migración de una implementación AlwaysOn existente.
 
-Para obtener información general sobre SQL Server en máquinas virtuales de Azure, consulte [SQL Server en Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Para obtener información general sobre SQL Server en Azure Virtual Machines, consulte [SQL Server en Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
 
 **Autor:** Daniel Sol **Revisores técnicos:** Luis Carlos Vargas Herring, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz.
 
@@ -233,7 +234,7 @@ $standardstorageaccountname = "danstdams"
 Set-AzureSubscription -SubscriptionName $mysubscription -CurrentStorageAccount  $standardstorageaccountname
 ```
 
-#### <a name="step-6-create-vm"></a>Paso 6: Crear una máquina virtual
+#### <a name="step-6-create-vm"></a>Paso 6: Creación de una máquina virtual
 
 ```powershell
 #Get list of available SQL Server Images from the Azure Image Gallery.
@@ -281,7 +282,7 @@ Get-AzureVM -ServiceName $destcloudsvc -Name $vmName |Get-AzureOSDisk
 ### <a name="create-a-new-vm-to-use-premium-storage-with-a-custom-image"></a>Crear una nueva VM para usar Premium Storage con una imagen personalizada
 Este escenario muestra dónde tiene imágenes personalizadas que residen en una cuenta de Standard Storage. Como ya se mencionó, si desea colocar el VHD del sistema operativo en Premium Storage necesita copiar la imagen que existe en la cuenta de Standard Storage y transferirlo a Premium Storage antes de poder usarlo. Si tiene una imagen local, también puede usar este método para copiarla directamente a la cuenta Premium Storage.
 
-#### <a name="step-1-create-storage-account"></a>Paso 1: Crear una cuenta de almacenamiento
+#### <a name="step-1-create-storage-account"></a>Paso 1: Crear cuenta de almacenamiento
 
 ```powershell
 $mysubscription = "DansSubscription"
@@ -330,7 +331,7 @@ $blob = Start-AzureStorageBlobCopy -SrcBlob $myImageVHD -SrcContainer $container
 -Context $origContext -DestContext $destContext  
 ```
 
-#### <a name="step-5-regularly-check-copy-status"></a>Paso 5: Comprobar periódicamente el estado de copia
+#### <a name="step-5-regularly-check-copy-status"></a>Paso 5: Comprobar periódicamente el estado de copia:
 
 ```powershell
 $blob | Get-AzureStorageBlobCopyState
@@ -350,7 +351,7 @@ Add-AzureVMImage -ImageName $newimageName -MediaLocation $imageMediaLocation
 >
 >
 
-#### <a name="step-7--build-the-vm"></a>Paso 7: Crear la máquina virtual
+#### <a name="step-7--build-the-vm"></a>Paso 7:  Compilación de la máquina virtual
 Aquí va a crear la máquina virtual a partir de la imagen y a adjuntar dos VHD de Premium Storage:
 
 ```powershell
@@ -549,7 +550,7 @@ Este documento no muestra un ejemplo completo de un extremo a otro; sin embargo,
 * Si sigue los pasos 5ii, agregue SQL1 como posible propietario para el recurso de dirección IP agregada.
 * Pruebe las conmutaciones por error.
 
-#### <a name="2-utilize-existing-secondary-replicas-multi-site"></a>2. Usar una réplica de un elemento secundario existente: multisitio
+#### <a name="2-utilize-existing-secondary-replicas-multi-site"></a>2. Usar una réplica de un elemento secundario existente: Multisitio
 Si tiene nodos en más de un centro de datos (DC) de Azure o si tiene un entorno híbrido, puede usar una configuración de AlwaysOn en este entorno para minimizar el tiempo de inactividad.
 
 El enfoque consiste en cambiar la sincronización de AlwaysOn a sincrónica para el centro de datos de Azure local o secundario y, después, realizar la conmutación por error a ese servidor SQL Server. Posteriormente, copie los VHD en una cuenta de Premium Storage y vuelva a implementar la máquina en un nuevo servicio en la nube. Actualice el agente de escucha y, a continuación, conmute por recuperación.
@@ -591,7 +592,7 @@ Este escenario da por supuesto que se ha documentado sobre su instalación y sab
 * Pruebe las conmutaciones por error.
 * Cambie el AFP de nuevo a SQL1 y SQL2.
 
-## <a name="appendix-migrating-a-multisite-always-on-cluster-to-premium-storage"></a>Apéndice: Migración de un clúster de AlwaysOn de sitios múltiples al Premium Storage
+## <a name="appendix-migrating-a-multisite-always-on-cluster-to-premium-storage"></a>Apéndice: Migración de un clúster AlwaysOn de sitios múltiples a Premium Storage
 En el resto de este artículo, encontrará un ejemplo detallado de cómo convertir un clúster de AlwaysOn multisitio a Premium Storage. Asimismo, convierte el agente de escucha de modo que pase de usar un equilibrador de carga externo (ELB) a un equilibrador de carga interno (ILB).
 
 ### <a name="environment"></a>Environment
@@ -606,7 +607,7 @@ En este ejemplo, vamos a demostrar cómo pasar de ELB a ILB. ELB estaba disponib
 
 ![Appendix2][12]
 
-### <a name="pre-steps-connect-to-subscription"></a>Pasos previos: Conectarse con la suscripción
+### <a name="pre-steps-connect-to-subscription"></a>Pasos previos: Conectarse a la suscripción
 
 ```powershell
 Add-AzureAccount
@@ -914,7 +915,7 @@ ForEach ( $attachdatadisk in $datadiskimport)
 $vmConfig  | New-AzureVM –ServiceName $destcloudsvc –Location $location -VNetName $vnet ## Optional (-ReservedIPName $reservedVIPName)
 ```
 
-#### <a name="step-13-create-ilb-on-new-cloud-svc-add-load-balanced-endpoints-and-acls"></a>Paso 13: Crear ILB en SVC en la nube nuevo y agregar extremos de carga equilibrada y ACL
+#### <a name="step-13-create-ilb-on-new-cloud-svc-add-load-balanced-endpoints-and-acls"></a>Paso 13: Crear un ILB en el nuevo servicio en la nube y agregar puntos de conexión de carga equilibrada y ACL
 
 ```powershell
 #Check for existing ILB
@@ -1161,7 +1162,7 @@ ForEach ( $attachdatadisk in $datadiskimport)
 $vmConfig  | New-AzureVM –ServiceName $destcloudsvc –Location $location -VNetName $vnet -Verbose
 ```
 
-#### <a name="step-22-add-load-balanced-endpoints-and-acls"></a>Paso 22: Agregar extremos de carga equilibrada y ACL
+#### <a name="step-22-add-load-balanced-endpoints-and-acls"></a>Paso 22: Agregar puntos de conexión de carga equilibrada y ACL
 
 ```powershell
 #Endpoints
@@ -1179,12 +1180,12 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 #http://msdn.microsoft.com/library/azure/dn495192.aspx
 ```
 
-#### <a name="step-23-test-failover"></a>Paso 23: Probar la conmutación por error
+#### <a name="step-23-test-failover"></a>Paso 23: Conmutación por error de prueba
 Espere a que el nodo migrado se sincronice con el nodo de AlwaysOn local. Colóquelo en el modo de replicación sincrónica y espere a que se sincronice. A continuación, conmute por error de local al primer nodo migrado, que es el AFP. En cuanto lo consiga, cambie el último nodo migrado al AFP.
 
 Debe probar las conmutaciones por error entre todos los nodos y ejecutar pruebas de caos para garantizar que las conmutaciones por error funcionan como se esperaba y de manera puntual.
 
-#### <a name="step-24-put-back-cluster-quorum-settings--dns-ttl--failover-pntrs--sync-settings"></a>Paso 24: Reponer la configuración del cuórum de clúster / TTL de DNS / asociados de conmutación por error / configuración de sincronización
+#### <a name="step-24-put-back-cluster-quorum-settings--dns-ttl--failover-pntrs--sync-settings"></a>Paso 24: Reponer la configuración del cuórum de clúster/TTL de DNS/asociados de conmutación por error/configuración de sincronización
 ##### <a name="adding-ip-address-resource-on-same-subnet"></a>Agregar un recurso de dirección IP en la misma subred
 Si solo tiene dos servidores SQL Server y desea migrarlos a un nuevo servicio en la nube, pero desea mantenerlos en la misma subred, puede evitar desconectar el agente de escucha para eliminar la dirección IP original de AlwaysOn y agregar la nueva dirección IP. Si va a migrar las máquinas virtuales a otra subred no es necesario que lo haga, ya que hay una red de clúster adicional que hace referencia a esa subred.
 

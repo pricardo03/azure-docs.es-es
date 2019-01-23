@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 092ffa5ed34a8e0a05b69c3fae86ab7299760ac2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 213190863702ec5a7f2ae764c8e2d892764740f9
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233106"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332207"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Tutorial: Cifrado y descifrado de blobs en Microsoft Azure Storage con Azure Key Vault
 ## <a name="introduction"></a>Introducción
 Este tutorial explica cómo hacer uso del cifrado de almacenamiento del lado cliente con Azure Key Vault. Se explica cómo cifrar y descifrar un blob en una aplicación de consola con estas tecnologías.
 
-**Tiempo estimado para completar el tutorial:** 20 minutos
+**Tiempo estimado para completarla:** 20 minutos
 
 Para información general sobre Azure Key Vault, consulte [¿Qué es Azure Key Vault?](../../key-vault/key-vault-whatis.md).
 
@@ -184,14 +184,14 @@ using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
 ```
 
 > [!NOTE]
-> Existen un par de otros tipos de solucionadores que facilitan la administración de claves, incluidos AggregateKeyResolver y CachingKeyResolver.
+> Existen un par de otros tipos de solucionadores que facilitan la administración de claves, incluidos: AggregateKeyResolver y CachingKeyResolver.
 > 
 > 
 
 ## <a name="use-key-vault-secrets"></a>Uso de secretos de Key Vault
 La manera de usar un secreto con cifrado del lado cliente es mediante la clase SymmetricKey, porque un secreto es esencialmente una clave simétrica. Sin embargo, como se mencionó anteriormente, un secreto en Key Vault no se asigna exactamente a una SymmetricKey. Existen algunos aspectos que debe comprender:
 
-* La clave en una SymmetricKey tiene que tener una longitud fija: 128, 192, 256, 384 o 512 bits
+* La clave en una SymmetricKey tiene que tener una longitud fija: 128, 192, 256, 384 o 512 bits.
 * La clave en una SymmetricKey debe estar codificada en Base64.
 * Un secreto de Almacén de clave que se use como una SymmetricKey tiene que tener un tipo de contenido de "application/octet-stream" en Key Vault.
 
@@ -208,7 +208,7 @@ $enc = [System.Convert]::ToBase64String($b)
 $secretvalue = ConvertTo-SecureString $enc -AsPlainText -Force
 
 // Substitute the VaultName and Name in this command.
-$secret = Set-AzureKeyVaultSecret -VaultName 'ContoseKeyVault' -Name 'TestSecret2' -SecretValue $secretvalue -ContentType "application/octet-stream"
+$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'TestSecret2' -SecretValue $secretvalue -ContentType "application/octet-stream"
 ```
 
 En la aplicación de consola, puede usar la misma llamada que antes para recuperar este secreto como una SymmetricKey.
