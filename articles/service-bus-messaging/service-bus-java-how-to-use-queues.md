@@ -13,12 +13,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 804e0dd4b510b40c1ebbc5790308a429c2715724
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: e8d168e4171c96441162f1090a215cab8a70b7d1
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45573321"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198701"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>Uso de colas de Service Bus con Java
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -109,7 +109,7 @@ public void run() throws Exception {
 
 ```
 
-Los mensajes enviados a las colas de Service Bus y recibidos en ellas son instancias de la clase [Message](/java/api/com.microsoft.azure.servicebus._message?view=azure-java-stable). Los objetos Message cuentan con un conjunto de propiedades estándar (como Label y TimeToLive), un diccionario que se usa para mantener las propiedades personalizadas específicas de la aplicación y un conjunto de datos arbitrarios de aplicaciones. Una aplicación puede configurar el cuerpo del mensaje pasando todos los objetos serializables al constructor de Message y, luego, se usará el serializador pertinente para serializar el objeto. También puede especificar un objeto **java.IO.InputStream**.
+Los mensajes enviados a las colas de Service Bus y recibidos en ellas son instancias de la clase [Message](/java/api/com.microsoft.azure.servicebus.message?view=azure-java-stable). Los objetos Message cuentan con un conjunto de propiedades estándar (como Label y TimeToLive), un diccionario que se usa para mantener las propiedades personalizadas específicas de la aplicación y un conjunto de datos arbitrarios de aplicaciones. Una aplicación puede configurar el cuerpo del mensaje pasando todos los objetos serializables al constructor de Message y, luego, se usará el serializador pertinente para serializar el objeto. También puede especificar un objeto **java.IO.InputStream**.
 
 
 El tamaño máximo de mensaje que admiten las colas de Service Bus es de 256 KB en el [nivel Estándar](service-bus-premium-messaging.md) y de 1 MB en el [nivel Premium](service-bus-premium-messaging.md). El encabezado, que incluye propiedades de la aplicación estándar y personalizadas, puede tener un tamaño máximo de 64 KB. No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB.

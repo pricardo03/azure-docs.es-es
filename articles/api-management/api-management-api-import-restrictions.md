@@ -14,27 +14,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: bad87931feb11012f23f0ef19bd853b38566c07c
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 251caa840446e75ff13d9b4dcebcbae3a36473c8
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106831"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265454"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restricciones de importación de API y problemas conocidos
 ## <a name="about-this-list"></a>Acerca de esta lista
 Al importar una API, podría encontrarse con algunas restricciones o identificar problemas que es necesario corregir antes de realizar esta operación. En este artículo se documenta todo esto, organizado por el formato de importación de la API.
 
 ## <a name="open-api"> </a>OpenAPI/Swagger
-Si recibe errores al importar el documento de OpenAPI, asegúrese de que lo ha validado, ya sea mediante el diseñador en Azure Portal (Diseño - Front-End - OpenAPI Specification Editor [Editor de especificaciones de OpenAPI]) o con una herramienta de terceros como <a href="https://editor.swagger.io">Swagger Editor</a>.
 
-* Se admite solo el formato JSON para OpenAPI.
-* Los parámetros necesarios en la ruta de acceso y en la consulta deben tener nombres únicos. (En OpenAPI, un nombre de parámetro solo debe ser único dentro de una ubicación; por ejemplo, ruta de acceso, consulta, encabezado.  Pero en API Management se permite que los parámetros tanto de la ruta de acceso como de la consulta [que OpenAPI no admite] discriminen las operaciones. Por tanto, es necesario que los nombres de los parámetros sean únicos en toda la plantilla de la dirección URL).
-* Los esquemas a los que se hace referencia con propiedades **$ref** no pueden contener otras propiedades **$ref**.
+Si recibe errores al importar el documento de OpenAPI, asegúrese de haberlo validado con antelación. Para ello, use el diseñador en Azure Portal (Diseño - Front-End - OpenAPI Specification Editor [Editor de especificaciones de OpenAPI]) o con una herramienta de terceros como <a href="https://editor.swagger.io">Swagger Editor</a>.
+
+### <a name="open-api-general"> </a>General
+
+* Los parámetros necesarios en la ruta de acceso y en la consulta deben tener nombres únicos. (En OpenAPI, un nombre de parámetro solo debe ser único dentro de una ubicación; por ejemplo, ruta de acceso, consulta, encabezado. Pero en API Management se permite que los parámetros tanto de la ruta de acceso como de la consulta [que OpenAPI no admite] discriminen las operaciones. Por eso es necesario que los nombres de los parámetros sean únicos en toda la plantilla de la dirección URL).
 * Los punteros de **$ref** no pueden hacer referencia a archivos externos.
 * **x-ms-paths** y **x-servers** son las únicas extensiones admitidas.
 * Las extensiones personalizadas se omiten durante la importación y no se guardan ni conservan para la exportación.
-* **Recursión**: APIM no admite las definiciones que se definen de modo recursivo (por ejemplo, hacen referencia a ellos mismos).
+* **Recursión**: API Management no es compatible con definiciones establecidas de forma recursiva (por ejemplo, esquemas que hacen referencia a sí mismos).
+* La dirección URL (si está disponible) del archivo de origen se aplica a direcciones URL del servidor relativas.
+
+### <a name="open-api-v2"> </a>OpenAPI versión 2
+
+* Solo se admite el formato JSON.
+
+### <a name="open-api-v3"> </a>OpenAPI versión 3
+
+* Si se especifican muchos **servidores**, API Management tratará de seleccionar la primera dirección URL HTTPS. Si no hay ninguna dirección URL HTTPS: la primera dirección URL HTTP. Si no hay ninguna dirección URL HTTP: la dirección URL del servidor estará vacía.
+* **Ejemplos** no se admite, pero **ejemplo** sí.
+* **Multipart/form-data** no se admite.
 
 > [!IMPORTANT]
 > Consulte este [documento](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/) para obtener información importante y consejos relacionados con la importación de OpenAPI.

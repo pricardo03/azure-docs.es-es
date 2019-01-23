@@ -1,6 +1,6 @@
 ---
-title: Introducción al SDK de red CDN de Azure para Node.js | Microsoft Docs
-description: Aprenda a escribir aplicaciones Node.js para administrar la red CDN de Azure.
+title: Introducción al SDK de Azure CDN para Node.js | Microsoft Docs
+description: Aprenda a escribir aplicaciones Node.js para administrar Azure CDN.
 services: cdn
 documentationcenter: nodejs
 author: zhangmanling
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 46ae8cd9775432d126cbde856c1fb06ea319297e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 70bae1558860b763d17d04e10d5d926b39300101
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38301572"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321252"
 ---
-# <a name="get-started-with-azure-cdn-development"></a>Introducción al desarrollo de la red de entrega de contenido (CDN) de Azure
+# <a name="get-started-with-azure-cdn-development"></a>Introducción al desarrollo de Azure CDN
 > [!div class="op_single_selector"]
 > * [Node.js](cdn-app-dev-node.md)
 > * [.NET](cdn-app-dev-net.md)
 > 
 > 
 
-Puede usar el [SDK de red CDN de Azure para Node.js](https://www.npmjs.com/package/azure-arm-cdn) para automatizar la creación y la administración de puntos de conexión y perfiles de red CDN.  Este tutorial explica paso a paso la creación de una aplicación de consola Node.js sencilla que muestra algunas de las operaciones disponibles.  No se pretende describir todos los aspectos del SDK de red CDN de Azure para Node.js en detalle.
+Puede usar el [SDK de Azure CDN para Node.js](https://www.npmjs.com/package/azure-arm-cdn) para automatizar la creación y la administración de puntos de conexión y perfiles de red CDN.  Este tutorial explica paso a paso la creación de una aplicación de consola Node.js sencilla que muestra algunas de las operaciones disponibles.  No se pretende describir todos los aspectos del SDK de Azure CDN para Node.js en detalle.
 
 Para completar este tutorial, debe tener ya instalado y configurado [Node.js](http://www.nodejs.org) **4.x.x** o superior.  Puede usar cualquier editor de texto que desee para crear la aplicación de Node.js.  Para escribir este tutorial, se ha usado [Visual Studio Code](https://code.visualstudio.com).  
 
@@ -50,7 +50,7 @@ A continuación, se le ofrecerán una serie de preguntas para inicializar el pro
 
 ![Salida de NPM init](./media/cdn-app-dev-node/cdn-npm-init.png)
 
-El proyecto se inicializa ahora con un archivo *packages.json* .  Va a usar algunas bibliotecas de Azure contenidas en paquetes NPM.  Vamos a usar el tiempo de ejecución de cliente de Azure para Node.js (ms-rest-azure) y la biblioteca de cliente de red CDN de Azure para Node.js (azure-arm-cd).  Vamos a agregar estos elementos al proyecto como dependencias.
+El proyecto se inicializa ahora con un archivo *packages.json* .  Va a usar algunas bibliotecas de Azure contenidas en paquetes NPM.  Vamos a usar el tiempo de ejecución de cliente de Azure para Node.js (ms-rest-azure) y la biblioteca de cliente de Azure CDN para Node.js (azure-arm-cd).  Vamos a agregar estos elementos al proyecto como dependencias.
 
     npm install --save ms-rest-azure
     npm install --save azure-arm-cdn
@@ -340,7 +340,7 @@ function cdnDelete() {
 Ahora ya podemos ejecutar nuestro programa de Node.js usando nuestro depurador preferido o en la consola.
 
 > [!TIP]
-> Si usa código de Visual Studio como depurador, tiene que configurar su entorno para pasar los parámetros de línea de comandos.  El código de Visual Studio realiza esta operación en el archivo **lanuch.json** .  Busque una propiedad denominada **args** y agregue una matriz de valores de cadena para los parámetros, de forma que se parezca a esto: `"args": ["list", "profiles"]`.
+> Si usa código de Visual Studio como depurador, tiene que configurar su entorno para pasar los parámetros de línea de comandos.  Visual Studio Code hace esto en el archivo **launch.json**.  Busque una propiedad denominada **args** y agregue una matriz de valores de cadena para los parámetros, de forma que se parezca a esto: `"args": ["list", "profiles"]`.
 > 
 > 
 
@@ -363,9 +363,9 @@ Por último, vamos a eliminar el perfil.
 ## <a name="next-steps"></a>Pasos siguientes
 Para ver el proyecto de este tutorial terminado, [descargue el ejemplo](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).
 
-Para ver la referencia del SDK de red CDN de Azure para Node.js, consulte el documento de [referencia](http://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/).
+Para ver la referencia del SDK de Azure CDN para Node.js, consulte el documento de [referencia](http://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/).
 
 Para encontrar más documentación sobre Azure SDK para Node.js, consulte el [material de referencia completo](http://azure.github.io/azure-sdk-for-node/).
 
-Administre sus recursos de red CDN con [PowerShell](cdn-manage-powershell.md).
+Administración de los recursos de red CDN con [PowerShell](cdn-manage-powershell.md).
 

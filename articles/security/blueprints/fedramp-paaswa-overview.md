@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: jomolesk
-ms.openlocfilehash: 50a49a8bcb6bec6c177823ea61cc340da6876357
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 9bfd748e6b10106587e3fce64e15d7f1f6d50e59
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602093"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261594"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-fedramp"></a>Plano técnico de seguridad y cumplimiento de Azure: Aplicación web PaaS para FedRAMP
 
@@ -165,7 +165,7 @@ Además, como parte de esta arquitectura, se incluyen las siguientes soluciones 
 
 El diagrama de flujo de datos de esta arquitectura de referencia está disponible para su [descarga](https://aka.ms/fedrampPaaSWebAppDFD) y se encuentra a continuación. El modelo puede ayudar a los clientes a comprender los puntos de riesgo potencial de la infraestructura del sistema al realizar modificaciones.
 
-![Modelo de amenazas de la aplicación web de PaaS para FedRAMP](images/fedramp-paaswa-threat-model.png?raw=true "PaaS Web Applicaiton for FedRAMP threat model")
+![Modelo de amenazas de la aplicación web de PaaS para FedRAMP](images/fedramp-paaswa-threat-model.png?raw=true "Modelo de amenazas de la aplicación web de PaaS para FedRAMP")
 
 ## <a name="compliance-documentation"></a>Documentación de cumplimiento
 En la [matriz de responsabilidades de los clientes de FedRAMP High de Azure Security and Compliance Blueprint](https://aka.ms/blueprinthighcrm) se enumeran todos los controles de seguridad necesarios para la línea de base de FedRAMP High. La matriz denota si la implementación de cada control es la responsabilidad de Microsoft, del cliente o de ambos.

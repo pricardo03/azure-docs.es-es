@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: a78632ed6215c467f53938569621cfb18f9e51ca
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: acc1b9e9561b9468a4638c7073a066e4cb34d911
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352955"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264757"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Uso de la restauración geográfica para recuperar una aplicación SaaS multiinquilino a partir de copias de seguridad de base de datos
 
@@ -114,7 +114,7 @@ En esta tarea, se inicia un proceso para sincronizar la configuración de los se
 
 3. Configure las opciones siguientes:
 
-    $DemoScenario = 1, inicie un trabajo en segundo plano que sincronice la información de configuración del servidor de inquilino y del grupo con el catálogo
+    $DemoScenario = 1: Inicie un trabajo en segundo plano que sincronice la información de configuración del servidor de inquilino y del grupo con el catálogo.
 
 4. Para ejecutar el script de sincronización, seleccione F5. 
 
@@ -174,7 +174,7 @@ Suponga que hay una interrupción en la región en la que la aplicación se impl
 
 1. En PowerShell ISE, establezca el siguiente valor en el script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1:
 
-    $DemoScenario = 2: recuperar la aplicación en una región de recuperación mediante la restauración a partir de copias de seguridad con redundancia geográfica.
+    $DemoScenario = 2: Recupere la aplicación en una región de recuperación mediante la restauración a partir de copias de seguridad con redundancia geográfica.
 
 2. Para ejecutar el script, seleccione F5.  
 
@@ -209,7 +209,7 @@ Incluso antes de que se restauren las bases de datos de inquilino, puede aprovis
 
 1. En PowerShell ISE, establezca la siguiente propiedad en el script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1:
 
-    $DemoScenario = 3: aprovisionar un nuevo inquilino en la región de recuperación.
+    $DemoScenario = 3: Aprovisione un nuevo inquilino en la región de recuperación.
 
 2. Para ejecutar el script, seleccione F5.
 
@@ -262,7 +262,7 @@ En esta tarea, va a actualizar una de las bases de datos de inquilino restaurada
 
 2. En PowerShell ISE, establezca el siguiente valor en el script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1:
 
-    $DemoScenario = 4: eliminar un evento de un inquilino en la región de recuperación.
+    $DemoScenario = 4: Elimine un evento de un inquilino en la región de recuperación.
 
 3. Para ejecutar el script, seleccione F5.
 
@@ -320,13 +320,13 @@ Si ha seguido el tutorial, el script reactiva inmediatamente Fabrikam Jazz Club 
   
 1. En PowerShell ISE, en el script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 script, verifique que el proceso de sincronización del catálogo está todavía en ejecución en su instancia de PowerShell. Si es necesario, reinícielo estableciendo:
 
-    $DemoScenario = 1: iniciar la sincronización de la información de configuración del servidor de inquilino, el grupo y la base de datos en el catálogo.
+    $DemoScenario = 1: Inicie la sincronización de la información de configuración del servidor de inquilino, el grupo y la base de datos en el catálogo.
 
     Para ejecutar el script, seleccione F5.
 
 2.  Luego, para iniciar el proceso de repatriación, establezca:
 
-    $DemoScenario = 5: repatriar la aplicación en su región original.
+    $DemoScenario = 5: Repatrie la aplicación a su región original.
 
     Para ejecutar el script de recuperación en una nueva ventana de PowerShell, seleccione F5. La repatriación tarda varios minutos y se puede supervisar en la ventana de PowerShell.
 
@@ -352,7 +352,7 @@ El proceso de restauración crea todos los recursos de recuperación en un grupo
 
 1. En PowerShell ISE, en el script ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, establezca:
     
-    $DemoScenario = 6: eliminar recursos obsoletos de la región de recuperación.
+    $DemoScenario = 6: Elimine recursos obsoletos de la región de recuperación.
 
 2. Para ejecutar el script, seleccione F5.
 

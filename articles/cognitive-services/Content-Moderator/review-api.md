@@ -1,23 +1,23 @@
 ---
 title: 'Trabajos de moderación y revisiones con intervención humana: Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Aplique la revisión humana a la moderación asistida por máquina para obtener mejores resultados.
+description: Combine la moderación asistida por máquina con las capacidades de revisión humanas usando Review API de Azure Content Moderator para obtener los mejores resultados para su negocio.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 1/21/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: b4a2f62b1c9cefb716cb217baf7389c3e7c790b8
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: a348b18d1ecc9c0e4405c54a8e554d932781ec92
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223266"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265352"
 ---
-# <a name="moderation-jobs-and-reviews"></a>Trabajos de moderación y revisiones
+# <a name="content-moderation-jobs-and-reviews"></a>Trabajos y revisiones de moderación de contenido
 
 Combine la moderación asistida por máquina con las capacidades de revisión humanas usando [Review API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) de Azure Content Moderator para obtener los mejores resultados para su negocio.
 
@@ -55,12 +55,12 @@ Use la operación `Job.Get` y el identificador de trabajo para obtener los detal
 
 Las entradas incluyen la siguiente información:
 
-- El identificador del equipo de revisión: el identificador de trabajo devuelto por la operación anterior
+- El identificador del equipo de revisión: El identificador de trabajo devuelto por la operación anterior
 
 La respuesta incluye la siguiente información:
 
 - El identificador de la revisión que se creó. (Use este identificador para obtener los resultados de la revisión final).
-- El estado del trabajo (completado o en curso): las etiquetas de moderación asignadas (pares clave-valor).
+- El estado del trabajo (completado o en curso): Las etiquetas de moderación asignadas (pares clave-valor).
 - El informe de ejecución del trabajo.
  
  

@@ -4,14 +4,14 @@ description: Aborda las preguntas más frecuentes sobre Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/11/2019
 ms.author: snehaa
-ms.openlocfilehash: 787e3f53cb75b33b03c29b61b319270fdf7a63ca
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 2efa450b6b0cfa299370df3941224f4f64e91b4b
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975481"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230771"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate: preguntas más frecuentes (P+F)
 
@@ -53,6 +53,7 @@ Azure Migrate admite actualmente Europa, Estados Unidos y Azure Government como 
 **Geografía** | **Ubicación de almacenamiento de metadatos**
 --- | ---
 Azure Government | Gobierno de EE. UU. - Virginia
+Asia | Sudeste asiático
 Europa | Norte de Europa y Oeste de Europa
 Estados Unidos | Centro-oeste de EE. UU. o Este de EE. UU.
 
@@ -63,6 +64,17 @@ La conexión puede ser a través de Internet o usar ExpressRoute con emparejamie
 ### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>¿Puedo proteger la configuración de máquina virtual con la plantilla OVA?
 
 Se pueden agregar componentes adicionales (por ejemplo, un antivirus) en la plantilla OVA siempre que las reglas de firewall y de comunicación necesarias para que el dispositivo de Azure Migrate funcionen tal cual.   
+
+### <a name="to-harden-the-azure-migrate-appliance-what-are-the-recommended-antivirus-av-exclusions"></a>Para proteger el dispositivo de Azure Migrate, ¿qué exclusiones del antivirus (AV) se recomiendan?
+
+Debe excluir las carpetas siguientes del dispositivo para el examen del antivirus:
+
+- La carpeta que contiene los archivos binarios del servicio Azure Migrate. Excluir todas las subcarpetas.
+  %ProgramFiles%\ProfilerService  
+- La aplicación web de Azure Migrate. Excluir todas las subcarpetas.
+  %SystemDrive%\inetpub\wwwroot
+- La caché local de la base de datos y los archivos de registro. El servicio Azure Migrate necesita acceso RW a esta carpeta.
+  %SystemDrive%\Profiler
 
 ## <a name="discovery"></a>Detección
 
@@ -136,6 +148,7 @@ Si tiene un entorno que se comparte entre los inquilinos y no desea detectar las
 
 Puede detectar 1500 máquinas virtuales en un solo proyecto de migración. Si tiene varias máquinas en su entorno local, [obtenga más información](how-to-scale-assessment.md) sobre cómo puede detectar un entorno de gran tamaño en Azure Migrate.
 
+
 ## <a name="assessment"></a>Evaluación
 
 ### <a name="does-azure-migrate-support-enterprise-agreement-ea-based-cost-estimation"></a>¿Azure Migrate es compatible con la estimación de costes basada en Contrato Enterprise (EA)?
@@ -144,6 +157,13 @@ Actualmente, Azure Migrate no es compatible con la estimación de costes de la [
 
   ![Descuento](./media/resources-faq/discount.png)
 
+### <a name="what-is-the-difference-between-as-on-premises-sizing-and-performance-based-sizing"></a>¿Cuál es la diferencia entre el ajuste de tamaño como local y el ajuste de tamaño basado en el rendimiento?
+
+Al especificar el criterio de ajuste de tamaño como local, Azure Migrate no tiene en cuenta los datos de rendimiento de las máquinas virtuales y ajusta el tamaño de las máquinas virtuales en función de la configuración local. Si el criterio de ajuste de tamaño se basa en el rendimiento, el ajuste se realiza basándose en datos de uso. Por ejemplo, si hay una máquina virtual local con 4 núcleos y 8 GB de memoria con un 50 % de uso de CPU y un 50 % de uso de memoria. Si el criterio de ajuste de tamaño es como local, se recomienda ajustar el tamaño de una SKU de máquina virtual de Azure con 4 núcleos y 8 GB de memoria. Sin embargo, si el criterio de ajuste de tamaño se basa en el rendimiento, se recomienda una SKU de máquina virtual de 2 núcleos y 4 GB, ya que el porcentaje de uso se tiene en cuenta al recomendar el tamaño. De forma similar, en el caso de los discos, el ajuste de tamaño de disco depende de dos propiedades de evaluación: criterio de ajuste de tamaño y tipo de almacenamiento. Si el criterio de ajuste de tamaño se basa en el rendimiento y el tipo de almacenamiento es automático, los valores de rendimiento y de IOPS del disco se tendrán en cuenta para identificar el tipo de disco de destino (estándar o prémium). Si el criterio de ajuste de tamaño se basa en el rendimiento y el tipo de almacenamiento es prémium, se recomienda un disco prémium. La SKU de disco prémium en Azure se selecciona en función del tamaño del disco local. Se usa la misma lógica para ajustar el tamaño del disco cuando el criterio de ajuste de tamaño es como local y el tipo de almacenamiento es estándar o prémium.
+
+### <a name="what-impact-does-performance-history-and-percentile-utilization-have-on-the-size-recommendations"></a>¿Qué impacto tiene el historial de rendimiento y uso de percentil en las recomendaciones de tamaño?
+
+Estas propiedades solo son aplicables para el ajuste de tamaño basado en el rendimiento. Azure Migrate recopila el historial de rendimiento de las máquinas locales y lo usa para recomendar el tipo de disco y el tamaño de la máquina virtual en Azure. La aplicación del recopilador realiza un perfil del entorno local continuamente para recopilar datos de uso en tiempo real cada 20 segundos. El dispositivo acumula ejemplos de 20 segundos y crea un único punto de datos cada 15 minutos. Para crear el punto de datos único, el dispositivo selecciona el valor máximo de todos los ejemplos de 20 segundos y lo envía a Azure. Cuando se crea una evaluación en Azure, en función de la duración del rendimiento y el valor del percentil del historial de rendimiento, Azure Migrate calcula el valor del uso efectivo y lo usa para ajustar el tamaño. Por ejemplo, si ha establecido la duración del rendimiento en 1 día y el valor del percentil en el percentil 95, Azure Migrate usa puntos de ejemplo de 15 min que envía el recopilador para el último día, los ordena de manera ascendente y elige el valor del percentil 95 como el uso efectivo. El valor del percentil 95 garantiza que se van a omitir a los valores atípicos que pueden aparecer si elige el percentil 99. Si quiere elegir el uso máximo para el período y no quiere perderse ningún valor atípico, debe seleccionar el percentil 99.
 
 ## <a name="dependency-visualization"></a>Visualización de dependencia
 

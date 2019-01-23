@@ -14,30 +14,30 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: cb3730718c366cbf3fe9caecceeb4e65855ac8c4
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: dae86dcdd3ada10164be0120b49a8f5f7b642ccd
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53345878"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231638"
 ---
-# <a name="publish-consulting-service-offer"></a>Publicación de una oferta de servicios de consultoría
+# <a name="publish-a-consulting-service-offer"></a>Publicación de una oferta de servicios de consultoría
 
 Después de completar la **configuración de la oferta**, los **detalles del escaparate electrónico** y los **contactos**, seleccione **Publicar** y especifique una dirección de correo electrónico. Cuando Microsoft esté listo para publicar su oferta, recibirá un correo electrónico para obtener una versión preliminar antes de su publicación. Puede volver al portal para comprobar el estado de la oferta en cualquier momento.
 
-Las ofertas pueden aparecer con el estado "Publicación cancelada" o "No se pudo publicar" durante el proceso de publicación. Este estado es una parte normal del proceso y permite a Microsoft realizar modificaciones en la oferta. Si ve que el estado de la oferta es "Publicación cancelada", déjela en ese estado.
+Las ofertas pueden aparecer con el estado "Publicación cancelada" o "No se pudo publicar" durante el proceso de publicación. Estas designaciones son una parte normal del proceso y permiten a Microsoft realizar modificaciones en la oferta. Si ve que el estado de la oferta es "Publicación cancelada", déjela en ese estado.
 
-**Destino de clientes potenciales**
+## <a name="lead-destination"></a>Destino de clientes potenciales
 
-Puede seleccionar un sistema de CRM en que se almacenarán los clientes potenciales. El sistema de CRM que seleccione aquí es donde escribiremos los detalles de los usuarios finales que prueben su aplicación en AppSource (clientes potenciales).
+Puede seleccionar un sistema de CRM en el que se almacenará la información de los clientes potenciales. El sistema de CRM que seleccione aquí es donde escribiremos información sobre los usuarios que prueben su aplicación en AppSource.
 
-En función del sistema de CRM que seleccione, haga clic en la dirección URL correspondiente para obtener información sobre cómo completar el siguiente conjunto de campos
+Según el sistema de CRM que elija, seleccione la dirección URL correspondiente en la lista siguiente para obtener información sobre cómo rellenar el siguiente conjunto de campos.
 
-* Seleccione [Tabla de Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) si tiene uno de los siguientes sistemas de CRM: Salesforce, Marketo o Microsoft Dynamics CRM. 
+Seleccione [Tabla de Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) si tiene uno de los siguientes sistemas de CRM:  
 * [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo)
 * [Microsoft Dynamics CRM](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)
 * [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce)
 
-**Pasos siguientes**
+## <a name="next-steps"></a>Pasos siguientes
 
-Pase a la publicación de ofertas.
+Continuar para aprender a publicar su oferta.

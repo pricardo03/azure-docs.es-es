@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad04b229e4c6ace3f87ba6e800c0a7c82eb76d92
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 10c8c0043d04d99ad10e475f903979edb0ddcb70
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633961"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266909"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Instalación y configuración de SAP HANA (instancias grandes) en Azure
 
@@ -85,16 +85,16 @@ El **quinto paso** consiste en comprobar etc/hosts. A medida que se van entregan
 > [!IMPORTANT] 
 > Para las unidades de tipo II, en este momento solo se admite la versión del sistema operativo SLES 12 SP2. 
 
-El espacio de intercambio de la imagen del sistema operativo proporcionada está establecido en 2 GB de acuerdo con la [nota de compatibilidad de SAP n.º 1999997 con las preguntas frecuentes sobre la memoria de SAP HANA](https://launchpad.support.sap.com/#/notes/1999997/E). Como cliente, si desea una configuración diferente, debe establecerla por sí mismo.
+El espacio de intercambio de la imagen del sistema operativo proporcionada está establecido en 2 GB de acuerdo con la [nota de compatibilidad de SAP n.º 1999997 con las preguntas frecuentes sobre la memoria de SAP HANA](https://launchpad.support.sap.com/#/notes/1999997/E). Como cliente, si desea una configuración diferente, debe establecerla por sí mismo.
 
-[SUSE Linux Enterprise Server 12 SP1 for SAP Applications](https://www.suse.com/products/sles-for-sap/hana) es la distribución de Linux instalada para SAP HANA en Azure (instancias grandes). Esta distribución particular proporciona funcionalidades específicas de SAP "listas para usar" (incluidos los parámetros predefinidos para ejecutar SAP en SLES de forma eficaz).
+[SUSE Linux Enterprise Server 12 SP1 for SAP Applications](https://www.suse.com/products/sles-for-sap/download/) es la distribución de Linux instalada para SAP HANA en Azure (instancias grandes). Esta distribución particular proporciona funcionalidades específicas de SAP "listas para usar" (incluidos los parámetros predefinidos para ejecutar SAP en SLES de forma eficaz).
 
 Vea [Biblioteca de recursos/Informes oficiales](https://www.suse.com/products/sles-for-sap/resource-library#white-papers) en el sitio web de SUSE y [SAP on SUSE](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE) (SAP en SUSE) en la red de la comunidad de SAP (SCN) para varios recursos útiles relacionados con la implementación de SAP HANA en SLES (incluida la configuración de alta disponibilidad, el endurecimiento de la seguridad específico de las operaciones de SAP etc.).
 
 A continuación, se muestran vínculos adicionales y útiles relacionados con SAP en SUSE:
 
 - [SAP HANA on SUSE Linux Site](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE) (Sitio de SAP HANA en SUSE Linux)
-- [Best Practice for SAP: Enqueue Replication – SAP NetWeaver on SUSE Linux Enterprise 12](https://www.suse.com/docrepcontent/container.jsp?containerId=9113) (Procedimiento recomendado para SAP: poner en cola la replicación - SAP NetWeaver en SUSE Linux Enterprise 12)
+- [Best practices for SAP: Enqueue Replication – SAP NetWeaver on SUSE Linux Enterprise 12](https://www.suse.com/docrepcontent/container.jsp?containerId=9113) (Procedimiento recomendado para SAP: poner en cola la replicación - SAP NetWeaver en SUSE Linux Enterprise 12)
 - [ClamSAP – SLES Virus Protection for SAP](http://scn.sap.com/community/linux/blog/2014/04/14/clamsap--suse-linux-enterprise-server-integrates-virus-protection-for-sap) (ClamSAP: protección contra virus de SLES para SAP), incluido SLES 12 para SAP Applications
 
 Estas son las notas de compatibilidad de SAP aplicables a la implementación de SAP HANA en SLES 12:
@@ -102,7 +102,7 @@ Estas son las notas de compatibilidad de SAP aplicables a la implementación de 
 - [SAP Support Note #1944799 - SAP HANA Guidelines for SLES Operating System Installation](http://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html) (Nota de compatibilidad de SAP n.º 1944799: Instrucciones de SAP HANA para la instalación del sistema operativo SLES)
 - [SAP Support Note #2205917 - SAP HANA DB Recommended OS Settings for SLES 12 for SAP Applications](https://launchpad.support.sap.com/#/notes/2205917/E) (Nota de compatibilidad de SAP n.º 2205917: Configuración recomendada del sistema operativo de SAP HANA DB para SLES 12 en aplicaciones SAP)
 - [SAP support note #1984787 – SUSE Linux Enterprise Server 12:  installation notes](https://launchpad.support.sap.com/#/notes/1984787) (Nota de compatibilidad de SAP n.º 1984787: Notas de instalación de SUSE Linux Enterprise Server 12)
-- [SAP Support Note #171356 – SAP Software on Linux:  General Information](https://launchpad.support.sap.com/#/notes/1984787) (Nota de compatibilidad con SAP nº 171356 - Software SAP en Linux: información general)
+- [SAP support note #171356 – SAP software on Linux:  General Information](https://launchpad.support.sap.com/#/notes/1984787) (Nota de compatibilidad de SAP nº 171356 - Software SAP en Linux: información general)
 - [SAP support note #1391070 – Linux UUID solutions](https://launchpad.support.sap.com/#/notes/1391070) (Nota de compatibilidad de SAP n.º 1391070: Soluciones UUID de Linux)
 
 [Red Hat Enterprise Linux para SAP HANA](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) es otra oferta para ejecutar SAP HANA en instancias grandes de HANA. Ya están disponibles las versiones de RHEL 6.7 y 7.2. Tenga en cuenta que en máquinas virtuales de Azure no nativas en las que solo se admite RHEL 7.2 y versiones posteriores, las instancias grandes de HANA también admiten RHEL 6.7. Sin embargo, se recomienda utilizar una versión RHEL 7.x.
@@ -113,11 +113,11 @@ A continuación, se muestran vínculos adicionales útiles relacionados con SAP 
 Estas son las notas de compatibilidad de SAP aplicables a la implementación de SAP HANA en Red Hat:
 
 - [SAP support note #2009879 - SAP HANA guidelines for Red Hat Enterprise Linux (RHEL) operating system](https://launchpad.support.sap.com/#/notes/2009879/E) (Nota de compatibilidad de SAP n.º 2009879: Directrices de SAP HANA para el sistema operativo Red Hat Enterprise Linux [RHEL])
-- [SAP support note #2292690 - SAP HANA DB: Recommended OS settings for RHEL 7](https://launchpad.support.sap.com/#/notes/2292690) (Nota de compatibilidad de SAP n.º 2292690 - SAP HANA DB: Configuración recomendada del sistema operativo para RHEL 7)
-- [SAP Support Note #2247020 - SAP HANA DB: Recommended OS settings for RHEL 6.7](https://launchpad.support.sap.com/#/notes/2247020) (Nota de compatibilidad de SAP n.º 2247020 - SAP HANA DB: Configuración recomendada del sistema operativo para RHEL 6.7)
+- [SAP support note #2292690 - SAP HANA DB: Recommended OS settings for RHEL 7](https://launchpad.support.sap.com/#/notes/2292690) (2292690 - SAP HANA DB: configuraciones de sistema operativo recomendadas para RHEL 7)
+- [SAP Support Note #2247020 - SAP HANA DB: Recommended OS settings for RHEL 6.7](https://launchpad.support.sap.com/#/notes/2247020) (Nota de compatibilidad de SAP n.º 2247020 - SAP HANA DB: configuraciones de sistema operativo recomendadas para RHEL 6.7)
 - [SAP support note #1391070 – Linux UUID solutions](https://launchpad.support.sap.com/#/notes/1391070) (Nota de compatibilidad de SAP n.º 1391070: Soluciones UUID de Linux)
 - [SAP support note #2228351 - Linux: SAP HANA Database SPS 11 revision 110 (or higher) on RHEL 6 or SLES 11](https://launchpad.support.sap.com/#/notes/2228351) (Nota de compatibilidad de SAP n.º 2228351 - Linux: Revisión 110 (o superior) de SAP HANA Database SPS 11 en RHEL 6 o SLES 11)
-- [SAP support note #2397039 - FAQ: SAP on RHEL](https://launchpad.support.sap.com/#/notes/2397039) (Nota de compatibilidad de SAP n.º2397039: Preguntas frecuentes sobre SAP en RHEL)
+- [SAP support note #2397039 - FAQ: SAP on RHEL](https://launchpad.support.sap.com/#/notes/2397039) (Nota de compatibilidad de SAP n.º 2397039 sobre preguntas frecuentes de SAP en RHEL)
 - [SAP support note #1496410 - Red Hat Enterprise Linux 6.x: Installation and upgrade](https://launchpad.support.sap.com/#/notes/1496410) (Nota de compatibilidad de SAP n.º 1496410: Instalación y actualización de Red Hat Enterprise Linux 6.x)
 - [SAP support note #2002167 - Red Hat Enterprise Linux 7.x: Installation and upgrade](https://launchpad.support.sap.com/#/notes/2002167) (Nota de compatibilidad de SAP n.º 2002167: Instalación y actualización de Red Hat Enterprise Linux 7.x)
 
@@ -170,7 +170,7 @@ El volumen HANA/log/backup no está pensado para ser el volumen para las copias 
 
 Además del almacenamiento proporcionado, puede adquirir capacidad de almacenamiento adicional en incrementos de 1 TB. Este almacenamiento adicional se puede agregar como nuevos volúmenes a una instancia grande de HANA.
 
-Durante la incorporación de SAP HANA en Azure Service Management, el cliente especifica un identificador de usuario (UID) y un identificador de grupo (GID) para el usuario sidadm y el grupo sapsys (por ejemplo, 1000,500). Debe usar estos mismos valores durante la instalación del sistema SAP HANA. Como quiere implementar varias instancias de HANA en una unidad, obtendrá varios conjuntos de volúmenes (un conjunto por cada instancia). Como resultado, durante la implementación tendrá que definir lo siguiente:
+Durante la incorporación de SAP HANA en Azure Service Management, el cliente especifica un identificador de usuario (UID) y un identificador de grupo (GID) para el usuario sidadm y el grupo sapsys (por ejemplo: 1000,500). Debe usar estos mismos valores durante la instalación del sistema SAP HANA. Como quiere implementar varias instancias de HANA en una unidad, obtendrá varios conjuntos de volúmenes (un conjunto por cada instancia). Como resultado, durante la implementación tendrá que definir lo siguiente:
 
 - El SID de las distintas instancias de HANA (del que se deriva sidadm).
 - Los tamaños de memoria de las distintas instancias de HANA. El tamaño de memoria por instancia define el tamaño de los volúmenes en cada conjunto de volúmenes individuales.
@@ -201,7 +201,7 @@ En las versiones de SAP HANA 1.0 hasta SPS12, estos parámetros se pueden establ
 
 También puede configurar los parámetros después de la instalación de la base de datos de SAP HANA mediante el marco de hdbparam. 
 
-Con SAP HANA 2.0, el marco de hdbparam está en desuso. Como resultado, los parámetros deben establecerse mediante comandos SQL. Para más información, consulte la [nota de SAP n.º 2399079 sobre la eliminación de hdbparam en HANA 2](https://launchpad.support.sap.com/#/notes/2399079).
+Con SAP HANA 2.0, el marco de hdbparam está en desuso. Como resultado, los parámetros deben establecerse mediante comandos SQL. Para más información, consulte [SAP note #2399079: Elimination of hdbparam in HANA 2](https://launchpad.support.sap.com/#/notes/2399079) (Nota de SAP n.º 2399079: eliminación de hdbparam en HANA 2).
 
 Consulte los [escenarios admitidos por HLI](hana-supported-scenario.md) para información sobre la distribución de almacenamiento correspondiente a su arquitectura.
 

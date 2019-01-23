@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/14/2017
+ms.date: 01/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 5d01523f326bd7e2518bff06e62ae62db8f318d3
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 7e5cf79613bdbd62427e99a0d1f2aa29ed8f85be
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
-ms.locfileid: "24815235"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245198"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisitos del sistema de la matriz virtual de StorSimple
 ## <a name="overview"></a>Información general
@@ -42,7 +42,7 @@ Los requisitos de software incluyen información sobre los exploradores web comp
 | **Hipervisor** | **Versión** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 y posterior |
-| VMware ESXi |5.0, 5.5 y 6.0 <br> (6.5 no es compatible). |
+| VMware ESXi |5.0, 5.5, 6.0 y 6.5. |
 
 > [!IMPORTANT]
 > No instale las herramientas de VMware en StorSimple Virtual Array; de lo contrario, esta configuración será incompatible.
@@ -52,7 +52,7 @@ Los requisitos de software incluyen información sobre los exploradores web comp
 | --- | --- |
 | Número mínimo de procesadores virtuales (núcleos) |4 |
 | Cantidad mínima de memoria (RAM) |8 GB <br> Para un servidor de archivos, 8 GB para menos de 2 millones de archivos y 16 GB para 2-4 millones de archivos|
-| Espacio en disco<sup>1</sup> |Disco de sistema operativo: 80 GB  <br></br>Disco de datos: de 500 GB a 8 TB |
+| Espacio en disco<sup>1</sup> |Disco de sistema operativo: 80 GB  <br></br> Disco de datos: de 500 GB a 8 TB |
 | Número mínimo de interfaces de red |1 |
 | Ancho de banda de Internet<sup>2</sup> |Ancho de banda mínimo requerido: 5 Mbps <br> Ancho de banda recomendado: 100 Mbps <br> La velocidad de transferencia de datos se amplía con el ancho de banda de Internet. Por ejemplo, 100 GB de datos tardan dos días en transferirse a 5 Mbps, lo que generaría errores de copia de seguridad por el hecho de que las copias de seguridad no se completarían en un día. Con un ancho de banda de 100 Mbps, 100 GB de datos pueden transferirse en dos horas y media.   |
 
@@ -94,13 +94,13 @@ La siguiente tabla enumera los puertos que deben abrirse en el firewall para per
 
 | **Nº de puerto<sup>1</sup>** | **Dentro o fuera** | **Ámbito de puerto** | **Obligatorio** | **Notas** |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP) |Fuera |WAN |No |El puerto de salida se usa para obtener acceso a Internet para así recuperar las actualizaciones. <br></br>El usuario puede configurar el proxy web de salida. |
-| TCP 443 (HTTPS) |Fuera |WAN |Sí |El puerto de salida se usa para tener acceso a los datos en la nube. <br></br>El usuario puede configurar el proxy web de salida. |
+| TCP 80 (HTTP) |Fuera |WAN |Sin  |El puerto de salida se usa para obtener acceso a Internet para así recuperar las actualizaciones. <br></br>El usuario puede configurar el proxy web de salida. |
+| TCP 443 (HTTPS) |Fuera |WAN |SÍ |El puerto de salida se usa para tener acceso a los datos en la nube. <br></br>El usuario puede configurar el proxy web de salida. |
 | UDP 53 (DNS) |Fuera |WAN |En algunos casos; consulte las notas. |Este puerto es necesario solo si está utilizando un servidor DNS basado en Internet. <br></br> Tenga en cuenta que si implementa un servidor de archivos, le recomendamos que use el servidor DNS local. |
 | UDP 123 (NTP) |Fuera |WAN |En algunos casos; consulte las notas. |Este puerto solo es necesario si está utilizando un servidor DNS basado en Internet.<br></br> Tenga en cuenta que si implementa un servidor de archivos, le recomendamos que sincronice la hora con los controladores de dominio de Active Directory. |
-| TCP 80 (HTTP) |En el |LAN |Sí |Este es el puerto de entrada de la interfaz de usuario local para el dispositivo StorSimple de la administración local. <br></br> Tenga en cuenta que si obtiene acceso a la interfaz de usuario local mediante HTTP, se le redireccionará automáticamente a HTTPS. |
-| TCP 443 (HTTPS) |En el |LAN |Sí |Este es el puerto de entrada de la interfaz de usuario local para el dispositivo StorSimple de la administración local. |
-| TCP 3260 (iSCSI) |En el |LAN |No |Este puerto se utiliza para tener acceso a datos a través de iSCSI. |
+| TCP 80 (HTTP) |En |LAN |SÍ |Este es el puerto de entrada de la interfaz de usuario local para el dispositivo StorSimple de la administración local. <br></br> Tenga en cuenta que si obtiene acceso a la interfaz de usuario local mediante HTTP, se le redireccionará automáticamente a HTTPS. |
+| TCP 443 (HTTPS) |En |LAN |SÍ |Este es el puerto de entrada de la interfaz de usuario local para el dispositivo StorSimple de la administración local. |
+| TCP 3260 (iSCSI) |En |LAN |Sin  |Este puerto se utiliza para tener acceso a datos a través de iSCSI. |
 
 <sup>1</sup> Ningún puerto de entrada debe estar abierto en la red Internet pública.
 
@@ -117,7 +117,7 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 > [!NOTE]
 > 
 > * Las direcciones IP del dispositivo (origen) siempre se deben establecer en todas las interfaces de red habilitadas para la nube. 
-> * Las IP de destino, por su parte, se deben establecer en los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+> * Las IP de destino, por su parte, se deben establecer en [Intervalos IP de centro de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 > 
 > 
 

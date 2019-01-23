@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2018
+ms.date: 01/14/2019
 ms.author: barclayn
-ms.openlocfilehash: eed545c88b840f942ad763793595ef5b9c3cd19d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6729a800450b9602bff1f85a3a40804edf05b048
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233701"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321762"
 ---
 # <a name="microsoft-services-in-cybersecurity"></a>Servicios de Microsoft en ciberseguridad
 
-Microsoft Services proporciona un enfoque integral para la seguridad, identidad y ciberseguridad. Microsoft Services proporciona una matriz de servicios de seguridad e identidad a través de la estrategia, la planificación, la implementación y el soporte técnico continuado. Estos servicios pueden ayudar a los clientes Enterprise a implementar soluciones de seguridad globales que se alinean con sus objetivos estratégicos.
+Los servicios de Microsoft proporcionan un enfoque integral para la seguridad, la identidad y la ciberseguridad. Incluyen una matriz de servicios de seguridad e identidad a través de la estrategia, la planificación, la implementación y el soporte técnico continuado. Estos servicios pueden ayudar a los clientes Enterprise a implementar soluciones de seguridad que se alineen con sus objetivos estratégicos.
 
-Gracias a un acceso directo a los equipos de desarrollo de productos, podemos crear soluciones que integren y mejoren las funcionalidades de seguridad e identidad más recientes de nuestros productos para ayudar a proteger los negocios de nuestros clientes e impulsar la innovación.
+Los servicios de Microsoft pueden crear soluciones que integren y mejoren las funcionalidades de seguridad e identidad más recientes de nuestros productos para ayudar a proteger sus negocios e impulsar la innovación.
 
-Dedicado a ayudar a proteger a las organizaciones más grandes del mundo, nuestro diverso grupo de profesionales técnicos está formado por expertos altamente cualificados que ofrecen una gran experiencia en identidad y seguridad.
+Nuestro equipo de profesionales técnicos está formado por expertos altamente cualificados que ofrecen una gran experiencia en identidad y seguridad.
 
 Aprenda más acerca de los servicios proporcionados por Servicios de Microsoft:
 
@@ -37,7 +37,6 @@ Aprenda más acerca de los servicios proporcionados por Servicios de Microsoft:
 * [Enhanced Security Administration Environment](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/enhanced-security-administrative-environment-solution-brief.pdf)
 * [Azure AD Implementation Services](https://download.microsoft.com/download/0/7/F/07FA8BFC-17D5-4F55-AD4F-3A987A7324AA/azure-active-directory-implementation-services-solution-brief.pdf)
 * [Securing Against Lateral Account Movement](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/pop-securing-lateral-account-movement.pdf)
-* [Microsoft Threat Detection Services](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-threat-detection-services-solution-brief.pdf)
 * [Incident Response and Recovery](https://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-incident-response-and-recovery-process-brief.pdf)
 
 [Aprenda más](https://aka.ms/cyberserv) acerca de los servicios de consultoría de seguridad de Servicios de Microsoft.

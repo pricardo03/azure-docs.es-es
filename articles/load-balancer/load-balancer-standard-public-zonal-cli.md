@@ -1,7 +1,7 @@
 ---
 title: Creación de un equilibrador Standard Load Balancer con el front-end de zona mediante la CLI de Azure
 titlesuffix: Azure Load Balancer
-description: Aprenda a crear una instancia de Load Balancer Estándar público con front-end para la dirección IP pública zonal mediante la CLI de Azure
+description: Aprenda a crear una instancia de Standard Load Balancer pública con front-end para la dirección IP pública de zona mediante la CLI de Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: f1a6777a99c2237fc4d201fa5c87eaea88117866
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 813f11dae31261b4211480570a4801de19e74437
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185637"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199212"
 ---
-#  <a name="create-a-public-load-balancer-standard-with-zonal-frontend-using-azure-cli"></a>Creación de una instancia de Load Balancer Estándar público con front-end zonal mediante la CLI de Azure
+#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>Creación de un equilibrador Standard Load Balancer con el front-end de zona mediante la CLI de Azure
 
-Este artículo le ayudará a crear una instancia de [Load Balancer Estándar](https://aka.ms/azureloadbalancerstandard) público con un front-end zonal mediante una dirección IP pública estándar. En este escenario, puede especificar una zona determinada para sus instancias de servidor front-end y back-end para alinear la ruta de acceso a los datos y los recursos con una zona específica.
+Este artículo le ayudará a crear una instancia de [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) pública con un front-end de zona mediante una dirección IP pública estándar. En este escenario, puede especificar una zona determinada para sus instancias de servidor front-end y back-end para alinear la ruta de acceso a los datos y los recursos con una zona específica.
 
 Para más información sobre cómo usar las zonas de disponibilidad con Load Balancer Estándar, consulte [Load Balancer Estándar y zonas de disponibilidad](load-balancer-standard-availability-zones.md).
 
@@ -61,7 +61,7 @@ az network public-ip create \
 --zone 1
 ```
 
-## <a name="create-azure-load-balancer-standard"></a>Creación de Azure Load Balancer Estándar
+## <a name="create-azure-standard-load-balancer"></a>Creación de una instancia de Azure Standard Load Balancer
 En esta sección se detalla cómo se pueden crear y configurar los componentes siguientes del equilibrador de carga:
 - Un grupo de direcciones IP de front-end que recibe el tráfico de red entrante en el equilibrador de carga.
 - Un grupo de direcciones IP de back-end al que el grupo de servidores front-end envía el tráfico de red de carga equilibrada.
@@ -69,7 +69,7 @@ En esta sección se detalla cómo se pueden crear y configurar los componentes s
 - Una regla de equilibrador de carga que define cómo se distribuye el tráfico a las máquinas virtuales.
 
 ### <a name="create-the-load-balancer"></a>Creación del equilibrador de carga
-Cree una instancia de Load Balancer Estándar con [az network lb create](/cli/azure/network/lb#az-network-lb-create). En el ejemplo siguiente se crea un equilibrador de carga llamado *myLoadBalancer* y se asigna la dirección *myPublicIP* a la configuración de IP de front-end.
+Cree una instancia de Standard Load Balancer con [az network lb create](/cli/azure/network/lb#az-network-lb-create). En el ejemplo siguiente se crea un equilibrador de carga llamado *myLoadBalancer* y se asigna la dirección *myPublicIP* a la configuración de IP de front-end.
 
 ```azurecli-interactive
 az network lb create \

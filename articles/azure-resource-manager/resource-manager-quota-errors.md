@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6d9048ae531abedb89b70989ce1c962357c514cd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2cf9f914aeaee25cda8fd426454cb39a1afa0b4f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34357051"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260233"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Resolución de errores de cuotas de recursos
 
@@ -107,7 +107,7 @@ Para solicitar un aumento de cuota, vaya al portal y abra una incidencia de sopo
 
 2. Seleccione la suscripción que necesita una cuota mayor.
 
-   ![Seleccione la suscripción.](./media/resource-manager-quota-errors/select-subscription.png)
+   ![Selección de la suscripción](./media/resource-manager-quota-errors/select-subscription.png)
 
 3. Seleccione **Uso y cuotas**.
 

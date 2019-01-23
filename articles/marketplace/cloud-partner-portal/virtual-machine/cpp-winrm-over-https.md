@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 1a341bf36842e49faf8e39f4056232c97cc4232c
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 99c41dc010ae589cc43c093646fd1c05c1333f7e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196346"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265131"
 ---
 # <a name="windows-remote-management-over-https"></a>Administración remota de Windows a través de HTTPS
 
 En esta sección se explica cómo configurar una VM basada en Windows hospedada en Azure para que pueda administrarse e implementarse de forma remota con PowerShell.  Para habilitar la comunicación remota de PowerShell, la VM de destino debe exponer un punto de conexión HTTPS de Administración remota de Windows (WinRM).  Para más información sobre la comunicación remota de PowerShell, consulte [Running Remote Commands](https://docs.microsoft.com/powershell/scripting/core-powershell/running-remote-commands?view=powershell-6) (Ejecución de comandos remotos).  Para más información sobre WinRM, consulte [Administración remota de Windows](https://docs.microsoft.com/windows/desktop/WinRM/portal).
 
-Si crea una VM usando uno de los enfoques "clásicos" de Azure —el portal de Azure Service Manager o [la API de administración de servicios de Azure] en desuso (https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100)—, se configura automáticamente con un punto de conexión de WinRM.  Sin embargo, si crea una VM mediante cualquiera de los siguientes enfoques "modernos" de Azure, la VM *no* se configurará para WinRM a través de HTTPS.  
+Si crea una VM usando uno de los enfoques "clásicos" de Azure —el portal de Azure Service Manager o [Azure Service Management API](https://docs.microsoft.com/previous-versions/azure/ee460799(v=azure.100)) en desuso, se configura automáticamente con un punto de conexión de WinRM.  Sin embargo, si crea una VM mediante cualquiera de los siguientes enfoques "modernos" de Azure, la VM *no* se configurará para WinRM a través de HTTPS.  
 
 - Mediante [Azure Portal](https://portal.azure.com/), normalmente a partir de una base aprobada, tal como se describe en la sección [Creación de un disco duro virtual compatible con Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd)
 - [Mediante las plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)

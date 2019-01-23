@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 883f521040c67cb8fe9578bc5c490bc3dfccba28
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 03206baf0e70e7be247e9848bfd5a80a1a1e1b35
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624665"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247765"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de auditoría en el portal de Azure Active Directory 
 
@@ -45,7 +45,7 @@ En este artículo se proporciona información general del informe de auditoría.
 
 ## <a name="audit-logs"></a>Registros de auditoría
 
-Los registros de auditoría de Azure AD proporcionan registros de las actividades del sistema de cara al cumplimiento. Para acceder al informe de auditoría, seleccione **Registros de auditoría** en la sección **Actividad** de **Azure Active Directory**. 
+Los registros de auditoría de Azure AD proporcionan registros de las actividades del sistema de cara al cumplimiento. Para acceder al informe de auditoría, seleccione **Registros de auditoría** en la sección **Actividad** de **Azure Active Directory**. Tenga en cuenta que los registros de auditoría pueden tener una latencia de hasta una hora, por lo que los datos de la actividad de auditoría pueden tardar tiempo en aparecer en el portal una vez que haya completado la tarea.
 
 ![Registros de auditoría](./media/concept-audit-logs/61.png "Registros de auditoría")
 
@@ -178,6 +178,11 @@ Puede filtrar esta vista por **grupos** o **usuarios**.
 
 ![Registros de auditoría](./media/concept-audit-logs/25.png "Registros de auditoría")
 
+## <a name="office-365-activity-logs"></a>Registros de actividad de Office 365
+
+Puede ver los registros de actividad de Office 365 desde el [Centro de administración de Office 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Aunque los registros de actividad de Office 365 y Azure AD comparten muchos de los recursos del directorio, solo el Centro de administración de Office 365 proporciona una vista completa de los registros de actividad de Office 365. 
+
+También puede tener acceso a los registros de actividad de Office 365 mediante programación con las [API de administración de Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

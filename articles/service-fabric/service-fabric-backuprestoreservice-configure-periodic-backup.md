@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: f2a1cd79a99e16460c96d28ebeb0a2bd68975361
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 91813e31c6237cf47a744a4290e3e2d7736195f0
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794250"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322102"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Información sobre la configuración de la copia de seguridad periódica en Azure Service Fabric
 
@@ -45,7 +45,7 @@ Una directiva de copia de seguridad consta de las siguientes configuraciones:
 
 * **Programación de copia de seguridad**: las horas a las que se van a realizar las copias de seguridad periódicas o la frecuencia. Se puede programar que las copias de seguridad sean periódicas con el intervalo especificado o en un momento fijo, diaria o semanalmente.
 
-    1. **Programación de copia de seguridad basada en frecuencia**: este tipo de programación debe usarse si es necesario realizar copias de seguridad de datos a intervalos fijos. El intervalo de tiempo deseado entre dos copias de seguridad consecutivas se define con el formato ISO8601. La programación de copia de seguridad basada en frecuencia admite la resolución de los intervalos actualizados.
+    1. **Programación de copia de seguridad basada en frecuencia**: este tipo de programación debe usarse si es necesario realizar copias de seguridad de datos a intervalos fijos. El intervalo de tiempo deseado entre dos copias de seguridad consecutivas se define con el formato ISO8601. La programación de copia de seguridad basada en frecuencia admite la resolución de intervalos de un minuto.
         ```json
         {
             "ScheduleKind": "FrequencyBased",

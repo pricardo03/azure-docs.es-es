@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 5e83eb46a4d62c6aaf0862d4bb1aa046c5d64dde
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 02780a9e9702a41f677595d74b9861ea6a51b572
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120520"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260442"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Tutorial: Conexión, configuración y activación de Azure Data Box Gateway (versión preliminar) 
 
@@ -86,7 +86,7 @@ Ya está en el **Panel** del dispositivo.
     - Puede configurar la interfaz de red como IPv4.
 
     >[!NOTE] 
-    > Se recomienda que no cambie la dirección IP local de la interfaz de red de estática a DHCP, a menos que tenga otra dirección IP para conectarse al dispositivo. Si usara una interfaz de red y cambiara a DHCP, no habría forma de determinar la dirección DHCP. Si quiere cambiar a una dirección DHCP, espere a que el dispositivo se haya registrado con el servicio y, a continuación, realice el cambio. Luego, puede ver las direcciones IP de todos los adaptadores de las **propiedades del dispositivo** de su servicio en Azure Portal.
+    > Se recomienda no cambiar la dirección IP local de la interfaz de red de estática a DHCP, a menos que se tenga otra dirección IP para conectarse al dispositivo. Si usara una interfaz de red y cambiara a DHCP, no habría forma de determinar la dirección DHCP. Si quiere cambiar a una dirección DHCP, espere a que el dispositivo se haya registrado con el servicio y, a continuación, realice el cambio. Luego, puede ver las direcciones IP de todos los adaptadores de las **propiedades del dispositivo** de su servicio en Azure Portal.
 
 4. Configure el servidor proxy web (de manera opcional). Aunque la configuración del proxy web es opcional, tenga en cuenta que, si usa un proxy web, solo puede configurarlo aquí.
    
@@ -94,7 +94,7 @@ Ya está en el **Panel** del dispositivo.
    
    En la página **Proxy web** :
    
-   1. Proporcione la **URL de proxy web** en este formato:  *http://&lt;dirección o nombre de dominio completo&gt;:Número de puerto*. Tenga en cuenta que no se admiten direcciones URL HTTPS.
+   1. Proporcione la **URL de proxy web** en este formato: *http://&lt;dirección IP o FQDN de host&gt;:Número de puerto*. Tenga en cuenta que no se admiten direcciones URL HTTPS.
    2. Especifique **Autenticación** como **Básica** o **Ninguna**.
    3. Si utiliza autenticación, también debe proporcionar un **Nombre de usuario** y una **Contraseña**.
    4. Haga clic en **Aplicar**. Esto validará y aplicará los parámetros de proxy web configurados.

@@ -1,5 +1,5 @@
 ---
-title: Explorador de búsqueda en Azure Portal para consultar índices en Azure Search
+title: Explorador de búsqueda para consultar datos en Azure Portal - Azure Search
 description: Utilice las herramientas de Azure Portal como el explorador de búsqueda para realizar consultas de índices en Azure Search. Escriba los términos de búsqueda o cadenas de búsqueda completa con sintaxis avanzada.
 manager: cgronlun
 author: HeidiSteen
@@ -9,48 +9,25 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2aa372d1f917608de753007cc75ab0d608cafbba
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 85e574a56380384b10d0916385a8816fd26c2eeb
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188732"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244807"
 ---
-# <a name="how-to-use-search-explorer-to-query-indexes-in-azure-search"></a>Cómo usar el Explorador de búsqueda para realizar consultas de índices en Azure Search 
+# <a name="search-explorer-for-querying-data-in-azure-search"></a>Explorador de búsqueda para consultar datos en Azure Search 
 
-En este artículo se muestra cómo consultar un índice existente de Azure Search mediante el **Explorador de búsqueda** de Azure Portal. El Explorador de búsqueda se puede usar para enviar cadenas de consulta de Lucene simples o completas para cualquier índice existente en el servicio.
-
-## <a name="start-search-explorer"></a>Inicio del Explorador de búsqueda
-
-1. En [Azure Portal](https://portal.azure.com), abra la página del servicio de búsqueda desde el panel o [busque el servicio](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en la lista.
-
-2. En la página de información general del servicio, haga clic en **Explorador de búsqueda**.
+En este artículo se muestra cómo consultar un índice existente de Azure Search mediante el **Explorador de búsqueda** de Azure Portal. El Explorador de búsqueda se puede usar para enviar cadenas de consulta de Lucene simples o completas para cualquier índice existente en el servicio. 
 
    ![Comando del explorador de búsqueda en el portal](./media/search-explorer/search-explorer-cmd2.png "Search explorer command in portal")
 
-3. Seleccione el índice de la consulta.
 
-   ![Seleccionar el índice de la consulta](./media/search-explorer/search-explorer-changeindex-se2.png "Seleccionar el índice")
-
-4. Si quiere, establezca la versión de API. De forma predeterminada, se selecciona la versión actual de API disponible con carácter general, pero puede elegir una API anterior o versión preliminar si la sintaxis que quiere utilizar es específica de la versión.
-
-5. Una vez seleccionada la versión de la API y el índice, escriba los términos de búsqueda o las expresiones de consulta completas en la barra de búsqueda y haga clic en **Buscar** para ejecutar.
-
-   ![Escriba los términos de búsqueda y haga clic en Buscar](./media/search-explorer/search-explorer-query-string-example.png "Enter search terms and click Search")
-
-Sugerencias para realizar búsquedas en **Explorador de búsqueda**:
-
-+ Los resultados se devuelven como documentos JSON detallados para que pueda ver la construcción y el contenido del documento en su totalidad. Puede usar expresiones de consulta, que se muestran en los ejemplos, para limitar los campos que se devuelven.
-
-+ Los documentos se componen de todos los campos marcados como **Recuperable** en el índice. Para ver los atributos del índice en el portal, haga clic en *realestate-us-sample* en la lista **Índices** de la página de información general de búsqueda.
-
-+ Las consultas de forma libre, similares a las que se pueden escribir en un explorador web comercial, resultan útiles para probar una experiencia de usuario final. Por ejemplo, si partimos del índice realestate de ejemplo integrado, podría escribir "Apartamentos Seattle Lake Washington" y luego usar Ctrl-F para buscar términos dentro de los resultados de búsqueda. 
-
-+ Las expresiones de consulta y de filtro deben articularse en una sintaxis que Azure Search admita. El valor predeterminado es una [sintaxis simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), pero también puede usar la sintaxis de [Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) para realizar consultas más eficaces. Las [expresiones de filtro](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) son una sintaxis de OData.
+Para obtener ayuda para empezar, consulte [Iniciar el explorador de búsqueda](#start-search-explorer).
 
 ## <a name="basic-search-strings"></a>Cadenas de búsqueda básica
 
-En los ejemplos siguientes se utiliza el índice realestate de ejemplo integrado. Para más información sobre cómo crear este índice, consulte [Quickstart: Import, index, and query in Azure portal](search-get-started-portal.md) (Quickstart: importación, creación de índices y consultas en Azure Portal).
+En los ejemplos siguientes se utiliza el índice realestate de ejemplo integrado. Para obtener ayuda para crear este índice, vea [Quickstart: Import, index, and query in Azure portal](search-get-started-portal.md) (Inicio rápido: importación, creación de índices y consultas en Azure Portal).
 
 ### <a name="example-1---empty-search"></a>Ejemplo 1: búsqueda vacía
 
@@ -128,6 +105,37 @@ Agregue **$orderby** para ordenar los resultados por otro campo además de la pu
    ![Expresión OrderBy](./media/search-explorer/search-explorer-example-ordery.png "Cambiar el criterio de ordenación")
 
 Ambas expresiones, **$filter** y **$orderby** son construcciones de OData. Para más información, consulte la [sintaxis de filtro de OData](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+
+<a name="start-search-explorer"></a>
+
+## <a name="how-to-start-search-explorer"></a>Cómo iniciar el Explorador de búsqueda
+
+1. En [Azure Portal](https://portal.azure.com), abra la página del servicio de búsqueda desde el panel o [busque el servicio](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en la lista.
+
+2. En la página de información general del servicio, haga clic en **Explorador de búsqueda**.
+
+   ![Comando del explorador de búsqueda en el portal](./media/search-explorer/search-explorer-cmd2.png "Search explorer command in portal")
+
+3. Seleccione el índice de la consulta.
+
+   ![Seleccionar el índice de la consulta](./media/search-explorer/search-explorer-changeindex-se2.png "Seleccionar el índice")
+
+4. Si quiere, establezca la versión de API. De forma predeterminada, se selecciona la versión actual de API disponible con carácter general, pero puede elegir una API anterior o versión preliminar si la sintaxis que quiere utilizar es específica de la versión.
+
+5. Una vez seleccionada la versión de la API y el índice, escriba los términos de búsqueda o las expresiones de consulta completas en la barra de búsqueda y haga clic en **Buscar** para ejecutar.
+
+   ![Escriba los términos de búsqueda y haga clic en Buscar](./media/search-explorer/search-explorer-query-string-example.png "Enter search terms and click Search")
+
+Sugerencias para realizar búsquedas en **Explorador de búsqueda**:
+
++ Los resultados se devuelven como documentos JSON detallados para que pueda ver la construcción y el contenido del documento en su totalidad. Puede usar expresiones de consulta, que se muestran en los ejemplos, para limitar los campos que se devuelven.
+
++ Los documentos se componen de todos los campos marcados como **Recuperable** en el índice. Para ver los atributos del índice en el portal, haga clic en *realestate-us-sample* en la lista **Índices** de la página de información general de búsqueda.
+
++ Las consultas de forma libre, similares a las que se pueden escribir en un explorador web comercial, resultan útiles para probar una experiencia de usuario final. Por ejemplo, si partimos del índice realestate de ejemplo integrado, podría escribir "Apartamentos Seattle Lake Washington" y luego usar Ctrl-F para buscar términos dentro de los resultados de búsqueda. 
+
++ Las expresiones de consulta y de filtro deben articularse en una sintaxis que Azure Search admita. El valor predeterminado es una [sintaxis simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), pero también puede usar la sintaxis de [Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) para realizar consultas más eficaces. Las [expresiones de filtro](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) son una sintaxis de OData.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

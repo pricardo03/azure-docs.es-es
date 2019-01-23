@@ -1,21 +1,21 @@
 ---
 title: 'Creación de revisiones de vídeo con .NET: Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Cómo crear revisiones de vídeo con el SDK de Content Moderator para .NET
+description: En este artículo se proporciona información y ejemplos de código que le ayudarán a empezar a usar el SDK de Content Moderator con C# para crear revisiones de vídeos.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 01/18/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 284ee24bbb0a15d107acf85e2d58072a0ecbbc6e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: e9fb82c864c721a9df2e3b31d04e68c824404f81
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219047"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262518"
 ---
 # <a name="create-video-reviews-using-net"></a>Creación de revisiones de vídeo con .NET
 
@@ -35,8 +35,7 @@ En este artículo también se da por hecho que ya está familiarizado con Visual
 
 ## <a name="sign-up-for-content-moderator"></a>Registro en Content Moderator
 
-Antes de poder usar los servicios de Content Moderator mediante la API REST o el SDK, necesita una clave de suscripción.
-Consulte el [inicio rápido](quick-start.md) para más información sobre cómo puede obtener la clave.
+Antes de poder usar los servicios de Content Moderator mediante la API REST o el SDK, necesita una clave de suscripción. Siga las instrucciones de [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse a Content Moderator y obtener su clave.
 
 ## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Registro para obtener una cuenta de la herramienta de revisión, si no lo ha hecho en el paso anterior
 

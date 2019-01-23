@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: fba62a7838ad4b8f349e233eef5e8d82450f1453
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 91c069f845ef6291f867099e59e79fd059d8caf1
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949026"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320232"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Introducción a Azure Data Lake Storage Gen1 con Azure Portal
 
@@ -46,7 +46,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
    * **Nombre**. Escriba un nombre único para la cuenta de Data Lake Storage Gen1.
    * **Suscripción**. Seleccione la suscripción con la que desea crear una cuenta de Data Lake Storage Gen1.
    * **Grupo de recursos**. Seleccione un grupo de recursos existente, o bien seleccione la opción **Crear nuevo** para crearlo. Un grupo de recursos es un contenedor que incluye los recursos relacionados de una aplicación. Para más información, consulte [Grupos de recursos en Azure](../azure-resource-manager/resource-group-overview.md#resource-groups).
-   * **Ubicación**: seleccione la ubicación donde desea crear la cuenta de Data Lake Storage Gen1.
+   * **Ubicación**: Seleccione la ubicación donde quiere crear la cuenta de Data Lake Storage Gen1.
    * **Configuración de cifrado**. Hay tres opciones:
      
      * **No habilitar el cifrado**.
@@ -77,8 +77,8 @@ Si utiliza las claves de Azure Key Vault para configurar el cifrado de la cuenta
 > [!NOTE]
 > También puede crear una cuenta de Data Lake Storage Gen1 con plantillas de Azure Resource Manager. Estas plantillas son accesibles desde las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?term=data+lake+store):
     - Sin cifrado de datos: [Implementación de la cuenta de Azure Data Lake Storage Gen1 sin cifrado de datos](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/).
-    - Con cifrado de datos mediante Data Lake Storage Gen1: [Implementación de la cuenta de Data Lake Storage Gen1 con cifrado (Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
-    - Con cifrado de datos mediante Azure Key Vault: [Implementación de la cuenta de Data Lake Storage Gen1 con cifrado (Key Vault)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
+    - Con cifrado de datos mediante Data Lake Storage Gen1: [Implementación de la cuenta de Azure Data Lake Storage Gen1 con cifrado (Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
+    - Con cifrado de datos mediante Azure Key Vault: [Implementación de la cuenta de Azure Data Lake Storage Gen1 con cifrado (Key Vault)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
 > 
 > 
 
@@ -125,6 +125,6 @@ Para eliminar una cuenta de Data Lake Storage Gen1, en la hoja de Data Lake Stor
 ## <a name="next-steps"></a>Pasos siguientes
 * [Uso de Azure Data Lake Storage Gen1 para requisitos de macrodatos](data-lake-store-data-scenarios.md) 
 * [Protección de datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)
-* [Uso de Azure Data Lake Analytics con Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Use Azure Data Lake Analytics with Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md) (Uso de Azure Data Lake Analytics con Data Lake Storage Gen1)
 * [Uso de Azure HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 

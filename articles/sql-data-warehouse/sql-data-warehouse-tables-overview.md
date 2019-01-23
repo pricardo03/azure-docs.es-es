@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: f09b9a93956c9d23e17c742c5f6ec4730591933b
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 365b15f11409f985b71c9bba4372552321f162f2
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302320"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212556"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Diseño de tablas en Azure SQL Data Warehouse
 
@@ -103,7 +103,7 @@ Una tabla con particiones almacena y realiza operaciones en las filas de la tabl
 ## <a name="columnstore-indexes"></a>Índices de almacén de columnas
 De forma predeterminada, SQL Data Warehouse almacena una tabla como índice de almacén de columnas agrupado. Esta forma de almacenamiento de datos logra una compresión de datos y rendimiento de las consultas altos en tablas grandes.  El índice de almacén de columnas agrupado suele ser la mejor opción, pero en algunos casos un índice agrupado o un montón es la estructura de almacenamiento adecuada.
 
-Para una lista de características de almacén de columnas, vea [Novedades de los índices de almacén de columnas](/sql/relational-databases/indexes/columnstore-indexes-whats-new). Para mejorar el rendimiento del índice de almacén de columnas, vea [Maximización de la calidad del grupo de filas del almacén de columnas](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+Para una lista de características de almacén de columnas, vea [Novedades de los índices de almacén de columnas](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). Para mejorar el rendimiento del índice de almacén de columnas, vea [Maximización de la calidad del grupo de filas del almacén de columnas](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 ## <a name="statistics"></a>Estadísticas
 El optimizador de consultas utiliza estadísticas de columna cuando crea el plan de ejecución de una consulta. Para mejorar el rendimiento de las consultas, es importante crear estadísticas en columnas individuales, especialmente en las columnas que se usan en combinaciones de consultas. La creación y actualización de estadísticas no se realiza automáticamente. [Cree las estadísticas](/sql/t-sql/statements/create-statistics-transact-sql) después de crear una tabla. Actualice las estadísticas cuando se agregue o cambie un número significativo de filas. Por ejemplo, actualice las estadísticas después de una carga. Para más información, consulte [Administración de estadísticas en tablas en SQL Data Warehouse](sql-data-warehouse-tables-statistics.md).
@@ -133,7 +133,7 @@ SQL Data Warehouse admite muchas, pero no todas, de las características de tabl
 - [Vistas indizadas](/sql/relational-databases/views/create-indexed-views)
 - [Secuencia](/sql/t-sql/statements/create-sequence-transact-sql)
 - [Columnas dispersas](/sql/relational-databases/tables/use-sparse-columns)
-- [Claves suplentes](). Implementar con [Identity](sql-data-warehouse-tables-identity.md).
+- Claves suplentes. Implementar con [Identity](sql-data-warehouse-tables-identity.md).
 - [Sinónimos](/sql/t-sql/statements/create-synonym-transact-sql)
 - [Desencadenadores](/sql/t-sql/statements/create-trigger-transact-sql)
 - [Índices únicos](/sql/t-sql/statements/create-index-transact-sql)

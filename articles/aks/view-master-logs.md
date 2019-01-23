@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 9cf0c378271841277e6dfd770bf8d186494b9d48
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: a8fefdf352507f0e0c0757625297f667907eb9bc
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040751"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230601"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Habilitación y revisión de los registros del nodo maestro de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -36,6 +36,19 @@ Log Analytics se habilita y administra en Azure Portal. Para habilitar la recopi
     * Si necesita crear un área de trabajo, proporcione un nombre, un grupo de recursos y una ubicación.
 1. En la lista de registros disponibles, seleccione los que desea habilitar. De forma predeterminada, los registros *kube-apiserver*, *kube-controller-manager* y *kube-scheduler* están habilitados. Puede habilitar otros, como *kube-audit* y *cluster-autoscaler*. Puede volver y cambiar los registros recopilados una vez que Log Analytics está habilitado.
 1. Cuando esté listo, seleccione **Guardar** para habilitar la recopilación de los registros seleccionados.
+
+> [!NOTE]
+> AKS solo captura registros de auditoría para los clústeres que se crearon o actualizaron después de habilitar una marca de característica en la suscripción. Para registrar la marca de característica *AKSAuditLog*, use el comando [az feature register][az-feature-register] tal como se muestra en el ejemplo siguiente:
+>
+> `az feature register --name AKSAuditLog --namespace Microsoft.ContainerService`
+>
+> Espere a que el estado se muestre como *registrado*. Puede comprobar el estado del registro con el comando [az feature list][az-feature-list]:
+>
+> `az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAuditLog')].{Name:name,State:properties.state}"`
+>
+> Cuando todo esté listo, actualice el registro del proveedor de recursos AKS con el comando [az provider register][az-provider-register]:
+>
+> `az provider register --namespace Microsoft.ContainerService`
 
 La siguiente captura de pantalla de ejemplo del portal muestra la ventana *Configuración de diagnóstico* y luego la opción para crear un área de trabajo de Log Analytics:
 
@@ -133,3 +146,6 @@ En este artículo, aprendió a habilitar y revisar los registros de los componen
 [analyze-log-analytics]: ../azure-monitor/learn/tutorial-viewdata.md
 [kubelet-logs]: kubelet-logs.md
 [aks-ssh]: ssh.md
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register

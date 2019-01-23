@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
-ms.openlocfilehash: a476af9ceb1b664a458f7f07a5a7b3945b1ad881
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 601c23bbcddeaeff89e1d1b1a4be8cb6b0256e51
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036569"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258788"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Más información sobre las plantillas de conjuntos de escalado de máquinas virtuales
 Las [plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) constituyen una excelente manera de implementar grupos de recursos relacionados. En esta serie de tutoriales se explica cómo crear una plantilla de conjunto de escalado de viabilidad mínimo y cómo modificarla para adaptarla a distintos escenarios. Todos los ejemplos proceden de este [repositorio de GitHub](https://github.com/gatneil/mvss). 
@@ -70,7 +70,7 @@ A continuación está la sección de recursos de la plantilla. Aquí puede defin
    "resources": [
 ```
 
-Todos los recursos requieren las propiedades `type`, `name`, `apiVersion` y `location`. El primer recurso de este ejemplo tiene el tipo [Microsft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks), el nombre `myVnet` y la apiVersion `2016-03-30`. (Para encontrar la versión más reciente de la API para un tipo de recurso, consulte la [referencia de la plantilla de Azure Resource Manager](/azure/templates/)).
+Todos los recursos requieren las propiedades `type`, `name`, `apiVersion` y `location`. El primer recurso de este ejemplo tiene el tipo [Microsoft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks), el nombre `myVnet` y apiVersion `2016-03-30`. (Para encontrar la versión más reciente de la API para un tipo de recurso, consulte la [referencia de la plantilla de Azure Resource Manager](/azure/templates/)).
 
 ```json
      {

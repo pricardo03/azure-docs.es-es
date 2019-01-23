@@ -8,19 +8,19 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
-ms.date: 08/25/2018
-ms.openlocfilehash: 0c30ffec58b1542fa80cf0c9873a0e6df8641104
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 01/13/2019
+ms.openlocfilehash: b58059727a383e978691bfbbee77a1f6b04692ce
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232552"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264333"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Conexión a sistemas de archivos locales con Azure Logic Apps
 
 Con el conector de sistema de archivos y Azure Logic Apps, puede crear tareas automatizadas y flujos de trabajo que crean y administran los archivos en un recurso compartido de archivos local, por ejemplo:  
 
-- Crear, obtener, anexar, actualizar y eliminar archivos
+- Crear, obtener, anexar, actualizar y eliminar archivos.
 - Enumerar archivos en carpetas o carpetas raíz.
 - Obtener contenido de los archivos y metadatos.
 
@@ -28,13 +28,17 @@ En este artículo se muestra cómo conectar a un sistema de archivos local como 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
+Para seguir el ejemplo, necesita estos elementos:
+
 * Una suscripción de Azure. Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>. 
 
 * Antes de que pueda conectar las aplicaciones lógicas con sistemas locales como el servidor del sistema de archivos, tiene que [instalar y configurar una puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md). De este modo, cuando cree la conexión del sistema de archivos desde la aplicación lógica, puede especificar que se use esta instalación de puerta de enlace.
 
-* Una [cuenta de Drobox](https://www.dropbox.com/) y sus credenciales de usuario
+* Una [cuenta de Drobox](https://www.dropbox.com/) y las credenciales de la cuenta. Las credenciales de DropBox son necesarias para crear una conexión entre la aplicación lógica y la cuenta de Drobox. 
 
-  Las credenciales autorizan a la aplicación lógica a que cree una conexión y acceda a su cuenta de Drobox. 
+* Las credenciales de la cuenta para el equipo que tiene el sistema de archivos al que quiere acceder. Por ejemplo, si instala la puerta de enlace de datos en el mismo equipo que el sistema de archivos, necesita las credenciales de la cuenta para ese equipo. 
+
+* Una cuenta de correo de un proveedor de correo compatible con Logic Apps, como Office 365 Outlook, Outlook.com o Gmail. En el caso de otros proveedores, [consulte la lista de conectores que se muestra aquí](https://docs.microsoft.com/connectors/). Esta aplicación lógica usa una cuenta de Office 365 Outlook. Si usa otra cuenta de correo electrónico, los pasos generales serán los mismos, pero su interfaz de usuario puede ser ligeramente distinta. 
 
 * Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md). En este ejemplo, necesita una aplicación lógica en blanco.
 
@@ -56,7 +60,7 @@ En este artículo se muestra cómo conectar a un sistema de archivos local como 
 
 ## <a name="add-actions"></a>Incorporación de una acción
 
-1. En el desencadenador, elija **Next step** (Paso siguiente). En el cuadro de búsqueda, escriba "sistema de archivos" como filtro. En la lista de acciones, seleccione esta acción: **Create file - File System** (Crear archivo: Sistema de archivos)
+1. En el desencadenador, elija **Next step** (Paso siguiente). En el cuadro de búsqueda, escriba "sistema de archivos" como filtro. En la lista de acciones, seleccione esta acción: **Crear archivo - Sistema de archivos**
 
    ![Selección del conector de sistema de archivos](media/logic-apps-using-file-connector/find-file-system-action.png)
 
@@ -67,10 +71,10 @@ En este artículo se muestra cómo conectar a un sistema de archivos local como 
    | Propiedad | Obligatorio | Valor | DESCRIPCIÓN | 
    | -------- | -------- | ----- | ----------- | 
    | **Nombre de la conexión** | SÍ | <*connection-name*> | El nombre que quiere para la conexión | 
-   | **Carpeta raíz** | SÍ | <*root-folder-name*> | La carpeta raíz para el sistema de archivos, como una carpeta local en el equipo donde está instalada la puerta de enlace de datos local, o la carpeta para un recurso compartido de red al que el equipo puede acceder. <p>Por ejemplo: `\\PublicShare\\DropboxFiles` <p>La carpeta raíz es la carpeta primaria principal, que se usa para las rutas de acceso relativas para todas las acciones relacionadas con archivos. | 
+   | **Carpeta raíz** | SÍ | <*root-folder-name*> | La carpeta raíz para el sistema de archivos, por ejemplo, si ha instalado la puerta de enlace de datos local, como una carpeta local en el equipo donde está instalada la puerta de enlace de datos local, o la carpeta para un recurso compartido de red al que el equipo puede acceder. <p>Por ejemplo: `\\PublicShare\\DropboxFiles` <p>La carpeta raíz es la carpeta primaria principal, que se usa para las rutas de acceso relativas para todas las acciones relacionadas con archivos. | 
    | **Tipo de autenticación** | Sin  | <*auth-type*> | El tipo de autenticación que usa el sistema de archivos, por ejemplo, **Windows** | 
-   | **Nombre de usuario** | SÍ | <*domain*>\\<*username*> | El nombre de usuario para la puerta de enlace de los datos instalados previamente | 
-   | **Contraseña** | SÍ | <*your-password*> | La contraseña para la puerta de enlace de los datos instalados previamente | 
+   | **Nombre de usuario** | SÍ | <*domain*>\\<*username*> | El nombre de usuario para el equipo donde tiene el sistema de archivos | 
+   | **Contraseña** | SÍ | <*your-password*> | La contraseña para el equipo donde tiene el sistema de archivos | 
    | **puerta de enlace** | SÍ | <*installed-gateway-name*> | El nombre de la puerta de enlace instalada previamente | 
    ||| 
 

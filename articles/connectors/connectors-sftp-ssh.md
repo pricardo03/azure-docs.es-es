@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
 tags: connectors
-ms.date: 10/31/2018
-ms.openlocfilehash: 336288aaf3817fe267d58a225249bf54cca691bc
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 01/15/2019
+ms.openlocfilehash: e0f0230241bdffa97b94c88eb4b2d76fd44bcdea
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979104"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320793"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Supervisión, creación y administración de archivos SFTP mediante SSH y Azure Logic Apps
 
@@ -27,7 +27,7 @@ Para automatizar las tareas que supervisan, crean, envían y reciben archivos en
 * Obtener contenido de archivos y metadatos
 * Extraer archivos en carpetas
 
-En comparación con el [conector SFTP](../connectors/connectors-create-api-sftp.md), el conector SFTP-SSH puede leer o escribir archivos con un tamaño de hasta *1 GB*. Con archivos de más de 1 GB, puede usar el conector SFTP-SSH más la [fragmentación para el tratamiento de mensajes de gran tamaño](../logic-apps/logic-apps-handle-large-messages.md). Si quiere ver más diferencias, revise [Comparación de SFTP-SSH y SFTP](#comparison) más adelante en este artículo.
+En comparación con el [conector SFTP](../connectors/connectors-create-api-sftp.md), el conector SFTP-SSH puede leer o escribir archivos con un tamaño de hasta *1 GB*. Si quiere ver más diferencias, revise [Comparación de SFTP-SSH y SFTP](#comparison) más adelante en este artículo.
 
 Puede usar desencadenadores que supervisen eventos en el servidor SFTP y permitir que la salida esté disponible para otras acciones. Puede usar acciones que realicen diversas tareas en el servidor SFTP. También puede hacer que otras acciones de la aplicación lógica usen la salida de las acciones SFTP. Por ejemplo, si recupera regularmente archivos del servidor SFTP, puede enviar por correo electrónico alertas sobre esos archivos y su contenido mediante el conector Office 365 Outlook o el conector Outlook.com.
 Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
@@ -44,11 +44,11 @@ Estas son otras diferencias importantes entre el conector SFTP-SSH y el conector
   >
   > El conector SFTP-SSH *solo* admite estas claves privadas, formatos, algoritmos y huellas digitales:
   > 
-  > * **Formatos de clave privada**: claves RSA (Rivest Shamir Adleman) y DSA (Digital Signature Algorithm) en formato OpenSSH y ssh.com
+  > * **Formatos de clave privada**: Claves RSA (Rivest Shamir Adleman) y DSA (Digital Signature Algorithm) en formatos OpenSSH y ssh.com
   > * **Algoritmos de cifrado**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC y AES-256-CBC
   > * **Huella digital**: MD5
 
-* Lee o escribe archivos de hasta *1 GB* de tamaño en comparación con el conector SFTP. Con archivos de más de 1 GB, use la [fragmentación para el tratamiento de mensajes de gran tamaño](../logic-apps/logic-apps-handle-large-messages.md). 
+* Lee o escribe archivos de hasta *1  GB* de tamaño en comparación con el conector SFTP, pero manipula los datos en trozos de 50 MB, o de 1 GB.
 
 * Proporciona la acción **Crear carpeta**, que crea una carpeta en la ruta de acceso especificada en el servidor SFTP.
 
@@ -66,7 +66,7 @@ Estas son otras diferencias importantes entre el conector SFTP-SSH y el conector
   >
   > El conector SFTP-SSH *solo* admite estas claves privadas, formatos, algoritmos y huellas digitales:
   > 
-  > * **Formatos de clave privada**: claves RSA (Rivest Shamir Adleman) y DSA (Digital Signature Algorithm) en formato OpenSSH y ssh.com
+  > * **Formatos de clave privada**: Claves RSA (Rivest Shamir Adleman) y DSA (Digital Signature Algorithm) en formatos OpenSSH y ssh.com
   > * **Algoritmos de cifrado**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC y AES-256-CBC
   > * **Huella digital**: MD5
   >
@@ -137,13 +137,13 @@ Cuando se solicita el contenido del archivo, el desencadenador no recupera los a
 
 ## <a name="examples"></a>Ejemplos
 
-### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>Desencadenador SFTP - SSH: When a file is added or modified
+### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>SFTP - desencadenador SSH: When a file is added or modified (Cuando se agrega o modifica un archivo)
 
 Este desencadenador inicia un flujo de trabajo de aplicación lógica cuando se agrega o se modifica un archivo en un servidor SFTP. Por ejemplo, puede agregar una condición que compruebe el contenido del archivo y obtenga el contenido en función de si cumple una condición especificada. Luego, puede agregar una acción que obtenga el contenido del archivo y lo coloque en una carpeta en el servidor SFTP. 
 
-**Ejemplo empresarial**: puede usar este desencadenador para supervisar nuevos archivos en una carpeta de SFTP que representan los pedidos de los clientes. Seguidamente, puede usar una acción SFTP, como **Get file content** para obtener el contenido del pedido para su posterior procesamiento y almacenar ese pedido en una base de datos de pedidos.
+**Ejemplo Enterprise**: Puede usar este desencadenador para supervisar nuevos archivos en una carpeta de SFTP que representan los pedidos de los clientes. Seguidamente, puede usar una acción SFTP, como **Get file content** para obtener el contenido del pedido para su posterior procesamiento y almacenar ese pedido en una base de datos de pedidos.
 
-### <a name="sftp---ssh-action-get-content"></a>Acción SFTP - SSH: Get content
+### <a name="sftp---ssh-action-get-content"></a>SFTP - acción SSH: Obtener contenido
 
 Esta acción obtiene el contenido de un archivo en un servidor SFTP. Por ejemplo, puede agregar el desencadenador del ejemplo anterior y una condición que debe cumplir el contenido del archivo. Si la condición es verdadera, se puede ejecutar la acción que obtiene el contenido. 
 

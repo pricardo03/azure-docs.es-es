@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: danlep
-ms.openlocfilehash: 63affd4ad22d5246274ddfa3160d5675f702003f
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: cd2b14dc29f865a162cb1ced605e740a96f7a46a
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855772"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329980"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>Automatización de la aplicación de revisiones de sistema operativo y plataforma con ACR Tasks
 
@@ -24,10 +24,10 @@ Los contenedores proporcionan nuevos niveles de virtualización, que aíslan las
 
 Compile y pruebe imágenes de contenedor con ACR Tasks de cuatro maneras:
 
-* [Tarea rápida](#quick-task): compilar e insertar imágenes de contenedor a petición en Azure, sin necesidad de una instalación local del motor de Docker. Considere que `docker build`, es `docker push` en la nube. Compile desde el código fuente local o un repositorio de Git.
-* [Compilar tras la confirmación del código fuente](#automatic-build-on-source-code-commit): desencadenar una compilación de imagen de contenedor automáticamente cuando el código se confirma en un repositorio de Git.
-* [Compilar tras la actualización de imágenes base](#automate-os-and-framework-patching): desencadenar una compilación de imagen de contenedor cuando se ha actualizado la imagen base de la imagen.
-* [Tareas de varios pasos](#multi-step-tasks-preview) (versión preliminar): definir tareas de varios pasos que compilan imágenes, ejecutan contenedores como comandos e insertan imágenes en un registro. Esta característica en versión preliminar de ACR Tasks admite la ejecución de tareas a petición y operaciones en paralelo de compilación, prueba e inserción de imágenes.
+* [Tarea rápida](#quick-task): Compile e inserte imágenes de contenedor a petición en Azure, sin necesidad de una instalación local del motor de Docker. Considere que `docker build`, es `docker push` en la nube. Compile desde el código fuente local o un repositorio de Git.
+* [Compilación al confirmar el código fuente](#automatic-build-on-source-code-commit): Desencadene una compilación de imágenes de contenedor automáticamente cuando el código se confirme en un repositorio de Git.
+* [Compilación al actualizar la imagen base](#automate-os-and-framework-patching): Desencadene una compilación de imágenes de contenedor cuando se ha actualizado la imagen base de la imagen.
+* [Tareas de varios pasos](#multi-step-tasks-preview) (versión preliminar): Defina tareas de varios pasos que compilan imágenes, ejecutan contenedores como comandos e insertan imágenes en un registro. Esta característica en versión preliminar de ACR Tasks admite la ejecución de tareas a petición y operaciones en paralelo de compilación, prueba e inserción de imágenes.
 
 ## <a name="quick-task"></a>Tarea rápida
 
@@ -65,7 +65,7 @@ Aprenda a desencadenar compilaciones tras la confirmación del código fuente en
 
 La eficacia de ACR Tasks para mejorar verdaderamente el flujo de trabajo de compilación del contenedor procede de su capacidad para detectar una actualización de una imagen base. Cuando la imagen base actualizada se inserta en el registro, ACR Tasks puede compilar automáticamente cualquier imagen de aplicación basada en ella.
 
-Las imágenes de contenedor pueden clasificarse a grandes rasgos en imágenes *base* e imágenes de *aplicación*. Normalmente, las imágenes base incluyen el sistema operativo y los marcos de aplicaciones sobre los que se compila la aplicación, junto con otras personalizaciones. Estas imágenes base se basan normalmente en imágenes ascendentes públicas, por ejemplo, [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet] o [Node.js][base-node]. Algunas de las imágenes de aplicación podrían compartir una imagen base común.
+Las imágenes de contenedor pueden clasificarse a grandes rasgos en imágenes *base* e imágenes de *aplicación*. Normalmente, las imágenes base incluyen el sistema operativo y los marcos de aplicaciones sobre los que se compila la aplicación, junto con otras personalizaciones. Estas imágenes base se basan normalmente en imágenes ascendentes públicas, por ejemplo: [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet] o [Node.js][base-node]. Algunas de las imágenes de aplicación podrían compartir una imagen base común.
 
 Cuando el mantenedor ascendente actualiza una imagen de sistema operativo o marco de aplicación, por ejemplo, con una revisión de seguridad crítica del sistema operativo, también debe actualizar las imágenes base para incluir la corrección crítica. Cada imagen de aplicación se debe entonces volver a compilar para incluir estas correcciones ascendentes ahora incluidas en la imagen base.
 

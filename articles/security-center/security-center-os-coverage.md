@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 1/9/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2dcc72e0e3b9caef9ab01d9f754671cb0365a358
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 98d2d29e7822d9ca97ba488fcf67298a0b40efbf
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608841"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265471"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Características y plataformas compatibles con Azure Security Center
 
@@ -74,10 +74,10 @@ También se admiten máquinas virtuales que se ejecuten en un servicio en la nub
 |Entorno|Azure|Ajeno a Azure|Azure|Ajeno a Azure|
 |Alertas de detección de amenazas de VMBA|✔|✔|✔ (en versiones compatibles)|✔|
 |Alertas de detección de amenazas basadas en red|✔|X|✔|X|
-|Integración con ATP de Windows Defender*|✔ (en versiones compatibles)|✔|X|X|
+|Integración con ATP de Windows Defender|✔ (en versiones compatibles)|✔|X|X|
 |Revisiones que faltan|✔|✔|✔|✔|
 |Configuraciones de seguridad|✔|✔|✔|✔|
-|Programas antimalware|✔|✔|X|X|
+|Endpoint Protection|✔|✔|X|X|
 |Acceso a VM JIT|✔|X|✔|X|
 |Controles de aplicación adaptables|✔|X|X|X|
 |FIM|✔|✔|✔|✔|
@@ -88,8 +88,27 @@ También se admiten máquinas virtuales que se ejecuten en un servicio en la nub
 |Mapa de red|✔|X|✔|X|
 |Controles de red adaptables|✔|X|✔|X|
 
-\* Estas características se admiten actualmente en versión preliminar pública.
 
+### <a name="supported-endpoint-protection-solutions"></a>Soluciones de protección de punto de conexión compatibles
+
+En la tabla siguiente se proporciona una matriz de:
+ - Si puede usar Azure Security Center para instalar cada solución para usted.
+ - Qué soluciones de protección de punto de conexión puede detectar Security Center. Si se detecta una de estas soluciones de protección de punto de conexión, Security Center no recomendará instalar ninguna.
+
+| Endpoint Protection| Plataformas | Instalación de Security Center | Detección de Security Center |
+|------|------|-----|-----|
+| Windows Defender (Microsoft Antimalware)| Windows Server 2016| No, se integra en el sistema operativo.| SÍ |
+| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (consulte la nota que hay a continuación) | Mediante extensión | SÍ |
+| Trend Micro: todas las versiones | Familia de Windows Server  | Sin  | SÍ |
+| Symantec v12.1.1100+| Familia de Windows Server  | Sin  | SÍ |
+| McAfee v10 o posterior | Familia de Windows Server  | Sin  | SÍ |
+| Kaspersky| Familia de Windows Server  | Sin  | Sin   |
+| Sophos| Familia de Windows Server  | Sin  | Sin   |
+
+> [!NOTE]
+> - La detección de System Center Endpoint Protection (SCEP) en una máquina virtual de Windows Server 2008 R2 requiere que SCEP se instale después de PowerShell 3.0 (o una versión superior).
+>
+>
 
 ## <a name="supported-paas-features"></a>Características admitidas de PaaS 
 
@@ -109,6 +128,8 @@ También se admiten máquinas virtuales que se ejecuten en un servicio en la nub
 |Subscription|✔| ✔|
 
 \* Estas características se admiten actualmente en versión preliminar pública. 
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

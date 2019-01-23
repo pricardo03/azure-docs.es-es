@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: cac219414418277ace09ba3a0b442f3bf74e6025
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 09464342bd39e57f6e637ce90adc7190d08340a9
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107436"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265420"
 ---
 # <a name="about-azure-vm-backup"></a>Acerca de la copia de seguridad de máquina virtual de Azure
 
@@ -55,6 +55,10 @@ Para realizar instantáneas mientras se ejecutan las aplicaciones, Azure Backup 
         [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
         ""USEVSSCOPYBACKUP"="TRUE"
         ```
+        - Ejecute el siguiente comando desde el símbolo del sistema con privilegios elevados (como administrador), para establecer la clave del registro anterior:
+          ```
+          REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v USEVSSCOPYBACKUP /t REG_SZ /d TRUE /f
+          ```
 - **Máquinas virtuales Linux**: Para asegurarse de que las máquinas virtuales Linux son coherentes con la aplicación, cuando Azure Backup toma una instantánea, puede usar la plataforma de scripts anteriores y posteriores de Linux. Puede escribir sus propios scripts personalizados para garantizar la coherencia al tomar una instantánea de la máquina virtual.
     -  Azure Backup solo invoca los scripts anteriores y posteriores que escriba el usuario.
     - Azure Backup marcará el punto de recuperación como coherente con la aplicación si la ejecución de los scripts anteriores y posteriores se realiza correctamente. Sin embargo, es el responsable final de la coherencia con la aplicación cuando se utilizan scripts personalizados.
@@ -132,11 +136,10 @@ Una operación de restauración consta de dos tareas principales: copiar datos d
 
 Se recomienda seguir estos procedimientos recomendados al configurar copias de seguridad para máquinas virtuales:
 
-- Actualice los almacenes a Instant RP (Punto de recuperación instantáneo) Revise estas [ventajas](backup-upgrade-to-vm-backup-stack-v2.md) y [consideraciones](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade) y después continúe con la actualización según estas [instrucciones](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
 - Considere la posibilidad de modificar el tiempo de directiva previsto de manera predeterminada (por ej. si la hora de la directiva predeterminada es 12:00 A.M., considere la posibilidad de incrementarlo en minutos) cuando se realicen las instantáneas de datos para asegurarse de que los recursos se utilizan de forma óptima.
 - En el caso de una copia de seguridad de VM Premium en una característica diferente de Instant RP (Punto de recuperación instantáneo), se asigna aproximadamente el 50 % del espacio total de la cuenta de almacenamiento. El servicio de copia de seguridad requiere este espacio para copiar la instantánea en la misma cuenta de almacenamiento y para transferirla al almacén.
 - Para restaurar máquinas virtuales desde un solo almacén, es muy recomendable usar diferentes [cuentas de almacenamiento v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)  para asegurarse de que la cuenta de almacenamiento de destino no se verá limitada. Por ejemplo, cada máquina virtual debe tener una cuenta de almacenamiento diferente (si se restauran 10 VM, considere el uso de 10 cuentas de almacenamiento diferentes).
-- Las restauraciones desde la capa de almacenamiento de nivel 1 (instantánea) se completarán en cuestión de minutos (ya que es la misma cuenta de almacenamiento), a diferencia de la capa de almacenamiento de nivel 2 (almacén), que puede tardar horas. Se recomienda usar la característica [Instant RP](backup-upgrade-to-vm-backup-stack-v2.md) (Punto de recuperación instantáneo) para restauraciones más rápidas en los casos en que los datos están disponibles en el nivel 1 (si los datos tienen que restaurarse desde el almacén, la operación tardará un tiempo).
+- Las restauraciones desde la capa de almacenamiento de nivel 1 (instantánea) se completarán en cuestión de minutos (ya que es la misma cuenta de almacenamiento), a diferencia de la capa de almacenamiento de nivel 2 (almacén), que puede tardar horas. Se recomienda usar la característica [Instant Restore](backup-instant-restore-capability.md) (Recuperación instantánea) para restauraciones más rápidas en los casos en que los datos están disponibles en el nivel 1 (si los datos tienen que restaurarse desde el almacén, la operación tardará un tiempo).
 - El límite del número de discos por cuenta de almacenamiento depende de la frecuencia con que se esté accediendo a los discos por parte de las aplicaciones que se ejecutan en VM de IaaS. Compruebe si se hospedan varios discos en una única cuenta de almacenamiento. Como práctica general, si hay entre 5 y 10 o más en una única cuenta de almacenamiento, equilibre la carga moviendo algunos discos para separar las cuentas de almacenamiento.
 
 ## <a name="backup-costs"></a>Costos de la copia de seguridad

@@ -1,26 +1,8 @@
 ---
-title: 'Paso 3: Creación de un experimento de Machine Learning Studio en Azure | Microsoft Docs'
-description: 'Paso 3 del tutorial de desarrollo de una solución predictiva: Creación de un experimento de entrenamiento en Azure Machine Learning Studio'
-services: machine-learning
-documentationcenter: ''
-author: garyericson
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: garye
-editor: cgronlun
-ms.assetid: 660e3c27-55ef-4c33-a4e9-dff4d1224630
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/23/2017
-ms.openlocfilehash: 5f3f73e2c2cb281887e795d974403a17cffd5978
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260793"
+título: "Paso 3: Creación de un experimento de Machine Learning Studio" titleSuffix: Azure Machine Learning Studio description: "Paso 3 del tutorial de desarrollo de una solución predictiva: Creación de un experimento de entrenamiento en Azure Machine Learning Studio".
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 23/03/2017
 ---
 # <a name="walkthrough-step-3-create-a-new-azure-machine-learning-studio-experiment"></a>Paso 3 del tutorial: Creación de un experimento de Azure Machine Learning Studio
 Este es el tercer paso del tutorial [Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Azure Machine Learning](walkthrough-develop-predictive-solution.md)

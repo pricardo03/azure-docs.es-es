@@ -12,21 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/5/2018
+ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3a377441758fcd7dd91deefb5cae91579e881498
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4bc426e291a47ae42e7628ad911e2960e654819f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007066"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261305"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>Mejorar la puntuación segura de Azure Security Center
 
 
 Con tantos servicios que ofrecen ventajas de seguridad, a menudo es difícil saber qué pasos dar primero para asegurar y proteger su carga de trabajo. La puntuación segura de Azure revisa las recomendaciones de seguridad y les asigna una prioridad, así sabe qué recomendaciones realizar primero. De esta manera, puede encontrar las vulnerabilidades de seguridad más graves y así dar prioridad a la investigación. La puntuación segura es una herramienta que le ayuda a evaluar la postura de seguridad de las cargas de trabajo.
-
-![Panel de Puntuación segura](./media/security-center-secure-score/secure-score-dashboard.png)
 
 ## <a name="secure-score-calculation"></a>Cálculo de Puntuación segura
 
@@ -43,11 +41,25 @@ Para comprobar qué recomendaciones afectan más a la puntuación segura, puede 
 
 Para consultar su puntuación segura general:
 
-1. En el panel de Azure, haga clic en **Security Center** y, después, en **Recomendaciones**.
-2. En la parte superior verá la puntuación segura, que representa la puntuación por directivas, por la suscripción seleccionada. 
-2. En la tabla siguiente se enumeran las recomendaciones, puede ver que para cada recomendación hay una columna que representa el **impacto en la puntuación segura**. Este número representa cuánto mejorará la puntuación general si sigue las recomendaciones. Por ejemplo, en la pantalla siguiente, si **corrige las vulnerabilidades de las configuraciones de seguridad del contenedor**, aumentará su puntuación segura en 35 puntos.
+1. En el panel de Azure, haga clic en **Security Center** y, después, en **Puntuación de seguridad**.
+2. En la parte superior puede ver los aspectos destacados de la Puntuación de seguridad:
+   - La **Puntuación de seguridad general** representa la puntuación por directivas, por la suscripción seleccionada.
+   - **Puntuación de seguridad por categoría** muestra los recursos que necesitan más atención.
+   - **Principales recomendaciones por Impacto de la puntuación segura** le proporciona una lista de las recomendaciones que mejorarán en mayor medida su puntuación de seguridad si las corrige.
+ 
+   ![puntuación segura](./media/security-center-secure-score/secure-score-dashboard.png)
+
+3. En la tabla siguiente puede ver cada una de las suscripciones y la puntuación de seguridad general para cada una.
+
+   > [!NOTE]
+   > La suma de la puntuación de seguridad de cada suscripción no equivale a la puntuación de seguridad general. La puntuación de seguridad es un cálculo basado en la relación entre los recursos en buen estado y los recursos totales por recomendación, no una suma de las puntuaciones de seguridad entre las suscripciones. 
+   >
+4. Haga clic en **Ver recomendaciones** para ver las recomendaciones para esa suscripción, que puede corregir para mejorar su puntuación de seguridad.
+4. En la lista de recomendaciones, puede ver que para cada recomendación hay una columna que representa el **impacto en la puntuación segura**. Este número representa cuánto mejorará la puntuación general si sigue las recomendaciones. Por ejemplo, en la pantalla siguiente, si **corrige las vulnerabilidades de las configuraciones de seguridad del contenedor**, aumentará su puntuación segura en 35 puntos.
 
    ![puntuación segura](./media/security-center-secure-score/security-center-secure-score1.png)
+
+
 
 ## <a name="individual-secure-score"></a>Puntuación segura individual
 
@@ -60,6 +72,12 @@ El **impacto de la recomendación** le permite saber cuánto mejorará su puntua
 La recomendación muestra las amenazas a las que se expone la carga de trabajo si no se realizan los pasos para la corrección.
 
 ![puntuación segura de recomendación individual](./media/security-center-secure-score/indiv-recommendation-secure-score.png)
+
+
+
+
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo se muestra cómo mejorar su postura de seguridad mediante **Puntuación segura** de Azure Security Center. Para más información sobre Security Center, consulte:

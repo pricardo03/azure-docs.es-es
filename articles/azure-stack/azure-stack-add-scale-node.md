@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.openlocfilehash: 3ce74cdb610f2902133459b913f53bb7809cb4b7
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: ff068ff5aa4401a80f2220df79fdac93db21cfb3
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983004"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232879"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Incorporación de nodos de unidad de escalado adicionales en Azure Stack
 
@@ -105,6 +105,7 @@ El estado de la unidad de escalado y de los nodos de unidad de escalado se puede
 
 ### <a name="status-for-the-add-node-operation"></a>Estado de la operación Agregar nodo 
 **Para una unidad de escalado:**
+
 |Status               |DESCRIPCIÓN  |
 |---------------------|---------|
 |En ejecución              |Todos los nodos están participando activamente en la unidad de escalado.|
@@ -115,6 +116,7 @@ El estado de la unidad de escalado y de los nodos de unidad de escalado se puede
 
 
 **Para un nodo de unidad de escalado:**
+
 |Status                |DESCRIPCIÓN  |
 |----------------------|---------|
 |En ejecución               |El nodo está participando activamente en la unidad de escalado.|
@@ -128,17 +130,17 @@ El estado de la unidad de escalado y de los nodos de unidad de escalado se puede
 ## <a name="troubleshooting"></a>solución de problemas
 Los siguientes son problemas comunes observados al agregar un nodo. 
 
-**Escenario 1:** se produce un error en la operación de incorporación de nodo de unidad de escalado pero uno o varios nodos se muestran con un estado de Detenido.  
+**Escenario 1:**  Se produce un error en la operación de incorporación del nodo de unidad de escalado pero uno o varios nodos se muestran con un estado de Detenido.  
 - Corrección: Use la operación de corrección para reparar uno o más nodos. Solo se puede ejecutar una operación de reparación al mismo tiempo.
 
-**Escenario 2:** se han agregado uno o varios nodos de unidad de escalado pero no se pudo realizar la expansión de almacenamiento. En este escenario, el objeto de nodo de unidad de escalado notifica el estado En ejecución pero no se inicia la tarea de configuración del almacenamiento.  
-- Corrección: use el punto de conexión con privilegios para revisar el estado de almacenamiento ejecutando el siguiente cmdlet de PowerShell:
+**Escenario 2:** Se han agregado uno o varios nodos de unidad de escalado pero no se pudo realizar la expansión de almacenamiento. En este escenario, el objeto de nodo de unidad de escalado notifica el estado En ejecución pero no se inicia la tarea de configuración del almacenamiento.  
+- Corrección: Use el punto de conexión con privilegios para revisar el estado de almacenamiento ejecutando el siguiente cmdlet de PowerShell:
   ```powershell
      Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
   ```
  
-**Escenario 3:** recibe una alerta que indica un error en el trabajo de escalabilidad horizontal del almacenamiento.  
-- Corrección: en este caso, se produjeron errores en la tarea de configuración de almacenamiento. Este problema requiere que se ponga en contacto con soporte técnico.
+**Escenario 3:** Recibe una alerta que indica un error en el trabajo de escalabilidad horizontal del almacenamiento.  
+- Corrección: En este caso, se produjeron errores en la tarea de configuración de almacenamiento. Este problema requiere que se ponga en contacto con soporte técnico.
 
 
 ## <a name="next-steps"></a>Pasos siguientes 

@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: de0ddbc041d6f177e5bfcd24d593b8d63a8e1e23
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 86fa7fab6897802fd4f18936f2d7bb0700829837
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248734"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231145"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análisis de sentimiento de Twitter en tiempo real en Azure Stream Analytics
 
@@ -36,7 +36,7 @@ En este tutorial, va a utilizar una aplicación cliente que se conecta a Twitter
 * Una suscripción de Azure
 * Una cuenta de Twitter 
 * Una aplicación de Twitter y el [token de acceso de OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens) para esa aplicación. Se proporcionarán después instrucciones detalladas sobre cómo crear una aplicación de Twitter.
-* La aplicación TwitterWPFClient, que lee la fuente de Twitter. Para obtener esta aplicación, descargue el archivo [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) de GitHub y descomprima el paquete en una carpeta en el equipo. Si quiere ver el código fuente y ejecutar la aplicación en un depurador, puede obtener el código fuente en [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
+* La aplicación TwitterWPFClient, que lee la fuente de Twitter. Para obtener esta aplicación, descargue el archivo [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) de GitHub y descomprima el paquete en una carpeta en el equipo. Si quiere ver el código fuente y ejecutar la aplicación en un depurador, puede obtener el código fuente en [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TwitterClient). 
 
 ## <a name="create-an-event-hub-for-streaming-analytics-input"></a>Creación de un centro de eventos para la entrada de Stream Analytics
 
@@ -214,13 +214,13 @@ Ahora que los eventos Tweet se transmiten en tiempo real desde Twitter, se puede
 
 2. En la hoja **Entradas**, haga clic en **+&nbsp;Agregar** y rellene la hoja con estos valores:
 
-    * **Alias de entrada**: use el nombre `TwitterStream`. Si usa otro nombre, anótelo porque lo necesitará más adelante.
-    * **Tipo de origen**: seleccione **Flujo de datos**.
-    * **Origen**: seleccione **Centro de eventos**.
-    * **Opción de importación**: seleccione **Usar centro de eventos de la suscripción actual**. 
-    * **Espacio de nombres de Service Bus**: seleccione el espacio de nombres del centro de eventos que creó antes (`<yourname>-socialtwitter-eh-ns`).
-    * **Centro de eventos**: seleccione el centro de eventos que creó antes (`socialtwitter-eh`).
-    * **Nombre de la directiva del centro de eventos**: seleccione la directiva de acceso que creó antes (`socialtwitter-access`).
+    * **Alias de entrada**: Use el nombre `TwitterStream`. Si usa otro nombre, anótelo porque lo necesitará más adelante.
+    * **Tipo de origen**: Seleccione **Flujo de datos**.
+    * **Origen**: Seleccione **Centro de eventos**.
+    * **Opción de importación**: Seleccione **Usar el centro de eventos de la suscripción actual**. 
+    * **Espacio de nombres de Service Bus**: Seleccione el espacio de nombres del centro de eventos que ha creado anteriormente (`<yourname>-socialtwitter-eh-ns`).
+    * **Centro de eventos:** Seleccione el centro de eventos que ha creado anteriormente (`socialtwitter-eh`).
+    * **Nombre de la directiva del centro de eventos**: Seleccione la directiva de acceso que ha creado (`socialtwitter-access`).
 
     ![Creación de una entrada del trabajo de Stream Analytics](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
 
@@ -297,9 +297,9 @@ En este tutorial, va a escribir los eventos Tweet agregados de nuestra consulta 
 
 2. En la hoja **Salidas**, haga clic en **+&nbsp;Agregar** y rellene la hoja con estos valores:
 
-    * **Alias de salida**: use el nombre `TwitterStream-Output`. 
-    * **Receptor**: seleccione **Blob Storage**.
-    * **Opciones de importación**: seleccione **Usar almacenamiento de blobs de la suscripción actual**.
+    * **Alias de salida**: Use el nombre `TwitterStream-Output`. 
+    * **Receptor**: Seleccione **Blob Storage**.
+    * **Opciones de importación**: Seleccione **Usar almacenamiento de blobs de la suscripción actual**.
     * **Cuenta de almacenamiento**. Seleccione **Crear una nueva cuenta de almacenamiento**.
     * **Cuenta de Storage** (segundo cuadro). Escriba `YOURNAMEsa`, donde `YOURNAME` sea su nombre u otra cadena única. El nombre solo puede incluir letras minúsculas y números y ser único en Azure. 
     * **Contenedor**. Escriba `socialtwitter`.

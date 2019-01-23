@@ -1,26 +1,8 @@
 ---
-title: 'Paso 4: Entrenamiento de modelos de análisis predictivo: Azure Machine Learning Studio | Microsoft Docs'
-description: 'Paso 4 del tutorial de desarrollo de una solución predictiva: Entrenamiento, puntuación y evaluación de varios modelos en Azure Machine Learning Studio.'
-services: machine-learning
-documentationcenter: ''
-author: garyericson
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: garye
-editor: cgronlun
-ms.assetid: d905f6b3-9201-4117-b769-5f9ed5ee1cac
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/23/2017
-ms.openlocfilehash: 2464ef0ba89f138834bedfdc9f29347092e5fe99
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254520"
+título: "Paso 4: Entrenar modelos de análisis predictivo" titleSuffix: Azure Machine Learning Studio description: "Paso 4 del tutorial de desarrollo de una solución predictiva: Entrenamiento, puntuación y evaluación de varios modelos en Azure Machine Learning Studio".
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 23/03/2017
 ---
 # <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models-in-machine-learning-studio"></a>Paso 4 del tutorial: Entrenamiento y evaluación de los modelos de análisis predictivo en Machine Learning Studio
 Este tema contiene el cuarto paso del tutorial [Desarrollo de una solución de análisis predictivo en Azure Machine Learning](walkthrough-develop-predictive-solution.md)

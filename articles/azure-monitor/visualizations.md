@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 9b160c011a8a9507698443446ad5fe908b32fb9e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: cea5cb924914cff1195520d6bd28a8b62fce8698
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54049969"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264417"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizar datos de Azure Monitor
 En este artículo se proporciona un resumen de los métodos disponibles para visualizar los datos de métricas y de registro almacenados en Azure Monitor.
@@ -32,7 +32,7 @@ Los [paneles de Azure](../azure-portal/azure-portal-dashboards.md) son la tecnol
 ### <a name="advantages"></a>Ventajas
 - Integración profunda en Azure. Las visualizaciones se pueden anclar a los paneles en varias páginas de Azure, incluidos el análisis de métricas, el análisis de registros y Application Insights.
 - Es compatible con las métricas y los registros.
-- Puede combinar datos de varios orígenes, incluidos los resultados de [Explorador de métricas](../azure-monitor/platform/metrics-charts.md), las [consultas de Log Analytics](../azure-monitor/log-query/log-query-overview.md) y los [mapas](../azure-monitor/app/app-map.md) y la [disponibilidad]() de Application Insights.
+- Puede combinar datos de varios orígenes, incluidos los resultados de [Explorador de métricas](../azure-monitor/platform/metrics-charts.md), las [consultas de Log Analytics](../azure-monitor/log-query/log-query-overview.md) y los [mapas](../azure-monitor/app/app-map.md) y la disponibilidad de Application Insights.
 - Opción de paneles personales o compartidos. Integrado con la [autenticación basada en roles (RBAC)](../role-based-access-control/overview.md) de Azure.
 - Actualización automática. Las métricas se actualizan según el intervalo de tiempo con un mínimo de cinco minutos. Los registros se actualizan cada minuto.
 - Paneles de métricas parametrizadas con marca de tiempo y parámetros personalizados.

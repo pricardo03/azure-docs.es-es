@@ -1,5 +1,5 @@
 ---
-title: Análisis de contenido de vídeo para detectar material inapropiado en C#
+title: 'Análisis de contenido de vídeo para detectar material inapropiado en C#: Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Cómo analizar el contenido de vídeo para detectar diverso material inapropiado mediante el SDK de Content Moderator para .NET
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 80635354b228edc1a8c1334e5d59cf530a10083e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 70fe30e53635203d80aca2406c52b2ec08d0035c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008290"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265522"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Análisis de contenido de vídeo para detectar material inapropiado en C#
 

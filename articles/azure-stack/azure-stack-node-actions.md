@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: ced6e2edb570e12b17d14e0552030902161b5d53
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 7e01feff1344557c90f23bb006520111f58e437a
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725259"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302687"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Acciones de los nodos de unidad de escalado en Azure Stack
 
@@ -74,7 +74,7 @@ Al ver la información sobre un nodo de la unidad de escalado, también puede re
 
 El estado operativo del nodo determina qué opciones están disponibles.
 
-Deberá instalar los módulos de PowerShell de Azure Stack. Estos cmdlets están en el módulo **Azs.Fabric.Admin**. Para instalar o comprobar la instalación de PowerShell para Azure Stack, consulte [Instalación de PowerShell para Azure Stack](azure-stack-powershell-install.md).
+Debe instalar los módulos de PowerShell de Azure Stack. Estos cmdlets están en el módulo **Azs.Fabric.Admin**. Para instalar o comprobar la instalación de PowerShell para Azure Stack, consulte [Instalación de PowerShell para Azure Stack](azure-stack-powershell-install.md).
 
 ## <a name="stop"></a>Stop
 

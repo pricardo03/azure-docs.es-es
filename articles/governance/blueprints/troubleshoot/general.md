@@ -4,17 +4,17 @@ description: Aprenda a solucionar problemas de creación y asignación de planos
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 12/11/2018
 ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 40668fed2fcc2a04e39fa3a4d7e8e8923c75ae05
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 04c038eb11cc40cec3552feff183bea55b22bb57
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315537"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261934"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Solución de problemas de errores con instancias de Azure Blueprint
 
@@ -52,6 +52,20 @@ Una directiva puede entrar en conflicto con la implementación por una serie de 
 #### <a name="resolution"></a>Resolución
 
 Cambie el plano técnico para que no entre en conflicto con las directivas en los detalles del error. Si este cambio no es posible, una opción alternativa es hacer que el ámbito de la asignación de directivas cambie para que el plano técnico deje de estar en conflicto con la directiva.
+
+### <a name="escape-function-parameter"></a>Escenario: El parámetro de plano técnico es una función
+
+#### <a name="issue"></a>Problema
+
+Los parámetros de plano técnico que son funciones se procesan antes de que se pasen a los artefactos.
+
+#### <a name="cause"></a>Causa
+
+Pasar un parámetro de plano técnico que usa una función, como `[resourceGroup().tags.myTag]`, a un artefacto genera el resultado procesado de la función que se va a establecer en el artefacto, en lugar de la función dinámica.
+
+#### <a name="resolution"></a>Resolución
+
+Para pasar una función como parámetro, escape la cadena completa con `[`, de modo que el parámetro de plano técnico sea similar a `[[resourceGroup().tags.myTag]`. El carácter de escape hace que los planos técnicos traten el valor como una cadena al procesar el plano técnico. El plano técnico luego coloca la función en el artefacto para que pueda ser dinámico, según lo previsto.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

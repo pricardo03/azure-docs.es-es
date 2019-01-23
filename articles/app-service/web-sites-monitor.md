@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: d9f25b7a10b7a50663198120a895220b02818d7b
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 3a49b30caa087295bbdcffe8762796fdc92f154b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994953"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247273"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Supervisión de aplicaciones en Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) proporciona una funcionalidad de supervisión integrada para aplicaciones web, back ends móviles y aplicaciones de API en [Azure Portal](https://portal.azure.com).
@@ -72,7 +72,7 @@ Para una aplicación, estas son las métricas disponibles:
 | Métrica | DESCRIPCIÓN |
 | --- | --- |
 | **Tiempo de respuesta promedio** | Tiempo promedio necesario para que la aplicación atienda solicitudes, en milisegundos. |
-| **Espacio de trabajo de memoria promedio** | Cantidad media de memoria que utiliza la aplicación, en mebibytes (MiB). |
+| **Espacio de trabajo de memoria promedio** | Cantidad media de memoria que utiliza la aplicación, en megabytes (MiB). |
 | **Tiempo de CPU** | Cantidad de CPU consumida por la aplicación, en segundos. Para más información sobre esta métrica, consulte [Tiempo de CPU y porcentaje de CPU](#cpu-time-vs-cpu-percentage). |
 | **Entrada de datos** | Cantidad de ancho de banda entrante consumido por la aplicación, en MiB. |
 | **Salida de datos** | Cantidad de ancho de banda saliente consumido por la aplicación, en MiB. |
@@ -141,14 +141,12 @@ Para más información sobre las métricas, consulte [Supervisión de las métri
 ## <a name="alerts-and-autoscale"></a>Alertas y escalabilidad automática
 Las métricas para una aplicación o un plan de App Service pueden enlazarse con las alertas. Para más información, consulte [Recibir notificaciones de alerta](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-Las aplicaciones de App Service hospedadas en planes de App Service Básico, Estándar o Premium admiten la escalabilidad automática. Con la escalabilidad automática puede configurar reglas que supervisan las métricas del plan de App Service. Las reglas pueden aumentar o disminuir el recuento de instancias que pueden proporcionar recursos adicionales, según sea necesario. Las reglas también le ayudan a ahorrar dinero cuando la aplicación se aprovisiona en exceso. 
+Las aplicaciones de App Service hospedadas en planes de App Service Básico, Estándar o Premium admiten la escalabilidad automática. Con la escalabilidad automática puede configurar reglas que supervisan las métricas del plan de App Service. Las reglas pueden aumentar o disminuir el recuento de instancias que pueden proporcionar recursos adicionales, según sea necesario. Las reglas también le ayudan a ahorrar dinero cuando la aplicación se aprovisiona en exceso.
 
 Para más información acerca de la escalabilidad automática, consulte [Escalado](../monitoring-and-diagnostics/insights-how-to-scale.md) y [Procedimientos recomendados de escalado automático en Azure Monitor](../azure-monitor/platform/autoscale-best-practices.md).
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169
-
-
 
 <!-- Images. -->
 [http403]: ./media/web-sites-monitor/http403.png

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: raynew
-ms.openlocfilehash: 09d3b698edfc99b9340772aa0ffc4e8de20b286d
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 7e5f72ca637cb657369a3b384aee666e0935b9d0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103779"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263555"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de compatibilidad para replicar desde una región de Azure a otra
 
@@ -44,9 +44,7 @@ En este artículo se resumen las configuraciones y los componentes admitidos cua
 
 Puede replicar y recuperar máquinas virtuales entre dos regiones cualesquiera dentro del mismo clúster geográfico. Los clústeres geográficos se definen teniendo presente la latencia y la soberanía de datos.
 
->[!NOTE]
->Si no puede ver una región dentro de un clúster geográfico durante la habilitación de la replicación, asegúrese de que su suscripción tiene acceso para crear máquinas virtuales en dicha región. Si no es así, presente una solicitud de soporte técnico en la suscripción "Tipo de problema".
->
+
 **Clúster geográfico** | **Regiones de Azure**
 -- | --
 América | Centro de Canadá y este de Canadá, centro-sur de EE. UU., centro-oeste de EE. UU., este de EE. UU., este de EE. UU. 2, oeste de EE. UU., oeste de EE. UU. 2 centro de EE. UU., centro-norte de EE. UU.
@@ -59,9 +57,13 @@ China | Este de China, Norte de China, Norte de China 2 y Este de China 2
 
 >[!NOTE]
 >
-> Para la región Sur de Brasil, puede replicar y conmutar por error en una de las siguientes regiones: Centro-sur de EE. UU., Centro-oeste de EE. UU., Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU., Oeste de EE. UU. 2 y Centro-norte de EE. UU.
->
-> Debe tenerse en cuenta que Site Recovery solo ha habilitado el Sur de Brasil para su uso como región de origen desde donde se pueden proteger las VM. Ninguna de las regiones de Azure, como Centro-sur de EE. UU., puede usarse como región de recuperación ante desastres de destino. Se debe a que se recomienda que la latencia observada debido a la distancia geográfica seleccione una región americana que no sea el Sur de Brasil.
+> - Para la región **Sur de Brasil**, puede replicar y conmutar por error en una de las siguientes regiones: Centro-sur de EE. UU., Centro-oeste de EE. UU., Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU., Oeste de EE. UU. 2 y Centro-norte de EE. UU. Debe tenerse en cuenta que Site Recovery solo ha habilitado el Sur de Brasil para su uso como región de origen desde donde se pueden proteger las VM. **No puede usarse como región de recuperación ante desastres de destino** en ninguna de las regiones de Azure, como Centro-sur de EE. UU. Se debe a que se recomienda que la latencia observada debido a la distancia geográfica seleccione una región americana que no sea el Sur de Brasil.
+> 
+> - Si **no puede ver una región** donde quiere **crear un almacén**, asegúrese de que su suscripción tenga acceso para crear recursos en esa región. Por ejemplo:  Si no puede crear un almacén en el Sur de Francia, la suscripción no tiene acceso a la región Sur de Francia. Complete la incidencia de soporte técnico para tipo de problema "administración de suscripciones" y tipo de problema "otras preguntas generales", asunto "incluir en la lista blanca la suscripción a la región de Azure XXX"
+> 
+> - Si **no puede ver una región** dentro de un clúster geográfico **durante la habilitación de la replicación**, asegúrese de que su suscripción tiene acceso para crear máquinas virtuales en dicha región. Por ejemplo:  Si intenta proteger máquinas virtuales del Centro de Francia al Sur de Francia y no ve Sur de Francia en la lista desplegable de regiones, su suscripción no tiene acceso para implementar VM en esa región. Complete la incidencia de soporte técnico para tipo de problema "administración de suscripciones" y tipo de problema "otras preguntas generales", asunto "incluir en la lista blanca la suscripción a la región de Azure XXX"
+> - No puede seleccionar las regiones en los clústeres geográficos mencionados anteriormente.
+
 
 ## <a name="cache-storage"></a>Almacenamiento en caché
 

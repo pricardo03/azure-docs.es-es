@@ -13,18 +13,35 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 687e47eff000679f24088a59297a258a1469f3fd
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 735f1d7cce8621a29e5a582917d3eea8ee399b8f
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106280"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319655"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Notas de la versión para la validación como servicio
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 En este artículo se incluyen las notas de la versión para la validación como servicio de Azure Stack.
+
+## <a name="version-402"></a>Versión 4.0.2
+
+7 de enero de 2019
+
+Si ejecuta el flujo de trabajo de verificación de actualización mensual de Azure Stack, y la versión para el paquete de actualización de OEM no es 1810 o posterior, recibirá un error cuando se encuentre en el paso de actualización de OEM. Este es un error. Se está desarrollando una corrección. Los pasos de mitigación son los siguientes:
+
+1.  Ejecute la actualización de OEM con normalidad.
+2.  Ejecute Test-AzureStack después de la aplicación correcta del paquete y guarde el resultado.
+3.  Cancele la prueba.
+4.  Envíe el resultado guardado a VaaSHelp@microsoft.com para recibir resultados satisfactorios para la ejecución.
+
+## <a name="version-402"></a>Versión 4.0.2
+
+30 de noviembre de 2018
+
+- Correcciones de errores internos
 
 ## <a name="version-401"></a>Versión 4.0.1
 

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 577147ad91c6a35a45fd40ca9e6424863ea196d6
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c2ffa623ad7a6c6da5b799d2c7d5f35c9f65e503
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340790"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215412"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>API de HTTP en Durable Functions (Azure Functions)
 
@@ -96,9 +96,9 @@ Todas las API de HTTP que implementa la extensión tienen los siguientes paráme
 | taskHub    | Cadena de consulta    | Nombre de la [central de tareas](durable-functions-task-hubs.md). Si no se especifica, se toma el nombre de la central de tareas de la aplicación de función actual. |
 | connection | Cadena de consulta    | **Nombre** de la cadena de conexión de la cuenta de almacenamiento. Si no se especifica, se toma el de la cadena de conexión predeterminada de la aplicación de función. |
 | systemKey  | Cadena de consulta    | Clave de autorización necesaria para invocar la API. |
-| showInput  | Cadena de consulta    | Parámetro opcional. Si se establece en `false`, la entrada de ejecución no se incluirá en la carga de respuesta.|
-| showHistory| Cadena de consulta    | Parámetro opcional. Si se establece en `true`, el historial de ejecución de orquestación se incluirá en la carga de respuesta.|
-| showHistoryOutput| Cadena de consulta    | Parámetro opcional. Si se establece en `true`, las salidas de actividad se incluirán en el historial de ejecución de orquestación.|
+| showInput  | Cadena de consulta    | Parámetro opcional; solo solicitudes de instancia única. Si se establece en `false`, la entrada de ejecución no se incluirá en la carga de respuesta.|
+| showHistory| Cadena de consulta    | Parámetro opcional; solo solicitudes de instancia única. Si se establece en `true`, el historial de ejecución de orquestación se incluirá en la carga de respuesta.|
+| showHistoryOutput| Cadena de consulta    | Parámetro opcional; solo solicitudes de instancia única. Si se establece en `true`, las salidas de actividad se incluirán en el historial de ejecución de orquestación.|
 | createdTimeFrom  | Cadena de consulta    | Parámetro opcional. Cuando se especifica, se filtra la lista de instancias devueltas que se crearon durante o después de la marca de tiempo ISO8601 especificada.|
 | createdTimeTo    | Cadena de consulta    | Parámetro opcional. Cuando se especifica, se filtra la lista de instancias devueltas que se crearon antes o durante la marca de tiempo ISO8601 determinada.|
 | runtimeStatus    | Cadena de consulta    | Parámetro opcional. Cuando se especifica, se filtra la lista de instancias devueltas según su estado en tiempo de ejecución. Para ver la lista de valores posibles del estado en tiempo de ejecución, consulte el tema [Consulta de instancias](durable-functions-instance-management.md). |
@@ -146,7 +146,7 @@ La carga de respuesta para los casos **HTTP 200** y **HTTP 202** es un objeto JS
 | output          | JSON      | Salida JSON de la instancia. Este campo es `null` si el estado de la instancia no es Completado. |
 | createdTime     | string    | Hora a la que se creó la instancia. Usa la notación ampliada de ISO 8601. |
 | lastUpdatedTime | string    | Hora a la que se almacenó la instancia por última vez. Usa la notación ampliada de ISO 8601. |
-| historyEvents   | JSON      | Una matriz JSON que contiene el historial de ejecución de orquestación. Este campo es `null` a menos que el parámetro de cadena de consulta `showHistory` esté establecido en `true`.  |
+| historyEvents   | JSON      | Una matriz JSON que contiene el historial de ejecución de orquestación. Este campo es `null` a menos que el parámetro de cadena de consulta `showHistory` esté establecido en `true`. |
 
 Este es un ejemplo de una carga de respuesta que incluye las salidas de historial de ejecución de orquestación y de actividad (a la que se ha aplicado formato para mejorar la legibilidad):
 

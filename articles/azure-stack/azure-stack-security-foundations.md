@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/9/2018
+ms.date: 01/14/2019
 ms.author: patricka
-ms.openlocfilehash: 8b478c1ba60df679d69d5fced660836c16079e6a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.reviewer: fiseraci
+ms.openlocfilehash: cd3aa913bd17498ddc58994196bc8faa96c4de51
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727096"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306461"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Posición de seguridad de la infraestructura de Azure Stack
 
@@ -70,7 +71,7 @@ Todos los componentes de Azure Stack (tanto los hosts de Hyper-V como Virtual Ma
 En escenarios conectados, las actualizaciones de definiciones y motores de antivirus se aplican varias veces al día. En escenarios desconectados, se aplican las actualizaciones de antimalware como parte de las actualizaciones mensuales de Azure Stack. Para más información, vea [Actualización de Antivirus de Windows Defender en Azure Stack](azure-stack-security-av.md).
 
 ## <a name="constrained-administration-model"></a>Modelo de administración restringida
-La administración de Azure Stack está controlada mediante el uso de tres puntos de entrada, cada uno con un fin específico: 
+La administración de Azure Stack está controlada mediante tres puntos de entrada, cada uno con un fin específico: 
 1. El [portal de administrador](azure-stack-manage-portals.md) proporciona una experiencia "apuntar y hacer clic" para las operaciones de administración diarias.
 2. Azure Resource Manager expone todas las operaciones de administración del portal de administrador mediante una API de REST, que usan PowerShell y la CLI de Azure. 
 3. Para operaciones específicas de bajo nivel, por ejemplo, integración del centro de datos o escenarios de soporte técnico, Azure Stack expone un punto de conexión de PowerShell denominado [punto de conexión con privilegios](azure-stack-privileged-endpoint.md). Este punto de conexión solo expone un conjunto de cmdlets incluidos en lista blanca y está sometido a una auditoría exhaustiva.

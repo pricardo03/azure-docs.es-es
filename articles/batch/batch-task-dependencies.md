@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a9b44ed56774466bae2f0f5d48b5e012382721b
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 40e925fff9d87d8590ea3a83be9e7d93a84d6e26
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865240"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266661"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Creación de dependencias de tareas para ejecutar las tareas que dependan de otras tareas
 
@@ -79,7 +79,7 @@ Hay tres escenarios de dependencia de tareas básicos que puede usar en Azure Ba
 |:---:| --- | --- |
 |  [Uno a uno](#one-to-one) |*taskB* depende de *taskA* <p/> Se programará que *taskB* no se ejecute hasta que *taskA* se haya completado correctamente |![Diagrama: dependencia de la tarea uno a uno][1] |
 |  [Uno a varios](#one-to-many) |*taskC* depende de*taskA* y *taskB*. <p/> Se programará que *taskC* no se ejecute hasta que *taskA* y *taskB* se hayan completado correctamente |![Diagrama: dependencia de la tarea uno a varios][2] |
-|  [Intervalo de id. de tarea](#task-id-range) |*taskD* depende de una serie de tareas <p/> Se programará que *taskD* no se ejecute hasta que las tareas con los identificadores del *1* al *10* se hayan completado correctamente. |![Diagrama: dependencia de intervalo de id. de tarea][3] |
+|  [Intervalo de id. de tarea](#task-id-range) |*taskD* depende de una serie de tareas <p/> Se programará que *taskD* no se ejecute hasta que las tareas con los identificadores del *1* al *10* se hayan completado correctamente. |![Diagrama: Dependencia de intervalo de id. de tarea][3] |
 
 > [!TIP]
 > Puede crear relaciones de **varios a varios**, por ejemplo, donde las tareas C, D, E y F dependan de las tareas A y B. Esto es útil, por ejemplo, en escenarios de preprocesamiento en paralelo donde las tareas que siguen en la cadena dependen de la salida de varias tareas que preceden en la cadena.

@@ -1,23 +1,23 @@
 ---
 title: 'Flujos de trabajo de moderación: Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Uso de flujos de trabajo con moderación de contenido.
+description: Use flujos de trabajo con las operaciones Job de Review API para automatizar las revisiones con humanos conforme a sus umbrales y directivas de contenido.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 02/04/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 3de45c62eb208671cc2d1d4de5309d2f9d75adc9
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 3a3ff5ed325205c5ae17aaff053127f4e84504bf
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226881"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262666"
 ---
-# <a name="moderation-workflows"></a>Flujos de trabajo de moderación
+# <a name="automate-moderation-reviews-with-workflows"></a>Automatización de revisiones de moderación con flujos de trabajo
 
 Content Moderator incluye herramientas y API para administrar flujos de trabajo. Los flujos de trabajo se usan las [operaciones Job de Review API](review-api.md) para automatizar la creación de revisiones con humanos conforme a sus umbrales y directivas de contenido.
 
@@ -218,9 +218,9 @@ Las [operaciones Workflow](https://westus.dev.cognitive.microsoft.com/docs/servi
 
 La operación **Workflow-Get** acepta los siguientes datos de entrada:
 
-- **team**: nombre del equipo que creó al configurar la [cuenta de la herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/). 
-- **workflowname**: nombre del flujo de trabajo. Use `default` para comenzar.
-- **Ocp-Apim-Subscription-Key**: ubicada en la pestaña **Configuración**. Para más información, consulte [Información general](overview.md).
+- **team**: Nombre del equipo que creó al configurar la [cuenta de la herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/). 
+- **workflowname**: Nombre del flujo de trabajo. Use `default` para comenzar.
+- **Ocp-Apim-Subscription-Key**: Ubicada en la pestaña **Configuración**. Para más información, consulte [Información general](overview.md).
 
 Si la operación se realiza correctamente, **Response status** (Estado de la respuesta) es `200 OK` y aparece el cuadro **Response content** (Contenido de la respuesta) que muestra la definición de flujo de trabajo con el formato JSON.
 Para obtener más información, lea la [guía de inicio rápido de la consola de Workflow API](try-review-api-job.md).
@@ -231,9 +231,9 @@ La operación de creación y actualización permite crear flujos de trabajo desd
 
 La operación **Workflow-Create o Workflow-Update** acepta los siguientes datos de entrada:
 
-- **team**: nombre del equipo que creó al configurar la [cuenta de la herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/). 
-- **workflowname**: nombre del flujo de trabajo. Use `default` para comenzar.
-- **Ocp-Apim-Subscription-Key**: ubicada en la pestaña **Configuración**. Para más información, consulte [Información general](overview.md).
+- **team**: Nombre del equipo que creó al configurar la [cuenta de la herramienta de revisión](https://contentmoderator.cognitive.microsoft.com/). 
+- **workflowname**: Nombre del flujo de trabajo. Use `default` para comenzar.
+- **Ocp-Apim-Subscription-Key**: Ubicada en la pestaña **Configuración**. Para más información, consulte [Información general](overview.md).
 
 Si la operación se realiza correctamente, **Response status** (Estado de la respuesta) es `200 OK` y el cuadro **Response content** (Contenido de la respuesta) muestra `true`. Para más información, [pruebe la operación `Create`](try-review-api-job.md).
 

@@ -9,18 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 01/07/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: ab752799c9e64e47abe0200a26215f9e01c489f6
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 39682ac04b914809aec36f46889feb5c4b59af51
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139693"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243889"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Eliminación de un inquilino de Azure Active Directory
+
 Cuando se elimina un inquilino, también se eliminan todos los recursos que contiene. Debe preparar el inquilino, reduciendo sus recursos asociados antes de eliminarlo. Solo un administrador global de Azure Active Directory (Azure AD) puede eliminar a un inquilino de Azure AD desde el portal.
 
 ## <a name="prepare-the-tenant-for-deletion"></a>Preparación del inquilino para eliminarlo
@@ -59,17 +60,17 @@ Estado de la suscripción | Datos | Acceso a datos
 Activo (30 días para evaluación)  | Datos accesibles a todos    | <li>Los usuarios tienen acceso normal a los archivos o aplicaciones de Office 365<li>Los administradores tienen acceso normal al centro de administración y los recursos de Office 365 
 Expirado (30 días)   | Datos accesibles a todos    | <li>Los usuarios tienen acceso normal a los archivos o aplicaciones de Office 365<li>Los administradores tienen acceso normal al centro de administración y los recursos de Office 365
 Deshabilitado (30 días) | Datos accesibles solo para administradores  | <li>Los usuarios no pueden obtener acceso a archivos o aplicaciones de Office 365<li>Los administradores pueden acceder al centro de administración de Office 365, pero no pueden asignar licencias a los usuarios ni actualizarlos
-Desaprovisionado (30 días tras la deshabilitación) | Los datos se eliminan (automáticamente si no hay otros servicios en uso) | <li>Los usuarios no pueden obtener acceso a archivos o aplicaciones de Office 365<li>Los administradores pueden tener acceso al centro de administración de Office 365 para adquirir y administrar otras suscripciones 
+Desaprovisionado (30 días tras la deshabilitación) | Los datos se eliminan (automáticamente si no hay otros servicios en uso) | <li>Los usuarios no pueden obtener acceso a archivos o aplicaciones de Office 365<li>Los administradores pueden tener acceso al centro de administración de Office 365 para adquirir y administrar otras suscripciones
 
 Puede colocar una suscripción en un estado **Deprovisoned** (Desaprovisionado) para ser eliminados a los 3 días mediante el centro de administración de Microsoft Store para Empresas. Esta funcionalidad estará disponible próximamente en el centro de administración de Office 365.
 
 1. Inicie sesión en el [centro de administración de Microsoft Store para Empresas](https://businessstore.microsoft.com/manage/) con una cuenta que sea de administrador global en el inquilino. Si está intentando eliminar el inquilino "Contoso" que tiene el dominio predeterminado inicial "contoso.onmicrosoft.com", inicie sesión con un UPN como admin@contoso.onmicrosoft.com.
 
-2. Vaya a la pestaña **Administrar** y seleccione **Productos y servicios**, y, a continuación, elija la suscripción que desee cancelar. Tras hacer clic en **Cancelar**, actualice la página.
+2. Vaya a la pestaña **Administrar** y seleccione **Productos y servicios**, y, después, elija la suscripción que quiera cancelar y seleccione **Eliminar**.
   
   ![Eliminación del vínculo para eliminar la suscripción](./media/directory-delete-howto/delete-command.png)
   
-3. Seleccione **Eliminar** para eliminar la suscripción y acepte los términos y condiciones. Se eliminarán permanentemente todos los datos a los tres días. Puede reactivar la suscripción durante el período de tres días, si cambia de opinión.
+3. Seleccione **Eliminar suscripción** para aceptar los términos y condiciones, y eliminar la suscripción. Todos los datos se eliminarán permanentemente a los tres días. Puede reactivar la suscripción durante los próximos tres días, si cambia de opinión.
   
   ![términos y condiciones](./media/directory-delete-howto/delete-terms.png)
 

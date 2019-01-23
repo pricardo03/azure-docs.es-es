@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: da2e742f0dde0cb4b98bfb107d18eca779d10021
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dd2914c675d3bca32ca8951ffca1b04e23786400
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234602"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54266925"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Marco de seguridad: Validación de entrada | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -39,7 +39,7 @@ ms.locfileid: "51234602"
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Seguridad XSLT](https://msdn.microsoft.com/library/ms763800(v=vs.85).aspx), [Propiedad XsltSettings.EnableScript](https://msdn.microsoft.com/library/system.xml.xsl.xsltsettings.enablescript.aspx) |
-| **Pasos** | XSLT es compatible con el scripting dentro de hojas de estilos mediante el elemento `<msxml:script>`. Esto permite que se usen funciones personalizadas en una transformación XSLT. El script se ejecuta en el contexto del proceso que lleva a cabo la transformación. El script XSLT debe estar deshabilitado cuando se encuentra en un entorno que no sea de confianza para evitar la ejecución de código no de confianza. *Si usa .NET:* el scripting XSLT está deshabilitado de forma predeterminada; sin embargo, debe asegurarse de que no se haya habilitado explícitamente por medio de la propiedad `XsltSettings.EnableScript`.|
+| **Pasos** | XSLT es compatible con el scripting dentro de hojas de estilos mediante el elemento `<msxml:script>`. Esto permite que se usen funciones personalizadas en una transformación XSLT. El script se ejecuta en el contexto del proceso que lleva a cabo la transformación. El script XSLT debe estar deshabilitado cuando se encuentra en un entorno que no sea de confianza para evitar la ejecución de código no de confianza. *Si usa .NET:* El scripting XSLT está deshabilitado de forma predeterminada; sin embargo, debe asegurarse de que no se haya habilitado explícitamente por medio de la propiedad `XsltSettings.EnableScript`.|
 
 ### <a name="example"></a>Ejemplo 
 

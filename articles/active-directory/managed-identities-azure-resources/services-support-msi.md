@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: 3fdbac019849bc97e8d336b75f26a8fe0a05c449
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ca7ce29adb0b83215b64065ef83ff476025b8e81
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713121"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199721"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servicios que admiten identidades administradas para recursos de Azure
 
@@ -27,28 +27,125 @@ Las identidades administradas para los recursos de Azure proporcionan a los serv
 
 Los siguientes servicios de Azure admiten identidades administradas para recursos de Azure:
 
-| Servicio | Estado asignado por el sistema | Estado asignado por el usuario| Configuración | Obtención de un token |
-| ------- | ------ | ---- | --------- | ----------- |
-| Azure Virtual Machines | Disponible | Vista previa | [Azure Portal](qs-configure-portal-windows-vm.md)<br>[PowerShell](qs-configure-powershell-windows-vm.md)<br>[CLI de Azure](qs-configure-cli-windows-vm.md)<br>[Plantillas del Administrador de recursos de Azure](qs-configure-template-windows-vm.md)<br>[REST](qs-configure-rest-vm.md) | [REST](how-to-use-vm-token.md#get-a-token-using-http)<br>[.NET](how-to-use-vm-token.md#get-a-token-using-c)<br>[Bash/Curl](how-to-use-vm-token.md#get-a-token-using-curl)<br>[Go](how-to-use-vm-token.md#get-a-token-using-go)<br>[PowerShell](how-to-use-vm-token.md#get-a-token-using-azure-powershell) |
-| Virtual Machine Scale Sets | Disponible | Vista previa | [Azure Portal](qs-configure-portal-windows-vmss.md)<br>[PowerShell](qs-configure-powershell-windows-vmss.md)<br>[CLI de Azure](qs-configure-cli-windows-vmss.md)<br>[Plantillas del Administrador de recursos de Azure](qs-configure-template-windows-vmss.md)<br>[REST](qs-configure-rest-vmss.md) | [REST](how-to-use-vm-token.md#get-a-token-using-http)<br>[.NET](how-to-use-vm-token.md#get-a-token-using-c)<br>[Bash/Curl](how-to-use-vm-token.md#get-a-token-using-curl)<br>[Go](how-to-use-vm-token.md#get-a-token-using-go)<br>[PowerShell](how-to-use-vm-token.md#get-a-token-using-azure-powershell)
-| Azure App Service | Windows: Disponible <br> Linux: Vista previa | Vista previa | [Azure Portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)<br>[CLI de Azure](/azure/app-service/overview-managed-identity#using-the-azure-cli)<br>[Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)<br>[Plantilla de Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template) | [REST](/azure/app-service/overview-managed-identity#using-the-rest-protocol)<br>[.NET](/azure/app-service/overview-managed-identity#asal)<br>[JavaScript](/azure/app-service/overview-managed-identity#token-js)<br>[PowerShell](/azure/app-service/overview-managed-identity#token-powershell)  |
-| Azure Functions | Disponible | Vista previa | [Azure Portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)<br>[CLI de Azure](/azure/app-service/overview-managed-identity#using-the-azure-cli)<br>[Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)<br>[Plantilla de Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template) | [REST](/azure/app-service/overview-managed-identity#using-the-rest-protocol)<br>[.NET](/azure/app-service/overview-managed-identity#asal)<br>[JavaScript](/azure/app-service/overview-managed-identity#token-js)<br>[PowerShell](/azure/app-service/overview-managed-identity#token-powershell) |
-| Azure Logic Apps | Disponible | No disponible | [Azure Portal](/azure/logic-apps/create-managed-service-identity#azure-portal)<br>[Plantilla de Azure Resource Manager](/azure/app-service/overview-managed-identity#deployment-template) |  |
-| Azure Data Factory V2 | Disponible | No disponible | [Azure Portal](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
-| Azure API Management | Disponible | No disponible | [Plantilla de Azure Resource Manager](/azure/api-management/api-management-howto-use-managed-service-identity) |
-| Azure Container Instances | Linux: Vista previa<br>Windows: No disponible | Linux: Vista previa<br>Windows: No disponible | [CLI de Azure](~/articles/container-instances/container-instances-managed-identity.md)<br>[Plantilla de Azure Resource Manager](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)<br>[YAML](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-yaml-file) |  |
+### <a name="azure-virtual-machines"></a>Azure Virtual Machines
+
+|Tipo de identidad administrada |  Regiones globales de Azure<br>con disponibilidad general | Azure Government|Azure Alemania|Azure China 21Vianet|
+| --- | --- | --- | --- | --- |
+| Asignado por el sistema | Disponible | Vista previa | Vista previa | Vista previa | Vista previa |
+| Asignado por el usuario | Vista previa | Vista previa | Vista previa | Vista previa | Vista previa
+
+Consulte la lista siguiente para configurar la identidad administrada para Azure Virtual Machines (en las regiones donde esté disponible):
+
+- [Azure Portal](qs-configure-portal-windows-vm.md)
+- [PowerShell](qs-configure-powershell-windows-vm.md)
+- [CLI de Azure](qs-configure-cli-windows-vm.md)
+- [Plantillas del Administrador de recursos de Azure](qs-configure-template-windows-vm.md)
+- [REST](qs-configure-rest-vm.md)
+
+### <a name="azure-virtual-machine-scale-sets"></a>Conjuntos de escalado de máquinas virtuales de Azure
+
+|Tipo de identidad administrada |  Regiones globales de Azure<br>con disponibilidad general | Azure Government|Azure Alemania|Azure China 21Vianet|
+| --- | --- | --- | --- | --- |
+| Asignado por el sistema | Disponible | Vista previa | Vista previa | Vista previa |
+| Asignado por el usuario | Vista previa | Vista previa | Vista previa | Vista previa
+
+Consulte la lista siguiente para configurar la identidad administrada para Azure Virtual Machine Scale Sets (en las regiones donde esté disponible):
+
+- [Azure Portal](qs-configure-portal-windows-vm.md)
+- [PowerShell](qs-configure-powershell-windows-vm.md)
+- [CLI de Azure](qs-configure-cli-windows-vm.md)
+- [Plantillas del Administrador de recursos de Azure](qs-configure-template-windows-vm.md)
+- [REST](qs-configure-rest-vm.md)
+
+### <a name="azure-app-service"></a>Azure App Service
+
+|Tipo de identidad administrada |  Regiones globales de Azure<br>con disponibilidad general | Azure Government|Azure Alemania|Azure China 21Vianet|
+| --- | --- | --- | --- | --- |
+| Asignado por el sistema | Disponible | Disponible | Disponible | Disponible |
+| Asignado por el usuario | Vista previa | No disponible | No disponible | No disponible
+
+Consulte la lista siguiente para configurar la identidad administrada para Azure App Service (en las regiones donde esté disponible):
+
+- [Azure Portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
+- [CLI de Azure](/azure/app-service/overview-managed-identity#using-the-azure-cli)
+- [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
+- [Plantilla de Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
+
+### <a name="azure-functions"></a>Azure Functions
+
+Tipo de identidad administrada |  Regiones globales de Azure<br>con disponibilidad general | Azure Government|Azure Alemania|Azure China 21Vianet|
+| --- | --- | --- | --- | --- |
+| Asignado por el sistema | Disponible | Disponible | Disponible | Disponible |
+| Asignado por el usuario | Vista previa | No disponible | No disponible | No disponible
+
+Consulte la lista siguiente para configurar la identidad administrada para Azure Functions (en las regiones donde esté disponible):
+
+- [Azure Portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
+- [CLI de Azure](/azure/app-service/overview-managed-identity#using-the-azure-cli)
+- [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
+- [Plantilla de Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
+
+### <a name="azure-logic-apps"></a>Azure Logic Apps
+
+Tipo de identidad administrada |  Regiones globales de Azure<br>con disponibilidad general | Azure Government|Azure Alemania|Azure China 21Vianet|
+| --- | --- | --- | --- | --- |
+| Asignado por el sistema | Disponible | Disponible | Disponible | Disponible |
+| Asignado por el usuario | No disponible | No disponible | No disponible | No disponible
+
+Consulte la lista siguiente para configurar la identidad administrada para Azure Logic Apps (en las regiones donde esté disponible):
+
+- [Azure Portal](/azure/logic-apps/create-managed-service-identity#azure-portal)
+- [Plantilla de Azure Resource Manager](/azure/app-service/overview-managed-identity#deployment-template)
+
+### <a name="azure-data-factory-v2"></a>Azure Data Factory V2
+
+Tipo de identidad administrada |  Regiones globales de Azure<br>con disponibilidad general | Azure Government|Azure Alemania|Azure China 21Vianet|
+| --- | --- | --- | --- | --- |
+| Asignado por el sistema | Disponible | No disponible | No disponible | No disponible |
+| Asignado por el usuario | No disponible | No disponible | No disponible | No disponible
+
+Consulte la lista siguiente para configurar la identidad administrada para Azure Data Factory V2 (en las regiones donde esté disponible):
+
+- [Azure Portal](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)
+- [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)
+- [REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)
+- [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk)
+
+### <a name="azure-api-management"></a>Azure API Management
+
+Tipo de identidad administrada |  Regiones globales de Azure<br>con disponibilidad general | Azure Government|Azure Alemania|Azure China 21Vianet|
+| --- | --- | --- | --- | --- |
+| Asignado por el sistema | Disponible | Disponible | No disponible | No disponible |
+| Asignado por el usuario | No disponible | No disponible | No disponible | No disponible
+
+Consulte la lista siguiente para configurar la identidad administrada para Azure API Management (en las regiones donde esté disponible):
+
+- [Plantilla de Azure Resource Manager](/azure/api-management/api-management-howto-use-managed-service-identity)
+
+### <a name="azure-container-instances"></a>Azure Container Instances
+
+Tipo de identidad administrada |  Regiones globales de Azure<br>con disponibilidad general | Azure Government|Azure Alemania|Azure China 21Vianet|
+| --- | --- | --- | --- | --- |
+| Asignado por el sistema | Linux: Vista previa<br>Windows: No disponible | No disponible | No disponible | No disponible |
+| Asignado por el usuario | Linux: Vista previa<br>Windows: No disponible | No disponible | No disponible | No disponible
+
+Consulte la lista siguiente para configurar la identidad administrada para Azure Container Instances (en las regiones donde esté disponible):
+
+- [CLI de Azure](~/articles/container-instances/container-instances-managed-identity.md)
+- [Plantilla de Azure Resource Manager](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
+- [YAML](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-yaml-file)
 
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Servicios de Azure que admiten la autenticación de Azure AD
 
 Los siguientes servicios admiten la autenticación de Azure AD y se han probado con los servicios de cliente que usan identidades administradas para recursos de Azure.
 
-| Servicio | Id. de recurso | Status | Date | Asignación de acceso |
+| Servicio | Id. de recurso | Status | Asignación de acceso |
 | ------- | ----------- | ------ | ---- | ------------- |
-| Azure Resource Manager | `https://management.azure.com/` | Disponible | Septiembre de 2017 | [Azure Portal](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[CLI de Azure](howto-assign-access-CLI.md) <br>[Plantilla de Azure Resource Manager](../../role-based-access-control/role-assignments-template.md) |
-| Azure Key Vault | `https://vault.azure.net` | Disponible | Septiembre de 2017 | |
-| Azure Data Lake | `https://datalake.azure.net/` | Disponible | Septiembre de 2017 | |
-| Azure SQL | `https://database.windows.net/` | Disponible | Octubre de 2017 | |
-| Azure Event Hubs | `https://eventhubs.azure.net` | Vista previa | Diciembre de 2017 | |
-| Azure Service Bus | `https://servicebus.azure.net` | Vista previa | Diciembre de 2017 | |
-| Azure Storage | `https://storage.azure.com/` | Vista previa | Mayo de 2018 | |
+| Azure Resource Manager | `https://management.azure.com/` | Disponible | [Azure Portal](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[CLI de Azure](howto-assign-access-CLI.md) <br>[Plantilla de Azure Resource Manager](../../role-based-access-control/role-assignments-template.md) |
+| Azure Key Vault | `https://vault.azure.net` | Disponible |  
+| Azure Data Lake | `https://datalake.azure.net/` | Disponible |
+| Azure SQL | `https://database.windows.net/` | Disponible |
+| Azure Event Hubs | `https://eventhubs.azure.net` | Vista previa |
+| Azure Service Bus | `https://servicebus.azure.net` | Vista previa |
+| Azure Storage | `https://storage.azure.com/` | Vista previa |

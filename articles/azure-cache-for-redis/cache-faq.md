@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 444f1aaee496666745be548bcdfadf3a4f162699
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 5d70e4beb97a23212bc85d529382d8e89f09336d
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104070"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199925"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Preguntas frecuentes sobre Azure Cache for Redis
 Conozca las respuestas a preguntas comunes, patrones y procedimientos recomendados para Azure Cache for Redis.
@@ -120,7 +120,7 @@ Las siguientes son consideraciones para elegir una oferta de caché.
 <a name="cache-performance"></a>
 
 ### <a name="azure-cache-for-redis-performance"></a>Rendimiento de Azure Cache for Redis
-En la tabla siguiente se muestran los valores máximos del ancho de banda observados durante la comprobación de los diversos tamaños de memorias caché Estándar y Prémium mediante `redis-benchmark.exe` desde una máquina virtual de Iaas en el punto de conexión de Azure Cache for Redis. Para el rendimiento SSL, se usa redis-benchmark con stunnel para conectarse al punto de conexión de Azure Cache for Redis.
+En la tabla siguiente se muestran los valores máximos del ancho de banda observados durante la comprobación de los diversos tamaños de memorias caché Estándar y Prémium mediante `redis-benchmark.exe` desde una máquina virtual de IaaS en el punto de conexión de Azure Cache for Redis. Para el rendimiento SSL, se usa redis-benchmark con stunnel para conectarse al punto de conexión de Azure Cache for Redis.
 
 >[!NOTE] 
 >Estos valores no se garantizan y no hay ningún SLA para estos números, sino que deben ser los habituales. Debe realizar la prueba de carga de su propia aplicación para determinar el tamaño adecuado de caché para la aplicación.

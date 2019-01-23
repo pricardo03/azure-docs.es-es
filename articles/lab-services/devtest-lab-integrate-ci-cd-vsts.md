@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 459b06df954d9cc913b6d1503c9f876f93b494e9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: bcc39f2d8cf1ca0440f8028464d9041435914477
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082958"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263414"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Integración de Azure DevTest Labs en la canalización de entrega e integración continuas de Azure DevOps
 Puede usar la extensión *Azure DevTest Labs Tasks*, que se instala en Azure DevOps, para integrar fácilmente la compilación de CI/CD y la canalización de versión con Azure DevTest Labs. La extensión instala tres tareas: 
@@ -85,7 +85,7 @@ En esta sección se describe cómo crear la plantilla de Azure Resource Manager 
 
 1. Compruebe el script en el sistema de control de código fuente. Asígnele el nombre **GetLabVMParams.ps1**.
 
-   Al ejecutar este script en el agente como parte de la canalización de versión y si usa pasos de tareas, como *Copia de archivos de Azure* o *PowerShell en equipos de destino*, el script recopila los valores necesarios para implementar la aplicación en la máquina virtual. Estas tareas se usarían normalmente para implementar aplicaciones en una máquina virtual de Azure. Las tareas requieren valores como el nombre del grupo de recursos de máquina virtual, la dirección IP y el nombre de dominio completo (FQDN).
+   Al ejecutar este script en el agente como parte de la canalización de versión y si usa pasos de tareas, como *Copia de archivos de Azure* o *PowerShell en equipos de destino*, el script recopila los valores necesarios para implementar la aplicación en la máquina virtual. Estas tareas se usarían normalmente para implementar aplicaciones en una máquina virtual de Azure. Las tareas requieren valores como el nombre del grupo de recursos de VM, la dirección IP y el nombre de dominio completo (FQDN).
 
 ## <a name="create-a-release-pipeline-in-release-management"></a>Creación de una canalización de versión en Release Management
 Para crear la canalización de versión, siga estos pasos:

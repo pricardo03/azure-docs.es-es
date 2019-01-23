@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 123365f1aa149c0df158eedcc156280a3fe771d2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 110ba7f13b2a0d44277c881d67f0c794c8658cd1
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106687"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244591"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutorial: Creación y ejecución de un cuaderno de Jupyter con Python
 
@@ -28,11 +28,11 @@ Encontrará el cuaderno completo en [GitHub: Ejemplos de Azure Notebooks](https:
 
 ## <a name="create-the-project"></a>Creación del proyecto
 
-1. Vaya a [Azure Notebooks](https://notebooks.azure.com) e inicie sesión. (Para más información, consulte [Inicio rápido: Inicio de sesión en Azure Notebooks](quickstart-sign-in-azure-notebooks.md)).
+1. Vaya a [Azure Notebooks](https://notebooks.azure.com) e inicie sesión. (Para más información, consulte [Quickstart - Sign in to Azure Notebooks](quickstart-sign-in-azure-notebooks.md) [Inicio rápido: Inicio de sesión en Azure Notebooks]).
 
 1. En la página del perfil público, seleccione **My Projects** (Mis proyectos) en la parte superior de la página:
 
-    ![Vínculo a My Projects (Mis proyectos) en la parte superior de la ventana del explorador](media/quickstarts/my-projects-link.png)
+    ![Vínculo Mis proyectos en la parte superior de la ventana del explorador](media/quickstarts/my-projects-link.png)
 
 1. En la página **My Projects** (Mis proyectos), seleccione **+New Project** (+Nuevo proyecto) [método abreviado de teclado: n]; el botón puede aparecer solo como **+** si la ventana del explorador es estrecha:
 
@@ -411,17 +411,13 @@ Cuando haya terminado con un cuaderno, use el comando la **File** > **Close and 
 
 ## <a name="debug-notebooks-using-visual-studio-code"></a>Depuración de cuadernos con Visual Studio Code
 
-Si las celdas de código del cuaderno no se comportan de la manera esperada, quizás haya errores de código u otros defectos. Sin embargo, aparte de utilizar instrucciones `print` para mostrar el valor de las variables, un cuaderno de Jupyter no ofrece funcionalidades de depuración.
+Si las celdas de código del cuaderno no se comportan de la manera esperada, quizás haya errores de código u otros defectos. Sin embargo, aparte de usar instrucciones `print` para mostrar el valor de las variables, un entorno típico de Jupyter no ofrece funcionalidades de depuración.
 
-Por suerte, la extensión de Python para Visual Studio Code puede importar directamente un cuaderno de Jupyter notebook como un solo archivo de código con las celdas Markdown como comentarios. Después, puede ejecutar el depurador de Visual Studio Code para recorrer el código, establecer puntos de interrupción, examinar el estado, etc. 
+Afortunadamente, puede descargar el archivo *.ipynb* del cuaderno y, después, abrirlo en Visual Studio Code con la extensión de Python. La extensión importa directamente un cuaderno como un solo archivo de código, conservando las celdas de Markdown en los comentarios. Una vez importado el cuaderno, puede usar el depurador de Visual Studio Code para recorrer el código, establecer puntos de interrupción, examinar el estado, etc. Después de realizar correcciones en el código, exporte el archivo *.ipynb* de Visual Studio Code y cárguelo en Azure Notebooks.
 
-Una vez realizadas las correcciones en el código, guarde el archivo *.ipynb* y cárguelo en Azure Notebooks.
+Para más información, consulte el artículo [Debug a Jupyter notebook](https://code.visualstudio.com/docs/python/jupyter-support#debug-a-jupyter-notebook) (Depurar un cuaderno de Jupyter) en la documentación de Visual Studio Code.
 
-Para más información, consulte los siguientes artículos en la documentación de Visual Studio Code:
-
-- [Introducción a los cuadernos de Jupyter en VS Code](https://code.visualstudio.com/docs/languages/python#_jupyter-notebooks)
-- [Tutorial de Python: configuración y ejecución del depurador](https://code.visualstudio.com/docs/python/python-tutorial#_configure-and-run-the-debugger)
-- [Edición: celdas de código de Jupyter](https://code.visualstudio.com/docs/python/editing#_jupyter-code-cells)
+Consulte también [Visual Studio Code - Jupyter support](https://code.visualstudio.com/docs/python/jupyter-support) (Visual Studio Code: compatibilidad con Jupyter) para conocer las características adicionales de Visual Studio Code para cuadernos de Jupyter.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

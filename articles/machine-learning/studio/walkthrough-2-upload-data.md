@@ -1,26 +1,8 @@
 ---
-title: 'Paso 2: Cargar datos en un experimento de Machine Learning Studio - Azure | Microsoft Docs'
-description: 'Paso 2 del tutorial de desarrollo de una solución predictiva: Carga de datos públicos almacenados en Azure Machine Learning Studio.'
-services: machine-learning
-documentationcenter: ''
-author: garyericson
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: garye
-editor: cgronlun
-ms.assetid: 9f4bc52e-9919-4dea-90ea-5cf7cc506d85
-ms.service: machine-learning
-ms.component: studio
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/23/2017
-ms.openlocfilehash: 90a73de4177cec74187da852709137d77d60b4d4
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261458"
+título: "Paso 2: Cargar datos en un experimento de Machine Learning Studio" titleSuffix: Azure Machine Learning Studio description: "Paso 2 del tutorial de desarrollo de una solución predictiva: Carga de datos públicos almacenados en Azure Machine Learning Studio".
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 23/03/2017
 ---
 # <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-studio-experiment"></a>Paso 2 del tutorial: Cargar los datos existentes en un experimento de Azure Machine Learning Studio
 Este es el segundo paso del tutorial [Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Azure Machine Learning](walkthrough-develop-predictive-solution.md)

@@ -1,34 +1,17 @@
 ---
-title: Depurar su modelo - Azure Machine Learning Studio | Microsoft Docs
-description: Cómo depurar los errores producidos por los módulos Entrenar modelo y Puntuar modelo en Azure Machine Learning Studio.
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: 629dc45e-ac1e-4b7d-b120-08813dc448be
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/14/2017
-ms.openlocfilehash: 0464dec9e747e57e4b95a691aeb5a0992cf8d9cc
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268893"
+título: Depuración del modelo titleSuffix: Azure Machine Learning Studio description: Cómo depurar los errores producidos por los módulos Entrenar modelo y Puntuar modelo en Azure Machine Learning Studio.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 14/03/2017
 ---
 # <a name="debug-your-model-in-azure-machine-learning-studio"></a>Depuración del modelo en Azure Machine Learning Studio
 
-En este artículo se explican las posibles razones por las cuales podría encontrar uno de los dos siguientes errores al ejecutar un modelo:
+Al ejecutar un modelo, pueden surgir los siguientes errores:
 
 * el módulo [Entrenar modelo][train-model] produce un error 
 * el módulo [Puntuar modelo][score-model] produce resultados incorrectos 
 
+En este artículo se explican las posibles causas de estos errores.
 
 
 ## <a name="train-model-module-produces-an-error"></a>El módulo Entrenar modelo produce un error
@@ -59,15 +42,15 @@ El módulo [Puntuar modelo][score-model] requiere dos entradas:
 1. Una salida de modelo entrenado del módulo [Entrenar modelo][train-model].
 2. Un conjunto de datos de puntuación que sea diferente del conjunto de datos utilizado para entrenar el modelo.
 
-Es posible que, aunque el experimento se realice correctamente, el módulo [Puntuar modelo][score-model] produzca resultados incorrectos. Varios escenarios pueden provocar que esto ocurra:
+Es posible que, aunque el experimento se realice correctamente, el módulo [Puntuar modelo][score-model] produzca resultados incorrectos. Varios escenarios pueden provocar que ocurra este problema:
 
 1. Si la etiqueta especificada es de categoría y se entrena un modelo de regresión con los datos, módulo de [Puntuar modelo][score-model] genera una salida incorrecta. Esto es debido a que la regresión requiere una variable de respuesta continua. En este caso, sería más adecuado usar un modelo de clasificación. 
 
-2. De forma similar, si un modelo de clasificación se entrena con un conjunto de datos con números de punto flotante en la columna de etiqueta, se podrían producir resultados no deseados. Esto es debido a que la clasificación requiere una variable de respuesta discreta que solo permite valores que abarcan un conjunto finito y generalmente bastante pequeño de clases.
+2. De forma similar, si un modelo de clasificación se entrena con un conjunto de datos con números de punto flotante en la columna de etiqueta, se podrían producir resultados no deseados. Esto se debe a que la clasificación requiere una variable de respuesta discreta que solo permite valores que abarcan un conjunto finito y pequeño de clases.
 
 3. Si el conjunto de datos de puntuación no contiene todas las características que se usan para entrenar el modelo, [Puntuar modelo][score-model] generará un error.
 
-4. Si una fila del conjunto de datos de puntuación contiene un valor que falte o un valor infinito de cualquiera de sus características, [Puntuar modelo][score-model] no producirá ningún resultado correspondiente a esa fila.
+4. Si una fila del conjunto de datos de puntuación contiene un valor que falte o un valor infinito de cualquiera de sus características, [Puntuar modelo][score-model] no produce ningún resultado correspondiente a esa fila.
 
 5. [Puntuar modelo][score-model] puede producir resultados idénticos para todas las filas del conjunto de datos de puntuación. Esto puede ocurrir, por ejemplo, cuando se intenta la clasificación mediante bosques de decisión, si se elige que el número mínimo de muestras por cada nodo de hoja sea mayor que el número de ejemplos de aprendizaje disponibles.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 71987fcde08c5098d98d21405ce79e61d3094424
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 6c8f48ce71e11d1de0c28b4dab5327ab03e54f28
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186062"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231791"
 ---
 # <a name="manage-workspaces"></a>Administración de áreas de trabajo
 
@@ -40,7 +40,7 @@ En la actualidad, un área de trabajo proporciona:
 
 * Una ubicación geográfica para el almacenamiento de datos
 * Aislamiento de datos para definir los diferentes derechos de acceso de usuarios
-* Ámbito para la configuración de opciones, como la retención y el límite de datos
+* Ámbito para la configuración de opciones, como el [nivel de precios](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), la [retención](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) y el [límite de datos](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#daily-cap). 
 
 Desde el punto de vista del consumo, se recomienda crear el menor número de áreas de trabajo que sea posible. Facilita las experiencias de administración y consulta, y las hace más rápidas. Pero, dadas las características anteriores, quizás quiera crear varias áreas de trabajo en los siguientes casos:
 
@@ -145,96 +145,6 @@ Use estos roles para conceder a los usuarios acceso en distintos ámbitos:
 - Recurso: acceso solo al área de trabajo especificada
 
 Se recomienda que realice las asignaciones en el nivel de recurso (área de trabajo) para asegurarse de que el control de acceso es preciso.  Use [roles personalizados](../../role-based-access-control/custom-roles.md) para crear roles con los permisos específicos necesarios.
-
-## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Vincular un área de trabajo existente a una suscripción de Azure
-Todas las áreas de trabajo creadas después del 26 de septiembre de 2016 deben estar vinculadas a una suscripción de Azure en el momento de la creación. Las áreas de trabajo creadas antes de esta fecha deben estar vinculadas a un área de trabajo la próxima vez que inicie sesión. Al crear el área de trabajo desde Azure Portal, o al vincular el área de trabajo a una suscripción de Azure, su instancia de Azure Active Directory quedará vinculada como su cuenta de organización.
-
-### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>Para vincular un área de trabajo a una suscripción de Azure en Azure Portal
-1. En Azure Portal, haga clic en **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.  
-
-2. En el panel de suscripciones de Log Analytics, haga clic en **Agregar**.  
-
-    ![lista de áreas de trabajo](./media/manage-access/workspace-link-existing-01.png)
-
-3. Desde el panel del **área de trabajo de Log Analytics**, haga clic en **Vincular existente**.  
-
-4. Haga clic en **Configurar los valores obligatorios**.  
-
-5. Aparecerá una lista con las áreas de trabajo que aún no están vinculadas con su cuenta de Azure. Seleccione el área de trabajo.  
-   
-6. Si es necesario, puede cambiar los valores de los elementos siguientes:
-   * Subscription
-   * Grupos de recursos
-   * Ubicación
-   * Plan de tarifa  
-
-7. Haga clic en **OK**. Ahora, el área de trabajo está vinculada a su cuenta de Azure.
-
-> [!NOTE]
-> Si no ve el área de trabajo que quiere vincular, significa que su suscripción de Azure no tiene acceso al área de trabajo que creó mediante el portal de OMS.  Para conceder acceso a esta cuenta desde el portal OMS, consulte [Agregar un usuario a un área de trabajo existente](#add-a-user-to-an-existing-workspace).
->
->
-
-## <a name="upgrade-a-workspace-to-a-paid-plan"></a>Actualizar el área de trabajo a un plan de pago
-En OMS, existen tres tipos de planes de áreas de trabajo: **Gratuito**, **Independiente** y **OMS**.  Si dispone del plan *Free* (Gratis), se puede enviar un máximo de 500 MB de datos por día a Log Analytics.  Si supera esta cantidad, debe cambiar el área de trabajo a un plan de pago para evitar la pérdida de datos una vez superado este límite. Puede cambiar de tipo de plan en cualquier momento.  Para más información sobre los precios de OMS, consulte [Precios de Operations Management Suite](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-pricing).
-
-### <a name="using-entitlements-from-an-oms-subscription"></a>Uso de los derechos de una suscripción de OMS
-Para usar los derechos que proceden de la adquisición de OMS E1, OMS E2 OMS o un complemento de OMS para System Center, elija el plan *OMS* de OMS Log Analytics.
-
-Cuando adquiere una suscripción de OMS, los derechos se agregan a su contrato Enterprise. Cualquier suscripción de Azure creada en virtud de este contrato puede usar estos derechos. Todas las áreas de trabajo de estas suscripciones usan los derechos de OMS.
-
-Para asegurarse de que el uso de un área de trabajo se realiza con arreglo a los derechos de la suscripción de OMS, deberá:
-
-1. Crear el área de trabajo en una suscripción de Azure incluida en el contrato Enterprise que incluye la suscripción de OMS
-
-2. Seleccionar el plan *OMS* para el área de trabajo
-
-> [!NOTE]
-> Si el área de trabajo se creó antes del 26 de septiembre de 2016 y el plan de precios de Log Analytics es *Premium*, este área de trabajo usa los derechos del complemento de OMS para System Center. También puede usar los derechos, cambiando al plan de tarifa *OMS*.
->
->
-
-Los derechos de la suscripción de OMS no son visibles en Azure Portal. Podrá ver estos derechos y usos en Enterprise Portal.  
-
-Si necesita cambiar la suscripción de Azure a la que está vinculada el área de trabajo, puede usar el cmdlet [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) de Azure PowerShell.
-
-### <a name="using-azure-commitment-from-an-enterprise-agreement"></a>Uso del compromiso de Azure en contratos Enterprise
-Si no tiene una suscripción de OMS, pagará por separado por cada componente de OMS y el uso aparecerá en la factura de Azure.
-
-Si tiene un compromiso monetario de Azure sobre la inscripción Enterprise a la que están vinculadas sus suscripciones de Azure, el uso de Log Analytics se descontará de este importe.
-
-Si necesita cambiar la suscripción de Azure a la que está vinculada el área de trabajo, puede usar el cmdlet [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) de Azure PowerShell.  
-
-### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-azure-portal"></a>Cambio de un área de trabajo a un plan de tarifa de pago en Azure Portal
-1. En Azure Portal, en el panel de suscripciones de Log Analytics, seleccione un área de trabajo.
-
-2. En el panel de área de trabajo, en **General**, seleccione **Plan de tarifa**.  
-
-3. En **Plan de tarifa**, seleccione un plan y haga clic en **Seleccionar**.  
-    ![Plan de precios seleccionado](./media/manage-access/workspace-pricing-tier-info.png)
-
-> [!NOTE]
-> Si el área de trabajo está vinculada a una cuenta de Automation, antes de seleccionar el plan de tarifa *Independiente (por GB)* debe eliminar todas las soluciones de **Automation and Control** y desvincular la cuenta de Automation. En la hoja del área de trabajo, en **General**, haga clic en **Soluciones** para ver y eliminar soluciones. Para desvincular la cuenta de Automation, haga clic en el nombre de la cuenta de Automation en la hoja **Plan de tarifa**.
->
->
-
-### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-oms-portal"></a>Cambio de un área de trabajo a un plan de tarifa de pago en el portal de OMS
-
-Para cambiar el plan de tarifa mediante el portal de OMS, debe tener una suscripción de Azure.
-
-1. En el portal de OMS, haga clic en el icono **Configuración**.
-
-2. Haga clic en la pestaña **Cuentas** y, luego, en la pestaña **Azure Subscription & Data Plan** (Suscripción y plan de datos de Azure).
-
-3. Haga clic en el plan de tarifa que quiere usar.
-
-4. Haga clic en **Save**(Guardar).  
-
-    ![Planes de datos y suscripción](./media/manage-access/subscription-tab.png)
-
-Su nuevo plan de datos se muestra en la cinta de opciones del portal OMS, que se encuentra en la parte superior de la página web.
-
-![cinta de opciones de OMS](./media/manage-access/data-plan-changed.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Consulte la [información general sobre el agente de Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) para recopilar datos de los equipos de su centro de datos u otro entorno de nube.

@@ -8,41 +8,50 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: conceptual
-ms.date: 11/28/2017
+ms.date: 1/10/2019
 ms.author: v-gedod
-ms.openlocfilehash: 0ed8b9048c04c4aff5214cea697810a0c573559e
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: cc38dff7cd3ae8d10d8a20cbf98749d724de1ee6
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48800552"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262819"
 ---
-# <a name="bing-news-search-endpoints"></a>Puntos de conexión de Bing News Search
-**News Search API** devuelve artículos de noticias, páginas web, imágenes, vídeos y [entidades](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web). Las entidades contienen información de resumen sobre una persona, lugar o tema.
-## <a name="endpoints"></a>Puntos de conexión
-Para obtener resultados de News Search con la API de Bing, envíe una solicitud `GET` a uno de los siguientes puntos de conexión. Los encabezados y parámetros de dirección URL definen especificaciones adicionales.
+# <a name="bing-news-search-api-endpoints"></a>Puntos de conexión de Bing News Search API
 
-**Punto de conexión 1:** devuelve elementos de noticias según la consulta de búsqueda del usuario. Si la consulta de búsqueda está vacía, la llamada devuelve los artículos de noticias principales. La opción `?q=""` de consulta puede usarse también con la dirección URL `/news`. Para información sobre disponibilidad, consulte los [países y mercados admitidos](language-support.md#supported-markets-for-news-search-endpoint).
+**News Search API** devuelve artículos de noticias, páginas web, imágenes, vídeos y [entidades](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web). Las entidades contienen información de resumen sobre una persona, lugar o tema.
+
+## <a name="endpoints"></a>Puntos de conexión
+
+Para obtener nuevos resultados de búsqueda con Bing News Search API, envíe una solicitud `GET` a uno de los siguientes puntos de conexión. Los encabezados y parámetros de dirección URL definen especificaciones adicionales.
+
+### <a name="news-items-by-search-query"></a>Elementos nuevos por consulta de búsqueda
+
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search
 ```
 
-**Punto de conexión 2:** devuelve los elementos de noticias principales por categoría. En concreto, puede solicitar los artículos principales sobre negocios, deportes o entretenimiento mediante `category=business`, `category=sports` o `category=entertainment`.  El parámetro `category` solo se puede usar con la dirección URL `/news`. Existen algunos requisitos formales para especificar las categorías; consulte `category` en la documentación de [parámetros de consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query-parameters). Para información sobre disponibilidad, consulte los [países y mercados admitidos](language-support.md#supported-markets-for-news-endpoint).
+Devuelve nuevos elementos según una consulta de búsqueda. Si la consulta de búsqueda está vacía, la API devolverá los principales elementos de noticias de categorías diferentes. Para enviar una consulta por URL, codifique el término de búsqueda y anéxelo al parámetro `q=""`. Para información sobre disponibilidad, consulte los [países y mercados admitidos](language-support.md#supported-markets-for-news-search-endpoint).
+
+### <a name="top-news-items-by-category"></a>Principales elementos de noticias por categoría
+
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/news  
 ```
 
-**Punto de conexión 3:** devuelve los temas de noticias que actualmente son tendencia en las redes sociales. Cuando se incluye la opción `/trendingtopics`, la búsqueda de Bing omite otros parámetros, como `freshness` y `?q=""`. Para información sobre disponibilidad, consulte los [países y mercados admitidos](language-support.md#supported-markets-for-news-trending-endpoint).
+Devuelve los principales elementos de noticias por categoría. En concreto, puede solicitar los artículos principales sobre negocios, deportes o entretenimiento mediante `category=business`, `category=sports` o `category=entertainment`.  El parámetro `category` solo se puede usar con la dirección URL `/news`. Existen algunos requisitos formales para especificar las categorías; consulte `category` en la documentación de [parámetros de consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query-parameters). Para enviar una consulta por URL, codifique el término de búsqueda y anéxelo al parámetro `q=""`. Para información sobre disponibilidad, consulte los [países y mercados admitidos](language-support.md#supported-markets-for-news-endpoint).
+
+### <a name="trending-news-topics"></a>Temas de noticias de tendencia 
+
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/trendingtopics
 ```
 
-Para más información sobre encabezados, parámetros, códigos de mercado, objetos de respuesta, errores etc., consulte la referencia [Bing News Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference).
-## <a name="response-json"></a>JSON de respuesta
-La respuesta a una solicitud de News Search incluye los resultados como objetos JSON. Para analizar los resultados se necesitan procedimientos que controlen los elementos de cada tipo. Consulte el [tutorial](https://docs.microsoft.com/azure/cognitive-services/bing-news-search/tutorial-bing-news-search-single-page-app) y el [código fuente](https://docs.microsoft.com/azure/cognitive-services/bing-news-search/tutorial-bing-news-search-single-page-app-source) para obtener ejemplos.
+Devuelve los temas de noticias que actualmente son tendencia en las redes sociales. Cuando se incluye la opción `/trendingtopics`, la búsqueda de Bing omite otros parámetros, como `freshness` y `?q=""`. Para información sobre disponibilidad, consulte los [países y mercados admitidos](language-support.md#supported-markets-for-news-trending-endpoint).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Las API de **Bing** admiten acciones de búsqueda que devuelven resultados según su tipo. Todos los puntos de conexión de búsqueda devuelven resultados como objetos de respuesta JSON.  Todos los puntos de conexión admiten consultas que devuelven un idioma o una ubicación en concreto por longitud, latitud y radio de búsqueda.
+
+Para más información sobre encabezados, parámetros, códigos de mercado, objetos de respuesta, errores etc., consulte la referencia [Bing News Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference).
 
 Para una información completa acerca de los parámetros admitidos por cada punto de conexión, consulte las páginas de referencia de cada tipo.
 Para obtener ejemplos de solicitudes básicas con News Search API, consulte los [inicios rápidos de Bing News Search](https://docs.microsoft.com/azure/cognitive-services/bing-news-search).

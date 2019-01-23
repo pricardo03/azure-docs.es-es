@@ -1,10 +1,10 @@
 ---
-title: Migración segura de usuarios entre licencias de productos con licencias basadas en grupos de Azure Active Directory | Microsoft Docs
-description: Describe el proceso recomendado para migrar usuarios entre diferentes licencias de productos (Office 365 Enterprise E1 and E3) mediante el uso de licencias basadas en grupos.
+title: 'Migración de usuarios entre licencias de productos con grupos: Azure Active Directory | Microsoft Docs'
+description: Describe el proceso recomendado para migrar usuarios entre diferentes licencias de productos (Office 365 Enterprise E1 and E3) mediante licencias basadas en grupos.
 services: active-directory
 keywords: Licencias de Azure AD
 documentationcenter: ''
-author: piotrci
+author: curtand
 manager: mtillman
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/29/2018
-ms.author: piotrci
-ms.openlocfilehash: 643339545dac6ec35ab44f2a05fbe417dea2bb71
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.date: 01/14/2019
+ms.author: curtand
+ms.reviewer: sumitp
+ms.openlocfilehash: 68d4cdf3c7ba08f7cf37132936c6769c99c177cc
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211798"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319425"
 ---
 # <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>Migración segura de usuarios entre diferentes licencias de productos con licencias basadas en grupos
 
@@ -47,7 +48,7 @@ Antes de comenzar la migración, es importante comprobar que se cumplen ciertas 
 -   Comprenda cómo se administran los grupos en su entorno. Por ejemplo, si administra grupos locales y los sincroniza en Azure Active Directory (Azure AD) a través de Azure AD Connect, entonces agrega o quita usuarios mediante su sistema local. Se necesita algún tiempo para que los cambios se sincronicen en Azure AD y las licencias basadas en grupos los tomen en cuenta. Si usa pertenencias de grupo dinámicas de Azure AD, entonces lo que hace es agregar o quitar los usuarios modificando los atributos. Sin embargo, el proceso de migración general sigue siendo el mismo. La única diferencia es el modo de agregar o quitar usuarios para la pertenencia de grupo.
 
 ## <a name="migrate-users-between-products-that-dont-have-conflicting-service-plans"></a>Migración de usuarios entre productos que no tienen planes de servicio en conflicto
-El objetivo de la migración es usar licencias basadas en grupos para modificar las licencias de usuario de la *licencia de origen* (en este ejemplo: Office 365 Enterprise E3) a la *licencia de destino* (en este ejemplo: Office 365 Enterprise E5). Ninguno de los dos productos de esta situación contiene planes de servicio en conflicto, así que pueden asignarse completamente al mismo tiempo y sin conflictos. Los usuarios no deben perder el acceso a los servicios ni a los datos en ningún momento durante la migración. La migración se realiza en pequeños "lotes". Puede validar el resultado de cada lote y minimizar el ámbito de los problemas que podrían producirse durante el proceso. En general, el proceso es el siguiente:
+El objetivo de la migración es usar licencias basadas en grupo para cambiar las licencias de usuario de una *licencia de origen* (en este ejemplo: Office 365 Enterprise E3) a una *licencia de destino* (en este ejemplo: Office 365 Enterprise E5). Ninguno de los dos productos de esta situación contiene planes de servicio en conflicto, así que pueden asignarse completamente al mismo tiempo y sin conflictos. Los usuarios no deben perder el acceso a los servicios ni a los datos en ningún momento durante la migración. La migración se realiza en pequeños "lotes". Puede validar el resultado de cada lote y minimizar el ámbito de los problemas que podrían producirse durante el proceso. En general, el proceso es el siguiente:
 
 1.  Los usuarios son miembros del grupo de origen y heredan la *licencia de origen* de ese grupo.
 
@@ -176,7 +177,7 @@ Check passed for all users. Exiting check loop.
 ```
 
 ## <a name="migrate-users-between-products-that-have-conflicting-service-plans"></a>Migración de usuarios entre productos que tienen planes de servicio en conflicto
-El objetivo de la migración es usar licencias basadas en grupos para modificar las licencias de usuario de la *licencia de origen* (en este ejemplo: Office 365 Enterprise E1) a la *licencia de destino* (en este ejemplo: Office 365 Enterprise E3). Los dos productos de esta situación contienen planes de servicio en conflicto, por lo que debemos solucionar el conflicto para migrar los usuarios sin problemas. Para obtener más información acerca de estos conflictos, consulte [Identificación y resolución de problemas de asignación de licencias de un grupo en Azure Active Directory: Planes de servicio en conflicto](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). Los usuarios no deben perder el acceso a los servicios ni a los datos en ningún momento durante la migración. La migración se realiza en pequeños "lotes". Puede validar el resultado de cada lote y minimizar el ámbito de los problemas que podrían producirse durante el proceso. En general, el proceso es el siguiente:
+El objetivo de la migración es usar licencias basadas en grupo para cambiar las licencias de usuario de una *licencia de origen* (en este ejemplo: Office 365 Enterprise E1) a una *licencia de destino* (en este ejemplo: Office 365 Enterprise E3). Los dos productos de esta situación contienen planes de servicio en conflicto, por lo que debemos solucionar el conflicto para migrar los usuarios sin problemas. Para más información acerca de estos conflictos, consulte [Identificación y resolución de problemas de asignación de licencias de un grupo en Azure Active Directory: Planes de servicio en conflicto](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). Los usuarios no deben perder el acceso a los servicios ni a los datos en ningún momento durante la migración. La migración se realiza en pequeños "lotes". Puede validar el resultado de cada lote y minimizar el ámbito de los problemas que podrían producirse durante el proceso. En general, el proceso es el siguiente:
 
 1.  Los usuarios son miembros del grupo de origen y heredan la *licencia de origen* de ese grupo.
 

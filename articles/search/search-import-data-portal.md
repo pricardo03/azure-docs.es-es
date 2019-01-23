@@ -9,107 +9,118 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8eb319538b409287538dd1e9d2856d9080d671b8
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: ee1b2a40dbcbd53a758ac71f30401778ef07e872
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188800"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229764"
 ---
-# <a name="how-to-import-data-into-azure-search-index-using-the-azure-portal"></a>Cómo importar datos en un índice de Azure Search con Azure Portal
+# <a name="import-data-wizard-for-azure-search"></a>Asistente para la importación de datos de Azure Search
 
-Azure Portal incluye un asistente para **importar datos** en el panel de Azure Search que le permite cargar datos en un índice. 
+Azure Portal incluye un asistente para **importar datos** en el panel de Azure Search que le permite cargar datos en un índice. Internamente, el asistente configura e invoca un *origen de datos*, un *índice* y un *indexador* mediante la automatización de varios pasos del proceso de indexación: 
 
-  ![Importación de datos en la barra de comandos][1]
+* Se conecta a un origen de datos externo en la misma suscripción de Azure.
+* Opcionalmente, integra el reconocimiento óptico de caracteres o el procesamiento de lenguaje natural para extraer texto de datos no estructurados.
+* Genera un índice basado en el muestreo de datos y los metadatos del origen de datos externo.
+* Rastrea contenido que permite búsquedas en el origen de datos, serializando y cargando documentos JSON en el índice.
 
-Internamente, el asistente configura e invoca un *indexador*, mediante la automatización de varios pasos del proceso de indexación: 
+El asistente no puede conectarse a un índice predefinido ni ejecutar un indexador existente, pero en el propio asistente puede configurar un nuevo índice o indexador para admitir la estructura y los comportamientos que necesite.
 
-* Conectarse a un origen de datos externo en la misma suscripción de Azure
-* Generar un esquema de índice modificable basado en la estructura de los datos de origen
-* Cargar documentos JSON en un índice mediante un conjunto de filas recuperado del origen de datos
+¿Es la primera vez que usa Azure Search? Consulte el artículo [Inicio rápido: Uso de herramientas del portal para la importación, indexación y consultas](search-get-started-portal.md) para probar la importación e indexación mediante la opción **Importar datos** y el conjunto de datos realstate de ejemplo integrado.
 
-> [!NOTE]
-> Puede iniciar el asistente para **importar datos** desde el panel de Azure Cosmos DB para simplificar la indexación para ese origen de datos. En el panel de navegación de la izquierda, vaya a **Colecciones** > **Add Azure Search** (Añadir búsqueda de Azure) para empezar.
+## <a name="start-importing-data"></a>Inicio de la importación de datos
 
-## <a name="data-sources-supported-by-the-import-data-wizard"></a>Orígenes de datos admitidos por el Asistente para la importación de datos
-El Asistente para importación de datos admite los siguientes orígenes de datos: 
+En esta sección se explica cómo iniciar el asistente y se ofrece una descripción general de cada paso.
 
-* Azure SQL Database
-* Datos relacionales de SQL Server en una máquina virtual de Azure
-* Azure Cosmos DB
-* Azure Blob Storage
-* Almacenamiento de tablas de Azure
+1. En [Azure Portal](https://portal.azure.com), abra la página del servicio de búsqueda desde el panel o [busque el servicio](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en la lista.
+
+2. En la página de información general del servicio en la parte superior, haga clic en **Importar datos**.
+
+   ![Comando de importación de datos en el portal](./media/search-import-data-portal/import-data-cmd2.png "Iniciar el asistente para la importación de datos")
+
+   > [!NOTE]
+   > Puede iniciar **Importar datos** desde otros servicios de Azure, como Azure Cosmos DB, Azure SQL Database y Azure Blob Storage. Busque **Agregar Azure Search** en el panel de navegación izquierdo en la página de información general del servicio.
+
+3. El asistente se abrirá en **Conexión a los datos**, donde puede elegir un origen de datos externo que se usará para esta importación. Hay varios aspectos que deben tenerse en cuenta en este paso, por lo que se recomienda encarecidamente que lea la sección [Entradas de origen de datos](#data-source-inputs) para obtener información detallada.
+
+   ![Asistente para la importación de datos en el portal](./media/search-import-data-portal/import-data-wizard-startup.png "Asistente para la importación de datos de Azure Search")
+
+4. El siguiente paso es **Agregar Cognitive Search**, en caso de que desee incluir reconocimiento óptico de caracteres (OCR) de texto en archivos de imagen o análisis de texto en datos no estructurados. Para esta tarea se extraen algoritmos de inteligencia artificial de Cognitive Services. Este paso se divide en dos partes:
+  
+   En primer lugar, [asocie un recurso de Cognitive Services](cognitive-search-attach-cognitive-services.md) con un conjunto de aptitudes de Azure Search.
+  
+   A continuación, seleccione qué enriquecimientos de inteligencia artificial incluir en el conjunto de aptitudes. Para ver un tutorial de demostración, consulte este [artículo de inicio rápido](cognitive-search-quickstart-blob.md).
+
+   Si solo desea importar datos, omita este paso y vaya directamente a la definición del índice.
+
+5. El siguiente paso es **Personalizar índice de destino**, donde puede aceptar o modificar el esquema de índice que se presenta en el asistente. El asistente deduce los campos y tipos de datos mediante el muestreo de datos y la lectura de metadatos del origen de datos externo.
+
+   Para cada campo, [compruebe los atributos de índice](#index-definition) para habilitar comportamientos específicos. Si no selecciona ningún atributo, el índice no se podrá utilizar. 
+
+6. El siguiente paso es **Crear un indexador**, que es un producto de este asistente. Un indexador es un rastreador que extrae metadatos y datos que permiten búsquedas de un origen de datos externo de Azure. Al seleccionar el origen de datos y asociar conjuntos de aptitudes (opcionalmente) y un índice, ha ido configurando un indexador mientras completaba cada paso del asistente.
+
+   Asigne un nombre al indexador y haga clic en **Enviar** para iniciar el proceso de importación. 
+
+Puede supervisar la indexación en el portal. Para ello, haga clic en el indexador en la lista **Indexadores**. A medida que se carguen documentos, aumentará el recuento de documentos para el índice que se ha definido. A veces, el portal tarda unos minutos en actualizarse.
+
+El índice está listo para que se realicen consultas en cuanto se carga el primer documento. El [Explorador de búsqueda](search-explorer.md) se puede usar para esta tarea.
+
+<a name="data-source-inputs"></a>
+
+## <a name="data-source-inputs"></a>Entradas de origen de datos
+
+El asistente para la **importación de datos** crea un objeto de origen de datos persistente al especificar información de conexión a un origen de datos externo. El objeto de origen de datos se utiliza exclusivamente con [indexadores](search-indexer-overview.md) y puede crearse para los orígenes de datos siguientes: 
+
+* [SQL de Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
+* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
+* [Azure Table Storage](search-howto-indexing-azure-tables.md) (no es compatible con canalizaciones de [búsquedas cognitivas](cognitive-search-concept-intro.md))
 
 Un conjunto de datos plano es una entrada necesaria. Solo se puede importar desde una única tabla, vista de base de datos o estructura de datos equivalente. Debe crear esta estructura de datos antes de ejecutar al asistente.
 
-## <a name="connect-to-your-data"></a>Conexión a los datos
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra el panel de servicio. Puede hacer clic en **Todos los servicios** en la barra de acceso rápido para buscar los "servicios de búsqueda" existentes en la suscripción actual. 
-
-1. Haga clic en **Importar datos** en la barra de comandos para abrir la hoja Importar datos.
-
-1. Haga clic en **Conectar a los datos** para especificar una definición de origen de datos usada por un indexador. Para los orígenes de datos que se encuentran en la suscripción, el Asistente normalmente puede detectar y leer la información de conexión, así como minimizar los requisitos de configuración general.
-
-|  |  |
-| --- | --- |
-| **Origen de datos existente** |Si ya tiene indexadores definidos en el servicio de búsqueda, puede seleccionar una definición de origen de datos existente para otra importación. |
+|  Número de selección | DESCRIPCIÓN |
+| ---------- | ----------- |
+| **Origen de datos existente** |Si ya tiene indexadores definidos en el servicio de búsqueda, puede seleccionar una definición de origen de datos existente para otra importación. En Azure Search, solo los indexadores usan objetos de origen de datos. Puede crear un objeto de origen de datos mediante programación o con el asistente para la **importación de datos**.|
+| **Muestras**| Azure Search hospeda una instancia de Azure SQL Database pública y gratuita que puede usar para obtener información acerca de las solicitudes de importación y consulta en Azure Search. Consulte [Quickstart: Uso de herramientas del portal para la importación, indexación y consultas](search-get-started-portal.md) para ver un tutorial. |
 | **Azure SQL Database** |Se puede especificar el nombre del servicio, las credenciales de un usuario de base de datos con permiso de lectura y un nombre de base de datos en la página o a través de una cadena de conexión de ADO.NET. Elija la opción de cadena de conexión para ver o personalizar las propiedades. <br/><br/>En la página debe especificarse la tabla o vista que proporciona el conjunto de filas. Esta opción aparece una vez realizada correctamente la conexión, lo que proporciona una lista desplegable para que pueda realizar una selección. |
 | **SQL Server en máquinas virtuales de Azure** |Especifique un nombre de servicio completo, el identificador de usuario y la contraseña, y la base de datos como una cadena de conexión. Para utilizar este origen de datos, debe haber instalado un certificado en el almacén local que cifra la conexión. Para obtener instrucciones, consulte [Conexión de máquina virtual de SQL a Azure Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>En la página debe especificarse la tabla o vista que proporciona el conjunto de filas. Esta opción aparece una vez realizada correctamente la conexión, lo que proporciona una lista desplegable para que pueda realizar una selección. |
 | **Azure Cosmos DB** |Los requisitos incluyen la cuenta, la base de datos y la colección. Todos los documentos de la colección se incluirán en el índice. Puede definir una consulta para aplanar o filtrar el conjunto de filas, o para detectar los documentos modificados para las siguientes operaciones de actualización de datos. |
 | **Azure Blob Storage** |Los requisitos incluyen la cuenta de almacenamiento y un contenedor. Opcionalmente, si los nombres de blobs siguen una convención de nomenclatura virtual con fines de agrupación, puede especificar la parte del directorio virtual del nombre como una carpeta en el contenedor. Consulte [Indexación de Blob Storage](search-howto-indexing-azure-blob-storage.md) para más información. |
 | **Azure Table Storage** |Los requisitos incluyen la cuenta de almacenamiento y un nombre de tabla. Opcionalmente, puede especificar una consulta para recuperar un subconjunto de las tablas. Consulte [Indexación de Table Storage](search-howto-indexing-azure-tables.md) para más información. |
 
-## <a name="customize-target-index"></a>Personalización del índice de destino
-Normalmente, un índice preliminar se deduce del conjunto de datos. Agregue, modifique o elimine campos para completar el esquema. Además, establezca atributos en el nivel de campo para determinar sus comportamientos de búsqueda subsiguientes.
 
-1. En **Personalizar índice de destino**, especifique el nombre y una **clave** utilizados para identificar de forma única cada documento. La clave debe ser una cadena. Si los valores de campo son espacios o guiones, asegúrese de establecer las opciones avanzadas en **Importar sus datos** para suprimir la comprobación de validación para estos caracteres.
+<a name="index-definition"></a>
 
-1. Revise y modifique los campos restantes. El tipo y el nombre de campo suelen rellenarse automáticamente. Puede cambiar el tipo de datos hasta que se cree el índice. Para cambiarlo posteriormente, será necesario recompilar.
+## <a name="index-attributes"></a>Atributos de índice
 
-1. Establezca los atributos de índice para cada campo:
+El asistente para la **importación de datos** genera un índice, que se rellenará con los documentos que se obtienen del origen de datos de entrada. 
+
+Para que el índice sea funcional, asegúrese de que tiene definidos los elementos siguientes.
+
+1. Un campo debe marcarse como **Clave**, que se usa para identificar de forma única cada documento. La **Clave** debe ser *Edm.string*. 
+
+   Si los valores de campo incluyen espacios o guiones, debe establecer la opción **Claves de codificación Base 64** del paso **Crear un indexador** en **Opciones avanzadas**, a fin de suprimir la comprobación de validación para estos caracteres.
+
+1. Establezca los atributos de índice para cada campo. Si no selecciona ningún atributo, el índice estará esencialmente vacío, salvo el campo de clave obligatorio. Como mínimo, elija uno o varios de estos atributos para cada campo.
    
-   * Retrievable devuelve el campo en los resultados de búsqueda.
-   * Filterable permite que se haga referencia al campo en las expresiones de filtro.
-   * Sortable permite que el campo se use en una ordenación.
-   * Facetable permite que el campo se use en la navegación con facetas.
-   * Searchable permite la búsqueda de texto completo.
+   + **Retrievable** devuelve el campo en los resultados de búsqueda. Todos los campos que proporcionan contenido a los resultados de búsqueda deben tener este atributo. Al establecer este campo, el tamaño del índice no se verá afectado de manera apreciable.
+   + **Filterable** permite que se haga referencia al campo en las expresiones de filtro. Cada campo utilizado en una expresión **$filter** debe tener este atributo. Las expresiones de filtro son para coincidencias exactas. Dado que las cadenas de texto permanecen intactas, se necesita almacenamiento adicional para dar cabida al contenido textual.
+   + **Searchable** permite la búsqueda de texto completo. Todos los campos utilizados en consultas de formato libre o en expresiones de consulta deben tener este atributo. Para cada campo que marque como **Searchable**, se crearán índices invertidos.
 
-1. Haga clic en la pestaña **Analizador** si desea especificar un analizador de lenguaje en el nivel de campo. Solo se pueden especificar en este momento los analizadores de lenguaje. Si se usa un analizador personalizado o un analizador que no sea de lenguaje, como palabra clave o patrón, se requerirá código.
+1. Opcionalmente, puede establecer estos atributos según sea necesario:
+
+   + **Sortable** permite que el campo se use en una ordenación. Cada campo utilizado en una expresión **$Orderby** debe tener este atributo.
+   + **Facetable** permite que el campo se use en la navegación con facetas. Solo los campos marcados también como **Filterable** pueden marcarse como **Facetable**.
+
+1. Establezca un **analizador** si desea indexación y consultas mejoradas para un idioma. La opción predeterminada es *Estándar - Lucene*, pero puede elegir *Inglés - Microsoft* si desea usar el analizador de Microsoft para procesamiento léxico avanzado, como para la resolución de formas verbales y sustantivos irregulares.
+
+   + Seleccione **Searchable** para habilitar la lista **Analizador**.
+   + Elija un analizador de la lista. 
    
-   * Haga clic en **Buscable** para designar la búsqueda de texto completo en el campo y habilitar la lista desplegable del analizador.
-   * Elija el analizador que desea usar. Para más información, consulte [Creación de un índice para documentos en varios idiomas en Azure Search](search-language-support.md).
+   Solo se pueden especificar en este momento los analizadores de lenguaje. Si se usa un analizador personalizado o un analizador que no sea de lenguaje, como palabra clave o patrón, se requerirá código. Para más información acerca de los analizadores, consulte [Creación de un índice para documentos en varios idiomas](search-language-support.md).
 
-1. Haga clic en **Proveedor de sugerencias** para habilitar las sugerencias de consulta anticipadas en los campos seleccionados.
-
-## <a name="import-your-data"></a>Importar sus datos
-1. En **Importar sus datos**, dé un nombre al indexador. Recuerde que el producto del Asistente para la importación de datos es un indexador. Más adelante, si desea verlo o modificarlo, puede seleccionarlo desde el portal en lugar de volver a ejecutar al Asistente. 
-
-1. Especifique la programación, que se basa en la zona horaria regional en la que se aprovisiona el servicio.
-
-1. Establezca opciones avanzadas para especificar los umbrales sobre si la indexación puede continuar si se coloca un documento. Además, puede especificar si los campos de **clave** pueden contener espacios y barras diagonales.  
-
-1. Haga clic en **Aceptar** para crear el índice e importar los datos.
-
-Puede supervisar la indexación en el portal. A medida que se carguen documentos, aumentará el recuento de documentos para el índice que se ha definido. A veces, el portal tarda unos minutos en actualizarse.
-
-El índice está listo para que se realicen consultas en cuanto se cargan todos los documentos.
-
-## <a name="query-an-index-using-search-explorer"></a>Realización de consultas en un índice mediante el Explorador de búsqueda
-
-El portal incluye el **Explorador de búsqueda**, con el fin de que pueda consultar un índice sin tener que escribir código. El [Explorador de búsqueda](search-explorer.md) se puede usar en todos los índices.
-
-La búsqueda se basa en los valores predeterminados, como la [sintaxis simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) y el [parámetro de consulta searchMode](https://docs.microsoft.com/rest/api/searchservice/search-documents) predeterminado. 
-
-Los resultados se devuelven en formato JSON detallado, con el fin de que pueda revisar todo el documento.
-
-## <a name="edit-an-existing-indexer"></a>Edición de un indexador existente
-Como se indica, el asistente para la importación de datos crea un **indexador** que se puede modificar como una construcción independiente en el portal.
-
-En el panel de servicios, haga doble clic en el icono del indexador para mostrar una lista de todos los indexadores creados para su suscripción. Haga doble clic en uno de ellos para ejecutarlo, editarlo o eliminarlo. Puede reemplazar el índice con otro existente, cambiar el origen de datos y establecer las opciones de los umbrales de error durante la indexación.
-
-## <a name="edit-an-existing-index"></a>Edición de un índice existente
-El asistente también ha creado un **índice**. En Azure Search, las actualizaciones estructurales de un índice requerirán que se recompile el índice. Una recompilación conlleva eliminar el índice, volver a crearlo utilizando un esquema revisado que incluya los cambios deseados y volver a cargar los datos. Las actualizaciones estructurales incluyen el cambio de un tipo de datos y el cambio de nombre o eliminación de un campo.
-
-Entre las modificaciones que no requieren una recompilación se incluyen la incorporación de un nuevo campo, el cambio los perfiles de puntuación, el cambio de los proveedores de sugerencias o el cambio de los analizadores de lenguaje. Consulte [Actualización de un índice](https://msdn.microsoft.com/library/azure/dn800964.aspx) para más información.
+1. Active la casilla **Proveedor de sugerencias** para habilitar las sugerencias de consulta anticipadas en los campos seleccionados.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -119,7 +130,3 @@ Siga estos vínculos para más información sobre los indexadores:
 * [Indexación de Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Indexación de Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Indexación de Table Storage](search-howto-indexing-azure-tables.md)
-
-<!--Image references-->
-[1]: ./media/search-import-data-portal/search-import-data-command.png
-

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/19/2018
 ms.author: echuvyrov
-ms.openlocfilehash: 0943bd1bffb3df7beda97ea0619f1aced4ca3a41
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 71cf07b227a75e53119f2f35e79ccd7926b551e7
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946789"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200707"
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Instalación y configuración de Terraform para aprovisionar máquinas virtuales y otras infraestructuras en Azure
  
@@ -59,7 +59,7 @@ Para utilizar una suscripción seleccionada, defina la suscripción para esta se
 az account set --subscription="${SUBSCRIPTION_ID}"
 ```
 
-Ahora puede crear una entidad de servicio para su uso con Terraform. Utilice[az ad sp create-for-rbac]/cli/azure/ad/sp#az-ad-sp-create-for-rbac) y defina el *ámbito* de la suscripción como se indica a continuación:
+Ahora puede crear una entidad de servicio para su uso con Terraform. Utilice[az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) y defina el *ámbito* de la suscripción como se indica a continuación:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"

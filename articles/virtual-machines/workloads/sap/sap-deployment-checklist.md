@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/07/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 29ec56f3b360a4a19269555c1504ae7ff6446f8e
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 901dfc502470e52600e3a0fafe3f6b91b7686197
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189157"
+ms.locfileid: "54201336"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Lista de comprobación de planeamiento e implementación de cargas de trabajo de SAP en Azure 
 
@@ -83,7 +83,7 @@ En esta fase se planea una migración de cargas de trabajo de SAP a la nube púb
 La fase piloto puede ejecutarse antes o en paralelo con la planeamiento y preparación del proyecto. Esta fase también puede utilizarse para probar los enfoques y el diseño realizados en la fase de planeamiento y preparación. La fase piloto puede extenderse hasta convertirse en una verdadera prueba de conceptos. Se recomienda configurar y validar una solución completa de alta disponibilidad y recuperación ante desastres, así como el diseño de la seguridad durante una implementación piloto. En el caso de algunos clientes, también se pueden realizar pruebas de escalabilidad en esta fase. Otros clientes usan la implementación de sistemas de espacio aislado de SAP como fase piloto. Por lo que es de suponer que ha identificado un sistema que quiere a migrar a Azure con el fin de ejecutar a una prueba piloto.
 
 1.  Optimice la transferencia de datos a Azure. Al depender en gran medida de los casos de cliente, la transferencia a través de [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) desde el entorno local era más rápida si el circuito de Express tenía suficiente ancho de banda. Con otros clientes, resultó ser más rápido hacerlo por Internet.
-2.  En el caso de una migración de plataforma heterogénea de SAP, que implica una exportación e importación de los datos de la base de datos, se deben probar y optimizar las fases de exportación e importación. Para migraciones de gran tamaño que implican SQL Server como plataforma de destino, encontrará recomendaciones [aquí](https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/08/sap-osdb-migration-to-sql-server-faq-v6-2-april-2017/). Puede adoptar el enfoque de Migration Monitor/SWPM en caso de que no necesite una actualización de la versión combinada o el proceso [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) cuando combine la migración con una actualización de la versión de SAP y cumpla determinadas combinaciones de la plataforma DBMS de origen y destino, tal y como se documentó, por ejemplo, en [Database Migration Option (DMO) de SUM 2.0 SP04](https://launchpad.support.sap.com/#/notes/2644872). 
+2.  En el caso de una migración de plataforma heterogénea de SAP, que implica una exportación e importación de los datos de la base de datos, se deben probar y optimizar las fases de exportación e importación. Para migraciones de gran tamaño que implican SQL Server como plataforma de destino, encontrará recomendaciones [aquí](https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/08/sap-osdb-migration-to-sql-server-faq-v6-2-april-2017/). Puede adoptar el enfoque de Migration Monitor/SWPM en caso de que no necesite una actualización de la versión combinada o el proceso [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) cuando combine la migración con una actualización de la versión de SAP y cumpla determinadas combinaciones de la plataforma DBMS de origen y destino, tal y como se documentó, por ejemplo, en [Database Migration Option (DMO) de SUM 2.0 SP03](https://launchpad.support.sap.com/#/notes/2631152). 
     1.  Rendimiento de la exportación al origen, la carga de archivos de exportación en Azure e y la importación.  Maximice la superposición entre la exportación e importación.
     2.  Evalúe el volumen de la base de datos entre el destino y la plataforma de destino para que se refleje en el tamaño de la infraestructura.    
     3.  Valide y optimice los intervalos. 

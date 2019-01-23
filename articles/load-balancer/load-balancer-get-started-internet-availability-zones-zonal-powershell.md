@@ -1,10 +1,11 @@
 ---
-title: Cree una instancia de Standard Load Balancer pública con front-end zonal mediante - Azure PowerShell
+title: Creación de una instancia de Load Balancer con front-end de zona mediante Azure PowerShell
 titlesuffix: Azure Load Balancer
-description: Aprenda a crear una instancia de Load Balancer Estándar público con un front-end para la dirección IP pública zonal mediante Azure PowerShell
+description: Aprenda a crear una instancia de Standard Load Balancer con front-end de zona mediante Azure PowerShell.
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: da30bce34425d3537f9610c6e1f64ded4a836fd7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 861759eec266f0ab66d30a466c06e7d2ee14bf06
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100691"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247164"
 ---
-#  <a name="create-a-public-load-balancer-standard-with-zonal-frontend-using-azure-powershell"></a>Cree una instancia de Load Balancer Estándar público con front-end zonal mediante Azure PowerShell
+#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-powershell"></a>Creación de un equilibrador Standard Load Balancer con el front-end de zona mediante Azure PowerShell
 
-Este artículo le ayudará a crear una instancia de [Load Balancer Estándar](https://aka.ms/azureloadbalancerstandard) público con un front-end zonal mediante una dirección IP pública estándar. Para saber cómo funcionan las zonas de disponibilidad con Load Balancer Estándar, consulte [Load Balancer Estándar y zonas de disponibilidad](load-balancer-standard-availability-zones.md). 
+Este artículo le ayudará a crear una instancia de [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) pública con un front-end de zona mediante una dirección IP pública estándar. Para saber cómo funcionan las zonas de disponibilidad con Load Balancer Estándar, consulte [Load Balancer Estándar y zonas de disponibilidad](load-balancer-standard-availability-zones.md). 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -86,7 +87,7 @@ $probe = New-AzureRmLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http
 ```
 
 ## <a name="create-a-load-balancer"></a>Creación de un equilibrador de carga
-Cree un recurso Load Balancer estándar con el siguiente comando:
+Cree una instancia de Standard Load Balancer con el siguiente comando:
 
 ```powershell
 $lb = New-AzureRmLoadBalancer -ResourceGroupName myResourceGroupZLB -Name 'MyLoadBalancer' -Location westeurope `

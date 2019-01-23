@@ -7,32 +7,32 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 01/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3c5e4d568e7118d50ce8779402526fca77ccdda7
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 664e31590f578b65da09f1e0fe8f57d579ed3cfc
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315561"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354559"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Selección de un plan de tarifa de Azure Search
 
-En Azure Search, un [servicio se aprovisiona](search-create-service-portal.md) en el plan de tarifa o SKU que se fija para la duración del servicio. Los planes incluyen los niveles **Gratis**, **Básico** o **Estándar**; **este último** está disponible en varias configuraciones y capacidades. La mayoría de los clientes comienza con el nivel **Gratis** para la evaluación y, a continuación, ascienden al nivel **Estándar** para implementaciones de desarrollo y producción. Puede completar todos los inicios rápidos y tutoriales en el nivel **Gratis**, incluidos los de búsqueda cognitiva que consumen gran cantidad de recursos. 
+En Azure Search, un [recurso se crea](search-create-service-portal.md) en el plan de tarifa o SKU que se fija para el periodo de vigencia del servicio. Los planes incluyen los niveles **Gratis**, **Básico** o **Estándar**; **este último** está disponible en varias configuraciones y capacidades. La mayoría de los clientes comienza con el nivel **Gratis** para la evaluación y, a continuación, ascienden al nivel **Estándar** para implementaciones de desarrollo y producción. Puede completar todos los inicios rápidos y tutoriales en el nivel **Gratis**, incluidos los de búsqueda cognitiva que consumen gran cantidad de recursos. 
 
 Los niveles determinan la capacidad, no las características, y se diferencian por lo siguiente:
 
 + Número de índices que puede crear
 + Tamaño y velocidad de particiones (almacenamiento físico)
 
-Aunque todos los niveles, incluido el nivel **Gratis**, generalmente ofrecen paridad de características, las cargas de trabajo más grandes pueden dictar requisitos para niveles más altos. Por ejemplo, la indexación de [Cognitive Search](cognitive-search-concept-intro.md) tiene funcionalidades de ejecución prolongada que agotan el tiempo de espera en un servicio gratis a menos que el conjunto de datos sea muy pequeño.
+Aunque todos los niveles, incluido el nivel **Gratis**, generalmente ofrecen paridad de características, las cargas de trabajo más grandes pueden dictar requisitos para niveles más altos. Por ejemplo, la indexación de [Cognitive Search](cognitive-search-concept-intro.md) tiene funcionalidades de ejecución prolongada que agotan el tiempo de espera en un servicio gratis a menos que el conjunto de datos sea pequeño.
 
 > [!NOTE] 
 > La excepción a la paridad de características reside en los [indizadores](search-indexer-overview.md), que no están disponibles en S3HD.
 >
 
-Dentro de un nivel, también puede [ajustar los recursos de réplica y partición](search-capacity-planning.md) para optimizar el rendimiento. Aunque puede comenzar con dos o tres de cada uno, podría aumentar temporalmente su capacidad de proceso para una carga de trabajo con una elevada carga de trabajo de indexación. La posibilidad de ajustar los niveles de recursos dentro de un nivel agrega flexibilidad, pero también complica ligeramente su análisis. Es posible que tenga que experimentar para ver si un nivel inferior con mayores recursos/réplicas ofrece mejor valor y rendimiento que un nivel superior con menos recursos. Para obtener más información acerca de cuándo y por qué debería ajustar la capacidad, consulte [Consideraciones de rendimiento y optimización](search-performance-optimization.md).
+Dentro de un nivel, también puede [ajustar los recursos de réplica y partición](search-capacity-planning.md) para optimizar el rendimiento. Podría comenzar con dos o tres de cada y luego aumentar temporalmente su capacidad de proceso para una elevada carga de trabajo de indexación. La posibilidad de ajustar los niveles de recursos dentro de un nivel agrega flexibilidad, pero también complica ligeramente su análisis. Es posible que tenga que experimentar para ver si un nivel inferior con mayores recursos/réplicas ofrece mejor valor y rendimiento que un nivel superior con menos recursos. Para obtener más información acerca de cuándo y por qué debería ajustar la capacidad, consulte [Consideraciones de rendimiento y optimización](search-performance-optimization.md).
 
 <!---
 The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
@@ -40,23 +40,46 @@ The purpose of this article is to help you choose a tier. It supplements the [pr
 
 ## <a name="how-billing-works"></a>Cómo funciona la facturación
 
-En Azure Search, el concepto de facturación más importante que se debe entender es la *unidad de búsqueda* (SU). Dado que Azure Search depende de las réplicas y las particiones para su funcionamiento, no tiene sentido facturar solo por una o la otra. En su lugar, la facturación se basa en una composición de ambas. 
+En Azure Search puede incurrir en costos al crear un recurso de búsqueda en el portal de cuatro maneras distintas:
+
+* Al agregar réplicas y particiones usadas para la indexación normal y las tareas de consulta. Comience con uno de cada. Puede aumentar la capacidad de uno o ambos; para ello, elija y pague niveles adicionales de recursos. 
+* Cargos de salida de datos durante la indexación. Al extraer datos desde un origen de datos de Azure SQL Database o Cosmos DB, verá los cargos de la transacción en la factura para esos recursos.
+* Solo para [Cognitive Search](cognitive-search-concept-intro.md), la extracción de imágenes durante la averiguación de documentos se factura en función del número de imágenes que se extraen de los documentos. La extracción de texto es actualmente gratuita.
+* Solo para [Cognitive Search](cognitive-search-concept-intro.md), los enriquecimientos basados en [habilidades cognitivas predefinidas](cognitive-search-predefined-skills.md) se facturan con un recurso de Cognitive Services. Los enriquecimientos se facturan a la misma tarifa que si hubiera realizado la tarea mediante Cognitive Services directamente.
+
+Si no usa [Cognitive Search](cognitive-search-concept-intro.md) ni los [indexadores de Azure Search](search-indexer-overview.md), los costos solo están relacionadas con las réplicas y las particiones activas y en uso, por las cargas de trabajo de indexación y consulta normales.
+
+### <a name="billing-for-general-purpose-indexing-and-queries"></a>Facturación de la indexación y las consultas de carácter general
+
+Para las operaciones de Azure Search, el concepto de facturación más importante que se debe entender es la *unidad de búsqueda* (SU). Dado que Azure Search depende de las réplicas y las particiones para la indexación y las consultas, no tiene sentido facturar solo por una o la otra. En su lugar, la facturación se basa en una composición de ambas. 
 
 Una SU es el producto de las *réplicas* y las *particiones* utilizadas por un servicio: **`(R X P = SU)`**
 
-Cada servicio se inicia como mínimo con 1 SU (una réplica multiplicada por una partición). El máximo de cualquier servicio es de 36 SU, que se pueden lograr de varias maneras: 6 particiones por 6 réplicas, o 3 particiones por 12 réplicas, por nombrar algunas. 
-
-Es habitual usar menos de la capacidad total. Por ejemplo, un servicio de 3 réplicas y 3 particiones, que se factura como 9 SU. 
+Cada servicio se inicia como mínimo con una SU (una réplica multiplicada por una partición). El máximo de cualquier servicio es de 36 SU, que se pueden lograr de varias maneras: 6 particiones por 6 réplicas, o 3 particiones por 12 réplicas, por nombrar algunas. Es habitual usar menos de la capacidad total. Por ejemplo, un servicio de 3 réplicas y 3 particiones, que se factura como 9 SU. 
 
 La tarifa de facturación es **por hora y por SU**, y cada nivel aumenta progresivamente a una tarifa más elevada. Los niveles superiores incluyen particiones mayores y más rápidas, que contribuyen a un precio por hora total superior para ese nivel. Las tarifas de cada nivel pueden consultarse en [Buscar Precios](https://azure.microsoft.com/pricing/details/search/). 
 
 La mayoría de los clientes solo ponen en línea una parte de la capacidad total, manteniendo el resto en la reserva. En términos de facturación, es el número de particiones y réplicas que tiene en línea, calculado mediante la fórmula de la SU, lo que determina lo que paga realmente por hora.
 
-### <a name="tips-for-reducing-costs"></a>Sugerencias para reducir los costos
+### <a name="billing-for-image-extraction-in-cognitive-search"></a>Facturación por la extracción de imágenes en Cognitive Search
+
+Si va a extraer imágenes de archivos de una canalización de indexación de Cognitive Search, se le cobrará esa operación en la factura de Azure Search. El parámetro que desencadena la extracción de imágenes es **imageAction** en una [configuración del indexador](https://docs.microsoft.com/erest/api/searchservice/create-indexer#indexer-parameters). Si **imageAction** está establecida en none (valor predeterminado), no hay ningún cargo por extracción de imágenes.
+
+Los precios están sujetos a cambios, pero siempre se documentan en la página de los [detalles de los precios](https://azure.microsoft.com/pricing/details/search/) de Azure Search. 
+
+### <a name="billing-for-built-in-skills-in-cognitive-search"></a>Facturación de las habilidades integradas en Cognitive Search
+
+Al configurar una canalización de enriquecimiento, cualquier [habilidad integrada](cognitive-search-predefined-skills.md) que se use en ella se basa en modelos de aprendizaje automático. Estos modelos los proporciona Cognitive Services. El uso de los modelos durante la indexación se factura a la misma tarifa que si hubiera solicitado el recurso directamente.
+
+Por ejemplo, supongamos una canalización con reconocimiento óptico de caracteres (OCR) en archivos JPEG de imagen escaneada, donde el texto resultante se inserta en un índice de Azure Search para las consultas de búsqueda de forma libre. La canalización de indexación incluiría un indexador con la [habilidad OCR](cognitive-search-skill-ocr.md), que se [asociaría a un recurso de Cognitive Services](cognitive-search-attach-cognitive-services.md). Al ejecutar el indexador aparecen cargos en la factura de recursos de Cognitive por la ejecución de OCR.
+
+## <a name="tips-for-reducing-costs"></a>Sugerencias para reducir los costos
 
 No se puede apagar el servicio para disminuir la factura. Los recursos operativos están operativos constantemente y se asignan para su uso exclusivo mientras el servicio esté vigente. La única manera de reducir una factura es reducir las réplicas y particiones a un nivel bajo que siga proporcionando un rendimiento aceptable y [cumpla con el Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
-Un medio para reducir costos es elegir un nivel con una tarifa por hora más baja. Las tarifas por hora de S1 son inferiores a las tarifas de S2 o S3. Podría aprovisionar un servicio dirigido al nivel mínimo de sus proyecciones de carga. Si supera el servicio, cree un segundo servicio con un mayor nivel, recompile los índices en ese segundo servicio y luego elimine el primero. Si ha realizado la planificación de la capacidad de los servidores locales, ya sabe que es común "seguir comprando" para poder asumir el crecimiento proyectado. Pero con un servicio en la nube, puede ahorrar de manera más significativa porque no está sujeto a una compra específica. Siempre puede cambiar a un servicio de nivel superior si el actual no es suficiente.
+Un medio para reducir costos es elegir un nivel con una tarifa por hora más baja. Las tarifas por hora de S1 son inferiores a las tarifas de S2 o S3. Supongamos que aprovisiona un servicio cuyo objetivo es el extremo inferior de las proyecciones de la carga; si se superara el servicio, podría crear un segundo con capas mayores, volver a generar los índices en ese segundo servicio y eliminar el primero. 
+
+Si ha realizado la planificación de la capacidad de los servidores locales, ya sabe que es común "seguir comprando" para poder asumir el crecimiento proyectado. Pero con un servicio en la nube, puede ahorrar de manera más significativa porque no está sujeto a una compra específica. Siempre puede cambiar a un servicio de nivel superior si el actual no es suficiente.
 
 ### <a name="capacity-drill-down"></a>Profundización en la capacidad
 
@@ -143,9 +166,9 @@ El número de índices y el tamaño son igualmente importantes para el análisis
 
 **Consideraciones del volumen de consultas**
 
-Las consultas por segundo (QPS) son una medida que gana importancia durante la optimización del rendimiento, pero no suele ser una consideración de nivel a menos que espere un volumen muy elevado de consultas desde el principio.
+Las consultas por segundo (QPS) son una medida que gana importancia durante la optimización del rendimiento, pero no suele ser una consideración de nivel a menos que espere un volumen elevado de consultas desde el principio.
 
-Todos los niveles Estándar pueden entregar un balance entre réplicas y particiones, admitiendo una respuesta de consultas más rápida mediante réplicas adicionales para el equilibrio de carga y particiones adicionales para el procesamiento en paralelo. Puede ajustar el rendimiento después de aprovisionar el servicio.
+Los niveles Estándar pueden entregar un balance entre réplicas y particiones, al admitir una respuesta de consultas más rápida mediante réplicas adicionales para el equilibrio de carga y particiones adicionales para el procesamiento en paralelo. Puede ajustar el rendimiento después de aprovisionar el servicio.
 
 Los clientes que esperan altos volúmenes de consultas sostenidos desde el principio deben considerar los niveles superiores, respaldados por un hardware más potente. A continuación, puede desconectar particiones y réplicas o incluso cambiar a un servicio de nivel inferior, si dichos volúmenes de consultas no se materializan. Para más información sobre cómo calcular el rendimiento de las consultas, consulte [Rendimiento y optimización de Azure Search](search-performance-optimization.md).
 
@@ -158,7 +181,7 @@ El nivel **Gratis** y las características en versión preliminar no incluyen [c
 
 + Aprenda a crear índices eficaces y las metodologías de actualización con el menor impacto. Se recomienda el [análisis del tráfico de búsqueda](search-traffic-analytics.md) para los conocimientos adquiridos en la actividad de consulta.
 
-+ Cree métricas sobre las consultas y recopile datos sobre los patrones de uso (consultas durante el horario laboral, indexación durante las horas sin picos) y utilice estos datos para informar en las futuras decisiones de aprovisionamiento del servicio. Aunque no resulta práctico en una base horaria o diaria, puede ajustar dinámicamente las particiones y los recursos para ajustarse a los cambios planeados en el volumen de consultas o cambios no planeados pero sostenidos si los niveles se mantienen para apoyar la toma de acciones.
++ Cree métricas sobre las consultas y recopile datos sobre los patrones de uso (consultas durante el horario laboral, indexación durante las horas sin picos) y utilice estos datos para informar en las futuras decisiones de aprovisionamiento del servicio. Aunque no resulta práctico en una cadencia horaria o diaria, puede ajustar dinámicamente las particiones y los recursos para ajustarse a los cambios planeados en el volumen de consultas o cambios no planeados pero sostenidos si los niveles se mantienen para justificar la toma de medidas.
 
 + Recuerde que la única desventaja de un aprovisionamiento inferior es que es posible que deba anular un servicio si los requisitos reales son mayores que los estimados. Para evitar la interrupción del servicio, se crea un nuevo servicio en la misma suscripción en un nivel superior y se ejecuta en paralelo hasta que todas las solicitudes y las aplicaciones se dirijan al nuevo punto de conexión.
 

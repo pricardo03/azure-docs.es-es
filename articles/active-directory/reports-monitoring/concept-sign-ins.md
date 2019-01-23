@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5607dd0f3c682915f1a64edcc5e946491bab5279
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: e1b1102594e7e4470c08cb0f18068dd368c0fe7a
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653363"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245096"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de inicio de sesión en el portal de Azure Active Directory
 
@@ -44,7 +44,7 @@ Este tema ofrece una visión general del reporte de inicios de sesión.
 * Además, cualquier usuario (no administradores) puede acceder a sus propios inicios de sesión 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>¿Qué licencia de Azure AD se necesita para acceder a la actividad de inicio de sesión?
-* El inquilino debe tener una licencia de Azure AD Premium asociada para ver el informe de actividades de inicio de sesión activas. Consulte [Introducción a Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para actualizar la edición de Azure Active Directory.
+* El inquilino debe tener una licencia de Azure AD Premium asociada para ver el informe de actividades de inicio de sesión activas. Consulte [Introducción a Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) para actualizar la edición de Azure Active Directory. Tenga en cuenta que si no tuvo ningún dato de las actividades antes de la actualización, los datos tardarán un par de días en mostrarse en los informes después de actualizar a una licencia prémium.
 
 ## <a name="sign-ins-report"></a>Informe de inicios de sesión
 
@@ -54,7 +54,7 @@ El informe de inicios de sesión de usuario proporciona respuestas a las pregunt
 * ¿Cuántos usuarios han iniciado sesión en una semana?
 * ¿Cuál es el estado de estos inicios de sesión?
 
-Se puede tener acceso al informe de inicios de sesión si, desde [Azure Portal](https://portal.azure.com), selecciona **Azure Active Directory** > **Actividad** > **Inicios de sesión**.
+Se puede tener acceso al informe de inicios de sesión si, desde [Azure Portal](https://portal.azure.com), selecciona **Azure Active Directory** > **Actividad** > **Inicios de sesión**. Tenga en cuenta que algunos registros de inicio de sesión pueden tardar hasta dos horas antes de aparecer en el portal.
 
 ![Actividad de inicio de sesión](./media/concept-sign-ins/61.png "Actividad de inicio de sesión")
 
@@ -233,6 +233,12 @@ Al hacer clic en un día del gráfico de uso de la aplicación, obtendrá una li
 La opción **Inicios de sesión** ofrece una descripción completa de todos los eventos de inicio de sesión para sus aplicaciones.
 
 ![Actividad de inicio de sesión](./media/concept-sign-ins/11.png "Actividad de inicio de sesión")
+
+## <a name="office-365-activity-logs"></a>Registros de actividad de Office 365
+
+Puede ver los registros de actividad de Office 365 desde el [Centro de administración de Office 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Aunque los registros de actividad de Office 365 y Azure AD comparten muchos de los recursos del directorio, solo el Centro de administración de Office 365 proporciona una vista completa de los registros de actividad de Office 365. 
+
+También puede tener acceso a los registros de actividad de Office 365 mediante programación con las [API de administración de Office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

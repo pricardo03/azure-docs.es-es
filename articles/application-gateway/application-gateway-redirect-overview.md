@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2017
 ms.author: amsriva
-ms.openlocfilehash: e6352873ea055965b433fbf3e6e46162890e5fec
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: d05d509b67fd26c958e0e2fa2bbd877db26e6521
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33200712"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232216"
 ---
 # <a name="application-gateway-redirect-overview"></a>Introducción a la redirección de Application Gateway
 
@@ -35,4 +35,4 @@ Con este cambio, los clientes tendrían que crear un nuevo objeto de configuraci
 
 ### <a name="next-steps"></a>Pasos siguientes
 
-[Configuración de la redirección de direcciones URL en una puerta de enlace de aplicaciones](application-gateway-configure-redirect-powershell.md)
+[Configuración de la redirección de HTTP a HTTPS en una puerta de enlace de aplicaciones](redirect-http-to-https-portal.md)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: de89756a3f9ef1139e855da16c0343a9919b56cb
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: d57a7baafc533aee52ec8012d410d5f25b510b60
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585381"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359959"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Automatización de la implementación de la máquina virtual de Azure con Chef
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -29,44 +29,50 @@ Chef es una fantástica herramienta para ofrecer automatización y las configura
 
 Con la versión de API de nube más reciente, Chef proporciona una perfecta integración con Azure, lo que ofrece la posibilidad de aprovisionar e implementar los estados de configuración mediante un único comando.
 
-En este artículo, configurará su entorno de Chef para aprovisionar máquinas virtuales de Azure y se le guiará en la creación de una directiva o "CookBook" y, a continuación, implementará esta guía en una máquina virtual de Azure.
-
-Vamos a comenzar
+En este artículo, se configura un entorno de Chef para aprovisionar máquinas virtuales de Azure y se le guía por la creación de una directiva o "libro de recetas", y su posterior implementación en una máquina virtual de Azure.
 
 ## <a name="chef-basics"></a>Conceptos básicos de Chef
-Antes de comenzar, [revise los conceptos básicos de Chef](http://www.chef.io/chef). 
+Antes de comenzar, [revise los conceptos básicos de Chef](http://www.chef.io/chef).
 
 El diagrama siguiente muestra la arquitectura Chef de alto nivel.
 
 ![][2]
 
-Chef tiene tres componentes de arquitectura principales: servidor de Chef, cliente de Chef (nodo) y estación de trabajo de Chef.
+La arquitectura de Chef tiene tres componentes principales: el servidor Chef, el cliente Chef (nodo) y la estación de trabajo Chef.
 
-El servidor Chef es el punto de administración y hay dos opciones para el servidor Chef: una solución hospedada o una solución local. En este tutorial vamos a usar una solución hospedada.
+El servidor Chef es el punto de administración y hay dos opciones para el servidor Chef: una solución hospedada o una solución local.
 
 El cliente Chef (nodo) es el agente que se encuentra en los servidores que está administrando.
 
-La estación de trabajo Chef es la estación de trabajo de administración donde se crean las directivas y se ejecutan los comandos de administración. Ejecutamos el comando **knife** desde la estación de trabajo Chef para administrar la infraestructura.
+La estación de trabajo Chef es el nombre tanto de la estación de trabajo de administración en la que se crean directivas y se ejecutan comandos de administración como del paquete de software de las herramientas de Chef.
 
-También está el concepto de "Guías" y "Recetas". Estas son efectivamente las directivas que definimos y aplicamos a los servidores.
+Por lo general, verá _su estación de trabajo_ como la ubicación en la que puede realizar acciones y la _estación de trabajo Chef_ como el paquete de software.
+Por ejemplo, el comando de knife se descargará como parte de la _estación de trabajo Chef_, pero los comandos de knife que administran la infraestructura se ejecutan desde _su estación de trabajo_.
 
-## <a name="preparing-the-workstation"></a>Preparar la estación de trabajo
-En primer lugar, vamos a preparar la estación de trabajo. Estoy usando una estación de trabajo de Windows estándar. Es necesario crear un directorio para almacenar las guías y archivos de configuración.
+Chef también usa los conceptos de "libros de recetas" y "recetas", que son realmente las directivas que definimos y aplicamos a los servidores.
 
-En primer lugar, cree un directorio denominado C:\chef.
+## <a name="preparing-your-workstation"></a>Preparación de la estación de trabajo
 
-A continuación, cree un segundo directorio denominado c:\chef\cookbooks.
+En primer lugar, prepare la estación de trabajo mediante la creación de un directorio que almacene archivos de configuración de Chef y libros de recetas.
 
-Ahora es necesario descargar el archivo de configuración de Azure para que Chef pueda comunicarse con la suscripción de Azure.
+Cree un directorio denominado C:\chef.
 
-Descargue la configuración de publicación con el comando [Get-AzurePublishSettingsFile](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0) de Azure PowerShell. 
+Descargue su [configuración de publicación](https://docs.microsoft.com/en-us/dynamics-nav/how-to--download-and-import-publish-settings-and-subscription-information) de Azure PowerShell.
 
-Guarde el archivo de configuración de publicación en C:\chef.
+## <a name="setup-chef-server"></a>Configuración del servidor Chef
 
-## <a name="creating-a-managed-chef-account"></a>Crear una cuenta de Chef administrada
-Regístrese para una cuenta de Chef hospedada [aquí](https://manage.chef.io/signup).
+En esta guía se da por supuesto que se registrará para Hosted Chef.
 
-Durante el proceso de registro, se le pedirá que cree una nueva organización.
+Si no usa un servidor Chef, puede:
+
+* Registrarse para obtener [Hosted Chef](https://manage.chef.io/signup), que es la forma más rápida de empezar a usar Chef.
+* Instalar un servidor Chef independiente en el equipo con Linux siguiendo las [instrucciones de instalación](https://docs.chef.io/install_server.html) de [Chef Docs](https://docs.chef.io/).
+
+### <a name="creating-a-hosted-chef-account"></a>Creación de una cuenta de Hosted Chef
+
+Para disfrutar de una cuenta de Hosted Chef, regístrese [aquí](https://manage.chef.io/signup).
+
+Durante el proceso de registro, se le pedirá que cree una organización.
 
 ![][3]
 
@@ -76,56 +82,124 @@ Cuando se cree la organización, descargue el starter kit.
 
 > [!NOTE]
 > Si recibe un mensaje que le advierte que se restablecerán las claves, está bien continuar como si no tuviéramos ninguna infraestructura existente configurada todavía.
-> 
-> 
+>
 
-El archivo zip del starter kit contiene sus claves y archivos de configuración de la organización.
+El archivo zip de Starter Kit contiene los archivos de configuración y la clave de usuario de la organización que están en el directorio `.chef`.
 
-## <a name="configuring-the-chef-workstation"></a>Configurar la estación de trabajo de Chef
-Extraiga el contenido de chef-starter.zip en C:\chef.
+`organization-validator.pem` debe descargarse por separado, porque es una clave privada y las claves privadas no se deben almacenar en el servidor Chef. En [Chef Manage](https://manage.chef.io/), seleccione "Reset Validation Key" (Restablecer clave de validación), que proporciona un archivo que se descarga por separado. Guarde el archivo en c:\chef.
+
+### <a name="configuring-your-chef-workstation"></a>Configuración de la estación de trabajo Chef
+
+Extraiga el contenido del archivo chef-starter.zip en c:\chef.
 
 Copie todos los archivos de chef-starter\chef-repo\.chef en el directorio c:\chef.
 
+Copie el archivo `organization-validator.pem` en c:\chef, si se guarda en c:\Downloads
+
 El directorio debería tener ahora un aspecto similar al siguiente ejemplo.
 
-![][5]
+```powershell
+    Directory: C:\Users\username\chef
 
-Debería tener ahora cuatro archivos, incluido el archivo de publicación de Azure en la raíz de c:\chef.
+Mode           LastWriteTime    Length Name
+----           -------------    ------ ----
+d-----    12/6/2018   6:41 PM           .chef
+d-----    12/6/2018   5:40 PM           chef-repo
+d-----    12/6/2018   5:38 PM           cookbooks
+d-----    12/6/2018   5:38 PM           roles
+-a----    12/6/2018   5:38 PM       495 .gitignore
+-a----    12/6/2018   5:37 PM      1678 azuredocs-validator.pem
+-a----    12/6/2018   5:38 PM      1674 user.pem
+-a----    12/6/2018   5:53 PM       414 knife.rb
+-a----    12/6/2018   5:38 PM      2341 README.md
+```
 
-Los archivos PEM contienen sus claves privadas de organización y administración para la comunicación mientras que el archivo knife.rb archivo contiene la configuración de knife. Tendremos que editar el archivo knife.rb.
+Ahora debería tener cinco archivos y cuatro directorios (incluido el directorio chef-repo vacío) en la raíz de c:\chef.
 
-Abra el archivo en el editor que desee y quite /../ de la ruta de acceso para modificar "cookbook_path" de forma que aparezca como se muestra a continuación.
+### <a name="edit-kniferb"></a>Edición de knife.rb
 
-    cookbook_path  ["#{current_dir}/cookbooks"]
+Los archivos PEM contienen sus claves privadas de organización y administración para la comunicación y el archivo knife.rb contiene la configuración de knife. Tendremos que editar el archivo knife.rb.
+
+Abra el archivo knife.rb en el editor que prefiera. El archivo sin modificar debe ser similar a este:
+
+```rb
+current_dir = File.dirname(__FILE__)
+log_level           :info
+log_location        STDOUT
+node_name           "mynode"
+client_key          "#{current_dir}/user.pem"
+chef_server_url     "https://api.chef.io/organizations/myorg"
+cookbook_path       ["#{current_dir}/cookbooks"]
+```
+
+Agregue la siguiente información a knife.rb:
+
+validation_client_name   "myorg-validator" validation_key           ""#{current_dir}/myorg.pem"
 
 Agregue además la siguiente línea que refleja el nombre de su archivo de configuración de publicación de Azure.
 
     knife[:azure_publish_settings_file] = "yourfilename.publishsettings"
 
-El archivo knife.rb ahora debería ser ahora similar al siguiente ejemplo.
+Modifique "cookbook_path", para lo que debe quitar /../ de la ruta de acceso de forma que aparezca como se muestra a continuación:
 
-![][6]
+    cookbook_path  ["#{current_dir}/cookbooks"]
 
 Estas líneas asegurarán las referencias de Knife en el directorio de cookbooks en c:\chef\cookbooks y también usa nuestro archivo de configuración de publicación de Azure durante las operaciones de Azure.
 
-## <a name="installing-the-chef-development-kit"></a>Instalar el kit de desarrollo de Chef
-A continuación, [descargue e instale](http://downloads.getchef.com/chef-dk/windows) ChefDK (Kit de desarrollo de Chef) para configurar su estación de trabajo de Chef.
+Ahora el archivo knife.rb debería ser ahora similar al del siguiente ejemplo:
 
-![][7]
+![][6]
 
-Instálelo en su ubicación predeterminada de c:\opscode. Esta instalación tardará unos 10 minutos.
+<!--- Giant problem with this section: Chef 12 uses a config.rb instead of knife.rb
+// However, the starter kit hasn't been updated
+// So, I don't think this will even work on the modern Chef -->
 
-Confirme que la variable PATH contiene entradas para C:\opscode\chefdk\bin;C:\opscode\chefdk\embedded\bin;c:\users\yourusername\.chefdk\gem\ruby\2.0.0\bin
+<!--- update image [6] knife.rb -->
 
-Si no están ahí, asegúrese de agregar estas rutas de acceso.
+```rb
+knife.rb
+current_dir = File.dirname(__FILE__)
+log_level                :info
+log_location             STDOUT
+node_name                "mynode"
+client_key               "#{current_dir}/user.pem"
+chef_server_url          "https://api.chef.io/organizations/myorg"
+validation_client_name   "myorg-validator"
+validation_key           ""#{current_dir}/myorg.pem"
+cookbook_path            ["#{current_dir}/cookbooks"]
+knife[:azure_publish_settings_file] = "yourfilename.publishsettings"
+```
+
+## <a name="install-chef-workstation"></a>Instalación de la estación de trabajo Chef
+
+A continuación, [descargue e instale](https://downloads.chef.io/chef-workstation/) la estación de trabajo Chef.
+Instale la estación de trabajo Chef en la ubicación predeterminada. Esta instalación puede tardar unos minutos.
+
+En el escritorio, verá "CW PowerShell", que es un entorno que se carga con la herramienta que se necesita para interactuar con los productos de Chef. CW PowerShell permite usar nuevos comandos ad-hoc, como `chef-run`, así como comandos tradicionales de la CLI de Chef, como `chef`. Consulte la versión instalada de la estación de trabajo Chef y de las herramientas de Chef con `chef -v`. También puede consultar la versión de la estación de trabajo. Para ello, debe seleccionar "About Chef Workstation" (Acerca de la estación de trabajo Chef) en la aplicación de la estación de trabajo Chef.
+
+`chef --version` debe devolver algo similar a esto:
+
+```
+Chef Workstation: 0.2.29
+  chef-run: 0.2.2
+  Chef Client: 14.6.47x
+  delivery-cli: master (6862f27aba89109a9630f0b6c6798efec56b4efe)
+  berks: 7.0.6
+  test-kitchen: 1.23.2
+  inspec: 3.0.12
+```
 
 > [!NOTE]
-> El orden de la ruta de acceso es importante. Si las rutas de acceso de opscode no están en el orden correcto, tendrá problemas. 
-> 
+> El orden de la ruta de acceso es importante.  Si las rutas de acceso de opscode no están en el orden correcto, tendrá problemas.
+>
 
 Reinicie la estación de trabajo antes de continuar.
 
-A continuación, instalaremos la extensión de Knife Azure. De esta se proporciona a Knife el "complemento de Azure".
+### <a name="install-knife-azure"></a>Instalación de Knife Azure
+
+En este tutorial se da por supuesto que usa Azure Resource Manager para interactuar con su máquina virtual.
+
+Instale la extensión de Knife Azure. De esta se proporciona a Knife el "complemento de Azure".
 
 Ejecute el siguiente comando.
 
@@ -133,8 +207,8 @@ Ejecute el siguiente comando.
 
 > [!NOTE]
 > El argumento –pre garantiza que está recibiendo la versión de RC más reciente del complemento Knife Azure que ofrece acceso al conjunto más reciente de API.
-> 
-> 
+>
+>
 
 Es probable que también se instalen varias dependencias al mismo tiempo.
 
@@ -146,18 +220,19 @@ Para garantizar que todo esté configurado correctamente, ejecute el siguiente c
 
 Si todo está configurado correctamente, verá una lista de imágenes de Azure disponibles en desplazamiento.
 
-¡Enhorabuena! Se ha configurado la estación de trabajo.
+¡Enhorabuena! La estación de trabajo está configurada.
 
 ## <a name="creating-a-cookbook"></a>Crear una guía
-Chef usa las guías para definir un conjunto de comandos que desea ejecutar en el cliente administrado. La creación de una guía es un proceso sencillo y usamos el comando **chef generate cookbook** para generar la plantilla de Cookbook. Llamaré a mi servidor web de Cookbook ya que me gustaría una directiva que implemente IIS automáticamente.
+
+Chef usa las guías para definir un conjunto de comandos que desea ejecutar en el cliente administrado. La creación de un libro de recetas es un proceso sencillo, solo haya que usar el comando **chef generate cookbook** para generar la plantilla del libro de recetas. Dicho libro de recetas es para un servidor web que implementa IIS automáticamente.
 
 En el directorio C:\Chef, ejecute el siguiente comando.
 
     chef generate cookbook webserver
 
-Esto generará un conjunto de archivos en el directorio C:\Chef\cookbooks\webserver. Ahora es necesario definir el conjunto de comandos que nos gustaría que el cliente de Chef ejecutara en la máquina virtual administrada.
+Este comando genera un conjunto de archivos en el directorio C:\Chef\cookbooks\webserver. A continuación, defina el conjunto de comandos que el cliente Chef ejecutara en la máquina virtual administrada.
 
-Los comandos se almacenan en el archivo default.rb. En este archivo, definiré un conjunto de comandos que instala IIS, inicia IIS y copia un archivo de plantilla en la carpeta wwwroot.
+Los comandos se almacenan en el archivo default.rb. En dicho archivo, defina un conjunto de comandos que instala IIS, inicia IIS y copia un archivo de plantilla en la carpeta wwwroot.
 
 Modifique el archivo C:\chef\cookbooks\webserver\recipes\default.rb y agregue las siguientes líneas.
 
@@ -178,27 +253,27 @@ Modifique el archivo C:\chef\cookbooks\webserver\recipes\default.rb y agregue la
 Cuando haya terminado, guarde el archivo.
 
 ## <a name="creating-a-template"></a>Crear una plantilla
-Como mencionamos anteriormente, tenemos que generar un archivo de plantilla que se usará como la página default.html.
+En este paso, generará un archivo de plantilla que se va a utilizar como la página default.html.
 
-Ejecute el siguiente comando para generar la plantilla.
+Ejecute el siguiente comando para generar la plantilla:
 
     chef generate template webserver Default.htm
 
-Ahora navegue al archivo C:\chef\cookbooks\webserver\templates\default\Default.htm.erb. Edite el archivo agregando el código HTML simple "Hello World" y guarde el archivo.
+Vaya al archivo `C:\chef\cookbooks\webserver\templates\default\Default.htm.erb`. Edite el archivo agregando el código HTML simple "Hello World" y guarde el archivo.
 
 ## <a name="upload-the-cookbook-to-the-chef-server"></a>Cargar la guía en el servidor Chef
-En este paso, tomamos una copia de la guía que creamos en la máquina local y la cargamos en el servidor hospedado de Chef. Cuando se cargue, la guía aparecerá en la pestaña **Directiva** .
+En este paso se realiza una copia de la guía que se ha creado en el equipo local y se cargamos en el servidor hospedado de Chef. Una vez que se carga, la guía aparece en la pestaña **Policy** (Directiva).
 
     knife cookbook upload webserver
 
 ![][9]
 
 ## <a name="deploy-a-virtual-machine-with-knife-azure"></a>Implementar una máquina virtual con Knife Azure
-Ahora implementaremos una máquina virtual de Azure y aplicaremos la guía "Webserver" que instalará el servicio web de IIS y la página web predeterminada.
+Implemente una máquina virtual de Azure y aplique la guía "Webserver", que instalará el servicio web de IIS y la página web predeterminada.
 
 Para ello, use el comando **knife azure server create** .
 
-A continuación aparecerá un ejemplo del comando.
+A continuación aparece un ejemplo del comando.
 
     knife azure server create --azure-dns-name 'diegotest01' --azure-vm-name 'testserver01' --azure-vm-size 'Small' --azure-storage-account 'portalvhdsxxxx' --bootstrap-protocol 'cloud-api' --azure-source-image 'a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-Datacenter-201411.01-en.us-127GB.vhd' --azure-service-location 'Southeast Asia' --winrm-user azureuser --winrm-password 'myPassword123' --tcp-endpoints 80,3389 --r 'recipe[webserver]'
 
@@ -206,10 +281,10 @@ Los parámetros son totalmente explicativos. Sustituir sus variables concretas y
 
 > [!NOTE]
 > Mediante la línea de comandos, también estoy automatizando mis reglas de filtro de red de punto de conexión mediante el parámetro –tcp-endpoints. He abierto los puertos 80 y 3389 para proporcionar acceso a mi página web y la sesión de RDP.
-> 
-> 
+>
+>
 
-Cuando haya ejecutado el comando, pase al Portal de Azure y verá que su máquina comienza a aprovisionar.
+Cuando haya ejecutado el comando, vaya a Azure Portal y verá que el equipo comienza a realizar el aprovisionamiento.
 
 ![][13]
 
@@ -217,15 +292,15 @@ A continuación aparecerá el símbolo del sistema:
 
 ![][10]
 
-Cuando haya finalizado la implementación, deberíamos podremos conectarnos al servicio web en el puerto 80 como habíamos abierto el puerto cuando aprovisionamos la máquina virtual con el comando Knife Azure. Como esta máquina virtual es la única máquina virtual de mi servicio en la nube, la conectaré con la dirección url del servicio en la nube.
+Cuando haya finalizado la implementación, debería poder conectarse al servicio web a través del puerto 80, ya que lo abrió al aprovisionar la máquina virtual con el comando de Knife Azure. Como esta máquina virtual es la única que hay en este servicio en la nube, conéctela con la dirección URL del servicio en la nube.
 
 ![][11]
 
-Como puede observar, me ha entrado la creatividad con mi código HTML.
+En este ejemplo se utiliza código HTML creativo.
 
-No olvide que también podemos conectarnos mediante una sesión RDP desde Azure Portal a través del puerto 3389.
+No olvide que también puede conectarse mediante una sesión RDP desde Azure Portal a través del puerto 3389.
 
-Espero que esto les haya resultado útil. Empiece hoy su viaje de su infraestructura como código con Azure.
+Gracias. Empiece hoy su viaje de su infraestructura como código con Azure.
 
 <!--Image references-->
 [2]: media/chef-automation/2.png

@@ -1,40 +1,41 @@
 ---
-title: Configuración de la herramienta de revisión de Content Moderator | Microsoft Docs
-description: Configure u obtenga su equipo, etiquetas, conectores, flujos de trabajo y credenciales.
+title: 'Configuración de la herramienta de revisión de Content Moderator: Content Moderator'
+titlesuffix: Azure Cognitive Services
+description: Configure u recupere su equipo, etiquetas, conectores, flujos de trabajo y credenciales.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 06/25/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 2ffed5e561cf9988ec10ecb7e10318d148281057
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 8717eb58538889e99938164f97f10c010f87d6a5
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51851545"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262955"
 ---
-# <a name="review-tool-settings"></a>Configuración de la herramienta de revisión #
+# <a name="configure-review-tool-settings"></a>Configuración de la herramienta de revisión
 
 Mediante la pestaña de configuración del panel de la herramienta de revisión, es fácil definir y cambiar muchos componentes.
 
 ![Configuración de revisión de Content Moderator](images/settings-1.png)
 
-## <a name="team-and-subteams"></a>Equipo y subequipos ## 
+## <a name="team-and-subteams"></a>Equipo y subequipos
 
 Administre su equipo y subequipos desde esta pestaña. Solo puede tener un equipo, pero puede [crear varios subequipos](subteams.md) y enviar invitaciones a futuros miembros. Después de que se han enviado las invitaciones, puede supervisarlas, cambiar los permisos de los miembros del equipo e invitar a más usuarios. Una vez que los miembros del equipo han aceptado la invitación, puede asignarlos a subequipos diferentes. Puede definir roles de administrador o revisor para los miembros del equipo: los administradores pueden invitar a otros usuarios, mientras que los revisores no.
 
 ![Configuración de equipos de Content Moderator](images/settings-2-team.png)
 
-## <a name="tags"></a>Etiquetas ##
+## <a name="tags"></a>Etiquetas
 
 Aquí es donde puede [definir etiquetas personalizadas](tags.md); para ello, escriba un código, un nombre y una descripción cortos para las etiquetas. Después de haberlas creado, están disponible durante las revisiones. Puede usar etiquetas diferentes para diferentes revisiones con solo activar o desactivar la visibilidad.
 
 ![Configuración de etiquetas de Content Moderator](images/settings-3-tags.png)
 
-## <a name="connectors"></a>Conectores ##
+## <a name="connectors"></a>Conectores
 
 Los flujos de trabajo agregan funcionalidad por medio de conectores para comunicarse con la herramienta de revisión. La herramienta de revisión llama a las API de Content Moderator con el flujo de trabajo predeterminado para moderar el contenido. Cuando se registra en la herramienta de revisión, las credenciales de la API de Moderator se proporcionan automáticamente. También se admite la integración de otras API de conector, siempre y cuando haya un conector disponible. Algunos conectores están disponibles inmediatamente.
 
@@ -42,13 +43,13 @@ La pestaña [Connectors](connectors.md) (Conectores) es donde se administran los
 
 ![Configuración de conectores de Content Moderator](images/settings-4-connectors.png)
 
-## <a name="workflows"></a>Flujos de trabajo ##
+## <a name="workflows"></a>Flujos de trabajo
 
 Administre flujos de trabajo desde la pestaña de flujos de trabajo. Puede probar los flujos de trabajo mediante la carga de un archivo de ejemplo. También puede [definir flujos de trabajo personalizados](workflows.md) de imagen y texto mediante los conectores de API disponibles (que se encuentran en la pestaña de conectores). 
 
 ![Configuración de flujos de trabajo de Content Moderator](images/settings-5-workflows.png)
 
-## <a name="credentials"></a>Credenciales ##
+## <a name="credentials"></a>Credenciales
 
 En esta pestaña se proporciona acceso rápido a la clave de suscripción de Content Moderator. Esta clave la necesitará para usar las API que se incluye con Content Moderator (Image Moderation, Text Moderation, List Management, Workflow y Review).
  

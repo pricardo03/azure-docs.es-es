@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 01/14/2019
 ms.author: jeffgilb
-ms.reviewer: ''
-ms.openlocfilehash: 21a6eeb4b0a83574be4c5c996e43d9867c3249d0
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.reviewer: unknown
+ms.openlocfilehash: 1b533c945fdcfc3d1072a7d8a513126ca3f1f72a
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185739"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303591"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Características y conceptos clave de Azure Stack
 Si nunca ha usado Microsoft Azure Stack, estos términos y las descripciones de las características pueden resultar útiles.
@@ -129,23 +129,13 @@ El almacenamiento en cola de Azure proporciona mensajería en la nube entre comp
 El RP KeyVault proporciona administración y auditoría de secretos, como contraseñas y certificados. Por ejemplo, un inquilino puede utilizar el RP KeyVault para proporcionar contraseñas o claves de administrador durante la implementación de máquinas virtuales.
 
 ## <a name="high-availability-for-azure-stack"></a>Alta disponibilidad para Azure Stack
-*Se aplica a: Azure Stack 1802 o versiones posteriores*
+Para conseguir la alta disponibilidad de un sistema de producción con varias VM en Azure, las VM se colocan en un [conjunto de disponibilidad](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) que las distribuye a varios dominios de error y dominios de actualización. En la escala más pequeña de Azure Stack, un dominio de error en un conjunto de disponibilidad se define como un único nodo en la unidad de escalado.  
 
-Para conseguir la alta disponibilidad de un sistema de producción con varias máquinas virtuales en Azure, las máquinas virtuales se colocan en un conjunto de disponibilidad que las distribuye a varios dominios de error y dominios de actualización. De este modo, [las máquinas virtuales implementadas en conjuntos de disponibilidad](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) se aíslan físicamente entre sí en bastidores de servidores independientes para permitir la resistencia ante errores, tal como se muestra en el diagrama siguiente:
-
-  ![Alta disponibilidad de Azure Stack](media/azure-stack-key-features/high-availability.png)
-
-### <a name="availability-sets-in-azure-stack"></a>Conjuntos de disponibilidad en Azure Stack
 Si bien la infraestructura de Azure Stack ya es resistente ante errores, la tecnología subyacente (clústeres de conmutación por error) de todos modos tiene cierto tiempo de inactividad de las máquinas virtuales en un servidor físico si se produce un error de hardware. Azure Stack admite un conjunto de disponibilidad con un máximo de tres dominios de error para coherencia con Azure.
 
 - **Dominios de error**. Las máquinas virtuales colocadas en conjuntos de disponibilidad se aislarán físicamente entre sí al distribuirlas de la manera más uniforme que sea posible en varios dominios de error (nodos de Azure Stack). Si se produce un error de hardware, las máquinas virtuales del dominio de error que presente el error se reiniciarán en otros dominios de error pero, si es posible, se mantendrán en dominios de error independientes de las otras máquinas virtuales que se encuentran en el mismo conjunto de disponibilidad. Cuando el hardware vuelva a estar en línea, las máquinas virtuales se volverán a equilibrar para mantener la alta disponibilidad. 
  
 - **Dominios de actualización**. Los dominios de actualización son otro concepto de Azure que proporciona alta disponibilidad en los conjuntos de disponibilidad. Un dominio de actualización es un grupo lógico de hardware adyacente que puede someterse a mantenimiento al mismo tiempo. Las máquinas virtuales que se encuentran en el mismo dominio de actualización se reiniciarán en conjunto durante el mantenimiento planeado. Cuando los inquilinos crean máquinas virtuales dentro de un conjunto de disponibilidad, la plataforma de Azure las distribuye de manera automática entre estos dominios de actualización. En Azure Stack, las máquinas virtuales se migran en vivo entre los otros hosts en línea del clúster antes de que se actualice su host subyacente. Como no hay tiempo de inactividad para el inquilino durante una actualización del host, la característica de dominio de actualización de Azure Stack solo existe para compatibilidad de plantilla con Azure. 
-
-### <a name="upgrade-scenarios"></a>Actualización de los escenarios 
-Las máquinas virtuales en conjuntos de disponibilidad que se crearon antes de la versión 1802 de Azure Stack tienen un número predeterminado de dominios de error y de actualización (1 y 1 respectivamente). Para conseguir la alta disponibilidad para las máquinas virtuales de estos conjuntos de disponibilidad preexistentes, primero debe eliminar las máquinas virtuales existente y luego volver a implementarlas en un conjunto de disponibilidad nuevo con el número correcto de dominios de error y de actualización que se describe en [Cambio del conjunto de disponibilidad de una máquina virtual Windows](https://docs.microsoft.com/azure/virtual-machines/windows/change-availability-set). 
-
-En el caso de los conjuntos de escalado de máquinas virtuales, se crea internamente un conjunto de disponibilidad con un número predeterminado de dominios de error y de dominios de actualización (3 y 5 respectivamente). Cualquier conjunto de escalado de máquinas virtuales que se haya creado antes de la actualización 1802 se colocará en un conjunto de disponibilidad con el número predeterminado de dominios de error y de dominios de actualización (1 y 1 respectivamente). Con el fin de actualizar estas instancias de conjuntos de escalado de máquinas virtuales para lograr distribuir las nuevas, escale de manera horizontal los conjuntos de escalado de máquinas virtuales según el número de instancias que había antes de la actualización 1802 y, luego, elimine las instancias anteriores de los conjuntos de escalado de máquinas virtuales. 
 
 ## <a name="role-based-access-control-rbac"></a>Control de acceso basado en roles (RBAC)
 RBAC se puede usar para conceder acceso al sistema a usuarios, grupos y servicios autorizados asignándoles roles a nivel de suscripción, grupo de recursos o recurso individual. Cada rol define el nivel de acceso que un usuario, grupo o servicio tiene sobre los recursos de Microsoft Azure Stack.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 90fb6eadb2edb92d4516d8565d8c2c2bd5120c05
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 976b46a26d95b5e252b0df2383ea94b4dd280d24
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094192"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229632"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Información sobre los módulos de Azure IoT Edge
 
@@ -30,7 +30,7 @@ Azure IoT Edge permite implementar y administrar lógica de negocios en el perí
 Las imágenes de módulo de IoT Edge contienen las aplicaciones que aprovechan las características de administración, seguridad y comunicación de la instancia de IoT Edge en tiempo de ejecución. Puede desarrollar sus propias imágenes de módulo o exportar una desde un servicio de Azure compatible, como Azure Stream Analytics.
 Las imágenes se encuentran en la nube y pueden actualizarse, cambiarse e implementarse en diferentes soluciones. Por ejemplo, un módulo que utiliza el aprendizaje automático para predecir la salida de la línea de producción actúa como una imagen independiente de un módulo que utiliza Computer Vision para controlar un dron. 
 
-Cada vez que una imagen de módulo se implementa en un dispositivo y se inicia mediante la instancia de IoT Edge en tiempo de ejecución, se crea una instancia de ese módulo. Dos dispositivos en distintas partes del mundo pudieron utilizar la misma imagen de módulo; sin embargo, cada uno tendría su propia instancia de módulo cuando el módulo se inició en el dispositivo. 
+Cada vez que una imagen de módulo se implementa en un dispositivo y se inicia mediante la instancia de IoT Edge en tiempo de ejecución, se crea una instancia de ese módulo. Dos dispositivos en distintas partes del mundo podrían usar la misma imagen de módulo. Sin embargo, cada dispositivo tendría su propia instancia de módulo cuando este se inicie en el dispositivo. 
 
 ![Diagrama: imágenes de módulo en la nube e instancias de módulo en dispositivos](./media/iot-edge-modules/image_instance.png)
 
@@ -73,9 +73,9 @@ Azure IoT Edge permite realizar operaciones sin conexión en los dispositivos Io
 Los módulos de IoT Edge pueden permanecer sin conexión durante largos períodos de tiempo siempre que se cumplan los requisitos siguientes: 
 
 * **Que no haya expirado el período de vida (TTL)**. El valor predeterminado para el TTL de un mensaje es de dos horas, pero puede aumentarse o reducirse en Microsoft Azure Store y reenviar la configuración del centro de IoT Edge. 
-* **Que los módulos no tengan que volver a autenticarse con el centro de IoT Edge cuando estén sin conexión**. Los módulos solo pueden autenticarse con centros de Edge que tengan una conexión activa con un centro de IoT. Los módulos tienen que volver a autenticarse si se reinician por algún motivo. Los módulos pueden seguir enviando mensajes al centro de Edge aunque el token de SAS haya expirado. Cuando se reanuda la conectividad, el centro de Edge solicita un nuevo token desde el módulo y lo valida con el centro de IoT. Si es correcto, el centro de Edge reenvía los mensajes del módulo que están guardados, incluso lo que se enviaron mientras el token del módulo estaba vencido. 
-* **Que el módulo que envía los mensajes mientras no hay conexión siga en funcionamiento cuando se reanude la conectividad**. Cuando se restablece la conexión con IoT Hub, el centro de Edge tiene que validar un nuevo token del módulo (si el anterior venció) para poder reenviar los mensajes del módulo. Si el módulo no es capaz de proporcionar un nuevo token, el centro de Edge no puede realizar ninguna operación con los mensajes almacenados del módulo. 
-* **Que el centro de Edge tenga espacio en disco para almacenar los mensajes**. De forma predeterminada, los mensajes se guardan en el sistema de archivos del contenedor del centro de Edge. No obstante, hay una opción de configuración que permite especificar un volumen montado para guardar los mensajes. En cualquier caso, debe haber espacio en disco suficiente para guardar los mensajes que se van a entregar en diferido a IoT Hub.  
+* **Que los módulos no tengan que volver a autenticarse con el centro de IoT Edge cuando estén sin conexión**. Los módulos solo pueden autenticarse con centros de IoT Edge que tengan una conexión activa con un centro de IoT. Los módulos tienen que volver a autenticarse si se reinician por algún motivo. Los módulos pueden seguir enviando mensajes al centro de IoT Edge aunque el token de SAS haya expirado. Cuando se reanuda la conectividad, el centro de IoT Edge solicita un nuevo token desde el módulo y lo valida con el centro de IoT. Si es correcto, el centro de IoT Edge reenvía los mensajes del módulo que están guardados, incluso lo que se enviaron mientras el token del módulo estaba vencido. 
+* **Que el módulo que envía los mensajes mientras no hay conexión siga en funcionamiento cuando se reanude la conectividad**. Cuando se restablece la conexión con IoT Hub, el centro de IoT Edge tiene que validar un nuevo token del módulo (si el anterior venció) para poder reenviar los mensajes del módulo. Si el módulo no es capaz de proporcionar un nuevo token, el centro de IoT Edge no puede realizar ninguna operación con los mensajes almacenados del módulo. 
+* **Que el centro de IoT Edge tenga espacio en disco para almacenar los mensajes**. De forma predeterminada, los mensajes se guardan en el sistema de archivos del contenedor del centro de IoT Edge. No obstante, hay una opción de configuración que permite especificar un volumen montado para guardar los mensajes. En cualquier caso, debe haber espacio en disco suficiente para guardar los mensajes que se van a entregar en diferido a IoT Hub.  
 
 Hay capacidades sin conexión adicionales disponibles en la versión preliminar pública. Para obtener más información, consulte [Understand extended offline capabilities for IoT Edge devices, modules, and child devices](offline-capabilities.md) (Entender las capacidades sin conexión extendidas para dispositivos IoT Edge, módulos y dispositivos secundarios).
 

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/26/2017
+ms.date: 01/10/2019
 ms.author: ergreenl
-ms.openlocfilehash: c424ae1865a710593e509372dc2424c0b8b516a0
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: ed89954836fe262ba60f7401bd7b040e87b60101
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155174"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215191"
 ---
 # <a name="azure-active-directory-ad-domain-services"></a>Azure Active Directory (AD) Domain Services
 ## <a name="overview"></a>Información general
@@ -65,10 +65,10 @@ Algunos aspectos destacables del dominio administrado que aprovisionan los Servi
 ### <a name="azure-ad-domain-services-for-hybrid-organizations"></a>Servicios de dominio de Azure AD para organizaciones híbridas
 Las organizaciones con una infraestructura de TI híbrida consumen una combinación de recursos de nube y locales. Tales organizaciones sincronizan la información de identidad de su directorio local con su inquilino de Azure AD. Como las organizaciones híbridas buscan migrar más de sus aplicaciones locales a la nube, en especial las aplicaciones heredadas que tienen en cuenta el directorio, Azure AD Domain Services puede resultarles muy útiles.
 
-Litware Corporation ha implementado [Azure AD Connect](../active-directory/hybrid/whatis-hybrid-identity.md), con el fin de sincronizar la información de identidad de su directorio local con su inquilino de Azure AD. La información de identidad que se sincroniza incluye las cuentas de usuario, sus valores de hash de credenciales para la autenticación (sincronización de contraseñas) y las pertenencias a grupos.
+Litware Corporation ha implementado [Azure AD Connect](../active-directory/hybrid/whatis-hybrid-identity.md), con el fin de sincronizar la información de identidad de su directorio local con su inquilino de Azure AD. La información de identidad que se sincroniza incluye las cuentas de usuario, sus valores de hash de credenciales para la autenticación (sincronización de hash de contraseñas) y las pertenencias a grupos.
 
 > [!NOTE]
-> **La sincronización de contraseñas es obligatoria para las organizaciones híbridas para usar Azure AD Domain Services**. El motivo de este requisito es que se necesitan las credenciales de los usuarios en el dominio administrado proporcionado por Azure AD Domain Services para autenticar a estos usuarios mediante los métodos de autenticación NTLM o Kerberos.
+> **La sincronización de hash de contraseñas es obligatoria para que las organizaciones híbridas usen Azure AD Domain Services**. El motivo de este requisito es que se necesitan las credenciales de los usuarios en el dominio administrado proporcionado por Azure AD Domain Services para autenticar a estos usuarios mediante los métodos de autenticación NTLM o Kerberos.
 >
 >
 

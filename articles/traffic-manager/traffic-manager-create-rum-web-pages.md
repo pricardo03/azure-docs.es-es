@@ -4,6 +4,7 @@ description: Configuración de páginas web para enviar medidas de usuarios real
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -12,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 19a641ba86333047b90c36cef242d524ccad5fe1
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: c994190ed4ccbd8e5b90f17b70ec6b65477fb0d8
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138193"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232012"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Envío de medidas de usuarios reales a Azure Traffic Manager mediante páginas web
 
@@ -35,13 +36,13 @@ Para obtener la clave RUM con Azure Portal:
  
   ![Generación de una clave de Real User Measurements](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
-   **Figura 1: Generación de la clave de Real User Measurements**
+   **Figura 1: Generación de la clave de Mediciones de usuario reales**
 
 5. La hoja muestra ahora la clave RUM generada y un fragmento de código de JavaScript que debe insertarse en la página HTML.
  
     ![Código JavaScript para la clave de Real User Measurements](./media/traffic-manager-create-rum-web-pages/rum-javascript-code.png)
 
-    **Figura 2: Clave de Real User Measurements y JavaScript de medida**
+    **Figura 2: Clave de Mediciones de usuario reales y JavaScript de medida**
  
 6.  Haga clic en el botón **Copiar** para copiar el código JavaScript. 
 
@@ -57,7 +58,7 @@ Después de haber obtenido la clave RUM, el siguiente paso es insertar este cód
  
     ![Inserción de código JavaScript en la página web para Real User Measurements](./media/traffic-manager-create-rum-web-pages/real-user-measurement-embed-script.png)  
 
-    **Figura 3: HTML simple con JavaScript insertado de Real User Measurements**
+    **Figura 3: HTML simple con JavaScript insertado de Mediciones de usuario reales**
 
 3.  Guarde el archivo HTML y hospédelo en un servidor web conectado a Internet. 
 4. La próxima vez que se represente la página en un explorador web, el código JavaScript al que se hace referencia se descarga y el script ejecuta las operaciones de medidas e informes.

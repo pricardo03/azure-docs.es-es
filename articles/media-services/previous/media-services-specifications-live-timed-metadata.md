@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: johndeu;
-ms.openlocfilehash: b4dec5430d93cd2634fc541ae688a6bc425f5491
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: f29efb9a58c0b269f64d637fa3c5d59bb3610bbc
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384690"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265897"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Señalización de metadatos con tiempo en streaming en vivo
 
@@ -89,7 +89,7 @@ Para el modo simple de RTMP, Media Services admite un único mensaje de pila de 
 
 ---------------------------
 
-#### <a name="211-cancelation-and-updates"></a>2.1.1 Cancelación y actualizaciones
+#### <a name="211-cancellation-and-updates"></a>2.1.1 Cancelación y actualizaciones
 
 Los mensajes se pueden cancelar o actualizar mediante el envío de varios mensajes con el mismo tiempo de presentación y el mismo identificador. El tiempo de presentación y el identificador identifican de forma exclusiva el evento. El último mensaje recibido durante un tiempo de presentación específico que cumple las restricciones de cuña anterior es el mensaje sobre el que se actúa. El evento actualizado reemplaza a todos los mensajes recibidos con anterioridad. La restricción de cuña anterior es de cuatro segundos. Se actuará sobre aquellos mensajes recibidos al menos cuatro segundos antes del tiempo de presentación.
 
@@ -157,7 +157,7 @@ El cuadro MediaDataBox ('mdat') DEBE tener el formato siguiente:
 ------------------------------
 
 
-### <a name="224-cancelation-and-updates"></a>2.2.4 Cancelación y actualizaciones
+### <a name="224-cancellation-and-updates"></a>2.2.4 Cancelación y actualizaciones
 Los mensajes se pueden cancelar o actualizar mediante el envío de varios mensajes con el mismo tiempo de presentación y el mismo identificador.  El tiempo de presentación y el identificador identifican de forma exclusiva el evento. El último mensaje recibido durante un tiempo de presentación específico que cumple las restricciones de cuña anterior es el mensaje sobre el que se actúa. El mensaje actualizado reemplaza a todos los mensajes recibidos con anterioridad.  La restricción de cuña anterior es de cuatro segundos. Se actuará sobre aquellos mensajes recibidos al menos cuatro segundos antes del tiempo de presentación. 
 
 

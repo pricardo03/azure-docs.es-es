@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 01/07/2019
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 2bb9d69487b8576cdae60a1a613a341898495f06
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a354d5d0242bfdbb618eb325c8157a7bed3d3b64
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904084"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263684"
 ---
-# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procedimiento: Configuración de la notificación de rol emitida en el token SAML para aplicaciones empresariales
+# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Control de Configuración de la notificación de rol emitida en el token SAML para aplicaciones empresariales
 
 Mediante Azure Active Directory (Azure AD) se puede personalizar el tipo de notificación de la notificación de rol en el token de respuesta que se recibe después de autorizar una aplicación.
 
@@ -59,7 +59,7 @@ Si la aplicación espera que se pasen roles personalizados en una respuesta de S
 
 6. Abra el [Probador de Azure AD Graph](https://developer.microsoft.com/graph/graph-explorer) en otra ventana y siga estos pasos:
 
-    a. Inicie sesión en el sitio del Probador de Graph con las credenciales de administrador o coadministrador global del inquilino.
+     a. Inicie sesión en el sitio del Probador de Graph con las credenciales de administrador o coadministrador global del inquilino.
 
     b. Para crear los roles es preciso tener permisos suficientes. Seleccione **Modificar permisos** para obtener los permisos.
 
@@ -151,25 +151,29 @@ Si la aplicación espera que se pasen roles personalizados en una respuesta de S
 
 8. Actualice la tabla **Atributos** para definir una asignación personalizada de la notificación de rol.
 
-9. En la sección **Atributos de usuario** del cuadro de diálogo **Inicio de sesión único**, configure el atributo del token SAML, como muestra la imagen y siga estos pasos.
+9. En la sección **Atributos y reclamaciones del usuario** del cuadro de diálogo **Inicio de sesión único**, configure el atributo del token SAML, como muestra la imagen y siga estos pasos.
 
     | Nombre del atributo | Valor de atributo |
     | -------------- | ----------------|
     | Nombre de rol  | user.assignedroles |
 
-    a. Seleccione **Agregar atributo** para abrir el panel **Agregar atributo**.
+     a. Haga clic en el botón **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
+
+      ![Botón "Agregar atributo"](./media/active-directory-enterprise-app-role-management/editattribute.png)
+
+    b. Seleccione **Agregar atributo** para abrir el panel **Administrar las notificaciones del usuario**.
 
       ![Botón "Agregar atributo"](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 
       ![Panel "Agregar atributo"](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
 
-    b. En el cuadro **Nombre**, escriba el nombre de atributo según sea necesario. En este ejemplo se utiliza **Role Name** como nombre de la notificación.
-
-    c. En la lista **Valor**, seleccione el atributo que se muestra para esa fila.
+    c. En el cuadro **Nombre**, escriba el nombre de atributo según sea necesario. En este ejemplo se utiliza **Role Name** como nombre de la notificación.
 
     d. Deje el cuadro **Espacio de nombres** en blanco.
 
-    e. Seleccione **Aceptar**.
+    e. En la lista **Atributo de origen**, escriba el valor de atributo que se muestra para esa fila.
+
+    f. Seleccione **Guardar**.
 
 10. Para probar la aplicación en un inicio de sesión único iniciado por un proveedor de identidades, inicie sesión en el [Panel de acceso](https://myapps.microsoft.com) y seleccione el icono de la aplicación. En el token SAML, debería ver todos los roles asignados al usuario con el nombre de notificación que les ha dado.
 
@@ -203,7 +207,7 @@ Para actualizar un rol existente, siga estos pasos:
 
     ![Cuerpo de la solicitud para "PATCH," con "description" y "displayname" resaltados](./media/active-directory-enterprise-app-role-management/graph-explorer-patchupdate.png)
 
-    a. Cambie el método de **GET** a **PATCH**.
+     a. Cambie el método de **GET** a **PATCH**.
 
     b. Copie los roles existentes y péguelos en **Cuerpo de la solicitud**.
 
@@ -241,7 +245,7 @@ Para eliminar un rol existente, siga estos pasos:
 
     ![Cuerpo de la solicitud de "PATCH" con IsEnabled establecido en false](./media/active-directory-enterprise-app-role-management/graph-explorer-new8.png)
 
-    a. Cambie el método de **GET** a **PATCH**.
+     a. Cambie el método de **GET** a **PATCH**.
 
     b. Copie los roles existentes de la aplicación y péguelos en **Cuerpo de la solicitud**.
 

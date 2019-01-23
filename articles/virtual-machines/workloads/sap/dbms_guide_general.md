@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5e514f35567f4be0932c7bcc591cbd0f05cd9814
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 87d3a44b01dff81242f935c7737bd170fe744536
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606765"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246881"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -133,7 +133,11 @@ Azure impone una cuota de IOPS por disco de datos. Estas cuotas son diferentes p
 
 > [!NOTE]
 > Para poder beneficiarse del [Contrato de nivel de servicio para Máquinas virtuales único](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) de Azure, todos los discos conectados deben ser del tipo Azure Premium Storage, incluido el disco duro virtual base.
->
+
+
+> [!NOTE]
+> No se permite hospedar archivos de bases de datos principales (datos y archivos de registro) de bases de datos SAP en hardware de almacenamiento ubicado en centros de datos de terceros colocados y subyacentes a centros de datos de Azure. Para cargas de trabajo de SAP, solo el almacenamiento que se representa como un servicio nativo de Azure se admite para archivos de registro de transacciones y datos de base de datos SAP.
+> 
 
 La colocación de los archivos de base de datos y de registro o fase de puesta al día, y el tipo de Azure Storage que se use, se debe definir en función de los requisitos de IOPS, latencia y rendimiento. Con el fin de disponer de IOPS suficiente, es posible que tenga que usar varios discos o un disco de Premium Storage de mayor tamaño. En el caso de usar varios discos, crearía una sección de software entre los discos, con los archivos de datos o los de registro y fase de puesta al día. En esos casos, los contratos de nivel de servicio de IOPS y rendimiento de disco de los discos de Premium Storage subyacentes o la cantidad máxima de IOPS que se puede alcanzar de los discos de Azure Standard Storage son acumulativos para el espacio seccionado resultante.
 

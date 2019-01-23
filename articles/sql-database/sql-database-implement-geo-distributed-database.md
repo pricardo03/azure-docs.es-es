@@ -11,183 +11,116 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: e16e10067f358d90f801a80eec32fba4e14c017e
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/03/2018
+ms.openlocfilehash: 679a02c760d8b37d94a734bc9b023ed8fe59acad
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599678"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198191"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>Tutorial: Implementar una base de datos distribuida geográficamente
 
-En este tutorial, configurará una instancia de Azure SQL Database y una aplicación para realizar conmutación por error a una región remota y, luego, probar el plan de conmutación por error. Aprenderá a:
+Configure una instancia de Azure SQL Database y una aplicación para realizar conmutación por error a una región remota y probar un plan de conmutación por error. Aprenderá a:
 
 > [!div class="checklist"]
-> - Crear usuarios de base de datos y concederles permisos
-> - Configurar una regla de firewall de nivel de base de datos
 > - Cree un [grupo de conmutación por error](sql-database-auto-failover-group.md).
-> - Crear y compilar una aplicación de Java para consultar una instancia de Azure SQL Database
-> - Obtener detalles de recuperación ante desastres
+> - Ejecutar una aplicación de Java para consultar una instancia de Azure SQL Database
+> - Conmutación por error de prueba
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
+Para completar el tutorial, asegúrese de que instaló los elementos siguientes:
 
-- Versión más reciente de [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) instalada.
-- Instancia de Azure SQL Database instalada. En este tutorial se usa la base de datos de ejemplo AdventureWorksLT con el nombre **mySampleDatabase** proveniente de uno de estos inicios rápidos:
+- [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+- Una base de datos SQL de Azure. Para crear uno, use:
+  - [Portal](sql-database-get-started-portal.md)
+  - [CLI](sql-database-cli-samples.md)
+  - [PowerShell](sql-database-powershell-samples.md)
 
-  - [Creación de la base de datos: Azure Portal](sql-database-get-started-portal.md)
-  - [Creación de la base de datos: CLI](sql-database-cli-samples.md)
-  - [Creación de la base de datos: PowerShell](sql-database-powershell-samples.md)
+  > [!NOTE]
+  > El tutorial usa la base de datos de ejemplo de *AdventureWorksLT*.
 
-- Si ha identificado un método para ejecutar scripts SQL en la base de datos, puede usar una de las herramientas de consulta siguientes:
-  - El editor de consultas de [Azure Portal](https://portal.azure.com). Para más información sobre el empleo del editor de consultas de Azure Portal, vea [Connect and query using Query Editor](sql-database-get-started-portal.md#query-the-sql-database) (Conectar y consultar mediante el editor de consultas).
-  - La versión más reciente de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms), que es un entorno integrado para administrar cualquier infraestructura de SQL, desde SQL Server hasta SQL Database para Microsoft Windows.
-  - La versión más reciente de [Visual Studio Code](https://code.visualstudio.com/docs), que es un editor de código gráfico para Linux, macOS y Windows que admite extensiones, incluida la [extensión mssql](https://aka.ms/mssql-marketplace) para realizar consultas en Microsoft SQL Server, Azure SQL Database y SQL Data Warehouse. Para más información sobre el empleo de esta herramienta con Azure SQL Database, vea [Connect and query with VS Code](sql-database-connect-query-vscode.md) (Conectar y consultar con VS Code).
+- Java y Maven, consulte [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/)(Compilar una aplicación con SQL Server), resalte **Java**, seleccione su entorno y, después, siga los pasos.
 
-## <a name="create-database-users-and-grant-permissions"></a>Crear usuarios de base de datos y concederles permisos
-
-Conéctese a la base de datos y cree cuentas de usuario con una de las herramientas de consulta siguientes:
-
-- El editor de consultas de Azure Portal
-- SQL Server Management Studio
-- Visual Studio Code
-
-Estas cuentas de usuario se replican automáticamente en el servidor secundario (y se mantienen sincronizadas). Para usar SQL Server Management Studio o Visual Studio Code, es posible que tenga que configurar una regla de firewall si se conecta desde un cliente en una dirección IP para la que todavía no tiene configurado un firewall. Para consultar los pasos detallados, vea [Create a server-level firewall rule](sql-database-get-started-portal-firewall.md) (Crear una regla de firewall de nivel de servidor).
-
-- En una ventana de consulta, ejecute la consulta siguiente para crear dos cuentas de usuario en la base de datos. Este script concede permisos **db_owner** a la cuenta **app_admin** y permisos **SELECT** y **UPDATE** a la cuenta **app_user**.
-
-   ```sql
-   CREATE USER app_admin WITH PASSWORD = 'ChangeYourPassword1';
-   --Add SQL user to db_owner role
-   ALTER ROLE db_owner ADD MEMBER app_admin;
-   --Create additional SQL user
-   CREATE USER app_user WITH PASSWORD = 'ChangeYourPassword1';
-   --grant permission to SalesLT schema
-   GRANT SELECT, INSERT, DELETE, UPDATE ON SalesLT.Product TO app_user;
-   ```
-
-## <a name="create-database-level-firewall"></a>Creación de firewall de nivel de base de datos
-
-Cree una [regla de firewall de nivel de base de datos](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) para la base de datos SQL. Esta regla de firewall de nivel de base de datos se replica automáticamente en el servidor secundario que se crea en este tutorial. Para simplificar (en este tutorial), use la dirección IP pública del equipo en el que está realizando los pasos de este tutorial. Para determinar la dirección IP usada para la regla de firewall de nivel de servidor del equipo actual, vea [Create a server-level firewall](sql-database-get-started-portal-firewall.md) (Crear un firewall de nivel de servidor).  
-
-- En la ventana de consulta abierta, reemplace la consulta anterior por la consulta siguiente y reemplace las direcciones IP por las direcciones IP adecuadas para el entorno.  
-
-   ```sql
-   -- Create database-level firewall setting for your public IP address
-   EXECUTE sp_set_database_firewall_rule @name = N'myGeoReplicationFirewallRule',@start_ip_address = '0.0.0.0', @end_ip_address = '0.0.0.0';
-   ```
+> [!IMPORTANT]
+> Asegúrese de configurar las reglas de firewall para usar la dirección IP pública del equipo en el que está realizando los pasos de este tutorial. Las reglas de firewall a nivel de base de datos se replicarán automáticamente al servidor secundario.
+>
+> Para obtener más información, vea [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) (Creación de una regla de firewall a nivel de base de datos) o, para determinar la dirección IP que usa la regla de firewall a nivel de base de datos para el equipo, vea [Create a server-level firewall](sql-database-get-started-portal-firewall.md) (Crear un firewall de nivel de servidor).  
 
 ## <a name="create-a-failover-group"></a>Creación de un grupo de conmutación por error
 
-Gracias a Azure PowerShell, podrá crear un [grupo de conmutación por error](sql-database-auto-failover-group.md) entre la instancia existente de Azure SQL Server y la nueva instancia vacía de Azure SQL Server en una región de Azure, y luego agregar la base de datos de ejemplo al grupo de conmutación por error.
+Con Azure PowerShell, cree [grupos de conmutación por error](sql-database-auto-failover-group.md) entre un servidor SQL Azure existente y uno nuevo en otra región. A continuación, agregue la base de datos de ejemplo al grupo de conmutación por error.
 
 > [!IMPORTANT]
-> Estos cmdlets necesitan Azure PowerShell 4.0. [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
->
+> [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
 
-1. Rellene las variables de los scripts de PowerShell con los valores del servidor existente y la base de datos de ejemplo y proporcione un valor único global para el nombre del grupo de conmutación por error.
-
-   ```powershell
-   $adminlogin = "ServerAdmin"
-   $password = "ChangeYourAdminPassword1"
-   $myresourcegroupname = "<your resource group name>"
-   $mylocation = "<your resource group location>"
-   $myservername = "<your existing server name>"
-   $mydatabasename = "mySampleDatabase"
-   $mydrlocation = "<your disaster recovery location>"
-   $mydrservername = "<your disaster recovery server name>"
-   $myfailovergroupname = "<your unique failover group name>"
-   ```
-
-2. Cree un servidor de copia de seguridad vacío en la región de conmutación por error.
+Para crear un grupo de conmutación por error, ejecute el siguiente script:
 
    ```powershell
-   $mydrserver = New-AzureRmSqlServer -ResourceGroupName $myresourcegroupname `
-      -ServerName $mydrservername `
-      -Location $mydrlocation `
-      -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
-   $mydrserver
+    # Set variables for your server and database
+    $adminlogin = "<your admin>"
+    $password = "<your password>"
+    $myresourcegroupname = "<your resource group name>"
+    $mylocation = "<your resource group location>"
+    $myservername = "<your existing server name>"
+    $mydatabasename = "<your database name>"
+    $mydrlocation = "<your disaster recovery location>"
+    $mydrservername = "<your disaster recovery server name>"
+    $myfailovergroupname = "<your globally unique failover group name>"
+
+    # Create a backup server in the failover region
+    New-AzureRmSqlServer -ResourceGroupName $myresourcegroupname `
+       -ServerName $mydrservername `
+       -Location $mydrlocation `
+       -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
+          -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
+
+    # Create a failover group between the servers
+    New-AzureRMSqlDatabaseFailoverGroup `
+       –ResourceGroupName $myresourcegroupname `
+       -ServerName $myservername `
+       -PartnerServerName $mydrservername  `
+       –FailoverGroupName $myfailovergroupname `
+       –FailoverPolicy Automatic `
+       -GracePeriodWithDataLossHours 2
+
+    # Add the database to the failover group
+    Get-AzureRmSqlDatabase `
+       -ResourceGroupName $myresourcegroupname `
+       -ServerName $myservername `
+       -DatabaseName $mydatabasename | `
+     Add-AzureRmSqlDatabaseToFailoverGroup `
+       -ResourceGroupName $myresourcegroupname `
+       -ServerName $myservername `
+       -FailoverGroupName $myfailovergroupname
    ```
 
-3. Cree un grupo de conmutación por error entre los dos servidores.
+Las opciones de configuración de replicación geográfica también pueden cambiarse en Azure Portal mediante la selección de la base de datos y, después, **Configuración** > **Replicación geográfica**.
 
-   ```powershell
-   $myfailovergroup = New-AzureRMSqlDatabaseFailoverGroup `
-      –ResourceGroupName $myresourcegroupname `
-      -ServerName $myservername `
-      -PartnerServerName $mydrservername  `
-      –FailoverGroupName $myfailovergroupname `
-      –FailoverPolicy Automatic `
-      -GracePeriodWithDataLossHours 2
-   $myfailovergroup
-   ```
+![Configuración de la replicación geográfica](./media/sql-database-implement-geo-distributed-database/geo-replication.png)
 
-4. Agregue la base de datos al grupo de conmutación por error.
+## <a name="run-the-sample-project"></a>Ejecución del proyecto de ejemplo
 
-   ```powershell
-   $myfailovergroup = Get-AzureRmSqlDatabase `
-      -ResourceGroupName $myresourcegroupname `
-      -ServerName $myservername `
-      -DatabaseName $mydatabasename | `
-    Add-AzureRmSqlDatabaseToFailoverGroup `
-      -ResourceGroupName $myresourcegroupname ` `
-      -ServerName $myservername `
-      -FailoverGroupName $myfailovergroupname
-   $myfailovergroup
-   ```
-
-## <a name="install-java-software"></a>Instalación del software de Java
-
-En esta sección se da por hecho que está familiarizado con el desarrollo mediante Java y que nunca ha utilizado Azure SQL Database.
-
-### <a name="mac-os"></a>Mac OS
-
-Abra el terminal y desplácese hasta el directorio donde planea crear su proyecto de Java. Escriba los siguientes comandos para instalar **brew** y **Maven**:
-
-```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew update
-brew install maven
-```
-
-Para obtener instrucciones detalladas sobre la instalación y la configuración del entorno de Java y Maven, vaya a [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/) (Crear una aplicación con SQL Server), seleccione **Java**, **MacOS** y luego siga las instrucciones detalladas para configurar Java y Maven del paso 1.2 y 1.3.
-
-### <a name="linux-ubuntu"></a>Linux (Ubuntu)
-
-Abra el terminal y desplácese hasta el directorio donde planea crear su proyecto de Java. Escriba los siguientes comandos para instalar **Maven**:
-
-```bash
-sudo apt-get install maven
-```
-
-Para obtener instrucciones detalladas sobre la instalación y la configuración del entorno de Java y Maven, vaya a [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/) (Crear una aplicación con SQL Server), seleccione **Java**, **Ubuntu** y luego siga las instrucciones detalladas para configurar Java y Maven del paso 1.2, 1.3 y 1.4.
-
-### <a name="windows"></a> Windows
-
-Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial. Use Maven para ayudar a administrar dependencias, compilar, probar y ejecutar el proyecto de Java. Para obtener instrucciones detalladas sobre la instalación y la configuración del entorno de Java y Maven, vaya a [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/) (Crear una aplicación con SQL Server), seleccione **Java**, Windows y luego siga las instrucciones detalladas para configurar Java y Maven del paso 1.2 y 1.3.
-
-## <a name="create-sqldbsample-project"></a>Crear proyecto SqlDbSample
-
-1. En la consola de comandos (por ejemplo, Bash), cree un proyecto de Maven.
+1. En la consola, cree un proyecto de Maven con el siguiente comando:
 
    ```bash
    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
    ```
 
-2. Escriba **Y** y haga clic en **Entrar**.
-3. Cambie el directorio al proyecto recién creado.
+1. Escriba **Y** y presione **ENTRAR**.
+
+1. Cambie los directorios al nuevo proyecto.
 
    ```bash
-   cd SqlDbSamples
+   cd SqlDbSample
    ```
 
-4. Con el editor que prefiera, abra el archivo pom.xml de la carpeta del proyecto.
+1. Con el editor que prefiera, abra el archivo *pom.xml* de la carpeta del proyecto.
 
-5. Agregue la dependencia Microsoft JDBC Driver para SQL Server al proyecto de Maven. Para ello, abra el editor de texto preferido y copie y pegue las líneas siguientes en el archivo pom.xml. No sobrescriba los valores existentes ya rellenados en el archivo. La dependencia JDBC se debe pegar en la sección "dependencias" de mayor tamaño ( ).
+1. Agregue la dependencia Microsoft JDBC Driver para SQL Server mediante la adición de la sección `dependency` siguiente. La dependencia se debe pegar en la sección `dependencies` de mayor tamaño.
 
    ```xml
    <dependency>
@@ -197,7 +130,7 @@ Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial
    </dependency>
    ```
 
-6. Especifique la versión de Java con la que compilar el proyecto. Para ello, agregue la siguiente sección "propiedades" al archivo pom.xml tras la sección "dependencias".
+1. Especifique la versión de Java mediante la adición de la sección `properties` después de la sección `dependencies`:
 
    ```xml
    <properties>
@@ -206,7 +139,7 @@ Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial
    </properties>
    ```
 
-7. Agregue la siguiente sección "compilación" al archivo pom.xml tras la sección "propiedades" para admitir archivos de manifiesto en archivos JAR.
+1. Admita archivos de manifiesto agregando la sección `build` después de la sección `properties`:
 
    ```xml
    <build>
@@ -227,8 +160,9 @@ Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial
    </build>
    ```
 
-8. Guarde y cierre el archivo pom.xml.
-9. Abra el archivo App.java (C:\apache-maven-3.5.0\SqlDbSample\src\main\java\com\sqldbsamples\App.java) y sustituya el contenido por el siguiente. Sustituya el nombre del grupo de conmutación por error por el nombre de su grupo de conmutación por error. Si ha cambiado los valores de nombre de base de datos, usuario o contraseña, cambie también esos valores.
+1. Guarde y cierre el archivo *pom.xml*.
+
+1. Abra el archivo *App.java* ubicado en ..\SqlDbSample\src\main\java\com\sqldbsamples y sustituya el contenido por el código siguiente:
 
    ```java
    package com.sqldbsamples;
@@ -244,14 +178,20 @@ Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial
 
    public class App {
 
-      private static final String FAILOVER_GROUP_NAME = "myfailovergroupname";
+      private static final String FAILOVER_GROUP_NAME = "<your failover group name>";  // add failover group name
   
-      private static final String DB_NAME = "mySampleDatabase";
-      private static final String USER = "app_user";
-      private static final String PASSWORD = "ChangeYourPassword1";
+      private static final String DB_NAME = "<your database>";  // add database name
+      private static final String USER = "<your admin>";  // add database user
+      private static final String PASSWORD = "<your password>";  // add database password
 
-      private static final String READ_WRITE_URL = String.format("jdbc:sqlserver://%s.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", FAILOVER_GROUP_NAME, DB_NAME, USER, PASSWORD);
-      private static final String READ_ONLY_URL = String.format("jdbc:sqlserver://%s.secondary.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", FAILOVER_GROUP_NAME, DB_NAME, USER, PASSWORD);
+      private static final String READ_WRITE_URL = String.format("jdbc:" +
+         "sqlserver://%s.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;" +
+         "hostNameInCertificate=*.database.windows.net;loginTimeout=30;", +
+         FAILOVER_GROUP_NAME, DB_NAME, USER, PASSWORD);
+      private static final String READ_ONLY_URL = String.format("jdbc:" +
+         "sqlserver://%s.secondary.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;" +
+         "hostNameInCertificate=*.database.windows.net;loginTimeout=30;", +
+         FAILOVER_GROUP_NAME, DB_NAME, USER, PASSWORD);
 
       public static void main(String[] args) {
          System.out.println("#######################################");
@@ -264,9 +204,11 @@ Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial
          try {
             for(int i = 1; i < 1000; i++) {
                 //  loop will run for about 1 hour
-                System.out.print(i + ": insert on primary " + (insertData((highWaterMark + i))?"successful":"failed"));
+                System.out.print(i + ": insert on primary " +
+                   (insertData((highWaterMark + i))?"successful":"failed"));
                 TimeUnit.SECONDS.sleep(1);
-                System.out.print(", read from secondary " + (selectData((highWaterMark + i))?"successful":"failed") + "\n");
+                System.out.print(", read from secondary " +
+                   (selectData((highWaterMark + i))?"successful":"failed") + "\n");
                 TimeUnit.SECONDS.sleep(3);
             }
          } catch(Exception e) {
@@ -275,8 +217,9 @@ Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial
    }
 
    private static boolean insertData(int id) {
-      // Insert data into the product table with a unique product name that we can use to find the product again later
-      String sql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
+      // Insert data into the product table with a unique product name so we can find the product again
+      String sql = "INSERT INTO SalesLT.Product " +
+         "(Name, ProductNumber, Color, StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
 
       try (Connection connection = DriverManager.getConnection(READ_WRITE_URL);
               PreparedStatement pstmt = connection.prepareStatement(sql)) {
@@ -293,7 +236,7 @@ Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial
    }
 
    private static boolean selectData(int id) {
-      // Query the data that was previously inserted into the primary database from the geo replicated database
+      // Query the data previously inserted into the primary database from the geo replicated database
       String sql = "SELECT Name, Color, ListPrice FROM SalesLT.Product WHERE Name = ?";
 
       try (Connection connection = DriverManager.getConnection(READ_ONLY_URL);
@@ -308,7 +251,7 @@ Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial
    }
 
    private static int getHighWaterMarkId() {
-      // Query the high water mark id that is stored in the table to be able to make unique inserts
+      // Query the high water mark id stored in the table to be able to make unique inserts
       String sql = "SELECT MAX(ProductId) FROM SalesLT.Product";
       int result = 1;
       try (Connection connection = DriverManager.getConnection(READ_WRITE_URL);
@@ -325,21 +268,21 @@ Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial
    }
    ```
 
-10. Guarde y cierre el archivo App.java.
+1. Guarde y cierre el archivo*App.java*.
 
-## <a name="compile-and-run-the-sqldbsample-project"></a>Compilar y ejecutar el proyecto SqlDbSample
-
-1. En la consola de comandos, ejecute el siguiente comando.
+1. En la consola de comandos, ejecute el siguiente comando:
 
    ```bash
    mvn package
    ```
 
-2. Cuando termine, ejecute el siguiente comando para ejecutar la aplicación (se ejecuta durante aproximadamente una hora a menos que detenga manualmente):
+1. Inicie la aplicación que se ejecutará durante aproximadamente una hora hasta que se detenga manualmente, lo que le proporciona tiempo para ejecutar la prueba de conmutación por error.
 
    ```bash
    mvn -q -e exec:java "-Dexec.mainClass=com.sqldbsamples.App"
+   ```
 
+   ```output
    #######################################
    ## GEO DISTRIBUTED DATABASE TUTORIAL ##
    #######################################
@@ -347,60 +290,52 @@ Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial
    1. insert on primary successful, read from secondary successful
    2. insert on primary successful, read from secondary successful
    3. insert on primary successful, read from secondary successful
+   ...
    ```
 
-## <a name="perform-disaster-recovery-drill"></a>Obtener detalles de recuperación ante desastres
+## <a name="test-failover"></a>Conmutación por error de prueba
 
-1. Llame a la conmutación por error manual del grupo de conmutación por error.
+Ejecute los siguientes scripts para simular una conmutación por error y observar los resultados de la aplicación. Observe cómo se producirán errores en algunas inserciones y selecciones durante la migración de la base de datos.
 
-   ```powershell
-   Switch-AzureRMSqlDatabaseFailoverGroup `
-   -ResourceGroupName $myresourcegroupname  `
-   -ServerName $mydrservername `
-   -FailoverGroupName $myfailovergroupname
-   ```
-
-2. Observe los resultados de la aplicación durante la conmutación por error. Se producirá un error en algunas inserciones mientras se actualiza la caché DNS.
-
-3. Averigüe qué rol realiza el servidor de recuperación ante desastres.
+También puede comprobar el rol del servidor de recuperación ante desastres durante la prueba con el siguiente comando:
 
    ```powershell
-   $mydrserver.ReplicationRole
-   ```
-
-4. Conmutación por recuperación.
-
-   ```powershell
-   Switch-AzureRMSqlDatabaseFailoverGroup `
-   -ResourceGroupName $myresourcegroupname  `
-   -ServerName $myservername `
-   -FailoverGroupName $myfailovergroupname
-   ```
-
-5. Observe los resultados de la aplicación durante la conmutación por recuperación. Se producirá un error en algunas inserciones mientras se actualiza la caché DNS.
-
-6. Averigüe qué rol realiza el servidor de recuperación ante desastres.
-
-   ```powershell
-   $fileovergroup = Get-AzureRMSqlDatabaseFailoverGroup `
+   (Get-AzureRMSqlDatabaseFailoverGroup `
       -FailoverGroupName $myfailovergroupname `
       -ResourceGroupName $myresourcegroupname `
-      -ServerName $mydrservername
-   $fileovergroup.ReplicationRole
+      -ServerName $mydrservername).ReplicationRole
+   ```
+
+Para probar una conmutación por error:
+
+1. Inicie la conmutación por error manual del grupo de conmutación por error:
+
+   ```powershell
+   Switch-AzureRMSqlDatabaseFailoverGroup `
+      -ResourceGroupName $myresourcegroupname `
+      -ServerName $mydrservername `
+      -FailoverGroupName $myfailovergroupname
+   ```
+
+1. Revierta el grupo de conmutación por error al servidor principal:
+
+   ```powershell
+   Switch-AzureRMSqlDatabaseFailoverGroup `
+      -ResourceGroupName $myresourcegroupname `
+      -ServerName $myservername `
+      -FailoverGroupName $myfailovergroupname
    ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a configurar una instancia de Azure SQL Database y una aplicación para realizar la conmutación por error a una región remota y, luego, probar el plan de conmutación por error.  Ha aprendido a:
+En este tutorial, configuró una instancia de Azure SQL Database y una aplicación para realizar la conmutación por error a una región remota y, después, probó el plan de conmutación por error. Ha aprendido a:
 
 > [!div class="checklist"]
-> - Crear usuarios de base de datos y concederles permisos
-> - Configurar una regla de firewall de nivel de base de datos
 > - Crear un grupo de conmutación por error de replicación geográfica
-> - Crear y compilar una aplicación de Java para consultar una instancia de Azure SQL Database
-> - Obtener detalles de recuperación ante desastres
+> - Ejecutar una aplicación de Java para consultar una instancia de Azure SQL Database
+> - Conmutación por error de prueba
 
-Avance al siguiente tutorial para migrar de SQL Server a Instancia administrada de Azure SQL Database mediante DMS.
+Avance al siguiente tutorial sobre cómo migrar mediante DMS.
 
 > [!div class="nextstepaction"]
->[Migración de SQL Server a Instancia administrada de Azure SQL Database mediante DMS](../dms/tutorial-sql-server-to-managed-instance.md)
+> [Migración de SQL Server a una instancia administrada de Azure SQL Database mediante DMS](../dms/tutorial-sql-server-to-managed-instance.md)

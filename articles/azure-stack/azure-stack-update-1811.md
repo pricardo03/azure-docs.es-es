@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 01/15/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: 15f358f76504436dd6a3cf6a39b10531a9e1b376
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2d5c658dabd03eb706c24fbe5e8adb0c46fc65cd
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055173"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267324"
 ---
 # <a name="azure-stack-1811-update"></a>Actualización de Azure Stack 1811
 
@@ -41,8 +41,8 @@ Azure Stack publica revisiones de forma periódica. Asegúrese de instalar la [r
 
 > [!TIP]  
 > Suscríbase a las siguientes fuentes *RRS* o *Atom* para mantenerse al día con las revisiones de Azure Stack:
-> - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … 
-> - Atom: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …
+> - [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
+> - [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
 
 ### <a name="azure-stack-hotfixes"></a>Revisiones de Azure Stack
 
@@ -82,7 +82,7 @@ Azure Stack publica revisiones de forma periódica. Asegúrese de instalar la [r
     then resume the update.
     Exception: The Certificate path does not exist: [certificate path here]` 
  
-    Después de importar correctamente los certificados de host de extensión obligatoria, puede reanudar la actualización 1811 desde el portal de administrador. Aunque Microsoft aconseja a los operadores de Azure Stack que pongan la unidad de escalado en modo de mantenimiento durante el proceso de actualización, un error debido a los certificados de host de extensión que faltan no debería afectar a las cargas de trabajo o los servicios existentes.  
+    Después de importar correctamente los certificados de host de extensión obligatoria, puede reanudar la actualización 1811 desde el portal de administrador. Aunque Microsoft aconseja a los operadores de Azure Stack programar una ventana de mantenimiento durante el proceso de actualización, un error debido a los certificados de host de extensión que faltan no debería afectar a las cargas de trabajo o los servicios existentes.  
 
     Durante la instalación de esta actualización, el portal de usuarios de Azure Stack no estará disponible mientras se configura el host de extensiones. La configuración del host de extensiones puede tardar hasta 5 horas. Durante ese tiempo, puede comprobar el estado de una actualización o reanudar la instalación de una actualización con errores con [el punto de conexión con privilegios elevados o PowerShell de administrador de Azure Stack](azure-stack-monitor-update.md).
 
@@ -254,6 +254,22 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 ### <a name="compute"></a>Proceso
 
 - Al crear una máquina virtual (VM) Windows, la hoja **Configuración** requiere que seleccione un puerto de entrada público para poder continuar. En 1811, esta configuración es necesaria, pero no tiene ningún efecto. Esto se debe a que la característica depende de Azure Firewall, que no está implementado en Azure Stack. Puede seleccionar **No hay puertos de entrada públicos** o cualquiera de las otras opciones para continuar con la creación de máquinas virtuales. La configuración no tendrá ningún efecto.
+
+- Al crear una nueva máquina virtual (VM) Windows, puede aparecer el siguiente error:
+
+   `'Failed to start virtual machine 'vm-name'. Error: Failed to update serial output settings for VM 'vm-name'`
+
+   El error se produce si habilita el diagnóstico de arranque en una VM, pero elimina la cuenta de almacenamiento de diagnósticos de arranque. Para solucionar este problema, vuelva a crear la cuenta de almacenamiento con el mismo nombre que usó anteriormente.
+
+- Al crear una [VM de la serie Dv2](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), las VM D11-14v2 le permitirán crear 4, 8, 16 y 32 discos de datos, respectivamente. Sin embargo, el panel de creación de la VM muestra 8, 16, 32 y 64 discos de datos.
+
+- Los registros de uso en Azure Stack pueden contener mayúsculas inesperadas; por ejemplo:
+
+   `{"Microsoft.Resources":{"resourceUri":"/subscriptions/<subid>/resourceGroups/ANDREWRG/providers/Microsoft.Compute/
+   virtualMachines/andrewVM0002","location":"twm","tags":"null","additionalInfo":
+   "{\"ServiceType\":\"Standard_DS3_v2\",\"ImageType\":\"Windows_Server\"}"}}`
+
+   En este ejemplo, el nombre del grupo de recursos debería ser **AndrewRG**. Puede omitir esta incoherencia sin problemas.
 
 <!-- 3235634 – IS, ASDK -->
 - Para implementar máquinas virtuales con tamaños que contienen un sufijo **v2**; por ejemplo, **Standard_A2_v2**, especifique el sufijo como **Standard_A2_v2** (v minúscula). No use **Standard_A2_V2** (v mayúscula). Esto funciona en Azure global y es una incoherencia en Azure Stack.

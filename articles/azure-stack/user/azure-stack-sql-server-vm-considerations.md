@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: e784185cfc7f2c588db354bab1cfb36934b9c417
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 8e577a95fc3cda3aafe1273cbc6b4e3c4fbb0317
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585873"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304378"
 ---
 # <a name="optimize-sql-server-performance"></a>Optimización del rendimiento de SQL Server
 
@@ -29,7 +29,7 @@ En este artículo se ofrece una guía para optimizar el rendimiento de SQL Serve
 Al crear imágenes de SQL Server, [considere la posibilidad de aprovisionar las máquinas virtuales en el portal de Azure Stack](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). Descargue la Extensión IaaS de SQL de Administración de Marketplace en el portal de administración de Azure Stack y descargue los discos duros virtuales de la máquina virtual SQL de su elección. Estos incluyen SQL2014SP2, SQL2016SP1 y SQL2017.
 
 > [!NOTE]  
-> Mientras que el artículo describe cómo aprovisionar una máquina virtual de SQL Server mediante Azure Portal global, la guía también se aplica a Azure Stack con las siguientes diferencias: SSD no está disponible para el disco del sistema operativo, los discos administrados no están disponibles y existen pequeñas diferencias en la configuración de almacenamiento.
+> Si bien en el artículo se describe cómo aprovisionar una máquina virtual de SQL Server mediante Azure Portal global, las instrucciones se aplican también a Azure Stack con las siguientes diferencias: SSD no está disponible para el disco del sistema operativo, los discos administrados no están disponibles y hay pequeñas diferencias en la configuración del almacenamiento.
 
 Obtener el *mejor* rendimiento de SQL Server en máquinas virtuales de Azure Stack es el objetivo central de este artículo. Si su carga de trabajo es menos exigente, podría no necesitar todas las optimizaciones recomendadas. Tenga en cuenta sus necesidades de rendimiento y patrones de carga de trabajo a medida que evalúe estas recomendaciones.
 
@@ -55,9 +55,9 @@ Para más información sobre *cómo* y *por qué* llevar a cabo estas optimizaci
 
 En aplicaciones sensibles al rendimiento, se recomienda usar los siguientes [tamaños de máquinas virtuales](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes):
 
-- **SQL Server Enterprise Edition**: DS3 o versiones posteriores
+- **SQL Server Enterprise Edition:** DS3 o superior
 
-- **Ediciones de SQL Server Standard y Web**: DS2 o versiones posteriores
+- **Ediciones de SQL Server Standard y Web:** DS2 o superior
 
 Con Azure Stack no hay ninguna diferencia de rendimiento entre la familia de máquinas virtuales de la serie DS y DS_v2.
 
@@ -76,11 +76,11 @@ Al crear una cuenta de almacenamiento en Azure Stack, la opción de replicación
 
 En una máquina virtual de Azure Stack hay tres tipos de disco principales:
 
-- **Disco del sistema operativo**: cuando crea una máquina virtual de Azure Stack, la plataforma conectará al menos un disco (etiquetado como unidad **C**) a la máquina virtual como disco del sistema operativo. El disco es un VHD almacenado como blob en páginas en almacenamiento.
+- **Disco del sistema operativo:** Cuando crea una máquina virtual de Azure Stack, la plataforma conectará al menos un disco (etiquetado como unidad **C**) a la máquina virtual para el disco del sistema operativo. El disco es un VHD almacenado como blob en páginas en almacenamiento.
 
-- **Disco temporal**: las máquinas virtuales de Azure Stack contienen otro disco denominado disco temporal (etiquetado como unidad **D**). Se trata de un disco en el nodo que se puede usar para el espacio de desecho.
+- **Disco temporal:** Las máquinas virtuales de Azure Stack contienen otro disco denominado disco temporal (etiquetados como unidad **D**). Se trata de un disco en el nodo que se puede usar para el espacio de desecho.
 
-- **Discos de datos**: puede conectar más discos a la máquina virtual como discos de datos. Estos se guardarán en el almacenamiento como blobs en páginas.
+- **Discos de datos:** Puede conectar más discos a la máquina virtual como discos de datos. Estos se guardarán en el almacenamiento como blobs en páginas.
 
 En las siguientes secciones se incluyen recomendaciones sobre cómo usar cada uno de estos discos.
 
@@ -101,7 +101,7 @@ Se recomienda almacenar TempDB en un disco de datos, ya que cada disco de datos 
 > [!NOTE]  
 > Al aprovisionar una máquina virtual de SQL Server en el portal, tiene la opción de modificar la configuración de almacenamiento. Según la configuración, Azure Stack configura uno o varios discos. Varios discos se combinan en un único grupo de almacenamiento. Los archivos de datos y de registro residen juntos en esta configuración.
 
-- **Seccionamiento de discos**: para disfrutar de un mayor rendimiento, puede agregar más discos de datos y usar el seccionamiento de discos. Para determinar el número de discos de datos, debe analizar el número de IOPS y ancho de banda necesario para los archivos de registro, así como para los datos y los archivos TempDB. Tenga en cuenta que los límites de IOPS son por disco de datos y se basan en la familia de la serie de máquinas virtuales y no en el tamaño de estas. No obstante, los límites en el ancho de banda de la red, se basan en el tamaño de la máquina virtual. Consulte las tablas de [tamaños de máquina virtual de Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) para más información. Use estas directrices:
+- **Seccionamiento del disco:** Para disfrutar de un mayor rendimiento, puede agregar más discos de datos y usar el seccionamiento de discos. Para determinar el número de discos de datos, debe analizar el número de IOPS y ancho de banda necesario para los archivos de registro, así como para los datos y los archivos TempDB. Tenga en cuenta que los límites de IOPS son por disco de datos y se basan en la familia de la serie de máquinas virtuales y no en el tamaño de estas. No obstante, los límites en el ancho de banda de la red, se basan en el tamaño de la máquina virtual. Consulte las tablas de [tamaños de máquina virtual de Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) para más información. Use estas directrices:
 
     - Para Windows Server 2012 o posterior, use [Espacios de almacenamiento](https://technet.microsoft.com/library/hh831739.aspx) con las siguientes directrices:
 
@@ -120,8 +120,8 @@ Se recomienda almacenar TempDB en un disco de datos, ya que cada disco de datos 
 
 - Determine el número de discos asociados al grupo de almacenamiento en función de sus expectativas de carga. Tenga en cuenta que diferentes tamaños de máquina virtual permiten diferentes números de discos de datos conectados. Para más información, consulte los [Tamaños de máquinas virtuales admitidos en Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes).
 - Para conseguir el máximo posible de IOPS para los discos de datos, es recomendable agregar el número máximo de discos de datos que admita el [tamaño de la máquina virtual](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) y usar el seccionamiento de disco.
-- **Tamaño de unidad de asignación de NTFS**: al formatear el disco de datos, se recomienda usar un tamaño de unidad de asignación de 64 KB para los archivos de datos y de registro, además de TempDB.
-- **Procedimientos recomendados de administración de discos**: al quitar un disco de datos, detenga el servicio SQL Server durante el cambio. Además, no cambie la configuración de caché en los discos ya que esto no supone ninguna mejora del rendimiento.
+- **Tamaño de la unidad de asignación de NTFS:** Al formatear el disco de datos, se recomienda usar un tamaño de unidad de asignación de 64 KB para los archivos de datos y de registro, además de TempDB.
+- **Procedimientos recomendados de administración de discos:** Al quitar un disco de datos, detenga el servicio SQL Server durante el cambio. Además, no cambie la configuración de caché en los discos ya que esto no supone ninguna mejora del rendimiento.
 
 > [!WARNING]  
 > De no detenerse el servicio SQL durante estas operaciones, podrían producirse daños en la base de datos.

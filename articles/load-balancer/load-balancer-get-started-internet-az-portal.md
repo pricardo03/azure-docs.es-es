@@ -1,10 +1,11 @@
 ---
-title: Creación de un equilibrador Standard Load Balancer con redundancia de zona en el front-end mediante Azure Portal
+title: Creación de Load Balancer con redundancia de zona en el front-end con Azure Portal
 titlesuffix: Azure Load Balancer
 description: Aprenda a crear un equilibrador Standard Load Balancer público con redundancia de zona en el front-end para la dirección IP pública mediante Azure Portal
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: fc5dcd76ca8ecfb820a8d157fee9cc0a92bd2d5b
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 2b898a9228e251003a049b2d82c0b1039eb54114
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135701"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247442"
 ---
-#  <a name="create-a-public-standard-load-balancer-with-zone-redundant-frontend-using-azure-portal"></a>Creación de un equilibrador Standard Load Balancer público con redundancia de zona en el front-end mediante Azure Portal
+#  <a name="create-a-standard-load-balancer-with-zone-redundant-frontend-using-azure-portal"></a>Creación de un equilibrador Standard Load Balancer con redundancia de zona en el front-end mediante Azure Portal
 
-Este artículo le ayudará a crear un servicio [Load Balancer Estándar](https://aka.ms/azureloadbalancerstandard) público con front-end con redundancia de zona mediante una dirección IP pública estándar. De manera predeterminada, una dirección IP de front-end única en un equilibrador de carga estándar tiene redundancia de zona.
+Este artículo le ayudará a crear un servicio [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) público con front-end con redundancia de zona mediante una dirección IP pública estándar. De manera predeterminada, una dirección IP de front-end única en un equilibrador de carga estándar tiene redundancia de zona.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

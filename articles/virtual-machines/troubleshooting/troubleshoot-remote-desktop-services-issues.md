@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 904387def0fd8842f196e80cfcf72d9dd1639458
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 3d747f3b8f54dfefe7e96c378eddbce320bcc8f7
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957714"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54215123"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Los Servicios de Escritorio remoto no se inician en la máquina virtual de Azure
 
 En este artículo se describe cómo solucionar problemas de conexión a una máquina virtual (VM) de Azure cuando los Servicios de escritorio remoto (TermService) no se inician o devuelven un error.
 
 > [!NOTE]  
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Azure Resource Manager y el clásico](../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se describe el uso del modelo de implementación del Administrador de recursos. Se recomienda usar este modelo para las nuevas implementaciones, en lugar de usar el modelo de implementación clásica.
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Azure Resource Manager y clásico](../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se describe el uso del modelo de implementación del Administrador de recursos. Se recomienda usar este modelo para las nuevas implementaciones, en lugar de usar el modelo de implementación clásica.
 
 ## <a name="symptoms"></a>Síntomas
 
@@ -37,14 +37,14 @@ Cuando intenta conectarse a una máquina virtual, se encuentra con los siguiente
 
 - Puede ver de forma remota los registros de eventos de la máquina virtual con el Visor de eventos. Verá que los Servicios de escritorio remoto, TermService, no se inician o devuelven un error. A continuación se muestra un registro ejemplo:
 
-    **Nombre del registro:**      System </br>
-    **Origen**:        Service Control Manager </br>
-    **Fecha**:          12/16/2017 11:19:36 AM</br>
-    **Identificador de evento**:      7022</br>
-    **Categoría de tarea:** Ninguna</br>
-    **Nivel:**         Error</br>
-    **Palabras clave:**      Classic</br>
-    **Usuario:**          N/D</br>
+    **Nombre de registro**:      Sistema </br>
+    **Origen**:        Administrador de control de servicios </br>
+    **Fecha**:          16/12/2017 11:19:36 a. m.</br>
+    **Id. de evento**:      7022</br>
+    **Categoría de tarea**: None</br>
+    **Nivel**:         Error</br>
+    **Palabras clave**:      Clásico</br>
+    **Usuario**:          N/D</br>
     **Equipo**:      vm.contoso.com</br>
     **Descripción**: el servicio Servicios de escritorio remoto no responde al iniciarse. 
 
@@ -112,7 +112,7 @@ Para solucionar este problema, utilice la consola serie. O bien, [repare la máq
     
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>El servicio TermService está detenido debido a problema de acceso denegado
 
-1. Conéctese a [Serial Console](serial-console-windows.md#) y abra una instancia de PowerShell.
+1. Conéctese a [Serial Console](serial-console-windows.md) y abra una instancia de PowerShell.
 2. Descargue la herramienta Monitor de procesos ejecutando el siguiente script:
 
    ```

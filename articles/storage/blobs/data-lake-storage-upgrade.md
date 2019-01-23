@@ -8,12 +8,12 @@ ms.author: normesta
 ms.date: 12/19/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 9cdad2f2e56d7c6dfdfb4a3d46a8094c8aead5ac
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: dd8f33cd64728c1a66e5de05734b05ac35a9836b
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631573"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200180"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2-preview"></a>Actualización de las soluciones de análisis de macrodatos de Azure Data Lake Storage Gen1 a Azure Data Lake Storage Gen2 (versión preliminar)
 
@@ -276,7 +276,7 @@ Si la aplicación usa API REST de Data Lake Storage, deberá modificar la aplica
 
 ##### <a name="sdks"></a>SDK
 
-Tal como se indica en la sección *Evaluación de la preparación para la actualización*, actualmente los SDK no están disponibles. Si quiere migrar las aplicaciones a Data Lake Storage Gen2, le recomendamos que espere que los SDK compatibles estén disponibles.
+Tal como se indica en la sección *Evaluación de la preparación para la actualización*, actualmente los SDK no están disponibles. Si quiere migrar las aplicaciones a Data Lake Storage Gen2, le recomendamos que espere a que los SDK compatibles estén disponibles.
 
 ##### <a name="powershell"></a>PowerShell
 

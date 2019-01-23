@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 41509c1f35d42a1e8558299b4244ad515c36ec17
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 607351718ddffbea5fa4dbbae333d81aac230f9a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816062"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258958"
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL Database: compatibilidad con clientes de nivel inferior y cambios de punto de conexión IP para auditoría de tablas
 
@@ -43,7 +43,7 @@ Una lista parcial de "Clientes de nivel inferior" incluye:
 * JDBC (aunque JDBC admite TDS 7.4, la característica de redireccionamiento de TDS no es totalmente compatible)
 * Tedious (para Node.JS)
 
-**Comentario:** la anterior modificación de FDQN de servidor puede resultar útil también para aplicar una directiva de auditoría de nivel de SQL Server sin necesidad de un paso de configuración en cada base de datos (mitigación temporal).
+**Comentario:** La anterior modificación del FDQN del servidor puede resultar útil también para aplicar una directiva de auditoría de nivel de SQL Server sin necesidad de un paso de configuración en cada base de datos (mitigación temporal).
 
 ## <a id="subheading-2"></a>Cambios de punto de conexión IP al habilitar la auditoría
 Tenga en cuenta que cuando se habilita la auditoría de tablas, cambiará el punto de conexión de IP de la base de datos. Si tiene una configuración de firewall estricta, actualice esas opciones de firewall en consecuencia.

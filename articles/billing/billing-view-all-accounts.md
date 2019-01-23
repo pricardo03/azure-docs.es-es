@@ -1,6 +1,6 @@
 ---
 title: Ver todas las cuentas de facturación en Azure Portal | Microsoft Docs
-description: Obtener información sobre cómo ver las cuentas de facturación personales y del Contrato Enterprise en Azure Portal.
+description: Obtenga información sobre cómo ver las cuentas de facturación personales y del Contrato Enterprise en Azure Portal.
 services: ''
 documentationcenter: ''
 author: amberbhargava
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: f27b80a99dbe65d628453c5222ef4fcdf7e0f982
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 61eade9aa4edd3f0d6d32dc5a71d6cb97b1e4651
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580395"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261883"
 ---
 # <a name="view-all-your-billing-accounts-in-azure-portal"></a>Ver todas las cuentas de facturación en Azure Portal  
 

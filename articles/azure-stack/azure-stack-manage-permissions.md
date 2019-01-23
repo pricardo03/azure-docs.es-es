@@ -11,25 +11,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 1/14/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: ab61e1f892f46ad36df741b7a72afcfcbaa0ed87
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 26ce7139b856fc2f8d7d2cad549b3dd3c0f5e406
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44376942"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304693"
 ---
 # <a name="manage-role-based-access-control"></a>Administrar el control de acceso basado en roles
 
-*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
+*Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 En Azure Stack, un usuario puede ser un lector, propietario o colaborador de cada una de las instancias de una suscripción, grupo de recursos o servicio. Por ejemplo, el Usuario A puede tener permisos de lector en la Suscripción 1, pero tener permisos de propietario en la Máquina virtual 7.
 
- - Lector: el usuario puede ver todo el contenido, pero no puede realizar cambios.
- - Colaborador: el usuario pueden administrar todo el contenido, excepto el acceso a los recursos.
- - Propietario: el usuario puede administrar todo el contenido, incluido el acceso a los recursos.
+ - Lector: El usuario puede ver todo, pero no puede hacer cambios.
+ - Colaborador: El usuario puede administrar todo, excepto el acceso a los recursos.
+ - Propietario: El usuario puede administrar todo, incluido el acceso a los recursos.
 
 ## <a name="set-access-permissions-for-a-user"></a>Establecimiento de los permisos de acceso de un usuario
 

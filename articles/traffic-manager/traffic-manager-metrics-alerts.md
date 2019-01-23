@@ -1,8 +1,7 @@
 ---
-title: Métricas y alertas en Azure Traffic Manager | Microsoft Docs
+title: Métricas y alertas en Azure Traffic Manager
 description: En este artículo se describen las métricas disponibles para Traffic Manager en Azure.
 services: traffic-manager
-documentationcenter: ''
 author: KumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,28 +10,28 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
-ms.openlocfilehash: bb7817b082da11de3071925d01a3402902410a6f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0bce0d407246ceab05c3951dc976884dd6f15b08
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437976"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200197"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Métricas y alertas de Traffic Manager
 
-Traffic Manager le proporciona equilibrio de carga basado en DNS, lo que incluye varios métodos de enrutamiento y opciones de supervisión de puntos de conexión. En este artículo se describen las métricas y las alertas asociadas que están a disposición de los clientes. 
+Traffic Manager le proporciona equilibrio de carga basado en DNS, que incluye varios métodos de enrutamiento y opciones de supervisión de puntos de conexión. En este artículo se describen las métricas y las alertas asociadas que están a disposición de los clientes. 
 
 ## <a name="metrics-available-in-traffic-manager"></a>Métricas disponibles en Traffic Manager 
 
-Traffic Manager proporciona las siguientes métricas para cada perfil individual, que los clientes pueden consumir para comprender su uso de Traffic Manager y el estado de sus puntos de conexión con ese perfil.  
+Traffic Manager proporciona las siguientes métricas para cada perfil individual que los clientes pueden usar para comprender su uso de Traffic Manager y el estado de sus puntos de conexión con ese perfil.  
 
 ### <a name="queries-by-endpoint-returned"></a>Consultas devueltas por punto de conexión
-Use [esta métrica](../azure-monitor/platform/metrics-supported.md) para ver el número de consultas que ha procesado un perfil de Traffic Manager durante un periodo determinado. También puede ver la misma información con una granularidad de nivel de punto de conexión, lo que le ayudará a comprender cuántas veces se devolvió un punto de conexión en las respuestas a consultas desde Traffic Manager.
+Use [esta métrica](../azure-monitor/platform/metrics-supported.md) para ver el número de consultas que procesa un perfil de Traffic Manager durante un periodo determinado. También puede ver la misma información con una granularidad de nivel de punto de conexión, lo que le ayudará a comprender cuántas veces se devolvió un punto de conexión en las respuestas a consultas desde Traffic Manager.
 
-En el ejemplo siguiente, la figura 1 muestra todas las respuestas a consultas que ha devuelto el perfil de Traffic Manager. 
+En el ejemplo siguiente, la figura 1 muestra todas las respuestas a consultas que devuelve el perfil de Traffic Manager. 
 
   
-![Métricas de Traffic Manager: vista agregada de todas las consultas](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
+![Vista agregada de todas las consultas](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
 
 *Figura 1: Vista agregada con todas las consultas*
   
@@ -47,7 +46,7 @@ Use [esta métrica](../azure-monitor/platform/metrics-supported.md#microsoftnetw
  - Use **1**, si el punto de conexión está activo.
  - Use **0**, si el punto de conexión está inactivo.
 
-Esta métrica puede mostrarse como valor agregado que representa el estado de todas las métricas (figura 3), o bien se puede dividir (consulte la figura 4) para mostrar el estado de puntos de conexión específicos. En el primer caso, si el nivel de agregación se selecciona como **Avg**, el valor de esta métrica es la media aritmética del estado de todos los puntos de conexión. Por ejemplo, si un perfil tiene dos puntos de conexión y solo uno es correcto, esta métrica tendrá un valor de **0,50**, tal como se muestra en la figura 3. 
+Esta métrica puede mostrarse como valor agregado que representa el estado de todas las métricas (figura 3), o bien se puede dividir (consulte la figura 4) para mostrar el estado de puntos de conexión específicos. En el caso anterior, si el nivel de agregación se selecciona como **Avg**, el valor de esta métrica es la media aritmética del estado de todos los puntos de conexión. Por ejemplo, si un perfil tiene dos puntos de conexión y solo uno es correcto, esta métrica tendrá un valor de **0,50**, tal como se muestra en la figura 3. 
 
 
 ![Métricas de Traffic Manager: vista compuesta del estado de los puntos de conexión](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-composite-view.png)
@@ -66,4 +65,4 @@ Además de procesar y mostrar las métricas de Traffic Manager, Azure Monitor pe
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información sobre el [servicio Azure Monitor](../azure-monitor/platform/metrics-supported.md)
-- Más información sobre cómo [crear un nuevo gráfico con Azure Monitor](../azure-monitor/platform/metrics-charts.md#create-a-new-chart)
+- Más información sobre cómo [crear un gráfico con Azure Monitor](../azure-monitor/platform/metrics-charts.md#create-a-new-chart)

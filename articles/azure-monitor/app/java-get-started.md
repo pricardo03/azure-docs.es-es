@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 01/10/2019
 ms.author: lagayhar
-ms.openlocfilehash: b662f5c4baa9c4c6e7689f3f463761dbd456f33f
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: e16432022c8c8525c95fab46bc61197f67fb8f37
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074184"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260064"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Introducción a Application Insights en un proyecto web de Java
 
@@ -359,6 +359,14 @@ Para recopilar datos de otras excepciones, tiene dos opciones:
 ## <a name="monitor-method-calls-and-external-dependencies"></a>Supervisión de llamadas a métodos y dependencias externas
 [Instale el agente de Java](java-agent.md) para registrar los métodos internos especificados y las llamadas realizadas a través de JDBC, con datos de tiempo.
 
+## <a name="w3c-distributed-tracing"></a>Seguimiento distribuido de W3C
+
+El SDK de Java de Application Insights ahora admite el [seguimiento distribuido de W3C](https://w3c.github.io/trace-context/).
+
+La configuración del SDK de entrada se explica más en detalle en nuestro artículo sobre [correlación](correlation.md#w3c-distributed-tracing).
+
+La configuración del SDK de salida se define en el archivo [AI-Agent.xml](java-agent.md).
+
 ## <a name="performance-counters"></a>contadores de rendimiento
 Abra **Configuración** y **Servidores** para ver un intervalo de contadores de rendimiento.
 
@@ -433,7 +441,7 @@ Un [reenviador local](https://docs.microsoft.com/azure/application-insights/loca
 </Channel>
 ```
 
-Si se usa el inicio de SpringBoot, agregue lo siguiente al archivo de configuración (application.properies):
+Si usa el inicio de SpringBoot, agregue lo siguiente al archivo de configuración (application.properies):
 
 ```yml
 azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: 8e75aa31941fe7368ef56f344db14d9b376e6238
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 13e42ae9b25c769a468a8c9839fd1aaf0abf2787
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191707"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213151"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Solución de problemas de Azure Data Box Disk
 
@@ -96,12 +96,11 @@ En esta sección se detallan algunos de los principales problemas que se enfrent
 
 Puede deberse a un sistema de archivos no limpio. 
 
-- Volver a montar una unidad como de lectura no funciona con Data Box Disk. Este escenario no es compatible con las unidades descifradas por dislocker. 
-- Volver a montarla como de lectura-escritura no funcionará. Es posible que haya vuelto a montar correctamente el dispositivo con el comando siguiente: 
+Volver a montar una unidad como de lectura y escritura no funciona con Data Box Disk. Este escenario no es compatible con las unidades descifradas por dislocker. Es posible que haya vuelto a montar correctamente el dispositivo con el comando siguiente: 
 
     `# mount -o remount, rw / mnt / DataBoxDisk / mountVol1 ß`
 
-   Si bien el nuevo montaje se completó correctamente, los datos no se conservarán.
+Si bien el nuevo montaje se completó correctamente, los datos no se conservarán.
 
 **Resolución**
 
@@ -125,11 +124,11 @@ Si ve que la unidad no tiene datos después de desmontarla (a pesar de que se ha
  
 Si ese es el caso, consulte la resolución para las [unidades que se montan como de solo lectura](#issue-drive-getting-mounted-as-read-only).
 
-Si no es así, [descargue los registros de diagnóstico](#download-diagnostic-logs) del sistema y [póngase en contacto con Soporte técnico de Microsoft](data-box-disk-contact-microsoft-support.md).
+Si ese no era el caso, copie los registros de la carpeta que tiene la herramienta de desbloqueo de Data Box Disk y [póngase en contacto con el Soporte técnico de Microsoft](data-box-disk-contact-microsoft-support.md).
 
 ## <a name="deployment-issues-for-windows"></a>Problemas de implementación de Windows
 
-En esta sección se detallan algunos de los principales problemas que se enfrentan durante la implementación de Data Box Disk cuando se usa un cliente Linux para la copia de datos.
+En esta sección se detallan algunos de los principales problemas que se enfrentan durante la implementación de Data Box Disk cuando se usa un cliente Windows para la copia de datos.
 
 ### <a name="issue-could-not-unlock-drive-from-bitlocker"></a>Problema: no se pudo desbloquear la unidad desde BitLocker
  
@@ -139,7 +138,7 @@ usó la contraseña en el cuadro de diálogo de BitLocker e intentó desbloquear
 
 **Resolución**
 
-Para desbloquear las unidades de Data Box Disk, debe usar la herramienta de desbloqueo de Data Box Disk y escribir la contraseña desde Azure Portal.
+Para desbloquear las unidades de Data Box Disk, debe usar la herramienta de desbloqueo de Data Box Disk y escribir la contraseña desde Azure Portal. Para más información, vaya a [Tutorial: Desempaquetado, conexión y desbloqueo de Azure Data Box Disk](data-box-disk-deploy-set-up.md#connect-to-disks-and-get-the-passkey) en la documentación.
  
 ### <a name="issue-could-not-unlock-or-verify-some-volumes-contact-microsoft-support"></a>Problema: no se pudieron desbloquear ni comprobar algunos volúmenes. Póngase en contacto con el soporte técnico de Microsoft
  
@@ -155,7 +154,7 @@ Esto indica que es posible que no se encuentre la versión adecuada de Windows P
 
 Puede instalar la [versión 5.0 de Windows PowerShell](https://www.microsoft.com/download/details.aspx?id=54616) y volver a intentar la operación.
  
-Si sigue sin poder desbloquear los volúmenes, [póngase en contacto con Soporte técnico de Microsoft](data-box-disk-contact-microsoft-support.md).
+Si todavía no puede desbloquear los volúmenes, copie los registros de la carpeta que tiene la herramienta de desbloqueo de Data Box Disk y [póngase en contacto con el Soporte técnico de Microsoft](data-box-disk-contact-microsoft-support.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

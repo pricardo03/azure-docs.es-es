@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40f8f1e9470201292c9dee27187d2155c879e13b
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 6793a83002029c009e3d4e124b4386feabecd5f8
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583075"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201081"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Copia de seguridad y restauración de máquinas virtuales cifradas con Azure Backup
 Este artículo trata sobre los pasos para realizar la copia de seguridad y restauración de máquinas virtuales (VM) mediante Azure Backup. También se proporcionan detalles sobre los escenarios admitidos, requisitos previos y pasos para solucionar problemas en los casos de error.
@@ -128,6 +128,8 @@ Use los pasos siguientes para proporcionar a Backup los permisos de acceso oport
 Una vez que los permisos se han proporcionado correctamente, puede continuar con la habilitación de la copia de seguridad para máquinas virtuales cifradas.
 
 ## <a name="restore-an-encrypted-vm"></a>Restauración de una máquina virtual cifrada
+Azure Backup admite ahora la restauración de la [máquina virtual cifrada de Azure sin Azure AD](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-prerequisites-aad), además de la oferta anterior de soporte técnico de restauración para máquinas virtuales cifradas de Azure con Azure AD.<br>
+
 Para restaurar una máquina virtual cifrada, primero restaure los discos; para ello, siga los pasos de la sección "Restauración de discos de copia de seguridad" de [Elección de una configuración de restauración para una máquina virtual](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Después de eso, puede usar una de las siguientes opciones:
 
 * Siga los pasos de PowerShell que se indican en [Creación de una máquina virtual a partir de discos restaurados](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) para crear una máquina virtual completa a partir de discos restaurados.

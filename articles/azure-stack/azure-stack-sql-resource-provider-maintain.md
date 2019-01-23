@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/11/2019
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: 360661402289ab9b06eb01be447dc98942c93302
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.reviewer: jiahan
+ms.openlocfilehash: 68665cc588f8a6340de393330c7a248503b07125
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364105"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244994"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Operaciones de mantenimiento del proveedor de recursos de SQL
 
@@ -32,16 +32,6 @@ El proveedor de recursos de SQL no se suministra como parte de Azure Stack porqu
 ### <a name="provider-virtual-machine"></a>Máquina virtual del proveedor
 
 Dado que el proveedor de recursos se ejecuta en la máquina virtual de un *usuario*, debe aplicar las revisiones y actualizaciones necesarias cuando se publiquen. Puede usar los paquetes de actualización de Windows que se proporcionan como parte del ciclo de revisión y actualización para aplicar actualizaciones a la máquina virtual.
-
-## <a name="backuprestoredisaster-recovery"></a>Copia de seguridad, restauración o recuperación ante desastres
-
- Dado que se trata de un componente complementarios, no se realiza una copia de seguridad del proveedor de recursos de SQL como parte de un proceso de recuperación ante desastres y continuidad empresarial (BCDR) de Azure Stack. Se proporcionarán scripts para las siguientes operaciones:
-
-- Copia de seguridad de la información de estado (almacenada en una cuenta de almacenamiento de Azure Stack).
-- Restauración del proveedor de recursos si se requiere una recuperación de la pila completa.
-
->[!NOTE]
->Si necesita realizar una recuperación, los servidores de base de datos deben recuperarse antes de restaurar el proveedor de recursos.
 
 ## <a name="updating-sql-credentials"></a>Actualización de las credenciales de SQL
 

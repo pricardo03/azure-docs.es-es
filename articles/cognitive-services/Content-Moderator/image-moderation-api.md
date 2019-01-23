@@ -1,23 +1,23 @@
 ---
 title: 'Moderación de imágenes: Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Usar la moderación de imágenes para moderar imágenes inapropiadas
+description: Use la moderación de imágenes asistida por máquina de Content Moderator y la herramienta de revisión humana para moderar imágenes con contenido para adultos y explícitas.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 01/20/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 044aa9a127aa8130340719147314961ddb38167a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 952777af0a233f0233f14c749fe0ebfdeaa8344a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852714"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262938"
 ---
-# <a name="image-moderation"></a>Moderación de imágenes
+# <a name="learn-image-moderation-concepts"></a>Información sobre los conceptos de moderación de imágenes
 
 Use la moderación de imágenes asistida por máquina de Content Moderator y la [herramienta de revisión humana](Review-Tool-User-Guide/human-in-the-loop.md) para moderar imágenes con contenido para adultos y subido de tono. Digitalice imágenes por su contenido de texto y extraiga dicho texto y detecte caras. Puede comparar las imágenes con las de listas personalizadas y, posteriormente, realizar las acciones necesarias.
 

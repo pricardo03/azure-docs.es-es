@@ -5,15 +5,15 @@ services: storage
 author: yuemlu
 ms.service: storage
 ms.topic: include
-ms.date: 06/05/2018
+ms.date: 01/08/2019
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: e266b239a44907e8e38e60cfc217aa21e46ab17e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ad57d373422e0fc310e51ac31f2a2e76999abf22
+ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264435"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54193474"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Standard Storage rentable y discos de máquina virtual de Azure administrados y no administrados
 
@@ -25,7 +25,7 @@ Este artículo se centra en el uso de discos SSD y HDD estándar. Para más info
 
 Hay dos maneras de crear discos estándar para máquinas virtuales de Azure:
 
-**Discos no administrados**: este es el método original, en el que se administran las cuentas de almacenamiento que se utilizan para almacenar los archivos VHD que se corresponden con los discos de máquina virtual. Los archivos VHD se almacenan como blobs en páginas en las cuentas de almacenamiento. Los discos no administrados se pueden conectar a máquina virtual de Azure de cualquier tamaño, incluidas aquellas que usan principalmente Premium Storage, como las series DSv2 y GS. Las VM de Azure admiten la conexión de varios discos estándar, lo que permite un máximo de 256 TiB de almacenamiento por VM. Si usa los tamaños de disco de la versión preliminar, puede obtener hasta aproximadamente 2 PiB de almacenamiento por máquina virtual.
+**Discos no administrados**: este es el método original, en el que se administran las cuentas de almacenamiento que se usan para almacenar los archivos VHD que se corresponden con los discos de máquina virtual. Los archivos VHD se almacenan como blobs en páginas en las cuentas de almacenamiento. Los discos no administrados se pueden conectar a máquina virtual de Azure de cualquier tamaño, incluidas aquellas que usan principalmente Premium Storage, como las series DSv2 y GS. Las VM de Azure admiten la conexión de varios discos estándar, lo que permite un máximo de 256 TiB de almacenamiento por VM. Si usa los tamaños de disco de la versión preliminar, puede obtener hasta aproximadamente 2 PiB de almacenamiento por máquina virtual.
 
 [**Azure Managed Disks**](../articles/virtual-machines/windows/managed-disks-overview.md): esta característica administra las cuentas de almacenamiento que se usan automáticamente para los discos de máquina virtual. Especifique el tipo (SSD premium, SSD estándar o HDD estándar) y el tamaño del disco que necesita, y Azure lo crea y administra automáticamente. No tiene que preocuparse de colocar los discos en varias cuentas de almacenamiento para estar seguro de que permanece dentro de los límites de escalabilidad de las cuentas de almacenamiento: Azure se encarga de ello.
 
@@ -48,9 +48,9 @@ Examinemos algunas de las características de Standard Storage. Para más inform
 
 **Discos HDD estándar:** los discos HDD estándar se pueden conectar a todas las máquinas virtuales de Azure, incluidas las máquinas virtuales de varias series de tamaños que se usan con Premium Storage, como las series DSv2 y GS. Un disco HDD estándar solo puede conectarse a una máquina virtual. Sin embargo, se pueden asociar uno o varios de estos discos a una máquina virtual, hasta el número máximo definido para el tamaño de la máquina virtual. En la sección siguiente sobre objetivos de escalabilidad y rendimiento de Standard Storage, se describen las especificaciones con más detalle.
 
-**Blob en páginas estándar**: los blobs en páginas estándar se utilizan para contener discos persistentes para las máquinas virtuales y, al igual que otros tipos de blobs de Azure, se puede acceder a ellos directamente a través de REST. Los [blob en páginas](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) son una colección de páginas de 512 bytes optimizadas para operaciones de lectura y escritura aleatorias. 
+**Blob en páginas estándar**: los blobs en páginas estándar se usan para contener discos persistentes para las máquinas virtuales y, al igual que otros tipos de blobs de Azure, se puede acceder a ellos directamente a través de REST. Los [blob en páginas](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) son una colección de páginas de 512 bytes optimizadas para operaciones de lectura y escritura aleatorias. 
 
-**Replicación del almacenamiento:** en la mayoría de las regiones, los datos de una cuenta de almacenamiento estándar se pueden replicar localmente o replicar geográficamente en varios centros de datos. Los cuatro tipos de replicación disponible son: el almacenamiento con redundancia local (LRS), el almacenamiento con redundancia de zona (ZRS), el almacenamiento con redundancia geográfica (GRS) y el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS). Actualmente, Managed Disks de Standard Storage solo admiten el almacenamiento con redundancia local (LRS). Para más información, consulte [Replicación de Azure Storage](../articles/storage/common/storage-redundancy.md).
+**Replicación de almacenamiento:** en la mayoría de las regiones, los datos de una cuenta de almacenamiento estándar se pueden replicar localmente o replicar geográficamente en varios centros de datos. Los cuatro tipos de replicación disponible son: el almacenamiento con redundancia local (LRS), el almacenamiento con redundancia de zona (ZRS), el almacenamiento con redundancia geográfica (GRS) y el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS). Actualmente, Managed Disks de Standard Storage solo admiten el almacenamiento con redundancia local (LRS). Para más información, consulte [Replicación de Azure Storage](../articles/storage/common/storage-redundancy.md).
 
 ## <a name="scalability-and-performance-targets"></a>Objetivos de escalabilidad y rendimiento
 
@@ -75,15 +75,7 @@ Si las necesidades de su aplicación superan los objetivos de escalabilidad de u
 
 ### <a name="standard-disks-limits"></a>Límites de los discos estándar
 
-A diferencia de los discos Premium, las operaciones de entrada/salida por segundo (IOPS) y el rendimiento (ancho de banda) de los discos estándar no se aprovisionan. El rendimiento de los discos estándar varía en función del tamaño de la máquina virtual a la que está conectada el disco, no del tamaño del disco. Lo normal es lograr, como máximo, el límite de rendimiento de la tabla siguiente.
-
-**Límites de los discos estándar (administrados y no administrados)**
-
-| **Nivel de máquina virtual**            | **Máquina virtual de nivel Básico** | **Máquina virtual de nivel Estándar** |
-|------------------------|-------------------|----------------------|
-| Tamaño máx. de disco          | 32 767 GiB           | 32 767 GiB        |
-| Máximo de 8 KB de IOPS por disco | Hasta 2000         | Hasta 2000        |
-| Ancho de banda máx. por disco | Hasta 500 MB/s     | Hasta 500 MB/s      |
+A diferencia de los discos Premium, las operaciones de entrada/salida por segundo (IOPS) y el rendimiento (ancho de banda) de los discos estándar no se aprovisionan. El rendimiento de los discos estándar varía en función del tamaño de la máquina virtual a la que está conectada el disco y del tamaño del disco.
 
 Si la carga de trabajo requiere compatibilidad con discos de gran rendimiento y baja latencia, considere la posibilidad de usar Premium Storage. Para conocer más ventajas de Premium Storage, vaya a [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../articles/virtual-machines/windows/premium-storage.md).
 

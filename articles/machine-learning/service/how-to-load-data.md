@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: fda0f600fa7cb130511f2bd8b53543acfbcc7759
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2478a5dd3f5d685253ef9145bec0a68ff324c6c3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054306"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263822"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Carga y lectura de datos con Azure Machine Learning
 
@@ -27,7 +27,25 @@ En este artículo obtendrá información sobre los diferentes métodos de carga 
 * Opciones de conversión de tipo usando la inferencia durante la carga de archivos.
 * Compatibilidad con la conexión para MS SQL Server y Azure Data Lake Storage.
 
-## <a name="load-text-line-data"></a>Cargar datos de línea de texto 
+## <a name="load-data-automatically"></a>Carga automática de datos
+
+Para cargar datos automáticamente sin especificar el tipo de archivo, use la función `auto_read_file()`. El tipo de archivo y los argumentos necesarios para leerlo se deducen automáticamente.
+
+```python
+import azureml.dataprep as dprep
+
+dataflow = dprep.auto_read_file(path='./data/any-file.txt')
+```
+
+Esta función es útil para detectar automáticamente el tipo de archivo, la codificación y otros argumentos de análisis, todo desde un cómodo punto de entrada. La función también sigue automáticamente los pasos a continuación, que normalmente se realizan al cargar datos delimitados:
+
+* Inferir y establecer el delimitador
+* Omitir los registros vacíos en la parte superior del archivo
+* Deducir y establecer la fila de encabezado
+
+Como alternativa, si conoce el tipo de archivo con antelación y quiere controlar de manera explícita la manera en que se analiza, continúe con este artículo para ver funciones especializadas que ofrece el SDK.
+
+## <a name="load-text-line-data"></a>Cargar datos de línea de texto
 
 Para leer datos de texto simples en un flujo de datos, use `read_lines()` sin especificar los parámetros opcionales.
 
@@ -188,7 +206,7 @@ dataflow = dprep.read_fwf('./data/fixed_width_file.txt',
 
 El SDK también puede cargar datos desde un origen de SQL. Actualmente solo se admite Microsoft SQL Server. Para leer datos de un servidor SQL server, cree un objeto `MSSQLDataSource` que contenga los parámetros de conexión. El parámetro de contraseña de `MSSQLDataSource` acepta un objeto `Secret`. Hay dos formas de compilar un objeto de secreto:
 
-* Registre el secreto y su valor con el motor de ejecución. 
+* Registre el secreto y su valor con el motor de ejecución.
 * Cree el secreto con solo un valor de `id` (lo que es útil si el valor del secreto ya está registrado en el entorno de ejecución) mediante `dprep.create_secret("[SECRET-ID]")`.
 
 ```python
@@ -232,7 +250,7 @@ az account show --query tenantId
 dataflow = read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', tenant='microsoft.onmicrosoft.com')) head = dataflow.head(5) head
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > Si su cuenta de usuario es miembro de más de un inquilino de Azure, deberá especificar el inquilino, con el formato de nombre de host de dirección URL de AAD.
 
 ### <a name="create-a-service-principal-with-the-azure-cli"></a>Creación de una entidad de servicio con la CLI de Azure
@@ -256,7 +274,7 @@ Para configurar la lista de control de acceso del sistema de archivos de Azure D
 az ad sp show --id "8dd38f34-1fcb-4ff9-accd-7cd60b757174" --query objectId
 ```
 
-Para configurar el acceso de `Read` y `Execute` para el sistema de archivos de Azure Data Lake Storage, debe configurar la lista de control de acceso de los archivos y las carpetas individualmente. Esto es así porque el modelo de la lista de control de acceso de HDFS subyacente no admite herencias. 
+Para configurar el acceso de `Read` y `Execute` para el sistema de archivos de Azure Data Lake Storage, debe configurar la lista de control de acceso de los archivos y las carpetas individualmente. Esto es así porque el modelo de la lista de control de acceso de HDFS subyacente no admite herencias.
 
 ```azurecli
 az dls fs access set-entry --account dpreptestfiles --acl-spec "user:e37b9b1f-6a5e-4bee-9def-402b956f4e6f:r-x" --path /

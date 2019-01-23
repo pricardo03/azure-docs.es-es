@@ -1,6 +1,6 @@
 ---
-title: Configuración de la directiva de nombre de grupo para grupos de Office 365 en Azure Active Directory (versión preliminar) | Microsoft Docs
-description: Configuración de la expiración de grupos de Office 365 en Azure Active Directory (versión preliminar)
+title: 'Directiva de nombre de grupo (versión preliminar): grupos de Office 365 en Azure Active Directory | Microsoft Docs'
+description: Cómo configurar una directiva de nomenclatura para grupos de Office 365 en Azure Active Directory (versión preliminar)
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 01/14/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 3368133dec82d946318a755dc98b068a048b9e83
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 1118be1c335d8f88171b359c9cd273cdd2923021
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275115"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321728"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Aplicación de una directiva de nomenclatura para grupos de Office 365 en Azure Active Directory (versión preliminar)
 

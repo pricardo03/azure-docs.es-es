@@ -16,12 +16,12 @@ ms.custom: ''
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: ecdfb0f062ebad903d35401a2f5303d3e6d04b5d
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 91ac75f3cb41f73ea18595138969dfb7b1444173
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037386"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263518"
 ---
 # <a name="redeploy-the-asdk"></a>Reimplementación del Kit de desarrollo de Azure Stack
 En este artículo, aprenderá a reimplementar el Kit de desarrollo de Azure Stack (ASDK) en un entorno que no sea de producción. Dado que la actualización del Kit de desarrollo de Azure Stack, debe volver a implementarla completamente para pasar a una versión más reciente. También puede volver a implementar el Kit de desarrollo de Azure Stack en cualquier momento en el que desea volver a empezar desde el principio.
@@ -32,7 +32,7 @@ En este artículo, aprenderá a reimplementar el Kit de desarrollo de Azure Stac
 ## <a name="remove-azure-registration"></a>Quitar el registro de Azure 
 Si se ha registrado anteriormente la instalación del Kit de desarrollo de Azure Stack con Azure, debe quitar el recurso de registro antes de volver a implementar el kit de desarrollo. Vuelva a registrar el Kit de desarrollo de Azure Stack para habilitar la disponibilidad de los elementos en Marketplace cuando se vuelve a implementar el kit de desarrollo. Si no ha registrado previamente Kit de desarrollo de Azure Stack con su suscripción de Azure, puede omitir esta sección.
 
-Para quitar el recurso de registro, utilice el cmdlet **Remove-AzsRegistration** para anular el registro de Azure Stack. Después, utilice el cmdlet **Remove-AzureRMRsourceGroup** para eliminar el grupo de recursos de Azure Stack de su suscripción de Azure:
+Para quitar el recurso de registro, utilice el cmdlet **Remove-AzsRegistration** para anular el registro de Azure Stack. Después, use el cmdlet **Remove-AzureRMResourceGroup** para eliminar el grupo de recursos de Azure Stack de su suscripción de Azure:
 
 1. Abra una consola PowerShell como administrador en un equipo que tenga acceso al punto de conexión con privilegios. Para el Kit de desarrollo de Azure Stack, este es el equipo host del kit de desarrollo.
 

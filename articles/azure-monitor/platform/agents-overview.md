@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 5a40e215c6dd5bf4dc1178595716f95ae21adcb4
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: dececc961e40d83cf44442dc61054bc8833208f0
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438207"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54265036"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Introducción a los agentes de supervisión de Azure 
 Microsoft Azure ofrece varias maneras de recopilar diferentes tipos de datos de máquinas virtuales hospedadas en Azure, en su centro de datos u otros proveedores de servicios en la nube que ejecutan Microsoft Windows y Linux. Los tres tipos de agentes disponibles para supervisar una VM son:
@@ -76,5 +76,5 @@ Puede que necesite una combinación de estos agentes para supervisar la VM. Los 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte [Overview of the Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md) (Introducción al agente de Log Analytics) para revisar los requisitos y los métodos admitidos para implementar el agente en máquinas hospedadas en Azure, en su centro de datos o en otro entorno en la nube.
+- Consulte [Introducción al agente de Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) para revisar los requisitos y los métodos admitidos para implementar el agente en máquinas hospedadas en Azure, en su centro de datos o en otro entorno en la nube.
 

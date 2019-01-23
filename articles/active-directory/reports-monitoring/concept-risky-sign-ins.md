@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2e4406a75ea1d9f1968d994ae2294b39ca7613d5
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 8e92288883a7779130e3b7f7a8433b61f76aa18c
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623866"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54244722"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Informe de inicios de sesión poco seguros del portal de Azure Active Directory
 
@@ -85,12 +85,11 @@ Este informe también proporciona una opción para:
 
 ![Inicios de sesión no seguros](./media/concept-risky-sign-ins/93.png)
 
-
 ## <a name="risky-sign-ins-report-for-azure-ad-premium-editions"></a>Informe de inicios de sesión de riesgo para las ediciones de Azure AD Premium
 
 El informe de inicios de sesión de riesgo de las ediciones Azure AD Premium proporciona lo siguiente:
 
-- Información agregada sobre los [tipos de eventos de riesgo](concept-risk-events.md) que se han detectado
+- Información agregada sobre los [tipos de eventos de riesgo](concept-risk-events.md) que se han detectado. Con la **edición de Azure AD Premium P1**, las detecciones que no están cubiertas por su licencia aparecen como el evento de riesgo **Inicio de sesión con riesgo adicional detectado**. Con la **edición de Azure AD Premium P2**, obtiene la información más detallada acerca de todas las detecciones subyacentes.
 
 - Una opción para descargar el informe
 

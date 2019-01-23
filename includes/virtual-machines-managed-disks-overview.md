@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6ca819b20bd033cc4081fb98a0c22c23aed05a28
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 403f1cee04da17086a55adfbaed28388afd24d29
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263899"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54211909"
 ---
 # <a name="azure-managed-disks-overview"></a>Introducción a Azure Managed Disks
 
@@ -37,7 +37,7 @@ Managed Disks proporciona una mayor confiabilidad para los conjuntos de disponib
 
 ### <a name="highly-durable-and-available"></a>Mayor durabilidad y disponibilidad
 
-Los discos de Azure están diseñados para ofrecer una disponibilidad del 99,999 %. Descanse tranquilo sabiendo que tiene tres réplicas de sus datos que aportan alta durabilidad. Si una o incluso dos réplicas experimentan problemas, las réplicas restantes garantizan la persistencia de los datos y una gran tolerancia a errores. Esta arquitectura ha contribuido a que Azure destaque en el sector por ofrecer, de manera constante, durabilidad de nivel empresarial para discos IaaS, con una tasa de error anualizada del 0 %. 
+Los discos de Azure están diseñados para ofrecer una disponibilidad del 99,999 %. Descanse tranquilo sabiendo que tiene tres réplicas de sus datos que aportan alta durabilidad. Si una o incluso dos réplicas experimentan problemas, las réplicas restantes garantizan la persistencia de los datos y una gran tolerancia a errores. Esta arquitectura ha contribuido a que Azure destaque en el sector por ofrecer, de manera constante, durabilidad de nivel empresarial para discos IaaS, con una tasa de error anualizada del 0 %.
 
 ### <a name="granular-access-control"></a>Control de acceso pormenorizado
 
@@ -45,7 +45,7 @@ Puede usar el [control de acceso basado en rol de Azure (RBAC)](../articles/role
 
 ### <a name="azure-backup-service-support"></a>Soporte técnico del servicio Azure Backup
 
-Utilice el servicio Azure Backup con Managed Disks para crear un trabajo de copia de seguridad con copias de seguridad basadas en tiempo, fácil restauración de la máquina virtual y directivas de retención de copia de seguridad. Managed Disks admite solo almacenamiento con redundancia local (LRS) como opción de replicación. Se conservan tres copias de los datos en una única región. Para recuperación ante desastres regionales, debe realizar una copia de los discos de máquina virtual en una región distinta con el [servicio Azure Backup](../articles/backup/backup-introduction-to-azure-backup.md) y una cuenta de almacenamiento GRS como almacén de Backup. Actualmente, Azure Backup admite los tamaños de disco de hasta de 4 TB. Debe [actualizar a la versión 2 de la pila de copia de seguridad de máquinas virtuales](../articles/backup/backup-upgrade-to-vm-backup-stack-v2.md) para la compatibilidad con discos de 4 TB. Para más información, consulte [Uso del servicio de Azure Backup para máquinas virtuales con Managed Disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
+Utilice el servicio Azure Backup con Managed Disks para crear un trabajo de copia de seguridad con copias de seguridad basadas en tiempo, fácil restauración de la máquina virtual y directivas de retención de copia de seguridad. Managed Disks admite solo almacenamiento con redundancia local (LRS) como opción de replicación. Se conservan tres copias de los datos en una única región. Para recuperación ante desastres regionales, debe realizar una copia de los discos de máquina virtual en una región distinta con el [servicio Azure Backup](../articles/backup/backup-introduction-to-azure-backup.md) y una cuenta de almacenamiento GRS como almacén de Backup. Actualmente, Azure Backup admite discos de hasta 4 TB de tamaño, vea [Instant Restore](../articles/backup/backup-instant-restore-capability.md) (Restauración instantánea) para obtener asistencia con los discos de 4 TB. Para más información, consulte [Uso del servicio de Azure Backup para máquinas virtuales con Managed Disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
 ## <a name="pricing-and-billing"></a>Precios y facturación
 
@@ -63,7 +63,7 @@ Al usar Managed Disks, se aplican las siguientes consideraciones de facturación
 
 Veamos estas opciones más detalladamente.
 
-**Tipo de almacenamiento.** Managed Disks ofrece 3 niveles de rendimiento: [HDD estándar](../articles/virtual-machines/windows/standard-storage.md), [SSD estándar](../articles/virtual-machines/windows/disks-standard-ssd.md) y [Premium](../articles/virtual-machines/windows/premium-storage.md). La facturación de un disco administrado depende del tipo de almacenamiento que se haya seleccionado para el disco.
+**Storage type** (Tipo de almacenamiento): Managed Disks ofrece tres nivel de rendimiento: [HDD estándar](../articles/virtual-machines/windows/standard-storage.md), [SSD estándar](../articles/virtual-machines/windows/disks-standard-ssd.md) y [Prémium](../articles/virtual-machines/windows/premium-storage.md). La facturación de un disco administrado depende del tipo de almacenamiento que se haya seleccionado para el disco.
 
 **Tamaño del disco**: la facturación de los discos administrados depende del tamaño aprovisionado del disco. Azure asigna el tamaño aprovisionado (redondeado) a la opción de disco de Managed Disks más cercana, como se especifica en las tablas siguientes. Cada disco administrado se asigna a uno de los tamaños aprovisionados admitidos y se factura según corresponda. Por ejemplo, si crea un disco administrado estándar y especifica un tamaño aprovisionado de 200 GB, se le facturará según los precios del tipo de disco S15.
 
@@ -91,7 +91,7 @@ Los discos SSD estándar usan un tamaño de unidad de E/S de 256 KB. Si el tama�
 
 Las transacciones de un disco administrado premium no tienen coste.
 
-**Transferencias de datos de salida**: las [transferencias de datos de salida](https://azure.microsoft.com/pricing/details/data-transfers/) (datos que salen de los centros de datos de Azure) se facturan en función del uso de ancho de banda.
+**Transferencias de datos de salida**: [transferencias de datos de salida](https://azure.microsoft.com/pricing/details/data-transfers/) (datos que salen de los centros de datos de Azure) incurren en la facturación por el uso de ancho de banda.
 
 Para obtener información detallada acerca de los precios de Managed Disks, consulte [Precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks).
 

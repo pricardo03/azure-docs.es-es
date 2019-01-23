@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 1e81f165c3ab38fffae7523efc6cb2ae307a1a25
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 02678738c225742db1795a2e168b6eac1320aead
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549639"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232896"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 Azure Monitor proporciona varias maneras de interactuar con las métricas, como la representación en gráficos en el portal, el acceso a ellas a través de la API de REST o consultarlas con PowerShell o la CLI. A continuación se muestra una lista completa de todas las métricas disponibles actualmente en la canalización de métricas de Azure Monitor. Otras métricas pueden estar disponibles en el portal o mediante las API heredadas. La siguiente lista incluye solo las métricas disponibles con la canalización de métricas consolidada de Azure Monitor. Para consultar estas métricas y acceder a ellas, use [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions).
@@ -124,7 +124,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |JobDisableCompleteEvent|Eventos de finalización de deshabilitación de trabajo|Recuento|Total|Número total de trabajos que se han deshabilitado correctamente.|Sin dimensiones|
 |JobDisableStartEvent|Eventos de inicio de deshabilitación de trabajo|Recuento|Total|Número total de trabajos cuya deshabilitación se ha solicitado.|Sin dimensiones|
 |JobStartEvent|Eventos de inicio de trabajo|Recuento|Total|Número total de trabajos que se han iniciado correctamente.|Sin dimensiones|
-|JobTerminateCompleteEvent|Eventos de finalización de terminaciones de trabajo|Recuento|Total|Número total de trabajos que se han terminado correctamente.|Sin dimensiones|
+|JobTerminateCompleteEvent|Eventos de finalización de terminaciones de trabajo|Recuento|Total|Número total de trabajos que se han finalizado correctamente.|Sin dimensiones|
 |JobTerminateStartEvent|Eventos de inicio de terminaciones de trabajo|Recuento|Total|Número total de trabajos cuya terminación se ha solicitado.|Sin dimensiones|
 
 ## <a name="microsoftcacheredis"></a>Microsoft.Cache/redis

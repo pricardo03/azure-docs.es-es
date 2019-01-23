@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/4/2018
+ms.date: 1/4/2019
 ms.author: rkarlin
-ms.openlocfilehash: f9cc6f5c35b528d3a545293b9a946bc3eda3d7ac
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 52af6051b4534ba65b4822205cb5395a59ef9d6a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339339"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259971"
 ---
 # <a name="working-with-security-policies"></a>Uso de directivas de seguridad
 
@@ -28,12 +28,15 @@ En este artículo se explica cómo configurar directivas de seguridad y cómo vi
 
 Para obtener instrucciones sobre cómo establecer directivas con PowerShell, consulte [Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles mediante Azure PowerShell](../azure-policy/assign-policy-definition-ps.md).
 
+>[!NOTE]
+> Security Center inició su integración con Azure Policy. Los clientes existentes se migrarán automáticamente a la nueva iniciativa integrada en Azure Policy, en lugar de las directivas de seguridad anteriores de Security Center. Este cambio no afectará a los recursos ni al entorno, excepto la presencia de la nueva iniciativa en Azure Policy.
+
 ## <a name="what-are-security-policies"></a>¿Qué son las directivas de seguridad?
 Una directiva de seguridad define la configuración deseada de las cargas de trabajo. Además, ayuda a garantizar el cumplimiento de los requisitos de seguridad normativos o de la empresa. En Azure Policy, puede definir directivas para las suscripciones de Azure y adaptarlas al tipo de carga de trabajo o a la confidencialidad de los datos. Por ejemplo, es posible que las aplicaciones que usan datos regulados, como la información de identificación personal, requieran un mayor nivel de seguridad que otras cargas de trabajo. Para establecer una directiva en varias suscripciones o grupos de administración, debe configurarla en [Azure Policy](../azure-policy/azure-policy-introduction.md).
 
-
-
 Las directivas de seguridad generan las recomendaciones de seguridad que se muestran en Azure Security Center. Puede supervisar si se cumplen para identificar posibles puntos vulnerables y mitigar amenazas. Consulte la lista de [directivas de seguridad integradas](security-center-policy-definitions.md) para más información sobre cómo determinar la opción más adecuada en su caso.
+
+Al habilitar Security Center, la directiva de seguridad integrada en Security Center se refleja en Azure Policy como una iniciativa integrada en la categoría de Security Center. La iniciativa integrada se asigna automáticamente a todas las suscripciones registradas de Security Center (niveles Gratis o Estándar). La iniciativa integrada contiene solo las directivas de auditoría. 
 
 
 ### <a name="management-groups"></a>Grupos de administración
@@ -57,8 +60,6 @@ Una directiva de Azure consta de los siguientes componentes:
 - Una **iniciativa** es una colección de directivas.
 - Una **asignación** es la aplicación de una iniciativa o una directiva para un ámbito concreto (grupo de administración, suscripción o grupo de recursos).
 
-Un recurso se evalúa con las directivas que están asignadas a él y recibe una proporción de cumplimiento en función del número de directivas con las que guarda conformidad el recurso.
-
 ## <a name="view-security-policies"></a>Visualización de directivas de seguridad
 
 Para ver las directivas de seguridad de Security Center:
@@ -76,12 +77,9 @@ Para ver las directivas de seguridad de Security Center:
   En las columnas de la tabla se muestra:
 
  - **Policy initiative assignment** (Asignación de iniciativa de directiva): iniciativas y [directivas integradas](security-center-policy-definitions.md) de Security Center que se asignan a una suscripción o un grupo de administración.
- - **Compliance** (Cumplimiento): puntuación general de cumplimiento para un grupo de administración, una suscripción o un área de trabajo. La puntuación es la media ponderada de las asignaciones. La media ponderada tiene en cuenta el número de directivas en una única asignación y el número de recursos al que se aplica la asignación.
-
- Por ejemplo, si la suscripción tiene dos máquinas virtuales y tiene asignada una iniciativa con cinco directivas, entonces usted tiene 10 valoraciones en la suscripción. Si una de las máquinas virtuales no cumple las dos directivas, la puntuación general de cumplimiento de la asignación de la suscripción es del 80 %.
-
  - **Coverage** (Cobertura): identifica el plan de tarifa, Gratis o Estándar, en el que se ejecuta el grupo de administración, la suscripción o el área de trabajo.  Para obtener más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md).
  - **Settings** (Configuración): las suscripciones tienen el vínculo **Edit settings** (Editar configuración). Seleccionar **Edit settings** (Editar configuración) le permite actualizar su [configuración de Security Center](security-center-policies-overview.md) para cada grupo de administración o suscripción.
+ - **Puntuación segura**: [Puntuación segura](security-center-secure-score.md) proporciona una medida de cuán segura es su postura de seguridad de cargas de trabajo y le ayuda a dar prioridad a las recomendaciones para mejorar.
 
 2. Seleccione el grupo de administración o la suscripción cuyas directivas desea ver.
 

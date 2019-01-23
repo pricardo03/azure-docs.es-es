@@ -12,32 +12,32 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/14/2017
+ms.date: 01/11/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: be737550aa1cff22bc413ee8ce243f8d8588f6a5
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3c9fe597957057dc61da5c2b1cf6f9216711764a
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29972347"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247850"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Implementar una matriz virtual de StorSimple: Aprovisionamiento en VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
 ## <a name="overview"></a>Información general
-En este tutorial se describe cómo aprovisionar y conectarse a una instancia de StorSimple Virtual Array en un sistema host que ejecuta VMware ESXi 5.0, 5.5 o 6.0. Este artículo se aplica a la implementación de instancias de StorSimple Virtual Array en Azure Portal, así como en la nube de administración pública de Microsoft Azure.
+En este tutorial se describe cómo aprovisionar y conectarse a una instancia de StorSimple Virtual Array en un sistema host que ejecuta VMware ESXi 5.0, 5.5, 6.0 o 6.5. Este artículo se aplica a la implementación de instancias de StorSimple Virtual Array en Azure Portal, así como en la nube de administración pública de Microsoft Azure.
 
 Para aprovisionar un dispositivo virtual y conectarse a él se necesitan privilegios de administrador. El aprovisionamiento y la instalación inicial pueden tardar unos 10 minutos en completarse.
 
 ## <a name="provisioning-prerequisites"></a>Requisitos previos de aprovisionamiento
-Estos son los requisitos previos para aprovisionar un dispositivo virtual en un sistema host que ejecuta VMware ESXi 5.0, 5.5 o 6.0.
+Estos son los requisitos previos para aprovisionar un dispositivo virtual en un sistema host que usa VMware ESXi 5.0, 5.5, 6.0 o 6.5.
 
 ### <a name="for-the-storsimple-device-manager-service"></a>Para el servicio StorSimple Device Manager
 Antes de comenzar, asegúrese de que:
 
 * Ha completado todos los pasos de [Preparar el portal para la matriz virtual de StorSimple](storsimple-virtual-array-deploy1-portal-prep.md).
-* Ha descargado la imagen del dispositivo virtual para VMware desde el Portal de Azure. Para más información, consulte **Paso 3: Descargar la imagen del dispositivo virtual** de [Deploy StorSimple Virtual Array - Prepare the portal](storsimple-virtual-array-deploy1-portal-prep.md) (Implementación de StorSimple Virtual Array: preparar el portal).
+* Ha descargado la imagen del dispositivo virtual para VMware desde el Portal de Azure. Para obtener más información, consulte el **Paso 3: Descargar la imagen del dispositivo virtual** de [Deploy StorSimple Virtual Array - Prepare the portal](storsimple-virtual-array-deploy1-portal-prep.md) (Implementación de StorSimple Virtual Array: preparar el portal).
 
 ### <a name="for-the-storsimple-virtual-device"></a>Para el dispositivo virtual StorSimple
 Antes de implementar un dispositivo virtual, asegúrese de que:
@@ -62,10 +62,10 @@ Para aprovisionar un dispositivo virtual y conectarse a él, es preciso que real
 2. Aprovisione un dispositivo virtual en el hipervisor.
 3. Inicie el dispositivo virtual y obtenga la dirección IP.
 
-## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>Paso 1: Asegurarse de que el sistema host cumple los requisitos mínimos del dispositivo virtual
+## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>Paso 1: Asegurarse de que el sistema host cumple con los requisitos mínimos del dispositivo virtual
 Para crear un dispositivo virtual, necesitará:
 
-* Acceso a un sistema host que ejecute VMware ESXi Server 5.0, 5.5 o 6.0.
+* Acceso a un sistema host que use VMware ESXi Server 5.0, 5.5, 6.0 o 6.5.
 * Cliente VMware vSphere en el sistema para administrar el host ESXi.
 
   * Un mínimo de 4 núcleos.
@@ -188,7 +188,7 @@ Ahora la máquina virtual está aprovisionada. El paso siguiente es encender est
 > [!NOTE]
 > Se recomienda que no instale las herramientas de VMware en la matriz virtual (aprovisionada anteriormente). La instalación de las herramientas de VMware generará una configuración incompatible.
 
-## <a name="step-3-start-the-virtual-device-and-get-the-ip"></a>Paso 3: Iniciar el dispositivo virtual y obtener la dirección IP
+## <a name="step-3-start-the-virtual-device-and-get-the-ip"></a>Paso 3: Inicio del dispositivo virtual y obtención de la dirección IP
 Realice los pasos siguientes para iniciar el dispositivo virtual y conectarse a él.
 
 #### <a name="to-start-the-virtual-device"></a>Para iniciar el dispositivo virtual
@@ -235,7 +235,7 @@ Realice los pasos siguientes para iniciar el dispositivo virtual y conectarse a 
        >
        >
 
-Si el dispositivo no cumple los requisitos mínimos de configuración, verá un error en el texto del titular (se muestra a continuación). Debe modificar la configuración del dispositivo para que tenga los recursos adecuados para cumplir los requisitos mínimos. A continuación, puede reiniciar y conectarse al dispositivo. Consulte los requisitos mínimos de configuración de [Paso 1: Asegurarse de que el sistema host cumple los requisitos mínimos del dispositivo virtual](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements).
+Si el dispositivo no cumple los requisitos mínimos de configuración, verá un error en el texto del titular (se muestra a continuación). Debe modificar la configuración del dispositivo para que tenga los recursos adecuados para cumplir los requisitos mínimos. A continuación, puede reiniciar y conectarse al dispositivo. Consulte los requisitos mínimos de la configuración en el [Paso 1: Asegurarse de que el sistema host cumple los requisitos mínimos del dispositivo virtual](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements).
 
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image46.png)
 

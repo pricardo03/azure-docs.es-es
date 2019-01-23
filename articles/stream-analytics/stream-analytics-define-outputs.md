@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6d7c8aa73f72f6db93c6ef78c333c36e1d26b74e
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 805df837d5d33c5f21799e39145c62e71afdb4b5
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995072"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231400"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Información sobre las salidas desde Azure Stream Analytics
 En este artículo se describen los diferentes tipos de salidas disponibles para los trabajos de Azure Stream Analytics. Las salidas le permiten almacenar y guardar los resultados de los trabajos de Stream Analytics. Con los datos de salida, puede realizar análisis de negocio adicionales y almacenamiento de los datos.
@@ -73,6 +73,8 @@ Para renovar la autorización, **detenga** el trabajo > vaya a la salida de Data
 | Nombre de usuario | El nombre del usuario, con permiso para escribir en la base de datos. Stream Analytics solo admite la autenticación de SQL. |
 | Contraseña | La contraseña para conectarse a la base de datos. |
 | Tabla | El nombre de la tabla donde se escribe la salida. El nombre de tabla distingue mayúsculas de minúsculas y el esquema de esta tabla debe coincidir exactamente con el número de campos y tipos que va a generar la salida del trabajo. |
+|Heredación del esquema de partición| Esto le permite heredar el esquema de partición del paso de consulta anterior para habilitar la topología completamente paralela con múltiples escritores en la tabla. Para obtener más información, vea [Salida de Azure Stream Analytics a Azure SQL Database](stream-analytics-sql-output-perf.md).|
+|Número de lotes coincidente| Número máximo de registros recomendado que se envía con cada transacción de inserción masiva.|
 
 > [!NOTE]
 > Actualmente, la oferta de Azure SQL Database se admite para una salida de trabajo de Stream Analytics. Sin embargo, no se admite una máquina virtual de Azure que ejecute SQL Server con una base de datos asociada. Esto está sujeto a cambios en versiones futuras.

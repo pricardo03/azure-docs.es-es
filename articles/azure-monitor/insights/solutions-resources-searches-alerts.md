@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6f16325183f0a13382dd4533fd867a518f1750c3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a2c45807f846dbe9d1c6bd91ce8c87958949ab17
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344302"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231332"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adición de búsquedas y alertas guardadas de Log Analytics en la solución de administración (versión preliminar)
 
@@ -153,7 +153,7 @@ Hay dos tipos de recursos de acción especificados por la propiedad **Type**.  U
 Las acciones de alerta tienen la siguiente estructura.  Aquí se incluyen las variables y los parámetros habituales para que pueda copiar y pegar este fragmento de código en su archivo de solución y cambiar los nombres de parámetro. 
 
 
-```
+```json
     {
         "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name, '/', variables('Alert').Name)]",
         "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
@@ -290,7 +290,7 @@ En las tablas siguientes se describen las propiedades para los recursos de acci�
 |:--|:--|:--|
 | Tipo | SÍ | Tipo de la acción.  Es **Webhook** para las acciones de webhook. |
 | Nombre | SÍ | Nombre para mostrar de la acción.  Esto no se muestra en la consola. |
-| wehookUri | SÍ | URI del webhook. |
+| webhookUri | SÍ | URI del webhook. |
 | customPayload | Sin  | Carga personalizada que se va a enviar al webhook. El formato depende de lo que el webhook espere. |
 
 
@@ -304,7 +304,7 @@ Aquí se muestra un ejemplo de una solución que incluye los siguientes recursos
 
 En el ejemplo se utilizan variables de [parámetros de solución estándar]( solutions-solution-file.md#parameters) que se suelen utilizar en una solución en lugar de codificar valores en las definiciones de recursos.
 
-```
+```json
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0",
@@ -462,7 +462,7 @@ En el ejemplo se utilizan variables de [parámetros de solución estándar]( sol
 ```
 
 El siguiente archivo de parámetros proporciona valores de ejemplo para esta solución.
-```
+```json
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",

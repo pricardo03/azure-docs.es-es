@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 08/24/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 3c683b24db2899ee680988c7bedc760d6bb8ec73
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: fae5b9ee84c9352bbeb6f14b1f3a6006ce4804e8
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053155"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261679"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Envío de un gran número de tareas a un trabajo de Batch
 
@@ -36,7 +36,7 @@ El tamaño máximo de la colección de tareas que se puede agregar en una sola l
 
 * Las siguientes API de Batch limitan la colección a **100 tareas**. El límite podría ser menor en función del tamaño de las tareas, por ejemplo, si tienen mayor número de archivos de recursos o variables de entorno.
 
-    * [API de REST](/rest/api/batchservice/task/addcollection)
+    * [API DE REST](/rest/api/batchservice/task/addcollection)
     * [API de Python](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python#azure_batch_operations_TaskOperations_add_collection)
     * [API de Node.js](/javascript/api/azure-batch/task?view=azure-node-latest#addcollection)
 
@@ -45,7 +45,7 @@ El tamaño máximo de la colección de tareas que se puede agregar en una sola l
 * Las siguientes API admiten colecciones de tareas mucho mayores, se limitan únicamente por la disponibilidad de RAM en el cliente remitente. Estas API realizan un control transparente al dividir la colección de tareas en "fragmentos" para las API de menor nivel y vuelven a intentar la incorporación de la tarea en caso de error.
 
     * [API de .NET](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet)
-    * [API de Java](/java/api/com.microsoft.azure.batch.protocol._tasks.addcollectionasync?view=azure-java-stable)
+    * [API de Java](/java/api/com.microsoft.azure.batch.protocol.tasks.addcollectionasync?view=azure-java-stable)
     * [Extensión de la CLI de Azure Batch](batch-cli-templates.md) con plantillas de la CLI de Batch
     * [Extensión del SDK de Python](https://pypi.org/project/azure-batch-extensions/)
 
@@ -61,11 +61,11 @@ Agregar una gran colección de tareas a un trabajo puede tardar, por ejemplo, ag
 
 * **Límites por las conexiones HTTP**: el número de conexiones HTTP simultáneas puede limitar el rendimiento del cliente de Batch al agregar grandes cantidades de tareas. El número de conexiones HTTP se limita con determinadas API. Al desarrollar con la API de .NET, por ejemplo, la propiedad [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit) se establece en 2 de forma predeterminada. Se recomienda aumentar el valor a uno próximo al número de operaciones en paralelo o mayor.
 
-## <a name="example-batch-net"></a>Ejemplo: Batch .NET
+## <a name="example-batch-net"></a>Ejemplo: .NET de Batch
 
 Los siguientes fragmentos de código de C# muestran opciones que deben configurarse al agregar un gran número de tareas mediante la API de .NET de Batch.
 
-Para aumentar el rendimiento de la tarea, aumente el valor de la propiedad [MaxDegreeofParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) de [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). Por ejemplo: 
+Para aumentar el rendimiento de la tarea, aumente el valor de la propiedad [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) de [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). Por ejemplo: 
 
 ```csharp
 BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
@@ -85,7 +85,7 @@ await batchClient.JobOperations.AddTaskAsync(jobId, tasksToAdd, parallelOptions)
 ```
 
 
-## <a name="example-batch-cli-extension"></a>Ejemplo: extensión de la CLI de Batch
+## <a name="example-batch-cli-extension"></a>Ejemplo: Extensión de la CLI de Batch
 
 Mediante las extensiones de la CLI de Azure Batch con [plantillas de la CLI de Batch](batch-cli-templates.md), cree un archivo JSON de plantilla de trabajo que incluya un [generador de tareas](https://github.com/Azure/azure-batch-cli-extensions/blob/master/doc/taskFactories.md). El generador de tareas configura una colección de tareas relacionadas para un trabajo a partir de una única definición de tarea.  
 
@@ -128,7 +128,7 @@ La siguiente es una plantilla de trabajo de ejemplo para un trabajo de barrido p
 ```
 Para ejecutar un trabajo con la plantilla, consulte [Uso de plantillas y transferencia de archivos de la CLI de Azure Batch](batch-cli-templates.md).
 
-## <a name="example-batch-python-sdk-extension"></a>Ejemplo: extensión del SDK de Python de Batch
+## <a name="example-batch-python-sdk-extension"></a>Ejemplo: Extensión del SDK de Python de Batch
 
 Para usar la extensión del SDK de Python de Azure Batch, instale el SDK de Python y la extensión:
 

@@ -4,15 +4,15 @@ description: Proporciona información sobre el dispositivo del recopilador de Az
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 01/14/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 6f843fedafd68d4e04d181af2c6d7542baaf0144
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: b9387814b8bdab56117dec27de1e3d5b44ce39b4
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104219"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262615"
 ---
 # <a name="about-the-collector-appliance"></a>Dispositivo del recopilador
 
@@ -126,12 +126,9 @@ La comprobación de conectividad se valida mediante la conexión a una lista de 
 
 El recopilador se conecta a vCenter Server y consulta los metadatos de la máquina virtual y los contadores de rendimiento. Esto es lo que necesita para la conexión.
 
-- Solo se admiten las versiones 5.5, 6.0 y 6.5 de vCenter Server.
+- Solo se admiten las versiones 5.5, 6.0, 6.5 y 6.7 de vCenter Server.
 - Necesita una cuenta de solo lectura con los permisos para detección que se resumen más abajo. Para la detección, solo es posible acceder a los centros de datos accesibles con la cuenta.
 - De forma predeterminada, se conecta a vCenter Server con una dirección IP o un FQDN. Si vCenter Server escucha en un puerto diferente, conéctese a él con el formato *IPAddress:Port_Number* o *FQDN:Port_Number*.
-- Para recopilar datos de rendimiento para el almacenamiento y la conexión a red, la configuración de estadísticas de vCenter Server debe establecerse en el nivel tres.
-- Si el nivel es menor que tres, la detección funciona pero no se recopilarán los datos de rendimiento. Es posible que se recopilen algunos contadores, pero otros se establecerán en cero.
-- Si no se recopilan datos de rendimiento para el almacenamiento y la conexión a red, las recomendaciones de tamaño para la valoración se basarán en los datos de rendimiento para CPU y memoria, y en los datos de configuración para los adaptadores de red y de disco.
 - El recopilador debe tener una línea de visión de la red con el servidor vCenter.
 
 #### <a name="account-permissions"></a>Permisos de la cuenta

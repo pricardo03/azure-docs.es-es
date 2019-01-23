@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/11/2018
 ms.author: diberry
-ms.openlocfilehash: 9a8bfa2e89e6bc0cbbd5af2efdff60aa406b3f1d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: e75fa6560feb01ae912ad2040df7a8748ed0077b
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714209"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246558"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Preguntas más frecuentes de Language Understanding
 
@@ -84,6 +84,14 @@ El sistema debe utilizar la intención de mayor puntuación independientemente d
 Las visitas totales del punto de conexión se actualizan periódicamente en el panel de información de la aplicación, pero las métricas asociadas con su clave de punto de conexión de LUIS en Azure Portal se actualizan con mayor frecuencia.
 
 Si las visitas del punto de conexión no están actualizadas en el panel de información, inicie sesión en Azure Portal, busque el recurso asociado con su clave de punto de conexión de LUIS y abra **Métrica** para seleccionar la métrica del **Total de llamadas**. Si la clave de punto de conexión se utiliza para más de una aplicación de LUIS, la métrica en Azure Portal muestra el número agregado de llamadas de todas las aplicaciones de LUIS que la usan.
+
+### <a name="is-there-a-powershell-command-to-the-endpoint-quota"></a>¿Existe un comando de PowerShell para la cuota de punto de conexión?
+
+Puede usar un comando de PowerShell para ver la cuota de punto de conexión:
+
+```powershell
+Get-AzureRmCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
+``` 
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>La aplicación LUIS funcionaba ayer, pero hoy recibo errores 403. No hice cambios en la aplicación. ¿Cómo puedo corregirlo?
 Siga las [instrucciones](#how-do-i-create-and-assign-a-luis-endpoint-key) en la siguiente pregunta frecuente para crear una clave de punto de conexión de LUIS y asignarla a la aplicación. Después, debe cambiar la solicitud HTTP al punto de conexión para [usar la nueva clave de punto de conexión](luis-concept-keys.md#use-endpoint-key-in-query).
@@ -194,6 +202,12 @@ Si selecciona una plantilla de LUIS y hace clic en el botón de **selección** e
 
 ### <a name="what-luis-regions-support-bot-framework-speech-priming"></a>¿Qué regiones de LUIS son compatibles con la preparación para la voz de Framework Bot?
 La [preparación para la voz](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming) solo es compatible con aplicaciones de LUIS en la instancia central (EE. UU.).
+
+## <a name="api-programming-strategies"></a>Estrategias de programación de la API
+
+### <a name="how-do-i-programmatically-get-the-luis-region-of-a-resource"></a>¿Cómo puedo obtener mediante programación la región LUIS de un recurso? 
+
+Use el ejemplo de LUIS para [buscar regiones](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/find-region) mediante programación con C# o Node.Js. 
 
 ## <a name="luis-service"></a>Servicio de LUIS
 

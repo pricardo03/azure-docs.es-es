@@ -1,23 +1,18 @@
 ---
-title: Supervisión de los registros de acceso, los registros de rendimiento, el mantenimiento del back-end y las métricas de Application Gateway
-description: Obtenga información acerca de cómo habilitar y administrar registros de acceso y registros de rendimiento para Application Gateway.
+title: Supervisión de los registros de acceso, los registros de rendimiento, el mantenimiento del back-end y las métricas de Azure Application Gateway
+description: Obtenga información acerca de cómo habilitar y administrar registros de acceso y registros de rendimiento para Azure Application Gateway.
 services: application-gateway
-author: amitsriva
-manager: rossort
-tags: azure-resource-manager
+author: vhorne
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 6/20/2018
+ms.date: 1/11/2019
 ms.author: amitsriva
-ms.openlocfilehash: 45a13bca32593895e51fa7fe3c5bd7ce1ba547e6
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6cd21448742778b0a2a27aea41f7940b1a216cdc
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437476"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231111"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Mantenimiento del back-end, registro de diagnóstico y métricas de Application Gateway
 
@@ -98,7 +93,7 @@ El siguiente fragmento de código muestra un ejemplo de la respuesta:
 Puede usar diferentes tipos de registros en Azure para administrar y solucionar problemas de Application Gateway. Se puede acceder a algunos de estos registros mediante el portal. Se pueden extraer todos los registros de Azure Blob Storage y visualizarse en distintas herramientas, como [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Excel y PowerBI. Puede obtener más información sobre los diferentes tipos de registros en la lista siguiente:
 
 * **Registro de actividades**: se puede usar el [registro de actividades de Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anteriormente conocido como registros operativos y registros de auditoría) para ver todas las operaciones enviadas a la suscripción de Azure, así como su estado. Las entradas del registro de actividades se recopilan de forma predeterminada y se pueden ver en Azure Portal.
-* **Registro de acceso**: este registro se puede usar para ver los patrones de acceso de Application Gateway y analizar información importante, como la dirección IP del autor de la llamada, la dirección URL solicitada, la latencia de la respuesta, el código de retorno y los bytes de entrada y de salida. El registro de acceso se recopila cada 300 segundos. Este registro contiene un registro por cada instancia de Application Gateway. La instancia de Application Gateway puede identificarse por la propiedad instanceId.
+* **Registro de acceso**: Puede usar este registro para ver los patrones de acceso de Application Gateway y analizar información importante. Esto incluye la dirección IP del autor de la llamada, la dirección URL solicitada, la latencia de la respuesta, el código de devolución y los bytes de entrada y salida. El registro de acceso se recopila cada 300 segundos. Este registro contiene un registro por cada instancia de Application Gateway. La instancia de Application Gateway se identifica por la propiedad instanceId.
 * **Registro de rendimiento**: este registro se puede usar para ver el rendimiento de las instancias de Application Gateway. Este registro captura la información de rendimiento de cada instancia, incluida la cantidad total de solicitudes atendidas, el rendimiento en bytes, la cantidad de solicitudes con error y el número de instancias de back-end con un mantenimiento correcto o incorrecto. El registro de rendimiento se recopila cada 60 segundos.
 * **Registro de firewall**: este registro se puede usar para ver las solicitudes que se registran con el modo de detección o prevención de una puerta de enlace de aplicaciones que está configurada con el firewall de aplicaciones web.
 
@@ -217,7 +212,7 @@ El registro de rendimiento solo se genera si lo habilitó para cada instancia de
 |healthyHostCount     | Número de hosts con un mantenimiento correcto en el grupo de back-end.        |
 |unHealthyHostCount     | Número de hosts con un mantenimiento incorrecto en el grupo de back-end.        |
 |requestCount     | Número de solicitudes atendidas.        |
-|latency | Latencia (en milisegundos) de las solicitudes desde la instancia hasta el back-end que atiende las solicitudes. |
+|latency | Latencia media (en milisegundos) de las solicitudes desde la instancia hasta el back-end que atiende las solicitudes. |
 |failedRequestCount| Número de solicitudes con error.|
 |throughput| Rendimiento medio desde el último registro, medido en bytes por segundo.|
 

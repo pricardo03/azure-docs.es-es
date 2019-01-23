@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 3984ac84271728b9066aba15a582065ea3121c76
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 2b199e10b1a70bc44065d422d32acd3bea182721
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581766"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54302058"
 ---
 # <a name="how-to-manage-keys-in-qna-maker"></a>Cómo administrar las claves de QnA Maker
 
@@ -42,7 +42,7 @@ Puede ver y restablecer las claves de suscripción desde Azure Portal, donde cre
 
 Las claves de punto de conexión se pueden administrar desde el [portal de QnA Maker](https://qnamaker.ai).
 
-1. Inicie sesión en el [portal de QnA Maker](https://qnamaker.ai) y vaya a **Configuración del servicio**.
+1. Inicie sesión en el [portal de QnA Maker](https://qnamaker.ai), vaya a su perfil y, luego, haga clic en **Service settings** (Configuración del servicio).
 
     ![Clave de punto de conexión](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
 

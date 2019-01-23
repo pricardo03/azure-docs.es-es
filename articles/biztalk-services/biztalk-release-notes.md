@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: f990aa086997d51e59df4285aabeccd31dcce822
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 10e790c2edb22b3c7926216535d76c50261589f3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253438"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260341"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Notas de la versión de Azure BizTalk Services
 
@@ -35,10 +35,10 @@ Las notas de la versión de Microsoft Azure BizTalk Services contienen los probl
 ## <a name="update-history"></a>Historial de actualizaciones
 ### <a name="october-update"></a>Actualización de octubre
 * Se admiten cuentas de la organización:  
-  * **Escenario**: ha registrado la implementación de un servicio de BizTalk mediante una cuenta Microsoft (como user@live.com). En este escenario, solo los usuarios de cuentas Microsoft pueden administrar el servicio BizTalk mediante el portal de BizTalk Services. No se puede usar una cuenta de la organización.  
-  * **Escenario**: ha registrado la implementación de un servicio de BizTalk mediante una cuenta de organización en Azure Active Directory (como user@fabrikam.com o user@contoso.com). En este escenario, solo los usuarios de Azure Active Directory de la misma organización pueden administrar el servicio BizTalk mediante el portal de BizTalk Services. No se puede usar una cuenta Microsoft.  
+  * **Escenario**: Ha registrado la implementación de un servicio de BizTalk mediante una cuenta Microsoft (como user@live.com). En este escenario, solo los usuarios de cuentas Microsoft pueden administrar el servicio BizTalk mediante el portal de BizTalk Services. No se puede usar una cuenta de la organización.  
+  * **Escenario**: Ha registrado la implementación de un servicio de BizTalk mediante una cuenta de organización en Azure Active Directory (como user@fabrikam.com o user@contoso.com). En este escenario, solo los usuarios de Azure Active Directory de la misma organización pueden administrar el servicio BizTalk mediante el portal de BizTalk Services. No se puede usar una cuenta Microsoft.  
 * Cuando crea un servicio de BizTalk, se registra automáticamente en el Portal de BizTalk Services.
-  * **Escenario**: inicia sesión en Azure, crea un servicio de BizTalk y luego selecciona **Administrar** por primera vez. Cuando se abre el Portal de BizTalk Services, el servicio de BizTalk se registra automáticamente y está listo para sus implementaciones.  
+  * **Escenario**: Inicia sesión en Azure, crea un servicio de BizTalk y luego selecciona **Administrar** por primera vez. Cuando se abre el Portal de BizTalk Services, el servicio de BizTalk se registra automáticamente y está listo para sus implementaciones.  
     Consulte [Registrar y actualizar una implementación del servicio de BizTalk en el Portal de BizTalk Services](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
 
 ### <a name="august-14-update"></a>Actualización del 14 de agosto
@@ -87,7 +87,7 @@ Los eventos de seguimiento se capturan hasta el procesamiento de mensaje EDI y l
 En la configuración de envío y recepción de X 12 ([Crear un acuerdo X12 en Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689847.aspx)) se proporciona información sobre la fase de protocolo.  
 
 ### <a name="update-agreement"></a>Actualización del contrato
-El Portal de BizTalk Services le permite modificar el calificador de una identidad cuando se configura un contrato. Esto puede dar lugar a propiedades de incoherencia. Por ejemplo, hay un contrato que usa ZZ: 1234567 y ZZ: 7654321 como calificador. En la configuración de perfil del Portal de BizTalk Services, cambia ZZ:1234567 por 01:ChangedValue. Abre el contrato y se muestra 01:ChangedValue en lugar de ZZ:1234567.
+El Portal de BizTalk Services le permite modificar el calificador de una identidad cuando se configura un contrato. Esto puede dar lugar a propiedades incoherentes. Por ejemplo, hay un contrato que usa ZZ: 1234567 y ZZ: 7654321 como calificador. En la configuración de perfil del Portal de BizTalk Services, cambia ZZ:1234567 por 01:ChangedValue. Abre el contrato y se muestra 01:ChangedValue en lugar de ZZ:1234567.
 Para modificar el calificador de una identidad, elimine el contrato, actualice las **identidades** en el perfil de socio y luego vuelva a crear el contrato.  
 
 > AZURE.WARNING Este comportamiento afecta a X12 y AS2.  
@@ -97,7 +97,7 @@ Para modificar el calificador de una identidad, elimine el contrato, actualice l
 ### <a name="as2-attachments"></a>Datos adjuntos de AS2
 Los datos adjuntos de AS2 no se admiten en el envío o la recepción. En concreto, los datos adjuntos se ignoran sin notificaciones y el cuerpo del mensaje se procesa como un mensaje AS2 normal.  
 
-### <a name="resources-remembering-path"></a>Recursos: recuerdo de la ruta de acceso
+### <a name="resources-remembering-path"></a>Recursos: Recuerdo de la ruta de acceso
 Al agregar **recursos**, es posible que la ventana de diálogo no recuerde la ruta de acceso usada previamente para agregar un recurso. Para recordar la ruta de acceso usada anteriormente, pruebe a agregar el sitio web del Portal de BizTalk Services a **Sitios de confianza** en Internet Explorer.  
 
 ### <a name="if-you-rename-the-entity-name-of-a-bridge-and-close-the-project-without-saving-changes-opening-the-entity-again-results-in-an-error"></a>Si cambia el nombre de la entidad de un puente y cierra el proyecto sin guardar los cambios, al volver a abrir la entidad se produce un error
@@ -176,15 +176,15 @@ Considere el siguiente escenario:
 Considere los siguientes escenarios:  
 
 **Escenario 1: Uso de certificados basados en huella digital para garantizar la transferencia de mensajes de un puente a un punto de conexión de servicio**  
-Considere un escenario donde usa certificados basados en huella digital en el proyecto de servicio de BizTalk. Actualiza el certificado en el Portal de BizTalk Services con el mismo nombre pero con una huella digital diferente, pero no actualiza el proyecto de servicio de BizTalk Services de acuerdo con esa modificación. En este escenario, el puente puede seguir procesando los mensajes porque es posible que los datos de certificado más antiguos estén aún en la memoria caché del canal. Después de eso, el procesamiento de mensajes da error.  
+ Considere un escenario donde usa certificados basados en huella digital en el proyecto de servicio de BizTalk. Actualiza el certificado en el Portal de BizTalk Services con el mismo nombre pero con una huella digital diferente, pero no actualiza el proyecto de servicio de BizTalk Services de acuerdo con esa modificación. En este escenario, el puente puede seguir procesando los mensajes porque es posible que los datos de certificado más antiguos estén aún en la memoria caché del canal. Después de eso, el procesamiento de mensajes da error.  
 
-**Solución alternativa**: actualice el certificado en el proyecto de servicio de BizTalk y vuelva a implementar el proyecto.  
+**Solución alternativa**: Actualice el certificado en el proyecto de servicio de BizTalk y vuelva a implementar el proyecto.  
 
 **Escenario 2: Uso de comportamientos basados en el nombre para identificar certificados a fin de proteger la transferencia de mensajes desde un puente hasta un punto de conexión de servicio**
 
 Considere un escenario donde usa comportamientos basados en el nombre para identificar certificados en el proyecto de servicio de BizTalk. Actualiza el certificado en el Portal de BizTalk Services, pero no actualiza el proyecto de servicio de BizTalk de acuerdo con esta modificación. En este escenario, el puente puede seguir procesando los mensajes porque es posible que los datos de certificado más antiguos estén aún en la memoria caché del canal. Después de eso, el procesamiento de mensajes da error.  
 
-**Solución alternativa**: actualice el certificado en el proyecto de servicio de BizTalk y vuelva a implementar el proyecto.  
+**Solución alternativa**: Actualice el certificado en el proyecto de servicio de BizTalk y vuelva a implementar el proyecto.  
 
 ### <a name="bridges-continue-to-process-messages-even-when-the-sql-database-is-offline"></a>Los puentes siguen procesando los mensajes aunque la Base de datos SQL esté sin conexión
 Los puentes de BizTalk Services continúan procesando los mensajes durante un tiempo, aunque Microsoft Azure SQL Database (que almacena la información de ejecución como artefactos y canalizaciones implementados) esté sin conexión. El motivo es que BizTalk Services usan la configuración de puentes y artefactos almacenada en caché.
@@ -196,27 +196,27 @@ Considere un escenario donde quiere leer un mensaje XML dentro del código perso
 ### <a name="sending-messages-to-a-bridge-using-wcf-does-not-scale"></a>El envío de mensajes a un puente con WCF no se escala
 Los mensajes enviados a un puente con WCF no se escalan. Si quiere un cliente escalable, debe usar en su lugar HttpWebRequest.
 
-### <a name="upgrade-token-provider-error-after-upgrading-from-biztalk-services-preview-to-general-availability-ga"></a>ACTUALIZACIÓN: error del proveedor de tokens después de actualizar de la versión preliminar de BizTalk Services a disponibilidad general (GA)
+### <a name="upgrade-token-provider-error-after-upgrading-from-biztalk-services-preview-to-general-availability-ga"></a>ACTUALIZACIÓN: Error del proveedor de tokens después de actualizar de la versión preliminar de BizTalk Services a disponibilidad general (GA)
 Existe un contrato EDI o AS2 con lotes activos. Cuando Servicios de BizTalk se actualiza de versión preliminar a disponibilidad general, puede ocurrir lo siguiente:
 
-* Error: el proveedor de tokens no pudo proporcionar un token de seguridad. El proveedor de tokens devolvió el mensaje: no se puede resolver el nombre remoto.
+* Error: The token provider was unable to provide a security token (Error: El proveedor de tokens no pudo proporcionar un token de seguridad). El proveedor de tokens devolvió el mensaje: No se pudo resolver el nombre remoto.
 * Las tareas de Batch se cancelan.
 
-**Solución**: después de que el servicio de BizTalk se actualice a disponibilidad general (GA), vuelva a implementar el contrato.  
+**Solución alternativa**: Después de que el servicio de BizTalk se actualice a disponibilidad general (GA), vuelva a implementar el contrato.  
 
-### <a name="upgrade-toolbox-shows-the-old-bridge-icons-after-upgrading-the-biztalk-services-sdk"></a>ACTUALIZACIÓN: el cuadro de herramientas muestra los iconos de puente antiguos después de actualizar el SDK de BizTalk Services
+### <a name="upgrade-toolbox-shows-the-old-bridge-icons-after-upgrading-the-biztalk-services-sdk"></a>ACTUALIZACIÓN: El cuadro de herramientas muestra los iconos de puente antiguos después de actualizar el SDK de BizTalk Services
 Después de actualizar una versión anterior del SDK de BizTalk Services, que tenía iconos antiguos que representaban los puentes, el cuadro de herramientas sigue mostrando estos iconos. Sin embargo, si agrega un puente a la superficie de diseño del proyecto de servicio de BizTalk, la superficie muestra el nuevo icono.  
 
 **Solución alternativa**. Para solucionar este problema, elimine los archivos .tbd situados en <system drive>:\Usuarios\<usuario>\AppData\Local\Microsoft\VisualStudio\11.0.  
 
-### <a name="upgrade-biztalk-portal-update-from-preview-to-ga-might-show-an-error-indicating-that-the-edi-capability-is-not-available"></a>ACTUALIZACIÓN: la actualización del Portal de BizTalk de la versión preliminar a la versión de disponibilidad general podría mostrar un error que indica que la función EDI no se encuentra disponible
+### <a name="upgrade-biztalk-portal-update-from-preview-to-ga-might-show-an-error-indicating-that-the-edi-capability-is-not-available"></a>ACTUALIZACIÓN: La actualización del Portal de BizTalk de la versión preliminar a la versión de disponibilidad general podría mostrar un error que indica que la función EDI no se encuentra disponible
 Si inicia sesión en el Portal de BizTalk Services mientras BizTalk Services se actualizan de la versión preliminar a la versión de disponibilidad general, puede que reciba el siguiente error en el portal:  
 
 Esta función no se encuentra disponible como parte de esta edición de Microsoft Azure BizTalk Services. Para usar estas funciones, cambie a una edición adecuada.  
 
-**Resolución**: cierre sesión en el portal, cierre y abra el explorador y, a continuación, inicie sesión en el portal.  
+**Resolución**: Cierre sesión en el portal, cierre y abra el explorador y, luego, inicie sesión en el portal.  
 
-### <a name="upgrade-new-tracking-data-does-not-show-up-after-biztalk-services-is-upgraded-to-ga"></a>ACTUALIZACIÓN: los nuevos datos de seguimiento no se muestran después de actualizar BizTalk Services a la versión de disponibilidad general
+### <a name="upgrade-new-tracking-data-does-not-show-up-after-biztalk-services-is-upgraded-to-ga"></a>ACTUALIZACIÓN: Los nuevos datos de seguimiento no se muestran después de actualizar BizTalk Services a la versión de disponibilidad general
 Supongamos un escenario donde ha implementado un puente XML en la suscripción de la versión preliminar de BizTalk Services. Envía mensajes al puente y los datos de seguimiento correspondientes están disponibles en el Portal de BizTalk Services. Ahora, si los bits de tiempo de ejecución del Portal de BizTalk Services y BizTalk Services actualizan a la versión de disponibilidad general, y envía un mensaje al mismo punto de conexión de puente implementado anteriormente, los datos de seguimiento no muestran los mensajes enviados después de la actualización.  
 
 ### <a name="pipelines-versus-bridges"></a>Canalizaciones frente a puentes

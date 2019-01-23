@@ -1,21 +1,21 @@
 ---
-title: 'Moderación del contenido con revisiones humanas en la consola de API: Content Moderator'
+title: 'Moderación del contenido con revisiones humanas con la consola de API: Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Obtenga información sobre cómo crear revisiones humanas en la consola de Content Moderator API.
+description: Use las operaciones de revisión de la API de revisión para crear revisiones de imagen o texto para la moderación humana.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 08/05/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: bb95341a09f09ce8020f34476e720270fd401909
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 9d2daad06ad6cb97fe562db98cab57c4ed970a60
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219760"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260216"
 ---
 # <a name="create-reviews-from-the-api-console"></a>Crear revisiones en la consola de API
 
@@ -26,10 +26,10 @@ Después de que un moderador humano revise las etiquetas asignadas automáticame
 ## <a name="use-the-api-console"></a>Usar la consola de API
 Para probar la API mediante la consola en línea, debe especificar algunos valores en la consola:
 
-- **teamName**: el nombre del equipo que creó al configurar la cuenta de la herramienta de revisión. 
-- **ContentId**: esta cadena se pasa a la API y se devuelve a través de la devolución de llamada. ContentId es útil para asociar los identificadores internos o metadatos con los resultados de un trabajo de moderación.
-- **Metadatos**: pares de clave-valor personalizados devueltos al punto de conexión de API durante la devolución de llamada. Si la clave es un código corto definido en la herramienta de revisión, aparece como una etiqueta.
-- **Ocp-Apim-Subscription-Key**: ubicada en la pestaña **Configuración**. Para más información, consulte [Información general](overview.md).
+- **teamName**: Nombre del equipo que creó al configurar la cuenta de la herramienta de revisión. 
+- **ContentId**: Esta cadena se pasa a la API y se devuelve a través de la devolución de llamada. ContentId es útil para asociar los identificadores internos o metadatos con los resultados de un trabajo de moderación.
+- **Metadatos**: Pares de clave-valor personalizados devueltos al punto de conexión de API durante la devolución de llamada. Si la clave es un código corto definido en la herramienta de revisión, aparece como una etiqueta.
+- **Ocp-Apim-Subscription-Key**: Ubicada en la pestaña **Configuración**. Para más información, consulte [Información general](overview.md).
 
 La manera más sencilla de obtener acceso a una consola de prueba es desde la ventana **Credenciales**.
 

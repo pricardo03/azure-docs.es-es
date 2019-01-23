@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/28/2018
 ms.author: mayg
-ms.openlocfilehash: 5de8bc9acd97016b401bd1c2bcce46f5ab851430
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 210872a468f92f92edef9c8e29a26382c5646dae
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811569"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321558"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Ejecución de Azure Site Recovery Deployment Planner para la recuperación ante desastres de VMware en Azure
 Este artículo es la guía del usuario de Azure Site Recovery Deployment Planner para implementaciones de producción de VMware en Azure.
@@ -90,7 +90,7 @@ Durante la generación de perfiles, también se pueden pasar un nombre y una cla
 
 Puede ejecutar varias instancias de la herramienta para varios conjuntos de máquinas virtuales. Asegúrese de que los nombres de máquina virtual no se repiten en ninguno de los conjuntos de generación de perfiles. Por ejemplo, si ha generado el perfil de diez máquinas virtuales (de VM1 a VM10) y unos días después desea generar el de otras cinco (de VM11 a VM15), puede ejecutar la herramienta desde otra consola de línea de comandos para el segundo conjunto de máquinas virtuales (de VM11 a VM15). Asegúrese de que el segundo conjunto de máquinas virtuales no tiene ningún nombre de máquina virtual de la primera instancia de generación de perfiles o utilice un directorio de salida diferente para la segunda ejecución. Si se usan dos instancias de la herramienta para generar los perfiles de las mismas máquinas virtuales y se usa el mismo directorio de salida, el informe generado no será correcto.
 
-De forma predeterminada, la herramienta está configurada tanto para generar perfiles como para generar informes de hasta 1000 máquinas virtuales. Para cambiar el límite, cambie el valor de la clave MaxVMsSupported en el archivo *ASRDeploymentPlanner.exe.config*.
+De forma predeterminada, la herramienta está configurada tanto para generar perfiles como para generar informes de hasta 1000 VM. Para cambiar el límite, cambie el valor de la clave MaxVMsSupported en el archivo *ASRDeploymentPlanner.exe.config*.
 ```
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
@@ -168,7 +168,7 @@ Una vez que se completa la generación de perfiles, se puede ejecutar la herrami
 |-OfferId|(Opcional) La oferta asociada a la suscripción especificada. El valor predeterminado es MS-AZR-0003P (pago por uso).|
 |-Currency|(Opcional) La moneda en la que se muestra el costo en el informe generado. El valor predeterminado es el dólar estadounidense ($) o la moneda usada por última vez.<br>Consulte la lista de [monedas admitidas](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).|
 
-De forma predeterminada, la herramienta está configurada tanto para generar perfiles como para generar informes de hasta 1000 máquinas virtuales. Para cambiar el límite, cambie el valor de la clave MaxVMsSupported en el archivo *ASRDeploymentPlanner.exe.config*.
+De forma predeterminada, la herramienta está configurada tanto para generar perfiles como para generar informes de hasta 1000 VM. Para cambiar el límite, cambie el valor de la clave MaxVMsSupported en el archivo *ASRDeploymentPlanner.exe.config*.
 ```
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>

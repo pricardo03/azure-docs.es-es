@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: fa58ecf4607efc1d212e40b98d199756d4b987f8
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 16bf68a5fdb1df2a4f60de9167893a42295cbc52
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231804"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260540"
 ---
 # <a name="ethereum-proof-of-work-consortium-solution-template"></a>Plantilla de solución del consorcio de prueba de trabajo de Ethereum
 
@@ -82,7 +82,7 @@ Nombre de parámetro|DESCRIPCIÓN| Valores permitidos|Valores predeterminados
 Prefijo de recurso |Cadena usada como base para asignar nombres a recursos (de 2 a 4 caracteres alfanuméricos). Se antepone un hash único a la cadena de algunos recursos, mientras que se anexa información específica de recursos.|Caracteres alfanuméricos con una longitud de 2 a 4|N/D
 Nombre de usuario de máquina virtual| Nombre de usuario del administrador de cada máquina virtual implementada (solo caracteres alfanuméricos)|Entre 1 y 64 caracteres |gethadmin
 Tipo de autenticación|El método de autenticación en la máquina virtual. |Contraseña o clave pública SSH|Contraseña
-Contraseña (Tipo de autenticación = Contraseña)|La contraseña de la cuenta del administrador para cada una de las máquinas virtuales implementadas. La contraseña debe contener 3 de los siguientes requisitos: 1 letra mayúscula, 1 letra minúscula, 1 número y 1 carácter especial. <br />Aunque todas las máquinas virtuales tienen inicialmente la misma contraseña, puede cambiarla después del aprovisionamiento.|Entre 12 y 72 caracteres|N/D
+Contraseña (Tipo de autenticación = Contraseña)|La contraseña de la cuenta de administrador para cada una de las máquinas virtuales implementadas. La contraseña debe cumplir 3 de los siguientes requisitos: 1 letra mayúscula, 1 letra minúscula, 1 número y 1 carácter especial. <br />Aunque todas las máquinas virtuales tienen inicialmente la misma contraseña, puede cambiarla después del aprovisionamiento.|Entre 12 y 72 caracteres|N/D
 Clave SSH (Tipo de autenticación = Clave pública)|La clave de shell seguro que se usa para el inicio de sesión remoto.|| N/D
 Subscription| La suscripción en la que se va a implementar la red del consorcio.||N/D
 Grupo de recursos| El grupo de recursos en el que se va a implementar la red del consorcio.||N/D
@@ -143,12 +143,12 @@ Nombre de parámetro |DESCRIPCIÓN |Valores permitidos|Valores predeterminados
 Identificador ConsortiumMember|El identificador asociado con cada miembro que participa en la red del consorcio usada para configurar los espacios de direcciones IP para evitar la colisión. <br /><br />El identificador de miembro debe ser único en las diferentes organizaciones de la misma red. Es necesario un identificador de miembro único incluso si la misma organización se implementa en varias regiones.<br /><br />Tome nota del valor de este parámetro, ya que necesitará compartirlo con otros miembros que se estén uniendo.|De 0 a 255
 Identificador de red de Ethereum|El identificador de red para la red del consorcio de Ethereum que se está implementando. Cada red de Ethereum tiene su propio identificador de red, siendo 1 el identificador de la red pública. Aunque el acceso a la red está restringido para los nodos de minería de datos, todavía sigue siendo recomendable usar un número grande para evitar las colisiones.|De 5 a 999 999 999| 10101010
 Bloque génesis personalizado|Posibilidad de generar automáticamente un bloque génesis o proporcionar uno personalizado.|Sí/No| Sin 
-Contraseña de la cuenta de Ethereum (Bloque de génesis personalizado = No)|La contraseña de administrador usada para proteger la cuenta de Ethereum importada en cada nodo. La contraseña debe contener lo siguiente: 1 letra mayúscula, 1 letra minúscula y 1 número.|12 o más caracteres|N/D
-Frase de contraseña de clave privada de Ethereum (Bloque de génesis personalizado = No)|La frase de contraseña usada para generar la clave privada de ECC asociada con la cuenta de Ethereum predeterminada que se genera. No es necesario que una clave privada generada previamente se apruebe de forma explícita.<br /><br />Considere la posibilidad de una frase de contraseña con aleatoriedad suficiente para garantizar una clave privada segura y que no se superponga con otros miembros del consorcio. La frase de contraseña debe contener, como mínimo, lo siguiente: 1 letra mayúscula, 1 letra minúscula y 1 número.<br /><br />Tenga en cuenta que si dos miembros utilizan la misma frase de contraseña las cuentas generadas serán iguales. Es útil usar la misma frase de contraseña si una sola organización está intentando implementar en diferentes regiones y quiere compartir una sola cuenta (coinbase) en todos los nodos.|12 o más caracteres|N/D
+Contraseña de la cuenta de Ethereum (Bloque de génesis personalizado = No)|La contraseña de administrador usada para proteger la cuenta de Ethereum importada en cada nodo. La contraseña debe cumplir con los siguientes requisitos: 1 letra mayúscula, 1 letra minúscula y 1 número.|12 o más caracteres|N/D
+Frase de contraseña de clave privada de Ethereum (Bloque de génesis personalizado = No)|La frase de contraseña usada para generar la clave privada de ECC asociada con la cuenta de Ethereum predeterminada que se genera. No es necesario que una clave privada generada previamente se apruebe de forma explícita.<br /><br />Considere la posibilidad de una frase de contraseña con aleatoriedad suficiente para garantizar una clave privada segura y que no se superponga con otros miembros del consorcio. La frase de contraseña debe contener lo siguiente como mínimo: 1 letra mayúscula, 1 letra minúscula y 1 número.<br /><br />Tenga en cuenta que si dos miembros utilizan la misma frase de contraseña las cuentas generadas serán iguales. Es útil usar la misma frase de contraseña si una sola organización está intentando implementar en diferentes regiones y quiere compartir una sola cuenta (coinbase) en todos los nodos.|12 o más caracteres|N/D
 Bloque génesis (Bloque génesis personalizado = Sí)|Cadena JSON que representa el bloque génesis personalizado. Puede encontrar más detalles sobre el formato del bloque génesis aquí, en Redes personalizadas.<br /><br />Todavía se crea una cuenta de Ethereum al proporcionar un bloque génesis personalizado. Considere la posibilidad de especificar una cuenta de Ethereum con fondos en el bloque génesis para no tener que esperar por la minería de datos.|JSON válido |N/D
 Clave compartida para la conexión|Una clave compartida para la conexión entre las puertas de enlace de red virtual.| 12 o más caracteres|N/D
 Dirección URL de datos del consorcio|La dirección URL que apunta a los datos de configuración relevantes del consorcio proporcionados por la implementación de otro miembro. <br /><br />Esta información la proporciona un miembro ya conectado que tiene una implementación. Si ha implementado el resto de la red, la dirección URL es la salida de implementación de la plantilla, denominada CONSORTIUM-DATA.||N/D
-Puerta de enlace de red virtual a la que conectarse|La ruta del recurso de la puerta de enlace de red virtual a la que se va a conectar.<br />Esta información la proporciona un miembro ya conectado que tiene una implementación. Si ha implementado el resto de la red, la dirección URL está en la salida de implementación de la plantilla, denominada CONSORTIUM_MEMBER_GATEWAY_ID. Nota: Debe utilizarse la dirección URL de datos del consorcio y el recurso de la puerta de enlace de red virtual del mismo miembro.||N/D
+Puerta de enlace de red virtual a la que conectarse|La ruta del recurso de la puerta de enlace de red virtual a la que se va a conectar.<br />Esta información la proporciona un miembro ya conectado que tiene una implementación. Si ha implementado el resto de la red, la dirección URL está en la salida de implementación de la plantilla, denominada CONSORTIUM_MEMBER_GATEWAY_ID. Nota: Debe usarse la dirección URL de datos del consorcio y el recurso de la puerta de enlace de red virtual del mismo miembro.||N/D
 Punto de conexión del registrador de información del mismo nivel|Punto de conexión de información del mismo nivel proporcionado por la implementación de otro miembro|Punto de conexión válido del primer miembro en el consorcio|N/D
 Clave del registrador de información del mismo nivel|Clave principal de información del mismo nivel proporcionada por la implementación de otro miembro|Clave principal válida del primer miembro en el consorcio|N/D
 
@@ -225,13 +225,13 @@ mn-ethwvu-reg1_2 |mn-ethwvu-reg1000002
 
 Como primer miembro (o un miembro conectado) del consorcio, deberá proporcionar a los demás miembros cierta información para que puedan unirse y establecer conexión. Concretamente:
 
-1. **Datos compartidos de configuración de consorcio**: hay un conjunto de datos que se usan para coordinar la conexión de Ethereum entre dos miembros. La información necesaria, incluido el bloque génesis, el identificador de red del consorcio y los nodos de arranque, se escribe en un archivo en los nodos de transacción del líder u otro miembro implementado. La ubicación de este archivo se muestra en el parámetro de salida de la implementación de plantilla denominado **CONSORTIUM-DATA**.
+1. **Datos compartidos de configuración de consorcio**: Hay un conjunto de datos que se usan para coordinar la conexión de Ethereum entre dos miembros. La información necesaria, incluido el bloque génesis, el identificador de red del consorcio y los nodos de arranque, se escribe en un archivo en los nodos de transacción del líder u otro miembro implementado. La ubicación de este archivo se muestra en el parámetro de salida de la implementación de plantilla denominado **CONSORTIUM-DATA**.
 2. **Punto de conexión de información del mismo nivel**: El punto de conexión del registrador de información del mismo nivel para obtener información de todos los nodos ya conectados a la red de Ethereum desde la implementación del líder o de otro miembro. La base de datos almacena un conjunto de información sobre cada nodo conectado en la red, información como el nombre de host del nodo, dirección IP privada, etc. Este es el parámetro de salida de la implementación de plantilla denominado **PEER_INFO_ENDPOINT**.
-3. **Clave principal de información del mismo nivel**: La clave principal del registrador de información del mismo nivel se utiliza para obtener acceso a la clave principal de información del mismo nivel del líder o de otro miembro. Este es el parámetro de salida de la implementación de plantilla denominado **PEER_INFO_PRIMARY_KEY**.
+3. **Clave principal de información del mismo nivel**: La clave principal del registrador de información del mismo nivel se usa para acceder a la clave principal de información del mismo nivel del líder o de otro miembro. Este es el parámetro de salida de la implementación de plantilla denominado **PEER_INFO_PRIMARY_KEY**.
 
 
 4. **Puerta de enlace de red virtual**: Cada miembro establece una conexión a toda la red de cadena de bloques a través de un miembro existente. Para conectar la red virtual, es necesaria la ruta del recurso para la puerta de enlace de red virtual del miembro al que se está conectando. Este es el parámetro de salida de la implementación de plantilla denominado **CONSORTIUM_MEMBER_GATEWAY_ID**.
-5. **Clave compartida**: Un secreto previamente establecido entre dos miembros de la red del consorcio que establecen una conexión. Se trata de una cadena alfanumérica (entre 1 y 128 caracteres) que se haya acordado fuera del contexto de la implementación. (Por ejemplo, **MySharedKeyAbc123**).
+5. **Clave compartida:** Un secreto establecido previamente entre dos miembros de la red del consorcio que establecen una conexión. Se trata de una cadena alfanumérica (entre 1 y 128 caracteres) que se haya acordado fuera del contexto de la implementación. (Por ejemplo, **MySharedKeyAbc123**).
 
 ### <a name="acceptance-of-new-member"></a>Aceptación de nuevo miembro
 
@@ -261,10 +261,10 @@ Luego importe el módulo:
 
 Por último, ejecute la función con la entrada adecuada:
 
-- **MyGatewayResourceId**: ruta del recurso de la puerta de enlace. Este es el parámetro de salida de la implementación de plantilla denominado **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **OtherGatewayResourceId**: ruta del recurso de puerta de enlace del miembro que se está uniendo. Esto lo proporciona el miembro que se está uniendo y es el parámetro de salida de la implementación de plantilla, también denominado **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **ConnectionName**: un nombre para que identifique esta conexión de puerta de enlace.
-- **Clave compartida**: el secreto previamente establecido entre los dos miembros de la red del consorcio que establecen una conexión.
+- **MyGatewayResourceId:** Ruta de acceso de recursos de la puerta de enlace. Este es el parámetro de salida de la implementación de plantilla denominado **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **OtherGatewayResourceId:** Ruta del recurso de puerta de enlace del miembro que se está uniendo. Esto lo proporciona el miembro que se está uniendo y es el parámetro de salida de la implementación de plantilla, también denominado **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **ConnectionName:** Nombre para que identifique esta conexión de puerta de enlace.
+- **Clave compartida**: Secreto previamente establecido entre los dos miembros de la red del consorcio que establecen una conexión.
 
 **CreateConnection** -MyGatewayResourceId <resource path of your Gateway> - OtherGatewayResourceId <ruta del recurso de puerta de enlace del miembro que se está uniendo> -ConnectionName myConnection - SharedKey "MySharedKeyAbc123"
 
@@ -274,11 +274,11 @@ Descargue el script de la CLI de Azure y almacénelo localmente. La ubicación d
 
 Ejecute el script con la entrada adecuada:
 
-- **MyGatewayResourceId**: ruta del recurso de la puerta de enlace. Este es el parámetro de salida de la implementación de plantilla denominado **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **OtherGatewayResourceId**: ruta del recurso de puerta de enlace del miembro que se está uniendo. Esto lo proporciona el miembro que se está uniendo y el parámetro de la implementación de plantilla de su implementación, también denominado **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **ConnectionName**: un nombre para que identifique esta conexión de puerta de enlace.
-- **Clave compartida**: el secreto previamente establecido entre los dos miembros de la red del consorcio que establecen una conexión.
-- **Ubicación**: la región de Azure donde se implementa el recurso de puerta de enlace.
+- **MyGatewayResourceId:** Ruta de acceso de recursos de la puerta de enlace. Este es el parámetro de salida de la implementación de plantilla denominado **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **OtherGatewayResourceId:** Ruta del recurso de puerta de enlace del miembro que se está uniendo. Esto lo proporciona el miembro que se está uniendo y el parámetro de la implementación de plantilla de su implementación, también denominado **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **ConnectionName:** Nombre para que identifique esta conexión de puerta de enlace.
+- **Clave compartida**: Secreto previamente establecido entre los dos miembros de la red del consorcio que establecen una conexión.
+- **Ubicación:** Región de Azure donde se implementa el recurso de puerta de enlace.
 
 ``` powershell
 az network vpn-connection create --name $ConnectionName --resource-group

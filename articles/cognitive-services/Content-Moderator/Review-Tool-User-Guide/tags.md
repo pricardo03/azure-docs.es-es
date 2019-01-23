@@ -1,5 +1,6 @@
 ---
-title: Uso de etiquetas en Azure Content Moderator | Microsoft Docs
+title: 'Uso de etiquetas personalizadas para moderación de contenido: Content Moderator'
+titlesuffix: Azure Cognitive Services
 description: Content Moderator incluye etiquetas predeterminadas, pero puede crear etiquetas personalizadas para moderar el contenido específico de su negocio.
 services: cognitive-services
 author: sanjeev3
@@ -7,20 +8,20 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 06/25/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: c462ff2937453f942db7fdd5b751f3356b6fe715
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: c1a547f99995d25d19dafb03276306c50a544c9a
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310086"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264723"
 ---
-# <a name="about-tags"></a>Acerca de las etiquetas #
+# <a name="create-and-use-moderation-tags"></a>Creación y uso de etiquetas de moderación
 
 Además de las dos etiquetas predeterminadas **isadult** (**a**) e **isracy** (**r**), puede crear etiquetas personalizadas para un examen más dirigido. Estas etiquetas personalizadas están luego disponibles para que los revisores humanos las asignen a imágenes o texto.
 
-## <a name="create-tags"></a>Creación de etiquetas ##
+## <a name="create-tags"></a>Creación de etiquetas
 
 1.  Seleccione las etiquetas en la pestaña Settings (Configuración).
 
@@ -34,7 +35,7 @@ Además de las dos etiquetas predeterminadas **isadult** (**a**) e **isracy** (*
 
 ![Definición de etiquetas de moderación de contenido](images/tags-2-define.png)
 
-## <a name="using-custom-tags"></a>Uso de etiquetas personalizadas ##
+## <a name="using-custom-tags"></a>Uso de etiquetas personalizadas
 
 Se pueden usar etiquetas personalizadas durante la revisión humana. Se muestran en la vista previa y el revisor las selecciona haciendo clic en ellas.
 
@@ -48,6 +49,6 @@ Aunque no puede eliminar las dos etiquetas predeterminadas, **isadult** e **isra
 
 ![Eliminación de etiquetas de moderación de contenido](images/tags-5-delete.png)
 
-## <a name="next-steps"></a>Pasos siguientes ##
+## <a name="next-steps"></a>Pasos siguientes
 
 Para información sobre cómo usar etiquetas para la moderación de imágenes, consulte [Revisión de imágenes moderadas](Review-Moderated-Images.md).

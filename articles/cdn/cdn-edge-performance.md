@@ -1,6 +1,6 @@
 ---
-title: Análisis del rendimiento de nodo perimetral en la red CDN de Azure | Microsoft Docs
-description: Análisis del rendimiento del nodo perimetral en la red CDN de Microsoft Azure. El análisis del rendimiento perimetral proporciona información pormenorizada sobre tráfico y uso del ancho de banda para la red CDN.
+title: Análisis del rendimiento de nodo perimetral en Azure CDN | Microsoft Docs
+description: Análisis del rendimiento del nodo perimetral en Microsoft Azure CDN. El análisis del rendimiento perimetral proporciona información pormenorizada sobre tráfico y uso del ancho de banda para la red CDN.
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: ad285b4e2226c85859acb22ba214cc44c77c08e2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7dfa252c29121adca2ecc77c08b2fca81d56e575
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "22999160"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320084"
 ---
-# <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Análisis del rendimiento del nodo perimetral en la red CDN de Microsoft Azure
+# <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Análisis del rendimiento del nodo perimetral en Microsoft Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## <a name="overview"></a>Información general
@@ -55,7 +55,7 @@ Este panel consta de:
     ![Botón de administración de hoja de perfil de red CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     Se abre el Portal de administración de CDN.
-2. Mantenga el puntero sobre la pestaña **Análisis** y, después, sobre el control flotante **Análisis del rendimiento perimetral**.  Haga clic en **Panel**.
+2. Mantenga el puntero sobre la pestaña **Análisis** y, después, sobre el control flotante **Análisis de rendimiento de Edge**.  Haga clic en **Panel**.
    
     Se muestra el panel de análisis de nodo perimetral.
 
@@ -70,7 +70,7 @@ El panel contiene un gráfico que realiza el seguimiento de una métrica durante
 * Haga clic en Ver hace un año para alternar a una superposición de la actividad del año anterior en el mismo período de tiempo en el gráfico. Este tipo de comparación proporciona información sobre los patrones de uso de la red CDN a largo plazo. La esquina superior derecha del gráfico contiene una leyenda que indica el código de color para cada gráfico de líneas.
 
 #### <a name="updating-the-chart"></a>Actualización del gráfico
-* Intervalo de tiempo: realice una de las siguientes acciones:
+* Intervalo de tiempo: Realice una de las operaciones siguientes:
   * Seleccione la región que desee en la escala de tiempo. El gráfico se actualizará con los datos que se corresponden con el período de tiempo seleccionado.
   * Haga doble clic en el gráfico para mostrar todos los datos históricos disponibles hasta un máximo de dos años.
 * Métrica: Haga clic en el icono de gráfico que aparece junto a la métrica deseada. El gráfico y la escala de tiempo se actualizarán con los datos de la métrica correspondiente.
@@ -143,7 +143,7 @@ Cada informe de este módulo contiene un gráfico y las estadísticas de uso del
     ![Botón de administración de hoja de perfil de red CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     Se abre el Portal de administración de CDN.
-2. Mantenga el puntero sobre la pestaña **Análisis** y, después, sobre el control flotante **Análisis del rendimiento perimetral**.  Haga clic en **Objeto grande HTTP**.
+2. Mantenga el puntero sobre la pestaña **Análisis** y, después, sobre el control flotante **Análisis de rendimiento de Edge**.  Haga clic en **Objeto grande HTTP**.
    
     Se muestra la pantalla de informes de análisis de nodo perimetral.
 
@@ -184,8 +184,8 @@ Cada informe de este módulo contiene un gráfico y las estadísticas de uso del
 | 5xx Errors |Contiene un gráfico de barras que le permite ver las 10 principales solicitudes que dieron como resultado un código de respuesta de la gama 500.  Los códigos de respuesta 502 Puerta de enlace incorrecta y 504 Tiempo de espera agotado para la puerta de enlace, están excluidos de este informe. |
 
 ## <a name="see-also"></a>Otras referencias
-* [Información general de la red CDN de Azure](cdn-overview.md)
-* [Estadísticas en tiempo real en CDN de Microsoft Azure](cdn-real-time-stats.md)
+* [Información general de Azure CDN](cdn-overview.md)
+* [Estadísticas en tiempo real en Azure CDN](cdn-real-time-stats.md)
 * [Invalidación del comportamiento HTTP predeterminado mediante el motor de reglas](cdn-rules-engine.md)
 * [Informes de HTTP avanzados](cdn-advanced-http-reports.md)
 

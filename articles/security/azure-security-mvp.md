@@ -12,23 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2018
+ms.date: 01/11/2019
 ms.author: barclayn
-ms.openlocfilehash: ebe6a6ffec094d535ec38d471ff6036b7379fcb8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5329dcaeb20087412a693d3ebef935fafd6a2b7d
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32180749"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246048"
 ---
 # <a name="azure-security-mvp-program"></a>Programa MVP de seguridad de Azure
 
-Los profesionales más valiosos (MVP) de Microsoft son líderes de la comunidad que han demostrado un compromiso ejemplar para ayudar a que otros usuarios saquen el máximo partido de su experiencia con las tecnologías de Microsoft. Comparten su experiencia técnica, sus conocimientos prácticos y su pasión con la comunidad y con Microsoft.
+Los profesionales más valiosos (MVP) de Microsoft son líderes de la comunidad que han demostrado un compromiso ejemplar para ayudar a otros. Los MVP permiten que otros usuarios saquen el máximo partido de su experiencia con las tecnologías de Microsoft. Comparten su experiencia técnica, sus conocimientos prácticos y su pasión con la comunidad y con Microsoft.
 
 Microsoft Azure ahora reconoce a los expertos de la comunidad con especial experiencia en la seguridad de Azure. Se puede otorgar el MVP en Microsoft Azure a los MVP de Microsoft dentro del área de contribución de la seguridad de Azure.
 
 ![Microsoft MVP](./media/azure-security-mvp/azure-security-mvp-fig1.png)
 
-Aunque no hay que superar ninguna prueba de referencia para convertirse en MVP, en parte porque esto varía según la tecnología y su ciclo de vida, entre los criterios que se evalúan se incluyen el impacto de las contribuciones de los candidatos en los foros en línea (como Microsoft Answers, TechNet y MSDN), contenido en línea y wikis; conferencias y grupos de usuarios; podcasts, sitios web, blogs y redes sociales; y artículos y libros.
+No hay ninguna prueba comparativa para convertirse en MVP. En parte, esto se debe a que varía según la tecnología y su ciclo de vida. Algunos de los criterios son:
+
+- El impacto de las contribuciones de un nominado en los foros en línea como Microsoft Answers, TechNet y MSDN
+- Wikis y contenido en línea
+- Conferencias y grupos de usuarios
+- Podcasts, sitios web, blogs y redes sociales
+- Artículos y libros
 
 ¿Es experto en la seguridad de Azure? ¿Conoce a alguien que lo sea? En ese caso, [propóngase asimismo o a otra persona](https://mvp.microsoft.com/Nomination/nominate-an-mvp) para convertirse en un MVP de seguridad de Azure hoy mismo.

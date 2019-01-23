@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 10/6/2018
+ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: 9cb14e5076379e5095ca88dc749a954e9e5d5aa4
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: d80e1394d4c4159c17eabff93ff44fdefbaf21b7
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994868"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247510"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
@@ -53,7 +53,7 @@ Los grupos de back-end pueden constar de NIC, conjuntos de escalado de máquinas
 
 ### <a name="what-regions-is-the-service-available-in"></a>¿En qué regiones está disponible el servicio?
 
-Application Gateway está disponible en todas las regiones de Azure global. También está disponible en [Azure China](https://www.azure.cn/) y [Azure Government](https://azure.microsoft.com/overview/clouds/government/)
+Application Gateway está disponible en todas las regiones de Azure global. También está disponible en [Azure China 21Vianet](https://www.azure.cn/) y [Azure Government](https://azure.microsoft.com/overview/clouds/government/)
 
 ### <a name="is-this-a-dedicated-deployment-for-my-subscription-or-is-it-shared-across-customers"></a>¿Se trata de una implementación dedicada para mi suscripción o compartida entre los clientes?
 
@@ -138,6 +138,8 @@ Las rutas definidas por el usuario (UDR) se admiten en la subred de la puerta de
 
 Por ejemplo, puede configurar una UDR en la subred de la puerta de enlace de aplicaciones para que apunte a un dispositivo firewall para la inspección de paquetes, pero debe asegurarse de que el paquete puede llegar a su destino previsto después de la inspección. El no hacerlo podría resultar en un sondeo del estado incorrecto o en un comportamiento de enrutamiento de tráfico. Esto incluye las rutas aprendidas o las rutas 0.0.0.0/0 predeterminadas que propagan las puertas de enlace de VPN o ExpressRoute en la red virtual.
 
+Las UDR en la subred de la puerta de enlace de aplicaciones **no** son compatibles con la SKU v2. Para más información, consulte [Escalabilidad automática y puerta de enlace de aplicaciones con redundancia de zona (versión preliminar pública)](application-gateway-autoscaling-zone-redundant.md#known-issues-and-limitations).
+
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>¿Cuáles son los límites de Application Gateway? ¿Puedo aumentar estos límites?
 
 Consulte [Límites de Application Gateway](../azure-subscription-service-limits.md#application-gateway-limits) para ver los límites.
@@ -206,7 +208,7 @@ Sí, la SKU v2 de Application Gateway admite la escalabilidad automática. Para 
 
 ### <a name="does-manual-scale-updown-cause-downtime"></a>¿Provoca el escalado o reducción vertical algún tiempo de inactividad?
 
-No hay ningún tiempo de inactividad, las instancias se distribuyen entre varios dominios de actualización y dominios de error.
+No hay ningún tiempo de inactividad. Las instancias se distribuyen entre varios dominios de actualización y dominios de error.
 
 ### <a name="does-application-gateway-support-connection-draining"></a>¿Es compatible Application Gateway con la funcionalidad de drenaje de conexiones?
 
@@ -292,7 +294,7 @@ Sí, se admite la [configuración de conjuntos de cifrado](application-gateway-s
 
 ### <a name="how-many-ssl-certificates-are-supported"></a>¿Cuántos certificados SSL se admiten?
 
-Se admiten hasta 20 certificados SSL.
+Se admiten hasta 100 certificados SSL.
 
 ### <a name="how-many-authentication-certificates-for-backend-re-encryption-are-supported"></a>¿Cuántos certificados de autenticación de recifrado de back-end se admiten?
 
@@ -374,7 +376,7 @@ Sí, Application Gateway admite alertas. Las alertas se configuran en métricas.
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>¿Cómo se pueden analizar las estadísticas de tráfico de Application Gateway?
 
-Puede ver y analizar los registros de acceso mediante una serie de mecanismos, como Azure Log Analytics, Excel, Power BI, etc.
+Puede ver y analizar los registros de acceso mediante diferentes mecanismos, como Azure Log Analytics, Excel, Power BI, etc.
 
 También hemos publicado una plantilla de Resource Manager que instala y ejecuta el conocido analizador de registros [GoAccess](https://goaccess.io/) para los registros de acceso de Application Gateway. GoAccess proporciona valiosas estadísticas de tráfico HTTP como visitantes únicos, archivos solicitados, hosts, sistemas operativos, exploradores, códigos de estado HTTP y mucho más. Para obtener más información, consulte el [archivo Léame en la carpeta de plantillas de Resource Manager en GitHub](https://aka.ms/appgwgoaccessreadme).
 

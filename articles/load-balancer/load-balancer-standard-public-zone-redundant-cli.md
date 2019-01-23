@@ -1,7 +1,7 @@
 ---
 title: Equilibrio de carga de máquinas virtuales con redundancia de zona mediante la CLI de Azure
 titlesuffix: Azure Load Balancer
-description: Aprenda a crear una instancia de Load Balancer Estándar público con front-end con redundancia de zona mediante la CLI de Azure
+description: Aprenda a crear una instancia de Standard Load Balancer pública con front-end con redundancia de zona mediante la CLI de Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: 82bb0387d8f1603b4b436bfe70d75d19b88f28b1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 7359be235135098779478eebc8a8927e34904ac1
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250814"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54197800"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Equilibrio de carga de máquinas virtuales en todas las zonas de disponibilidad con la CLI de Azure
 
-Este artículo le ayudará a crear una instancia de [Load Balancer Estándar](https://aka.ms/azureloadbalancerstandard) público con un front-end con redundancia de zona para lograr redundancia de zona sin dependencia de varios registros de DNS. Una única dirección IP de servidor front-end tiene automáticamente redundancia de zona.  Mediante un front-end con redundancia de zona para su equilibrador de carga, con una sola dirección IP ahora puede alcanzar cualquier máquina virtual de una red virtual dentro de una región que se encuentra en todas las zonas de disponibilidad. Use zonas de disponibilidad para proteger sus datos y aplicaciones de la improbable pérdida o error de todo un centro de datos.
+En este artículo se le ayudará a crear una instancia de [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) pública con un front-end con redundancia de zona para lograr redundancia de zona sin dependencia de varios registros de DNS. Una única dirección IP de servidor front-end tiene automáticamente redundancia de zona.  Mediante un front-end con redundancia de zona para su equilibrador de carga, con una sola dirección IP ahora puede alcanzar cualquier máquina virtual de una red virtual dentro de una región que se encuentra en todas las zonas de disponibilidad. Use zonas de disponibilidad para proteger sus datos y aplicaciones de la improbable pérdida o error de todo un centro de datos.
 
 Para más información sobre cómo usar las zonas de disponibilidad con Load Balancer Estándar, consulte [Load Balancer Estándar y zonas de disponibilidad](load-balancer-standard-availability-zones.md).
 
@@ -60,7 +60,7 @@ az network public-ip create \
 --sku Standard
 ```
 
-## <a name="create-azure-load-balancer-standard"></a>Creación de Azure Load Balancer Estándar
+## <a name="create-azure-standard-load-balancer"></a>Creación de una instancia de Azure Standard Load Balancer
 En esta sección se detalla cómo se pueden crear y configurar los componentes siguientes del equilibrador de carga:
 - Un grupo de direcciones IP de front-end que recibe el tráfico de red entrante en el equilibrador de carga.
 - Un grupo de direcciones IP de back-end al que el grupo de servidores front-end envía el tráfico de red de carga equilibrada.

@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2018
+ms.date: 01/09/2018
 ms.author: bwren
-ms.openlocfilehash: dc1de1bb43295d2ff9f260613ae568cdd2fbe6ae
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 624091d4b5c1e17a301d9087f56ec5f9b0fecc5c
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103512"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54198786"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Registros personalizados de Log Analytics
 El origen de datos de registros personalizados en Log Analytics permite recopilar eventos de archivos de texto en equipos Windows y Linux. Muchas aplicaciones registran información en archivos de texto, en lugar de los servicios de registro estándar, como el registro de eventos de Windows o Syslog. Una vez recopilados, puede analizar los datos en campos individuales en las consultas o extraerlos durante la recopilación de campos individuales.
@@ -164,6 +164,18 @@ Utilice una consulta *Type=MyApp_CL* para devolver todas las entradas de registr
 Los campos personalizados se usan para definir los campos *EventTime* (Hora del evento), *Code* (Código), *Status* (Estado) y *Message* (Mensaje) y poder ver la diferencia en los registros devueltos por la consulta.
 
 ![Consulta del registro con campos personalizados](media/data-sources-custom-logs/query-02.png)
+
+## <a name="alternatives-to-custom-logs"></a>Alternativas a los registros personalizados
+Aunque los registros personalizados son útiles si los datos cumplen los criterios que se muestran, hay casos como los siguientes donde necesita otra estrategia:
+
+- Los datos no se ajustan a la estructura necesaria como tener la marca de tiempo en un formato diferente.
+- El archivo de registro no cumple los requisitos como la codificación de archivos o una estructura de carpetas no admitida.
+- Los datos requieren el preprocesamiento o el filtrado antes de la colección. 
+
+En los casos donde no se pueden recopilar los datos con los registros personalizados, tenga en cuenta las siguientes estrategias alternativas:
+
+- Usar un script personalizado u otro método para escribir datos en [Eventos de Windows](data-sources-windows-events.md) o [Syslog](data-sources-syslog.md) que recopila Log Analytics. 
+- Enviar los datos directamente a Log Analytics mediante la [API del recopilador de datos HTTP](data-collector-api.md). Se proporciona un ejemplo de uso de runbooks en Azure Automation en [Recopilación de datos de Log Analytics con un runbook de Azure Automation](runbook-datacollect.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Vea [Análisis de los datos en Log Analytics](../log-query/parse-text.md) para obtener métodos con el fin de analizar cada entrada de registro importada en varias propiedades.

@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: 195776cda0005b3a79aa82220660fcc328f6ee98
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d327c649fcf0f42fd8618161c184fa4f572e2b90
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426261"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306495"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Cuaderno de estrategias de la plantilla de soluciones de Cortana Intelligence para la previsión de la demanda de energía
 ## <a name="executive-summary"></a>Resumen ejecutivo
@@ -172,7 +172,7 @@ En muchos casos, el cliente puede estar interesado en realizar una justificació
 
 Por otra parte, es preciso conocer bien el valor empresarial de la realización de una previsión de la demanda energética (a corto o largo plazo). De hecho, es importante tener en cuenta el valor empresarial de cada operación de previsión. Por ejemplo, un pronóstico preciso de la carga de energía durante las 24 horas siguientes puede evitar un exceso de producción o puede ayudar a evitar sobrecargas en la red de distribución de electricidad, lo que se puede cuantificar en términos de ahorro diario.
 
-Una fórmula básica para calcular los beneficios financieros de la solución de previsión de la demanda sería: ![Fórmula básica para calcular los beneficios financieros de la solución de previsión de la demanda](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
+Una fórmula básica para calcular los beneficios financieros de la solución de previsión de la demanda sería:  ![Fórmula básica para calcular los beneficios financieros de la solución de previsión de la demanda](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
 
 Puesto que el conjunto de aplicaciones Cortana Intelligence proporciona un modelo de precios de pago por uso, no es preciso incluir un componente de costo fijo en esta fórmula. Esta fórmula se puede calcular diaria, mensual o anualmente.
 
@@ -269,14 +269,14 @@ El conjunto de aplicaciones Cortana Intelligence puede admitir los formatos de d
 ### <a name="data-ingestion"></a>Ingesta de datos
 Dado que la previsión de la demanda de energía se realiza de forma constante y con frecuencia, debemos asegurarnos de que los datos sin procesar fluyen por medio de un proceso de ingesta de datos sólido y confiable. El proceso de ingesta debe garantizar que los datos sin procesar están disponibles para el proceso de previsión en el momento requerido. Eso implica que la frecuencia de la ingesta de datos debe ser mayor que la frecuencia de pronóstico.
 
-Por ejemplo: si nuestra solución de previsión de demanda genera una nueva previsión a las 8:00 A.M. a diario, es preciso que nos aseguremos de que todos los datos recopilados en las últimas 24 horas se han introducido completamente hasta ese momento e incluso tiene que incluir la última hora de datos.
+Por ejemplo:  Si nuestra solución de previsión de demanda genera una nueva previsión a las 8:00 a. m. a diario, es preciso que nos aseguremos de que todos los datos recopilados en las últimas 24 horas se han introducido completamente hasta ese momento e incluso tiene que incluir la última hora de datos.
 
 Para hacerlo, el conjunto de aplicaciones Cortana Intelligence ofrece varias formas de admitir un proceso de recopilación de datos confiable. Esto se explicará más adelante, en la sección **Implementación** de este documento.
 
 ### <a name="data-quality"></a>Calidad de los datos
 El origen de los datos sin procesar necesarios para realizar una previsión de la demanda precisa y confiable debe cumplir varios criterios básicos de calidad de los datos. Aunque se pueden usar métodos estadísticos avanzados para compensar los problemas de calidad de los datos, será preciso que nos aseguremos de que atravesamos un umbral básico de calidad de los datos al introducir datos nuevos. Estas son algunas consideraciones relativas a la calidad de los datos sin procesar:
 
-* **Valor que falta** : hace referencia a la situación en que no se recopiló una medida concreta. Aquí, el requisito básico es que el índice de valores que faltan no debe ser superior al 10% durante cualquier período. En caso de que falte un solo valor, debe indicarse mediante un valor predefinido (por ejemplo: '9999'), pero no '0', que podría ser una medida válida.
+* **Valor que falta** : hace referencia a la situación en que no se recopiló una medida concreta. Aquí, el requisito básico es que el índice de valores que faltan no debe ser superior al 10% durante cualquier período. En caso de que falte un solo valor, debe indicarse mediante un valor predefinido (por ejemplo: "9999") y no "0", que podría ser una medida válida.
 * **Precisión de la medida** : el valor real del consumo o temperatura debe registrarse con precisión. Unas medidas que no sean exactas generarán previsiones imprecisas. Normalmente, el error de medición debe ser inferior al 1% del valor verdadero.
 * **Hora de medida** : se requiere que la marca de tiempo real de los datos recopilados no se desvíe en más de 10 segundos de la hora verdadera de la medida real.
 * **Sincronización** : cuando se utilizan varios orígenes de datos (*por ejemplo*, consumo y temperatura) debemos asegurarnos de que no hay problemas de sincronización de hora entre ellos. Esto significa que la diferencia de hora entre la marca de hora recopilada de dos orígenes de datos independientes no debe superar los 10 segundos.
@@ -287,7 +287,7 @@ Una vez que se han introducido los datos sin procesar (consulte **Ingesta de dat
 
 En esta sección enumeramos algunas de las características de datos comunes que se incluyen en los modelos de previsión de la demanda de energía.
 
-**Características controladas por el tiempo:** estas características se derivan de los datos de fecha y marca de fecha. Dichos datos se extraen y se convierten en características de categoría como:
+**Características controladas por el tiempo:** Estas características se derivan de los datos de fecha y marca de tiempo. Dichos datos se extraen y se convierten en características de categoría como:
 
 * Hora del día: es la hora del día y toma los valores 0 a 23
 * Día de la semana: representa el día de la semana y toma los valores 1 (domingo) a 7 (sábado)
@@ -297,16 +297,16 @@ En esta sección enumeramos algunas de las características de datos comunes que
 * Festivos: es una característica de valor binario que toma los valores 0 (en el caso de los días normales) o 1 (en el caso de los días festivos)
 * Términos de Fourier: los términos de Fourier son ponderaciones que se derivan de la marca de tiempo y que se utilizan para capturar la estacionalidad (ciclos) de los datos. Dado que podemos tener varias estaciones en los datos, es posible que necesitemos varios términos de Fourier. Por ejemplo, los valores de la demanda pueden tener ciclos o estaciones anuales, semanales y diarios, lo que generará tres términos de Fourier.
 
-**Características de medida independientes:** las características independientes incluyen todos los elementos de datos que deseamos a usar como indicadores en nuestro modelo. Se excluye la característica dependiente que necesitaríamos predecir.
+**Características de medición independientes:** Las características independientes incluyen todos los elementos de datos que queremos usar como indicadores en nuestro modelo. Se excluye la característica dependiente que necesitaríamos predecir.
 
 * Característica de retardo: son los valores demorados de la demanda real. Por ejemplo, las características de la demora 1 contendrán el valor de la demanda de la hora anterior (asumiendo que son datos de hora) en relación con la marca de tiempo actual. Del mismo modo, podemos agregar la demora 2, la demora 3, *etc*. La combinación real de las características de demora que se usan se determina en la fase de modelado mediante la evaluación de los resultados del modelo.
 * Tendencias a largo plazo: esta característica representa el crecimiento lineal de la demanda entre años.
 
-**Característica dependiente:** la característica dependiente es la columna de datos que deseamos que nuestro modelo prediga. Con el [aprendizaje automático supervisado](https://en.wikipedia.org/wiki/Supervised_learning), primero es preciso que entrenemos el modelo mediante las características dependientes (que también se denominan etiquetas). Esto permite que el modelo aprenda los patrones de los datos asociados con la característica dependiente. En previsión de la demanda de energía normalmente deseamos predecir la demanda real y, por tanto, la usaríamos como característica dependiente.
+**Característica dependiente:** La característica dependiente es la columna de datos que queremos que nuestro modelo prediga. Con el [aprendizaje automático supervisado](https://en.wikipedia.org/wiki/Supervised_learning), primero es preciso que entrenemos el modelo mediante las características dependientes (que también se denominan etiquetas). Esto permite que el modelo aprenda los patrones de los datos asociados con la característica dependiente. En previsión de la demanda de energía normalmente deseamos predecir la demanda real y, por tanto, la usaríamos como característica dependiente.
 
-**Tratamiento de los valores que faltan:** durante la fase de preparación de los datos, necesitaríamos determinar la mejor estrategia para tratar los valores que faltan. Esto se realiza principalmente mediante los diversos [métodos de imputación de datos](https://en.wikipedia.org/wiki/Imputation_\(statistics\)) estadísticos. En el caso de una previsión de la demanda de energía, lo habitual es que los valores que faltan se imputen mediante una media móvil de los puntos de datos disponibles anteriores.
+**Tratamiento de los valores que faltan:** Durante la fase de preparación de los datos, necesitaríamos determinar la mejor estrategia para tratar los valores que faltan. Esto se realiza principalmente mediante los diversos [métodos de imputación de datos](https://en.wikipedia.org/wiki/Imputation_\(statistics\)) estadísticos. En el caso de una previsión de la demanda de energía, lo habitual es que los valores que faltan se imputen mediante una media móvil de los puntos de datos disponibles anteriores.
 
-**Normalización de datos:** la normalización de datos es otro tipo de transformación que se usa para poner todos los datos numéricos, como la previsión de la demanda, en una escala similar. Esto es algo que suele ayudar a mejorar la precisión del modelo. Para realizar dicha normalización, lo habitual es dividir el valor real entre el intervalo de los datos.
+**Normalización de datos:** La normalización de datos es otro tipo de transformación que se usa para poner todos los datos numéricos, como la previsión de la demanda, en una escala similar. Esto es algo que suele ayudar a mejorar la precisión del modelo. Para realizar dicha normalización, lo habitual es dividir el valor real entre el intervalo de los datos.
 Esto reducirá verticalmente el valor original a un intervalo menor, normalmente entre -1 y 1.
 
 ## <a name="modeling"></a>Modelado
@@ -320,21 +320,21 @@ En el caso de la previsión de la demanda, hacemos uso de datos históricos, que
 En los últimos años han desarrollado algoritmos avanzados para acomodar el pronóstico de las series temporales y mejorar la precisión de la previsión. A continuación explicaremos brevemente algunos de ellos.
 
 > [!NOTE]
-> Esta sección no pretende utilizarse como una introducción al aprendizaje automático y a la previsión, sino como un breve examen de las técnicas de modelado que se suelen utilizar para la previsión de la demanda. Para más información y material educativo acerca de la predicción de series temporales, se recomienda encarecidamente el Libro en pantalla [Forecasting: principios y prácticas](https://www.otexts.org/book/fpp)(Previsión: principios y práctica).
+> Esta sección no pretende utilizarse como una introducción al aprendizaje automático y a la previsión, sino como un breve examen de las técnicas de modelado que se suelen utilizar para la previsión de la demanda. Para más información y material educativo acerca de la predicción de series temporales, se recomienda encarecidamente el Libro en pantalla [Forecasting: principios y prácticas](https://www.otexts.org/)(Previsión: principios y práctica).
 > 
 > 
 
-#### <a name="ma-moving-averagehttpswwwotextsorgfpp62"></a>[**MA (media móvil)**](https://www.otexts.org/fpp/6/2)
+#### <a name="ma-moving-average"></a>**MA (media móvil)**
 La media móvil fue una de las primeras técnicas de análisis que se utilizó para la previsión de una serie temporal y aún hoy sigue siendo de las más usadas. También es la base de técnicas de previsión más avanzadas. Con la media móvil, la previsión del siguiente punto de datos se realiza mediante la obtención del promedio de los K puntos más recientes, donde K denota el orden de la media móvil.
 
 La técnica de la media móvil tiene el efecto de suavizar la previsión y, por tanto, es posible que no controle bien la gran volatilidad de los datos.
 
-#### <a name="ets-exponential-smoothinghttpswwwotextsorgfpp75"></a>[**ETS (suavizado exponencial)**](https://www.otexts.org/fpp/7/5)
-El suavizado exponencial (ETS) es una familia de métodos que usan una media ponderada de los puntos de datos recientes para predecir el siguiente punto de datos. La idea es asignar mayor peso a los valores más recientes y reducir gradualmente el peso de los valores medidos anteriores. Hay varios métodos diferentes con esta familia, algunas de ellas incluyen el tratamiento de la estacionalidad de los datos, como el [método de Holt-Winters](https://www.otexts.org/fpp/7/5).
+#### <a name="ets-exponential-smoothing"></a>**ETS (suavizado exponencial)**
+El suavizado exponencial (ETS) es una familia de métodos que usan una media ponderada de los puntos de datos recientes para predecir el siguiente punto de datos. La idea es asignar mayor peso a los valores más recientes y reducir gradualmente el peso de los valores medidos anteriores. Hay varios métodos diferentes con esta familia, algunas de ellas incluyen el tratamiento de la estacionalidad de los datos, como el método de Holt-Winters.
 
 Algunos de estos métodos también tienen en cuenta la estacionalidad de los datos.
 
-#### <a name="arima-auto-regression-integrated-moving-averagehttpswwwotextsorgfpp8"></a>[**ARIMA (modelo autorregresivo integrado de media móvil)**](https://www.otexts.org/fpp/8)
+#### <a name="arima-auto-regression-integrated-moving-average"></a>**ARIMA (modelo autorregresivo integrado de media móvil)**
 El modelo autorregresivo integrado de media móvil (ARIMA) es otra familia de métodos que habitualmente se utiliza para la previsión de series temporales. A nivel práctico, combina métodos de regresión automática con la media móvil. Los métodos de regresión automática usan los modelos de regresión tomando los valores de series temporales anteriores para calcular el siguiente punto de fecha. Los métodos ARIMA también aplican métodos de diferenciación que incluyen el cálculo de la diferencia entre los puntos de datos y el uso de estos, en lugar del valor medido original. Por último, ARIMA también hace uso de las técnicas de media móvil que se han explicado anteriormente. La combinación de todos estos métodos de distintas maneras es lo que construye la familia de métodos ARIMA.
 
 En la actualidad, ETS y ARIMA se utilizan profusamente para la previsión de la demanda de energía y para muchos otros problemas de predicción. En muchos casos, se combinan para ofrecer resultados muy precisos.

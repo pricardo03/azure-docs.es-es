@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: aac5010ca6b0ed958a849bf203f1d2f80bcdb81c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: bbe29f112d752be432c0f922b1cd07b8afe2d45e
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119829"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232488"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API de Application Insights para eventos y métricas personalizados
 
@@ -168,7 +168,7 @@ namespace User.Namespace.Example01
 {
     using System;
     using Microsoft.ApplicationInsights;
-    using TraceSeveretyLevel = Microsoft.ApplicationInsights.DataContracts.SeverityLevel;
+    using TraceSeverityLevel = Microsoft.ApplicationInsights.DataContracts.SeverityLevel;
 
     /// <summary>
     /// Most simple cases are one-liners.
@@ -220,7 +220,7 @@ namespace User.Namespace.Example01
             if (!animalsSold.TrackValue(count, species))
 
             {
-                client.TrackTrace($"Data series or dimension cap was reached for metric {animalsSold.Identifier.MetricId}.", TraceSeveretyLevel.Error);
+                client.TrackTrace($"Data series or dimension cap was reached for metric {animalsSold.Identifier.MetricId}.", TraceSeverityLevel.Error);
             }
 
             // You can inspect a metric object to reason about its current state. For example:
@@ -249,7 +249,7 @@ namespace User.Namespace.Example01
 ## <a name="trackmetric"></a>TrackMetric
 
 > [!NOTE]
-> Microsoft.ApplicationInsights.TelemetryClient.TrackMetric está en desuso en .NET SDK. Las métricas deben agregarse previamente siempre durante un tiempo antes de enviarse. Use una de las sobrecargas GetMetric(..) para obtener un objeto de métrica para acceder a funcionalidades de agregación previa del SDK. Si va a implementar su propia lógica de agregación previa, puede usar el método Track(ITelemetry metricTelemetry) para enviar los resultados agregados. Si su aplicación requiere el envío de un elemento de telemetría independiente en cada ocasión sin agregación a lo largo del tiempo, es probable que en su caso haya que usar la telemetría de eventos; consulte TelemetryClient.TrackEvent (Microsoft.Applicationlnsights.DataContracts.EventTelemetry).
+> Microsoft.ApplicationInsights.TelemetryClient.TrackMetric está en desuso en .NET SDK. Las métricas deben agregarse previamente siempre durante un tiempo antes de enviarse. Use una de las sobrecargas GetMetric(..) para obtener un objeto de métrica para acceder a funcionalidades de agregación previa del SDK. Si va a implementar su propia lógica de agregación previa, puede usar el método Track(ITelemetry metricTelemetry) para enviar los resultados agregados. Si su aplicación requiere el envío de un elemento de telemetría independiente en cada ocasión sin agregación a lo largo del tiempo, es probable que en su caso haya que usar la telemetría de eventos; consulte TelemetryClient.TrackEvent (Microsoft.ApplicationInsights.DataContracts.EventTelemetry).
 
 Application Insights puede crear gráficos de métricas que no estén conectadas a eventos concretos. Por ejemplo, puede supervisar una longitud de cola a intervalos regulares. En el caso de las métricas, las mediciones individuales tienen menos interés que las variaciones y tendencias; por tanto, los gráficos estadísticos resultan útiles.
 

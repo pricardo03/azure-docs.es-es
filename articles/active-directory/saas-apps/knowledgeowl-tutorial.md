@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con KnowledgeOwl | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con KnowledgeOwl | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y KnowledgeOwl.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: jeedes
-ms.openlocfilehash: e902f5969611dd3b1074e899003abe5067857c04
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 80d8d1664100cdfbbf6d537b41823c2db0204040
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446154"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318924"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-knowledgeowl"></a>Tutorial: integración de Azure Active Directory con KnowledgeOwl
+# <a name="tutorial-azure-active-directory-integration-with-knowledgeowl"></a>Tutorial: Integración de Azure Active Directory con KnowledgeOwl
 
 En este tutorial, obtendrá información sobre cómo integrar KnowledgeOwl con Azure Active Directory (Azure AD).
 
@@ -108,7 +108,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información sobre el dominio y las direcciones URL de inicio de sesión único de KnowledgeOwl](./media/knowledgeowl-tutorial/tutorial_knowledgeowl_url.png)
 
-    a. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón:
+     a. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón:
     |||
     |-|-|
     | `https://app.knowledgeowl.com/sp`|
@@ -142,7 +142,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     |||
      
     > [!NOTE]
-    > Estos valores no son reales. Debe actualizar este valor con la dirección URL de respuesta, el identificador y la dirección URL de inicio de sesión reales, tal como se explica más adelante en el tutorial.
+    > Estos valores no son reales. Deberá actualizar este valor con la dirección URL de respuesta, el identificador y la dirección URL de inicio de sesión reales, tal como se explica más adelante en el tutorial.
 
 1. La aplicación KnowledgeOwl espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección "**Atributos de usuario**" de la página de integración de aplicaciones.
 
@@ -154,7 +154,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | ------------------- | -------------------- | -----|
     | ssoid | user.mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
     
-    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
     
     ![Configurar inicio de sesión único](./media/knowledgeowl-tutorial/tutorial_attribute_04.png)
 
@@ -186,11 +186,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configuración de KnowledgeOwl](./media/knowledgeowl-tutorial/configure1.png)
 
-1. Desplácese hacia abajo hasta la opción **SAML SSO Integration** (Integración de SSO de SAML) y realice los pasos siguientes:
+1. Desplácese hasta la opción **SAML SSO Integration** (Integración de SSO de SAML) y siga los pasos a continuación:
     
     ![Configuración de KnowledgeOwl](./media/knowledgeowl-tutorial/configure2.png)
 
-    a. Seleccione **Enable SAML SSO** (Habilitar SSO de SAML).
+     a. Seleccione **Enable SAML SSO** (Habilitar SSO de SAML).
 
     b. Copie el valor de **SP entity ID** (Identificador de entidad del proveedor de servicios) y péguelo en el cuadro de texto **Identificador (id. de entidad)**, que se encuentra en la opción **Dominio y direcciones URL de KnowledgeOwl** de Azure Portal.
 
@@ -242,7 +242,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/knowledgeowl-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -254,7 +254,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 El objetivo de esta sección es crear una usuaria de prueba llamada Britta Simon en KnowledgeOwl. KnowledgeOwl admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Durante un intento de acceder a KnowledgeOwl se crea un nuevo usuario, en caso de que no exista.
 >[!Note]
->Si necesita crear manualmente un usuario, póngase en contacto con el [equipo de soporte técnico de KnowledgeOwl](mailto:support@knowledgeowl.com).
+>Si necesita crear manualmente un usuario, póngase en contacto con el  [equipo de soporte técnico de KnowledgeOwl](mailto:support@knowledgeowl.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -291,7 +291,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de KnowledgeOwl en el Panel de acceso, debería iniciar sesión automáticamente en la aplicación KnowledgeOwl.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

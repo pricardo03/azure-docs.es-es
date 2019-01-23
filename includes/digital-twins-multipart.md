@@ -5,15 +5,15 @@ services: digital-twins
 author: kingdomofends
 ms.service: digital-twins
 ms.topic: include
-ms.date: 01/02/2019
+ms.date: 01/11/2019
 ms.author: adgera
 ms.custom: include file
-ms.openlocfilehash: 6eb7993b4dbec3ab4901dc7071d18eae98ab8ae4
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: ac6b008597b6d6e557a0cc412c00c2202231bc3d
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079262"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267744"
 ---
 > [!NOTE]
 > Las solicitudes de varias partes normalmente requieren tres elementos:
@@ -26,11 +26,11 @@ ms.locfileid: "54079262"
 >
 > **Content-Type** y **Content-Disposition** variarán en función del escenario de uso.
 
-Se pueden realizar solicitudes de varias partes mediante programación (a través de C#), a través de un cliente de REST o de una herramienta como [Postman](https://www.getpostman.com/). Las herramientas de cliente REST pueden tener distintos niveles de compatibilidad de las solicitudes complejas con varias partes. Compruebe qué herramienta se adapta mejor a sus necesidades.
+Se pueden realizar solicitudes de varias partes mediante programación (a través de C#), a través de un cliente de REST o de una herramienta como [Postman](https://docs.microsoft.com/azure/digital-twins/how-to-configure-postman#multi). Las herramientas de cliente REST pueden tener distintos niveles de compatibilidad de las solicitudes complejas con varias partes. Las opciones de configuración también pueden variar ligeramente de una herramienta a otra. Compruebe qué herramienta se adapta mejor a sus necesidades.
 
 > [!IMPORTANT]
-> Las solicitudes de varias partes realizadas a las API de administración de Azure Digital Twins tienen dos partes:
-> * Los metadatos del blob (como un tipo MIME asociado) declarado por **Content-Type** y **Content-Disposition**.
+> Las solicitudes de varias partes realizadas a las API de administración de Azure Digital Twins normalmente tienen dos partes:
+> * los metadatos del blob (como un tipo MIME asociado) declarado por **Content-Type** o **Content-Disposition**.
 > * Contenido del blob que incluye el contenido no estructurado de un archivo que se cargará
 >
 > Ninguna de las dos partes es necesaria para las solicitudes **PATCH**. Ambos son necesarios para las operaciones de creación o **POST**.

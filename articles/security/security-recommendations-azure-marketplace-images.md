@@ -9,20 +9,20 @@ ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 01/11/2019
 ms.author: barclayn
-ms.openlocfilehash: 9c02dc386852a32814669d38df6260822a5e4f99
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 17372076f06cbaa833c437121a01f0dcaaf0e757
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308804"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54243646"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Recomendaciones de seguridad para imágenes de Azure Marketplace
 
-Se recomienda que cada solución cumpla con las siguientes recomendaciones de configuración de seguridad. Esto le ayudará a mantener un alto nivel de seguridad para las imágenes de la solución del asociado de Azure Marketplace.
+Se recomienda que cada solución cumpla con las siguientes recomendaciones de configuración de seguridad. Esto le ayuda a mantener un alto nivel de seguridad para las imágenes de la solución del asociado de Azure Marketplace.
 
-Estas recomendaciones también pueden ser útiles para las organizaciones que no tienen imágenes en Azure Marketplace. Puede que quiera comprobar las configuraciones de imágenes de Windows y Linux de la empresa frente a las instrucciones que se encuentran en las tablas siguientes.
+Estas recomendaciones también pueden ser útiles para las organizaciones que no tienen imágenes en Azure Marketplace. Puede que quiera comprobar las configuraciones de imágenes de Windows y Linux de la empresa frente a las instrucciones que se encuentran en las tablas siguientes:
 
 ## <a name="open-source-based-images"></a>Abrir imágenes basadas en origen
 
@@ -41,7 +41,7 @@ Estas recomendaciones también pueden ser útiles para las organizaciones que no
 | Seguridad                                                     | Deben borrarse las entradas del historial de Shell/Bash.                                                                                                                                                                                                                                             |
 | Redes                                                   | De forma predeterminada, se debe incluir un servidor SSH. Establezca la conexión persistente de SSH en la configuración sshd con la siguiente opción: ClientAliveInterval 180                                                                                                                                                        |
 | Redes                                                   | La imagen no debe contener ninguna configuración de red personalizada. Elimine resolv.conf: `rm /etc/resolv.conf`                                                                                                                                                                                |
-| Implementación                                                   | Se debe instalar el agente Linux de Azure más reciente. </br> -  El agente debe instalarse mediante el paquete RPM o Deb.  </br> -  También puede usar el proceso de instalación manual, pero se recomienda y se prefiere que se usen los paquetes del instalador. </br> - Si instala el agente manualmente desde el repositorio de GitHub, copie primero el archivo `waagent` en `/usr/sbin` y ejecute (como raíz): </br>`# chmod 755 /usr/sbin/waagent` </br>`# /usr/sbin/waagent -install` </br>El archivo de configuración del agente se colocará en `/etc/waagent.conf`.    |
+| Implementación                                                   | Se debe instalar el agente Linux de Azure más reciente. </br> -  El agente debe instalarse mediante el paquete RPM o Deb.  </br> -  También puede usar el proceso de instalación manual, pero se recomienda y se prefiere que se usen los paquetes del instalador. </br> - Si instala el agente manualmente desde el repositorio de GitHub, copie primero el archivo `waagent` en `/usr/sbin` y ejecute (como raíz): </br>`# chmod 755 /usr/sbin/waagent` </br>`# /usr/sbin/waagent -install` </br>El archivo de configuración del agente se coloca en `/etc/waagent.conf`.    |
 | Implementación                                                   | Garantiza que el soporte técnico de Azure puede proporcionar a nuestros asociados la salida de la consola de serie cuando sea necesario y proporcionar el tiempo de espera adecuado para el montaje del disco del sistema operativo desde el almacenamiento en la nube. La imagen debe haber agregado los parámetros siguientes a la línea de arranque de kernel: `console=ttyS0 earlyprintk=ttyS0 rootdelay=300` |
 | Implementación                                                   | No hay ninguna partición de intercambio en el disco del SO. El agente de Linux puede solicitar el intercambio para la creación en el disco del recurso local.         |
 | Implementación                                                   | Se recomienda que se cree una partición de raíz única para el disco del sistema operativo.      |

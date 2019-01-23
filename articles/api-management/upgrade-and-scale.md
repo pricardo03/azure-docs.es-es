@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 1b681b4344512f26f1edc4a5264e718deac569ae
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: ac8babf3a00c73b942ae64ac4cca00c7be7cfcfa
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441696"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319867"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Actualización y escalado de una instancia de Azure API Management  
 
@@ -47,7 +47,7 @@ Para seguir los pasos de este artículo, debe:
 
 Puede elegir entre cuatro niveles: **Desarrollador**, **Básico**, **Estándar** y **Premium**. El nivel **Desarrollador** debe utilizarse para evaluar el servicio; no debe emplearse para producción. El nivel **Desarrollador** no dispone de un Acuerdo de Nivel de Servicio y no se puede escalar (no se pueden agregar o quitar unidades). 
 
-Los niveles de producción **Básico**, **Estándar** y **Premium** cuentan con un Acuerdo de Nivel de Servicio y se pueden escalar. El nivel **Básico** es el más económico que cuenta con un Acuerdo de Nivel de Servicio y puede escalarse hasta dos unidades. El nivel **Estándar** puede escalarse hasta cuatro unidades. Puede agregar cualquier número de unidades en el nivel **Premium**.
+Los niveles de producción **Básico**, **Estándar** y **Premium** cuentan con un Acuerdo de Nivel de Servicio y se pueden escalar. El nivel **Básico** es el más económico que cuenta con un contrato de nivel de servicio (SLA) y puede escalarse hasta dos unidades. El nivel **Estándar** puede escalarse hasta cuatro unidades. Puede agregar cualquier número de unidades en el nivel **Premium**.
 
 El nivel **Premium** permite distribuir una instancia de Azure API Management individual entre cualquier número de regiones de Azure. Inicialmente, cuando se crea un servicio Azure API Management, la instancia contiene una sola unidad y reside en una única región de Azure. La región inicial se designa como región **primaria**. Pueden agregarse otras regiones fácilmente. Cuando agregue una región, debe especificar el número de unidades que desea asignar. Por ejemplo, puede tener una unidad en la región **primaria** y cinco unidades en otra región. Puede adaptar el número de unidades al tráfico que tiene en cada región. Para más información, consulte [Implementación de una instancia del servicio Azure API Management en varias regiones de Azure](api-management-howto-deploy-multi-region.md).
 

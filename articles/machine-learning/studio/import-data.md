@@ -1,27 +1,8 @@
 ---
-title: Importar datos en Machine Learning Studio - Azure | Microsoft Docs
-description: Cómo importar los datos en Azure Machine Learning Studio desde varios orígenes de datos. Obtenga información sobre qué tipos de datos y formatos de datos son compatibles.
-keywords: importar datos, formato de datos, tipos de datos, orígenes de datos, datos de entrenamiento
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: c194ee3b-838c-4efe-bb2a-c1d052326216
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/29/2017
-ms.openlocfilehash: 2f8c1eb43fddb21a59d4f00fd86b08d3fb3608f4
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269964"
+título: Importación de datos en Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: Cómo importar los datos en Azure Machine Learning Studio desde varios orígenes de datos. Obtenga información sobre qué tipos de datos y formatos de datos son compatibles.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 29/11/2017
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Importación de datos de entrenamiento en Azure Machine Learning Studio desde varios orígenes de datos
 

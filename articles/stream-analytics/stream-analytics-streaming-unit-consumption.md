@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: 84f0c000f54852bbab60a53ecb686656ac86b3de
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 5f85f0a6b1869571a8db29586e5fe113e0f47433
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002661"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304846"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Descripción y ajuste de las unidades de streaming
 
@@ -58,6 +58,8 @@ Para más información sobre la elección del número correcto de unidades de st
 Los elementos de consulta temporal (orientados al tiempo) son el conjunto básico de operadores con estado proporcionados por Stream Analytics. Stream Analytics administra el estado de estas operaciones internamente en nombre de usuario, mediante la administración del consumo de memoria, los puntos de comprobación para la resistencia y la recuperación del estado durante las actualizaciones de servicio. Aunque Stream Analytics administra totalmente los estados, hay una serie de prácticas recomendadas que los usuarios deberían tener en cuenta.
 
 Tenga en cuenta que un trabajo con lógica de consulta compleja podría tener un alto porcentaje de utilización de unidades de streaming, incluso cuando no está recibiendo continuamente eventos de entrada. Esto puede suceder después de un repentino aumento de los eventos de entrada y salida. El trabajo puede continuar manteniendo el estado en memoria si la consulta es compleja.
+
+El porcentaje de utilización de unidades de streaming podría caer repentinamente a 0 durante un breve período antes de volver a los niveles esperados. Esto sucede debido a errores transitorios o a actualizaciones del sistema que se hayan iniciado.
 
 ## <a name="stateful-query-logicin-temporal-elements"></a>Lógica de consulta con estado en elementos temporales
 Una funcionalidad única de un trabajo de Azure Stream Analytics es realizar procesamiento con estado, como funciones de análisis temporal, combinaciones temporales y agregados en ventanas. Cada uno de estos operadores conserva información de estado. El tamaño máximo de la ventana para estos elementos de consulta es siete días. 

@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e5ceae2959f79c677f5b89c0c3f0a487f92ad1c6
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: c6d36f3e1cef4fffbe38b0a70d42069577590627
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623186"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212267"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latencias de informes de Azure Active Directory
 
@@ -40,10 +40,14 @@ La tabla siguiente enumera la información de latencia para los informes de acti
 > **Latencia (percentil 95)** hace referencia al momento en el que se notificará el 95 % de los registros, y **Latencia (percentil 99)** hace referencia al momento en el que se notificará el 99 % de los registros. 
 >
 
-| Informe | Latencia (percentil 95) |Latencia (percentil 99)|
-| :-- | --- | --- | 
-| Registros de auditoría | 2 minutos  | 5 minutos  |
-| Inicios de sesión | 2 minutos  | 5 minutos |
+| Informe | Latencia (percentil 95) |Latencia (percentil 99)|Intervalo de tiempo dentro del cual se notificarán los registros|
+| :-- | --- | --- | --- |
+| Registros de auditoría | 2 minutos  | 5 minutos  | 2-60 min |
+| Inicios de sesión | 2 minutos  | 5 minutos | 2-120 min |
+
+### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>¿En cuánto tiempo podré ver los datos de las actividades después de obtener una licencia prémium?
+
+Si ya tiene datos de actividades con la licencia gratuita, entonces los verá inmediatamente al actualizar. Si no tiene ningún dato, tardarán uno o dos días en mostrarse en los informes después de que actualice a una licencia prémium.
 
 ## <a name="security-reports"></a>Informes de seguridad
 

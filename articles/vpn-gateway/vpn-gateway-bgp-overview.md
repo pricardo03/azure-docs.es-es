@@ -1,29 +1,22 @@
 ---
-title: Introducción a BGP con instancias de Azure VPN Gateway | Microsoft Docs
+title: Introducción a BGP e instancias de Azure VPN Gateway | Microsoft Docs
 description: Este artículo proporciona información general de BGP con puertas de enlace de VPN de Azure.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
 manager: rossort
-editor: ''
-tags: ''
-ms.assetid: f8c3985c-c128-4f34-835c-0e88742bf36e
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 01/12/2017
 ms.author: yushwang
-ms.openlocfilehash: 13a17eb3d78e70a09864bf218f1027d6e98486a6
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 91e9fe1eb6b3df0b64d05f2b1e300403a9e01db9
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38720057"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54306529"
 ---
-# <a name="overview-of-bgp-with-azure-vpn-gateways"></a>Información general de BGP con puertas de enlace de VPN de Azure
-Este artículo proporciona información general de compatibilidad de BGP (Border Gateway Protocol) en las puertas de enlace de VPN de Azure.
+# <a name="about-bgp-with-azure-vpn-gateway"></a>Acerca de BGP con Azure VPN Gateway
+En este artículo se proporciona información general de compatibilidad de BGP (Protocolo de puerta de enlace de borde) en Azure VPN Gateway.
 
 BGP es el protocolo de enrutamiento estándar usado habitualmente en Internet para intercambiar información de enrutamiento y disponibilidad entre dos o más redes. Cuando se utiliza en el contexto de Azure Virtual Network, BGP permite que instancias de Azure VPN Gateway y los dispositivos VPN locales, denominados vecinos o pares BGP, intercambien "rutas" que comunicarán a ambas puertas de enlace la disponibilidad y la posibilidad de que dichos prefijos pasen a través de las puertas de enlace o los enrutadores implicados. BGP también puede permitir el enrutamiento del tránsito entre varias redes mediante la propagación de las rutas que una puerta de enlace de BGP aprende de un par BGP a todos los demás pares BGP. 
 

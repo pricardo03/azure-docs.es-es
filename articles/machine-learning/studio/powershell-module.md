@@ -1,27 +1,8 @@
 ---
-title: Módulo de PowerShell para Machine Learning Studio - Azure | Microsoft Docs
-description: El módulo de PowerShell para Azure Machine Learning está disponible en versión preliminar pública. Use PowerShell para crear y administrar áreas de trabajo, experimentos, servicios web y mucho más.
-keywords: experimento,regresión lineal,algoritmos de aprendizaje automático,tutorial de aprendizaje automático,técnicas de modelado predictivo,experimento de ciencia de datos
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-ms.author=haining, previous-author=hning86
-ms.author: amlstudiodocs
-editor: cgronlun
-ms.assetid: a9001cc2-3aa0-47e1-b175-1f76408ba1d1
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/15/2017
-ms.openlocfilehash: 6539ec36c23feccfa52c8214784590106fa5a01e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257529"
+título: Módulo de PowerShell para Machine Learning Studio titleSuffix: Azure Machine Learning Studio description: El módulo de PowerShell para Azure Machine Learning está disponible en versión preliminar pública. Use PowerShell para crear y administrar áreas de trabajo, experimentos, servicios web y mucho más.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=haining, previous-author=hning86 ms.date: 15/03/2017
 ---
 # <a name="powershell-module-for-azure-machine-learning-studio"></a>Módulo de PowerShell para Azure Machine Learning Studio
 El módulo de PowerShell para Azure Machine Learning es una herramienta eficaz que permite usar Windows PowerShell para administrar áreas de trabajo, experimentos, conjuntos de datos, servicios web clásicos y mucho más.

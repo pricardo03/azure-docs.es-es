@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2018
+ms.date: 01/10/2019
 ms.author: jdial
-ms.openlocfilehash: 3f158d040654b251faebceaa2e89d0462f13c217
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: a43988f8d4d6ae318f409cf1e79d8ad2ff8c8af1
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016044"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247833"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Crear, cambiar o eliminar una red virtual
 
@@ -99,7 +99,13 @@ Complete las tareas siguientes antes de seguir los pasos de las secciones de est
 
 ## <a name="add-or-remove-an-address-range"></a>Agregar o quitar un rango de direcciones
 
-Puede agregar y quitar rangos de direcciones de una red virtual. Un rango de direcciones tiene que especificarse en una notación CIDR y no puede superponerse con otros rangos de direcciones dentro de la misma red virtual. Los rangos de direcciones que defina pueden ser públicos o privados (RFC 1918). Tanto si se define el rango de direcciones como público o como privado, el rango de direcciones es accesible solo desde dentro de la red virtual, desde redes virtuales conectadas entre sí y desde las redes locales que se hayan conectado a la red virtual. No se pueden agregar los siguientes rangos de direcciones:
+Puede agregar y quitar rangos de direcciones de una red virtual. Un rango de direcciones tiene que especificarse en una notación CIDR y no puede superponerse con otros rangos de direcciones dentro de la misma red virtual. Los rangos de direcciones que defina pueden ser públicos o privados (RFC 1918). Tanto si se define el rango de direcciones como público o como privado, el rango de direcciones es accesible solo desde dentro de la red virtual, desde redes virtuales conectadas entre sí y desde las redes locales que se hayan conectado a la red virtual. 
+
+Puede reducir el intervalo de direcciones de una red virtual si no tiene ninguna subred asociada con él. En caso contrario, solo puede extender el intervalo de direcciones, por ejemplo, cambiar de /16 a /8. Podría comenzar con un intervalo de direcciones pequeño y ampliarlo más adelante o agregar intervalos de direcciones adicionales.
+
+<!-- the last two sentences above are added per GitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/20572 -->
+
+No se pueden agregar los siguientes rangos de direcciones:
 
 - 224.0.0.0/4 (multidifusión)
 - 255.255.255.255/32 (difusión)

@@ -1,27 +1,8 @@
 ---
-title: 'Ejemplos de algoritmos: Azure Machine Learning Studio | Microsoft Docs'
-description: Una introducción fácil de comprender de principios básicos de aprendizaje automático incluye ejemplos de algoritmos. La infografía descargable trata la mayoría de las preguntas sobre aprendizaje automático.
-keywords: conceptos básicos de aprendizaje automático,ejemplos de algoritmo, aprendizaje automático para principiantes,preguntas sobre aprendizaje automático,algoritmos populares,infografía de algoritmos
-services: machine-learning
-documentationcenter: ''
-author: garyericson
-ms.custom: seodc18
-ms.author: garye
-editor: cgronlun
-ms.assetid: cf4e2308-9285-4adc-9f00-408e3ee7931b
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/18/2017
-ms.openlocfilehash: df628447a441d1580fa1a3862275f2b461f8d18a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275744"
+título: Ejemplos de algoritmos titleSuffix: Azure Machine Learning Studio description: Una introducción fácil de comprender de principios básicos de aprendizaje automático incluye ejemplos de algoritmos. La infografía descargable trata la mayoría de las preguntas sobre aprendizaje automático.
+services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+
+author: garyericson ms.author: garye ms.custom: seodc18 ms.date: 18/12/2017
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infografía descargable: Conceptos básicos de aprendizaje automático con ejemplos de algoritmos
 Descargue esta introducción infográfica de comprender sobre conceptos básicos de aprendizaje automático para aprender sobre populares utilizados para responder a preguntas comunes sobre el aprendizaje automático. Los ejemplos de algoritmos ayudan a los que empiezan a usar el aprendizaje automático a comprender qué algoritmos usar y para qué.
