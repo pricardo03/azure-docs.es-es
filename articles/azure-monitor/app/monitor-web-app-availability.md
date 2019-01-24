@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: 480edbb508b875d53d972e9ac93fd4d119c7e54a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: ca266df563cb7e50463548dd0e786cec8e886ec4
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119669"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359704"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sito web
 Después de haber implementado la aplicación web o el sitio web en cualquier servidor, puede configurar pruebas para supervisar su disponibilidad y capacidad de respuesta. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) envía solicitudes web a su aplicación a intervalos regulares desde puntos de todo el mundo. Le alerta si la aplicación no responde o lo hace lentamente.
@@ -208,7 +208,7 @@ La regla de alertas X de las Y ubicaciones se habilita de forma predeterminada e
 ![Experiencia de creación](./media/monitor-web-app-availability/appinsights-71webtestUpload.png)
 
 > [!NOTE]
->  Con las [nuevas alertas unificadas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups), la gravedad de la regla de alertas y las preferencias de notificación con **grupos de acciones** se tienen que configurar en la experiencia de alertas. Sin los pasos siguientes, solo recibirá las notificaciones del portal.
+>  Con las [nuevas alertas unificadas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), la gravedad de la regla de alertas y las preferencias de notificación con [grupos de acciones](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **se tienen que** configurar en la experiencia de alertas. Sin los pasos siguientes, solo recibirá las notificaciones del portal.
 
 1. Después de guardar la prueba de disponibilidad, en la pestaña de detalles, haga clic en el signo de puntos suspensivos junto a la prueba que acaba de realizar. Haga clic en “Editar alerta”.
 ![Editar después de guardar](./media/monitor-web-app-availability/9editalert.png)
@@ -258,7 +258,7 @@ Esta es una prueba web de ejemplo de una aplicación web de Azure que usa una cl
 2. Extraer el token de portador de la respuesta.
 3. Llamar a la API mediante el token de portador del encabezado de la autorización.
 
-Asegúrese de que la prueba web es un cliente real (es decir, tiene su propia aplicación en AAD) y utilice su clientId + appkey. El servicio que se prueba también tiene su propia aplicación en AAD: el identificador URI de esta aplicación (appID) se refleja en la prueba web, en el campo �resource�.
+Asegúrese de que la prueba web es un cliente real (es decir, tiene su propia aplicación en AAD) y utilice su clientId + appkey. El servicio que se prueba también tiene su propia aplicación en AAD: el identificador URI de esta aplicación, appID, se refleja en la prueba web en el campo "resource".
 
 ### <a name="open-authentication"></a>Autenticación abierta
 Un ejemplo de autenticación abierta es el iniciar sesión con una cuenta de Microsoft o Google. Muchas aplicaciones que utilizan OAuth proporcionan la alternativa del secreto de cliente, por lo que la primera táctica sería investigar dicha posibilidad.
@@ -295,7 +295,7 @@ Una vez finalizada la prueba, se muestran los tiempos de respuesta y las tasas d
 
 * *Este sitio parece correcto, pero se ven errores de pruebas. ¿Por qué recibo alertas de Application Insights?*
 
-    * ¿La prueba tiene habilitada la opción "Analizar solicitudes dependientes"? Esta opción da como resultado una comprobación estricta de los recursos, como las secuencias de comandos y las imágenes, entre otros. Estos tipos de errores pueden no ser visibles en un explorador.  Compruebe todas las imágenes, los scripts, las hojas de estilo y cualquier otro archivo cargado que haya cargado la página. Si se produce un error en cualquiera de ellos, se notifica que la prueba ha concluido con errores, incluso si la página html principal se carga correctamente. Para reducir la sensibilidad de la prueba para tales errores de recursos, simplemente desactive "Analizar las solicitudes dependientes" de la configuración de pruebas. 
+    * ¿La prueba tiene habilitada la opción "Analizar solicitudes dependientes"? Esta opción da como resultado una comprobación estricta de los recursos, como las secuencias de comandos y las imágenes, entre otros. Estos tipos de errores pueden no ser visibles en un explorador. Compruebe todas las imágenes, los scripts, las hojas de estilo y cualquier otro archivo cargado que haya cargado la página. Si se produce un error en cualquiera de ellos, se notifica que la prueba ha concluido con errores, incluso si la página html principal se carga correctamente. Para reducir la sensibilidad de la prueba para tales errores de recursos, simplemente desactive "Analizar las solicitudes dependientes" de la configuración de pruebas. 
 
     * Para reducir las probabilidades de ruido de señales de red transitorias etc., asegúrese de que se comprueba la configuración "Habilitar reintentos para errores de pruebas". También puede probar desde más ubicaciones y administrar el umbral de la regla de alertas en consecuencia para evitar problemas específicos de ubicación que causan las alertas innecesarias.
 
@@ -325,7 +325,7 @@ Una vez finalizada la prueba, se muestran los tiempos de respuesta y las tasas d
 
 * *¿Puedo llamar el código desde mi prueba web?*
 
-     No. Los pasos de la prueba deben encontrarse en el archivo .webtest. Y no se puede llamar a otras pruebas web ni utilizar bucles. Pero hay varios complementos que pueden resultarle útiles.
+    No. Los pasos de la prueba deben encontrarse en el archivo .webtest. Y no se puede llamar a otras pruebas web ni utilizar bucles. Pero hay varios complementos que pueden resultarle útiles.
 
 * *¿Se admite HTTPS?*
 
