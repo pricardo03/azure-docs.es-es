@@ -7,20 +7,19 @@ author: Juliako
 writer: juliako
 manager: femila
 editor: ''
-ms.assetid: 097ab5e5-24e1-4e8e-b112-be74172c2701
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 01/16/2019
 ms.author: juliako
-ms.openlocfilehash: 06f219b9cf7d17e80699aebc1082b14e2de45c8b
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 6b4acf2a8effaef6d9572a4ca36b29af19f2970d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240229"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359994"
 ---
 # <a name="streaming-endpoints-overview"></a>Información general de los puntos de conexión de streaming 
 
@@ -28,20 +27,26 @@ ms.locfileid: "50240229"
 
 En Microsoft Azure Media Services (AMS), un **punto de conexión de streaming** representa un servicio de streaming que puede entregar contenido directamente a una aplicación de reproducción de cliente o a una red Content Delivery Network (CDN) para la distribución posterior. Media Services también proporciona integración sin problemas de Azure CDN. La secuencia de salida de un servicio de punto de conexión de streaming puede ser una secuencia en vivo, un vídeo bajo demanda o una descarga progresiva de su recurso en su cuenta de Media Services. Cada cuenta de Azure Media Services incluye un punto de conexión de streaming predeterminado. Es posible crear puntos de conexión de streaming adicionales en la cuenta. Existen dos versiones de puntos de conexión de streaming: 1.0 y 2.0. A partir del 10 de enero de 2017, las cuentas recién creadas de AMS incluirán de manera **predeterminada** la versión 2.0 del punto de conexión de streaming. Los puntos de conexión de streaming adicionales que agregue a esta cuenta también se generarán en la versión 2.0. Este cambio no afectará a las cuentas existentes; los puntos de conexión de streaming actuales mantendrán la versión 1.0, aunque es posible actualizarlos a la versión 2.0. Este cambio implicará modificaciones en cuanto al comportamiento, la facturación y las características (para obtener más información, consulte la sección **Tipos y versiones de streaming** a continuación).
 
-Además, a partir de la versión 2.15 (publicada en enero de 2017), Azure Media Services agregó las siguientes propiedades a la entidad del punto de conexión de streaming: **CdnProvider**, **CdnProfile**, **FreeTrialEndTime** y **StreamingEndpointVersion**. Para obtener información general detallada de estas propiedades, consulte [aquí](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
+En Azure Media Services se agregaron las siguientes propiedades a la entidad punto de conexión de streaming: **CdnProvider**, **CdnProfile**, **FreeTrialEndTime** y **StreamingEndpointVersion**. Para obtener información general detallada de estas propiedades, consulte [aquí](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
 
 Cuando se crea una cuenta de Azure Media Services, se genera automáticamente un punto de conexión de streaming estándar predeterminado en el estado **Stopped** (Detenido). No se puede eliminar el punto de conexión de streaming predeterminado. Dependiendo de la disponibilidad de Azure CDN en la región de destino, el punto de conexión de streaming recién creado incluye también de manera predeterminada la integración con el proveedor de red CDN "StandardVerizon". 
-
->[!NOTE]
->Es posible deshabilitar la integración de Azure CDN antes de iniciar el punto de conexión de streaming.
+                
+> [!NOTE]
+> Es posible deshabilitar la integración de Azure CDN antes de iniciar el punto de conexión de streaming. `hostname` y la dirección URL de streaming permanecen igual habilite o no la red CDN.
 
 Este tema proporciona información general de las principales funcionalidades proporcionadas por los puntos de conexión de streaming.
+
+## <a name="naming-conventions"></a>Convenciones de nomenclatura
+
+Para el punto de conexión predeterminado: `{AccountName}.streaming.mediaservices.windows.net`
+
+Para los puntos de conexión adicionales: `{EndpointName}-{AccountName}.streaming.mediaservices.windows.net`
 
 ## <a name="streaming-types-and-versions"></a>Tipos y versiones de streaming
 
 ### <a name="standardpremium-types-version-20"></a>Tipos estándar o premium (versión 2.0)
 
-A partir de la versión de enero de 2017 de Media Services, existen dos tipos de streaming: **estándar** y **premium**. Estos tipos forman parte de la versión "2.0" de los puntos de conexión de streaming.
+A partir de la versión de enero de 2017 de Media Services, existen dos tipos de streaming: **Estándar** y **Premium**. Estos tipos forman parte de la versión "2.0" de los puntos de conexión de streaming.
 
 Escriba|DESCRIPCIÓN
 ---|---
