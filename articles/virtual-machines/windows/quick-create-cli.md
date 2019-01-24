@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 04/24/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4ca8d42c1b2eece82fa31283b0df0d450e2f5afc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3036c53fa95b40ac0bfc7dbe5bed69581236918d
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978886"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411890"
 ---
-# <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Guía de inicio rápido: creación de una máquina virtual Windows con la CLI de Azure
+# <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Inicio rápido: Creación de una máquina virtual Windows con la CLI de Azure
 
 La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En esta guía de inicio rápido se muestra como usar la CLI de Azure para implementar una máquina virtual en Azure que ejecute Windows Server 2016. Para ver la máquina virtual en acción, conéctese a la máquina virtual mediante RDP e instale al servidor web IIS.
 
@@ -105,7 +105,7 @@ Con IIS instalado y el puerto 80 abierto en la máquina virtual desde Internet, 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no los necesite, puede usar el comando [az group delete](/cli/azure/group#az_group_delete) para eliminar el grupo de recursos, la máquina virtual y todos los recursos relacionados:
+Cuando ya no los necesite, puede usar el comando [az group delete](/cli/azure/group) para eliminar el grupo de recursos, la máquina virtual y todos los recursos relacionados:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

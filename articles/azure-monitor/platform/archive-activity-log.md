@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
-ms.component: logs
-ms.openlocfilehash: 9714cb8ce1c3380ac74150148c8d84bd410e3fc4
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.subservice: logs
+ms.openlocfilehash: d9abfe90296b27918594c41a207befe2b59027b9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715227"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461611"
 ---
 # <a name="archive-the-azure-activity-log"></a>Archivo del registro de actividades de Azure
 En este artículo, le mostraremos cómo puede usar Azure Portal, los cmdlets de PowerShell o la CLI multiplataforma para archivar el [**registro de actividades de Azure**](../../azure-monitor/platform/activity-logs-overview.md) en una cuenta de almacenamiento. Esta opción es útil si desea conservar el registro de actividades más de 90 días (con control total sobre la directiva de retención) para auditorías, análisis estáticos o copias de seguridad. Si solo necesita conservar los eventos durante 90 días o menos, no es necesario configurar el archivado en una cuenta de almacenamiento, ya que los eventos del registro de actividades se conservan en la plataforma de Azure durante 90 días sin necesidad de habilitar el archivado.
@@ -184,4 +184,5 @@ En el archivo PT1H.json, cada evento se almacena en la matriz de "registros" con
 * [Descargar blobs para el análisis](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [Transmitir el registro de actividades a Event Hubs](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
 * [Obtener más información acerca del registro de actividades](../../azure-monitor/platform/activity-logs-overview.md)
+
 

@@ -14,12 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: rogarana
-ms.openlocfilehash: 62057d3041aa83e0097b688b48386b80f5c4f87e
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.component: disks
+ms.openlocfilehash: 61c9ce5da02414f535aea42bea64b43298ba7823
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637296"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464398"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Expansión de discos duros virtuales en una VM Linux con la CLI de Azure
 
@@ -83,7 +84,7 @@ Para usar el disco expandido, expanda la partición y el sistema de archivos sub
 
 1. Expanda la partición de disco y el sistema de archivos subyacentes.
 
-    a. Si el disco ya está montado, desmóntelo:
+     a. Si el disco ya está montado, desmóntelo:
 
     ```bash
     sudo umount /dev/sdc1

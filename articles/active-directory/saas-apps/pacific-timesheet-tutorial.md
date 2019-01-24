@@ -4,7 +4,7 @@ description: Obtenga información sobre cómo configurar el inicio de sesión ú
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: e546e8ba-821a-4942-9545-c84b0670beab
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 8b821da194ce41fc419e769336eeeb5927306684
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ec300052b00af451003a86a72a7154b1114d5484
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843655"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808203"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pacific-timesheet"></a>Tutorial: Integración de Azure Active Directory con Pacific Timesheet
 

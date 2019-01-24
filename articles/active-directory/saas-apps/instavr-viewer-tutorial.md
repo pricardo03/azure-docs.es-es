@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 13ffa29f-d0a5-4b21-b296-cfd76f380940
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/7/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: c63e7d03c0fc17e9892617aaeca94803c671acea
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: b0548ec2bb580c2898f610f00fd5ba911b314114
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195054"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823056"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-instavr-viewer"></a>Tutorial: Integración de Azure Active Directory con InstaVR Viewer
 
@@ -79,8 +79,8 @@ Para configurar y probar el inicio de sesión único de Azure AD con InstaVR Vie
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
 2. **[Configuración del inicio de sesión único de InstaVR Viewer](#configure-instavr-viewer-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Creación de un usuario de prueba en InstaVR Viewer](#create-instavr-viewer-test-user)**: para tener un homólogo de Britta Simon en InstaVR Viewer que esté vinculado a su representación en Azure AD.
-5. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba en InstaVR Viewer](#create-instavr-viewer-test-user)**: para tener un homólogo de Britta Simon en InstaVR Viewer que esté vinculado a su representación en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
@@ -105,13 +105,13 @@ Para configurar el inicio de sesión único de Azure AD con InstaVR Viewer, real
 
     ![Información de dominio y direcciones URL de inicio de sesión único de InstaVR Viewer](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://console.instavr.co/auth/saml/login/<WEBPackagedURL>`.
-    
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://console.instavr.co/auth/saml/login/<WEBPackagedURL>`
+
     > [!NOTE]
     > No hay ningún patrón fijo para URL de inicio de sesión. Se genera cuando el cliente de InstaVR Viewer lleva a cabo el empaquetado web. Es único para cada cliente y paquete. Para obtener la dirección URL de inicio de sesión exacta, necesita iniciar sesión en su instancia de InstaVR Viewer y llevar a cabo el empaquetado web.
 
-    b. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón: `https://console.instavr.co/auth/saml/sp/<WEBPackagedURL>`. 
-    
+    b. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón: `https://console.instavr.co/auth/saml/sp/<WEBPackagedURL>`
+
     > [!NOTE]
     > El valor del identificador no es real. Actualícelo con el valor de identificador real, que se explica más adelante en este tutorial.
 

@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
-ms.component: alerts
-ms.openlocfilehash: a09dcfbffb6daa2ae2514c608e88c8dc475c9676
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: alerts
+ms.openlocfilehash: 3459ef4caa99a2147144354165bef7d2852e87cc
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581443"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433372"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas de registro de actividad 
 
@@ -65,4 +65,5 @@ Para más información sobre los grupos de acciones, consulte [Creación y admin
 - Obtenga información sobre la [creación y modificación de las alertas del registro de actividad](../../azure-monitor/platform/alerts-activity-log.md).
 - Revise el [Esquema de webhook de alertas del registro de actividad](activity-log-alerts-webhook.md).
 - Más información acerca de las [Notificaciones del estado del servicio](../../azure-monitor/platform/service-notifications.md).
+
 

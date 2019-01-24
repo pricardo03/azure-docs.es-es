@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/7/2018
 ms.author: victorh
-ms.openlocfilehash: a10314d4c396298f018459e56252d0d0d1656f08
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: c27c31bc2f21cfae9036849973301a66a437de42
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107793"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435250"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Creación de una puerta de enlace de aplicaciones con redirección de HTTP a HTTPS mediante Azure Portal
 
@@ -29,7 +29,7 @@ En este artículo, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-En este tutorial se requiere la versión 3.6 o posterior del módulo de Azure PowerShell para crear un certificado e instalar IIS. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Para ejecutar los comandos de este tutorial, también debe ejecutar `Login-AzureRmAccount` para crear una conexión con Azure.
+En este tutorial se requiere la versión 3.6 o posterior del módulo de Azure PowerShell para crear un certificado e instalar IIS. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Para ejecutar los comandos de este tutorial, también debe ejecutar `Login-AzureRmAccount` para crear una conexión con Azure.
 
 ## <a name="create-a-self-signed-certificate"></a>Creación de un certificado autofirmado
 

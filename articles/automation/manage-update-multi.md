@@ -3,18 +3,18 @@ title: Administración de actualizaciones para varias máquinas virtuales de Azu
 description: En este artículo se describe cómo administrar actualizaciones para máquinas virtuales de Azure.
 services: automation
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3897225ef6ed7fcc0db75e82058e5b5b273ccbd4
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: ac2d1c1fb59988c8b95fda6b92bb9ae0332fc0e0
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214035"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427430"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Administración de actualizaciones para varias máquinas
 
@@ -198,3 +198,4 @@ Seleccione **Errores** para ver información detallada sobre los errores de la i
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información sobre Update Management, incluidos registros, salidas y errores, consulte [Solución Update Management en Azure](../operations-management-suite/oms-solution-update-management.md).
+

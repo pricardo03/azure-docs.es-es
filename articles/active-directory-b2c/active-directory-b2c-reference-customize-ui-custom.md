@@ -3,19 +3,19 @@ title: Personalización de la IU de un recorrido de usuario con directivas perso
 description: Información acerca de las directivas personalizadas de Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8c3684f93bbf5b9fe9f5ea9167396b9822e70c48
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1953e23c0676a0c81576a47f3f3ca36c3861935f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841632"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855064"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalización de la IU de un recorrido de usuario con directivas personalizadas
 

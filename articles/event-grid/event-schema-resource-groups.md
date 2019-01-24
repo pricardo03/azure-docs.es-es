@@ -2,21 +2,21 @@
 title: Esquema de eventos del grupo de recursos de Azure Event Grid
 description: Describe las propiedades que se proporcionan para los eventos del grupo de recursos con Azure Event Grid
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: reference
-ms.date: 10/12/2018
-ms.author: tomfitz
-ms.openlocfilehash: ffc9eba251cbf4d9e2542791d90943ecdd1a972a
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.date: 01/12/2019
+ms.author: spelluru
+ms.openlocfilehash: 2b570fdb42c29c6ad68add32be660ef57f1eec1f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310579"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468308"
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Esquema de eventos de Azure Event Grid para grupos de recursos
 
-En este artículo se proporcionan las propiedades y los esquemas de los eventos de grupo de recursos. Para una introducción a los esquemas de eventos, consulte [Esquema de eventos de Azure Event Grid](event-schema.md).
+En este artículo se proporcionan las propiedades y los esquemas de los eventos de grupo de recursos. Para una introducción a los esquemas de eventos, consulte [Esquema de eventos de Azure Event Grid](event-schema.md).
 
 Las suscripciones y los grupos de recursos de Azure emiten los mismos tipos de eventos. Los tipos de evento están relacionados con acciones o cambios en los recursos. La diferencia principal es que los grupos de recursos emiten eventos para los recursos en el grupo de recursos y las suscripciones de Azure emiten eventos para los recursos a través de la suscripción.
 

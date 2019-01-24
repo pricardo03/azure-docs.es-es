@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: diberry
-ms.openlocfilehash: e75fa6560feb01ae912ad2040df7a8748ed0077b
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 3c0d7d3aed08c6dbbcac5f25e91edd8e27e64440
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246558"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429368"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Preguntas más frecuentes de Language Understanding
 
@@ -75,7 +75,7 @@ Consulte los [procedimientos recomendados](luis-concept-best-practices.md) para 
 LUIS [acorta](luis-glossary.md#token) la expresión según la [referencia cultural](luis-language-support.md#tokenization). El valor original y el valor acortado están disponibles para la [extracción de datos](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>¿Cómo se crean y asignan las claves de punto de conexión para LUIS?
-[Cree la clave de punto de conexión](luis-how-to-azure-subscription.md#create-luis-endpoint-key) en Azure para su nivel de [servicio](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Asigne la clave](luis-how-to-manage-keys.md#assign-endpoint-key) en la página **[Claves y puntos de conexión](luis-how-to-manage-keys.md)**. No hay ninguna API correspondiente a esta acción. Después, debe cambiar la solicitud HTTP al punto de conexión para [usar la nueva clave de punto de conexión](luis-concept-keys.md#use-endpoint-key-in-query).
+[Cree la clave de punto de conexión](luis-how-to-azure-subscription.md) en Azure para su nivel de [servicio](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Asigne la clave](luis-how-to-azure-subscription.md) en la página **[Claves y puntos de conexión](luis-how-to-azure-subscription.md)**. No hay ninguna API correspondiente a esta acción. Después, debe cambiar la solicitud HTTP al punto de conexión para [usar la nueva clave de punto de conexión](luis-concept-keys.md#use-endpoint-key-in-query).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>¿Cómo se interpretan las puntuaciones de LUIS?
 El sistema debe utilizar la intención de mayor puntuación independientemente de su valor. Por ejemplo, una puntuación menor a 0,5 (de menos del 50 %) no significa necesariamente que LUIS tiene un nivel de confiabilidad bajo. Proporcionar más datos de aprendizaje puede ayudar a aumentar la [puntuación](luis-concept-prediction-score.md) de la intención más probable.

@@ -3,19 +3,19 @@ title: Configuración de la suscripción y del inicio de sesión con una cuenta 
 description: Permita suscribirse e iniciar sesión a los clientes con cuentas de GitHub en las aplicaciones con Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f3eb5cd62d24ea7251829aed8abba38415835023
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 8e87528f798e806217e9ee6b317f502570782791
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162824"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54843734"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de GitHub mediante Azure Active Directory B2C
 

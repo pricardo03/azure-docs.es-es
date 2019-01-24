@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
-ms.openlocfilehash: 3aec436749918caa229304c35d0bdbe5ed84578f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e4e098373120e8dc889ffd0319c049f2a83160ad
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656133"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844558"
 ---
 # <a name="create-a-virtual-machine-with-the-azure-cli"></a>Creación de una máquina virtual con la CLI de Azure
 
@@ -52,7 +52,7 @@ Este script usa los siguientes comandos para crear un grupo de recursos, una má
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#az_network_vnet_create) | Crea una red virtual y una subred de Azure. |
 | [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#az_network_public_ip_create) | Crea una dirección IP pública con una dirección IP estática y un nombre DNS asociado. |
 | [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#az_network_nsg_create) | Crea un grupo de seguridad de red (NSG), que es un límite de seguridad entre Internet y la máquina virtual. |
-| [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#az_network_nic_create) | Crea una tarjeta de máquina virtual y la conecta con la red virtual, la subred y el NSG. |
+| [az network nic create](https://docs.microsoft.com/cli/azure/network/nic) | Crea una tarjeta de máquina virtual y la conecta con la red virtual, la subred y el NSG. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Crea la máquina virtual y la conecta con la tarjeta de red, la red virtual, la subred y el NSG. Este comando también especifica la imagen de máquina virtual que se usará, y las credenciales administrativas.  |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 

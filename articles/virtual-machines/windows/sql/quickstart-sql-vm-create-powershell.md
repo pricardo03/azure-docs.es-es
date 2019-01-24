@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: aa4ea4e724ec383fc9f22bd56572d2fd0e844abc
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: e79b85a2dd47706ca83b6cbc2c59100b05574fab
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332445"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425567"
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Inicio rápido: Creación de una máquina virtual Windows de SQL Server con Azure PowerShell
 
@@ -38,7 +38,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a id="powershell"></a> Obtener Azure PowerShell
 
-Para realizar los pasos de esta guía, se requiere la versión 3.6 del módulo Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Para realizar los pasos de esta guía, se requiere la versión 3.6 del módulo Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="configure-powershell"></a>Configuración de PowerShell
 
@@ -48,7 +48,7 @@ Para realizar los pasos de esta guía, se requiere la versión 3.6 del módulo A
    Connect-AzureRmAccount
    ```
 
-1. Debería ver una pantalla para escribir sus credenciales. Use el mismo correo electrónico y la misma contraseña que usa para iniciar sesión en el portal de Azure.
+1. Debería ver una pantalla en la que puede especificar sus credenciales. Use el mismo correo electrónico y la misma contraseña que usa para iniciar sesión en el portal de Azure.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 

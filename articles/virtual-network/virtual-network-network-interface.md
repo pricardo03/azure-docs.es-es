@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: c5667d5fafdc01e8568f459b675d91ace9b8869a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 381c9a2af0f1743509db4495603c0e26da5c1736
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023760"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474526"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Creación, cambio o eliminación de una interfaz de red
 
@@ -31,14 +31,14 @@ Complete las tareas siguientes antes de seguir los pasos de las secciones de est
 
 - Si todavía no tiene una cuenta de Azure, regístrese para obtener una [cuenta de evaluación gratuita](https://azure.microsoft.com/free).
 - Si usa el portal, abra https://portal.azure.com e inicie sesión con la cuenta de Azure.
-- Si usa comandos de PowerShell para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/powershell) o ejecute PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Para realizar este tutorial, es necesaria la versión 5.4.1 del módulo de Azure PowerShell o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
+- Si usa comandos de PowerShell para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/powershell) o ejecute PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Para realizar este tutorial, es necesaria la versión 5.4.1 del módulo de Azure PowerShell o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
 - Si usa la interfaz de la línea de comandos (CLI) de Azure para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/bash) o ejecute la CLI en el equipo. Para realizar este tutorial es necesaria la versión 2.0.28 de la CLI de Azure o una versión posterior. Ejecute `az --version` para buscar la versión instalada. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Si ejecuta de forma local la CLI de Azure, también debe ejecutar `az login` para crear una conexión con Azure.
 
 La cuenta en la que inicia sesión o con la que se conecta a Azure debe tener asignado el rol de [colaborador de red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o un [rol personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenga asignadas las acciones apropiadas en [Permisos](#permissions).
 
 ## <a name="create-a-network-interface"></a>Crear una interfaz de red
 
-Al crear una máquina virtual desde Azure Portal, este crea una interfaz de red con la configuración predeterminada. Si prefiere especificar toda la configuración de la interfaz de red, puede crear una interfaz de red con una configuración personalizada y asociar la interfaz de red a una máquina virtual al crear esta última (con PowerShell o la CLI de Azure). También puede crear una interfaz de red y agregarla a una máquina virtual existente (con PowerShell o la CLI de Azure). Para información sobre cómo crear una máquina virtual con una interfaz de red existente, o cómo agregar o quitar interfaces de red en máquinas virtuales existentes, consulte el artículo [Adición o eliminación de interfaces de red](virtual-network-network-interface-vm.md). En la misma ubicación y suscripción donde vaya a crear la interfaz de red, debe tener previamente una [red virtual](manage-virtual-network.md#create-a-virtual-network).
+Al crear una máquina virtual desde Azure Portal, este crea una interfaz de red con la configuración predeterminada. Si prefiere especificar toda la configuración de la interfaz de red, puede crear una interfaz de red con una configuración personalizada y asociar la interfaz de red a una máquina virtual al crear esta última (con PowerShell o la CLI de Azure). También puede crear una interfaz de red y agregarla a una máquina virtual existente (con PowerShell o la CLI de Azure). Para información sobre cómo crear una máquina virtual con una interfaz de red existente, o cómo agregar o quitar interfaces de red en máquinas virtuales existentes, consulte el artículo [Adición o eliminación de interfaces de red](virtual-network-network-interface-vm.md). En la misma ubicación y suscripción donde vaya a crear la interfaz de red, debe tener previamente una [red virtual](manage-virtual-network.md).
 
 1. En el cuadro que contiene el texto *Buscar recursos*, en la parte superior de Azure Portal, escriba *interfaces de red*. Cuando aparezcan las **interfaces de red** en los resultados de búsqueda, selecciónelas.
 2. Seleccione **+ Agregar** en **Interfaces de red**.
@@ -69,7 +69,7 @@ El portal no proporciona la opción de asignar una interfaz de red a los grupos 
 |Herramienta|Get-Help|
 |---|---|
 |CLI|[az network nic create](/cli/azure/network/nic#az_network_nic_create)|
-|PowerShell|[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface#create)|
+|PowerShell|[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)|
 
 ## <a name="view-network-interface-settings"></a>Visualización de la configuración de la interfaz de red
 
@@ -112,7 +112,7 @@ El servidor DHCP de Azure asigna el servidor DNS a la interfaz de red en el sist
 
 |Herramienta|Get-Help|
 |---|---|
-|CLI|[az network nic update](/cli/azure/network/nic#az_network_nic_update)|
+|CLI|[az network nic update](/cli/azure/network/nic)|
 |PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
 
 ## <a name="enable-or-disable-ip-forwarding"></a>Habilitación o deshabilitación del reenvío IP
@@ -133,7 +133,7 @@ La configuración debe estar habilitada para cada interfaz de red que esté asoc
 
 |Herramienta|Get-Help|
 |---|---|
-|CLI|[az network nic update](/cli/azure/network/nic#az_network_nic_update)|
+|CLI|[az network nic update](/cli/azure/network/nic)|
 |PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
 
 ## <a name="change-subnet-assignment"></a>Cambio de la asignación de subred
@@ -158,7 +158,7 @@ Puede cambiar la subred, pero no la red virtual, a la que está asignada una int
 
 ## <a name="add-to-or-remove-from-application-security-groups"></a>Adición o eliminación de grupos de seguridad de aplicaciones
 
-Solo puede agregar o quitar una interfaz de red de un grupo de seguridad de aplicaciones mediante el portal si la interfaz de red está asociada a una máquina virtual. Puede usar PowerShell o la CLI de Azure para agregar o quitar una interfaz de red de un grupo de seguridad de aplicaciones si la interfaz de red está asociada o no a una máquina virtual. Para más información sobre los [grupos de seguridad de aplicaciones](security-overview.md#application-security-groups), consulte el artículo sobre cómo [crear un grupo de seguridad de aplicaciones](manage-network-security-group.md#create-an-application-security-group).
+Solo puede agregar o quitar una interfaz de red de un grupo de seguridad de aplicaciones mediante el portal si la interfaz de red está asociada a una máquina virtual. Puede usar PowerShell o la CLI de Azure para agregar o quitar una interfaz de red de un grupo de seguridad de aplicaciones si la interfaz de red está asociada o no a una máquina virtual. Para más información sobre los [grupos de seguridad de aplicaciones](security-overview.md#application-security-groups), consulte el artículo sobre cómo [crear un grupo de seguridad de aplicaciones](manage-network-security-group.md).
 
 1. En el cuadro *Buscar recursos, servicios y documentos* en la parte superior del portal, comience a escribir el nombre de una máquina virtual que tenga una interfaz de red que desee agregar o quitar de un grupo de seguridad de aplicaciones. Cuando el nombre de la máquina virtual aparezca en los resultados de búsqueda, selecciónelo.
 2. En **CONFIGURACIÓN**, seleccione **Redes**.  Seleccione **Configure the application security groups** (Configurar los grupos de seguridad de la aplicación), seleccione los grupos de seguridad de la aplicación a los que desee agregar la interfaz de red o anule la selección de los grupos de seguridad de la aplicación de los que desee quitar la interfaz de red y, a continuación, seleccione **Guardar**. Solo las interfaces de red que existen en la misma red virtual se pueden agregar al mismo grupo de seguridad de aplicaciones. El grupo de seguridad de aplicaciones debe existir en la misma ubicación que la interfaz de red.
@@ -167,7 +167,7 @@ Solo puede agregar o quitar una interfaz de red de un grupo de seguridad de apli
 
 |Herramienta|Get-Help|
 |---|---|
-|CLI|[az network nic update](/cli/azure/network/nic#az_network_nic_update)|
+|CLI|[az network nic update](/cli/azure/network/nic)|
 |PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
 
 ## <a name="associate-or-dissociate-a-network-security-group"></a>Asociación o desasociación de un grupo de seguridad de red
@@ -199,7 +199,7 @@ Cuando se elimina una interfaz de red, se liberan las direcciones MAC o IP asign
 
 |Herramienta|Get-Help|
 |---|---|
-|CLI|[az network nic delete](/cli/azure/network/nic#az_network_nic_delete)|
+|CLI|[az network nic delete](/cli/azure/network/nic)|
 |PowerShell|[Remove-AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface)|
 
 ## <a name="resolve-connectivity-issues"></a>Resolución de problemas de conectividad

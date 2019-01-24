@@ -4,7 +4,7 @@ description: Cómo eliminar la asignación del acceso de un usuario o grupo de u
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -16,12 +16,12 @@ ms.date: 02/14/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: fde6d5fa2488d86af542f409df7c5b76d2510f08
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: c04aad12e0664c48ed96d76e481f19284ede0d70
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368653"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472538"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Eliminación de asignaciones de usuario o grupo de una aplicación empresarial en Azure Active Directory
 Evitar que se asigne acceso a un usuario o grupo a una de sus aplicaciones empresariales en Azure Active Directory (Azure AD) es fácil. Debe tener los permisos adecuados para administrar la aplicación de empresa y debe ser administrador global en el directorio.
@@ -72,4 +72,4 @@ Evitar que se asigne acceso a un usuario o grupo a una de sus aplicaciones empre
 - [Ver todos mis grupos](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Asignar un usuario o grupo a una aplicación empresarial](assign-user-or-group-access-portal.md)
 - [Deshabilitar los inicios de sesión de los usuarios de una aplicación empresarial](disable-user-sign-in-portal.md)
-- [Cambio del nombre o el logotipo de una aplicación empresarial](change-name-or-logo-portal.md)
+- [Cambiar el nombre o el logotipo de una aplicación empresarial](change-name-or-logo-portal.md)

@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: c2379a8d-a659-45f1-87db-9ba156d83183
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 60beecc0895fbfb5d3af7817e8b76e0819c89a99
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: fb01aec04af10d3e413213dc9821a27b42a0a9d2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835393"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822984"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Tutorial: Integración de Azure Active Directory con ScaleX Enterprise
 

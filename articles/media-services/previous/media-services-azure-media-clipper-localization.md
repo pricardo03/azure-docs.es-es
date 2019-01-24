@@ -9,12 +9,12 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: dd0fc87741befd92cc41d0129fafcbc64db7ec9e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 227a312839950652924e75f0bafb474ce7bac588
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782684"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448676"
 ---
 # <a name="configure-localization"></a>Configuración de la localización
 Azure Media Clipper está disponible en 18 idiomas. Para establecer el idioma del widget, debe definir el parámetro `language` durante la inicialización. Pase la cadena de código de idioma deseada desde la lista siguiente:
@@ -104,7 +104,7 @@ Por ejemplo, en el ejemplo siguiente se definen las cadenas localizadas en ingl�
         'AdvancedSettings.allAudioTracks': 'All audio tracks selected',
         'AdvancedSettings.someAudioTracks': '{0} audio tracks selected',
         'AdvancedSettings.includeAllAudioTracks': 'Include all audio tracks',
-        'AssetsPanel.loadingError': 'Failed to retreive assets from server.',
+        'AssetsPanel.loadingError': 'Failed to retrieve assets from server.',
         'AssetsPanel.retry': 'Retry?',
         'CommandBar.prevFrameTitle': 'Move one frame backwards',
         'CommandBar.prevKeyFrameTitle': 'Move one GOP backwards',

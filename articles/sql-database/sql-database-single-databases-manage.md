@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 52caae38c21fe403735b8479ec2e721ef38f521e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 01/17/2019
+ms.openlocfilehash: f43c2cd5a3c155258cd698f6b55854bc0df9f861
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845803"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388589"
 ---
 # <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Creación y administración de servidores lógicos y bases de datos únicas de Azure SQL Database
 
@@ -57,7 +57,7 @@ Para administrar una base de datos existente, vaya a la página de **SQL Databas
 
 ## <a name="powershell-manage-logical-servers-and-databases"></a>PowerShell: Administración de servidores lógicos y bases de datos
 
-Para crear y administrar servidores lógicos de SQL Azure, bases de datos únicas y agrupadas y firewalls de servidor lógico con Azure PowerShell, use los siguientes cmdlets de PowerShell. Si necesita instalar o actualizar PowerShell, consulte [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell).
+Para crear y administrar servidores lógicos de SQL Azure, bases de datos únicas y agrupadas y firewalls de servidor lógico con Azure PowerShell, use los siguientes cmdlets de PowerShell. Si necesita instalar o actualizar PowerShell, consulte [Install and configure Azure PowerShell](/powershell/azure/install-az-ps) (Instalación y configuración de Azure PowerShell).
 
 > [!TIP]
 > Para información sobre los scripts de ejemplo de PowerShell, consulte [Uso de PowerShell para crear una instancia única de Azure SQL Database y configurar una regla de firewall de servidor lógico](scripts/sql-database-create-and-configure-database-powershell.md) y [Supervisión y escalado de una única instancia de SQL Database mediante PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).

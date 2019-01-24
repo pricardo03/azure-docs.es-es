@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/201
+ms.date: 01/04/2019
 ms.author: sethm
-ms.openlocfilehash: 5e0462c533be11241908cafc593c89588f61f349
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 791582e38f4c271be13d1635d623aada97f1d39e
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192685"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413012"
 ---
 # <a name="manage-key-vault-in-azure-stack-by-using-the-portal"></a>Administración de Key Vault en Azure Stack mediante el portal
 
@@ -33,7 +33,7 @@ Debe suscribirse a una oferta que incluya el servicio Azure Key Vault.
 
 1. Inicie sesión en el [portal de usuario](https://portal.local.azurestack.external).
 
-2. En el panel, seleccione **+ Crear un recurso**, **Seguridad e identidad** y, luego, **Key Vault**.
+2. En el panel, seleccione **+ Crear un recurso**, **Seguridad e identidad** y **Key Vault**.
 
     ![Pantalla de Key Vault](media/azure-stack-key-vault-manage-portal/image1.png)
 
@@ -83,7 +83,7 @@ Después de que la clave se cree correctamente, puede seleccionarla en **Claves*
 
 3. En **Secretos**, seleccione **Agregar**.
 
-4. En **Crear un secreto**, en la lista de **Opciones de carga**, elija una opción con la cual quiere crear un secreto. Puede crear un secreto **Manualmente** especificando un valor para el secreto o cargar un **Certificado** de la máquina local.
+4. En **Crear un secreto**, en la lista de **Opciones de carga**, elija la opción con la cual quiere crear un secreto. Puede crear un secreto **Manualmente** especificando un valor para el secreto o cargar un **Certificado** de la máquina local.
 
 5. Escriba un **Nombre** para el secreto. El nombre del secreto solo puede contener caracteres alfanuméricos y el carácter de guion (-).
 

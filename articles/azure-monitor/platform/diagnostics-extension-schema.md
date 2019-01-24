@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: 064c1b8100e165627d5227b9f24b87aefae2e769
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: 92ae1e31a739486871ebff69740f31a495c7b780
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790765"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471657"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Historial y versiones del esquema de configuración de la extensión Azure Diagnostics
 Esta página es un índice de las versiones del esquema de la extensión Azure Diagnostics que se incluyen como parte de Microsoft Azure SDK.  
@@ -210,3 +210,4 @@ Si está actualizando su proyecto de Azure SDK 2.4 a Azure SDK 2.5 o versiones p
 * **El diagnóstico para aplicaciones de servicio en la nube solo se puede configurar en el nivel de rol, no en el nivel de instancia.**
 * **Cada vez que implementa la aplicación, se actualiza la configuración de diagnóstico** : esto puede provocar problemas de paridad si cambia la configuración de diagnóstico del Explorador de servidores y luego vuelve a implementar la aplicación.
 * **En Azure SDK 2.5 y versiones posteriores, los volcados de memoria se configuran en el archivo de configuración de diagnóstico, no en el código** : si tiene volcados de memoria configurados en el código, tendrá que transferir manualmente la configuración del código al archivo de configuración, porque los volcados de memoria no se transfieren durante la migración a Azure SDK 2.6.
+

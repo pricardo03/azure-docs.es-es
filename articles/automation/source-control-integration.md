@@ -3,18 +3,18 @@ title: Integración del control de código fuente en Azure Automation
 description: En este artículo se describe la integración del control de código fuente con GitHub en Azure Automation.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 94d948267286ad716aa200cb5aa858acf2eb2624
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 400cf53172fbd1ce5803cf3de298749afbf45cd4
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330779"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430201"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integración del control de código fuente en Azure Automation
 
@@ -144,3 +144,4 @@ Seleccione el control de código fuente que quiera quitar. En la página **Resum
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre los tipos de Runbook, sus ventajas y sus limitaciones, consulte [Tipos de runbooks de Azure Automation](automation-runbook-types.md)
+

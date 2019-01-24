@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/08/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 7dcdca594949a3b20000b31db681370ee4f9eac3
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: fa6b4de9282eec75747ca87b26058a47320f2fd3
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255292"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428144"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Guía de inicio rápido: Creación de un registro de contenedor privado con Azure PowerShell
 
@@ -21,7 +21,7 @@ Azure Container Registry es un servicio privado y administrado de registro de co
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para realizar los pasos de esta guía, se requiere la versión 5.7.0 o posterior del módulo Azure PowerShell. Ejecute `Get-Module -ListAvailable AzureRM` para determinar la versión instalada. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Para realizar los pasos de esta guía, se requiere la versión 5.7.0 o posterior del módulo Azure PowerShell. Ejecute `Get-Module -ListAvailable AzureRM` para determinar la versión instalada. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 También debe tener instalado Docker localmente. Docker ofrece paquetes para los sistemas [macOS][docker-mac], [Windows][docker-windows] y [Linux][docker-linux].
 

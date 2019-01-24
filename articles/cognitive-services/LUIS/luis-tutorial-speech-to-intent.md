@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 8e664e26a2cafc2f0b32ebea0f019918426d956c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2d212ae8f5a12c06f40e025a7a8d786a44194a92
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714587"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438740"
 ---
 # <a name="integrate-speech-service-with-your-language-understanding-app"></a>Integración del servicio Voz con la aplicación de Language Understanding
 [Speech Service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) le permite usar una única solicitud para recibir audio y devolver objetos JSON de predicción de LUIS. En este artículo, descarga y usa un proyecto de C# en Visual Studio para decir una expresión a un micrófono y recibir información de predicción de LUIS. El proyecto utiliza el paquete [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) de Voz, que ya se incluye como referencia. 
@@ -24,7 +24,7 @@ ms.locfileid: "53714587"
 En este artículo, necesita una cuenta de sitio web de [LUIS][LUIS] gratuita para importar la aplicación.
 
 ## <a name="create-luis-endpoint-key"></a>Creación de clave de punto de conexión de LUIS
-En Azure Portal, [cree](luis-how-to-azure-subscription.md#create-luis-endpoint-key) una clave de **Language Understanding** (LUIS). 
+En Azure Portal, [cree](luis-how-to-azure-subscription.md) una clave de **Language Understanding** (LUIS). 
 
 ## <a name="import-human-resources-luis-app"></a>Importación de aplicación Human Resources de LUIS
 Las intenciones y expresiones de este artículo proceden de la aplicación Human Resources de LUIS disponible en el repositorio de GitHub [Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding). Descargue el archivo [HumanResources.json](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources.json), guárdelo con la extensión `.json` e [impórtelo](luis-how-to-start-new-app.md#import-new-app) en LUIS. 

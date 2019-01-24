@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 1/11/2019
+ms.date: 1/22/2019
 ms.author: victorh
-ms.openlocfilehash: 21aac318542f9d30cb44d940392d05367f1f7b9f
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: c574e3ab82f97f5fffc7c834a53d19df93fc426f
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246473"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448949"
 ---
 # <a name="what-is-azure-application-gateway"></a>¿Qué es Azure Application Gateway?
 
@@ -102,7 +102,7 @@ La característica de afinidad de sesión basada en cookies es útil cuando se q
 
 ## <a name="websocket-and-http2-traffic"></a>Tráfico de Websocket y HTTP/2
 
-Application Gateway proporciona compatibilidad nativa con los protocolos Websocket y HTTP/2. No hay ninguna opción de configuración que permita al usuario habilitar o deshabilitar la compatibilidad con WebSocket. La compatibilidad con HTTP/2 se puede habilitar con Azure PowerShell.
+Application Gateway proporciona compatibilidad nativa con los protocolos Websocket y HTTP/2. No hay ninguna opción de configuración que permita al usuario habilitar o deshabilitar la compatibilidad con WebSocket.
 
 Los protocolos WebSocket y HTTP/2 permiten una comunicación dúplex completa entre un servidor y un cliente a través de una conexión TCP de larga duración. Esto permite una comunicación más interactiva entre el servidor web y el cliente, que puede ser bidireccional sin necesidad de realizar sondeos como en las implementaciones basadas en HTTP. Estos protocolos tienen, a diferencia de HTTP, una sobrecarga reducida y pueden reutilizar la misma conexión TCP para varias solicitudes y respuestas, con lo que se utilizan los recursos de una manera más eficaz. Estos protocolos están diseñados para utilizarse a través de los puertos HTTP tradicionales 80 y 443.
 
@@ -113,6 +113,22 @@ Los encabezados HTTP permiten que el cliente y el servidor pasen información ad
 Application Gateway admite ahora la capacidad de reescribir los encabezados de las solicitudes HTTP entrantes, así como las respuestas HTTP salientes. Podrá agregar, quitar o actualizar los encabezados de solicitud y respuesta HTTP mientras los paquetes de solicitud/respuesta se mueven entre los grupos de back-end y de cliente. Puede reescribir tanto campos de encabezado estándar (definidos en [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)), como no estándar.  
 
 Para más información sobre esta característica en versión preliminar pública, consulte [Reescritura de encabezados HTTP](rewrite-http-headers.md).
+
+## <a name="sizing"></a>Ajuste de tamaño
+
+Application Gateway actualmente se ofrece en tres tamaños: **pequeño**, **mediano** y **grande**. Tamaños pequeños de instancia están pensados para escenarios de desarrollo y pruebas.
+
+Para ver una lista completa de los límites de la puerta de enlace de aplicaciones, consulte el tema sobre los [límites de servicio de Application Gateway](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
+
+En la tabla siguiente se muestra un promedio de rendimiento para cada instancia de puerta de enlace de aplicaciones con descarga SSL habilitada:
+
+| Tamaño de respuesta medio de página de back-end | Pequeña | Mediano | grande |
+| --- | --- | --- | --- |
+| 6 KB |7,5 Mbps |13 Mbps |50 Mbps |
+| 100 KB |35 Mbps |100 Mbps |200 Mbps |
+
+> [!NOTE]
+> Se trata de valores aproximados para un rendimiento de puerta de enlace de aplicaciones. El rendimiento real depende de varios detalles del entorno, como el tamaño medio de página, la ubicación de las instancias de back-end y el tiempo de procesamiento para proporcionar una página. Para los números de rendimiento exactos, debe ejecutar sus propias pruebas. Estos valores solo se proporcionan para obtener instrucciones de planeamiento de capacidad.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

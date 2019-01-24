@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/03/2018
 ms.author: cynthn
-ms.openlocfilehash: f84626c5a487d52f53a2c8bf492a124c87599ed0
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e283f21b65706860e198e2deca933f1986073cab
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932401"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413233"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Uso de Packer para crear imágenes de máquinas virtuales Linux en Azure
 Cada máquina virtual (VM) en Azure se crea a partir de una imagen que define la distribución de Linux y la versión del sistema operativo. Las imágenes pueden incluir configuraciones y aplicaciones preinstaladas. Azure Marketplace proporciona muchas imágenes propias y de terceros para los entornos de aplicaciones y distribuciones más comunes, pero también puede crear sus propias imágenes personalizadas adaptadas a sus necesidades. En este artículo se detalla cómo utilizar la herramienta de código abierto [Packer](https://www.packer.io/) para definir y crear imágenes personalizadas en Azure.
@@ -69,7 +69,7 @@ Para crear imágenes, es preciso crear una plantilla en forma de archivo JSON. E
 
 Cree un archivo denominado *ubuntu.json* y pegue el siguiente contenido. Escriba sus propios valores para los siguientes elementos:
 
-| .                           | Dónde se obtiene |
+| Parámetro                           | Dónde se obtiene |
 |-------------------------------------|----------------------------------------------------|
 | *client_id*                         | Primera línea de la salida de `az ad sp` create command - *appId* |
 | *client_secret*                     | Segunda línea de la salida de `az ad sp` create command - *password* |
@@ -201,7 +201,7 @@ Packer tarda unos minutos en crear la máquina virtual, ejecutar los aprovisiona
 
 
 ## <a name="create-vm-from-azure-image"></a>Creación de una máquina virtual desde una imagen de Azure
-Ya puede crear una máquina virtual a partir de la imagen con [az vm create](/cli/azure/vm#az_vm_create). Especifique la imagen que ha creado con el parámetro `--image`. El siguiente ejemplo crea una máquina virtual llamada *myVM* a partir de *myPackerImage* y genera claves SSH, en caso de que no existan:
+Ya puede crear una máquina virtual a partir de la imagen con [az vm create](/cli/azure/vm). Especifique la imagen que ha creado con el parámetro `--image`. El siguiente ejemplo crea una máquina virtual llamada *myVM* a partir de *myPackerImage* y genera claves SSH, en caso de que no existan:
 
 ```azurecli
 az vm create \

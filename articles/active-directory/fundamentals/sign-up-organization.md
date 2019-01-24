@@ -3,7 +3,7 @@ title: Suscripción de la organización para usar Azure Active Directory | Micro
 description: Instrucciones acerca de cómo suscribir su organización para usar Azure y Azure Active Directory.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -12,12 +12,12 @@ ms.date: 09/14/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 286c46f760dda4991fd89651bc3a01424d8a5502
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 8ba1fa7ae697dabe6748189ed272d2f0eeb9da85
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054799"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452078"
 ---
 # <a name="sign-up-your-organization-to-use-azure-active-directory"></a>Suscripción de la organización para usar Azure Active Directory
 Suscriba para Azure Active Directory (Azure AD) o una suscripción nueva de Microsoft Azure mediante una de las siguientes opciones:

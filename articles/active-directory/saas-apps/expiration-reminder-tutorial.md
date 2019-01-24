@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 3df3d73e-80a4-4b35-bd3d-90bc4f6f6afd
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/6/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 04874eff4375ac57a8c8e15a11399ca650bd5c15
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: aa5c8a69422c74efad74926cfaec544d5ee2f126
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020776"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811067"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expiration-reminder"></a>Tutorial: Integración de Azure Active Directory con Expiration Reminder
 
@@ -78,8 +78,8 @@ Para configurar y probar el inicio de sesión único de Azure AD con Expiration 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
 2. **[Configuración del inicio de sesión único de Expiration Reminder](#configure-expiration-reminder-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Creación de un usuario de prueba en Expiration Reminder](#create-expiration-reminder-test-user)**: para tener un homólogo de Britta Simon en Expiration Reminder que esté vinculado a la representación del usuario en Azure AD.
-5. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba en Expiration Reminder](#create-expiration-reminder-test-user)**: para tener un homólogo de Britta Simon en Expiration Reminder que esté vinculado a la representación del usuario en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
@@ -104,7 +104,7 @@ Para configurar el inicio de sesión único de Azure AD con Expiration Reminder,
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Expiration Reminder](common/sp-signonurl.png)
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://app.expirationreminder.net/account/sso`.
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://app.expirationreminder.net/account/sso`
 
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (sin procesar)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 

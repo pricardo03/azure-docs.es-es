@@ -4,7 +4,7 @@ description: Instrucciones detalladas para configurar identidades administradas 
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/10/2018
 ms.author: daveba
-ms.openlocfilehash: f0d207bb5db8d27765c608f07a9d2ed9dc2f08dd
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: d3f8fe41174e6c75a8546c0c987acd56fc5921c9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515002"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436198"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-vm-using-the-azure-portal"></a>Configurar identidades administradas para recursos de Azure en una VM mediante Azure Portal
 
@@ -84,7 +84,7 @@ Si tiene una máquina virtual que ya no necesita la identidad administrada asign
 
 ### <a name="assign-a-user-assigned-identity-during-the-creation-of-a-vm"></a>Asignación de una identidad asignada por el usuario durante la creación de una VM
 
-Para asignar una identidad asignada por el usuario a una máquina virtual, la cuenta debe tener las asignaciones de roles [Colaborador de la máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) y [Operador de identidades administradas](/azure/role-based-access-control/built-in-roles#managed-identity-operator). No se requiere ninguna otra asignación de roles de directorio de Azure AD.
+Para asignar una identidad asignada por un usuario a una máquina virtual, la cuenta debe tener las asignaciones de roles [Colaborador de la máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) y [Operador de identidades administradas](/azure/role-based-access-control/built-in-roles#managed-identity-operator). No se requiere ninguna otra asignación de roles de directorio de Azure AD.
 
 En la actualidad, Azure Portal no permite asignar una identidad administrada asignada por el usuario durante la creación de una VM. En su lugar, consulte uno de los artículos de inicio rápido sobre la creación de VM para crear primero una VM y continúe en la siguiente sección, donde encontrará información acerca de cómo asignar la identidad administrada asignada por el usuario a la VM:
 
@@ -93,7 +93,7 @@ En la actualidad, Azure Portal no permite asignar una identidad administrada asi
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-vm"></a>Asignación de una identidad administrada asignada por el usuario a una VM existente
 
-Para asignar una identidad asignada por el usuario a una máquina virtual, la cuenta debe tener las asignaciones de roles [Colaborador de la máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) y [Operador de identidades administradas](/azure/role-based-access-control/built-in-roles#managed-identity-operator). No se requiere ninguna otra asignación de roles de directorio de Azure AD.
+Para asignar una identidad asignada por un usuario a una máquina virtual, la cuenta debe tener las asignaciones de roles [Colaborador de la máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) y [Operador de identidades administradas](/azure/role-based-access-control/built-in-roles#managed-identity-operator). No se requiere ninguna otra asignación de roles de directorio de Azure AD.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta asociada a la suscripción de Azure que contiene la máquina virtual.
 2. Vaya a la máquina virtual que desee y haga clic en **Identidad**, **Asignado por el usuario** y en **\+Agregar**.

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ce2c3bffecd691acd5eb26b999c63fd2bb5dd510
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 12c4241da2f4a65205d128d72f86ce2bc91a853c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015346"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435590"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Tutorial: Creación de una canalización de Data Factory que mueve datos mediante Azure PowerShell
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ pero cualquier canalización puede tener más de una actividad. También puede e
 
 ## <a name="prerequisites"></a>Requisitos previos
 - Complete los [requisitos previos del tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-- Instale **Azure PowerShell**. Siga las instrucciones de [Instalación y configuración de Azure PowerShell](/powershell/azure/install-azurerm-ps).
+- Instale **Azure PowerShell**. Siga las instrucciones de [Instalación y configuración de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="steps"></a>Pasos
 Estos son los pasos que se realizan en este tutorial:

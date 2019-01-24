@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
-ms.component: autoscale
-ms.openlocfilehash: 85a93746f3d10c5b4dae4f50cd539d515960bd54
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: autoscale
+ms.openlocfilehash: ae1828210345eb35f9d22664285a0d348ea50d48
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584333"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478338"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Información general de la funcionalidad de escalado automático de Microsoft Azure Virtual Machines, Cloud Services y Web Apps
 En este artículo se explican el concepto del escalado automático de Microsoft Azure y las ventajas que aporta, y se realiza una introducción para empezar a usarlo.  
@@ -120,3 +120,4 @@ Para más información sobre el escalado automático, consulte los tutoriales de
 * [Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Insights](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [API de REST de escalado automático](https://msdn.microsoft.com/library/dn931953.aspx)
 * [Solución de problemas de escalado automático de conjuntos de escalado de máquinas virtuales](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
+

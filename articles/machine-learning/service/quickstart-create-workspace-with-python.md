@@ -11,12 +11,12 @@ author: hning86
 ms.author: haining
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2c8edd73a287d5bca2f3deb68448ba951b7a3367
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 8d45ca0f55b373970bfc0b1d146d5b3e2d6d66fa
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106569"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823409"
 ---
 # <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>Inicio rápido: Uso del SDK de Python para empezar a usar Azure Machine Learning
 
@@ -52,7 +52,7 @@ Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar.
 
 El código de este artículo requiere el SDK de Azure Machine Learning, versión 1.0.2 o posterior.
 
-Antes de instalar el SDK, se recomienda crear un entorno aislado de Python. Aunque en este artículo se usa [Miniconda](https://conda.io/docs/user-guide/install/index.html), también puede usar la versión completa de [Anaconda](https://www.anaconda.com/) instalada o [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
+Antes de instalar el SDK, se recomienda crear un entorno aislado de Python. Aunque en este artículo se usa [Miniconda](https://docs.conda.io/en/latest/miniconda.html), también puede usar la versión completa de [Anaconda](https://www.anaconda.com/) instalada o [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
 
 ### <a name="install-miniconda"></a>Instalación de Miniconda
 

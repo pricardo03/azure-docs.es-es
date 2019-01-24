@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: a551856d5be1df63f4376c76c50ed53564afc175
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 2469eef981246da9bfd9132ea0164395078fd164
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465039"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468461"
 ---
 # <a name="install-applications-into-a-virtual-machine-scale-set-with-the-azure-cli"></a>Instalación de aplicaciones en un conjunto de escalado de máquinas virtuales con la CLI de Azure
 Este script crea un conjunto de escalado de máquinas virtuales que ejecutan Ubuntu y usa la extensión de script personalizado para instalar una aplicación web básica. Después de ejecutar el script, puede tener acceso a la aplicación web mediante un explorador web.
@@ -45,7 +45,7 @@ Este script usa los siguientes comandos para crear un grupo de recursos, un conj
 
 | Get-Help | Notas |
 |---|---|
-| [az group create](/cli/azure/ad/group#az_ad_group_create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [az group create](/cli/azure/ad/group) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [az vmss create](/cli/azure/vmss#az_vmss_create) | Crea el conjunto de escalado de máquinas virtuales y lo conecta a la red virtual, la subred y el grupo de seguridad de red. También se crea un equilibrador de carga para distribuir el tráfico a varias instancias de máquina virtual. Este comando también especifica la imagen de máquina virtual que se usará y las credenciales administrativas.  |
 | [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) | Instala la extensión de script personalizado de Azure para ejecutar un script que prepare los discos de datos en cada instancia de máquina virtual. |
 | [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create) | Crea una regla de equilibrador de carga para distribuir el tráfico en el puerto TCP 80 entre las instancias de máquina virtual del conjunto de escalado. |

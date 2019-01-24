@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4b5b00da1c920d249283625e4970510ea00bafc8
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 01bd8b5d1f8ed0d78f3331b4150df37ef0a1049e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190753"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426789"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>Inicio rápido: Creación de un servidor: PowerShell
 
@@ -23,7 +23,7 @@ Este inicio rápido describe el uso de PowerShell desde la línea de comandos pa
 
 - **Suscripción de Azure**: visite [Evaluación gratuita de Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) para crear una cuenta.
 - **Azure Active Directory**: la suscripción debe estar asociada a un inquilino de Azure Active Directory y debe tener una cuenta en ese directorio. Para más información, consulte [Permisos de usuario y autenticación](analysis-services-manage-users.md).
-- **Módulo Azure PowerShell, versión 4.0 o posterior**. Para encontrar la versión, ejecute ` Get-Module -ListAvailable AzureRM`. Si necesita instalarla o actualizarla, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/install-azurerm-ps).
+- **Módulo Azure PowerShell, versión 4.0 o posterior**. Para encontrar la versión, ejecute ` Get-Module -ListAvailable AzureRM`. Si necesita instalarla o actualizarla, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="import-azurermanalysisservices-module"></a>Importación del módulo AzureRm.AnalysisServices
 

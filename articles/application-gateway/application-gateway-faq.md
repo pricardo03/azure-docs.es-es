@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: d80e1394d4c4159c17eabff93ff44fdefbaf21b7
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 45751af66b1b050d4d36d1b8aee52dc6a5d8cc7b
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247510"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382404"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
@@ -213,22 +213,6 @@ No hay ningún tiempo de inactividad. Las instancias se distribuyen entre varios
 ### <a name="does-application-gateway-support-connection-draining"></a>¿Es compatible Application Gateway con la funcionalidad de drenaje de conexiones?
 
 Sí. Puede configurar el drenaje de conexiones para cambiar los miembros de un grupo de servidores back-end sin interrupciones. De este modo, las conexiones existentes podrán seguir enviándose a su destino anterior hasta que se cierren o hasta que el tiempo de espera configurado se agote. El drenaje de conexiones solo espera a que se completen las conexiones que están en tránsito actualmente. Application Gateway no conoce el estado de sesión de las aplicaciones.
-
-### <a name="what-are-application-gateway-sizes"></a>¿Cuáles son los tamaños de puerta de enlace de aplicaciones?
-
-Application Gateway actualmente se ofrece en tres tamaños: **pequeño**, **mediano** y **grande**. Tamaños pequeños de instancia están pensados para escenarios de desarrollo y pruebas.
-
-Para ver una lista completa de los límites de la puerta de enlace de aplicaciones, consulte el tema sobre los [límites de servicio de Application Gateway](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
-
-En la tabla siguiente se muestra un promedio de rendimiento para cada instancia de puerta de enlace de aplicaciones con descarga SSL habilitada:
-
-| Tamaño de respuesta medio de página de back-end | Pequeña | Mediano | grande |
-| --- | --- | --- | --- |
-| 6 KB |7,5 Mbps |13 Mbps |50 Mbps |
-| 100 KB |35 Mbps |100 Mbps |200 Mbps |
-
-> [!NOTE]
-> Se trata de valores aproximados para un rendimiento de puerta de enlace de aplicaciones. El rendimiento real depende de varios detalles del entorno, como el tamaño medio de página, la ubicación de las instancias de back-end y el tiempo de procesamiento para proporcionar una página. Para los números de rendimiento exactos, debe ejecutar sus propias pruebas. Estos valores solo se proporcionan para obtener instrucciones de planeamiento de capacidad.
 
 ### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>¿Puedo cambiar el tamaño de la instancia de mediano a grande sin que haya una interrupción?
 

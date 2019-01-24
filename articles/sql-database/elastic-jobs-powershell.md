@@ -12,16 +12,16 @@ ms.author: joke
 ms.reviwer: sstein
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 34277aaa6ad6c5b22fb1691af83091e49d3bf5c1
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 08571ac8b7e13bc0f414b481a481132793ba865d
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021329"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452758"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Creación de un agente de trabajos elásticos mediante PowerShell
 
-Los [trabajos elásticos](elastic-jobs-overview.md) habilitan la ejecución de uno o más scripts de Transact-SQL (T-SQL) en paralelo en varias bases de datos.
+Los [trabajos elásticos](sql-database-job-automation-overview.md#elastic-database-jobs) habilitan la ejecución de uno o más scripts de Transact-SQL (T-SQL) en paralelo en varias bases de datos.
 
 En este tutorial aprenderá los pasos necesarios para ejecutar una consulta en varias bases de datos:
 
@@ -65,7 +65,7 @@ Si no tiene una suscripción de Azure, [cree una cuenta gratuita](https://azure.
 
 ## <a name="create-required-resources"></a>Creación de los recursos necesarios
 
-La creación de un agente de trabajos elásticos requiere una base de datos (S0 o superior) para usarla como [base de datos de trabajos](elastic-jobs-overview.md#job-database). 
+La creación de un agente de trabajos elásticos requiere una base de datos (S0 o superior) para usarla como [base de datos de trabajos](sql-database-job-automation-overview.md#job-database). 
 
 *El script siguiente crea un nuevo grupo de recursos, servidor y base de datos para usarla como la base de datos de trabajos. El siguiente script también crea un segundo servidor con 2 bases de datos en blanco para ejecutar trabajos.*
 
@@ -210,7 +210,7 @@ $JobCred = $JobAgent | New-AzureRmSqlElasticJobCredential -Name "jobuser" -Crede
 
 ## <a name="define-the-target-databases-you-want-to-run-the-job-against"></a>Definición de las bases de datos de destino en las que desea ejecutar los trabajos
 
-Un [grupo de destino](elastic-jobs-overview.md#target-group) define el conjunto de una o varias bases de datos en las que se ejecutará un paso de un trabajo. 
+Un [grupo de destino](sql-database-job-automation-overview.md#target-group) define el conjunto de una o varias bases de datos en las que se ejecutará un paso de un trabajo. 
 
 En el fragmento de código siguiente se crean dos grupos de destino: *ServerGroup* y *ServerGroupExcludingDb2*. *ServerGroup* tiene como destino todas las bases de datos que existen en el servidor en el momento de la ejecución y *ServerGroupExcludingDb2* tiene como destino todas las bases de datos del servidor, excepto *TargetDb2*:
 

@@ -4,7 +4,7 @@ description: Obtenga información sobre cómo integrar los registros de Azure Ac
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7509081bbf43aeaf39570f84afef81b6dd5a39fe
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 8b9189ef3fff75023316d5272bd93c136106cf94
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621673"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824684"
 ---
 # <a name="integrate-azure-ad-logs-with-log-analytics-using-azure-monitor-preview"></a>Integración de registros de Azure AD con Log Analytics mediante Azure Monitor (versión preliminar)
 
@@ -42,7 +42,7 @@ En este artículo, se ofrece información sobre cómo integrar los registros de 
 Puede enrutar los registros de actividad de auditoría y los registros de actividad de inicio de sesión a Log Analytics para su posterior análisis. 
 
 * **Registros de auditoría**: el [informe de actividad de registros de auditoría](concept-audit-logs.md) le proporciona acceso al historial de todas las tareas llevadas a cabo en el inquilino.
-* **Inicios de sesión**: con el [informe de actividad de inicios de sesión](concept-sign-ins.md), puede determinar quién ha realizado las tareas notificadas en el informe de registros de auditoría.
+* **Registros de inicio de sesión**: Con el [informe de actividad de inicios de sesión](concept-sign-ins.md), puede determinar quién ha realizado las tareas notificadas en el informe de registros de auditoría.
 
 > [!NOTE]
 > En este momento no se admiten los registros de actividad de auditoría e inicio de sesión relacionados con B2C.

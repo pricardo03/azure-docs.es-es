@@ -3,19 +3,19 @@ title: Definición de un perfil técnico autoafirmado en una directiva personali
 description: Defina un perfil técnico autoafirmado en una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 262c4e622d7ef915e59f29c8f4272e488acaeccf
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 7a783e496b7bb6fcdf2c80247baad2bfc901d857
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166918"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851001"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico autoafirmado en una directiva personalizada en Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ Todas las interacciones realizadas en Azure Active Directory (Azure AD) B2C en l
 
 ## <a name="protocol"></a>Protocolo
 
-El atributo **Name** del elemento **Protocol** se debe establecer en `Proprietary`. El atributo **handler** debe contener el nombre completo del ensamblado de controlador de protocolo que usa Azure AD B2C para la autoafirmación: `Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
+El atributo **Name** del elemento **Protocol** tiene que establecerse en `Proprietary`. El atributo **handler** debe contener el nombre completo del ensamblado de controlador de protocolo que usa Azure AD B2C para la autoafirmación: `Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
 En el ejemplo siguiente se muestra un perfil técnico autoafirmado para el registro de un correo electrónico:
 

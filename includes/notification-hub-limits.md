@@ -2,20 +2,19 @@
 author: spelluru
 ms.service: service-bus
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 01/04/2019
 ms.author: spelluru
-ms.openlocfilehash: d15c5daf6963664baaf010e39083286b59627569
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 24810e67610a0c0855d5efb1f141a3324b7c75ca
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52272341"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54457123"
 ---
-| NIVEL: | LIBRE | BASIC | ESTÁNDAR |
-| --- | --- | --- | --- |
-| Push incluidos |1 millón |10 millones |10 millones |
-| Dispositivos activos |500 |200 000 | 10 millones |
-| Cuota de etiquetas por instalación y registro |60 |60 |60 |
+| NIVEL:              | LIBRE         | BASIC      | ESTÁNDAR   |
+| ------------------ | ------------ | ---------- | ---------- |
+| Push incluidos    | 1 millón    | 10 millones | 10 millones |
+| Dispositivos activos     | 500          | 200 000    | 10 millones |
+| Cuota de etiquetas por instalación y registro | 60  | 60 |  60 |
 
-Para obtener más información acerca de estos límites y los precios, consulte [Precios de Notification Hubs](https://azure.microsoft.com/pricing/details/notification-hubs/). 
-
+Para obtener más información acerca de estos límites y los precios, consulte [Precios de Notification Hubs](https://azure.microsoft.com/pricing/details/notification-hubs/).

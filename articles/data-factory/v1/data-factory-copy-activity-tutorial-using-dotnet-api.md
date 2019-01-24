@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9a536efd59008572459b8736e2a6ada669c00519
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 7a3979d9f92526934f074b7a6a122352928abe68
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015192"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428414"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Tutorial: Creación de una canalización con la actividad de copia mediante la API de NET
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ pero cualquier canalización puede tener más de una actividad. También puede e
 * Para obtener información general del tutorial y completar los pasos de los [requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) , consulte **Copia de datos de Almacenamiento de blobs en Base de datos SQL mediante Data Factory** .
 * Visual Studio 2012, 2013 o 2015
 * Descargue e instale el [SDK de .NET de Azure](https://azure.microsoft.com/downloads/)
-* Azure PowerShell. Siga las instrucciones del artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azure/install-azurerm-ps) para instalar Azure PowerShell en su equipo. Azure PowerShell se usa para crear una aplicación de Azure Active Directory.
+* Azure PowerShell. Siga las instrucciones del artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) para instalar Azure PowerShell en su equipo. Azure PowerShell se usa para crear una aplicación de Azure Active Directory.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Creación de una aplicación en Azure Active Directory
 Cree una aplicación de Azure Active Directory, cree una entidad de servicio para dicha aplicación y asígnela al rol **Colaborador de Data Factory** .
@@ -233,7 +233,7 @@ Debe tener los cuatro valores siguientes de estos pasos:
 
     Los servicios vinculados se crean en una factoría de datos para vincular los almacenes de datos y los servicios de proceso con la factoría de datos. En este tutorial, no se usa ningún servicio de proceso, como Azure HDInsight o Azure Data Lake Analytics. Se usan dos almacenes de datos del tipo Azure Storage (origen) y Azure SQL Database (destino). 
 
-    Por lo tanto, se crean dos servicios vinculados llamados AzureStorageLinkedService y AzureSqlLinkedService de los tipos AzureStorage y AzureSqlDatabase.  
+    Por lo tanto, se crean dos servicios vinculados llamados AzureStorageLinkedService y AzureSqlLinkedService de los tipos: AzureStorage y AzureSqlDatabase.  
 
     AzureStorageLinkedService vincula una cuenta de Azure Storage a la factoría de datos. Esta cuenta de almacenamiento es la que se usó para crear un contenedor y con la que se cargaron los datos como parte de los [requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 9. Agregue el siguiente código que crea un **servicio vinculado de Azure SQL** al método **Main**.

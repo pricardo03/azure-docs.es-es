@@ -8,14 +8,14 @@ ms.topic: sample
 ms.date: 05/08/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: cb88645530f904bc35c70dfa12b09b76fcd1eb7c
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 67ddcb977fc61e48ab06ccf732874208236664c9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985267"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430948"
 ---
 # <a name="self-service-portal-for-azure-ad-b2b-collaboration-sign-up"></a>Portal de autoservicio para el registro en la colaboración B2B de Azure AD
 
@@ -31,6 +31,6 @@ Este código está disponible como ejemplo para mostrar el uso de la API de invi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [¿Qué es la colaboración de Azure AD B2B?](what-is-b2b.md)
+* [¿Qué es la colaboración B2B de Azure AD?](what-is-b2b.md)
 * [Concesión de licencias de colaboración B2B de Azure AD](licensing-guidance.md)
 * [Preguntas frecuentes sobre la colaboración B2B de Azure Active Directory (P+F)](faq.md)

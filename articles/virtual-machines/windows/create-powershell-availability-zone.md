@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 5f76b117b01090864e1bf33e986e8ec96f0bf376
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 23c53982919ad29c639a6441f206abb35ddb7a1b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31599941"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430798"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-powershell"></a>Creación de una máquina virtual Windows en una zona de disponibilidad con PowerShell
 
@@ -29,7 +29,7 @@ En este artículo se detallan el uso de Azure PowerShell para crear una máquina
 
 Para usar una zona de disponibilidad, cree la máquina virtual [en una región de Azure compatible](../../availability-zones/az-overview.md#regions-that-support-availability-zones).
 
-Asegúrese de que ha instalado el módulo más reciente de Azure PowerShell. Si necesita instalarla o actualizarla, consulte [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell).
+Asegúrese de que ha instalado el módulo más reciente de Azure PowerShell. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 

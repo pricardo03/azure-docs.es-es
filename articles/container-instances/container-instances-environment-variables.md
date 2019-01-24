@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: danlep
-ms.openlocfilehash: 4dde10c5cb4a764a268b8b9d3ebfaebc008e13ed
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: ce6c3364c594bc515abd9f0c02bd69bf500e4f4e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162536"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436576"
 ---
 # <a name="set-environment-variables"></a>Establecimiento de variables de entorno
 
@@ -20,9 +20,9 @@ El establecimiento de variables de entorno en las instancias de contenedor le pe
 
 Por ejemplo, si ejecuta la imagen de contenedor [microsoft/aci-wordcount][aci-wordcount], puede modificar el comportamiento de la misma mediante la especificación de las siguientes variables de entorno:
 
-*NumWords*: el número de palabras enviadas a STDOUT.
+*NumWords*: El número de palabras enviadas a STDOUT.
 
-*MinLength*: el número mínimo de caracteres en una palabra para que se tenga en cuenta. Un número mayor omite palabras comunes como "de" y "la".
+*MinLength*: El número mínimo de caracteres en una palabra para que se tenga en cuenta. Un número mayor omite palabras comunes como "de" y "la".
 
 Si tiene que pasar secretos como variables de entorno, Azure Container Instances admite [valores seguros](#secure-values) tanto en contenedores Windows como Linux.
 
@@ -255,6 +255,6 @@ Los escenarios basados en tareas, como el procesamiento por lotes de un gran con
 [az-container-show]: /cli/azure/container#az-container-show
 [azure-cli-install]: /cli/azure/
 [azure-instance-log]: /powershell/module/azurerm.containerinstance/get-azurermcontainerinstancelog
-[azure-powershell-install]: /powershell/azure/install-azurerm-ps
+[azure-powershell-install]: /powershell/azure/azurerm/install-azurerm-ps
 [new-azurermcontainergroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
 [portal]: https://portal.azure.com

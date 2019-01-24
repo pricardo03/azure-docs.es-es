@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: f1d949c4ea13cd9329f1e1049a1de7778246e7f6
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 3a2e48697efbe0f4969a8fae20c050a38645ed6f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302449"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462086"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Inicio rápido: Ejecute su primer trabajo de Batch con Python API
 
@@ -174,7 +174,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-batch-job"></a>Creación de un trabajo de Batch
 
-Un trabajo de Batch es una agrupación lógica de una o varias tareas. Un trabajo incluye valores comunes para las tareas, como la prioridad y el grupo en el que se ejecutan las tareas. La aplicación usa la clase [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) para crear un trabajo en el grupo. El método [job.add](/python/api/azure.batch.operations.joboperations#azure_batch_operations_JobOperations_add) envía el grupo al servicio Batch. Inicialmente, el trabajo no tiene tareas.
+Un trabajo de Batch es una agrupación lógica de una o varias tareas. Un trabajo incluye valores comunes para las tareas, como la prioridad y el grupo en el que se ejecutan las tareas. La aplicación usa la clase [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) para crear un trabajo en el grupo. El método [job.add](/python/api/azure.batch.operations.joboperations) envía el grupo al servicio Batch. Inicialmente, el trabajo no tiene tareas.
 
 ```python
 job = batch.models.JobAddParameter(

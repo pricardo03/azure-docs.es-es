@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 60dacaa6b8a813c3e77bbd2d661740510e903b26
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: eae26868e2684f6c95fb2860506c18d17096f98c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54160002"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465758"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Tutorial: Creación de una puerta de enlace de aplicaciones con redirección basada en rutas de dirección URL con la CLI de Azure
 
@@ -43,7 +43,7 @@ Si decide instalar y usar la CLI localmente, para esta guía de inicio rápido e
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Para crear un grupo de recursos, use [az group create](/cli/azure/group#create).
+Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Para crear un grupo de recursos, use [az group create](/cli/azure/group).
 
 En el ejemplo siguiente, se crea un grupo de recursos llamado *myResourceGroupAG* en la ubicación *eastus*.
 
@@ -77,7 +77,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 
-Use [az network application-gateway create](/cli/azure/network/application-gateway#create) para crear la puerta de enlace de aplicaciones llamada myAppGateway. Cuando se crea una puerta de enlace de aplicaciones mediante la CLI de Azure, se especifica información de configuración, como capacidad, SKU y HTTP. La puerta de enlace de aplicaciones se asigna a los elementos *myAGSubnet* y *myPublicIPAddress* creados anteriormente.
+Use [az network application-gateway create](/cli/azure/network/application-gateway) para crear la puerta de enlace de aplicaciones llamada myAppGateway. Cuando se crea una puerta de enlace de aplicaciones mediante la CLI de Azure, se especifica información de configuración, como capacidad, SKU y HTTP. La puerta de enlace de aplicaciones se asigna a los elementos *myAGSubnet* y *myPublicIPAddress* que se crearon anteriormente.
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -182,7 +182,7 @@ az network application-gateway url-path-map rule create \
 
 ### <a name="add-redirection-configuration"></a>Incorporación de la configuración de redireccionamiento
 
-Puede configurar la redirección del agente de escucha mediante [az network application-gateway redirect-config create](/cli/azure/network/application-gateway#az-network_application_gateway_redirect_config_create).
+Puede configurar la redirección del agente de escucha mediante [az network application-gateway redirect-config create](/cli/azure/network/application-gateway).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \

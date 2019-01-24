@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 120b97f69c8fad2daf3090441e8d0326e80115c3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 3b0db93d44827e3f5d0543f28a6f4b5fb0c4818e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338590"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429096"
 ---
-# <a name="traffic-analytics"></a>Análisis del tráfico
+# <a name="traffic-analytics"></a>Análisis de tráfico
 
 Análisis de tráfico es una solución basada en la nube, que proporciona visibilidad de la actividad de usuarios y aplicaciones en las redes en la nube. Análisis de tráfico permite analizar los registros de flujo del grupo de seguridad de red (NSG) de Network Watcher para proporcionar información sobre el flujo de tráfico en la nube de Azure. Con Análisis de tráfico, puede:
 
@@ -99,9 +99,6 @@ La cuenta debe ser miembro de uno de los siguientes [roles integrados](../role-b
 |                   | Colaborador            |
 |                   | Lector                 |
 |                   | Colaborador de la red    |
-|Clásico            | Administrador de cuenta  |
-|                   | Administrador de servicios  |
-|                   | Coadministrador       |
 
 Si la cuenta no está asignada a uno de los roles integrados, se debe asignar a un [rol personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) que tenga asignadas las acciones siguientes en el nivel de suscripción:
 
@@ -176,7 +173,7 @@ Seleccione las opciones siguientes, tal y como se muestra en la imagen:
 
 Repita los pasos anteriores con todos los demás grupos de seguridad de red para los que desee habilitar Análisis de tráfico. Los datos de los registros de flujos se envían al área de trabajo, por tanto, asegúrese de que las leyes y reglamentos locales de su país permiten el almacenamiento de datos en la región donde existe el área de trabajo.
 
-También puede configurar Análisis de tráfico con el cmdlet [Set-AzureRmNetworkWatcherConfigFlowLog](/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog) de PowerShell en la versión 6.2.1 o posterior del módulo AzureRm de PowerShell. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps).
+También puede configurar Análisis de tráfico con el cmdlet [Set-AzureRmNetworkWatcherConfigFlowLog](/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog) de PowerShell en la versión 6.2.1 o posterior del módulo AzureRm de PowerShell. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="view-traffic-analytics"></a>Visualización de Análisis de tráfico
 
