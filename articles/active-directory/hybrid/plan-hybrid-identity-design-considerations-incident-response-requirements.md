@@ -4,7 +4,7 @@ description: Determine las funcionalidades de supervisión e informes de la solu
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: a3d2a459-599b-4b67-8e51-7369ee25082d
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: baa1d1fec6438b937ba783adcc86c4f74fa1a6db
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5a5b166e9b90ede5f5c51b2c288ce1d2d6290ba6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306044"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464840"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Determinación de los requisitos de respuesta a incidentes para su solución de identidad híbrida
 La mayoría de las organizaciones grandes y medianas contarán probablemente con una [respuesta a los incidentes de seguridad](https://technet.microsoft.com/library/cc700825.aspx) para ayudar al responsable de TI a emprender acciones en función del nivel de incidente. El sistema de administración de identidades es un componente importante en el proceso de respuesta a incidentes, ya que se puede usar para ayudar a identificar quién ha realizado una acción específica en el destino. La solución de identidad híbrida debe ser capaz de proporcionar funcionalidades de supervisión e informes que TI puede aprovechar para realizar acciones con el fin de identificar y mitigar las posibles amenazas. En un plan de respuesta a incidentes típico tendrá las siguientes fases:

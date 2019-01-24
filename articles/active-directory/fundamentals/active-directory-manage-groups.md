@@ -3,7 +3,7 @@ title: Administración del acceso a recursos y aplicaciones con grupos en Azure 
 description: Obtenga información acerca de cómo administrar el acceso a las aplicaciones en la nube de su organización, a las aplicaciones locales y a los recursos mediante los grupos de Azure Active Directory.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -12,12 +12,12 @@ ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 5a706a2a879ae3b4c4adb2690faa77846474ce49
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4c014392f0626a29c0ecf5f0371a3fd52ea9d163
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087293"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447979"
 ---
 # <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>Administración del acceso a recursos y aplicaciones con grupos en Azure Active Directory
 Azure Active Directory (Azure AD) le ayuda a administrar aplicaciones en la nube de su organización, aplicaciones locales y recursos locales mediante los grupos de su organización. Sus recursos pueden formar parte del directorio, como los permisos para administrar objetos a través de los roles del directorio, o puede estar fuera del directorio, como las aplicaciones SaaS (software como servicio), los servicios de Azure, los sitios de SharePoint y los recursos locales.

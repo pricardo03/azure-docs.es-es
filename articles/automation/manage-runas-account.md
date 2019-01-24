@@ -3,18 +3,18 @@ title: Administración de cuentas de ejecución de Azure Automation
 description: En este artículo se describe cómo administrar las cuenta de ejecución con PowerShell o desde el portal.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7bd84b42cfa61d199d70e02345f9229a45fd7704
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 34c8a7d547acf023af442599708f9c183e5b9ae9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726175"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431204"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Administración de cuentas de ejecución de Azure Automation
 
@@ -389,3 +389,4 @@ Rápidamente puede resolver estos problemas de la cuenta de ejecución con solo 
 
 * Para más información sobre las entidades de servicio, consulte [Objetos de aplicación y de entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md).
 * Para más información sobre los certificados y los servicios de Azure, consulte [Introducción a los certificados para Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).
+

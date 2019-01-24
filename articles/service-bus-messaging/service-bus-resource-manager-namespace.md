@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/06/2018
+ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: 248ac7ed2a855dd1df71e6e44d1aa7065ddd8ba4
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: e925ea91518d8f093cd270e238b7ffd09674e726
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062074"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844099"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Creación de un espacio de nombres de Service Bus mediante una plantilla de Azure Resource Manager
 En esta guía de inicio rápido se crea una plantilla de Azure Resource Manager que genera un espacio de nombres de Service Bus del tipo **Mensajería** con una SKU de nivel **estándar**. El artículo también define los parámetros que se especifican para la ejecución de la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades. Para más información sobre la creación de plantillas, consulte [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates] (Creación de plantillas de Azure Resource Manager). Para ver la plantilla completa, consulte la [plantilla de espacio de nombres de Service Bus][Service Bus namespace template] en GitHub.
@@ -44,7 +44,7 @@ Para crear e implementar la plantilla manualmente, recorra las siguientes seccio
 ## <a name="prerequisites"></a>Requisitos previos
 Para completar esta guía de inicio rápido, necesita una suscripción de Azure. Si no tiene una, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-Si desea usar **Azure PowerShell** para implementar la plantilla de Resource Manager, [instale Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
+Si desea usar **Azure PowerShell** para implementar la plantilla de Resource Manager, [instale Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.7.0).
 
 Si desea usar la **CLI de Azure** para implementar la plantilla de Resource Manager, [instale la CLI de Azure]( /cli/azure/install-azure-cli).
 

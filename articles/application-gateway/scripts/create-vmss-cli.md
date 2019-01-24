@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e2b17ef790f47a9352e3c2b744bdbb4960fe616b
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 638aa3bf0e278ce00c124d8217a1bf9104e878fb
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580021"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413792"
 ---
 # <a name="manage-web-traffic-using-the-azure-cli"></a>Administrar el tráfico web mediante la CLI de Azure
 
@@ -53,7 +53,7 @@ Este script usa los siguientes comandos para crear la implementación. Cada elem
 | [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest) | Crea la dirección IP pública de la puerta de enlace de aplicaciones. |
 | [az network application-gateway create](https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest) | Crear una puerta de enlace de aplicaciones. |
 | [az vmss create](https://docs.microsoft.com/cli/azure/vmss#az-vmss-create) | Crea un conjunto de escalado de máquinas virtuales. |
-| [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip#az-network_public_ip_show) | Obtiene la dirección IP pública de la puerta de enlace de aplicaciones. |
+| [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip) | Obtiene la dirección IP pública de la puerta de enlace de aplicaciones. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: b0bbd3300e48e82e44a7b7fac05f89c8d25e007f
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 8ab5000f1f50e10195c02b6198fa0bcffd0408b5
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603504"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844771"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glosario de Language Understanding de conceptos y vocabulario común
 En el glosario de Language Understanding (LUIS) se explican los términos que pueden aparecer cuando se trabaja con el servicio de API de LUIS.
@@ -74,7 +74,7 @@ En el contexto de LUIS, un **dominio** es un área de conocimiento. El dominio e
 
 ## <a name="endpoint"></a>Punto de conexión
 
-La dirección URL del [punto de conexión de LUIS](https://aka.ms/luis-endpoint-apis) es donde se envían las consultas de LUIS después de crear y publicar la [aplicación de LUIS](#luis-app). La dirección URL del punto de conexión contiene la región de la aplicación publicada, así como el identificador de la aplicación. Puede encontrar el punto de conexión en la página **[Claves y puntos de conexión](luis-how-to-manage-keys.md)** de la aplicación o bien puede obtener la dirección URL del punto de conexión desde la API [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37).
+La dirección URL del [punto de conexión de LUIS](https://aka.ms/luis-endpoint-apis) es donde se envían las consultas de LUIS después de crear y publicar la [aplicación de LUIS](#luis-app). La dirección URL del punto de conexión contiene la región de la aplicación publicada, así como el identificador de la aplicación. Puede encontrar el punto de conexión en la página **[Claves y puntos de conexión](luis-how-to-azure-subscription.md)** de la aplicación o bien puede obtener la dirección URL del punto de conexión desde la API [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37).
 
 Un punto de conexión de ejemplo tiene el siguiente aspecto:
 
@@ -177,7 +177,7 @@ Al igual que la [clave de programación](#programmatic-key), su nombre ha cambia
 
 ## <a name="subscription-key"></a>Clave de suscripción
 
-La clave de suscripción es la clave de **punto de conexión** asociada con el servicio de LUIS que [ha creado en Azure](luis-how-to-azure-subscription.md). Esta no es la [clave de creación](#programmatic-key). Si tiene una clave de punto de conexión, se debe usar para las solicitudes de punto de conexión en lugar de la clave de creación. Puede ver la clave de punto de conexión actual en la dirección URL del punto de conexión, en la parte inferior de la página [**Claves y puntos de conexión**](luis-how-to-manage-keys.md) del sitio web de [LUIS](luis-reference-regions.md). Es el valor del par nombre/valor **subscription-key**.
+La clave de suscripción es la clave de **punto de conexión** asociada con el servicio de LUIS que [ha creado en Azure](luis-how-to-azure-subscription.md). Esta no es la [clave de creación](#programmatic-key). Si tiene una clave de punto de conexión, se debe usar para las solicitudes de punto de conexión en lugar de la clave de creación. Puede ver la clave de punto de conexión actual en la dirección URL del punto de conexión, en la parte inferior de la página [**Claves y puntos de conexión**](luis-how-to-azure-subscription.md) del sitio web de [LUIS](luis-reference-regions.md). Es el valor del par nombre/valor **subscription-key**.
 
 ## <a name="test"></a>Probar
 

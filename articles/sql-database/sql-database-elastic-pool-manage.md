@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/29/2018
-ms.openlocfilehash: 366bdf73c6b62ffa98ce44076374df8be8b3de3c
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/17/2019
+ms.openlocfilehash: 93b7fb0cd303f34d4afadf461f8886aaac52e4c3
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865886"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388577"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Creación y administración de grupos elásticos en Azure SQL Database
 
@@ -39,7 +39,7 @@ Desde aquí puede realizar cualquier combinación de los siguientes cambios y gu
 
 ## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell: administración de grupos elásticos y bases de datos agrupadas
 
-Para crear y administrar grupos elásticos y bases de datos agrupadas de SQL Database con Azure PowerShell, use los siguientes cmdlets de PowerShell. Si necesita instalar o actualizar PowerShell, consulte [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell). Para crear y administrar los servidores lógicos para un grupo elástico, consulte el artículo sobre cómo [crear y administrar servidores lógicos](sql-database-logical-servers.md). Para crear y administrar reglas de firewall, consulte la sección [Administración de reglas de firewall mediante Azure PowerShell](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
+Para crear y administrar grupos elásticos y bases de datos agrupadas de SQL Database con Azure PowerShell, use los siguientes cmdlets de PowerShell. Si necesita instalar o actualizar PowerShell, consulte [Install and configure Azure PowerShell](/powershell/azure/install-az-ps) (Instalación y configuración de Azure PowerShell). Para crear y administrar los servidores lógicos para un grupo elástico, consulte el artículo sobre cómo [crear y administrar servidores lógicos](sql-database-logical-servers.md). Para crear y administrar reglas de firewall, consulte la sección [Administración de reglas de firewall mediante Azure PowerShell](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
 
 > [!TIP]
 > Para obtener scripts de ejemplo de PowerShell, vea [Creación de grupos elásticos y traslado de bases de datos de un grupo a otro y fuera de un grupo mediante PowerShell](scripts/sql-database-move-database-between-pools-powershell.md) y [Uso de PowerShell para supervisar y escalar un grupo elástico de SQL en Azure SQL Database](scripts/sql-database-monitor-and-scale-pool-powershell.md).

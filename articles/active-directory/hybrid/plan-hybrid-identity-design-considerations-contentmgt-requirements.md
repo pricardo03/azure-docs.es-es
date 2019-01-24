@@ -4,7 +4,7 @@ description: Se proporciona información detallada sobre cómo determinar los re
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: dd1ef776-db4d-4ab8-9761-2adaa5a4f004
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 60d4501257bf79d1846e62010bf7b336c1b18f19
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 74efc23cd5f0f840e5b2c1e597059295765f45ea
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250873"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468665"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Determinación de los requisitos de administración de contenido para la solución de identidad híbrida
 Comprender los requisitos de administración de contenido de su empresa puede afectar directamente a su decisión sobre la solución de identidad híbrida que es mejor usar. Con la proliferación de tantos dispositivos y la posibilidad de que los usuarios traigan los suyos propios ([BYOD](https://aka.ms/byodcg)), la empresa debe proteger sus propios datos, pero también mantener intacta la privacidad del usuario. Normalmente, cuando un usuario tiene su propio dispositivo lo habitual es que tenga más varias credenciales que se irán alternando según la aplicación que use. Es importante distinguir qué contenido se creó con las credenciales personales frente al que se creó con las credenciales corporativas. La solución de identidad debe ser capaz de interactuar con los servicios en la nube a fin de proporcionar al usuario final una experiencia sin fisuras, y al mismo tiempo asegurar su privacidad y aumentar la protección frente a la pérdida de datos. 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: 0cccef6a50d6e93a13f27b8585fe7e605c75deb9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 92441e55d0a423e1e716d15166791c85fcf5d8ec
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025545"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434230"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carga incremental de datos de Azure SQL Database a Azure Blob Storage mediante la información de control de cambios 
 En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales según la información de **control de cambios** desde la base de datos SQL de Azure hasta un almacenamiento de blobs de Azure.  
@@ -144,7 +144,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
     ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo instalar y configurar Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo instalar y configurar Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 

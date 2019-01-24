@@ -3,18 +3,18 @@ title: Activos de certificados en Azure Automation
 description: Los certificados se pueden almacenar de manera segura en Azure Automation, de manera que los runbooks o configuraciones de DSC pueden tener acceso a ellos para realizar la autenticación respecto de Azure y recursos de terceros.  Este artículo explica los detalles de los certificados y cómo trabajar con ellos en la creación de textos y de gráficos.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d91a7ba8d2c05e2d24738764438ce91325743699
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 714bf5f915cb588a99552a8bbbc5ffa76aa16846
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330864"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426138"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Activos de certificados en Azure Automation
 
@@ -121,3 +121,4 @@ print cert
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener más información sobre cómo trabajar con vínculos para controlar el flujo lógico de las actividades que su runbook está diseñado para efectuar, consulte el tema sobre los [vínculos en la creación gráfica](automation-graphical-authoring-intro.md#links-and-workflow). 
+

@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: cynthn
-ms.openlocfilehash: cd11bb8ae8f22705feb7eebeafde385fcf11fdcd
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.component: disks
+ms.openlocfilehash: b293a60240622b5c8e417bf61de83ae8817e203f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637092"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477131"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Conexión de un disco a una VM Windows con PowerShell
 
@@ -28,11 +29,11 @@ En este artículo se explica cómo conectar discos nuevos y existentes a una má
 
 En primer lugar, revise estas sugerencias:
 * El tamaño de la máquina virtual controla cuántos discos de datos puede conectar. Para más información, consulte [Tamaños de las máquinas virtuales Linux en Azure](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Para usar Premium Storage, necesitará una VM con Premium Storage habilitado con un tipo como el de las VM de las series DS o GS. Para más información, consulte [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Para usar Premium Storage, necesitará una VM con Premium Storage habilitado con un tipo como el de las VM de las series DS o GS. Para más información, consulte [Premium Storage: Almacenamiento de alto rendimiento para cargas de trabajo de la máquina virtual de Azure](premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Para instalar y usar PowerShell de forma local, en este tutorial se requiere la versión 6.0.0 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también deberá ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
+Para instalar y usar PowerShell de forma local, en este tutorial se requiere la versión 6.0.0 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si PowerShell se ejecuta localmente, también deberá ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
 
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>Incorporación de un disco de datos vacío a una máquina virtual

@@ -8,19 +8,19 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 2a54752f933b91265d0aa8add61ca0707615931b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8a5c25cd5836c3bde630684eff24da7dc8b62fc6
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526334"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855812"
 ---
 # <a name="diagnostics-and-error-recovery-for-azure-importexport-jobs"></a>Diagnóstico y recuperación de errores de los trabajos de Azure Import/Export
-Para cada unidad de disco procesada, el servicio Azure Import/Export crea un registro de errores en la cuenta de almacenamiento asociada. También puede habilitar el registro detallado estableciendo la propiedad `LogLevel` en `Verbose` al llamar a las operaciones [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) o [Update Job Properties](/rest/api/storageimportexport/jobs#Jobs_Update).
+Para cada unidad de disco procesada, el servicio Azure Import/Export crea un registro de errores en la cuenta de almacenamiento asociada. También puede habilitar el registro detallado estableciendo la propiedad `LogLevel` en `Verbose` al llamar a las operaciones [Put Job](/rest/api/storageimportexport/jobs) o [Update Job Properties](/rest/api/storageimportexport/jobs).
 
  De forma predeterminada, los registros se escriben en un contenedor denominado `waimportexport`. Puede especificar un nombre distinto estableciendo la propiedad `DiagnosticsPath` al llamar a las operaciones `Put Job` o `Update Job Properties`. Los registros se almacenan como blobs en bloques con la convención de nomenclatura siguiente: `waies/jobname_driveid_timestamp_logtype.xml`.
 
- Puede recuperar el identificador URI de los registros de un trabajo llamando a la operación [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get). El identificador URI para el registro detallado se devuelve en la propiedad `VerboseLogUri` para cada unidad, mientras que el identificador URI para el registro de errores se devuelve en la propiedad `ErrorLogUri`.
+ Puede recuperar el identificador URI de los registros de un trabajo llamando a la operación [Get Job](/rest/api/storageimportexport/jobs). El identificador URI para el registro detallado se devuelve en la propiedad `VerboseLogUri` para cada unidad, mientras que el identificador URI para el registro de errores se devuelve en la propiedad `ErrorLogUri`.
 
 Puede usar los datos de registro para identificar los problemas siguientes.
 

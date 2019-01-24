@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/14/2018
 ms.author: rogarana
 ms.component: cosmosdb-table
-ms.openlocfilehash: 9aa3431e91196d7c33582d17494ddf0c32fba704
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: af76f67ba97b820d8571fd4f6bd3409396fb27ce
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634480"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433193"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Operaciones en Azure Table Storage con Azure PowerShell 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -32,7 +32,7 @@ En este artículo de instrucciones se describen las operaciones de Azure Table S
 
 En este artículo de instrucciones se muestra cómo crear una nueva cuenta de Azure Storage en un nuevo grupo de recursos, de modo que pueda eliminarla fácilmente cuando haya terminado. Si prefiere utilizar una cuenta de almacenamiento existente, puede hacerlo.
 
-Los ejemplos requieren la versión 4.4.0 o posterior del módulo `AzureRM` de Azure PowerShell. En una ventana de PowerShell, ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión. Si no aparece nada o necesita una actualización, vea [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Instalar y configurar Azure PowerShell).
+Los ejemplos requieren la versión 4.4.0 o posterior del módulo `AzureRM` de Azure PowerShell. En una ventana de PowerShell, ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión. Si no aparece nada o necesita una actualización, vea [Install and configure Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) (Instalar y configurar Azure PowerShell).
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 

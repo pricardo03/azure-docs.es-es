@@ -2,21 +2,21 @@
 title: Esquema de eventos de Blob Storage de Azure Event Grid
 description: Describe las propiedades que se proporcionan para los eventos de Blob Storage con Azure Event Grid.
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/17/2018
-ms.author: tomfitz
-ms.openlocfilehash: 11524f8868a0102e30b06f3385a26b1bd06aae6e
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.date: 01/17/2019
+ms.author: spelluru
+ms.openlocfilehash: 401eb660d7e5ddc68bc7422ef9f2e600295d2aea
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42146568"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469747"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Esquema de eventos de Azure Event Grid para Blob Storage
 
-En este artículo se proporcionan las propiedades y los esquemas de los eventos de Blob Storage. Para una introducción a los esquemas de eventos, consulte [Esquema de eventos de Azure Event Grid](event-schema.md).
+En este artículo se proporcionan las propiedades y los esquemas de los eventos de Blob Storage. Para una introducción a los esquemas de eventos, consulte [Esquema de eventos de Azure Event Grid](event-schema.md).
 
 Para obtener una lista de scripts de ejemplo y tutoriales, consulte [Origen de eventos de almacenamiento](event-sources.md#storage).
 
@@ -83,7 +83,7 @@ El esquema para un evento de eliminación de un blob es similar:
   "metadataVersion": "1"
 }]
 ```
- 
+ 
 ## <a name="event-properties"></a>Propiedades de evento
 
 Un evento tiene los siguientes datos de nivel superior:

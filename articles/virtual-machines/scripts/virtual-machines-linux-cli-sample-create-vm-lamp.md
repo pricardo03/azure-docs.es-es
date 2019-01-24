@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/05/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: 1764fc15a888fbe15cc14b990721240d1baf3c40
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: cb8815db5e16603ca4578f6d3d943cbef62e49af
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29851673"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461152"
 ---
 # <a name="deploy-the-lamp-stack-in-a-load-balanced-virtual-machine-scale-set"></a>Implementación de la pila de LAMP en un conjunto de escalado de máquinas virtuales de carga equilibrada
 
@@ -59,7 +59,7 @@ Este script usa los siguientes comandos para crear un grupo de recursos, una má
 | [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension#az_vmss_extension_set) | Crea la extensión que ejecuta el script personalizado en la implementación de una máquina virtual. |
 | [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss#az_vmss_update_instances) | Ejecuta el script personalizado en las instancias de máquinas virtuales que se implementaron antes de aplicar la extensión al conjunto de escalado. |
 | [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) | Permite escalar verticalmente el conjunto de escalado agregando más instancias de máquinas virtuales. El script personalizado se ejecuta en esas instancias cuando se implementa. |
-| [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip#az_network_public_ip_list) | Permite obtener las direcciones IP de las máquinas virtuales creadas por el ejemplo. |
+| [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip) | Permite obtener las direcciones IP de las máquinas virtuales creadas por el ejemplo. |
 | [az network lb show](https://docs.microsoft.com/cli/azure/network/lb#az_network_lb_show) | Permite obtener los puertos de front-end y back-end utilizados por el equilibrador de carga. |
 
 ## <a name="next-steps"></a>Pasos siguientes

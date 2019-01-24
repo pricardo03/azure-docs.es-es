@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: e7d76138f9d3701fa7e3177227fbeb4386434126
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 7ddd5c0195bdd59deac453fe324b6d8c6898ec2e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983808"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434213"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation"></a>Incorporación de usuarios de colaboración B2B sin invitación
 
@@ -34,7 +34,7 @@ Si invita a un usuario al directorio, el usuario invitado debe acceder directame
 
 ### <a name="next-steps"></a>Pasos siguientes
 
-- [¿Qué es la colaboración de Azure AD B2B?](what-is-b2b.md)
+- [¿Qué es la colaboración B2B de Azure AD?](what-is-b2b.md)
 - [Canje de invitación de colaboración B2B](redemption-experience.md)
 - [Delegación de invitaciones de la colaboración B2B de Azure Active Directory](delegate-invitations.md)
 - [¿Cómo agregan los trabajadores de la información usuarios de colaboración B2B?](add-users-information-worker.md)

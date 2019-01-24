@@ -3,7 +3,7 @@ title: Almacenamiento de datos de identidad para los clientes europeos en Azure 
 description: Obtenga información sobre dónde almacena Azure Active Directory los datos relacionados con la identidad de los clientes europeos.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.author: lizross
 ms.service: active-directory
 ms.component: fundamentals
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 51658fe686e2826618b2044cd969e6b4d463b93f
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: a95569ad332836734059abb58aacfff387d08e65
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063200"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445973"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Almacenamiento de datos de identidad para los clientes europeos en Azure Active Directory
 Azure Active Directory (Azure AD) facilita la administración de las identidades de los usuarios y la creación de directivas de acceso basadas en inteligencia para proteger los recursos de su organización. Los datos de identidad se almacenan en una ubicación que se basa la dirección que su organización proporcionó al suscribirse al servicio. Por ejemplo, al suscribirse a Office 365 o Azure. Para obtener información específica sobre dónde se almacenan los datos de identidad, puede consultar la sección [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) (Dónde se encuentran sus datos) de Microsoft Trust Center.

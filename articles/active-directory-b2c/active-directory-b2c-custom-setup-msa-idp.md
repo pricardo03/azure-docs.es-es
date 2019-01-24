@@ -3,19 +3,19 @@ title: Adición de una cuenta Microsoft (MSA) como proveedor de identidades medi
 description: Ejemplo en el que se usa Microsoft como proveedor de identidades mediante el protocolo OpenID Connect (OIDC).
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d53bbd10cbe822a91f201b7ba702b27b5ac0a6f9
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: d377b3f6dda864e9ab18dd716127ef6a6bed27c7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887247"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845608"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión con una cuenta Microsoft mediante directivas personalizadas en Azure Active Directory B2C
 
@@ -45,11 +45,11 @@ Debe almacenar la contraseña que haya generado y registrado previamente en el i
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
-3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal y busque y seleccione **Azure AD B2C**.
+3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
 4. En la página de introducción, seleccione **Marco de experiencia de identidad - VERSIÓN PRELIMINAR**.
 5. Seleccione **Claves de directiva** y luego **Agregar**.
 6. En **Opciones**, elija `Manual`.
-7. Escriba un **Nombre** para la clave de directiva. Por ejemplo, `MSASecret`. Se agregará el prefijo `B2C_1A_` automáticamente al nombre de la clave.
+7. Escriba un **nombre** para la clave de directiva. Por ejemplo, `MSASecret`. Se agregará el prefijo `B2C_1A_` automáticamente al nombre de la clave.
 8. En **Secreto**, escriba la contraseña que haya registrado previamente.
 9. En **Uso de claves**, seleccione `Signature`.
 10. Haga clic en **Create**(Crear).
@@ -111,8 +111,8 @@ Puede definir Azure AD como proveedor de notificaciones. Para ello, agregue el e
 
 Por el momento, ha configurado la directiva para que Azure AD B2C sepa cómo comunicarse con su cuenta Microsoft. Pruebe a cargar el archivo de extensión de la directiva para confirmar que no tiene problemas.
 
-1. En la página **Directivas personalizadas** de su inquilino de Azure AD B2C, seleccione **Cargar directiva**.
-2. Habilite **Overwrite the policy if it exists** (Sobrescribir la directiva, si existe) y, a continuación, busque y seleccione el archivo *TrustFrameworkExtensions.xml*.
+1. En la página **Directivas personalizadas** del inquilino de Azure AD B2C, seleccione **Cargar directiva**.
+2. Habilite **Sobrescribir la directiva, si existe**, y busque y seleccione el archivo *TrustFrameworkExtensions.xml*.
 3. Haga clic en **Cargar**.
 
 ## <a name="register-the-claims-provider"></a>Registro del proveedor de notificaciones
@@ -130,7 +130,7 @@ En este punto, el proveedor de identidades ya se ha configurado, pero no está d
 El elemento **ClaimsProviderSelection** es análogo a un botón de proveedor de identidades en una pantalla de registro o de inicio de sesión. Si agrega un elemento **ClaimsProviderSelection** para una cuenta Microsoft, se muestra un nuevo botón cuando un usuario llega a la página.
 
 1. En el archivo *TrustFrameworkExtensions.xml*, busque el elemento **OrchestrationStep** que incluya `Order="1"` en el recorrido de usuario que creó.
-2. En **ClaimsProviderSelects**, agregue el siguiente elemento. Establezca un valor adecuado en **TargetClaimsExchangeId**, por ejemplo `MicrosoftAccountExchange`:
+2. En **ClaimsProviderSelects**, agregue el siguiente elemento. Establezca un valor adecuado en **TargetClaimsExchangeId**, por ejemplo, `MicrosoftAccountExchange`:
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="MicrosoftAccountExchange" />
@@ -141,15 +141,15 @@ El elemento **ClaimsProviderSelection** es análogo a un botón de proveedor de 
 Ahora que hay un botón colocado, es preciso vincularlo a una acción. En este caso, la acción es para que Azure AD B2C se comunique con la cuenta de Twitter para recibir un token.
 
 1. Busque el elemento **OrchestrationStep** que incluye `Order="2"` en el recorrido del usuario.
-2. Al agregar el siguiente elemento **ClaimsExchange**, se asegura de usar el mismo valor para el elemento **Id** que usó en **TargetClaimsExchangeId**:
+2. Al agregar el siguiente elemento **ClaimsExchange**, asegúrese de usar el mismo valor para el elemento **Id** que el que usó en **TargetClaimsExchangeId**:
 
     ```xml
     <ClaimsExchange Id="MicrosoftAccountExchange" TechnicalProfileReferenceId="MSA-OIDC" />
     ```
     
-    Actualice el valor de **TechnicalProfileReferenceId** con el **identificador** del perfil técnico que creó anteriormente. Por ejemplo, `MSA-OIDC`.
+    Actualice el valor de **TechnicalProfileReferenceId** al elemento **Id** del perfil técnico que creó anteriormente. Por ejemplo, `MSA-OIDC`.
 
-3. Guarde el archivo *TrustFrameworkExtensions.xml* y cárguelo de nuevo para realizar el proceso de comprobación.
+3. Guarde el archivo *TrustFrameworkExtensions.xml* y cárguelo de nuevo a fin de verificarlo.
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Creación de una aplicación de Azure AD B2C
 
@@ -157,10 +157,10 @@ La comunicación con Azure AD B2C se produce mediante una aplicación que se cre
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
-3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal y busque y seleccione **Azure AD B2C**.
-4. Seleccione **Aplicaciones** y, a continuación, **Agregar**.
+3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
+4. Seleccione **Aplicaciones** y **Agregar**.
 5. Escriba un nombre para la aplicación; por ejemplo, *testapp1*.
-6. En **Aplicación web / API web**, seleccione `Yes` y, a continuación, escriba `https://jwt.ms` como **dirección URL de respuesta**.
+6. En **Aplicación web/API web**, seleccione `Yes` y escriba `https://jwt.ms` como **URL de respuesta**.
 7. Haga clic en **Create**(Crear).
 
 ## <a name="update-and-test-the-relying-party-file"></a>Actualización y prueba del archivo del usuario de confianza
@@ -172,4 +172,4 @@ Actualice el archivo de usuario de confianza (RP) que inicia el recorrido del us
 3. Actualice el valor de **PublicPolicyUri** con el URI para la directiva. Por ejemplo, `http://contoso.com/B2C_1A_signup_signin_msa`
 4. Cambie el valor del atributo **ReferenceId** del elemento **DefaultUserJourney** para que coincida con el identificador del nuevo recorrido del usuario que ha creado (SignUpSignInMSA).
 5. Guarde los cambios, cargue el archivo y, a continuación, seleccione la nueva directiva en la lista.
-6. Asegúrese de que la aplicación de Azure AD B2C que creó está seleccionada en el campo **Seleccionar aplicación** y, a continuación, pruébela; para ello, haga clic en **Ejecutar ahora**.
+6. Asegúrese de que la aplicación de Azure AD B2C que creó está seleccionada en el campo **Seleccionar aplicación** y pruébela; para ello, haga clic en **Ejecutar ahora**.

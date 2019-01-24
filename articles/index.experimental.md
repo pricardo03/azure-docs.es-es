@@ -1,14 +1,8 @@
----
+--- 
 layout: HubPage
 hide_bc: true
 title: Documentación de Microsoft Azure
-description: Aprenda a compilar y administrar aplicaciones eficaces mediante Microsoft Azure Cloud Services. Obtenga documentación, código de ejemplo, tutoriales, etc.
-ms.openlocfilehash: c8ba57b9173fbbfa4e00472972921073f32cb2f7
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017792"
+description: 'Aprenda a compilar y administrar aplicaciones eficaces mediante Microsoft Azure Cloud Services. Obtenga documentación, código de ejemplo, tutoriales, etc.'
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -3318,7 +3312,7 @@ ms.locfileid: "53017792"
                                                     <a href="/powershell/azure/get-started-azureps">Introducción</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/powershell/azure/install-azurerm-ps">Descargar Powershell</a>
+                                                    <a href="/powershell/azure/azurerm/install-azurerm-ps">Descargar Powershell</a>
                                                 </p>
                                                 <p>
                                                     <a href="/powershell/azure/overview">Referencia</a>

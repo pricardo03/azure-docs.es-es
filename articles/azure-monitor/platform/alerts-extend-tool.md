@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
-ms.component: alerts
-ms.openlocfilehash: bdc3646116dfd5f16c0c039c4fb95d11c6593adf
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.subservice: alerts
+ms.openlocfilehash: dc8c1733f506870765523b17c1fc3e283ff9cbdb
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121000"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423282"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Extensión de alertas de Log Analytics a Alertas de Azure
 Alertas de Azure está reemplazando la característica de alertas de Azure Log Analytics. Como parte de esta transición, las alertas que ha configurado originalmente en Log Analytics se extenderán a Azure. Si no quiere esperar a que se trasladen automáticamente a Azure, puede iniciar el proceso:
@@ -481,3 +481,4 @@ Aquí se indican los pasos para corregir cada error:
 
 * Más información sobre la nueva [experiencia de Alertas de Azure](../../azure-monitor/platform/alerts-overview.md).
 * Más información sobre las [alertas de registro en Alertas de Azure](alerts-unified-log.md).
+

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 12/19/2018
-ms.openlocfilehash: 102d89564d41bb8985f95790e7e4811ce30a590f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: eb18fd521ca885b37c60c4f3a53e2bce1508fda2
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723117"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382814"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Tutorial: Migración de PostgreSQL a Azure Database for PostgreSQL en línea mediante DMS
 Puede usar Azure Database Migration Service para migrar las bases de datos de una instancia de PostgreSQL local a [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) con un tiempo de inactividad mínimo. En otras palabras, se puede lograr la migración con un tiempo de inactividad mínimo para la aplicación. En este tutorial, va a migrar la base de datos de ejemplo **DVD Rental** de una instancia local de PostgreSQL 9.6 a Azure Database for PostgreSQL mediante una actividad de migración en línea de Azure Database Migration Service.
@@ -38,7 +38,7 @@ En este tutorial, aprenderá a:
 ## <a name="prerequisites"></a>Requisitos previos
 Para completar este tutorial, necesita:
 
-- Descargue e instale [PostgreSQL community edition](https://www.postgresql.org/download/) 9.5, 9.6 o 10. La versión del servidor PostgreSQL Server de origen debe ser la 9.5.11, 9.6.7, 10 o una posterior. Para más información, consulte el artículo [Versiones de base de datos de PostgreSQL admitidas](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
+- Descargue e instale [PostgreSQL community edition](https://www.postgresql.org/download/) 9.5, 9.6 o 10. La versión del servidor PostgreSQL Server de origen debe ser la 9.5.11, 9.6.7, 10 o una posterior. Para más información, consulte el artículo acerca de las [versiones de base de datos admitidas de PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
 
     Además, la versión de PostgreSQL local debe coincidir con la base de datos de Azure Database for PostgreSQL. Por ejemplo, PostgreSQL 9.5.11.5 solo puede migrarse a Azure Database for PostgreSQL 9.5.11 y no a la versión 9.6.7.
 

@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 801fa50ea34da8ac40c559e77fb6c51c6422172e
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166343"
 documentType: LandingData
 title: Documentación de Language Understanding (LUIS)
 metadata:
-  document_id: 
+  document_id: null
   title: 'Language Understanding (LUIS): tutoriales, guías de inicio rápido, referencia de API'
   description: Aprenda a usar el servicio Language Understanding para permitir que la aplicación entienda lo que una persona quiere en sus propias palabras.
   author: nitinme
@@ -17,104 +11,104 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/24/2018
+  ms.date: 01/23/2019
   ms.author: nitinme
 abstract:
   description: Aprenda a usar el servicio Language Understanding para permitir que la aplicación entienda lo que una persona quiere en sus propias palabras. LUIS utiliza el aprendizaje automático para permitir a los desarrolladores crear aplicaciones que pueden recibir las aportaciones de los usuarios en lenguaje natural y extraer significado de las mismas.
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: ../media/index/luis-landing-page-video.png
       width: 250
-    title: Novedades sobre LUIS (18:28)
-    href: https://azure.microsoft.com/resources/videos/whats-new-with-language-understanding-service-luis
+    title: 'Novedades sobre LUIS (18:28)'
+    href: 'https://azure.microsoft.com/resources/videos/whats-new-with-language-understanding-service-luis'
     width: 250
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/luis/what-is-luis
+            html: <p>Más información sobre Language Understanding Service (LUIS).</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: ¿Qué es LUIS?
+          - href: /azure/cognitive-services/luis/luis-how-plan-your-app
+            html: <p>Prepare un esquema de las intenciones y entidades relevantes para la aplicación.</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: Planear la aplicación de LUIS
+          - href: /azure/cognitive-services/luis/luis-concept-best-practices
+            html: <p>Use estos procedimientos recomendados al crear una aplicación de LUIS.</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: Procedimientos recomendados para una aplicación de LUIS
+  - title: Inicios rápidos en 5 minutos
     items:
-    - href: /azure/cognitive-services/luis/what-is-luis
-      html: <p>Más información sobre Language Understanding Service (LUIS).</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: ¿Qué es LUIS?
-    - href: /azure/cognitive-services/luis/luis-how-plan-your-app
-      html: <p>Prepare un esquema de las intenciones y entidades relevantes para la aplicación.</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: Planear la aplicación de LUIS
-    - href: /azure/cognitive-services/luis/luis-concept-best-practices
-      html: <p>Use estos procedimientos recomendados al crear una aplicación de LUIS.</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: Procedimientos recomendados para una aplicación de LUIS
-- title: Inicios rápidos en 5 minutos
-  items:
-  - type: table
-    style: dataMatrix
-    columns:
-    - image:
-        src: media/index/logo_csharp.svg
-    - image:
-        src: media/index/logo_java.svg
-    - image:
-        src: media/index/logo_nodejs.svg
-    - image:
-        src: media/index/logo_python.svg
-    rows:
-    - title: API de punto de conexión
-      values:
-      - href: luis-get-started-cs-get-intent
-      - href: luis-get-started-java-get-intent
-      - href: luis-get-started-node-get-intent
-      - href: luis-get-started-python-get-intent
-    - title: Authoring API
-      values:
-      - href: luis-get-started-cs-add-utterance
-      - href: luis-get-started-java-add-utterance
-      - href: luis-get-started-node-add-utterance
-      - href: luis-get-started-python-add-utterance
-- title: Tutoriales detallados
-  items:
-  - type: list
-    style: ordered
+      - type: table
+        style: dataMatrix
+        columns:
+          - image:
+              src: media/index/logo_csharp.svg
+          - image:
+              src: media/index/logo_java.svg
+          - image:
+              src: media/index/logo_nodejs.svg
+          - image:
+              src: media/index/logo_python.svg
+        rows:
+          - title: API de punto de conexión
+            values:
+              - href: luis-get-started-cs-get-intent
+              - href: luis-get-started-java-get-intent
+              - href: luis-get-started-node-get-intent
+              - href: luis-get-started-python-get-intent
+          - title: Authoring API
+            values:
+              - href: luis-get-started-cs-add-utterance
+              - href: luis-get-started-java-add-utterance
+              - href: luis-get-started-node-add-utterance
+              - href: luis-get-started-python-add-utterance
+  - title: Tutoriales detallados
     items:
-    - html: <a href="luis-quickstart-intents-only">Compilación de una aplicación para el dominio de recursos humanos (RRHH)</a>
-    - html: <a href="luis-tutorial-prebuilt-intents-entities">Incorporación de entidades e intenciones creados previamente</a>
-    - html: <a href="luis-quickstart-intents-regex-entity">Incorporación de entidades de expresiones regulares</a>
-    - html: <a href="luis-quickstart-intent-and-list-entity">Incorporación de entidad de lista</a>
-    - html: <a href="luis-quickstart-intent-and-hier-entity">Incorporación de entidad jerárquica</a>
-    - html: <a href="luis-quickstart-primary-and-secondary-data">Incorporación de entidad simple y lista de frases</a>
-    - html: <a href="luis-quickstart-intent-and-key-phrase">Incorporación de la entidad KeyPhrase</a>
-    - html: <a href="luis-quickstart-intent-and-sentiment-analysis">Incorporación de análisis de sentimiento</a>
-- title: Ejemplos
-  items:
-  - type: list
-    style: unordered
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="luis-quickstart-intents-only">Compilación de una aplicación para el dominio de recursos humanos (RRHH)</a>
+          - html: <a href="luis-tutorial-prebuilt-intents-entities">Incorporación de entidades e intenciones creados previamente</a>
+          - html: <a href="luis-quickstart-intents-regex-entity">Incorporación de entidades de expresiones regulares</a>
+          - html: <a href="luis-quickstart-intent-and-list-entity">Incorporación de entidad de lista</a>
+          - html: <a href="luis-quickstart-intent-and-hier-entity">Incorporación de entidad jerárquica</a>
+          - html: <a href="luis-quickstart-primary-and-secondary-data">Incorporación de entidad simple y lista de frases</a>
+          - html: <a href="luis-quickstart-intent-and-key-phrase">Incorporación de la entidad KeyPhrase</a>
+          - html: <a href="luis-quickstart-intent-and-sentiment-analysis">Incorporación de análisis de sentimiento</a>
+  - title: Ejemplos
     items:
-    - html: <a href="https://aka.ms/luis-code-samples">Ejemplos en GitHub</a><br/>
-- title: Vídeos
-  items:
-  - type: list
-    style: unordered
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://aka.ms/luis-code-samples">Ejemplos en GitHub</a><br/>'
+  - title: Vídeos
     items:
-    - html: <a href="https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player" > Azure Friday At Build 2018 - Cognitive Services - Language (LUIS)</a>
-    - html: '<a href="https://channel9.msdn.com/events/Build/2018/BRK3208" >Build 2018 Session - Bot intelligence, Speech Capabilities, and NLU best practices</a> (Sesión de Build 2018: inteligencia de bot, funcionalidades de voz y procedimientos recomendados de NLU)'
-- title: Referencia
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player" > Azure Friday At Build 2018 - Cognitive Services - Language (LUIS)</a>'
+          - html: "<a href=\"https://channel9.msdn.com/events/Build/2018/BRK3208\" >Build 2018 Session - Bot intelligence, Speech Capabilities, and NLU best practices</a> (Sesión de Build\_2018: inteligencia de bot, funcionalidades de voz y procedimientos recomendados de NLU)"
+  - title: Referencia
     items:
-    - title: API REST v2
-      html: <p><a href="https://aka.ms/luis-endpoint-apis"> Endpoint API</a></p><p><a href="https://aka.ms/luis-authoring-apis"> Authoring API</a></p>
-    - title: SDK
-      html: <p><a href="https://aka.ms/luis-endpoint-sdk">SDK de punto de conexión de .NET</a></p><p><a href="https://aka.ms/luis-authoring-sdk">SDK de creación de .NET</a></p>
-    - title: PowerShell
-      html: <p><a href=https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
-    - title: CLI
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices">CLI de Azure</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: API REST v2
+            html: '<p><a href="https://aka.ms/luis-endpoint-apis"> Endpoint API</a></p><p><a href="https://aka.ms/luis-authoring-apis"> Authoring API</a></p>'
+          - title: SDK
+            html: '<p><a href="https://aka.ms/luis-endpoint-sdk">SDK de punto de conexión de .NET</a></p><p><a href="https://aka.ms/luis-authoring-sdk">SDK de creación de .NET</a></p>'
+          - title: PowerShell
+            html: '<p><a href=https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices">CLI de Azure</a></p>'

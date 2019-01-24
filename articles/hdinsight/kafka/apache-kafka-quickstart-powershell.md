@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 04/16/2018
-ms.openlocfilehash: 1dd80cffe64e6c93a0681400d067182f1a74afff
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 6883ebe1e103f9ed1f06aa4ee0e6281667fc46b8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581875"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424938"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Inicio rápido: Creación de un clúster de Apache Kafka en HDInsight
 
@@ -33,7 +33,7 @@ En esta guía de inicio rápido, aprenderá a crear un clúster de [Apache Kafka
 
 * Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-* Azure PowerShell. Para obtener más información, consulte el documento [Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell).
+* Azure PowerShell. Para obtener más información, consulte el documento [Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) (Instalación y configuración de Azure PowerShell).
 
 * Un cliente SSH. Los pasos descritos en este documento usan SSH para conectarse al clúster.
 

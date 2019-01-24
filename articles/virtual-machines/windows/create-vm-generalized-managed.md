@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 8acbb33b396aa617936eb0333bd68fea60532425
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: c452341567055e0272c8e6a90c43d6b886d6a928
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404663"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425601"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Creación de una máquina virtual a partir de una imagen administrada
 
@@ -43,7 +43,7 @@ Antes de crear una máquina virtual, deberá [crear una imagen de máquina virtu
 
 Puede usar PowerShell para crear una máquina virtual a partir de una imagen mediante el parámetro simplificado establecido para el cmdlet [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm). La imagen debe estar en el mismo grupo de recursos donde quiere crear la máquina virtual.
 
-Este ejemplo requiere la versión 5.6.0 del módulo de AzureRM o una versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Este ejemplo requiere la versión 5.6.0 del módulo de AzureRM o una versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 El parámetro simplificado que se estableció para [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm) solo requiere que proporcione un nombre, un grupo de recursos y un nombre de imagen para crear una máquina virtual a partir de una imagen. El cmdlet New-AzureRmVm utilizará el valor del parámetro **-Name** como el nombre de todos los recursos que cree automáticamente. En este ejemplo, se proporcionan nombres más detallados para cada uno de los recursos, pero se permite que el cmdlet los cree automáticamente. También puede crear recursos de antemano, como la red virtual, y pasar el nombre del recurso al cmdlet. New-AzureRmVm usará los recursos existentes si los encuentra por su nombre.
 

@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/13/2017
-ms.openlocfilehash: 9870eac87204f24993ab71e373dcab3a8ead3e89
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: a53fee8ee492de4d9eaa8b45a8d4a88e692da02d
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075366"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410377"
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Creación de un clúster de máquina virtual con Terraform y HCL
 
@@ -32,7 +32,7 @@ En este tutorial, hizo lo siguiente:
 ## <a name="1-set-up-azure-authentication"></a>1. Configuración de la autenticación con Azure
 
 > [!NOTE]
-> Si [usa variables de entorno de Terraform](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables) o ejecuta este tutorial en [Azure Cloud Shell](terraform-cloud-shell.md), omita esta sección.
+> Si [usa variables de entorno de Terraform](/azure/virtual-machines/linux/terraform-install-configure) o ejecuta este tutorial en [Azure Cloud Shell](terraform-cloud-shell.md), omita esta sección.
 
 En esta sección, genera una entidad de servicio de Azure y dos archivos de configuración de Terraform que contienen las credenciales de la entidad de seguridad.
 
