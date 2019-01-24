@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 1/14/2019
 ms.author: mabrigg
-ms.openlocfilehash: 072702b323a41e4c4c51edc7054ad41591dde4d7
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 6d202ab9e2f6a8e96eb494d3d93caf66624f8364
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54303538"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465209"
 ---
 # <a name="view-public-ip-address-consumption-in-azure-stack"></a>Visualización del consumo de direcciones IP públicas en Azure Stack
 
@@ -36,6 +36,7 @@ El propósito del icono es que los operadores de Azure Stack sepan el número de
 El elemento de menú **Direcciones IP públicas** de **Recursos de inquilinos** enumera solo las direcciones IP públicas que los *inquilinos han creado de manera explícita*. El elemento de menú se puede encontrar en el panel **Proveedores de recursos**, **Red**. El número de direcciones IP públicas **usadas** del icono **Uso de grupos de IP públicas** nunca coincide (es mayor) con el número del icono **Direcciones IP públicas** de **Recursos de inquilinos**.
 
 ## <a name="view-the-public-ip-address-usage-information"></a>Visualización de la información de uso de direcciones IP públicas
+
 Para ver el número total de direcciones IP públicas que se han consumido en una región:
 
 1. En el portal de administración de Azure Stack, seleccione **Todos los servicios**. Después, en la categoría **ADMINISTRACIÓN**, seleccione **Red**.
@@ -46,6 +47,7 @@ Para ver el número total de direcciones IP públicas que se han consumido en un
 El número de **Usadas** representa el número direcciones IP públicas asignadas de grupos de direcciones IP públicas. El número que aparece debajo de **Libres** representa el número de direcciones IP públicas de los grupos de direcciones IP públicas que no se ha asignado y, por consiguiente, siguen disponibles. El número que aparece al lado de **% usado** representa el número de direcciones usadas o asignadas, en forma de porcentaje del número total de direcciones IP públicas de los grupos de direcciones IP públicas que hay en la ubicación.
 
 ## <a name="view-the-public-ip-addresses-that-were-created-by-tenant-subscriptions"></a>Visualización de las direcciones IP públicas que han creado las suscripciones de los inquilinos
+
 Seleccione **Direcciones IP públicas** en **Recursos de inquilinos**. Revise la lista de direcciones IP públicas creadas explícitamente por las suscripciones de los inquilinos en una región concreta.
 
 ![Direcciones IP públicas de inquilinos](media/azure-stack-viewing-public-ip-address-consumption/image02.png)
@@ -55,6 +57,7 @@ Puede ver que algunas direcciones IP públicas que se han asignado dinámicament
 La controladora de red no asigna una dirección al recurso hasta que este se enlaza a una interfaz, una tarjeta de interfaz de red (NIC), un equilibrador de carga o una puerta de enlace de red virtual. Cuando la dirección IP pública se enlaza a una interfaz, la controladora de red le asigna una dirección IP, que aparece en el campo **Dirección**.
 
 ## <a name="view-the-public-ip-address-information-summary-table"></a>Visualización de la tabla de resumen de la información acerca de las direcciones IP públicas
+
 En varios casos, se asignan direcciones IP públicas que determinan si la dirección aparece en una lista o en otra.
 
 | **Caso de asignación de dirección IP pública** | **Aparece en resumen de uso** | **Aparece en lista de direcciones IP públicas de inquilinos** |
@@ -66,4 +69,5 @@ En varios casos, se asignan direcciones IP públicas que determinan si la direcc
 | Dirección IP pública creada de manera implícita para instancias de VM de IaaS y usada para NAT saliente en la red virtual. Se crean en segundo plano cada vez que un inquilino crea una instancia de máquina virtual para que las máquinas virtuales pueden enviar información a Internet. |SÍ |Sin  |
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 [Administración de cuentas de almacenamiento en Azure Stack](azure-stack-manage-storage-accounts.md)

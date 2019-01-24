@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 8/13/2018
 ms.author: victorh
-ms.openlocfilehash: 5100c5723cf3442520d969e3db6aa65439855551
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 3b55767a4375d41b1dc9c4357ca25e562a3cfabe
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230886"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438259"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>Creación de un entorno de prueba de Azure Firewall
 
@@ -32,7 +32,7 @@ Puede usar `PowerShellGet` si necesita actualizar. Esta versión está integrada
 > [!NOTE]
 >Otras versiones de Windows le pedirán que instale `PowerShellGet` antes de utilizarla. Puede ejecutar `Get-Module -Name PowerShellGet -ListAvailable | Select-Object -Property Name,Version,Path` para determinar si está instalada en el sistema. Si la salida está en blanco, deberá instalar la versión más reciente de [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616).
 
-Para más información, consulte [Instalación de Azure PowerShell en Windows con PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.4.0)
+Para más información, consulte [Instalación de Azure PowerShell en Windows con PowerShellGet](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.4.0)
 
 Cualquier instalación de Azure PowerShell existente hecha con el instalador de plataforma web entrará en conflicto con la instalación de PowerShellGet y se debe eliminar.
 

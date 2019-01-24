@@ -3,19 +3,19 @@ title: Pase un token de acceso a través de una directiva personalizada a la apl
 description: Obtenga información sobre cómo se puede pasar un token de acceso para proveedores de identidades de OAuth2.0 como una notificación a través de una directiva personalizada a la aplicación en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7a40ded3ff6af1c519400c755d1ee6d9bd73ba9e
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: d421cc83b64971ce577caf161631d4dc76d6ce9c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602297"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856577"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Pase de un token de acceso a través de una directiva personalizada a la aplicación en Azure Active Directory B2C
 

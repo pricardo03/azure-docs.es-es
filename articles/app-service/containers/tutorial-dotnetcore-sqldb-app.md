@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: fe6a1db295bc8fb1ab8e6c9d2d149be62871e733
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 9695c3d40ee85cf1a46e078776c88ad2f61ed839
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629822"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465418"
 ---
 # <a name="build-a-net-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Compilación de una aplicación .NET Core y SQL Database en Azure App Service en Linux
 
@@ -368,7 +368,7 @@ En el menú izquierdo, haga clic en **App Services** y, luego, en el nombre de l
 
 ![Navegación en el portal a la aplicación de Azure](./media/tutorial-dotnetcore-sqldb-app/access-portal.png)
 
-De forma predeterminada, el portal muestra la página **Información general** de la aplicación. Esta página proporciona una visión del funcionamiento de la aplicación. En este caso, también puede realizar tareas de administración básicas como examinar, detener, iniciar, reiniciar y eliminar. Las pestañas del lado izquierdo de la página muestran las diferentes páginas de configuración que puede abrir.
+De manera predeterminada, el portal muestra la página **Información general** de la aplicación. Esta página proporciona una visión del funcionamiento de la aplicación. En este caso, también puede realizar tareas de administración básicas como examinar, detener, iniciar, reiniciar y eliminar. Las pestañas del lado izquierdo de la página muestran las diferentes páginas de configuración que puede abrir.
 
 ![Página de App Service en Azure Portal](./media/tutorial-dotnetcore-sqldb-app/web-app-blade.png)
 
@@ -387,7 +387,7 @@ De forma predeterminada, el portal muestra la página **Información general** d
 > * Transmitir registros desde Azure a un terminal
 > * Administrar la aplicación en Azure Portal
 
-Vaya al siguiente tutorial para aprender a asignar un nombre DNS personalizado a una aplicación.
+Vaya al siguiente tutorial para aprender a asignar un nombre DNS personalizado a una aplicación web.
 
 > [!div class="nextstepaction"]
 > [Asignación de un nombre DNS personalizado existente a Azure App Service](../app-service-web-tutorial-custom-domain.md)

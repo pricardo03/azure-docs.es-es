@@ -3,7 +3,7 @@ title: Registre su dispositivo personal en la red de su organización - Azure Ac
 description: Aprenda a registrar su dispositivo personal en la red de su organización para que pueda tener acceso a los recursos protegidos de su organización.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.component: user-help
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: dc3a0974eed7b044e137b45ec367c56d7534cee6
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 1f321ea3a7fffd4d54887fb41aee25b17d391e67
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054085"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825415"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>Registre su dispositivo personal en la red de su organización
 Registre su dispositivo personal, que suele ser un teléfono o una tablet, en la red de su organización. Una vez registrado su dispositivo, podrá tener acceso a los recursos restringidos de su organización.

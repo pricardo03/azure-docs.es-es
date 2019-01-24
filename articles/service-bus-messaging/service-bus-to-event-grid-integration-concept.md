@@ -3,9 +3,9 @@ title: Introducción a la integración de Azure Service Bus en Event Grid | Micr
 description: Descripción de la integración de la mensajería de Service Bus y Event Grid
 services: service-bus-messaging
 documentationcenter: .net
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
 ms.service: service-bus-messaging
 ms.workload: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/15/2018
-ms.author: spelluru
-ms.openlocfilehash: c5dcfcb61903c3dbb92e942a5d3dca264ad454e3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: aschhab
+ms.openlocfilehash: 41514ca5911544da8608e0c7ebad18b33c33b494
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834390"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856917"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Introducción a la integración de Azure Service Bus en Event Grid
 
@@ -152,7 +152,7 @@ az eventgrid event-subscription create --resource-id $namespaceid --name “<YOU
 
 ## <a name="powershell-instructions"></a>Instrucciones para PowerShell
 
-Asegúrese de que tiene instalado Azure PowerShell. [Descargue el instalador](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). Seleccione **Windows + X** y abra una nueva consola de PowerShell con permisos de administrador. Alternativamente, puede usar un shell de comandos en Azure Portal.
+Asegúrese de que tiene instalado Azure PowerShell. [Descargue el instalador](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.4.0). Seleccione **Windows + X** y abra una nueva consola de PowerShell con permisos de administrador. Alternativamente, puede usar un shell de comandos en Azure Portal.
 
 ```PowerShell-interactive
 Connect-AzureRmAccount

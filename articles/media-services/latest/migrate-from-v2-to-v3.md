@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 8a680f1c745bed7745691ad337ed887cc4fc05c5
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 017de43074d4b68c69526ddcc96f98ae826dcd65
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716623"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808738"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Guía de migración para mover de Media Services v2 a v3
 
@@ -43,15 +43,16 @@ Si tiene un servicio de vídeo desarrollado actualmente en la parte superior de 
 
 ### <a name="new-features"></a>Nuevas características
 
-* Para el procesamiento de trabajos basados en archivos, puede usar una dirección URL de HTTP(S) como entrada.
-    No es necesario tener contenido ya almacenado en Azure, ni es necesario crear recursos.
+* Para el procesamiento de trabajos basados en archivos, puede usar una dirección URL de HTTP(S) como entrada.<br/>No es necesario tener contenido ya almacenado en Azure, ni es necesario crear recursos.
 * Presenta el concepto de [transformaciones](transforms-jobs-concept.md) para el procesamiento de trabajos basados en archivos. Una transformación puede utilizarse para crear configuraciones reutilizables, crear plantillas de Azure Resource Manager y aislar los valores de procesamiento entre varios clientes o inquilinos.
 * Un recurso puede tener [varios objetos StreamingLocator](streaming-locators-concept.md) con diferentes configuraciones de empaquetado dinámico y cifrado dinámico.
 * La [protección de contenido](content-key-policy-concept.md) es compatible con características de varias claves.
 * Puede transmitir eventos en directo que tengan hasta 24 horas de duración al usar Media Services para transcodificar una fuente de contribución de velocidad de bits única en un flujo de salida que tiene varias velocidades de bits.
-* Nueva compatibilidad de streaming en vivo de baja latencia en LiveEvents.
+* Nueva compatibilidad de streaming en vivo de baja latencia en LiveEvents. Para más información, consulte [latencia](live-event-latency.md).
 * LiveEvent.Preview admite empaquetado dinámico y cifrado dinámico. Esto habilita la protección de contenido en la vista previa, así como el empaquetado DASH y HLS.
 * LiveOuput es más fácil de usar que la entidad Program de las API v2. 
+* Compatibilidad mejorada con RTMP (mayor estabilidad y mejor compatibilidad con codificadores de origen).
+* Ingesta segura de RTMPS.<br/>Cuando se crea un objeto LiveEvent, obtiene cuatro direcciones URL de ingesta. Las cuatro direcciones URL de ingesta son casi idénticas, tienen el mismo token de streaming (AppId) y solo se diferencian en componente de número de puerto. Dos de las direcciones URL son principal y de respaldo para RTMPS.   
 * Tiene control de acceso basado en roles (RBAC) en las entidades. 
 
 ## <a name="changes-from-v2"></a>Cambios desde la versión v2

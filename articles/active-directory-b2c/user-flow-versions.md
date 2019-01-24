@@ -3,19 +3,19 @@ title: Versiones de flujos de usuario de Azure Active Directory B2C | Microsoft 
 description: Obtenga información sobre las versiones de los flujos de usuario disponibles en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 34099292855606ac5c2653c8d790f59db37251f6
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: eed5b27a2bdcc30aaf6befc19c5974936cabf849
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292093"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854172"
 ---
 # <a name="user-flow-versions-in-azure-active-directory-b2c"></a>Versiones de flujos de usuario de Azure Active Directory B2C
 

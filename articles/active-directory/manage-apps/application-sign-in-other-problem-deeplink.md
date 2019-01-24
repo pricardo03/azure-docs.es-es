@@ -4,7 +4,7 @@ description: Cómo solucionar problemas de acceso a una aplicación desde una di
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: c12e223c4e57fccd78ed773f929949c7c63efe9f
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 1ba34fa0bed467d1b6dedc1d5a475bdf04032d6d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355484"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465316"
 ---
 # <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>Problemas de inicio de sesión con un vínculo profundo en una aplicación
 

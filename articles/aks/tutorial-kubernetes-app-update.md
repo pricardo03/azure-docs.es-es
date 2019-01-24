@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: ed4a65e9e4e579277866bdafda67eb577a76bbfe
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: e795c275b832fcd59799a4d4d1107b76f6e489b6
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714821"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856849"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Tutorial: Actualización de una aplicación en Azure Kubernetes Service (AKS)
 
@@ -29,7 +29,7 @@ En este tutorial, la sección seis de siete, se actualiza la aplicación de ejem
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En los tutoriales anteriores se empaquetó una aplicación en una imagen de contenedor. Esta imagen se cargó en Azure Container Registry y se creó un clúster de AKS. Luego la aplicación se implementó en el clúster de AKS.
+En los tutoriales anteriores se empaquetó una aplicación en una imagen de contenedor. Esta imagen se cargó en Azure Container Registry y el usuario creó un clúster de AKS. Luego la aplicación se implementó en el clúster de AKS.
 
 También se clonó un repositorio de aplicaciones que incluye el código fuente de la aplicación y un archivo de Docker Compose creado previamente que se usa en este tutorial. Confirme que ha creado un clon del repositorio y que ha cambiado los directorios en el repositorio clonado. Si no ha finalizado estos pasos y desea continuar, comience con el [Tutorial 1: Creación de imágenes de contenedor][aks-tutorial-prepare-app].
 
@@ -172,5 +172,5 @@ Pase al siguiente tutorial para aprender a actualizar un clúster de AKS a una n
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
-[az-acr-login]: /cli/azure/acr#az_acr_login
+[az-acr-login]: /cli/azure/acr
 [azure-cli-install]: /cli/azure/install-azure-cli

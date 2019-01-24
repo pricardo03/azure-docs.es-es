@@ -5,7 +5,7 @@ services: active-directory
 keywords: acceso condicional a aplicaciones, acceso condicional con Azure AD, acceso seguro a recursos de empresa, directivas de acceso condicional
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 20a15bf94826df0b058be59ff242c46878ea26dd
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 042553e08868a5874a162ad2f4669c92a0a0a5ec
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630082"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452282"
 ---
 # <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>Migración de una directiva clásica que requiere autenticación multifactor en Azure Portal 
 
@@ -89,7 +89,7 @@ El proceso de migración consta de los pasos siguientes:
 
     ![Acceso condicional](./media/policy-migration/05.png)
 
-    a. Si tiene todos los usuarios seleccionados en la directiva clásica, haga clic en **Todos los usuarios**. 
+     a. Si tiene todos los usuarios seleccionados en la directiva clásica, haga clic en **Todos los usuarios**. 
 
     ![Acceso condicional](./media/policy-migration/35.png)
 
@@ -107,7 +107,7 @@ El proceso de migración consta de los pasos siguientes:
 
     ![Acceso condicional](./media/policy-migration/08.png)
 
-    a. Haga clic en **Seleccionar aplicaciones**.
+     a. Haga clic en **Seleccionar aplicaciones**.
 
     b. Haga clic en **Seleccionar**.
 
@@ -121,7 +121,7 @@ El proceso de migración consta de los pasos siguientes:
 
     ![Acceso condicional](./media/policy-migration/26.png)
 
-    a. En la sección **Controles de acceso**, haga clic en **Conceder**.
+     a. En la sección **Controles de acceso**, haga clic en **Conceder**.
 
     ![Acceso condicional](./media/policy-migration/27.png)
 

@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: ea555097-bf62-45dd-9b45-b75c50324a69
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/7/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 088fc2b7aeb318481a81387770f1dcef2883241d
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 153c6517560614b8a1eb9c0241aefc121b391d19
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064107"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823596"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-internet-access-administrator"></a>Tutorial: Integración de Azure Active Directory con Zscaler Internet Access Administrator
 
@@ -78,8 +78,8 @@ Para configurar y probar el inicio de sesión único de Azure AD con Zscaler Int
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
 2. **[Configuración del inicio de sesión único de Zscaler Internet Access Administrator](#configure-zscaler-internet-access-administrator-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Creación de un usuario de prueba de Zscaler Internet Access Administrator](#create-zscaler-internet-access-administrator-test-user)**: para tener un homólogo de Britta Simon en Zscaler Internet Access Administrator que esté vinculado a la representación del usuario en Azure AD.
-5. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Zscaler Internet Access Administrator](#create-zscaler-internet-access-administrator-test-user)**: para tener un homólogo de Britta Simon en Zscaler Internet Access Administrator que esté vinculado a la representación del usuario en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
@@ -105,25 +105,25 @@ Para configurar el inicio de sesión único en Azure AD con Zscaler Internet Acc
     ![Información de dominio y direcciones URL de inicio de sesión único de Zscaler Internet Access Administrator](common/idp-intiated.png)
 
      a. En el cuadro de texto **Identificador**, escriba una dirección URL según sus requisitos:
-    
+
     | |
     |--|
     | `https://admin.zscaler.net` |
-    | `https://admin.zscalerone.net` | 
+    | `https://admin.zscalerone.net` |
     | `https://admin.zscalertwo.net` |
     | `https://admin.zscalerthree.net` |
     | `https://admin.zscloud.net` |
     | `https://admin.zscalerbeta.net` |
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL según sus requisitos:
-    
+
     | |
     |--|
     | `https://admin.zscaler.net/adminsso.do` |
-    | `https://admin.zscalerone.net/adminsso.do` | 
-    | `https://admin.zscalertwo.net/adminsso.do` | 
-    | `https://admin.zscalerthree.net/adminsso.do` | 
-    | `https://admin.zscloud.net/adminsso.do` | 
+    | `https://admin.zscalerone.net/adminsso.do` |
+    | `https://admin.zscalertwo.net/adminsso.do` |
+    | `https://admin.zscalerthree.net/adminsso.do` |
+    | `https://admin.zscloud.net/adminsso.do` |
     | `https://admin.zscalerbeta.net/adminsso.do` |
 
 5. La aplicación Zscaler Internet Access Administrator espera las aserciones de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **User Attributes & Claims** (Atributos y notificaciones del usuario) de la página de integración de aplicaciones. En la **página Configurar el inicio de sesión único con SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **User Attributes & Claims** (Atributos y notificaciones del usuario).
@@ -151,11 +151,11 @@ Para configurar el inicio de sesión único en Azure AD con Zscaler Internet Acc
     > [!NOTE]
     > Haga clic [aquí](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) para saber cómo configurar el valor Role en Azure AD.
 
-4. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+7. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-6. En la sección **Set up Zscaler Internet Access Administrator** (Configurar Zscaler Internet Access Administrator), copie las direcciones URL que necesite.
+8. En la sección **Set up Zscaler Internet Access Administrator** (Configurar Zscaler Internet Access Administrator), copie las direcciones URL que necesite.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -170,13 +170,13 @@ Para configurar el inicio de sesión único en Azure AD con Zscaler Internet Acc
 1. En otra ventana del explorador web, inicie sesión en la interfaz de usuario de Zscaler Internet Access Administrator.
 
 2. Vaya a **Administración > Administración de administradores**, realice los pasos siguientes y haga clic en Guardar:
-   
+
     ![Administración](./media/zscaler-internet-access-administrator-tutorial/AdminSSO.png "Administración")
 
      a. Marque **Enable SAML Authentication** (Habilitar autenticación SAML).
 
     b. Haga clic en **Cargar** para cargar el certificado de firma de SAML de Azure que ha descargado desde Azure Portal en el **Certificado SSL público**.
-    
+
     c. Opcionalmente, para mayor seguridad, agregue los datos del **Emisor** para verificar el emisor de la respuesta SAML.
 
 3. En la interfaz de usuario del administrador, realice los pasos siguientes:
@@ -245,7 +245,7 @@ Para instrucciones sobre cómo crear una cuenta de administrador, consulte la do
 
 https://help.zscaler.com/zia/adding-admins
 
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
@@ -258,4 +258,3 @@ Al hacer clic en el icono de Zscaler Internet Access Administrator en el panel d
 - [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

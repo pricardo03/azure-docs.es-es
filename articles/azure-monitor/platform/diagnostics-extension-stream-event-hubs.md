@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: ddef3ba2f1fa14445b0a06670d8f18abe76911ab
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: c2d577bd4c89046136a3465ff554e9662dd0ce19
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230363"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478134"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Transmisión de datos de Diagnósticos de Azure en la ruta de acceso activa mediante Event Hubs
 Diagnósticos de Azure proporciona maneras flexibles de recopilar métricas y registros de máquinas virtuales de servicios en la nube (VM) y transferir los resultados a Azure Storage. A partir de marzo de 2016 (SDK 2.9), puede enviar diagnósticos a orígenes de datos personalizados y transferir datos de rutas de acceso activas en cuestión de segundos mediante [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -514,3 +514,4 @@ Para más información acerca de Event Hubs, visite los vínculos siguientes:
 
 <!-- Images. -->
 [0]: ../../event-hubs/media/event-hubs-streaming-azure-diags-data/dashboard.png
+

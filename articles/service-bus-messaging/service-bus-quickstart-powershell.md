@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 9fe9952c3885e0e6145141bac7db13694dcdbd11
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 36f1b39ca4cef33a8cfcdb295b5c4d59e1128a0c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259672"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426852"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Inicio rápido: Uso de Azure PowerShell para crear una cola de Service Bus
 Microsoft Azure Service Bus es un agente de mensajes de integración empresarial que proporciona mensajería segura y una absoluta confiabilidad. Un escenario típico de Service Bus implica normalmente el desacoplamiento de dos o más aplicaciones, servicios o procesos, y la transferencia de los cambios de estado o de datos. Estos escenarios pueden implicar la programación de varios trabajos por lotes en otras aplicaciones o servicios, o desencadenar la realización de pedidos. Por ejemplo, una empresa minorista puede enviar los datos de un punto de ventas a un área de operaciones o centro de distribución regional para indicar las actualizaciones de reposición y de inventario. En este escenario, la aplicación cliente envía y recibe mensajes de una cola de Service Bus.
@@ -263,4 +263,4 @@ En este artículo, ha creado un espacio de nombres de Service Bus y otros recurs
 > [Actualización del inventario mediante Azure PowerShell](./service-bus-tutorial-topics-subscriptions-powershell.md)
 
 [cuenta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Instalación y configuración de Azure PowerShell]: /powershell/azure/install-azurerm-ps
+[Instalación y configuración de Azure PowerShell]: /powershell/azure/azurerm/install-azurerm-ps

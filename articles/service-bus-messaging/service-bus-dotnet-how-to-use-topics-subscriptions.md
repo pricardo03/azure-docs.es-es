@@ -3,23 +3,23 @@ title: Introducción a los temas y las suscripciones de Azure Service Bus | Micr
 description: Escriba una aplicación de consola de .NET Core en C# que use los temas y las suscripciones de mensajería de Service Bus.
 services: service-bus-messaging
 documentationcenter: .net
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 09/03/2018
-ms.author: spelluru
-ms.openlocfilehash: d48d658883324637e1026ac00312ade86ccc1400
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 535dd04efd9f150365b24ae175ee90fbb247305f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230587"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846683"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introducción a las colas de Service Bus
 

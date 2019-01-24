@@ -3,19 +3,19 @@ title: Intercambios de notificaciones de API REST como paso de orquestación en 
 description: Un tema acerca de las directivas personalizadas de Azure Active Directory B2C que se integran con una API.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5102f2b43819c279d0087754b29a616812e5a5f2
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 7d62e0044d91af72ac8fea0271d7fc131e9c0a03
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556567"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852531"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Tutorial: Integración de intercambios de notificaciones de API REST en los recorridos de usuario de Azure AD B2C como un paso de orquestación
 

@@ -3,7 +3,7 @@ title: Mover aplicaciones de AD FS a Azure AD | Microsoft Docs
 description: Este artículo tiene como finalidad ayudar a las organizaciones a comprender cómo mover aplicaciones a Azure AD, centrándose en las aplicaciones SaaS federadas.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: 7657ac2e2d5a169607c73b8934328ce41ecea78e
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: cf8ce4d39d0097c1ec1866a0aad071a2b5d8908f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141941"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474275"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Mover aplicaciones de AD FS a Azure AD 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: anwestg
-ms.openlocfilehash: add4a7f1ce8133b5c3891f731fc98ee7fdb26ebd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 31fe0ede202b72a3e71c8028543ef0677a44a335
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275676"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413029"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de empezar a trabajar con App Service en Azure Stack
 
@@ -327,7 +327,7 @@ Los administradores deben configurar SSO para:
 Siga estos pasos:
 
 1. Abra una instancia de PowerShell como azurestack\AzureStackAdmin.
-2. Vaya a la ubicación de los scripts descargados y extraídos en el [paso de requisitos previos](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
+2. Vaya a la ubicación de los scripts descargados y extraídos en el [paso de requisitos previos](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started).
 3. [Instale PowerShell para Azure Stack](azure-stack-powershell-install.md).
 4. Ejecute el script **Create-AADIdentityApp.ps1**. Cuando se le pida, escriba el identificador del inquilino de Azure AD que esté usando para la implementación de Azure Stack. Por ejemplo, escriba **myazurestack.onmicrosoft.com**.
 5. En la ventana **Credencial**, escriba la cuenta y la contraseña de administrador del servicio de Azure AD. Seleccione **Aceptar**.
@@ -371,7 +371,7 @@ Los administradores deben configurar SSO para:
 Siga estos pasos:
 
 1. Abra una instancia de PowerShell como azurestack\AzureStackAdmin.
-2. Vaya a la ubicación de los scripts descargados y extraídos en el [paso de requisitos previos](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
+2. Vaya a la ubicación de los scripts descargados y extraídos en el [paso de requisitos previos](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started).
 3. [Instale PowerShell para Azure Stack](azure-stack-powershell-install.md).
 4. Ejecute el script **Create-ADFSIdentityApp.ps1**.
 5. En la ventana **Credencial**, escriba la cuenta y la contraseña de administrador de la nube de AD FS. Seleccione **Aceptar**.

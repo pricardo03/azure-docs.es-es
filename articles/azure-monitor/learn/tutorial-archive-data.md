@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.component: metrics
-ms.openlocfilehash: 02c444659051c60dfc0f72bae4865ffbe7e899a3
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: metrics
+ms.openlocfilehash: e784b76af478f834a7d1104650da1cbd3ca2a31f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53586931"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433371"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Archivado de datos de registro y métricas de Azure con Azure Storage
 
@@ -199,3 +199,4 @@ Para obtener el máximo partido de los datos y derivar información adicional, e
 
 > [!div class="nextstepaction"]
 > [Introducción a Log Analytics](../../azure-monitor/log-query/log-query-overview.md)
+

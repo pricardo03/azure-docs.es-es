@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc,seodec18
-ms.openlocfilehash: a3dcb7a7c15c3bf8e5578371e05519e802355fdc
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 85b9815718bcea47948fcd37eaba1ae1e4d46e80
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188170"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54460811"
 ---
 # <a name="monitor-a-vm-with-log-analytics"></a>Supervisión de una máquina virtual con Log Analytics
 
@@ -51,8 +51,8 @@ Este script usa los siguientes comandos para crear un grupo de recursos, una má
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Crea la máquina virtual y la conecta con la tarjeta de red, la red virtual, la subred y el NSG. Este comando también especifica la imagen de máquina virtual que se usará, y las credenciales administrativas.  |
-| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Ejecuta una extensión de máquina virtual en una máquina virtual. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
+| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension) | Ejecuta una extensión de máquina virtual en una máquina virtual. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

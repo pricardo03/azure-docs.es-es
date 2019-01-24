@@ -3,19 +3,19 @@ title: Configuración del cambio de contraseñas con directivas personalizadas e
 description: Obtenga información sobre cómo habilitar a los usuarios para el cambio de contraseñas mediante directivas personalizadas en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b39c330b555be6b74760c5966e770284fa9da437
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: aa5be1df1737c56689786f5255203b771b15d179
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579199"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54843692"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del cambio de contraseñas con directivas personalizadas en Azure Active Directory B2C
 

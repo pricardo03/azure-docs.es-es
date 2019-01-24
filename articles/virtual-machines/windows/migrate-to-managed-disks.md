@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: cynthn
-ms.openlocfilehash: d280ad1180949167bb8ebfc6b21521736db0f55d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.component: disks
+ms.openlocfilehash: 5e2a485630b7e3c9cc5977170d7e7e7eeb3e6ff5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777172"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474224"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migración de VM de Azure a Managed Disks en Azure
 
@@ -37,7 +38,7 @@ Puede migrar a Managed Disks en los escenarios siguientes:
 |----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Conversión de VM independientes y VM de un conjunto de disponibilidad para establecer discos administrados   | [Conversión de VM para usar discos administrados](convert-unmanaged-to-managed-disks.md) |
 | Una VM única desde el modelo clásico a Resource Manager en discos administrados     | [Migración de una VM única](migrate-single-classic-to-resource-manager.md)  | 
-| Todas las VM de una red virtual desde el modelo clásico a Resource Manager en discos administrados     | [Migración de recursos de IaaS desde el modelo clásico a Resource Manager](migration-classic-resource-manager-ps.md) y luego [Conversión de una VM desde discos no administrados a discos administrados](convert-unmanaged-to-managed-disks.md) | 
+| Todas las VM de una red virtual desde el modelo clásico a Resource Manager en discos administrados     | [Migración de recursos de IaaS desde el modelo clásico a Resource Manager](migration-classic-resource-manager-ps.md) y luego [Conversión de una VM desde discos no administrados a discos administrados](convert-unmanaged-to-managed-disks.md) | 
 
 
 
@@ -64,20 +65,20 @@ Repase las características de rendimiento de las máquinas virtuales que trabaj
 
 Hay siete tipos de Managed Disks premium que se pueden usar con la máquina virtual y cada uno de ellos tiene sus límites específicos de rendimiento y E/S por segundo. Tenga presentes estos límites a la hora de elegir el tipo de disco Premium para la VM según las necesidades de capacidad, rendimiento, escalabilidad y cargas máximas de la aplicación.
 
-| Tipo de discos Premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
+| Tipo de discos Premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Tamaño del disco           | 32 GB| 64 GB| 128 GB| 256 GB|512 GB | 1.024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| IOPS por disco       | 120   | 240   | 500   | 1100  |2300              | 5000              | 7500              | 7500              | 
-| Rendimiento de disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo | 125 MB por segundo |150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo |
+| Tamaño del disco           | 32 GB| 64 GB| 128 GB| 256 GB|512 GB | 1.024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| IOPS por disco       | 120   | 240   | 500   | 1100  |2300              | 5000              | 7500              | 7500              | 
+| Rendimiento de disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo | 125 MB por segundo |150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo |
 
 **Discos administrados Estándar**
 
 Hay siete tipos de Managed Disks estándar que se pueden usar con la máquina virtual. Cada uno de ellos tiene una capacidad distinta, pero los mismos límites de rendimiento y E/S por segundo. Elija el tipo de disco administrado Estándar según las necesidades de capacidad de la aplicación.
 
-| Tipo de disco Estándar  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
+| Tipo de disco Estándar  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
 |---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------| 
-| Tamaño del disco           | 30 GB            | 64 GB            | 128 GB           | 256 GB           |512 GB           | 1.024 GB (1 TB)   | 2048 GB (2 TB)    | 4095 GB (4 TB)   | 
-| IOPS por disco       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
+| Tamaño del disco           | 30 GB            | 64 GB            | 128 GB           | 256 GB           |512 GB           | 1.024 GB (1 TB)   | 2048 GB (2 TB)    | 4095 GB (4 TB)   | 
+| IOPS por disco       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
 | Rendimiento de disco | 60 MB por segundo | 60 MB por segundo | 60 MB por segundo | 60 MB por segundo |60 MB por segundo | 60 MB por segundo | 60 MB por segundo | 60 MB por segundo | 
 
 ## <a name="disk-caching-policy"></a>Directiva de almacenamiento en caché de disco

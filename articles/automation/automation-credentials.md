@@ -3,18 +3,18 @@ title: Recursos de credenciales en Azure Automation
 description: Los recursos de credenciales en Azure Automation contienen credenciales de seguridad que se pueden usar para realizar la autenticación a los recursos a los que tiene acceso el runbook o configuración de DSC. En este artículo se describe cómo crear recursos de credenciales y usarlos en un runbook o una configuración de DSC.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 07452a97ba16d7745d48e210dd90ce077be64683
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9884138127d62e2dc524dc1b6d9e827d1ee0fac8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233446"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439194"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Recursos de credenciales en Azure Automation
 
@@ -142,4 +142,5 @@ print cred["password"]
 * Para empezar a trabajar con runbooks gráficos, consulte [Mi primer runbook gráfico](automation-first-runbook-graphical.md)
 * Para empezar a trabajar con runbooks de flujo de trabajo de PowerShell, consulte [Mi primer runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md) 
 * Para empezar a trabajar con runbooks de Python2, vea [My first Python2 runbook](automation-first-runbook-textual-python2.md) (Mi primer runbook de Python2). 
+
 

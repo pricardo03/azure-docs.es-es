@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 980470c0f1d24bde52f29c4cd3579e2337898f88
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9542fe14cc262731ca0f2ade65e6e4dfafbc34d7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138830"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427515"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guía de migración la API v1 a v2 para las aplicaciones de LUIS
 La versión 1 de las API de [punto de conexión](https://aka.ms/v1-endpoint-api-docs) y [creación](https://aka.ms/v1-authoring-api-docs) va a quedar en desuso. Use esta guía para comprender cómo migrar a la versión 2 de las API de [punto de conexión](https://aka.ms/luis-endpoint-apis) y [creación](https://aka.ms/luis-authoring-apis). 
@@ -112,7 +112,7 @@ Las API de clave de punto de conexión de suscripción están en desuso y devuel
 |1|/luis/v1.0/prog/subscriptions|
 |1|/luis/v1.0/prog/subscriptions/{subscriptionKey}|
 
-Las [claves de punto de conexión](luis-how-to-azure-subscription.md) de Azure se generan en Azure Portal. Asigne la clave a una aplicación de LUIS en la página **[Publicar](luis-how-to-manage-keys.md)**. No tiene que conocer el valor real de la clave. LUIS usa el nombre de la suscripción para realizar la asignación. 
+Las [claves de punto de conexión](luis-how-to-azure-subscription.md) de Azure se generan en Azure Portal. Asigne la clave a una aplicación de LUIS en la página **[Publicar](luis-how-to-azure-subscription.md)**. No tiene que conocer el valor real de la clave. LUIS usa el nombre de la suscripción para realizar la asignación. 
 
 ## <a name="new-versioning-route"></a>Nueva ruta de control de versiones
 El modelo de v2 se encuentra ahora en una [versión](luis-how-to-manage-versions.md). Un nombre de versión tiene 10 caracteres en la ruta. La versión predeterminada es "0.1".

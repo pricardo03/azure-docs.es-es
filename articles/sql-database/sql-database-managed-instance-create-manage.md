@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/11/2019
-ms.openlocfilehash: 43ee1cb33d5d747671cde7463c8f2fcb6e020662
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.date: 01/17/2019
+ms.openlocfilehash: 8d108df187e7d1fe549f284cffe3c5cbe4d56f7c
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246524"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389939"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Referencia sobre la API de administración de la Instancia administrada de Azure SQL Database
 
@@ -29,7 +29,7 @@ Para consultar un artículo de inicio rápido que muestra cómo crear una Instan
 
 ## <a name="powershell-create-and-manage-a-managed-instance"></a>PowerShell: Creación y administración de una Instancia administrada
 
-Para crear y administrar servidores, bases de datos y firewalls SQL de Azure con Azure PowerShell, use los siguientes cmdlets de PowerShell. Si necesita instalar o actualizar PowerShell, consulte [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell).
+Para crear y administrar servidores, bases de datos y firewalls SQL de Azure con Azure PowerShell, use los siguientes cmdlets de PowerShell. Si necesita instalar o actualizar PowerShell, consulte [Install and configure Azure PowerShell](/powershell/azure/install-az-ps) (Instalación y configuración de Azure PowerShell).
 
 > [!TIP]
 > Para los scripts de ejemplo de PowerShell, consulte [Quick-start script: Create Azure SQL Managed Instance using PowerShell library](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) (Script de inicio rápido: Creación de una Instancia administrada de Azure SQL Database mediante una biblioteca de PowerShell).

@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5605ac9f3ac4f9a1c85cfedf257cb721205564db
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: bc548ea23249f89fadcec481cc97b6ca3ed2b909
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613433"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466863"
 ---
-# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Tutorial: creación y administración de máquinas virtuales Linux con la CLI de Azure
+# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Tutorial: Creación y administración de máquinas virtuales Linux con la CLI de Azure
 
 Las máquinas virtuales de Azure proporcionan un entorno informático completamente configurable y flexible. En este tutorial se tratan elementos básicos de la implementación de máquinas virtuales de Azure, como la selección de su tamaño, la selección de una imagen de máquina virtual y la implementación de una máquina virtual. Aprenderá a:
 
@@ -211,7 +211,7 @@ az vm create \
 
 ### <a name="resize-a-vm"></a>Cambiar el tamaño de una máquina virtual
 
-Una vez implementada una máquina virtual, se puede cambiar su tamaño para aumentar o disminuir la asignación de recursos. El tamaño actual de una máquina virtual se puede ver con [az vm show](/cli/azure/vm#az_vm_show):
+Una vez implementada una máquina virtual, se puede cambiar su tamaño para aumentar o disminuir la asignación de recursos. El tamaño actual de una máquina virtual se puede ver con [az vm show](/cli/azure/vm):
 
 ```azurecli-interactive
 az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
@@ -228,7 +228,7 @@ Si el tamaño deseado está disponible, puede cambiarlo con la máquina virtual 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
-Si el tamaño deseado no está en el clúster actual, se debe desasignar la máquina virtual para que se pueda llevar a cabo la operación de cambio de tamaño. Use el comando [az vm deallocate]( /cli/azure/vm#az_vm_deallocate) para detener y desasignar la máquina virtual. Tenga en cuenta que, cuando se vuelve a encender la máquina virtual, es posible que se quiten todos los datos del disco temporal. Además, la dirección IP pública cambia a menos que se esté usando una estática. 
+Si el tamaño deseado no está en el clúster actual, se debe desasignar la máquina virtual para que se pueda llevar a cabo la operación de cambio de tamaño. Use el comando [az vm deallocate]( /cli/azure/vm) para detener y desasignar la máquina virtual. Tenga en cuenta que, cuando se vuelve a encender la máquina virtual, es posible que se quiten todos los datos del disco temporal. Además, la dirección IP pública cambia a menos que se esté usando una estática. 
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupVM --name myVM

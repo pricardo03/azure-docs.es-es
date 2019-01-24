@@ -3,7 +3,7 @@ title: Introducción a la aplicación Microsoft Authenticator en Azure Active Di
 description: Obtenga información sobre cómo configurar y usar la aplicación Microsoft Authenticator.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.component: user-help
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: e0fe2ade2e50ff549cb18f84a3c15830255ca0fb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 611c9640a5cb546460d0fd4db863bc63543ad135
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249598"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810999"
 ---
 # <a name="microsoft-authenticator-app"></a>Aplicación Microsoft Authenticator
 

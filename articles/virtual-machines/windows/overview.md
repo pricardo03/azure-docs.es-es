@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a58644deb8d1325fd466d2a4d3a1fc927c83b685
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: bc9907930283e07ef8df826d2e7653b96f116518
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720261"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852055"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Información general sobre las máquinas virtuales Windows en Azure
 
@@ -49,7 +49,7 @@ Siempre hay gran cantidad de [consideraciones de diseño](/azure/architecture/re
 * Los recursos relacionados que necesita la máquina virtual
 
 ### <a name="naming"></a>Nomenclatura
-Una máquina virtual tiene un [nombre](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) asignado y un nombre de equipo configurado como parte del sistema operativo. El nombre de una máquina virtual puede tener hasta 15 caracteres.
+Una máquina virtual tiene un [nombre](/azure/architecture/best-practices/naming-conventions) asignado y un nombre de equipo configurado como parte del sistema operativo. El nombre de una máquina virtual puede tener hasta 15 caracteres.
 
 Si usa Azure para crear el disco de sistema operativo, el nombre del equipo y el nombre de la máquina virtual son iguales. Si [carga y usa su propia imagen](upload-generalized-managed.md) que contenga un sistema operativo ya configurado y la usa para crear una máquina virtual, los nombres pueden ser diferentes. Se recomienda que, cuando cargue su propio archivo de imagen, haga que el nombre del equipo en el sistema operativo y el nombre de la máquina virtual sean iguales.
 
@@ -63,7 +63,7 @@ En esta tabla se muestran algunas de las formas en que puede obtener una lista d
 | Azure Portal |Seleccione una ubicación en la lista cuando cree una máquina virtual. |
 | Azure PowerShell |Use el comando [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation). |
 | API DE REST |Use la operación para [mostrar la lista de ubicaciones](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations). |
-| Azure CLI |Use la operación[az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_list_locations). |
+| Azure CLI |Use la operación[az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest). |
 
 ### <a name="vm-size"></a>Tamaño de VM
 El [tamaño](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) de la máquina virtual que use depende de la carga de trabajo que vaya a ejecutar. El tamaño que elija determina factores tales como la capacidad de almacenamiento, la memoria y la capacidad de procesamiento. Azure ofrece una amplia variedad de tamaños para admitir muchos tipos de usos.

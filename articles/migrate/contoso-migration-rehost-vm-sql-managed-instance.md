@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 35d2234ee52516c4ebf3e354e1ab6890144cdd5d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 6e15d4376fae576f615cac7c094f53dfcc22618e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879475"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826622"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migración de Contoso: rehospedar una aplicación local en una máquina virtual de Azure e Instancia administrada de Azure SQL Database
 
@@ -27,20 +27,20 @@ Este artículo es el primero de una serie que documenta cómo la compañía fict
 
 **Artículo** | **Detalles** | **Estado**
 --- | --- | ---
-[Artículo 1: información general](contoso-migration-overview.md) | Información general de la estrategia de migración de Contoso, la serie de artículos y las aplicaciones de ejemplo que se usan en dichas series. | Disponible
+[Artículo 1: información general](contoso-migration-overview.md) | Información general de la estrategia de migración de Contoso, la serie de artículos y las aplicaciones de ejemplo que se usan en dichas series. | Disponible
 [Artículo 2: implementación de una infraestructura de Azure](contoso-migration-infrastructure.md) | Contoso prepara la infraestructura local y la infraestructura de Azure para la migración. Se usa la misma infraestructura en todos los artículos de la serie sobre migración. | Disponible
 [Artículo 3: valorar las cargas de trabajo locales para la migración a Azure](contoso-migration-assessment.md) | Contoso ejecuta una valoración de su aplicación local SmartHotel de dos capas que se ejecuta en VMware. Contoso valora las máquinas virtuales de la aplicación mediante el servicio [Azure Migrate](migrate-overview.md). Contoso valora la base de datos de SQL Server de la aplicación mediante [Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponible
 Artículo 4: rehospedaje de una aplicación en una máquina virtual de Azure e Instancia administrada de Azure SQL Database | Contoso ejecuta una migración "lift-and-shift" a Azure de su aplicación SmartHotel local. Contoso migra la máquina virtual front-end de la aplicación mediante [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso migra la base de datos de la aplicación a una instancia administrada de Azure SQL Database mediante [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Este artículo
 [Artículo 5: rehospedar una aplicación local en máquinas virtuales de Azure](contoso-migration-rehost-vm.md) | Contoso migra sus máquinas virtuales de la aplicación SmartHotel a máquinas virtuales de Azure mediante el servicio Site Recovery. | Disponible
-[Artículo 6: rehospedaje de una aplicación local en las VM de Azure y en el grupo de disponibilidad AlwayOn de SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Contoso migra la aplicación SmartHotel. Contoso usa Site Recovery para migrar las máquinas virtuales de la aplicación. Usa Database Migration Service para migrar la base de datos de la aplicación a un clúster de SQL Server que está protegido por un grupo de disponibilidad Always On. | Disponible
-[Artículo 7: rehospedaje de una aplicación de Linux local en VM de Azure](contoso-migration-rehost-linux-vm.md) | Contoso realiza una migración "lift-and-shift" de su aplicación osTicket de Linux a máquinas virtuales de Azure mediante Site Recovery. | Disponible
-[Artículo 8: rehospedaje de la aplicación de Linux local en VM de Azure y Azure Database for MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migra su aplicación osTicket de Linux a máquinas virtuales de Azure mediante Site Recovery. Migra la base de datos de la aplicación a Azure Database for MySQL con MySQL Workbench. | Disponible
-[Artículo 9: refactorizar una aplicación local a una instancia de Azure Web App y a una instancia de Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Contoso migra su aplicación SmartHotel a una aplicación web de Azure y migra la base de datos de la aplicación a una instancia de Azure SQL Server. | Disponible
-[Artículo 10: refactorización de una aplicación Linux en una aplicación web de Azure y en Azure Database for MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso migra su aplicación osTicket de Linux a una aplicación web de Azure en varios sitios. La aplicación web está integrada con GitHub para la entrega continua. Contoso migra la base de datos de la aplicación a una instancia de Azure Database for MySQL. | Disponible
-[Artículo 11: refactorización de una implementación de Team Foundation Server a Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso migra su implementación local de Team Foundation Server a Azure DevOps Services en Azure. | Disponible
-[Artículo 12: rediseñar la arquitectura de una aplicación local en un contenedor de Azure y Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Contoso migra su aplicación SmartHotel a Azure y luego la rediseña. Contoso rediseña la capa de aplicación web como un contenedor de Windows y rediseña la base de datos de la aplicación mediante Azure SQL Database. | Disponible
-[Artículo 13: recompilar una aplicación local en Azure](contoso-migration-rebuild.md) | Contoso recompila su aplicación SmartHotel mediante una variedad de funcionalidades y servicios de Azure, como Azure App Service, Azure Kubernetes Service, Azure Functions, Azure Cognitive Services y Azure Cosmos DB. | Disponible
-[Artículo 14: escalado de una migración en Azure](contoso-migration-scale.md) | Después de probar combinaciones de migración, Contoso se prepara para escalar una migración completa a Azure. | Disponible
+[Artículo 6: rehospedaje de una aplicación local en las VM de Azure y en el grupo de disponibilidad AlwayOn de SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Contoso migra la aplicación SmartHotel. Contoso usa Site Recovery para migrar las máquinas virtuales de la aplicación. Usa Database Migration Service para migrar la base de datos de la aplicación a un clúster de SQL Server que está protegido por un grupo de disponibilidad Always On. | Disponible
+[Artículo 7: rehospedaje de una aplicación de Linux local en VM de Azure](contoso-migration-rehost-linux-vm.md) | Contoso realiza una migración "lift-and-shift" de su aplicación osTicket de Linux a máquinas virtuales de Azure mediante Site Recovery. | Disponible
+[Artículo 8: Rehospedaje de una aplicación de Linux en máquinas virtuales de Azure y Azure Database for MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migra su aplicación osTicket de Linux a máquinas virtuales de Azure mediante Site Recovery. Migra la base de datos de la aplicación a Azure Database for MySQL con MySQL Workbench. | Disponible
+[Artículo 9: refactorizar una aplicación local a una instancia de Azure Web App y a una instancia de Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Contoso migra su aplicación SmartHotel a una aplicación web de Azure y migra la base de datos de la aplicación a una instancia de Azure SQL Server. | Disponible
+[Artículo 10: Refactorización de una aplicación de Linux en una aplicación web de Azure y en Azure Database for MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso migra su aplicación osTicket de Linux a una aplicación web de Azure en varios sitios. La aplicación web está integrada con GitHub para la entrega continua. Contoso migra la base de datos de la aplicación a una instancia de Azure Database for MySQL. | Disponible
+[Artículo 11: refactorización de una implementación de Team Foundation Server a Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso migra su implementación local de Team Foundation Server a Azure DevOps Services en Azure. | Disponible
+[Artículo 12: rediseñar la arquitectura de una aplicación local en un contenedor de Azure y Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Contoso migra su aplicación SmartHotel a Azure y luego la rediseña. Contoso rediseña la capa de aplicación web como un contenedor de Windows y rediseña la base de datos de la aplicación mediante Azure SQL Database. | Disponible
+[Artículo 13: recompilar una aplicación local en Azure](contoso-migration-rebuild.md) | Contoso recompila su aplicación SmartHotel mediante una variedad de funcionalidades y servicios de Azure, como Azure App Service, Azure Kubernetes Service, Azure Functions, Azure Cognitive Services y Azure Cosmos DB. | Disponible
+[Artículo 14: Escalado de una migración en Azure](contoso-migration-scale.md) | Después de probar combinaciones de migración, Contoso se prepara para escalar una migración completa a Azure. | Disponible
 
 
 
@@ -238,7 +238,7 @@ Contoso tiene en cuenta estos factores:
     
 *¿Necesita más ayuda?*
 
-Más información sobre cómo [configurar rutas para una instancia administrada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal#create-new-route-table-and-a-route).
+Más información sobre cómo [configurar rutas para una instancia administrada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal).
 
 ### <a name="create-a-managed-instance"></a>Creación de una instancia administrada
 
@@ -432,7 +432,7 @@ Para configurar el entorno de origen de los administradores de Contoso haga lo s
 
 Ahora, los administradores de Contoso configuran el entorno de la replicación de destino:
 
-1. En **Preparar infraestructura** > **Destino**, seleccionan la configuración de destino.
+1. En **Preparar infraestructura** > **Destino**, selecciona la configuración de destino.
 2. Site Recovery comprueba si existe una red y una cuenta de almacenamiento en el destino especificado.
 
 ### <a name="create-a-replication-policy"></a>Creación de una directiva de replicación
@@ -473,7 +473,7 @@ Ahora, los administradores de Contoso pueden empezar a replicar WebVM.
 
     ![Habilitación de la replicación: selección de la máquina virtual](./media/contoso-migration-rehost-vm-sql-managed-instance/enable-replication3.png)
 
-5. Comprueban que la directiva de replicación correcta está seleccionada y habilitan la replicación para **WEBVM**. Realizan un seguimiento del progreso de la replicación en **Trabajos**. La máquina estará preparada para la conmutación por error después de que finalice el trabajo **Finalizar la protección**.
+5. Comprueban que la directiva de replicación correcta está seleccionada y habilitan la replicación para **WEBVM**. Realiza un seguimiento del progreso de la replicación en **Trabajos**. La máquina estará preparada para la conmutación por error después de que finalice el trabajo **Finalizar la protección**.
 6. En **Información esencial**, en Azure Portal, pueden ver la estructura de las máquinas virtuales que se replican en Azure:
 
     ![Vista de la infraestructura](./media/contoso-migration-rehost-vm-sql-managed-instance/essentials.png)
@@ -519,7 +519,7 @@ Los administradores de Contoso tienen que crear un proyecto de Database Migratio
         ![Database Migration Service: configuración de la migración](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-migration-settings.png)
 
 5. Guardan la configuración de migración y, después, ejecutan la migración.
-6. En **Introducción**, supervisan el estado de la migración.
+6. En **Introducción**, supervisa el estado de la migración.
 
     ![Database Migration Service: seguimiento](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor1.png)
 

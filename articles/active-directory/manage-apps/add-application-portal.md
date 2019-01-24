@@ -3,19 +3,19 @@ title: Incorporación de una aplicación a un inquilino de Azure Active Director
 description: Esta guía de inicio rápido usa Azure Portal para agregar una aplicación de la galería a su inquilino de Azure Active Directory (Azure AD).
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/24/2018
 ms.author: barbkess
-ms.openlocfilehash: 5cdadd93273b6010200b7211b75ca86dfa126b9d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 0f2f912504ecf32ff5ba337951e24da0f816d463
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604831"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461933"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Inicio rápido: Incorporación de una aplicación al inquilino de Azure Active Directory
 

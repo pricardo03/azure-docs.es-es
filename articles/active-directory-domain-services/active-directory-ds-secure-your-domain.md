@@ -4,7 +4,7 @@ description: Protección de un dominio administrado
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 6b4665b5-4324-42ab-82c5-d36c01192c2a
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: 1dea3def00423ecf092562aa47c76258316194a9
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 1a9a8ee13145e6326c234a4eda053ed49faf33aa
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50159067"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856679"
 ---
 # <a name="secure-your-azure-ad-domain-services-managed-domain"></a>Protección de un dominio administrado con Azure AD Domain Services
 Este artículo sirve de ayuda para proteger un dominio administrado. Puede desactivar el uso de conjuntos de cifrado débil y deshabilitar la sincronización de códigos hash de credenciales NTLM.
@@ -31,7 +31,7 @@ Este artículo sirve de ayuda para proteger un dominio administrado. Puede desac
 Siga las instrucciones que aparecen en el artículo para [instalar el módulo de Azure AD PowerShell y conectarse a Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 ### <a name="install-and-configure-azure-powershell"></a>Instale y configure Azure PowerShell.
-Siga las instrucciones que aparecen en el artículo para [instalar el módulo de Azure PowerShell y conectarse a la suscripción de Azure](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
+Siga las instrucciones que aparecen en el artículo para [instalar el módulo de Azure PowerShell y conectarse a la suscripción de Azure](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 
 ## <a name="disable-weak-cipher-suites-and-ntlm-credential-hash-synchronization"></a>Deshabilitación de la sincronización de hash de credenciales NTLM y de conjuntos de cifrado débil

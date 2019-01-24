@@ -3,7 +3,7 @@ title: Planes de implementación de Azure Active Directory | Microsoft Docs
 description: Guía de un extremo a otro sobre cómo implementar muchas funcionalidades de Azure Active Directory.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: f471f1183a7d0d695b5817003fe70a018787731d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6ca6d0ab9f18665f6e271bedba63ce98996ba7db
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094789"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445990"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Planes de implementación de Azure Active Directory
 ¿Busca una guía de un extremo a otro sobre cómo implementar algunas de las funcionalidades de Azure Active Directory (Azure AD)? Los siguientes planes de implementación le guiarán por el valor de negocio, las consideraciones de planeamiento, el diseño y los procedimientos operativos necesarios para implementar correctamente algunas de las funcionalidades más comunes de Azure AD. 
