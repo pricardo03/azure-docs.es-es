@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 2b1aca07fe60a328dac9d3724454a21835026a53
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 2f9728fc3304534619fbd3a8b44abf6bab78887a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063852"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436049"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Creación de un centro de IoT con una plantilla de Azure Resource Manager (.NET)
 
@@ -203,7 +203,7 @@ Ahora que ha implementado un centro de IoT mediante una plantilla de Azure Resou
 
 * Consulte las funcionalidades de la [API de REST del proveedor de recursos de IoT Hub][lnk-rest-api].
 * Para más información sobre las funcionalidades de Azure Resource Manager, consulte [Información general de Azure Resource Manager][lnk-azure-rm-overview].
-* Para la sintaxis y las propiedades de JSON que se usan en una plantilla, consulte [Tipos de recursos de Microsoft.EventHub](/azure/templates/microsoft.devices/iothub-allversions).
+* Para conocer la sintaxis y las propiedades JSON que se usan en las plantillas, consulte [Microsoft.Devices resource types](/azure/templates/microsoft.devices/iothub-allversions) (Tipos de recursos de Microsoft.Devices).
 
 Para obtener más información sobre cómo desarrollar para IoT Hub, consulte los siguientes artículos:
 
@@ -218,7 +218,7 @@ Para explorar aún más las funcionalidades de IoT Hub, consulte:
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-status]: https://azure.microsoft.com/status/
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 [lnk-storage-account]:../storage/common/storage-create-storage-account.md

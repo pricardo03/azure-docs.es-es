@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 8bc0d53080d0653ae630765d8a656cbe8d50b24c
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 4784ac8ac619a1b9a00f2e869d796d05dd9658df
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971576"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434417"
 ---
 # <a name="tutorial-create-an-application-gateway-and-rewrite-http-headers"></a>Tutorial: Crear una instancia de Application Gateway y reescribir los encabezados HTTP
 
@@ -37,7 +37,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En este tutorial es necesario ejecutar Azure PowerShell en local. Necesita tener instalado el módulo de Azure versión 1.0.0 o posterior. Ejecute `Import-Module Az` y, después, `Get-Module Az` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). Después de verificar la versión de PowerShell, ejecute `Login-AzAccount` para crear una conexión con Azure.
+En este tutorial es necesario ejecutar Azure PowerShell en local. Necesita tener instalado el módulo de Azure versión 1.0.0 o posterior. Ejecute `Import-Module Az` y, después, `Get-Module Az` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). Después de verificar la versión de PowerShell, ejecute `Login-AzAccount` para crear una conexión con Azure.
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 

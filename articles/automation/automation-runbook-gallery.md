@@ -3,18 +3,18 @@ title: Galerías de runbooks y módulos para Azure Automation
 description: Dispone de runbooks y módulos de Microsoft y la comunidad para instalarlos y usarlos en su entorno de Azure Automation.  En este artículo, se describe cómo acceder a estos recursos y contribuir sus runbooks a la galería.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5b87d04466a2c94ed233edf4069ec1a30b10d03a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 7330d826cb196a664f06198a0e83f73bd7763ef9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634327"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428115"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Galerías de runbooks y módulos para Azure Automation
 En lugar de crear sus propios runbooks y módulos en Azure Automation, dispone de acceso a diversos escenarios ya compilados por Microsoft y la comunidad.  Puede usar estos escenarios sin modificaciones o como punto de partida para modificarlos según sus requisitos específicos.
@@ -108,4 +108,5 @@ Puede enviar solicitudes a [Voz de usuario](https://feedback.azure.com/forums/24
 ## <a name="next-steps"></a>Pasos siguientes
 * Para empezar a trabajar con runbooks, consulte [Creación o importación de un runbook en Azure Automation](automation-creating-importing-runbook.md)
 * Para comprender las diferencias entre PowerShell y los flujos de trabajo de PowerShell para runbooks, consulte [Aprendizaje del flujo de trabajo de Windows PowerShell](automation-powershell-workflow.md)
+
 

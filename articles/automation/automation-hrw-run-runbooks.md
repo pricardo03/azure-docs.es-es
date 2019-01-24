@@ -3,18 +3,18 @@ title: Ejecución de runbooks en Azure Automation Hybrid Runbook Worker
 description: Este artículo proporciona información acerca de cómo ejecutar runbooks en máquinas de un centro de datos local o en el proveedor de la nube con el rol Hybrid Runbook Worker.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 07/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 89f8b4a842c9a632c661d9770d17c1ec01d4211e
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 0d622f6f03f9d132f3c57910d8a60c5731ad7c94
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582259"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425790"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Ejecución de runbooks en Hybrid Runbook Worker
 
@@ -255,3 +255,4 @@ Si los runbooks no finalizan correctamente, revise la guía de solución de prob
 
 * Para más información sobre los distintos métodos que se pueden utilizar para iniciar un runbook, consulte [Inicio de un runbook en Azure Automation](automation-starting-a-runbook.md).
 * Para entender las diferentes formas para trabajar con runbooks de PowerShell en Azure Automation mediante el editor de texto, consulte [Edición de un runbook en Azure Automation](automation-edit-textual-runbook.md)
+

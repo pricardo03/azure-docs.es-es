@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
-ms.component: alerts
-ms.openlocfilehash: 8b56c338a62e88748be2a140e743c43b54da4b2d
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.subservice: alerts
+ms.openlocfilehash: 1aeafa9fb2fc4d275e15d1a911adea7d3f3220dc
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259876"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467237"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registro en Azure Monitor
 En este artículo se proporcionan detalles sobre las alertas de registro, uno de los tipos de alerta que se admiten en [Alertas de Azure](../../azure-monitor/platform/alerts-overview.md) y permite que los usuarios usen la plataforma de análisis de Azure como base para las alertas.
@@ -123,3 +123,4 @@ Los precios que se aplican a las alertas de registro están disponibles en la p�
 * Más información acerca de las [Alertas de Azure](../../azure-monitor/platform/alerts-overview.md).
 * Más información sobre [Application Insights](../../azure-monitor/app/analytics.md).
 * Más información sobre [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).    
+

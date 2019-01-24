@@ -11,12 +11,12 @@ author: hning86
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6bd3bc86aa828ab28462de9d45f660889634cbd7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 71b4cf5d44ec6cb3fb8b70975193320a4eabfc3f
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100521"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401323"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Solución de problemas de implementaciones de AKS y ACI de Azure Machine Learning Service
 
@@ -93,10 +93,10 @@ Si el sistema no puede compilar la imagen de Docker, la llamada `image.wait_for_
 print(image.image_build_log_uri)
 
 # if you only know the name of the image (note there might be multiple images with the same name but different version number)
-print(ws.images()['myimg'].image_build_log_uri)
+print(ws.images['myimg'].image_build_log_uri)
 
 # list logs for all images in the workspace
-for name, img in ws.images().items():
+for name, img in ws.images.items():
     print (img.name, img.version, img.image_build_log_uri)
 ```
 El URI del registro de la imagen es una dirección URL de SAS que apunta a un archivo de registro almacenado en Azure Blob Storage. Simplemente copie el URI y péguelo en una ventana del explorador, y podrá descargar y ver el archivo de registro.
@@ -115,7 +115,7 @@ Puede imprimir los mensajes detallados de registro del motor de Docker desde el 
 print(service.get_logs())
 
 # if you only know the name of the service (note there might be multiple services with the same name but different version number)
-print(ws.webservices()['mysvc'].get_logs())
+print(ws.webservices['mysvc'].get_logs())
 ```
 
 ### <a name="debug-the-docker-image-locally"></a>Depuración local de la imagen de Docker

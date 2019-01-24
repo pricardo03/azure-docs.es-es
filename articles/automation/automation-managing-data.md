@@ -3,18 +3,18 @@ title: Administración de datos de Azure Automation
 description: Este artículo contiene varios temas para administrar un entorno de Azure Automation.  Actualmente incluye la retención de datos y la realización de copias de seguridad de la recuperación ante desastres en Azure Automation.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 05da900e9ddf4cbb99df5c6d62ddb569059e2c4b
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: b133947a7daf1977f084ee4008599882b51d9e8b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42143514"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428484"
 ---
 # <a name="managing-azure-automation-data"></a>Administración de datos de Azure Automation
 Este artículo contiene varios temas para administrar un entorno de Azure Automation.
@@ -76,4 +76,5 @@ La siguiente tabla muestra los emparejamientos de la región primaria y secundar
 | Este de Japón |Oeste de Japón |
 
 En el improbable caso de que se pierdan datos de una región primaria, Microsoft intenta recuperarlos. Cuando no es posible recuperar los datos principales, se lleva a cabo la conmutación por error geográfica y se notificará a los clientes afectados al respecto a través de su suscripción.
+
 

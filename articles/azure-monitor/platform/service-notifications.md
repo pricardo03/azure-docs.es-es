@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 4/12/2018
 ms.author: dukek
-ms.component: logs
-ms.openlocfilehash: 2dec2b1f9bdca8c83669b753d424204218f7a9ae
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.subservice: logs
+ms.openlocfilehash: 9bd5ec3471fc3447d1e29d875c154793daf8e9e5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190704"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474037"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Visualización de las notificaciones de mantenimiento del servicio mediante Azure Portal
 
@@ -95,3 +95,4 @@ Properties.communicationId | La comunicación con la cual está asociado este ev
 ## <a name="next-steps"></a>Pasos siguientes
 Reciba [notificaciones de alertas con cada notificación de mantenimiento del servicio](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  
 Más información sobre las [alertas del registro de actividad](../../azure-monitor/platform/activity-log-alerts.md).
+

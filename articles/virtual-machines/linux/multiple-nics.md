@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: zarhoads
-ms.openlocfilehash: 024cf099dd65db036ae0b68d7094a60427ffa69c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 300391d9a5079eefc90ba06ba819fc6d8a91ca05
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119891"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851698"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Cómo crear una máquina virtual Linux en Azure con red varias tarjetas de interfaz de red
 
@@ -67,7 +67,7 @@ az network nsg create \
 ```
 
 ## <a name="create-and-configure-multiple-nics"></a>Creación y configuración de varias NIC
-Creación de dos NIC con [az network nic create](/cli/azure/network/nic#az_network_nic_create). En el ejemplo siguiente se crean dos NIC, denominadas *myNic1* y *myNic2*, conectadas al grupo de seguridad de red, con una NIC conectada con cada subred:
+Creación de dos NIC con [az network nic create](/cli/azure/network/nic). En el ejemplo siguiente se crean dos NIC, denominadas *myNic1* y *myNic2*, conectadas al grupo de seguridad de red, con una NIC conectada con cada subred:
 
 ```azurecli
 az network nic create \
@@ -105,7 +105,7 @@ Agregue tablas de enrutamiento al sistema operativo invitado completando los pas
 ## <a name="add-a-nic-to-a-vm"></a>Adición de una NIC a una máquina virtual
 Los pasos anteriores crean una máquina virtual con varias NIC. También puede agregar varias NIC a una máquina virtual existente con la CLI de Azure. Diferentes [tamaños de máquina virtual](sizes.md) admiten un número distinto de NIC, así que ajuste el tamaño de su máquina virtual teniendo esto en cuenta. Si es necesario, puede [cambiar el tamaño de una máquina virtual](change-vm-size.md).
 
-Cree otra NIC con [az network nic create](/cli/azure/network/nic#az_network_nic_create). En el ejemplo siguiente se crea una NIC denominada *myNic3* conectada a la subred de back-end y al grupo de seguridad de red creado en los pasos anteriores:
+Cree otra NIC con [az network nic create](/cli/azure/network/nic). En el ejemplo siguiente se crea una NIC denominada *myNic3* conectada a la subred de back-end y al grupo de seguridad de red creado en los pasos anteriores:
 
 ```azurecli
 az network nic create \
@@ -132,7 +132,7 @@ az vm nic add \
     --nics myNic3
 ```
 
-Inicie la máquina virtual con [az vm start](/cli/azure/vm#az_vm_start):
+Inicie la máquina virtual con [az vm start](/cli/azure/vm):
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
@@ -156,7 +156,7 @@ az vm nic remove \
     --nics myNic3
 ```
 
-Inicie la máquina virtual con [az vm start](/cli/azure/vm#az_vm_start):
+Inicie la máquina virtual con [az vm start](/cli/azure/vm):
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM

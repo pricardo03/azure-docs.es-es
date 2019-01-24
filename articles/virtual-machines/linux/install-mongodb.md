@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: zarhoads
-ms.openlocfilehash: f1f8db985917b8eae6a5f301379af3c1bf09021f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 138435664222ff268069465aa98a53f0902a9f99
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465430"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412706"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Procedimiento de instalación y configuración de MongoDB en una máquina virtual Linux
 
@@ -31,9 +31,9 @@ ms.locfileid: "49465430"
 
 
 ## <a name="manually-install-and-configure-mongodb-on-a-vm"></a>Instalación y configuración manuales de MongoDB en una máquina virtual
-MongoDB [proporciona instrucciones de instalación](https://docs.mongodb.com/manual/administration/install-on-linux/) para distribuciones de Linux, incluidos Red Hat/CentOS, SUSE, Ubuntu y Debian. En el ejemplo siguiente se crea una máquina virtual *CentOS*. Para crear este entorno, necesita tener instalada la versión más reciente de la [CLI de Azure](/cli/azure/install-az-cli2) y haber iniciado sesión en una cuenta de Azure mediante [az login](/cli/azure/reference-index#az_login).
+MongoDB [proporciona instrucciones de instalación](https://docs.mongodb.com/manual/administration/install-on-linux/) para distribuciones de Linux, incluidos Red Hat/CentOS, SUSE, Ubuntu y Debian. En el ejemplo siguiente se crea una máquina virtual *CentOS*. Para crear este entorno, necesita tener instalada la versión más reciente de la [CLI de Azure](/cli/azure/install-az-cli2) y haber iniciado sesión en una cuenta de Azure mediante [az login](/cli/azure/reference-index).
 
-Cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
+Cree un grupo de recursos con [az group create](/cli/azure/group). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -121,7 +121,7 @@ Puede crear una instancia básica de MongoDB una sola máquina virtual CentOS co
 
 * [Instancia básica de MongoDB en CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 
-Para crear este entorno, necesita tener instalada la versión más reciente de la [CLI de Azure](/cli/azure/install-az-cli2) y haber iniciado sesión en una cuenta de Azure mediante [az login](/cli/azure/reference-index#az_login). En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
+Para crear este entorno, necesita tener instalada la versión más reciente de la [CLI de Azure](/cli/azure/install-az-cli2) y haber iniciado sesión en una cuenta de Azure mediante [az login](/cli/azure/reference-index). En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/group). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -134,7 +134,7 @@ az group deployment create --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 ```
 
-Inicie sesión en la máquina virtual con la dirección DNS pública de la máquina virtual. Puede ver la dirección DNS pública con [az vm show](/cli/azure/vm#az_vm_show):
+Inicie sesión en la máquina virtual con la dirección DNS pública de la máquina virtual. Puede ver la dirección DNS pública con [az vm show](/cli/azure/vm):
 
 ```azurecli
 az vm show -g myResourceGroup -n myLinuxVM -d --query [fqdns] -o tsv
@@ -172,7 +172,7 @@ Puede crear un clúster complejo con particiones de MongoDB con la siguiente pla
 > [!WARNING]
 > Para implementar este clúster complejo con particiones de MongoDB, se requieren más de 20 núcleos, lo que suele ser el número predeterminado por región para una suscripción. Abra una solicitud de soporte técnico de Azure para aumentar el número de núcleos.
 
-Para crear este entorno, necesita tener instalada la versión más reciente de la [CLI de Azure](/cli/azure/install-az-cli2) y haber iniciado sesión en una cuenta de Azure mediante [az login](/cli/azure/reference-index#az_login). En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
+Para crear este entorno, necesita tener instalada la versión más reciente de la [CLI de Azure](/cli/azure/install-az-cli2) y haber iniciado sesión en una cuenta de Azure mediante [az login](/cli/azure/reference-index). En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/group). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

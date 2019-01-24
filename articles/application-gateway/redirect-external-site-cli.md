@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: victorh
-ms.openlocfilehash: 4483d71ba745cc5cbb49d22420d83c3b2ceae0ad
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: bdbaa9154f12c8b66a4c1d801671e7b21756e0f7
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157027"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412740"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con redireccionamiento externo mediante la CLI de Azure
 
@@ -106,7 +106,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-a-listener-and-routing-rule"></a>Adición de un agente de escucha y una regla de enrutamiento
 
-Se necesita un agente de escucha para habilitar la puerta de enlace de aplicaciones para enrutar el tráfico correctamente. Cree el agente de escucha mediante [az network application-gateway http-listener create](/cli/azure/network/application-gateway#az-network_application_gateway_http_listener_create) con el puerto de front-end creado mediante [az network application-gateway frontend-port create](/cli/azure/network/application-gateway#az-network_application_gateway_frontend_port_create). Se necesita una regla para que el agente de escucha sepa dónde enviar el tráfico entrante. Cree una regla básica llamada *redirectRule* mediante [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create).
+Se necesita un agente de escucha para habilitar la puerta de enlace de aplicaciones para enrutar el tráfico correctamente. Cree el agente de escucha mediante [az network application-gateway http-listener create](/cli/azure/network/application-gateway#az-network_application_gateway_http_listener_create) con el puerto de front-end creado mediante [az network application-gateway frontend-port create](/cli/azure/network/application-gateway). Se necesita una regla para que el agente de escucha sepa dónde enviar el tráfico entrante. Cree una regla básica llamada *redirectRule* mediante [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create).
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \

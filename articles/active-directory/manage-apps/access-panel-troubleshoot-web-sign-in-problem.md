@@ -4,7 +4,7 @@ description: Instrucciones para solucionar problemas que pueden surgir al intent
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviwer: japere,asteen
-ms.openlocfilehash: d2670d8f018fc26b7017fba40b5aff4310900dab
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 34a4da2c14b84b9e539fc2d3e755a523cf3574c9
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188698"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847244"
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>Problema al iniciar sesión en el sitio web del Panel de acceso
 
@@ -64,7 +64,7 @@ Para el SSO basado en contraseña, los exploradores del usuario final pueden ser
 
 -   Internet Explorer 8, 9, 10, 11 (en Windows 7 o posterior)
 
--   Microsoft Edge en Windows 10 Anniversary Edition o versión posterior. 
+-   Microsoft Edge en Windows 10 Anniversary Edition o versión posterior 
 
 -   Chrome (en Windows 7 o posterior y en Mac OS X o posterior)
 
@@ -159,7 +159,7 @@ Para restablecer la contraseña de un usuario, siga estos pasos:
 
 Para habilitar el autoservicio de restablecimiento de contraseña, siga estos pasos de implementación:
 
--   [Permitir que los usuarios restablezcan sus contraseñas de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-their-azure-ad-passwords)
+-   [Permitir que los usuarios restablezcan sus contraseñas de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
 -   [Permitir que los usuarios restablezcan o cambien sus contraseñas de AD locales](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords)
 

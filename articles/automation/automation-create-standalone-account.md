@@ -3,18 +3,18 @@ title: Creación de una cuenta independiente de Azure Automation
 description: En este artículo se le guía en la creación, la prueba y el uso de la autenticación de la entidad de seguridad en Azure Automation.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2e419da4ed84f3d202113f9616050c3e7c29f240
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 1590a02503a12be870dab14a1ccffdd3cf64a282
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54322051"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426614"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Creación de una cuenta independiente de Azure Automation
 
@@ -112,3 +112,4 @@ La siguiente tabla resume los recursos de la cuenta de ejecución de Azure clás
 * Para empezar a trabajar con runbooks de PowerShell, consulte [Mi primer runbook de PowerShell](automation-first-runbook-textual-powershell.md).
 * Para empezar a trabajar con Runbooks de flujo de trabajo de PowerShell, consulte [Mi primer Runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md).
 * Para empezar a trabajar con runbooks Python2, consulte [Mi primer runbook Python2](automation-first-runbook-textual-python2.md).
+

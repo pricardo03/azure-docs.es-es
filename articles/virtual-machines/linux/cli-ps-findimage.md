@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b9fed56746f5b26269f6a70aeedd06ba9b19548f
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 2ff08b0f155be54ee57d2d9999c47aa56a366d09
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018832"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852208"
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Búsqueda de imágenes de maquina virtual Linux en Azure Marketplace con la CLI de Azure
 Este tema describe cómo usar la CLI de Azure para buscar imágenes de máquina virtual en Azure Marketplace. Use esta información para especificar una imagen de Marketplace cuando se crea una máquina virtual mediante programación con la CLI, plantillas de Resource Manager u otras herramientas.
@@ -128,7 +128,7 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201706210        
 ```
 
 ## <a name="navigate-the-images"></a>Navegación por las imágenes 
-Otra forma de buscar una imagen en una ubicación es ejecutar los comandos [az vm image list-publishers](/cli/azure/vm/image#az_vm_image_list_publishers), [az vm image list-offers](/cli/azure/vm/image#az_vm_image_list_offers) y [az vm image list-skus](/cli/azure/vm/image#az_vm_image_list_skus) en orden. Con estos comandos, determine estos valores:
+Otra forma de buscar una imagen en una ubicación es ejecutar los comandos [az vm image list-publishers](/cli/azure/vm/image#az_vm_image_list_publishers), [az vm image list-offers](/cli/azure/vm/image) y [az vm image list-skus](/cli/azure/vm/image#az_vm_image_list_skus) en orden. Con estos comandos, determine estos valores:
 
 1. Listado de los publicadores de imágenes.
 2. Para un publicador determinado, enumeración de sus ofertas.

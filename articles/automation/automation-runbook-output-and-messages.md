@@ -3,18 +3,18 @@ title: Salidas de runbook y mensajes en Azure Automation
 description: Describe cómo crear y recuperar los mensajes de salida y error de los runbooks en Azure Automation.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cc1ef2a3ab09ec5b86d1dc0b4c139afd43ba356d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 82382ecc3adf0d0621f51438a082f7807b031fc9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969131"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431221"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Salidas de runbook y mensajes en Azure Automation
 La mayoría de los runbooks de Azure Automation tienen alguna forma de salida. Este resultado puede ser un mensaje de error para el usuario o un objeto complejo que se va a usar con otro runbook. Windows PowerShell le ofrece [varios flujos](/powershell/module/microsoft.powershell.core/about/about_redirection) para enviar la salida desde un script o flujo de trabajo. Azure Automation funciona de forma diferente con cada uno de estos flujos. Debe seguir los procedimientos recomendados sobre cómo usar cada uno al crear un runbook.
@@ -234,4 +234,5 @@ Para más información sobre cómo configurar la integración con Log Analytics 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información acerca de la ejecución de un runbook, cómo supervisar trabajos del runbook y otros detalles técnicos, consulte [Ejecución de un runbook en Automatización de Azure](automation-runbook-execution.md)
 * Para comprender cómo diseñar y usar runbooks secundarios, consulte [runbooks secundarios en Azure Automation](automation-child-runbooks.md)
+
 

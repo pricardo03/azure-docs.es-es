@@ -3,18 +3,18 @@ title: Visualización del contenido de los archivos con Azure Automation
 description: Use la característica de cambio en el contenido de los archivos de Change Tracking para ver el contenido de un archivo que ha cambiado.
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0582505d66bbef3064359fa4047676c4ba60b4e9
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: ad011d778ab575c146c202a7940e03a4451979fb
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37871125"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438008"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Visualización del contenido de un archivo del que se está realizando un seguimiento con Change Tracking
 
@@ -76,3 +76,4 @@ Consulte el tutorial de Change Tracking para más información acerca del uso de
 > [Solución de problemas de cambios en el entorno](automation-tutorial-troubleshoot-changes.md)
 
 * Use [Búsquedas de registros en Log Analytics](../log-analytics/log-analytics-log-searches.md) para ver datos detallados sobre el seguimiento de cambios.
+

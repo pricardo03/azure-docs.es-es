@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: d566f317595e314c91cf510ba2459638e624d8c3
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: fb9123d792c3b522debb3b1c8d539cbd6cd24f59
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539746"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54843642"
 ---
 # <a name="customize-server-configuration-parameters-using-azure-cli"></a>Personalización de los parámetros de configuración del servidor con la CLI de Azure
 Puede enumerar, mostrar y actualizar los parámetros de configuración de un servidor Azure PostgreSQL con la interfaz de la línea de comandos (CLI de Azure). Sin embargo, en el nivel del servidor, solo se expone y se puede modificar un subconjunto de las opciones de configuración del motor. 
@@ -30,7 +30,7 @@ Puede enumerar los parámetros de configuración del servidor **mydemoserver.pos
 az postgres server configuration list --resource-group myresourcegroup --server mydemoserver
 ```
 ## <a name="show-server-configuration-parameter-details"></a>Presentación de los detalles de los parámetros de configuración del servidor
-Para mostrar los detalles de un parámetro de configuración específico de un servidor, ejecute el comando [az postgres server configuration show](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_show).
+Para mostrar los detalles de un parámetro de configuración específico de un servidor, ejecute el comando [az postgres server configuration show](/cli/azure/postgres/server/configuration).
 
 En este ejemplo se muestran detalles del parámetro de configuración **log\_min\_messages** del servidor **mydemoserver.postgres.database.azure.com** en el grupo de recursos **myresourcegroup.**
 ```azurecli-interactive

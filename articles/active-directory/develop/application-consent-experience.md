@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: zawad
-ms.openlocfilehash: e3e333594b32cff018f02cd1d3b32eaf44c11a65
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 3193e9ac6ac5e90584bbf548142b7573d61c310a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904044"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413080"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Descripción de las experiencias de consentimiento de la aplicación de Azure AD
 
@@ -84,4 +84,4 @@ Estas son las experiencias de consentimiento que un usuario puede ver en los esc
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Introducción paso a paso de [cómo el marco de consentimiento de Azure AD implementa el consentimiento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework).
-- Para más detalles, aprenda [cómo una aplicación multiinquilino puede utilizar el marco de consentimiento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) para implementar el consentimiento de "usuario" y "administrador", compatible con patrones de aplicación de niveles múltiples más avanzados.
+- Para más detalles, aprenda [cómo una aplicación multiinquilino puede utilizar el marco de consentimiento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) para implementar el consentimiento de "usuario" y "administrador", compatible con patrones de aplicación de niveles múltiples más avanzados.

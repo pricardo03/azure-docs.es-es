@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: ef3d26112c631ee0ed3c754394339092020add53
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: c33952f893d5ef2cfb9020acbf813d30b6c105e7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332547"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469756"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
@@ -265,7 +265,7 @@ Todas las aplicaciones lógicas de una misma región usan los mismos intervalos 
 
 Para admitir las llamadas que realizan los [conectores administrados de Microsoft](../connectors/apis-list.md), configure el firewall con *todas* las direcciones IP [salientes](#outbound) que usan dichos conectores en función de las regiones en las que estén las aplicaciones lógicas. Estas direcciones aparecen bajo el encabezado **Saliente** de esta sección y están ordenadas por región. 
 
-Para [Azure Government](/azure-government/documentation-government-welcome) y [Azure China 21Vianet](/azure/china/china-welcome), las direcciones IP reservadas para los conectores no están disponibles actualmente.
+Para [Azure Government](../azure-government/documentation-government-overview.md) y [Azure China 21Vianet](/azure/china/china-welcome), las direcciones IP reservadas para los conectores no están disponibles actualmente.
 
 > [!IMPORTANT]
 > 

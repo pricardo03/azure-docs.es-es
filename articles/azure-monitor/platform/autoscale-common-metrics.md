@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
-ms.component: autoscale
-ms.openlocfilehash: d12edc2023deb69118d7c02e053cd2525f6ae684
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.subservice: autoscale
+ms.openlocfilehash: 736ff5565bb279d26e686421cc13f54a73b1c7e9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437731"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461100"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Métricas comunes de escalado automático de Azure Monitor
 El escalado automático de Azure Monitor le permite escalar verticalmente y reducir horizontalmente el número de instancias en ejecución, basándose en los datos de telemetría (métricas). Este documento describe las métricas comunes que estaría interesado en usar. En Azure Portal, puede elegir la métrica de recurso por la que se va a escalar. Sin embargo, también puede elegir cualquier métrica de un recurso diferente por la que escalar.
@@ -187,3 +187,4 @@ Para los conjuntos de escalado de máquinas virtuales, puede actualizar la confi
 > Para Service Bus, el concepto de grupo de recursos no existe pero Azure Resource Manager crea un grupo de recursos predeterminado por región. El grupo de recursos suele tener el formato 'Default-ServiceBus-[región]'. Por ejemplo, 'Default-ServiceBus-EastUS', 'Default-ServiceBus-WestUS', 'Default-ServiceBus-AustraliaEast', etc.
 >
 >
+

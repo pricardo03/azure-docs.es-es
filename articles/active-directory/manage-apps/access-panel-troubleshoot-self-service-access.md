@@ -4,7 +4,7 @@ description: Solucionar problemas relacionados con el acceso de autoservicio a l
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: japere,asteen
-ms.openlocfilehash: 3a8e0ca54766f36ba3343f420d751f2e40a8033b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 1c3d4c12af6321643c6ed916c9ae6541f902fd24
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356261"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468773"
 ---
 # <a name="problem-using-self-service-application-access"></a>Problemas al usar el acceso de autoservicio a las aplicaciones
 

@@ -3,18 +3,18 @@ title: Inicio de un runbook de Azure Automation con un webhook
 description: Un webhook que permite a un cliente iniciar un runbook en Azure Automation desde una llamada HTTP.  Este artículo describe cómo crear un webhook y cómo llamar a uno para que inicie un runbook.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 10/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 381f8c5fb59379c0494dabcd22f4675be9535837
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 19a771d75cd1f2a2a18a3a4c42fcc34e55afb111
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016698"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438854"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Inicio de un runbook de Azure Automation con un webhook
 
@@ -226,3 +226,4 @@ La siguiente imagen muestra la solicitud que se envía desde Windows PowerShell 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para más información sobre cómo utilizar Azure Automation para tomar medidas relativas a las alertas de Azure, consulte [Uso de una alerta para desencadenar un runbook de Azure Automation](automation-create-alert-triggered-runbook.md).
+

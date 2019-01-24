@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: diberry
-ms.openlocfilehash: 241227270aeede93b74d3d94c782dfe7eaf1fbf2
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: af0629b8301fe6202c6a4325083cc69140bc7c2e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121709"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438208"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publicación de la aplicación activa y entrenada en un punto de conexión de almacenamiento provisional o de producción
 
@@ -62,6 +62,6 @@ Para obtener más información acerca de la respuesta del punto de conexión JSO
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte [Administrar claves](./luis-how-to-manage-keys.md) para agregar claves a la clave de suscripción de Azure a LUIS y para obtener información sobre cómo establecer la clave de Bing Spell Check e incluir todas las intenciones en los resultados.
+* Consulte [Administrar claves](./luis-how-to-azure-subscription.md) para agregar claves a la clave de suscripción de Azure a LUIS y para obtener información sobre cómo establecer la clave de Bing Spell Check e incluir todas las intenciones en los resultados.
 * Consulte [Entrenar y probar la aplicación](luis-interactive-test.md) para obtener instrucciones sobre cómo probar la aplicación publicada en la consola de prueba.
 

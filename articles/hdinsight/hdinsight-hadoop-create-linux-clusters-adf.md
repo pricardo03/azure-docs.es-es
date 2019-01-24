@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/29/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7b20ceb61f522bea11e7256c824a851e587cbd49
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 40bfa8317effd25cf3d9aa28b8f63e292213a83b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975464"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425989"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Tutorial: Creación de clústeres de Apache Hadoop a petición en HDInsight mediante Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -37,7 +37,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Azure PowerShell. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
+- Azure PowerShell. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.7.0).
 
 - Una entidad de servicio de Azure Active Directory. Una vez que haya creado la entidad de servicio, asegúrese de recuperar el **identificador de la aplicación** y la **clave de autenticación** mediante las instrucciones en el artículo vinculado. Necesitará estos valores más adelante en el tutorial. Asimismo, asegúrese de que la entidad de servicio es miembro del rol de *colaborador* de la suscripción o del grupo de recursos en el que se crea el clúster. A fin de obtener instrucciones sobre cómo recuperar los valores necesarios y asignar los roles adecuados, consulte [Creación de una entidad de servicio de Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md).
 

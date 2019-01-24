@@ -4,7 +4,7 @@ description: Instrucciones paso a paso sobre cómo crear y eliminar identidades 
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: 9329695ed582a313ffdf1a83352e7b561b778654
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 5270bcff74f8738bb8449a158e1da16c25157e61
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298751"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452860"
 ---
 # <a name="create-list-and-delete-a-user-assigned-managed-identity-using-azure-resource-manager"></a>Creación, enumeración y eliminación de una identidad administrada asignada por el usuario mediante Azure Resource Manager
 
@@ -71,7 +71,7 @@ Para crear una identidad administrada asignada por el usuario, use la siguiente 
     {
       "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
       "name": "[parameters('resourceName')]",
-      "apiVersion": "2015-08-31-PREVIEW",
+      "apiVersion": "2018-11-30",
       "location": "[resourceGroup().location]"
     }
   ],
