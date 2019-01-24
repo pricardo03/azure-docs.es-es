@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bf507fb21b314a6811db1c1e45a4356381caada1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f699e40a4a31b6d57b12a43ae307806d3f010015
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111853"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54267188"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Implementación de una matriz virtual de StorSimple: configurar un servidor de archivos mediante Azure Portal
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -28,13 +28,13 @@ ms.locfileid: "23111853"
 ## <a name="introduction"></a>Introducción
 En este artículo se describe cómo realizar la instalación inicial, registrar el servidor de archivos de StorSimple, completar la instalación del dispositivo y crear y conectarse a recursos compartidos de SMB. Este es el último artículo de la serie de tutoriales de implementación necesarios para implementar completamente la matriz virtual como servidor de archivos o servidor iSCSI.
 
-El proceso de instalación y configuración puede tardar unos 10 minutos en completarse. La información de este artículo solo se aplica a la implementación de StorSimple Virtual Array. Para la implementación de dispositivos de la serie StorSimple 8000, vaya a: [Implementación de un dispositivo de la serie StorSimple 8000 que ejecuta la actualización 2](storsimple-deployment-walkthrough-u2.md).
+El proceso de instalación y configuración puede tardar unos 10 minutos en completarse. La información de este artículo solo se aplica a la implementación de StorSimple Virtual Array. Para la implementación de dispositivos StorSimple 8000 Series, vaya a: [Implementación del dispositivo StorSimple local (Update 3 u otra posterior)](storsimple-deployment-walkthrough-u2.md).
 
 ## <a name="setup-prerequisites"></a>Requisitos previos de instalación
 Antes de instalar y configurar StorSimple Virtual Array, asegúrese de que:
 
 * Ha aprovisionado una matriz virtual y se ha conectado a ella según se detalla en [Implementación de una matriz virtual de StorSimple: aprovisionamiento de una matriz virtual en Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) o en [Implementación de una matriz virtual de StorSimple: aprovisionamiento de una matriz virtual en VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
-* Tiene la clave de registro del servicio del administrador de dispositivos de StorSimple que creó para administrar instancias de StorSimple Virtual Array. Para más información, consulte [Paso 2: Obtener la clave de registro del servicio](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) de StorSimple Virtual Array.
+* Tiene la clave de registro del servicio del administrador de dispositivos de StorSimple que creó para administrar instancias de StorSimple Virtual Array. Para más información, consulte el [Paso 2: Obtener la clave de registro del servicio](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) de StorSimple Virtual Array.
 * Si este es la segunda o subsiguiente matriz virtual que registra en un servicio StorSimple Device Manager existente, debe tener la clave de cifrado de datos del servicio. Esta clave se generó cuando el primer dispositivo se registró correctamente en este servicio. Si perdió esta clave, consulte la sección [Obtener la clave de cifrado de datos del servicio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) para la matriz virtual de StorSimple.
 
 ## <a name="step-by-step-setup"></a>Configuración paso a paso
@@ -42,14 +42,14 @@ Use las siguientes instrucciones detalladas para instalar y configurar StorSimpl
 
 ## <a name="step-1-complete-the-local-web-ui-setup-and-register-your-device"></a>Paso 1: Completar la configuración de la interfaz de usuario web local y registrar el dispositivo
 #### <a name="to-complete-the-setup-and-register-the-device"></a>Para completar la instalación y registrar el dispositivo
-1. Abra una ventana del explorador y conéctese a la interfaz de usuario web local. Escriba:
+1. Abra una ventana del explorador y conéctese a la interfaz de usuario web local. Escriba: 
    
    `https://<ip-address of network interface>`
    
    Use la dirección URL de conexión que anotó en el paso anterior. Ve un error que indica que hay un problema con el certificado de seguridad del sitio web. Haga clic en **Continue to this webpage**(Continuar a esta página web).
    
    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image2.png)
-2. Inicie sesión en la interfaz de usuario web de la matriz virtual como **StorSimpleAdmin**. Escriba la contraseña del administrador de dispositivos que cambió en el Paso 3: Iniciar la matriz virtual en [Implementación de una matriz virtual de StorSimple: aprovisionar una matriz virtual en Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) o en [Implementación una matriz virtual de StorSimple: aprovisionar una matriz virtual en VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
+2. Inicie sesión en la interfaz de usuario web de la matriz virtual como **StorSimpleAdmin**. Escriba la contraseña de administrador de dispositivos que cambió en el Paso 3: Iniciar la matriz virtual en [Implementación de una matriz virtual de StorSimple: aprovisionar una matriz virtual en Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) o en [Implementación una matriz virtual de StorSimple: aprovisionar una matriz virtual en VMware](storsimple-virtual-array-deploy2-provision-vmware.md).
    
    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image3.png)
 3. Lo llevará a la página **principal**. En esta página se describen los distintos parámetros requeridos para configurar y registrar la matriz virtual en el servicio StorSimple Device Manager. Las opciones **Configuración de red**, **Configuración de proxy web** y **Configuración horaria** son opcionales. Los únicos parámetros obligatorios son **Configuración del dispositivo** y **Configuración de la nube**.
@@ -69,11 +69,11 @@ Use las siguientes instrucciones detalladas para instalar y configurar StorSimpl
    1. Asigne un **nombre** exclusivo al dispositivo. Este nombre puede tener de 1 a 15 caracteres y puede contener letras, números y guiones.
    2. Haga clic en el icono **Servidor de archivos** ![](./media/storsimple-virtual-array-deploy3-fs-setup/image6.png) del **tipo** de dispositivo que crea. Un servidor de archivos le permitirá crear carpetas compartidas.
    3. Como el dispositivo es un servidor de archivos, debe unir el dispositivo a un dominio. Escriba un valor en **nombre de dominio**.
-   4. Haga clic en **Apply**.
+   4. Haga clic en **Aplicar**.
 7. Aparece un cuadro de diálogo. Escriba las credenciales del dominio en el formato especificado. Haga clic en el icono de marca de verificación. Se comprueban las credenciales del dominio. Si las credenciales no son correctas, aparece un mensaje de error.
    
    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image7.png)
-8. Haga clic en **Apply**. Esto aplicará y validará la configuración de dispositivo.
+8. Haga clic en **Aplicar**. Esto aplicará y validará la configuración de dispositivo.
    
    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image8.png)
    
@@ -87,10 +87,10 @@ Use las siguientes instrucciones detalladas para instalar y configurar StorSimpl
    
    En la página **Proxy web** :
    
-   1. Proporcione la **URL de proxy web** en este formato: *http://&lt;dirección o nombre de dominio completo&gt;:Número de puerto*. Tenga en cuenta que no se admiten direcciones URL HTTPS.
+   1. Proporcione la **URL de proxy web** en este formato: *http://&lt;dirección IP o FQDN de host&gt;:Número de puerto*. Tenga en cuenta que no se admiten direcciones URL HTTPS.
    2. Especifique **Autenticación** como **Básica** o **Ninguna**.
    3. Si utiliza autenticación, también debe proporcionar un **Nombre de usuario** y una **Contraseña**.
-   4. Haga clic en **Apply**. Esto validará y aplicará los parámetros de proxy web configurados.
+   4. Haga clic en **Aplicar**. Esto validará y aplicará los parámetros de proxy web configurados.
 10. (Opcionalmente) configure las opciones de hora para el dispositivo, como la zona horaria y los servidores NTP principal y secundario. Se requieren servidores NTP, ya que el dispositivo debe sincronizar la hora para que pueda autenticarse con los proveedores de servicios en la nube.
     
     ![](./media/storsimple-virtual-array-deploy3-fs-setup/image10.png)
@@ -103,7 +103,7 @@ Use las siguientes instrucciones detalladas para instalar y configurar StorSimpl
     4. Haga clic en **Apply**. Esto validará y aplicará los parámetros de hora configurados.
 11. Configure las opciones de nube para el dispositivo. En este paso, completará la configuración del dispositivo local y, después, registrará el dispositivo en el servicio StorSimple Device Manager.
     
-    1. Escriba la **clave de registro del servicio** que obtuvo en el [Paso 2: Obtener la clave de registro del servicio](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) para la matriz virtual de StorSimple.
+    1. Escriba la **Clave de registro del servicio** que obtuvo en el [Paso 2: Obtener la clave de registro del servicio](storsimple-virtual-array-deploy1-portal-prep.md#step-2-get-the-service-registration-key) de StorSimple Virtual Array.
     2. Si es el primer dispositivo que registra en este servicio, aparecerá la **clave de cifrado de datos del servicio**. Copie esta clave y guárdela en un lugar seguro, ya que se necesita, junto con la clave de registro del servicio, para registrar dispositivos adicionales en el servicio StorSimple Device Manager. 
        
        Si no es el primer dispositivo que registra en este servicio, será preciso que especifique la clave de cifrado de datos del servicio. Para más información, consulte [Obtener la clave de cifrado de los datos del servicio](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) en la interfaz de usuario web local.
@@ -196,11 +196,11 @@ Siga estos pasos en [Azure Portal](https://portal.azure.com/) para crear un recu
    
     ![Agregar un recurso compartido](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
 
-## <a name="step-4-connect-to-the-share"></a>Paso 4: Conectarse al recurso compartido
+## <a name="step-4-connect-to-the-share"></a>Paso 4: Conexión al recurso compartido
 Ahora, necesitará conectarse a uno o varios recursos compartidos que creó en el paso anterior. Realice estos pasos en su host de Windows Server conectado a StorSimple Virtual Array.
 
 #### <a name="to-connect-to-the-share"></a>Para conectarse al recurso compartido
-1. Presione ![](./media/storsimple-virtual-array-deploy3-fs-setup/image22.png) + R. En la ventana Ejecutar, especifique el *&#92;&#92;&lt;nombre del servidor de archivos&gt;* como ruta de acceso, pero reemplace *nombre del servidor de archivos* por el nombre del dispositivo que asignó al servidor de archivos. Haga clic en **Aceptar**.
+1. Presione ![](./media/storsimple-virtual-array-deploy3-fs-setup/image22.png) + R. En la ventana Ejecutar, especifique el *&#92;&#92;&lt;nombre del servidor de archivos&gt;* como ruta de acceso, pero reemplace *nombre del servidor de archivos* por el nombre del dispositivo que asignó al servidor de archivos. Haga clic en **OK**.
    
    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image23.png)
 2. Se abre el Explorador de archivos. Ahora podrá ver los recursos compartidos que creó como carpetas. Seleccione y haga doble clic en un recurso compartido (carpeta) para ver el contenido.
