@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.component: alerts
-ms.openlocfilehash: 047b173339e2b3c0715d7843f581c1df231d6030
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.subservice: alerts
+ms.openlocfilehash: 43e842d6325897f484d9dff342505cace6640e78
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230941"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472295"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas de registro mediante Azure Monitor  
 
@@ -247,4 +247,5 @@ Si la operación se realiza correctamente, se devolverá 201 para indicar que se
 * Conocer las [acciones de webhook para alertas de registro](../../azure-monitor/platform/alerts-log-webhook.md)
 * Más información sobre [Application Insights](../../azure-monitor/app/analytics.md)
 * Más información sobre [Log Analytics](../../azure-monitor/log-query/log-query-overview.md). 
+
 

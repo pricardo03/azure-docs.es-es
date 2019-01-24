@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 27102f3523749802dc16a28e28f8859d35814990
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3252395c7a511a00e8da0a31139fce3b2763decb
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952756"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461848"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Filtrado del tráfico de red con un grupo de seguridad de red mediante la CLI de Azure
 
@@ -128,7 +128,7 @@ az network vnet create \
   --address-prefixes 10.0.0.0/16
 ```
 
-Agregue una subred a una red virtual con [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). En el ejemplo siguiente se agrega una subred llamada *mySubnet* a la red virtual y se asocia el grupo de seguridad de red *myNsg* a dicha subred:
+Agregue una subred a una red virtual con [az network vnet subnet create](/cli/azure/network/vnet/subnet). En el ejemplo siguiente se agrega una subred llamada *mySubnet* a la red virtual y se asocia el grupo de seguridad de red *myNsg* a dicha subred:
 
 ```azurecli-interactive
 az network vnet subnet create \

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 42bd12b9479cd1b4f57a7f3ae73f3c32061fed65
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: bd1e4da67ef3f2ffce94c62e1dbc151aa4680e54
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996505"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854576"
 ---
 # <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>(EN DESUSO) Uso de Draft con Azure Container Service y Azure Container Registry para crear e implementar una aplicación en Kubernetes
 
@@ -98,7 +98,7 @@ waiting for AAD role to propagate.done
 }
 ```
 
-Ahora que tiene un clúster, puede importar las credenciales mediante el comando [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials). Ya tiene un archivo de configuración local para el clúster, que es lo que Helm y Draft necesitan para realizar su trabajo.
+Ahora que tiene un clúster, puede importar las credenciales mediante el comando [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes). Ya tiene un archivo de configuración local para el clúster, que es lo que Helm y Draft necesitan para realizar su trabajo.
 
 ## <a name="install-and-configure-draft"></a>Instalación y configuración de Draft
 

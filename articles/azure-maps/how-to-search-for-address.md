@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d25142cecd62fc34a08939d5f1915ba9b2cee749
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: cd6927cccfa85c8409d612a40a4e708e81af746a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387436"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413556"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Búsqueda de una dirección mediante el servicio de búsqueda de Azure Maps
 
@@ -158,7 +158,7 @@ Puede pasar una dirección completa o parcial a la API de búsqueda de direccion
     |-----|------------|
     | número | true |
 
-    Si el parámetro de consulta [number](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) se envía con la solicitud, la respuesta puede incluir el lado de la calle (izquierda o derecha) y también una posición de desplazamiento para ese número.
+    Si el parámetro de consulta [number](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) se envía con la solicitud, la respuesta puede incluir el lado de la calle (izquierda o derecha) y también una posición de desplazamiento para ese número.
   
 6. Agregue la siguiente clave o par clave-valor a la sección **Params** y haga clic en **Enviar**:
 
@@ -166,7 +166,7 @@ Puede pasar una dirección completa o parcial a la API de búsqueda de direccion
     |-----|------------|
     | returnSpeedLimit | true |
   
-    Cuando se establece el parámetro de consulta [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters), la respuesta devuelve el límite de velocidad publicado.
+    Cuando se establece el parámetro de consulta [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), la respuesta devuelve el límite de velocidad publicado.
 
 7. Agregue la siguiente clave o par clave-valor a la sección **Params** y haga clic en **Enviar**:
 
@@ -174,7 +174,7 @@ Puede pasar una dirección completa o parcial a la API de búsqueda de direccion
     |-----|------------|
     | returnRoadUse | true |
 
-    Cuando se establece el parámetro de consulta [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters), la respuesta devuelve la matriz de uso de carretera para códigos geográficos inversos a nivel de calle.
+    Cuando se establece el parámetro de consulta [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), la respuesta devuelve la matriz de uso de carretera para códigos geográficos inversos a nivel de calle.
 
 8. Agregue la siguiente clave o par clave-valor a la sección **Params** y haga clic en **Enviar**:
 
@@ -182,7 +182,7 @@ Puede pasar una dirección completa o parcial a la API de búsqueda de direccion
     |-----|------------|
     | roadUse | true |
 
-    Puede restringir la consulta de código geográfico inversa a un tipo específico de uso de carretera mediante el parámetro de consulta [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters).
+    Puede restringir la consulta de código geográfico inversa a un tipo específico de uso de carretera mediante el parámetro de consulta [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse).
   
 ## <a name="search-for-the-cross-street-using-reverse-address-cross-street-search"></a>Buscar la calle transversal mediante la búsqueda de calles transversales de direcciones inversa
 

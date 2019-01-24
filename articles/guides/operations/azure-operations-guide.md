@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 4ced3aa9b7d37543b4942bbfa9a5605058a614d8
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 508614d2126d95323ce3550954b4b8a7d4d9d7d8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014742"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438818"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Introducción para operadores de TI de Azure
 
@@ -169,7 +169,7 @@ Además de crear, administrar y eliminar recursos mediante Azure Portal, puede a
 
 #### <a name="azure-powershell"></a>Azure PowerShell
 
-Azure PowerShell es un conjunto de módulos que ofrece varios cmdlet para administrar Azure. Puede usar los cmdlet para crear, administrar y eliminar servicios de Azure. Con los cmdlet puede lograr implementaciones coherentes, repetibles y sin intervención humana. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Azure PowerShell es un conjunto de módulos que ofrece varios cmdlet para administrar Azure. Puede usar los cmdlet para crear, administrar y eliminar servicios de Azure. Con los cmdlet puede lograr implementaciones coherentes, repetibles y sin intervención humana. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 #### <a name="azure-command-line-interface"></a>Interfaz de la línea de comandos de Azure
 

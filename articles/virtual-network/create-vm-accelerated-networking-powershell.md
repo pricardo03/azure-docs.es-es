@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
-ms.openlocfilehash: de69cdf69f30639d048dccd7d433c86f6cb9db7b
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 3ba7e8129d577faa87544f8feded51a14559eb51
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894198"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435539"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Creación de una máquina virtual Windows con Accelerated Networking
 
@@ -46,17 +46,17 @@ Se admiten las siguientes distribuciones de fábrica desde la galería de Azure:
 * **Windows Server 2012 R2 Datacenter** 
 
 ### <a name="supported-vm-instances"></a>Instancias de máquina virtual admitidas
-Las redes aceleradas se admiten con la mayoría de tamaños de instancia de fin general y optimizados para procesos de dos o más vCPU.  Estas series admitidas son: DSv2/D y F/Fs.
+Accelerated Networking se admite con la mayoría de los tamaños de instancia de uso general y optimizados para procesos de dos o más vCPU.  Estas series admitidas son: D/DSv2 y F/Fs
 
-En instancias que admiten hyperthreading, las redes aceleradas se admiten en instancias de máquina virtual con cuatro o más vCPU. Las series admitidas son: D/DSv3, E/ESv3, Fsv2 y Ms/Mms.
+En instancias que admiten hyperthreading, las redes aceleradas se admiten en instancias de máquina virtual con cuatro o más vCPU. Las series admitidas son: D/DSv3, E/ESv3, Fsv2 y Ms/Mms
 
 Para más información sobre las instancias de máquinas virtuales, consulte [Tamaños de las máquinas virtuales con Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="regions"></a>Regiones
 Está disponible en todas las regiones públicas de Azure y la nube de Azure Government.
 
-### <a name="enabling-accelerated-networking-on-a-running-vm"></a>Habilitación de redes aceleradas en una máquina virtual en ejecución
-Un tamaño de máquina virtual admitido sin tener habilitadas redes aceleradas solo puede tener la característica habilitada cuando se detiene o se desasigna la máquina virtual.
+### <a name="enabling-accelerated-networking-on-a-running-vm"></a>Habilitación de Accelerated Networking en una máquina virtual en ejecución
+Un tamaño de máquina virtual admitido sin tener habilitado Accelerated Networking solo puede tener la característica habilitada cuando se detiene o se desasigna la máquina virtual.
 
 ### <a name="deployment-through-azure-resource-manager"></a>Implementación mediante Azure Resource Manager
 Las máquinas virtuales (clásicas) no se pueden implementar con redes aceleradas.
@@ -65,9 +65,9 @@ Las máquinas virtuales (clásicas) no se pueden implementar con redes acelerada
 
 Aunque en este artículo se explica cómo crear una máquina virtual con redes aceleradas mediante Azure PowerShell, también puede [crear una máquina virtual con redes aceleradas mediante Azure Portal](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Al crear una máquina virtual en el portal, en **Configuración**, seleccione **Habilitado** en **Redes aceleradas**. La opción para habilitar redes aceleradas no aparece en el portal a menos que haya seleccionado un [sistema operativo compatible](#supported-operating-systems) y un [tamaño de VM](#supported-vm-instances). Una vez creada la máquina virtual, debe seguir las instrucciones que se indican en [Confirmación de que el controlador está instalado en el sistema operativo](#confirm-the-driver-is-installed-in-the-operating-system).
 
-## <a name="create-a-virtual-network"></a>Crear una red virtual
+## <a name="create-a-virtual-network"></a>Creación de una red virtual
 
-Instale [Azure PowerShell](/powershell/azure/install-azurerm-ps) versión 5.1.1 o posterior. Para encontrar la versión instalada actualmente, ejecute `Get-Module -ListAvailable AzureRM`. Si necesita instalar o actualizar una versión, instale la más reciente del módulo AzureRM desde la [Galería de PowerShell](https://www.powershellgallery.com/packages/AzureRM). En una sesión de PowerShell, inicie sesión en una cuenta de Azure con [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount).
+Instale [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) versión 5.1.1 o posterior. Para encontrar la versión instalada actualmente, ejecute `Get-Module -ListAvailable AzureRM`. Si necesita instalar o actualizar una versión, instale la más reciente del módulo AzureRM desde la [Galería de PowerShell](https://www.powershellgallery.com/packages/AzureRM). En una sesión de PowerShell, inicie sesión en una cuenta de Azure con [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount).
 
 En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Los nombres de parámetro de ejemplo incluían *myResourceGroup*, *myNic* y *myVM*.
 
@@ -213,24 +213,24 @@ Una vez creada la máquina virtual en Azure, conéctese a ella y confirme que el
 
 Las redes aceleradas ya están habilitadas para su máquina virtual.
 
-## <a name="enable-accelerated-networking-on-existing-vms"></a>Habilitación de redes aceleradas en máquinas virtuales existentes
-Si ha creado una máquina virtual sin redes aceleradas, es posible habilitar esta característica en una máquina virtual existente.  Para admitir redes aceleradas, la máquina virtual debe cumplir los siguientes requisitos previos que también se han descrito anteriormente:
+## <a name="enable-accelerated-networking-on-existing-vms"></a>Habilitación de Accelerated Networking en máquinas virtuales existentes
+Si ha creado una VM sin Accelerated Networking, es posible habilitar esta característica en una VM existente.  Para admitir Accelerated Networking, la VM debe cumplir los siguientes requisitos previos que también se han descrito anteriormente:
 
-* La máquina virtual debe tener un tamaño admitido para redes aceleradas.
-* La máquina virtual debe ser una imagen admitida de la galería de Azure (y la versión de kernel de Linux).
-* Todas las máquinas virtuales de un conjunto de disponibilidad o VMSS se deben detener o desasignar antes de habilitar las redes aceleradas en cualquier NIC.
+* La VM debe tener un tamaño admitido para Accelerated Networking.
+* La VM debe ser una imagen admitida de la galería de Azure (y la versión de kernel de Linux).
+* Todas las máquinas virtuales de un conjunto de disponibilidad o VMSS se deben detener o desasignar antes de habilitar Accelerated Networking en cualquier NIC.
 
-### <a name="individual-vms--vms-in-an-availability-set"></a>Máquinas virtuales individuales y máquinas virtuales de un conjunto de disponibilidad
-En primer lugar, detenga o desasigne la máquina virtual o, en el caso de un conjunto de disponibilidad, todas las máquinas virtuales del conjunto:
+### <a name="individual-vms--vms-in-an-availability-set"></a>VM individuales y VM de un conjunto de disponibilidad
+En primer lugar, detenga o desasigne la VM o, en el caso de un conjunto de disponibilidad, todas las VM del conjunto:
 
 ```azurepowershell
 Stop-AzureRmVM -ResourceGroup "myResourceGroup" `
     -Name "myVM"
 ```
 
-Es importante tener en cuenta que si la máquina virtual se creó de forma individual, sin un conjunto de disponibilidad, solo es necesario detener o desasignar esa máquina virtual individual para habilitar las redes aceleradas.  Si la máquina virtual se creó con un conjunto de disponibilidad, será necesario detener o desasignar todas las máquinas virtuales contenidas en el conjunto de disponibilidad antes de habilitar las redes aceleradas en cualquiera de las NIC. 
+Es importante tener en cuenta que, si la máquina virtual se creó de forma individual, sin un conjunto de disponibilidad, solo es necesario detener o desasignar esa máquina virtual individual para habilitar Accelerated Networking.  Si la máquina virtual se creó con un conjunto de disponibilidad, será necesario detener o desasignar todas las máquinas virtuales contenidas en el conjunto de disponibilidad antes de habilitar Accelerated Networking en cualquiera de las NIC. 
 
-Una vez detenida, habilite las redes aceleradas en la NIC de la máquina virtual:
+Una vez detenida, habilite Accelerated Networking en la NIC de la máquina virtual:
 
 ```azurepowershell
 $nic = Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
@@ -241,7 +241,7 @@ $nic.EnableAcceleratedNetworking = $true
 $nic | Set-AzureRmNetworkInterface
 ```
 
-Reinicie la máquina virtual o, en el caso de un conjunto de disponibilidad, todas las máquinas virtuales del conjunto, y confirme que están habilitadas las redes aceleradas: 
+Reinicie la máquina virtual o, en el caso de un conjunto de disponibilidad, todas las máquinas virtuales del conjunto, y confirme que Accelerated Networking está habilitado: 
 
 ```azurepowershell
 Start-AzureRmVM -ResourceGroup "myResourceGroup" `
@@ -249,14 +249,14 @@ Start-AzureRmVM -ResourceGroup "myResourceGroup" `
 ```
 
 ### <a name="vmss"></a>VMSS
-VMSS es ligeramente diferente, pero sigue el mismo flujo de trabajo.  En primer lugar, detenga las máquinas virtuales:
+VMSS es ligeramente diferente, pero sigue el mismo flujo de trabajo.  En primer lugar, detenga las VM:
 
 ```azurepowershell
 Stop-AzureRmVmss -ResourceGroupName "myResourceGroup" ` 
     -VMScaleSetName "myScaleSet"
 ```
 
-Una vez detenidas las máquinas virtuales, actualice la propiedad Redes aceleradas bajo la interfaz de red:
+Una vez detenidas las VM, actualice la propiedad Accelerated Networking bajo la interfaz de red:
 
 ```azurepowershell
 $vmss = Get-AzureRmVmss -ResourceGroupName "myResourceGroup" `
@@ -269,7 +269,7 @@ Update-AzureRmVmss -ResourceGroupName "myResourceGroup" `
     -VirtualMachineScaleSet $vmss
 ```
 
-Tenga en cuenta que un VMSS tiene actualizaciones de máquina virtual que aplican actualizaciones mediante tres valores diferentes: automático, gradual y manual.  En estas instrucciones la directiva se establece en automático para que el VMSS recoja los cambios inmediatamente después de reiniciarse.  Para establecerla en automático para que los cambios se recojan inmediatamente: 
+Tenga en cuenta que un VMSS tiene actualizaciones de VM que aplican actualizaciones mediante tres valores diferentes: automático, gradual y manual.  En estas instrucciones, la directiva se establece en automático para que el VMSS recoja los cambios inmediatamente después de reiniciarse.  Para establecerla en automático para que los cambios se recojan inmediatamente: 
 
 ```azurepowershell
 $vmss.UpgradePolicy.AutomaticOSUpgrade = $true
@@ -290,12 +290,12 @@ Después de reiniciar, espere a que las actualizaciones finalicen y la función 
 
 ### <a name="resizing-existing-vms-with-accelerated-networking"></a>Cambio del tamaño de las máquinas virtuales existentes con las redes aceleradas
 
-Las máquinas virtuales con redes aceleradas habilitadas solo pueden cambiar al tamaño de máquinas virtuales que admitan redes aceleradas.  
+Las VM con Accelerated Networking habilitado solo pueden cambiar al tamaño de VM que admitan Accelerated Networking.  
 
-Una máquina virtual con redes aceleradas habilitadas no puede cambiar al tamaño de una instancia de máquina virtual que no admita redes aceleradas mediante la operación de cambio de tamaño.  Para cambiar el tamaño de una de estas máquinas virtuales, debe hacer lo siguiente: 
+Una VM con Accelerated Networking habilitado no puede cambiar al tamaño de una instancia de VM que no admita Accelerated Networking mediante la operación de cambio de tamaño.  Para cambiar el tamaño de una de estas VM, debe hacer lo siguiente: 
 
-* Detener o desasignar la máquina virtual o, si se trata de un conjunto de disponibilidad o VMSS, detener o desasignar todas las máquinas virtuales del conjunto o VMSS.
-* Las redes aceleradas deben estar deshabilitadas en la NIC de la máquina virtual o, si están en un conjunto de disponibilidad o VMSS, de todas las máquinas virtuales del conjunto o VMSS.
+* Detener o desasignar la VM o, si se trata de un conjunto de disponibilidad o VMSS, detener o desasignar todas las VM del conjunto o VMSS.
+* Accelerated Networking debe estar deshabilitado en la NIC de la VM o, si está en un conjunto de disponibilidad o VMSS, de todas las VM del conjunto o VMSS.
 * Una vez deshabilitadas, la máquina virtual, el conjunto de disponibilidad o el VMSS se pueden mover a un nuevo tamaño que no admita redes aceleradas y reiniciarse.  
 
 

@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 12/12/2018
-ms.openlocfilehash: 4616ab535e7edca6d5f919824e9cadaf90886d5f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 1/22/2019
+ms.openlocfilehash: 843107b8d251c2073ba9e02beacb16ab7615eca6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548569"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470739"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitaciones en Azure Database for PostgreSQL
 En las secciones siguientes se describen los límites de capacidad y funcionales en el servicio de base de datos.
@@ -33,7 +33,7 @@ El número máximo de conexiones por plan de tarifa y núcleos virtuales es el s
 |Memoria optimizada| 4| 500|
 |Memoria optimizada| 8| 960|
 |Memoria optimizada| 16| 1900|
-|Memoria optimizada| 32| 3000|
+|Memoria optimizada| 32| 1900|
 
 Si las conexiones superan el límite, puede que reciba el error siguiente:
 > FATAL:  sorry, too many clients already

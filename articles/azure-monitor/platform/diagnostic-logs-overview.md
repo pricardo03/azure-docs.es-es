@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
-ms.component: logs
-ms.openlocfilehash: 88cd6bac85a8f255c33c1834485b8f90a04b8ee4
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.subservice: logs
+ms.openlocfilehash: 44950a467e99fb7968d838345d80c8e28aee62b9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54305390"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467475"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Recopile y use los datos de registro provenientes de los recursos de Azure
 
@@ -236,3 +236,4 @@ Al agregar una opción de configuración de diagnóstico, se abre la vista Confi
 * [Transmisión de registros de diagnóstico a **Event Hubs**](diagnostic-logs-stream-event-hubs.md)
 * [Cambio de la configuración de diagnóstico de recursos con la API de REST de Azure Monitor](https://docs.microsoft.com/rest/api/monitor/)
 * [Análisis de registros desde Azure Storage con Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
+

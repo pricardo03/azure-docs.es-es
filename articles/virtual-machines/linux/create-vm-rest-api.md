@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 3eeaee9bc6320231f10aa85227e2f43756181806
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 22a800e65c0f64dfa897433d1ea983006ed62250
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433487"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412196"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Creación de una máquina virtual Linux que usa la autenticación de SSH con la API REST
 
@@ -35,7 +35,7 @@ En este artículo se muestra cómo usar la API REST para crear una máquina virt
 Antes de crear y enviar la solicitud, necesitará:
 
 * El parámetro `{subscription-id}` para su suscripción
-  * Si tiene varias suscripciones, consulte [Trabajo con varias suscripciones](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions).
+  * Si tiene varias suscripciones, consulte [Trabajo con varias suscripciones](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
 * Un parámetro `{resourceGroupName}` que ha creado de antemano
 * Una [interfaz de red virtual](../../virtual-network/virtual-network-network-interface.md) en el mismo grupo de recursos
 * Un par de claves SSH (puede [generar una nueva](mac-create-ssh-keys.md) si no tiene ninguna)

@@ -9,32 +9,30 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: 8bbdd2d49171ee8f4e7eb3cc0def1c7a6e59806b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 05331c710817e575deb7729189c9b2d8ccbafd7d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193476"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54489609"
 ---
-Inicie sesión en [Azure Portal](https://portal.azure.com/) con las credenciales de la suscripción de Azure que va a usar. 
-
-El panel del área de trabajo del portal solo es compatible con los exploradores Microsoft Edge, Chrome y Firefox.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con las credenciales de la suscripción de Azure que va a usar. 
 
    ![Azure Portal](./media/aml-create-in-portal/portal-dashboard.png)
 
-En la esquina superior izquierda del portal, seleccione **Crear un recurso**.
+1. En la esquina superior izquierda del portal, seleccione **Crear un recurso**.
 
    ![Creación de un recurso en Azure Portal](./media/aml-create-in-portal/portal-create-a-resource.png)
 
-Escriba **Machine Learning** en la barra de búsqueda. Seleccione el resultado de la búsqueda llamado **Área de trabajo del servicio de Machine Learning**.
+1. Escriba **Machine Learning** en la barra de búsqueda. Seleccione el resultado de la búsqueda llamado **Área de trabajo del servicio de Machine Learning**.
 
    ![Búsqueda de un área de trabajo](./media/aml-create-in-portal/allservices-search.PNG)
 
-En el panel **Área de trabajo del servicio de ML**, desplácese hasta la parte inferior y seleccione **Crear** para comenzar.
+1. En el panel **Área de trabajo del servicio de ML**, desplácese hasta la parte inferior y seleccione **Crear** para comenzar.
 
    ![Crear](./media/aml-create-in-portal/portal-create-button.png)
 
-En el panel **Área de trabajo del servicio de Machine Learning**, configure el área de trabajo.
+1. En el panel **Área de trabajo del servicio de Machine Learning**, configure el área de trabajo.
 
    Campo|DESCRIPCIÓN
    ---|---
@@ -45,10 +43,10 @@ En el panel **Área de trabajo del servicio de Machine Learning**, configure el 
 
    ![Creación del espacio de trabajo](./media/aml-create-in-portal/workspace-create.png)
 
-Seleccione **Crear** para comenzar el proceso de creación. El área de trabajo puede tardar unos momentos en crearse.
+1. Seleccione **Crear** para comenzar el proceso de creación. El área de trabajo puede tardar unos momentos en crearse.
 
-Para comprobar el estado de la implementación, seleccione el icono Notificaciones (**campana**) en la barra de herramientas.
+1. Para comprobar el estado de la implementación, seleccione el icono Notificaciones (**campana**) en la barra de herramientas.
+
+1. Cuando finalice el proceso, aparecerá un mensaje de implementación correcta. También está presente en la sección de notificaciones. Para ver la nueva área de trabajo, seleccione **Ir al recurso**.
 
    ![Estado de creación del área de trabajo](./media/aml-create-in-portal/notifications.png)
-
-Cuando finalice el proceso, aparecerá un mensaje de implementación correcta. También está presente en la sección de notificaciones. Para ver la nueva área de trabajo, seleccione **Ir al recurso**.

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: dobett
-ms.openlocfilehash: f10f1da93df6a313525e102e4906cfe67a5f6ae3
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: b190390840a765953a2125348c3c9188f6bf7d37
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351889"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452044"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configuración de la seguridad de X.509 en Azure IoT Hub
 
@@ -63,7 +63,7 @@ Estos pasos muestran cómo agregar una entidad de certificación nueva a una ins
  
 9. Cargue la firma resultante del paso 8 en su instancia de IoT Hub del portal. En la hoja **Detalles del certificado** de Azure Portal, navegue hasta **Archivo .pem o .cer del certificado de verificación** y seleccione la firma, por ejemplo, *VerifyCert4.cer* creado por el comando de PowerShell de ejemplo mediante el icono del _Explorador de archivos_ que aparece al lado.
 
-10. Una vez que el certificado se cargue correctamente, haga clic en **Comprobar**. El **ESTADO** del certificado cambia a **_Comprobado_** en la hoja **Certificados**. Si no se actualiza automáticamente, haga clic en **Actualizar**.
+10. Una vez que el certificado se cargue correctamente, haga clic en **Verificar**. El **ESTADO** del certificado cambia a **_Comprobado_** en la hoja **Certificados**. Si no se actualiza automáticamente, haga clic en **Actualizar**.
 
    ![Cargar comprobación de certificado](./media/iot-hub-security-x509-get-started/upload-cert-verification.png)  
 

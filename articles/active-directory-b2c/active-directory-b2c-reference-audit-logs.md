@@ -3,19 +3,19 @@ title: Ejemplos y definiciones de los registros de auditoría en Azure Active Di
 description: Orientación y ejemplos para acceder a los registros de auditoría de Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 93ca61c610856ebba64bff46b2338090f317ad56
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 56bd0dec5a829b055148668c4cad17055b2ed0e5
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302041"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54843679"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Acceso a los registros de auditoría de Azure AD B2C
 

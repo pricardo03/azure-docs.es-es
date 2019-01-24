@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pullabhk
 ms.assetid: 80da8ece-2cce-40dd-8dce-79960b6ae073
-ms.openlocfilehash: 4ead84ef415dcb85682b15414380055d8799b54c
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: bbeccd03fffb699c95d52d50ec5c45e38b43ef51
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051227"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430405"
 ---
 # <a name="use-powershell-to-back-up-and-restore-azure-file-shares"></a>Uso de PowerShell para la copia de seguridad y restauración de recursos compartidos de archivos de Azure
 
@@ -34,7 +34,7 @@ Para ver la referencia del cmdlet de PowerShell **AzureRm.RecoveryServices.Backu
 ## <a name="setup-and-registration"></a>Instalación y registro
 
 > [!NOTE]
-> Como se indica en [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0), la compatibilidad con nuevas funcionalidades del módulo AzureRM finaliza en noviembre de 2018. El soporte técnico se proporciona para la copia de seguridad de los recursos compartidos de archivos de Azure con el nuevo módulo de Azure PowerShell ahora disponible con carácter general.
+> Como se indica en [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0), la compatibilidad con nuevas funcionalidades del módulo AzureRM finaliza en noviembre de 2018. El soporte técnico se proporciona para la copia de seguridad de los recursos compartidos de archivos de Azure con el nuevo módulo de Azure PowerShell ahora disponible con carácter general.
 
 Siga estos pasos para comenzar.
 

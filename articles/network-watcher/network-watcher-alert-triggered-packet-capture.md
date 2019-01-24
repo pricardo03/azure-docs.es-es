@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 2035d342a89ace6d286fc205c346591b29646c5d
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: fd7e7151d8ec676239ed810fb700149aab0fe0fa
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270151"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427409"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Uso de capturas de paquetes para realizar la supervisión proactiva de la red con alertas y Azure Functions
 
@@ -35,7 +35,7 @@ Con Network Watcher, la característica de alertas y las funciones del ecosistem
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* La versión más reciente de [Azure PowerShell](/powershell/azure/install-azurerm-ps).
+* La versión más reciente de [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 * Una instancia existente de Network Watcher. [Cree una instancia de Network Watcher](network-watcher-create.md) si aún no tiene una.
 * Una máquina virtual en la misma región que la instancia de Network Watcher con la [extensión Windows](../virtual-machines/windows/extensions-nwa.md) o la [extensión de máquina virtual Linux](../virtual-machines/linux/extensions-nwa.md).
 

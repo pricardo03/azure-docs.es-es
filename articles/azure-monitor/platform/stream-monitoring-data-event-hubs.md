@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
-ms.component: ''
-ms.openlocfilehash: 7225bc8121ddab8809ebb1c409a3af59dbcc42f2
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.subservice: ''
+ms.openlocfilehash: 424dc1611622a1dfc37419fd443d860698020524
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118394"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468240"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa
 
@@ -120,4 +120,5 @@ El enrutamiento de los datos de supervisión a un centro de eventos con Azure Mo
 * [(Archivado del registro de actividades en una cuenta de almacenamiento)](../../azure-monitor/platform/archive-activity-log.md)
 * [Lea la información general sobre el registro de actividades de Azure](../../azure-monitor/platform/activity-logs-overview.md)
 * [Configure una alerta basada en un evento del registro de actividades](../../azure-monitor/platform/alerts-log-webhook.md)
+
 

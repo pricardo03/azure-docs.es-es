@@ -3,19 +3,19 @@ title: Configuración del inicio de sesión con una cuenta de Google en Azure Ac
 description: Configure el inicio de sesión con una cuenta de Google en Azure Active Directory B2C mediante directivas personalizadas.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5f4aaef65620a2c6f268f123544c7ecf71dccb82
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 6f621b831ae6025e5c214a9f63c76b226e20e828
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887281"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851307"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión con una cuenta de Google en Azure Active Directory B2C mediante directivas personalizadas
 
@@ -53,7 +53,7 @@ Debe almacenar el secreto de cliente que haya registrado previamente en el inqui
 4. En la página de introducción, seleccione **Marco de experiencia de identidad - VERSIÓN PRELIMINAR**.
 5. Seleccione **Claves de directiva** y luego **Agregar**.
 6. En **Opciones**, elija `Manual`.
-7. Escriba un **Nombre** para la clave de directiva. Por ejemplo, `GoogleSecret`. Se agregará el prefijo `B2C_1A_` automáticamente al nombre de la clave.
+7. Escriba un **nombre** para la clave de directiva. Por ejemplo, `GoogleSecret`. Se agregará el prefijo `B2C_1A_` automáticamente al nombre de la clave.
 8. En **Secreto**, escriba el secreto de cliente que haya registrado previamente.
 9. En **Uso de claves**, seleccione `Signature`.
 10. Haga clic en **Create**(Crear).
@@ -136,7 +136,7 @@ El proveedor de identidades ya se ha configurado, pero no está disponible en ni
 El elemento **ClaimsProviderSelection** es análogo a un botón del proveedor de identidades en una pantalla de registro o de inicio de sesión. Si agrega un elemento **ClaimsProviderSelection** para una cuenta de Google, se muestra un nuevo botón cuando un usuario llega a la página.
 
 1. Busque el elemento **OrchestrationStep** que incluye `Order="1"` en el recorrido del usuario que ha creado.
-2. En **ClaimsProviderSelects**, agregue el siguiente elemento. Establezca un valor adecuado en **TargetClaimsExchangeId**, por ejemplo `GoogleExchange`:
+2. En **ClaimsProviderSelects**, agregue el siguiente elemento. Establezca un valor adecuado en **TargetClaimsExchangeId**, por ejemplo, `GoogleExchange`:
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="GoogleExchange" />
@@ -153,9 +153,9 @@ Ahora que hay un botón colocado, es preciso vincularlo a una acción. En este c
     <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAuth" />
     ```
     
-    Actualice el valor de **TechnicalProfileReferenceId** con el **identificador** del perfil técnico que creó anteriormente. Por ejemplo, `Google-OAuth`.
+    Actualice el valor de **TechnicalProfileReferenceId** al elemento **Id** del perfil técnico que creó anteriormente. Por ejemplo, `Google-OAuth`.
 
-3. Guarde el archivo *TrustFrameworkExtensions.xml* y cárguelo de nuevo para realizar el proceso de comprobación.
+3. Guarde el archivo *TrustFrameworkExtensions.xml* y cárguelo de nuevo a fin de verificarlo.
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Creación de una aplicación de Azure AD B2C
 

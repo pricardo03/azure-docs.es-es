@@ -10,17 +10,17 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 36db91cd7c4dad3c28c0c110ee837ca6d1284959
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 3b272dd1c5b12c9f171c7e8c7c346f4d6cd4b777
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575396"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413879"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Instrucciones para diseñar tablas distribuidas en Azure SQL Data Warehouse
 Recomendaciones para diseñar tablas distribuidas por hash y tablas distribuidas por round robin en Azure SQL Data Warehouse.
 
-En este artículo se da por supuesto que está familiarizado con los conceptos de distribución y movimiento de datos en SQL Data Warehouse.  Para obtener más información, consulte [Azure SQL Data Warehouse: arquitectura de procesamiento paralelo masivo (MPP)](massively-parallel-processing-mpp-architecture.md). 
+En este artículo se da por supuesto que está familiarizado con los conceptos de distribución y movimiento de datos en SQL Data Warehouse.  Para obtener más información, consulte [Azure SQL Data Warehouse: arquitectura de procesamiento paralelo masivo (MPP)](massively-parallel-processing-mpp-architecture.md). 
 
 ## <a name="what-is-a-distributed-table"></a>¿Qué es una tabla distribuida?
 Una tabla distribuida aparece como una sola tabla pero las filas se almacenan realmente en 60 distribuciones. Las filas se distribuyen con un algoritmo hash o round robin.  
@@ -29,11 +29,11 @@ Las **tablas distribuidas por hash** mejoran el rendimiento de las consultas en 
 
 Otra opción de almacenamiento de tabla es replicar una tabla pequeña en todos los nodos de proceso. Para más información, consulte [Instrucciones de diseño para el uso de tablas replicadas en Azure SQL Data Warehouse](design-guidance-for-replicated-tables.md). Para elegir rápidamente entre las tres opciones, consulte Tablas distribuidas en [Información general de Tablas](sql-data-warehouse-tables-overview.md). 
 
-Como parte del diseño de tablas, comprenda tanto como sea posible sobre los datos y cómo se consultan los datos.  Por ejemplo, considere estas preguntas:
+Como parte del diseño de tablas, comprenda tanto como sea posible sobre los datos y cómo se consultan los datos.  Por ejemplo, considere estas preguntas:
 
-- ¿Qué tamaño tiene la tabla?   
-- ¿Con qué frecuencia se actualiza la tabla?   
-- ¿Tiene tablas de hechos y dimensiones en un almacenamiento de datos?   
+- ¿Qué tamaño tiene la tabla?   
+- ¿Con qué frecuencia se actualiza la tabla?   
+- ¿Tiene tablas de hechos y dimensiones en un almacenamiento de datos?   
 
 
 ### <a name="hash-distributed"></a>Distribución por hash
@@ -147,7 +147,7 @@ where two_part_name in
     from dbo.vTableSizes
     where row_count > 0
     group by two_part_name
-    having min(row_count * 1.000)/max(row_count * 1.000) > .10
+    having (max(row_count * 1.000) - min(row_count * 1.000))/max(row_count * 1.000) >= .10
     )
 order by two_part_name, row_count
 ;

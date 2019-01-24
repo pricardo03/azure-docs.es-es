@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/4/2018
 ms.author: shtabriz
-ms.openlocfilehash: dcc978c8e169cca2e2cd91a63ef1814a8c3bd87c
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: ee5712915e552168c0268a44af60ea58e069fc11
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184107"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429543"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configuración de alertas de estado de los recursos con plantillas de Resource Manager
 
@@ -31,7 +31,7 @@ Azure Resource Health le mantiene informado sobre el estado actual y pasado de s
 
 Para seguir las instrucciones que aparecen en esta página, necesita de antemano algunas cosas:
 
-1. Debe instalar el [módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (`AzureRm`)
+1. Debe instalar el [módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) (`AzureRm`)
 2. Debe [crear o volver a usar un grupo de acciones](../azure-monitor/platform/action-groups.md) configurado para recibir notificaciones
 
 ## <a name="instructions"></a>Instrucciones

@@ -3,7 +3,7 @@ title: 'Restauración o eliminación permanente de un usuario recién eliminado:
 description: Visualización de los usuarios que se pueden restaurar, restauración de un usuario eliminado o eliminación permanente de un usuario en Azure Active Directory.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -12,12 +12,12 @@ ms.date: 12/17/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 066c9189e0c3cea409a99217e0ab4b46002df1f9
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 995a6a9da637c23663c51fe2f4b175741f5849b6
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556788"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450330"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Restauración o eliminación de un usuario recientemente eliminado mediante Azure Active Directory
 Después de eliminar a un usuario, la cuenta permanece en estado de suspensión durante 30 días. Durante ese período de 30 días, la cuenta de usuario se puede restaurar, junto con todas sus propiedades. Después de que pase esa ventana de 30 días, el usuario se elimina automáticamente y de forma permanente.
@@ -59,9 +59,6 @@ Mientras una cuenta de usuario está suspendida, se conserva toda la informació
 2. Seleccione **Restaurar usuario**.
 
     ![Página Usuarios - usuarios eliminados, con la opción Restaurar usuario resaltada](media/active-directory-users-restore/users-deleted-users-restore-user.png)
-
->[!NOTE]
->Anteriormente, cuando se quitaba un usuario del ámbito de sincronización local y se eliminaba de la nube, el estado DirSyncEnabled de la cuenta se establecía erróneamente en "False". Si, posteriormente, ese usuario se restauraba manualmente de la papelera de reciclaje de Azure AD, se mostraba un estado incorrecto de cuenta de "Solo nube". Este problema ya se ha solucionado y el valor del estado DirSyncEnabled siempre se mantiene en "True" cuando un usuario se quita del ámbito de sincronización. A continuación, se elimina temporalmente y se restaura manualmente desde la papelera de reciclaje de Azure AD.
 
 ## <a name="permanently-delete-a-user"></a>Eliminar un usuario permanentemente
 Puede eliminar permanentemente un usuario desde el directorio sin esperar a que transcurran los 30 días de la eliminación automática. Ni usted, ni otro administrador, ni la asistencia técnica de Microsoft pueden restaurar a un usuario eliminado permanentemente.

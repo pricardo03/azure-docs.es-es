@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 05/08/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: a7198683a643d643a76aefee22a3ad08e27c7fc9
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 4d2b39d2fefed3532486a4e0a7b713a16c9f8760
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984062"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437138"
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Conceda permisos a los usuarios de organizaciones asociadas en el inquilino de Azure Active Directory
 
@@ -35,5 +35,5 @@ Los usuarios de colaboración B2B de Azure Active Directory (Azure AD) se agrega
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [¿Qué es la colaboración de Azure AD B2B?](what-is-b2b.md)
+- [¿Qué es la colaboración B2B de Azure AD?](what-is-b2b.md)
 - [Propiedades de usuario de la colaboración B2B](user-properties.md)

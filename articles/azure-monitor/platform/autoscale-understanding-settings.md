@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.author: ancav
-ms.component: autoscale
-ms.openlocfilehash: af7e280c7dcd82c18e91ded759756c3826342cd3
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: autoscale
+ms.openlocfilehash: 02840b8a909f46c37130bdb7162674c694a0ff96
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53587461"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474836"
 ---
 # <a name="understand-autoscale-settings"></a>Información acerca de la configuración de escalado automático
 La configuración de escalado automático le ayuda a asegurarse de que tiene la cantidad adecuada de recursos en ejecución para administrar las fluctuaciones de carga de la aplicación. Puede configurar los valores de escalado automático para que se desencadene en función de métricas que indican carga o rendimiento, o para que se desencadene en una fecha y hora programadas. En este artículo se proporciona una visión detallada de la estructura de una configuración de escalado automático. El artículo comienza con el esquema y las propiedades de una configuración y luego le guía por los diferentes tipos de perfil que se pueden configurar. Por último, en el artículo se describe cómo la característica de escalado automático de Azure evalúa qué perfil ejecutar en un momento dado.
@@ -310,3 +310,4 @@ Para más información sobre el escalado automático, consulte los siguientes re
 * [Procedimientos recomendados de escalado automático en Azure Monitor](../../azure-monitor/platform/autoscale-best-practices.md)
 * [Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Insights](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [API de REST de escalado automático](https://msdn.microsoft.com/library/dn931953.aspx)
+

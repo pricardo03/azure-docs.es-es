@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 0c819e4efb158baa2150b00368c618c5467a01e0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 01/17/2019
+ms.openlocfilehash: 60c7483e698a07fcf86438798f6bb5013a7417ce
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966788"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391139"
 ---
 # <a name="azure-sql-transparent-data-encryption-bring-your-own-key-support"></a>Cifrado de datos transparente de Azure SQL: compatibilidad con Bring Your Own Key
 
@@ -116,7 +116,7 @@ En la sección siguiente se recorren los pasos de instalación y configuración 
 
 ### <a name="azure-key-vault-configuration-steps"></a>Pasos de configuración de Azure Key Vault
 
-- Instale [PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
+- Instale [PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-5.6.0).
 - Cree dos almacenes de Azure Key Vault en dos regiones diferentes mediante [PowerShell para habilitar la propiedad de "eliminación temporal"](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) en los almacenes de claves (esta opción no está disponible aún en el portal de AKV, pero es obligatoria para SQL).
 - Ambos almacenes de Azure Key Vault deben encontrarse en las dos regiones disponibles en la misma zona geográfica de Azure para que la copia de seguridad y la restauración de claves funcione.  Si necesita que los dos almacenes de claves se encuentren en diferentes zonas geográficas para satisfacer los requisitos de recuperación ante desastres con localización geográfica de SQL, siga el [proceso BYOK](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) que permite la importación de claves desde un HSM local.
 - Cree una nueva clave en el primer almacén de claves:  

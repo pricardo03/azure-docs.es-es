@@ -13,16 +13,16 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: da53fa7d20c66b09e06c70222f29f060fa5803c8
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c2ee0834b0c6872d96bebe71231f1a9424ff261a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387087"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438157"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD
 
-La seguridad de la mayoría de los recursos empresariales de la organización moderna, o de todos ellos, depende de la integridad de las cuentas con privilegios que administran los sistemas de TI. Actores malintencionados, entre los que se incluyen ciberatacantes, a menudo tienen como objetivo las cuentas de administrador y otros elementos con acceso privilegiado para intentar obtener acceso rápidamente a datos confidenciales y a sistemas mediante ataques de robo de credenciales. En el caso de los servicios en la nube, la prevención y la respuesta son responsabilidades conjuntas del proveedor de los servicios en la nube y del cliente. Para más información acerca de las amenazas más recientes a los puntos de conexión y a la nube, consulte el [informe de inteligencia de seguridad de Microsoft](https://www.microsoft.com/security/sir/default.aspx). Este artículo puede ayudarlo a desarrollar un mapa de ruta que cubra el espacio existente entre sus planes actuales y las directrices que se describen aquí.
+La seguridad de la mayoría de los recursos empresariales de la organización moderna, o de todos ellos, depende de la integridad de las cuentas con privilegios que administran los sistemas de TI. Actores malintencionados, entre los que se incluyen ciberatacantes, a menudo tienen como objetivo las cuentas de administrador y otros elementos con acceso privilegiado para intentar obtener acceso rápidamente a datos confidenciales y a sistemas mediante ataques de robo de credenciales. En el caso de los servicios en la nube, la prevención y la respuesta son responsabilidades conjuntas del proveedor de los servicios en la nube y del cliente. Para más información acerca de las amenazas más recientes a los puntos de conexión y a la nube, consulte el [informe de inteligencia de seguridad de Microsoft](https://www.microsoft.com/security/operations/security-intelligence-report). Este artículo puede ayudarlo a desarrollar un mapa de ruta que cubra el espacio existente entre sus planes actuales y las directrices que se describen aquí.
 
 > [!NOTE] 
 > Microsoft se compromete a ofrecer los mayores niveles de confianza, transparencia, así como de cumplimiento de estándares y reglamentaciones. Aprenda no solo la forma en que el equipo de respuesta a incidentes globales de Microsoft mitiga los efectos de los ataques contra los servicios en la nube, sino también la forma en que se incorpora la seguridad en los productos empresariales y servicios en la nube de Microsoft en [Microsoft Trust Center - Seguridad](https://www.microsoft.com/trustcenter/security)y destinos de cumplimiento de Microsoft en [Microsoft Trust Center - Cumplimiento normativo](https://www.microsoft.com/trustcenter/compliance).

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 0f223660f8dc99b590f8aa80a03d60fcbf3aa5d3
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.component: disks
+ms.openlocfilehash: 9bc230846714264d514b7e15962a2c99c838c7de
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232586"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465112"
 ---
 # <a name="create-a-snapshot"></a>Crear una instantánea
 
@@ -43,7 +44,7 @@ Si va a usar la instantánea para crear una máquina virtual, se recomienda un c
 
 Los pasos siguientes muestran cómo copiar el disco duro virtual, crear la configuración de la instantánea y crear una instantánea del disco con el cmdlet [New-AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot). 
 
-Antes de comenzar, asegúrese de que tiene la última versión del módulo de PowerShell AzureRM.Compute, que debe ser la versión 5.7.0 o posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, ejecute [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) para crear una conexión con Azure.
+Antes de comenzar, asegúrese de que tiene la última versión del módulo de PowerShell AzureRM.Compute, que debe ser la versión 5.7.0 o posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si PowerShell se ejecuta localmente, ejecute [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) para crear una conexión con Azure.
 
 1. Configure algunos parámetros: 
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: ed1fedab45ce59af2c67ed8a2ef60714d26d5801
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d418715ab651721d03b67bd411eb90607391bf10
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091033"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402343"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Introducción a Event Hubs dedicado
 
@@ -32,7 +32,7 @@ En la tabla siguiente se comparan niveles de servicio disponibles de Event Hubs.
 | --- |:---:|:---:|:---:|
 | Eventos de entrada | Pago por millones de eventos | Se incluye |
 | Unidad de rendimiento (entrada de 1 MB/seg., salida de 2 MB/seg.) | Pago por hora | Se incluye |
-| Tamaño de los mensajes | 256 KB | 1 MB |
+| Tamaño de los mensajes | 1 MB | 1 MB |
 | Directivas de publicadores | SÍ | SÍ |   
 | Grupos de consumidores | 20 | 20 |
 | Redifusión de mensajes | SÍ | SÍ |
@@ -47,7 +47,6 @@ En la tabla siguiente se comparan niveles de servicio disponibles de Event Hubs.
 Dispone de las siguientes ventajas cuando utiliza Event Hubs con capacidad dedicada:
 
 * Hospedaje de un solo inquilino sin ruido de otros inquilinos.
-* El tamaño de los mensajes aumenta a 1 MB frente a los 256 KB del nivel Estándar.
 * Rendimiento repetible cada vez.
 * Capacidad garantizada para satisfacer sus necesidades de ráfagas.
 * Incluye la función [Capture](event-hubs-capture-overview.md) de Event Hubs, para proporcionar integración con retención a largo plazo y de microlotes.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
-ms.openlocfilehash: 53aa40c047b2b5201cd74c0409d56e97d2880eb0
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 9f4bbf91b09abeb917fd9f49482881e33bf788ec
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602858"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413941"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportación de una API hospedada en Azure a PowerApps y Microsoft Flow
 
@@ -156,7 +156,7 @@ Al usar Azure AD, se necesitan dos registros de aplicación de Azure AD: uno par
 
 - Para configurar el registro de la API, utilice la característica [Autenticación/Autorización de App Service](../app-service/configure-authentication-provider-aad.md).
 
-- Para configurar el registro del conector, siga los pasos de [Agregar una aplicación de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-an-application). El registro debe tener acceso delegado a la API y una dirección URL de respuesta de `https://msmanaged-na.consent.azure-apim.net/redirect`. 
+- Para configurar el registro del conector, siga los pasos de [Agregar una aplicación de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). El registro debe tener acceso delegado a la API y una dirección URL de respuesta de `https://msmanaged-na.consent.azure-apim.net/redirect`. 
 
 Para más información, vea los ejemplos de registro de Azure AD para [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) y [Microsoft Flow](https://flow.microsoft.com/documentation/customapi-azure-resource-manager-tutorial/). En estos ejemplos se usa Azure Resource Manager como API; sustituya la API si sigue esos pasos.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 05/17/2017
-ms.openlocfilehash: 4b6eb0aa7011226fda667370f3e854081b795ae6
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: d336d659a15f5b4cb1cbc917a8ae10ab8224d029
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744877"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426325"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Trabajo en el ecosistema de Apache Hadoop en HDInsight desde un equipo con Windows
 
@@ -30,7 +30,7 @@ Ejemplos de tareas que puede realizar con PowerShell:
 * [Ejecución de consultas de Apache Hive mediante PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 * [Administración de clústeres con PowerShell](hdinsight-administer-use-powershell.md).
 
-Siga los pasos para [instalar y configurar Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) para obtener la versión más reciente. Si tiene scripts que se deben modificar para usar los nuevos cmdlets para Azure Resource Manager, consulte [Migración a las herramientas de desarrollo basadas en Azure Resource Manager para clústeres de HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md).
+Siga los pasos para [instalar y configurar Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) para obtener la versión más reciente. Si tiene scripts que se deben modificar para usar los nuevos cmdlets para Azure Resource Manager, consulte [Migración a las herramientas de desarrollo basadas en Azure Resource Manager para clústeres de HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md).
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>Utilidades que puede ejecutar en un explorador
 Las utilidades siguientes tienen una interfaz de usuario web que se ejecuta en un explorador:

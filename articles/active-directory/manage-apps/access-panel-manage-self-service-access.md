@@ -4,7 +4,7 @@ description: Habilitar el acceso de autoservicio a las aplicaciones para permiti
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: japere,asteen
-ms.openlocfilehash: 4936c6a0c7323ff5b607519c6d86c2428d7003bb
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: f291be2018898eb6ce5c9287dbb553ccfbc3f1d5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356253"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474207"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Uso del acceso de autoservicio a las aplicaciones
 

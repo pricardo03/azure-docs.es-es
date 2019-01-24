@@ -4,18 +4,18 @@ description: Tutorial que le guiará a través de la creación, prueba y publica
 keywords: runbook, plantilla de runbook, automatización de runbooks, runbook de azure
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 04/13/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6a9e6bbf3bc507a4d45af03c791104c9490cd36f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: be811d0dc2ce2eca0b20ca12165eaf0799bd6b5d
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195903"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426801"
 ---
 # <a name="my-first-graphical-runbook"></a>Mi primer runbook gráfico
 
@@ -28,7 +28,7 @@ ms.locfileid: "34195903"
 
 Este tutorial le guiará por la creación de un [runbook gráfico](automation-runbook-types.md#graphical-runbooks) en Azure Automation. Puede comenzar con un runbook simple que prueba y publica mientras aprende a cómo hacer un seguimiento del estado del trabajo del runbook. A continuación, puede modificar el runbook para administrar recursos de Azure, en este caso, iniciar una máquina virtual de Azure. Después, puede completar el tutorial haciendo el runbook más sólido con la adición de parámetros de runbook y vínculos condicionales.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, necesitará lo siguiente:
 
@@ -229,4 +229,5 @@ Ahora puede modificar el runbook para que solo intente iniciar la máquina virtu
 * Para obtener más información sobre la creación de gráficos, consulte [Creación gráfica en Azure Automation](automation-graphical-authoring-intro.md)
 * Para empezar a trabajar con Runbooks de PowerShell, consulte [Mi primer Runbook de PowerShell](automation-first-runbook-textual-powershell.md)
 * Para empezar a trabajar con Runbooks de flujo de trabajo de PowerShell, consulte [Mi primer Runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md)
+
 

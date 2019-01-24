@@ -2,18 +2,18 @@
 title: 'Azure AD Connect: Referencia de PowerShell ADSyncTools | Microsoft Docs'
 description: En este documento se proporciona información de referencia para el módulo de PowerShell ADSyncTools.psm1.
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 54d23bca29c38f258334d7b641b8c1f480da55e1
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3b98686730a0fbd65cd5fd64fe91d8c6fa06286e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054971"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478219"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect:  Referencia de PowerShell ADSyncTools
 En la siguiente documentación se proporciona información de referencia para el módulo de PowerShell ADSyncTools.psm1 que se incluye con Azure AD Connect.

@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: 8a8883989a731265fb358c119d44fa4243b54a5e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: 305aa28127e453c01de9b55ab6cb0ff3471afad9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103951"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473816"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solución de problemas de Azure Diagnostics
 En este artículo se proporciona información para la solución de problemas relacionados con el uso de Azure Diagnostics. Para obtener información sobre Azure Diagnostics, consulte la [introducción a Azure Diagnostics](diagnostics-extension-overview.md).
@@ -293,3 +293,4 @@ La experiencia del portal de las máquinas virtuales muestra de forma predetermi
 - Si los datos del almacenamiento tienen nombres de contadores en inglés. Si los nombres de los contadores no están en inglés, el gráfico de métricas del portal no podrá reconocerlos. **Mitigación**: cambie el idioma de la máquina a inglés en las cuentas del sistema. Para ello, seleccione **Panel de control** > **Región** > **Administración** > **Copiar configuración**. A continuación, anule la selección de la opción **Cuentas de sistema y de pantalla de bienvenida** para que el lenguaje personalizado no se aplique a la cuenta del sistema.
 
 - Si usa caracteres comodín (\*) en los nombres de los contadores de rendimiento, el portal no podrá correlacionar el contador de rendimiento configurado y el recopilado cuando estos se envíen al receptor de Azure Storage. **Mitigación**: para asegurarse de que puede usar caracteres comodín y que tiene el portal expandido (\*), enrute los contadores de rendimiento hacia el [receptor "Azure Monitor"](diagnostics-extension-schema.md#diagnostics-extension-111).
+

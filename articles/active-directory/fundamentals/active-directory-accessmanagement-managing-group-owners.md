@@ -3,7 +3,7 @@ title: Adición o eliminación de propietarios de grupos en Azure Active Directo
 description: Obtenga información acerca de cómo agregar o quitar propietarios del grupo con Azure Active Directory.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 8c70378993e0155cbe730a5a351848ca1a1daa0a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f765e99a4186e0790bfcad22dd2d1a17a98050c9
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087157"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450956"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Adición o eliminación de propietarios del grupo en Azure Active Directory
 Los grupos de Azure Active Directory (Azure AD) pertenecen a propietarios del grupo, quienes también lo administran. El propietario de un recurso (administrador) asigna propietarios del grupo para que administren un grupo y sus miembros. Los propietarios del grupo no deben ser miembros del grupo. Una vez se ha asignado un propietario del grupo, solo puede agregar o quitar propietarios el propietario de un recurso.

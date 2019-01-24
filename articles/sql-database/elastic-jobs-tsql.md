@@ -12,18 +12,18 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: eda71351b0375789d41808f9351cf000945b5f4c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: e00722259abaa02d3dce6ca26c8cd0ea7c42db29
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606816"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449408"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Use Transact-SQL (T-SQL) para crear y administrar trabajos de Elastic Database
 
 En este artículo se proporcionan muchos escenarios de ejemplo para empezar a trabajar con trabajos elásticos mediante T-SQL.
 
-En los ejemplos se utilizan los [procedimientos almacenados](#job-stored-procedures) y las [vistas](#job-views) disponibles en la [*base de datos de trabajo*](elastic-jobs-overview.md#job-database).
+En los ejemplos se utilizan los [procedimientos almacenados](#job-stored-procedures) y las [vistas](#job-views) disponibles en la [*base de datos de trabajo*](sql-database-job-automation-overview.md#job-database).
 
 Transact-SQL (T-SQL) se utiliza para crear, configurar, ejecutar y administrar los trabajos. La creación del agente de trabajos elásticos no se admite en T-SQL, por lo que debe crear primero un *agente de trabajos elásticos* mediante el portal o [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
 
@@ -53,7 +53,7 @@ GO
 ## <a name="create-a-target-group-servers"></a>Creación de un grupo de destino (servidores)
 
 En el ejemplo siguiente se muestra cómo ejecutar un trabajo en todas las bases de datos de un servidor.  
-Conéctese a la [*base de datos de trabajo*](elastic-jobs-overview.md#job-database) y ejecute el siguiente comando:
+Conéctese a la [*base de datos de trabajo*](sql-database-job-automation-overview.md#job-database) y ejecute el siguiente comando:
 
 
 ```sql
@@ -78,7 +78,7 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 ## <a name="exclude-a-single-database"></a>Exclusión de una base de datos única
 
 En el ejemplo siguiente se muestra cómo ejecutar un trabajo en todas las bases de datos de un servidor, excepto en la denominada *MappingDB*.  
-Conéctese a la [*base de datos de trabajo*](elastic-jobs-overview.md#job-database) y ejecute el siguiente comando:
+Conéctese a la [*base de datos de trabajo*](sql-database-job-automation-overview.md#job-database) y ejecute el siguiente comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -121,7 +121,7 @@ SELECT * FROM [jobs].target_group_members WHERE target_group_name = N'ServerGrou
 ## <a name="create-a-target-group-pools"></a>Creación de un grupo de destino (grupos)
 
 En el ejemplo siguiente se muestra cómo establecer como destino todas las bases de datos de uno o varios grupos elásticos.  
-Conéctese a la [*base de datos de trabajo*](elastic-jobs-overview.md#job-database) y ejecute el siguiente comando:
+Conéctese a la [*base de datos de trabajo*](sql-database-job-automation-overview.md#job-database) y ejecute el siguiente comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -146,7 +146,7 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name = N'PoolGroup';
 ## <a name="deploy-new-schema-to-many-databases"></a>Implementación del nuevo esquema en muchas bases de datos
 
 En el ejemplo siguiente se muestra cómo implementar el nuevo esquema en todas las bases de datos.  
-Conéctese a la [*base de datos de trabajo*](elastic-jobs-overview.md#job-database) y ejecute el siguiente comando:
+Conéctese a la [*base de datos de trabajo*](sql-database-job-automation-overview.md#job-database) y ejecute el siguiente comando:
 
 
 ```sql
@@ -195,7 +195,7 @@ De forma predeterminada, el agente de trabajo buscará crear la tabla para almac
 2. Columna adicional para internal_execution_id con el tipo de datos de uniqueidentifier.
 3. Un índice no agrupado denominado "IX_<TableName>_Internal_Execution_ID" en la columna internal_execution_id.
 
-Conéctese a la [*base de datos de trabajo*](elastic-jobs-overview.md#job-database) y ejecute los siguientes comandos:
+Conéctese a la [*base de datos de trabajo*](sql-database-job-automation-overview.md#job-database) y ejecute los siguientes comandos:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -266,7 +266,7 @@ SELECT elastic_pool_name , end_time, elastic_pool_dtu_limit, avg_cpu_percent, av
 ## <a name="view-job-definitions"></a>Visualización de definiciones de trabajos
 
 En el ejemplo siguiente se muestra cómo ver las definiciones de trabajos actuales.  
-Conéctese a la [*base de datos de trabajo*](elastic-jobs-overview.md#job-database) y ejecute el siguiente comando:
+Conéctese a la [*base de datos de trabajo*](sql-database-job-automation-overview.md#job-database) y ejecute el siguiente comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -287,7 +287,7 @@ select * from jobs.jobsteps
 ## <a name="begin-ad-hoc-execution-of-a-job"></a>Inicio de la ejecución ad hoc de un trabajo
 
 En el ejemplo siguiente se muestra cómo iniciar un trabajo inmediatamente.  
-Conéctese a la [*base de datos de trabajo*](elastic-jobs-overview.md#job-database) y ejecute el siguiente comando:
+Conéctese a la [*base de datos de trabajo*](sql-database-job-automation-overview.md#job-database) y ejecute el siguiente comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -310,7 +310,7 @@ exec jobs.sp_start_job 'CreateTableTest', 1
 ## <a name="schedule-execution-of-a-job"></a>Programación de la ejecución de un trabajo
 
 El ejemplo siguiente muestra cómo programar un trabajo para una ejecución futura.  
-Conéctese a la [*base de datos de trabajo*](elastic-jobs-overview.md#job-database) y ejecute el siguiente comando:
+Conéctese a la [*base de datos de trabajo*](sql-database-job-automation-overview.md#job-database) y ejecute el siguiente comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -325,7 +325,7 @@ EXEC jobs.sp_update_job
 ## <a name="monitor-job-execution-status"></a>Supervisión del estado de ejecución de trabajos
 
 En el ejemplo siguiente se muestra cómo ver los detalles del estado de ejecución de todos los trabajos.  
-Conéctese a la [*base de datos de trabajo*](elastic-jobs-overview.md#job-database) y ejecute el siguiente comando:
+Conéctese a la [*base de datos de trabajo*](sql-database-job-automation-overview.md#job-database) y ejecute el siguiente comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -354,7 +354,7 @@ ORDER BY start_time DESC
 ## <a name="cancel-a-job"></a>Cancelación de un trabajo
 
 En el ejemplo siguiente se muestra cómo cancelar un trabajo.  
-Conéctese a la [*base de datos de trabajo*](elastic-jobs-overview.md#job-database) y ejecute el siguiente comando:
+Conéctese a la [*base de datos de trabajo*](sql-database-job-automation-overview.md#job-database) y ejecute el siguiente comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -373,7 +373,7 @@ EXEC jobs.sp_stop_job '01234567-89ab-cdef-0123-456789abcdef'
 ## <a name="delete-old-job-history"></a>Eliminación del historial de trabajos antiguos
 
 En el ejemplo siguiente se muestra cómo eliminar el historial de trabajos anteriores a una fecha concreta.  
-Conéctese a la [*base de datos de trabajo*](elastic-jobs-overview.md#job-database) y ejecute el siguiente comando:
+Conéctese a la [*base de datos de trabajo*](sql-database-job-automation-overview.md#job-database) y ejecute el siguiente comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -387,7 +387,7 @@ EXEC jobs.sp_purge_jobhistory @job_name='ResultPoolsJob', @oldest_date='2016-07-
 ## <a name="delete-a-job-and-all-its-job-history"></a>Eliminación de un trabajo y de todo el historial de trabajos
 
 En el ejemplo siguiente se muestra cómo eliminar un trabajo y el historial de todos los trabajos relacionados.  
-Conéctese a la [*base de datos de trabajo*](elastic-jobs-overview.md#job-database) y ejecute el siguiente comando:
+Conéctese a la [*base de datos de trabajo*](sql-database-job-automation-overview.md#job-database) y ejecute el siguiente comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -402,7 +402,7 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 
 ## <a name="job-stored-procedures"></a>Procedimientos almacenados de trabajos
 
-Los siguientes procedimientos almacenados se encuentran en la [base de datos de trabajos](elastic-jobs-overview.md#job-database).
+Los siguientes procedimientos almacenados se encuentran en la [base de datos de trabajos](sql-database-job-automation-overview.md#job-database).
 
 
 
@@ -1190,7 +1190,7 @@ GO
 
 ## <a name="job-views"></a>Vistas de trabajos
 
-Las siguientes vistas están disponibles en la [base de datos de trabajos](elastic-jobs-overview.md#job-database).
+Las siguientes vistas están disponibles en la [base de datos de trabajos](sql-database-job-automation-overview.md#job-database).
 
 
 |Ver  |DESCRIPCIÓN  |

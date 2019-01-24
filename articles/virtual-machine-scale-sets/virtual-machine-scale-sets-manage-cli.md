@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: zarhoads
-ms.openlocfilehash: bbed197eb78e34c6e53802dfcfdcc192f780df33
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 84e01c319ab058c9abb05cd9882f4c25bea5cffb
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465666"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462041"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Administración de un conjunto de escalado de máquinas virtuales con la CLI de Azure
 Durante el ciclo de vida de la máquina virtual, es posible que deba ejecutar una o varias tareas de administración. Además, puede crear scripts para automatizar varias tareas de ciclo de vida. En este artículo se detallan algunos de los comandos comunes de la CLI de Azure que le permiten realizar estas tareas.
@@ -37,7 +37,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 
 
 ## <a name="view-vms-in-a-scale-set"></a>Visualización de máquinas virtuales en un conjunto de escalado
-Para ver una lista de las instancias de VM en un conjunto de escalado, use [az vmss list-instances](/cli/azure/vmss#list-instances). En el ejemplo siguiente se enumeran todas las instancias de máquina virtual en el conjunto de escalado denominado *myScaleSet* en el grupo de recursos *myResourceGroup*. Proporcione sus propios valores para estos nombres:
+Para ver una lista de las instancias de VM en un conjunto de escalado, use [az vmss list-instances](/cli/azure/vmss). En el ejemplo siguiente se enumeran todas las instancias de máquina virtual en el conjunto de escalado denominado *myScaleSet* en el grupo de recursos *myResourceGroup*. Proporcione sus propios valores para estos nombres:
 
 ```azurecli
 az vmss list-instances \
@@ -46,7 +46,7 @@ az vmss list-instances \
     --output table
 ```
 
-Para ver información adicional acerca de una instancia específica de la máquina virtual, agregue el parámetro `--instance-id` a [az vmss get-instance-view](/cli/azure/vmss#get-instance-view) y especifique una instancia para verla. En el ejemplo siguiente se puede consultar información acerca de la instancia de VM *0* en el conjunto de escalado denominado *myScaleSet* y el grupo de recursos *myResourceGroup*. Escriba sus propios nombres, como se indica a continuación:
+Para ver información adicional acerca de una instancia específica de la máquina virtual, agregue el parámetro `--instance-id` a [az vmss get-instance-view](/cli/azure/vmss) y especifique una instancia para verla. En el ejemplo siguiente se puede consultar información acerca de la instancia de VM *0* en el conjunto de escalado denominado *myScaleSet* y el grupo de recursos *myResourceGroup*. Escriba sus propios nombres, como se indica a continuación:
 
 ```azurecli
 az vmss get-instance-view \
@@ -108,7 +108,7 @@ az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance
 
 
 ### <a name="start-vms-in-a-scale-set"></a>Inicio de máquinas virtuales en un conjunto de escalado
-Para iniciar una o más máquinas virtuales en un conjunto de escalado, use [az vmss start](/cli/azure/vmss#az_vmss_start). El parámetro `--instance-ids` le permite especificar una o más máquinas virtuales para que se inicien. Si no especifica un identificador de instancia, se inician todas las máquinas virtuales del conjunto de escalado. Para iniciar varias máquinas virtuales, separe cada identificador de instancia con un espacio.
+Para iniciar una o más máquinas virtuales en un conjunto de escalado, use [az vmss start](/cli/azure/vmss). El parámetro `--instance-ids` le permite especificar una o más máquinas virtuales para que se inicien. Si no especifica un identificador de instancia, se inician todas las máquinas virtuales del conjunto de escalado. Para iniciar varias máquinas virtuales, separe cada identificador de instancia con un espacio.
 
 En el ejemplo siguiente se inicia la instancia *0* del conjunto de escalado denominado *myScaleSet* y el grupo de recursos *myResourceGroup*. Proporcione sus propios valores, como se indica a continuación:
 

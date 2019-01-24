@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 9dc57876467deb24a763a3c3772209e3e2e0ca0d
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 967bd0d980bf0f9c184287c10fd531758c992247
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360044"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437865"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Captura de una imagen administrada de una máquina virtual generalizada en Azure
 
@@ -85,7 +85,7 @@ Para generalizar la máquina virtual de Windows, siga estos pasos:
 Crear una imagen directamente desde la VM garantiza que la imagen incluya todos los discos asociados a la VM, incluido el disco del SO y todos los discos de datos. En este ejemplo se muestra cómo crear una imagen administrada a partir de una máquina virtual que utiliza discos administrados.
 
 
-Antes de comenzar, asegúrese de que tiene la última versión del módulo AzureRM.Compute de PowerShell, que debe ser la versión 5.7.0 o posterior. Para buscar la versión, ejecute `Get-Module -ListAvailable AzureRM.Compute` en PowerShell. Si tiene que actualizar, consulte [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-azurerm-ps) (Instalación de Azure PowerShell en Windows con PowerShellGet). Si PowerShell se ejecuta localmente, ejecute `Connect-AzureRmAccount` para crear una conexión con Azure.
+Antes de comenzar, asegúrese de que tiene la última versión del módulo AzureRM.Compute de PowerShell, que debe ser la versión 5.7.0 o posterior. Para buscar la versión, ejecute `Get-Module -ListAvailable AzureRM.Compute` en PowerShell. Si tiene que actualizar, consulte [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/azurerm/install-azurerm-ps) (Instalación de Azure PowerShell en Windows con PowerShellGet). Si PowerShell se ejecuta localmente, ejecute `Connect-AzureRmAccount` para crear una conexión con Azure.
 
 
 > [!NOTE]
