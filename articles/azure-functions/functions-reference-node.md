@@ -410,7 +410,7 @@ Cuando se trabaja con desencadenadores HTTP, hay varias maneras de acceder a los
     context.done(null, res);   
     ```  
 
-## <a name="node-version"></a>Versión de nodo
+## <a name="node-version"></a>Versión de Node
 
 En la tabla siguiente se muestra la versión de Node.js que se usa en cada versión principal del entorno de tiempo de ejecución de Functions:
 
