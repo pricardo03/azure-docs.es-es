@@ -4,7 +4,7 @@ description: Obtenga información sobre cómo usar los filtros de ámbito para e
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b62679332a45127d7c1a45593c162182886a7150
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 84c4939a93adbb8983cae87fdaa2727904010b03
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719365"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461253"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito
 El objetivo de este artículo es explicar cómo usar filtros de ámbito para definir reglas basadas en atributos que determinarán qué usuarios se aprovisionarán en una aplicación.
@@ -78,7 +78,7 @@ Los filtros de ámbito se configuran como parte de las asignaciones de atributos
 
 7. Defina una cláusula seleccionando un **nombre de atributo** de origen, un **operador** y un **valor del atributo** para comparar. Se admiten los siguientes operadores:
 
-   a. **EQUALS**. La cláusula devuelve "true" si el atributo que se evalúa coincide exactamente con el valor de la cadena de entrada (se distingue entre mayúsculas y minúsculas).
+    a. **EQUALS**. La cláusula devuelve "true" si el atributo que se evalúa coincide exactamente con el valor de la cadena de entrada (se distingue entre mayúsculas y minúsculas).
 
    b. **NOT EQUALS**. La cláusula devuelve "true" si el atributo que se evalúa no coincide con el valor de la cadena de entrada (se distingue entre mayúsculas y minúsculas).
 

@@ -10,12 +10,12 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 92e16104edb46298d6e503b7546449ed71041047
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 236b7543772f9e6df9c7ba7f1a9365153593a929
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005757"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473187"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL Data Warehouse: Arquitectura de procesamiento paralelo masivo (MPP)
 Obtenga información acerca de cómo Azure SQL Data Warehouse combina procesamiento paralelo masivo (MPP) con el almacenamiento de Azure para lograr un alto rendimiento y escalabilidad. 
@@ -51,7 +51,7 @@ El nodo de control es el cerebro del almacenamiento de datos. Es el front-end qu
 
 Los nodos de proceso proporcionan la eficacia de cálculo. Las distribuciones se asignan a nodos de proceso para su procesamiento. Al pagar más recursos de proceso, SQL Data Warehouse vuelve a asignar las distribuciones a los nodos de proceso disponibles. El número de nodos de proceso va de 1 a 60, y viene determinado por el nivel de servicio del almacenamiento de datos.
 
-Cada nodo de cálculo tiene un identificador de nodo que está visible en las vistas del sistema. Para ver el identificador del nodo de ejecución, busque la columna node_id en las vistas del sistema cuyos nombres comiencen por sys.pdw_nodes. Para obtener una lista de las vistas del sistema, consulte la [MPP system views](sql-data-warehouse-reference-tsql-statements.md) (Vistas del sistema de MPP).
+Cada nodo de cálculo tiene un identificador de nodo que está visible en las vistas del sistema. Para ver el identificador del nodo de ejecución, busque la columna node_id en las vistas del sistema cuyos nombres comiencen por sys.pdw_nodes. Para obtener una lista de las vistas del sistema, consulte la [MPP system views](http://docs.microsoft.com/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=aps-pdw-2016-au7) (Vistas del sistema de MPP).
 
 ### <a name="data-movement-service"></a>Servicio de movimiento de datos
 Servicio de movimiento de datos (DMS) es la tecnología de transporte de datos que coordina el movimiento de los datos entre los nodos de proceso. Algunas consultas requieren el movimiento de datos para asegurarse de que las consultas paralelas devuelven resultados precisos. Cuando un movimiento de datos es necesario, DMS asegura que los datos adecuados llegan a la ubicación adecuada. 

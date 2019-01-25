@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: b772aa314316906a4079e3d6b8b4e0aeb0f54fba
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4339782304f1bc175f1066954f1050bc00f25005
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022995"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434247"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Creación de una instancia de Azure-SSIS Integration Runtime en Azure Data Factory
 En este artículo se proporcionan los pasos para aprovisionar una instancia de Azure-SSIS Integration Runtime (IR) en Azure Data Factory (ADF). Posteriormente, puede usar SQL Server Data Tools (SSDT) o SQL Server Management Studio (SSMS) para implementar y ejecutar paquetes de SQL Server Integration Services (SSIS) en este entorno de ejecución de integración de Azure. 
@@ -50,7 +50,7 @@ Al aprovisionar Azure-SSIS IR, también se instala el paquete de característica
     - Va a hospedar SSISDB en el servidor de Azure SQL Database con puntos de conexión de servicio de red virtual o en una instancia administrada que está dentro de una red virtual. 
     - Quiere conectarse a almacenes de datos locales desde paquetes SSIS que se ejecutan en una instancia de Azure-SSIS IR. 
 
-- **Azure PowerShell**. Siga las instrucciones que se indican en [Instalación y configuración de Azure PowerShell](/powershell/azure/install-azurerm-ps), si quiere ejecutar un script de PowerShell para aprovisionar Azure-SSIS IR. 
+- **Azure PowerShell**. Siga las instrucciones que se indican en [Instalación y configuración de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps), si quiere ejecutar un script de PowerShell para aprovisionar Azure-SSIS IR. 
 
 ### <a name="region-support"></a>Regiones admitidas
 Para ver una lista de regiones de Azure en las que ADF y Azure-SSIS IR están actualmente disponibles, consulte [Disponibilidad de ADF + SSIS IR por región](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 
@@ -149,7 +149,7 @@ En esta sección, usará Azure Portal, en concreto, la interfaz de usuario de AD
 
     f. En **Admin Password** (Contraseña del administrador), escriba la contraseña de la autenticación de SQL del servidor de bases de datos que va a hospedar SSISDB. 
 
-    g. En **Catalog Database Service Tier** (Nivel de servicio de bases de datos de catálogo), seleccione el nivel de servicio del servidor de bases de datos para hospedar SSISDB: Nivel Básico, Estándar o Premium o el nombre del grupo elástico. 
+    g. En **Catalog Database Service Tier** (Nivel de servicio de bases de datos de catálogo), seleccione el nivel de servicio del servidor de bases de datos para hospedar SSISDB: Nivel Básico, Estándar o Prémium, o el nombre del grupo elástico. 
 
     h. Haga clic en **Test Connection** (Probar conexión) y si esta se realiza correctamente, haga clic en **Next** (Siguiente). 
 

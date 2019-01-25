@@ -3,18 +3,18 @@ title: Solución Update Management de Azure
 description: Este artículo está pensado para ayudarle a entender cómo usar la solución Azure Update Management para administrar las actualizaciones de los equipos Windows y Linux.
 services: automation
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d8df48511f2bfd2500dbc0a1dfaa95e488fad63b
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 8635d943120f0e79b8efcfe1f9be0b74d8bb4fac
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215004"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433907"
 ---
 # <a name="update-management-solution-in-azure"></a>Solución Update Management de Azure
 
@@ -615,3 +615,4 @@ Continúe con el tutorial para aprender a administrar actualizaciones de máquin
 * [Cree alertas](automation-tutorial-update-management.md#configure-alerts) para el estado de implementación de actualizaciones.
 
 * Para información sobre cómo interactuar con Update Management a través de la API de REST, consulte [Software Update Configurations](/rest/api/automation/softwareupdateconfigurations) (Configuraciones de actualización de software).
+

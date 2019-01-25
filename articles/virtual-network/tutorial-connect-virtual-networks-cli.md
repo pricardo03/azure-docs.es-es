@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 0f98f815c0417d1ee8ad5708589b5402a033f83a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5fc5829744d3740f3484303ae009145106264fec
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989547"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470722"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Conexión de redes virtuales con emparejamiento de redes virtuales con la CLI de Azure
 
@@ -47,7 +47,7 @@ Antes de crear una red virtual, cree un grupo de recursos para ella y los demás
 az group create --name myResourceGroup --location eastus
 ```
 
-Cree la red virtual con el comando [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). En el ejemplo siguiente se crea una red virtual denominada *myVirtualNetwork1* con el prefijo de dirección *10.0.0.0/16*.
+Cree la red virtual con el comando [az network vnet create](/cli/azure/network/vnet). En el ejemplo siguiente se crea una red virtual denominada *myVirtualNetwork1* con el prefijo de dirección *10.0.0.0/16*.
 
 ```azurecli-interactive 
 az network vnet create \
@@ -88,7 +88,7 @@ vNet2Id=$(az network vnet show \
   --out tsv)
 ```
 
-Cree un emparejamiento de *myVirtualNetwork1* con *myVirtualNetwork2* con [az network vnet peering create](/cli/azure/network/vnet/peering#az_network_vnet_peering_create). Si el parámetro `--allow-vnet-access` no se especifica, se establece un emparejamiento, pero no fluye la comunicación.
+Cree un emparejamiento de *myVirtualNetwork1* con *myVirtualNetwork2* con [az network vnet peering create](/cli/azure/network/vnet/peering). Si el parámetro `--allow-vnet-access` no se especifica, se establece un emparejamiento, pero no fluye la comunicación.
 
 ```azurecli-interactive
 az network vnet peering create \

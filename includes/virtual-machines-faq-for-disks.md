@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 5835e8275bedebaca01d585a992930d6856edfd7
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: edf99f57fe2166e5ea7f91817dde978015af9348
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53553384"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54841455"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Preguntas más frecuentes sobre los discos de máquina virtual de IaaS de Azure y los discos premium administrados y no administrados
 
@@ -101,6 +101,10 @@ Los clientes pueden crear una instantánea de sus discos administrados y usarla 
 
 Sí, se admiten discos administrados y no administrados. Recomendamos que empiece a usar discos administrados para las cargas de trabajo nuevas y migre las cargas de trabajo actuales a discos administrados.
 
+**¿Puedo localizar conjuntamente discos administrados y no administrados en la misma máquina virtual?**
+
+ No.
+
 **Si creo un disco de 128 GB y después lo aumento a 130 GiB, ¿se me cobrará por el siguiente tamaño de disco (256 GiB)?**
 
 Sí.
@@ -124,10 +128,6 @@ Actualmente, Azure Managed Disks solo admite discos administrados de almacenamie
 **¿Dónde puedo encontrar plantillas de Azure Resource Manager de ejemplo para crear máquinas virtuales con discos administrados**
 * [Lista de plantillas mediante discos administrados](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
-
-**¿Puedo localizar conjuntamente discos administrados y no administrados en la misma máquina virtual?**
-
- No.
 
 **Al crear un disco desde un blob, ¿hay alguna relación continuamente existente con ese blob de origen?**
 

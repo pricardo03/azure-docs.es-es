@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 2ab696436a8cf139eff92edc3b8ff2c27b40a7aa
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 15354cd7472e7cffb7a40ca431bc23eb65b9a9a9
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018394"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845901"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Uso de los perfiles de la versión de la API con la CLI de Azure en Azure Stack
 
@@ -212,16 +212,13 @@ Use los pasos siguientes para conectarse a Azure Stack:
       ```
     * Entornos de AD FS
 
-        * Iniciar sesión como un usuario mediante un explorador web:  
-              ```azurecli  
-              az login
-              ```
         * Iniciar sesión como un usuario mediante un explorador web con un código de dispositivo:  
-              ```azurecli  
-              az login --use-device-code
-              ```
-        > [!Note]  
-        >Al ejecutar el comando, se le proporciona una URL y un código que debe usar para la autenticación.
+           ```azurecli  
+           az login --use-device-code
+           ```
+
+           > [!NOTE]  
+           >Al ejecutar el comando, se le proporciona una URL y un código que debe usar para la autenticación.
 
         * Iniciar sesión como una entidad de servicio:
         

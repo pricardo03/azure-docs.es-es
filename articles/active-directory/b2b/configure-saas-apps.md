@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 78f34183b30f8ea9fe44ddaf2b57b237cbb09749
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: efec0feae3ea15868290756ea1b34b2f52784e1d
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985769"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423636"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Configuración de aplicaciones de SaaS para la colaboración B2B
 
@@ -79,7 +79,7 @@ Puede permitir que los usuarios autentiquen usuarios invitados de Box con su cue
 
   ![Configuración del inicio de sesión único de Box](media/configure-saas-apps/configure-box-sso.png)
 
- a. En el cuadro **URL de inicio de sesión**, asegúrese de que la dirección URL de inicio de sesión se ha establecido correctamente para Box en Azure Portal. Esta es la dirección URL de su inquilino de Box.com. Debe seguir la convención de nomenclatura *https://.box.com*.  
+  a. En el cuadro **URL de inicio de sesión**, asegúrese de que la dirección URL de inicio de sesión se ha establecido correctamente para Box en Azure Portal. Esta es la dirección URL de su inquilino de Box.com. Debe seguir la convención de nomenclatura *https://.box.com*.  
  **Identificador** no se aplica a esta aplicación, pero sigue apareciendo como campo obligatorio.
 
  b. En el cuadro **Identificador de usuario**, escriba **user.mail** (para el SSO de las cuentas de invitado).
@@ -100,7 +100,7 @@ Los invitados de Box deben canjear su invitación desde la aplicación de Box ta
 
 Consulte los siguientes artículos sobre la colaboración de B2B de Azure AD:
 
-- [¿Qué es la colaboración de Azure AD B2B?](what-is-b2b.md)
+- [¿Qué es la colaboración B2B de Azure AD?](what-is-b2b.md)
 - [Grupos dinámicos y colaboración B2B](use-dynamic-groups.md)
 - [Asignación de notificaciones de usuario de colaboración B2B](claims-mapping.md)
 - [Uso compartido externo de Office 365](o365-external-user.md)
