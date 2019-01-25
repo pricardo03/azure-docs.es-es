@@ -1,1022 +1,1025 @@
+items:
 - name: Documentación sobre Azure Monitor
   href: index.yml
 - name: Información general
   items:
-    - name: ¿Qué es Azure Monitor?
-      href: overview.md
-    - name: Cambios de marca
-      href: azure-monitor-rebrand.md
+  - name: ¿Qué es Azure Monitor?
+    href: overview.md
+  - name: Cambios de marca
+    href: azure-monitor-rebrand.md
 - name: Guías de inicio rápido
-  expanded: true
   items:
-    - name: APLICACIONES
-      items:
-        - name: Aplicación .NET
-          href: learn/quick-monitor-portal.md
-        - name: Aplicación .NET Core
-          href: learn/dotnetcore-quick-start.md
-        - name: Aplicación Node.js
-          href: learn/nodejs-quick-start.md
-        - name: Aplicación Java
-          href: learn/java-quick-start.md
-        - name: Aplicación para dispositivos móviles
-          href: learn/mobile-center-quickstart.md
-        - name: Aplicación web
-          href: app/website-monitoring.md
-    - name: Máquinas virtuales
-      items:
-        - name: 'Recopilación: máquinas virtuales de Azure'
-          href: learn/quick-collect-azurevm.md
-        - name: 'Recopilación: equipo con Linux'
-          href: learn/quick-collect-linux-computer.md
-        - name: 'Recopilación: equipo con Windows'
-          href: learn/quick-collect-windows-computer.md
+  - name: APLICACIONES
+    items:
+    - name: Aplicación .NET
+      href: learn/quick-monitor-portal.md
+    - name: Aplicación .NET Core
+      href: learn/dotnetcore-quick-start.md
+    - name: Aplicación Node.js
+      href: learn/nodejs-quick-start.md
+    - name: Aplicación Java
+      href: learn/java-quick-start.md
+    - name: Aplicación para dispositivos móviles
+      href: learn/mobile-center-quickstart.md
+    - name: Aplicación web
+      href: app/website-monitoring.md
+  - name: Máquinas virtuales
+    items:
+    - name: 'Recopilación: máquinas virtuales de Azure'
+      href: learn/quick-collect-azurevm.md
+    - name: 'Recopilación: equipo con Linux'
+      href: learn/quick-collect-linux-computer.md
+    - name: 'Recopilación: equipo con Windows'
+      href: learn/quick-collect-windows-computer.md
+  expanded: true
 - name: Tutoriales
   items:
-    - name: Análisis de los datos en Log Analytics
-      href: learn/tutorial-viewdata.md
-    - name: Visualización de datos en Log Analytics
-      href: learn/tutorial-logs-dashboards.md
-    - name: Archivado de métricas de plataforma y datos de registro
-      href: learn/tutorial-archive-data.md
-    - name: Alerta sobre datos de registro
-      href: learn/tutorial-response.md
-    - name: Escalado automático del rendimiento y programación
-      href: learn/tutorial-autoscale-performance-schedule.md
-    - name: Búsqueda de excepciones del entorno de ejecución de la aplicación
-      href: learn/tutorial-runtime-exceptions.md
-    - name: Búsqueda de problemas de rendimiento de las aplicaciones
-      href: learn/tutorial-performance.md
-    - name: Alerta sobre el estado de la aplicación
-      href: learn/tutorial-alert.md
-    - name: Descripción de los usuarios de aplicaciones
-      href: learn/tutorial-users.md
-    - name: Creación de paneles personalizados
-      href: learn/tutorial-app-dashboards.md
+  - name: Análisis de los datos en Log Analytics
+    href: learn/tutorial-viewdata.md
+  - name: Visualización de datos en Log Analytics
+    href: learn/tutorial-logs-dashboards.md
+  - name: Archivado de métricas de plataforma y datos de registro
+    href: learn/tutorial-archive-data.md
+  - name: Alerta sobre datos de registro
+    href: learn/tutorial-response.md
+  - name: Escalado automático del rendimiento y programación
+    href: learn/tutorial-autoscale-performance-schedule.md
+  - name: Búsqueda de excepciones del entorno de ejecución de la aplicación
+    href: learn/tutorial-runtime-exceptions.md
+  - name: Búsqueda de problemas de rendimiento de las aplicaciones
+    href: learn/tutorial-performance.md
+  - name: Alerta sobre el estado de la aplicación
+    href: learn/tutorial-alert.md
+  - name: Descripción de los usuarios de aplicaciones
+    href: learn/tutorial-users.md
+  - name: Creación de paneles personalizados
+    href: learn/tutorial-app-dashboards.md
 - name: Ejemplos
   items:
-    - name: Azure PowerShell
-      href: platform/powershell-samples.md
+  - name: Azure PowerShell
+    href: platform/powershell-samples.md
 - name: Conceptos
   items:
-    - name: Administración de Azure
-      href: azure-management.md?toc=/azure/azure-monitor/toc.json
-    - name: Supervisión continua
-      href: continuous-monitoring.md
-    - name: Supervisión de datos
+  - name: Administración de Azure
+    href: azure-management.md?toc=/azure/azure-monitor/toc.json
+  - name: Supervisión continua
+    href: continuous-monitoring.md
+  - name: Supervisión de datos
+    items:
+    - name: Métricas y registros
+      href: platform/data-collection.md
+    - name: Orígenes de datos
+      href: platform/data-sources.md
+    - name: Orígenes de datos de Azure
+      href: platform/data-sources-reference.md
+    - name: Registro de actividades
+      href: platform/activity-logs-overview.md
+    - name: Registros de diagnóstico
+      href: platform/diagnostic-logs-overview.md
+    - name: Tiempo de ingesta de datos de registro
+      href: platform/data-ingestion-time.md
+    - name: Métricas personalizadas a almacén de métricas
+      href: platform/metrics-custom-overview.md
+    - name: Seguridad de los datos
       items:
-        - name: Métricas y registros
-          href: platform/data-collection.md
-        - name: Orígenes de datos
-          href: platform/data-sources.md
-        - name: Orígenes de datos de Azure
-          href: platform/data-sources-reference.md
-        - name: Registro de actividades
-          href: platform/activity-logs-overview.md
-        - name: Registros de diagnóstico
-          href: platform/diagnostic-logs-overview.md
-        - name: Tiempo de ingesta de datos de registro
-          href: platform/data-ingestion-time.md
-        - name: Métricas personalizadas a almacén de métricas
-          href: platform/metrics-custom-overview.md
-        - name: Seguridad de los datos
-          items:
-            - name: Datos de registro
-              href: platform/data-security.md
-            - name: Control de datos de registro personales
-              href: platform/personal-data-mgmt.md
-            - name: 'Recopilación, retención y almacenamiento de datos de aplicaciones'
-              href: app/data-retention-privacy.md
-    - name: Información detallada
-      items:
-        - name: Application Insights
-          items:
-            - name: Información general
-              href: app/app-insights-overview.md
-            - name: DevOps
-              href: app/detect-triage-diagnose.md
-            - name: Seguimiento distribuido
-              href: app/distributed-tracing.md
-            - name: Métricas basadas en registros y agregadas previamente
-              href: app/pre-aggregated-metrics-log-metrics.md
-        - name: Contenedores
-          href: insights/container-insights-overview.md
-        - name: Virtual Machines
-          href: insights/vminsights-overview.md
-        - name: Soluciones de supervisión
-          href: insights/solutions-inventory.md
-    - name: Análisis de datos
-      items:
-        - name: Log Analytics
-          href: log-query/log-query-overview.md
-        - name: Portales de consulta de registros
-          href: log-query/portals.md
-        - name: Transición al portal de OMS
-          items:
-            - name: Información general
-              href: platform/oms-portal-transition.md
-            - name: Preguntas frecuentes
-              href: platform/oms-portal-faq.md
-    - name: Respuesta a incidentes
-      items:
-        - name: Alertas
-          href: platform/alerts-overview.md
-        - name: Alertas clásicas
-          href: platform/alerts-classic.overview.md
-        - name: Grupos inteligentes
-          href: platform/alerts-smartgroups-overview.md
-        - name: Escalado automático
-          href: platform/autoscale-overview.md
-        - name: Alertas de métricas
-          href: platform/alerts-metric-overview.md
-        - name: Alertas de registro
-          href: platform/alerts-unified-log.md
-        - name: Alertas de registros de actividad
-          href: platform/activity-log-alerts.md
-    - name: Visualización de datos
-      href: visualizations.md?toc=/azure/azure-monitor/toc.json
-    - name: Integraciones de asociados
-      href: platform/partners.md
-    - name: Preguntas más frecuentes
-      items:
-        - name: Log Analytics
-          href: platform/log-faq.md
-        - name: Application Insights
-          href: app/troubleshoot-faq.md
-- name: Guías de procedimientos
-  items:
-    - name: Planeación y preparación
-      items:
-        - name: Administración del acceso
-          items:
-            - name: Permisos de roles y seguridad
-              href: platform/roles-permissions-security.md
-            - name: Áreas de trabajo
-              href: platform/manage-access.md
-            - name: APLICACIONES
-              href: app/resources-roles-access-control.md
-            - name: Direcciones IP
-              href: app/ip-addresses.md
-        - name: Supervisión de aplicaciones
-          items:
-            - name: Diagnósticos detallados para servicios y aplicaciones web
-              href: app/devops.md
-            - name: Supervisar el rendimiento de aplicaciones web
-              href: app/web-monitor-performance.md
-            - name: 'Separación de desarrollo, prueba y producción'
-              href: app/separate-resources.md
-            - name: ¿Cómo ... en Application Insights?
-              href: app/how-do-i.md
-        - name: Administración de áreas de trabajo
-          items:
-            - name: Crear un área de trabajo
-              items:
-                - name: Usar Azure Portal
-                  href: learn/quick-create-workspace.md
-                - name: Uso de CLI de Azure
-                  href: learn/quick-create-workspace-cli.md
-                - name: Uso de Azure PowerShell
-                  href: learn/quick-create-workspace-posh.md
-            - name: Eliminar un área de trabajo
-              href: platform/delete-workspace.md
-            - name: Diseño de proveedores de servicios
-              href: platform/service-providers.md
-    - name: Recopilación de datos
-      items:
-        - name: Instalación y configuración de agentes
-          items:
-            - name: Introducción a los agentes de supervisión
-              href: platform/agents-overview.md
-            - name: Agentes de Log Analytics
-              items:
-                - name: Información general
-                  href: platform/log-analytics-agent.md
-                - name: Agentes de Windows
-                  href: platform/agent-windows.md
-                - name: Extensión de VM para Windows
-                  href: ../virtual-machines/windows/extensions-oms.md?toc=/azure/azure-monitor/toc.json
-                - name: Extensión de VM para Linux
-                  href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
-                - name: Operations Manager
-                  href: platform/om-agents.md
-                - name: Puerta de enlace de OMS
-                  href: platform/gateway.md
-                - name: Administración de agentes
-                  href: platform/agent-manage.md
-            - name: Extensión de Diagnósticos de Azure
-              items:
-                - name: Información general
-                  href: platform/diagnostics-extension-overview.md
-                - name: Envío a Azure Storage
-                  href: platform/diagnostics-extension-to-storage.md
-                - name: Envío a Application Insights
-                  href: platform/diagnostics-extension-to-application-insights.md
-                - name: Envío a Event Hubs
-                  href: platform/diagnostics-extension-stream-event-hubs.md
-                - name: solución de problemas
-                  href: platform/diagnostics-extension-troubleshooting.md
-                - name: Habilitación de la configuración de diagnóstico con plantillas de Resource Manager
-                  href: platform/diagnostic-logs-stream-template.md
-                - name: Preparación para el formato de registros de diagnóstico en líneas de JSON
-                  href: platform/diagnostic-logs-append-blobs.md
-                - name: Invitado de máquina virtual a almacén de métricas
-                  href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
-                - name: Invitado de conjunto de escalado de máquinas virtuales a almacén de métricas
-                  href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
-                - name: Invitado de máquina virtual clásica a almacén de métricas
-                  href: platform/collect-custom-metrics-guestos-vm-classic.md
-                - name: Invitado de servicio en la nube a almacén de métricas
-                  href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
-            - name: Solución de problemas
-              items:
-                - name: Extensión de máquina virtual de Log Analytics
-                  href: platform/vmext-troubleshoot.md
-                - name: Agente Linux de Log Analytics
-                  href: platform/agent-linux-troubleshoot.md
-        - name: Orígenes de datos de agentes
-          items:
-            - name: Información general
-              href: platform/agent-data-sources.md
-            - name: Eventos de Windows
-              href: platform/data-sources-windows-events.md
-            - name: Personalización de datos JSON
-              href: platform/data-sources-json.md
-            - name: Datos de rendimiento de CollectD
-              href: platform/data-sources-collectd.md
-            - name: Alertas de Nagios y Zabbix
-              href: platform/data-sources-alerts-nagios-zabbix.md
-            - name: syslog
-              href: platform/data-sources-syslog.md
-            - name: contadores de rendimiento
-              href: platform/data-sources-performance-counters.md
-            - name: Rendimiento de aplicaciones de Linux
-              href: platform/data-sources-linux-applications.md
-            - name: Registros IIS
-              href: platform/data-sources-iis-logs.md
-            - name: Registros personalizados
-              href: platform/data-sources-custom-logs.md
-            - name: Custom Fields
-              href: platform/custom-fields.md
-        - name: Configuración de aplicaciones
-          items:
-            - name: Aplicaciones de Azure
-              items:
-                - name: Azure App Service
-                  href: app/azure-web-apps.md
-                - name: Azure Cloud Services
-                  href: app/cloudservices.md
-                - name: Agregar supervisión continua
-                  href: app/continuous-monitoring.md
-                - name: Generador de perfiles
-                  items:
-                    - name: Información general
-                      href: app/profiler-overview.md
-                    - name: Habilitar el generador de perfiles para una instancia de App Service
-                      href: app/profiler.md
-                    - name: Habilitar el generador de perfiles para un servicio en la nube
-                      href: app/profiler-cloudservice.md
-                    - name: Habilitar el generador de perfiles para una aplicación de Service Fabric
-                      href: app/profiler-servicefabric.md
-                    - name: Habilitar el generador de perfiles para una máquina virtual de Azure
-                      href: app/profiler-vm.md
-                    - name: Configuración del generador de perfiles
-                      href: app/profiler-settings.md
-                    - name: Seguimiento de las solicitudes de generación de perfiles
-                      href: app/profiler-trackrequests.md
-                    - name: Solución de problemas del generador de perfiles
-                      href: app/profiler-troubleshooting.md
-                - name: Diagnóstico
-                  href: ../application-insights/app-insights-azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
-                - name: Vistas previas
-                  href: app/previews.md
-            - name: Aplicaciones de ASP.NET
-              items:
-                - name: Aplicaciones web
-                  href: app/asp-net.md
-                - name: Monitor de estado
-                  href: app/monitor-performance-live-website-now.md
-                - name: Servicios de Windows
-                  href: app/windows-services.md
-                - name: Escritorio de Windows
-                  href: app/windows-desktop.md
-                - name: ASP.NET Core
-                  href: app/asp-net-core.md
-                  items:
-                    - name: Generador de perfiles para App Service de Linux
-                      href: app/profiler-aspnetcore-linux.md
-                - name: Consola
-                  href: app/console.md
-                - name: Panel de la aplicación
-                  href: app/overview-dashboard.md
-                - name: Recolección de más telemetría
-                  href: app/asp-net-more.md
-                - name: Excepciones
-                  href: app/asp-net-exceptions.md
-                - name: Seguimientos de registro
-                  href: app/asp-net-trace-logs.md
-                - name: contadores de rendimiento
-                  href: app/performance-counters.md
-                - name: Dependencias
-                  href: app/asp-net-dependencies.md
-                - name: Anotaciones de la versión
-                  href: app/annotations.md
-                - name: ApplicationInsights.config
-                  href: app/configuration-with-applicationinsights-config.md
-                - name: Depurador de instantáneas
-                  href: app/snapshot-debugger.md
-            - name: Aplicaciones de Java
-              items:
-                - name: Aplicaciones web
-                  href: app/java-get-started.md
-                - name: 'Aplicaciones web: en tiempo de ejecución'
-                  href: app/java-live.md
-                - name: Aplicaciones de Docker
-                  href: app/docker.md
-                - name: Seguimientos de registro
-                  href: app/java-trace-logs.md
-                - name: Métricas de Unix
-                  href: app/java-collectd.md
-                - name: Dependencias
-                  href: app/java-agent.md
-                - name: Telemetría de filtro
-                  href: app/java-filter-telemetry.md
-                - name: Micrometer Metrics
-                  href: app/micrometer-java.md
-            - name: Aplicaciones de Node.js
-              items:
-                - name: Node.js
-                  href: app/nodejs.md
-            - name: Páginas web
-              items:
-                - name: JavaScript
-                  href: app/javascript.md
-            - name: Monitor Azure Functions
-              href: ../azure-functions/functions-monitoring.md?toc=/azure/application-insights/toc.json
-            - name: Seguimiento distribuido
-              items:
-                - name: Reenviador local
-                  href: app/opencensus-local-forwarder.md
-                - name: Python
-                  href: app/opencensus-python.md
-                - name: Go
-                  href: app/opencensus-go.md
-            - name: Otras plataformas
-              items:
-                - name: Sitios de SharePoint
-                  href: app/sharepoint.md
-                - name: Dynamics CRM
-                  href: app/sample-mscrm.md
-            - name: Detección inteligente
-              href: app/proactive-diagnostics.md
-              items:
-                - name: Anomalías de error
-                  href: app/proactive-failure-diagnostics.md
-                - name: Anomalías de rendimiento
-                  href: app/proactive-performance-diagnostics.md
-                - name: Degradación de seguimiento
-                  href: app/proactive-trace-severity.md
-                - name: Volumen de excepción
-                  href: app/proactive-exception-volume.md
-                - name: Fuga de memoria
-                  href: app/proactive-potential-memory-leak.md
-                - name: Utilización de recursos
-                  href: app/proactive-low-utilization-cloud-resources.md
-                - name: Detección de seguridad
-                  href: app/proactive-application-security-detection-pack.md
-                - name: Azure Cloud Services
-                  href: app/proactive-cloud-services.md
-                - name: Administración de reglas de detección inteligente
-                  href: app/proactive-arm-config.md
-            - name: Creación de un recurso
-              href: app/create-new-resource.md
-            - name: Solución de problemas
-              items:
-                - name: No hay datos para .NET
-                  href: app/asp-net-troubleshoot-no-data.md
-                - name: Depurador de instantáneas
-                  href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md?toc=/azure/azure-monitor/toc.json
-                - name: Análisis
-                  href: app/analytics-troubleshooting.md
-                - name: Java
-                  href: app/java-troubleshoot.md
-                - name: Análisis de uso
-                  href: app/usage-troubleshoot.md
-        - name: Recursos de Azure
-          items:
-            - name: Registros de actividad de Azure
-              items:
-                - name: Análisis
-                  href: platform/collect-activity-logs.md
-                - name: Recopilación entre suscripciones
-                  href: platform/collect-activity-logs-subscriptions.md
-            - name: Registros y métricas de servicio
-              href: platform/collect-azure-metrics-logs.md
-            - name: Datos de diagnóstico o registro de Azure Storage
-              href: platform/azure-storage-iis-table.md
-            - name: Recursos de PaaS de Azure
-              href: platform/collect-azurepass-posh.md
-            - name: Poner en correlación orígenes de datos personalizados
-              href: app/custom-data-correlation.md
-        - name: Recopilación de datos personalizados
-          items:
-            - name: Data Collector API de Log Analytics
-              href: platform/data-collector-api.md
-            - name: Ejemplo de canalización de Data Collector API de Log Analytics
-              href: platform/create-pipeline-datacollector-api.md
-            - name: REST API de almacén de métricas
-              href: platform/metrics-store-custom-rest-api.md
-            - name: GuestOS a máquina virtual Linux del almacén de métricas (Telegraf)
-              href: platform/collect-custom-metrics-linux-telegraf.md
-        - name: System Center
-          items:
-            - name: Administrador de configuración
-              href: platform/collect-sccm.md
-            - name: Supervisión del rendimiento de la aplicación mediante SCOM
-              href: app/scom.md
-        - name: Enrutamiento de datos
-          items:
-            - name: Archivo del registro de actividad
-              href: platform/archive-activity-log.md
-            - name: Archivo de registros de diagnóstico
-              href: platform/archive-diagnostic-logs.md
-            - name: Almacenamiento de registros de diagnóstico
-              href: platform/diagnostic-logs-stream-log-store.md
-            - name: Transmisión de registros de actividad a Event Hubs
-              href: platform/activity-logs-stream-event-hubs.md
-            - name: Registros y métricas a Event Hubs
-              href: platform/stream-monitoring-data-event-hubs.md
-            - name: Registros de diagnóstico a Event Hubs
-              href: platform/diagnostic-logs-stream-event-hubs.md
-            - name: Datos de aplicación a Log Analytics
-              href: platform/app-insights-connector.md
-            - name: Exportación de datos de aplicación
-              items:
-                - name: Exportación continua
-                  href: app/export-telemetry.md
-                  items:
-                    - name: Ejemplos de código
-                      items:
-                        - name: Exportación a SQL con Stream Analytics
-                          href: app/code-sample-export-sql-stream-analytics.md
-                        - name: Exportación a Stream Analytics
-                          href: app/export-stream-analytics.md
-                - name: Modelo de exportación de datos
-                  href: app/export-data-model.md
-    - name: Obtención de información
-      items:
-        - name: Supervisión de aplicaciones
-          items:
-            - name: Portal de Application Insights
-              items:
-                - name: Search
-                  href: app/diagnostic-search.md
-                - name: Métricas
-                  href: app/metrics-explorer.md
-                - name: Live Stream
-                  href: app/live-stream.md
-                - name: Mapa de aplicación
-                  href: app/app-map.md
-                - name: Diagnósticos de la transacción
-                  href: app/transaction-diagnostics.md
-                - name: Datos de HockeyApp
-                  href: app/hockeyapp-bridge-app.md
-            - name: Visual Studio
-              items:
-                - name: Información detalla sobre F5
-                  href: app/visual-studio.md
-                - name: Tendencias
-                  href: app/visual-studio-trends.md
-                - name: CodeLens
-                  href: app/visual-studio-codelens.md
-            - name: Uso
-              items:
-                - name: Información general
-                  href: app/usage-overview.md
-                - name: Envío de contexto de usuario
-                  href: app/usage-send-user-context.md
-                - name: 'Usuarios, sesiones, eventos'
-                  href: app/usage-segmentation.md
-                - name: Embudos
-                  href: app/usage-funnels.md
-                - name: Cohortes
-                  href: app/usage-cohorts.md
-                - name: Impacto
-                  href: app/usage-impact.md
-                - name: Retención
-                  href: app/usage-retention.md
-                - name: Flujos de usuario
-                  href: app/usage-flows.md
-                - name: Workbooks
-                  href: app/usage-workbooks.md
-            - name: Solución de análisis de aplicaciones web
-              href: insights/azure-web-apps-analytics.md
-        - name: Supervisión de contenedores
-          items:
-            - name: Azure Monitor para contenedores
-              items:
-                - name: Información general
-                  href: insights/container-insights-overview.md
-                - name: Incorporación
-                  href: insights/container-insights-onboard.md
-                - name: Análisis
-                  href: insights/container-insights-analyze.md
-                - name: Deshabilitar la supervisión
-                  href: insights/container-insights-optout.md
-                - name: Visualización de registros activos de contenedores
-                  href: insights/container-insights-live-logs.md
-                - name: Administración de agentes
-                  href: insights/container-insights-manage-agent.md
-                - name: solución de problemas
-                  href: insights/container-insights-troubleshoot.md
-            - name: Supervisión de contenedores de Docker y Windows
-              href: insights/containers.md
-            - name: Supervisión de aplicaciones de Docker
-              href: app/docker.md
-        - name: Supervisión de grupos de recursos
-          href: insights/resource-group-insights.md
-        - name: Supervisión de bases de datos
-          items:
-            - name: Azure SQL
-              href: insights/azure-sql.md
-            - name: SQL Server
-              href: insights/sql-assessment.md
-        - name: Supervisión de redes
-          items:
-            - name: Análisis de redes
-              href: insights/azure-networking-analytics.md
-            - name: Monitor de rendimiento de red
-              items:
-                - name: Información general de la solución
-                  href: insights/network-performance-monitor.md
-                - name: Supervisión del rendimiento
-                  href: insights/network-performance-monitor-performance-monitor.md
-                - name: Punto de conexión de servicio
-                  href: insights/network-performance-monitor-service-endpoint.md
-                - name: ExpressRoute
-                  href: insights/network-performance-monitor-expressroute.md
-                - name: Precios
-                  href: insights/network-performance-monitor-pricing-faq.md
-                - name: Preguntas más frecuentes
-                  href: insights/network-performance-monitor-faq.md
-        - name: Supervisión de máquinas virtuales
-          items:
-            - name: Azure Monitor para máquinas virtuales
-              items:
-                - name: Información general
-                  href: insights/vminsights-overview.md
-                - name: Problemas conocidos
-                  href: insights/vminsights-known-issues.md
-                - name: Preguntas más frecuentes
-                  href: insights/vminsights-faq.md
-                - name: Incorporación
-                  href: insights/vminsights-onboard.md
-                - name: Supervisión del mantenimiento
-                  href: insights/vminsights-health.md
-                - name: Asignación de dependencias
-                  href: insights/vminsights-maps.md
-                - name: Supervisión del rendimiento
-                  href: insights/vminsights-performance.md
-                - name: Consulta de datos con Log Analytics
-                  href: insights/vminsights-log-search.md
-                - name: Deshabilitar la supervisión
-                  href: insights/vminsights-optout.md
-            - name: Estado de mantenimiento de los agentes
-              href: insights/solution-agenthealth.md
-            - name: Capacidad y rendimiento
-              href: insights/capacity-performance.md
-            - name: Análisis de VMWare
-              href: insights/vmware.md
-            - name: Wire Data
-              href: insights/wire-data.md
-            - name: Mapa de servicio
-              items:
-                - name: Uso
-                  href: insights/service-map.md
-                - name: Configuración
-                  href: insights/service-map-configure.md
-                - name: Integración con Operations Manager
-                  href: insights/service-map-scom.md
-        - name: Supervisión de los recursos de Azure
-          items:
-            - name: Análisis de Key Vault
-              href: insights/azure-key-vault.md
-            - name: Service Fabric Analytics
-              href: ../service-fabric/service-fabric-diagnostics-oms-agent.md?toc=/azure/azure-monitor/toc.json
-        - name: Supervisión de otros recursos
-          items:
-            - name: Evaluación del mantenimiento de AD
-              href: insights/ad-assessment.md
-            - name: Estado de replicación de AD
-              href: insights/ad-replication-status.md
-            - name: DNS
-              href: insights/dns-analytics.md
-            - name: Office 365
-              href: insights/solution-office-365.md
-            - name: Evaluación de Operations Manager
-              href: insights/scom-assessment.md
-            - name: Surface Hub
-              href: insights/surface-hubs.md
-        - name: Uso de soluciones de supervisión
-          items:
-            - name: Información general
-              href: insights/solutions.md
-            - name: Soluciones de destino
-              href: insights/solution-targeting.md
-    - name: Visualización de datos
-      items:
-        - name: Vistas
-          href: platform/view-designer.md
-          items:
-            - name: Referencia de iconos
-              href: platform/view-designer-tiles.md
-            - name: Referencia de los elementos de visualización
-              href: platform/view-designer-parts.md
-            - name: Filtros
-              href: platform/view-designer-filters.md
-        - name: Paneles
-          items:
-            - name: Registros
-              href: platform/dashboards.md
-            - name: APLICACIONES
-              href: app/app-insights-dashboards.md
-        - name: Power BI
-          items:
-            - name: Exportación de datos de registro
-              href: platform/powerbi.md
-            - name: Exportación de datos de aplicación
-              href: app/export-power-bi.md
-        - name: Envío de datos a Grafana
-          href: platform/grafana-plugin.md
-    - name: Análisis de datos
-      items:
-        - name: Creación de gráficos de métricas en el Explorador de métricas
-          href: platform/metrics-charts.md
-        - name: Visualización de eventos en el registro de actividad
-          href: ../azure-resource-manager/resource-group-audit.md?toc=/azure/azure-monitor/toc.json
-        - name: Visualización de notificaciones de servicio
-          href: platform/service-notifications.md
-        - name: Consulta de datos de registro
-          items:
-            - name: Documentación sobre lenguaje de consulta
-              href: log-query/query-language.md
-            - name: Diferencias entre los lenguajes
-              href: log-query/data-explorer-difference.md
-            - name: Transición desde la búsqueda de registros
-              href: log-query/log-search-transition.md
-            - name: Introducción
-              items:
-                - name: Introducción al portal de Analytics
-                  href: log-query/get-started-portal.md
-                - name: Introducción a las consultas
-                  href: log-query/get-started-queries.md
-                - name: Consultas de búsqueda
-                  href: log-query/search-queries.md
-                - name: Operadores útiles
-                  href: log-query/useful-operators.md
-            - name: Lecciones
-              items:
-                - name: Operaciones de cadena
-                  href: log-query/string-operations.md
-                - name: Operaciones de fecha y hora
-                  href: log-query/datetime-operations.md
-                - name: Funciones de agregación
-                  href: log-query/aggregations.md
-                - name: Agregaciones avanzadas
-                  href: log-query/advanced-aggregations.md
-                - name: Combinaciones
-                  href: log-query/joins.md
-                - name: JSON y estructuras de datos
-                  href: log-query/json-data-structures.md
-                - name: Escritura de consultas avanzadas
-                  href: log-query/advanced-query-writing.md
-                - name: Gráficos y diagramas
-                  href: log-query/charts.md
-                - name: Functions
-                  href: log-query/functions.md
-            - name: Hojas de características clave
-              items:
-                - name: SQL
-                  href: log-query/sql-cheatsheet.md
-                - name: Splunk
-                  href: log-query/splunk-cheatsheet.md
-            - name: Lenguaje de consulta
-              items:
-                - name: Ejemplos
-                  href: log-query/examples.md
-                - name: Creación de consultas eficientes
-                  href: log-query/log-query-performance.md
-                - name: Análisis inteligente
-                  href: log-query/smart-analytics.md
-                - name: Búsquedas entre recursos
-                  href: log-query/cross-workspace-query.md
-                - name: expresión de aplicación
-                  href: log-query/app-expression.md
-                - name: expresión de área de trabajo
-                  href: log-query/workspace-expression.md
-            - name: Datos de registro
-              items:
-                - name: Datos de aplicación
-                  href: app/analytics.md
-                - name: Unificación de los recursos de datos de la aplicación
-                  href: log-query/unify-app-resource-data.md
-                - name: Propiedades estándar
-                  href: platform/log-standard-properties.md
-                - name: Análisis de datos de texto
-                  href: log-query/parse-text.md
-            - name: Actuación a partir de resultados de búsqueda
-              href: log-query/take-action.md
-            - name: Grupos de equipos
-              href: platform/computer-groups.md
-            - name: Conector de Flow
-              href: platform/flow-tutorial.md
-            - name: API de búsqueda de registros
-              href: 'https://dev.loganalytics.io/'
-    - name: Respuesta a incidentes
-      items:
-        - name: Alertas
-          items:
-            - name: Uso de alertas de métricas
-              items:
-                - name: 'Creación, visualización y administración de alertas de métricas mediante Azure Monitor'
-                  href: platform/alerts-metric.md
-                - name: 'Creación, visualización y administración de alertas de métricas clásicas mediante Azure Monitor'
-                  href: platform/alerts-classic-portal.md
-                - name: Alertas de métricas con umbrales dinámicos
-                  href: platform/alerts-dynamic-thresholds.md
-                - name: Configuración de alertas de métricas en registros
-                  href: platform/alerts-metric-logs.md
-                - name: Creación de una alerta de métrica más reciente con una plantilla de Resource Manager
-                  href: platform/alerts-metric-create-templates.md
-                - name: Creación de una alerta de métrica clásica con una plantilla de Resource Manager
-                  href: platform/alerts-enable-template.md
-                - name: Llamada de una alerta métrica clásica a un webhook
-                  href: platform/alerts-webhooks.md
-            - name: Uso de alertas de registro
-              items:
-                - name: Configuración de alertas en las consultas de análisis
-                  href: platform/alerts-log.md
-                - name: Registro de consultas de alerta
-                  href: platform/alerts-log-query.md
-                - name: Acciones de webhook para alertas de registro
-                  href: platform/alerts-log-webhook.md
-                - name: Solución de problemas de las alertas del registro
-                  href: platform/alert-log-troubleshoot.md
-            - name: Uso de alertas de registros de actividad
-              items:
-                - name: Configuración de alertas para un evento del registro de actividad
-                  href: platform/alerts-activity-log.md
-                - name: Migración a las alertas de registro de actividad
-                  href: platform/migrate-management-alerts.md
-                - name: Configuración de alertas para notificaciones de servicio
-                  href: platform/alerts-activity-log-service-notifications.md
-            - name: Uso de alertas de aplicación
-              items:
-                - name: Disponibilidad
-                  href: app/monitor-web-app-availability.md
-                - name: Alertas de métricas
-                  href: app/alerts.md
-            - name: Usar grupos de acciones con alertas
-              items:
-                - name: Creación de grupos de acciones
-                  href: platform/action-groups.md
-                - name: Información sobre el esquema de webhook
-                  href: platform/activity-log-alerts-webhook.md
-                - name: Comportamiento de alertas por SMS
-                  href: platform/alerts-sms-behavior.md
-                - name: Limitación de índice de alertas
-                  href: platform/alerts-rate-limiting.md
-                - name: Creación de grupos de acciones con Resource Manager
-                  href: platform/action-groups-create-resource-manager-template.md
-                - name: Implementación de una acción de Logic App
-                  href: platform/action-groups-logic-app.md
-            - name: Alertas de Operations Manager
-              href: platform/alert-management-solution.md
-            - name: Administrar alertas
-              items:
-                - name: Administración de instancias de alertas
-                  href: platform/alerts-managing-alert-instances.md
-                - name: Administración de grupos inteligentes
-                  href: platform/alerts-managing-smart-groups.md
-                - name: Administración de estados de alertas y de grupos inteligentes
-                  href: platform/alerts-managing-alert-states.md
-                - name: Administración de alertas de otros servicios de supervisión
-                  href: platform/alerts-managing-nagios-zabbix-scom.md
-        - name: Escalado automático
-          items:
-            - name: Tutorial de escalado automático
-              href: platform/autoscale-get-started.md
-            - name: Información acerca de la configuración de escalado automático
-              href: platform/autoscale-understanding-settings.md
-            - name: Procedimientos recomendados
-              href: platform/autoscale-best-practices.md
-            - name: Métricas comunes
-              href: platform/autoscale-common-metrics.md
-            - name: Patrones comunes
-              href: platform/autoscale-common-scale-patterns.md
-            - name: Escalado automático con una métrica personalizada
-              href: platform/autoscale-custom-metric.md
-            - name: Escalado automático de conjuntos de escalado de máquinas virtuales con plantillas de Resource Manager
-              href: platform/autoscale-virtual-machine-scale-sets.md
-            - name: Escalado automático de máquinas en un conjunto de escalado de máquinas virtuales
-              href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json?toc=/azure/azure-monitor/toc.json
-            - name: Configuración de notificaciones por correo electrónico y webhooks con escalado automático
-              href: platform/autoscale-webhook-email.md
-        - name: Notificaciones de servicio
-          items:
-            - name: Visualización de notificaciones de servicio
-              href: platform/service-notifications.md
-            - name: Configuración de alertas para notificaciones de servicio
-              href: platform/alerts-activity-log-service-notifications.md
-        - name: Administración de servicios de TI
-          items:
-            - name: IT Service Management Connector
-              href: platform/itsmc-overview.md
-            - name: Conexiones de IT Service Management
-              href: platform/itsmc-connections.md
-            - name: Creación de aplicación web de Service Manager
-              href: platform/itsmc-service-manager-script.md
-    - name: Administración del uso y el costo
-      items:
-        - name: Uso y costos estimados
-          href: platform/usage-estimated-costs.md
-        - name: Uso y costos de aplicaciones
-          href: app/pricing.md
-        - name: Registro del uso y los costos de los datos
-          href: platform/manage-cost-storage.md
-    - name: Automatizar
-      items:
-        - name: PowerShell
-          items:
-            - name: Ejemplos de Azure PowerShell
-              href: platform/powershell-quickstart-samples.md
-            - name: Cmdlets de PowerShell
-              href: platform/powershell-workspace-configuration.md
-            - name: APLICACIONES
-              items:
-                - name: Creación de recursos de Application Insights
-                  href: app/powershell.md
-                - name: Crear recursos
-                  href: app/powershell-script-create-resource.md
-                - name: Establecer alertas
-                  href: app/powershell-alerts.md
-                - name: Obtención de diagnósticos de Azure
-                  href: app/powershell-azure-diagnostics.md
-        - name: Ejemplos de la CLI de Azure
-          href: platform/cli-samples.md
-        - name: Plantillas de Resource Manager
-          href: platform/template-workspace-configuration.md
-        - name: API
-          items:
-            - name: Tutorial con la API de REST
-              href: platform/rest-api-walkthrough.md
-            - name: API de alerta
-              href: platform/api-alerts.md
-        - name: APLICACIONES
-          items:
-            - name: Automatización con Microsoft Flow
-              href: app/automate-with-flow.md
-            - name: Automatización con una aplicación de lógica de Azure
-              href: app/automate-with-logic-apps.md
-            - name: Personalización de informes de correo electrónico
-              href: app/automate-custom-reports.md
-    - name: Extend
-      items:
-        - name: APLICACIONES
-          items:
-            - name: API para eventos y métricas personalizados
-              href: app/api-custom-events-metrics.md
-            - name: Seguimiento de operaciones personalizadas en el SDK de .NET
-              href: app/custom-operations-tracking.md
-            - name: Filtrado y telemetría de preprocesamiento
-              href: app/api-filtering-sampling.md
-            - name: muestreo
-              href: app/sampling.md
-        - name: Soluciones de supervisión
-          items:
-            - name: Diseño y compilación
-              href: insights/solutions-creating.md
-            - name: Archivo de soluciones
-              href: insights/solutions-solution-file.md
-            - name: Recursos de Automation
-              href: insights/solutions-resources-automation.md
-            - name: Búsquedas de registros y alertas
-              href: insights/solutions-resources-searches-alerts.md
-            - name: Vistas
-              href: insights/solutions-resources-views.md
-            - name: Procedimientos recomendados
-              href: insights/solutions-best-practices.md
-            - name: Recopilación de datos de supervisión de un runbook
-              href: platform/runbook-datacollect.md
-- name: Referencia
-  items:
+      - name: Datos de registro
+        href: platform/data-security.md
+      - name: Control de datos de registro personales
+        href: platform/personal-data-mgmt.md
+      - name: Recopilación, retención y almacenamiento de datos de aplicaciones
+        href: app/data-retention-privacy.md
+  - name: Información detallada
+    items:
     - name: Application Insights
       items:
-        - name: Recopilación automática de dependencias
-          href: app/auto-collect-dependencies.md
-        - name: Correlación de telemetría
-          href: app/correlation.md
-        - name: Paquetes NuGet
-          href: app/nuget.md
-        - name: Compatibilidad con plataformas
-          href: app/platforms.md
-    - name: Modelo de datos de Application Insights
+      - name: Información general
+        href: app/app-insights-overview.md
+      - name: DevOps
+        href: app/detect-triage-diagnose.md
+      - name: Seguimiento distribuido
+        href: app/distributed-tracing.md
+      - name: Métricas basadas en registros y agregadas previamente
+        href: app/pre-aggregated-metrics-log-metrics.md
+    - name: Contenedores
+      href: insights/container-insights-overview.md
+    - name: Virtual Machines
+      href: insights/vminsights-overview.md
+    - name: Soluciones de supervisión
+      href: insights/solutions-inventory.md
+  - name: Análisis de datos
+    items:
+    - name: Log Analytics
+      href: log-query/log-query-overview.md
+    - name: Portales de consulta de registros
+      href: log-query/portals.md
+    - name: Transición al portal de OMS
       items:
+      - name: Información general
+        href: platform/oms-portal-transition.md
+      - name: Preguntas frecuentes
+        href: platform/oms-portal-faq.md
+  - name: Respuesta a incidentes
+    items:
+    - name: Alertas
+      href: platform/alerts-overview.md
+    - name: Alertas clásicas
+      href: platform/alerts-classic.overview.md
+    - name: Grupos inteligentes
+      href: platform/alerts-smartgroups-overview.md
+    - name: Escalado automático
+      href: platform/autoscale-overview.md
+    - name: Alertas de métricas
+      href: platform/alerts-metric-overview.md
+    - name: Alertas de registro
+      href: platform/alerts-unified-log.md
+    - name: Alertas de registros de actividad
+      href: platform/activity-log-alerts.md
+  - name: Visualización de datos
+    href: visualizations.md?toc=/azure/azure-monitor/toc.json
+  - name: Integraciones de asociados
+    href: platform/partners.md
+  - name: Preguntas más frecuentes
+    items:
+    - name: Log Analytics
+      href: platform/log-faq.md
+    - name: Application Insights
+      href: app/troubleshoot-faq.md
+- name: Guías de procedimientos
+  items:
+  - name: Planeación y preparación
+    items:
+    - name: Administración del acceso
+      items:
+      - name: Permisos de roles y seguridad
+        href: platform/roles-permissions-security.md
+      - name: Áreas de trabajo
+        href: platform/manage-access.md
+      - name: APLICACIONES
+        href: app/resources-roles-access-control.md
+      - name: Direcciones IP
+        href: app/ip-addresses.md
+    - name: Supervisión de aplicaciones
+      items:
+      - name: Diagnósticos detallados para servicios y aplicaciones web
+        href: app/devops.md
+      - name: Supervisar el rendimiento de aplicaciones web
+        href: app/web-monitor-performance.md
+      - name: Separación de desarrollo, prueba y producción
+        href: app/separate-resources.md
+      - name: ¿Cómo ... en Application Insights?
+        href: app/how-do-i.md
+    - name: Administración de áreas de trabajo
+      items:
+      - name: Crear un área de trabajo
+        items:
+        - name: Usar Azure Portal
+          href: learn/quick-create-workspace.md
+        - name: Uso de CLI de Azure
+          href: learn/quick-create-workspace-cli.md
+        - name: Uso de Azure PowerShell
+          href: learn/quick-create-workspace-posh.md
+      - name: Eliminar un área de trabajo
+        href: platform/delete-workspace.md
+      - name: Diseño de proveedores de servicios
+        href: platform/service-providers.md
+  - name: Recopilación de datos
+    items:
+    - name: Instalación y configuración de agentes
+      items:
+      - name: Introducción a los agentes de supervisión
+        href: platform/agents-overview.md
+      - name: Agentes de Log Analytics
+        items:
         - name: Información general
-          href: app/data-model.md
-        - name: Solicitud
-          href: app/data-model-request-telemetry.md
-        - name: Dependencia
-          href: app/data-model-dependency-telemetry.md
-        - name: Excepción
-          href: app/data-model-exception-telemetry.md
-        - name: Seguimiento
-          href: app/data-model-trace-telemetry.md
-        - name: Evento
-          href: app/data-model-event-telemetry.md
-        - name: Métrica
-          href: app/data-model-metric-telemetry.md
-        - name: Context
-          href: app/data-model-context.md
-    - name: Azure CLI
-      href: /cli/azure/monitor?view=azure-cli-latest
-    - name: Azure Functions
-      href: app/azure-functions-supported-features.md
-    - name: Azure PowerShell
+          href: platform/log-analytics-agent.md
+        - name: Agentes de Windows
+          href: platform/agent-windows.md
+        - name: Extensión de VM para Windows
+          href: ../virtual-machines/windows/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+        - name: Extensión de VM para Linux
+          href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+        - name: Operations Manager
+          href: platform/om-agents.md
+        - name: Puerta de enlace de OMS
+          href: platform/gateway.md
+        - name: Administración de agentes
+          href: platform/agent-manage.md
+      - name: Extensión de Diagnósticos de Azure
+        items:
+        - name: Información general
+          href: platform/diagnostics-extension-overview.md
+        - name: Envío a Azure Storage
+          href: platform/diagnostics-extension-to-storage.md
+        - name: Envío a Application Insights
+          href: platform/diagnostics-extension-to-application-insights.md
+        - name: Envío a Event Hubs
+          href: platform/diagnostics-extension-stream-event-hubs.md
+        - name: solución de problemas
+          href: platform/diagnostics-extension-troubleshooting.md
+        - name: Habilitación de la configuración de diagnóstico con plantillas de Resource Manager
+          href: platform/diagnostic-logs-stream-template.md
+        - name: Preparación para el formato de registros de diagnóstico en líneas de JSON
+          href: platform/diagnostic-logs-append-blobs.md
+        - name: Invitado de máquina virtual a almacén de métricas
+          href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
+        - name: Invitado de conjunto de escalado de máquinas virtuales a almacén de métricas
+          href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
+        - name: Invitado de máquina virtual clásica a almacén de métricas
+          href: platform/collect-custom-metrics-guestos-vm-classic.md
+        - name: Invitado de servicio en la nube a almacén de métricas
+          href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
+      - name: Solución de problemas
+        items:
+        - name: Extensión de máquina virtual de Log Analytics
+          href: platform/vmext-troubleshoot.md
+        - name: Agente Linux de Log Analytics
+          href: platform/agent-linux-troubleshoot.md
+    - name: Orígenes de datos de agentes
       items:
-        - name: Supervisión
-          href: /powershell/module/azurerm.insights
-        - name: Registros
-          href: /powershell/module/azurerm.operationalinsights
-    - name: API DE REST
+      - name: Información general
+        href: platform/agent-data-sources.md
+      - name: Eventos de Windows
+        href: platform/data-sources-windows-events.md
+      - name: Personalización de datos JSON
+        href: platform/data-sources-json.md
+      - name: Datos de rendimiento de CollectD
+        href: platform/data-sources-collectd.md
+      - name: Alertas de Nagios y Zabbix
+        href: platform/data-sources-alerts-nagios-zabbix.md
+      - name: syslog
+        href: platform/data-sources-syslog.md
+      - name: contadores de rendimiento
+        href: platform/data-sources-performance-counters.md
+      - name: Rendimiento de aplicaciones de Linux
+        href: platform/data-sources-linux-applications.md
+      - name: Registros IIS
+        href: platform/data-sources-iis-logs.md
+      - name: Registros personalizados
+        href: platform/data-sources-custom-logs.md
+      - name: Custom Fields
+        href: platform/custom-fields.md
+    - name: Configuración de aplicaciones
       items:
-        - name: Supervisión
-          href: /rest/api/monitor/
-        - name: Registros
-          href: /rest/api/loganalytics
-    - name: Plantilla de Resource Manager
-      items:
-        - name: Supervisión
-          href: /azure/templates/microsoft.insights/allversions
-        - name: Registros
-          href: /azure/templates/microsoft.operationalinsights/allversions
-    - name: Métricas
-      items:
-        - name: Métricas compatibles
-          href: platform/metrics-supported.md
-        - name: Métricas compatibles con alertas más recientes
-          href: platform/alerts-metric-near-real-time.md
-    - name: Esquemas
-      items:
-        - name: 'Servicios, categorías y esquemas de registros de diagnóstico'
-          href: platform/tutorial-dashboards.md
-        - name: Esquema de evento del registro de actividad
-          href: platform/activity-log-schema.md
-        - name: Esquema de extensión de Azure Diagnostics
-          href: platform/diagnostics-extension-schema.md
+      - name: Aplicaciones de Azure
+        items:
+        - name: Azure App Service
+          href: app/azure-web-apps.md
+        - name: Azure Cloud Services
+          href: app/cloudservices.md
+        - name: Agregar supervisión continua
+          href: app/continuous-monitoring.md
+        - name: Generador de perfiles
           items:
-            - name: 1.3 y versiones posteriores
-              href: platform/diagnostics-extension-schema-1dot3.md
-            - name: 1.2
-              href: platform/diagnostics-extension-schema-1dot2.md
-            - name: 1
-              href: platform/diagnostics-extension-schema-1dot0.md
-    - name: Características y retirada de API
+          - name: Información general
+            href: app/profiler-overview.md
+          - name: Habilitar el generador de perfiles para una instancia de App Service
+            href: app/profiler.md
+          - name: Habilitar el generador de perfiles para un servicio en la nube
+            href: app/profiler-cloudservice.md
+          - name: Habilitar el generador de perfiles para una aplicación de Service Fabric
+            href: app/profiler-servicefabric.md
+          - name: Habilitar el generador de perfiles para una máquina virtual de Azure
+            href: app/profiler-vm.md
+          - name: Configuración del generador de perfiles
+            href: app/profiler-settings.md
+          - name: Seguimiento de las solicitudes de generación de perfiles
+            href: app/profiler-trackrequests.md
+          - name: Solución de problemas del generador de perfiles
+            href: app/profiler-troubleshooting.md
+        - name: Diagnóstico
+          href: ../application-insights/app-insights-azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
+        - name: Vistas previas
+          href: app/previews.md
+      - name: Aplicaciones de ASP.NET
+        items:
+        - name: Aplicaciones web
+          href: app/asp-net.md
+        - name: Monitor de estado
+          href: app/monitor-performance-live-website-now.md
+        - name: Servicios de Windows
+          href: app/windows-services.md
+        - name: Escritorio de Windows
+          href: app/windows-desktop.md
+        - name: ASP.NET Core
+          href: app/asp-net-core.md
+          items:
+          - name: Generador de perfiles para App Service de Linux
+            href: app/profiler-aspnetcore-linux.md
+        - name: Consola
+          href: app/console.md
+        - name: Panel de la aplicación
+          href: app/overview-dashboard.md
+        - name: Recolección de más telemetría
+          href: app/asp-net-more.md
+        - name: Excepciones
+          href: app/asp-net-exceptions.md
+        - name: Seguimientos de registro
+          href: app/asp-net-trace-logs.md
+        - name: contadores de rendimiento
+          href: app/performance-counters.md
+        - name: Dependencias
+          href: app/asp-net-dependencies.md
+        - name: Anotaciones de la versión
+          href: app/annotations.md
+        - name: ApplicationInsights.config
+          href: app/configuration-with-applicationinsights-config.md
+        - name: Depurador de instantáneas
+          href: app/snapshot-debugger.md
+      - name: Aplicaciones de Java
+        items:
+        - name: Aplicaciones web
+          href: app/java-get-started.md
+        - name: 'Aplicaciones web: en tiempo de ejecución'
+          href: app/java-live.md
+        - name: Aplicaciones de Docker
+          href: app/docker.md
+        - name: Seguimientos de registro
+          href: app/java-trace-logs.md
+        - name: Métricas de Unix
+          href: app/java-collectd.md
+        - name: Dependencias
+          href: app/java-agent.md
+        - name: Telemetría de filtro
+          href: app/java-filter-telemetry.md
+        - name: Micrometer Metrics
+          href: app/micrometer-java.md
+      - name: Aplicaciones de Node.js
+        items:
+        - name: Node.js
+          href: app/nodejs.md
+      - name: Páginas web
+        items:
+        - name: JavaScript
+          href: app/javascript.md
+      - name: Monitor Azure Functions
+        href: ../azure-functions/functions-monitoring.md?toc=/azure/application-insights/toc.json
+      - name: Seguimiento distribuido
+        items:
+        - name: Reenviador local
+          href: app/opencensus-local-forwarder.md
+        - name: Python
+          href: app/opencensus-python.md
+        - name: Go
+          href: app/opencensus-go.md
+      - name: Otras plataformas
+        items:
+        - name: Sitios de SharePoint
+          href: app/sharepoint.md
+        - name: Dynamics CRM
+          href: app/sample-mscrm.md
+      - name: Detección inteligente
+        href: app/proactive-diagnostics.md
+        items:
+        - name: Anomalías de error
+          href: app/proactive-failure-diagnostics.md
+        - name: Anomalías de rendimiento
+          href: app/proactive-performance-diagnostics.md
+        - name: Degradación de seguimiento
+          href: app/proactive-trace-severity.md
+        - name: Volumen de excepción
+          href: app/proactive-exception-volume.md
+        - name: Fuga de memoria
+          href: app/proactive-potential-memory-leak.md
+        - name: Utilización de recursos
+          href: app/proactive-low-utilization-cloud-resources.md
+        - name: Detección de seguridad
+          href: app/proactive-application-security-detection-pack.md
+        - name: Azure Cloud Services
+          href: app/proactive-cloud-services.md
+        - name: Administración de reglas de detección inteligente
+          href: app/proactive-arm-config.md
+      - name: Creación de un recurso
+        href: app/create-new-resource.md
+      - name: Solución de problemas
+        items:
+        - name: No hay datos para .NET
+          href: app/asp-net-troubleshoot-no-data.md
+        - name: Depurador de instantáneas
+          href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md?toc=/azure/azure-monitor/toc.json
+        - name: Análisis
+          href: app/analytics-troubleshooting.md
+        - name: Java
+          href: app/java-troubleshoot.md
+        - name: Análisis de uso
+          href: app/usage-troubleshoot.md
+    - name: Recursos de Azure
       items:
-        - name: API clásica de escalado automático y métricas
-          href: ./platform/classic-api-retirement-metrics-autoscale.md
-        - name: Alertas y supervisión clásicas
-          href: platform/monitoring-classic-retirement.md
-        - name: Extensión de alertas de Log Analytics a Azure
-          href: platform/alerts-extend.md
-        - name: Copia de alertas del portal de OMS a Azure Portal
-          href: platform/alerts-extend-tool.md
+      - name: Registros de actividad de Azure
+        items:
+        - name: Análisis
+          href: platform/collect-activity-logs.md
+        - name: Recopilación entre suscripciones
+          href: platform/collect-activity-logs-subscriptions.md
+      - name: Registros y métricas de servicio
+        href: platform/collect-azure-metrics-logs.md
+      - name: Datos de diagnóstico o registro de Azure Storage
+        href: platform/azure-storage-iis-table.md
+      - name: Recursos de PaaS de Azure
+        href: platform/collect-azurepass-posh.md
+      - name: Poner en correlación orígenes de datos personalizados
+        href: app/custom-data-correlation.md
+    - name: Recopilación de datos personalizados
+      items:
+      - name: Data Collector API de Log Analytics
+        href: platform/data-collector-api.md
+      - name: Ejemplo de canalización de Data Collector API de Log Analytics
+        href: platform/create-pipeline-datacollector-api.md
+      - name: REST API de almacén de métricas
+        href: platform/metrics-store-custom-rest-api.md
+      - name: GuestOS a máquina virtual Linux del almacén de métricas (Telegraf)
+        href: platform/collect-custom-metrics-linux-telegraf.md
+    - name: System Center
+      items:
+      - name: Administrador de configuración
+        href: platform/collect-sccm.md
+      - name: Supervisión del rendimiento de la aplicación mediante SCOM
+        href: app/scom.md
+    - name: Enrutamiento de datos
+      items:
+      - name: Archivo del registro de actividad
+        href: platform/archive-activity-log.md
+      - name: Archivo de registros de diagnóstico
+        href: platform/archive-diagnostic-logs.md
+      - name: Almacenamiento de registros de diagnóstico
+        href: platform/diagnostic-logs-stream-log-store.md
+      - name: Transmisión de registros de actividad a Event Hubs
+        href: platform/activity-logs-stream-event-hubs.md
+      - name: Registros y métricas a Event Hubs
+        href: platform/stream-monitoring-data-event-hubs.md
+      - name: Registros de diagnóstico a Event Hubs
+        href: platform/diagnostic-logs-stream-event-hubs.md
+      - name: Datos de aplicación a Log Analytics
+        href: platform/app-insights-connector.md
+      - name: Exportación de datos de aplicación
+        items:
+        - name: Exportación continua
+          href: app/export-telemetry.md
+          items:
+          - name: Ejemplos de código
+            items:
+            - name: Exportación a SQL con Stream Analytics
+              href: app/code-sample-export-sql-stream-analytics.md
+            - name: Exportación a Stream Analytics
+              href: app/export-stream-analytics.md
+        - name: Modelo de exportación de datos
+          href: app/export-data-model.md
+  - name: Obtención de información
+    items:
+    - name: Supervisión de aplicaciones
+      items:
+      - name: Portal de Application Insights
+        items:
+        - name: Search
+          href: app/diagnostic-search.md
+        - name: Métricas
+          href: app/metrics-explorer.md
+        - name: Live Stream
+          href: app/live-stream.md
+        - name: Mapa de aplicación
+          href: app/app-map.md
+        - name: Diagnósticos de la transacción
+          href: app/transaction-diagnostics.md
+        - name: Datos de HockeyApp
+          href: app/hockeyapp-bridge-app.md
+      - name: Visual Studio
+        items:
+        - name: Información detalla sobre F5
+          href: app/visual-studio.md
+        - name: Tendencias
+          href: app/visual-studio-trends.md
+        - name: CodeLens
+          href: app/visual-studio-codelens.md
+      - name: Uso
+        items:
+        - name: Información general
+          href: app/usage-overview.md
+        - name: Envío de contexto de usuario
+          href: app/usage-send-user-context.md
+        - name: Usuarios, sesiones, eventos
+          href: app/usage-segmentation.md
+        - name: Embudos
+          href: app/usage-funnels.md
+        - name: Cohortes
+          href: app/usage-cohorts.md
+        - name: Impacto
+          href: app/usage-impact.md
+        - name: Retención
+          href: app/usage-retention.md
+        - name: Flujos de usuario
+          href: app/usage-flows.md
+        - name: Workbooks
+          href: app/usage-workbooks.md
+      - name: Solución de análisis de aplicaciones web
+        href: insights/azure-web-apps-analytics.md
+    - name: Supervisión de contenedores
+      items:
+      - name: Azure Monitor para contenedores
+        items:
+        - name: Información general
+          href: insights/container-insights-overview.md
+        - name: Incorporación
+          href: insights/container-insights-onboard.md
+        - name: Análisis
+          href: insights/container-insights-analyze.md
+        - name: Deshabilitar la supervisión
+          href: insights/container-insights-optout.md
+        - name: Visualización de registros activos de contenedores
+          href: insights/container-insights-live-logs.md
+        - name: Administración de agentes
+          href: insights/container-insights-manage-agent.md
+        - name: solución de problemas
+          href: insights/container-insights-troubleshoot.md
+      - name: Supervisión de contenedores de Docker y Windows
+        href: insights/containers.md
+      - name: Supervisión de aplicaciones de Docker
+        href: app/docker.md
+    - name: Supervisión de grupos de recursos
+      href: insights/resource-group-insights.md
+    - name: Supervisión de bases de datos
+      items:
+      - name: Azure SQL
+        href: insights/azure-sql.md
+      - name: SQL Server
+        href: insights/sql-assessment.md
+    - name: Supervisión de redes
+      items:
+      - name: Análisis de redes
+        href: insights/azure-networking-analytics.md
+      - name: Monitor de rendimiento de red
+        items:
+        - name: Información general de la solución
+          href: insights/network-performance-monitor.md
+        - name: Supervisión del rendimiento
+          href: insights/network-performance-monitor-performance-monitor.md
+        - name: Punto de conexión de servicio
+          href: insights/network-performance-monitor-service-endpoint.md
+        - name: ExpressRoute
+          href: insights/network-performance-monitor-expressroute.md
+        - name: Precios
+          href: insights/network-performance-monitor-pricing-faq.md
+        - name: Preguntas más frecuentes
+          href: insights/network-performance-monitor-faq.md
+    - name: Supervisión de máquinas virtuales
+      items:
+      - name: Azure Monitor para máquinas virtuales
+        items:
+        - name: Información general
+          href: insights/vminsights-overview.md
+        - name: Problemas conocidos
+          href: insights/vminsights-known-issues.md
+        - name: Preguntas más frecuentes
+          href: insights/vminsights-faq.md
+        - name: Incorporación
+          href: insights/vminsights-onboard.md
+        - name: Supervisión del mantenimiento
+          href: insights/vminsights-health.md
+        - name: Asignación de dependencias
+          href: insights/vminsights-maps.md
+        - name: Supervisión del rendimiento
+          href: insights/vminsights-performance.md
+        - name: Consulta de datos con Log Analytics
+          href: insights/vminsights-log-search.md
+        - name: Deshabilitar la supervisión
+          href: insights/vminsights-optout.md
+      - name: Estado de mantenimiento de los agentes
+        href: insights/solution-agenthealth.md
+      - name: Capacidad y rendimiento
+        href: insights/capacity-performance.md
+      - name: Análisis de VMWare
+        href: insights/vmware.md
+      - name: Wire Data
+        href: insights/wire-data.md
+      - name: Mapa de servicio
+        items:
+        - name: Uso
+          href: insights/service-map.md
+        - name: Configuración
+          href: insights/service-map-configure.md
+        - name: Integración con Operations Manager
+          href: insights/service-map-scom.md
+    - name: Supervisión de los recursos de Azure
+      items:
+      - name: Análisis de Key Vault
+        href: insights/azure-key-vault.md
+      - name: Service Fabric Analytics
+        href: ../service-fabric/service-fabric-diagnostics-oms-agent.md?toc=/azure/azure-monitor/toc.json
+    - name: Supervisión de otros recursos
+      items:
+      - name: Evaluación del mantenimiento de AD
+        href: insights/ad-assessment.md
+      - name: Estado de replicación de AD
+        href: insights/ad-replication-status.md
+      - name: DNS
+        href: insights/dns-analytics.md
+      - name: Office 365
+        href: insights/solution-office-365.md
+      - name: Evaluación de Operations Manager
+        href: insights/scom-assessment.md
+      - name: Surface Hub
+        href: insights/surface-hubs.md
+    - name: Uso de soluciones de supervisión
+      items:
+      - name: Información general
+        href: insights/solutions.md
+      - name: Soluciones de destino
+        href: insights/solution-targeting.md
+  - name: Visualización de datos
+    items:
+    - name: Vistas
+      href: platform/view-designer.md
+      items:
+      - name: Referencia de iconos
+        href: platform/view-designer-tiles.md
+      - name: Referencia de los elementos de visualización
+        href: platform/view-designer-parts.md
+      - name: Filtros
+        href: platform/view-designer-filters.md
+    - name: Power BI
+      items:
+      - name: Exportación de datos de registro
+        href: platform/powerbi.md
+      - name: Exportación de datos de aplicación
+        href: app/export-power-bi.md
+    - name: Paneles
+      href: app/app-insights-dashboards.md
+    - name: Envío de datos a Grafana
+      href: platform/grafana-plugin.md
+  - name: Análisis de datos
+    items:
+    - name: Creación de gráficos de métricas en el Explorador de métricas
+      href: platform/metrics-charts.md
+    - name: Visualización de eventos en el registro de actividad
+      href: ../azure-resource-manager/resource-group-audit.md?toc=/azure/azure-monitor/toc.json
+    - name: Visualización de notificaciones de servicio
+      href: platform/service-notifications.md
+    - name: Consulta de datos de registro
+      items:
+      - name: Documentación sobre lenguaje de consulta
+        href: log-query/query-language.md
+      - name: Diferencias entre los lenguajes
+        href: log-query/data-explorer-difference.md
+      - name: Transición desde la búsqueda de registros
+        href: log-query/log-search-transition.md
+      - name: Introducción
+        items:
+        - name: Introducción al portal de Analytics
+          href: log-query/get-started-portal.md
+        - name: Introducción a las consultas
+          href: log-query/get-started-queries.md
+        - name: Consultas de búsqueda
+          href: log-query/search-queries.md
+        - name: Operadores útiles
+          href: log-query/useful-operators.md
+      - name: Lecciones
+        items:
+        - name: Operaciones de cadena
+          href: log-query/string-operations.md
+        - name: Operaciones de fecha y hora
+          href: log-query/datetime-operations.md
+        - name: Funciones de agregación
+          href: log-query/aggregations.md
+        - name: Agregaciones avanzadas
+          href: log-query/advanced-aggregations.md
+        - name: Combinaciones
+          href: log-query/joins.md
+        - name: JSON y estructuras de datos
+          href: log-query/json-data-structures.md
+        - name: Escritura de consultas avanzadas
+          href: log-query/advanced-query-writing.md
+        - name: Gráficos y diagramas
+          href: log-query/charts.md
+        - name: Functions
+          href: log-query/functions.md
+      - name: Hojas de características clave
+        items:
+        - name: SQL
+          href: log-query/sql-cheatsheet.md
+        - name: Splunk
+          href: log-query/splunk-cheatsheet.md
+      - name: Lenguaje de consulta
+        items:
+        - name: Ejemplos
+          href: log-query/examples.md
+        - name: Creación de consultas eficientes
+          href: log-query/log-query-performance.md
+        - name: Análisis inteligente
+          href: log-query/smart-analytics.md
+        - name: Búsquedas entre recursos
+          href: log-query/cross-workspace-query.md
+        - name: expresión de aplicación
+          href: log-query/app-expression.md
+        - name: expresión de área de trabajo
+          href: log-query/workspace-expression.md
+      - name: Datos de registro
+        items:
+        - name: Datos de aplicación
+          href: app/analytics.md
+        - name: Unificación de los recursos de datos de la aplicación
+          href: log-query/unify-app-resource-data.md
+        - name: Propiedades estándar
+          href: platform/log-standard-properties.md
+        - name: Análisis de datos de texto
+          href: log-query/parse-text.md
+      - name: Actuación a partir de resultados de búsqueda
+        href: log-query/take-action.md
+      - name: Grupos de equipos
+        href: platform/computer-groups.md
+      - name: Conector de Flow
+        href: platform/flow-tutorial.md
+      - name: API de búsqueda de registros
+        href: https://dev.loganalytics.io/
+  - name: Respuesta a incidentes
+    items:
+    - name: Alertas
+      items:
+      - name: Uso de alertas de métricas
+        items:
+        - name: Creación, visualización y administración de alertas de métricas mediante Azure Monitor
+          href: platform/alerts-metric.md
+        - name: Creación, visualización y administración de alertas de métricas clásicas mediante Azure Monitor
+          href: platform/alerts-classic-portal.md
+        - name: Alertas de métricas con umbrales dinámicos
+          href: platform/alerts-dynamic-thresholds.md
+        - name: Configuración de alertas de métricas en registros
+          href: platform/alerts-metric-logs.md
+        - name: Creación de una alerta de métrica más reciente con una plantilla de Resource Manager
+          href: platform/alerts-metric-create-templates.md
+        - name: Creación de una alerta de métrica clásica con una plantilla de Resource Manager
+          href: platform/alerts-enable-template.md
+        - name: Llamada de una alerta métrica clásica a un webhook
+          href: platform/alerts-webhooks.md
+      - name: Uso de alertas de registro
+        items:
+        - name: Configuración de alertas en las consultas de análisis
+          href: platform/alerts-log.md
+        - name: Registro de consultas de alerta
+          href: platform/alerts-log-query.md
+        - name: Acciones de webhook para alertas de registro
+          href: platform/alerts-log-webhook.md
+        - name: Solución de problemas de las alertas del registro
+          href: platform/alert-log-troubleshoot.md
+      - name: Uso de alertas de registros de actividad
+        items:
+        - name: Configuración de alertas para un evento del registro de actividad
+          href: platform/alerts-activity-log.md
+        - name: Migración a las alertas de registro de actividad
+          href: platform/migrate-management-alerts.md
+        - name: Configuración de alertas para notificaciones de servicio
+          href: platform/alerts-activity-log-service-notifications.md
+      - name: Uso de alertas de aplicación
+        items:
+        - name: Disponibilidad
+          href: app/monitor-web-app-availability.md
+        - name: Alertas de métricas
+          href: app/alerts.md
+      - name: Usar grupos de acciones con alertas
+        items:
+        - name: Creación de grupos de acciones
+          href: platform/action-groups.md
+        - name: Información sobre el esquema de webhook
+          href: platform/activity-log-alerts-webhook.md
+        - name: Comportamiento de alertas por SMS
+          href: platform/alerts-sms-behavior.md
+        - name: Limitación de índice de alertas
+          href: platform/alerts-rate-limiting.md
+        - name: Creación de grupos de acciones con Resource Manager
+          href: platform/action-groups-create-resource-manager-template.md
+        - name: Implementación de una acción de Logic App
+          href: platform/action-groups-logic-app.md
+      - name: Alertas de Operations Manager
+        href: platform/alert-management-solution.md
+      - name: Administrar alertas
+        items:
+        - name: Administración de instancias de alertas
+          href: platform/alerts-managing-alert-instances.md
+        - name: Administración de grupos inteligentes
+          href: platform/alerts-managing-smart-groups.md
+        - name: Administración de estados de alertas y de grupos inteligentes
+          href: platform/alerts-managing-alert-states.md
+        - name: Administración de alertas de otros servicios de supervisión
+          href: platform/alerts-managing-nagios-zabbix-scom.md
+    - name: Escalado automático
+      items:
+      - name: Tutorial de escalado automático
+        href: platform/autoscale-get-started.md
+      - name: Información acerca de la configuración de escalado automático
+        href: platform/autoscale-understanding-settings.md
+      - name: Procedimientos recomendados
+        href: platform/autoscale-best-practices.md
+      - name: Métricas comunes
+        href: platform/autoscale-common-metrics.md
+      - name: Patrones comunes
+        href: platform/autoscale-common-scale-patterns.md
+      - name: Escalado automático con una métrica personalizada
+        href: platform/autoscale-custom-metric.md
+      - name: Escalado automático de conjuntos de escalado de máquinas virtuales con plantillas de Resource Manager
+        href: platform/autoscale-virtual-machine-scale-sets.md
+      - name: Escalado automático de máquinas en un conjunto de escalado de máquinas virtuales
+        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json?toc=/azure/azure-monitor/toc.json
+      - name: Configuración de notificaciones por correo electrónico y webhooks con escalado automático
+        href: platform/autoscale-webhook-email.md
+    - name: Notificaciones de servicio
+      items:
+      - name: Visualización de notificaciones de servicio
+        href: platform/service-notifications.md
+      - name: Configuración de alertas para notificaciones de servicio
+        href: platform/alerts-activity-log-service-notifications.md
+    - name: Administración de servicios de TI
+      items:
+      - name: IT Service Management Connector
+        href: platform/itsmc-overview.md
+      - name: Conexiones de IT Service Management
+        href: platform/itsmc-connections.md
+      - name: Creación de aplicación web de Service Manager
+        href: platform/itsmc-service-manager-script.md
+  - name: Administración del uso y el costo
+    items:
+    - name: Uso y costos estimados
+      href: platform/usage-estimated-costs.md
+    - name: Uso y costos de aplicaciones
+      href: app/pricing.md
+    - name: Registro del uso y los costos de los datos
+      href: platform/manage-cost-storage.md
+  - name: Automatizar
+    items:
+    - name: PowerShell
+      items:
+      - name: Ejemplos de Azure PowerShell
+        href: platform/powershell-quickstart-samples.md
+      - name: Cmdlets de PowerShell
+        href: platform/powershell-workspace-configuration.md
+      - name: APLICACIONES
+        items:
+        - name: Creación de recursos de Application Insights
+          href: app/powershell.md
+        - name: Crear recursos
+          href: app/powershell-script-create-resource.md
+        - name: Establecer alertas
+          href: app/powershell-alerts.md
+        - name: Obtención de diagnósticos de Azure
+          href: app/powershell-azure-diagnostics.md
+    - name: Ejemplos de la CLI de Azure
+      href: platform/cli-samples.md
+    - name: Plantillas de Resource Manager
+      href: platform/template-workspace-configuration.md
+    - name: API
+      items:
+      - name: Tutorial con la API de REST
+        href: platform/rest-api-walkthrough.md
+      - name: API de alerta
+        href: platform/api-alerts.md
+    - name: APLICACIONES
+      items:
+      - name: Automatización con Microsoft Flow
+        href: app/automate-with-flow.md
+      - name: Automatización con una aplicación de lógica de Azure
+        href: app/automate-with-logic-apps.md
+      - name: Personalización de informes de correo electrónico
+        href: app/automate-custom-reports.md
+  - name: Extend
+    items:
+    - name: APLICACIONES
+      items:
+      - name: API para eventos y métricas personalizados
+        href: app/api-custom-events-metrics.md
+      - name: Seguimiento de operaciones personalizadas en el SDK de .NET
+        href: app/custom-operations-tracking.md
+      - name: Filtrado y telemetría de preprocesamiento
+        href: app/api-filtering-sampling.md
+      - name: muestreo
+        href: app/sampling.md
+    - name: Soluciones de supervisión
+      items:
+      - name: Diseño y compilación
+        href: insights/solutions-creating.md
+      - name: Archivo de soluciones
+        href: insights/solutions-solution-file.md
+      - name: Recursos de Automation
+        href: insights/solutions-resources-automation.md
+      - name: Búsquedas de registros y alertas
+        href: insights/solutions-resources-searches-alerts.md
+      - name: Vistas
+        href: insights/solutions-resources-views.md
+      - name: Procedimientos recomendados
+        href: insights/solutions-best-practices.md
+      - name: Recopilación de datos de supervisión de un runbook
+        href: platform/runbook-datacollect.md
+- name: Referencia
+  items:
+  - name: Application Insights
+    items:
+    - name: Recopilación automática de dependencias
+      href: app/auto-collect-dependencies.md
+    - name: Correlación de telemetría
+      href: app/correlation.md
+    - name: Paquetes NuGet
+      href: app/nuget.md
+    - name: Compatibilidad con plataformas
+      href: app/platforms.md
+  - name: Modelo de datos de Application Insights
+    items:
+    - name: Información general
+      href: app/data-model.md
+    - name: Solicitud
+      href: app/data-model-request-telemetry.md
+    - name: Dependencia
+      href: app/data-model-dependency-telemetry.md
+    - name: Excepción
+      href: app/data-model-exception-telemetry.md
+    - name: Seguimiento
+      href: app/data-model-trace-telemetry.md
+    - name: Evento
+      href: app/data-model-event-telemetry.md
+    - name: Métrica
+      href: app/data-model-metric-telemetry.md
+    - name: Context
+      href: app/data-model-context.md
+  - name: Azure CLI
+    href: /cli/azure/monitor?view=azure-cli-latest
+  - name: Azure Functions
+    href: app/azure-functions-supported-features.md
+  - name: Azure PowerShell
+    items:
+    - name: Supervisión
+      href: /powershell/module/azurerm.insights
+    - name: Registros
+      href: /powershell/module/azurerm.operationalinsights
+  - name: API DE REST
+    items:
+    - name: Supervisión
+      href: /rest/api/monitor/
+    - name: Registros
+      href: /rest/api/loganalytics
+  - name: Plantilla de Resource Manager
+    items:
+    - name: Supervisión
+      href: /azure/templates/microsoft.insights/allversions
+    - name: Registros
+      href: /azure/templates/microsoft.operationalinsights/allversions
+  - name: Métricas
+    items:
+    - name: Métricas compatibles
+      href: platform/metrics-supported.md
+    - name: Métricas compatibles con alertas más recientes
+      href: platform/alerts-metric-near-real-time.md
+  - name: Esquemas
+    items:
+    - name: Servicios, categorías y esquemas de registros de diagnóstico
+      href: platform/diagnostic-logs-schema.md
+    - name: Esquema de evento del registro de actividad
+      href: platform/activity-log-schema.md
+    - name: Esquema de extensión de Azure Diagnostics
+      href: platform/diagnostics-extension-schema.md
+      items:
+      - name: 1.3 y versiones posteriores
+        href: platform/diagnostics-extension-schema-1dot3.md
+      - name: "1.2"
+        href: platform/diagnostics-extension-schema-1dot2.md
+      - name: "1"
+        href: platform/diagnostics-extension-schema-1dot0.md
+  - name: Características y retirada de API
+    items:
+    - name: API clásica de escalado automático y métricas
+      href: ./platform/classic-api-retirement-metrics-autoscale.md
+    - name: Alertas y supervisión clásicas
+      href: platform/monitoring-classic-retirement.md
+    - name: Extensión de alertas de Log Analytics a Azure
+      href: platform/alerts-extend.md
+    - name: Copia de alertas del portal de OMS a Azure Portal
+      href: platform/alerts-extend-tool.md
 - name: Recursos
   items:
-    - name: Azure Roadmap
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Precios
-      href: 'https://azure.microsoft.com/pricing/details/log-analytics/'
-    - name: Calculadora de precios
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Noticias
-      items:
-        - name: Actualizaciones del servicio Application Insights
-          href: 'https://azure.microsoft.com/updates/?product=application-insights'
-        - name: Actualizaciones del servicio Log Analytics
-          href: 'https://azure.microsoft.com/updates/?product=log-analytics'
-        - name: Notas de la versión del SDK
-          href: app/release-notes.md
-        - name: Notas de la versión para Developer Analytics Tools
-          href: app/release-notes-vsix.md
-    - name: Análisis de Windows
-      href: 'https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics'
-    - name: Disponibilidad regional
-      href: 'https://azure.microsoft.com/regions/services/'
-    - name: Vídeos
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=monitor'
-    - name: Plantillas de inicio rápido
-      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/search?q=monitoring'
-    - name: Ejemplos de código
-      href: 'https://azure.microsoft.com/resources/samples/?service=monitor'
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Precios
+    href: https://azure.microsoft.com/pricing/details/log-analytics/
+  - name: Calculadora de precios
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Noticias
+    items:
+    - name: Actualizaciones del servicio Application Insights
+      href: https://azure.microsoft.com/updates/?product=application-insights
+    - name: Actualizaciones del servicio Log Analytics
+      href: https://azure.microsoft.com/updates/?product=log-analytics
+    - name: Notas de la versión del SDK
+      href: app/release-notes.md
+    - name: Notas de la versión para Developer Analytics Tools
+      href: app/release-notes-vsix.md
+  - name: Análisis de Windows
+    href: https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics
+  - name: Disponibilidad regional
+    href: https://azure.microsoft.com/regions/services/
+  - name: Vídeos
+    href: https://azure.microsoft.com/resources/videos/index/?services=monitor
+  - name: Plantillas de inicio rápido
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights
+  - name: Stack Overflow
+    href: https://stackoverflow.com/search?q=monitoring
+  - name: Ejemplos de código
+    href: https://azure.microsoft.com/resources/samples/?service=monitor
+ms.openlocfilehash: 3a3770418ff8463ec2afa39105a1722addc7c3d2
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888029"
