@@ -57,13 +57,34 @@ items:
     href: r-quickstart.md
 - name: Ejemplos
   items:
-  - name: Experimentos de ejemplo
-    displayName: gallery
-    href: sample-experiments.md
   - name: Conjuntos de datos de ejemplo
     href: use-sample-datasets.md
+  - name: Ejemplo de abandono de un cliente
+    href: azure-ml-customer-churn-scenario.md
   - name: Galería de Azure AI
-    href: gallery-how-to-use-contribute-publish.md
+    items:
+    - name: Información general
+      href: gallery-how-to-use-contribute-publish.md
+    - name: Experimentos de ejemplo
+      href: sample-experiments.md
+    - name: Industrias
+      href: gallery-industries.md
+    - name: Soluciones
+      href: gallery-solutions.md
+    - name: Experimentos
+      href: gallery-experiments.md
+    - name: Jupyter Notebooks
+      href: gallery-jupyter-notebooks.md
+    - name: Competiciones
+      href: gallery-competitions.md
+    - name: Preguntas más frecuentes sobre competiciones
+      href: competition-faq.md
+    - name: Tutoriales
+      href: gallery-tutorials.md
+    - name: Colecciones
+      href: gallery-collections.md
+    - name: Módulos personalizados
+      href: gallery-custom-modules.md
 - name: Conceptos
   items:
   - name: Administración de modelos
@@ -81,6 +102,9 @@ items:
       href: troubleshooting-creating-ml-workspace.md
     - name: Implementación con ARM
       href: deploy-with-resource-manager-template.md
+    - name: Visualización y eliminación de los datos de la cuenta de Studio
+      displayName: export
+      href: export-delete-personal-data-dsr.md
   - name: Importación de datos de aprendizaje
     items:
     - name: Información general
@@ -103,10 +127,16 @@ items:
     - name: Uso de PowerShell para crear modelos
       displayName: endpoint, endpoints
       href: create-models-and-endpoints-with-powershell.md
-    - name: Elección de algoritmos
-      href: algorithm-choice.md
-    - name: Hoja de referencia de algoritmos
-      href: algorithm-cheat-sheet.md
+    - name: Selección de algoritmos
+      items:
+      - name: Elección de algoritmos
+        href: algorithm-choice.md
+      - name: Hoja de referencia de algoritmos
+        href: algorithm-cheat-sheet.md
+      - name: Uso de la regresión lineal
+        href: linear-regression-in-azure.md
+      - name: Uso del análisis de texto
+        href: text-analytics-module-tutorial.md
     - name: Evaluación e interpretación de los resultados
       items:
       - name: Evaluación del rendimiento
@@ -182,19 +212,7 @@ items:
       href: consume-web-service-with-web-app-template.md
     - name: Uso del grupo de Batch
       href: dedicated-capacity-for-bes-jobs.md
-  - name: Ejemplos
-    items:
-    - name: Abandono de clientes
-      href: azure-ml-customer-churn-scenario.md
-    - name: análisis de opiniones
-      href: text-analytics-module-tutorial.md
-    - name: Migración de análisis de Excel a Studio
-      href: linear-regression-in-azure.md
-  - name: Visualización y eliminación de los datos de Studio
-    displayName: export
-    href: export-delete-personal-data-dsr.md
-  - name: Visualización y eliminación de los datos de la galería
-    displayName: export
+  - name: Visualización y eliminación de los datos de cuenta
     href: ai-gallery-control-personal-data-dsr.md
 - name: Referencia
   items:
@@ -226,9 +244,9 @@ items:
     href: azure-ml-netsharp-reference-guide.md
   - name: Comparación entre nuestros productos de aprendizaje automático
     href: ../service/overview-more-machine-learning.md
-ms.openlocfilehash: a79ff2e7b2fba67e5c341468b462eacd07e2693c
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 821a6ffb787aef0d75dbc0f9e1ab331ad35dafa0
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401952"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389917"

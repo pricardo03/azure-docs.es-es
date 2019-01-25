@@ -243,7 +243,7 @@ items:
         href: sql-database-always-encrypted.md
       - name: Uso de Azure Key Vault
         href: sql-database-always-encrypted-azure-key-vault.md
-    - name: Cifrado de datos transparente (TDE)
+    - name: 'Cifrado de datos transparente (TDE) '
       items:
       - name: TDE con Azure SQL
         href: transparent-data-encryption-azure-sql.md
@@ -279,6 +279,8 @@ items:
       href: sql-database-elastic-query-overview.md
     - name: Transacciones elásticas
       href: sql-database-elastic-transactions-overview.md
+    - name: Trabajos de Elastic Database
+      href: elastic-jobs-overview.md
   - name: Comparación de características SQL
     href: sql-database-features.md
   - name: Supervisión y ajuste
@@ -321,8 +323,6 @@ items:
       href: sql-database-in-memory.md
     - name: Tablas temporales
       href: sql-database-temporal-tables.md
-    - name: Automatización de trabajos
-      href: sql-database-job-automation-overview.md
 - name: Guías de procedimientos
   items:
   - name: Información general
@@ -341,8 +341,6 @@ items:
       href: sql-database-threat-detection.md
     - name: Configuración de la retención de copias de seguridad mediante Azure Blob Storage
       href: sql-database-long-term-backup-retention-configure.md
-    - name: Configuración de trabajos de Elastic Database
-      href: elastic-jobs-overview.md
     - name: Configuración del enmascaramiento de datos dinámicos
       href: sql-database-dynamic-data-masking-get-started-portal.md
     - name: 'Configuración de la replicación geográfica: Portal'
@@ -688,9 +686,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Desinstalación de trabajo elástico (en desuso)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 95ea4f676202fe06a1761c98ddb7e3e1a6f12708
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 634018a1807e23700141ac11a961bd1b1411b8a8
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447996"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331408"
