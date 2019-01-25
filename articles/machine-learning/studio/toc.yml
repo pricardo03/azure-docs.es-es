@@ -212,21 +212,23 @@ items:
     href: /azure/templates/microsoft.machinelearning/allversions
 - name: Recursos
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
   - name: Precios
     href: https://azure.microsoft.com/pricing/details/machine-learning/
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Foro de MSDN
+    href: https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-machine-learning
   - name: Guía del desarrollador de R
     href: ../r-developers-guide.md
   - name: Redes neuronales personalizadas con Net#
     href: azure-ml-netsharp-reference-guide.md
-  - name: Obtención de soporte técnico
-    href: support-aml-studio.md
   - name: Comparación entre nuestros productos de aprendizaje automático
     href: ../service/overview-more-machine-learning.md
-ms.openlocfilehash: 585310705bebbceb0aa4576977ef096704d87483
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a79ff2e7b2fba67e5c341468b462eacd07e2693c
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424792"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401952"

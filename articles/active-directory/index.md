@@ -2,20 +2,25 @@
 layout: HubPage
 hide_bc: false
 title: 'Documentación sobre Azure Active Directory: tutoriales y referencia de API | Microsoft Docs'
-description: 'Azure Active Directory (Azure AD) es un servicio multiinquilino de Microsoft de administración de identidades y de directorios basado en la nube que combina los servicios de directorio principales, la administración del acceso de las aplicaciones y la protección de identidades en una única solución.'
+description: Azure Active Directory (Azure AD) es un servicio multiinquilino de Microsoft de administración de identidades y de directorios basado en la nube que combina los servicios de directorio principales, la administración del acceso de las aplicaciones y la protección de identidades en una única solución.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: landing-page
-ms.date: 01/16/2019
-ms.author: mtillman
+ms.date: 01/24/2019
+ms.author: barbkess
+ms.openlocfilehash: e8e422e6ba69669b24fc141b2688d6777ab85384
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900976"
 ---
-
 <div id="main" class="v2">
     <div class="container">
         <h1>Documentación de Azure Active Directory</h1>
-        <p>Azure Active Directory (Azure AD) es un directorio multiinquilino, basado en la nube y un servicio de administración de identidades.</p><p></p>
+        <p>Azure Active Directory (Azure AD) es un servicio multiinquilino, basado en la nube de administración de identidades y de acceso.</p><p></p>
         <ul class="cardsY panelContent singlePanelContent" style="display:flex!important;">
             <li>
                 <a href="fundamentals/active-directory-whatis.md">

@@ -47,12 +47,24 @@ items:
   items:
   - name: Información general
     href: user-help-auth-app-overview.md
-  - name: Introducción
+  - name: Descarga e instalación de la aplicación
     href: microsoft-authenticator-app-how-to.md
-  - name: Copia de seguridad y recuperación
-    href: microsoft-authenticator-app-backup-and-recovery.md
-  - name: Inicio de sesión con el teléfono
+  - name: Adición de información adicional de las cuentas
+    href: microsoft-authenticator-app-add-accounts-overview.md
+    items:
+    - name: Adición de una cuenta profesional o educativa
+      href: microsoft-authenticator-app-add-work-account.md
+    - name: Adición de una cuenta Microsoft personal
+      href: microsoft-authenticator-app-add-personal-account.md
+    - name: Adición de una cuenta personal que no sea de Microsoft
+      href: microsoft-authenticator-app-add-non-microsoft-account.md
+    - name: Incorporación manual de una cuenta
+      href: microsoft-authenticator-app-add-account-manual.md
+    expanded: true
+  - name: Inicio de sesión con la aplicación Microsoft Authenticator
     href: microsoft-authenticator-app-phone-signin-faq.md
+  - name: Copia de seguridad y recuperación de las cuentas
+    href: microsoft-authenticator-app-backup-and-recovery.md
   - name: Preguntas más frecuentes
     href: microsoft-authenticator-app-faq.md
 - name: Ayuda del portal Mis aplicaciones
@@ -73,9 +85,9 @@ items:
     href: user-help-register-device-on-network.md
   - name: Solución de problemas relacionados con el mensaje "You can't get there" (No puede acceder)
     href: user-help-device-remediation.md
-ms.openlocfilehash: 27d0d3300a19d4c27bec48ebf411c7ac3ee6ad87
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 9ccadb31ce331d3a9dc64aa26d5e8edab900cd1e
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649592"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904104"

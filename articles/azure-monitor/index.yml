@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 579410d04c7f3fc5548e0014a4f6a028c3db74f1
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 5b8d5e639711b91d380b5f14de48be6a80fb0263
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651544"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820774"
 documentType: LandingData
 title: Documentación sobre Azure Monitor
 metadata:
@@ -16,11 +16,21 @@ metadata:
   ms.service: azure-monitor
   ms.tgt_pltfrm: na
   ms.topic: landing-page
-  ms.date: 09/04/2018
+  ms.date: 01/22/2019
   ms.author: bwren
 abstract:
   description: Azure Monitor, que ahora incluye Log Analytics y Application Insights, ofrece herramientas sofisticadas para recopilar y analizar datos de telemetría que permiten maximizar el rendimiento y la disponibilidad de las aplicaciones y recursos en la nube y locales. Esta solución le ayudará a entender cómo funcionan las aplicaciones y le permitirá identificar de manera proactiva los problemas que les afectan y los recursos de los que dependen.
 sections:
+- title: Sugerencias de contenido
+  items:
+  - type: paragraph
+    text: Use los vínculos siguientes para ver una lista de sugerencias de contenido para Log Analytics y Application Insights.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/azure-monitor/azure-monitor-log-hub">Log Analytics</a>
+    - html: <a href="/azure/azure-monitor/azure-monitor-app-hub">Application Insights</a>
 - title: Inicios rápidos en 5 minutos
   items:
   - type: paragraph
