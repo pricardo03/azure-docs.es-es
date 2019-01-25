@@ -104,6 +104,10 @@ items:
       href: concepts-connectivity.md
     - name: Desarrollo con Azure Kubernetes Service (AKS)
       href: concepts-aks.md
+  - name: Replicación
+    items:
+    - name: Réplicas de lectura
+      href: concepts-read-replicas.md
 - name: Guías de procedimientos
   items:
   - name: Creación de usuarios
@@ -172,6 +176,10 @@ items:
     items:
     - name: Azure Portal
       href: howto-restart-server-portal.md
+  - name: Replicación
+    items:
+    - name: Administración de réplicas de lectura en Azure Portal
+      href: howto-read-replicas-portal.md
 - name: Referencia
   items:
   - name: Azure CLI
@@ -222,9 +230,9 @@ items:
     href: partners-migration-postgresql.md
   - name: Guía sobre Database Migration
     href: https://datamigration.microsoft.com/
-ms.openlocfilehash: 73cdb90edc790dc29a3896ecf75c18b03dd52a44
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 61b78ac5b542e130fd7182b0c30810ff9c98ee78
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200724"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54383045"
