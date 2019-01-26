@@ -181,14 +181,6 @@ items:
       href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
   - name: Implementación
     items:
-    - name: Ansible
-      items:
-      - name: Creación y administración de conjuntos de escalado
-        href: /azure/ansible/ansible-create-configure-vmss
-        maintainContext: true
-      - name: Implementación de aplicaciones en conjuntos de escalado
-        href: /azure/ansible/ansible-deploy-app-vmss
-        maintainContext: true
     - name: Creación con Visual Studio
       href: virtual-machine-scale-sets-vs-create.md
     - name: Uso de zonas de disponibilidad
@@ -251,6 +243,17 @@ items:
       href: virtual-machine-scale-sets-convert-template-to-md.md
     - name: Mantenimiento planeado
       href: virtual-machine-scale-sets-maintenance-notifications.md
+  - name: Uso de Ansible
+    items:
+    - name: Creación y administración de conjuntos de escalado
+      href: /azure/ansible/ansible-create-configure-vmss
+      maintainContext: true
+    - name: Implementación de aplicaciones en conjuntos de escalado
+      href: /azure/ansible/ansible-deploy-app-vmss
+      maintainContext: true
+    - name: Escalado automático de un conjunto de escalado
+      href: /azure/ansible/ansible-auto-scale-vmss
+      maintainContext: true
   - name: Solución de problemas
     items:
     - name: Escalado automático
@@ -267,6 +270,8 @@ items:
     href: ../virtual-machines/azure-cli-arm-commands.md
   - name: REST
     href: /rest/api/virtualmachinescalesets/
+  - name: Plantillas de Azure
+    href: /azure/templates/microsoft.compute/virtualmachinescalesets
 - name: Recursos
   items:
   - name: Azure Roadmap
@@ -275,15 +280,15 @@ items:
     items:
     - name: Linux
       href: https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/
-    - name: " Windows"
+    - name: Windows
       href: https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/
   - name: Calculadora de precios
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-vm-scale-set
-ms.openlocfilehash: 0f633c6ed77d20f5b2de78687297d4f9a8d5094a
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: e8239a2b9f4717e2483af2084b1ba07368361e88
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189922"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883337"
