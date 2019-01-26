@@ -1,12 +1,18 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: f5d48559592fa98df5e4f10fc89e137d06e3e166
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079212"
 documentType: LandingData
 title: Documentación sobre el acceso condicional de Azure AD
 metadata:
-  document_id: null
+  document_id: 
   title: 'Documentación sobre el acceso condicional de Azure Active Directory: Tutoriales, guías de inicio rápido, conceptos, referencias | Microsoft Docs'
   description: Aprenda a configurar y probar directivas de acceso condicional de Azure Active Directory.
   services: active-directory
-  ms.component: authentication
+  ms.subservice: authentication
   author: MarkusVi
   manager: daveba
   ms.service: active-directory
@@ -16,41 +22,41 @@ metadata:
   ms.date: 08/14/2018
   ms.author: markvi
 abstract:
-  description: 'Aprenda a dominar el equilibrio entre seguridad y productividad mediante la configuración del acceso condicional de Azure AD. Con las directivas de acceso condicional, puede factorizar cómo se accede a sus aplicaciones en la nube en sus opciones de acceso. Por ejemplo, puede solucionar en sus opciones de acceso las siguientes preguntas:<ul><li>¿Cuál es la ubicación de red del usuario?</li><li>¿Se ha iniciado el intento de acceso desde un dispositivo administrado?</li><li>¿Desde qué aplicación cliente se ha iniciado un intento de conexión?</li><li>¿Se ha realizado un intento de acceso desde un inicio de sesión peligroso?</li></ul>Los siguientes recursos le ayudarán a empezar a trabajar rápidamente.'
+  description: Aprenda a dominar el equilibrio entre seguridad y productividad mediante la configuración del acceso condicional de Azure AD. Con las directivas de acceso condicional, puede factorizar cómo se accede a sus aplicaciones en la nube en sus opciones de acceso. Por ejemplo, puede solucionar en sus opciones de acceso las siguientes preguntas:<ul><li>¿Cuál es la ubicación de red del usuario?</li><li>¿Se ha iniciado el intento de acceso desde un dispositivo administrado?</li><li>¿Desde qué aplicación cliente se ha iniciado un intento de conexión?</li><li>¿Se ha realizado un intento de acceso desde un inicio de sesión peligroso?</li></ul>Los siguientes recursos le ayudarán a empezar a trabajar rápidamente.
   aside:
     image:
-      alt: null
+      alt: 
       height: 110
       src: ./media/index/video.png
       width: 246
     title: Explicación sobre el acceso condicional
-    href: 'https://www.youtube.com/watch?v=XruceejcCKQ'
+    href: https://www.youtube.com/watch?v=XruceejcCKQ
     width: 246
 sections:
-  - title: Inicios rápidos en 5 minutos
+- title: Inicios rápidos en 5 minutos
+  items:
+  - type: paragraph
+    text: Aprenda a configurar directivas de acceso condicional para escenarios habituales de acceso.
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Aprenda a configurar directivas de acceso condicional para escenarios habituales de acceso.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/index/i_security-management.png
-            text: Requerir MFA para aplicaciones específicas
-            href: app-based-mfa.md
-          - image:
-              src: ./media/index/i_security-management.png
-            text: Bloqueo del acceso si se detecta un riesgo de sesión
-            href: app-sign-in-risk.md
-          - image:
-              src: ./media/index/i_security-management.png
-            text: Solicitar la aceptación de los términos de uso
-            href: require-tou.md
-  - title: Tutoriales detallados
+    - image:
+        src: ./media/index/i_security-management.png
+      text: Requerir MFA para aplicaciones específicas
+      href: app-based-mfa.md
+    - image:
+        src: ./media/index/i_security-management.png
+      text: Bloqueo del acceso si se detecta un riesgo de sesión
+      href: app-sign-in-risk.md
+    - image:
+        src: ./media/index/i_security-management.png
+      text: Solicitar la aceptación de los términos de uso
+      href: require-tou.md
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: Aprenda a migrar las directivas de acceso condicional clásicas.
+  - type: list
+    style: unordered
     items:
-      - type: paragraph
-        text: Aprenda a migrar las directivas de acceso condicional clásicas.
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/conditional-access/policy-migration-mfa">Migración de una directiva clásica que requiere autenticación multifactor</a>
+    - html: <a href="/azure/active-directory/conditional-access/policy-migration-mfa">Migración de una directiva clásica que requiere autenticación multifactor</a>
