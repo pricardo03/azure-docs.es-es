@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 69fa31efe9044ca6dbbc2c6229fdaa328437a046
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 0dbbf1e5b3f80f1dce188e38f3e0ff2d12cce07b
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792122"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912261"
 documentType: LandingData
 title: Documentación de Bing Web Search API
 metadata:
   document_id: 6111ada8-aec2-11e7-abc4-cec278b6b50a
   title: 'Documentación sobre Bing Web Search API: tutoriales, guías de inicio rápido y referencias de API | Microsoft Docs'
-  description: Aprenda a usar Bing Web Search API para obtener resultados desde la web correspondiente a las consultas del usuario. Los tutoriales muestran cómo compilar aplicaciones que usan el servicio.
+  description: Aprenda a usar Bing Web Search API para buscar páginas web, imágenes, vídeos, noticias, etc, en la Web.
   services: cognitive-services
   author: nitinme
   manager: cgronlun
@@ -22,7 +22,7 @@ metadata:
   ms.date: 9/24/2018
   ms.author: nitinme
 abstract:
-  description: Bing Web Search API proporciona una experiencia similar a Bing al devolver resultados de búsqueda que Bing determina que están relacionados con la consulta del usuario. Los resultados incluyen páginas web y también pueden incluir imágenes, vídeos y mucho más.
+  description: Bing Web Search API le permite integrar las funcionalidades de búsqueda de Bing en las aplicaciones. Mediante el envío de consultas de búsqueda con la API puede obtener las páginas web, imágenes, vídeos, noticias, etc, más apropiados.
 sections:
 - items:
   - type: list
@@ -48,13 +48,13 @@ sections:
 - title: Inicios rápidos en 5 minutos
   items:
   - type: paragraph
-    text: 'Empiece a trabajar con Bing Web Search API realizando una consulta y viendo la respuesta JSON:'
+    text: 'Busque en la Web con:'
   - type: list
     style: icon48
     items:
     - image:
         src: media/index/logo_csharp.svg
-      href: quickstarts/csharp
+      href: web-search-sdk-quickstart
       text: C&#35;
     - image:
         src: https://docs.microsoft.com/media/logos/logo_gopher.svg
@@ -62,11 +62,11 @@ sections:
       text: Go
     - image:
         src: media/index/logo_java.svg
-      href: quickstarts/java
+      href: web-sdk-java-quickstart
       text: Java
     - image:
         src: media/index/logo_nodejs.svg
-      href: quickstarts/nodejs
+      href: web-search-sdk-node-quickstart
       text: Node.js
     - image:
         src: media/index/logo_php.svg
@@ -74,7 +74,7 @@ sections:
       text: PHP
     - image:
         src: media/index/logo_python.svg
-      href: quickstarts/python
+      href: web-sdk-python-quickstart
       text: Python
     - image:
         src: media/index/logo_ruby.svg

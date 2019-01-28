@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0b934e7ac5b297b5c7349a9a9985f6c50d62d19f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 17fac6455ca225363726b347c428d176e78a1ff9
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791955"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912806"
 documentType: LandingData
 title: Documentación de Bing News Search API
 titleSuffix: Azure Cognitive Services
 metadata:
   title: 'Documentación sobre Bing News Search API: tutoriales, guías de inicio rápido y referencias de API | Microsoft Docs'
-  description: Aprenda a usar Bing News Search API para obtener noticias desde la web que están relacionadas con las consultas del usuario. Los tutoriales muestran cómo compilar aplicaciones que usan el servicio.
+  description: Aprenda a usar Bing News Search API para buscar noticias en la Web.
   services: cognitive-services
   author: mikedodaro
   manager: rosh
@@ -19,29 +19,50 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/02/2017
+  ms.date: 01/16/2019
   ms.author: v-gedod
 abstract:
-  description: Bing News Search API proporciona una experiencia similar a Bing News al devolver una lista de artículos de noticias que Bing determina que están relacionados con la consulta del usuario.
+  description: Bing News Search API le permite integrar funcionalidades de búsqueda de noticias de Bing en las aplicaciones. Mediante el envío de consultas de búsqueda con la API, puede obtener los artículos de noticias más apropiados de varios orígenes y categorías, igual que con bing.com/news.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-news-search/search-the-web
+      html: <p>Más información acerca de Bing News Search API</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: ¿Qué es Bing News Search API?
+    - href: /azure/cognitive-services/bing-news-search/concepts/send-search-queries
+      html: <p>Aprenda a enviar solicitudes de búsqueda a Bing News Search API.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Envío de consultas de búsqueda
+    - href: /azure/cognitive-services/bing-news-search/concepts/search-for-news
+      html: <p>Aprenda a buscar varios tipos y categorías de noticias.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Búsqueda de noticias
 - title: Inicios rápidos en 5 minutos
   items:
   - type: paragraph
-    text: 'Empiece a trabajar con Bing News Search API al realizar una consulta y ver la respuesta JSON:'
+    text: 'Busque noticias en la Web con:'
   - type: list
     style: icon48
     items:
     - image:
         src: media/index/logo_csharp.svg
-      href: csharp
+      href: news-search-sdk-quickstart
       text: C&#35;
     - image:
         src: media/index/logo_java.svg
-      href: java
+      href: news-sdk-java-quickstart
       text: Java
     - image:
         src: media/index/logo_nodejs.svg
-      href: nodejs
+      href: news-search-sdk-node-quickstart
       text: Node.js
     - image:
         src: media/index/logo_php.svg
@@ -49,7 +70,7 @@ sections:
       text: PHP
     - image:
         src: media/index/logo_python.svg
-      href: python
+      href: news-sdk-python-quickstart
       text: Python
     - image:
         src: media/index/logo_ruby.svg
@@ -60,7 +81,7 @@ sections:
   - type: paragraph
     text: 'Desarrolle aplicaciones mediante Bing News Search API:'
   - type: paragraph
-    text: <a href="tutorial-bing-news-search-single-page-app">Aplicación web de una sola página</a> &#124; <a href="tutorial-bing-news-search-single-page-app-source">código fuente</a>
+    text: <a href="tutorial-bing-news-search-single-page-app">Aplicación web de una sola página</a>
 - title: Ejemplos
   items:
   - type: paragraph

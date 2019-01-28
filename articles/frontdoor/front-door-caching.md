@@ -26,7 +26,7 @@ Azure Front Door Service proporciona archivos grandes sin un límite en el tama�
 
 </br>Una vez que el fragmento llega al entorno de Front Door, se almacena en caché y se sirve inmediatamente al usuario. Después, Front Door realiza una captura previa del siguiente fragmento en paralelo. Este captura previa garantiza que el contenido sigue estando un fragmento por delante del usuario, lo que reduce la latencia. Este proceso continúa hasta que se descarga todo el archivo (si se solicita), todos los intervalos de bytes están disponibles (si se solicitan) o el cliente finaliza la conexión.
 
-</br>Para más información sobre la solicitud de intervalo de bytes, vea [RFC 7233](https://web.archive.org/web/20171009165003/ http://www.rfc-base.org/rfc-7233.html).
+</br>Para más información sobre la solicitud de intervalo de bytes, vea [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
 Front Door almacena en caché los fragmentos cuando se reciben, por lo que no es necesario poner todo el archivo en la caché de Front Door. Las solicitudes posteriores para el archivo o los intervalos de bytes se sirven desde la caché. Si no se almacenan en caché todos los fragmentos, se usa la captura previa para solicitar fragmentos del back-end. Esta optimización se basa en la capacidad del servidor de origen para admitir solicitudes de intervalo de bytes; si no las admite, esta optimización no es efectiva.
 
 ## <a name="file-compression"></a>Compresión de archivos

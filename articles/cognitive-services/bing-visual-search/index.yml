@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 62bb4c70c2a5068c90196acc2a1898ceeaa6945c
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 337c48d96a2ee679eda24500d9cb1a8d2581b2c7
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787688"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912908"
 documentType: LandingData
-title: Documentación de Bing Video Search
+title: Documentación de Bing Visual Search API
 metadata:
   document_id: 230494A6-34F9-416D-A6C0-57E69E1C2590
-  title: 'Documentación sobre Bing Visual Search: tutoriales y referencia de API'
-  description: Aprenda a usar Bing Visual Search API para obtener información sobre una imagen. Los tutoriales muestran cómo compilar aplicaciones que usan el servicio.
+  title: 'Documentación sobre Bing Visual Search API: tutoriales, inicios rápidos y referencias de API | Microsoft Docs'
+  description: Aprenda a usar Bing Visual Search API para obtener información sobre una imagen.
   services: cognitive-services
   author: swhite-msft
   manager: rosh
@@ -19,15 +19,36 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/24/2018
+  ms.date: 01/16/2019
   ms.author: scottwhi
 abstract:
-  description: Bing Visual Search API proporciona una experiencia similar a Bing.com/images al devolver información sobre una imagen, como imágenes visualmente similares, orígenes de compra de productos encontrados en la imagen y búsquedas relacionadas.
+  description: Bing Visual Search API ofrece detalles de imagen similares a los que se muestran en Bing.com/images. Al cargar una imagen o proporcionar una dirección URL de esta, esta API puede identificar diversos datos sobre ella, como, por ejemplo, imágenes similares visualmente, orígenes de compra, páginas web que incluyen la imagen y mucho más.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-visual-search/overview
+      html: <p>Más información acerca de Bing Visual Search API</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: ¿Qué es Bing Visual Search API?
+    - href: /azure/cognitive-services/bing-visual-search/concepts/sending-queries
+      html: <p>Aprenda a enviar solicitudes de búsqueda a Bing Visual Search API.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Envío de consultas de búsqueda
+    - href: /azure/cognitive-services/bing-visual-search/tutorial-visual-search-insights-token
+      html: <p>Uso de un token de conclusiones en Bing Image Search API para cargar una imagen en Bing Visual Search API</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Búsqueda de noticias
 - title: Inicios rápidos en 5 minutos
   items:
   - type: paragraph
-    text: 'Empiece a trabajar con Bing Visual Search API al enviar una imagen a Bing y obtener información sobre ella:'
+    text: 'Obtenga información sobre una imagen mediante Bing Visual Search API:'
   - type: table
     style: dataMatrix
     columns:
@@ -40,12 +61,12 @@ sections:
     - image:
         src: media/index/logo_python.svg
     rows:
-    - title: Su primera consulta
+    - title: ''
       values:
-      - href: quickstarts/csharp
-      - href: quickstarts/java
-      - href: quickstarts/nodejs
-      - href: quickstarts/python
+      - href: visual-search-sdk-c-sharp
+      - href: java
+      - href: visual-search-sdk-node
+      - href: visual-search-sdk-python
 - title: Tutoriales detallados
   items:
   - type: paragraph
@@ -53,7 +74,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="tutorial-bing-visual-search-single-page-app">Aplicación web de una sola página</a> | <a href="tutorial-bing-visual-search-single-page-app-source">código fuente</a>
+    - html: <a href="tutorial-bing-visual-search-single-page-app">Aplicación web de una sola página</a>
 - title: Referencia
   items:
   - type: list

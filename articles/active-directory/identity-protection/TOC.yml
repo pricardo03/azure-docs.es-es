@@ -20,27 +20,45 @@ items:
   expanded: false
 - name: Guías de procedimientos
   items:
-  - name: Habilitación de Azure AD Identity Protection
-    href: enable.md
-  - name: Configuración de la directiva de registro MFA
-    href: howto-mfa-policy.md
-  - name: Configuración de la directiva de riesgo de inicio de sesión
-    href: howto-sign-in-risk-policy.md
-  - name: Configuración de la directiva de riesgo del usuario
-    href: howto-user-risk-policy.md
-  - name: Cierre de eventos de riesgo activos
-    href: howto-close-active-risk-events.md
-  - name: Desbloqueo de usuarios
-    href: howto-unblock-user.md
-  - name: Simulación de eventos de riesgo
-    href: playbook.md
-  - name: Uso de Microsoft Graph API
-    href: graph-get-started.md
-  - name: Preguntas más frecuentes
-    href: faqs.md
+  - name: Protección de identidad
+    items:
+    - name: Habilitación de Azure AD Identity Protection
+      href: enable.md
+    - name: Configuración de la directiva de registro MFA
+      href: howto-mfa-policy.md
+    - name: Configuración de la directiva de riesgo de inicio de sesión
+      href: howto-sign-in-risk-policy.md
+    - name: Configuración de la directiva de riesgo del usuario
+      href: howto-user-risk-policy.md
+    - name: Cierre de eventos de riesgo activos
+      href: howto-close-active-risk-events.md
+    - name: Desbloqueo de usuarios
+      href: howto-unblock-user.md
+    - name: Simulación de eventos de riesgo
+      href: playbook.md
+    - name: Preguntas más frecuentes
+      href: faqs.md
+  - name: Identity Protection (actualizada)
+    items:
+    - name: Información general
+      href: overview-v2.md
+    - name: Introducción a la seguridad
+      href: security-overview.md
+    - name: Investigación sobre usuarios e inicios de sesión de riesgo
+      href: howto-investigate-risky-users-signins.md
+    - name: Configuración de directivas de riesgo
+      href: howto-configure-risk-policies.md
+    - name: Mejora de la precisión de detección
+      href: howto-improve-detection-accuracy.md
+    - name: Preguntas frecuentes y problemas conocidos
+      href: known-issues.md
   expanded: true
 - name: Referencia
   items:
+  - name: Uso de Microsoft Graph API
+    href: graph-get-started.md
+  - name: Eventos de riesgo
+    href: risk-events-reference.md
   - name: Glosario
     href: glossary.md
 - name: Recursos
@@ -57,9 +75,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-active-directory
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: 8e684f77d25e4ee685b715e8394faf00e3998be9
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 8c48b383ccd2ac30dc9598cd2da0f043afae43dc
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423303"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54910953"
