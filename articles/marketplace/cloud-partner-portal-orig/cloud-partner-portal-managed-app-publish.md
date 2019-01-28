@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: bc044c8b59c939163336ecab01546fc26a7a2643
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 6e5bcd6d9923b4051d44d51ff1a2534bc5e02f41
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48808023"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445667"
 ---
 <a name="publish-an-azure-managed-application-to-azure-marketplace"></a>Publicar una aplicación administrada en Azure Marketplace 
 ========================================================
@@ -88,7 +88,7 @@ Una SKU se presenta en la oferta principal de Azure Marketplace, aunque se muest
 
 3.  Ahora se abre una vista del \"Editor\" para una nueva oferta, donde puede empezar a crearla.
 
-4.  Los \"formularios\" que se tienen que rellenar aparecen a la izquierda en la vista del \"Editor\". Cada \"formulario\" consta de un conjunto de campos que hay que rellenar. Los campos obligatorios se marcan con un asterisco rojo (\*).
+4.  Los \"formularios\" que se tienen que rellenar aparecen a la izquierda en la vista del \"Editor\". Cada \"formulario\" consta de un conjunto de campos que hay que rellenar. Los campos obligatorios están marcados con un asterisco rojo (\*).
 
     > Hay cuatro formularios principales para crear una aplicación administrada.
 
@@ -106,7 +106,7 @@ Una SKU se presenta en la oferta principal de Azure Marketplace, aunque se muest
 El formulario de configuración de oferta es un formulario básico en el que se especifica la configuración de la oferta.
 Los diferentes campos se describen a continuación.
 
-**Identificador de oferta**
+**Id. de oferta**
 
 Identificador único de la oferta en un perfil del anunciante.
 Estará visible en direcciones URL de producto, plantillas de Resource Manager e informes de facturación. Puede contener solo caracteres alfanuméricos en minúscula o guiones (-). No puede terminar con un guion ni superar los 50 caracteres. Este campo queda bloqueado en cuanto se lanza una oferta.
@@ -119,7 +119,7 @@ Esta lista desplegable permite elegir el perfil del publicador en el que desea p
 
 Nombre para mostrar de la oferta. Nombre que se mostrará en Azure Marketplace y en Azure Portal. Puede tener un máximo de 50 caracteres. Aquí se recomienda incluir un nombre de marca que identifique el producto. No incluya aquí el nombre de su empresa a menos que sea así como se comercializa. Si comercializa esta oferta en su propio sitio web, asegúrese de que el nombre sea exactamente el mismo que aparece en el sitio web.
 
-Haga clic en \"Guardar\" para guardar su progreso. El siguiente paso consistiría en agregar SKU para la oferta.
+Haga clic en \"Guardar\" para guardar lo que ha hecho hasta ahora. El siguiente paso consistiría en agregar SKU para la oferta.
 
 <a name="how-to-create-skus"></a>Creación de SKU 
 ------------------

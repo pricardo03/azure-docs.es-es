@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: c47894b1-f5df-4755-845d-f12f4c602dc4
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 493ba5853173c34fbd58236c1a2dd2b28dc59a90
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: e5ed2abca6c9a8bab6ee0df7a8aa05e40b48de5e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064316"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810812"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-spark"></a>Tutorial: Integración de Azure Active Directory con Cisco Spark
 
@@ -104,7 +104,7 @@ Para configurar el inicio de sesión único de Azure AD con Cisco Spark, siga es
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Cisco Spark](common/sp-identifier.png)
 
-     a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una como: `https://web.ciscospark.com/#/signin`
+    a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una como: `https://web.ciscospark.com/#/signin`
 
     b. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón: `https://idbroker.webex.com/<companyname>`
 
@@ -121,7 +121,7 @@ Para configurar el inicio de sesión único de Azure AD con Cisco Spark, siga es
     | ---------------|--------- |
     | uid | user.userprincipalname |
 
-     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+    a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
     ![imagen](common/new-save-attribute.png)
 
@@ -147,7 +147,7 @@ Para configurar el inicio de sesión único de Azure AD con Cisco Spark, siga es
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-     a. URL de inicio de sesión
+    a. URL de inicio de sesión
 
     b. Identificador de Azure AD
 
@@ -187,7 +187,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-     a. En el campo **Nombre**, escriba **BrittaSimon**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
   
     b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
@@ -238,7 +238,7 @@ En esta sección, creará un usuario llamado Britta Simon en Cisco Spark. En est
 
     ![Configurar inicio de sesión único](./media/cisco-spark-tutorial/tutorial_cisco_spark_13.png) 
 
-     a. En el cuadro de texto **First Name** (Nombre), escriba el nombre del usuario, en este caso, **Britta**.
+    a. En el cuadro de texto **First Name** (Nombre), escriba el nombre del usuario, en este caso, **Britta**.
 
     b. En el cuadro de texto **Last Name** (Apellidos), escriba los apellidos del usuario, en este caso, **Simon**.
 

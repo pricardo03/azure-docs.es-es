@@ -11,14 +11,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 01/18/2019
 ms.author: mabrigg
-ms.openlocfilehash: 9a925a01cae75124dc56b0c2bc5cc931a6e04100
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 4e332023e4e3a6efcca8f8a9c7961e299ebf9247
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721621"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473799"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Supervisar el estado y las alertas en Azure Stack
 
@@ -83,7 +83,7 @@ Cuando se selecciona, la acción **Reparar** realiza pasos específicos para la 
 
 ![Reparación en curso](media/azure-stack-monitor-health/repair-in-progress.png)
 
-La acción **Reparar** notificará la finalización correcta o el error al completar la acción en la misma hoja de notificación del portal.  Si se produce un error en una acción de reparación de una alerta, puede volver a ejecutar la acción **Reparar** a partir de los detalles de alerta. Si la acción de reparación se completa correctamente, **no** vuelva a ejecutarla.
+La acción **Reparar** notificará la finalización correcta o el error al completar la acción en la misma hoja de notificación del portal.  Si se produce un error en una acción de reparación de una alerta, puede volver a ejecutar la acción **Reparar** a partir de los detalles de alerta. Si la acción de **reparación** se completa correctamente, **no** vuelva a ejecutarla.
 
 ![La reparación se completa correctamente](media/azure-stack-monitor-health/repair-completed.png)
 
