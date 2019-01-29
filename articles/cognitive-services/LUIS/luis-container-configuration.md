@@ -32,7 +32,7 @@ Este contenedor tiene las siguientes opciones de configuración:
 |--|--|--|
 |SÍ|[ApiKey](#apikey-setting)|Se usa para realizar un seguimiento de la información de facturación.|
 |Sin |[Application Insights](#applicationinsights-setting)|Le permite agregar compatibilidad con los datos de telemetría de [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) al contenedor.|
-|SÍ|[Billing](#billing-setting)|Especifica el URI del punto de conexión del recurso de servicio en Azure.|
+|SÍ|[Facturación](#billing-setting)|Especifica el URI del punto de conexión del recurso de servicio en Azure.|
 |SÍ|[Eula](#eula-setting)| Indica que ha aceptado la licencia del contenedor.|
 |Sin |[Fluentd](#fluentd-settings)|Escribe el registro y, opcionalmente, los datos de métricas en un servidor de Fluentd.|
 |Sin |[Logging](#logging-settings)|Proporciona compatibilidad con el registro de ASP.NET Core al contenedor. |
