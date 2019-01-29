@@ -21,7 +21,7 @@ items:
       href: notification-hubs-ios-apple-push-notification-apns-get-started.md
     - name: Kindle
       href: notification-hubs-kindle-amazon-adm-push-notification.md
-    - name: " Windows"
+    - name: Windows
       href: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
     - name: Windows Phone
       href: notification-hubs-windows-mobile-push-notifications-mpns.md
@@ -35,7 +35,7 @@ items:
       href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
     - name: iOS
       href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
-    - name: " Windows"
+    - name: Windows
       href: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
     - name: Windows Phone
       href: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
@@ -43,7 +43,7 @@ items:
     items:
     - name: iOS
       href: notification-hubs-ios-xplat-localized-apns-push-notification.md
-    - name: " Windows"
+    - name: Windows
       href: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
   - name: 4 - Envío de notificaciones push a usuarios específicos
     items:
@@ -51,12 +51,12 @@ items:
       href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
     - name: iOS
       href: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
-    - name: " Windows"
+    - name: Windows
       href: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
   - name: 5 - Envío de notificaciones push basadas en la ubicación
     items:
-    - name: " Windows"
-      href: notification-hubs-push-bing-spartial-data-geofencing-notification.md
+    - name: Windows
+      href: notification-hubs-push-bing-spatial-data-geofencing-notification.md
 - name: Ejemplos
   items:
   - name: Ejemplos de código
@@ -74,14 +74,22 @@ items:
       href: notification-hubs-tags-segment-push-message.md
     - name: Registros de plantilla
       href: notification-hubs-templates-cross-platform-push-messages.md
+  - name: Modelo de seguridad
+    href: notification-hubs-push-notification-security.md
 - name: Guías de procedimientos
   items:
+  - name: Cambiar el plan de tarifa
+    href: change-pricing-tier.md
   - name: Envío de notificaciones entre plataformas
     href: notification-hubs-aspnet-cross-platform-notification.md
   - name: Inserción de contenido enriquecido en dispositivos
     href: notification-hubs-aspnet-backend-ios-apple-push-notification-service-apns-rich.md
   - name: Envío de notificaciones programadas
     href: notification-hubs-send-push-notifications-scheduled.md
+  - name: Implementación y administración de Notification Hubs mediante Azure PowerShell
+    href: notification-hubs-deploy-and-manage-powershell.md
+  - name: Envío de notificaciones de inserción a los usuarios
+    href: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
   - name: Creación de un centro de notificaciones mediante SDK
     items:
     - name: 'Creación de un centro de notificaciones: .NET'
@@ -128,9 +136,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Opciones de soporte técnico
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: dcfb667f92f044ae37b0c0c42af337a9c5af49f4
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: ce941c63797a14d8fb629c958ad3fb741f34fc0c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54197715"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196793"
