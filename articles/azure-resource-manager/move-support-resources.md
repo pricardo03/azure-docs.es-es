@@ -56,7 +56,7 @@ Después de encontrar el proveedor de recursos y el tipo de recurso, use las tab
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | --------------- | ----------- |
-| Azure | SÍ | SÍ |
+| service | SÍ | SÍ |
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -220,7 +220,7 @@ Después de encontrar el proveedor de recursos y el tipo de recurso, use las tab
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | -------------- | ------------ |
-| áreas de trabajo | Sin  | Sin  |
+| workspaces | Sin  | Sin  |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -403,7 +403,7 @@ Después de encontrar el proveedor de recursos y el tipo de recurso, use las tab
 | ------------- | -------------- | ------------ |
 | commitmentplans | SÍ | SÍ |
 | webservices | SÍ | Sin  |
-| áreas de trabajo | SÍ | SÍ |
+| workspaces | SÍ | SÍ |
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -428,7 +428,7 @@ Después de encontrar el proveedor de recursos y el tipo de recurso, use las tab
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | -------------- | ------------ |
-| áreas de trabajo | SÍ | SÍ |
+| workspaces | SÍ | SÍ |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -507,14 +507,14 @@ Después de encontrar el proveedor de recursos y el tipo de recurso, use las tab
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | -------------- | ------------ |
-| áreas de trabajo | SÍ | SÍ |
+| workspaces | SÍ | SÍ |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | -------------- | ------------ |
 | managementconfigurations | SÍ | SÍ |
 | solutions | SÍ | SÍ |
-| vistas | SÍ | SÍ |
+| views | SÍ | SÍ |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -544,7 +544,7 @@ Después de encontrar el proveedor de recursos y el tipo de recurso, use las tab
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | -------------- | ------------ |
-| aplicaciones de escala de web | SÍ | Sin  |
+| applications | SÍ | Sin  |
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -570,7 +570,7 @@ Después de encontrar el proveedor de recursos y el tipo de recurso, use las tab
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | -------------- | ------------ |
-| aplicaciones de escala de web | SÍ | SÍ |
+| applications | SÍ | SÍ |
 | networks | SÍ | SÍ |
 | volumes | SÍ | SÍ |
 
@@ -590,7 +590,7 @@ Después de encontrar el proveedor de recursos y el tipo de recurso, use las tab
 | appliancedefinitions | Sin  | Sin  |
 | appliances | Sin  | Sin  |
 | applicationdefinitions | Sin  | Sin  |
-| aplicaciones de escala de web | Sin  | Sin  |
+| applications | Sin  | Sin  |
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 | Tipo de recurso | Grupos de recursos | Subscription |
@@ -632,7 +632,7 @@ Después de encontrar el proveedor de recursos y el tipo de recurso, use las tab
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | -------------- | ------------ |
-| cuenta | SÍ | SÍ |
+| account | SÍ | SÍ |
 | account/extension | SÍ | SÍ |
 | account/project | SÍ | SÍ |
 
