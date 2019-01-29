@@ -72,7 +72,7 @@ Puede crear una variable y declarar el tipo de datos y el valor inicial de la mi
 
 4. Proporcione esta información para la variable:
 
-   | Propiedad | Obligatorio | Valor |  DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Value |  DESCRIPCIÓN |
    |----------|----------|-------|--------------|
    | Name | SÍ | <*variable-name*> | El nombre de la variable que se va a incrementar | 
    | Type | SÍ | <*variable-type*> | El tipo de datos de la variable | 
@@ -208,7 +208,7 @@ Para aumentar o *incrementar* una variable con un valor constante, agregue la ac
 
 3. Proporcione esta información para la incrementar la variable:
 
-   | Propiedad | Obligatorio | Valor |  DESCRIPCIÓN |
+   | Propiedad | Obligatorio | Value |  DESCRIPCIÓN |
    |----------|----------|-------|--------------|
    | Name | SÍ | <*variable-name*> | El nombre de la variable que se va a incrementar | 
    | Value | Sin  | <*increment-value*> | El valor que se usa para incrementar la variable. El valor predeterminado es uno. <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor específico para incrementar la variable. | 
@@ -328,7 +328,7 @@ Para disminuir o *reducir* una variable con un valor constante, siga los pasos p
 
 Estas son las propiedades para la acción **Reducir variable**:
 
-| Propiedad | Obligatorio | Valor |  DESCRIPCIÓN |
+| Propiedad | Obligatorio | Value |  DESCRIPCIÓN |
 |----------|----------|-------|--------------|
 | Name | SÍ | <*variable-name*> | El nombre de la variable que se va a reducir | 
 | Value | Sin  | <*increment-value*> | El valor para reducir la variable. El valor predeterminado es uno. <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor específico para reducir la variable. | 
@@ -363,7 +363,7 @@ El valor es necesario porque esta acción no tiene un valor predeterminado.
 
 Estas son las propiedades para la acción **Establecer variable**:
 
-| Propiedad | Obligatorio | Valor |  DESCRIPCIÓN | 
+| Propiedad | Obligatorio | Value |  DESCRIPCIÓN | 
 |----------|----------|-------|--------------| 
 | Name | SÍ | <*variable-name*> | El nombre de la variable que se va a establecer | 
 | Value | SÍ | <*new-value*> | El valor al que quiere asignar la variable. Ambos deben tener los mismos tipos de datos. | 
@@ -421,7 +421,7 @@ En cuanto a las variables que almacenan cadenas o matrices, puede insertar o *an
 
 Estas son las propiedades para la acción **Anexar a...**:
 
-| Propiedad | Obligatorio | Valor |  DESCRIPCIÓN | 
+| Propiedad | Obligatorio | Value |  DESCRIPCIÓN | 
 |----------|----------|-------|--------------| 
 | Name | SÍ | <*variable-name*> | El nombre de la variable que se va a establecer | 
 | Value | SÍ | <*append-value*> | El valor que quiere anexar, que puede ser de cualquier tipo. | 
