@@ -41,13 +41,13 @@ La siguiente lista de métodos V2 y V3 identifica los métodos V3 y las API que 
 
 | Método de API V2   | Compatibilidad de API V3 |
 |:----------- |:-------------|
-| Traducir     | [Traducir](reference/v3-0-translate.md)          |
+| Translate     | [Traducir](reference/v3-0-translate.md)          |
 | TranslateArray      | [Traducir](reference/v3-0-translate.md)        |
 | GetLanguageNames      | [Idiomas](reference/v3-0-languages.md)         |
 | GetLanguagesForTranslate     | [Idiomas](reference/v3-0-languages.md)       |
 | GetLanguagesForSpeak      | [Servicio Voz de Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
-| Leer     | [Servicio Voz de Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
-| Detección     | [Detectar](reference/v3-0-detect.md)         |
+| Speak     | [Servicio Voz de Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| Detect     | [Detectar](reference/v3-0-detect.md)         |
 | DetectArray     | [Detectar](reference/v3-0-detect.md)         |
 | AddTranslation     | [Microsoft Translator HUB API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
 | AddTranslationArray    | [Microsoft Translator HUB API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
@@ -75,12 +75,12 @@ Microsoft Translator V3 tiene el mismo precio que V2; esto es, por carácter e i
 
 | Método V3   | Caracteres que se cuentan para la facturación |
 |:----------- |:-------------|
-| Lenguajes     | Si no se envían caracteres, no se cuenta ninguno y no hay cargo.          |
-| Traducir     | El recuento se basa en la cantidad de caracteres que se envían para la traducción, y en el número de idiomas a los que se traducen los caracteres. 50 caracteres enviados más 5 idiomas solicitados, serán 50x5.           |
+| Languages     | Si no se envían caracteres, no se cuenta ninguno y no hay cargo.          |
+| Translate     | El recuento se basa en la cantidad de caracteres que se envían para la traducción, y en el número de idiomas a los que se traducen los caracteres. 50 caracteres enviados más 5 idiomas solicitados, serán 50x5.           |
 | Transliterar     | Se cuenta el número de caracteres que se piden para la transliteración.         |
-| Búsqueda en diccionario y ejemplo     | Se cuentan el número de caracteres enviados para la búsqueda de diccionario y los ejemplos.         |
+| Dictionary lookup & example     | Se cuentan el número de caracteres enviados para la búsqueda de diccionario y los ejemplos.         |
 | BreakSentence     | Sin cargo.       |
-| Detección     | Sin cargo.      |
+| Detect     | Sin cargo.      |
 
 ## <a name="v3-end-points"></a>Puntos de conexión de V3
 
