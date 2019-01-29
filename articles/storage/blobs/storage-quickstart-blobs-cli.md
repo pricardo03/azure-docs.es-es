@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: cb646eb67e0e0627a3c9ccbc6b4d25a97b157970
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: b2d3d5bb0081c51d3f89bc4cb8d2c0f23d40f4a7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711691"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474004"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante la CLI de Azure
 
@@ -33,7 +33,7 @@ Si decide instalar y usar la CLI localmente, para esta guía de inicio rápido e
 
 Los blobs siempre se cargan en un contenedor. Puede organizar los grupos de blobs de una forma similar a la que organiza los archivos en carpetas en el equipo.
 
-Cree un contenedor para almacenar blobs con el comando [az storage container create](/cli/azure/storage/container#az_storage_container_create).
+Cree un contenedor para almacenar blobs con el comando [az storage container create](/cli/azure/storage/container).
 
 ```azurecli-interactive
 az storage container create --name mystoragecontainer
@@ -116,4 +116,4 @@ az group delete --name myResourceGroup
 En este tutorial de inicio rápido aprendió a transferir archivos entre un disco local y un contenedor en Azure Blob Storage. Para más información sobre cómo trabajar con blobs en Azure Storage, continúe con el tutorial para trabajar con Azure Blob Storage.
 
 > [!div class="nextstepaction"]
-> [Operaciones de Blob Storage con la CLI de Azure](storage-how-to-use-blobs-cli.md)
+> [Uso de Operaciones de Blob Storage con la CLI de Azure](storage-how-to-use-blobs-cli.md)

@@ -4,17 +4,17 @@ description: Use la CLI de Azure para crear una asignación de Azure Policy para
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/23/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 99e8b782f3f52ed89b5188de19d70cb276a0eb84
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 3b4f71e420c0d80594193f27739fd120881247d4
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315849"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856237"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Creación de una asignación de directiva para identificar recursos no compatibles mediante la CLI de Azure
 
@@ -65,11 +65,11 @@ El comando anterior usa la siguiente información:
 Para ver los recursos que no son compatibles con esta nueva asignación, ejecute los siguientes comandos para obtener el identificador de asignación de directiva:
 
 ```azurepowershell-interactive
-$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs without managed disks Assignment' }
+$policyAssignment = Get-AzPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs without managed disks Assignment' }
 $policyAssignment.PolicyAssignmentId
 ```
 
-Para obtener más información acerca de la asignación de identificadores de directiva, consulte [Get-AzureRMPolicyAssignment](/powershell/module/azurerm.resources/get-azurermpolicyassignment).
+Para más información sobre los identificadores de asignación de directiva, consulte [Get-AzPolicyAssignment](/powershell/module/az.resources/get-azpolicyassignment).
 
 A continuación, ejecute el siguiente comando para obtener los identificadores de los recursos no compatibles que se copian en un archivo JSON:
 

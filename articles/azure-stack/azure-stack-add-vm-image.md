@@ -6,21 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: e5a4236b-1b32-4ee6-9aaa-fcde297a020f
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 1/14/2019
+ms.date: 1/18/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 3bd86fe8708d2cbb8cbddac4ca35d5afdc68d2e3
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: bac0b2933d4b6d4a88ebbb0402bba0ffd508b395
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306087"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474377"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Hacer que una imagen de máquina virtual esté disponible en Azure Stack
 
@@ -42,21 +41,21 @@ Debe poderse hacer referencia a las imágenes mediante un identificador URI de B
     > [!IMPORTANT]  
     >  Azure Stack no admite discos duros virtuales dinámicos. Cambiar el tamaño de un disco dinámico conectado a una máquina virtual producirá un error de estado en esta. Para mitigar este problema, elimine la máquina virtual sin eliminar el disco de la máquina virtual, un blob de disco duro virtual de una cuenta de almacenamiento. A continuación, convierta el disco duro virtual dinámico a fijo y vuelva a crear la máquina virtual.
 
-   * Es más eficaz cargar una imagen en Blob Storage de Azure Stack que en Azure Blob Storage porque se tarda menos tiempo en insertar la imagen en el repositorio de imágenes de Azure Stack.
+   - Es más eficaz cargar una imagen en Blob Storage de Azure Stack que en Azure Blob Storage porque se tarda menos tiempo en insertar la imagen en el repositorio de imágenes de Azure Stack.
 
-   * Al cargar la [imagen de máquina virtual Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), asegúrese de sustituir el paso **Inicio de sesión en Azure** por el paso [Configuración del entorno de PowerShell del operador de Azure Stack](azure-stack-powershell-configure-admin.md).  
+   - Al cargar la [imagen de máquina virtual Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), asegúrese de sustituir el paso **Inicio de sesión en Azure** por el paso [Configuración del entorno de PowerShell del operador de Azure Stack](azure-stack-powershell-configure-admin.md).  
 
-   * Anote el identificador URI donde cargará la imagen de Blob Storage. El identificador URI de Blob Storage tiene el siguiente formato: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd.
+   - Anote el identificador URI donde cargará la imagen de Blob Storage. El identificador URI de Blob Storage tiene el siguiente formato: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd.
 
-   * Para que sea posible acceder al blob de manera anónima, vaya al contenedor de blobs de la cuenta de almacenamiento donde se cargó el disco duro virtual de la imagen de máquina virtual. Seleccione **Blob** y, a continuación, seleccione **Directiva de acceso**. Opcionalmente, puede generar una firma de acceso compartido para el contenedor e incluirla como parte del identificador URI del blob. Con este paso se garantiza la disponibilidad del blob para incorporarlo como imagen. Si no se puede acceder al blob de forma anónima, se creará la imagen de la máquina virtual con estado de error.
+   - Para que sea posible acceder al blob de manera anónima, vaya al contenedor de blobs de la cuenta de almacenamiento donde se cargó el disco duro virtual de la imagen de máquina virtual. Seleccione **Blob** y, a continuación, seleccione **Directiva de acceso**. Opcionalmente, puede generar una firma de acceso compartido para el contenedor e incluirla como parte del identificador URI del blob. Con este paso se garantiza la disponibilidad del blob para incorporarlo como imagen. Si no se puede acceder al blob de forma anónima, se creará la imagen de la máquina virtual con estado de error.
 
-   ![Vaya a los blobs de la cuenta de almacenamiento.](./media/azure-stack-add-vm-image/image1.png)
+    ![Vaya a los blobs de la cuenta de almacenamiento.](./media/azure-stack-add-vm-image/image1.png)
 
-   ![Establecimiento del acceso del blob en público](./media/azure-stack-add-vm-image/image2.png)
+    ![Establecimiento del acceso del blob en público](./media/azure-stack-add-vm-image/image2.png)
 
-2. Inicie sesión como operador en Azure Stack. En el menú, seleccione **Todos los servicios**. Después, en la categoría **ADMINISTRACIÓN**, seleccione **Proceso** > **Imágenes de VM** > **Agregar**.
+2. Inicie sesión como operador en Azure Stack. En el menú, seleccione **Todos los servicios** > **Imágenes** en **Proceso** > **Agregar**.
 
-3. En la hoja **Add a VM Image** (Agregar una imagen de máquina virtual), escriba el publicador, la oferta, la SKU y la versión de la imagen de máquina virtual. Estos segmentos de nombre hacen referencia a la imagen de máquina virtual en las plantillas de Resource Manager. Asegúrese de seleccionar el valor de **osType** correctamente. En **OS Disk Blob URI** (URI de blob de disco del SO), escriba el identificador URI del blob en que se cargó la imagen. A continuación, seleccione **Crear** para empezar a crear la imagen de máquina virtual.
+3. En **Crear imagen**, escriba los datos de nombre, suscripción, grupo de recursos, ubicación, disco del sistema operativo, tipo de sistema operativo, URI del blob de almacenamiento, tipo de cuenta y almacenamiento en caché de host. A continuación, seleccione **Crear** para empezar a crear la imagen de máquina virtual.
 
    ![Inicio de la creación de la imagen](./media/azure-stack-add-vm-image/image4.png)
 

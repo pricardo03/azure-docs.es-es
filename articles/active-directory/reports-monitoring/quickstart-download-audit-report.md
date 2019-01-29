@@ -4,7 +4,7 @@ description: Obtenga información sobre cómo descargar un informe de auditoría
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4de121ea-f4aa-4c8a-aae4-700c2c5e97a2
 ms.service: active-directory
@@ -16,16 +16,16 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 3f4090f1724850b0263905a0593fc77cc6dbfd16
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: afa92c40bd3cebea1024cf783a746450d3430a8d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51620741"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821846"
 ---
-# <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Guía de inicio rápido: Descarga de un informe de auditoría con Azure Portal
+# <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Inicio rápido: Descarga de un informe de auditoría mediante Azure Portal
 
-En esta guía de inicio rápido, obtendrá información sobre cómo descargar registros de auditoría para el inquilino durante las 24 últimas horas.
+En esta guía de inicio rápido, obtendrá información sobre cómo descargar registros de auditoría para el inquilino durante las 24 últimas horas. Puede descargar hasta 5000 registros de Azure Portal. Los registros se ordenan a partir de los más recientes, así que, de forma predeterminada, se obtienen los últimos 5000 registros. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -34,7 +34,7 @@ Necesita:
 * Un inquilino de Azure Active Directory. 
 * Un usuario, que tenga el rol **Administrador de seguridad**, **Lector de seguridad** o **Administrador global** del inquilino. Además, cualquier usuario del inquilino puede acceder a sus propios registros de auditoría.
 
-## <a name="quickstart-download-an-audit-report"></a>Guía de inicio rápido: Descarga de un informe de auditoría
+## <a name="quickstart-download-an-audit-report"></a>Inicio rápido: Descarga de un informe de auditoría
 
 1. Acceda a [Azure Portal](https://portal.azure.com).
 2. Seleccione **Azure Active Directory** desde el panel de navegación izquierdo y use el botón **Cambiar directorio** para seleccionar su directorio activo.

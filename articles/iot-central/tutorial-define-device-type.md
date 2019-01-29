@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: d50059fb6fe03309609c91b56fb3763bad32e46b
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 0aef8c5e055eb43576ea0ecc7ef8bf09d22d6ed3
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199976"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412910"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definición de un nuevo tipo de dispositivo en la aplicación de Azure IoT Central
 
@@ -75,7 +75,7 @@ Para completar este tutorial, necesitará una aplicación de Azure IoT Central. 
 
 ## <a name="create-a-new-custom-device-template"></a>Creación de una nueva plantilla de dispositivo personalizado
 
-Como desarrollador, puede crear y editar las plantillas de dispositivo de la aplicación. Cuando se crea una plantilla de dispositivo, Azure IoT Central genera un dispositivo simulado a partir de la plantilla. El dispositivo simulado genera datos de telemetría que le permiten probar el comportamiento de la aplicación antes de conectar un dispositivo físico.
+Como desarrollador, puede crear y editar las plantillas de dispositivo de la aplicación. Cuando se crea una plantilla de dispositivo, Azure IoT Central genera un dispositivo simulado a partir de la plantilla. El dispositivo simulado genera datos de telemetría que le permiten probar el comportamiento de la aplicación antes de conectar un dispositivo real.
 
 Para agregar una nueva plantilla de dispositivo a la aplicación, debe ir a la página **Application Builder** (Generador de aplicaciones). Para ello, elija **Application Builder** en el menú de navegación izquierdo.
 
@@ -155,7 +155,7 @@ Los pasos siguientes muestran cómo crear una nueva plantilla de dispositivo **C
 
 ## <a name="define-event-measurement"></a>Definir la medida de eventos
 
-Puede usar eventos para definir datos puntuales en el tiempo que el dispositivo envía para indicar algo significativo, como un error o un error de componente. Al igual que las medidas de telemetría, Azure IoT Central puede simular eventos de dispositivo para poder probar el comportamiento de la aplicación antes de conectar un dispositivo físico. Puede definir medidas de eventos para el tipo de dispositivo en la vista **Measurements** (Medidas).
+Puede usar eventos para definir datos puntuales en el tiempo que el dispositivo envía para indicar algo significativo, como un error o un error de componente. Al igual que las medidas de telemetría, Azure IoT Central puede simular eventos de dispositivo para poder probar el comportamiento de la aplicación antes de conectar un dispositivo real. Puede definir medidas de eventos para el tipo de dispositivo en la vista **Measurements** (Medidas).
 
 1. Para agregar la medida de eventos **Fan Motor Error** (Error del motor del ventilador), elija **New Measurement** (Nueva medida). A continuación, elija **Event** (Evento) como el tipo de medida:
 
@@ -191,7 +191,7 @@ Puede usar eventos para definir datos puntuales en el tiempo que el dispositivo 
 
 ## <a name="define-state-measurement"></a>Definir la medida de estado
 
-Puede usar State (Estado) para definir y visualizar el estado del dispositivo o su componente durante un período de tiempo. Al igual que las medidas de telemetría, Azure IoT Central puede simular el estado del dispositivo para poder probar el comportamiento de la aplicación antes de conectar un dispositivo físico. Puede definir medidas de estado para el tipo de dispositivo en la vista **Measurements** (Medidas).
+Puede usar State (Estado) para definir y visualizar el estado del dispositivo o su componente durante un período de tiempo. Al igual que las medidas de telemetría, Azure IoT Central puede simular el estado de dispositivo para poder probar el comportamiento de la aplicación antes de conectar un dispositivo real. Puede definir medidas de estado para el tipo de dispositivo en la vista **Measurements** (Medidas).
 
 1. Para agregar la medida **Fan Mode** (Modo del ventilador), elija **New Measurement** (Nueva medida). A continuación, elija **State** (Estado) como el tipo de medida:
 

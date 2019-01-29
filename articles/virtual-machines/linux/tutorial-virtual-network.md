@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: daee5a2073e78ca5bb9e0eb0386617d7638ab930
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a0eb3ed26b0e8641cf4e1004c2c162c799dd8999
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988533"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463769"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Tutorial: Creación y administración de redes virtuales de Azure para máquinas virtuales Linux con la CLI de Azure
 
@@ -208,7 +208,7 @@ az network nsg rule create \
   --destination-port-range 80
 ```
 
-La máquina virtual de front-end solo es accesible en los puertos *22* y *80*. El resto del tráfico entrante se bloquea en el grupo de seguridad de red. Puede ser útil visualizar las configuraciones de reglas de NSG. Se puede volver a la configuración de las reglas de NSG con el comando [az network rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list). 
+La máquina virtual de front-end solo es accesible en los puertos *22* y *80*. El resto del tráfico entrante se bloquea en el grupo de seguridad de red. Puede ser útil visualizar las configuraciones de reglas de NSG. Se puede volver a la configuración de las reglas de NSG con el comando [az network rule list](/cli/azure/network/nsg/rule). 
 
 ```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myFrontendNSG --output table
@@ -285,7 +285,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-La máquina virtual de back-end solo es accesible en los puertos *22* y *3306* desde la subred de front-end. El resto del tráfico entrante se bloquea en el grupo de seguridad de red. Puede ser útil visualizar las configuraciones de reglas de NSG. Se puede volver a la configuración de las reglas de NSG con el comando [az network rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list). 
+La máquina virtual de back-end solo es accesible en los puertos *22* y *3306* desde la subred de front-end. El resto del tráfico entrante se bloquea en el grupo de seguridad de red. Puede ser útil visualizar las configuraciones de reglas de NSG. Se puede volver a la configuración de las reglas de NSG con el comando [az network rule list](/cli/azure/network/nsg/rule). 
 
 ```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --output table

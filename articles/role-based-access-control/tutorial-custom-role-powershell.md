@@ -13,14 +13,14 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/12/2018
 ms.author: rolyon
-ms.openlocfilehash: 1e3043a6053625f8363e9035e59b53275714a827
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: f49f6f03b6d9f1c51cada58ae782bbc364fc9d66
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300616"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427294"
 ---
-# <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>Tutorial: Creación de un rol personalizado con Azure PowerShell
+# <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>Tutorial: Creación de un rol personalizado mediante Azure PowerShell
 
 Si los [roles integrados](built-in-roles.md) no cumplen las necesidades específicas de su organización, puede crear sus propios roles personalizados. En este tutorial, creará un rol personalizado llamado Reader Support Tickets (Lector de incidencias de soporte) con Azure PowerShell. El rol personalizado permite al usuario ver todo el contenido de la suscripción y también abrir incidencias de soporte técnico.
 
@@ -39,7 +39,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Para completar este tutorial, necesitará:
 
 - Permisos para crear roles personalizados, como [Propietario](built-in-roles.md#owner) o [Administrador de acceso de usuarios](built-in-roles.md#user-access-administrator)
-- [Azure PowerShell](/powershell/azure/install-azurerm-ps) instalado localmente
+- [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) instalado localmente
 
 ## <a name="sign-in-to-azure-powershell"></a>Inicio de sesión en Azure PowerShell
 

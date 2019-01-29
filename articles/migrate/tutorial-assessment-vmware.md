@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 186d532f159db7d51ba4f93a250c00c7627280e0
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: e922e9e7741eb3338503e02cd0ca78387e32b1f6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229531"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824106"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Detección y evaluación de VM de VMware locales para migración a Azure
 
@@ -177,7 +177,7 @@ Importe el archivo descargado en el servidor vCenter Server.
     - Si la VM tiene acceso a Internet a través de un proxy, haga clic en **Proxy settings** (Configuración de proxy) y especifique el puerto de escucha y la dirección del proxy. Especifique las credenciales si el proxy requiere autenticación. [Obtener más información](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) sobre los requisitos de conectividad de Internet y la [lista de direcciones URL](https://docs.microsoft.com/azure/migrate/concepts-collector#connect-to-urls) a las que tiene acceso el recopilador.
 
       > [!NOTE]
-      > La dirección del proxy se tiene que especificarse con el formato http://ProxyIPAddress o http://ProxyFQDN. Solo se admite un proxy HTTP. Si tiene un proxy interceptor y no ha importado el certificado del mismo, se podría producir un error inicialmente en la conexión a Internet; [obtenga más información](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) acerca de cómo se puede solucionar este problema importando el certificado de proxy como un certificado de confianza en la máquina virtual del recopilador.
+      > La dirección del proxy se tiene que especificarse con el formato http://ProxyIPAddress o http://ProxyFQDN. Solo se admite un proxy HTTP. Si tiene un proxy interceptor y no ha importado el certificado de dicho proxy, se podría producir un error inicialmente en la conexión a Internet; [conozca más](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) sobre cómo solucionar este problema mediante la importación del certificado de proxy como un certificado de confianza en la máquina virtual del recopilador.
 
     - El recopilador comprueba que el servicio del recopilador se está ejecutando. El servicio se instala de forma predeterminada en la VM de recopilador.
     - Descargue e instale VMware PowerCLI.

@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: d89c5a3f2545edd7c02b67fa9d2e2b78937a9791
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: c8d1f659078a36bc57e92b01e6e32502be7a0ea9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779577"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434757"
 ---
-# <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Tutorial: diagnosticar un problema de comunicación entre redes mediante Azure Portal
+# <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Tutorial: Diagnóstico de problemas de comunicación entre redes mediante Azure Portal
 
 Una puerta de enlace de red virtual conecta una red virtual de Azure a otras redes locales o virtuales. En este tutorial, aprenderá a:
 
@@ -33,10 +33,10 @@ Una puerta de enlace de red virtual conecta una red virtual de Azure a otras red
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para usar el diagnóstico de VPN, debe tener una puerta de enlace de VPN en ejecución. Si no tiene una puerta de enlace de VPN para realizar diagnósticos, puede implementar una mediante un [script de PowerShell](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Puede ejecutar el script de PowerShell desde:
-    - **Un proceso de instalación local de PowerShell**: el script requiere la versión del módulo de AzureRM PowerShell 5.7.0 o posterior. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita actualizarla, consulte [Instale Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzureRmAccount` para crear una conexión con Azure.
+    - **Una instalación local de PowerShell**: el script requiere la versión 5.7.0 del módulo de Azure PowerShell, u otra posterior. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita actualizarla, consulte [Instale Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzureRmAccount` para crear una conexión con Azure.
     - **Azure Cloud Shell**: [Azure Cloud Shell](https://shell.azure.com/powershell) tiene la versión más reciente de PowerShell instalada y configurada, e inicia una sesión en Azure.
 
 Este script necesita aproximadamente una hora para crear una puerta de enlace de VPN. En los pasos restantes se supone que la puerta de enlace que está diagnosticando es la que implementó el script. Si, en su lugar, diagnostica su propia puerta de enlace, el resultado puede variar.

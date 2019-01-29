@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/14/2018
+ms.date: 01/16/2019
 ms.author: spelluru
-ms.openlocfilehash: babff55d6684feb1f0414970616260be96b994f4
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: d0d02f491f14cc6e0664d79bcfd2cda44d433b5b
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706014"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389958"
 ---
-# <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configuración de un laboratorio de clase 
+# <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configuración de un laboratorio educativo 
 En este tutorial, se va a configurar un laboratorio de clase con las máquinas virtuales que van a utilizar los estudiantes de la clase.  
 
 En este tutorial realizará lo siguiente:
@@ -32,7 +32,7 @@ En este tutorial realizará lo siguiente:
 > * Envío del vínculo de registro a los estudiantes
 
 ## <a name="prerequisites"></a>Requisitos previos
-Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser miembro del rol **Creador de laboratorio** en la cuenta de laboratorio. La cuenta que usó para crear una cuenta de laboratorio se agrega automáticamente a este rol. Un propietario de laboratorio puede agregar otros usuarios al rol de Creador de laboratorio mediante los pasos descritos en el siguiente artículo: [Incorporación de un usuario al rol de Creador de laboratorio](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
+Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser miembro del rol **Creador de laboratorio** en la cuenta de laboratorio. La cuenta que usó para crear una cuenta de laboratorio se agrega automáticamente a este rol. Un propietario de laboratorio puede agregar otros usuarios al rol Creador de laboratorio mediante los pasos que se indican en el siguiente artículo: [Incorporación de un usuario al rol Creador de laboratorio](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
 
 ## <a name="create-a-classroom-lab"></a>Creación de un laboratorio educativo
@@ -93,7 +93,7 @@ Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser m
 1. Verá el **panel** del laboratorio. 
     
     ![Panel del laboratorio de clase](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
-4. Cambie a la página **Máquinas virtuales** y confirme que ve las máquinas virtuales que tienen el estado **Sin asignar**. Estas máquinas virtuales no están asignadas a los alumnos todavía. Deberían estar en estado **Detenida**. En esta pagina, puede iniciar una máquina virtual de un alumno, conectarse a la máquina virtual, detener la máquina virtual y eliminar la máquina virtual. Puede iniciarlas en esta página o dejar que los alumnos inicien las máquinas virtuales. 
+4. Cambie a la página **Máquinas virtuales**, para lo que debe seleccionar Máquinas virtuales en el menú izquierdo o icono de las máquinas virtuales. Confirme que ve las máquinas virtuales que están en el estado **Sin asignar**. Estas máquinas virtuales no están asignadas a los alumnos todavía. Deberían estar en estado **Detenida**. En esta pagina, puede iniciar una máquina virtual de un alumno, conectarse a la máquina virtual, detener la máquina virtual y eliminar la máquina virtual. Puede iniciarlas en esta página o dejar que los alumnos inicien las máquinas virtuales. 
 
     ![Máquinas virtuales en estado detenido](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
@@ -112,19 +112,12 @@ Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser m
 ## <a name="send-registration-link-to-students"></a>Envío del vínculo de registro a los estudiantes
 
 1. Cambie a la vista **Users** (Usuarios) si aún no está en la página. 
-2. Seleccione el icono **Get registration link** (Obtener vínculo de registro).
+2. Seleccione el icono **Get registration link** (Obtener vínculo de registro) en la barra de herramientas.
+1. En el cuadro de diálogo **Registro de usuario**, seleccione el botón **Copiar**. El vínculo se copia en el Portapapeles.
 
-    ![Vínculo de registro del estudiante](../media/tutorial-setup-classroom-lab/dashboard-user-registration-link.png)
-1. En el cuadro de diálogo **Registro de usuario**, seleccione el botón **Copiar**. El vínculo se copia en el Portapapeles. 
-
-    ![Vínculo de registro del estudiante](../media/tutorial-setup-classroom-lab/registration-link.png)
-2. En el cuadro de diálogo **Registro de usuario**, seleccione **Cerrar**. 
-4. Comparta el vínculo de registro con un alumno para que este se pueda registrar para la clase. Si tiene habilitada la opción **Restrict access** (Restringir acceso) y tiene una lista de usuarios en la lista, realice las siguientes acciones:
-    1. Seleccione la **dirección de correo electrónico** del usuario de la lista. 
-    2. Verá una ventana desde el programa de correo electrónico predeterminado que tiene relleno el campo **PARA**. 
-    3. Pegue la **dirección URL de registro** que copió anteriormente. 
-    4. Envíe el **correo electrónico**.
-
+    ![Vínculo de registro](../media/tutorial-setup-classroom-lab/registration-link.png)
+1. En el cuadro de diálogo **Registro de usuario**, seleccione **Cerrar**. 
+2. Comparta el vínculo de registro con un alumno para que este se pueda registrar para la clase.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha creado un laboratorio de clase y ha configurado el laboratorio. Para saber cómo el estudiante puede acceder a una máquina virtual en el laboratorio con el enlace de registro, avance al siguiente tutorial:

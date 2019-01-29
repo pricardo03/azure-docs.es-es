@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 77d21a9db54a34d3f9981929bb90dfd3b54e23dd
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 45a0c179677a0a2c144ea33dbfb031c88257e1cb
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190602"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382510"
 ---
 # <a name="virtual-network-service-endpoints"></a>Puntos de conexión del servicio de redes virtuales
 
@@ -58,7 +58,8 @@ Los puntos de conexión de servicio proporcionan las siguientes ventajas:
 
 - Esta característica solo está disponible en las redes virtuales implementadas con el modelo de implementación de Azure Resource Manager.
 - Los puntos de conexión están habilitados en subredes configuradas en redes virtuales de Azure. No se pueden usar los puntos de conexión para el tráfico desde las instalaciones a los servicios de Azure. Para más información, consulte [Protección del acceso del servicio de Azure desde el entorno local](#securing-azure-services-to-virtual-networks)
-- Para Azure SQL, un punto de conexión de servicio solo se aplica al tráfico del servicio de Azure dentro de la región de una red virtual. En el caso de Azure Storage y ADLS Gen 1, para admitir tráfico RA-GRS y GRS, los puntos de conexión también se extienden para incluir regiones emparejadas donde está implementada la red virtual. Obtenga más información acerca de las [regiones emparejadas de Azure](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
+- Para Azure SQL, un punto de conexión de servicio solo se aplica al tráfico del servicio de Azure dentro de la región de una red virtual. En el caso de Azure Storage, para admitir tráfico RA-GRS y GRS, los puntos de conexión también se extienden para incluir regiones emparejadas donde está implementada la red virtual. Obtenga más información acerca de las [regiones emparejadas de Azure](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
+- Para ADLS Gen 1, la funcionalidad de integración de redes virtuales solo está disponible para las que se encuentran en la misma región.
 
 ## <a name="securing-azure-services-to-virtual-networks"></a>Protección de servicios de Azure para las redes virtuales
 

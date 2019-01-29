@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.date: 11/27/2018
 ms.author: bsiva
 ms.custom: MVC
-ms.openlocfilehash: 2497793ce5d24ed2516636e76b8b947417dd9f74
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: afcf64b79b08ae76f56f57569905945489c2933e
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039952"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382890"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migración de servidores que ejecutan Windows Server 2008 a Azure
 
@@ -119,7 +119,7 @@ Seleccione y compruebe los recursos de destino.
 1. Para crear una directiva de replicación, haga clic en **Site Recovery Infrastructure (Infraestructura de Site Recovery)** > **Directivas de replicación** > **+Directiva de replicación**.
 2. En **Crear directiva de replicación**, especifique un nombre de directiva.
 3. En **Umbral de RPO**, especifique el límite del objetivo de punto de recuperación (RPO). Se genera una alerta si el RPO de replicación supera este límite.
-4. En **Retención de punto de recuperación**, especifique la duración (en horas) del período de retención de cada punto de recuperación. Las máquinas virtuales replicadas se pueden recuperar a cualquier momento de un período. Se admite una retención de hasta 24 horas para máquinas replicadas en Premium Storage y 72 horas para almacenamiento estándar.
+4. En **Retención de punto de recuperación**, especifique la duración (en horas) del período de retención de cada punto de recuperación. Los servidores replicados se pueden recuperar a cualquier momento de este período. Se admite una retención de hasta 24 horas para máquinas replicadas en Premium Storage y 72 horas para almacenamiento estándar.
 5. En **Frecuencia de las instantáneas coherentes con la aplicación**, especifique **Desactivado**. Haga clic en **Aceptar** para crear la directiva.
 
 La directiva se asocia automáticamente al servidor de configuración.
@@ -154,13 +154,13 @@ Ejecute una conmutación por error para las máquinas que desea migrar.
 2. En **Conmutación por error**, seleccione un **punto de recuperación** en el que realizar la conmutación por error. Seleccione el punto de recuperación más reciente.
 3. Seleccione **Apague la máquina antes de comenzar con la conmutación por error**. Después, Site Recovery intentará apagar el servidor antes de desencadenar la conmutación por error. La conmutación por error continúa aunque se produzca un error de cierre. Puede seguir el progreso de la conmutación por error en la página **Trabajos**.
 4. Compruebe que la máquina virtual de Azure aparece en Azure según lo previsto.
-5. En **Elementos replicados**, haga clic con el botón derecho en la máquina virtual > **Completar migración**. Esto hace lo siguiente:
+5. En **Elementos replicados**, haga clic con el botón derecho en el servidor > **Completar migración**. Esto hace lo siguiente:
 
-    - Finaliza el proceso de migración, se detiene la replicación de la máquina virtual de AWS y se detiene la facturación de Site Recovery para la máquina virtual.
+    - Finaliza el proceso de migración, detiene la replicación del servidor y detiene la facturación de Site Recovery para el servidor.
     - Este paso limpia los datos de replicación. No elimina las máquinas virtuales migradas.
 
    ![Completar migración](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 
 
 > [!WARNING]
-> **No cancele una conmutación por error en curso**: La replicación de la máquina virtual se detiene antes de que se inicie la conmutación por error. Si se cancela una conmutación por error en curso, la conmutación por error se detiene, pero no se replica la máquina virtual de nuevo.
+> **No cancele una conmutación por error en curso**: La replicación del servidor se detiene antes de que se inicie la conmutación por error. Si se cancela una conmutación por error en curso, esta se detiene, pero el servidor dejará de realizar la replicación.

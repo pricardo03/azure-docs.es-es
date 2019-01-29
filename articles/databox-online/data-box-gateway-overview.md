@@ -5,14 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 01/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 4f1ab6d955c81ce6f7b141eef42341f43bb379f6
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 9670d67fa1eb79e9e5e8c81726c10cc78767fb74
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165324"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435471"
 ---
 # <a name="what-is-azure-data-box-gateway-preview"></a>¿Qué es Azure Data Box Gateway (versión preliminar)? 
 
@@ -39,7 +39,10 @@ Data Box Gateway tiene las siguientes ventajas:
 
 - **Transferencia de datos sencilla**: facilita el traslado de datos hacia y desde Azure Storage tan fácilmente como si estuviera trabajando con un recurso compartido de red local.  
 - **Alto rendimiento**: evita los inconvenientes de tener que transportar los datos de red con transferencias de alto rendimiento a y desde Azure. 
-- **Acceso rápido**: almacena en caché los archivos más recientes para agilizar el acceso a los archivos de entornos locales.  
+- **Acceso rápido y altas tasas de ingesta de datos durante el horario laboral**: Data Box Gateway tiene una caché local que se define como el tamaño de la capacidad local cuando se aprovisiona el dispositivo virtual. El tamaño del disco de datos debe especificarse según los [requisitos mínimos del dispositivo virtual](data-box-gateway-system-requirements.md#specifications-for-the-virtual-device). La caché local proporciona las siguientes ventajas:
+    - La memoria caché local permite la ingesta de datos a alta velocidad. Cuando se ingiere una gran cantidad de datos durante las horas punta, la caché puede retener los datos y cargarlos en la nube.
+    - La caché local permite un acceso rápido a la lectura hasta un determinado umbral. Hasta que el dispositivo esté lleno al 50-60 %, se accede a todas las lecturas del dispositivo desde la caché, lo que las hace más rápidas. Una vez que el espacio utilizado en el dispositivo supera este umbral, el dispositivo comienza a quitar los archivos locales. 
+ 
 - **Uso de ancho de banda limitado**: se pueden escribir datos en Azure incluso cuando la red limita el uso durante las horas punta comerciales.  
 
 ## <a name="key-capabilities"></a>Principales capacidades
@@ -67,7 +70,7 @@ El dispositivo virtual Data Box Gateway tiene las siguientes especificaciones:
 | Procesadores virtuales (núcleos)   | Cuatro como mínimo |            
 | Memoria  | 8 GB como mínimo|
 | Disponibilidad|Nodo único|
-| Discos| Disco de sistema operativo: 250 GB <br> Disco de datos: 2 TB como mínimo, con aprovisionamiento fino y debe estar basado en SSD|
+| Discos| Disco del sistema operativo: 250 GB <br> Disco de datos: 2 TB como mínimo, con aprovisionamiento fino y debe estar basado en SSD|
 | Interfaces de red|Una o varias interfaces de red virtual|
 | Protocolos de uso compartido de archivos nativos|SMB y NFS  |
 | Seguridad| Autenticación para desbloquear el acceso a datos y dispositivos <br> Cifrado de datos en proceso mediante el cifrado AES de 256 bits|

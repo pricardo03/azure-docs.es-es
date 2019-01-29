@@ -8,12 +8,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: c3392c3fd169ceed84368ed9e8b8d81cab7baea4
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 5591e8174f15d552bf7295d1c3fe9cb5257c0f2e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54212942"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438905"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Inicio rápido: Creación de un trabajo de Stream Analytics mediante Azure PowerShell
 
@@ -25,7 +25,7 @@ El trabajo de ejemplo lee los datos de streaming desde el dispositivo de IoT Hub
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/).  
 
-* Para realizar los pasos de esta guía, se requiere la versión 3.6 del módulo Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión que está instalada en la máquina local. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+* Para realizar los pasos de esta guía, se requiere la versión 3.6 del módulo Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión que está instalada en la máquina local. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 
 * Algunas acciones de IoT Hub no son compatibles con Azure PowerShell y se deben llevar a cabo con la CLI de Azure versión 2.0.24 o posterior, y la extensión de IoT para la CLI de Azure. [Instale la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) y use `az extension add --name azure-cli-iot-ext` para instalar la extensión de IoT.
 
@@ -111,7 +111,7 @@ El siguiente bloque de código de la CLI de Azure realiza varios comandos para p
 
 El siguiente bloque de código de Azure PowerShell usa los comandos para crear el almacenamiento de blobs que se usa para la salida del trabajo. Examine las secciones para comprender el código.
 
-1. Cree una cuenta de almacenamiento de uso general mediante el cmdlet [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount).  En este ejemplo, se crea una cuenta de almacenamiento denominada **myasaquickstartstorage** con almacenamiento con redundancia local (LRS) y cifrado de blob (habilitados de forma predeterminada).  
+1. Cree una cuenta de almacenamiento de uso general mediante el cmdlet [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount).  En este ejemplo, se crea una cuenta de almacenamiento denominada **myasaquickstartstorage** con almacenamiento con redundancia local (LRS) y cifrado de blobs (habilitados de forma predeterminada).  
    
 2. Recupere el contexto `$storageAccount.Context` de la cuenta de almacenamiento que define la cuenta que se va a usar. Cuando trabaje con cuentas de almacenamiento, haga referencia al contexto en lugar de proporcionar varias veces las credenciales. 
 

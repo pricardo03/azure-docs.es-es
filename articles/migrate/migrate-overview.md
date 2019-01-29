@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 01/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 737dc40bafa519d59bcbc0ff6510a89cb3a840fa
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c8aa7050163c2b58ca68adcf9a9b4d0bc96bb126
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263210"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808364"
 ---
 # <a name="about-azure-migrate"></a>Acerca de Azure Migrate
 
@@ -57,7 +57,7 @@ La configuración de evaluación se puede personalizar según sus necesidades. L
 
 **Propiedad** | **Detalles**
 --- | ---
-**Ubicación de destino** | La ubicación de Azure a la que desea realizar la migración.<br/><br/>Actualmente, Azure Migrate admite 33 regiones como ubicaciones de destino de migración. [Compruebe las regiones](https://azure.microsoft.com/global-infrastructure/services/). De forma predeterminada, la región de destino es la región Oeste de EE. UU. 2.
+**Ubicación de destino** | La ubicación de Azure a la que desea realizar la migración.<br/><br/>Actualmente, Azure Migrate admite 33 regiones como ubicaciones de destino de migración. [Compruebe las regiones](https://azure.microsoft.com/global-infrastructure/services/). De forma predeterminada, la región de destino se establece en Este de EE. UU.
 **Tipo de almacenamiento** | El tipo de discos administrados que desea asignar para todas las máquinas virtuales que forman parte de la valoración. Si el criterio para el tamaño es *ajuste de tamaño como local* puede especificar el tipo de disco de destino como discos premium (valor predeterminado), discos SSD estándar o discos HDD estándar. Para el *ajuste de tamaño basado en el rendimiento*, junto con las opciones anteriores, también tiene la opción de seleccionar Automático, lo que asegurará que la recomendación de tamaño del disco se realiza automáticamente en función de los datos de rendimiento de las máquinas virtuales. Por ejemplo, si desea conseguir un [Acuerdo de Nivel de Servicio de máquina virtual de única instancia del 99,9 %](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/), es posible que quiera especificar el tipo de almacenamiento como discos administrados Premium ya que este garantizará que todos los discos de la evaluación se recomienden como discos administrados Premium. Tenga en cuenta que Azure Migrate solo admite discos administrados para la valoración de la migración.
 **Instancias reservadas** |  Indica si dispone de [instancias reservadas](https://azure.microsoft.com/pricing/reserved-vm-instances/) de Azure. Azure Migrate calcula el costo en consecuencia.
 **Criterio de ajuste de tamaño** | El ajuste de tamaño se puede basar en el **historial de rendimiento** de las máquinas virtuales locales (opción predeterminada), o **como local**, sin tener en cuenta el historial de rendimiento.

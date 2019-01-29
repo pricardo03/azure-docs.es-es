@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 704bbe5cc566833ef1279e84f0fab9f363dfaa11
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 97dffa4952354864f90f75ffb909228eb4202e77
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841637"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382793"
 ---
-# <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>La implementación de Azure Resource Manager frente a la implementación clásica: los modelos de implementación y el estado de los recursos
+# <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Implementación mediante Azure Resource Manager frente a la implementación clásica: Conozca los modelos de implementación y el estado de los recursos
 
 > [!NOTE]
 > La información que se proporciona en este artículo se usa solo cuando se migra desde la implementación clásica a la implementación mediante Azure Resource Manager.
@@ -153,6 +153,7 @@ Toda la automatización y los scripts que ha creado continúan funcionando para 
 Puede encontrar un conjunto completo de plantillas de inicio en [Plantillas de inicio rápido de Azure Resource Manager](https://azure.microsoft.com/documentation/templates/).
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * Para ver un tutorial sobre la creación de la plantilla que define una máquina virtual, una cuenta de almacenamiento y una red virtual, consulte [Tutorial de la plantilla de Resource Manager](resource-manager-template-walkthrough.md).
 * Para ver los comandos para implementar una plantilla, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](resource-group-template-deploy.md).
 

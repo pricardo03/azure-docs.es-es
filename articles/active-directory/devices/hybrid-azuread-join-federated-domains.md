@@ -4,7 +4,7 @@ description: Aprenda a configurar la unión a Azure Active Directory híbrido pa
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 2f904690187f6f2b020cb9cc32f9a20712d8bb53
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: af1495af69255c7daa7de94da6ce0321c13d7599
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107572"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448218"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configuración de dispositivos híbridos unidos a Azure Active Directory para dominios federados
 
@@ -73,11 +73,11 @@ Los pasos de configuración en este artículo se basan en este asistente. Si tie
 
 La unión a Azure AD híbrido requiere que los dispositivos tengan acceso a los siguientes recursos de Microsoft desde dentro de la red de su organización:  
 
-- https://enterpriseregistration.windows.net
-- https://login.microsoftonline.com
-- https://device.login.microsoftonline.com
+- https\://enterpriseregistration.windows.net
+- https\://login.microsoftonline.com
+- https\://device.login.microsoftonline.com
 - STS de su organización (dominios federados)
-- https://autologon.microsoftazuread-sso.com (Si está utilizando o planeando usar SSO de conexión directa)
+- https\://autologon.microsoftazuread-sso.com (si está utilizando o planeando usar SSO de conexión directa)
 
 A partir de Windows 10 1803, si se produce un error en la unión a Azure AD híbrido para un dominio federado como AD FS, contamos con Azure AD Connect para sincronizar el objeto de equipo en Azure AD que se usa posteriormente para completar el registro del dispositivo para la unión a Azure AD híbrido.
 

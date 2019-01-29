@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: ba06e568b3d7b0125d5868c1ad4a85e5e42f7e18
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: ffceeeeb5a55b0fab1dd1cf91aebfcd4cfd852ef
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246218"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848604"
 ---
 # <a name="overview-of-azure-notebooks"></a>Introducción a Azure Notebooks
 
 Azure Notebooks es un servicio hospedado gratuito para desarrollar y ejecutar cuadernos de Jupyter Notebook en la nube sin necesidad de instalación. [Jupyter](https://jupyter.org/) (anteriormente IPython) es un proyecto de código abierto que le permite combinar fácilmente texto Markdown, código ejecutable y datos, gráficos y visualizaciones persistentes en un único lienzo que se puede compartir, el *cuaderno* (imagen cortesía de jupyter.org):
 
-[![](https://jupyter.org/assets/jupyterpreview.png "Cuadernos de Jupyter")](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![Ejemplos de Jupyter Notebooks](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Debido a esta potente combinación de código, gráficos y texto explicativo, el uso de Jupyter se ha extendido en escenarios como la instrucción de ciencia de datos, la limpieza y transformación de datos, la simulación numérica, el modelado estadístico y el desarrollo de modelos de aprendizaje automático.
 
@@ -55,9 +55,9 @@ En resumen, Azure Notebooks le ayuda a realizar su trabajo de forma más eficaz 
 
 ## <a name="pricing-and-quotas"></a>Precios y cuotas
 
-Azure Notebooks es un servicio gratuito, pero cada proyecto está limitado a 4 GB de memoria y 1 GB de datos para evitar el uso abusivo. Los usuarios legítimos que superan estos límites ven un desafío Captcha para continuar ejecutando cuadernos.
+Azure Notebooks es un servicio gratuito, pero cada proyecto está limitado a 4 GB de memoria y 1 GB de datos para evitar el uso abusivo. Los usuarios legítimos que superan estos límites ven un desafío Captcha para continuar ejecutando cuadernos.
 
-Para liberar todos los límites, inicie sesión en Azure Notebooks con una cuenta con Azure Active Directory (por ejemplo, una cuenta corporativa). Si esa cuenta está asociada con una suscripción de Azure, puede usar los niveles de proceso de Azure Data Science Virtual Machine.
+Para liberar todos los límites, inicie sesión en Azure Notebooks con una cuenta con Azure Active Directory (por ejemplo, una cuenta corporativa). Si esa cuenta está asociada a una suscripción de Azure, puede conectarse a cualquier instancia de Azure Data Science Virtual Machine de esa suscripción. Para más información, consulte [Administración y configuración de proyectos: nivel de proceso](configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ## <a name="available-kernels-and-environments"></a>Entornos y kernels disponibles
 

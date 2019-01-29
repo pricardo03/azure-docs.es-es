@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 12/28/2018
+ms.date: 01/22/2019
 ms.author: juliako
-ms.openlocfilehash: 858c062c2b3d61b38247e323bf70d2768d33b257
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c51a36f4380199de1ac62ef3f0c32bd0a8f06c01
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969342"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811220"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Tutorial: Streaming en directo con Media Services v3 mediante las API
 
@@ -89,7 +89,7 @@ Para empezar a usar las API de Media Services con. NET, debe crear un objeto **A
 
 ### <a name="create-a-live-event"></a>Creación de un evento en directo
 
-En esta sección se muestra cómo crear un tipo de **paso a través** del objeto LiveEvent (LiveEventEncodingType establecido en None). Si desea crear un objeto LiveEvent habilitado para la codificación en directo, establezca LiveEventEncodingType en Estándar. 
+En esta sección se muestra cómo crear un tipo de **paso a través** del objeto LiveEvent (LiveEventEncodingType establecido en None). Si quiere crear un objeto LiveEvent habilitado para la codificación en directo, establezca LiveEventEncodingType en **Estándar**. 
 
 Algunos de los aspectos que podría especificar al crear el evento en directo son:
 
@@ -100,8 +100,12 @@ Algunos de los aspectos que podría especificar al crear el evento en directo so
 * Restricciones de IP en la ingesta y vista previa. Puede definir las direcciones IP permitidas para introducir un vídeo en este objeto LiveEvent. Las direcciones IP permitidas se pueden especificar como una dirección IP única (por ejemplo, 10.0.0.1), un intervalo IP que usa una dirección IP y una máscara de subred CIDR (por ejemplo, 10.0.0.1/22) o un intervalo de IP que usa una máscara de subred decimal con puntos; por ejemplo, 10.0.0.1(255.255.252.0).
     
     Si no se especifica ninguna dirección IP y no hay ninguna definición de regla, no se permitirá ninguna dirección IP. Para permitir las direcciones IP, cree una regla y establezca 0.0.0.0/0.
+    
+    Las direcciones IP deben estar en uno de los siguientes formatos: dirección IpV4 con 4 números, intervalo de direcciones CIDR.
 
-Al crear el evento, puede especificar que se inicie automáticamente. 
+* Al crear el evento, puede especificar que se inicie automáticamente. 
+
+    Cuando el inicio automático está establecido en true, el evento en directo se inicia después de la creación. Es decir, la facturación comienza tan pronto como el evento en directo se está ejecutando. Debe llamar explícitamente a Stop en el recurso de LiveEvent para detener la facturación. Para más información, consulte [Estados y facturación de LiveEvent](live-event-states-billing.md).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveEvent)]
 

@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: SDK de Bing Spell Check con C#'
+title: 'Inicio rápido: Bing Spell Check SDK, C#'
 titlesuffix: Azure Cognitive Services
 description: Configuración de la aplicación de consola del SDK de Spell Check
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: bing-spell-check
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: 3050bc06c30c29efe7ba5294cbbee2aea1a6055b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9ae21e66c178ceb9c6aab814c6528da032ce0b30
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311609"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382116"
 ---
-# <a name="quickstart-bing-spell-check-sdk-with-c"></a>Guía de inicio rápido: SDK de Bing Spell Check con C#
+# <a name="quickstart-bing-spell-check-sdk-with-c"></a>Inicio rápido: Ejemplos de Bing Spell Check SDK con C#
 
 El SDK de Bing Spell Check contiene la funcionalidad de API REST para comprobar la ortografía.
 
@@ -46,10 +46,10 @@ Después, cree una instancia del cliente:
 var client = new SpellCheckClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 ```
 
-Use el cliente para revisar la ortografía:
+Utilice el cliente para comprobar la ortografía del texto. El parámetro `acceptLanguage` es opcional:
 
 ```cs
-var result = client.SpellCheckerWithHttpMessagesAsync(text: "Bill Gatas", mode: "proof", acceptLanguage: "en-US").Result;
+var result = client.SpellCheckerWithHttpMessagesAsync(text: "Bill Gatas", mode: "proof", acceptLanguage: "en-US", market: "en-US").Result;
 Console.WriteLine("Correction for Query# \"bill gatas\"");
 ```
 
@@ -95,7 +95,7 @@ La siguiente aplicación de consola ejecuta el código anterior:
 ```cs
 using System;
 using System.Linq;
-using Microsoft.Azure.CognitiveServices.SpellCheck;
+using Microsoft.Azure.CognitiveServices.Language.SpellCheck;
 
 namespace SpellCheckSDK
 {
@@ -107,7 +107,7 @@ namespace SpellCheckSDK
 
             try
             {
-                var result = client.SpellCheckerWithHttpMessagesAsync(text: "Bill Gatas", mode: "proof", acceptLanguage: "en-US").Result;
+                var result = client.SpellCheckerWithHttpMessagesAsync(text: "Bill Gatas", mode: "proof", acceptLanguage: "en-US", market:"en-US").Result;
                 Console.WriteLine("Correction for Query# \"bill gatas\"");
 
                 // SpellCheck Results

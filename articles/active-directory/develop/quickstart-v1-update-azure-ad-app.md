@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: f311f951e09e064b8eac779b1082c666fe029479
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9a89768a5cf02cc8d4cdce670bdfb5b90f504bdf
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977257"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447469"
 ---
 # <a name="quickstart-update-an-application-in-azure-active-directory"></a>Inicio rápido: Actualización de una aplicación en Azure Active Directory
 
@@ -44,7 +44,7 @@ Para que una aplicación cliente web o confidencial pueda participar en un flujo
 
 Para que un cliente pueda tener acceso a una API web expuesta por una aplicación de recursos (como Microsoft Graph API), el marco de consentimiento garantiza que el cliente obtenga la concesión de los permisos necesarios en función de los solicitados. De forma predeterminada, todas las aplicaciones pueden elegir permisos de **Azure Active Directory** (Graph API) y del modelo de implementación clásica de Azure. El [permiso de "inicio de sesión y lectura del perfil de usuario" de Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) también se selecciona de forma predeterminada. Si el cliente está registrado en un inquilino que tiene cuentas con suscripciones a Office 365, las API web y los permisos para SharePoint y Exchange Online están disponibles para seleccionarse. Puede seleccionar entre dos tipos de permisos para cada API web que desee:
 
-- Permisos de la aplicación: la aplicación cliente necesita acceso directo a la API web como sí misma (sin contexto de usuario). Este tipo de permiso requiere el consentimiento del administrador y no está disponible para aplicaciones cliente nativas.
+- Permisos de aplicación: la aplicación cliente necesita acceso directo a la API web como sí misma (sin contexto de usuario). Este tipo de permiso requiere el consentimiento del administrador y no está disponible para aplicaciones cliente nativas.
 - Permisos delegados: la aplicación cliente necesita acceso a la API web como el usuario que inició sesión, pero con acceso limitado por el permiso seleccionado. Este tipo de permiso lo puede conceder un usuario a menos que el permiso requiera el consentimiento del administrador.
 
   > [!NOTE]
@@ -190,9 +190,9 @@ Para más información sobre los cambios de aplicación necesarios para admitir 
 
 - [Inicio de sesión de cualquier usuario de Azure Active Directory (AD) mediante el patrón de aplicación multiempresa](howto-convert-app-to-be-multi-tenant.md)
 - La lista de [ejemplos de código multiinquilino](https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multi-tenant).
-- [Guía de inicio rápido: Incorporación de personalización de marca de empresa a la página de inicio de sesión de Azure AD](../fundamentals/customize-branding.md)
+- [Inicio rápido: Incorporación de personalización de marca de empresa a la página de inicio de sesión de Azure AD](../fundamentals/customize-branding.md)
 
-## <a name="enabling-oauth-20-implicit-grant-for-single-page-applications"></a>Habilitación de la concesión implícita de OAuth 2.0 para aplicaciones de página única
+## <a name="enabling-oauth-20-implicit-grant-for-single-page-applications"></a>Habilitación de la concesión implícita de OAuth 2.0 en aplicaciones de página única
 
 Las aplicaciones de página única (SPA) normalmente tienen una estructura con un front-end de JavaScript que se ejecuta en el explorador, que llama al back-end de la API web de la aplicación para llevar a cabo la lógica de negocios. Para las SPA hospedadas en Azure AD, se usa la concesión implícita de OAuth 2.0 para autenticar al usuario en Azure AD y obtener un token que puede usar para proteger las llamadas desde el cliente JavaScript de la aplicación hasta la API web de back-end.
 

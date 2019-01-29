@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 2a88b130c92f7b9074fd248afc97f0ea6b4c13bb
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d101931fb2a4184ff9ffffc0aed4fc90fee2cbd5
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042145"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452962"
 ---
 # <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>Ejemplos de consultas SQL para consultar datos de Azure Cosmos DB
 
@@ -506,7 +506,7 @@ También puede anidar las llamadas al operador como en la consulta siguiente.
 
 Como ocurre con otros operadores de consulta, si las propiedades a las que se hace referencia en la expresión condicional faltan en cualquiera de los elementos o si los tipos que se comparan son diferentes, dichos elementos se excluyen de los resultados de la consulta.
 
-El operador de fusión (??) se puede usar para comprobar eficazmente la presencia de una propiedad (es decir, si esta se ha definido) en un elemento. Este operador es útil cuando se realizan consultas en datos semiestructurados o de tipos combinados. Por ejemplo, esta consulta devuelve el valor "lastName" si está presente o "surname" si no lo está.
+El operador de fusión (??) se puede usar para comprobar eficazmente la presencia de una propiedad en un elemento. Este operador es útil cuando se realizan consultas en datos semiestructurados o de tipos combinados. Por ejemplo, esta consulta devuelve el valor "lastName" si está presente o "surname" si no lo está.
 
 ```sql
     SELECT f.lastName ?? f.surname AS familyName

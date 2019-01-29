@@ -9,20 +9,20 @@ services: iot-accelerators
 ms.date: 11/15/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 5505ceaa88f1ad792df57f9728f5e4809404942c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: a2dc5653b7579d9c5db4667d84e6e5b5082abaab
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599508"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448081"
 ---
 # <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Tutorial: Configuración de dispositivos conectados a la solución de supervisión
 
 En este tutorial, usará el acelerador de soluciones de supervisión remota para configurar y administrar los dispositivos de IoT conectados. Agregará un nuevo dispositivo al acelerador de soluciones y lo configurará.
 
-Contoso solicitó maquinaria nueva para expandir una de sus instalaciones. Mientras espera la entrega de la maquinaria nueva, desea ejecutar una simulación para probar el comportamiento de la solución. Para ejecutar la simulación, agregue un nuevo dispositivo de motor simulado al acelerador de soluciones de supervisión remota y compruebe que este dispositivo simulado responde correctamente a las actualizaciones de configuración. Aunque este tutorial utiliza dispositivos simulados, un desarrollador de dispositivos puede implementar métodos directos en un [dispositivo físico conectado al acelerador de soluciones de supervisión remota](iot-accelerators-connecting-devices.md).
+Contoso solicitó maquinaria nueva para expandir una de sus instalaciones. Mientras espera la entrega de la maquinaria nueva, desea ejecutar una simulación para probar el comportamiento de la solución. Para ejecutar la simulación, agregue un nuevo dispositivo de motor simulado al acelerador de soluciones de supervisión remota y compruebe que este dispositivo simulado responde correctamente a las actualizaciones de configuración. Aunque este tutorial utiliza dispositivos simulados, un desarrollador de dispositivos puede implementar métodos directos en un [dispositivo real conectado al acelerador de soluciones de supervisión remota](iot-accelerators-connecting-devices.md).
 
-En este tutorial, va a:
+En este tutorial, hizo lo siguiente:
 
 >[!div class="checklist"]
 > * Aprovisionar un dispositivo simulado.

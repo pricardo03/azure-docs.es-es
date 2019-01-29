@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 201ba431a4382741815536db2bb4d08f0068be80
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: a4e829f8ae89815c68d80a9f85dfbfd58a03b6a0
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329548"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452197"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Guía de inicio rápido: Creación de una Instancia administrada de Azure SQL Database
 
@@ -47,7 +47,7 @@ En los pasos siguientes se muestra cómo crear una Instancia administrada.
    |**Nombre de la instancia administrada**|Cualquier nombre válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Inicio de sesión de administrador de la instancia administrada**|Cualquier nombre de usuario válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). No utilice "serveradmin", ya es un rol de nivel de servidor reservado.|
    |**Contraseña**|Cualquier contraseña válida|La contraseña debe tener al menos 16 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
-   |**Intercalación**|La intercalación que desea usar para una instancia administrada|Para más información acerca de las intercalaciones, consulte [Intercalaciones](https://docs.microsoft.com/sql/t-sql/statements/collations).|
+   |**Intercalación**|La intercalación que desea usar para una instancia administrada|Si va a migrar bases de datos desde SQL Server, compruebe la intercalación de origen mediante `SELECT SERVERPROPERTY(N'Collation')` y use ese valor. Para información sobre las intercalaciones, consulte [Intercalaciones de nivel de servidor](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|
    |**Ubicación**|La ubicación en la que quiere crear la Instancia administrada.|Para obtener información acerca de las regiones, consulte [Regiones de Azure](https://azure.microsoft.com/regions/).|
    |**Red virtual**|Seleccione **Crear una nueva red virtual** o una subred y red virtual válidas.| Si hay una red o subred que aparece deshabilitada, se debe [modificar para cumplir con los requisitos de la red](sql-database-managed-instance-configure-vnet-subnet.md) antes de seleccionarla como destino de la nueva Instancia administrada. Para obtener información acerca los requisitos necesarios para configurar el entorno de red de Instancia administrada, consulte [Configuración de una red virtual para Instancia administrada de Azure SQL Database](sql-database-managed-instance-connectivity-architecture.md). |
    |**Grupos de recursos**|Un grupo de recursos nuevo o existente.|Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura).|

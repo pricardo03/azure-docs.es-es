@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: b8aac8a6a666bf3f360ef2867ff15933ad72dbd7
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 6db713984b62ce3db48b2e72a4b117696bdd6add
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166991"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452979"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway-preview"></a>Tutorial: Preparación de la implementación de Azure Data Box Gateway (versión preliminar)
 
@@ -147,7 +147,7 @@ La clave de activación se usa para registrar todos los dispositivos de Data Box
 
 > [!IMPORTANT]
 > - La clave de activación expira tres días después de generarla. 
-> - Si la clave ha expirado, genere una nueva clave. La clave antigua no es válida.
+> - Si la clave ha expirado, genere una nueva. La clave antigua no es válida.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

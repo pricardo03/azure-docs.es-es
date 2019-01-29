@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: e1257cbe14d8d0fe9dc6d9b0f2a48dbb8b3cc6e4
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 81c33818733b2896f98e1f3a3648b4fe9b823211
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466569"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413862"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Tutorial: Escalado automático de conjuntos de escalado de máquinas virtuales con una plantilla de Azure
 Al crear un conjunto de escalado, puede definir el número de instancias de máquina virtual que quiere ejecutar. A medida que cambia la demanda de las aplicaciones, puede aumentar o reducir automáticamente el número de estas instancias. La posibilidad de realizar el escalado automático le permite satisfacer la demanda del cliente o responder a los cambios de rendimiento de la aplicación a lo largo del ciclo de vida de esta. En este tutorial, aprenderá a:
@@ -164,7 +164,7 @@ Se tardan unos minutos en crear y configurar todos los recursos de conjunto de e
 ## <a name="generate-cpu-load-on-scale-set"></a>Generación de carga de CPU en el conjunto de escalado
 Para probar las reglas de escalado automático, genere cargas de CPU en las instancias de máquina virtual del conjunto de escalado. Esta carga de CPU simulada hace que las reglas de escalado automático escalen horizontalmente y aumenten el número de instancias de máquina virtual. Como la carga simulada de la CPU se reduce, las reglas de escalado automático reducen horizontalmente el número de instancias de máquina virtual.
 
-Primero, enumere las direcciones y los puertos para conectarse a las instancias de máquina virtual en un conjunto de escalado con [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info):
+Primero, enumere las direcciones y los puertos para conectarse a las instancias de máquina virtual en un conjunto de escalado con [az vmss list-instance-connection-info](/cli/azure/vmss):
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -194,7 +194,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-Cuando **stress** muestre resultados similares a *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, presione la tecla *Entrar* para volver al símbolo del sistema.
+Cuando **stress** muestra una salida similar a *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, presione la tecla *Entrar* para volver al símbolo del sistema.
 
 Para confirmar que **stress** genera carga de CPU, examine la carga del sistema activa con la utilidad **top**:
 
@@ -209,7 +209,7 @@ Ctrl-c
 exit
 ```
 
-Conéctese a la segunda instancia de máquina virtual con el número de puerto de la lista [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info) anterior:
+Conéctese a la segunda instancia de máquina virtual con el número de puerto de la lista [az vmss list-instance-connection-info](/cli/azure/vmss) anterior:
 
 ```azurecli-interactive
 ssh azureuser@13.92.224.66 -p 50003
@@ -222,7 +222,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-De nuevo, cuando **stress** muestre resultados similares a *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, presione la tecla *Entrar* para volver al símbolo del sistema.
+De nuevo, cuando **stress** muestra una salida similar a *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, presione la tecla *Entrar* para volver al símbolo del sistema.
 
 Cierre la conexión a esta instancia de máquina virtual. **Stress** continuará ejecutándose en la instancia de máquina virtual.
 

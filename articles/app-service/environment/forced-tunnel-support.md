@@ -14,16 +14,16 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 89827cdc7d29a817c83fd16ec2a4340f06c8343c
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 36324ccd9b6e9470c93949efed6c29a9b8d3ab61
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272743"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389287"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configuración de App Service Environment con tunelización forzada
 
-App Service Environment (ASE) es una implementación de Azure App Service en Azure Virtual Network de un cliente. Muchos clientes configuran sus redes virtuales de Azure como extensiones de sus redes locales con redes privadas virtuales o con conexiones de Azure ExpressRoute. La tunelización forzada se produce al redirigir el tráfico de Internet a una VPN o a una aplicación virtual en su lugar. Esto se suele hacer como parte de los requisitos de seguridad para inspeccionar y auditar todo el tráfico saliente. 
+App Service Environment (ASE) es una implementación de Azure App Service en Azure Virtual Network de un cliente. Muchos clientes configuran sus redes virtuales de Azure como extensiones de sus redes locales con redes privadas virtuales o con conexiones de Azure ExpressRoute. La tunelización forzada se produce al redirigir el tráfico de Internet a una VPN o a una aplicación virtual en su lugar. Las aplicaciones virtuales se usan a menudo para inspeccionar y auditar el tráfico de red saliente. 
 
 ASE cuenta con varias dependencias externas, que se describen en el documento de [arquitectura de red de App Service Environment][network]. Normalmente todo el tráfico de dependencias saliente de ASE debe pasar a través de la dirección VIP que se aprovisiona con el ASE. Si cambia la ruta para el tráfico hacia o desde el ASE sin seguir esta información, su ASE dejará de funcionar.
 
@@ -62,28 +62,25 @@ Si la red ya enruta de tráfico local, es preciso que cree la subred que hospede
 
 ## <a name="configure-your-ase-subnet-to-ignore-bgp-routes"></a>Configurar la subred del ASE para omitir las rutas de BGP ## 
 
-Puede configurar la subred del ASE para omitir todas las rutas de BGP.  Cuando se configura, el ASE podrá acceder a sus dependencias sin ningún problema.  Sin embargo, deberá crear UDR para permitir que las aplicaciones accedan a los recursos locales.
+Puede configurar la subred del ASE para omitir todas las rutas de BGP.  En este caso, el ASE podrá acceder a sus dependencias sin ningún problema.  Sin embargo, deberá crear UDR para permitir que las aplicaciones accedan a los recursos locales.
 
 Para configurar la subred del ASE para omitir las rutas de BGP:
 
 * Cree una UDR y asígnela a la subred del ASE si todavía no tiene una.
 * En Azure Portal, abra la interfaz de usuario de la tabla de rutas asignada a la subred del ASE.  Seleccione Configuración.  Establezca la propagación de ruta de BGP en Deshabilitado.  Haga clic en Guardar. La documentación sobre cómo desactivar eso se encuentra en el documento [Creación de una tabla de rutas][routetable].
 
-Una vez que lo haga, las aplicaciones ya no podrán alcanzar el entorno local. Para solucionar este problema, edite la UDR asignada a la subred del ASE y agregue rutas para los intervalos de direcciones locales. El tipo de Próximo salto se debe establecer en Puerta de enlace de red virtual. 
+Después de configurar la subred de ASE para omitir todas las rutas BGP, ya no podrá comunicarse de forma local. Para permitir que las aplicaciones accedan a los recursos locales, edite la UDR asignada a la subred de ASE y agregue rutas para los intervalos de direcciones locales. El tipo de Próximo salto se debe establecer en Puerta de enlace de red virtual. 
 
 
 ## <a name="configure-your-ase-with-service-endpoints"></a>Configuración del ASE con puntos de conexión de servicio ##
 
- > [!NOTE]
-   > Los puntos de conexión de servicio con SQL no funcionan con ASE en las regiones del gobierno de EE. UU.  La información siguiente solo es válida en las regiones públicas de Azure.  
-
 Para enrutar todo el tráfico saliente desde el ASE, excepto el que va a SQL Azure y a Azure Storage, siga estos pasos:
 
-1. Cree una tabla de rutas y asígnela a la subred de ASE. Busque las direcciones para la región en [Direcciones de administración de App Service Environment][management]. Cree rutas para dichas direcciones con el próximo salto de Internet. Esto es necesario porque el tráfico de administración entrante de App Service Environment debe responderse desde la misma dirección a la que se envió.   
+1. Cree una tabla de rutas y asígnela a la subred de ASE. Busque las direcciones para la región en [Direcciones de administración de App Service Environment][management]. Cree rutas para dichas direcciones con el próximo salto de Internet. Estas rutas son necesarias porque el tráfico de administración entrante de App Service Environment debe responderse desde la misma dirección a la que se envió.   
 
 2. Habilite puntos de conexión de servicio con Azure SQL y Azure Storage con la subred de ASE.  Tras completar este paso ya se puede configurar la red virtual con la tunelización forzada.
 
-Para crear su ASE en una red virtual que ya está configurada para enrutar todo el tráfico de forma local, debe utilizar una plantilla de Resource Manager.  No se pueden crear ASE con el portal en una subred preexistente.  Al implementar el ASE en una red virtual que ya esté configurada para enrutar el tráfico saliente local, es preciso crear un ASE mediante una plantilla de Resource Manager, lo que le permite especificar una subred preexistente. Para más información acerca de cómo implementar un ASE con una plantilla, lea [Creación de una instancia de ASE mediante el uso de una plantilla][template].
+Para crear su ASE en una red virtual que ya está configurada para enrutar todo el tráfico de forma local, debe utilizar una plantilla de Resource Manager.  No se pueden crear ASE con el portal en una subred preexistente.  Al implementar el ASE en una red virtual que ya esté configurada para enrutar el tráfico saliente local, es preciso crear un ASE mediante una plantilla de Resource Manager, lo que le permite especificar una subred preexistente. Para más información sobre la implementación de un ASE con una plantilla, lea [Creación de una instancia de App Service Environment mediante una plantilla][template].
 
 Los puntos de conexión de servicio le permiten restringir el acceso de los servicios multiinquilino a un conjunto de subredes y redes virtuales de Azure. Puede leer más acerca de los puntos de conexión de servicio en la documentación de los [puntos de conexión de servicio de Azure Virtual Network][serviceendpoints]. 
 
@@ -91,7 +88,7 @@ Cuando se habilitan puntos de conexión de servicio en un recurso, hay rutas que
 
 Cuando los puntos de conexión de servicio se habilitan en una subred con una instancia de Azure SQL, todas las instancias de Azure SQL conectadas desde esa subred deben tener habilitados también los puntos de conexión de servicio. Si desea acceder a varias instancias de Azure SQL desde la misma subred, debe habilitar los puntos de conexión de servicio en todas ellas y no solo en una.  Azure Storage no se comporta igual que Azure SQL.  Cuando se habilitan los puntos de conexión de servicio con Azure Storage, se bloquea el acceso a ese recurso desde la subred, pero aún se puede tener acceso a otras cuentas de Azure Storage incluso si no tienen habilitados los puntos de conexión de servicio.  
 
-Si configura la tunelización forzada con un dispositivo de filtro de red, recuerde que el ASE tiene otras dependencias, además de Azure SQL y Azure Storage. Debe permitir que llegue tráfico a dichas dependencias o el ASE no funcionará correctamente.
+Si configura la tunelización forzada con un dispositivo de filtro de red, recuerde que el ASE tiene otras dependencias, además de Azure SQL y Azure Storage. Si se bloquea el tráfico a dichas dependencias, el ASE no funcionará correctamente.
 
 ![Túnel forzado con puntos de conexión de servicio][2]
 
@@ -99,7 +96,7 @@ Si configura la tunelización forzada con un dispositivo de filtro de red, recue
 
 Para enrutar a través del túnel todo el tráfico saliente desde el ASE, excepto el que va a Azure Storage, siga los pasos siguientes:
 
-1. Cree una tabla de rutas y asígnela a la subred de ASE. Busque las direcciones para la región en [Direcciones de administración de App Service Environment][management]. Cree rutas para dichas direcciones con el próximo salto de Internet. Esto es necesario porque el tráfico de administración entrante de App Service Environment debe responderse desde la misma dirección a la que se envió. 
+1. Cree una tabla de rutas y asígnela a la subred de ASE. Busque las direcciones para la región en [Direcciones de administración de App Service Environment][management]. Cree rutas para dichas direcciones con el próximo salto de Internet. Estas rutas son necesarias porque el tráfico de administración entrante de App Service Environment debe responderse desde la misma dirección a la que se envió. 
 
 2. Habilite puntos de conexión de servicio con Azure Storage y la subred de ASE
 

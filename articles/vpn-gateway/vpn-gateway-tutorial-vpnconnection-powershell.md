@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/08/2018
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: 61e040fc2f7ff70794b49204e3dea01375637641
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 0c71062bded65f8aa7c259c0678ee6675e2dab38
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336583"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432224"
 ---
 # <a name="create-and-manage-s2s-vpn-connections-with-the-azure-powershell-module"></a>Creación y administración de conexiones VPN de sitio a sitio con el módulo de Azure PowerShell
 
@@ -39,11 +39,11 @@ El siguiente diagrama muestra la topología de este tutorial:
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Si decide instalar y usar PowerShell de forma local, para este tutorial se requiere la versión 5.3 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzureRmAccount` para crear una conexión con Azure.
+Si decide instalar y usar PowerShell de forma local, para este tutorial se requiere la versión 5.3 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzureRmAccount` para crear una conexión con Azure.
 
 ## <a name="requirements"></a>Requisitos
 
-Complete el primer tutorial: "[Create and Manage VPN gateway with the Azure PowerShell module](vpn-gateway-tutorial-create-gateway-powershell.md)" (Creación de VPN Gateway con Azure PowerShell) para crear los siguientes recursos:
+Complete el primer tutorial: "[Creación y administración de conexiones VPN de sitio a sitio con el módulo de Azure PowerShell](vpn-gateway-tutorial-create-gateway-powershell.md) para crear los siguientes recursos:
 
 1. Grupo de recursos (TestRG1), red virtual (VNet1) y GatewaySubnet
 2. VPN Gateway (VNet1GW)
@@ -140,7 +140,7 @@ Azure VPN Gateway admite el protocolo de enrutamiento dinámico de BGP. Puede ha
 * ASN de puerta de enlace de red local
 * Dirección IP del par BGP de la puerta de enlace de red local
 
-Si no ha configurado las propiedades de BGP, use los siguientes comandos para agregar estas propiedades a VPN Gateway y a la puerta de enlace de red local: [Set-AzureRmVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway?view=azurermps-6.8.1) y [ Set-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermlocalnetworkgateway?view=azurermps-6.8.1).
+Si no ha configurado las propiedades de BGP, use los siguientes comandos para agregar estas propiedades a VPN Gateway y a la puerta de enlace de red local: [Set-AzureRmVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway?view=azurermps-6.8.1) y [Set-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermlocalnetworkgateway?view=azurermps-6.8.1).
 
 ```azurepowershell-interactive
 $vng1 = Get-AzureRmVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1

@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Uso de Explorador de Azure Storage para crear un blob en el almacenamiento de objetos con Azure Data Lake Storage Gen2 habilitado'
+title: 'Inicio rápido: Uso del Explorador de Azure Storage para administrar los datos en Azure Data Lake Storage Gen2 '
 description: En este inicio rápido, aprenderá a usar Explorador de Azure Storage para crear un sistema de archivos en una cuenta de Azure Data Lake Storage Gen2, así como también un directorio y un archivo. Luego, aprenderá a descargar el archivo en un equipo local y a ver todo el archivo en un directorio.
 services: storage
 author: tamram
@@ -9,14 +9,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: tamram
-ms.openlocfilehash: e556dbe377f5bba6cbd727ac69c3d4fb9127a2c9
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 5b46d5644536123a9ef3dfc7be87e34d03ee4c4f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385625"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423603"
 ---
-# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Guía de inicio rápido: Uso del Explorador de Azure Storage para crear un blob en el almacenamiento de objetos
+# <a name="quickstart-use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>Inicio rápido: Uso del Explorador de Azure Storage para administrar los datos de una cuenta de Azure Data Lake Storage Gen2
 
 En este inicio rápido, aprenderá a usar el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) para crear un directorio y un blob. A continuación, aprenderá a descargar el blob en un equipo local y a ver todos los blobs en un directorio. También aprenderá a crear una instantánea de un blob, a administrar directivas de acceso al directorio y a crear una firma de acceso compartido.
 

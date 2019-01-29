@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 01/17/2019
 ms.author: alkohli
-ms.openlocfilehash: fb2ec4802ad2ecf25a8fca031553c8209dc4267d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 460a05ac25ca4af56b81fb2025e0886c7bda3070
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791326"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391157"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutorial: Cableado y conexión de un dispositivo Azure Data Box
 
@@ -40,7 +40,7 @@ Antes de comenzar, asegúrese de que:
     - Estar conectado a una red de alta velocidad. Es muy recomendable tener una conexión de 10 GbE como mínimo. Si no hay disponible una conexión de 10 GbE, se puede usar un vínculo de datos de 1 GbE, pero las velocidades de copia resultarán afectadas. 
 6. Debe tener acceso a una superficie plana en la que puede colocar su dispositivo Data Box. Si quiere colocar el dispositivo en un bastidor estándar, necesitará una ranura de 7U en el bastidor del centro de datos. Puede colocar el dispositivo en posición horizontal o vertical en el bastidor.
 7. Cuenta con los cables siguientes para conectar su dispositivo Data Box al equipo host.
-    - Dos cables de cobre 10 GbE SFP+ Twinax (se usa con las interfaces de red DATA 1, DATA 2)
+    - Dos cables de cobre 10 GbE SFP+ Twinax (se usa con las interfaces de red DATA 1, DATA 2). Data Box cuenta con los adaptadores Mellanox ConnectX®-3 Pro EN de puerto dual 10GBASE-T con interfaz de red PCI Express 3.0, por lo que deben funcionar los cables que son compatibles con esta interfaz. Por ejemplo, se ha utilizado un cable CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M para pruebas internas.
     - Un cable de red RJ-45 CAT 6 (se usa con la interfaz de red MGMT)
     - Un cable de red RJ-45 CAT 6A o RJ-45 CAT 6 (se usa con la interfaz de red DATA 3 configurada como 10 Gbps o 1 Gbps, respectivamente)
 

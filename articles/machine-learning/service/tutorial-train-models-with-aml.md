@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5008aebfea8fc284b1b85797f0523bc4fb11c7bd
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: a9fc0655a3666f09fed342af5b4f14e2097290ab
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075947"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828265"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Tutorial: Entrenamiento de un modelo de clasificación de imágenes con Azure Machine Learning Service
 
@@ -42,12 +42,12 @@ Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar.
 
 ## <a name="get-the-notebook"></a>Obtención del cuaderno
 
-Para su comodidad, este tutorial está disponible como un [cuaderno de Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb). Ejecute el cuaderno `tutorials/img-classification-part1-training.ipynb` en Azure Notebooks o en su propio servidor de cuadernos de Jupyter.
+Para su comodidad, este tutorial está disponible como un [cuaderno de Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb). Ejecute el cuaderno `tutorials/img-classification-part1-training.ipynb` en [Azure Notebooks](https://notebooks.azure.com/) o en su propio servidor de Jupyter Notebook.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 
-## <a name="set-up-your-development-environment"></a>Configuración de su entorno de desarrollo
+## <a name="set-up-your-development-environment"></a>Configurado su entorno de desarrollo
 
 Toda la configuración para el trabajo de desarrollo puede realizarse en un cuaderno de Python. La configuración incluye las siguientes acciones:
 

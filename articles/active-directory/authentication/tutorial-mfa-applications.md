@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 098973e2ece3477ec87b154c0304c4ca7e0246d1
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 5bd27ed71e93edc10fd86395121c524cb54c98e7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163393"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427617"
 ---
 # <a name="tutorial-complete-an-azure-multi-factor-authentication-pilot-roll-out"></a>Tutorial: Habilitación de un entorno piloto de Azure Multi-Factor Authentication
 
@@ -29,7 +29,7 @@ En este tutorial, realizará los pasos para configurar una directiva de acceso c
 
 * Un inquilino de Azure AD activo con al menos una licencia de prueba habilitada.
 * Una cuenta con privilegios de administrador global.
-* Un usuario de prueba sin privilegios de administrador con una contraseña que conozca para las pruebas; si necesita crear un usuario, consulte el artículo [Inicio rápido: Incorporación de nuevos usuarios a Azure Active Directory](../add-users-azure-active-directory.md).
+* Un usuario de prueba sin privilegios de administrador con una contraseña que conozca para pruebas; si necesita crear un usuario, consulte el artículo [Inicio rápido: Incorporación de nuevos usuarios a Azure Active Directory](../add-users-azure-active-directory.md).
 * Un grupo piloto para las pruebas del que el usuario sin privilegios de administrador sea miembro; si necesita crear un grupo, consulte el artículo [Creación de un grupo e incorporación de miembros en Azure Active Directory](../active-directory-groups-create-azure-portal.md).
 
 ## <a name="enable-azure-multi-factor-authentication"></a>Habilitación de Azure Multi-Factor Authentication
@@ -47,10 +47,10 @@ En este tutorial, realizará los pasos para configurar una directiva de acceso c
     * Haga clic en **Listo**.
 1. Omita la sección **Condiciones**
 1. En **Conceder**, asegúrese de que el botón de opción **Conceder acceso** está seleccionado
-    * Active la casilla **Requerir autenticación multifactor**
+    * Active la casilla **Requerir autenticación multifactor**.
     * Haga clic en **Seleccionar**
-1. Omita la sección **Sesión**
-1. Establezca la opción **Habilitar directiva** en **Activado**
+1. Omita la sección **Sesión**.
+1. Establezca la opción **Habilitar directiva** en **Activada**.
 1. Haga clic en **Crear**
 
 ## <a name="test-azure-multi-factor-authentication"></a>Prueba de Azure Multi-Factor Authentication

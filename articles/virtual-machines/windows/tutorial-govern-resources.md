@@ -14,20 +14,20 @@ ms.topic: tutorial
 ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 6377a54cc862bb5f62726c3ce91a41cc6eb0763d
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 6b36cdecb178a7189773abbfe963411e19764401
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311395"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438667"
 ---
-# <a name="tutorial-learn-about-windows-virtual-machine-governance-with-azure-powershell"></a>Tutorial: Información acerca del control de máquinas virtuales Windows con Azure PowerShell
+# <a name="tutorial-learn-about-windows-virtual-machine-governance-with-azure-powershell"></a>Tutorial: Información acerca del gobierno de máquinas virtuales Windows con Azure PowerShell
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Los ejemplos de este artículo requieren la versión 6.0 o posterior de Azure PowerShell. Si ejecuta PowerShell localmente y no tiene la versión 6.0 o una posterior, [actualice la versión](/powershell/azure/install-azurerm-ps). También tiene que ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure. En las instalaciones locales, también debe [descargar el módulo PowerShell de Azure AD](https://www.powershellgallery.com/packages/AzureAD/) para crear un nuevo grupo de Azure Active Directory.
+Los ejemplos de este artículo requieren la versión 6.0 o posterior de Azure PowerShell. Si ejecuta PowerShell localmente y no tiene la versión 6.0 o una posterior, [actualice la versión](/powershell/azure/azurerm/install-azurerm-ps). También tiene que ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure. En las instalaciones locales, también debe [descargar el módulo PowerShell de Azure AD](https://www.powershellgallery.com/packages/AzureAD/) para crear un nuevo grupo de Azure Active Directory.
 
 ## <a name="understand-scope"></a>Descripción del ámbito
 

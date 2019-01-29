@@ -11,12 +11,12 @@ ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 81afda4227484c19b49ffc4c399e52576629da34
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: eb4d94d93a72844cfa869bd74aef6eeb34b0f8e9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321881"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817510"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Tutorial: Preparación de datos para el modelado de regresión
 
@@ -37,7 +37,7 @@ Puede preparar los datos en Python con el [SDK de preparación de datos de Azure
 
 ## <a name="get-the-notebook"></a>Obtención del cuaderno
 
-Para su comodidad, este tutorial está disponible como un [cuaderno de Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part1-data-prep.ipynb). Ejecute el cuaderno **regression-part1-data-prep.ipynb** en Azure Notebooks o en su propio servidor de Jupyter Notebook.
+Para su comodidad, este tutorial está disponible como un [cuaderno de Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part1-data-prep.ipynb). Ejecute el cuaderno **regression-part1-data-prep.ipynb** en [Azure Notebooks](https://notebooks.azure.com/) o en su propio servidor de Jupyter Notebook.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -1066,7 +1066,7 @@ package.save(file_path)
 
 Para continuar con la segunda parte del tutorial, necesita el archivo **dflows.dprep** en el directorio actual.
 
-Si no piensa continuar con la segunda parte, elimine el archivo **dflows.dprep** del directorio actual. Elimine este archivo tanto si está realizando la ejecución localmente como en Azure Notebooks.
+Si no piensa continuar con la segunda parte, elimine el archivo **dflows.dprep** del directorio actual. Elimine este archivo tanto si está realizando la ejecución localmente como en [Azure Notebooks](https://notebooks.azure.com/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

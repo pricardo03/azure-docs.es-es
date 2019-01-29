@@ -4,7 +4,7 @@ description: Esta es la página de Azure AD Connect Health sobre cómo supervisa
 services: active-directory
 documentationcenter: ''
 author: zhiweiwangmsft
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: dc0e53d8-403e-462a-9543-164eaa7dd8b3
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 04/26/2018
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7d93207e6a5f0acabcf348981e799e801c39f48b
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 3d74a78d60959dc404165d0ac8c4483b8bd36a29
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278844"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464092"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Supervisión de AD FS mediante Azure AD Connect Health
 La siguiente documentación es específica de la supervisión de la infraestructura de AD FS con Azure AD Connect Health. Para más información sobre la supervisión de Azure AD Connect (Sync) con Azure AD Connect Health, consulte [Uso de Azure AD Connect Health para sincronización](how-to-connect-health-sync.md). Para obtener información adicional sobre la supervisión de Active Directory Domain Services con Azure AD Connect Health, consulte [Using Azure AD Connect Health with AD DS](how-to-connect-health-adds.md)(Uso de Azure AD Connect Health con AD DS).
@@ -56,16 +56,16 @@ Para seleccionar otras métricas, especifique un intervalo de tiempo. Para cambi
 | Ubicación de red | Agrupa el número total de solicitudes en función de la ubicación de red del usuario. Puede ser intranet o extranet. Esta agrupación es útil para saber qué porcentaje del tráfico es de intranet y cuál de extranet. |
 
 
-**Métrica: número total de solicitudes con error**: número total de solicitudes procesadas por el servicio de federación. (Esta métrica solo está disponible en AD FS para Windows Server 2012 R2)
+**Métrica: número total de solicitudes con error**: el número total de solicitudes con error procesadas por el servicio de federación. (Esta métrica solo está disponible en AD FS para Windows Server 2012 R2)
 
 |Agrupar por | ¿Qué significa la agrupación y por qué es útil? |
 | --- | --- |
-| Tipo de error | Muestra el número de errores en función de los tipos de error predefinidos. La agrupación es útil para comprender cuáles son los tipos de errores comunes. <ul><li>Nombre de usuario o contraseña incorrectos: errores por nombre de usuario o contraseña incorrectos.</li> <li>"Bloqueo de extranet": errores producidos cuando se reciben solicitudes de un usuario cuyo acceso a la extranet está bloqueado. </li><li> "Contraseña caducada": errores producidos cuando un usuario inicia sesión con una contraseña caducada.</li><li>"Cuenta deshabilitada": errores producidos cuando un usuario inicia sesión con una cuenta deshabilitada.</li><li>"Autenticación de dispositivos": errores producidos cuando un usuario no se puede autenticar mediante la Autenticación de dispositivos.</li><li>"Autenticación de certificado de usuario": errores producidos cuando un usuario no se puede autenticar porque el certificado no es válido.</li><li>"MFA": errores producidos cuando un usuario no se puede autenticar mediante Multi-Factor Authentication.</li><li>"Otra credencial": "Autorización de emisión": problemas producidos por errores de autorización.</li><li>"Delegación de emisión": problemas producidos por errores de delegación de emisión.</li><li>"Aceptación de tokens": errores producidos cuando ADFS rechaza el token de un proveedor de identidades de terceros.</li><li>"Protocolo": error producido por errores de protocolo.</li><li>"Desconocido": detectar todas. Otros errores que no encajan en las categorías definidas.</li> |
+| Tipo de error | Muestra el número de errores en función de los tipos de error predefinidos. La agrupación es útil para comprender cuáles son los tipos de errores comunes. <ul><li>Nombre de usuario o contraseña incorrectos: errores debidos a que el nombre de usuario o la contraseña son incorrectos.</li> <li>"Bloqueo de extranet": errores que se producen cuando se reciben solicitudes de un usuario cuyo acceso a la extranet está bloqueado. </li><li> "Contraseña caducada": errores que aparecen cuando los usuarios inician sesión con una contraseña caducada.</li><li>"Cuenta deshabilitada": errores que se producen cuando los usuarios inician sesión con una cuenta deshabilitada.</li><li>"Autenticación de dispositivos": errores que aparecen cuando los usuarios no se pueden autenticar mediante la Autenticación de dispositivos.</li><li>"Autenticación de certificado de usuario": errores que aparecen cuando los usuarios no se pueden autenticar porque el certificado no es válido.</li><li>"MFA": errores producidos cuando un usuario no se puede autenticar mediante Multi-Factor Authentication.</li><li>"Otra credencial": "Autorización de emisión": problemas debidos a errores de autorización.</li><li>"Delegación de emisión": problemas producidos por errores de delegación de emisión.</li><li>"Aceptación de token": errores que se deben a que ADFS rechaza el token de un proveedor de identidades de terceros.</li><li>"Protocolo": error producido por errores de protocolo.</li><li>"Desconocido": captura todo. Otros errores que no encajan en las categorías definidas.</li> |
 | Server | Agrupa los errores en función del servidor. Esta agrupación es útil para comprender la distribución de errores entre servidores. Una distribución desigual podría indicar que un servidor presenta un estado defectuoso. |
 | Ubicación de red | Agrupa los errores en función de la ubicación de red de las solicitudes (intranet frente a extranet). Esta agrupación es útil para comprender qué tipo de solicitud está fallando. |
 |  Application | Agrupa los errores en función de la aplicación de destino (usuario de confianza). Esta agrupación es útil para comprender qué aplicación de destino está experimentando una mayor cantidad de errores. |
 
-**Métrica: recuento de usuarios**: el número medio de usuarios únicos que se autentican activamente mediante AD FS.
+**Métrica: recuento de usuarios**: el número medio de usuarios únicos que se autentican activamente mediante AD FS
 
 |Agrupar por | ¿Qué significa la agrupación y por qué es útil? |
 | --- | --- |
@@ -82,7 +82,7 @@ Al seleccionar la opción Filtro en la parte superior de la hoja, puede filtrar 
 ## <a name="top-50-users-with-failed-usernamepassword-logins"></a>Primeros 50 usuarios con errores de inicio de sesión por nombre de usuario y contraseña no válidos
 Una de las causas comunes de los errores de solicitud de autenticación en un servidor de AD FS es una solicitud con credenciales no válidas, es decir, un nombre de usuario o una contraseña incorrectos. Esto le suele pasar a los usuarios debido a contraseñas olvidadas o complejas, o a errores tipográficos.
 
-Pero hay otros motivos que pueden provocar que los servidores de AD FS tengan que controlar un número inesperado de solicitudes como, por ejemplo: una aplicación que almacena en la memoria caché las credenciales de un usuario y estas expiran o un usuario malintencionado que intenta iniciar sesión en una cuenta con una serie de contraseñas conocidas. Estos dos ejemplos son motivos válidos que podrían dar lugar a un aumento repentino de las solicitudes.
+Pero hay otros motivos que pueden provocar que los servidores de AD FS tengan que controlar una número inesperado de solicitudes: Una aplicación que almacena en caché las credenciales de usuario y estas expiran, o un usuario malintencionado que intenta iniciar sesión en una cuenta con una serie de contraseñas conocidas. Estos dos ejemplos son motivos válidos que podrían dar lugar a un aumento repentino de las solicitudes.
 
 Azure AD Connect Health para ADFS proporciona un informe con los primeros 50 usuarios con errores de intento de inicio de sesión por nombre de usuario o una contraseña no válidos. Este informe se logra mediante el procesamiento de los eventos de auditoría generados por todos los servidores de AD FS en las granjas.
 
@@ -132,7 +132,7 @@ Además, es posible que una única dirección IP intente varios inicios de sesi�
 > 
 
 ### <a name="what-is-in-the-report"></a>Contenido del informe
-Cada elemento del informe de direcciones IP de riesgo muestra información agregada sobre las actividades de inicio de sesión de AD FS con errores que sobrepasan el umbral designado. Proporciona la siguiente información: ![Portal de Azure AD Connect Health](./media/how-to-connect-health-adfs/report4a.png)
+Cada elemento del informe de direcciones IP de riesgo muestra información agregada sobre las actividades de inicio de sesión de AD FS con errores que sobrepasan el umbral designado. Este ofrece la siguiente información: ![Portal de Azure AD Connect Health](./media/how-to-connect-health-adfs/report4a.png)
 
 | Elemento de informe | DESCRIPCIÓN |
 | ------- | ----------- |

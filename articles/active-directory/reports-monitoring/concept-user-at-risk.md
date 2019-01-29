@@ -3,7 +3,7 @@ title: Informe de seguridad de usuarios marcados en riesgo en el portal de Azure
 description: Aprenda sobre el informe de seguridad de usuarios marcados en riesgo en el portal de Azure Active Directory
 services: active-directory
 author: priyamohanram
-manager: mtillman
+manager: daveba
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
 ms.devlang: na
@@ -11,15 +11,15 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 11/13/2018
+ms.date: 01/17/2019
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9a7a3877970d5ecf3b86471b94fbb1bf6e5efbb4
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: de9cf73ba7ad68d84e43a7774617959f9c3789ee
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621078"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810761"
 ---
 # <a name="users-flagged-for-risk-report-in-the-azure-portal"></a>Informe de usuarios marcados en riesgo en Azure Portal
 
@@ -55,19 +55,16 @@ El informe de usuarios marcados en riesgo de las ediciones gratuita y básica de
 
 ![Inicios de sesión no seguros](./media/concept-user-at-risk/03.png)
 
-Al seleccionar un usuario, se abre la hoja de datos del usuario relacionada. En el caso de usuarios que están en riesgo, puede revisar el historial de inicios de sesión del usuario y restablecer la contraseña, en caso de que sea necesario.
-
-![Inicios de sesión no seguros](./media/concept-user-at-risk/46.png)
-
+Al seleccionar un usuario se proporciona la información de inicio de sesión. En el caso de usuarios que están en riesgo, puede revisar el historial de inicios de sesión del usuario y restablecer la contraseña, en caso de que sea necesario.
 
 Este cuadro de diálogo proporciona una opción para:
 
 - Descargar el informe
-
 - Búsqueda de usuarios
 
-![Inicios de sesión no seguros](./media/concept-user-at-risk/16.png)
+    ![Inicios de sesión no seguros](./media/concept-user-at-risk/16.png)
 
+Para obtener información más detallada, necesita una licencia prémium.
 
 ## <a name="users-at-risk-report-for-azure-ad-premium-editions"></a>Informe de usuarios en riesgo de las ediciones de Azure AD Premium
 

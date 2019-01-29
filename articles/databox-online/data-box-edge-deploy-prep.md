@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/08/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 25f68b011d1fcba450903e9a691b98dfe9e87281
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 7764b0ceee1b540e9650d232b7087811d7376f28
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726126"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452095"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Tutorial: Preparación para la implementación de Azure Data Box Edge  
 
@@ -119,7 +119,7 @@ Cuando el recurso de Data Box Edge esté en funcionamiento, deberá obtener la c
 
 > [!IMPORTANT]
 > - La clave de activación expira tres días después de generarla. 
-> - Si la clave ha expirado, genere una nueva clave. La clave antigua no es válida.
+> - Si la clave ha expirado, genere una nueva. La clave antigua no es válida.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

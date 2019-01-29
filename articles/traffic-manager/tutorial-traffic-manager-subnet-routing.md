@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: 8243130fc9752a47661b4c80826000d573da35c8
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2cd3fdc9387952277c25fa07c62a0faae2993089
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053081"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478253"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Dirección del tráfico a puntos de conexión específicos en función de la subred de usuario mediante Traffic Manager
 
-En este artículo se describe cómo configurar el método de enrutamiento del tráfico en una subred. El método de enrutamiento de tráfico de **subred** permite asignar un conjunto de intervalos de direcciones IP a puntos de conexión específicos y cuando Traffic Manager recibe una solicitud, inspecciona la dirección IP de origen de la solicitud y devuelve el punto de conexión asociado a ella. 
+En este artículo se describe cómo configurar el método de enrutamiento del tráfico en una subred. El método de enrutamiento de tráfico de **subred** permite asignar un conjunto de intervalos de direcciones IP a puntos de conexión específicos y cuando Traffic Manager recibe una solicitud, inspecciona la dirección IP de origen de la solicitud y devuelve el punto de conexión asociado a ella.
 
 En este tutorial, con la subred de enrutamiento, según la dirección IP de la consulta del usuario, el tráfico se enruta a un sitio web interno o un sitio web de producción.
 
@@ -41,11 +41,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 ## <a name="prerequisites"></a>Requisitos previos
 Para ver a Traffic Manager en acción, este tutorial requiere que implemente lo siguiente:
 - Dos sitios web básicos que se ejecutan en regiones de Azure diferentes: **Este de EE. UU.** (actúa como sitio web interno) y **Europa Occidental** (actúa como sitio web de producción).
-- Dos máquinas virtuales para probar Traffic Manager (una máquina virtual en **Este de EE. UU.** y la segunda máquina virtual en **Europa Occidental**). 
+- Dos máquinas virtuales para probar Traffic Manager (una máquina virtual en **Este de EE. UU.** y la segunda máquina virtual en **Europa Occidental**).
 
 Las máquinas virtuales de prueba se usan para ilustrar cómo enruta Traffic Manager el tráfico de usuario al sitio web interno o al sitio web de producción según la subred desde donde se origina la consulta del usuario.
 
-### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure 
+### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en Azure Portal en https://portal.azure.com.
 
@@ -93,42 +93,42 @@ En esta sección, creará dos máquinas virtuales *InternalWebsite* y *ProdWebsi
 
 #### <a name="install-iis-and-customize-the-default-web-page"></a>Instalación de IIS y personalización de la página web predeterminada
 
-En esta sección, instalará el servidor IIS en las dos máquinas virtuales (*myIISVMEastUS*  & *myIISVMWEurope*) y luego actualizará la página del sitio web predeterminado. La página del sitio web personalizado muestra el nombre de la máquina virtual a la que se está conectando cuando visita el sitio web desde un explorador web.
+En esta sección, instalará el servidor IIS en las dos máquinas virtuales (*myIISVMEastUS* & *myIISVMWEurope*) y luego actualizará la página del sitio web predeterminado. La página del sitio web personalizado muestra el nombre de la máquina virtual a la que se está conectando cuando visita el sitio web desde un explorador web.
 
 1. Seleccione **Todos los recursos** en el menú de la izquierda y, en la lista de recursos, haga clic en *myIISVMEastUS*, que se encuentra en el grupo de recursos *myResourceGroupTM1*.
-2. En la página **Introducción**, haga clic en **Conectar** y luego, en **Conectarse a una máquina virtual**, seleccione **Descargar archivo RDP**. 
-3. Abra el archivo .rdp descargado. Cuando se le pida, seleccione **Conectar**. Escriba el nombre de usuario y la contraseña que especificó al crear la máquina virtual. Puede que deba seleccionar **More choices** (Más opciones) y, luego, **Use a different account** (Usar una cuenta diferente), para especificar las credenciales que escribió al crear la máquina virtual. 
+2. En la página **Introducción**, haga clic en **Conectar** y luego, en **Conectarse a una máquina virtual**, seleccione **Descargar archivo RDP**.
+3. Abra el archivo .rdp descargado. Cuando se le pida, seleccione **Conectar**. Escriba el nombre de usuario y la contraseña que especificó al crear la máquina virtual. Puede que deba seleccionar **More choices** (Más opciones) y, luego, **Use a different account** (Usar una cuenta diferente), para especificar las credenciales que escribió al crear la máquina virtual.
 4. Seleccione **Aceptar**.
 5. Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Si recibe la advertencia, seleccione **Sí** o **Continuar** para continuar con la conexión.
 6. En el escritorio del servidor, vaya a **Herramientas administrativas de Windows**>**Administrador del servidor** .
 7. Inicie Windows PowerShell en la máquina virtual *InternalWebsite* y use los siguientes comandos para instalar el servidor IIS y actualizar el archivo HTM predeterminado.
     ```powershell-interactive
     # Install IIS
-      Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
     
     # Remove default htm file
-     remove-item  C:\inetpub\wwwroot\iisstart.htm
+    remove-item C:\inetpub\wwwroot\iisstart.htm
     
     #Add custom htm file
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from my " + $env:computername)
+    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from my " + $env:computername)
     ```
 8. Cierre la conexión RDP con la máquina virtual *InternalWebsite*.
 9. Repita los pasos 1 a 6; para ello, cree una conexión RDP con la máquina virtual *ProdWebsite* dentro del grupo de recursos *myResourceGroupTM2* para instalar IIS y personalizar su página web predeterminada.
 10. Inicie Windows PowerShell en la máquina virtual *ProdWebsite* y use los siguientes comandos para instalar el servidor IIS y actualizar el archivo HTM predeterminado.
     ```powershell-interactive
     # Install IIS
-      Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
     
     # Remove default htm file
-     remove-item  C:\inetpub\wwwroot\iisstart.htm
+    remove-item C:\inetpub\wwwroot\iisstart.htm
     
     #Add custom htm file
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from my " + $env:computername)
+    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from my " + $env:computername)
     ```
 
 #### <a name="configure-dns-names-for-the-vms-running-iis"></a>Configuración de nombres DNS para las máquinas virtuales que ejecutan IIS
 
-Traffic Manager enruta el tráfico de usuario basándose en el nombre DNS de los puntos de conexión de servicio. En esta sección, configurará los nombres DNS para los servidores IIS (*InternalWebsite* y *ProdWebsite*).
+Traffic Manager enruta el tráfico de usuario basándose en el nombre DNS de los puntos de conexión de servicio. En esta sección, configurará los nombres DNS de los servidores IIS (*InternalWebsite* y *ProdWebsite*).
 
 1. Haga clic en **Todos los recursos** en el menú de la izquierda y, en la lista de recursos, seleccione *InternalWebsite*, que se encuentra en el grupo de recursos *myResourceGroupTM1*.
 2. En la página **Introducción**, en **Nombre DNS**, seleccione **Configurar**.
@@ -185,12 +185,12 @@ Cree un perfil de Traffic Manager que le permita devolver puntos de conexión es
     | Grupos de recursos          | Haga clic en **Existente** y escriba *myResourceGroupTM1*. |
     | |                              |
     |
-  
+
     ![Crear un perfil de Traffic Manager](./media/tutorial-traffic-manager-subnet-routing/create-traffic-manager-profile.png)
 
 ## <a name="add-traffic-manager-endpoints"></a>Incorporación de puntos de conexión de Traffic Manager
 
-Agregue las dos máquinas virtuales que se ejecuten en los servidores IIS (*InternalWebsite*  & *ProdWebsite*) para enrutar el tráfico de usuario en función de la subred de la consulta del usuario.
+Agregue las dos máquinas virtuales que se ejecuten en los servidores IIS (*InternalWebsite* & *ProdWebsite*) para enrutar el tráfico de usuario en función de la subred de la consulta del usuario.
 
 1. En la barra de búsqueda del portal, busque el nombre del perfil de Traffic Manager que creó en la sección anterior y seleccione el perfil en los resultados que aparecen.
 2. En **perfil de Traffic Manager**, en la sección **Configuración**, haga clic en **Puntos de conexión** y, a continuación, haga clic en **Agregar**.
@@ -205,9 +205,8 @@ Agregue las dos máquinas virtuales que se ejecuten en los servidores IIS (*Inte
     |  Configuración de enrutamiento de subred    |   Agregue la dirección IP de la máquina virtual de prueba *UserVMUS*. Cualquier consulta de usuario que se origine en esta máquina virtual se dirigirá a *InternalWebSiteEndpoint*.    |
 
 4. Repita los pasos 2 y 3 para agregar otro punto de conexión denominado *ProdWebsiteEndpoint* para la dirección IP pública *ProdWebsite-ip* que está asociada la máquina virtual del servidor IIS denominada *ProdWebsite*. En **Configuración de enrutamiento de subred**, agregue la dirección IP de la máquina virtual de prueba *UserVMEurope*. Cualquier consulta de usuario de esta máquina virtual de prueba se enrutará al punto de conexión *myProdWebsiteEndpoint*.
-5.  Cuando termine de agregar ambos puntos de conexión, aparecerán en **Perfil de Traffic Manager** junto con el estado de supervisión como **En línea**.
+5. Cuando termine de agregar ambos puntos de conexión, aparecerán en **Perfil de Traffic Manager** junto con el estado de supervisión como **En línea**.
 
- 
 ## <a name="test-traffic-manager-profile"></a>Prueba del perfil de Traffic Manager
 En esta sección, probará cómo Traffic Manager enruta el tráfico de usuario desde una subred determinada a un punto de conexión específico. Para ver a Traffic Manager en acción, complete los pasos siguientes:
 1. Determine el nombre DNS del perfil de Traffic Manager.
@@ -216,26 +215,26 @@ En esta sección, probará cómo Traffic Manager enruta el tráfico de usuario d
     - Desde la máquina virtual de prueba (*UserVMEurope*) que se encuentra en la región **Europa Occidental**, en un explorador web, busque el nombre DNS del perfil de Traffic Manager.
 
 ### <a name="determine-dns-name-of-traffic-manager-profile"></a>Determinación del nombre DNS del perfil de Traffic Manager
-En este tutorial, por simplicidad, usará el nombre DNS del perfil de Traffic Manager para visitar los sitios web. 
+En este tutorial, por simplicidad, usará el nombre DNS del perfil de Traffic Manager para visitar los sitios web.
 
 Puede determinar el nombre DNS del perfil de Traffic Manager de la siguiente manera:
 
-1.  En la barra de búsqueda del portal, busque el nombre del **perfil de Traffic Manager** que creó en la sección anterior. Haga clic en el perfil de Traffic Manager en los resultados que aparezcan.
+1. En la barra de búsqueda del portal, busque el nombre del **perfil de Traffic Manager** que creó en la sección anterior. Haga clic en el perfil de Traffic Manager en los resultados que aparezcan.
 1. Haga clic en **Descripción general**.
 2. La hoja **Perfil de Traffic Manager** muestra el nombre DNS del perfil de Traffic Manager que acaba de crear. En las implementaciones de producción, puede configurar un nombre de dominio mnemónico para que apunte al nombre de dominio de Traffic Manager, mediante un registro CNAME de DNS.
 
 ### <a name="view-traffic-manager-in-action"></a>Ver a Traffic Manager en acción
-En esta sección, puede ver a Traffic Manager en acción. 
+En esta sección, puede ver a Traffic Manager en acción.
 
 1. Seleccione **Todos los recursos** en el menú de la izquierda y, en la lista de recursos, haga clic en *myUserVMUS*, que se encuentra en el grupo de recursos *myResourceGroupTM1*.
-2. En la página **Introducción**, haga clic en **Conectar** y luego, en **Conectarse a una máquina virtual**, seleccione **Descargar archivo RDP**. 
-3. Abra el archivo .rdp descargado. Cuando se le pida, seleccione **Conectar**. Escriba el nombre de usuario y la contraseña que especificó al crear la máquina virtual. Puede que deba seleccionar **More choices** (Más opciones) y, luego, **Use a different account** (Usar una cuenta diferente), para especificar las credenciales que escribió al crear la máquina virtual. 
+2. En la página **Introducción**, haga clic en **Conectar** y luego, en **Conectarse a una máquina virtual**, seleccione **Descargar archivo RDP**.
+3. Abra el archivo .rdp descargado. Cuando se le pida, seleccione **Conectar**. Escriba el nombre de usuario y la contraseña que especificó al crear la máquina virtual. Puede que deba seleccionar **More choices** (Más opciones) y, luego, **Use a different account** (Usar una cuenta diferente), para especificar las credenciales que escribió al crear la máquina virtual.
 4. Seleccione **Aceptar**.
-5. Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Si recibe la advertencia, seleccione **Sí** o **Continuar** para continuar con la conexión. 
-1. En un explorador web, en la máquina virtual *UserVMUS*, escriba el nombre DNS del perfil de Traffic Manager para ver el sitio web. Dado que la dirección IP de la máquina virtual *UserVMUS* está asociada al punto de conexión *myInternalWebsiteEndpoint*, el explorador web inicia el servidor del sitio Web de prueba *InternalWebsite*.
+5. Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Si recibe la advertencia, seleccione **Sí** o **Continuar** para continuar con la conexión.
+1. En un explorador web, en la máquina virtual *UserVMUS*, escriba el nombre DNS del perfil de Traffic Manager para ver el sitio web. Dado que la dirección IP de la máquina virtual *UserVMUS* está asociada al punto de conexión *myInternalWebsiteEndpoint*, el explorador web inicia el servidor del sitio web de prueba *InternalWebsite*.
 
-2. A continuación, conéctese a la máquina virtual *UserVMEurope* ubicada en **Europa Occidental** mediante los pasos 1 a 5 y busque el nombre de dominio del perfil de Traffic Manager desde esta máquina virtual. Dado que la dirección IP de la máquina virtual *UserVMEurope* está asociada al punto de conexión *myProductionWebsiteEndpoint*, el explorador web inicia el servidor del sitio Web de prueba *ProdWebsite*. 
-  
+2. A continuación, conéctese a la máquina virtual *UserVMEurope* ubicada en **Europa Occidental** mediante los pasos 1 a 5 y busque el nombre de dominio del perfil de Traffic Manager desde esta máquina virtual. Dado que la dirección IP de la máquina virtual *UserVMEurope* está asociada al punto de conexión *myProductionWebsiteEndpoint*, el explorador web inicia el servidor del sitio web de prueba *ProdWebsite*.
+
 ## <a name="delete-the-traffic-manager-profile"></a>Eliminar el perfil de Traffic Manager
 Cuando ya no los necesite, elimine los grupos de recursos (**ResourceGroupTM1** y **ResourceGroupTM2**). Para ello, seleccione el grupo de recursos (**ResourceGroupTM1** o **ResourceGroupTM2**) y luego seleccione **Eliminar**.
 
@@ -244,5 +243,3 @@ Cuando ya no los necesite, elimine los grupos de recursos (**ResourceGroupTM1** 
 - Obtenga información sobre el [método de enrutamiento del tráfico ponderado](traffic-manager-configure-weighted-routing-method.md).
 - Sepa cómo funciona el [método de enrutamiento por prioridad](traffic-manager-configure-priority-routing-method.md).
 - Información sobre el [método de enrutamiento geográfico](traffic-manager-configure-geographic-routing-method.md).
-
-

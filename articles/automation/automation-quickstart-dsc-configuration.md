@@ -3,7 +3,7 @@ title: 'Inicio rápido de Azure: Configuración de una máquina virtual con DSC 
 description: Configurar una pila de LAMP en una máquina virtual Linux con Desired State Configuration
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 keywords: dsc, configuración, automation
 author: KrisBash
 ms.author: krbash
@@ -11,12 +11,12 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 7a9e394213ef40b995cb048c71f14a190e5e7970
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c0a7bb9dfe8553515816efd53785dbe661cee0fa
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243699"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431595"
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Configurar una máquina virtual Linux con Desired State Configuration
 
@@ -108,7 +108,7 @@ Para importar la configuración:
 
 ## <a name="compile-a-configuration"></a>Compilar una configuración
 
-Las configuraciones DSC se deben compilar en una configuración de nodo (documento MOF) antes de asignarse a un nodo. La compilación valida la configuración y permite la entrada de valores de parámetro. Para obtener más información sobre la compilación de una configuración, consulte: [Compilación de configuraciones en DSC de Azure Automation](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
+Las configuraciones DSC se deben compilar en una configuración de nodo (documento MOF) antes de asignarse a un nodo. La compilación valida la configuración y permite la entrada de valores de parámetro. Para más información sobre cómo compilar una configuración, consulte: [Compilación de configuraciones en DSC de Azure Automation](https://docs.microsoft.com/azure/automation/automation-dsc-compile)
 
 Para compilar la configuración:
 
@@ -145,3 +145,4 @@ En esta guía de inicio rápido, incorporó una máquina virtual Linux a DSC, cr
 * Para obtener más información sobre Desired State Configuration de PowerShell, consulte [Información general sobre la configuración de estado deseado de Windows PowerShell](https://docs.microsoft.com/powershell/dsc/overview).
 * Para obtener más información acerca de cómo administrar DSC de Automatización desde PowerShell, consulte [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-5.0.0).
 * Para obtener información sobre cómo reenviar los informes de DSC a Log Analytics para la generación de informes y alertas, consulte el tema sobre el [reenvío de informes de DSC a Log Analytics](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics). 
+

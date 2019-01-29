@@ -4,7 +4,7 @@ description: Aprenda a configurar Azure Diagnostics para insertar los registros 
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 045f94b3-6f12-407a-8e9c-ed13ae7b43a3
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 941e914e6ce99082abdd920bd7171644f3575a38
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0560f4a4a815373f86592126b30edcc4ca10ba24
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849402"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825330"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub-preview"></a>Tutorial: Streaming de los registros de Azure Active Directory a Azure Event Hubs (versión preliminar)
 
@@ -75,11 +75,11 @@ Para usar esta característica, necesita:
 Después de mostrar los datos del centro de eventos, puede acceder y leer los datos de dos maneras:
 
 * **Configurar una herramienta SIEM compatible**. Para leer los datos del centro de eventos, la mayoría de las herramientas requieren la cadena de conexión al centro de eventos y determinados permisos para la suscripción de Azure. Herramientas de terceros con la integración de Azure Monitor incluidas, entre otras:
-    * **Splunk**: para más información acerca de cómo integrar los registros de Azure AD con Splunk, consulte [Integración de registros de Azure AD con Splunk mediante Azure Monitor](tutorial-integrate-activity-logs-with-splunk.md).
+    * **Splunk**: para más información sobre cómo integrar los registros de Azure AD con Splunk, consulte [Integración de registros de Azure AD con Splunk mediante Azure Monitor](tutorial-integrate-activity-logs-with-splunk.md).
     
-    * **IBM QRadar**: DSM y el protocolo de Azure Event Hubs están disponibles para descargarse en [soporte técnico de IBM](https://www.ibm.com/support). Para más información sobre la integración con Azure, vaya al sitio [IBM QRadar Security Intelligence Platform 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
+    * **IBM QRadar**: DSM y el protocolo de Azure Event Hubs están disponibles para descarga en el [soporte técnico de IBM](https://www.ibm.com/support). Para más información sobre la integración con Azure, vaya al sitio [IBM QRadar Security Intelligence Platform 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
     
-    * **Sumo Logic**: para configurar Sumo Logic para que consuma datos de un centro de eventos, consulte [Instalación de la aplicación de Azure AD y visualización de los paneles](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards). 
+    * **Sumo Logic**: para configurar Sumo Logic para que consuma datos de un centro de eventos, consulte [Install the Azure AD app and view the dashboards](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards) (Instalación de la aplicación de Azure AD y visualización de los paneles). 
 
 * **Configuración de herramientas personalizadas**. Si su herramienta SIEM actual aún no se admite en los diagnósticos de Azure Monitor, puede configurar herramientas personalizadas mediante las API de Event Hubs. Para más información, consulte la [Introducción a la recepción de mensajes con el Host del procesador de eventos en .NET Standard](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph).
 

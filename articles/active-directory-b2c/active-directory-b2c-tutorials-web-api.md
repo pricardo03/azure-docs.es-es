@@ -3,21 +3,21 @@ title: 'Tutorial: Conceder acceso a una API web de ASP.NET desde una aplicación
 description: Tutorial sobre cómo usar Active Directory B2C para proteger ASP.NET Web API y llamarlo desde una aplicación web para ASP.NET.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.author: davidmu
 ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: bd900071bbcd894d4fe71e0f8a265d98348eb262
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4051c0438cfb7c33f36cf49542e422e54e723cfc
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726413"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856067"
 ---
-# <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>Tutorial: Conceder acceso a una API web de ASP.NET desde una aplicación web mediante Azure Active Directory B2C
+# <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>Tutorial: Concesión de acceso a una API web de ASP.NET desde una aplicación web mediante Azure Active Directory B2C
 
 Este tutorial muestra cómo llamar a un recurso de API web protegido de Azure Active Directory (Azure AD) B2C desde una aplicación web para ASP.NET.
 
@@ -116,13 +116,13 @@ Para llamar a una API web protegida desde una aplicación, deberá conceder a su
 
 Ahora que se ha registrado la API web y tiene ámbitos definidos, debe configurar el código de la API web para usar el inquilino de Azure AD B2C. En este tutorial, configurará una API web de ejemplo. 
 
-La API web de ejemplo se incluye en el proyecto que ha descargado en el tutorial de requisitos previos: [Tutorial: Uso de Azure Active Directory B2C para la autenticación de usuarios en una aplicación web para ASP.NET](active-directory-b2c-tutorials-web-app.md). Si no ha completado el tutorial de requisitos previos, complételo antes de continuar.
+La API web de ejemplo se incluye en el proyecto que descargó en el tutorial indicado en los requisitos previos: [Tutorial de uso de Azure Active Directory B2C para la autenticación de usuarios en una aplicación web para ASP.NET](active-directory-b2c-tutorials-web-app.md). Si no ha completado el tutorial de requisitos previos, complételo antes de continuar.
 
 Hay dos proyectos en la solución de ejemplo:
 
-**Aplicación de ejemplo de aplicación web (TaskWebApp)**: aplicación web para crear y editar una lista de tareas. La aplicación web utiliza el flujo de usuario de **registro o de inicio de sesión** para registrar a los usuarios o iniciar sesión mediante una dirección de correo electrónico.
+**Aplicación de ejemplo de aplicación web (TaskWebApp):** aplicación web para crear y editar una lista de tareas. La aplicación web utiliza el flujo de usuario de **registro o de inicio de sesión** para registrar a los usuarios o iniciar sesión mediante una dirección de correo electrónico.
 
-**Aplicación de ejemplo de API web (TaskService)**: API web que admite la funcionalidad de creación, lectura, actualización y eliminación de la lista de tareas. Azure AD B2C protege a la API web y la aplicación web la llama.
+**Aplicación de ejemplo de API Web (TaskService):** API web que admite la funcionalidad para crear, leer, actualizar y eliminar la lista de tareas. Azure AD B2C protege a la API web y la aplicación web la llama.
 
 La aplicación web y la API web de ejemplo definen los valores de configuración como configuración de la aplicación en el archivo Web.config de cada proyecto.
 

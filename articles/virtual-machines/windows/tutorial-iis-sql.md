@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 4909edf6e434e626e89409f01ae0f5fbca5bf442
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: ff8fe3c3c61777902269364df88a9fff4e8d1385
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515495"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425159"
 ---
 # <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>Tutorial: Instalación de la pila SQL, IIS y .NET en una máquina virtual Windows con Azure PowerShell
 
@@ -34,7 +34,7 @@ En este tutorial, vamos a instalar una pila SQL, IIS y .NET con Azure PowerShell
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Si decide instalar y usar PowerShell de forma local, para este tutorial se requiere la versión 5.7.0 del módulo AzureRM.Compute o versiones posteriores. Ejecute `Get-Module -ListAvailable AzureRM.Compute` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Si decide instalar y usar PowerShell de forma local, para este tutorial se requiere la versión 5.7.0 del módulo AzureRM.Compute o versiones posteriores. Ejecute `Get-Module -ListAvailable AzureRM.Compute` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="create-a-iis-vm"></a>Creación de una máquina virtual con IIS 
 

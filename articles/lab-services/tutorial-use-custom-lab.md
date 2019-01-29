@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/17/2018
+ms.date: 01/18/2019
 ms.author: spelluru
-ms.openlocfilehash: ab52206230c4dfe2d92c97f1e291ee00a086c570
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: b5abb8d4aad7c58bf673aa578255efe12d32ad4b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470870"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422905"
 ---
-# <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Tutorial: Acceso a un laboratorio en Azure DevTest Labs
-En este tutorial, va a utilizar el laboratorio que se creó en el [Tutorial: Creación de un laboratorio en Azure DevTest Labs](tutorial-create-custom-lab.md).
+# <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Tutorial: Acceso a un laboratorio de Azure DevTest Labs
+En este tutorial, va a utilizar el laboratorio personalizado que se creó en el [Tutorial: Creación de un laboratorio en Azure DevTest Labs](tutorial-create-custom-lab.md).
 
 En este tutorial realizará lo siguiente:
 
@@ -68,14 +68,16 @@ Cuando haya terminado de usar la máquina virtual, anule la reclamación de dich
 1. En la página de la máquina virtual, seleccione **Anular reclamación** en la barra de herramientas. 
 
     ![Anulación de la reclamación de una máquina virtual](./media/tutorial-use-custom-lab/unclaim-vm-menu.png)
-1. La máquina virtual se apaga antes de anular su reclamación. 
+1. La máquina virtual se apaga antes de anular su reclamación. Puede ver el estado de esta operación en las notificaciones.  
+3. Vaya a la página de DevTest Lab; para ello, haga clic en el nombre del laboratorio en el menú de la ruta de navegación de la parte superior. 
+    
+    ![Regreso al laboratorio](./media/tutorial-use-custom-lab/breadcrumb-to-lab.png)
+1. Confirme que ve la máquina virtual en la lista de **Máquinas virtuales que se pueden reclamar** en la parte de abajo.
 
-    ![Anulación de reclamación de estado](./media/tutorial-use-custom-lab/unclaim-status.png) 
-1. Después de realizar la operación de anulación de reclamación, verá la máquina virtual en la lista **Máquinas virtuales que se pueden reclamar** en la parte inferior. 
     
 ## <a name="next-steps"></a>Pasos siguientes
 Este tutorial le ha mostrado cómo acceder y usar un laboratorio creado con Azure DevTest Labs. Para más información sobre el acceso y el uso de máquinas virtuales en un laboratorio, consulte 
 
 > [!div class="nextstepaction"]
-> [Procedimiento: Uso de máquinas virtuales en un laboratorio](devtest-lab-add-vm.md)
+> [Uso de Uso de máquinas virtuales en un laboratorio](devtest-lab-add-vm.md)
 

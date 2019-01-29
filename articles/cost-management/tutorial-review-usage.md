@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 928b8fd8ef076afa2c60c870fb705a9a682003d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e96119abd4fc77c576fb65281c3f48b8263e020d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093614"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849981"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -93,15 +93,23 @@ Azure Cost Management también proporciona recomendaciones de ahorro de costos p
 
 ## <a name="create-alerts-for-unusual-spending"></a>Crear alertas de gastos inusuales
 
-También pueden alertar automáticamente a las partes interesadas sobre anomalías de gastos y riesgos de gastos innecesarios. Se pueden crear alertas fácilmente mediante informes que admitan alertas basadas en umbrales de presupuesto y costos.
+Las alertas le permiten enviar notificaciones automáticamente a las partes interesadas sobre anomalías en los gastos y riesgos de gastos adicionales. Se pueden crear alertas mediante informes que admitan alertas basadas en umbrales de presupuesto y de costo.
 
-Cree una alerta para cualquier gasto mediante cualquier informe de costos. En este ejemplo, use el informe de costo a lo largo del tiempo para recibir una notificación cuando el gasto de la máquina virtual de Azure se acerque al presupuesto total. Para crear la alerta es necesario realizar los pasos siguientes. En el menú de la parte superior del portal, haga clic en **Costs** > **Cost Analysis** > **Actual Cost Over Time** (Costos > Análisis de costos > Costo real a lo largo del tiempo). Establezca **Grupos** en **Servicio** y **Filter on the service (Filtrar el servicio)** en **Azure/VM**. En la parte superior derecha del informe, haga clic en **Acciones** y, a continuación, seleccione **Schedule report (Programar informe)**.
+En este ejemplo se usa el informe **Actual Cost Over Time** (Costo real a lo largo del tiempo) para enviar una notificación cuando el gasto de un máquina virtual de Azure se acerque al presupuesto total. En este escenario, tiene un presupuesto total de 20 000 USD y desea recibir una notificación cuando los costos se aproximen a la mitad del presupuesto, 9000 USD y una alerta adicional cuando los costos lleguen a 10 000 USD.
 
-En el cuadro Save or Schedule this report (Guardar o programar este informe), utilice la pestaña **Scheduling** (Programación) para que se envíe a su propia dirección un correo electrónico del informe con la frecuencia que desee. Asegúrese de seleccionar **Send via email** (Enviar por correo electrónico). Las etiquetas, la agrupación y el filtrado que usa se incluyen en el informe enviado por correo electrónico. Haga clic en la pestaña **Umbral** y seleccione **Actual Cost vs. Threshold (Costo real frente a umbral)**. Si tiene un presupuesto total de 20 000 USD y desea una notificación cuando los costos se acerquen a la mitad, cree una **alerta roja** en 10 000 dólares y una **alerta amarilla** en 9 000 USD. No incluya comas en los valores que especifique. A continuación, elija el número de alertas consecutivas. Cuando recibe el número total de alertas especificado, no se envían más alertas. Guarde el informe programado.
+1. En el menú de la parte superior del portal de Cloudyn, seleccione **Costs** > **Cost Analysis** > **Actual Cost Over Time** (Costos > Análisis de costos > Costo real a lo largo del tiempo). 
+2. Establezca **Grupos** en **Servicio** y **Filter on the service (Filtrar el servicio)** en **Azure/VM**. 
+3. En la parte superior derecha del informe, seleccione **Actions** (Acciones) y, después, seleccione **Schedule report** (Programar informe).
+4. Para enviarse un correo electrónico del informe a intervalos programados, seleccione la pestaña **Scheduling** (Programación) en el cuadro de diálogo **Save or Schedule this report** (Guardar o programar este informe). Asegúrese de seleccionar **Send via email** (Enviar por correo electrónico). Todas las etiquetas, la agrupación y los filtros que use se incluyen en el informe enviado por correo electrónico. 
+5. Seleccione la pestaña **Threshold** (Umbral) y después seleccione **Actual Cost vs. Threshold (Costo real frente a umbral)**. 
+   1. En el cuadro de umbral **Red alert** (Alerta roja) escriba 10000. 
+   2. En el cuadro del umbral **Yellow alert** (Alerta amarilla) escriba 9000. 
+   3. En el cuadro **Number of consecutive alerts** (Número de alertas consecutivas), escriba el número de alertas consecutivas que desea recibir. Cuando reciba el número total de alertas que ha especificado, no se enviarán más alertas. 
+6. Seleccione **Guardar**.
 
 ![Ejemplo que muestra alertas rojas y amarillas según los umbrales de gastos](./media/tutorial-review-usage/schedule-alert01.png)
 
-También puede elegir la métrica del umbral de porcentaje frente a presupuesto para crear alertas. Si usa esa métrica, puede emplear porcentajes de presupuesto en lugar de valores de divisa.
+También puede elegir la métrica de umbral **Cost Percentage vs. Budget** (Porcentaje de costo frente a presupuesto) para crear alertas. Esto le permite especificar los umbrales como porcentajes del presupuesto,en lugar de los valores de moneda.
 
 ## <a name="export-data"></a>Exportar datos
 

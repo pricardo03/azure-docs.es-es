@@ -5,7 +5,7 @@ services: active-directory
 keywords: qué es Azure AD Connect, instalar Active Directory, componentes necesarios para Azure AD
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
@@ -15,17 +15,17 @@ ms.topic: get-started-article
 ms.date: 10/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a1cdf332e34df5f0b3d2058ba5980b67582f14a2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 394f61f9fca06f5471edc62e99be8fa6bb415e40
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248833"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471640"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalación personalizada de Azure AD Connect
 Se utiliza **Configuración personalizada** de Azure AD Connect cuando se desea contar con más opciones para la instalación. Se utiliza si tiene varios bosques o si desea configurar características opcionales que no se incluyen en la instalación rápida. Se usa en todos aquellos casos en que la opción [**Instalación rápida**](how-to-connect-install-express.md) no vale para su implementación o topología.
 
-Antes de empezar a instalarlo, debe [descargar Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) y completar los pasos de los requisitos previos que se señalan en [Requisitos previos de Azure AD Connect](how-to-connect-install-prerequisites.md). Asegúrese también de que posee las cuentas necesarias que se describen en [Azure AD Connect: cuentas y permisos](reference-connect-accounts-permissions.md).
+Antes de empezar a instalarlo, debe [descargar Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) y completar los pasos de los requisitos previos que se indican en [Azure AD Connect: Hardware y requisitos previos](how-to-connect-install-prerequisites.md). Asegúrese también de que posee las cuentas necesarias que se describen en [Azure AD Connect: cuentas y permisos](reference-connect-accounts-permissions.md).
 
 Si la configuración personalizada no coincide con la topología, por ejemplo, para actualizar DirSync, consulte la [documentación relacionada](#related-documentation) sobre otros escenarios.
 
@@ -114,7 +114,7 @@ Si tiene previsto usar el [filtrado basado en el grupo](#sync-filtering-based-on
 
 También es posible que algunos dominios no sean accesibles debido a restricciones del firewall. De forma predeterminada estos dominios no estarán seleccionados y tendrán una indicación de advertencia.  
 ![Dominios no accesibles](./media/how-to-connect-install-custom/unreachable.png)  
-Si la ve, asegúrese de que efectivamente no se pueda acceder a estos dominios y, por lo tanto, esta advertencia sea esperada.
+ Si la ve, asegúrese de que efectivamente no se pueda acceder a estos dominios y, por lo tanto, esta advertencia sea esperada.
 
 ### <a name="uniquely-identifying-your-users"></a>Identificación de forma exclusiva de usuarios
 
@@ -136,7 +136,7 @@ El atributo sourceAnchor es inmutable mientras siga vigente un objeto de usuario
 
 | Configuración | DESCRIPCIÓN |
 | --- | --- |
-| Let Azure manage the source anchor for me (Dejar que Azure administre automáticamente el delimitador de origen) | Seleccione esta opción si desea que Azure AD elija automáticamente el atributo. Si selecciona esta opción, el asistente de Azure AD Connect aplica la lógica de selección de atributo de sourceAnchor que se describe en la sección acerca de cómo [usar ms-DS-ConsistencyGuid como sourceAnchor del artículo Azure AD Connect: conceptos de diseño](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). El asistente indica qué atributo se ha elegido como atributo de delimitador de origen una vez finalizada la instalación personalizada. |
+| Let Azure manage the source anchor for me (Dejar que Azure administre automáticamente el delimitador de origen) | Seleccione esta opción si desea que Azure AD elija automáticamente el atributo. Si selecciona esta opción, el asistente de Azure AD Connect aplica la lógica de selección de atributo sourceAnchor que se describe en la sección [Azure AD Connect: Conceptos de diseño: Uso de msDS-ConsistencyGuid como sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). El asistente indica qué atributo se ha elegido como atributo de delimitador de origen una vez finalizada la instalación personalizada. |
 | Un atributo específico | Seleccione esta opción si desea especificar un atributo existente de AD como atributo sourceAnchor. |
 
 Puesto que no se puede cambiar el atributo, debe pensar en un atributo que sea adecuado usar. Un buen candidato es objectGUID. Este atributo no cambiará, salvo que la cuenta de usuario se mueva entre bosques o dominios. Evite los atributos que puedan cambiar si una persona se casa o se cambian las asignaciones. No se pueden utilizar los atributos con @-sign, por lo que no se puede utilizar el correo electrónico ni userPrincipalName. El atributo también distingue mayúsculas de minúsculas, por lo que si mueve un objeto entre bosques, asegúrese de conservar las mayúsculas y minúsculas. Los atributos binarios tienen codificación base64, pero otros tipos de atributo permanecerán en su estado sin codificar. En escenarios de federación y en algunas interfaces de Azure AD, este atributo se conoce también como immutableID. En los [conceptos de diseño](plan-connect-design-concepts.md#sourceanchor) encontrará más información sobre el delimitador de origen.
@@ -144,7 +144,7 @@ Puesto que no se puede cambiar el atributo, debe pensar en un atributo que sea a
 ### <a name="sync-filtering-based-on-groups"></a>Filtrado de sincronización basado en grupos
 El filtrado por grupos permite sincronizar solo un pequeño subconjunto de objetos para una prueba piloto. Para utilizar esta característica, cree un grupo específicamente para este propósito en su entorno de Active Directory local. Luego, agregue los usuarios y grupos que se deben sincronizar con Azure AD como miembros directos. Posteriormente puede agregar y quitar usuarios a este grupo para mantener la lista de objetos que deban estar presentes en Azure AD. Todos los objetos que quiere sincronizar deben ser un miembro directo del grupo. Los usuarios, grupos, contactos y equipos o dispositivos deben ser miembros directos. No se resuelve la pertenencia a grupos anidados. Cuando se agrega un grupo como miembro, solo se agrega el grupo en sí, no sus miembros.
 
-![Filtrado de sincronización ](./media/how-to-connect-install-custom/filter2.png)
+![ Filtrado de sincronización ](./media/how-to-connect-install-custom/filter2.png)
 
 > [!WARNING]
 > Esta característica solo está destinada a admitir una implementación piloto. No se debe usar en una implementación de producción completa.
@@ -159,7 +159,7 @@ Esta pantalla le permite seleccionar las características opcionales para situac
 >[!WARNING]
 >Las versiones de Azure AD Connect **1.0.8641.0** y las anteriores se basan en Azure Access Control Service para la escritura diferida de contraseñas.  Este servicio se retirará el **7 de noviembre de 2018**.  Si está usando cualquiera de estas versiones de Azure AD Connect y ha habilitado la escritura diferida de contraseñas, puede que los usuarios pierdan la capacidad de cambiar o restablecer sus contraseñas una vez que el servicio se retire. No se admitirá la escritura diferida de contraseñas con estas versiones de Azure AD Connect.
 >
->Para más información sobre Azure Access Control Service, consulte [Procedimiento para la migración desde Azure Access Control Service](../develop/active-directory-acs-migration.md)
+>Para más información sobre Azure Access Control Service consulte [Control de migración desde Azure Access Control Service](../develop/active-directory-acs-migration.md)
 >
 >Haga clic [aquí](https://www.microsoft.com/en-us/download/details.aspx?id=47594) para descargar la versión más reciente de Azure AD Connect.
 
@@ -371,12 +371,12 @@ Azure AD Connect comprueba la configuración de DNS al hacer clic en el botón C
 
 **Comprobaciones de conectividad a Internet**
 
-* Resolución del FQDN de federación: Azure AD Connect comprueba si se puede resolver el FQDN de federación mediante DNS para garantizar la conectividad. Si Azure AD Connect no puede resolver el FQDN, se produce un error de comprobación. Asegúrese de que exista un registro DNS para el FQDN del servicio de federación para realizar correctamente la comprobación.
-* Registro DNS D: Azure AD Connect comprueba si hay un registro D para el servicio de federación. En ausencia de un registro D, se producirá un error de comprobación. Cree un registro D en lugar de uno CNAME para el FQDN de federación con el fin de realizar correctamente la comprobación.
+* Resolución del FQDN de federación: Azure AD Connect comprueba si se puede resolver el FQDN de federación mediante un sistema de nombres de dominio (DNS) para garantizar la conectividad. Si Azure AD Connect no puede resolver el FQDN, se produce un error de comprobación. Asegúrese de que exista un registro DNS para el FQDN del servicio de federación para realizar correctamente la comprobación.
+* Registro D de DNS: Azure AD Connect comprueba si hay un registro D para el servicio de federación. En ausencia de un registro D, se producirá un error de comprobación. Cree un registro D en lugar de uno CNAME para el FQDN de federación con el fin de realizar correctamente la comprobación.
 
 **Comprobaciones de conectividad a la extranet**
 
-* Resolución del FQDN de federación: Azure AD Connect comprueba si se puede resolver el FQDN de federación mediante DNS para garantizar la conectividad.
+* Resolución del FQDN de federación: Azure AD Connect comprueba si se puede resolver el FQDN de federación mediante un sistema de nombres de dominio (DNS) para garantizar la conectividad.
 
 ![Complete](./media/how-to-connect-install-custom/completed.png)
 
@@ -385,7 +385,7 @@ Azure AD Connect comprueba la configuración de DNS al hacer clic en el botón C
 Para validar que la autenticación de extremo a extremo sea correcta, debe realizar manualmente una o más las pruebas siguientes:
 
 * Una vez finalizada la sincronización, utilice la tarea adicional Comprobar el inicio de sesión federado en Azure AD Connect para comprobar la autenticación de una cuenta de usuario local de su elección.
-* Asegúrese de que puede iniciar sesión desde un explorador de una máquina unida a un dominio en la intranet: conéctese a https://myapps.microsoft.com y verifique la conexión con la cuenta con la que ha iniciado sesión. La cuenta de administrador de AD DS integrada no está sincronizada y no se puede usar para la verificación.
+* Asegúrese de que puede iniciar sesión desde un explorador en una máquina unida a un dominio en la intranet: Conéctese con https://myapps.microsoft.com y compruebe el inicio de sesión con la cuenta en la que tiene iniciada sesión. La cuenta de administrador de AD DS integrada no está sincronizada y no se puede usar para la verificación.
 * Valide que puede iniciar sesión desde un dispositivo desde la extranet. Conéctese a https://myapps.microsoft.com y especifique sus credenciales desde un equipo doméstico o un dispositivo móvil.
 * Valide el inicio de sesión de un cliente mejorado. Conéctese a https://testconnectivity.microsoft.com, elija la pestaña **Office 365** y **Prueba de inicio de sesión único de Office 365**.
 
@@ -416,7 +416,7 @@ Una vez completada la instalación, cierre la sesión e inicie de sesión de nue
 
 Ahora que ha instalado Azure AD Connect, puede [comprobar la instalación y asignar licencias](how-to-connect-post-installation.md).
 
-Para aprender más acerca de estas características que se habilitaron con la instalación, consulte la información sobre: [cómo evitar eliminaciones accidentales](how-to-connect-sync-feature-prevent-accidental-deletes.md) y [Azure AD Connect Health](how-to-connect-health-sync.md).
+Obtenga más información acerca de estas características, que se habilitaron con la instalación: [Evitar eliminaciones involuntarias](how-to-connect-sync-feature-prevent-accidental-deletes.md) y [Azure AD Connect Health](how-to-connect-health-sync.md).
 
 Obtenga información acerca de estos temas habituales: [el programador y cómo desencadenar la sincronización](how-to-connect-sync-feature-scheduler.md).
 

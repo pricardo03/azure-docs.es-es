@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: c8aa08dc189a77a206ea24b535aedf64454838c7
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: ad52427263c4bbd2effb373b00ef8ff37b8f5b67
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359415"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449578"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Preguntas frecuentes
 
@@ -192,7 +192,9 @@ Para obtener más información, vaya a [Data Box security features](data-box-sec
 
 ### <a name="q-i-have-finished-prepare-to-ship-and-shut-down-the-device-can-i-still-add-more-data-to-data-box"></a>P: He terminado de preparar el envío y el dispositivo está apagado. ¿Todavía puedo agregar más datos en Data Box?
 A. Sí. Puede encender el dispositivo y agregar más datos. Recuerde que deberá ejecutar de nuevo la opción **Preparar para enviar** una vez que haya terminado de copiar los datos.
-  
+
+### <a name="q-i-received-my-device-and-it-is-not-booting-up-how-do-i-ship-the-device-back"></a>P: He recibido mi dispositivo y no arranca. ¿Cómo devuelvo el dispositivo?
+A. Si el dispositivo no arranca, vaya a su pedido en Azure Portal. Descargue una etiqueta de envío y péguela en el dispositivo. Para obtener más información, vaya a [Download shipping label](data-box-portal-admin.md#download-shipping-label) (Descargar la etiqueta de envío).
 
 ## <a name="verify-and-upload"></a>Comprobación y carga
 

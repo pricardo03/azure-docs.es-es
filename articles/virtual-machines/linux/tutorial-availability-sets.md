@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: f7bf5e233307703dca522974d52a86bc193186b8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 9391db9bf270511f734a31a621985f5b6ad31ec0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465838"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848740"
 ---
-# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Tutorial: crear e implementar máquinas virtuales de alta disponibilidad con la CLI de Azure
+# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Tutorial: Creación e implementación de máquinas virtuales de alta disponibilidad con la CLI de Azure
 
 En este tutorial, obtendrá información sobre cómo aumentar la disponibilidad y confiabilidad de las soluciones de máquina virtual en Azure mediante una funcionalidad denominada "conjuntos de disponibilidad". Los conjuntos de disponibilidad garantizan que las máquinas virtuales implementadas en Azure se distribuyan entre varios clústeres de hardware aislados. De este modo, se asegura de que, si se produce un error de hardware o software en Azure, solo un subconjunto de las máquinas virtuales se verá afectado y que la solución seguirá disponible y en funcionamiento.
 
@@ -70,7 +70,7 @@ Los conjuntos de disponibilidad permiten aislar los recursos en dominios de erro
 
 Las máquinas virtuales deben crearse en el conjunto de disponibilidad para asegurarse de que se distribuyan correctamente en el hardware. No se puede agregar una máquina virtual existente a un conjunto de disponibilidad después de que se crea.
 
-Cuando se cree una máquina virtual con [az vm create](/cli/azure/vm#az_vm_create), use el parámetro `--availability-set` para especificar el nombre del conjunto de disponibilidad.
+Cuando se cree una máquina virtual con [az vm create](/cli/azure/vm), use el parámetro `--availability-set` para especificar el nombre del conjunto de disponibilidad.
 
 ```azurecli-interactive
 for i in `seq 1 2`; do

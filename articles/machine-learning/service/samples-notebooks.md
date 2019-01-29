@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0d74f731d0a7eca25238344e36838dc6c806c788
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6befe3a3fee80dd65fd3ac5be241c558707224e6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434535"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811101"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Uso de cuadernos de Jupyter para explorar Azure Machine Learning Service
 
@@ -31,7 +31,7 @@ Complete la [guía de inicio rápido de Azure Machine Learning en Python](quicks
 
 ## <a name="try-azure-notebooks-free-jupyter-notebooks-in-the-cloud"></a>Prueba de Azure Notebooks: cuadernos de Jupyter gratuitos en la nube
 
-Es fácil empezar a usar Azure Notebooks. El [SDK de Azure Machine Learning para Python](https://aka.ms/aml-sdk) ya está instalado y configurado en Azure Notebooks. Tanto la instalación como las actualizaciones futuras se administran automáticamente mediante servicios de Azure.
+Es fácil empezar a usar Azure Notebooks. El [SDK de Azure Machine Learning para Python](https://aka.ms/aml-sdk) ya está instalado y configurado en [Azure Notebooks](https://notebooks.azure.com/). Tanto la instalación como las actualizaciones futuras se administran automáticamente mediante servicios de Azure.
   
 + Para ejecutar los **principales cuadernos del tutorial**:
   1. Vaya a [Azure Notebooks](https://notebooks.azure.com/).

@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
 ms.author: aahi
-ms.openlocfilehash: c28a3097e8b0733db229fc10778d0ac77a3b0a7a
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9ad3730968f22f89bf8618454039e16581b3f94b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52306377"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473051"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>Inicio rápido: Uso del SDK de Bing Web Search para Python
 
@@ -170,7 +170,7 @@ Ahora que ha realizado su primera llamada a Bing Web Search API, veamos algunas 
 
 ### <a name="limit-the-number-of-results-returned-by-bing"></a>Limitación del número de resultados devueltos por Bing
 
-Este ejemplo utiliza los parámetros `count` y `offset` para limitar el número de resultados devueltos mediante el [`search`método](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search) del SDK. `name` y `URL` se imprimen para el primer resultado.
+Este ejemplo utiliza los parámetros `count` y `offset` para limitar el número de resultados devueltos mediante el [`search`método](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python) del SDK. `name` y `URL` se imprimen para el primer resultado.
 
 1. Agregue este código a su proyecto de Python:
     ```python
@@ -181,7 +181,7 @@ Este ejemplo utiliza los parámetros `count` y `offset` para limitar el número 
         try:
             '''
             Set the query, offset, and count using the SDK's search method. See:
-            https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search.
+            https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python.
             '''
             web_data = client.web.search(query="Best restaurants in Seattle", offset=10, count=20)
             print("\r\nSearching for \"Best restaurants in Seattle\"")
@@ -207,7 +207,7 @@ Este ejemplo utiliza los parámetros `count` y `offset` para limitar el número 
 
 ### <a name="filter-for-news-and-freshness"></a>Filtro de noticias y actualización
 
-Este ejemplo utiliza los parámetros `response_filter` y `freshness` para filtrar los resultados de búsqueda mediante el [`search`método](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations#search) del SDK. Los resultados de búsqueda devueltos se limitan a artículos de noticias y páginas que Bing ha detectado en las últimas 24 horas. `name` y `URL` se imprimen para el primer resultado.
+Este ejemplo utiliza los parámetros `response_filter` y `freshness` para filtrar los resultados de búsqueda mediante el [`search`método](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations) del SDK. Los resultados de búsqueda devueltos se limitan a artículos de noticias y páginas que Bing ha detectado en las últimas 24 horas. `name` y `URL` se imprimen para el primer resultado.
 
 1. Agregue este código a su proyecto de Python:
     ```python
@@ -217,7 +217,7 @@ Este ejemplo utiliza los parámetros `response_filter` y `freshness` para filtra
         try:
             '''
             Set the query, response_filter, and freshness using the SDK's search method. See:
-            https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search.
+            https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python.
             '''
             web_data = client.web.search(query="xbox",
                 response_filter=["News"],
@@ -255,7 +255,7 @@ Este ejemplo utiliza los parámetros `response_filter` y `freshness` para filtra
 
 ### <a name="use-safe-search-answer-count-and-the-promote-filter"></a>Uso de búsqueda segura, recuento de respuestas y filtro de promoción
 
-Este ejemplo utiliza los parámetros `answer_count`, `promote` y `safe_search`para filtrar los resultados de búsqueda mediante el [`search`método](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search) del SDK. `name` y `URL` se muestran para el primer resultado.
+Este ejemplo utiliza los parámetros `answer_count`, `promote` y `safe_search`para filtrar los resultados de búsqueda mediante el [`search`método](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python) del SDK. `name` y `URL` se muestran para el primer resultado.
 
 1. Agregue este código a su proyecto de Python:
     ```python
@@ -267,7 +267,7 @@ Este ejemplo utiliza los parámetros `answer_count`, `promote` y `safe_search`pa
         try:
             '''
             Set the query, answer_count, promote, and safe_search parameters using the SDK's search method. See:
-            https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search.
+            https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python.
             '''
             web_data = client.web.search(
                 query="Niagara Falls",

@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: b33a646c52ca5ce85e0525b04e9be5009cc6f90d
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 11c6f421e2eb1c3e508868d4a87f838781bda8e2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352944"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478457"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Inicio rápido: Ingesta de datos del centro de eventos a Azure Data Explorer
 
@@ -37,7 +37,7 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 En esta guía de inicio rápido generará datos de ejemplo y los enviará a un centro de eventos. El primer paso es crear un centro de eventos. Para hacerlo, utilice una plantilla de Azure Resource Manager en Azure Portal.
 
-1. Con el fin de crear un centro de eventos, use el botón siguiente para iniciar la implementación. Para seguir el resto de los pasos de este artículo, haga clic con el botón derecho y seleccione el vínculo **Abrir en una ventana nueva** en otra pestaña o ventana.
+1. Con el fin de crear un centro de eventos, use el botón siguiente para iniciar la implementación. Haga clic con el botón derecho y seleccione **Abrir en una ventana nueva** para seguir el resto de los pasos de este artículo.
 
     [![Implementación en Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
