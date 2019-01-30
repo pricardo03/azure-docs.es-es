@@ -3,18 +3,18 @@ title: Solución Start/Stop VMs during off-hours
 description: Esta solución de administración de máquinas virtuales inicia y detiene máquinas virtuales de Azure Resource Manager según una programación y realiza una supervisión proactiva desde Log Analytics.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 10/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5f5c86a90325c9a6dcd521a97cb899b88b55198d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d9dfc70c7158c5f808367b8b2041725b03b9060d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194273"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846190"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solución Start/Stop VMs during off-hours en Azure Automation
 
@@ -59,7 +59,7 @@ Realice los siguientes pasos para agregar la solución Start/Stop VMs during off
    ![Página Agregar solución de administración de VM](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 
 4. En el la página **Agregar solución**, seleccione **Área de trabajo**. Seleccione un área de trabajo de Log Analytics que esté vinculada a la suscripción de Azure en la que se encuentra la cuenta de Automation. Si no tiene ningún área de trabajo, seleccione **Crear nueva área de trabajo**. En la página **Área de trabajo de Log Analytics**, siga estos pasos:
-   - Especifique un nombre para el nuevo **área de trabajo de Log Analytics**.
+   - Especifique un nombre para la nueva **área de trabajo de Log Analytics** como, por ejemplo, "ContosoLAWorkspace".
    - Seleccione la **suscripción** a la que vincularlo en la lista desplegable si la opción predeterminada seleccionada no es adecuada.
    - En **Grupo de recursos**, puede crear un grupo de recursos nuevo o seleccionar uno existente.
    - Seleccione una **ubicación**. Actualmente las únicas ubicaciones disponibles son: **Sudeste de Australia**, **Centro de Canadá**, **Centro de la India**, **Este de EE. UU.**, **Japón Oriental**, **Sudeste Asiático**, **Sur de Reino Unido** y **Europa Occidental**.

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 78b7668dee892841ced1a06626ff09a534a88b69
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 784cb5248dab2b9554c67347e1b9b848e1a9e985
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714307"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820791"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Compra y configuración de un certificado SSL para Azure App Service
 
@@ -50,7 +50,7 @@ Use la tabla siguiente para obtener ayuda para configurar el certificado. Cuando
 | Configuración | DESCRIPCIÓN |
 |-|-|
 | NOMBRE | Nombre descriptivo para el certificado de App Service. |
-| Nombre de host de dominio desnudo | Este paso es una de las partes más importantes del proceso de compra. Use el nombre de dominio raíz que ha asignado a la aplicación. _No_ anteponga `www` al nombre de dominio. |
+| Nombre de host de dominio desnudo | Si especifica el dominio raíz aquí, obtenga un certificado que proteja *tanto*  al dominio raíz como al subdominio `www`. Para proteger cualquier subdominio solamente, especifique el nombre de dominio completo del subdominio aquí (por ejemplo, `mysubdomain.contoso.com`). |
 | Subscription | El centro de datos donde se hospeda la aplicación web. |
 | Grupos de recursos | El grupo de recursos que contiene el certificado. Puede usar un nuevo grupo de recursos o seleccionar el mismo grupo de recursos que la aplicación de App Service, por ejemplo. |
 | SKU de certificado | Determine el tipo de certificado a crear, ya sea un certificado estándar o un [certificado comodín](https://wikipedia.org/wiki/Wildcard_certificate). |

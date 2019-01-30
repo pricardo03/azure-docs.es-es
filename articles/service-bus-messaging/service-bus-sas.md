@@ -3,9 +3,9 @@ title: Control de acceso de Azure Service Bus con Firmas de acceso compartido | 
 description: Información general sobre el control de acceso de Service Bus con Firmas de acceso compartido, detalles de la autorización con SAS mediante Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
-ms.author: spelluru
-ms.openlocfilehash: daefb07761217ff4bb0800dfd9f1f05b6e22c1e1
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.author: aschhab
+ms.openlocfilehash: 3e2fa51bcf6040eb94a9d270a7f5f375f726e62a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284921"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846343"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Control de acceso de Service Bus con Firmas de acceso compartido
 
@@ -96,7 +96,7 @@ Un token SAS es válido para todos los recursos con el prefijo `<resourceURI>` q
 
 Se recomienda regenerar periódicamente las claves usadas en el objeto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) . Las ranuras de las claves principales y secundarias existen para que pueda girar las claves de forma gradual. Si la aplicación suele utilizar la clave principal, puede copiarla en la ranura de la clave secundaria y, a continuación, volver a generar la clave principal. Entonces podrá configurar el nuevo valor de la clave principal en las aplicaciones cliente, las cuales tienen acceso continuo mediante la clave principal antigua en la ranura secundaria. Una vez que se actualicen todos los clientes, puede volver a generar la clave secundaria para finalmente eliminar la clave principal antigua.
 
-Si está seguro o sospecha que una clave está en peligro y debe revocar las claves, puede volver a generar los valores de [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) y [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_SecondaryKey) de un objeto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) y reemplazarlos por las nuevas claves. Este procedimiento invalida todos los tokens firmados con las claves antiguas.
+Si está seguro o sospecha que una clave está en peligro y debe revocar las claves, puede volver a generar los valores de [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) y [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) de un objeto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) y reemplazarlos por las nuevas claves. Este procedimiento invalida todos los tokens firmados con las claves antiguas.
 
 ## <a name="shared-access-signature-authentication-with-service-bus"></a>Autenticación con Firma de acceso compartido en Service Bus
 

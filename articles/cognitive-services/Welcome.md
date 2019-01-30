@@ -7,14 +7,14 @@ manager: cgronlund
 ms.service: cognitive-services
 ms.component: ''
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/17/2018
 ms.author: nitinme
-ms.openlocfilehash: f7a68aab4959c3793c7688504d73d2b539a26f83
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 60bf74135e760e837de7e5548bcb60f6c7b8dd0c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025402"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475244"
 ---
 # <a name="what-are-azure-cognitive-services"></a>¿Qué es Azure Cognitive Services?
 
@@ -89,6 +89,14 @@ Todas las API tienen un plan de evaluación gratuito.  A medida que haya ofertas
 Las API de Cognitive Services se hospedan en una red cada vez mayor de centros de datos administrados por Microsoft. Encontrará la disponibilidad regional de cada API en la [lista de regiones de Azure](https://azure.microsoft.com/regions).
 
 ¿Busca una región que aún no se admite? Díganoslo. Envíe una solicitud de característica en nuestro [foro de UserVoice](https://cognitive.uservoice.com/).
+
+## <a name="supported-cultural-languages"></a>Idiomas culturales admitidos
+
+ Cognitivas Services admite una amplia gama de idiomas culturales en el nivel de servicio. Puede encontrar la disponibilidad de idiomas para cada API en la [lista de idiomas admitidos](language-support.md).
+
+ ## <a name="container-support"></a>Compatibilidad con los contenedores
+
+ Cognitive Services proporciona contenedores para la implementación en la nube de Azure o localmente. Obtenga más información sobre [contenedores de Cognitive Services](cognitive-services-container-support.md).
 
 ## <a name="support"></a>Soporte técnico
 

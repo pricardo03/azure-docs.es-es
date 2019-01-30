@@ -2,18 +2,19 @@
 title: Recuperación ante desastres con localización geográfica de Azure Service Bus | Microsoft Docs
 description: Cómo usar regiones geográficas para conmutar por error y llevar a cabo una recuperación ante desastres en Azure Service Bus
 services: service-bus-messaging
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 09/14/2018
-ms.author: spelluru
-ms.openlocfilehash: 0436248dac2812c447d25de16a4ac6b45bd7248f
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: d98ff2c5b9d18c36e7d16ec19d3e136be03b8d4c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855191"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848009"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperación ante desastres con localización geográfica de Azure Service Bus
 
@@ -37,11 +38,11 @@ Los siguientes términos se utilizan en este artículo:
 
 -  *Alias*: el nombre para una configuración de recuperación ante desastres que ha configurado. El alias proporciona una sola cadena de conexión estable de nombre de dominio completo (FQDN). Las aplicaciones usan esta cadena de conexión de alias para conectarse a un espacio de nombres. 
 
--  *Espacio de nombres principal o secundario*: los espacios de nombres que corresponden al alias. El espacio de nombres principal es "activo" y recibe mensajes (puede ser un espacio de nombres ya existente o uno nuevo). El espacio de nombres secundario es "pasivo" y no recibe mensajes. Los metadatos entre ambos están sincronizados, por lo que ambos pueden aceptar sin problemas mensajes sin ningún cambio de código de la aplicación o cadena de conexión. Para asegurarse de que solo el espacio de nombres activo recibe mensajes, tiene que utilizar el alias. 
+-  *Espacio de nombres principal o secundario*: los espacio de nombres que corresponden al alias. El espacio de nombres principal es "activo" y recibe mensajes (puede ser un espacio de nombres ya existente o uno nuevo). El espacio de nombres secundario es "pasivo" y no recibe mensajes. Los metadatos entre ambos están sincronizados, por lo que ambos pueden aceptar sin problemas mensajes sin ningún cambio de código de la aplicación o cadena de conexión. Para asegurarse de que solo el espacio de nombres activo recibe mensajes, tiene que utilizar el alias. 
 
--  *Metadatos*: entidades como colas, temas y suscripciones, y sus propiedades del servicio que están asociados con el espacio de nombres. Tenga en cuenta que solo las entidades y sus valores se replican automáticamente. Los mensajes no se replican. 
+-  *Metadatos*: entidades como colas, temas y suscripciones, y sus propiedades del servicio que están asociadas con el espacio de nombres. Tenga en cuenta que solo las entidades y sus valores se replican automáticamente. Los mensajes no se replican. 
 
--  *Conmutación por error*: El proceso de activación del espacio de nombres secundario.
+-  *Conmutación por error*: el proceso de activación del espacio de nombres secundario.
 
 ## <a name="setup-and-failover-flow"></a>Flujo de conmutación por error y configuración
 

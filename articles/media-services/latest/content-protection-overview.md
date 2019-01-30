@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 01/22/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2a5383952f64edb08717b1a100c74352c9b4246f
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 848d6ffbccc809df1ab5c012c38174e13eacc391
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187984"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828271"
 ---
 # <a name="content-protection-overview"></a>Introducción a la protección de contenido
 
@@ -39,9 +39,9 @@ Para completar correctamente el diseño del sistema o las aplicaciones de "prote
 
 1. Código de Azure Media Services
   
-  * Plantillas de licencia de PlayReady, Widevine y FairPlay. Las plantillas le permiten configurar los derechos y permisos para cada uno de los DRM usados
-  * Una autorización de entrega de licencias que especifique la lógica de comprobación de autorizaciones en función de las notificaciones de JWT
-  * Claves de contenido, protocolos de streaming y los DRM correspondientes aplicados que definan el cifrado de DRM.
+  * Configuración de plantillas de licencia de PlayReady, Widevine y FairPlay. Las plantillas le permiten configurar los derechos y permisos para cada uno de los DRM usados.
+  * Defina una autorización de entrega de licencias que especifique la lógica de comprobación de autorizaciones en función de las notificaciones de JWT.
+  * Configure el cifrado de DRM mediante la especificación de claves de contenido y protocolos de streaming que deben usarse.
 
   > [!NOTE]
   > Puede cifrar cada recurso con varios tipos de cifrado (AES-128, PlayReady, Widevine, FairPlay). Consulte [Streaming protocols and encryption types](#streaming-protocols-and-encryption-types) (Protocolos de streaming y tipos de cifrado) para ver lo que conviene combinar.

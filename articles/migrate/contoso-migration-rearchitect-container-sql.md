@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6f894310157432a6e03e6ec4753f5efc2d8ac66d
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 149a15353a7fd1d698af306971ecb0949db4c165
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267426"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817238"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Migración de Contoso: Rediseño de la arquitectura de una aplicación local en un contenedor de Azure y Azure SQL Database
 
@@ -282,7 +282,7 @@ Contoso necesita certificados de clúster para permitir el acceso de Azure DevOp
 
 8. Para la implementación de Azure DevOps Services, han de determinar el valor Base64 del certificado. Esto lo hacen en la estación de trabajo de desarrollador local mediante PowerShell. Pegan la salida en un archivo de texto para usarla en otro momento.
 
-    ```
+    ```powershell
         [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("C:\path\to\certificate.pfx")) 
     ```
 
@@ -530,7 +530,7 @@ En primer lugar, los administradores de Contoso aprovisionan una base de datos d
 5. En el portal, abren la nueva base de datos > **Colección** > **Documentos** y hacen clic en **Nuevo documento**.
 6. Pegan el siguiente código JSON en la ventana de documento. Se trata de datos de ejemplo en forma de un tweet único.
 
-    ```
+    ```json
     {
             "id": "2ed5e734-8034-bf3a-ac85-705b7713d911",
             "tweetId": 927750234331580911,
@@ -565,11 +565,11 @@ Después de aprovisionar Cosmos DB, los administradores de Contoso pueden config
 
 2. Rellenan los dos parámetros siguientes:
 
-   ```
+   ```xml
    <Parameter Name="SentimentIntegration.CosmosDBEndpoint" Value="[URI]" />
    ```
    
-   ```
+   ```xml
    <Parameter Name="SentimentIntegration.CosmosDBAuthKey" Value="[Key]" />
    ```
 

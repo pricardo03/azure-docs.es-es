@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: ac273ac7d4c6c371670e6b8a8170274602a5318b
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 310311c22be25960b15f20d573624f50b0f618b1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536549"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474819"
 ---
 # <a name="install-and-run-containers"></a>Instalación y ejecución de contenedores
 
@@ -55,7 +55,7 @@ Si se aprueba la solicitud, recibirá un correo electrónico con instrucciones q
 
 Si quiere usar el contenedor de Face, debe crear un recurso de Face en Azure. Después de crear el recurso, utilice la clave de suscripción y la dirección URL del punto de conexión desde el recurso para crear una instancia del contenedor. Para obtener más información sobre cómo crear una instancia de un contenedor, consulte [Creación de instancias de contenedor a partir de una imagen de contenedor descargada](#instantiate-a-container-from-a-downloaded-container-image).
 
-Realice los pasos siguientes para crear y recuperar información de un recurso de Face:
+Siga los pasos a continuación para crear y recuperar información de un recurso de Face:
 
 1. Cree un recurso de Face en Azure Portal.  
    Si quiere usar el contenedor de Face, primero debe crear un recurso correspondiente de Face en Azure Portal. Para más información, consulte [Inicio rápido: Creación de una cuenta de Cognitive Services en Azure Portal](../cognitive-services-apis-create-account.md).
@@ -178,3 +178,4 @@ En este artículo, ha aprendido los conceptos y el flujo de trabajo para la desc
 * Revise [Introducción a Face](Overview.md) para obtener más información acerca de la detección e identificación de caras.  
 * Consulte [Face API](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obtener más información acerca de los métodos que admite el contenedor.
 * Consulte [Preguntas más frecuentes (P+F)](FAQ.md) para resolver problemas relacionados con la funcionalidad de Face.
+* Usar más [Contenedores de Cognitive Services](../cognitive-services-container-support.md)

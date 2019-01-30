@@ -4,7 +4,7 @@ description: Explica los errores que pueden producirse durante el proceso de oto
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 70413d3467b2f9d5591e6138ed1a7347db58264b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 362671e255f8dc36f9474fd2d4e3117e4cc0c1e4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355585"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477726"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Error inesperado al otorgar consentimiento a una aplicación
 
@@ -36,17 +36,17 @@ Determinadas condiciones deben cumplirse para que un usuario otorgue su consenti
 Este error se produce cuando un usuario que no es administrador de la empresa intenta usar una aplicación que está solicitando permisos que solo un administrador puede conceder. Este error se puede solucionar si un administrador otorga el acceso a la aplicación en nombre de la organización.
 
 ## <a name="policy-prevents-granting-permissions-error"></a>Error porque la directiva impide conceder permisos
-* **AADSTS90093:** un administrador de &lt;tenantDisplayName&gt; ha establecido una directiva que le impide otorgar a &lt;nombre de la aplicación&gt; los permisos que está solicitando. Póngase en contacto con un administrador de &lt;tenantDisplayName&gt;, que puede conceder permisos a esta aplicación en su nombre.
+* **AADSTS90093:** Un administrador de &lt;tenantDisplayName&gt; ha establecido una directiva que le impide otorgar a &lt;nombre de la aplicación&gt; los permisos que está solicitando. Póngase en contacto con un administrador de &lt;tenantDisplayName&gt;, que puede conceder permisos a esta aplicación en su nombre.
 
 Este error se produce cuando el administrador de una empresa desactiva la funcionalidad para que los usuarios otorguen consentimiento a aplicaciones y, a continuación, un usuario sin privilegios de administrador intenta usar una aplicación que requiere el consentimiento. Este error se puede solucionar si un administrador otorga el acceso a la aplicación en nombre de la organización.
 
 ## <a name="intermittent-problem-error"></a>Error de un problema intermitente
-* **AADSTS90090:** al parecer, el proceso de inicio de sesión detectó un problema intermitente para registrar los permisos que intenta conceder a &lt;clientAppDisplayName&gt;. Inténtelo de nuevo más tarde.
+* **AADSTS90090:** Al parecer, el proceso de inicio de sesión detectó un problema intermitente para registrar los permisos que intenta conceder a &lt;clientAppDisplayName&gt;. Inténtelo de nuevo más tarde.
 
 Este error indica que se ha producido un problema de servicio intermitente. Se puede resolver intentando otorgar su consentimiento a la aplicación de nuevo.
 
 ## <a name="resource-not-available-error"></a>Error de recurso no disponible
-* **AADSTS65005:** la aplicación &lt;clientAppDisplayName&gt; solicitó permisos para acceder al recurso &lt;resourceAppDisplayName&gt; que no está disponible. 
+* **AADSTS65005:** La aplicación &lt;clientAppDisplayName&gt; solicitó permisos para acceder al recurso &lt;resourceAppDisplayName&gt; que no está disponible. 
 
 Póngase en contacto con el desarrollador de aplicaciones.
 
@@ -56,7 +56,7 @@ Póngase en contacto con el desarrollador de aplicaciones.
 Asegúrese de que este recurso esté disponible o póngase en contacto con un administrador de &lt;tenantDisplayName&gt;.
 
 ## <a name="permissions-mismatch-error"></a>Error de coincidencia de permisos
-* **AADSTS65005:** la aplicación solicitó el consentimiento para acceder al recurso &lt;resourceAppDisplayName&gt;. Hay un error en esta solicitud porque no coincide con cómo se configuró anteriormente la aplicación durante el registro de aplicación. Póngase en contacto con el proveedor de la aplicación**.
+* **AADSTS65005:** La aplicación solicitó el consentimiento para acceder al recurso &lt;resourceAppDisplayName&gt;. Hay un error en esta solicitud porque no coincide con cómo se configuró anteriormente la aplicación durante el registro de aplicación. Póngase en contacto con el proveedor de la aplicación**.
 
 Todos estos errores se producen cuando la aplicación a la que un usuario está intentando otorgar consentimiento solicita permisos para tener acceso a una aplicación de recursos que no se encuentra en el directorio de la organización (inquilino). Esta situación puede ocurrir por varios motivos:
 

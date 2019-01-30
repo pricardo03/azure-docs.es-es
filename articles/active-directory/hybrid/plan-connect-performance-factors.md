@@ -3,7 +3,7 @@ title: Factores que influyen en el rendimiento de Azure AD Connect
 description: En este documento se explica cómo afectan diferentes factores al motor de aprovisionamiento de Azure AD Connect. Estos factores ayudarán a las organizaciones a planear su implementación de Azure AD Connect para asegurarse de que cumple los requisitos de sincronización.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 tags: azuread
 ms.service: active-directory
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
-ms.openlocfilehash: cdca1b31f9b6cf10113dc0dba70b8f8991bafa2b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 801082164a0110178034c5fbe050ebe8e02b2772
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093976"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474139"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Factores que influyen en el rendimiento de Azure AD Connect
 

@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3dedf5de1ac2c88a9a00fd5f62e0663b840c0fd9
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 865d00d4a6608e422fdfca1297962913ee205827
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438530"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823443"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Configuración de experimentos de aprendizaje automático automatizados
 
@@ -219,7 +219,8 @@ Propiedad |  DESCRIPCIÓN | Valor predeterminado
 `iteration_timeout_minutes` |   Limita la cantidad de tiempo (minutos) que tarda una iteración concreta. Si una iteración supera la cantidad especificada, se cancela. Si no se establece, la iteración continúa ejecutándose hasta que finaliza. |   None
 `n_cross_validations`   |Número de divisiones de validación cruzada| None
 `validation_size`   |Tamaño del conjunto de validación establecido como porcentaje de toda la muestra de aprendizaje.|  None
-`preprocess` | True/False <br/>True permite al experimento realizar el procesamiento previo en la entrada. A continuación se incluye un subconjunto de procesamiento previo<li>Datos que faltan: atribuye los datos que faltan (numérico con promedio, texto más repetido) </li><li>Valores de categorías: si el tipo de datos es numérico y el número de valores únicos es inferior al 5 %, se convierte a codificación "one-hot" </li><li>Etc. Para obtener una lista completa, visite [el repositorio de GitHub](https://aka.ms/aml-notebooks)</li><br/>Nota: Si los datos están dispersos no se puede usar preprocess = true |  False | 
+`preprocess` | True/False <br/>True permite al experimento realizar el procesamiento previo en la entrada. A continuación se incluye un subconjunto de procesamiento previo<li>Datos que faltan: atribuye los datos que faltan (numérico con promedio, texto más repetido) </li><li>Valores de categorías: si el tipo de datos es numérico y el número de valores únicos es inferior al 5 %, se convierte a codificación "one-hot" </li><li>Etc. Para obtener una lista completa, visite [el repositorio de GitHub](https://aka.ms/aml-notebooks)</li><br/>Nota: Si los datos están dispersos no se puede usar preprocess = true |  False |
+`enable_cache`  | True/False <br/>Al configurar esta opción en True, permite que el proceso previo se realice una vez y que se vuelvan a utilizar los mismos datos preprocesados para todas las iteraciones. | True |
 `blacklist_models`  | El experimento de aprendizaje automático automatizado prueba muchos algoritmos diferentes. Configure para excluir determinados algoritmos del experimento. Resulta útil si es consciente de que los algoritmos no funcionan bien para su conjunto de datos. La exclusión de algoritmos puede ahorrarle recursos de procesos y tiempo de aprendizaje.<br/>Valores permitidos para la clasificación<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Valores permitidos para la regresión<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Valores permitidos para la previsión<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|   None
 `whitelist_models`  | El experimento de aprendizaje automático automatizado prueba muchos algoritmos diferentes. Configure para incluir determinados algoritmos del experimento. Resulta útil si es consciente de que los algoritmos funcionan bien para el conjunto de datos. <br/>Valores permitidos para la clasificación<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Valores permitidos para la regresión<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Valores permitidos para la previsión<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|  None
 `verbosity` |Controla el nivel de registro: INFO es el más detallado y CRITICAL, el menos detallado. El nivel de detalle toma los mismos valores que se definan en el paquete de registro de Python. Los valores permitidos son:<br/><li>logging.INFO</li><li>logging.WARNING</li><li>logging.ERROR</li><li>logging.CRITICAL</li>  | logging.INFO</li> 
@@ -272,7 +273,7 @@ Puede ver los resultados en un widget o en línea si se encuentra en un bloc de 
 Las métricas siguientes se guardan en cada iteración de una tarea de clasificación.
 
 |Métrica principal|DESCRIPCIÓN|Cálculo|Parámetros adicionales
---|--|--|--|--|
+--|--|--|--|
 AUC_Macro| AUC es el área bajo la Curva de característica operativa del receptor. Macro es la media aritmética del parámetro AUC para cada clase.  | [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
 AUC_Micro| AUC es el área bajo la Curva de característica operativa del receptor. Micro se calcula de forma global mediante la combinación de los verdaderos positivos y los falsos positivos de cada clase| [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
 AUC_Weighted  | AUC es el área bajo la Curva de característica operativa del receptor. Weighted es la media aritmética de la puntuación para cada clase, ponderada por el número de instancias verdaderas en cada clase.| [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|average="weighted"
@@ -298,7 +299,7 @@ weighted_accuracy|La precisión ponderada es la precisión donde el peso asignad
 Las métricas siguientes se guardan en cada iteración de una tarea de regresión o previsión.
 
 |Métrica principal|DESCRIPCIÓN|Cálculo|Parámetros adicionales
---|--|--|--|--|
+--|--|--|--|
 explained_variance|La varianza explicada es la proporción que tiene en cuenta un modelo matemático la variación de un conjunto de datos determinado. Es el porcentaje de reducción de la varianza de los datos originales con respecto a la varianza de los errores. Cuando la media de los errores es 0, es igual a la varianza explicada.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|None|
 r2_score|R2 es el coeficiente de determinación o el porcentaje de reducción de los errores cuadráticos en comparación con un modelo de referencia que da como resultado la media. Cuando la media de los errores es 0, es igual a la varianza explicada.|[Cálculo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|None|
 spearman_correlation|La correlación de Spearman es una medida no paramétrica de la monotonicidad de la relación entre dos conjuntos de datos. A diferencia de la correlación de Pearson, la correlación de Spearman no asume que los conjuntos de datos se distribuyen normalmente. Como sucede con otros coeficientes de correlación, este varía entre -1 y + 1, y 0 implica que no hay ninguna correlación. Las correlaciones de -1 o +1 implican una relación monotónica exacta. Las correlaciones positivas implican que cuando aumenta x, también lo hace y. Las correlaciones negativas implican que cuando aumenta x, y disminuye.|[Cálculo](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|None|
@@ -321,7 +322,7 @@ Hay dos maneras de generar la importancia de características.
 
 *   Una vez completado un experimento, puede usar el método `explain_model` en cualquier iteración.
 
-    ```
+    ```python
     from azureml.train.automl.automlexplainer import explain_model
     
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
@@ -338,7 +339,7 @@ Hay dos maneras de generar la importancia de características.
 
 *   Para ver la importancia de características para todas las iteraciones, establezca la marca `model_explainability` en `True` en AutoMLConfig.  
 
-    ```
+    ```python
     automl_config = AutoMLConfig(task = 'classification',
                                  debug_log = 'automl_errors.log',
                                  primary_metric = 'AUC_weighted',
@@ -355,7 +356,7 @@ Hay dos maneras de generar la importancia de características.
 
     Después, puede usar el método retrieve_model_explanation para recuperar la importancia de características para una iteración concreta.
 
-    ```
+    ```python
     from azureml.train.automl.automlexplainer import retrieve_model_explanation
     
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \

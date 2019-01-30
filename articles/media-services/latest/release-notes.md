@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/22/2019
 ms.author: juliako
-ms.openlocfilehash: bf80f78cc464fe274e83eca2f8afa420c2a8c453
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: a1d52e0c6f87b9075d73508c97bd270d67d3ecf5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229963"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817629"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -33,6 +33,14 @@ Para mantenerse al día con los avances más recientes, este artículo proporcio
 > Actualmente, no puede usar Azure Portal para administrar recursos de v3. Use la [API de REST](https://aka.ms/ams-v3-rest-sdk), la CLI o uno de los SDK admitidos.
 
 Para más información, consulte [Guía de migración para mover de Media Services v2 a v3](migrate-from-v2-to-v3.md#known-issues).
+
+## <a name="january-2019"></a>Enero de 2019
+
+### <a name="media-encoder-standard-and-mpi-files"></a>Media Encoder Standard y archivos MPI 
+
+Al codificar con Media Encoder Standard para generar archivos MP4, se genera un archivo .mpi nuevo y se agrega a la salida de activos. Este archivo MPI está diseñado para mejorar el rendimiento de escenarios de streaming y empaquetado dinámico.
+
+No debe modificar ni quitar el archivo MPI, así como tampoco tener ninguna dependencia en el servicio en la existencia (o no) de este tipo de archivo.
 
 ## <a name="december-2018"></a>Diciembre de 2018
 

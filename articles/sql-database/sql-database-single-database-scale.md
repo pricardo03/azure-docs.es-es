@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/19/2018
-ms.openlocfilehash: 706a2f8c7389daa6dcfaa95fe5118f509ee0d1f2
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: a3a4e2c109541effdac01e0c9c03ee91cfdb30bf
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600597"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812257"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Escalar recursos de base de datos única en Azure SQL Database
 
@@ -37,7 +37,7 @@ En este artículo se describe cómo escalar los recursos de proceso y almacenami
 
 Después de elegir inicialmente el número de núcleos virtuales, puede escalar o reducir una base de datos verticalmente de manera dinámica en función de la experiencia real mediante [Azure Portal](sql-database-single-databases-manage.md#manage-an-existing-sql-server), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), la [CLI de Azure](/cli/azure/sql/db#az-sql-db-update) o la [API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
 
-Al cambiar el nivel de servicio o el tamaño de proceso de una base de datos, se crea una réplica de la base de datos original en el nuevo tamaño de proceso y, después, se cambian las conexiones a la réplica. Durante este proceso, no se pierde ningún dato; sin embargo, durante el breve momento en que se cambie a la réplica, las conexiones a la base de datos estarán deshabilitadas, por tanto, es posible que se reviertan algunas transacciones en curso. La longitud de tiempo del cambio varía, pero suele estar por debajo de 4 segundos y es inferior a 30 segundos en el 99 % de las veces. Si el número de transacciones en curso es elevado en el momento en que las conexiones están deshabilitadas, esta longitud de tiempo puede ser mayor.
+Al cambiar el nivel de servicio o el tamaño de proceso de una base de datos, se crea una réplica de la base de datos original en el nuevo tamaño de proceso y, después, se cambian las conexiones a la réplica. Durante este proceso, no se pierde ningún dato; sin embargo, durante el breve momento en que se cambie a la réplica, las conexiones a la base de datos estarán deshabilitadas, por tanto, es posible que se reviertan algunas transacciones en curso. En general, la duración del cambio varía, pero suele ser menor que 30 segundos el 99 % de las veces. Si el número de transacciones en curso es elevado en el momento en que las conexiones están deshabilitadas, esta longitud de tiempo puede ser mayor.
 
 La duración de todo el proceso de escalado vertical depende del nivel de servicio y del tamaño de la base de datos antes y después del cambio. Por ejemplo, el cambio de una base de datos de 250 GB dentro de un nivel de servicio De uso general, o bien desde o hacia este, se completará en seis horas. En una base de datos del mismo tamaño que cambie los tamaños de proceso en el nivel de servicio Crítico para la empresa, el escalado vertical se completará en unas tres horas.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: juliako
-ms.openlocfilehash: 9edfa8ea0c9e469d09cef7ddbd1c7edda4484b47
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 43da365a6424fa9d489db1f5cd74ff6aeb8f0d7c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444636"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819890"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>Cargar archivos en una cuenta de Media Services mediante .NET
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ Al crear recursos, puede especificar las siguientes opciones de cifrado:
   
     Si el recurso tiene el almacenamiento cifrado, asegúrese de configurar la directiva de entrega de recursos. Para obtener más información, consulte [Configuración de directivas de entrega de recursos](media-services-dotnet-configure-asset-delivery-policy.md).
 
-Si especifica que el recurso se cifre con una opción **CommonEncrypted** o una opción **EnvelopeEncypted**, debe asociar el recurso a un elemento **ContentKey**. Para obtener más información, consulte [Creación de una ContentKey](media-services-dotnet-create-contentkey.md). 
+Si especifica que el recurso se cifre con una opción **CommonEncrypted** o una opción **EnvelopeEncrypted**, debe asociar el recurso a un elemento **ContentKey**. Para obtener más información, consulte [Creación de una ContentKey](media-services-dotnet-create-contentkey.md). 
 
 Si especifica que el recurso se cifre con una opción **StorageEncrypted**, el SDK de Media Services para .NET crea un elemento **ContentKey** de **StorageEncrypted** para el recurso.
 

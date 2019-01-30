@@ -1,10 +1,10 @@
 ---
-title: Cuentas y permisos de Azure AD Connect | Microsoft Docs
+title: 'Azure AD Connect: Cuentas y permisos | Microsoft Docs'
 description: En este tema se describen las cuentas usadas y creadas, así como los permisos necesarios.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ef8b621b41bb43c46ef728e28d3b312ac49f1da3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 403fd0679e0850d758dd0e2f65cec3fe2ff79965
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308790"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478610"
 ---
-# <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: cuentas y permisos
+# <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Cuentas y permisos
 
 ## <a name="accounts-used-for-azure-ad-connect"></a>Cuentas utilizadas para Azure AD Connect
 
@@ -39,9 +39,9 @@ Azure AD Connect usa 3 cuentas para sincronizar la información de un entorno lo
 
 Además de estas tres cuentas usadas para ejecutar Azure AD Connect, también necesitará las siguientes cuentas adicionales para instalar Azure AD Connect.  Dichos componentes son:
 
-- **Cuenta de administrador local**: administrador que está instalando Azure AD Connect y que tiene permisos de administrador local en el equipo.
+- **Cuenta de administrador local**: Administrador que está instalando Azure AD Connect y que tiene permisos de administrador local en el equipo.
 
-- **Cuenta de administrador de empresa de AD DS**: se usa de manera opcional para crear la "cuenta de conector de AD DS" anterior.
+- **Cuenta de administrador de empresa de AD DS**: Se usa de manera opcional para crear la "cuenta de conector de AD DS" anterior.
 
 - **Cuenta de administrador global de Azure AD**: utilizada para crear la cuenta del conector de Azure AD y configurar Azure AD.
 
@@ -120,7 +120,7 @@ A continuación se ofrece un resumen de las páginas del asistente para instalac
 >[!IMPORTANT]
 >Se introdujo un nuevo módulo de PowerShell denominado ADSyncConfig.psm1 con la compilación **1.1.880.0** (publicada en agosto de 2018) que incluye una colección de cmdlets que le ayudarán a configurar los permisos correctos de Active Directory para su cuenta de Azure AD DS.
 >
->Para obtener más información, consulte [Azure AD Connect: configurar los permisos de cuenta del conector AD DS](how-to-connect-configure-ad-ds-connector-account.md)
+>Para más información, consulte [Azure AD Connect: Configurar los permisos de cuenta del conector de AD DS](how-to-connect-configure-ad-ds-connector-account.md).
 
 La cuenta especificada en la página **Conectar sus directorios** debe estar presente en Active Directory antes de la instalación.  Azure AD Connect 1.1.524.0 y las versiones posteriores ofrecen la opción de permitir que el asistente de Azure AD Connect cree la **cuenta del conector de AD DS** utilizada para conectarse a Active Directory.  
 
@@ -149,7 +149,7 @@ Al actualizar desde una versión de Azure AD Connect a una nueva versión, neces
 | --- | --- | --- |
 | Usuario que ejecuta el asistente para instalación |Administrador del servidor local |Archivos binarios de la actualización. |
 | Usuario que ejecuta el asistente para instalación |Miembro de ADSyncAdmins |Realice cambios en las reglas de sincronización y en otra configuración. |
-| Usuario que ejecuta el asistente para instalación |Si utiliza un servidor SQL completo: DBO (o similar) de la base de datos del motor de sincronización |Realice los cambios de nivel de base de datos, como actualizar tablas con nuevas columnas. |
+| Usuario que ejecuta el asistente para instalación |Si usa una versión completa de SQL server: DBO (o similar) de la base de datos del motor de sincronización |Realice los cambios de nivel de base de datos, como actualizar tablas con nuevas columnas. |
 
 ## <a name="more-about-the-created-accounts"></a>Más información acerca de las cuentas creadas
 ### <a name="ad-ds-connector-account"></a>Cuenta del conector de AD DS

@@ -9,12 +9,12 @@ ms.component: design
 ms.date: 12/03/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: d3c42c13e58156013167b8570a8845ce9de08b3b
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 2aa513617f24201dfb341f9ab72ab9e3a221450d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52885454"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819363"
 ---
 # <a name="azure-sql-data-warehouse-gen2-support-for-lower-compute-tiers"></a>Azure SQL Data Warehouse Gen2 admite niveles de proceso inferiores
 
@@ -29,7 +29,7 @@ El portal actualmente no admite la implementación o el escalado de instancias d
 Los clientes pueden elegir implementar una nueva instancia de Gen2 o actualizar una instancia existente de almacenamiento de datos de Gen1 para experimentar la flexibilidad y el rendimiento de almacenamiento de datos de próxima generación. 
 
 Pruebe el [nivel Gen2 optimizado para proceso de Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/?v=17.44).
-Actualice [Gen1 optimizado para proceso de Azure SQL Warehouse a Gen2](https://docs.microsoft.com/azure/sql-data-warehouse/upgrade-to-latest-generation) Vea Azure SQL Data Warehouse Gen2 en acción en este [vídeo de Microsoft Mechanics](https://www.youtube.com/watch?v=Ap8I3UZonzI&feature=youtu.be).
+Actualice [Gen1 optimizado para proceso de Azure SQL Data Warehouse a Gen2](https://docs.microsoft.com/azure/sql-data-warehouse/upgrade-to-latest-generation) Vea Azure SQL Data Warehouse Gen2 en acción en este [vídeo de Microsoft Mechanics](https://www.youtube.com/watch?v=Ap8I3UZonzI&feature=youtu.be).
 
 
 ## <a name="supported-regions-for-lower-compute-tiers"></a>Regiones admitidas para niveles de proceso inferiores
@@ -52,4 +52,4 @@ Actualice [Gen1 optimizado para proceso de Azure SQL Warehouse a Gen2](https://d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Obtenga información](upgrade-to-latest-generation.md) sobre cómo optimizar el rendimiento con la actualización de SQL Data Warehouse. 
+- [Obtenga información](upgrade-to-latest-generation.md) sobre el rendimiento optimizado para proceso con la actualización de SQL Data Warehouse. 

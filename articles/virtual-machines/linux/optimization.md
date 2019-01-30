@@ -16,12 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: 91e9cb6b436cc78a0c5bd4769d38622abda4c04d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.component: disks
+ms.openlocfilehash: 6cccf31842825c3e4d50aa67165d19f8ac471695
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977577"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478168"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimización de la máquina virtual Linux en Azure
 Crear una máquina virtual con Linux es muy sencillo desde la línea de comandos o desde el Portal. Este tutorial muestra cómo asegurarse de que está configurada para optimizar su rendimiento en la Plataforma Microsoft Azure. Este tema usa una VM de servidor Ubuntu, pero también puede crear máquinas virtuales Linux mediante [sus propias imágenes como plantillas](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -33,7 +34,7 @@ En este tema se da por supuesto que ya tiene una suscripción de Azure activa ([
 Al crear la VM Linux en Azure, tiene dos discos asociados a ella. **/dev/sda** es el disco del SO y **/dev/sdb** es el disco temporal.  No utilice el disco del SO principal (**/dev/sda**) salvo para el mismo sistema operativo, ya que se ha optimizado para un tiempo de arranque rápido de la VM y no proporcionará un buen rendimiento para sus cargas de trabajo. Querrá conectar uno o más discos a la VM con el fin de obtener un almacenamiento optimizado y persistente para sus datos. 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>Adición de discos para objetivos de rendimiento y tamaño
-En función del tamaño de la VM, puede conectar hasta 16 discos adicionales en una máquina de serie A, 32 discos en una de serie D y 64 discos en una máquina de serie G, cada una de ellas con hasta 1 TB de tamaño. Agregue discos adicionales según sea necesario en función del espacio y los requisitos de IOPS. Cada disco tiene un objetivo de rendimiento de 500 IOPS para Standard Storage y de hasta 5000 IOPS por disco para Premium Storage.  Para más información sobre los discos de Premium Storage, consulte [Discos de máquina virtual de Azure administrados y no administrados, y Premium Storage de alto rendimiento](../windows/premium-storage.md).
+En función del tamaño de la VM, puede conectar hasta 16 discos adicionales en una máquina de serie A, 32 discos en una de serie D y 64 discos en una máquina de serie G, cada una de ellas con hasta 1 TB de tamaño. Agregue discos adicionales según sea necesario en función del espacio y los requisitos de IOPS. Cada disco tiene un objetivo de rendimiento de 500 IOPS para Standard Storage y de hasta 5000 IOPS por disco para Premium Storage.  Para más información sobre discos Premium Storage, consulte el artículo [Premium Storage: almacenamiento de alto rendimiento para VM de Azure](../windows/premium-storage.md).
 
 Para alcanzar el máximo valor de IOPS en los discos de Premium Storage con la configuración de caché como **ReadOnly** o **None**, debe deshabilitar las **barreras** al montar el sistema de archivos en Linux. No necesita las barreras porque las escrituras en los discos de Premium Storage de copia de seguridad son duraderas para esta configuración de caché.
 
@@ -132,7 +133,7 @@ Recuerde que, como en todos los debates sobre optimización, debe realizar prueb
 
 Algunos vínculos útiles a recursos adicionales: 
 
-* [Premium Storage: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](premium-storage.md)
+* [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](premium-storage.md)
 * [Guía de usuario del Agente de Linux de Azure](../extensions/agent-linux.md)
 * [Optimización del rendimiento de MySQL en máquinas virtuales de Azure con Linux](classic/optimize-mysql.md)
 * [Configuración del software RAID en Linux](configure-raid.md)

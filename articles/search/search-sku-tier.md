@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 664e31590f578b65da09f1e0fe8f57d579ed3cfc
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 4b6e6cf3fb030f5f9706ded19f85575baed69b39
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354559"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471827"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Selección de un plan de tarifa de Azure Search
 
 En Azure Search, un [recurso se crea](search-create-service-portal.md) en el plan de tarifa o SKU que se fija para el periodo de vigencia del servicio. Los planes incluyen los niveles **Gratis**, **Básico** o **Estándar**; **este último** está disponible en varias configuraciones y capacidades. La mayoría de los clientes comienza con el nivel **Gratis** para la evaluación y, a continuación, ascienden al nivel **Estándar** para implementaciones de desarrollo y producción. Puede completar todos los inicios rápidos y tutoriales en el nivel **Gratis**, incluidos los de búsqueda cognitiva que consumen gran cantidad de recursos. 
 
-Los niveles determinan la capacidad, no las características, y se diferencian por lo siguiente:
+Los niveles reflejan las características del hardware que hospeda el servicio (en lugar de las características) y se diferencian por:
 
 + Número de índices que puede crear
 + Tamaño y velocidad de particiones (almacenamiento físico)
@@ -63,7 +63,7 @@ La mayoría de los clientes solo ponen en línea una parte de la capacidad total
 
 ### <a name="billing-for-image-extraction-in-cognitive-search"></a>Facturación por la extracción de imágenes en Cognitive Search
 
-Si va a extraer imágenes de archivos de una canalización de indexación de Cognitive Search, se le cobrará esa operación en la factura de Azure Search. El parámetro que desencadena la extracción de imágenes es **imageAction** en una [configuración del indexador](https://docs.microsoft.com/erest/api/searchservice/create-indexer#indexer-parameters). Si **imageAction** está establecida en none (valor predeterminado), no hay ningún cargo por extracción de imágenes.
+Si va a extraer imágenes de archivos de una canalización de indexación de Cognitive Search, se le cobrará esa operación en la factura de Azure Search. El parámetro que desencadena la extracción de imágenes es **imageAction** en una [configuración del indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters). Si **imageAction** está establecida en none (valor predeterminado), no hay ningún cargo por extracción de imágenes.
 
 Los precios están sujetos a cambios, pero siempre se documentan en la página de los [detalles de los precios](https://azure.microsoft.com/pricing/details/search/) de Azure Search. 
 

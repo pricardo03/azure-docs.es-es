@@ -4,7 +4,7 @@ description: Aprenda a instalar y usar las vistas de Log Analytics para Azure Ac
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 2290de3c-2858-4da0-b4ca-a00107702e26
 ms.service: active-directory
@@ -16,19 +16,19 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7f3db8b16e275ff130cc3d8cb162780d595a7f32
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: fbe5515f05c66fb0763943c20ed8aaa4374e3d87
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624648"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825211"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Instalación y uso de las vistas de Log Analytics para Azure Active Directory
 
 Las vistas de Log Analytics para Azure Active Directory le ayuda a analizar y a buscar los registros de actividad de Azure AD en su inquilino de Azure AD. Los registros de actividad de Azure AD incluyen:
 
 * Registros de auditoría: el [informe de actividad de registros de auditoría](concept-audit-logs.md) le proporciona acceso al historial de todas las tareas llevadas a cabo en el inquilino.
-* Inicios de sesión: con el [informe de actividad de inicios de sesión](concept-sign-ins.md), puede determinar quién ha realizado las tareas notificadas en el informe de registros de auditoría.
+* Registros de inicio de sesión: Con el [informe de actividad de inicios de sesión](concept-sign-ins.md), puede determinar quién ha realizado las tareas notificadas en el informe de registros de auditoría.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

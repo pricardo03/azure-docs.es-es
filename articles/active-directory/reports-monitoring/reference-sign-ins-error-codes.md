@@ -4,7 +4,7 @@ description: Referencia sobre los códigos de error de los informes de actividad
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b6f8d3c3017a914f261c7e4f8bbe0e42d1edf8a9
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 0de3ced9974941399875ca98991430f10d4f8525
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622438"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820162"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de error de los informes de actividad de inicio de sesión. 
 
@@ -43,7 +43,7 @@ Filtre el informe para mostrar todos los inicios de sesión con error; para ello
 
 ![Actividad de inicio de sesión](./media/reference-sign-ins-error-codes/06.png "Actividad de inicio de sesión")
 
-Al seleccionar un elemento de la lista filtrada se abre la hoja **Detalles de actividad: Inicios de sesión**. Esta vista proporciona información adicional sobre el evento de inicio de sesión con error, incluido el **código de error de inicio de sesión** y el **motivo del error**.
+Al seleccionar un elemento de la lista filtrada, se abre la hoja **Detalles de actividad: Inicios de sesión**. Esta vista proporciona información adicional sobre el evento de inicio de sesión con error, incluido el **código de error de inicio de sesión** y el **motivo del error**.
 
 ![Actividad de inicio de sesión](./media/reference-sign-ins-error-codes/05.png "Actividad de inicio de sesión")
 
@@ -135,7 +135,7 @@ También puede acceder mediante programación a los datos de inicio de sesión c
 |53002|La aplicación utilizada no es una aplicación aprobada para el acceso condicional. El usuario tiene que usar una de las aplicaciones de la lista de aplicaciones aprobadas para poder acceder.|
 |53003|Se ha bloqueado el acceso debido a las directivas de acceso condicional.|
 |53004|El usuario tiene que completar el proceso de registro de la autenticación multifactor antes de acceder a este contenido. El usuario se debe registrar en la autenticación multifactor.|
-|65001|La aplicación X no tiene permiso para acceder a la aplicación Y o este se ha revocado. O bien, el usuario o administrador no ha dado su consentimiento para usar la aplicación con el identificador X. Envíe una solicitud de autorización interactiva para este usuario y recurso. O bien, el usuario o administrador no ha dado su consentimiento para usar la aplicación con el identificador X. Envíe una solicitud de autorización al administrador del inquilino para que actúe en nombre de la aplicación: Y para el recurso: Z.|
+|65001|La aplicación X no tiene permiso para acceder a la aplicación Y o este se ha revocado. O bien, el usuario o administrador no ha dado su consentimiento para usar la aplicación con el identificador X. Envíe una solicitud de autorización interactiva para este usuario y recurso. O bien, el usuario o administrador no han dado su consentimiento para usar la aplicación con el identificador X. Envíe una solicitud de autorización al administrador del inquilino para que actúe en nombre de la aplicación: Y para el recurso: Z.|
 |65004|El usuario no dio su consentimiento para acceder a la aplicación. Haga que el usuario intente iniciar sesión de nuevo y dé el consentimiento para acceder a la aplicación|
 |65005|La lista de acceso a recursos requeridos de la aplicación no contiene aplicaciones reconocibles por el recurso, o la aplicación cliente ha solicitado el acceso a un recurso que no se especificó en su lista de acceso a recursos requeridos, o el servicio Graph devolvió una solicitud incorrecta o no se encontró el recurso. Si la aplicación es compatible con SAML, es posible que haya configurado la aplicación con el identificador incorrecto (entidad). Pruebe la solución indicada para SAML mediante el siguiente vínculo: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list)|
 |70000|Concesión no válida debido a los siguientes motivos:<ul><li>La aserción de SAML 2.0 solicitada tiene un método confirmación de asunto no válido</li><li>No se admite el flujo OnBehalfOf de la aplicación en V2</li><li>El token de actualización principal no está firmado con la clave de sesión</li><li>El token de actualización externo no es válido</li><li>Se obtuvo la concesión de acceso para un inquilino diferente.</li></ul>|

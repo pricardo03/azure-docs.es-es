@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: da6435c6e3ea5fe88b605bd65c5d0e10f1772450
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: fca14eb5a51799e6d3c0e4f96cb956e4e6886cdb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717473"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844830"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Uso de nodos perimetrales vacíos en clústeres de Apache Hadoop en HDInsight
 
@@ -65,8 +65,8 @@ Después de haber creado un nodo perimetral, puede conectarse a él mediante SSH
 >
 > Si usa una tecnología de Apache, es posible que encuentre asistencia a través de los sitios de los proyectos de Apache en [https://apache.org](https://apache.org), por ejemplo, en el sitio de [Apache Hadoop](https://hadoop.apache.org/).
 
-> [!NOTE]  
-> Del mismo modo que los nodos de clústeres, los nodos perimetrales también se administran mediante revisiones.  Para más información, consulte [Aplicación de revisión del SO para HDInsight](./hdinsight-os-patching.md).
+> [!IMPORTANT]
+> Las imágenes de Ubuntu estarán disponibles para la creación del nuevo clúster de HDInsight tres meses después de publicarse. A partir de enero de 2019, la ejecución de clústeres (incluidos los nodos perimetrales) **no** se revisa automáticamente. Los clientes deben usar acciones de script u otros mecanismos para revisar un clúster en ejecución.  Para más información, consulte [Aplicación de revisión del SO para HDInsight](./hdinsight-os-patching.md).
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Adición de un nodo perimetral a un clúster existente
 En esta sección, usará una plantilla de Resource Manager para agregar un nodo perimetral a un clúster de HDInsight existente.  La plantilla de Resource Manager se puede encontrar en [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/). La plantilla de Resource Manager llama a una acción de script situada en https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. El script no realiza ninguna acción.  Sirve para demostrar la llamada a la acción de script desde una plantilla de Resource Manager.

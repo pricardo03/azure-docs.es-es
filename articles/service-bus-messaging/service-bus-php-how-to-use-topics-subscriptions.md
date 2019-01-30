@@ -3,9 +3,9 @@ title: Uso de temas y suscripciones de Service Bus | Microsoft Docs
 description: Aprenda a usar temas de Service Bus con PHP en Azure.
 services: service-bus-messaging
 documentationcenter: php
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: faaa4bbd-f6ef-42ff-aca7-fc4353976449
 ms.service: service-bus-messaging
 ms.workload: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 09/06/2018
-ms.author: spelluru
-ms.openlocfilehash: 8b2cd62d9f1c2010956604a9f3c753d893f7c2ad
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.author: aschhab
+ms.openlocfilehash: efcc5b1f05cb2065d4cc9a3fda64e78dd6d5957b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407287"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849319"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Uso de temas y suscripciones de Service Bus con PHP
 
@@ -129,7 +129,7 @@ catch(ServiceException $e){
 También se crean suscripciones de temas con el método `ServiceBusRestProxy->createSubscription`. A las suscripciones se les puede asignar un nombre y pueden tener un filtro opcional que restrinja el conjunto de mensajes que pasan a la cola virtual de la suscripción.
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Creación de una suscripción con el filtro predeterminado (MatchAll)
-El filtro predeterminado **MatchAll** se usa en caso de que no se haya especificado ninguno al crear una nueva suscripción. Al usar el filtro **MatchAll**, todos los mensajes publicados en el tema se colocan en la cola virtual de la suscripción. En el ejemplo siguiente se crea una suscripción llamada "mysubscription" y se usa el filtro predeterminado **MatchAll**.
+Se usa el filtro predeterminado **MatchAll** en caso de que no se haya especificado ninguno al crear una nueva suscripción. Al usar el filtro **MatchAll**, todos los mensajes publicados en el tema se colocan en la cola virtual de la suscripción. En el ejemplo siguiente se crea una suscripción llamada "mysubscription" y se usa el filtro predeterminado **MatchAll**.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -244,7 +244,7 @@ for($i = 0; $i < 5; $i++){
 El tamaño máximo de mensaje que admiten los temas de Service Bus es de 256 KB en el [nivel Estándar](service-bus-premium-messaging.md) y de 1 MB en el [nivel Premium](service-bus-premium-messaging.md). El encabezado, que incluye propiedades de la aplicación estándar y personalizadas, puede tener un tamaño máximo de 64 KB. No hay límite para el número de mensajes que contiene un tema, pero hay un tope para el tamaño total de los mensajes contenidos en un tema. El límite superior para el tamaño del tema es de 5 GB. Para más información sobre las cuotas, consulte [Cuotas de Service Bus][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-subscription"></a>Recepción de mensajes de una suscripción
-La mejor manera de recibir mensajes de una suscripción es usar un método `ServiceBusRestProxy->receiveSubscriptionMessage`. Los mensajes se pueden recibir de dos modos diferentes: [*ReceiveAndDelete* y *PeekLock*](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode). **PeekLock** es el valor predeterminado.
+La mejor manera de recibir mensajes de una suscripción es usar un método `ServiceBusRestProxy->receiveSubscriptionMessage`. Los mensajes se pueden recibir de dos modos distintos: [*ReceiveAndDelete* y *PeekLock*](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode). **PeekLock** es el valor predeterminado.
 
 Al usar el modo [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode), la operación de recepción consta de una sola fase; es decir, cuando Service Bus recibe una solicitud de lectura de un mensaje de una suscripción, marca el mensaje como consumido y lo devuelve a la aplicación. El modo [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode)* es el modelo más sencillo y funciona mejor para los escenarios en los que una aplicación puede tolerar no procesar un mensaje en caso de error. Para entenderlo mejor, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Como Service Bus ha marcado el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 151d945bbeda9f7dd496f8469f8f858e8369da8f
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 8961a863f1b268a034310554230096cc0f9d5260
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164422"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844065"
 ---
 # <a name="create-and-clone-projects"></a>Creación y clonación de proyectos
 
@@ -30,7 +30,7 @@ Un proyecto también mantiene los metadatos y otras opciones de configuración q
 
 El panel **Mis proyectos** en `https://notebooks.azure.com/<userID>/projects` es donde se pueden ver, administrar y crear proyectos:
 
-[![](media/my-projects-dashboard.png "Panel Mis proyectos en Azure Notebooks")](media/my-projects-dashboard.png#lightbox)
+[![Panel Mis proyectos en Azure Notebooks](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
 
 Lo que puede hacer en el panel depende de si ha iniciado sesión con la cuenta que posee el identificador de usuario:
 
@@ -105,9 +105,9 @@ Para clonar un proyecto:
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Exploración de cuadernos de ejemplo](azure-notebooks-samples.md)
-- [Procedimientos: Configuración y administración de proyectos](configure-manage-azure-notebooks-projects.md)
+- [Procedimientos: Configure and manage projects](configure-manage-azure-notebooks-projects.md) (Configuración y administración de proyectos)
 - [Procedimientos: Instalación de paquetes en un cuaderno](install-packages-jupyter-notebook.md)
 - [Procedimientos: Presentación](present-jupyter-notebooks-slideshow.md)
-- [Procedimientos: Uso de archivos de datos](work-with-project-data-files.md)
-- [Procedimientos: Acceso a recursos de datos](access-data-resources-jupyter-notebooks.md)
-- [Procedimientos: Uso de Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)
+- [Procedimientos: con archivos de datos en proyectos de Azure Notebooks](work-with-project-data-files.md)
+- [How to: Access data resources](access-data-resources-jupyter-notebooks.md) (Acceso a los recursos de datos)
+- [Uso de Azure Machine Learning Services en un cuaderno](use-machine-learning-services-jupyter-notebooks.md)

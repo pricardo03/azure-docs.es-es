@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect Sync: descripción de la arquitectura | Microsoft Docs'
+title: 'Sincronización de Azure AD Connect: Descripción de la arquitectura | Microsoft Docs'
 description: En este tema se describe la arquitectura de sincronización de Azure AD Connect y se explican los términos usados.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 465bcbe9-3bdd-4769-a8ca-f8905abf426d
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 958ec6b32434bd9e0228255c0edbe9312225586c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 787fa051dfeeea45f9480f5906244f544f747279
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46307074"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474394"
 ---
-# <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Azure AD Connect Sync: Descripción de la arquitectura
+# <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Sincronización de Azure AD Connect: Comprensión de la arquitectura
 En este tema, se describe la arquitectura básica para la sincronización de Azure AD Connect. En muchos aspectos, es similar a la de sus predecesores: MIIS 2003, ILM 2007 y FIM 2010. Azure AD Connect Sync representa la evolución de estas tecnologías anteriores. Si ya conoce cualquiera de ellas, el contenido de este tema también le resultará familiar. Si está comenzando con la sincronización, entonces este tema está a su nivel. De todos modos, no es requisito conocer los detalles de este tema para realizar personalizaciones correctas en la sincronización de Azure AD Connect (llamado motor de sincronización en este tema).
 
 ## <a name="architecture"></a>Arquitectura

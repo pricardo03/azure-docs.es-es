@@ -3,29 +3,29 @@ title: Definición de un perfil técnico de Azure Active Directory en una direct
 description: Defina un perfil técnico de Azure Active Directory en una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cf7b051703e01493f365c1850ab815747321230b
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: dc9cda92ef725bbfc1a12756912656f0c39474cd
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44382996"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846751"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de Azure Active Directory en una directiva personalizada en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C proporciona compatibilidad para la administración de usuarios de Azure Active Directory. En este artículo se describen los detalles de un perfil técnico para interactuar con un proveedor de notificaciones que admite este protocolo estandarizado.
+Azure Active Directory (Azure AD) B2C proporciona compatibilidad para la administración de usuarios de Azure Active Directory. En este artículo se describen los detalles para que un perfil técnico interactúe con un proveedor de notificaciones que admita este protocolo estandarizado.
 
 ## <a name="protocol"></a>Protocolo
 
-El atributo **Name** del elemento **Protocol** se debe establecer en `Proprietary`. El atributo **handler** debe contener el nombre completo del ensamblado de controlador de protocolo `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
+El atributo **Name** del elemento **Protocol** tiene que establecerse en `Proprietary`. El atributo **handler** debe contener el nombre completo del ensamblado de controlador de protocolo `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
 Todos los perfiles técnicos de Azure AD incluyen el perfil técnico **AAD-Common**. Los perfiles técnicos siguientes no especifican el protocolo porque el protocolo está configurado en el perfil técnico **AAD-Common**:
 

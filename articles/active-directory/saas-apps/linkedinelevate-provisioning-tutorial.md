@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
-manager: mtillman
+manager: daveba
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 1dcc198c1a1cc798e991f489e6897d4b930c0593
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 3c45388878675f5e0ee7df486747c7df41729694
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348510"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808008"
 ---
 # <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Tutorial: Configuración de LinkedIn Elevate para aprovisionar usuarios automáticamente
 
@@ -57,7 +57,7 @@ Antes de configurar y habilitar el servicio de aprovisionamiento, debe decidir q
 
 Esta sección lo guía a través de los pasos necesarios para conectar la API de aprovisionamiento de su cuenta de usuario de SCIM de LinkedIn Elevate, así como para configurar el servicio de aprovisionamiento con el fin de crear, actualizar y deshabilitar cuentas de usuario asignadas de LinkedIn Elevate en función de la asignación de grupos y usuarios en Azure AD.
 
-**Sugerencia**: También puede decidir habilitar el inicio de sesión único basado en SAML para LinkedIn Elevate siguiendo las instrucciones de [Azure Portal](https://portal.azure.com). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático, aunque estas dos características se complementan entre sí.
+**Sugerencia:** También puede decidir habilitar el inicio de sesión único basado en SAML para LinkedIn Elevate siguiendo las instrucciones de [Azure Portal](https://portal.azure.com). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático, aunque estas dos características se complementan entre sí.
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-linkedin-elevate-in-azure-ad"></a>Para configurar el aprovisionamiento de cuentas de usuario automático para LinkedIn Elevate en Azure AD, siga estos pasos:

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 62a9fd6eee15618e7153fd84030840b429e214ed
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ee5cc1f185640c9ea22ceb80b1fabb20df245fe2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833523"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823087"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Administración del servidor de configuración para la recuperación ante desastres del servidor físico
 
@@ -112,7 +112,7 @@ Ejecute el archivo de instalación del modo siguiente:
 |/InstallLocation|Obligatorio|La carpeta donde se instalan los componentes| Cualquier carpeta del equipo|
 |/MySQLCredsFilePath|Obligatorio|La ruta de acceso al archivo en que se almacenan las credenciales del servidor MySQL|El archivo debe tener el formato especificado a continuación|
 |/VaultCredsFilePath|Obligatorio|La ruta de acceso del archivo de credenciales del almacén|Ruta de acceso de archivo válido|
-|/EnvType|Obligatorio|El tipo de entorno que desea proteger |VMware<br>NonVMware|
+|/EnvType|Obligatorio|El tipo de entorno que quiere proteger |VMware<br>NonVMware|
 |/PSIP|Obligatorio|Dirección IP de la NIC que se usará para la transferencia de datos de replicación| Cualquier dirección IP válida|
 |/CSIP|Obligatorio|Dirección IP de la NIC en la que el servidor de configuración realiza la escucha| Cualquier dirección IP válida|
 |/PassphraseFilePath|Obligatorio|Ruta de acceso completa a la ubicación del archivo de frase de contraseña|Ruta de acceso de archivo válido|
@@ -264,7 +264,7 @@ Actualice el servidor como se indica a continuación:
 
 ## <a name="delete-or-unregister-a-configuration-server-powershell"></a>Eliminación o anulación del registro de un servidor de configuración (PowerShell)
 
-1. [Instale](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) el módulo de Azure PowerShell.
+1. [Instale](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0) el módulo de Azure PowerShell.
 2. Inicie sesión en su cuenta de Azure mediante el comando
     
     `Connect-AzureRmAccount`

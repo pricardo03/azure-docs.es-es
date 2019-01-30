@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 01/22/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 7c16fc61a8654fa6b7236b9c5252ed4874787d50
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d236f00e70e08c7bce2a94c5bd4fb64f1fa99bbc
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141754"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826605"
 ---
 # <a name="encoding-with-media-services"></a>Codificación con Media Services
 
@@ -28,6 +28,11 @@ Para codificar con Media Services v3, debe crear una transformación y un trabaj
 Al codificar con Media Services, se usan valores preestablecidos para indicar al codificador cómo se deben procesar los archivos multimedia de entrada. Por ejemplo, puede especificar la resolución de vídeo o el número de canales de audio que desea en el contenido codificado. 
 
 Puede empezar a trabajar rápidamente con alguno de los valores preestablecidos integrados recomendados basados en los procedimientos recomendados del sector o puede optar por crear un valor preestablecido destinado a su escenario específico o los requisitos de dispositivos. Para más información, vea [Procedimiento de codificación con una transformación personalizada](customize-encoder-presets-how-to.md). 
+
+A partir de enero de 2019, al codificar con Media Encoder Standard para generar archivos MP4, se genera un archivo .mpi nuevo y se agrega a la salida de activos. Este archivo MPI está diseñado para mejorar el rendimiento de escenarios de streaming y empaquetado dinámico.
+
+> [!NOTE]
+> No debe modificar ni quitar el archivo MPI, así como tampoco tener ninguna dependencia en el servicio en la existencia (o no) de este tipo de archivo.
 
 ## <a name="built-in-presets"></a>Valores preestablecidos integrados
 

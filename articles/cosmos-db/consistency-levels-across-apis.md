@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 76ebbc8cc8dbea4b7f8f8226cf1d8570a421e8cf
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4d2994ea6ab6d6472ec56f0f2e378062590c8920
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034342"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807004"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Niveles de coherencia y API de Azure Cosmos DB
 
@@ -24,15 +24,48 @@ En las secciones siguientes se muestra la asignación entre la coherencia de dat
 
 ## <a id="cassandra-mapping"></a>Asignación entre niveles de coherencia de Apache Cassandra y Azure Cosmos DB
 
-En esta tabla se muestra la asignación de "coherencia de lectura" entre el cliente de Apache Cassandra 4.x y el nivel de coherencia predeterminado en Azure Cosmos DB. También se muestran las implementaciones de varias regiones y una sola región.
+En esta tabla se muestra la asignación de coherencia entre Apache Cassandra y el nivel de coherencia en Azure Cosmos DB. Para cada nivel de coherencia de lectura y escritura de Cassandra, el correspondiente nivel de coherencia de Cosmos DB proporciona garantías más seguras, es decir, más estrictas.
 
-| **Apache Cassandra 4.x** | **Azure Cosmos DB (varias regiones)** | **Azure Cosmos DB (región única)** |
+En la tabla siguiente se muestra la **asignación de coherencia de escritura** entre Azure Cosmos DB y Cassandra:
+
+| Cassandra | Azure Cosmos DB | Garantía |
 | - | - | - |
-| ONE, TWO, THREE | Prefijo coherente | Prefijo coherente |
-| LOCAL_ONE | Prefijo coherente | Prefijo coherente |
-| QUORUM, ALL, SERIAL | Obsolescencia limitada es el valor predeterminado. Alta se encuentra en versión preliminar privada. | Alta |
-| LOCAL_QUORUM | Uso vinculado | Alta |
-| LOCAL_SERIAL | Uso vinculado | Alta |
+|ALL|Alta  | Linealidad |
+| EACH_QUORUM   | Alta    | Linealidad | 
+| QUORUM, SERIAL |  Alta |    Linealidad |
+| LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY | De prefijo coherente |Prefijo coherente global |
+| EACH_QUORUM   | Alta    | Linealidad |
+| QUORUM, SERIAL |  Alta |    Linealidad |
+| LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY | De prefijo coherente | Prefijo coherente global |
+| QUORUM, SERIAL | Alta   | Linealidad |
+| LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY | De prefijo coherente | Prefijo coherente global |
+| LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE    | De obsolescencia entrelazada | <ul><li>Obsolescencia limitada.</li><li>Como máximo, versiones K o retraso t.</li><li>Lea el último valor confirmado en la región.</li></ul> |
+| ONE, LOCAL_ONE, ANY   | De prefijo coherente | Prefijo coherente por región |
+
+En la tabla siguiente se muestra la **asignación de coherencia de lectura** entre Azure Cosmos DB y Cassandra:
+
+| Cassandra | Azure Cosmos DB | Garantía |
+| - | - | - |
+| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO, ONE, LOCAL_ONE | Alta  | Linealidad|
+| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO   |Alta |   Linealidad |
+|LOCAL_ONE, ONE | De prefijo coherente | Prefijo coherente global |
+| ALL, QUORUM, SERIAL   | Alta    | Linealidad |
+| LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE |  De prefijo coherente   | Prefijo coherente global |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM |    De prefijo coherente   | Prefijo coherente global |
+| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO   |Alta |   Linealidad |
+| LOCAL_ONE, ONE    | De prefijo coherente | Prefijo coherente global|
+| ALL, QUORUM, SERIAL   Linealidad fuerte
+LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE  |De prefijo coherente  | Prefijo coherente global |
+|ALL    |Alta |Linealidad |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  |De prefijo coherente  |Prefijo coherente global|
+|ALL, QUORUM, SERIAL    Linealidad fuerte
+LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE  |De prefijo coherente  |Prefijo coherente global |
+|ALL    |Alta | Linealidad |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  | De prefijo coherente | Prefijo coherente global |
+| QUORUM, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE |  De obsolescencia entrelazada   | <ul><li>Obsolescencia limitada.</li><li>Como máximo, versiones K o retraso t. </li><li>Lea el último valor confirmado en la región.</li></ul>
+| LOCAL_ONE, ONE |De prefijo coherente | Prefijo coherente por región |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM  | De prefijo coherente | Prefijo coherente por región |
+
 
 ## <a id="mongo-mapping"></a>Asignación entre los niveles de coherencia de MongoDB 3.4 y Azure Cosmos DB
 

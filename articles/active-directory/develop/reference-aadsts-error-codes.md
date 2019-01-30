@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 11/30/2018
+ms.date: 01/23/2019
 ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 97f884a45a0a07e2b4c48f39483c70248e7a492e
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: e550eeba9b154e271cdad9df5cdfe9a308efbbe9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620408"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820315"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Códigos de error de autenticación y autorización
 
@@ -79,7 +79,7 @@ ms.locfileid: "52620408"
 | AADSTS50058 | UserInformationNotProvided: esto significa que un usuario no ha iniciado sesión. Este es un error común que se espera cuando un usuario no está autenticado y aún no ha iniciado sesión.</br>Si este error se produce en un contexto de inicio de sesión único en el que el usuario ha iniciado sesión anteriormente, significa que la sesión SSO no se encuentra o no es válida.</br>Este error puede devolverse a la aplicación si se especifica prompt=none. |
 | AADSTS50059 | MissingTenantRealmAndNoUserInformationProvided: no se ha encontrado ninguna información de identificación del inquilino ni en la solicitud ni implícita en ninguna credencial proporcionada. El usuario puede ponerse en contacto con el administrador del inquilino para ayudar a resolver el problema. |
 | AADSTS50061 | SignoutInvalidRequest: la solicitud de cierre de sesión no es válida. |
-| AADSTS50064 | CredentialAuthenticationError: error de validación de credenciales. |
+| AADSTS50064 | CredentialAuthenticationError: error de validación de credenciales en el nombre de usuario o la contraseña. |
 | AADSTS50068 | SignoutInitiatorNotParticipant: error de cierre de sesión. La aplicación que inició el cierre de sesión no participa en la sesión actual. |
 | AADSTS50070 | SignoutUnknownSessionIdentifier: error de cierre de sesión. La solicitud de cierre de sesión especificó un identificador de nombre que no coincidía con las sesiones existentes. |
 | AADSTS50071 | SignoutMessageExpired: la solicitud de inicio de sesión ha expirado. |
@@ -254,6 +254,7 @@ ms.locfileid: "52620408"
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource: el recurso no está configurado para aceptar tokens solo de dispositivo. |
 | AADSTS240001 | BulkAADJTokenUnauthorized: el usuario no tiene autorización para registrar dispositivos en Azure AD. |
 | AADSTS240002 | RequiredClaimIsMissing: el token de identificador no se puede usar como concesión `urn:ietf:params:oauth:grant-type:jwt-bearer`.|
+| AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest: no se encontró la aplicación en el directorio o inquilino. Esto puede pasar si el administrador del inquilino no es el que ha instalado el administrador del inquilino o no ha recibido el consentimiento de ningún usuario del inquilino. Puede que haya configurado de forma incorrecta el valor del identificador de la aplicación o que haya enviado la solicitud de autenticación al inquilino incorrecto. |
 | AADSTS700020 | InteractionRequired: la concesión de acceso requiere interacción. |
 | AADSTS700022 | InvalidMultipleResourcesScope: el valor proporcionado para el ámbito de parámetro de entrada no es válido porque contiene más de un recurso. |
 | AADSTS700023 | InvalidResourcelessScope: el valor proporcionado para el ámbito de parámetro de entrada no es válido al solicitar un token de acceso. |

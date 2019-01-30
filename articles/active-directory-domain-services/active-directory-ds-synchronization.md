@@ -1,10 +1,10 @@
 ---
-title: 'Azure Active Directory Domain Services: sincronización en dominios administrados | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Sincronización en dominios administrados | Microsoft Docs'
 description: Información sobre la sincronización en dominios administrados de Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: ergreenl
-ms.openlocfilehash: e0fc1b64514adb710ebcbdd417f65e9e3b3b3d66
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 40b66b85f88cde28cc6a1c52cb456157d8acd68c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155565"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846957"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Sincronización en dominios administrados de Azure AD Domain Services
 En el siguiente diagrama se ilustra cómo funciona la sincronización en dominios administrados de Azure AD Domain Services.
@@ -50,12 +50,12 @@ En cambio, el inquilino de Azure AD es un espacio de nombres plano y mucho más 
 ## <a name="exclusions---what-isnt-synchronized-to-your-managed-domain"></a>Exclusiones: los elementos que no se sincronizan con el dominio administrado
 Los siguientes objetos o atributos no se sincronizan con el inquilino de Azure AD o el dominio administrado:
 
-* **Atributos excluidos**: gracias a Azure AD Connect, puede elegir qué atributos no se sincronizarán con el inquilino de Azure AD en el dominio local. Estos atributos excluidos no estarán disponibles en el dominio administrado.
-* **Directivas de grupo**: las directivas de grupo configuradas en el dominio local no se sincronizan con el administrado.
-* **Recurso compartido Sysvol**: del mismo modo, el contenido del recurso compartido Sysvol del dominio local no se sincronizará con el administrado.
-* **Objetos de equipo**: los objetos de equipo unidos al dominio local no se sincronizarán con el administrado. Estos equipos no tienen una relación de confianza con el dominio administrado y pertenecen exclusivamente al local. En el dominio administrado, solo encontrará objetos de equipos que se han unido expresamente al dominio administrado.
-* **Atributos SidHistory de usuarios y grupos**: los SID de los grupos y usuarios primarios del dominio local se sincronizan con el administrado. Sin embargo, los atributos SidHistory existentes de usuarios y grupos no se sincronizan desde el dominio local al administrado.
-* **Estructuras de unidades organizativas**: las unidades organizativas definidas en el dominio local no se sincronizan con el administrado. Hay dos unidades organizativas integradas en el dominio administrado. De forma predeterminada, el dominio administrado tiene una estructura plana de unidades organizativas. Sin embargo, puede optar por [crear una unidad organizativa personalizada en el dominio administrado](active-directory-ds-admin-guide-create-ou.md).
+* **Atributos excluidos:** gracias a Azure AD Connect, puede elegir qué atributos no se sincronizarán con el inquilino de Azure AD en el dominio local. Estos atributos excluidos no estarán disponibles en el dominio administrado.
+* **Directivas de grupo:** las directivas de grupo configuradas en el dominio local no se sincronizan con el administrado.
+* **Recurso compartido Sysvol:** del mismo modo, el contenido del recurso compartido Sysvol del dominio local no se sincronizará con el administrado.
+* **Objetos de equipo:** los objetos de equipo unidos al dominio local no se sincronizarán con el administrado. Estos equipos no tienen una relación de confianza con el dominio administrado y pertenecen exclusivamente al local. En el dominio administrado, solo encontrará objetos de equipos que se han unido expresamente al dominio administrado.
+* **Atributos SidHistory de usuarios y grupos:** los SID de los grupos y usuarios primarios del dominio local se sincronizan con el administrado. Sin embargo, los atributos SidHistory existentes de usuarios y grupos no se sincronizan desde el dominio local al administrado.
+* **Estructuras de unidades organizativas:** las unidades organizativas definidas en el dominio local no se sincronizan con el administrado. Hay dos unidades organizativas integradas en el dominio administrado. De forma predeterminada, el dominio administrado tiene una estructura plana de unidades organizativas. Sin embargo, puede optar por [crear una unidad organizativa personalizada en el dominio administrado](active-directory-ds-admin-guide-create-ou.md).
 
 ## <a name="how-specific-attributes-are-synchronized-to-your-managed-domain"></a>Modo de sincronización de atributos específicos con el dominio administrado
 En la tabla siguiente se enumeran algunos atributos comunes y se describe cómo se sincronizan con el dominio administrado.
@@ -69,7 +69,7 @@ En la tabla siguiente se enumeran algunos atributos comunes y se describe cómo 
 | Historial de SID de usuarios y grupos |SID de usuarios y grupos primarios locales |El atributo SidHistory de usuarios y grupos del dominio administrado se establece para que coincida con el SID de grupos o usuarios primarios correspondiente del dominio local. Gracias a esta característica, le resultará más sencillo trasladar aplicaciones locales al dominio administrado, ya que no tendrá que volver a incluir los recursos en listas ACL. |
 
 > [!NOTE]
-> **Inicie sesión en el dominio administrado usando el formato de UPN**: el atributo SAMAccountName puede generarse automáticamente en algunas cuentas de usuario del dominio administrado. Si varios usuarios tienen el mismo atributo mailNickname o prefijos UPN excesivamente largos, el atributo SAMAccountName para estos usuarios puede generarse automáticamente. Por lo tanto, el formato de SAMAccountName (por ejemplo, CONTOSO100\usuarioJuan) no siempre constituye una manera confiable de iniciar sesión en el dominio. Los atributos SAMAccountName generados automáticamente de los usuarios pueden ser distintos de sus prefijos de UPN. Use el formato UPN (por ejemplo, "joeuser@contoso100.com") para iniciar sesión en el dominio administrado de forma confiable.
+> **Inicie sesión en el dominio administrado usando el formato UPN:** el atributo SAMAccountName puede generarse automáticamente en algunas cuentas de usuario del dominio administrado. Si varios usuarios tienen el mismo atributo mailNickname o prefijos UPN excesivamente largos, el atributo SAMAccountName para estos usuarios puede generarse automáticamente. Por lo tanto, el formato de SAMAccountName (por ejemplo, CONTOSO100\usuarioJuan) no siempre constituye una manera confiable de iniciar sesión en el dominio. Los atributos SAMAccountName generados automáticamente de los usuarios pueden ser distintos de sus prefijos de UPN. Use el formato UPN (por ejemplo, "joeuser@contoso100.com") para iniciar sesión en el dominio administrado de forma confiable.
 >
 >
 

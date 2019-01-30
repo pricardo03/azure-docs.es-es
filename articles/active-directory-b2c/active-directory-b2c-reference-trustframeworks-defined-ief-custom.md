@@ -3,19 +3,19 @@ title: 'Referencia: marcos de confianza en Azure Active Directory B2C | Microsof
 description: Un tema sobre las directivas personalizadas de Azure Active Directory B2C y el marco de experiencia de identidad.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 00d2f37068c5bedb17ba9a4064d1f5058f5ab72c
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 694d463c158f8c8beb0396edf22ac749c03e9e97
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185788"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845697"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Definir marcos de confianza con el marco de experiencia de identidad de Azure AD B2C
 
@@ -52,10 +52,10 @@ Los TF son el eje del modelo de marco de confianza de Open Identity Exchange (OI
 - **La descripción de la información de identidad digital que ofrecen o necesitan los participantes**.
 
 - **Las directivas técnicas para producción y consumo de la información de identidad digital y, por tanto, para la medición de LOA y LOP. Estas directivas escritas incluyen normalmente las siguientes categorías:**
-    - Directivas de corrección de identidad, por ejemplo: *lo fuerte que se examina la información de identidad de una persona*.
-    - Directivas de seguridad, por ejemplo: *lo fuerte que se protege la integridad y la confidencialidad de la información*.
-    - Directivas de privacidad, por ejemplo: *el control que tiene un usuario sobre la información personal identificable (PII)*.
-    - Directivas de supervivencia, por ejemplo: *el funcionamiento de la continuidad y la protección de PII en caso de que un proveedor suspenda sus operaciones*.
+    - Directivas de corrección de identidad, por ejemplo: *lo fuerte que se examina la información de identidad de una persona*
+    - Directivas de seguridad, por ejemplo: *lo fuerte que se protege la integridad y la confidencialidad de la información*
+    - Directivas de privacidad, por ejemplo: *el control que tiene un usuario sobre la información personal identificable (PII)*
+    - Directivas de supervivencia, por ejemplo: *continuidad y protección de PII si un proveedor suspende sus operaciones*
 
 - **Los perfiles técnicos de producción y consumo de información de identidad digital. Estos perfiles incluyen:**
     - Interfaces de ámbito para las que la información de identidad digital está disponible en el LOA especificado.

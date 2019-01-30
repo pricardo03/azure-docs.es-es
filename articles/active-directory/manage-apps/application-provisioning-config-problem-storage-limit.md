@@ -4,7 +4,7 @@ description: Cómo solucionar los problemas habituales que surgen al configurar 
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: fe96ecc0ba6904819f0262a2f470e37203a7952e
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 4d8e5cb577eb7b3eecc800e7a74b1ddcbbc2c76c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355794"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813379"
 ---
 # <a name="problem-saving-administrator-credentials-while-configuring-user-provisioning-to-an-azure-active-directory-gallery-application"></a>Problema al guardar las credenciales de administrador durante la configuración del aprovisionamiento de usuarios para una aplicación de la galería de Azure Active Directory 
 
@@ -30,7 +30,7 @@ Al usar Azure Portal para configurar el [aprovisionamiento de usuarios automáti
 
 Si el inicio de sesión único basado en SAML también está configurado para la misma aplicación, la causa más probable del error será que se ha superado el límite de almacenamiento por aplicación interno de Azure AD en el caso de los certificados y las credenciales.
 
-En la actualidad, Azure AD cuenta con una capacidad de almacenamiento máximo de un kilobyte para todos los certificados, tokens secretos, credenciales y datos de configuración relacionados asociados a una sola instancia de una aplicación (también conocida como registro de entidades de servicio en Azure AD).
+En la actualidad, Azure AD cuenta con una capacidad de almacenamiento máximo de un 1024 bytes para todos los certificados, tokens secretos, credenciales y datos de configuración relacionados asociados a una sola instancia de una aplicación (también conocida como registro de entidades de servicio en Azure AD).
 
 Al configurarse el inicio de sesión único basado en SAML, el certificado usado para firmar los tokens SAML se almacena aquí. Además, suele consumir más del 50 % del espacio.
 

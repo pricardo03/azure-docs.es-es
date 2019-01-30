@@ -3,19 +3,19 @@ title: Definición de un perfil técnico de RESTful en una directiva personaliza
 description: Defina un perfil técnico de RESTful en una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 930cdddd8a9e039fa9c29a348a0a66eb25d254fe
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d9dfef68e35cc07d395bb247af3476e8b73da642
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44382896"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54843895"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de RESTful en una directiva personalizada en Azure Active Directory B2C
 
@@ -35,7 +35,7 @@ La directiva puede enviar notificaciones de entrada a la API REST. La API REST t
 
 ## <a name="protocol"></a>Protocolo
 
-El atributo **Name** del elemento **Protocol** se debe establecer en `Proprietary`. El atributo **handler** debe contener el nombre completo del ensamblado de controlador de protocolo que usa Azure AD B2C: `Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
+El atributo **Name** del elemento **Protocol** tiene que establecerse en `Proprietary`. El atributo **handler** debe contener el nombre completo del ensamblado de controlador de protocolo que usa Azure AD B2C: `Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
 En el ejemplo siguiente se muestra un perfil técnico de RESTful:
 
@@ -171,13 +171,13 @@ En el ejemplo siguiente se muestra una API REST que devuelve un mensaje de error
 
 ```JSON
 {
-  "version": "1.0.0",
-  "status": 409,
-  "code": "API12345",
-  "requestId": "50f0bd91-2ff4-4b8f-828f-00f170519ddb",
-  "userMessage": "Message for the user", 
-  "developerMessage": "Verbose description of problem and how to fix it.", 
-  "moreInfo": "https://restapi/error/API12345/moreinfo" 
+  "version": "1.0.0",
+  "status": 409,
+  "code": "API12345",
+  "requestId": "50f0bd91-2ff4-4b8f-828f-00f170519ddb",
+  "userMessage": "Message for the user", 
+  "developerMessage": "Verbose description of problem and how to fix it.", 
+  "moreInfo": "https://restapi/error/API12345/moreinfo" 
 }
 ```
 
@@ -200,7 +200,7 @@ public class ResponseContent
 - [Integración de intercambios de notificaciones de API REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario](active-directory-b2c-custom-rest-api-netfw.md) 
 - [Protección de los servicios RESTful mediante la autenticación HTTP básica](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
 - [Protección de los servicios RESTful mediante certificados de cliente](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
-- [Tutorial: Integración de intercambios de notificaciones de API REST en el recorrido del usuario de Azure AD B2C como validación en entradas de usuario](active-directory-b2c-rest-api-validation-custom.md)
+- [Tutorial: Integración de intercambios de notificaciones de API REST en el recorrido del usuario de Azure AD B2C como validación de la entrada del usuario](active-directory-b2c-rest-api-validation-custom.md)
 
  
 

@@ -5,15 +5,15 @@ author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 01/22/2019
 ms.author: vitalyg
-ms.component: metrics
-ms.openlocfilehash: 457c7e8904797955854c4c3e16a631cf6537e2b8
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.subservice: metrics
+ms.openlocfilehash: 2b6d982f514f347dc2a59f9ca8f3c33b8c24849b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330082"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827455"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Explorador de métricas de Azure Monitor
 
@@ -139,6 +139,17 @@ Después de configurar el gráfico, haga clic en el menú **Chart Actions** (Acc
 
 ![imagen de métrica](./media/metrics-charts/00013.png)
 
+## <a name="troubleshooting"></a>solución de problemas
+
+*No veo ningún dato en el gráfico.*
+
+* Los filtros se aplican a todos los gráficos del panel. Asegúrese de que, al centrarse en un gráfico, no ha establecido un filtro que excluya todos los datos en otro.
+
+* Si desea establecer filtros diferentes en gráficos diferentes, créelos en hojas diferentes y guárdelos como elementos favoritos independientes. Si lo desea, puede anclarlos al panel para verlos en paralelo.
+
+* Si segmenta un gráfico por una propiedad que no está definida en la métrica, no habrá nada en el gráfico. Intente borrar la segmentación (división) o elija otro nombre de propiedad.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
   Lea [Creating custom KPI dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) (Creación de paneles de KPI personalizados) para obtener información sobre las prácticas recomendadas para la creación de paneles accionables con métricas.
+

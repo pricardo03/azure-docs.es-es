@@ -1,10 +1,10 @@
 ---
-title: Guía de solución de problemas de Azure Active Directory Domain Services | Microsoft Docs
+title: 'Azure Active Directory Domain Services: Guía de solución de problemas | Microsoft Docs'
 description: Guía de solución de problemas Servicios de dominio de Azure AD
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: ergreenl
-ms.openlocfilehash: e2b7eb4f5be5e73e70f883f9510e7fc6a13d6bea
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 8b752585fc72b7f4be8e7b9320290f8ad56f53c2
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156093"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844660"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Guía de solución de problemas de Azure AD Domain Services
 En este artículo se ofrecen sugerencias de solución de problemas para los problemas que puede encontrar al configurar o administrar Servicios de dominio de Azure Active Directory (AD).
@@ -128,7 +128,7 @@ Para resolver este error, habilite esta aplicación e intente habilitar Domain S
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Los usuarios no pueden iniciar sesión en el dominio administrado de los Servicios de dominio de Azure AD
 Si uno o más usuarios de su inquilino de Azure AD no pueden iniciar sesión en el dominio administrado creado recientemente, lleve a cabo los siguientes pasos de solución de problemas:
 
-* **Inicio de sesión con formato UPN:** trate de iniciar sesión con el formato UPN; por ejemplo, "joeuser@contoso.com" en lugar del formato de SAMAccountName (CONTOSO\joeuser). El atributo SAMAccountName puede generarse automáticamente para los usuarios cuyo prefijo UPN sea demasiado largo o coincida con el de otro usuario del dominio administrado. El formato UPN garantiza que sea único dentro de un inquilino de Azure AD.
+* **Inicio de sesión con formato UPN:** Pruebe a iniciar sesión con el formato UPN (por ejemplo, 'joeuser@contoso.com'), en lugar del formato de SAMAccountName ('CONTOSO\joeuser'). El atributo SAMAccountName puede generarse automáticamente para los usuarios cuyo prefijo UPN sea demasiado largo o coincida con el de otro usuario del dominio administrado. El formato UPN garantiza que sea único dentro de un inquilino de Azure AD.
 
 > [!NOTE]
 > Recomendamos usar el formato UPN para iniciar sesión en el dominio administrado de Azure AD Domain Services.
@@ -136,8 +136,8 @@ Si uno o más usuarios de su inquilino de Azure AD no pueden iniciar sesión en 
 >
 
 * Asegúrese de que ha [habilitado la sincronización de contraseñas](active-directory-ds-getting-started-password-sync.md) según los pasos que se describen en la Guía de introducción.
-* **Cuentas externas** Asegúrese de que la cuenta de usuario afectada no es una cuenta externa en el inquilino de Azure AD. Entre los ejemplos de las cuentas externas se incluyen las cuentas de Microsoft; por ejemplo, "joe@live.com" o las cuentas de usuario de un directorio de Azure AD externo. Puesto que los Servicios de dominio de Azure AD no tienen las credenciales de dichas cuentas de usuario, estos usuarios no pueden iniciar sesión el dominio administrado.
-* **Cuentas sincronizadas** : si las cuentas de usuario afectadas se sincronizan desde un directorio local, compruebe que ha hecho lo siguiente:
+* **Cuentas externas:** Asegúrese de que la cuenta de usuario afectada no es una cuenta externa del inquilino de Azure AD. Entre los ejemplos de las cuentas externas se incluyen las cuentas de Microsoft; por ejemplo, "joe@live.com" o las cuentas de usuario de un directorio de Azure AD externo. Puesto que los Servicios de dominio de Azure AD no tienen las credenciales de dichas cuentas de usuario, estos usuarios no pueden iniciar sesión el dominio administrado.
+* **Cuentas sincronizadas:** si las cuentas de usuario afectadas se sincronizan desde un directorio local, compruebe que ha hecho lo siguiente:
 
   * Ha implementado la [versión más reciente recomendada de Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)o se ha actualización a dicha versión.
   * Ha configurado Azure AD Connect para [realizar una sincronización completa](active-directory-ds-getting-started-password-sync.md).
@@ -146,7 +146,7 @@ Si uno o más usuarios de su inquilino de Azure AD no pueden iniciar sesión en 
 
     1. net stop 'Microsoft Azure AD Sync'
     2. net start 'Microsoft Azure AD Sync'
-* **Cuentas de solo en la nube**: si la cuenta de usuario afectada es una cuenta de usuario de solo en la nube, asegúrese de que el usuario ha cambiado su contraseña después de habilitar Servicios de dominio de Azure AD. Este paso hace que se generen los hash de credenciales necesarios para los Servicios de dominio de Azure AD
+* **Cuentas de solo nube**: Si la cuenta de usuario afectada es una cuenta de usuario solo para la nube, asegúrese de que el usuario ha cambiado su contraseña después de habilitar Azure AD Domain Services. Este paso hace que se generen los hash de credenciales necesarios para los Servicios de dominio de Azure AD
 
 ## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>Hay una o varias alertas en el dominio administrado
 

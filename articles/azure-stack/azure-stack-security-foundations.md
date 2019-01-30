@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: patricka
 ms.reviewer: fiseraci
-ms.openlocfilehash: cd3aa913bd17498ddc58994196bc8faa96c4de51
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: fba4020c5e947c135d9e17cfb1d0b2a79ad8a502
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306461"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819346"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Posición de seguridad de la infraestructura de Azure Stack
 
@@ -41,7 +41,7 @@ Dado que la infraestructura se ejecuta en hardware y software bien definidos, Az
 Como Azure Stack se proporciona como un sistema integrado, la posición de seguridad de la infraestructura de Azure Stack la define Microsoft. Al igual que en Azure, los inquilinos son responsables de definir la posición de seguridad de sus cargas de trabajo de inquilino. En este documento se proporciona conocimiento básico sobre la posición de seguridad de la infraestructura de Azure Stack.
 
 ## <a name="data-at-rest-encryption"></a>Cifrado de datos en reposo
-Todos los datos de la infraestructura de Azure Stack y de los inquilinos se cifran en reposo mediante Bitlocker. Este cifrado protege contra la pérdida física o el robo de componentes de almacenamiento de Azure Stack. Para más información, consulte [Cifrado de datos en reposo en Azure Stack](azure-stack-security-bitlocker.md).
+Todos los datos de la infraestructura de Azure Stack y de los inquilinos se cifran en reposo mediante BitLocker. Este cifrado protege contra la pérdida física o el robo de componentes de almacenamiento de Azure Stack. Para más información, consulte [Cifrado de datos en reposo en Azure Stack](azure-stack-security-bitlocker.md).
 
 ## <a name="data-in-transit-encryption"></a>Cifrado de los datos en tránsito
 Los componentes de la infraestructura de Azure Stack se comunican mediante canales cifrados con TLS 1.2. Los certificados de cifrado se administran automáticamente en la infraestructura. 

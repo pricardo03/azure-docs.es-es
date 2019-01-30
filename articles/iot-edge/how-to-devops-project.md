@@ -4,17 +4,17 @@ description: Con Azure DevOps Projects es fácil empezar a usar Azure. En pocos 
 author: shizn
 manager: ''
 ms.author: xshi
-ms.date: 12/04/2018
+ms.date: 01/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: ebb7e515f9d9205f364d50b3d686c68a2988f86a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 114b6b0cc0fd4e8e51a9dbf2cdc8d9e2a2261754
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074221"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823494"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects-preview"></a>Creación de una canalización de CI/CD para IoT Edge con Azure DevOps Projects (versión preliminar)
 
@@ -24,115 +24,114 @@ Si no tiene una suscripción activa a Azure, cree una [cuenta gratuita](https://
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-DevOps Projects crea una canalización de CI/CD en Azure DevOps. Puede crear una organización de Azure DevOps o usar una existente. DevOps Projects también crea recursos de Azure en la suscripción de Azure que prefiera.
+DevOps Projects crea una canalización de CI/CD en Azure DevOps. Puede crear una organización de Azure DevOps nueva o usar una existente. DevOps Projects también crea recursos de Azure en la suscripción de Azure que prefiera.
 
 1. Inicie sesión en el [Portal de Microsoft Azure](https://portal.azure.com).
 
-1. En el panel izquierdo, seleccione el icono **Crear un recurso** en la barra de navegación izquierda y busque **DevOps Projects**.  
+1. En el panel izquierdo, seleccione **Crear un recurso** y, después, busque **DevOps Projects**.  
 
 1.  Seleccione **Crear**.
 
-## <a name="select-a-sample-application-and-azure-service"></a>Seleccione una aplicación de ejemplo y el servicio de Azure
+## <a name="create-a-new-application-pipeline"></a>Creación de una nueva canalización de aplicaciones 
 
-1. Los módulos de Azure IoT Edge se pueden escribir en [C#](tutorial-csharp-module.md), [Node.js](tutorial-node-module.md), [Python](tutorial-python-module.md), [C](tutorial-c-module.md) y [Java](tutorial-java-module.md). Seleccione el lenguaje que prefiera para iniciar una aplicación nueva. Del mismo modo, puede seleccionar **.NET**, **Node.js**, **Python**, **C** o **Java** y, luego, hacer clic en **Siguiente**.
+1. Los módulos de Azure IoT Edge se pueden escribir en [C#](tutorial-csharp-module.md), [Node.js](tutorial-node-module.md), [Python](tutorial-python-module.md), [C](tutorial-c-module.md) y [Java](tutorial-java-module.md). Seleccione el lenguaje que prefiera para iniciar una aplicación nueva: **.NET**, **Node.js**, **Python**, **C** o **Java**. Seleccione **Next** (Siguiente) para continuar.
 
-    ![Selección del lenguaje para crear una aplicación](./media/how-to-devops-project/select-language.png)
+   ![Selección del lenguaje para crear una aplicación](./media/how-to-devops-project/select-language.png)
 
-2. Seleccione **IoT simple (versión preliminar)** y haga clic en **Siguiente**.
+2. Seleccione **IoT simple (versión preliminar)** como marco de trabajo de la aplicación y, a continuación, seleccione **Siguiente**.
 
-    ![Selección de la plataforma IoT simple](media/how-to-devops-project/select-iot.png)
+   ![Selección de la plataforma IoT simple](media/how-to-devops-project/select-iot.png)
 
-3. Seleccione **IoT Edge** y, luego, **Siguiente**.
+3. Seleccione **IoT Edge** como servicio de Azure que implementa la aplicación y, a continuación, seleccione **Siguiente**.
 
-    ![Selección del servicio IoT Edge](media/how-to-devops-project/select-iot-edge.png)
+   ![Selección del servicio IoT Edge](media/how-to-devops-project/select-iot-edge.png)
 
-## <a name="configure-azure-devops-and-an-azure-subscription"></a>Configuración de Azure DevOps y una suscripción de Azure
+4. Cree una organización de Azure DevOps gratuita o elija una existente.
 
-1. Cree una organización de Azure DevOps gratuita o elija una existente.
+   1. Proporcione un nombre para el proyecto. 
 
-     a. Elija un nombre para el proyecto. 
+   2. Seleccione la organización de Azure DevOps. Si no tiene una organización existente, seleccione **Configuración adicional** para crear una nueva. 
 
-    b. Seleccione la suscripción de Azure y la ubicación, elija el nombre de la aplicación y seleccione **Listo**.  
+   3. Seleccione su suscripción a Azure.
 
-    ![Nombre y creación de la aplicación](media/how-to-devops-project/select-devops.png)
+   4. Use el nombre de IoT Hub generado por el nombre del proyecto o proporcione uno.
 
-1. En unos minutos, el panel de DevOps Projects se muestra en Azure Portal. Una aplicación IoT Edge de ejemplo se configura en un repositorio en la organización de Azure DevOps, se ejecuta una compilación y la aplicación se implementa en el dispositivo IoT Edge. Este panel proporciona visibilidad sobre el repositorio de código, la canalización de CI/CD y la aplicación de Azure.
+   5. Seleccione **Configuración adicional** para configurar los recursos de Azure que DevOps Projects crea en su nombre.
 
-    ![Visualización de la aplicación en el portal de DevOps](./media/how-to-devops-project/devops-portal.png)
+   6. Seleccione **Listo** para terminar de crear el proyecto. 
+
+   ![Nombre y creación de la aplicación](media/how-to-devops-project/select-devops.png)
+
+En unos minutos, el panel de DevOps Projects se muestra en Azure Portal. Seleccione el nombre del proyecto para ver el progreso. Es posible que deba actualizar la página. Una aplicación IoT Edge de ejemplo se configura en un repositorio en la organización de Azure DevOps, se ejecuta una compilación y la aplicación se implementa en el dispositivo IoT Edge. Este panel proporciona visibilidad sobre el repositorio de código, la canalización de CI/CD y la aplicación de Azure.
+
+   ![Visualización de la aplicación en el portal de DevOps](./media/how-to-devops-project/devops-portal.png)
 
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Confirmación de los cambios de código y ejecución de CI/CD
 
-DevOps Projects ha creado un repositorio Git en Azure Repos o GitHub. Para ver el repositorio y realizar cambios en el código de la aplicación, siga estos pasos:
+DevOps Projects ha creado un repositorio Git para el proyecto en Azure Repos. En esta sección, puede ver el repositorio y realizar cambios en la aplicación.
 
-1. En el lado izquierdo del panel de DevOps Projects, seleccione el vínculo de la rama **maestra**.  
-Este vínculo abre una vista al repositorio de Git recién creado.
+1. Para navegar en el repositorio creado para el proyecto, seleccione **Repositorios** en el menú del panel del proyecto.  
 
-1. Para ver la dirección URL de clonación del repositorio, seleccione **Clonar** en la parte superior derecha del explorador. Puede clonar el repositorio GIT en VS Code o en otras herramientas que prefiera. En los pasos siguientes, puede usar el explorador web para realizar los cambios en el código y confirmarlos directamente en la rama maestra.
+   ![Ver el repositorio generado en Azure Repos](./media/how-to-devops-project/view-repositories.png)
 
-    ![Clonación del repositorio GIT](media/how-to-devops-project/clone.png)
+2. Los pasos siguientes sirven como guía para el uso del explorador web para realizar cambios de código. Si quiere clonar el repositorio localmente en su lugar, seleccione **Clonar** en la parte superior derecha de la ventana. Use la dirección URL proporcionada para clonar el repositorio de Git en Visual Studio Code o la herramienta de desarrollo que prefiera. 
 
-1. A la izquierda del explorador, vaya al archivo **modules/FilterModule/module.json**.
+3. El repositorio ya incluye código para un módulo denominado **SampleModule** según el idioma de la aplicación que eligió en el proceso de creación. Abra el archivo **modules/SampleModule/module.json**.
 
-1. Seleccione **Editar** y haga un cambio en `"version"` en `"tag"`. Por ejemplo, lo puede actualizar a `"version": "${BUILD_BUILDID}"` para usar las [variables de compilación de Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) como parte de la etiqueta de imagen de módulo Azure IoT Edge.
+   ![Archivo module.json abierto en Azure Repos](./media/how-to-devops-project/open-module-json.png)
 
-    ![Edición de la versión para que acepte variables de compilación](media/how-to-devops-project/update-module-json.png)
+4. Seleccione **Editar** y haga un cambio en `"version"` en `"tag"`. Por ejemplo, lo puede actualizar a `"version": "${BUILD_BUILDID}"` para usar las [variables de compilación de Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) como parte de la etiqueta de imagen de módulo Azure IoT Edge.
 
-1. Seleccione **Confirmar** y guarde los cambios.
+   ![Edición de la versión para que acepte variables de compilación](media/how-to-devops-project/update-module-json.png)
 
-1. En el explorador, vaya al panel de proyectos de Azure DevOps.  Debería ver que hay una compilación en curso. Los cambios que ha realizado se compilan e implementan automáticamente a través de una canalización de CI/CD.
+5. Seleccione **Confirmar** y guarde los cambios.
+
+6. En el explorador, vuelva al panel de DevOps Projects en Azure Portal. Debería ver que hay una compilación en curso. Los cambios que ha realizado se compilan e implementan automáticamente a través de una canalización de CI/CD.
 
     ![Visualización del estado en curso](media/how-to-devops-project/ci-cd-in-progress.png)
 
 ## <a name="examine-the-cicd-pipeline"></a>Examen de la canalización de CI/CD
 
-En el paso anterior, Azure DevOps Projects configuró automáticamente una canalización de CI/CD completa para la aplicación de IoT Edge. Explore y personalice la canalización según sea necesario. Para familiarizarse con las canalizaciones de compilación y versión de Azure DevOps, siga estos pasos:
+En las secciones anteriores, Azure DevOps Projects configuró automáticamente una canalización de CI/CD completa para la aplicación de IoT Edge. A continuación, probó dicha canalización de compilación mediante la realización de cambios en uno de los archivos. Ahora, explore y personalice la canalización según sea necesario. Para familiarizarse con las canalizaciones de compilación y versión de Azure DevOps, siga estos pasos:
 
-1. En la parte superior del panel de DevOps Projects, seleccione **Compilar canalizaciones**.  
-Este vínculo abre una pestaña del explorador y la canalización de compilación de Azure DevOps del nuevo proyecto.
+1. Para ver las canalizaciones de compilación en el proyecto de DevOps, seleccione **Compilar canalizaciones** en el menú del panel del proyecto. Este vínculo abre una pestaña del explorador y la canalización de compilación de Azure DevOps del nuevo proyecto.
 
-1. Seleccione **Editar**.
+   ![Ver canalizaciones de compilación en Azure Pipelines](./media/how-to-devops-project/view-build-pipelines.png)
+
+2. Seleccione **Editar**.
 
     ![Edición de la canalización de compilación](media/how-to-devops-project/click-edit-button.png)
 
-1. En este panel puede examinar las distintas tareas de la canalización de compilación. La compilación realiza varias tareas que se usan para las implementaciones, como capturar orígenes del repositorio GIT, crear imágenes de módulo IoT Edge, insertar módulos de IoT Edge y publicar las salidas usadas. Para más información sobre las tareas de Azure IoT Edge para CI, puede visitar [Configuración de Azure Pipelines para integración continua](https://docs.microsoft.com/azure/iot-edge/how-to-ci-cd#configure-azure-pipelines-for-continuous-integration).
+3. En el panel que se abre, puede examinar las tareas que se producen cuando se ejecuta la canalización de compilación. La canalización de compilación realiza varias tareas que se usan para las implementaciones, como capturar orígenes del repositorio de Git, crear imágenes de módulo IoT Edge, insertar módulos IoT Edge en un registro de contenedores y publicar las salidas usadas. Para más información sobre las tareas de Azure IoT Edge en Azure DevOps, consulte [Configuración de Azure Pipelines para integración continua](how-to-ci-cd.md#configure-continuous-integration).
 
-    ![Visualización de las tareas de integración continua](media/how-to-devops-project/ci.png)
+4. Seleccione el encabezado **Canalización** en la parte superior de la canalización de compilación para abrir los detalles de la canalización. Cambie el nombre de la canalización de compilación por algo más descriptivo.
 
-1. En la parte superior de la canalización de compilación, seleccione el nombre de esta.
+   ![Edición de los detalles de canalización](./media/how-to-devops-project/edit-build-pipeline.png)
 
-1. Cambie el nombre de la canalización de compilación por otro más descriptivo, seleccione **Guardar y poner en cola** y, luego, **Guardar**.
+5. Seleccione **Guardar y poner en cola** y, después, seleccione **Guardar**.
 
-1. En el nombre de la canalización de compilación, seleccione **Historial**.   
-En el panel **Historial** verá un registro de auditoría de los cambios recientes en la compilación.  Azure Pipelines realiza un seguimiento de los cambios que se realizan en la canalización de compilación y permite comparar versiones.
+6. En el menú de la canalización de compilación, seleccione **Desencadenadores**. DevOps Projects creó automáticamente un desencadenador de integración continua y cada confirmación en el repositorio inicia una compilación.  Si lo desea, puede elegir incluir o excluir ramas del proceso de CI.
 
-1. Seleccione **Desencadenadores**. DevOps Projects creó automáticamente un desencadenador de integración continua y cada confirmación en el repositorio inicia una compilación.  Si lo desea, puede elegir incluir o excluir ramas del proceso de CI.
+7. Seleccione **Retención**. En función del escenario, puede especificar directivas para conservar o quitar un determinado número de compilaciones.
 
-1. Seleccione **Retención**. En función del escenario, puede especificar directivas para conservar o quitar un determinado número de compilaciones.
+8. Seleccione **Historial**. Este panel incluye un registro de auditoría de los cambios recientes de la compilación. Azure Pipelines realiza un seguimiento de los cambios que se realizan en la canalización de compilación y permite comparar versiones.
 
-1. Seleccione **Versión** en **Canalizaciones**. DevOps Projects crea una canalización de versión para administrar implementaciones en Azure IoT Edge.
+9. Cuando haya terminado la exploración de la canalización de compilación, vaya a la canalización de versión correspondiente. Seleccione **Versiones** en **Canalizaciones** y, a continuación, seleccione **Editar** para ver los detalles de la canalización.
 
     ![Visualización de la canalización de versión](media/how-to-devops-project/release-pipeline.png)
 
-1. Seleccione **Editar**. La canalización de versión contiene una canalización que define el proceso de versión.  
+10. En **Artefactos**, seleccione **Colocar**. La salida que se usa para el artefacto es la salida de la canalización de compilación que ha examinado en los pasos anteriores. 
 
-1. En **Artefactos**, seleccione **Colocar**. La canalización de compilación que ha examinado en los pasos anteriores genera la salida usada por el artefacto. 
+11. Al lado del icono **Colocar**, seleccione el **Desencadenador de implementación continua** que parece un rayo. Esta canalización de versión tiene el desencadenador habilitado, que ejecuta una implementación cada vez que hay un nuevo artefacto de compilación disponible. Opcionalmente, puede deshabilitar el desencadenador, con lo que las implementaciones van a requerir una ejecución manual.  
 
-1. Al lado del icono **Colocar**, seleccione **Desencadenador de implementación continua**.  
-Esta canalización de versión tiene un desencadenador de implementación continua habilitado que ejecuta una implementación cada vez que hay un nuevo artefacto de compilación disponible. Opcionalmente, puede deshabilitar el desencadenador, con lo que las implementaciones van a requerir una ejecución manual.  
+12. En el menú de la canalización de versión, seleccione **Tareas** y, a continuación, elija la fase **dev** en la lista desplegable. DevOps Projects ha creado una fase de versión que crea un centro de IoT y un dispositivo IoT Edge en ese centro, que implementa el módulo de ejemplo de la canalización de compilación y que aprovisiona una máquina virtual para ejecutar como dispositivo IoT Edge. Para más información sobre las tareas de Azure IoT Edge para CD, consulte [Configuración de Azure Pipelines para implementación continua](how-to-ci-cd.md#configure-continuous-deployment).
 
-1. En el lado izquierdo, seleccione **Tareas**. Las tareas son las actividades que ejecuta el proceso de implementación. En este ejemplo se creó una tarea para implementar las imágenes de módulo en Azure IoT Edge. Para más información sobre las tareas de Azure IoT Edge para CD, puede visitar [Configuración de Azure Pipelines para implementación continua](https://docs.microsoft.com/azure/iot-edge/how-to-ci-cd#configure-azure-pipelines-for-continuous-deployment).
+   ![Visualización de las tareas de implementación continua](media/how-to-devops-project/dev-release.png)
 
-    ![Visualización de las tareas de implementación continua](media/how-to-devops-project/dev-release.png)
+13. A la derecha, seleccione **Ver versiones**. Esta vista muestra un historial de versiones.
 
-1. A la derecha, seleccione **Ver versiones**. Esta vista muestra un historial de versiones.
-
-1. Seleccione los puntos suspensivos (...) junto a una de las versiones y, luego, seleccione **Abrir**.  
-Hay varios menús para explorar, como un resumen de las versiones, elementos de trabajo asociados y las pruebas.
-
-1. Seleccione **Confirmaciones**. Esta vista muestra las confirmaciones de código asociadas a la implementación concreta. 
-
-1. Seleccione **Registros**. Los registros contienen información útil sobre el proceso de implementación. Pueden verse durante y después de las implementaciones.
+14. Seleccione el nombre de una versión para ver más información sobre ella.
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
-ms.openlocfilehash: 8ff99b8c5cf839afb8c8e73c18c2c413998ba64a
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 30b83613637d97bfe265c4f5a9c911d14da50c4f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261725"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810914"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Elección del nivel adecuado de IoT Hub para la solución
 
@@ -43,6 +43,7 @@ Solo se puede elegir un tipo de [edición](https://azure.microsoft.com/pricing/d
 | [Supervisión y diagnóstico](iot-hub-monitor-resource-health.md) | SÍ | SÍ |
 | [Mensajería de la nube a un dispositivo](iot-hub-devguide-c2d-guidance.md) |   | SÍ |
 | [Dispositivos gemelos](iot-hub-devguide-device-twins.md), [Módulos gemelos](iot-hub-devguide-module-twins.md) y [Administración de dispositivos](iot-hub-device-management-overview.md) |   | SÍ |
+| [Flujos de dispositivos (versión preliminar)](iot-hub-device-streams-overview.md) |   | SÍ |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | SÍ |
 
 IoT Hub también ofrece un nivel gratis que está diseñado para pruebas y evaluación. Tiene todas las capacidades del nivel estándar, pero las concesiones de mensajería son limitadas. No puede actualizar desde el nivel gratis al plan Básico o Estándar. 

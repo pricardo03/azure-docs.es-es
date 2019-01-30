@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: e8e838fae0da3a47fe1b3ec8d412f956f5f28034
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 31d6725b6e02bbc583ad80f235360574941a97d3
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975516"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468342"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configurar los contenedores de docker de Language Understanding 
 
@@ -35,7 +35,8 @@ Este contenedor tiene las siguientes opciones de configuración:
 |SÍ|[Facturación](#billing-setting)|Especifica el URI del punto de conexión del recurso de servicio en Azure.|
 |SÍ|[Eula](#eula-setting)| Indica que ha aceptado la licencia del contenedor.|
 |Sin |[Fluentd](#fluentd-settings)|Escribe el registro y, opcionalmente, los datos de métricas en un servidor de Fluentd.|
-|Sin |[Logging](#logging-settings)|Proporciona compatibilidad con el registro de ASP.NET Core al contenedor. |
+|Sin |[Proxy Http](#http-proxy-credentials-settings)|Configure un proxy HTTP para hacer solicitudes salientes.|
+|Sin |[Registro](#logging-settings)|Proporciona compatibilidad con el registro de ASP.NET Core al contenedor. |
 |SÍ|[Mounts](#mount-settings)|Leer y escribir datos desde el equipo host al contenedor y del contenedor al equipo host.|
 
 > [!IMPORTANT]
@@ -77,6 +78,10 @@ Este valor se puede encontrar en los siguientes lugares:
 
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
+
+## <a name="http-proxy-credentials-settings"></a>Configuración de las credenciales del proxy HTTP
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## <a name="logging-settings"></a>Opción de configuración Logging
  
@@ -189,3 +194,4 @@ ApiKey={APPLICATION_ID} \
 
 * Consulte [Instalación y ejecución de contenedores](luis-container-howto.md)
 * Consulte las [preguntas frecuentes (P+F)](luis-resources-faq.md) para resolver problemas relacionados con la funcionalidad de LUIS.
+* Usar más [contenedores de Cognitive Services](../cognitive-services-container-support.md)

@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 79c95a53ace4fd5ab638587d1b74980812fbc273
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 20c1e2a4394c249b410a1253356d0ef96c30e970
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116970"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818904"
 ---
-# <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-azure-devops-services"></a>Migración de Contoso: refactorización de una implementación de Team Foundation Server a Azure DevOps Services
+# <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-azure-devops-services"></a>Migración de Contoso:  Refactorizar una implementación de Team Foundation Server a Azure DevOps Services
 
 En este artículo se muestra cómo Contoso refactoriza su implementación de Team Foundation Server (TFS) en el entorno local mediante la migración a Azure DevOps Services en Azure. El equipo de desarrollo de Contoso ha utilizado TFS para la colaboración en equipo y el control de código fuente durante los últimos cinco años. Ahora, quiere pasar a una solución basada en la nube para el trabajo de desarrollo y pruebas, y para el control de código fuente. Azure DevOps Services jugará un papel importante a medida que Contoso cambie a un modelo de Azure DevOps, y desarrollará nuevas aplicaciones nativas de la nube.
 
@@ -22,29 +22,29 @@ Este documento es el primero de una serie de artículos que muestran cómo la co
 
 **Artículo** | **Detalles** | **Estado**
 --- | --- | ---
-[Artículo 1: Introducción](contoso-migration-overview.md) | Se proporciona una introducción a la estrategia de migración de Contoso, la serie de artículos y las aplicaciones de ejemplo que usamos. | Disponible
-[Artículo 2: Deploy an Azure infrastructure](contoso-migration-infrastructure.md) (Implementación de una infraestructura de Azure) | Se describe cómo Contoso prepara su infraestructura local y de Azure para la migración. Se usa la misma infraestructura para todos los escenarios de migración de Contoso. | Disponible
-[Artículo 3: Assess on-premises resources](contoso-migration-assessment.md) (Evaluación de los recursos locales)  | Se muestra cómo Contoso realiza una valoración de su aplicación de dos niveles local SmartHotel que se ejecuta en VMware. Se evalúan las VM de la aplicación mediante el servicio [Azure Migrate](migrate-overview.md) y la base de datos de SQL Server de aplicaciones con [Azure Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponible
-[Artículo 4: Rehospedar en máquinas virtuales de Azure y una instancia administrada de SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Muestra cómo Contoso migra la aplicación SmartHotel a Azure. La VM de la aplicación web de la aplicación se migra con [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) y la base de datos de la aplicación con [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview), para migrar a una instancia administrada de SQL. | Disponible
-[Artículo 5: Volver a hospedar máquinas virtuales de Azure](contoso-migration-rehost-vm.md) | Muestra cómo Contoso migra SmartHotel a VM IaaS de Azure mediante el servicio Site Recovery.
-[Article 6: Rehost to Azure VMs and SQL Server Availability Groups](contoso-migration-rehost-vm-sql-ag.md) (Artículo 6: Rehospedaje de VM de Azure y grupos de disponibilidad de SQL Server) | Muestra cómo migra Contoso la aplicación SmartHotel. Usa Site Recovery para migrar las VM de la aplicación y el servicio Database Migration para migrar la base de datos de aplicaciones a un grupo de disponibilidad de SQL Server. | Disponible
-[Artículo 7: Rehospedaje de una aplicación Linux en VM de Azure](contoso-migration-rehost-linux-vm.md) | Muestra cómo Contoso migra la aplicación osTicket de Linux a VM IaaS de Azure mediante Azure Site Recovery.
-[Artículo 8: Rehospedaje de una aplicación de Linux en VM de Azure y en Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Muestra cómo Contoso migra la aplicación osTicket de Linux. Usa Site Recovery para la migración de VM y MySQL Workbench para migrar a una instancia de Azure MySQL Server. | Disponible
-[Artículo 9: Refactorizar una aplicación a Azure Web Apps y Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Muestra cómo Contoso migra la aplicación de SmartHotel a una aplicación web basada en contenedor de Azure y migra la base de datos de la aplicación a Azure SQL Server. | Disponible
-[Artículo 10: Refactorizar una aplicación Linux en Azure App Service y Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Muestra cómo Contoso migra la aplicación Linux osTicket a Azure App Service mediante el contenedor Docker de PHP 7.0. El código base para la implementación se migra a GitHub. La base de datos de la aplicación se migra a Azure MySQL. | Disponible
-Artículo 11: Refactorización de una implementación de TFS en Azure DevOps Services | Migración de la aplicación de desarrollo TFS a Azure DevOps Services en Azure | Este artículo
-[Artículo 12: Rediseño de la arquitectura de una aplicación en Azure Containers y Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Muestra cómo Contoso migra la aplicación de SmartHotel a Azure y rediseña su arquitectura. Rediseñan la arquitectura del nivel web de la aplicación como contenedor de Windows, y la base de datos de la aplicación en una instancia de Azure SQL Database. | Disponible
-[Artículo 13: Volver a compilar una aplicación en Azure](contoso-migration-rebuild.md) | Muestra cómo Contoso vuelve a compilar su aplicación de SmartHotel con una gama de funcionalidades y servicios de Azure, como App Services, Azure Kubernetes, Azure Functions, Cognitive Services y Cosmos DB. | Disponible
-[Artículo 14: Escalado de una migración en Azure](contoso-migration-scale.md) | Después de probar combinaciones de migración, Contoso se prepara para escalar una migración completa a Azure. | Disponible
+[Artículo 1: Introducción](contoso-migration-overview.md) | Se proporciona una introducción a la estrategia de migración de Contoso, la serie de artículos y las aplicaciones de ejemplo que usamos. | Disponible
+[Artículo 2: implementación de una infraestructura de Azure](contoso-migration-infrastructure.md) | Describe cómo Contoso prepara la infraestructura local y de Azure para la migración. Se usa la misma infraestructura para todos los escenarios de migración de Contoso. | Disponible
+[Artículo 3: Obtener acceso a recursos locales](contoso-migration-assessment.md)  | Se muestra cómo Contoso realiza una valoración de su aplicación de dos niveles local SmartHotel que se ejecuta en VMware. Se evalúan las VM de la aplicación mediante el servicio [Azure Migrate](migrate-overview.md) y la base de datos de SQL Server de aplicaciones con [Azure Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponible
+[Artículo 4: Rehospedar en VM de Azure y una instancia administrada de SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Muestra cómo Contoso migra la aplicación SmartHotel a Azure. La VM de la aplicación web de la aplicación se migra con [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) y la base de datos de la aplicación con [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview), para migrar a una instancia administrada de SQL. | Disponible
+[Artículo 5: Volver a hospedar VM de Azure](contoso-migration-rehost-vm.md) | Muestra cómo Contoso migra SmartHotel a VM IaaS de Azure mediante el servicio Site Recovery.
+[Artículo 6: Rehospedar en VM de Azure y grupos de disponibilidad de SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Muestra cómo Contoso migra la aplicación SmartHotel. Usa Site Recovery para migrar las VM de la aplicación y el servicio Database Migration para migrar la base de datos de aplicaciones a un grupo de disponibilidad de SQL Server. | Disponible
+[Artículo 7: Rehospedar una aplicación de Linux en VM de Azure](contoso-migration-rehost-linux-vm.md) | Muestra cómo Contoso migra la aplicación osTicket de Linux a VM IaaS de Azure mediante Azure Site Recovery.
+[Artículo 8: Rehospedar una aplicación de Linux en VM de Azure y Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Muestra cómo Contoso migra la aplicación osTicket de Linux. Usa Site Recovery para la migración de VM y MySQL Workbench para migrar a una instancia de Azure MySQL Server. | Disponible
+[Artículo 9: Refactorizar una aplicación a Azure Web Apps y Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Muestra cómo Contoso migra la aplicación de SmartHotel a una aplicación web basada en contenedor de Azure y migra la base de datos de la aplicación a Azure SQL Server. | Disponible
+[Artículo 10: Refactorizar una aplicación Linux en Azure App Service y Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Muestra cómo Contoso migra la aplicación Linux osTicket a Azure App Service mediante el contenedor Docker de PHP 7.0. El código base para la implementación se migra a GitHub. La base de datos de la aplicación se migra a Azure MySQL. | Disponible
+Artículo 11: Refactorización de una implementación de TFS en Azure DevOps Services | Migración de la aplicación de desarrollo TFS a Azure DevOps Services en Azure | Este artículo
+[Artículo 12: rediseño de una aplicación en Azure Containers y Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Muestra cómo Contoso migra la aplicación de SmartHotel a Azure y rediseña su arquitectura. Rediseñan la arquitectura del nivel web de la aplicación como contenedor de Windows, y la base de datos de la aplicación en una instancia de Azure SQL Database. | Disponible
+[Artículo 13: Recompilación de una aplicación en Azure](contoso-migration-rebuild.md) | Muestra cómo Contoso vuelve a compilar su aplicación de SmartHotel con una gama de funcionalidades y servicios de Azure, como App Services, Azure Kubernetes, Azure Functions, Cognitive Services y Cosmos DB. | Disponible
+[Artículo 14: Escalado de una migración en Azure](contoso-migration-scale.md) | Después de probar combinaciones de migración, Contoso se prepara para escalar una migración completa a Azure. | Disponible
 
 
 ## <a name="business-drivers"></a>Impulsores del negocio
 
 El equipo de liderazgo de TI ha trabajado estrechamente con socios comerciales para identificar los objetivos futuros. Los asociados no están demasiado preocupados por las tecnologías ni las herramientas de desarrollo, pero han capturado estos puntos:
 
-- **Software**: sin tener en cuenta el negocio principal, todas las compañías ahora son compañías de software, incluida Contoso. El liderazgo empresarial está interesado en cómo el departamento de TI puede ayudar a liderar la empresa con nuevas prácticas de trabajo para los usuarios y experiencias para sus clientes.
+- **Software**: Sin tener en cuenta el negocio principal, todas las compañías ahora son compañías de software, incluida Contoso. El liderazgo empresarial está interesado en cómo el departamento de TI puede ayudar a liderar la empresa con nuevas prácticas de trabajo para los usuarios y experiencias para sus clientes.
 - **Eficacia**: Contoso debe eliminar los procedimientos innecesarios y optimizar los procesos para los desarrolladores y usuarios. Esto permitirá a la empresa cumplir los requisitos de los clientes de manera más eficaz. La empresa necesita que el departamento de TI sea rápido, sin perder tiempo ni dinero.
-- **Agilidad**: el departamento de TI de Contoso debe responder a las necesidades empresariales y reaccionar más rápidamente que el mercado para permitir el éxito en una economía global. Así mismo, no debe ser un impedimento para la empresa.
+- **Agilidad**:  El Departamento de TI de Contoso debe responder a las necesidades empresariales y reaccionar más rápidamente que el mercado para permitir el éxito en una economía global. Así mismo, no debe ser un impedimento para la empresa.
 
 ## <a name="migration-goals"></a>Objetivos de la migración
 
@@ -90,13 +90,13 @@ Contoso completará el proceso de migración como se indica a continuación:
 Así es como Azure realizará la migración:
 
 > [!div class="checklist"]
-> * **Paso 1: Crear una cuenta de almacenamiento de Azure**: esta cuenta de almacenamiento se usará durante el proceso de migración.
-> * **Paso 2: Actualizar TFS**: Contoso actualizará su implementación a TFS 2018 Upgrade 2. 
-> * **Paso 3: Validar colección**: Contoso validará la colección de TFS para prepararla para la migración.
-> * **Paso 4: Compilar el archivo de preparación**: Contoso creará los archivos de migración mediante la herramienta de migración de TFS. 
+> * **Paso 1: Crear una cuenta de almacenamiento de Azure**: Esta cuenta de almacenamiento se usará durante el proceso de migración.
+> * **Paso 2: Actualizar TFS**: Contoso actualizará su implementación a TFS 2018 Upgrade 2. 
+> * **Paso 3: Validar la colección**: Contoso validará la colección de TFS para prepararla para la migración.
+> * **Paso 4: Compilar el archivo de preparación**: Contoso creará los archivos de migración mediante la herramienta de migración de TFS. 
 
 
-## <a name="step-1-create-a-storage-account"></a>Paso 1: Creación de una cuenta de almacenamiento
+## <a name="step-1-create-a-storage-account"></a>Paso 1: Crear una cuenta de almacenamiento
 
 1. En Azure Portal, los administradores de Contoso crean una cuenta de almacenamiento (**contosodevmigration**).
 2. La cuenta se colocará en la región secundaria que se usa para la conmutación por error: Centro de EE. UU. Usa una cuenta de uso general estándar con almacenamiento localmente redundante.
@@ -175,7 +175,7 @@ Los administradores de Contoso ejecutan la herramienta de migración de TFS en l
 
      ![TFS](./media/contoso-migration-tfs-vsts/collection5.png)
 
-6. Vuelve a ejecutar el comando de validación e incluye este valor, junto con su nombre de Azure AD: **TfsMigrator validate /collection:http://contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com**.
+6. Vuelven a ejecutar el comando de validación e incluyen este valor, junto con su nombre de Azure AD: **TfsMigrator validate /collection:http://contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com**.
 
     ![TFS](./media/contoso-migration-tfs-vsts/collection7.png)
 
@@ -233,18 +233,18 @@ Con la validación completa, los administradores de Contoso pueden usar la herra
 
 
 
-## <a name="step-5-migrate-to-azure-devops-services"></a>Paso 5: Migración a Azure DevOps Services
+## <a name="step-5-migrate-to-azure-devops-services"></a>Paso 5: Migrar a Azure DevOps Services
 
 Una vez realizada la preparación, los administradores de Contoso pueden centrarse en la migración. Después de ejecutar la migración, pasará de usar TFVC a usar GIT para el control de versiones.
 
 Antes de empezar, los administradores programan el tiempo de inactividad con el equipo de desarrollo, para desconectar la colección para la migración. Estos son los pasos para el proceso de migración:
 
-1. **Desasociar la colección**: los datos de identidad de la colección residen en la base de datos de configuración del servidor de TFS mientras la colección está adjunta y en línea. Cuando se desasocia una colección del servidor TFS, esta toma una copia de los datos de identidad y la empaqueta con la colección para el transporte. Sin estos datos, no se puede ejecutar la parte de la identidad de la importación. Se recomienda que la colección permanezca desasociada hasta que se complete la importación, ya que no hay ninguna manera de importar los cambios que se produjeron durante la importación.
-2. **Generar una copia de seguridad**: el siguiente paso del proceso de migración consiste en generar una copia de seguridad que se puede importar en Azure DevOps Services. Los paquetes de componentes de aplicación de capa de datos (DACPAC) son una característica de SQL Server que permite que los cambios de la base de datos se empaqueten en un único archivo e implementen en otras instancias de SQL. También se pueden restaurar directamente en Azure DevOps Services y, por tanto, usarse como método de empaquetado para introducir los datos de la colección en la nube. Contoso usará la herramienta SqlPackage.exe para generar el archivo DACPAC. Esta herramienta se incluye en SQL Server Data Tools.
-3. **Cargar en el almacenamiento**: una vez creado el archivo DACPAC, Contoso lo carga en Azure Storage. Una vez cargado, obtiene una firma de acceso compartido (SAS), para permitir el acceso de la herramienta de migración de TFS al almacenamiento.
-4. **Rellenar la importación**: a continuación, Contoso puede rellenar los campos que faltan en el archivo de importación, incluida la configuración de DACPAC. Para empezar, especificará que quiere hacer una importación **DryRun** para comprobar que todo funciona correctamente antes de la migración completa.
-5. **Realizar un simulacro**: el simulacro de importaciones ayuda a probar la migración de la colección. Los simulacros tienen una vida limitada y se eliminan antes de que se ejecute la migración de producción. Se eliminan automáticamente tras un período determinado de tiempo. Se incluye una nota acerca de cuándo se eliminará el simulacro en el correo electrónico de operación correcta que se recibirá cuando finalice la importación. Le recomendamos anotar la fecha y realizar una planeación en consecuencia.
-6. **Completar la migración de producción**: una vez completado el simulacro de migración, los administradores de Contoso realizan la migración final actualizando el archivo import.json y volviendo a ejecutar la importación.
+1. **Desasociar la colección**: Los datos de identidad de la colección residen en la base de datos de configuración del servidor de TFS mientras la colección está adjunta y en línea. Cuando se desasocia una colección del servidor TFS, esta toma una copia de los datos de identidad y la empaqueta con la colección para el transporte. Sin estos datos, no se puede ejecutar la parte de la identidad de la importación. Se recomienda que la colección permanezca desasociada hasta que se complete la importación, ya que no hay ninguna manera de importar los cambios que se produjeron durante la importación.
+2. **Generar una copia de seguridad**: El siguiente paso del proceso de migración consiste en generar una copia de seguridad que se pueda importar en Azure DevOps Services. Los paquetes de componentes de aplicación de capa de datos (DACPAC) son una característica de SQL Server que permite que los cambios de la base de datos se empaqueten en un único archivo e implementen en otras instancias de SQL. También se pueden restaurar directamente en Azure DevOps Services y, por tanto, usarse como método de empaquetado para introducir los datos de la colección en la nube. Contoso usará la herramienta SqlPackage.exe para generar el archivo DACPAC. Esta herramienta se incluye en SQL Server Data Tools.
+3. **Cargar en el almacenamiento**: Tras crear el archivo DACPAC, lo cargan en Azure Storage. Una vez cargado, obtiene una firma de acceso compartido (SAS), para permitir el acceso de la herramienta de migración de TFS al almacenamiento.
+4. **Rellenar la importación**: A continuación, Contoso puede rellenar los campos que faltan en el archivo de importación, incluida la configuración de DACPAC. Para empezar, especificará que quiere hacer una importación **DryRun** para comprobar que todo funciona correctamente antes de la migración completa.
+5. **Hacer un simulacro**: El simulacro de importaciones ayuda a probar la migración de la colección. Los simulacros tienen una vida limitada y se eliminan antes de que se ejecute la migración de producción. Se eliminan automáticamente tras un período determinado de tiempo. Se incluye una nota acerca de cuándo se eliminará el simulacro en el correo electrónico de operación correcta que se recibirá cuando finalice la importación. Le recomendamos anotar la fecha y realizar una planeación en consecuencia.
+6. **Completar la migración de producción**: Una vez completado el simulacro de migración, los administradores de Contoso realizan la migración final actualizando el archivo import.json y volviendo a ejecutar la importación.
 
 
 
@@ -286,7 +286,7 @@ Antes de empezar, los administradores de Contoso realizan una copia de seguridad
 Contoso crea una copia de seguridad (DACPAC) para la importación en Azure DevOps Services.
 
 - SqlPackage.exe en SQL Server Data Tools se usa para crear el archivo DACPAC. Hay varias versiones de SqlPackage.exe que se instalan con SQL Server Data Tools, ubicadas en carpetas con nombres como 120, 130 y 140. Es importante usar la versión correcta para preparar el archivo DACPAC.
-- Las importaciones de TFS 2018 deben usar SqlPackage.exe desde la carpeta 140 o superior.  Para CONTOSOTFS, este archivo se encuentra en la carpeta: **C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\140**.
+- Las importaciones de TFS 2018 deben usar SqlPackage.exe desde la carpeta 140 o superior.  Para CONTOSOTFS, este archivo se encuentra en la carpeta: **C:\Archivos de programa (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\140**.
 
 
 Los administradores de Contoso generan el archivo DACPAC como se indica a continuación:
@@ -341,9 +341,9 @@ Una vez creado el archivo de DACPAC, Contoso lo carga en Azure Storage.
 
 Anteriormente, los administradores de Contoso rellenaron de forma parcial el archivo de especificación de importación (import.json). Ahora, debe agregar el resto de configuraciones.
 
-Abre el archivo import.json y rellena los campos siguientes: • Ubicación: la ubicación de la clave SAS que se generó anteriormente.
-• DACPAC: establece el nombre en el archivo DACPAC que cargó en la cuenta de almacenamiento. Incluye la extensión ".dacpac".
-• ImportType: lo establece en DryRun por ahora.
+Abre el archivo import.json y rellena los campos siguientes: •   Ubicación: Ubicación de la clave SAS que se generó anteriormente.
+•   Dacpac: Establece el nombre en el archivo DACPAC que cargó en la cuenta de almacenamiento. Incluye la extensión ".dacpac".
+•   ImportType: Se establece en DryRun por ahora.
 
 
 ![Importar configuración](./media/contoso-migration-tfs-vsts/import1.png)

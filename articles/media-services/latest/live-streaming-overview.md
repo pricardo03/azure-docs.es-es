@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 01/22/2019
 ms.author: juliako
-ms.openlocfilehash: 91e24fb274c1f9895046e8e2e7d760d02d196ccd
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 3be7ad84cf0d45276c136465d7247ec43621aceb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354185"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810965"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en vivo con Azure Media Services v3
 
@@ -34,23 +34,32 @@ En este artículo se proporciona una introducción general y una guía detallada
 
 Estos son los pasos para un flujo de trabajo de streaming en vivo:
 
-1. Cree un **evento en directo**.
-2. Cree un nuevo objeto de **recurso**.
-3. Cree un objeto de **salida en directo** y use el nombre del recurso que ha creado.
-4. Cree una **directiva de streaming** y la **clave de contenido** si se va a cifrar el contenido con DRM.
-5. Si no utiliza DRM, cree un **localizador de streaming** con los tipos de **directiva de streaming** incorporados.
-6. Enumere las rutas de acceso en la **directiva de streaming** para recuperar las direcciones URL que se van a utilizar (estas son deterministas).
-7. Obtenga el nombre de host para el **punto de conexión de streaming** desde el que quiere realizar la transmisión. 
-8. Combine la dirección URL del paso 6 con el nombre de host del paso 7 para obtener la dirección URL completa.
-9. Si quiere que su **evento en directo** deje de estar visible, deberá detener la transmisión del evento mediante la eliminación del **localizador de streaming**.
+1. Asegúrese de que **StreamingEndpoint** esté en ejecución. 
+2. Cree un objeto **LiveEvent**. 
+  
+    Al crear el evento, puede especificar que se inicie automáticamente. De lo contrario, puede iniciar el evento cuando esté listo para iniciar el streaming.<br/> Cuando el inicio automático está establecido en true, el evento en directo se iniciará después de la creación. Es decir, la facturación comienza tan pronto como el evento en directo se está ejecutando. Debe llamar explícitamente a Stop en el recurso de LiveEvent para detener la facturación. Para más información, consulte [Estados y facturación de LiveEvent](live-event-states-billing.md).
+3. Obtenga las direcciones URL de ingesta y configure el codificador local para usar la dirección URL para enviar la fuente de contribución.<br/>Consulte [Codificadores de streaming en vivo recomendados](recommended-on-premises-live-encoders.md).
+4. Obtenga la dirección URL de versión preliminar y úsela para verificar que la entrada del codificador se está recibiendo realmente.
+5. Cree un nuevo objeto de **recurso**.
+6. Crear un objeto **LiveOutput** y use el nombre del recurso que ha creado.
 
-Para más información, consulte un [tutorial de streaming en vivo](stream-live-tutorial-with-api.md) basado en el ejemplo [.NET Core en vivo](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live).
+     **LiveOutput** archivará el streaming en el **Recurso**.
+7. Cree un objeto **StreamingLocator** con los tipos **StreamingPolicy** integrados.
+
+    Si va a cifrar el contenido, consulte [Introducción a la protección de contenido](content-protection-overview.md).
+8. Enumere las rutas de acceso en el **localizador de streaming** para recuperar las direcciones URL que se van a usar (estas son deterministas).
+9. Obtenga el nombre de host para el **punto de conexión de streaming** desde el que quiere hacer el streaming.
+10. Combine la dirección URL del paso 8 con el nombre de host del paso 9 para obtener la dirección URL completa.
+11. Si quiere que **LiveEvent** deje de estar visible, deberá detener el streaming del evento y eliminar **StreamingLocator**.
+
+Para más información, consulte el [tutorial de streaming en vivo](stream-live-tutorial-with-api.md).
 
 ## <a name="overview-of-main-components"></a>Información general de los componentes principales
 
 Para entregar secuencias bajo demanda o streaming en vivo con Media Services, debe tener al menos un objeto [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints). Cuando se crea la cuenta de Media Services, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Detenido**. Debe iniciar el objeto StreamingEndpoint desde el que desea transmitir el contenido a los usuarios. Puede utilizar el objeto **StreamingEndpoint** predeterminado o crear otro objeto **StreamingEndpoint** personalizado con la configuración y los ajustes de la red CDN que desee. Puede decidir habilitar varios StreamingEndpoints, cada uno de ellos dirigido a una red CDN diferente, y proporcionar un nombre de host único para la entrega de contenido. 
 
-En Media Services, los objetos [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) son responsables de la ingesta y el procesamiento de las fuentes de vídeo en directo. Al crear un objeto LiveEvent, se crea un punto de conexión de entrada que puede utilizar para enviar una señal en directo desde un codificador remoto. El codificador en directo remoto envía la fuente de contribución a ese punto de conexión de entrada mediante el protocolo [RTMP](https://www.adobe.com/devnet/rtmp.html) o [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (MP4 fragmentado). Para el protocolo de introducción Smooth Streaming, los esquemas de dirección URL admitidos son `http://` o `https://`. Para el protocolo de introducción RTMP, los esquemas de dirección URL admitidos son `rtmp://` o `rtmps://`. Para más información, consulte [Recommended live streaming encoders](recommended-on-premises-live-encoders.md) (Codificadores de streaming en vivo recomendados).
+En Media Services, los objetos [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) son responsables de la ingesta y el procesamiento de las fuentes de vídeo en directo. Al crear un objeto LiveEvent, se crea un punto de conexión de entrada que puede utilizar para enviar una señal en directo desde un codificador remoto. El codificador en directo remoto envía la fuente de contribución a ese punto de conexión de entrada mediante el protocolo [RTMP](https://www.adobe.com/devnet/rtmp.html) o [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (MP4 fragmentado). Para el protocolo de introducción Smooth Streaming, los esquemas de dirección URL admitidos son `http://` o `https://`. Para el protocolo de introducción RTMP, los esquemas de dirección URL admitidos son `rtmp://` o `rtmps://`. Para más información, consulte [Recommended live streaming encoders](recommended-on-premises-live-encoders.md) (Codificadores de streaming en vivo recomendados).<br/>
+Al crear un objeto **LiveEvent**, puede especificar las direcciones IP permitidas en uno de los siguientes formatos: dirección IpV4 con 4 números, intervalo de direcciones CIDR.
 
 Cuando el objeto **LiveEvent** comience a recibir la fuente de contribución, puede utilizar el punto de conexión de vista previa (dirección URL de vista previa para obtener una vista previa y validar que está recibiendo el streaming en vivo antes de seguir publicándola. Una vez que haya comprobado que la secuencia de vista previa es buena, puede utilizar el objeto LiveEvent para que el streaming en vivo esté disponible para su entrega mediante uno o más objetos **StreamingEndpoints** (creados previamente). Para ello, cree un nuevo objeto [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) en **LiveEvent**. 
 
@@ -62,14 +71,7 @@ Media Services permite entregar el contenido cifrado de forma dinámica (**cifra
 
 Si lo desea, también puede aplicar el filtro dinámico, que puede utilizarse para controlar el número de pistas, formatos, velocidades de bits y ventanas de tiempo de presentación que se envían a los reproductores. Para obtener más información, consulte [Filtros y manifiestos dinámicos](filters-dynamic-manifest-overview.md).
 
-### <a name="new-capabilities-for-live-streaming-in-v3"></a>Nuevas funcionalidades para streaming en vivo en v3
-
-Con la versión 3 de las API de Media Services, se beneficia de las siguientes características nuevas:
-
-- Nuevo modo de latencia baja. Para más información, consulte [latencia](live-event-latency.md).
-- Compatibilidad mejorada con RTMP (mayor estabilidad y mejor compatibilidad con codificadores de origen).
-- Ingesta segura de RTMPS.<br/>Cuando se crea un objeto LiveEvent, obtiene cuatro direcciones URL de ingesta. Las cuatro direcciones URL de ingesta son casi idénticas, tienen el mismo token de streaming (AppId) y solo se diferencian en componente de número de puerto. Dos de las direcciones URL son principal y de respaldo para RTMPS.   
-- Puede transmitir eventos en directo que tengan hasta 24 horas de duración al usar Media Services para transcodificar una fuente de contribución de velocidad de bits única en un flujo de salida que tiene varias velocidades de bits. 
+Para obtener información acerca de nuevas funcionalidades de streaming en vivo en v3, consulte [Guía de migración para mover de Media Services v2 a v3](migrate-from-v2-to-v3.md).
 
 ## <a name="liveevent-types"></a>Tipos de objetos LiveEvent
 
@@ -108,7 +110,7 @@ Un objeto [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) le
 > [!NOTE]
 > Los objetos **LiveOutput** se inician al crearlos y se detienen cuando se eliminan. Cuando se elimina el objeto **LiveOutput**, no se elimina el **recurso** subyacente ni su contenido. 
 >
-> Si ha publicado **localizadores de streaming** en el recurso para el objeto **LiveOutput**, el evento (hasta la longitud de ventana DVR) seguirá visible hasta la hora de finalización del **localizador de streaming**  o hasta que elimine el localizador, lo que ocurra primero.   
+> Si ha publicado el recurso **LiveOutput** mediante **StreamingLocator**, el recurso **LiveEvent** (hasta la longitud de la ventana de DVR) seguirá estando visible hasta que la expiración o eliminación de **StreamingLocator**, lo que ocurra primero.
 
 Para más información, consulte [Uso de DVR de nube](live-event-cloud-dvr.md).
 

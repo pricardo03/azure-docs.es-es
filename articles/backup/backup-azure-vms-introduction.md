@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 09464342bd39e57f6e637ce90adc7190d08340a9
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 57d52412648cbe8a0791aa306075018a2092bf51
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265420"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827336"
 ---
 # <a name="about-azure-vm-backup"></a>Acerca de la copia de seguridad de máquina virtual de Azure
 
@@ -40,7 +40,7 @@ Aquí se explica cómo completa Azure Backup una copia de seguridad para las má
 
 Azure Backup no cifra los datos como parte del proceso de copia de seguridad. Azure Backup admite la copia de seguridad de las máquinas virtuales de Azure que estén cifradas mediante Azure Disk Encryption.
 
-- La copia de seguridad de las máquinas virtuales se cifra solo con Clave de cifrado de Bitlocker (BEK) y se admite BEK junto con Clave de cifrado de claves (KEK), tanto para las máquinas virtuales de Azure administradas como para las no administradas.
+- La copia de seguridad de las VM se cifra solo con Clave de cifrado de BitLocker (BEK) y se admite BEK junto con Clave de cifrado de claves (KEK), tanto para las VM de Azure administradas como para las no administradas.
 - Las claves BEK (secretos) y KEK (claves) que se han incluido en la copia de seguridad se cifran para que se puedan leer y usar solo cuando los usuarios autorizados las restauran de nuevo en el almacén de claves.
 - Puesto que la clave BEK también se incluye en una copia de seguridad, en los escenarios en los que la clave BEK se pierde, los usuarios autorizados pueden restaurar la clave BEK para el almacén de claves y recuperar la máquina virtual cifrada. Las claves y los secretos de las máquinas virtuales cifradas se incluyen en la copia de seguridad en formato cifrado, por lo que ni los usuarios no autorizados ni Azure pueden leerlos ni usar las claves y los secretos de la copia de seguridad. Solo los usuarios con el nivel adecuado de permisos pueden realizar la copia de seguridad y la restauración de las máquinas virtuales cifradas, así como las claves y los secretos.
 
@@ -69,11 +69,11 @@ Para realizar instantáneas mientras se ejecutan las aplicaciones, Azure Backup 
 
 La siguiente tabla explica los diferentes tipos de coherencia.
 
-**Instantánea** | **Basada en VSS** | **Detalles** | **Recuperación**
+**Instantánea** | **Detalles** | **Recuperación** | **Consideración**
 --- | --- | --- | ---
-**Coherente con la aplicación** | Sí (solo Windows) | Las copias de seguridad coherentes con las aplicaciones capturan el contenido de la memoria y las operaciones de E/S pendientes. Las instantáneas coherentes con la aplicación utilizan el escritor VSS (o script anterior o posterior para Linux) que garantizan la coherencia de datos de la aplicación antes de que se produzca una copia de seguridad. | Al recuperar con una instantánea coherente con la aplicación, la máquina virtual se inicia. No se pierden ni se dañan los datos. Las aplicaciones se inician en un estado coherente.
-**Coherente con el sistema de archivos** | Sí (solo Windows) |  Las copias de seguridad coherentes de archivos permiten la coherencia de las copias de archivos de disco al tomar una instantánea de todos los archivos al mismo tiempo.<br/><br/> Los puntos de recuperación de Azure Backup son coherentes con:<br/><br/> - Las copias de seguridad de máquinas virtuales Linux que no tienen scripts anteriores o posteriores, o cuyo script dio error.<br/><br/> - Las copias de seguridad de máquinas virtuales Windows en las que VSS dio error. | Al llevar a cabo la recuperación con una instantánea coherente con la aplicación, la máquina virtual se inicia. No se pierden ni se dañan los datos. Las aplicaciones deben implementar su propio mecanismo de corrección para asegurarse de que los datos restaurados son coherentes.
-**Coherente frente a bloqueos** | Sin  | La coherencia frente a bloqueos suele tener lugar cuando una máquina virtual de Azure se cierra en el momento de la copia de seguridad.  Solamente se capturan y se hace una copia de seguridad de los datos que ya existen en el disco en el momento de la copia de seguridad.<br/><br/> Un punto de recuperación coherente con el bloqueo no garantiza la coherencia de datos para el sistema operativo o la aplicación. | No se garantiza, pero normalmente la máquina virtual se inicia y a continuación se comprueba el disco para corregir los daños producidos por errores. Los datos en memoria o las escrituras que no se hayan transferido al disco se pierden. Las aplicaciones implementan su propia comprobación de los datos. Por ejemplo, en el caso de una aplicación de base de datos, si el registro de transacciones tiene entradas que no están presentes en la base de datos, el software de la base de datos realiza una reversión hasta que los datos sean coherentes.
+**Coherente con la aplicación** | Las copias de seguridad coherentes con las aplicaciones capturan el contenido de la memoria y las operaciones de E/S pendientes. Las instantáneas coherentes con la aplicación utilizan el escritor VSS (o script anterior o posterior para Linux) que garantizan la coherencia de datos de la aplicación antes de que se produzca una copia de seguridad. | Al recuperar con una instantánea coherente con la aplicación, la máquina virtual se inicia. No se pierden ni se dañan los datos. Las aplicaciones se inician en un estado coherente. | Windows: Todas las instancias de VSS Writer son correctas<br/><br/> Linux: Los scripts anteriores o posteriores están configurados y son correctos
+**Coherente con el sistema de archivos** | Las copias de seguridad coherentes de archivos permiten la coherencia de las copias de archivos de disco al tomar una instantánea de todos los archivos al mismo tiempo.<br/><br/> | Al llevar a cabo la recuperación con una instantánea coherente con la aplicación, la máquina virtual se inicia. No se pierden ni se dañan los datos. Las aplicaciones deben implementar su propio mecanismo de corrección para asegurarse de que los datos restaurados son coherentes. | Windows: Se produjeron errores en algunas instancias de VSS Writer <br/><br/> Linux: Valor predeterminado (si los scripts anteriores y posteriores no están configurados o tienen errores)
+**Coherente frente a bloqueos** | La coherencia frente a bloqueos suele tener lugar cuando una máquina virtual de Azure se cierra en el momento de la copia de seguridad.  Solamente se capturan y se hace una copia de seguridad de los datos que ya existen en el disco en el momento de la copia de seguridad.<br/><br/> Un punto de recuperación coherente con el bloqueo no garantiza la coherencia de datos para el sistema operativo o la aplicación. | No se garantiza, pero normalmente la máquina virtual se inicia y a continuación se comprueba el disco para corregir los daños producidos por errores. Los datos en memoria o las escrituras que no se hayan transferido al disco se pierden. Las aplicaciones implementan su propia comprobación de los datos. Por ejemplo, en el caso de una aplicación de base de datos, si el registro de transacciones tiene entradas que no están presentes en la base de datos, el software de la base de datos realiza una reversión hasta que los datos sean coherentes. | La VM está en estado de cierre
 
 
 ## <a name="service-and-subscription-limits"></a>Límites de servicio y suscripción

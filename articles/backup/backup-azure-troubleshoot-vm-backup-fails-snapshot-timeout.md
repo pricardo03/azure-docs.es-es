@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: c779344f4cb0544009952423b6771b75482c3061
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 1ee45699040f58a1317009ab44bb5ac863323869
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353969"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816762"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de problemas de Azure Backup: Problemas con el agente o la extensión
 
@@ -113,6 +113,26 @@ La operación de copia de seguridad podría generar un error al realizar una cop
 **Mensaje de error**: actualmente Azure Backup no admite discos SSD estándar. <br>
 
 Actualmente Azure Backup admite discos SSD estándar solo para los almacenes que se actualizan a [restauración instantánea](backup-instant-restore-capability.md).
+
+## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress: No se puede iniciar la copia de seguridad, ya que otra operación de copia de seguridad está en curso actualmente.
+
+**Código de error**: UserErrorBackupOperationInProgress <br>
+**Mensaje de error**: No se puede iniciar la copia de seguridad, ya que otra operación de copia de seguridad está en curso actualmente<br>
+
+El trabajo de copia de seguridad reciente no se pudo completar porque hay un trabajo de copia de seguridad existente en curso. No se puede iniciar un nuevo trabajo de copia de seguridad hasta que no finalice el trabajo actual. Asegúrese de que la operación de copia de seguridad en curso se complete antes de activar o programar otras operaciones de copia de seguridad. Para comprobar el estado de los trabajos de copia de seguridad, siga estos pasos:
+
+1. Inicie sesión en Azure Portal, haga clic en **Todos los servicios**. Escriba Recovery Services y haga clic en **Almacenes de Recovery Services**. Aparece la lista de almacenes de Servicios de recuperación.
+2. En la lista de almacenes de Recovery Services, seleccione un almacén donde esté configurada la copia de seguridad.
+3. En el menú del panel del almacén, haga clic en **Trabajos de copia de seguridad** para mostrar todos los trabajos de copia de seguridad.
+
+    * Si un trabajo de copia de seguridad está en curso, espere a que se complete o cancele el trabajo de copia de seguridad.
+        * Para cancelar el ratón de trabajo de copia de seguridad, haga clic con el botón derecho en el trabajo de copia de seguridad y haga clic en **Cancelar** o use [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0).
+    * Si ha reconfigurado la copia de seguridad en otro almacén, asegúrese de no haya ningún trabajo de copia de seguridad en ejecución en el almacén antiguo. Si existe, cancele el trabajo de copia de seguridad.
+        * Para cancelar el ratón de trabajo de copia de seguridad, haga clic con el botón derecho en el trabajo de copia de seguridad y haga clic en **Cancelar** o use [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0).
+4. Reintente la operación de copia de seguridad.
+
+Si la operación de copia de seguridad programada tarda más, lo que genera un conflicto con la siguiente configuración de copia de seguridad, consulte [Procedimientos recomendados](backup-azure-vms-introduction.md#best-practices), [Rendimiento de Backup](backup-azure-vms-introduction.md#backup-performance) y [Consideraciones de la restauración](backup-azure-vms-introduction.md#restore-considerations).
+
 
 
 ## <a name="causes-and-solutions"></a>Causas y soluciones

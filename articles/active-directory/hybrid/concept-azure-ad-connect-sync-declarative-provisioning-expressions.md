@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: expresiones de aprovisionamiento declarativo | Microsoft Docs'
+title: 'Azure AD Connect: Expresiones de aprovisionamiento declarativo | Microsoft Docs'
 description: Explica las expresiones declarativas de aprovisionamiento.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 26c835e6c2f658f7ad852fdd02dc8974db33e47b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 488309d9d78834896a939c66ccdc7515310103de
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306054"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54460506"
 ---
-# <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Sincronización de Azure AD Connect: conocimiento de expresiones de aprovisionamiento declarativo
+# <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Sincronización de Azure AD Connect: Explicación de las expresiones declarativas de aprovisionamiento
 La sincronización de Azure AD Connect se basa en el aprovisionamiento declarativo, que se introdujo en Forefront Identity Manager 2010. Permite implementar la lógica de negocios de integración de identidades completa sin necesidad de escribir código compilado.
 
 Una parte esencial del aprovisionamiento declarativo es el lenguaje de expresiones que se usa en flujos de atributos. El lenguaje usado es un subconjunto de Microsoft® Visual Basic® para Aplicaciones. Este lenguaje se usa en Microsoft Office, y los usuarios con experiencia en VBScript también lo reconocerán. El lenguaje de expresiones de aprovisionamiento declarativo solo utiliza funciones y no es un lenguaje estructurado. No hay métodos ni instrucciones. En su lugar, las funciones se anidan al flujo de programa rápido.
@@ -35,10 +35,10 @@ Los atributos están fuertemente tipados. Las funciones solo aceptan atributos d
 * Las funciones tienen un nombre seguido de argumentos entre paréntesis: FunctionName(argumento 1, argumento N).
 * Los atributos se especifican entre corchetes: [attributeName]
 * Los parámetros se identifican por signos de porcentaje: %ParameterName%
-* Las constantes de cadena aparecen entre comillas: por ejemplo, "Contoso" (Nota: se deben usar comillas rectas "", no tipográficas "")
+* Las constantes de cadena aparecen entre comillas: por ejemplo, "Contoso" (nota: se deben usar comillas rectas "", no tipográficas “”)
 * Los valores numéricos se expresan sin comillas y se espera que sean decimales. Los valores hexadecimales van precedidos de &H. Por ejemplo, 98052, &HFF
-* Los valores booleanos se expresan con constantes: True, False.
-* Las constantes y los literales integrados se expresan solo con su nombre: NULL, CRLF o IgnoreThisFlow
+* Los valores booleanos se expresan con constantes: True y False.
+* Las constantes y los literales integrados se expresan solo con su nombre: NULL, CRLF, IgnoreThisFlow
 
 ### <a name="functions"></a>Functions
 El aprovisionamiento declarativo usa muchas funciones que ofrecen la posibilidad de transformar los valores de atributo. Dichas funciones se pueden anidar de manera que el resultado de una función se pase a otra función.
@@ -73,7 +73,8 @@ Pueden utilizarse los siguientes operadores:
 * **Comparación**: &lt;, &lt;=, &lt;&gt;, =, &gt;, &gt;=
 * **Matemáticos**: +, -, \*, -
 * **Cadena**: &amp; (concatenar)
-* **Lógico**: &amp;&amp; (and), || (or)
+* 
+  **Lógico**: &&amp;amp; (and), || (or)
 * **Orden de evaluación**: ( )
 
 Los operadores se evalúan de izquierda a derecha y tienen la misma prioridad de evaluación. Es decir, \* (multiplicador) no se evalúa antes que la resta (-). 2\*(5+3) no es lo mismo que 2\*5+3. Los paréntesis () se usan para cambiar el orden de evaluación cuando la evaluación de izquierda a derecha no es adecuada.
@@ -98,5 +99,5 @@ Por ejemplo
 
 **Temas de referencia**
 
-* [Azure AD Connect Sync: referencia de funciones](reference-connect-sync-functions-reference.md)
+* [Sincronización de Azure AD Connect: Referencia de funciones](reference-connect-sync-functions-reference.md)
 

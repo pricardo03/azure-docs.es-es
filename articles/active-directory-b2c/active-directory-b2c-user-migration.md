@@ -3,19 +3,19 @@ title: Métodos de migración de usuarios en Azure Active Directory B2C | Micros
 description: Describe fundamentos y conceptos avanzados sobre la migración de usuarios mediante Graph API y opcionalmente mediante directivas personalizadas de Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4bb1542df9001463b245405c40293b6867d4b401
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 4d4affa0ff950aa353e11c01f3d5d5b5f2b2ccb1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365084"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849454"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Migración de usuarios
 Si migra su proveedor de identidades a Azure Active Directory B2C (Azure AD B2C), también debe migrar la cuenta de usuario. En este artículo se explica cómo migrar las cuentas de usuario existentes desde cualquier proveedor de identidades a Azure AD B2C. El artículo no pretende ser preceptivo, sino describir varios enfoques. El desarrollador es responsable de la idoneidad de cada enfoque.
@@ -40,7 +40,7 @@ Si las cuentas que se van a migrar cuentan con una seguridad de contraseña infe
 "passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"
 ```
 
-## <a name="step-1-use-azure-ad-graph-api-to-migrate-users"></a>Paso 1: usar Azure AD Graph API para migrar usuarios
+## <a name="step-1-use-azure-ad-graph-api-to-migrate-users"></a>Paso 1: Uso de Azure AD Graph API para migrar usuarios
 Debe crear la cuenta de usuario de Azure AD B2C a través de Graph API (con la contraseña o con una contraseña aleatoria). Esta sección describe el proceso de creación de cuentas de usuario en el directorio de Azure AD B2C mediante Graph API.
 
 ### <a name="step-11-register-your-application-in-your-tenant"></a>Paso 1.1: Registro de la aplicación en el inquilino
@@ -328,7 +328,7 @@ Después de definir el perfil técnico para la API de RESTful, indique a la dire
 
 1. Cargue el archivo *TrustFrameworkExtensions.xml* y asegúrese de que pasa la validación.
 
-### <a name="step-45-test-the-custom-policy-by-using-run-now"></a>Paso 4.5: Prueba de la directiva personalizada con Ejecutar ahora
+### <a name="step-45-test-the-custom-policy-by-using-run-now"></a>Paso 4.5: Probar la directiva personalizada con Ejecutar ahora
 1. Seleccione **Configuración de Azure AD B2C** y vaya a **Marco de experiencia de identidad**.
 
 1. Abra **B2C_1A_signup_signin**, que es la directiva personalizada del usuario de confianza (RP) que ha cargado, y seleccione **Ejecutar ahora**.
@@ -337,7 +337,7 @@ Después de definir el perfil técnico para la API de RESTful, indique a la dire
 
     ![Establecer registros de diagnóstico](media/active-directory-b2c-user-migration/pre-migration-error-message.png)
 
-### <a name="step-46-optional-troubleshoot-your-rest-api"></a>Paso 4.6: (Opcional) Solución de problemas de la API de REST
+### <a name="step-46-optional-troubleshoot-your-rest-api"></a>Paso 4.6: (Opcional) Solución de problemas de la API REST
 Puede ver y supervisar la información de registro prácticamente en tiempo real.
 
 1. En el menú de configuración de la aplicación RESTful, en **Supervisión**, seleccione **Registros de diagnóstico**.

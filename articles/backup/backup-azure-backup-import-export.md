@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: 9d91ccd04ed06fb6c256a2d9911202d7df6d08a5
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 94931546f3b8ddb18a5381de3baa31d66376badb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188307"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810727"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flujo de trabajo de copia de seguridad sin conexión en Azure Backup
 El servicio Azure Backup presenta varias eficiencias integradas para ahorrar costos de almacenamiento y red durante las copias de seguridad iniciales 'completas' de datos en Azure. Las copias de seguridad iniciales completas transfieren grandes cantidades de datos y requieren un mayor ancho de banda de red en comparación con las copias de seguridad sucesivas que solo transfieren los cambios diferenciales e incrementales. A través del proceso de propagación sin conexión, Azure Backup puede usar discos para cargar los datos de copia de seguridad sin conexión en Azure.
@@ -63,7 +63,7 @@ Antes de iniciar el flujo de trabajo de copia de seguridad sin conexión, comple
     ![registro del proveedor de recursos](./media/backup-azure-backup-import-export/registerimportexport.png)
 * Se crea una ubicación de almacenamiento provisional, que puede ser un recurso compartido de red o cualquier unidad adicional en el equipo, interna o externa, con suficiente espacio en disco para almacenar la copia inicial. Por ejemplo, si intenta realizar una copia de seguridad en un servidor de archivos de 500 GB, asegúrese de que el área de ensayo es de al menos 500 GB. (Se utilizará una cantidad menor gracias a la compresión).
 * Cuando envíe los discos a Azure, use solo SSD de 2,5 pulgadas o discos duros internos SATA II/III de 2,5 o 3,5 pulgadas. Puede utilizar unidades de disco duro de hasta 10 TB. Vea la [documentación del servicio Azure Import/Export](../storage/common/storage-import-export-requirements.md#supported-hardware) para conocer el conjunto más reciente de unidades de disco que admite el servicio.
-* Las unidades de disco SATA deben estar conectadas a un equipo (llamado *equipo de copia*) desde donde se realiza la copia de los datos de copia de seguridad de la *ubicación de almacenamiento provisional* a SATA. Asegúrese de que BitLocker está habilitado en el *equipo de copia*.
+* Las unidades de disco SATA deben estar conectadas a un equipo (llamado *equipo de copia*) desde donde se realiza la copia de los datos de copia de seguridad de la *ubicación de almacenamiento provisional* a SATA. Asegúrese de que BitLocker esté habilitado en el *equipo de copia*.
 
 ## <a name="workflow"></a>Flujo de trabajo
 En esta sección se describe el flujo de trabajo de la copia de seguridad sin conexión, por lo que los datos se pueden entregar a un centro de datos de Azure y cargarse en Azure Storage. Si tiene alguna pregunta sobre el servicio Import o cualquier aspecto del proceso, consulte la documentación sobre la [información general del servicio de importación](../storage/common/storage-import-export-service.md).

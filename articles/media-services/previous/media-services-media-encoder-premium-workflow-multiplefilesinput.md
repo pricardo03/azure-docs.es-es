@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: xpouyat;anilmur;juliako
-ms.openlocfilehash: 31bd3d54b085922de0ec822731eae79fe9a9943b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e2a856dbc3bdf72ad03601618a9d48bb54665f7b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262104"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812070"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Uso del codificador Premium con varios archivos de entrada y propiedades de los componentes
 ## <a name="overview"></a>Información general
@@ -268,13 +268,13 @@ Con un recorte preciso de marco adicional:
   </transcodeRequest>
 ```
 
-## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>Ejemplo 1: Superposición de una imagen en un vídeo
+## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>Ejemplo 1: Superposición de una imagen en un vídeo
 
 ### <a name="presentation"></a>Presentación
 Considere un ejemplo en el que desea superponer una imagen de logotipo en el vídeo de entrada durante la codificación. En este ejemplo, el vídeo de entrada se llama "Microsoft_HoloLens_Possibilities_816p24.mp4" y el logotipo, "logo.png". Debe realizar los pasos siguientes:
 
 * Creación de un recurso de flujo de trabajo con el archivo de flujo de trabajo (consulte el siguiente ejemplo)
-* Creación de un recurso multimedia, que contenga dos archivos: MyInputVideo.mp4 como archivo principal y MyLogo.png.
+* Cree un recurso multimedia, que contenga dos archivos: MyInputVideo.mp4 como archivo principal y MyLogo.png.
 * Envío de una tarea al procesador multimedia del flujo de trabajo premium de Codificador multimedia con los recursos de entrada anteriores y especificación de la siguiente cadena de configuración
 
 Configuración:
@@ -428,7 +428,7 @@ Cuando se complete el trabajo, el archivo MP4 en el recurso de salida mostrará 
 
 Puede descargar el flujo de trabajo de ejemplo desde [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/).
 
-## <a name="example-2--multiple-audio-language-encoding"></a>Ejemplo 2: Codificación de varios idiomas de audio
+## <a name="example-2--multiple-audio-language-encoding"></a>Ejemplo 2: Codificación de varios idiomas de audio
 
 En [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding), hay un ejemplo de un flujo de trabajo para la codificación de varios idiomas de audio.
 

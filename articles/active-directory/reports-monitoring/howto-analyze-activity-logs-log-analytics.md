@@ -4,7 +4,7 @@ description: Aprenda a analizar los registros de actividad de Azure Active Direc
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4535ae65-8591-41ba-9a7d-b7f00c574426
 ms.service: active-directory
@@ -16,16 +16,16 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2f0f5341ba6818f375d463638979c68689519227
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 759a0da93544e2a17b71d762924981f05c3ea322
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624206"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810792"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-log-analytics-preview"></a>Análisis de registros de actividad de Azure AD en Log Analytics (versión preliminar)
 
-Después de que [integrar los registros de actividad de Azure AD con Log Analytics](howto-integrate-activity-logs-with-log-analytics.md), puede usar la eficacia de Log Analytics para obtener información sobre el entorno. También puede instalar las [vistas de Log Analytics para los registros de actividad de Azure AD](howto-install-use-log-analytics-views.md) para acceder a informes pregenerados sobre eventos de auditoría y de inicio de sesión en el entorno.
+Después de [integrar los registros de actividad de Azure AD con Log Analytics](howto-integrate-activity-logs-with-log-analytics.md), puede usar la eficacia de Log Analytics para obtener información sobre el entorno. También puede instalar las [vistas de Log Analytics para los registros de actividad de Azure AD](howto-install-use-log-analytics-views.md) para acceder a informes pregenerados sobre eventos de auditoría y de inicio de sesión en el entorno.
 
 En este artículo, aprenderá a analizar registros de actividad de Azure AD en el área de trabajo de Log Analytics. 
 
@@ -93,9 +93,9 @@ También puede configurar alertas en la consulta. Por ejemplo, para configurar u
 
 También puede descargar las vistas pregeneradas de Log Analytics para los registros de actividad de Azure AD. Las vistas proporcionan varios informes relacionados con escenarios comunes que implican eventos de auditoría y de inicio de sesión. También se puede alertar sobre cualquiera de los datos proporcionados en los informes, siguiendo los pasos descritos en la sección anterior.
 
-* **Azure AD Account Provisioning Events** (Eventos de aprovisionamiento de la cuenta de AD): esta vista muestra informes relacionados con la auditoría de la actividad de aprovisionamiento, como el número de nuevos usuarios aprovisionados y errores de aprovisionamiento, el número de usuarios actualizados y errores de actualización y el número de usuarios desaprovisionados y los errores correspondientes.    
-* **Sign-ins Events** (Eventos de inicio de sesión): esta vista muestra los informes más importantes relacionados con la supervisión de la actividad de inicio de sesión, como los inicios de sesión por aplicación, usuario y dispositivo, así como una vista resumida que muestra el número de inicios de sesión a lo largo del tiempo.
-* **Users Performing Consent** (Usuarios que dan su consentimiento): esta vista muestra los informes relacionados con el consentimiento del usuario, como las concesiones de consentimiento por parte del usuario, los inicios de sesión de los usuarios que han concedido el consentimiento, así como los inicios de sesión por aplicación para todas las aplicaciones basadas en el consentimiento. 
+* **Azure AD Account Provisioning Events** (Eventos de aprovisionamiento de la cuenta de Azure AD): Esta vista muestra informes relacionados con la auditoría de la actividad de aprovisionamiento, como el número de nuevos usuarios aprovisionados y errores de aprovisionamiento, el número de usuarios actualizados y errores de actualización y el número de usuarios desaprovisionados y los errores correspondientes.    
+* **Sign-ins Events** (Eventos de inicio de sesión): Esta vista muestra los informes más importantes relacionados con la supervisión de la actividad de inicio de sesión, como los inicios de sesión por aplicación, usuario y dispositivo, así como una vista resumida que muestra el número de inicios de sesión a lo largo del tiempo.
+* **Users Performing Consent** (Usuarios que dan su consentimiento): Esta vista muestra los informes relacionados con el consentimiento del usuario, como las concesiones de consentimiento por parte del usuario, los inicios de sesión de los usuarios que han concedido el consentimiento, así como los inicios de sesión por aplicación para todas las aplicaciones basadas en el consentimiento. 
 
 Aprenda a [instalar y utilizar las vistas de Log Analytics para los registros de actividad de Azure AD](howto-install-use-log-analytics-views.md). 
 

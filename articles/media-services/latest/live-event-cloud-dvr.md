@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: juliako
-ms.openlocfilehash: 8543f00ccaecd8fd3f46132b05c2af925e6de10a
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 3646c6167f901fe43080d39df42fdb127b1c7fc2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352366"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828152"
 ---
 # <a name="using-a-cloud-dvr"></a>Uso de una DVR en la nube
 
@@ -37,8 +37,7 @@ Un objeto **LiveEvent** admite hasta tres **LiveOutput** en ejecución simultán
 > [!NOTE]
 > Los objetos **LiveOutput** se inician al crearlos y se detienen cuando se eliminan. Cuando se elimina el objeto **LiveOutput**, no se elimina el **recurso** subyacente ni su contenido. 
 >
-> Si ha publicado **localizadores de streaming** en el recurso para el objeto **LiveOutput**, el evento (hasta la longitud de ventana DVR) seguirá visible hasta la hora de finalización del **localizador de streaming**  o hasta que elimine el localizador, lo que ocurra primero.   
-  
+> Si ha publicado el recurso **LiveOutput** mediante **StreamingLocator**, el recurso **LiveEvent** (hasta la longitud de la ventana de DVR) seguirá estando visible hasta que la expiración o eliminación de **StreamingLocator**, lo que ocurra primero.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

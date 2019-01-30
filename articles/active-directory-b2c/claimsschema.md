@@ -3,19 +3,19 @@ title: ClaimsSchema - Azure Active Directory B2C | Microsoft Docs
 description: Especifique el elemento ClaimsSchema de una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2d11283ccf58fdc356742d6f4042afd15bf6faab
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: a49553941b83e323f23f20b794a464f47ef31981
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568649"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849097"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -71,7 +71,7 @@ El elemento **Protocol** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| NOMBRE | SÍ | El nombre de un protocolo válido compatible con Azure AD B2C. Los valores posibles son: OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed o WsTrust. |
+| NOMBRE | SÍ | El nombre de un protocolo válido compatible con Azure AD B2C. Los valores posibles son:  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed o WsTrust. |
 | PartnerClaimType | SÍ | El nombre del tipo de notificación que se usará. |
 
 En el ejemplo siguiente, cuando el marco de experiencia de identidad interactúa con un proveedor de identidades de SAML2 o una aplicación de usuario de confianza, la notificación **surname** se asigna a `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`; con OpenIdConnect y OAuth2, la notificación se asigna a `family_name`.

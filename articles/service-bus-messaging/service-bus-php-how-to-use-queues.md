@@ -3,9 +3,9 @@ title: Uso de colas de Service Bus con PHP | Microsoft Docs
 description: Obtenga información acerca de cómo usar las colas de Service Bus en Azure. Ejemplos de código escritos en PHP.
 services: service-bus-messaging
 documentationcenter: php
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: e29c829b-44c5-4350-8f2e-39e0c380a9f2
 ms.service: service-bus-messaging
 ms.workload: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 09/10/2018
-ms.author: spelluru
-ms.openlocfilehash: 08894741f4b7c4d3ccb808a4e70ec1eeb4f6af49
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.author: aschhab
+ms.openlocfilehash: c320e06881c73feb228b9d5f49243d7e1d321f52
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392200"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847568"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>Uso de colas de Service Bus con PHP
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -162,7 +162,7 @@ El tamaño máximo de mensaje que admiten las colas de Service Bus es de 256 KB 
 
 ## <a name="receive-messages-from-a-queue"></a>mensajes de una cola
 
-La mejor forma de recibir mensajes desde una cola es usar un método `ServiceBusRestProxy->receiveQueueMessage`. Los mensajes se pueden recibir de dos modos diferentes: [*ReceiveAndDelete*](/dotnet/api/microsoft.servicebus.messaging.receivemode) y [*PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock). **PeekLock** es el valor predeterminado.
+La mejor forma de recibir mensajes desde una cola es usar un método `ServiceBusRestProxy->receiveQueueMessage`. Los mensajes se pueden recibir de dos modos distintos: [*ReceiveAndDelete*](/dotnet/api/microsoft.servicebus.messaging.receivemode) y [*PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock). **PeekLock** es el valor predeterminado.
 
 Al usar el modo [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode), la operación de recepción consta de una sola fase; es decir, cuando Service Bus recibe una solicitud de lectura para un mensaje de la cola, marca el mensaje como consumido y lo devuelve a la aplicación. El modo [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) es el modelo más sencillo y funciona mejor para los escenarios en los que una aplicación puede tolerar no procesar un mensaje en caso de error. Para entenderlo mejor, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Como Service Bus habrá marcado el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
 

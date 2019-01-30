@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: d9d1fa7d8cf25057339e560c371deb939997b578
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 17c25181709e6c75de2d23fb02fd55c0e6e41ae3
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945084"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818038"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Usar autenticación de Azure AD para acceder a la API de Azure Media Services con REST
 
@@ -79,7 +79,7 @@ Para obtener la información, siga estos pasos:
 5. Seleccione una **aplicación de Azure AD** o cree una nueva (como se muestra a continuación).
 
     > [!NOTE]
-    > Para que la solicitud de REST de Azure Media Services se complete correctamente, el usuario que realiza la llamada debe tener el rol de **colaborador** o **propietario** de la cuenta de Media Services a la que está intentando obtener acceso. Si se produce una excepción que indica "El servidor remoto devolvió un error: (401) No autorizado", vea [Control de acceso](media-services-use-aad-auth-to-access-ams-api.md#access-control).
+    > Para que la solicitud de REST de Azure Media Services se complete correctamente, el usuario que realiza la llamada debe tener el rol de **colaborador** o **propietario** de la cuenta de Media Services a la que está intentando obtener acceso. Si se produce una excepción que indica "El servidor remoto devolvió un error: (401) No autorizado", consulte [Control de acceso](media-services-use-aad-auth-to-access-ams-api.md#access-control).
 
     Si necesita crear una nueva aplicación de AD, siga estos pasos:
     
@@ -118,7 +118,7 @@ Puede agregar valores para parámetros de conexión de AD en el archivo web.conf
 
 ## <a name="get-the-access-token-using-postman"></a>Obtener el token de acceso mediante Postman
 
-Esta sección muestra cómo usar **Postman** para ejecutar una API de REST que devuelve un token de portador JWT (token de acceso). Para llamar a cualquier API de REST de Media Services, debe agregar el encabezado "Authorization" a las llamadas y agregar el valor de "Bearer *su_token_de_acceso*" a cada llamada (como se muestra en la siguiente sección de este tutorial). 
+Esta sección muestra cómo usar **Postman** para ejecutar una API de REST que devuelve un token de portador JWT (token de acceso). Para llamar a cualquier API de REST de Media Services, debe agregar el encabezado "Authorization" a las llamadas y agregar el valor de "Bearer *su_token_de_acceso*" a cada llamada (como se muestra en la siguiente sección de este tutorial). 
 
 1. Abra **Postman**.
 2. Seleccione **POST**.

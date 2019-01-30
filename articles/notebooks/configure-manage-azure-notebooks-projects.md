@@ -11,28 +11,53 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/22/2019
 ms.author: kraigb
-ms.openlocfilehash: d948be88fd75202dea010520d3531f151d6934b0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 31cbe2e62582ae810d165ddef5db6a20c52ff050
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104091"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847550"
 ---
 # <a name="manage-and-configure-projects"></a>Administración y configuración de proyectos
 
 Esencialmente, un proyecto en Azure Notebooks es una configuración de la máquina virtual Linux subyacente donde se ejecutan las instancias de Jupyter Notebook, junto con metadatos descriptivos y una carpeta de archivos. El panel del proyecto de Azure Notebooks permite administrar los archivos y configurar las características del proyecto:
 
-- Los metadatos del proyecto incluyen un nombre, una descripción, un identificador que se usa al compartir el proyecto e información de si el proyecto es público o privado.
-- El usuario administra el cuaderno del proyecto, los datos y otros archivos tal como lo hace con cualquier otro sistema de archivos.
-- El usuario configura el entorno de un proyecto ya sea a través de los scripts de inicio o directamente a través del terminal.
-- A través del terminal, se tiene acceso a los registros.
+- Nivel de proceso en el que se ejecuta el proyecto, que puede ser el nivel Gratis o una máquina virtual de Azure.
+- Los metadatos del proyecto, que incluyen un nombre, una descripción, un identificador que se usa al compartir el proyecto e información de si el proyecto es público o privado.
+- El cuaderno del proyecto, los datos y otros archivos que el usuario administra tal como lo hace con cualquier otro sistema de archivos.
+- El entorno de un proyecto, que configura ya sea a través de los scripts de inicio o directamente a través del terminal.
+- Los registros, a los que obtiene acceso a través de la terminal.
 
 > [!Note]
-> El usuario no puede administrar un proyecto que no es de su propiedad, a menos que el propietario del proyecto lo haya nombrado como colaborador. En caso contrario, las características de administración y configuración que se describen aquí no estarán disponibles para el usuario.
+> Las características de administración y configuración descritas aquí solo están disponibles para el propietario del proyecto que lo creó inicialmente. Sin embargo, puede clonar el proyecto en su propia cuenta, en cuyo caso se convierte en propietario y puede configurar el proyecto según sea necesario.
 
 Azure Notebooks inicia la máquina virtual subyacente cada vez que ejecuta un cuaderno u otro archivo. El servidor guarda automáticamente los archivos y se apaga después de 60 minutos de inactividad. También puede detener el servidor en cualquier momento con el comando **Shutdown** (Apagar) (método abreviado de teclado: h).
+
+## <a name="compute-tier"></a>Nivel de proceso
+
+La lista desplegable **Ejecutar** del panel de proyecto es donde selecciona el nivel de proceso en el que se ejecuta el proyecto. De forma predeterminada, los proyectos se ejecutan en el nivel **Free Compute** (Proceso gratuito), que está limitado a 4 GB de memoria y 1 GB de datos para evitar abusos:
+
+![Lista desplegable de nivel de proceso del panel del proyecto](media/project-compute-tier-list.png)
+
+Puede omitir estas limitaciones mediante el uso de una máquina virtual diferente que se haya aprovisionado en una suscripción a Azure. También debe instalar Jupyter en dicha máquina virtual. Las imágenes de Data Science Virtual Machine son opciones válidas porque incluyen Jupyter de forma predeterminada.
+
+Puede conectarse a cualquier máquina virtual de Azure configurada adecuadamente mediante la opción **Direct Compute** (Proceso directo) en la lista desplegable. Al seleccionar esta opción, se solicita un nombre (para mostrar en la lista), el puerto (normalmente 8000, el puerto predeterminado al que escucha JupyterHub) y la dirección IP de la VM, así como las credenciales de la VM:
+
+![Solicitud para recopilar información del servidor para la opción Direct Compute (Proceso directo)](media/project-compute-tier-direct.png)
+
+Si se cumplen las condiciones siguientes, la lista desplegable también muestra instancias de [Data Science Virtual Machine (DSVM)](/azure/machine-learning/data-science-virtual-machine). (Si no se cumple alguna de estas condiciones, todavía puede conectarse a la instancia de DSVM mediante la opción Direct Compute (Proceso directo) y la introducción de los valores obtenidos en Azure Portal).
+
+- Ha iniciado sesión en Azure Notebooks con una cuenta que usa Azure Active Directory (AAD), como una cuenta de empresa.
+- La cuenta está conectada a una suscripción a Azure.
+- Tiene una o varias máquinas virtuales en esa suscripción, con acceso de lectura por lo menos, que usan la imagen de Data Science Virtual Machine para Linux (Ubuntu).
+
+![Instancias de Data Science Virtual Machine en la lista desplegable del panel del proyecto](media/project-compute-tier-dsvm.png)
+
+Al seleccionar una instancia de DSVM, Azure Notebooks puede solicitar las credenciales de la máquina específica que usó cuando creó la VM.
+
+Para crear una nueva instancia de DSVM, siga las instrucciones de la sección [Create an Ubuntu Data Science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro) (Creación de un entorno de Data Science VM de Ubuntu). *Debe* utilizar la imagen de **Data Science Virtual Machine para Linux (Ubuntu)** porque Azure Notebooks no muestra instancias de DSVM que usan las imágenes de Windows o CentOS.
 
 ## <a name="edit-project-metadata"></a>Edición de los metadatos del proyecto
 
@@ -186,5 +211,5 @@ También puede usar el comando desde una celda de código de un cuaderno de Pyth
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [How to: Work with project data files](work-with-project-data-files.md) (Trabajo con archivos de datos de proyecto)
+- [Procedimientos: Work with project data files](work-with-project-data-files.md) (Trabajo con archivos de datos de proyecto)
 - [Access cloud data in a notebook](access-data-resources-jupyter-notebooks.md) (Acceso a los datos en la nube en un cuaderno)

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.openlocfilehash: cea810a5e57f4b10c170038108226c4e0f1320bc
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6f8565fcecab2c17794f94f5a051cc2f269a9d1c
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104950"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451046"
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Integración de Machine Learning en Análisis de transmisiones
 Stream Analytics proporciona compatibilidad con las funciones definidas por el usuario que llamen a puntos de conexión de Azure Machine Learning. La compatibilidad con la API de REST para esta característica se detalla en la [biblioteca API de REST de Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx). Este artículo proporciona información adicional necesaria para una implementación correcta de esta capacidad en Stream Analytics. También se ha publicado un tutorial, que está disponible [aquí](stream-analytics-machine-learning-integration-tutorial.md).
@@ -69,7 +69,7 @@ Ejemplo del cuerpo de solicitud:
 ```
 
 ## <a name="call-retrievedefaultdefinition-endpoint-for-default-udf"></a>Llamada al punto de conexión RetrieveDefaultDefinition para la función definida por el usuario predeterminada
-Una vez creado el esqueleto de la función definida por el usuario, es necesaria la definición completa de la función definida por el usuario. El punto de conexión RetreiveDefaultDefinition ayuda a obtener la definición predeterminada para una función escalar enlazada a un punto de conexión de Azure Machine Learning. La siguiente carga requiere obtener la definición de la función definida por el usuario predeterminada para una función escalar enlazada a un punto de conexión de Azure Machine Learning. No especifica el punto de conexión real, porque ya se ha proporcionado durante la solicitud PUT. Stream Analytics llamará al punto de conexión proporcionado en la solicitud si se proporciona explícitamente. De lo contrario, usará al que se hace referencia desde el principio. Aquí, la función definida por el usuario toma un parámetro de una sola cadena (una frase) y devuelve una única salida de tipo "string" que indica la etiqueta "sentiment" para esa frase.
+Una vez creado el esqueleto de la función definida por el usuario, es necesaria la definición completa de la función definida por el usuario. El punto de conexión RetrieveDefaultDefinition ayuda a obtener la definición predeterminada para una función escalar enlazada a un punto de conexión de Azure Machine Learning. La siguiente carga requiere obtener la definición de la función definida por el usuario predeterminada para una función escalar enlazada a un punto de conexión de Azure Machine Learning. No especifica el punto de conexión real, porque ya se ha proporcionado durante la solicitud PUT. Stream Analytics llamará al punto de conexión proporcionado en la solicitud si se proporciona explícitamente. De lo contrario, usará al que se hace referencia desde el principio. Aquí, la función definida por el usuario toma un parámetro de una sola cadena (una frase) y devuelve una única salida de tipo "string" que indica la etiqueta "sentiment" para esa frase.
 
 ````
 POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>/RetrieveDefaultDefinition?api-version=<apiVersion>

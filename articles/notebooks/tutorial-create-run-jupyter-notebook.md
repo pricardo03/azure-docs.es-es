@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 110ba7f13b2a0d44277c881d67f0c794c8658cd1
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: dcee7df0b5da53bd7014a26f1f09695fe874833d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244591"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849669"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutorial: Creación y ejecución de un cuaderno de Jupyter con Python
 
@@ -128,7 +128,7 @@ Con el archivo de datos listo y el entorno del proyecto establecido, ya puede cr
 1. Como tiene un archivo *requirements.txt* en la configuración del entorno, verá el mensaje "Waiting for your container to finish being prepared" (Esperando que finalice la preparación del contenedor). Puede seleccionar **OK** (Aceptar) para cerrar el mensaje y continuar trabajando en el cuaderno; sin embargo; las celdas de código no se pueden ejecutar hasta que el entorno esté totalmente configurado.
 1. Abre el cuaderno en la interfaz de Jupyter con una celda única de código vacío como el valor predeterminado.
 
-    [![](media/tutorial/tutorial-new-notebook.png "Vista inicial de un cuaderno nuevo en Azure Notebooks")](media/tutorial/tutorial-new-notebook.png#lightbox)
+    [![Vista inicial de un cuaderno nuevo en Azure Notebooks](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
 
 ## <a name="tour-the-notebook-interface"></a>Paseo por la interfaz del cuaderno
 
@@ -144,7 +144,7 @@ En la parte superior de la ventana verá los siguientes elementos:
 (F) Un indicador de si el cuaderno es de confianza; el valor predeterminado es **Not Trusted** (No es de confianza).
 (G) El kernel usado para ejecutar el cuaderno, junto con un indicador de actividad.
 
-[![](media/tutorial/tutorial-notebook-ui.png "Áreas principales de la interfaz de usuario de Jupyter")](media/tutorial/tutorial-notebook-ui.png#lightbox)
+[![Áreas principales de la interfaz de usuario de Jupyter](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
 
 Jupyter incorpora un paseo por los principales elementos de la interfaz de usuario. Para iniciar la visita, seleccione el comando **Help** > **User Interface Tour** (Ayuda > Paseo por la interfaz de usuario) y haga clic en los menús emergentes.
 

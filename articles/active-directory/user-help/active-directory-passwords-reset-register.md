@@ -3,7 +3,7 @@ title: 'Registro para el autoservicio de restablecimiento de contraseña: Azure 
 description: Registro de datos de autenticación de autoservicio de restablecimiento de contraseña de Azure AD
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.assetid: ''
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
-ms.openlocfilehash: f8b4fb8861760d2b5b10f61b3ab6a8c718f849b6
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 2a9e65e36e31f4b2b382fac2bd9898580be18900
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47106765"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821675"
 ---
 # <a name="register-for-self-service-password-reset"></a>Registro para el autoservicio de restablecimiento de contraseñas
 
@@ -31,10 +31,10 @@ Como usuario final, puede restablecer su contraseña o desbloquear su cuenta con
 1. Abra el explorador web en el dispositivo y vaya a la [página de registro en el restablecimiento de contraseña](https://aka.ms/ssprsetup).
 2. Escriba el nombre de usuario y la contraseña proporcionados por el administrador.
 3. Según el modo en que el personal de TI haya realizado la configuración, una o varias de las opciones siguientes estarán a su disposición para que lleve a cabo la configuración y la verificación. Si el administrador tiene permiso para usar su información, puede rellenar una parte en su lugar.
-    * **Teléfono del trabajo**: solo el administrador puede establecer esta opción.
-    * **Teléfono de autenticación**: establezca esta opción en otro número de teléfono al que tenga acceso. Un ejemplo es un teléfono móvil que pueda recibir un mensaje de texto o una llamada.
-    * **Correo electrónico de autenticación**: establezca esta opción en una dirección de correo electrónico alternativa a la que pueda tener acceso sin usar la contraseña que desea restablecer.
-    * **Preguntas de seguridad**: el administrador ha aprobado esta lista de preguntas para que las responda. No puede usar la misma pregunta o respuesta más de una vez.
+    * **Teléfono del trabajo**: Solo el administrador puede establecer esta opción.
+    * **Teléfono de autenticación**: Establezca esta opción en otro número de teléfono al que tenga acceso. Un ejemplo es un teléfono móvil que pueda recibir un mensaje de texto o una llamada.
+    * **Correo electrónico de autenticación**: Establezca esta opción en una dirección de correo electrónico alternativa a la que pueda tener acceso sin usar la contraseña que quiere restablecer.
+    * **Preguntas de seguridad**: El administrador ha aprobado esta lista de preguntas para que las responda. No puede usar la misma pregunta o respuesta más de una vez.
 4. Proporcione la información requerida por el administrador y compruébela. Si hay más de una opción, se recomienda registrar varios métodos. Así se proporciona flexibilidad cuando uno de los métodos no esté disponible. Un ejemplo es cuando viaja y no puede tener acceso a su teléfono del trabajo.
 
     ![Registre los métodos de autenticación y seleccione Finalizar][Register]

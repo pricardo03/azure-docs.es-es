@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/6/2018
 ms.author: trinadhk
-ms.openlocfilehash: 5262c99fae965201d4f9519495163d0e16836a7a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f5695da01752d701e1b688700580982f2d2e6154
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726549"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827421"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Preguntas sobre Azure Backup Agent
 Este artículo contiene las respuestas a preguntas comunes que le ayudan a comprender rápidamente los componentes de Azure Backup Agent. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. También se pueden publicar preguntas sobre el servicio Azure Backup en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).

@@ -9,12 +9,12 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: ac64d97aeeef6147aa62658c9ee440bf058f4db1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 27a330fa4d4f242a58d15ab3f08b70cef8b66d11
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783294"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810744"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Creación de clips con Azure Media Clipper
 En esta sección se muestran los pasos básicos para comenzar a trabajar con Azure Media Clipper. En las secciones siguientes se proporcionan detalles sobre cómo configurar Azure Media Clipper.
@@ -88,10 +88,10 @@ var subclipper = new subclipper({
 ```
 
 Los parámetros para la llamada al método de inicialización son:
-- `selector` {REQUIRED, string}: selector de CSS del elemento HTML coincidente donde se debe representar el widget.
+- `selector` {REQUIRED, string}: el selector de CSS del elemento HTML coincidente donde se debe representar el widget.
 - `restVersion` {REQUIRED, string}: la versión de la API de REST de Azure Media Services de destino. La versión de REST define el formato de la salida generada por el widget. Actualmente, solo se admite la 2.0.
 - `submitSubclipCallback` {REQUIRED, promise}: la función de devolución de llamada que se invoca cuando se hace clic en el botón "enviar" del widget. La función de devolución de llamada debe esperar la salida generada por el widget (una configuración del trabajo de representación o una definición de filtro). Para más información, consulte la devolución de llamada de envío del subclip.
-- `logLevel` {OPTIONAL, {"info", "warn", "error"}}: el nivel de registro que se muestra en la consola del explorador. Valor predeterminado: error
+- `logLevel` {OPTIONAL, {'info', 'warn', 'error'}}: el nivel de registro que se mostrará en la consola del explorador. Valor predeterminado: error
 - `minimumMarkerGap` {OPTIONAL, int}: el tamaño mínimo de un subclip (en segundos). Nota: El valor debe ser mayor o igual que 6, que también es el valor predeterminado.
 - `singleBitrateMp4Profile` {OPTIONAL, JSON object}: el perfil de mp4 de velocidad de bits única para usar en la configuración del trabajo de representación generado por el widget. Si no se proporciona, se usa el [perfil de MP4 de velocidad de bits única predeterminado](https://docs.microsoft.com/azure/media-services/media-services-mes-preset-h264-single-bitrate-1080p).
 - `multiBitrateMp4Profile` {OPTIONAL, JSON object}: el perfil de mp4 de velocidad de bits múltiple para usar en la configuración del trabajo de representación generado por el widget. Si no se proporciona, se usa el [perfil de MP4 de velocidad de bits múltiple predeterminado](https://docs.microsoft.com/azure/media-services/media-services-mes-preset-h264-multiple-bitrate-1080p).
@@ -105,7 +105,7 @@ Los parámetros para la llamada al método de inicialización son:
 - `autoplayVideo` (OPTIONAL, bool): autoplayVideo permite que el creador de subclips reproduzca automáticamente el vídeo cuando se carga. El valor predeterminado es true.
 - `language` {OPTIONAL, string}: el idioma establece el idioma del widget. Si no se especifica, el widget intenta localizar los mensajes basándose en el idioma del explorador. Si no se detecta ningún idioma en el explorador, el widget adopta como predeterminado el inglés. Para más información, consulte la sección de [configuración de la localización](media-services-azure-media-clipper-localization.md).
 - `languages` {OPTIONAL, JSON}: el parámetro de idiomas sustituye el diccionario predeterminado de idiomas por un diccionario personalizado que define el usuario. Para más información, consulte la sección de [configuración de la localización](media-services-azure-media-clipper-localization.md).
-- `extraLanguages` (OPTIONAL, JSON): el parámetro extraLanaguages agrega nuevos idiomas al diccionario predeterminado. Para más información, consulte la sección de [configuración de la localización](media-services-azure-media-clipper-localization.md).
+- `extraLanguages` (OPTIONAL, JSON): el parámetro extraLanguages agrega nuevos idiomas al diccionario predeterminado. Para más información, consulte la sección de [configuración de la localización](media-services-azure-media-clipper-localization.md).
 
 ## <a name="typescript-definition"></a>Definición de TypeScript
 Se puede encontrar un archivo de definición de [TypeScript](https://www.typescriptlang.org/) para Clipper [aquí](http://amp.azure.net/libs/amc/latest/azuremediaclipper.d.ts).

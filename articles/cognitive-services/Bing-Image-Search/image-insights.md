@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 280c646a3265ff7ab9a3d32412a2be2e3989e22e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: bb17916fb4d9b9b3ae1481ead7508214f5956c70
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297476"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464279"
 ---
 # <a name="get-image-insights-with-the-bing-image-search-api"></a>Obtener conclusiones acerca de una imagen con Bing Image Search API
 
@@ -216,10 +216,10 @@ El campo `region` identifica el área de la imagen donde Bing reconoció la enti
 
 Los valores del rectángulo están relacionadas con el ancho y alto de la imagen original, y se encuentran dentro de un intervalo entre 0.0 y 1.0. Por ejemplo, si la imagen es de 300 x 200 y la esquina superior izquierda está en el punto (10, 20) y la esquina inferior derecha, en el punto (290, 150), el rectángulo normalizado es:  
 
--   Left: 10 / 300 = 0.03333...  
--   Top:  20 / 200 = 0.1  
--   Right: 290 / 300 = 0.9667...  
--   Bottom: 150 / 200 = 0.75  
+-   Izquierda: 10 / 300 = 0,03333...  
+-   Arriba:  20 / 200 = 0,1  
+-   Derecha: 290 / 300 = 0,9667...  
+-   Abajo: 150 / 200 = 0,75  
 
 Puede usar la región que devuelve Bing en las llamadas subsiguientes a la conclusión. Por ejemplo, para obtener imágenes visualmente similares de la entidad reconocida. Para obtener más información, consulte [Recortar imágenes para usarlas con imágenes visualmente similares o módulos de reconocimiento de entidades](#croppingimages). A continuación se muestra la asignación entre los campos de región y los parámetros de consulta que usaría para recortar las imágenes.  
 
@@ -408,7 +408,7 @@ A continuación se muestra la respuesta a la solicitud anterior. La respuesta co
 }
 ```
 
-Para obtener una lista de los comerciantes que ofrecen el producto en línea (vea el campo [offerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#offer-offercount)), llame a la API de nuevo y defina `modules` como ShoppingSources. A continuación, defina el parámetro de consulta `insightsToken` con el token encontrado en la imagen de resumen de producto.  
+Para obtener una lista de los comerciantes que ofrecen el producto en línea (vea el campo [offerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)), llame a la API de nuevo y defina `modules` como ShoppingSources. A continuación, defina el parámetro de consulta `insightsToken` con el token encontrado en la imagen de resumen de producto.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?modules=ShoppingSources&insightsToken=ccid_hb3uRvUk*mid_BF5C252A47F2C765...&mkt=en-us HTTP/1.1    

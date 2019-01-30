@@ -1,10 +1,10 @@
 ---
-title: 'Azure Active Directory Domain Services: administración de directiva de grupo en dominios administrados | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Administración de directivas de grupo en un dominio administrado | Microsoft Docs'
 description: Administración de directiva de grupo en dominios administrados de Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 31805f7588a58eb1682ce50fd55dd14b967d6099
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: e92c153158bc53a143bbc4c4c90c6007937fcc8f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158355"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848179"
 ---
 # <a name="administer-group-policy-on-an-azure-ad-domain-services-managed-domain"></a>Administración de directiva de grupo en un dominio administrado de Azure AD Domain Services
 Azure Active Directory Domain Services incluye objetos de directiva de grupo (GPO) integrados para los contenedores "Usuarios del controlador de dominio de AAD" Y "Equipos del controlador de dominio de AAD". Puede personalizar estos GPO integrados para configurar la directiva de grupo en el dominio administrado. Además, los miembros del grupo "Administradores de DC de AAD" pueden crear sus propias unidades organizativas personalizadas en el dominio administrado. También pueden crear GPO personalizados y vincularlos a estas unidades organizativas personalizadas. A los usuarios que pertenecen al grupo "Administradores del controlador de dominio de AAD" se les conceden privilegios de administración de directiva de grupo en el dominio administrado.

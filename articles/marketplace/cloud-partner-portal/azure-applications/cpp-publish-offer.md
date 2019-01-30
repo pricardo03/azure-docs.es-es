@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: pbutlerm
-ms.openlocfilehash: deab8298d09972a4e60be5c72d6d7e43dc2683e6
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ad62b306849b2291c81399cedc1634057e2eec9d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329997"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828101"
 ---
 # <a name="publish-azure-application-offer"></a>Publicación de una oferta de aplicación de Azure
 
@@ -36,7 +36,7 @@ En la siguiente tabla se enumera y se describe cada paso de publicación, y se i
 |  **Paso de publicación**           | **Hora**    | **Descripción**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | Validar requisitos previos         | <15 min    | Se validan la información y la configuración de la oferta.                        |
-| Validar la configuración de los ingresos influidos | <15 min  |      |
+| Validar la configuración de los ingresos influidos | <15 min  | Se comprueba la atribución de uso de recursos de Azure para la oferta.             |
 | Certificación                  | <1 día     | El equipo de certificación de Azure analiza la oferta. Se examina la oferta en busca de virus, malware, cumplimiento de seguridad y problemas de seguridad. La oferta se comprueba para ver si cumple todos los criterios de elegibilidad. Para más información, consulte los [requisitos previos](./cpp-prerequisites.md). Si se detecta un problema, se proporcionan comentarios. |
 | Validación de la versión de prueba          | <2 horas   | (Opcional) Si hay una versión de prueba, Microsoft valida que puede implementar y replicar.  |
 | Empaquetado y registro de la generación de clientes potenciales | <1 hora  | Los recursos técnicos de la oferta se empaquetan para el uso del cliente y se configuran e implementan los sistemas del cliente potencial. |

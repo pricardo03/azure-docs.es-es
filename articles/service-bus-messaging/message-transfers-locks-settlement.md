@@ -3,22 +3,22 @@ title: Transferencias, bloqueos y liquidación de mensajes de Azure Service Bus 
 description: Introducción a las transferencias y operaciones de liquidación de mensajes de Service Bus
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
-ms.author: spelluru
-ms.openlocfilehash: a1835e26f67427f84abd8a3cf24ad196fec8e99d
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.author: aschhab
+ms.openlocfilehash: a78409a15acb4e60fc4200778d0f33b3fb566e85
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854429"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846454"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Transferencias, bloqueos y liquidación de mensajes
 
@@ -96,7 +96,7 @@ Con un cliente AMQP de bajo nivel, Service Bus también acepta transferencias "p
 
 ## <a name="settling-receive-operations"></a>Liquidación de las operaciones de recepción
 
-Para las operaciones de recepción, los clientes de la API de Service Bus habilitan dos modos explícitos diferentes: *Receive-and-Delete* y *Peek-Lock*.
+Para las operaciones de recepción, los clientes de la API de Service Bus habilitan dos modos explícitos diferentes: *Receive-and-Delete* (Recepción y eliminación) y *Peek-Lock* (Inspección y bloqueo).
 
 El modo [Receive-and-Delete](/dotnet/api/microsoft.servicebus.messaging.receivemode) indica al agente que considere todos los mensajes que envía al cliente receptor como liquidados cuando se envían. Esto significa que el mensaje se considera consumido tan pronto como el agente lo pone en circulación. Si se produce un error en la transferencia del mensaje, el mensaje se pierde.
 

@@ -6,12 +6,12 @@ author: iainfoulds
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: 3b99afe82f77b6bd89b5afa458179abee4c98e4f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a47910083083787000b749a0b5b3256df5e702c8
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999127"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845408"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Creación y configuración de un clúster de Azure Kubernetes Service (AKS) para usar nodos virtuales en Azure Portal
 
@@ -126,6 +126,9 @@ virtual-node-helloworld-9b55975f-bnmfl   1/1       Running   0          4m      
 
 Se asigna una dirección IP interna al pod de la subred de red virtual de Azure delegada para su uso con los nodos virtuales.
 
+> [!NOTE]
+> Si usa imágenes almacenadas en Azure Container Registry, [configure y use un secreto de Kubernetes][acr-aks-secrets]. Una limitación actual de la versión preliminar de los nodos virtuales es que no se puede usar la autenticación de entidad de servicio de Azure AD integrada. Si no usa un secreto, los pods programados en los nodos virtuales no se pueden iniciar y se notifica el error `HTTP response status code 400 error code "InaccessibleImage"`.
+
 ## <a name="test-the-virtual-node-pod"></a>Prueba del pod del nodo virtual
 
 Para probar el pod que se ejecuta en el nodo virtual, vaya a la aplicación de demostración con un cliente web. Como se asigna una dirección IP interna al pod, puede probar rápidamente esta conectividad desde otro pod en el clúster de AKS. Cree un pod de prueba y asóciele una sesión de terminal:
@@ -183,3 +186,5 @@ Los nodos virtuales son un componente de una solución de escalado en AKS. Para 
 [aks-hpa]: tutorial-kubernetes-scale.md
 [aks-cluster-autoscaler]: autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
+[acr-aks-secrets]: ../container-registry/container-registry-auth-aks.md#access-with-kubernetes-secret
+

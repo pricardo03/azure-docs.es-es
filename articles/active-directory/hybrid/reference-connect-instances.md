@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: instancias de servicio de sincronización | Microsoft Docs'
+title: 'Azure AD Connect: Instancias de servicio de sincronización | Microsoft Docs'
 description: Esta página documenta las consideraciones especiales para instancias de Azure AD.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: f340ea11-8ff5-4ae6-b09d-e939c76355a3
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d086b958ddca6caded19cc02a790f8091aba993e
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: be20f50b68ab3715e2b7a98db208dcd81a995f1b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425190"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463888"
 ---
-# <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: consideraciones especiales para instancias
+# <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: Consideraciones especiales para instancias
 Azure AD Connect se utiliza habitualmente con la instancia mundial de Azure AD y Office 365. Pero también hay otras instancias y estas tienen requisitos diferentes para las direcciones URL y otras consideraciones especiales.
 
 ## <a name="microsoft-cloud-germany"></a>Microsoft Cloud Germany

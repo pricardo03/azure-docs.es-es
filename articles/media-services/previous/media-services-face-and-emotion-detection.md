@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 859e75819f96edd527fceb143faf8357738ce80e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5aab8a5d48b7a7d17aa44b74d65ee70cb9322944
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33784464"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817561"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Detección de caras y emociones con Análisis multimedia de Azure
 ## <a name="overview"></a>Información general
@@ -152,7 +152,7 @@ Al crear una tarea con **Azure Media Face Detector**(Detector de caras multimedi
 #### <a name="attribute-descriptions"></a>Descripciones de atributos
 | Nombre del atributo | DESCRIPCIÓN |
 | --- | --- |
-| Mode |Faces: solo detección de caras.<br/>PerFaceEmotion: devolver emociones independientemente para cada detección de cara.<br/>AggregateEmotion: Devolver valores de emociones medios para todas las caras del fotograma. |
+| Mode |Faces: Solo detección de caras.<br/>PerFaceEmotion: Devuelve emociones independientemente para cada detección de cara.<br/>AggregateEmotion: Devuelve valores de emociones medios para todas las caras del fotograma. |
 | AggregateEmotionWindowMs |Utilizar si se selecciona el modo AggregateEmotion. Especifica la longitud del vídeo que se utiliza para generar cada resultado agregado, en milisegundos. |
 | AggregateEmotionIntervalMs |Utilizar si se selecciona el modo AggregateEmotion. Especifica con qué frecuencia se van a producir resultados agregados. |
 
@@ -418,7 +418,7 @@ namespace FaceDetection
             task.InputAssets.Add(asset);
 
             // Add an output asset to contain the results of the job.
-            task.OutputAssets.AddNew("My Face Detectoion Output Asset", AssetCreationOptions.None);
+            task.OutputAssets.AddNew("My Face Detection Output Asset", AssetCreationOptions.None);
 
             // Use the following event handler to check job progress.  
             job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);

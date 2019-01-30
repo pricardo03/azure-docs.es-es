@@ -3,7 +3,7 @@ title: 'Restablecimiento de la contraseña con la información de seguridad: Azu
 description: Cómo restablecer la contraseña si la olvida, mediante la información de seguridad y la verificación en dos pasos.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: a95d5adb4ee0eb8aa71f7759e3f2b5520bda5ff4
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6bf8c548d81b3cade487f3188cdafae82b5776d9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348086"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815946"
 ---
 # <a name="reset-your-work-or-school-password"></a>Restablecimiento de la contraseña profesional o educativa
 
@@ -159,7 +159,7 @@ A continuación se presentan algunos casos terror comunes y sus soluciones:
 |Cuando intento cambiar la contraseña, me aparece un error. |La contraseña contiene una palabra, frase o patrón que permite adivinar la contraseña fácilmente.| Inténtelo de nuevo con una contraseña más segura.|
 |Después de escribir mi identificador de usuario, se me remite a una página que dice "Póngase en contacto con el administrador".|Microsoft ha determinado que la contraseña de su cuenta de usuario la administra su administrador en un entorno local. Por tanto, no puede restablecer la contraseña desde el vínculo "No se puede tener acceso a su cuenta". |Póngase en contacto con el administrador para obtener más ayuda.|
 |Después de escribir mi identificador de usuario, recibo el error "Su cuenta no está habilitada para el restablecimiento de contraseña".|El administrador no ha configurado su cuenta, por lo que puede restablecer la contraseña.|Su administrador no ha habilitado el restablecimiento de contraseña para su organización desde el vínculo "No se puede tener acceso a su cuenta", o bien no le ha autorizado para usar la característica.<br><br> Para restablecer la contraseña, debe seleccionar el vínculo "Póngase en contacto con un administrador" para enviar un correo electrónico al administrador de la compañía y decirle que quiere restablecer su contraseña.|
-|Después de escribir mi identificador de usuario, obtengo un error que dice "No hemos podido verificar su cuenta".|El proceso de inicio de sesión no pudo verificar la información de la cuenta.|Este mensaje puede aparecer por dos motivos.<br><br>1. El administrador activó el restablecimiento de contraseña para la organización, pero no la registró para usar el servicio. Para realizar un registro a fin de poder realizar el restablecimiento de contraseña, consulte alguno de los siguientes artículos, según el método de verificación que desee utilizar: [Configuración de la información de seguridad para usar una aplicación autenticadora (versión preliminar)](security-info-setup-auth-app.md), [Configuración de la información de seguridad para usar una llamada telefónica (versión preliminar)](security-info-setup-phone-number.md), [Configuración de la información de seguridad para usar la mensajería de texto (versión preliminar)](security-info-setup-text-msg.md), [Configuración de la información de seguridad para usar el correo electrónico (versión preliminar)](security-info-setup-email.md) o [Configuración de la información de seguridad para usar preguntas de seguridad (versión preliminar)](security-info-setup-questions.md).<br><br>2. El administrador no activado el restablecimiento de contraseña para su organización. En esta situación, debe seleccionar el vínculo "Póngase en contacto con un administrador" para enviar un correo electrónico a la organización, a fin de pedirle que restablezca su contraseña.|
+|Después de escribir mi identificador de usuario, obtengo un error que dice "No hemos podido verificar su cuenta".|El proceso de inicio de sesión no pudo verificar la información de la cuenta.|Este mensaje puede aparecer por dos motivos.<br><br>1. El administrador activó el restablecimiento de contraseña para la organización, pero no la registró para usar el servicio. Para registrarse para un restablecimiento de contraseña, consulte uno de los siguientes artículos, según su método de verificación: [Configuración de la información de seguridad para usar una aplicación autenticadora (versión preliminar)](security-info-setup-auth-app.md), [Configuración de la información de seguridad para usar una llamada telefónica (versión preliminar)](security-info-setup-phone-number.md), [Configuración de la información de seguridad para usar la mensajería de texto (versión preliminar)](security-info-setup-text-msg.md), [Configuración de la información de seguridad para usar el correo electrónico (versión preliminar)](security-info-setup-email.md) o [Configuración de la información de seguridad para usar preguntas de seguridad (versión preliminar)](security-info-setup-questions.md).<br><br>2. El administrador no activado el restablecimiento de contraseña para su organización. En esta situación, debe seleccionar el vínculo "Póngase en contacto con un administrador" para enviar un correo electrónico a la organización, a fin de pedirle que restablezca su contraseña.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

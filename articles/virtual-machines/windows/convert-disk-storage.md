@@ -15,29 +15,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: ramankum
-ms.openlocfilehash: 958f661585b38b156cf523fe00986e7594474917
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.component: disks
+ms.openlocfilehash: 4f9e3468cc8ec94eeb3ba936b828e9adfd9a3e6d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093823"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478525"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Actualizar el tipo de almacenamiento de un disco administrado
 
-Azure Managed Disks ofrece tres opciones de almacenamiento: [SSD premium](../windows/premium-storage.md), [SSD estándar](../windows/disks-standard-ssd.md) y [HDD estándar](../windows/standard-storage.md). En función de sus necesidades de rendimiento, puede cambiar un disco administrado entre tipos de almacenamiento con un tiempo de inactividad mínimo. En un disco no administrado, no se puede cambiar de un tipo de almacenamiento a otro. Sin embargo, le resultará muy fácil [convertir un disco no administrado en un disco administrado](convert-unmanaged-to-managed-disks.md).
+Azure Managed Disks ofrece tres opciones de tipo de almacenamiento: [SSD Premium](../windows/premium-storage.md), [SSD estándar](../windows/disks-standard-ssd.md) y [HDD estándar](../windows/standard-storage.md). En función de sus necesidades de rendimiento, puede cambiar un disco administrado entre tipos de almacenamiento con un tiempo de inactividad mínimo. En un disco no administrado, no se puede cambiar de un tipo de almacenamiento a otro. Sin embargo, le resultará muy fácil [convertir un disco no administrado en un disco administrado](convert-unmanaged-to-managed-disks.md).
 
-En este artículo se muestra cómo convertir un disco administrado de estándar a premium, y viceversa, mediante Azure PowerShell. Si necesita instalar o actualizar PowerShell, consulte [Instalación y configuración de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.8.1).
+En este artículo se muestra cómo convertir un disco administrado de estándar a premium, y viceversa, mediante Azure PowerShell. Si necesita instalar o actualizar PowerShell, consulte [Instalación y configuración de Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.8.1).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Debido a que la conversión requiere reiniciar la máquina virtual, debería programar la migración del almacenamiento de discos durante una ventana de mantenimiento existente previamente. 
 * Si usa un disco no administrado, en primer lugar [conviértalo en un disco administrado](convert-unmanaged-to-managed-disks.md) para permitirle cambiar entre tipos de almacenamiento. 
-* Los ejemplos de este artículo requieren la versión 6.0.0 o posterior del módulo de Azure PowerShell. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Ejecute [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) para crear una conexión con Azure.
+* Los ejemplos de este artículo requieren la versión 6.0.0 o posterior del módulo de Azure PowerShell. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Ejecute [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) para crear una conexión con Azure.
 
 
 ## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium"></a>Conversión de todos los discos administrados de una máquina virtual de estándar a prémium
 
-En el ejemplo siguiente se muestra cómo cambiar todos los discos de una máquina virtual del almacenamiento estándar al premium. Para usar discos administrados premium, la máquina virtual debe usar un [Tamaño de máquina virtual](sizes.md) que admita Premium Storage. En este ejemplo también se pasa a un tamaño que admite Premium Storage:
+En el ejemplo siguiente se muestra cómo cambiar todos los discos de una máquina virtual del almacenamiento estándar al premium. Para usar discos administrados prémium, la máquina virtual debe usar un [Tamaño de máquina virtual](sizes.md) que admita Premium Storage. En este ejemplo también se pasa a un tamaño que admite Premium Storage:
 
 ```azurepowershell-interactive
 # Name of the resource group that contains the VM

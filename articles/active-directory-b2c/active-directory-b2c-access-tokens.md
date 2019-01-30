@@ -3,21 +3,21 @@ title: Solicitud de tokens de acceso en Azure Active Directory B2C | Microsoft D
 description: En este artículo se mostrará cómo configurar una aplicación cliente y adquirir un token de acceso.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/09/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2043e0fc9fa63903073311856e7e8d31fb34c506
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: f3db56c7ce61960fca0e5347b2385bcc65a88354
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015356"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845153"
 ---
-# <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: solicitud de tokens de acceso
+# <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: Solicitud de tokens de acceso
 
 Un token de acceso, que se designa como **access\_token** en las respuestas de Azure AD B2C, es una forma de token de seguridad que un cliente puede usar para tener acceso a los recursos protegidos por un  [servidor de autorización](active-directory-b2c-reference-protocols.md), como una API web. Los tokens de acceso se representan como [JWT](active-directory-b2c-reference-tokens.md) y contienen información sobre el servidor de recursos previsto y los permisos concedidos al servidor. Cuando se llama al servidor de recursos, el token de acceso debe incluirse en la solicitud HTTP.
 
@@ -105,7 +105,7 @@ También puede solicitar más ámbitos (permisos) para un recurso que lo que se 
 
 El estándar de OpenID Connect especifica varios valores de "ámbito" especiales. Los ámbitos especiales siguientes representan el permiso para "tener acceso al perfil del usuario":
 
-* **openid**: solicita un token de id.
+* **openid**: solicita un token de identificador
 * **offline\_access**: solicita un token de actualización (con [flujos de código de autenticación](active-directory-b2c-reference-oauth-code.md)).
 
 Si el parámetro `response_type` de una solicitud de `/authorize` incluye `token`, el parámetro `scope` debe incluir al menos un ámbito de recurso (distinto de `openid` y `offline_access`) para su concesión. De lo contrario, la solicitud `/authorize` terminará con un error.

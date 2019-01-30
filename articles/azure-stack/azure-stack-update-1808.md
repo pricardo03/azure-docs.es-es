@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2019
+ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 8d477997e71843307f6c756a6974a23267842015
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: b91da771587dea60048a83471ec1f585690f2a33
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244977"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848621"
 ---
 # <a name="azure-stack-1808-update"></a>Actualización de Azure Stack 1808
 
@@ -255,7 +255,7 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 
 ### <a name="compute"></a>Proceso
 
-- Al crear una [VM de la serie Dv2](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), las VM D11 14v2 le permitirán crear 4, 8, 16 y 32 discos de datos respectivamente. Sin embargo, el panel de creación de la VM muestra 8, 16, 32 y 64 discos de datos.
+- Al crear una [máquina virtual de la serie Dv2](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), las VM D11 14v2 le permitirán crear 4, 8, 16 y 32 discos de datos respectivamente. Sin embargo, el panel de creación de la VM muestra 8, 16, 32 y 64 discos de datos.
 
 <!-- 3164607 – IS, ASDK -->
 - Si se vuelve a conectar un disco desasociado a la misma máquina virtual (VM) con el mismo nombre y LUN, se produce un error parecido a **No se puede conectar el disco de datos "datadisk" a la VM 'vm1'**. El error se produce porque el disco se está desasociando en este momento o porque no se pudo realizar la última operación de desasociación. Espere hasta que el disco esté completamente desasociado para volver a intentarlo o elimine/desasocie de nuevo el disco de forma explícita. La solución alternativa consiste en volver a conectarlo con un nombre diferente o en otro LUN. 
@@ -268,7 +268,7 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 
    1. Si la suscripción se creó antes de la actualización 1808, se puede producir un error en la implementación de máquinas virtuales con Managed Disks con un mensaje de error interno. Para resolver el error, siga estos pasos en cada suscripción:
       1. En el portal del inquilino, vaya a **Suscripciones** y busque la suscripción. Haga clic en **Proveedores de recursos**, después en **Microsoft.Compute** y luego en **Volver a registrar**.
-      2. En la misma suscripción, vaya a **Control de acceso (IAM)**, y compruebe que **Azure Stack – Managed Disk** (Azure Stack - Disco administrado) aparece en la lista.
+      2. En la misma suscripción, vaya a **Control de acceso (IAM)** y compruebe que el rol **AzureStack-DiskRP-Client** aparece en la lista.
    2. Si ha configurado un entorno de varios inquilinos, se puede producir un error con un mensaje de error interno en la implementación de máquinas virtuales en una suscripción asociada con un directorio de invitados. Para solucionar el error, siga estos pasos:
       1. Aplique la [revisión 1808 de Azure Stack](https://support.microsoft.com/help/4481066/).
       2. Siga los pasos de [este artículo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) para volver a configurar cada uno de los directorios de invitado.

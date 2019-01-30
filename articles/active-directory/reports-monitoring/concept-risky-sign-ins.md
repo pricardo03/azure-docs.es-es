@@ -3,7 +3,7 @@ title: Informe de inicios de sesión poco seguros del portal de Azure Active Dir
 description: Obtenga información acerca del informe de inicios de sesión poco seguros del portal de Azure Active Directory
 services: active-directory
 author: priyamohanram
-manager: mtillman
+manager: daveba
 ms.assetid: 7728fcd7-3dd5-4b99-a0e4-949c69788c0f
 ms.service: active-directory
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8e92288883a7779130e3b7f7a8433b61f76aa18c
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 402aae15ae4fe8e6961fbc76a4ddaa470b8c797a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244722"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807769"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Informe de inicios de sesión poco seguros del portal de Azure Active Directory
 
@@ -61,9 +61,9 @@ Todas las ediciones de Azure AD le proporcionan informes sobre inicios de sesió
 
 Las ediciones Free y Basic de Azure AD proporcionan una lista de inicios de sesión de riesgo que se han detectado para los usuarios. Cada registro contiene los siguientes atributos:
 
-- **Usuario**: el nombre del usuario que se utilizó durante la operación de inicio de sesión
-- **IP**: la dirección IP del dispositivo que se usó para conectarse a Azure Active Directory
-- **Ubicación**: la ubicación utilizada para conectarse a Azure Active Directory
+- **Usuario**: el nombre del usuario que se usó durante la operación de inicio de sesión.
+- **IP**: la dirección IP del dispositivo que se usó para conectarse a Azure Active Directory.
+- **Ubicación**: la ubicación usada para conectarse a Azure Active Directory. Se trata de una mejor aproximación basada en seguimientos, datos del registro, búsquedas inversas y otra información.
 - **Hora de inicio de sesión**: la hora en que se realizó el inicio de sesión
 - **Estado**: el estado del inicio de sesión
 
@@ -106,6 +106,9 @@ Cuando selecciona un evento de riesgo, obtiene una vista detallada del informe p
 - Cierre manualmente los eventos de riesgo. 
 
 ![Inicios de sesión no seguros](./media/concept-risky-sign-ins/457.png)
+
+> [!IMPORTANT]
+> En ocasiones, es posible que encuentre un evento de riesgo sin una entrada de inicio de sesión correspondiente en el [informe de inicios de sesión](concept-sign-ins.md). Esto se debe a que Identity Protection evalúa el riesgo para inicios de sesión tanto **interactivos** como **no interactivos**, mientras que el informe de inicios de sesión muestra solo los inicios de sesión interactivos.
 
 Cuando selecciona un usuario, obtiene una vista detallada del informe para este usuario que le permite:
 

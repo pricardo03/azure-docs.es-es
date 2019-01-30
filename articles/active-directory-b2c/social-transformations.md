@@ -3,19 +3,19 @@ title: Ejemplos de transformación de notificaciones de cuentas de redes sociale
 description: Ejemplos de transformación de notificaciones de cuentas de redes sociales para el esquema Marco de experiencia de identidad de Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d9b592e7f61b87860e4f6fa2aa4d46e253b6257e
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d9ef8f9c68a09e998c393584ceb6e3be53f91a9c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44383085"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848808"
 ---
 # <a name="social-accounts-claims-transformations"></a>Transformaciones de notificaciones de cuentas de redes sociales
 
@@ -64,7 +64,7 @@ Use esta transformación de notificaciones para generar un elemento ClaimType `a
 
 - Notificaciones de entrada:
     - **key**: 12334
-    - **identityProvider**: Facebook.com
+    - **identityProvider**: facebook.com
 - Notificaciones de salida:
     - **alternativeSecurityId**: { "issuer": "facebook.com", "issuerUserId": "MTA4MTQ2MDgyOTI3MDUyNTYzMjcw"}
 

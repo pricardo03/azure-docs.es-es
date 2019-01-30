@@ -3,19 +3,19 @@ title: Ejemplos y definiciones de la API de informes de uso en Azure Active Dire
 description: Guía y ejemplos sobre la obtención de informes en las autenticaciones multifactor, las autenticaciones y los usuarios de inquilino de Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 544b0618f9135b684846c42bb7edeb37cf599883
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: cce6d71864d1c3e957937e374e90ee95a99e9f3c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445541"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844364"
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Acceso a informes de uso en Azure AD B2C a través de la API de informes
 
@@ -28,7 +28,7 @@ Azure Active Directory B2C (Azure AD B2C) proporciona autenticación basada en e
 Este artículo se centra en informes relacionados con el trabajo de facturación, que se basa en el número de usuarios, las autenticaciones basadas en inicios de sesión facturables y las autenticaciones multifactor.
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de comenzar, debe completar los pasos de [Requisitos previos para acceder a la API de informes de Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/). Cree una aplicación, obtenga un secreto y concédale derechos de acceso a los informes del inquilino de Azure AD B2C. Aquí también se proporcionan ejemplos de *script de Bash* y *script de Python*. 
 
 ## <a name="powershell-script"></a>Script de PowerShell

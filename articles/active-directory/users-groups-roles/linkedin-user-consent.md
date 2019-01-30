@@ -1,6 +1,6 @@
 ---
-title: Intercambio de datos de integración de LinkedIn en Azure Active Directory | Microsoft Docs
-description: Se explica cómo las conexiones de cuentas de LinkedIn comparten datos a través de aplicaciones de Microsoft en Azure Active Directory
+title: Intercambio de datos de integración y consentimiento de LinkedIn en Azure Active Directory | Microsoft Docs
+description: Se explica cómo la integración de LinkedIn comparte datos a través de aplicaciones de Microsoft en Azure Active Directory
 services: active-directory
 author: curtand
 manager: mtillman
@@ -8,18 +8,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 01/22/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 25060f41528c59d252adbc854704c6060becd907
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 776c793fb797e9388f0852773315f27cd42dde25
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319128"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471725"
 ---
-# <a name="user-consent-and-linkedin-account-connections-data-sharing"></a>Consentimiento del usuario y compartir datos de las conexiones de cuentas de LinkedIn
+# <a name="linkedin-integration-data-sharing-and-consent"></a>Intercambio de datos de integración y consentimiento de LinkedIn
 
 Como administrador de Azure Active Directory (Azure AD), puede habilitar a los usuarios de su organización para que den su consentimiento al conectar su cuenta profesional o educativa de Microsoft con su cuenta de LinkedIn. Cuando los usuarios conectan sus cuentas, la información y los aspectos destacados de LinkedIn están disponibles en algunas aplicaciones y servicios de Microsoft. Los usuarios también pueden esperar que su experiencia de creación de contactos en LinkedIn mejore y se enriquezca con la información de Microsoft.
 
@@ -31,13 +31,13 @@ Para ver información de LinkedIn en aplicaciones y servicios de Microsoft, los 
 
 El acceso a la información de LinkedIn desde los servicios y aplicaciones de Microsoft facilita a los usuarios conectarse, ponerse en contacto y crear relaciones profesionales con colegas, clientes y socios dentro y fuera de su organización. Los nuevos usuarios pueden ganar productividad más rápido al conectarse con sus colegas, aprender más sobre ellos y acceder fácilmente a más información. Este es un ejemplo de cómo aparece la información de LinkedIn en la tarjeta de perfil de las aplicaciones de Microsoft:
 
-![Activación de las conexiones de cuentas de LinkedIn](./media/linkedin-user-consent/display-example.png)
+![Habilitación de la integración de LinkedIn](./media/linkedin-user-consent/display-example.png)
 
-## <a name="enable-and-announce-linkedin-account-connections"></a>Activación y anuncio de las conexiones de cuentas de LinkedIn
+## <a name="enable-and-announce-linkedin-integration"></a>Habilitación y anuncio de la integración de LinkedIn
 
 Debe ser un administrador de Azure Active Directory para administrar la opción de configuración de su organización. Puede habilitar la opción para todos los usuarios o para un conjunto específico de usuarios.
 
-1. Para habilitar o deshabilitar la integración de las conexiones de cuentas, siga los pasos en [conexiones de cuentas de LinkedIn](linkedin-integration.md).
+1. Para habilitar o deshabilitar la integración, siga los pasos de [Integración de LinkedIn](linkedin-integration.md).
 2. Al anunciar la integración de LinkedIn en su organización, dirija a los usuarios a las preguntas más frecuentes sobre [información de LinkedIn en las aplicaciones y servicios de Microsoft](https://support.office.com/article/about-linkedin-information-and-features-in-microsoft-apps-and-services-dc81cc70-4d64-4755-9f1c-b9536e34d381). El artículo proporciona información acerca de dónde aparece la información de LinkedIn, cómo conectar las cuentas y mucho más.
 
 ## <a name="user-consent-for-data-access-in-microsoft-and-linkedin"></a>Consentimiento del usuario para el acceso a datos en Microsoft y LinkedIn

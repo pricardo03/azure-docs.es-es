@@ -4,12 +4,12 @@ ms.service: site-recovery
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
-ms.openlocfilehash: 4b0c8ad227b9aa8a0692ff453c3751aaa38a4849
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 9d9790c9b3dbe3b130be999dd76092ae64f7b52c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165383"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54841457"
 ---
 |Nombre de parámetro| Escriba | DESCRIPCIÓN| Valores posibles|
 |-|-|-|-|
@@ -17,7 +17,7 @@ ms.locfileid: "50165383"
 |/InstallLocation|Obligatorio|La carpeta donde se instalan los componentes| Cualquier carpeta del equipo|
 |/MySQLCredsFilePath|Obligatorio|La ruta de acceso al archivo en que se almacenan las credenciales del servidor MySQL|El archivo debe tener el formato especificado a continuación|
 |/VaultCredsFilePath|Obligatorio|La ruta de acceso del archivo de credenciales del almacén|Ruta de acceso de archivo válido|
-|/EnvType|Obligatorio|El tipo de entorno que desea proteger |VMware<br>NonVMware|
+|/EnvType|Obligatorio|El tipo de entorno que quiere proteger |VMware<br>NonVMware|
 |/PSIP|Obligatorio|Dirección IP de la NIC que se usará para la transferencia de datos de replicación| Cualquier dirección IP válida|
 |/CSIP|Obligatorio|Dirección IP de la NIC en la que el servidor de configuración realiza la escucha| Cualquier dirección IP válida|
 |/PassphraseFilePath|Obligatorio|Ruta de acceso completa a la ubicación del archivo de frase de contraseña|Ruta de acceso de archivo válido|

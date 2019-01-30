@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: b58d6315c4399a7bb23514eb90ab5a94acda2592
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c74c208e77539833c2bc5e1323713191e29aec64
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249037"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820247"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funcionalidades técnicas de seguridad de Azure
 
@@ -179,9 +179,9 @@ También podrá repartir las tareas entre el equipo y conceder a los usuarios ú
 
 Uno de los elementos clave para la protección de datos en la nube consiste en tener en cuenta los posibles estados en que se pueden producir datos y qué controles hay disponibles para ese estado. Como parte de los procedimientos recomendados de cifrado y seguridad de datos en Azure, se ofrecen recomendaciones relacionadas con los estados de datos siguientes.
 
-- En reposo: esto incluye información sobre todos los objetos de almacenamiento, los contenedores y los tipos que existen de forma estática en medios físicos, ya sean discos magnéticos u ópticos.
+- En reposo: Esto incluye información sobre todos los objetos de almacenamiento, los contenedores y los tipos que existen de forma estática en medios físicos, ya sean discos magnéticos u ópticos.
 
-- En tránsito: se considera que los datos están en movimiento cuando se transfieren entre componentes, ubicaciones o programas. Por ejemplo, a través de la red o un bus de servicio (desde una ubicación local hacia la nube, y viceversa, incluidas las conexiones híbridas como ExpressRoute) o durante el proceso de entrada y salida.
+- En tránsito: Se considera que los datos están en movimiento cuando se transfieren entre componentes, ubicaciones o programas. Por ejemplo, a través de la red o un bus de servicio (desde una ubicación local hacia la nube, y viceversa, incluidas las conexiones híbridas como ExpressRoute) o durante el proceso de entrada y salida.
 
 ### <a name="encryption-at-rest"></a>Cifrado en reposo
 
@@ -216,9 +216,9 @@ Considere el tipo de almacenes que está empleando para almacenar los datos. Por
 
 Para cada almacén que use, aproveche la compatibilidad ya existente con el cifrado en reposo.
 
-- Azure Storage: consulte [Cifrado del servicio Azure Storage para datos en reposo](https://docs.microsoft.com/azure/storage/storage-service-encryption),
+- Azure Storage: Consulte [Azure Storage Service Encryption para datos en reposo](https://docs.microsoft.com/azure/storage/storage-service-encryption)
 
-- SQL Azure: consulte [Cifrado de datos transparente (TDE), SQL Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx)
+- SQL Azure: Consulte [Cifrado de datos transparente (TDE), SQL Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx)
 
 - Almacenamiento en máquina virtual y disco local ([Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption))
 
@@ -248,7 +248,7 @@ Si se admiten claves administradas por el cliente, debe proporcionar una experie
 
 Cuando el cifrado en reposo incluye el cifrado de host, datos de infraestructura y de inquilinos, la pérdida de las claves debida a un error del sistema o actividad malintencionada podría dar lugar a la pérdida de todos los datos cifrados. Por lo tanto, es fundamental que el servicio de cifrado en reposo tenga una potente solución de recuperación ante desastres que sea resistente a errores del sistema o actividades malintencionadas.
 
-Los servicios que implementan el cifrado en reposo aún se muestran vulnerables a las claves de cifrado o a los datos que se dejan sin cifrar en la unidad del host (por ejemplo, en el archivo de paginación del sistema operativo del host). Por tanto, tales servicios deben asegurarse de que todo el volumen del host destinado a estos está cifrado. Para facilitar este proceso, el equipo de Compute ha habilitado la implementación del cifrado del host, que utiliza [Bitlocker](https://technet.microsoft.com/library/dn306081.aspx) NKP y extensiones al servicio y agente de DCM para cifrar el volumen del host.
+Los servicios que implementan el cifrado en reposo aún se muestran vulnerables a las claves de cifrado o a los datos que se dejan sin cifrar en la unidad del host (por ejemplo, en el archivo de paginación del sistema operativo del host). Por tanto, tales servicios deben asegurarse de que todo el volumen del host destinado a estos está cifrado. Para facilitar este proceso, el equipo de Compute ha habilitado la implementación del cifrado del host, que usa [BitLocker](https://technet.microsoft.com/library/dn306081.aspx) NKP y extensiones al servicio y agente de DCM para cifrar el volumen del host.
 
 La mayoría de los servicios se implementa en máquinas virtuales estándar de Azure. Estos servicios deben realizar el [cifrado del host](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) automáticamente cuando Compute lo habilite. Para aquellos servicios que se ejecutan en clústeres administrados de Compute, el cifrado del host se habilita de forma automática cuando se implementa Windows Server 2016.
 
@@ -370,7 +370,7 @@ Microsoft Antimalware para Azure Cloud Services y Virtual Machines es una funcio
 
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) ayuda a coordinar la replicación, la conmutación por error y la recuperación de aplicaciones y cargas de trabajo para que estén disponibles desde una ubicación secundaria si la ubicación principal deja de funcionar.
 
-## <a name="ensure-compliance-cloud-services-due-diligence-checklist-protect"></a>Garantía de cumplimiento normativo: Lista de comprobación de diligencia debida para Cloud Services (protección)
+## <a name="ensure-compliance-cloud-services-due-diligence-checklist-protect"></a>Asegurar el cumplimiento: Lista de comprobación de diligencia debida para Cloud Services (protección)
 
 Microsoft ha desarrollado [la lista de comprobación de diligencia debida para Cloud Services](https://aka.ms/cloudchecklist.download) para ayudar a las organizaciones a actuar con la debida diligencia cuando están pensando trasladarse a la nube. Proporciona una estructura que ayuda a las organizaciones de cualquier tipo y tamaño, desde empresas privadas a organizaciones públicas, incluidos organismos gubernamentales de todos los niveles y organizaciones sin ánimo de lucro, a identificar su propio rendimiento, servicio, administración de datos y objetivos y requisitos de control. Esto les permite comparar las ofertas de los distintos proveedores de servicios en la nube que, en última instancia, forman la base para un contrato de este tipo de servicios.
 

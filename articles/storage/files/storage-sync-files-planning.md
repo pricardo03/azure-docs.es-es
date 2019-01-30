@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 76bec0f0e924fe193519f47effb8dd45f6262697
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 750ab99df1d241cf4252c49a5a9ced08a82b1c92
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630332"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809198"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -205,6 +205,9 @@ Si está utilizando una solución de copia de seguridad local, las copias de seg
 
 > [!Note]  
 > La reconstrucción completa (BMR) puede causar resultados inesperados y actualmente no se admite.
+
+> [!Note]  
+> Las instantáneas de VSS (incluida la pestaña Versiones anteriores) no se admiten actualmente en los volúmenes que tienen habilitada la nube por niveles. Si la nube por niveles está habilitada, use las instantáneas de recurso compartido de Azure para restaurar un archivo desde una copia de seguridad.
 
 ### <a name="encryption-solutions"></a>Soluciones de cifrado
 La compatibilidad con soluciones de cifrado depende de cómo se implementen. Está comprobado que Azure File Sync funciona con:

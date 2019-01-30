@@ -4,21 +4,23 @@ description: Este procedimiento le guiará a través de la corrección de los re
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 093b49bea167efb12b941f8f0baff6fbdae5be25
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 054ce3d3483c3515e89c36eafc5d9a771e8e608d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312653"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844150"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corregir los recursos no conformes con Azure Policy
 
 Los recursos que no son conformes para un directiva **deployIfNotExists** se pueden colocar en un estado conforme a través de **Corrección**. La corrección se lleva a cabo indicando a Azure Policy que ejecute el efecto **deployIfNotExists** de la directiva asignada en los recursos existentes. En este artículo se muestran los pasos necesarios para comprender y realizar correcciones con Policy.
+
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="how-remediation-security-works"></a>Cómo funciona la seguridad de corrección
 
@@ -51,7 +53,7 @@ az role definition list --name 'Contributor'
 ```
 
 ```azurepowershell-interactive
-Get-AzureRmRoleDefinition -Name 'Contributor'
+Get-AzRoleDefinition -Name 'Contributor'
 ```
 
 ## <a name="manually-configure-the-managed-identity"></a>Configurar manualmente la identidad administrada
@@ -70,23 +72,23 @@ Al crear un trabajo mediante Azure Portal, Azure Policy genera la identidad admi
 Para crear una identidad administrada durante la asignación de la directiva, debe definirse **Location** y debe usarse **AssignIdentity**. En el siguiente ejemplo se obtiene la definición de la directiva integrada **Implementar cifrado de datos transparente de SQL DB**, se establece el grupo de recursos de destino y después se crea la asignación.
 
 ```azurepowershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
+# Login first with Connect-Azccount if not using Cloud Shell
 
 # Get the built-in "Deploy SQL DB transparent data encryption" policy definition
-$policyDef = Get-AzureRmPolicyDefinition -Id '/providers/Microsoft.Authorization/policyDefinitions/86a912f6-9a06-4e26-b447-11b16ba8659f'
+$policyDef = Get-AzPolicyDefinition -Id '/providers/Microsoft.Authorization/policyDefinitions/86a912f6-9a06-4e26-b447-11b16ba8659f'
 
 # Get the reference to the resource group
-$resourceGroup = Get-AzureRmResourceGroup -Name 'MyResourceGroup'
+$resourceGroup = Get-AzResourceGroup -Name 'MyResourceGroup'
 
 # Create the assignment using the -Location and -AssignIdentity properties
-$assignment = New-AzureRmPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL DB transparent data encryption' -Scope $resourceGroup.ResourceId -PolicyDefinition $policyDef -Location 'westus' -AssignIdentity
+$assignment = New-AzPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL DB transparent data encryption' -Scope $resourceGroup.ResourceId -PolicyDefinition $policyDef -Location 'westus' -AssignIdentity
 ```
 
 La variable `$assignment` contiene ahora el identificador principal de la identidad administrada junto con los valores estándar devueltos cuando se crea una asignación de directiva. Se puede acceder a ella a través de `$assignment.Identity.PrincipalId`.
 
 ### <a name="grant-defined-roles-with-powershell"></a>Conceder roles definidos con PowerShell
 
-La nueva identidad administrada debe completar la replicación a través de Azure Active Directory antes de se le puedan conceder los roles necesarios. Una vez se completa la replicación, el siguiente ejemplo itera la definición de directiva en `$policyDef` para el **roleDefinitionIds** y usa [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) para conceder la nueva identidad administrada a los roles.
+La nueva identidad administrada debe completar la replicación a través de Azure Active Directory antes de se le puedan conceder los roles necesarios. Una vez se completa la replicación, el siguiente ejemplo itera la definición de directiva en `$policyDef` para **roleDefinitionIds** y usa [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) para conceder la nueva identidad administrada a los roles.
 
 ```azurepowershell-interactive
 # Use the $policyDef to get to the roleDefinitionIds array
@@ -96,7 +98,7 @@ if ($roleDefinitionIds.Count -gt 0)
 {
     $roleDefinitionIds | ForEach-Object {
         $roleDefId = $_.Split("/") | Select-Object -Last 1
-        New-AzureRmRoleAssignment -Scope $resourceGroup.ResourceId -ObjectId $assignment.Identity.PrincipalId -RoleDefinitionId $roleDefId
+        New-AzRoleAssignment -Scope $resourceGroup.ResourceId -ObjectId $assignment.Identity.PrincipalId -RoleDefinitionId $roleDefId
     }
 }
 ```

@@ -3,18 +3,19 @@ title: Procedimientos recomendados para mejorar el rendimiento mediante Azure Se
 description: Describe cómo usar Service Bus para optimizar el rendimiento al intercambiar mensajes asincrónicos.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
-ms.author: spelluru
-ms.openlocfilehash: cfce11546249310ce00e5f19ba81520cc9dd78cf
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.author: aschhab
+ms.openlocfilehash: 37e2dcc13ed41911c8117dc1841a389c14e5867f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392642"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848587"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Procedimientos recomendados para mejorar el rendimiento mediante la mensajería de Service Bus
 
@@ -36,7 +37,7 @@ AMQP y SBMP son más eficaces, ya que mantienen la conexión a Service Bus, siem
 
 ## <a name="reusing-factories-and-clients"></a>Reutilización de factorías y clientes
 
-Los objetos de cliente de Service Bus, como [QueueClient][QueueClient] o [MessageSender][MessageSender], se crean mediante un objeto [MessagingFactory][MessagingFactory], que también proporciona administración interna de las conexiones. Se recomienda no cerrar ni los generadores de mensajería ni los clientes de cola, tema y suscripción después de enviar un mensaje y luego volver a crearlos al enviar el mensaje siguiente. Al cerrar una factoría de mensajería, se elimina la conexión con el servicio Service Bus y, al volver a crearla, se establece una nueva conexión. Establecer una conexión es una operación costosa que puede evitar si vuelve a usar la misma factoría y los mismos objetos de cliente para varias operaciones. Puede utilizar el objeto [QueueClient][QueueClient] para enviar mensajes desde varios subprocesos y operaciones asincrónicas simultáneas. 
+Los objetos de cliente de Service Bus, como [QueueClient][QueueClient] o [MessageSender][MessageSender], se crean mediante un objeto [MessagingFactory][MessagingFactory], que también proporciona administración interna de las conexiones. Se recomienda no cerrar ni los generadores de mensajería ni los clientes de cola, tema y suscripción después de enviar un mensaje y luego volver a crearlos al enviar el mensaje siguiente. Al cerrar una factoría de mensajería, se elimina la conexión con el servicio Service Bus y, al volver a crearla, se establece una nueva conexión. Establecer una conexión es una operación costosa que puede evitar si vuelve a usar la misma factoría y los mismos objetos de cliente para varias operaciones. Puede utilizar estos objetos de cliente para operaciones asincrónicas simultáneas y desde varios subprocesos. 
 
 ## <a name="concurrent-operations"></a>Operaciones simultáneas
 
@@ -127,42 +128,13 @@ El servidor comprueba la propiedad de período de vida (TTL) de un mensaje en el
 
 La captura previa no afecta al número de operaciones de mensajería facturables y solo está disponible para el protocolo de cliente de Service Bus. El protocolo HTTP no admite la captura previa. La captura previa está disponible para las operaciones de recepción sincrónicas y asincrónicas.
 
-## <a name="express-queues-and-topics"></a>Colas y temas exprés
-
-Las entidades con la opción Rápido habilitan escenarios de latencia reducida y alto rendimiento, y se admiten solo en el plan de mensajería Estándar. Las entidades creadas en [espacios de nombres Premium](service-bus-premium-messaging.md) no admiten la opción Rápido. Con las entidades exprés, si se envía un mensaje a una cola o un tema, este no se guarda de inmediato en el almacén de mensajería. En su lugar, se almacena en la memoria caché. Si un mensaje permanece en la cola durante más de unos segundos, se escribe automáticamente en almacenamiento estable, lo que lo protege contra la pérdida debida a una interrupción. La escritura del mensaje en una memoria caché aumenta el rendimiento y reduce la latencia porque no se accede al almacenamiento estable en el momento en que se envía el mensaje. Los mensajes que se consumen en unos segundos no se escriben en el almacén de mensajería. En el ejemplo siguiente se crea un tema exprés.
-
-```csharp
-TopicDescription td = new TopicDescription(TopicName);
-td.EnableExpress = true;
-namespaceManager.CreateTopic(td);
-```
-
-Si se envía un mensaje que contiene información importante y que no debe perderse a una entidad exprés, el remitente puede forzar que Service Bus lo conserve inmediatamente en almacenamiento estable si se establece la propiedad [ForcePersistence][ForcePersistence] en **true**.
-
-> [!NOTE]
-> Las entidades con la opción Rápido no admiten transacciones.
-
-## <a name="partitioned-queues-or-topics"></a>Colas o temas con particiones
-
-De forma interna, Service Bus usa el mismo nodo y almacén de mensajería para procesar y almacenar todos los mensajes de una entidad de mensajería (cola o tema). Por otra parte, una [cola o un tema con particiones](service-bus-partitioning.md) se distribuyen entre varios nodos y almacenes de mensajería. Las colas y los temas con particiones no solo producen un rendimiento mayor que las colas y los temas normales, sino que también ofrecen una mayor disponibilidad. Para crear una entidad particionada, establezca la propiedad [EnablePartitioning][EnablePartitioning] en **true** como se muestra en el ejemplo siguiente. Para obtener más información sobre las entidades con particiones, consulte [Entidades de mensajería con particiones][Partitioned messaging entities].
-
-> [!NOTE]
-> No se admiten las entidades con particiones en la [SKU Premium](service-bus-premium-messaging.md). 
-
-```csharp
-// Create partitioned queue.
-QueueDescription qd = new QueueDescription(QueueName);
-qd.EnablePartitioning = true;
-namespaceManager.CreateQueue(qd);
-```
-
 ## <a name="multiple-queues"></a>Varias colas
 
-Si no se pueden usar una cola o un tema con particiones, o si una única cola o tema con particiones no pueden procesar la carga esperada, debe usar varias entidades de mensajería. Cuando use varias entidades, cree un cliente dedicado para cada una, en lugar de usar el mismo cliente para todas.
+Si una única cola o tema con particiones no pueden procesar la carga esperada, debe usar varias entidades de mensajería. Cuando use varias entidades, cree un cliente dedicado para cada una, en lugar de usar el mismo cliente para todas.
 
 ## <a name="development-and-testing-features"></a>Características de desarrollo y pruebas
 
-Service Bus tiene una característica que se usa específicamente para desarrollo que **nunca debe utilizarse en configuraciones de producción**: [TopicDescription.EnableFilteringMessagesBeforePublishing][].
+Service Bus tiene una característica que se utiliza específicamente para desarrollo que **nunca debe utilizarse en configuraciones de producción**: [TopicDescription.EnableFilteringMessagesBeforePublishing][].
 
 Cuando se agregan nuevas reglas o filtros al tema, se puede utilizar [TopicDescription.EnableFilteringMessagesBeforePublishing][] para comprobar que la nueva expresión de filtro funciona según lo esperado.
 
@@ -190,7 +162,7 @@ Para obtener el máximo rendimiento en varias colas, use la configuración descr
 
 ### <a name="low-latency-queue"></a>Cola de baja latencia
 
-Objetivo: minimizar la latencia de un extremo a otro de una cola o un tema. El número de remitentes y receptores es pequeño. El rendimiento de la cola es pequeño o moderado.
+Objetivo: Minimizar la latencia de un extremo a otro de una cola o un tema. El número de remitentes y receptores es pequeño. El rendimiento de la cola es pequeño o moderado.
 
 * Deshabilite el procesamiento por lotes del lado cliente. El cliente envía inmediatamente un mensaje.
 * Deshabilite el acceso al almacén de procesamiento por lotes. El servicio escribe inmediatamente el mensaje en el almacén.
@@ -200,7 +172,7 @@ Objetivo: minimizar la latencia de un extremo a otro de una cola o un tema. El n
 
 ### <a name="queue-with-a-large-number-of-senders"></a>Cola con un gran número de remitentes
 
-Objetivo: maximizar el rendimiento de una cola o un tema con un gran número de remitentes. Cada remitente envía mensajes a una tasa moderada. El número de receptores es pequeño.
+Objetivo: Maximizar el rendimiento de una cola o un tema con un gran número de remitentes. Cada remitente envía mensajes a una tasa moderada. El número de receptores es pequeño.
 
 Service Bus permite hasta 1000 conexiones simultáneas a una entidad de mensajería (o 5000 mediante AMQP). Este límite se aplica en el nivel de espacio de nombres, y las colas, los temas y las suscripciones quedan restringidos por el límite de conexiones simultáneas por espacio de nombres. Para las colas, este número se comparte entre remitentes y receptores. Si se requieren las 1000 conexiones para los remitentes, reemplace la cola por un tema y una única suscripción. Un tema acepta un máximo de mil conexiones simultáneas de los remitentes, mientras que la suscripción acepta otras mil conexiones simultáneas de receptores. Si se requieren más de mil remitentes simultáneos, los remitentes deberían enviar mensajes al protocolo de Service Bus a través de HTTP.
 
@@ -215,7 +187,7 @@ Para maximizar el rendimiento, realice los pasos siguientes:
 
 ### <a name="queue-with-a-large-number-of-receivers"></a>Cola con un gran número de receptores
 
-Objetivo: maximizar la velocidad de recepción de una cola o suscripción con un gran número de receptores. Cada receptor recibe mensajes a una tasa moderada. El número de remitentes es pequeño.
+Objetivo: Maximizar la velocidad de recepción de una cola o suscripción con un gran número de receptores. Cada receptor recibe mensajes a una tasa moderada. El número de remitentes es pequeño.
 
 Service Bus permite hasta 1000 conexiones simultáneas a una entidad. Si una cola requiere más de 1000 receptores, reemplace la cola por un tema y varias suscripciones. Cada suscripción admite hasta mil conexiones simultáneas. Como alternativa, los receptores pueden acceder a la cola mediante el protocolo HTTP.
 
@@ -229,7 +201,7 @@ Para maximizar el rendimiento, haga lo siguiente:
 
 ### <a name="topic-with-a-small-number-of-subscriptions"></a>Tema con un número pequeño de suscripciones
 
-Objetivo: maximizar el rendimiento de un tema con un número pequeño de suscripciones. Muchas suscripciones reciben un mensaje, lo que significa que la velocidad de recepción combinada de todas las suscripciones es mayor que la velocidad de envío. El número de remitentes es pequeño. El número de receptores por suscripción es pequeño.
+Objetivo: Maximizar el rendimiento de un tema con un número pequeño de suscripciones. Muchas suscripciones reciben un mensaje, lo que significa que la velocidad de recepción combinada de todas las suscripciones es mayor que la velocidad de envío. El número de remitentes es pequeño. El número de receptores por suscripción es pequeño.
 
 Para maximizar el rendimiento, haga lo siguiente:
 
@@ -243,7 +215,7 @@ Para maximizar el rendimiento, haga lo siguiente:
 
 ### <a name="topic-with-a-large-number-of-subscriptions"></a>Tema con un gran número de suscripciones
 
-Objetivo: maximizar el rendimiento de un tema con un gran número de suscripciones. Muchas suscripciones reciben un mensaje, lo que significa que la velocidad de recepción combinada de todas las suscripciones es mucho mayor que la velocidad de envío. El número de remitentes es pequeño. El número de receptores por suscripción es pequeño.
+Objetivo: Maximizar el rendimiento de un tema con un gran número de suscripciones. Muchas suscripciones reciben un mensaje, lo que significa que la velocidad de recepción combinada de todas las suscripciones es mucho mayor que la velocidad de envío. El número de remitentes es pequeño. El número de receptores por suscripción es pequeño.
 
 Los temas con un gran número de suscripciones suelen ofrecer un rendimiento general bajo si todos los mensajes se enrutan a todas las suscripciones. Este bajo rendimiento se debe al hecho de que cada mensaje se recibe muchas veces y todos los mensajes que se encuentran en un tema y en todas sus suscripciones se guardan en el mismo almacén. Se asume que el número de remitentes y el número de receptores por suscripción son pequeños. Service Bus admite hasta 2000 suscripciones por tema.
 

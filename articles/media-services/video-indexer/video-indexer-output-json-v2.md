@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: juliako
-ms.openlocfilehash: 666be9c2ebba9dc9607e4188b2390fff49fd59b9
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: e83b634c11d0349f4917c063cde54e03fa1cac40
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554663"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810710"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Examen de la salida de Video Indexer producida por la API v2
 
@@ -166,7 +166,7 @@ Un rostro podría tener un identificador, un nombre, una miniatura, otros metada
 |audioEffects|Dimension [audioEffects](#audioEffects).|
 |sentiments|Dimension [sentiments](#sentiments).|
 |visualContentModeration|Dimensión [visualContentModeration](#visualcontentmoderation).|
-|textualConentModeration|Dimensión [textualConentModeration](#textualconentmoderation).|
+|textualContentModeration|Dimensión [textualConentModeration](#textualcontentmoderation).|
 |emotions| Dimensión [emotions](#emotions).|
 |topics|Dimensión [topics](#topics).|
 
@@ -187,7 +187,7 @@ Ejemplo:
   "audioEffects": ...,
   "sentiments": ...,
   "visualContentModeration": ...,
-  "textualConentModeration": ...
+  "textualContentModeration": ...
 }
 ```
 
@@ -334,7 +334,7 @@ Ejemplo:
 |Nombre|Nombre del rostro. Puede ser "Unknown #0", una celebridad identificada o una persona capacitada del cliente.|
 |confidence|Confidencialidad de la identificación facial.|
 |description|Descripción de la celebridad. |
-|thumbnalId|Identificador de la miniatura del rostro en cuestión.|
+|thumbnailId|Identificador de la miniatura del rostro en cuestión.|
 |knownPersonId|Si es alguien conocido, su identificador interno.|
 |referenceId|Si es una celebridad de Bing, su identificador de Bing.|
 |referenceType|Actualmente, solo Bing.|
@@ -662,9 +662,9 @@ Los vídeos en los que se encuentre contenido para adultos o subido de tono podr
 ] 
 ```
 
-#### <a name="textualconentmoderation"></a>textualConentModeration 
+#### <a name="textualcontentmoderation"></a>textualContentModeration 
 
-|Nombre|Descripción|
+|NOMBRE|Descripción|
 |---|---|
 |id|Identificador de la moderación de contenido textual.|
 |bannedWordsCount |Número de palabras no permitidas.|

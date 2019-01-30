@@ -8,15 +8,17 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 30ad0c5ee069df4cd58cb76b779f611d0272d571
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 0f8d6290e779872d73b0cf7a9d0d820d2ea5e007
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53741596"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848162"
 ---
 # <a name="os-patching-for-hdinsight"></a>Aplicación de revisión del SO para HDInsight 
-Como servicio de Apache Hadoop administrado, HDInsight se encarga de aplicar las revisiones del SO de las máquinas virtuales subyacentes que los clústeres de HDInsight usan. A partir del 1 de agosto de 2016, cambiamos la directiva de aplicación de revisión del SO invitado para clústeres de HDInsight basado en Linux (versión 3.4 o superior). El objetivo de la nueva directiva consiste en reducir significativamente el número de reinicios debidos a la aplicación de revisión. La nueva directiva seguirá aplicando revisiones en máquinas virtuales de clústeres Linux cada lunes o jueves a partir de las 12:00 (UTC) de manera escalonada en los distintos nodos de cualquier clúster. Sin embargo, las máquinas virtuales solo se reiniciarán, como máximo, una vez cada 30 días debido a la aplicación de revisión de SO invitado. Además, el primer reinicio de un clúster recién creado no se realizará hasta que no hayan transcurrido 30 días desde la fecha de creación del clúster. Las revisiones entrarán en vigor una vez que se reinicien las máquinas virtuales.
+
+> [!IMPORTANT]
+> Las imágenes de Ubuntu estarán disponibles para la creación del nuevo clúster de HDInsight tres meses después de publicarse. A partir de enero de 2019, la ejecución de clústeres **no** se revisa automáticamente. Los clientes deben usar acciones de script u otros mecanismos para revisar un clúster en ejecución.
 
 ## <a name="how-to-configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Configuración de la programación de la aplicación de revisión del SO para clústeres de HDInsight basado en Linux
 Las máquinas virtuales de un clúster de HDInsight se deben reiniciar de forma ocasional para poder instalar las revisiones de seguridad importantes. A partir del 1 de agosto de 2016, los nuevos clústeres de HDInsight basado en Linux (versión 3.4 o superior) se reinician según la programación siguiente:

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: kgremban
-ms.openlocfilehash: 830052341c4f0e3488c8e63da59cbef1f72e158a
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 20bb0cb6982bcbea6b18989099322cfd3389b0b0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42143852"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819652"
 ---
 # <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>Conexión de dispositivos IoT a Azure: IoT Hub y Event Hubs
 
@@ -30,13 +30,14 @@ En la tabla siguiente se proporcionan detalles de la comparación entre dos nive
 | Funcionalidad de IoT | Nivel estándar de IoT Hub | Nivel básico de IoT Hub | Event Hubs |
 | --- | --- | --- | --- |
 | Mensajería de un dispositivo a la nube | ![Comprobar][checkmark] | ![Comprobar][checkmark] | ![Comprobar][checkmark] |
-| Protocolos: HTTPS, AMQP, AMQP sobre WebSockets | ![Comprobar][checkmark] | ![Comprobar][checkmark] | ![Comprobar][checkmark] |
-| Protocolos: MQTT, MQTT sobre WebSockets | ![Comprobar][checkmark] | ![Comprobar][checkmark] |  |
+| Protocols: HTTPS, AMQP, AMQP sobre WebSockets | ![Comprobar][checkmark] | ![Comprobar][checkmark] | ![Comprobar][checkmark] |
+| Protocols: MQTT, MQTT sobre WebSockets | ![Comprobar][checkmark] | ![Comprobar][checkmark] |  |
 | Identidad por dispositivo | ![Comprobar][checkmark] | ![Comprobar][checkmark] |  |
 | Carga de archivos desde dispositivos | ![Comprobar][checkmark] | ![Comprobar][checkmark] |  |
 | Servicio Device Provisioning | ![Comprobar][checkmark] | ![Comprobar][checkmark] |  |
 | Mensajería de la nube a un dispositivo | ![Comprobar][checkmark] |  |  |
 | Administración de dispositivos y dispositivos gemelos | ![Comprobar][checkmark] |  |  |
+| Flujos de dispositivos (versión preliminar) | ![Comprobar][checkmark] |  |  |
 | IoT Edge | ![Comprobar][checkmark] |  |  |
 
 Aunque el único uso sea la ingesta de datos de dispositivo a nube, es muy recomendable utilizar IoT Hub porque ofrece un servicio que está diseñado para la conectividad de dispositivos IoT. 

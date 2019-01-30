@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: raynew
-ms.openlocfilehash: d3e6a17ba9d0712d921d8e0a1d0bcbcd68ce5cfb
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 84890c0658970aa9f61a06764cf902a5e5ee4379
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360553"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812573"
 ---
 # <a name="azure-backup-architecture"></a>Arquitectura de Azure Backup
 
@@ -163,7 +163,7 @@ Copia de seguridad de discos desduplicados | | | ![Parcialmente][yellow]<br/><br
 - Las máquinas virtuales de Azure usan discos para almacenar su sistema operativo, sus aplicaciones y sus datos.
 - Las máquinas virtuales de Azure tienen al menos dos discos. Uno para el sistema operativo y un disco temporal. También pueden tener discos de datos para datos de aplicación. Los discos se almacenan como discos duros virtuales.
 - Los discos duros virtuales se almacenan como blobs en páginas en Standard o Premium Storage en Azure.
-    - Standard Storage: compatibilidad confiable y de bajo costo con máquinas virtuales que ejecutan cargas de trabajo que no son sensibles a la latencia. Standard Storage puede usar discos SSD estándar o premium).
+    - Standard Storage: compatibilidad confiable y de bajo costo con máquinas virtuales que ejecutan cargas de trabajo que no son sensibles a la latencia. Standard Storage puede usar discos SSD estándar o discos HDD estándar.
     - Premium Storage: compatibilidad con discos de alto rendimiento. Usa discos SSD premium.
 - Existen distintos niveles de rendimiento para los discos:
     - Disco HDD estándar: están respaldado por HDD y se usan cuando se busca un almacenamiento rentable.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 79803a749b6d08c94bcbf5f3ca66aac8b7294fa3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: be702571d178fc67eeb92de4e52a48d5bef72b18
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844658"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824633"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Marco de seguridad: Criptografía | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -29,7 +29,7 @@ ms.locfileid: "52844658"
 | **Dispositivo IoT** | <ul><li>[Almacene las claves criptográficas de forma segura en dispositivos IoT](#keys-iot)</li></ul> | 
 | **Puerta de enlace de nube de IoT** | <ul><li>[Genere una clave simétrica aleatoria de longitud suficiente para la autenticación en IoT Hub](#random-hub)</li></ul> | 
 | **Cliente para dispositivos móviles de Dynamics CRM** | <ul><li>[Asegúrese de que hay una directiva de administración de dispositivos que requiere el uso de un PIN y permite el borrado remoto](#pin-remote)</li></ul> | 
-| **Cliente de Outlook de Dynamics CRM** | <ul><li>[Asegúrese de que hay una directiva de administración de dispositivos que requiere un bloqueo automático con PIN o contraseña, y cifra todos los datos (por ejemplo, Bitlocker)](#bitlocker)</li></ul> | 
+| **Cliente de Outlook de Dynamics CRM** | <ul><li>[Asegúrese de que hay una directiva de administración de dispositivos que requiere un bloqueo automático con PIN o contraseña, y cifra todos los datos (por ejemplo, BitLocker)](#bitlocker)</li></ul> | 
 | **Identity Server** | <ul><li>[Asegúrese de que las claves de firma se sustituyen cuando se usa Identity Server](#rolled-server)</li><li>[Asegúrese de que se usan un identificador de cliente y un secreto de cliente de alta seguridad criptográfica en Identity Server](#client-server)</li></ul> | 
 
 ## <a id="cipher-length"></a>Use solamente los cifrados de bloques simétricos y longitudes de clave aprobados
@@ -209,7 +209,7 @@ Como se puede ver, la clave principal de dispositivo no está presente en el có
 | **Referencias**              | N/D  |
 | **Pasos** | Asegúrese de que hay una directiva de administración de dispositivos que requiere el uso de un PIN y permite el borrado remoto |
 
-## <a id="bitlocker"></a>Asegúrese de que hay una directiva de administración de dispositivos que requiere un bloqueo automático con PIN o contraseña y cifra todos los datos (por ejemplo, Bitlocker)
+## <a id="bitlocker"></a>Asegúrese de que hay una directiva de administración de dispositivos que requiere un bloqueo automático con PIN o contraseña, y cifra todos los datos (por ejemplo, BitLocker)
 
 | Título                   | Detalles      |
 | ----------------------- | ------------ |
@@ -218,7 +218,7 @@ Como se puede ver, la clave principal de dispositivo no está presente en el có
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | N/D  |
-| **Pasos** | Asegúrese de que hay una directiva de administración de dispositivos que requiere un bloqueo automático con PIN o contraseña y cifra todos los datos (por ejemplo, Bitlocker) |
+| **Pasos** | Asegúrese de que hay una directiva de administración de dispositivos que requiere un bloqueo automático con PIN o contraseña, y cifra todos los datos (por ejemplo, BitLocker) |
 
 ## <a id="rolled-server"></a>Asegúrese de que las claves de firma se sustituyen cuando se usa Identity Server
 

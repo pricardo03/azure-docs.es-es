@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: juliako
-ms.openlocfilehash: aee2477e0633974cba42ab26e102323cb9606810
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d96ed28be2fcb3941591854662f9aa20faf04e5d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33784554"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810166"
 ---
 # <a name="configure-asset-delivery-policies-with-net-sdk"></a>Configuración de directivas de entrega de recursos con el SDK de .NET
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -38,7 +38,7 @@ Puede aplicar diferentes directivas al mismo recurso. Por ejemplo, puede aplicar
 
 Si desea entregar un recurso de almacenamiento cifrado, debe configurar la directiva de entrega de recursos. Antes de poder transmitir el recurso, el servidor de streaming quita el cifrado de almacenamiento y transmite el contenido usando la directiva de entrega especificada. Por ejemplo, para entregar el recurso cifrado con la clave de cifrado de sobre de Estándar de cifrado avanzado (AES), establezca el tipo de directiva en **DynamicEnvelopeEncryption**. Para quitar el cifrado de almacenamiento y transmitir el recurso sin cifrar, establezca el tipo de directiva en **NoDynamicEncryption**. A continuación se muestran ejemplos de configuración de estos tipos de directiva.
 
-Según cómo configure la directiva de entrega de recursos, podrá empaquetar, cifrar y hacer streaming de forma dinámica de los protocolos de streaming siguientes: Smooth Streaming, HLS y MPEG-DASH.
+Según cómo configure la directiva de entrega de recursos, podrá empaquetar, cifrar y hacer streaming de forma dinámica de los protocolos de streaming siguientes: Smooth Streaming, HLS y MPEG DASH.
 
 En la lista siguiente se muestran los formatos usados para transmitir Smooth Streaming, HLS y DASH.
 
@@ -62,7 +62,7 @@ MPEG DASH
 
 ## <a name="clear-asset-delivery-policy"></a>Directiva de entrega de recursos sin cifrar
 
-El método **ConfigureClearAssetDeliveryPolicy** siguiente especifica que no se aplique el cifrado dinámico y se entregue la transmisión en cualquiera de los siguientes protocolos: MPEG DASH, HLS y Smooth Streaming. Querrá aplicar esta directiva a los activos cifrados de almacenamiento.
+El método **ConfigureClearAssetDeliveryPolicy** siguiente especifica que no se aplique el cifrado dinámico y se entregue el streaming en cualquiera de los siguientes protocolos:  MPEG DASH, HLS y Smooth Streaming. Querrá aplicar esta directiva a los activos cifrados de almacenamiento.
 
 Para obtener información sobre los valores que puede especificar al crear una entidad AssetDeliveryPolicy, consulte la sección [Tipos usados al definir AssetDeliveryPolicy](#types) .
 
@@ -79,7 +79,7 @@ Para obtener información sobre los valores que puede especificar al crear una e
 ```
 ## <a name="dynamiccommonencryption-asset-delivery-policy"></a>Directiva de entrega de recursos DynamicCommonEncryption
 
-El método siguiente **CreateAssetDeliveryPolicy** crea la entidad **AssetDeliveryPolicy** que se configura para aplicar el cifrado común dinámico (**DynamicCommonEncryption**) a un protocolo de streaming con velocidad de transmisión adaptable (se bloqueará el streaming para otros protocolos). El método toma dos parámetros: **Asset** (el recurso al que desea aplicar la directiva de entrega) e **IContentKey** (la clave de contenido de tipo **CommonEncryption**. Para más información, consulte [Creación de una clave de contenido](media-services-dotnet-create-contentkey.md#common_contentkey)).
+El método siguiente **CreateAssetDeliveryPolicy** crea la entidad **AssetDeliveryPolicy** que se configura para aplicar el cifrado común dinámico (**DynamicCommonEncryption**) a un protocolo de streaming con velocidad de transmisión adaptable (se bloqueará el streaming para otros protocolos). El método toma dos parámetros: **Asset** (el recurso al que desea aplicar la directiva de entrega) e **IContentKey** (la clave de contenido de tipo **CommonEncryption**. Para más información, consulte: [Creación de una clave de contenido](media-services-dotnet-create-contentkey.md#common_contentkey)).
 
 Para obtener información sobre los valores que puede especificar al crear una entidad AssetDeliveryPolicy, consulte la sección [Tipos usados al definir AssetDeliveryPolicy](#types) .
 
@@ -120,7 +120,7 @@ Azure Media Services también permiten agregar el cifrado de Widevine. En el eje
 
         // GetKeyDeliveryUrl for Widevine attaches the KID to the URL.
         // For example: https://amsaccount1.keydelivery.mediaservices.windows.net/Widevine/?KID=268a6dcb-18c8-4648-8c95-f46429e4927c.  
-        // The WidevineBaseLicenseAcquisitionUrl (used below) also tells Dynamaic Encryption 
+        // The WidevineBaseLicenseAcquisitionUrl (used below) also tells Dynamic Encryption 
         // to append /? KID =< keyId > to the end of the url when creating the manifest.
         // As a result Widevine license acquisition URL will have KID appended twice, 
         // so we need to remove the KID that in the URL when we call GetKeyDeliveryUrl.
@@ -156,7 +156,7 @@ Azure Media Services también permiten agregar el cifrado de Widevine. En el eje
 > 
 
 ## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a>Directiva de entrega de recursos DynamicEnvelopeEncryption
-El método **CreateAssetDeliveryPolicy** siguiente crea la entidad **AssetDeliveryPolicy** que se configura para aplicar el cifrado de sobre dinámico (**DynamicEnvelopeEncryption**) para los protocolos Smooth Streaming, HLS y DASH (si decide no especificar algunos protocolos, se bloqueará el streaming en ellos). El método toma dos parámetros: **Asset** (el recurso al que desea aplicar la directiva de entrega) e **IContentKey** (la clave de contenido de tipo **EnvelopeEncryption**. Para más información, consulte [Creación de una clave de contenido](media-services-dotnet-create-contentkey.md#envelope_contentkey)).
+El método **CreateAssetDeliveryPolicy** siguiente crea la entidad **AssetDeliveryPolicy** que se configura para aplicar el cifrado de sobre dinámico (**DynamicEnvelopeEncryption**) para los protocolos Smooth Streaming, HLS y DASH (si decide no especificar algunos protocolos, se bloqueará el streaming en ellos). El método toma dos parámetros: **Asset** (el recurso al que desea aplicar la directiva de entrega) e **IContentKey** (la clave de contenido de tipo **EnvelopeEncryption**. Para más información, consulte: [Creación de una clave de contenido](media-services-dotnet-create-contentkey.md#envelope_contentkey)).
 
 Para obtener información sobre los valores que puede especificar al crear una entidad AssetDeliveryPolicy, consulte la sección [Tipos usados al definir AssetDeliveryPolicy](#types) .   
 
@@ -166,7 +166,7 @@ Para obtener información sobre los valores que puede especificar al crear una e
 
         //  Get the Key Delivery Base Url by removing the Query parameter.  The Dynamic Encryption service will
         //  automatically add the correct key identifier to the url when it generates the Envelope encrypted content
-        //  manifest.  Omitting the IV will also cause the Dynamice Encryption service to generate a deterministic
+        //  manifest.  Omitting the IV will also cause the Dynamic Encryption service to generate a deterministic
         //  IV for the content automatically.  By using the EnvelopeBaseKeyAcquisitionUrl and omitting the IV, this
         //  allows the AssetDelivery policy to be reused by more than one asset.
         //
@@ -283,7 +283,7 @@ La enumeración siguiente describe los valores que puede utilizar para configura
         None = 0,
 
         /// <summary>
-        /// Use PlayReady License acquistion protocol
+        /// Use PlayReady License acquisition protocol
         ///
         </summary>
         PlayReadyLicense = 1,
@@ -295,7 +295,7 @@ La enumeración siguiente describe los valores que puede utilizar para configura
         BaselineHttp = 2,
 
         /// <summary>
-        /// Use Widevine License acquistion protocol
+        /// Use Widevine License acquisition protocol
         ///
         </summary>
         Widevine = 3

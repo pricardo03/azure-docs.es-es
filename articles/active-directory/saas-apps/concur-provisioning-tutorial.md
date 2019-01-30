@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: df47f55f-a894-4e01-a82e-0dbf55fc8af1
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 5832444cd30d60f7b5fe7fe6108acd5604389474
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e6e6d0d51174250954f886790dccc650064a6f45
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210112"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821896"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Tutorial: Configuración de Concur para el aprovisionamiento automático de usuarios
 
 El objetivo de este tutorial es explicar los pasos que hay que realizar en Concur y Azure AD para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Azure AD en Concur.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 

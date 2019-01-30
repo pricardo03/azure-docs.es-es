@@ -14,12 +14,12 @@ ms.date: 11/08/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: bd63e8379051864a19c473779625a925446185f2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 1e679a1d26ce219f7c0248e27d7f9cfffc5fdb4e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445028"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813855"
 ---
 # <a name="administrator-roles-by-identity-task-in-azure-active-directory"></a>Roles de administrador por tarea de identidad en Azure Active Directory
 
@@ -27,7 +27,7 @@ En este artículo, puede encontrar la información necesaria para restringir los
 
 ## <a name="application-proxy"></a>Proxy de aplicación
 
-Task | Rol con privilegios mínimos | Roles adicionales
+Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Configurar aplicación de proxy de aplicación | Administrador de aplicaciones | 
 Configurar propiedades del grupo de conectores | Administrador de aplicaciones | 
@@ -40,7 +40,7 @@ Leer toda la configuración | Administrador de aplicaciones |
 
 ## <a name="b2c"></a>B2C
 
-Task | Rol con privilegios mínimos | Roles adicionales
+Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Crear directorios de Azure AD B2C | Todos los usuarios que no sean invitados ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 Crear aplicaciones B2C | Administrador global | 
@@ -58,20 +58,20 @@ Leer registros de auditoría de B2C | Administrador global ([consulte la documen
 
 ## <a name="company-branding"></a>Personalización de marca de empresa
 
-Task | Rol con privilegios mínimos | Roles adicionales
+Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Configuración de la personalización de marca de la compañía | Administrador global | 
 Leer toda la configuración | Lectores de directorios | Rol de usuario predeterminado ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 
 ## <a name="company-properties"></a>Propiedades de la empresa
 
-Task | Rol con privilegios mínimos | Roles adicionales
+Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Configurar propiedades de la empresa | Administrador global | 
 
 ## <a name="connect"></a>Conectar
 
-Task | Rol con privilegios mínimos | Roles adicionales
+Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Autenticación de paso a través | Administrador global | 
 Leer toda la configuración | Administrador global | 
@@ -79,7 +79,7 @@ Inicio de sesión único de conexión directa | Administrador global |
 
 ## <a name="connect-health"></a>Connect Health
 
-Task | Rol con privilegios mínimos | Roles adicionales
+Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Agregar o eliminar servicios | Propietario ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations)) | 
 Aplicar correcciones de errores de sincronización | Colaborador ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Propietario
@@ -97,14 +97,14 @@ Ver métricas y alertas del servicio de sincronización | Lector ([consulte la d
 
 ## <a name="custom-domain-names"></a>Nombres de dominio personalizados
 
-Task | Rol con privilegios mínimos | Roles adicionales
+Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Administrar dominios | Administrador global | 
 Leer toda la configuración | Lectores de directorios | Rol de usuario predeterminado ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 
 ## <a name="domain-services"></a>Servicios de dominio
 
-Task | Rol con privilegios mínimos | Roles adicionales
+Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Crear una instancia de Azure AD Domain Services | Administrador global | 
 Realizar todas las tareas de Azure AD Domain Services | Grupo de administradores de DC de Azure AD ([consulte la documentación](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
@@ -112,7 +112,7 @@ Leer toda la configuración | Lector en la suscripción de Azure que contiene el
 
 ## <a name="devices"></a>Dispositivos
 
-Task | Rol con privilegios mínimos | Roles adicionales
+Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Deshabilitar dispositivo | Administrador de dispositivos en la nube | 
 Habilitar dispositivo | Administrador de dispositivos en la nube | 
@@ -121,7 +121,7 @@ Leer claves de BitLocker | Lector de seguridad | Administrador de contraseñas, 
 
 ## <a name="enterprise-applications"></a>Aplicaciones empresariales
 
-Task | Rol con privilegios mínimos | Roles adicionales
+Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Dar consentimiento a los permisos delegados | Administrador de aplicaciones en la nube | Administrador de aplicaciones
 Dar consentimiento a permisos de aplicación sin incluir a Microsoft Graph ni Azure AD Graph | Administrador de aplicaciones en la nube | Administrador de aplicaciones
@@ -141,7 +141,7 @@ Actualizar propiedades del inicio de sesión único | Propietario de la aplicaci
 
 ## <a name="groups"></a>Grupos
 
-Task | Rol con privilegios mínimos | Roles adicionales
+Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Asignación de la licencia | Administrador de cuenta de usuario | 
 Crear grupo | Administrador de cuenta de usuario | 
@@ -158,7 +158,7 @@ Actualizar propiedades de grupo | Propietario del grupo ([consulte la documentac
 
 ## <a name="identity-protection"></a>Protección de identidad
 
-Task | Rol con privilegios mínimos | Roles adicionales
+Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Configurar notificaciones de alerta| Administrador de seguridad | 
 Configurar y habilitar o deshabilitar la directiva de MFA| Administrador de seguridad | 
@@ -173,7 +173,7 @@ Leer vulnerabilidades | Lector de seguridad |
 
 ## <a name="licenses"></a>Licencias
 
-Task | Rol con privilegios mínimos | Roles adicionales
+Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Asignación de la licencia | Administrador de licencias | Administrador de cuenta de usuario
 Leer toda la configuración | Lectores de directorios | Rol de usuario predeterminado ([consulte la documentación](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
@@ -183,19 +183,19 @@ Probar o comprar suscripción | Administrador de facturación |
 
 ## <a name="monitoring---audit-logs"></a>Supervisión: registros de auditoría
 
-Task | Rol con privilegios mínimos | Roles adicionales
+Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Leer registros de auditoría | Lector de informes | Lector de seguridad, Administrador de seguridad
 
 ## <a name="monitoring---sign-ins"></a>Supervisión: inicios de sesión
 
-Task | Rol con privilegios mínimos | Roles adicionales
+Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Leer registros de inicio de sesión | Lector de informes | Lector de seguridad, Administrador de seguridad
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-Task | Rol con privilegios mínimos | Roles adicionales
+Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Eliminar todas las contraseñas de aplicación existentes generadas por los usuarios seleccionados | Administrador global | 
 Deshabilitar MFA | Administrador global | 
@@ -206,7 +206,7 @@ Restaurar autenticación multifactor en todos los dispositivos recordados  | Ad
 
 ## <a name="mfa-server"></a>Servidor MFA
 
-Task | Rol con privilegios mínimos | Roles adicionales
+Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Bloqueo y desbloqueo de usuarios | Administrador global | 
 Configurar bloqueo de cuentas | Administrador global | 
@@ -223,7 +223,7 @@ Leer estado del servidor | Administrador global |
 
 ## <a name="organizational-relationships"></a>Relaciones organizativas
 
-Task | Rol con privilegios mínimos | Roles adicionales
+Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Administrar proveedores de identidad | Administrador global | 
 Administración de la configuración | Administrador global | 
@@ -232,7 +232,7 @@ Leer toda la configuración | Administrador global |
 
 ## <a name="password-reset"></a>Restablecimiento de contraseña
 
-Task | Rol con privilegios mínimos | Roles adicionales
+Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Configurar métodos de autenticación | Administrador global | 
 Configurar personalización | Administrador global | 
@@ -244,7 +244,7 @@ Leer toda la configuración | Administrador de seguridad, Administrador de usuar
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 
-Task | Rol con privilegios mínimos | Roles adicionales
+Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Asignación de usuarios a roles | Administrador de roles con privilegios | 
 Configuración de los roles | Administrador de roles con privilegios | 
@@ -253,7 +253,7 @@ Ver pertenencias a roles | Lector de seguridad |
 
 ## <a name="roles-and-administrators"></a>Roles y administradores
 
-Task | Rol con privilegios mínimos | Roles adicionales
+Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Administración de asignaciones de roles | Administrador de roles con privilegios | 
 Leer revisión de acceso de un rol de Azure AD  | Lector de seguridad | Administrador de seguridad, Administrador de roles con privilegios
@@ -261,14 +261,14 @@ Leer toda la configuración | Rol de usuario predeterminado ([consulte la docume
 
 ## <a name="security---authentication-methods"></a>Seguridad: métodos de autenticación
 
-Task | Rol con privilegios mínimos | Roles adicionales
+Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Configurar métodos de autenticación | Administrador global | 
 Leer toda la configuración | Administrador global | 
 
 ## <a name="security---conditional-access"></a>Seguridad: acceso condicional
 
-Task | Rol con privilegios mínimos | Roles adicionales
+Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Configurar direcciones IP de confianza de MFA | Administrador de acceso condicional | 
 Crear controles personalizados | Administrador de acceso condicional | Administrador de seguridad
@@ -288,7 +288,7 @@ Leer ubicaciones con nombre | Lector de seguridad | Administrador de acceso cond
 
 ## <a name="security---identity-security-score"></a>Seguridad: puntuación de seguridad de identidad
 
-Task | Rol con privilegios mínimos | Roles adicionales | 
+Tarea | Rol con privilegios mínimos | Roles adicionales | 
 ---- | --------------------- | ----------------
 Leer toda la configuración | Lector de seguridad | Administrador de seguridad
 Leer puntuación de seguridad | Lector de seguridad | Administrador de seguridad
@@ -296,14 +296,14 @@ Actualizar estado del evento | Administrador de seguridad |
 
 ## <a name="security---risky-sign-ins"></a>Seguridad: inicios de sesión de riesgo
 
-Task | Rol con privilegios mínimos | Roles adicionales
+Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Leer toda la configuración | Lector de seguridad | 
 Leer inicios de sesión de riesgo | Lector de seguridad | 
 
 ## <a name="security---users-flagged-for-risk"></a>Seguridad: usuarios marcados en riesgo
 
-Task | Rol con privilegios mínimos | Roles adicionales
+Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Descartar todos los eventos | Administrador de seguridad | 
 Leer toda la configuración | Lector de seguridad | 
@@ -311,7 +311,7 @@ Leer usuarios marcados en riesgo | Lector de seguridad |
 
 ## <a name="users"></a>Usuarios
 
-Task | Rol con privilegios mínimos | Roles adicionales
+Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Agregar usuario a rol de directorio | Administrador de roles con privilegios | 
 Agregar usuario a un grupo | Administrador de cuenta de usuario | 
@@ -335,7 +335,7 @@ Actualizar configuración de usuario | Administrador global |
 
 ## <a name="support"></a>Soporte técnico
 
-Task | Rol con privilegios mínimos | Roles adicionales
+Tarea | Rol con privilegios mínimos | Roles adicionales
 ---- | --------------------- | ----------------
 Enviar incidencia de soporte técnico | Administrador de servicios | Administrador de aplicaciones, Administrador de facturación, Administrador de aplicaciones en la nube, Administrador de cumplimiento, Administrador de Dynamics 365, Administrador de análisis de escritorio, Administrador de Exchange, Administrador de contraseñas, Administrador de protección de información, Administrador de Intune, Administrador de Skype Empresarial, Administrador de Power BI, Administrador de autenticación con privilegios, Administrador de SharePoint, Administrador de comunicaciones de equipos, Administrador de equipos, Administrador de usuarios, Administrador de Workplace Analytics
 

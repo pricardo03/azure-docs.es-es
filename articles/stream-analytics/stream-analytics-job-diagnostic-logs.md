@@ -7,61 +7,85 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: db3c9874676e3240f6896c1e1ff8f873360c20d5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 34f994bfca8bdeaffde6732572f47aeaa86b2ac5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090829"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818938"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Solución de problemas de Azure Stream Analytics mediante registros de diagnóstico
 
-En ocasiones, un trabajo de Azure Stream Analytics deja de procesarse inesperadamente. Es importante poder solucionar este tipo de evento. El evento podría deberse a un resultado de consulta inesperado, la conectividad a los dispositivos o una interrupción inesperada del servicio. Los registros de diagnóstico de Stream Analytics pueden ayudarle a identificar la causa de los problemas cuando se producen y a reducir el tiempo de recuperación.
+En ocasiones, un trabajo de Azure Stream Analytics deja de procesarse inesperadamente. Es importante poder solucionar este tipo de evento. Los errores pueden deberse a un resultado de consulta inesperado, la conectividad a los dispositivos o una interrupción inesperada del servicio. Los registros de diagnóstico de Stream Analytics pueden ayudarle a identificar la causa de los problemas cuando se producen y a reducir el tiempo de recuperación.
 
 ## <a name="log-types"></a>Tipos de registro
 
-Stream Analytics ofrece dos tipos de registros: 
-* [Registros de actividad](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) (siempre activados). Los registros de actividad proporcionan información sobre las operaciones realizadas en los trabajos.
-* [Registros de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (configurables). Los registros de diagnóstico proporcionan información más completa sobre todo lo que ocurre con un trabajo. Comienzan cuando se crea el trabajo y finalizan cuando se elimina el trabajo. Abarcan los eventos de cuando se actualiza el trabajo y mientras se está ejecutando.
+Stream Analytics ofrece dos tipos de registros:
+
+* [Registros de actividad](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) (siempre activados), que proporcionan información sobre las operaciones realizadas en los trabajos.
+
+* [Registros de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (configurables), que proporcionan información más completa sobre todo lo que ocurre con un trabajo. Comienzan cuando se crea el trabajo y finalizan cuando se elimina el trabajo. Abarcan los eventos de cuando se actualiza el trabajo y mientras se está ejecutando.
 
 > [!NOTE]
 > Puede usar servicios como Azure Storage, Azure Event Hubs y Azure Log Analytics para analizar los datos no conformes. Se le cobra según el modelo de precios existente para esos servicios.
->
 
-## <a name="turn-on-diagnostics-logs"></a>Activación de los registros de diagnóstico
+## <a name="debugging-using-activity-logs"></a>Depuración con registros de actividad
 
-Los registros de diagnóstico están **desactivados** de forma predeterminada. Para activar los registros de diagnóstico, siga estos pasos:
+Los registros de actividad están activados de forma predeterminada y proporcionan conclusiones de alto nivel sobre las operaciones realizadas por el trabajo de Stream Analytics. La información presente en los registros de actividad puede ayudar a encontrar la causa principal de los problemas que afectan a su trabajo. Siga los pasos a continuación para usar los registros de actividad en Stream Analytics:
 
-1.  Inicie sesión en el portal de Azure y vaya a la hoja Trabajo de streaming. En **Supervisión**, seleccione **Registros de diagnóstico**.
+1. Inicie sesión en Azure Portal y seleccione **Registro de actividad** en **Introducción**.
+
+   ![Registro de actividad de Stream Analytics](./media/stream-analytics-job-diagnostic-logs/stream-analytics-menu.png)
+
+2. Puede ver una lista de operaciones que se han realizado. Toda operación que haya producido un error en el trabajo tiene una burbuja de información de color rojo.
+
+3. Haga clic en una operación para ver su vista de resumen. Esta información suele ser limitada. Para más información acerca de la operación, haga clic en **JSON**.
+
+   ![Resumen de la operación de registro de actividad de Stream Analytics](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
+
+4. Desplácese hacia abajo hasta la sección **Propiedades** del código JSON, que proporciona los detalles del error que provocó el error de la operación. En este ejemplo, el error se produjo debido a un error en tiempo de ejecución por valores fuera de los límites de latitud.
+
+   ![Detalles del error en JSON](./media/stream-analytics-job-diagnostic-logs/error-details.png)
+
+5. Puede tomar acciones correctivas según el mensaje de error en JSON. En este ejemplo, deben agregarse a la consulta comprobaciones para asegurar que el valor de latitud esté entre -90 grados y 90 grados.
+
+6. Si el mensaje de error en los registros de actividad no son útiles para detectar la causa principal, habilite los registros de diagnóstico y use Log Analytics.
+
+## <a name="send-diagnostics-to-log-analytics"></a>Envío de diagnósticos a Log Analytics
+
+Se recomienda encarecidamente activar los registros de diagnóstico y enviarlos a Log Analytics. Los registros de diagnóstico están **desactivados** de forma predeterminada. Para activar los registros de diagnóstico, siga estos pasos:
+
+1.  Inicie sesión en Azure Portal y vaya al trabajo de Stream Analytics. En **Supervisión**, seleccione **Registros de diagnóstico**. Después, seleccione **Activar diagnósticos**.
 
     ![Navegación en la hoja a los registros de diagnóstico](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Seleccione **Activar diagnósticos**.
+2.  Cree un **Nombre** en **Configuración de diagnóstico** y active la casilla junto a **Enviar a Log Analytics**. Luego, agregue un **área de trabajo de Log Analytics** existente o cree una. Active las casillas de **Ejecución** y **Creación** en **LOG**, y **AllMetrics** en **MÉTRICA**. Haga clic en **Save**(Guardar).
 
-    ![Activación de los registros de diagnóstico de Stream Analytics](./media/stream-analytics-job-diagnostic-logs/turn-on-diagnostic-logs.png)
+    ![Configuración de registros de diagnóstico](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
-3.  En la página **Configuración de diagnóstico**, en **Estado**, seleccione **Activado**.
+3. Cuando se inicia el trabajo de Stream Analytics, los registros de diagnóstico se enrutan a su área de trabajo de Log Analytics. Navegue hasta el área de trabajo de Log Analytics y elija **Registros** bajo la sección **General**.
 
-    ![Cambio de estado de los registros de diagnóstico](./media/stream-analytics-job-diagnostic-logs/save-diagnostic-log-settings.png)
+   ![Registros de Log Analytics en la sección General](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
 
-4.  Configure el destino de archivo (cuenta de almacenamiento, centro de eventos, Log Analytics) que desee. A continuación, seleccione las categorías de registros que desea recopilar (Ejecución, Creación). 
+4. Puede escribir [su propia consulta](../azure-monitor/log-query/get-started-portal.md) para buscar términos, identificar tendencias o analizar patrones y proporcionar conclusiones basadas en los datos. Por ejemplo, puede escribir una consulta para filtrar solo los registros de diagnóstico que tengan el mensaje "Error en el trabajo de streaming". Los registros de diagnóstico de Azure Stream Analytics se almacenan en la tabla **AzureDiagnostics**.
 
-5.  Guarde la nueva configuración de diagnóstico.
+   ![Consulta y resultados de diagnóstico](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-query.png)
 
-Tardará unos 10 minutos en surtir efecto. Luego, comienzan a aparecer los registros en el destino de archivo configurado (puede verlos en la página **Registros de diagnóstico**):
+5. Cuando tenga una consulta que busque los registros correctos, guárdela seleccionando **Guardar** y proporcione un nombre y una categoría. A continuación, puede crear una alerta seleccionando **Nueva regla de alertas**. A continuación, especifique la condición de la alerta. Seleccione **Condición** y escriba el valor de umbral y la frecuencia a la que se evalúa esta búsqueda de registros personalizada.  
 
-![Navegación en la hoja a los registros de diagnóstico: destino de archivo](./media/stream-analytics-job-diagnostic-logs/view-diagnostic-logs-page.png)
+   ![Consulta de búsqueda de registros de diagnóstico](./media/stream-analytics-job-diagnostic-logs/search-query.png)
 
-Para más información sobre la configuración de diagnósticos, consulte el artículo sobre la [recopilación y el uso de datos de diagnóstico provenientes de los recursos de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+6. Elija el grupo de acciones y especifique los detalles de la alerta, como el nombre y descripción, antes de poder crear la regla de alertas. Puede enrutar los registros de diagnóstico de varios trabajos a la misma área de trabajo de Log Analytics. Esto le permite configurar las alertas una vez para que funcionen en todos los trabajos.  
 
 ## <a name="diagnostics-log-categories"></a>Categorías de registro de diagnóstico
 
 Actualmente, se capturan dos categorías de registros de diagnóstico:
 
-* **Creación**. Captura registros de eventos relacionados con operaciones de creación de trabajos: creación, adición y eliminación de entradas y salidas, adición y actualización de la consulta, inicio y detención del trabajo.
-* **Ejecución**. Captura los eventos que se producen durante la ejecución del trabajo:
+* **Creación**: Captura registros de eventos relacionados con operaciones de creación de trabajos, como creación de trabajos, adición y eliminación de entradas y salidas, adición y actualización de la consulta, e inicio y detención del trabajo.
+
+* **Ejecución**: Captura los eventos que se producen durante la ejecución del trabajo.
     * Errores de conectividad
     * Errores de procesamiento de datos, como por ejemplo:
         * Eventos que no se ajustan a la definición de consulta (tipos y valores de campo no coincidentes, campos ausentes, etc.)
@@ -80,7 +104,7 @@ categoría | La categoría del registro: **Ejecución** o **Creación**.
 operationName | Nombre de la operación que se registra. Por ejemplo, **Envío de eventos: error de escritura de salida de SQL en mysqloutput**.
 status | Estado de la operación. Por ejemplo, **Erróneo** o **Correcto**.
 level | Nivel de registro. Por ejemplo, **Error**, **Advertencia** o **Información**.
-propiedades | Detalle específico de entrada de registro, serializado como una cadena JSON. Para más información, consulte las siguientes secciones:
+propiedades | Detalle específico de entrada de registro, serializado como una cadena JSON. Para más información, consulte las siguientes secciones de este artículo.
 
 ### <a name="execution-log-properties-schema"></a>Esquema de propiedades de registros de ejecución
 
@@ -109,7 +133,7 @@ Los eventos genéricos incluyen todos los demás.
 
 NOMBRE | DESCRIPCIÓN
 -------- | --------
-Error | (opcional) Información de error. Normalmente, es información de excepciones, si está disponible.
+Error | (opcional) Información de error. Normalmente, es información de la excepción, si está disponible.
 Message| Mensaje de registro.
 Escriba | Tipo de mensaje. Se asigna a la categorización interna de errores. Por ejemplo, **JobValidationError** o **BlobOutputAdapterInitializationFailure**.
 Id. de correlación | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) que identifica de manera única la ejecución del trabajo. Todas las entradas de registros de ejecución desde el momento en que se inicia el trabajo hasta que se detiene tienen el mismo valor de **Id. de correlación**.

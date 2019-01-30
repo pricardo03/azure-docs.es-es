@@ -5,7 +5,7 @@ keywords: AD FS, ADFS, administración de AD FS, AAD Connect, Connect, inicio de
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: a9a7848069300d5f52d16585a55313643e02bc72
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 02256c3e45d198fe35c0b3686bf4c1bc6f64c51a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244464"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463905"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Administre y personalice Servicios de federación de Active Directory con Azure AD Connect
 En este artículo se describe cómo administrar y personalizar Servicios de federación de Active Directory (AD FS) con Azure Active Directory (Azure AD) Connect. También se incluyen otras tareas comunes de AD FS que podría tener que hacer para configurar completamente una granja de servidores de AD FS.
@@ -76,8 +76,8 @@ Se recomienda que el nombre principal de usuario (UPN) local y el nombre princip
 ![Selección de atributo de identificador alternativo](./media/how-to-connect-fed-management/attributeselection.png)
 
 La configuración del identificador de inicio de sesión alternativo para AD FS consta de dos pasos principales:
-1. **Configurar el conjunto de notificaciones de emisión correcto**: las reglas de notificación del usuario de confianza de Azure AD se modifican para utilizar el atributo UserPrincipalName seleccionado como identificador alternativo del usuario de confianza.
-2. **Habilitar el identificador de inicio de sesión alternativo en la configuración de AD FS**: se actualiza la configuración de AD FS para que AD FS pueda buscar usuarios en los bosques correspondientes con el identificador alternativo. Esta configuración se admite en AD FS en Windows Server 2012 R2 (con KB2919355) o versiones posteriores. Si los servidores de AD FS son 2012 R2, Azure AD Connect comprueba si está presente la KB necesaria. Si no se detecta la KB, se mostrará una advertencia cuando finalice la configuración, tal y como se muestra a continuación:
+1. **Configurar el conjunto de notificaciones de emisión correcto**: Las reglas de notificación de emisiones del usuario de confianza de Azure AD se modifican para usar el atributo UserPrincipalName seleccionado como identificador alternativo del usuario.
+2. **Habilitar el identificador de inicio de sesión alternativo en la configuración de AD FS**: Se actualiza la configuración de AD FS para que AD FS pueda buscar usuarios en los bosques correspondientes con el identificador alternativo. Esta configuración se admite en AD FS en Windows Server 2012 R2 (con KB2919355) o versiones posteriores. Si los servidores de AD FS son 2012 R2, Azure AD Connect comprueba si está presente la KB necesaria. Si no se detecta la KB, se mostrará una advertencia cuando finalice la configuración, tal y como se muestra a continuación:
 
     ![Advertencia de que falta la KB en 2012 R2](./media/how-to-connect-fed-management/kbwarning.png)
 
@@ -220,7 +220,7 @@ En esta regla simplemente se consultan los valores de **ms-ds-consistencyguid** 
 
 Además, al usar **add** y no **issue**, no se tiene que agregar una emisión de salida para la entidad y solo se usan los valores como valores intermedios. Se emitirá la notificación en una regla posterior después de establecerse el valor que se usará como identificador inmutable.
 
-**Regla 2: comprobar si ms-ds-consistencyguid existe para el usuario**
+**Regla 2: Comprobar si ms-ds-consistencyguid existe para el usuario**
 
     NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
     => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
@@ -234,7 +234,7 @@ Esta regla define un marcador temporal **idflag**, que se establece en **useguid
 
 Se trata de una comprobación **Exist** implícita. Si el valor de la notificación existe, emítalo como identificador inmutable. En el ejemplo anterior se utiliza la notificación **nameidentifier** . Tendrá que cambiar este valor al tipo de notificación adecuado para un identificador inmutable en su entorno.
 
-**Regla 4: Emitir el atributo objectGUID como identificador inmutable si ms-ds-consistencyguid no está presente**
+**Regla 4: Emitir el atributo objectGuid como identificador inmutable si ms-ds-consistencyguid no está presente**
 
     c1:[Type == "urn:anandmsft:tmp/idflag", Value =~ "useguid"]
     && c2:[Type == "http://contoso.com/ws/2016/02/identity/claims/objectguid"]
