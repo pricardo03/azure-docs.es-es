@@ -78,7 +78,7 @@ Microsoft Translator V3 tiene el mismo precio que V2; esto es, por carácter e i
 | Languages     | Si no se envían caracteres, no se cuenta ninguno y no hay cargo.          |
 | Translate     | El recuento se basa en la cantidad de caracteres que se envían para la traducción, y en el número de idiomas a los que se traducen los caracteres. 50 caracteres enviados más 5 idiomas solicitados, serán 50x5.           |
 | Transliterar     | Se cuenta el número de caracteres que se piden para la transliteración.         |
-| Dictionary lookup & example     | Se cuentan el número de caracteres enviados para la búsqueda de diccionario y los ejemplos.         |
+| Dictionary lookup &amp; example     | Se cuentan el número de caracteres enviados para la búsqueda de diccionario y los ejemplos.         |
 | BreakSentence     | Sin cargo.       |
 | Detect     | Sin cargo.      |
 
