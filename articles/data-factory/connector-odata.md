@@ -274,19 +274,19 @@ Al copiar datos desde OData, se utilizan las siguientes asignaciones entre tipos
 | Tipo de datos de OData | Tipo de datos provisionales de Data Factory |
 |:--- |:--- |
 | Edm.Binary | Byte[] |
-| Edm.Boolean | Booleano |
+| Edm.Boolean | Bool |
 | Edm.Byte | Byte[] |
-| Edm.DateTime | Datetime |
-| Edm.Decimal | DECIMAL |
-| Edm.Double | Doble |
+| Edm.DateTime | DateTime |
+| Edm.Decimal | Decimal |
+| Edm.Double | Double |
 | Edm.Single | Single |
 | Edm.Guid | Guid |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
-| Edm.String | string |
-| Edm.Time | timespan |
+| Edm.String | String |
+| Edm.Time | TimeSpan |
 | Edm.DateTimeOffset | DateTimeOffset |
 
 > [!NOTE]
