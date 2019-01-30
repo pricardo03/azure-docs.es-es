@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: cf3c30d33e618ae3fd9d4ad942c77d211a414e82
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 208526b745a117c9ee14bab21f8a5ce05accd1fe
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601158"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382237"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>Implementación local del acelerador de soluciones de supervisión remota: Docker
 
@@ -35,7 +35,7 @@ Para completar la implementación local, necesita que las herramientas siguiente
 
 * [Git](https://git-scm.com/)
 * [Docker](https://www.docker.com)
-* [Visual Studio](https://visualstudio.microsoft.com/)
+* [Visual Studio](https://visualstudio.microsoft.com/): si tiene previsto realizar cambios en los microservicios.
 * [Node.js v8](https://nodejs.org/): este software es un requisito previo para la CLI de PCS que usan los scripts para crear recursos de Azure. No use Node.js v10.
 
 > [!NOTE]

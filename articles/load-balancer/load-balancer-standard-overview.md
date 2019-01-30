@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: 2eb2fbb1d184bf58923748278d4989a271adf434
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: d914242b6a29e05e5b97ad11a1bde6f894113e43
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352587"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382560"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Introducción a Azure Standard Load Balancer
 
@@ -211,10 +211,10 @@ Load Balancer Estándar está disponible con un SLA del 99,99 %.  Consulte el [S
 
 ## <a name="pricing"></a>Precios
 
-Se cobra por el uso de Standard Load Balancer.
+Se cobra el uso de Standard Load Balancer.
 
-- Número de reglas de salida y para equilibrio de cargas configuradas (las reglas NAT de entrada no cuentan para el número total de reglas).
-- Cantidad de datos procesados entrantes y salientes, independientemente de la regla. 
+- Número de reglas de salida y equilibrio de carga configurados (las reglas nat de entrada no cuentan para el número total de reglas)
+- Cantidad de datos procesados entrantes y salientes con independencia de la regla. 
 
 Para más información sobre los precios de Load Balancer Estándar, vaya la página [Precios de Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
 

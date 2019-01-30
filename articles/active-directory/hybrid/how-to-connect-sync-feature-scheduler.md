@@ -4,7 +4,7 @@ description: En este tema se describe la característica de Programador incorpor
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d8deb03d03446c1452d73a7c08df4cf14ffcd5b5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 8099194feed3761e32686ab15e8738b10ffd4e8b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46304564"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462324"
 ---
-# <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect Sync: Scheduler
+# <a name="azure-ad-connect-sync-scheduler"></a>Sincronización de Azure AD Connect: Scheduler
 En este tema se describe el programador incorporado en la sincronización de Azure AD Connect (también denominado motor de sincronización).
 
 Esta característica se introdujo con la compilación 1.1.105.0 (publicada en febrero de 2016).
@@ -71,7 +71,7 @@ La configuración del programador se almacena en Azure AD. Si tiene un servidor 
 
 ### <a name="customizedsynccycleinterval"></a>CustomizedSyncCycleInterval
 Sintaxis: `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
-d: días; HH: horas; mm: minutos; ss: segundos
+ d: días; HH: horas; mm: minutos; ss: segundos
 
 Ejemplo: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00`  
 Cambia el programador para ejecutarse cada 3 horas.
@@ -92,7 +92,7 @@ Una vez realizados los cambios, no olvide volver a habilitar el programador con 
 De forma predeterminada, el programador se ejecuta cada 30 minutos. En algunos casos, es posible que quiera ejecutar un ciclo de sincronización entre los ciclos programados o necesite ejecutar un tipo diferente.
 
 **Ciclo de sincronización diferencial**  
-Un ciclo de sincronización diferencial incluye los siguientes pasos:
+ Un ciclo de sincronización diferencial incluye los siguientes pasos:
 
 * Importación diferencial en todos los conectores
 * Sincronización diferencial en todos los conectores
@@ -123,7 +123,7 @@ Si el programador está ejecutando actualmente un ciclo de sincronización, pued
 Cuando se está ejecutando un ciclo de sincronización, no puede realizar cambios de configuración. Debe esperar hasta que el programador haya terminado el proceso, pero también es posible detenerlo para poder realizar los cambios inmediatamente. Detener el ciclo actual no es perjudicial y los cambios pendientes se procesarán en la próxima ejecución.
 
 1. Para empezar, indique al programador que detenga el ciclo actual con el cmdlet `Stop-ADSyncSyncCycle`de PowerShell.
-2. Si usa una compilación anterior a 1.1.281, detener el programador no hará que este conector detenga su tarea actual. Para forzar el conector a que se detenga, tome las medidas siguientes: ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
+2. Si usa una compilación anterior a 1.1.281, detener el programador no hará que este conector detenga su tarea actual. Para forzar el conector a que se detenga, tome las medidas siguientes:  ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
    * Inicie el **Servicio de sincronización** desde el menú Inicio. Vaya a **Conectores**, resalte el conector con el estado **En ejecución** y seleccione **Detener** en la lista de acciones.
 
 El programador todavía permanece activo y se inicia de nuevo en la siguiente oportunidad.
@@ -165,7 +165,7 @@ Get-ADSyncConnectorRunStatus
 ```
 
 ![Estado de la ejecución de conector](./media/how-to-connect-sync-feature-scheduler/getconnectorrunstatus.png)  
-En la ilustración anterior, la primera línea refleja un estado donde el motor de sincronización está inactivo. La segunda línea es de cuando se ejecuta el conector de Azure AD.
+ En la ilustración anterior, la primera línea refleja un estado donde el motor de sincronización está inactivo. La segunda línea es de cuando se ejecuta el conector de Azure AD.
 
 ## <a name="scheduler-and-installation-wizard"></a>Scheduler y Asistente para instalación
 Si inicia el Asistente para instalación, el programador se suspende temporalmente. Este comportamiento es debido a que se supone que realizará cambios en la configuración y estos cambios no se pueden aplicar si el motor de sincronización se está ejecutando activamente. Por este motivo, no deje el Asistente para instalación abierto, ya que impide que el motor de sincronización realizar ninguna acción.

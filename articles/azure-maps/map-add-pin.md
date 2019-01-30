@@ -1,82 +1,74 @@
 ---
-title: Incorporación de símbolos y marcadores con Azure Maps | Microsoft Docs
-description: Cómo agregar símbolos y marcadores a un mapa de Javascript
-author: walsehgal
-ms.author: v-musehg
-ms.date: 10/30/2018
+title: Adición de una capa de símbolo a Azure Maps | Microsoft Docs
+description: Cómo agregar símbolos al mapa de JavaScript
+author: rbrundritt
+ms.author: richbrun
+ms.date: 12/2/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: c56ac35f49c364b7b0f2ad26b82b178411419414
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 718a679418790a6bf1207a96e5c204f7962de239
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282692"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411293"
 ---
-# <a name="add-symbols-and-markers-to-a-map"></a>Incorporación de símbolos y marcadores a un mapa
+# <a name="add-a-symbol-layer-to-a-map"></a>Adición de una capa de símbolo a un mapa
 
-En este artículo se muestra cómo agregar símbolos y marcadores a un mapa con un origen de datos.
+En este artículo se explica cómo puede representar datos de punto de un origen de datos como una capa de símbolo en un mapa. Las capas de símbolo se representan mediante WebGL y admiten considerablemente más puntos de datos que los marcadores HTML, pero no son compatibles con los elementos CSS y HTML tradicionales de estilo.  
 
-## <a name="add-a-symbol-marker"></a>Adición de marcador de símbolos
+> [!TIP]
+> De forma predeterminada, las capas de símbolo representarán las coordenadas de todos los objetos geométricos en un origen de datos. Para limitar la capa de tal forma que solo represente las características geométricas de punto, establezca la propiedad `filter` de la capa en `['==', '$type', 'Point']`.
+
+## <a name="add-a-symbol-layer"></a>Adición de una capa de símbolo
 
 <iframe height='500' scrolling='no' title='Cambio del anclaje de ubicación' src='//codepen.io/azuremaps/embed/ZqJjRP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen para <a href='https://codepen.io/azuremaps/pen/ZqJjRP/'>cambiar el anclaje de ubicación</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 En el primer bloque de código anterior se construye un objeto de mapa. Puede consultar [Creación de un mapa](./map-create.md) para obtener instrucciones.
 
-En el segundo bloque de código, se crea un objeto de origen de datos con la clase [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Luego se crea un punto y se agrega al origen de datos. Un punto es una clase [Feature](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) de una clase [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest).
+En el segundo bloque de código, se crea un objeto de origen de datos con la clase [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Una [característica] que contiene una geometría [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) se encapsula con la clase [Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) para que sea más fácil de actualizar y, a continuación, se crea y se agrega al origen de datos.
 
-En el tercer bloque de código se crea una [escucha de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) y se actualizan las coordenadas con el clic del mouse, utilizando la clase shape del método [setCoordinates](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest#setcoordinates).
+En el tercer bloque de código se crea una [escucha de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) y se actualizan las coordenadas con el clic del mouse, utilizando la clase shape del método [setCoordinates](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest).
 
 Una [capa de símbolos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) usa texto o iconos para representar los datos basados en puntos encapsulados en [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) como símbolos en el mapa.  El origen de datos,la escucha de eventos de clic y la capa de símbolos se crean y agregan al mapa dentro de la función [escucha de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para garantizar que se muestre el punto una vez que el mapa se cargue completamente.
 
-## <a name="add-a-custom-symbol"></a>Incorporación de un símbolo personalizado
+## <a name="add-a-custom-icon-to-a-symbol-layer"></a>Adición de un icono personalizado a una capa de símbolo
 
-<iframe height='500' scrolling='no' title='HTML DataSource' src='//codepen.io/azuremaps/embed/qJVgMx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/qJVgMx/'>HTML DataSource</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+Las capas de símbolo se representan mediante WebGL. Por tanto, todos los recursos, como las imágenes de icono, se deben cargar en el contexto de WebGL. Este ejemplo muestra cómo agregar un icono de símbolo personalizado a los recursos del mapa para usarlo a continuación para representar datos de punto con un símbolo personalizado en el mapa. La propiedad `textField` de la capa de símbolo requiere que se especifique una expresión. En este caso, queremos representar la propiedad de temperatura de la característica de punto como el valor de texto. Esto puede lograrse con esta expresión: `['get', 'temperature']`. 
+
+<br/>
+
+<iframe height='500' scrolling='no' title='Icono de imagen de símbolo personalizado' src='//codepen.io/azuremaps/embed/WYWRWZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el fragmento de código <a href='https://codepen.io/azuremaps/pen/WYWRWZ/'>Custom Symbol Image Icon</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-En el código anterior, el primer bloque de código construye un objeto mapa. Puede consultar [Creación de un mapa](./map-create.md) para obtener instrucciones.
+## <a name="customize-a-symbol-layer"></a>Personalización de una capa de símbolo 
 
-En el segundo bloque de código se agrega [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest) al mapa mediante la propiedad [markers](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#markers) de la clase [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest). HtmlMarker se agrega al mapa dentro de la función [escucha de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para garantizar que se muestre una vez que el mapa se cargue completamente.
+La capa de símbolo tiene muchas opciones de estilo disponibles. Con esta herramienta puede probar las distintas opciones de estilo.
 
-## <a name="add-bubble-markers"></a>Adición de marcadores de burbuja
+<br/>
 
-<iframe height='500' scrolling='no' title='BubbleLayer DataSource' src='//codepen.io/azuremaps/embed/mzqaKB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/mzqaKB/'>BubbleLayer DataSource</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Opciones de capa de símbolo' src='//codepen.io/azuremaps/embed/PxVXje/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el fragmento de código <a href='https://codepen.io/azuremaps/pen/PxVXje/'>Symbol Layer Options</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
-
-En el código anterior, el primer bloque de código construye un objeto de mapa. Puede consultar [Creación de un mapa](./map-create.md) para obtener instrucciones.
-
-En el segundo bloque de código, se define una matriz de posiciones y se crea un objeto [MultiPoint](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.multipoint?view=azure-iot-typescript-latest). Luego se crea un objeto de origen de datos mediante la clase [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) y se agrega el objeto MultiPoint al origen de datos.
-
-Una [capa de burbujas](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest) representa los datos basados en puntos encapsulados en el [origen de datos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) como círculos en el mapa. El último bloque de código crea una capa de burbujas y la agrega al mapa. Puede consultar las propiedades de una capa de burbujas en [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions).
-
-El objeto MultiPoint, el origen de datos y la capa de burbujas se crean y agregan al mapa dentro de la función [escucha de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para garantizar que se muestre el círculo una vez que el mapa se cargue completamente.
-
-## <a name="add-bubble-markers-with-label"></a>Adición de marcadores de burbuja con etiqueta
-
-<iframe height='500' scrolling='no' title='MultiLayer DataSource' src='//codepen.io/azuremaps/embed/rqbQXy/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/rqbQXy/'>MultiLayer DataSource</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
-El código anterior muestra cómo visualizar y etiquetar datos en el mapa. En el primer bloque de código anterior se construye un objeto de mapa. Puede consultar [Creación de un mapa](./map-create.md) para obtener instrucciones.
-
-En el segundo bloque de código se crea un objeto [point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest). A continuación, se crea un objeto de origen de datos mediante la clase [origen de datos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) y se agrega el punto al origen de datos.
-
-Una [capa de burbujas](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest) representa los datos basados en puntos encapsulados en el [origen de datos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) como círculos en el mapa. El tercer bloque de código crea una capa de burbujas y la agrega al mapa. Puede consultar las propiedades de una capa de burbujas en [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions).
-
-Una [capa de símbolos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) usa texto o iconos para representar los datos basados en puntos encapsulados en [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) como símbolos en el mapa. El último bloque de código crea y agrega una capa de símbolos al mapa que representa la etiqueta de texto de la burbuja. Consulte las propiedades de una capa de símbolos en [SymbolLayerOptions](/javascript/api/azure-maps-control/atlas.symbollayeroptions).
-
-El origen de datos y las capas se crean y agregan al mapa dentro de la función [escucha de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para garantizar que se muestren los datos una vez que el mapa se cargue completamente.
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Más información sobre las clases y los métodos utilizados en este artículo:
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [SymbolLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)
+
+> [!div class="nextstepaction"]
+> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest)
+
+> [!div class="nextstepaction"]
+> [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions?view=azure-iot-typescript-latest)
+
+> [!div class="nextstepaction"]
+> [TexTOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions?view=azure-iot-typescript-latest)
 
 Para obtener más ejemplos de código para agregar a los mapas:
 
@@ -85,3 +77,9 @@ Para obtener más ejemplos de código para agregar a los mapas:
 
 > [!div class="nextstepaction"]
 > [Adición de una forma](./map-add-shape.md)
+
+> [!div class="nextstepaction"]
+> [Adición de una capa de burbuja](./map-add-bubble-layer.md)
+
+> [!div class="nextstepaction"]
+> [Adición de marcadores HTML](./map-add-bubble-layer.md)

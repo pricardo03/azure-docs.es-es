@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: actualización desde una versión anterior | Microsoft Docs'
+title: 'Azure AD Connect: Actualización desde una versión anterior | Microsoft Docs'
 description: Se explican los diferentes métodos para realizar la actualización a la versión más reciente de Azure Active Directory Connect, entre los que se incluyen una actualización local y una migración oscilante.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 31f084d8-2b89-478c-9079-76cf92e6618f
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.workload: Identity
 ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 17333f6a5e78fb6da607e93cf696bfc766daf3ae
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 4ca1fc4677f0d9a5391973a965faae4e283c4710
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46309944"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462545"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: actualización de una versión anterior a la versión más reciente
 En este tema se describen los distintos métodos que se puede utilizar para actualizar la instalación de Azure Active Directory (Azure AD) Connect a la versión más reciente. Le recomendamos mantenerse al día con las versiones de Azure AD Connect. Los pasos de la sección [Migración oscilante](#swing-migration) también se utilizan al realizar un cambio de configuración considerable.

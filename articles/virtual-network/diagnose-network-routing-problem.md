@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: jdial
-ms.openlocfilehash: 695d5f1507f766cf0a2ad96d7dcd25f45f98c20e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 56dd13f5c2c0db4af65d8bc5d4ee5c072a161964
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994724"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429641"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnóstico de problemas de enrutamiento en una máquina virtual
 
@@ -49,12 +49,12 @@ En los pasos que vienen a continuación se da por hecho que tiene una máquina v
     En el ejemplo mostrado en la imagen anterior, las rutas enumeradas son rutas predeterminadas que crea Azure para cada subred. Su lista tiene como mínimo estas rutas, pero puede tener rutas adicionales, según las funcionalidades que pueda haber habilitado para la red virtual; por ejemplo, estar emparejada con otra red virtual o conectada a la red local mediante una puerta de enlace VPN de Azure. Para más información sobre cada una de las rutas y otras rutas que puede ver para la red virtual, consulte [Enrutamiento del tráfico de redes virtuales](virtual-networks-udr-overview.md). Si la lista tiene un gran número de rutas, quizá le resulte más fácil seleccionar **Descargar** para descargar un archivo .csv con la lista de rutas.
 
 Aunque las rutas eficaces se vieron mediante la máquina virtual en los pasos anteriores, también puede verlas mediante una:
-- **Interfaz de red individual**: aprenda cómo [ver una interfaz de red](virtual-network-network-interface.md#view-network-interface-settings).
+- **Interfaz de red individual**: aprenda a [ver una interfaz de red](virtual-network-network-interface.md#view-network-interface-settings).
 - **Tabla de rutas individual**: aprenda cómo [ver una tabla de rutas](manage-route-table.md#view-details-of-a-route-table).
 
 ## <a name="diagnose-using-powershell"></a>Diagnóstico mediante PowerShell
 
-Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azure.com/powershell), o mediante la ejecución de PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Si ejecuta PowerShell desde el equipo, necesita el módulo *AzureRM* de PowerShell, versión 6.0.1 o posterior. Ejecute `Get-Module -ListAvailable AzureRM` en el equipo para encontrar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si ejecuta PowerShell localmente, también debe ejecutar `Login-AzureRmAccount` para iniciar sesión en Azure con una cuenta que tenga los [permisos necesarios](virtual-network-network-interface.md#permissions).
+Puede ejecutar los comandos siguientes en [Azure Cloud Shell](https://shell.azure.com/powershell), o mediante la ejecución de PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Si ejecuta PowerShell desde el equipo, necesita el módulo *AzureRM* de PowerShell, versión 6.0.1 o posterior. Ejecute `Get-Module -ListAvailable AzureRM` en el equipo para encontrar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si ejecuta PowerShell localmente, también debe ejecutar `Login-AzureRmAccount` para iniciar sesión en Azure con una cuenta que tenga los [permisos necesarios](virtual-network-network-interface.md#permissions).
 
 Obtenga las rutas eficaces para una interfaz de red con [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable). En el ejemplo siguiente se obtienen las rutas eficaces de una interfaz de red llamada *myVMVMNic*, que se encuentra en un grupo de recursos llamado *myResourceGroup*:
 

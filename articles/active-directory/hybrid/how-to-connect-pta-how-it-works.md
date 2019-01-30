@@ -1,11 +1,11 @@
 ---
-title: 'Azure AD Connect: funcionamiento de la autenticación de paso a través | Microsoft Docs'
+title: 'Azure AD Connect: Funcionamiento de la autenticación de paso a través | Microsoft Docs'
 description: En este artículo se describe el funcionamiento de la autenticación de paso a través de Azure Active Directory.
 services: active-directory
 keywords: Autenticación de paso a través de Azure AD Connect, instalación de Active Directory, componentes necesarios para Azure AD, SSO, inicio de sesión único
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 437800483004cdbff89814579137f4057133d0fb
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 423edfecb7bfd69de9ef004686db4a05824d0857
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913811"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465439"
 ---
-# <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Autenticación de paso a través de Azure Active Directory: información técnica detallada
+# <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Autenticación de paso a través de Azure Active Directory: Inmersión técnica profunda
 En este artículo se ofrece información general sobre el funcionamiento de la autenticación de paso a través de Azure Active Directory (Azure AD). Si desea información técnica y de seguridad detallada, consulte el artículo [Análisis a fondo de la seguridad](how-to-connect-pta-security-deep-dive.md).
 
 ## <a name="how-does-azure-active-directory-pass-through-authentication-work"></a>Funcionamiento de la autenticación de paso a través de Azure Active Directory
@@ -50,13 +50,13 @@ En el diagrama siguiente se ilustran todos los componentes y los pasos implicado
 ![Autenticación de paso a través](./media/how-to-connect-pta-how-it-works/pta2.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Limitaciones actuales](how-to-connect-pta-current-limitations.md): conozca qué escenarios son compatibles y cuáles no.
-- [Inicio rápido](how-to-connect-pta-quick-start.md): poner en marcha la autenticación de paso a través de Azure AD.
+- [Limitaciones actuales](how-to-connect-pta-current-limitations.md): Obtenga información sobre los escenarios que se admiten y los que no.
+- [Inicio rápido](how-to-connect-pta-quick-start.md): ponga en marcha la autenticación de paso a través de Azure AD.
 - [Migración de AD FS a la autenticación de paso a través](https://aka.ms/adfstoPTADP): una guía detallada para migrar desde AD FS (u cualquier otra tecnología de federación) a la autenticación de paso a través.
-- [Bloqueo inteligente](../authentication/howto-password-smart-lockout.md): configurar la funcionalidad de bloqueo inteligente en el inquilino para proteger las cuentas de usuario.
-- [Preguntas más frecuentes](how-to-connect-pta-faq.md): encuentre respuestas a las preguntas más frecuentes.
-- [Solución de problemas](tshoot-connect-pass-through-authentication.md): obtenga información sobre cómo resolver problemas comunes relacionados con la característica de autenticación de paso a través.
-- [Análisis a fondo de la seguridad](how-to-connect-pta-security-deep-dive.md): obtenga información técnica sobre la característica de autenticación de paso a través.
-- [SSO de conexión directa de Azure AD](how-to-connect-sso.md): obtenga más información sobre esta característica complementaria.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): use el foro de Azure Active Directory para solicitar nuevas características.
+- [Bloqueo inteligente](../authentication/howto-password-smart-lockout.md): configure la funcionalidad de bloqueo inteligente en el inquilino para proteger las cuentas de usuario.
+- [Preguntas más frecuentes](how-to-connect-pta-faq.md): Obtenga respuestas a las preguntas más frecuentes.
+- [Solución de problemas](tshoot-connect-pass-through-authentication.md): Obtenga información sobre cómo resolver problemas comunes relacionados con la característica de autenticación de paso a través.
+- [Análisis a fondo de la seguridad](how-to-connect-pta-security-deep-dive.md): Obtenga información técnica detallada sobre la característica de autenticación de paso a través.
+- [SSO de conexión directa de Azure AD](how-to-connect-sso.md): Más información sobre esta característica complementaria.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Use el foro de Azure Active Directory para solicitar nuevas características.
 

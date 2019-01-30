@@ -10,14 +10,14 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: dbe853172c0f0e49408bd4a2dd630a69659421d3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 153ddcc1ba0da6171963ec91511fafe84023ecf8
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260608"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401980"
 ---
-# <a name="analyzing-customer-churn-using-azure-machine-learning-studio"></a>Análisis de la pérdida de clientes mediante Azure Machine Learning Studio
+# <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Análisis de la pérdida de clientes mediante Azure Machine Learning Studio
 ## <a name="overview"></a>Información general
 En este artículo se presenta una implementación de referencia de un proyecto de análisis de pérdida de clientes creado mediante Azure Machine Learning. Se describen los modelos asociados genéricos para solucionar holísticamente el problema de pérdida de clientes industrial. También medimos la precisión de los modelos generados mediante Machine Learning y evaluamos instrucciones para su posterior desarrollo.  
 

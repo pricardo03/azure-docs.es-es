@@ -3,7 +3,7 @@ title: P+F sobre Azure Cache for Redis | Microsoft Docs
 description: Conozca las respuestas a preguntas comunes, patrones y procedimientos recomendados para Azure Cache for Redis
 services: azure-cache-for-redis
 documentationcenter: ''
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: ''
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
-ms.author: wesmc
-ms.openlocfilehash: 5d70e4beb97a23212bc85d529382d8e89f09336d
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.author: yegu
+ms.openlocfilehash: 3a0fb06acd9fc798f1528a1487ae0682135187ca
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199925"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402407"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Preguntas frecuentes sobre Azure Cache for Redis
 Conozca las respuestas a preguntas comunes, patrones y procedimientos recomendados para Azure Cache for Redis.
@@ -210,7 +210,7 @@ Habitualmente, los valores predeterminados del cliente son suficientes. Ajuste l
       * Esta guía puede conducir a una latencia más simplificada por `ConnectionMultiplexer`.
 
 ### <a name="what-azure-cache-for-redis-clients-can-i-use"></a>¿Qué clientes de Azure Cache for Redis puedo usar?
-Una de las grandes virtudes de Redis es que hay muchos clientes que admiten muchos lenguajes de desarrollo diferentes. Para obtener una lista de clientes, consulte [Redis clients](https://redis.io/clients)(Clientes de Redis). Para ver tutoriales que abarcan varios lenguajes y clientes diferentes, consulte el artículo sobre el [uso de Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) y haga clic en el idioma deseado del selector de idioma de la parte superior.
+Una de las grandes virtudes de Redis es que hay muchos clientes que admiten muchos lenguajes de desarrollo diferentes. Para obtener una lista de clientes, consulte [Redis clients](https://redis.io/clients)(Clientes de Redis). Para ver tutoriales que abarcan diversos lenguajes y clientes, consulte [Cómo usar Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) y los artículos relacionados de la tabla de contenido.
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
@@ -259,7 +259,7 @@ Puede usar cualquiera de los comandos enumerados en el artículo de [Comandos de
 ### <a name="why-doesnt-azure-cache-for-redis-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services"></a>¿Por qué Azure Cache for Redis no tiene una referencia de biblioteca de clases MSDN como otros servicios de Azure?
 Microsoft Azure Cache for Redis se basa en la popular caché de Azure para Redis de código abierto y son varios los [clientes de Redis](https://redis.io/clients) disponibles para muchos lenguajes de programación los que pueden acceder a ella. Cada cliente tiene su propia API que realiza llamadas a la instancia de Azure Cache for Redis mediante los [comandos de Redis](https://redis.io/commands).
 
-Dado que cada cliente es diferente, no hay no una referencia de clase centralizada en MSDN; cada cliente mantiene su propia documentación de referencia. Además de la documentación de referencia, hay varios tutoriales que muestran cómo empezar a trabajar con Azure Cache for Redis con distintos idiomas y clientes de la caché. Para acceder a estos tutoriales, consulte el artículo sobre el [uso de Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) y haga clic en el idioma deseado del selector de idioma en la parte superior.
+Dado que cada cliente es diferente, no hay no una referencia de clase centralizada en MSDN; cada cliente mantiene su propia documentación de referencia. Además de la documentación de referencia, hay varios tutoriales que muestran cómo empezar a trabajar con Azure Cache for Redis con distintos idiomas y clientes de la caché. Para acceder a estos tutoriales, consulte [Cómo usar Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) y los artículos relacionados de la tabla de contenido.
 
 ### <a name="can-i-use-azure-cache-for-redis-as-a-php-session-cache"></a>¿Puedo usar Azure Cache for Redis como caché de la sesión PHP?
 Sí, para usar Azure Cache for Redis como una memoria caché de sesión PHP, especifique la cadena de conexión a la instancia de Azure Cache for Redis en `session.save_path`.

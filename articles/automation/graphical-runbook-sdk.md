@@ -3,18 +3,18 @@ title: Información general sobre el SDK de runbooks gráficos en Azure Automati
 description: En este artículo se describe cómo usar el SDK de runbooks gráficos en Azure Automation.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 07/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 702af8311887afc94e7127704d3377e944503324
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: bc9f1feff6d8d45e52c8621d1ec4b36e0a4a4a76
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39240583"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434264"
 ---
 # <a name="use-the-azure-automation-graphical-runbook-sdk"></a>Uso del SDK de runbooks gráficos en Azure Automation
 
@@ -119,7 +119,7 @@ Los parámetros CommandActivity e InvokeRunbookActivity deben proporcionarse com
 |PowerShellExpressionValueDescriptor     | Especifica una expresión de PowerShell de forma libre que se va a evaluar justo antes de invocar la actividad.  <br/>Se trata de una herramienta eficaz, pero no se debe abusar de su uso: la interfaz de usuario mostrará esta expresión como texto; el motor de ejecución tratará el bloque proporcionado como una caja negra y no intentará analizar su contenido, excepto para una comprobación de sintaxis básica. Cuando sea posible, se prefieren descriptores de valor más específicos.      |
 
 > [!NOTE]
-> No derive sus propios descriptores de valor de las clases proporcionadas: Azure Automation no podrá usar runbooks con tipos de descriptores de valor personalizados.
+> No derive sus propios descriptores de valores de las clases proporcionadas: Azure Automation no podrá usar runbooks con tipos de descriptores de valores personalizados.
 
 Cree instancias de los vínculos que conectan las actividades y agréguelos al runbook:
 
@@ -146,3 +146,4 @@ El formato serializado puede cambiar en las futuras versiones de `Orchestrator.G
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre los runbooks gráficos en Azure Automation, vea [Creación gráfica en Azure Automation](automation-graphical-authoring-intro.md).
+

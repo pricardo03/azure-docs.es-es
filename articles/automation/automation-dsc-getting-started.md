@@ -3,24 +3,24 @@ title: Introducción a Azure Automation State Configuration
 description: Explicación y ejemplos de las tareas más comunes de Azure Automation State Configuration (DSC)
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fc1c870d06d6bf4a0db941b261e9aebd317fdcb1
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 19e1721a638dfc750938e09e1626c4e291367723
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634374"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432452"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Introducción a Azure Automation State Configuration
 
 En este artículo se explica cómo realizar la mayoría de las tareas más comunes con Azure Automation State Configuration, como, por ejemplo, crear, importar y compilar configuraciones, incorporar máquinas para administrarlas y ver informes. Para más información sobre lo que es Azure Automation State Configuration, consulte [Introducción a Azure Automation State Configuration](automation-dsc-overview.md). Para obtener documentación de Desired State Configuration, consulte [Información general sobre la configuración de estado deseado de Windows PowerShell](/powershell/dsc/overview).
 
-En este artículo se proporciona una guía paso a paso para usar Azure Automation State Configuration. Si busca un entorno de ejemplo que ya esté configurado sin seguir los pasos descritos en este artículo, puede usar la siguiente plantilla de Resource Manager: [Azure Automation Managed Node](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration). Esta plantilla configura un entorno completado de Azure Automation State Configuration, incluida una máquina virtual de Azure administrada por Azure Automation State Configuration.
+En este artículo se proporciona una guía paso a paso para usar Azure Automation State Configuration. Si busca un entorno de ejemplo que ya se haya configurado sin seguir los pasos descritos en este artículo, puede usar la siguiente plantilla de Resource Manager: [Azure Automation Managed Node](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration). Esta plantilla configura un entorno completado de Azure Automation State Configuration, incluida una máquina virtual de Azure administrada por Azure Automation State Configuration.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

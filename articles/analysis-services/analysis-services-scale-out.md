@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 01/18/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 775de554f39df8359c3852a2d7fa876fd12199d2
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 213a695d99c50cea5962237c6210e6efcdbc5f6a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190853"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411686"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escalabilidad horizontal de Azure Analysis Services
 
@@ -107,7 +107,7 @@ Para SSMS, SSDT y cadenas de conexión en PowerShell, las aplicaciones de Azure 
 
 **Problema:** los usuarios ven la instancia de error **No se puede encontrar el servidor "\<Nombre del servidor >" en el modo de conexión "ReadOnly".**
 
-**Solución:** al seleccionar la opción **Separar el servidor de procesamiento del grupo de consultas**, las conexiones del cliente que usan la cadena de conexión predeterminada (sin: rw) se redirigen a las réplicas del grupo de consultas. Si las réplicas en el grupo de consultas no están en línea porque la sincronización aún no se ha completado, es posible que se produzca un error en las conexiones de cliente redirigidas. Para evitar errores en las conexiones, no separe el servidor de procesamiento del grupo de consultas hasta que se completen las operaciones de escalabilidad horizontal y de sincronización. Puede usar las métricas de memoria y QPU para supervisar el estado de sincronización.
+**Solución:** al seleccionar la opción **Separar el servidor de procesamiento del grupo de consultas**, las conexiones del cliente que usan la cadena de conexión predeterminada (sin: rw) se redirigen a las réplicas del grupo de consultas. Si las réplicas en el grupo de consultas no están en línea porque la sincronización aún no se ha completado, es posible que se produzca un error en las conexiones de cliente redirigidas. Para evitar errores de conexión, debe haber al menos dos servidores en el grupo de consultas al realizar una sincronización. Cada servidor se sincroniza individualmente mientras que otros siguen en línea. Si decide no incluir el servidor de procesamiento en el grupo de consultas durante el procesamiento, puede quitarlo del grupo para el procesamiento y agregarlo de nuevo una vez completado el procesamiento, pero antes de la sincronización. Use las métricas de memoria y QPU para supervisar el estado de sincronización.
 
 ## <a name="related-information"></a>Información relacionada
 

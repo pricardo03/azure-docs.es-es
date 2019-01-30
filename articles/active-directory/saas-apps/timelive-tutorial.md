@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con TimeLive | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con TimeLive | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y TimeLive.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 34123629-4ad5-465c-a4c1-8299f857e720
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 26e70abc336b7cb13342873784aa2cb4048a47d9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e9be0417e56339fa5c56a72c1b2bd27d5f955ea4
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437328"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820757"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-timelive"></a>Tutorial: integración de Azure Active Directory con TimeLive
+# <a name="tutorial-azure-active-directory-integration-with-timelive"></a>Tutorial: Integración de Azure Active Directory con TimeLive
 
 En este tutorial, obtendrá información acerca de cómo integrar TimeLive con Azure Active Directory (Azure AD).
 
@@ -110,7 +110,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información sobre el inicio de sesión único del dominio y las direcciones URL de TimeLive](./media/timelive-tutorial/tutorial_timelive_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://domainname.livetecs.com/`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://domainname.livetecs.com/`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://domainname.livetecs.com/`
 
@@ -139,7 +139,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     ![Configuración de TimeLive](./media/timelive-tutorial/configure2.png)
 
-    a. Seleccione la pestaña **Seguridad**.
+     a. Seleccione la pestaña **Seguridad**.
 
     b. Marque la casilla **Enable Single Sign On (SSO)** (Habilitar inicio de sesión único [SSO]).
 
@@ -154,7 +154,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     g. Haga clic en **Update**(Actualizar).
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -180,7 +180,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/timelive-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -227,7 +227,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de TimeLive en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación TimeLive.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

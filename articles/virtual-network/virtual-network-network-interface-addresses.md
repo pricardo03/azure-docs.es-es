@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 3a74450ca8025f07b00dc18c9b81b147afa7439c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 64aa936dc1dbb1d2a700a31253cf7a3caee6b66f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975305"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436781"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Incorporación, cambio o eliminación de direcciones IP para una interfaz de red de Azure
 
@@ -34,7 +34,7 @@ Complete las tareas siguientes antes de seguir los pasos de las secciones de est
 
 - Si todavía no tiene una cuenta de Azure, regístrese para obtener una [cuenta de evaluación gratuita](https://azure.microsoft.com/free).
 - Si usa el portal, abra https://portal.azure.com e inicie sesión con la cuenta de Azure.
-- Si usa comandos de PowerShell para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/powershell) o ejecute PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Para realizar este tutorial, es necesaria la versión 5.7.0 del módulo de Azure PowerShell u otra posterior. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzureRmAccount` para crear una conexión con Azure.
+- Si usa comandos de PowerShell para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/powershell) o ejecute PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Para realizar este tutorial, es necesaria la versión 5.7.0 del módulo de Azure PowerShell u otra posterior. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzureRmAccount` para crear una conexión con Azure.
 - Si usa la interfaz de la línea de comandos (CLI) de Azure para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/bash) o ejecute la CLI en el equipo. Para realizar este tutorial, es necesaria la versión 2.0.31 de la CLI de Azure o una versión posterior. Ejecute `az --version` para buscar la versión instalada. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Si ejecuta de forma local la CLI de Azure, también debe ejecutar `az login` para crear una conexión con Azure.
 
 La cuenta en la que inicia sesión o con la que se conecta a Azure debe tener asignado el rol de [colaborador de red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o un [rol personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenga asignadas las acciones apropiadas que figuren en [Permisos de interfaz de red](virtual-network-network-interface.md#permissions).
@@ -173,7 +173,7 @@ Las direcciones IPv4 e IPv6 (opcionalmente) privadas dinámicas se asignan de ma
 De manera opcional, puede asignar una dirección IPv4 estática pública o privada a una configuración IP. No puede asignar una dirección IPv6 estática pública ni privada a una configuración IP. Para más información sobre cómo Azure asigna direcciones IPv4 estáticas públicas, consulte [Dirección IP pública](virtual-network-public-ip-address.md).
 
 - **Solo pública**: Azure asigna la dirección de un intervalo único a cada región de Azure. Puede descargar la lista de intervalos (prefijos) para las nubes de Azure [Pública](https://www.microsoft.com/download/details.aspx?id=56519), [Gobierno de Estados Unidos](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062) y [Alemania](https://www.microsoft.com/download/details.aspx?id=57064). La dirección no cambia hasta que el recurso de dirección IP pública se asigna o se elimina, o el método de asignación cambia a dinámico. Si el recurso de dirección IP pública está asociado a una configuración de dirección IP, se debe desasociar de la configuración de dirección IP antes de cambiar su método de asignación.
-- **Solo privada**: se selecciona y asigna una dirección del intervalo de direcciones de la subred. La dirección que se asigna puede ser cualquiera que esté en el intervalo de direcciones de subred, salvo que sea una de las cuatro primeras y que no esté asignada a otro recurso de la subred. Las direcciones estáticas solo se liberan cuando se elimina la interfaz de red. Si cambia el método de asignación a estática, Azure asigna dinámicamente como dirección dinámica la dirección IP estática asignada anteriormente, aunque no sea la siguiente disponible en el intervalo de direcciones de la subred. La dirección también cambia si la interfaz de red se asigna a otra subred de la misma red virtual, pero para ello, antes hay que cambiar el método de asignación de estática a dinámica. Una vez que ha asignado la interfaz de red a otra subred, puede volver a cambiar el método de asignación a estática y asignar una dirección IP del intervalo de direcciones de la nueva subred.
+- **Solo privado**: se selecciona y asigna una dirección del intervalo de direcciones de la subred. La dirección que se asigna puede ser cualquiera que esté en el intervalo de direcciones de subred, salvo que sea una de las cuatro primeras y que no esté asignada a otro recurso de la subred. Las direcciones estáticas solo se liberan cuando se elimina la interfaz de red. Si cambia el método de asignación a estática, Azure asigna dinámicamente como dirección dinámica la dirección IP estática asignada anteriormente, aunque no sea la siguiente disponible en el intervalo de direcciones de la subred. La dirección también cambia si la interfaz de red se asigna a otra subred de la misma red virtual, pero para ello, antes hay que cambiar el método de asignación de estática a dinámica. Una vez que ha asignado la interfaz de red a otra subred, puede volver a cambiar el método de asignación a estática y asignar una dirección IP del intervalo de direcciones de la nueva subred.
 
 ## <a name="ip-address-versions"></a>Versiones de direcciones IP
 
@@ -202,7 +202,7 @@ Se crea una dirección IP pública con la SKU estándar o básica. Para más inf
 ## <a name="next-steps"></a>Pasos siguientes
 Para crear una máquina virtual con distintas configuraciones IP, lea los artículos siguientes:
 
-|Task|Herramienta|
+|Tarea|Herramienta|
 |---|---|
 |Creación de una máquina virtual con varias interfaces de red|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |Creación de una máquina virtual con una sola interfaz de red y varias direcciones IPv4|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|

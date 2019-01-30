@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 58e853a3e9df0c3ba78b41f0c62e37bbcc3cdb5a
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 7b19aa42c669fec5872e210351ecec22360ef24e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754040"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427940"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Windows en el clúster de Service Fabric
 
@@ -141,7 +141,10 @@ Es posible que las actualizaciones automáticas de Windows provoquen la pérdida
 
 Se puede descargar la aplicación junto con los scripts de instalación desde el [vínculo de archivo](https://go.microsoft.com/fwlink/?linkid=869566).
 
-Se puede descargar la aplicación en formato de sfpkg desde el [vínculo sfpkg](https://aka.ms/POA/POA_v1.2.2.sfpkg). Esto resulta útil para [la implementación de aplicaciones basada en Azure Resource Manager](service-fabric-application-arm-resource.md).
+Se puede descargar la aplicación en formato de sfpkg desde el [vínculo sfpkg](https://aka.ms/POA/POA.sfpkg). Esto resulta útil para [la implementación de aplicaciones basada en Azure Resource Manager](service-fabric-application-arm-resource.md).
+
+> [!IMPORTANT]
+> La versión v1.3.0 (la más reciente) de la aplicación de orquestación de revisiones tiene un problema conocido cuando se ejecuta en Windows Server 2012. Si está ejecutando Windows Server 2012, descargue la versión v1.2.2 de la aplicación [aquí](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/PatchOrchestrationApplication_v1.2.2.zip). [Aquí](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/PatchOrchestrationApplication_v1.2.2.sfpkg) puede encontrar el vínculo SFPkg.
 
 ## <a name="configure-the-app"></a>Configuración de la aplicación
 
@@ -153,11 +156,11 @@ El comportamiento de la aplicación de orquestación de revisiones puede configu
 |TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indica la directiva que usará Coordinator Service para instalar las actualizaciones de Windows en todos los nodos del clúster de Service Fabric.<br>                         Los valores permitidos son: <br>                                                           <b>NodeWise</b>. Windows Update se instala en un nodo cada vez. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update se instala en un dominio de actualización cada vez. (Como máximo, todos los nodos que pertenecen a un dominio de actualización son aptos para Windows Update).<br> Consulte en la sección de [preguntas más frecuentes](#frequently-asked-questions) cómo decidir cuál es la mejor directiva para su clúster.
 |LogsDiskQuotaInMB   |long  <br> (Valor predeterminado: 1024)               |Tamaño máximo de los registros de la aplicación de orquestación de revisiones en MB que se pueden almacenar de forma persistente y local en un nodo.
 | WUQuery               | string<br>(Valor predeterminado: "IsInstalled=0")                | Consulta para obtener las actualizaciones de Windows. Para más información, vea [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
-| InstallWindowsOSOnlyUpdates | boolean <br> (Valor predeterminado: True)                 | Esta marca permite instalar actualizaciones del sistema operativo Windows.            |
+| InstallWindowsOSOnlyUpdates | boolean <br> (Valor predeterminado: true)                 | Use esta marca para controlar qué actualizaciones deben descargarse e instalarse. Se permiten los siguientes valores <br>True: instala solo actualizaciones del sistema operativo Windows.<br>False: instala todas las actualizaciones disponibles en la máquina.          |
 | WUOperationTimeOutInMinutes | int <br>(Valor predeterminado: 90)                   | Especifica el tiempo de espera para cualquier operación de Windows Update (buscar, descargar o instalar). Si la operación no se realiza en el tiempo de espera especificado, se anula.       |
 | WURescheduleCount     | int <br> (Valor predeterminado: 5)                  | El número máximo de veces que el servicio vuelve a programar la actualización de Windows en caso de error de la operación de forma persistente.          |
 | WURescheduleTimeInMinutes | int <br>(Valor predeterminado: 30) | El intervalo en el que el servicio vuelve a programar la actualización de Windows en caso de que el error persista. |
-| WUFrequency           | Cadena separada por comas (valor predeterminado: "Weekly, Wednesday, 7:00:00")     | Frecuencia para la instalación de actualizaciones de Windows. El formato y los valores posibles son: <br>- Monthly, DD,HH:MM:SS, por ejemplo, Monthly, 5,12:22:32. <br> - Weekly, DÍA,HH:MM:SS, por ejemplo, Weekly, martes, 12:22:32.  <br> -   Daily, HH:MM:SS, por ejemplo, Daily, 12:22:32.  <br> -  None indica que no debe realizarse Windows Update.  <br><br> Tenga en cuenta que las horas están en formato UTC.|
+| WUFrequency           | Cadena separada por comas (valor predeterminado: "Weekly, Wednesday, 7:00:00")     | Frecuencia para la instalación de actualizaciones de Windows. El formato y los valores posibles son: <br>- Monthly, DD,HH:MM:SS, por ejemplo, Monthly, 5,12:22:32.<br>Los valores permitidos para el campo DD (day) son números comprendidos entre 1 y 28, y "last". <br> - Weekly, DÍA,HH:MM:SS, por ejemplo, Weekly, martes, 12:22:32.  <br> -   Daily, HH:MM:SS, por ejemplo, Daily, 12:22:32.  <br> -  None indica que no debe realizarse Windows Update.  <br><br> Tenga en cuenta que las horas están en formato UTC.|
 | AcceptWindowsUpdateEula | boolean <br>(Valor predeterminado: true) | Al establecer esta marca, la aplicación acepta el contrato de licencia del usuario final para Windows Update en nombre del propietario del equipo.              |
 
 > [!TIP]
@@ -397,8 +400,14 @@ Un administrador debe intervenir y determinar por qué la aplicación o el clús
 
 - Corrija los errores en el flujo de trabajo de reducción vertical de clúster. Introdujo la lógica de recolección de elementos no utilizados para las tareas de reparación POA pertenecientes a nodos inexistentes.
 
-### <a name="version-122-latest"></a>Versión 1.2.2 (más reciente)
+### <a name="version-122"></a>Versión 1.2.2
 
 - Correcciones de errores varios.
 - Ahora se firman los archivos binarios.
-- El vínculo de descarga de sfpkg ahora apunta a una versión específica.
+- Vínculo sfpkg agregado para la aplicación.
+
+### <a name="version-130"></a>Versión 1.3.0
+
+- Si establece InstallWindowsOSOnlyUpdates en false se instalarán todas las actualizaciones disponibles.
+- Se ha cambiado la lógica de deshabilitación de las actualizaciones automáticas. Esto permite solucionar un problema por el que las actualizaciones automáticas no se deshabilitaban en Server 2016 o versiones posteriores.
+- Restricción de colocación con parámetros para ambos microservicios de POA para casos de uso avanzados.

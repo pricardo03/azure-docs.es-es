@@ -2,8 +2,8 @@
 title: Notificaciones push seguras de Azure Notification Hubs
 description: Obtenga información acerca de cómo enviar notificaciones de inserción seguras a una aplicación iOS desde Azure. Ejemplos de código escritos en Objective-C y C#.
 documentationcenter: ios
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 services: notification-hubs
 ms.assetid: 17d42b0a-2c80-4e35-a1ed-ed510d19f4b4
@@ -12,24 +12,24 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 04/25/2018
-ms.author: dimazaid
-ms.openlocfilehash: d3ba967a164a35af5bf66f7e74d5f95b5dc2a37f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: d88bdb1eaeb95413df84bf69ed4fc763b6d4901f
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308578"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449274"
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Notificaciones push seguras de Azure Notification Hubs
+
 > [!div class="op_single_selector"]
 > * [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 > * [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
 > * [Android](notification-hubs-aspnet-backend-android-secure-google-gcm-push-notification.md)
-> 
-> 
 
 ## <a name="overview"></a>Información general
+
 La compatibilidad con las notificaciones push en Microsoft Azure le permite tener acceso a una infraestructura multiplataforma y de escalamiento horizontal fácil de usar, que simplifica considerablemente la implementación de notificaciones push tanto en aplicaciones de consumidor como en aplicaciones empresariales para plataformas móviles.
 
 Debido a restricciones reguladoras o de seguridad, algunas veces una aplicación podría querer incluir algo en la notificación que no se puede trasmitir a través de la infraestructura de las notificaciones de inserción estándar. En este tutorial se describe cómo lograr la misma experiencia enviando información importante a través de una conexión segura y autenticada entre el dispositivo cliente y el back-end de la aplicación.
@@ -49,105 +49,110 @@ Este tutorial Inserción segura muestra cómo enviar una notificación de inserc
 
 > [!NOTE]
 > Este tutorial asume que ha creado y configurado el centro de notificaciones tal como se describe en [Introducción a Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md).
-> 
-> 
 
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## <a name="modify-the-ios-project"></a>Modificación del proyecto iOS
+
 Una vez modificado el back-end de la aplicación para enviar solamente el *id* de una notificación, deberá modificar la aplicación iOS para que administre dicha notificación y devuelva la llamada a su back-end para recuperar el mensaje seguro que se debe mostrar.
 
 Para lograr este objetivo, tenemos que escribir la lógica para recuperar el contenido seguro del back-end de la aplicación.
 
-1. En **AppDelegate.m**, asegúrese de que la aplicación se registra para notificaciones silenciosas de manera a procesar el identificador de notificación enviado desde el back-end. Agregue la opción **UIRemoteNotificationTypeNewsstandContentAvailability** en didFinishLaunchingWithOptions:
-   
-        [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
-2. En su **AppDelegate.m** , agregue una sección de implementación en la parte superior con la siguiente declaración:
-   
-        @interface AppDelegate ()
-        - (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
-        @end
+1. En `AppDelegate.m`, asegúrese de que la aplicación se registra para notificaciones silenciosas de manera a procesar el identificador de notificación enviado desde el back-end. Agregue la opción `UIRemoteNotificationTypeNewsstandContentAvailability` en didFinishLaunchingWithOptions:
+
+    ```objc
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
+    ```
+2. En `AppDelegate.m`, agregue una sección de implementación al principio con la siguiente declaración:
+
+    ```objc
+    @interface AppDelegate ()
+    - (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
+    @end
+    ```
 3. Después, en la sección de implementación, agregue el siguiente código, sustituyendo el marcador de posición `{back-end endpoint}` por el extremo para el back-end obtenido anteriormente:
 
-```
-        NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
+    ```objc
+    NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
 
-        - (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
-        {
-            // check if authenticated
-            ANHViewController* rvc = (ANHViewController*) self.window.rootViewController;
-            NSString* authenticationHeader = rvc.registerClient.authenticationHeader;
-            if (!authenticationHeader) return;
+    - (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
+    {
+        // check if authenticated
+        ANHViewController* rvc = (ANHViewController*) self.window.rootViewController;
+        NSString* authenticationHeader = rvc.registerClient.authenticationHeader;
+        if (!authenticationHeader) return;
 
+        NSURLSession* session = [NSURLSession
+                                    sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
+                                    delegate:nil
+                                    delegateQueue:nil];
 
-            NSURLSession* session = [NSURLSession
-                                     sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
-                                     delegate:nil
-                                     delegateQueue:nil];
+        NSURL* requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%d", GetNotificationEndpoint, payloadId]];
+        NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];
+        [request setHTTPMethod:@"GET"];
+        NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", authenticationHeader];
+        [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
 
+        NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
+            if (!error && httpResponse.statusCode == 200)
+            {
+                NSLog(@"Received secure payload: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
 
-            NSURL* requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%d", GetNotificationEndpoint, payloadId]];
-            NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];
-            [request setHTTPMethod:@"GET"];
-            NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@", authenticationHeader];
-            [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
+                NSMutableDictionary *json = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error: &error];
 
-            NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
-                if (!error && httpResponse.statusCode == 200)
-                {
-                    NSLog(@"Received secure payload: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-
-                    NSMutableDictionary *json = [NSJSONSerialization JSONObjectWithData:data options: NSJSONReadingMutableContainers error: &error];
-
-                    completion([json objectForKey:@"Payload"], nil);
+                completion([json objectForKey:@"Payload"], nil);
+            }
+            else
+            {
+                NSLog(@"Error status: %ld, request: %@", (long)httpResponse.statusCode, error);
+                if (error)
+                    completion(nil, error);
+                else {
+                    completion(nil, [NSError errorWithDomain:@"APICall" code:httpResponse.statusCode userInfo:nil]);
                 }
-                else
-                {
-                    NSLog(@"Error status: %ld, request: %@", (long)httpResponse.statusCode, error);
-                    if (error)
-                        completion(nil, error);
-                    else {
-                        completion(nil, [NSError errorWithDomain:@"APICall" code:httpResponse.statusCode userInfo:nil]);
-                    }
-                }
-            }];
-            [dataTask resume];
-        }
-```
+            }
+        }];
+        [dataTask resume];
+    }
+    ```
 
-    This method calls your app back-end to retrieve the notification content using the credentials stored in the shared preferences.
+    Este método llama al back-end de la aplicación para recuperar el contenido de la notificación usando las credenciales almacenadas en las preferencias compartidas.
 
-1. Ahora tenemos que administrar la notificación entrante y usar el método anterior para recuperar el contenido para mostrar. Primero, tenemos que habilitar la aplicación iOS para que se ejecute en segundo plano cuando reciba una notificación de inserción. En **XCode**, seleccione el proyecto de aplicación en el panel izquierdo y, a continuación, haga clic en el destino de la aplicación principal en la sección **Targets** (Destinos) del panel central.
-2. A continuación, haga clic en la pestaña **Capabilities** (Funcionalidades) situada en la parte superior del panel central y active la casilla **Remote Notifications** (Notificaciones remotas).
-   
+4. Ahora tenemos que administrar la notificación entrante y usar el método anterior para recuperar el contenido para mostrar. Primero, tenemos que habilitar la aplicación iOS para que se ejecute en segundo plano cuando reciba una notificación de inserción. En **XCode**, seleccione el proyecto de aplicación en el panel izquierdo y, a continuación, haga clic en el destino de la aplicación principal en la sección **Targets** (Destinos) del panel central.
+5. A continuación, haga clic en la pestaña **Capabilities** (Funcionalidades) situada en la parte superior del panel central y active la casilla **Remote Notifications** (Notificaciones remotas).
+
     ![][IOS1]
-3. En **AppDelegate.m** , agregue el método siguiente para administrar las notificaciones de inserción:
-   
-        -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
-        {
-            NSLog(@"%@", userInfo);
-   
-            [self retrieveSecurePayloadWithId:[[userInfo objectForKey:@"secureId"] intValue] completion:^(NSString * payload, NSError *error) {
-                if (!error) {
-                    // show local notification
-                    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-                    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
-                    localNotification.alertBody = payload;
-                    localNotification.timeZone = [NSTimeZone defaultTimeZone];
-                    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-   
-                    completionHandler(UIBackgroundFetchResultNewData);
-                } else {
-                    completionHandler(UIBackgroundFetchResultFailed);
-                }
-            }];
-   
-        }
-   
+
+6. En `AppDelegate.m`, agregue el método siguiente para administrar las notificaciones push:
+
+    ```objc
+    -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+    {
+        NSLog(@"%@", userInfo);
+
+        [self retrieveSecurePayloadWithId:[[userInfo objectForKey:@"secureId"] intValue] completion:^(NSString * payload, NSError *error) {
+            if (!error) {
+                // show local notification
+                UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+                localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
+                localNotification.alertBody = payload;
+                localNotification.timeZone = [NSTimeZone defaultTimeZone];
+                [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+
+                completionHandler(UIBackgroundFetchResultNewData);
+            } else {
+                completionHandler(UIBackgroundFetchResultFailed);
+            }
+        }];
+
+    }
+    ```
+
     Tenga en cuenta que es preferible administrar los casos de propiedad de encabezado de autenticación ausente o rechazo por el backend. La administración específica de estos casos depende principalmente de la experiencia del usuario de destino. Una opción es mostrar una notificación con un mensaje genérico para el usuario con el fin de que se autentique para recuperar la notificación real.
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
+
 Para ejecutar la aplicación, realice las siguientes tareas:
 
 1. En XCode, ejecute la aplicación en un dispositivo iOS físico (las notificaciones de inserción no funcionarán en el simulador).

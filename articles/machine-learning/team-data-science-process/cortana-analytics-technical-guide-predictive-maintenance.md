@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: d7acb24a6fef0435d59e5a07f5312f1e6368fe52
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ca29526ab8abbfffcf5e58939acbd1c9b4798a51
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140190"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451738"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Guía técnica sobre la plantilla de solución de Cortana Intelligence orientada al mantenimiento predictivo en el sector aeroespacial
 
@@ -182,7 +182,7 @@ Los siguientes pasos lo guiarán a la hora de conectar el archivo pbix con SQL D
      
      ![Editar consultas](./media/cortana-analytics-technical-guide-predictive-maintenance/edit-queries.png)
    * Verá dos tablas, **RemainingUsefulLife** y **PMResult**. Seleccione la primera tabla y haga clic en ![Icono de Configuración de la consulta](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-query-settings.png) junto a **Origen** en **PASOS APLICADOS** en el panel de la derecha **Configuración de la consulta**. Ignore los mensajes de advertencia que aparezcan.
-   * En la ventana emergente, reemplace **Servidor** y **Base de datos** por sus propios nombres de servidor y base de datos y, después, haga clic en **Aceptar**. Para el nombre del servidor, asegúrese de especificar el puerto 1433 (**YourSoutionName.database.windows.net, 1433**). Deje el campo Base de datos como **pmaintenancedb**. Ignore los mensajes de advertencia que aparezcan en la pantalla.
+   * En la ventana emergente, reemplace **Servidor** y **Base de datos** por sus propios nombres de servidor y base de datos y, después, haga clic en **Aceptar**. Para el nombre del servidor, asegúrese de especificar el puerto 1433 (**SuNombreDeSolución.database.windows.net, 1433**). Deje el campo Base de datos como **pmaintenancedb**. Ignore los mensajes de advertencia que aparezcan en la pantalla.
    * En la siguiente ventana emergente, verá dos opciones en el panel izquierdo (**Windows** y **Base de datos**). Haga clic en **Base de datos**, escriba su **nombre de usuario** y **contraseña** (que es el nombre de usuario y la contraseña que escribió la primera vez que implementó la solución y creó una instancia de Azure SQL Database). En ***Seleccionar en qué nivel hay que aplicar estos valores***, active la opción de nivel de base de datos. A continuación, haga clic en **"Conectar"**.
    * Haga clic en la segunda tabla **PMResult**; después, en ![Icono de Navegación](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-navigation.png) junto a la opción **Origen** de **PASOS APLICADOS** en el panel de la derecha **Configuración de la consulta**. Luego, actualice los nombres del servidor y de la base de datos como en los pasos anteriores y, por último, haga clic en Aceptar.
    * Una vez que se le dirija a la página anterior, cierre la ventana. Se muestra un mensaje y haga clic **Aplicar**. Finalmente, haga clic en el botón **Guardar** para guardar los cambios. El archivo de Power BI ha establecido ya la conexión con el servidor. Si las visualizaciones están vacías, asegúrese de borrar todas las selecciones para poder visualizar todos los datos haciendo clic en el icono de borrador de la esquina superior derecha de las leyendas. Utilice el botón Actualizar para reflejar los nuevos datos en las visualizaciones. Inicialmente, solo verá los datos de inicialización en las visualizaciones ya que la factoría de datos está programada para actualizarse cada tres horas. Después de 3 horas, verá nuevas predicciones reflejadas en las visualizaciones al actualizar los datos.

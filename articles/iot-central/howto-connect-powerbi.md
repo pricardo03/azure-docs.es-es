@@ -7,12 +7,12 @@ author: viv-liu
 ms.author: viviali
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6f8bed8aba43d77cdfad49f4fe62a4c7aa2c5ce3
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: a37eb68d135d156c25c58bf91489d5b50ac2c170
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368076"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423127"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualización y análisis de los datos de Azure IoT Central en un panel de Power BI
 
@@ -29,7 +29,7 @@ Use la plantilla de solución de Power BI de análisis de Azure IoT Central para
 
 Esta plantilla de solución configura la canalización que toma los datos de la cuenta de Azure Blob Storage de la [exportación continua de datos](howto-export-data.md). Estos datos fluyen a través de Azure Functions, Azure Data Factory y Azure SQL Database para su procesamiento y transformación. La salida se puede visualizar y analizar en un informe de Power BI que puede descargar como archivo PBIX. Todos estos recursos se crean en la suscripción de Azure, para que pueda personalizar cada componente de acuerdo con sus necesidades. Esta plantilla de solución es completamente de código abierto. Visite el [repositorio de GitHub](https://aka.ms/iotcentralgithubpowerbisolutiontemplate) para más información sobre la arquitectura y cómo ampliar la solución.
 
-## <a name="get-the-azure-iot-central-analytics-solution-templatehttpsakamsiotcentralpowerbisolutiontemplate-from-microsoft-appsource"></a>Obtenga la [plantilla de solución de análisis de Azure IoT Central](https://aka.ms/iotcentralpowerbisolutiontemplate) de Microsoft AppSource.
+## <a name="get-the-azure-iot-central-analytics-solution-templatehttpsbpsolutiontemplatescomnamemicrosoft-iotcontinuousdataexporttemplate-from-microsoft-appsource"></a>Obtenga la [plantilla de solución de análisis de Azure IoT Central](https://bpsolutiontemplates.com/?name=Microsoft-IoTContinuousDataExportTemplate) de Microsoft AppSource.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para configurar la plantilla, es necesario lo siguiente:
@@ -52,7 +52,7 @@ El segundo informe profundiza en los eventos y muestra una vista histórica de l
 
 ## <a name="resources"></a>Recursos
 
-Visite AppSource para obtener la [plantilla de solución de análisis de Azure IoT Central](https://aka.ms/iotcentralpowerbisolutiontemplate).
+Visite AppSource para obtener la [plantilla de solución de análisis de Azure IoT Central](https://bpsolutiontemplates.com/?name=Microsoft-IoTContinuousDataExportTemplate).
 
 Visite el [repositorio de GitHub](https://aka.ms/iotcentralgithubpowerbisolutiontemplate) para más información sobre la arquitectura y cómo ampliar la solución.
 

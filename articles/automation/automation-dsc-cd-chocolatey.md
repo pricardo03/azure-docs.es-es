@@ -3,18 +3,18 @@ title: Implementación continua de Azure Automation State Configuration con Choc
 description: Implementación continua de DevOps mediante Azure Automation State Configuration, DSC y el administrador de paquetes Chocolatey.  Ejemplo con plantilla de Resource Manager de JSON completo y código fuente de PowerShell.
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d3957038410e7a7d80e1ac710f0c227047b636a7
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 53ecff7df849d19ff7fe1d4c1c8dbd472326b06e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284802"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424462"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Ejemplo de uso: implementación continua en máquinas virtuales con Automation State Configuration y Chocolatey
 
@@ -58,7 +58,7 @@ En realidad, se almacena dos veces: una vez como texto sin formato y otra como a
 
 Se supone que ya está haciendo lo de arriba, al menos en su mayor parte. Crear el nuspec, compilarlo y almacenarlo en un servidor NuGet no es muy complicado y,  además, ya está administrando máquinas virtuales. Para dar el siguiente paso en la implementación continua, se debe configurar el servidor de extracción (una vez), registrar los nodos con él (una vez) y crear y almacenar la configuración allí (inicialmente). Luego, como los paquetes se actualizan e implementan en el repositorio, actualice la configuración y la configuración de nodo en el servidor de extracción (repítalo si es necesario).
 
-No comenzar con una plantilla de Resource Manager también es perfectamente válido. Hay cmdlets de PowerShell diseñados para ayudarlo a registrar sus máquinas virtuales con el servidor de extracción y todo lo demás. Para obtener más detalles, consulte este artículo: [Incorporación de máquinas para administrarlas con Azure Automation State Configuration](automation-dsc-onboarding.md).
+No comenzar con una plantilla de Resource Manager también es perfectamente válido. Hay cmdlets de PowerShell diseñados para ayudarlo a registrar sus máquinas virtuales con el servidor de extracción y todo lo demás. Para más información, consulte este artículo: [Incorporación de máquinas para su administración mediante Azure Automation State Configuration](automation-dsc-onboarding.md).
 
 ## <a name="step-1-setting-up-the-pull-server-and-automation-account"></a>Paso 1: Configurar la cuenta de automatización y el servidor de extracción
 
@@ -86,7 +86,7 @@ Desplácese hasta el recurso que desee y haga clic en el botón "Deploy to Azure
 Otra técnica agregada hace poco a Azure Portal permite extraer módulos nuevos o actualizar los existentes. Haga clic en el recurso Cuenta de Automation, el icono Activos y, por último, el icono Módulos. El icono de examinar la galería permite ver la lista de módulos de la galería, profundizar en los detalles y, en última instancia, importarlos en su cuenta de Automation. Se trata de un modo excelente de actualizar los módulos de vez en cuando. Además, la característica de importación comprueba las dependencias con otros módulos para asegurarse de que nada se queda sin sincronizarse.
 
 También podemos aplicar el enfoque manual. La estructura de carpetas de un módulo de integración de PowerShell para un equipo de Windows es algo diferente de la estructura de carpetas que espera Azure Automation.
-Por tanto, es necesario hacer algunos ajustes. Pero no es difícil y solo es necesario hacerlos una vez para cada recurso (a menos que desee actualizarlo en el futuro.) Para más información sobre la creación de módulos de integración de PowerShell, consulte este artículo: [Creación de módulos de integración para Azure Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/).
+Por tanto, es necesario hacer algunos ajustes. Pero no es difícil y solo es necesario hacerlos una vez para cada recurso (a menos que desee actualizarlo en el futuro.) Para más información sobre la creación de módulos de integración de PowerShell, consulte este artículo: [Creación de módulos de integración para Azure Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 - Instale el módulo que necesita en su estación de trabajo, como sigue:
   - Instale [Windows Management Framework, v5](https://aka.ms/wmf5latest) (no es necesario para Windows 10).

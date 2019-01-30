@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con HR2day by Merces | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con HR2day by Merces | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y HR2day by Merces.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 853d08c9-27b1-48d4-b8e7-3705140eb67f
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 984e2e9999a2aba7a595034f1fec8bafb976f310
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 327e6d94cbabd679531935ba330d3096d73f8897
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441622"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821029"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Tutorial: Integración de Azure Active Directory con HR2day by Merces
 
@@ -88,11 +88,11 @@ Para establecer la relación de vínculo, en HR2day by Merces, asigne el valor d
 
 Para configurar y probar el inicio de sesión único de Azure AD con HR2day by Merces, es preciso completar los siguientes bloques de creación:
 
-1. [Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on): permita que los usuarios utilicen esta característica.
-1. [Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user): pruebe el inicio de sesión único de Azure AD con Britta Simon.
-1. [Creación de un usuario de prueba de HR2day by Merces](#creating-an-hr2day-by-merces-test-user): cree un homólogo de Britta Simon en HR2day by Merces que esté vinculado a la representación del usuario en Azure AD.
-1. [Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user): permita que Britta Simon use el inicio de sesión único de Azure AD.
-1. [Prueba del inicio de sesión único](#testing-single-sign-on): compruebe que la configuración funciona.
+1. [Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on): Permita que los usuarios usen esta característica.
+1. [Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user): Pruebe el inicio de sesión único de Azure AD con la usuaria Britta Simon.
+1. [Creación de un usuario de prueba de HR2day by Merces](#creating-an-hr2day-by-merces-test-user): Cree una homóloga de Britta Simon en HR2day by Merces que esté vinculada a la representación del usuario en Azure AD.
+1. [Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user): Permita que Britta Simon use un inicio de sesión único de Azure AD.
+1. [Prueba de inicio de sesión único](#testing-single-sign-on): Verifique que la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -112,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/hr2day-tutorial/tutorial_hr2daybymerces_url.png)
 
-    a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<tenantname>.force.com/<instancename>`.
+     a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<tenantname>.force.com/<instancename>`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://hr2day.force.com/<companyname>`.
 
@@ -140,7 +140,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | ------------------- | -------------------- |    
     | ATTR_LOGINCLAIM | `join([mail],"102938475Z","@"` |
     
-      a. Seleccione **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+       a. Seleccione **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
 
     ![Configurar inicio de sesión único](./media/hr2day-tutorial/tutorial_attribute_04.png)
 
@@ -198,7 +198,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/hr2day-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 

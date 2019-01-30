@@ -4,7 +4,7 @@ description: Solución de problemas de dispositivos híbridos de nivel inferior 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.component: devices
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: b5fd5a9544e27092c8b65e18d59701421fc59ef5
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 546f9054978f0b9fbe6bb9063905c982de627442
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48800866"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445293"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Solución de problemas de dispositivos híbridos de nivel inferior unidos a Azure Active Directory 
 
@@ -58,7 +58,7 @@ En este artículo se proporcionan instrucciones sobre cómo resolver problemas p
 
 - Asegúrese de que [KB4284842](https://support.microsoft.com/help/4284842) está instalado, en el caso de Windows 7 SP1 o Windows Server 2008 R2 SP1. Esta actualización evita errores de autenticación futuros debido a la pérdida de acceso del cliente en el caso de claves protegidas después de cambiar la contraseña.
 
-## <a name="step-1-retrieve-the-registration-status"></a>Paso 1: Recuperar el estado del registro 
+## <a name="step-1-retrieve-the-registration-status"></a>Paso 1: Recuperación del estado del registro 
 
 **Para verificar el estado del registro:**  
 
@@ -73,7 +73,7 @@ Este comando muestra un cuadro de diálogo que proporciona detalles sobre el est
 ![Workplace Join for Windows](./media/troubleshoot-hybrid-join-windows-legacy/01.png)
 
 
-## <a name="step-2-evaluate-the-hybrid-azure-ad-join-status"></a>Paso 2: Evaluación del estado de unión a Azure AD híbrido 
+## <a name="step-2-evaluate-the-hybrid-azure-ad-join-status"></a>Paso 2: Evaluación del estado de Unión a Azure AD híbrido 
 
 Si el dispositivo no estaba unido a Azure AD híbrido, puede intentar unirlo haciendo clic en el botón "Unirse". Si se produce un error al intentar realizar la unión a Azure AD híbrido, se mostrarán los detalles del error.
 
@@ -116,7 +116,7 @@ Si el dispositivo no estaba unido a Azure AD híbrido, puede intentar unirlo hac
 
     ![Workplace Join for Windows](./media/troubleshoot-hybrid-join-windows-legacy/05.png)
 
-También puede encontrar la información de estado en el registro de eventos en **Applications and Services Log\Microsoft-Workplace Join** (Registros de aplicaciones y servicios\Microsoft-Workplace Join).
+Dicha información acerca del estado también se puede encontrar en el registro de eventos, en: **Applications and Services Log\Microsoft-Workplace Join**
   
 **Las causas más comunes para una unión a Azure AD híbrido con error son:** 
 

@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con ClickTime | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con ClickTime | Microsoft Docs'
 description: Obtenga información sobre cómo configurar el inicio de sesión único entre Azure Active Directory y ClickTime.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: d437b5ab-4d71-4c13-96d0-79018cebbbd4
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 065225bb6c206f980c19955c682fc2c8a5deb950
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f1c7c3cf850ed48412c8a232e364f927248ed9bf
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441775"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811135"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Tutorial: integración de Azure Active Directory con ClickTime
+# <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Tutorial: Integración de Azure Active Directory con ClickTime
 
 En este tutorial, aprenderá a integrar ClickTime con Azure Active Directory (Azure AD).
 
@@ -110,7 +110,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de ClickTime](./media/clicktime-tutorial/tutorial_clicktime_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL como: `https://app.clicktime.com/sp/`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL como: `https://app.clicktime.com/sp/`
     
     b. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con los siguientes patrones: 
 
@@ -139,7 +139,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    
     ![Configuración de seguridad](./media/clicktime-tutorial/tic777280.png "Configuración de seguridad")
    
-    a.  Seleccione **Allow** sign-in using Single Sign-On (SSO) with **Azure AD** [Permitir inicio de sesión mediante inicio de sesión único (SSO) con Azure AD].
+     a.  Seleccione **Allow** sign-in using Single Sign-On (SSO) with **Azure AD** [Permitir inicio de sesión mediante inicio de sesión único (SSO) con Azure AD].
    
     b. En el cuadro de texto **Identity Provider Endpoint** (Punto de conexión del proveedor de identidades), pegue el valor de la **dirección URL del servicio de inicio de sesión único de SAML** que copió desde Azure Portal.
    
@@ -148,7 +148,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     d.  Haga clic en **Save**(Guardar).
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
@@ -173,7 +173,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Cuadro de diálogo Usuario](./media/clicktime-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -201,7 +201,7 @@ En el caso de ClickTime, el aprovisionamiento es una tarea manual.
    
     ![Personas](./media/clicktime-tutorial/tic777284.png "Personas")
    
-    a.  En el cuadro de texto de **nombre completo**, escriba el nombre completo de un usuario, por ejemplo, **Britta Simon**. 
+     a.  En el cuadro de texto de **nombre completo**, escriba el nombre completo de un usuario, por ejemplo, **Britta Simon**. 
   
     b.  En el cuadro de texto de **correo electrónico**, escriba la dirección de correo electrónico de un usuario, por ejemplo, **brittasimon@contoso.com**.
        

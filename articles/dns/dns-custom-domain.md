@@ -1,23 +1,18 @@
 ---
-title: Integración de Azure DNS con los recursos de Azure | Microsoft Docs
+title: Integración de Azure DNS con los recursos de Azure
 description: Aprenda a usar Azure DNS para proporcionar DNS a los recursos de Azure.
 services: dns
-documentationcenter: na
 author: vhorne
-manager: jeconnoc
 ms.service: dns
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 1/19/2018
+ms.date: 1/18/2019
 ms.author: victorh
-ms.openlocfilehash: 8e8a09ede66213247b306c77938dbff30651fee5
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b513e898e25397f54b8f7f7590a4466523a705ff
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727155"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401425"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Usar Azure DNS para proporcionar la configuración de un dominio personalizado para un servicio de Azure
 
@@ -33,7 +28,7 @@ Puede configurar un dominio personal o personalizado para [Azure Function Apps](
 
 Para configurar un dominio personalizado para las aplicaciones de función de Azure, se crea un registro CNAME, así como una configuración en la propia aplicación de función.
  
-Vaya a **Otros** > **Aplicación de función** y seleccione la aplicación de función. Haga clic en **Características de la plataforma** y en **REDES** haga clic en **Dominios personalizados**.
+Vaya a **Function App** y seleccione la aplicación de función. Haga clic en **Características de la plataforma** y, en **Redes**, haga clic en **Dominios personalizados**.
 
 ![hoja de aplicación de función](./media/dns-custom-domain/functionapp.png)
 
@@ -51,9 +46,9 @@ Vaya a la zona DNS y haga clic en **+ Conjunto de registros**. Rellene la inform
 |Unidad de TTL     | Horas        | Las horas se utilizan como medida de tiempo         |
 |Alias     | adatumfunction.azurewebsites.net        | El nombre DNS para el que va a crear el alias, en este ejemplo es el nombre DNS adatumfunction.azurewebsites.net proporcionado de forma predeterminada para la aplicación de función.        |
 
-Regrese a la aplicación de función, haga clic en **Características de la plataforma** y, en **REDES**, haga clic en **Dominios personalizados**; a continuación, en **Nombres de host**, haga clic en **+ Agregar nombre de host**.
+Regrese a la aplicación de función, haga clic en **Características de la plataforma** y, en **Redes**, haga clic en **Dominios personalizados**; a continuación, en **Nombres de host personalizados**, haga clic en **+ Agregar nombre de host**.
 
-En la hoja **Agregar nombre de host**, escriba el registro CNAME en el campo de texto **Nombre de host** y haga clic en **Validar**. Si se pudo encontrar el registro, aparece el botón **Agregar nombre de host**. Haga clic en **Agregar nombre de host** para agregar el alias.
+En la hoja **Agregar nombre de host**, escriba el registro CNAME en el campo de texto **Nombre de host** y haga clic en **Validar**. Si se encuentra el registro, aparece el botón **Agregar nombre de host**. Haga clic en **Agregar nombre de host** para agregar el alias.
 
 ![hoja agregar nombre de host de aplicaciones de función](./media/dns-custom-domain/functionaddhostname.png)
 
@@ -86,7 +81,7 @@ Una vez creado el registro A, ejecute `nslookup` para comprobar que el registro 
 
 Los pasos siguientes le guiarán en el proceso de configuración de un dominio personalizado para una instancia de App Service Web Apps.
 
-Vaya a **Web y móvil** > **App Service** y seleccione el recurso para el que está configurando un nombre de dominio personalizado y haga clic en **Dominios personalizados**.
+Vaya a **App Service**, seleccione el recurso para el que está configurando un nombre de dominio personalizado y haga clic en **Dominios personalizados**.
 
 Observe la dirección URL actual de la hoja **Dominios personalizados**. Esta dirección se utiliza como alias para el registro DNS que se creó.
 
@@ -149,7 +144,7 @@ Para más información acerca de la asignación de un dominio personalizado a un
 
 Los siguientes pasos le guiarán en el proceso de configuración de un registro CNAME para un punto de conexión de CDN mediante el método cdnverify. Este método garantiza que no hay ningún tiempo de inactividad.
 
-Vaya a **Redes** > **Perfiles de CDN**, seleccione el perfil de CDN y haga clic en **Puntos de conexión** en **General**.
+Vaya a **Redes** > **Perfiles de CDN**, seleccione el perfil de CDN.
 
 Seleccione el punto de conexión con el que está trabajando y haga clic en **+ Dominio personalizado**. Observe el **nombre de host del punto de conexión** ya que este valor es el registro al que señala el registro CNAME.
 

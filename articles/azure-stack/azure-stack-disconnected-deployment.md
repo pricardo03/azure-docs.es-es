@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 33512b47eff75421ce07b02f9c17ae3028152568
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3262720f52bc75ba5d430e941da25568a105fe0d
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276261"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391260"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Decisiones de planeamiento de implementación desconectada de Azure en sistemas integrados de Azure Stack
 Una vez que haya decidido [cómo va a integrar Azure Stack en el entorno de nube híbrida](azure-stack-connection-models.md), puede concluir sus decisiones de implementación de Azure Stack.
@@ -49,7 +49,7 @@ Azure Stack se ha diseñado para funcionar mejor cuando se conecta a Azure, por 
 |Marketplace: la capacidad para seleccionar y agregar paquetes de la galería directamente desde Azure Marketplace|Limitación: cuando Azure Stack se implementa en un modo sin conexión (sin conectividad a Internet), no puede descargar elementos de Marketplace a través del portal de Azure Stack. Sin embargo, puede usar la [herramienta de redifusión de Marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) para descargar los elementos de Marketplace en un equipo que tenga conectividad a Internet y transferirlos después a su entorno de Azure Stack.|
 |Uso de cuentas de federación de Azure Active Directory para administrar una implementación de Azure Stack|No disponible: esta característica requiere conectividad con Azure. En su lugar se debe usar AD FS con una instancia local de Active Directory.|
 |Servicios de aplicaciones|Limitación: las aplicaciones web pueden requerir acceso a Internet para contenidos actualizados.|
-|Interfaz de línea de comandos (CLI)|Limitación: la CLI ha reducido la funcionalidad en lo que se refiere a autenticación y aprovisionamiento de entidades de servicio.|
+|Interfaz de línea de comandos (CLI)|Limitación: la CLI ha reducido la funcionalidad en lo que se refiere a la autenticación y el aprovisionamiento de entidades de servicio.|
 |Visual Studio: Cloud Discovery|Limitación: Cloud Discovery detectará nubes diferentes o no funcionará.|
 |Visual Studio: AD FS|Dañada: solo Visual Studio Enterprise es compatible con AD FS.
 Telemetría|No disponible: tanto los datos de telemetría de Azure Stack como todos los paquetes de la galería de terceros que dependan de los datos de telemetría.|

@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 6fbfdbe7-d66c-4305-9fea-76d6a6a92830
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 4396a16ec78d604b3d6c3bea5571d21ca48d5921
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d56a3a3c0d7e7e57ba01f6a82f086950f1b33ed5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346294"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811411"
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Tutorial: Configuración de Jive para aprovisionar usuarios automáticamente
 
@@ -71,7 +71,7 @@ Como parte de este procedimiento, es necesario proporcionar un token de segurida
 
 1. En la sección **Credenciales de administrador**, proporcione los siguientes valores de configuración:
    
-    a. En el cuadro de texto **Nombre de usuario del administrador de Jive**, escriba un nombre de cuenta de Jive que tenga asignado el perfil **Administrador del sistema** en Jive.com.
+     a. En el cuadro de texto **Nombre de usuario del administrador de Jive**, escriba un nombre de cuenta de Jive que tenga asignado el perfil **Administrador del sistema** en Jive.com.
    
     b. En el cuadro de texto **Contraseña de administrador de Jive** , escriba la contraseña para esta cuenta.
    
