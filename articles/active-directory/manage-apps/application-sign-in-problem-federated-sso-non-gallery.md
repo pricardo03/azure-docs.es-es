@@ -4,7 +4,7 @@ description: Instrucciones para resolver problemas específicos a los que se pue
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 17114818105935d8d6a7ac647f1d98c097e78efd
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 8f545aad7256764780a68f4b43ee30bf68749187
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355435"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469719"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemas al iniciar sesión en una aplicación que no es de la galería configurada para inicio de sesión único federado
 
@@ -34,7 +34,7 @@ Para solucionar el problema, debe comprobar la configuración de la aplicación 
 
 ## <a name="application-not-found-in-directory"></a>No se encontró la aplicación en el directorio
 
-*Error AADSTS70001: No se encontró la aplicación con el identificador "https://contoso.com" en el directorio*.
+*Error AADSTS70001: No se encontró la aplicación con el identificador "https://contoso.com" en el directorio* .
 
 **Causa posible**
 
@@ -66,7 +66,7 @@ Después de actualizar el valor del identificador de Azure AD y de comprobar que
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>La dirección de respuesta no coincide con las direcciones de respuesta configuradas para la aplicación. 
 
-*Error AADSTS50011: La dirección de respuesta " https://contoso.com " no coincide con las direcciones de respuesta configuradas para la aplicación*. 
+*Error AADSTS50011: La dirección de respuesta "https://contoso.com"no coincide con las direcciones de respuesta configuradas para la aplicación*. 
 
 **Causa posible** 
 
@@ -100,7 +100,7 @@ Después de actualizar el valor de la dirección URL de respuesta en Azure AD y 
 
 ## <a name="user-not-assigned-a-role"></a>Usuario no asignado a un rol
 
-*Error AADSTS50105: El usuario con sesión iniciada "brian@contoso.com" no está asignado a un rol de la aplicación*
+*Error AADSTS50105: El usuario con sesión iniciada "brian@contoso.com" no está asignado a un rol de la aplicación*.
 
 **Causa posible**
 
@@ -170,7 +170,7 @@ Deben validar que admiten la implementación de SAML de Azure AD para inicio de 
 
 ## <a name="no-resource-in-requiredresourceaccess-list"></a>Ningún recurso en la lista requiredResourceAccess
 
-*Error AADSTS65005: La aplicación cliente ha solicitado el acceso al recurso "00000002-0000-0000-c000-000000000000". Se produjo un error en esta solicitud porque el cliente no ha especificado este recurso en su lista requiredResourceAccess*.
+*Error AADSTS65005: La aplicación cliente ha solicitado acceso al recurso "00000002-0000-0000-c000-000000000000". Se produjo un error en esta solicitud porque el cliente no ha especificado este recurso en su lista requiredResourceAccess*.
 
 **Causa posible**
 

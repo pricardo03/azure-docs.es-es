@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d24cf56a898a4f4f8317246cbc2317e926256a77
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 56c646c2ab1f733c37a20cf6e6a5945b223beec4
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807793"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447282"
 ---
 <a name="managing-users-on-cloud-partner-portal"></a>Administración de usuarios en Cloud Partner Portal
 ======================================
@@ -36,7 +36,7 @@ Para **agregar usuarios y asignar roles** para la publicación de ofertas, siga 
 <a name="step-2-click-add-user"></a>Paso 2. Haga clic en Agregar usuario.
 -----------------------
 
-![Seleccionar Agregar usuario](./media/cloud-partner-portal-how-to-manage-users/adduser.png)
+![Selección de Agregar usuario](./media/cloud-partner-portal-how-to-manage-users/adduser.png)
 
 <a name="step-3-type-email-address-and-select-a-role-assignment"></a>Paso 3. Escriba la dirección de correo electrónico y seleccione una asignación de roles.
 --------------------------------------------------------
@@ -59,7 +59,8 @@ Actualmente, solo los propietarios pueden acceder a las pestañas Azure Payouts 
 <a name="step-4-select-the-publisher-name-you-want-to-add-to-the-new-user-then-click-add-to-complete-user-addition"></a>Paso 4 Seleccione el nombre del anunciante para el que quiere agregar el nuevo usuario y haga clic en Agregar para completar el proceso.
 ----------------------------------------------------------------------------------------------------------------------------
 
-> `NOTE: The ‘publisher names’ for which your email is added as an owner or contributor will show up in the drop-down list of Publisher for selection.`
+> [!NOTE]
+> Los "nombres de anunciante" para los que el correo electrónico se agrega como propietario o colaborador se mostrarán en la lista desplegable de Anunciante para la selección.
 
 ![Asignar rol: seleccionar el anunciante](./media/cloud-partner-portal-how-to-manage-users/assignselectpublisher.png)
 

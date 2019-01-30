@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: librown
-ms.openlocfilehash: b09bb65cdb571c9df95d1922f4132abe5b77907c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0179f87787c91a90edb54a1956a6f10d1dffc4b1
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963954"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434196"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Inicio de sesión telefónico sin contraseña con la aplicación Microsoft Authenticator (versión preliminar pública)
 
@@ -37,16 +37,21 @@ En la versión preliminar pública, un administrador debe agregar una directiva 
 
 ### <a name="steps-to-enable"></a>Pasos para la habilitación
 
-Asegúrese de tener instalada la versión más reciente de la versión preliminar pública del módulo de PowerShell de Azure Active Directory V2. Puede que desee desinstalarla y reinstalarla para confirmarlo; para ello, ejecute los comandos siguientes:
+1. Asegúrese de tener instalada la versión más reciente de la versión preliminar pública del módulo de PowerShell de Azure Active Directory V2. Puede que desee desinstalarla y reinstalarla para confirmarlo; para ello, ejecute los comandos siguientes:
+    ```powershell
+    Uninstall-Module -Name AzureADPreview
+    Install-Module -Name AzureADPreview
+    ```
 
-1. `Uninstall-Module -Name AzureADPreview`
-2. `Install-Module -Name AzureADPreview`
+2. Autentíquese en el inquilino de Azure AD para usar el módulo de PowerShell de Azure AD V2. La cuenta utilizada debe ser un administrador de seguridad o un administrador global.
+    ```powershell
+    Connect-AzureAD
+    ```
 
-Puede habilitar la versión preliminar del inicio de sesión por teléfono sin contraseña mediante los siguientes comandos de PowerShell:
-
-1. `Connect-AzureAD`
-   1. En el cuadro de diálogo de autenticación, inicie sesión con una cuenta del inquilino. La cuenta debe ser un administrador de seguridad o un administrador global.
-1. `New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn`
+3. Cree la directiva de inicio de sesión de autenticador:
+    ```powershell
+    New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn
+    ```
 
 ## <a name="how-do-my-end-users-enable-phone-sign-in"></a>¿Cómo habilitan los usuarios finales el inicio de sesión telefónico?
 

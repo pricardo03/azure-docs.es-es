@@ -1,10 +1,10 @@
 ---
-title: 'Sincronización de Azure AD Connect: tareas y consideraciones operativas | Microsoft Docs'
+title: 'Sincronización de Azure AD Connect: Tareas y consideraciones operativas | Microsoft Docs'
 description: En este tema se describen las tareas operativas de la sincronización de Azure AD Connect y cómo prepararse para utilizar este componente.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: b29c1790-37a3-470f-ab69-3cee824d220d
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 11390f1ad777d20e31c263b4a694ae5cb31f3fd3
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c4dc5ae107cc8babbd425edd6c5de428e130fc3a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305814"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467543"
 ---
-# <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Sincronización de Azure AD Connect: tareas y consideraciones operativas
+# <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Sincronización de Azure AD Connect: Tareas y consideraciones operativas
 El objetivo de este tema es describir las tareas operativas de la sincronización de Azure AD Connect.
 
 ## <a name="staging-mode"></a>Modo provisional
@@ -74,8 +74,8 @@ Ahora ha almacenado provisionalmente los cambios de exportación en Azure AD y A
 
 #### <a name="verify"></a>Verify
 1. Inicie un símbolo del sistema y vaya a `%ProgramFiles%\Microsoft Azure AD Sync\bin`.
-2. Ejecute: `csexport "Name of Connector" %temp%\export.xml /f:x` El nombre del conector puede encontrarse en el Servicio de sincronización. Tendrá un nombre similar a contoso.com – AAD en Azure AD.
-3. Ejecute: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` Ahora tiene un archivo en %temp% denominado "export.csv" que se puede examinar en Microsoft Excel. Este archivo contiene todos los cambios que se van a exportar.
+2. Ejecutar: `csexport "Name of Connector" %temp%\export.xml /f:x` El nombre del conector puede encontrarse en el Servicio de sincronización. Tendrá un nombre similar a contoso.com – AAD en Azure AD.
+3. Ejecutar: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` Tiene un archivo en %temp% denominado export.csv que se puede examinar en Microsoft Excel. Este archivo contiene todos los cambios que se van a exportar.
 4. Realice los cambios necesarios en los datos o la configuración y ejecute estos pasos de nuevo (Importación y sincronización y Comprobación) hasta que se esperen los cambios que se van a exportar.
 
 **Descripción del archivo export.csv** La mayor parte del archivo se explica por sí solo. Algunas abreviaturas para comprender el contenido:
@@ -152,9 +152,9 @@ write-host "Importing XML" -ForegroundColor Yellow
 $resolvedXMLtoimport=Resolve-Path -Path ([Environment]::ExpandEnvironmentVariables($xmltoimport))
 
 #use an XmlReader to deal with even large files
-$result=$reader = [System.Xml.XmlReader]::Create($resolvedXMLtoimport) 
+$result=$reader = [System.Xml.XmlReader]::Create($resolvedXMLtoimport) 
 $result=$reader.ReadToDescendant('cs-object')
-do 
+do 
 {
     #create the object placeholder
     #adding them up here means we can enforce consistency

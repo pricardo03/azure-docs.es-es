@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/11/2018
-ms.author: mayg
-ms.openlocfilehash: 1efbd6bfb6f3bc3e5deae058b542f665b3153cdb
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.date: 01/22/2018
+ms.author: ramamill
+ms.openlocfilehash: 712f8fb2cb951460ad2be36b2899f52d4966fc82
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794361"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468410"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar un servidor de configuración
 
@@ -67,13 +67,16 @@ La licencia proporcionada con la plantilla de OVA es una licencia de evaluación
 3. En **Select source** (Seleccionar origen), especifique la ubicación de la plantilla OVF descargada.
 4. En **Review details** (Revisar detalles), seleccione **Next** (Siguiente).
 5. En **Select name and folder** (Seleccionar nombre y la carpeta) y **Select configuration** (Seleccionar configuración), acepte la configuración predeterminada.
-6. En **Select storage** (Seleccionar almacenamiento), seleccione **Thick Provision Eager Zeroed** (Aprovisionamiento grueso diligente con ceros) en **Select virtual disk format** (Seleccionar formato de disco virtual) para el mejor rendimiento.
+6. En **Select storage** (Seleccionar almacenamiento), seleccione **Thick Provision Eager Zeroed** (Aprovisionamiento grueso diligente con ceros) en **Select virtual disk format** (Seleccionar formato de disco virtual) para el mejor rendimiento. El uso de la opción de aprovisionamiento fino puede afectar al rendimiento del servidor de configuración.
 7. En el resto de las páginas del asistente, acepte la configuración predeterminada.
 8. En **Ready to complete** (Listo para completar):
 
     * Para configurar la máquina virtual con la configuración predeterminada, seleccione **Power on after deployment** > **Finish** (Encender después de la implementación > Finalizar).
 
     * Para agregar una interfaz de red adicional, desactive **Power on after deployment** (Encender después de la implementación) y seleccione **Finish** (Finalizar). De forma predeterminada, la plantilla del servidor de configuración se implementa con una sola NIC. Puede agregar NIC adicionales después de la implementación.
+
+> [!IMPORTANT]
+> No cambie las configuraciones de los recursos (restricción de memoria, núcleos o CPU) ni modifique o elimine los servicios o archivos instalados en el servidor de configuración después de la implementación. Si lo hace, el registro del servidor de configuración en los servicios de Azure y el rendimiento del servidor de configuración resultarán afectados.
 
 ## <a name="add-an-additional-adapter"></a>Incorporación de un adaptador adicional
 
@@ -119,7 +122,7 @@ Si desea agregar una NIC adicional al servidor de configuración, hágalo antes 
 
 ## <a name="upgrade-the-configuration-server"></a>Actualización del servidor de configuración
 
-Para actualizar el servidor de configuración a la versión más reciente, siga estos [pasos](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+Para actualizar el servidor de configuración a la versión más reciente, siga estos [pasos](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Para instrucciones detalladas sobre cómo actualizar todos los componentes de Site Recovery, haga clic en [aquí](https://docs.microsoft.com/en-us/azure/site-recovery/service%20updates-how-to).
 
 ## <a name="manage-the-configuration-server"></a>Administración del servidor de configuración
 
@@ -141,20 +144,28 @@ Para evitar interrupciones en la replicación en curso, asegúrese de que la dir
     Consulte la [arquitectura de replicación de VMware a Azure](vmware-azure-architecture.md) para obtener más información sobre el servidor de configuración y sus funciones.
 5. ¿Dónde puedo encontrar la versión más reciente del servidor de configuración?
 
-    Para obtener los pasos de actualización del servidor de configuración a través del portal, vea [Actualización del servidor de configuración](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). También puede descargarlo directamente del [Centro de descarga de Microsoft](https://aka.ms/asrconfigurationserver).
+    Para obtener los pasos de actualización del servidor de configuración a través del portal, vea [Actualización del servidor de configuración](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Para instrucciones detalladas sobre cómo actualizar todos los componentes de Site Recovery, consulte [aquí](https://aka.ms/asr_how_to_upgrade).
 6. ¿Dónde puedo descargar la frase de contraseña para el servidor de configuración?
 
     Consulte [este artículo](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) para descargar la frase de contraseña.
-7. ¿Dónde puedo descargar las claves de registro del almacén?
+7. ¿Se puede cambiar la frase de contraseña?
+
+    **No**, se **recomienda encarecidamente no cambiar la frase de contraseña** del servidor de configuración. El cambio de la frase de contraseña interrumpe la replicación de las máquinas protegidas y lleva a un estado de mantenimiento crítico.
+8. ¿Dónde puedo descargar las claves de registro del almacén?
 
     En **Almacén de Recovery Services**,**Administrar** > **Infraestructura de Site Recovery** > **Servidores de configuración**. En Servidores, seleccione **Descargar clave de registro** para descargar el archivo de credenciales de almacén.
-8. ¿Puedo clonar un servidor de configuración existente y usarlo para la orquestación de replicación?
+9. ¿Puedo clonar un servidor de configuración existente y usarlo para la orquestación de replicación?
 
     **No**, no se admite el uso de componentes del servidor de configuración clonados.
 
-9. ¿Puedo cambiar la dirección IP del servidor de configuración?
+10. ¿Puedo cambiar la dirección IP del servidor de configuración?
 
     **No**, es absolutamente recomendable no cambiar la dirección IP de un servidor de configuración. Asegúrese de que todas las direcciones IP asignadas al servidor de configuración sean direcciones IP estáticas y no direcciones IP de DHCP.
+11. ¿Puedo configurar el servidor de configuración en Azure?
+
+    Se recomienda configurar el servidor de configuración en el entorno local con una línea de vista directa con v-Center, y para reducir las latencias de transferencia de datos. Puede realizar copias de seguridad programadas del servidor de configuración con [fines de conmutación por recuperación](vmware-azure-manage-configuration-server.md#failback-requirements).
+
+Para otras preguntas frecuentes sobre el servidor de configuración, consulte nuestra [documentación al respecto](vmware-azure-common-questions.md#configuration-server).
 
 ## <a name="troubleshoot-deployment-issues"></a>Solución de problemas de implementación
 

@@ -4,7 +4,7 @@ description: Introducción a los informes de actividad de inicio de sesión en e
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e1b1102594e7e4470c08cb0f18068dd368c0fe7a
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 73f90d1df2c1a6a0655a61026112cc2a7a73cb1e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245096"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808636"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Informes de actividad de inicio de sesión en el portal de Azure Active Directory
 
@@ -161,7 +161,7 @@ Si necesita más flexibilidad, puede usar la solución de script. Si hace clic e
 
 Si desea ejecutar el script en un equipo **Windows 10**, primero deberá realizar algunos pasos adicionales. 
 
-1. Instale el [módulo AzureRM](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.4.0l).
+1. Instale el [módulo AzureRM](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.4.0l).
 2. Importe el módulo; abra un símbolo del sistema de PowerShell y ejecute el comando **Import-Module AzureRM**.
 3. Ejecute **Set-ExecutionPolicy unrestricted** y seleccione **Sí a todo**. 
 4. Ahora puede ejecutar el script de PowerShell descargado en modo de administrador para generar el archivo CSV.
@@ -203,7 +203,10 @@ Si hace clic en un elemento, obtendrá más detalles sobre la operación de inic
 - Date
 - Se requiere MFA
 - Estado de inicio de sesión
- 
+
+> [!NOTE]
+> Las direcciones IP se emiten de forma que no haya ninguna conexión definitiva entre una dirección IP y donde se encuentre físicamente el equipo con esa dirección. La asignación de direcciones IP se complica por el hecho de que los proveedores de dispositivos móviles y las VPN emiten direcciones IP desde grupos centrales que, a menudo, están muy lejos de donde el dispositivo cliente se usa realmente. Actualmente, la conversión de la dirección IP en una ubicación física en los informes de Azure AD es un esfuerzo notable basado en seguimientos, datos del Registro, búsquedas inversas y otra información.
+
 En la página **Usuarios**, puede obtener una vista general completa de todos los inicios de sesión del usuario haciendo clic en **Inicios de sesión** en la sección **Actividad**.
 
 ![Actividad de inicio de sesión](./media/concept-sign-ins/08.png "Actividad de inicio de sesión")

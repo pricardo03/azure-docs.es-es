@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c7b321ab04df405c56cab0952942b0d6e142da6d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 579856ab87aaf8d051f2e3c161bb2d0e2f693ed5
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807673"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446585"
 ---
 # <a name="data-entities"></a>Entidades de datos
 
@@ -29,9 +29,9 @@ En este artículo se definen las entidades de datos y se proporciona informació
 
 Una entidad de datos es una abstracción de la implementación física de las tablas de bases de datos. Por ejemplo, en las tablas normalizadas, gran parte de los datos de cada cliente pueden almacenarse en una tabla de clientes y el resto pueden estar dispersos por un pequeño conjunto de tablas relacionadas. En este caso, la entidad de datos del concepto de cliente aparece como una vista no normalizada, en la que cada fila contiene todos los datos de la tabla de clientes y las tablas relacionadas. Una entidad de datos encapsula un concepto empresarial en un formato que facilita la integración y desarrollo. La naturaleza abstracta de una entidad de datos puede simplificar el desarrollo y la personalización de las aplicaciones. Posteriormente, la abstracción también aísla el código de la aplicación de la inevitable renovación de las tablas físicas entre versiones.
 
-Para resumir: una entidad de datos proporciona una abstracción conceptual y una encapsulación (vista no normalizada) de los esquemas de la tabla subyacente para representar los conceptos y las funcionalidades de los datos clave.
+Resumiendo: una entidad de datos proporciona una abstracción conceptual y una encapsulación (vista no normalizada) de los esquemas de la tabla subyacente para representar los conceptos y las funcionalidades de los datos clave.
 
-## <a name="capabilities"></a>Funcionalidades
+## <a name="capabilities"></a>Capacidades
 
 Una entidad de datos tiene las siguientes funcionalidades:
 

@@ -10,18 +10,18 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5266959e3c08721b79af8c11eb50b7a659e70ffc
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: f4d63d4ad0841244cf2548b0842eea880e27a152
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158863"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463038"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
-En este artículo se explica cómo trasladar recursos de Azure a otra suscripción de Azure o a otro grupo de recursos en la misma suscripción. Puede usar Azure Portal, Azure PowerShell, la CLI de Azure o la API REST para trasladar recursos.
+En este artículo se explica cómo trasladar recursos de Azure a otra suscripción de Azure o a otro grupo de recursos en la misma suscripción. Puede usar Azure Portal, Azure PowerShell, la CLI de Azure o la API REST para trasladar recursos. Para realizar un tutorial, consulte [Tutorial: Traslado de recursos de Azure a otro grupo de recursos o a otra suscripción](./resource-manager-tutorial-move-resources.md).
 
 Tanto el grupo de origen como el grupo de destino se bloquean durante la operación de traslado. Las operaciones de escritura y eliminación están bloqueadas en los grupos de recursos hasta que se completa el movimiento. Este bloqueo significa que no puede agregar, actualizar ni eliminar recursos de los grupos de recursos, pero no que los recursos queden bloqueados. Por ejemplo, si mueve un servidor SQL Server y su base de datos a un nuevo grupo de recursos, una aplicación que utiliza la base de datos no experimenta ningún tiempo de inactividad. Todavía puede leer y escribir en la base de datos.
 
@@ -56,6 +56,7 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * Automation
 * Azure Active Directory B2C
 * Azure Cosmos DB
+* Explorador de datos de Azure
 * Azure Database for MySQL
 * Azure Database for PostgreSQL
 * Azure DevOps: las organizaciones de Azure DevOps con compras de extensiones que no son de Microsoft deben [cancelar las compras](https://go.microsoft.com/fwlink/?linkid=871160) para poder mover la cuenta entre suscripciones.
@@ -98,7 +99,7 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * Paneles del portal
 * Power BI (tanto Power BI Embedded como Colección de áreas de trabajo de Power BI)
 * Dirección IP pública: la dirección IP de SKU básica se puede mover. Las direcciones IP públicas de SKU Estándar no se pueden mover.
-* Almacén de Recovery Services: debe inscribirse en una [versión preliminar pública limitada](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+* Almacén de Recovery Services: registre su suscripción para obtener una [versión preliminar pública limitada](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
 * Azure Cache for Redis: si la instancia de Azure Cache for Redis está configurada con una red virtual, la instancia no se puede mover a otra suscripción. Vea [Virtual Networks limitations](#virtual-networks-limitations) (Limitaciones de las redes virtuales).
 * Scheduler
 * Search: no puede trasladar varios recursos de Search en regiones diferentes en una operación. En su lugar, muévalos en operaciones independientes.
@@ -166,6 +167,7 @@ Desde el 24 de septiembre de 2018, puede mover discos administrados. Esta compat
 Todavía no se admiten los siguientes escenarios:
 
 * Los recursos de Virtual Machines con certificado almacenados en Key Vault se pueden trasladar al nuevo grupo de recursos en la misma suscripción, pero no entre suscripciones.
+* Las instancias de Managed Disks en Availability Zones no se pueden mover a una suscripción diferente
 * No es posible mover Virtual Machine Scale Sets con equilibrador de carga o IP pública de SKU estándar
 * Las máquinas virtuales creadas a partir de recursos de Marketplace con planes adjuntos no se pueden mover entre suscripciones o grupos de recursos. Desaprovisione el recurso en la suscripción activa y vuelva a implementarlo en la nueva suscripción.
 
@@ -305,7 +307,7 @@ Es posible que esta operación tarde varios minutos.
 
 ### <a name="recovery-services-limitations"></a>Limitaciones de Recovery Services
 
-Para trasladar un almacén de Recovery Services, debe inscribirse en la [versión preliminar pública limitada](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+ Para mover un almacén de Recovery Services, registre su suscripción para obtener una [versión preliminar pública limitada](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
 
 Actualmente, puede trasladar un almacén de Recovery Services, por región, cada vez. No puede trasladar aquellos almacenes que realizan copias de seguridad de Azure Files, Azure File Sync o SQL en máquinas virtuales de IaaS.
 

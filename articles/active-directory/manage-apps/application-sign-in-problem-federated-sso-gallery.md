@@ -4,7 +4,7 @@ description: Instrucciones para resolver errores específicos al iniciar sesión
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 8d910ffcf966e98def33a42a6452baea9f4b3998
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 8a21f1ac0839a37455fe06537242edc6e43731a4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356327"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477307"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemas al iniciar sesión en una aplicación de la galería configurada para inicio de sesión único federado
 
@@ -66,7 +66,7 @@ Después de actualizar el valor del identificador de Azure AD y de comprobar que
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>La dirección de respuesta no coincide con las direcciones de respuesta configuradas para la aplicación.
 
-*Error AADSTS50011: La dirección de respuesta " https://contoso.com " no coincide con las direcciones de respuesta configuradas para la aplicación*.
+*Error AADSTS50011: La dirección de respuesta "https://contoso.com" no coincide con las direcciones de respuesta configuradas para la aplicación*.
 
 **Causa posible**
 
@@ -261,6 +261,19 @@ Para eliminar y crear un nuevo certificado, siga estos pasos:
 10. Active **Activar el certificado nuevo** para reemplazar el certificado activo. Después, haga clic en **Guardar** en la parte superior del panel y en Aceptar para activar el certificado de sustitución.
 
 11. En la sección **Certificado de firma de SAML**, haga clic en **Quitar** para quitar el certificado **no usado**.
+
+## <a name="saml-request-not-present-in-the-request"></a>La solicitud SAML no existe en la solicitud
+
+*Error AADSTS750054: SAMLRequest o SAMLResponse deben existir como parámetros de cadena de consulta en la solicitud HTTP para el enlace de redirección SAML.*
+
+**Causa posible**
+
+Azure AD no podía identificar la solicitud SAML dentro de los parámetros de dirección URL en la solicitud HTTP. Esto puede ocurrir si la aplicación no usa el enlace de redirección HTTP para enviar la solicitud SAML a Azure AD.
+
+**Resolución**
+
+La aplicación debe enviar la solicitud SAML codificada en el encabezado de ubicación mediante el enlace de redirección HTTP. Para más información sobre cómo implementarla, lea la sección Enlace de redirección HTTP del [documento de especificaciones del protocolo SAML](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
+
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problema al personalizar las notificaciones SAML que se han enviado a una aplicación
 

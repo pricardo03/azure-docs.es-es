@@ -1,6 +1,6 @@
 ---
 title: 'Administración de metadatos de artefactos de la cuenta de integración: Azure Logic Apps | Microsoft Docs'
-description: Agregue o recupere metadatos de artefactos de cuentas de integración de Azure Logic Apps con Enterprise Integration Pack
+description: Adición u obtención de metadatos de artefactos de cuentas de integración de Azure Logic Apps con Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,57 +9,101 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
-ms.date: 02/23/2018
-ms.openlocfilehash: 537014c2780fe94cfb35806759f8bcbd974c4c95
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.date: 01/17/2019
+ms.openlocfilehash: 5ebdf45bec4e7cfceb75354af40c7a21c22c6eef
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128810"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446789"
 ---
-# <a name="manage-artifact-metadata-from-integration-accounts-in-azure-logic-apps-with-enterprise-integration-pack"></a>Administración de metadatos de artefactos de cuentas de integración de Azure Logic Apps con Enterprise Integration Pack
+# <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Adición u obtención de metadatos de artefactos de cuentas de integración de Azure Logic Apps con Enterprise Integration Pack
 
-Puede definir metadatos personalizados para artefactos en cuentas de integración y recuperar metadatos durante el tiempo de ejecución para su aplicación lógica. Por ejemplo, puede especificar metadatos para artefactos como asociados, acuerdos, esquemas y asignaciones: todos almacenan metadatos usando pares de clave-valor. 
+Puede definir metadatos personalizados para artefactos en cuentas de integración y obtener metadatos durante el tiempo de ejecución para que los use su aplicación lógica. Por ejemplo, puede proporcionar metadatos para artefactos como asociados, acuerdos, esquemas y asignaciones: todos almacenan metadatos usando pares de clave-valor. 
 
-## <a name="add-metadata-to-artifacts-in-integration-accounts"></a>Adición de metadatos a artefactos en cuentas de integración
+## <a name="prerequisites"></a>Requisitos previos
 
-1. En Azure Portal, cree una [cuenta de integración](logic-apps-enterprise-integration-create-integration-account.md).
+* Una suscripción de Azure. Si aún no tiene una, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta de Azure gratuita</a>.
 
-2. Agregue un artefacto a su cuenta de integración, por ejemplo, un [asociado](logic-apps-enterprise-integration-partners.md), un [acuerdo](logic-apps-enterprise-integration-agreements.md) o un [esquema](logic-apps-enterprise-integration-schemas.md).
+* Una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) básica que tiene los artefactos donde desea agregar metadatos; por ejemplo: 
 
-3. Seleccione el artefacto, elija **Editar** y escriba los detalles de los metadatos.
+  * [Asociado](logic-apps-enterprise-integration-partners.md)
+  * [Acuerdo](logic-apps-enterprise-integration-agreements.md)
+  * [Esquema](logic-apps-enterprise-integration-schemas.md)
+  * [Map](logic-apps-enterprise-integration-maps.md)
 
-   ![Introducción de los metadatos](media/logic-apps-enterprise-integration-metadata/image1.png)
+* Una aplicación lógica que está vinculada a los metadatos de artefacto y la cuenta de integración que desea utilizar. Si la aplicación lógica ya no está vinculada, obtenga información sobre [cómo vincular aplicaciones lógicas a cuentas de integración](logic-apps-enterprise-integration-create-integration-account.md#link-account). 
 
-## <a name="retrieve-metadata-from-artifacts-for-logic-apps"></a>Recuperación de metadatos de artefactos para aplicaciones lógicas
+  Si aún no tiene una aplicación lógica, obtenga información sobre [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+  Agregue el desencadenador y las acciones que desea usar para administrar los metadatos de artefactos. O bien, para simplemente probar, agregue un desencadenador como **Request** o **HTTP** a la aplicación lógica.
 
-1. En Azure Portal, cree una [aplicación lógica](quickstart-create-first-logic-app-workflow.md).
+## <a name="add-metadata-to-artifacts"></a>Adición de metadatos a artefactos
 
-2. Cree un [vínculo desde su aplicación lógica a su cuenta de integración](logic-apps-enterprise-integration-create-integration-account.md#link-account). 
+1. Inicie sesión en <a href="https://portal.azure.com" target="_blank">Azure Portal</a> con sus credenciales de su cuenta de Azure. Busque y abra su cuenta de integración.
 
-3. En Diseñador de aplicación lógica, agregue un desencadenador como **Solicitud** o **HTTP** a su aplicación lógica.
+1. Seleccione el artefacto donde desea agregar los metadatos y elija **Editar**. Escriba los detalles de los metadatos para ese artefacto; por ejemplo:
 
-4. En el desencadenador, elija **Nuevo paso** > **Agregar una acción**. Busque una cuenta de integración para que pueda buscar y seleccionar esta acción: **Cuenta de integración: Búsqueda de artefactos de la cuenta de integración**.
+   ![Introducción de los metadatos](media/logic-apps-enterprise-integration-metadata/add-partner-metadata.png)
 
-   ![Seleccione Búsqueda de artefactos de la cuenta de integración.](media/logic-apps-enterprise-integration-metadata/image2.png)
+1. Cuando termine, elija **Aceptar**.
 
-5. Seleccione **Tipo de artefacto** y proporcione el **nombre del artefacto**. Por ejemplo: 
+1. Para ver estos metadatos en la definición de JavaScript Object Notation (JSON) para la cuenta de integración, elija **Editar como JSON** para que se abra el editor de JSON: 
 
-   ![Seleccione el tipo de artefacto y proporcione el nombre del artefacto.](media/logic-apps-enterprise-integration-metadata/image3.png)
+   ![JSON para metadatos de asociados](media/logic-apps-enterprise-integration-metadata/partner-metadata.png)
 
-## <a name="example-retrieve-partner-metadata"></a>Ejemplo: recuperación de metadatos de asociados
+## <a name="get-artifact-metadata"></a>Obtención de metadatos de artefacto
 
-Supongamos que este asociado tiene estos metadatos con los detalles de `routingUrl`:
+1. En Azure Portal, abra la aplicación lógica que está vinculada a la cuenta de integración que desea. 
 
-![Búsqueda de metadatos de "routingURL" de asociado](media/logic-apps-enterprise-integration-metadata/image6.png)
+1. En el Diseñador de aplicación lógica, si va a agregar el paso para obtener los metadatos en el desencadenador o la última acción del flujo de trabajo, elija **Nuevo paso** > **Agregar una acción**. 
 
-1. En la aplicación lógica, agregue su desencadenador, una acción **Cuenta de integración: Búsqueda de artefactos de la cuenta de integración** para su asociado y una acción **HTTP**, por ejemplo:
+1. En el cuadro de búsqueda, escriba "cuenta de integración". En el cuadro de búsqueda, elija **Todas**. En la lista de acciones, seleccione esta acción: **Búsqueda de artefactos de la cuenta de integración: cuenta de integración**
 
-   ![Adición de un desencadenador, una búsqueda de artefactos y una acción HTTP a una aplicación lógica](media/logic-apps-enterprise-integration-metadata/image4.png)
+   ![Selección de "Búsqueda de artefactos de la cuenta de integración"](media/logic-apps-enterprise-integration-metadata/integration-account-artifact-lookup.png)
 
-2. Para recuperar el URI, en la barra de herramientas del Diseñador de aplicación lógica, elija **Vista de código** para la aplicación lógica. La definición de su aplicación lógica debería ser similar a la de este ejemplo:
+1. Proporcione esta información para el artefacto que desea buscar:
 
-   ![Buscar lookup](media/logic-apps-enterprise-integration-metadata/image5.png)
+   | Propiedad | Obligatorio | Valor | DESCRIPCIÓN | 
+   |----------|---------|-------|-------------| 
+   | **Tipo de artefacto** | SÍ | **Esquema**, **Asignación**, **Asociado**, **Acuerdo** o un tipo personalizado | El tipo del artefacto que desea | 
+   | **Nombre del artefacto** | SÍ | <*artifact-name*> | El nombre del artefacto que desea | 
+   ||| 
+
+   Por ejemplo, suponga que desea obtener los metadatos del artefacto de un socio comercial:
+
+   ![Selección del tipo de artefacto y especificación del nombre del artefacto](media/logic-apps-enterprise-integration-metadata/artifact-lookup-information.png)
+
+1. Agregue la acción que desee para controlar esos metadatos, por ejemplo:
+
+   1. En la acción **Búsqueda de artefactos de la cuenta de integración**, elija **Siguiente paso** y seleccione **Agregar una acción**. 
+
+   1. En el cuadro de búsqueda, escriba "http". En el cuadro de búsqueda, elija **Integraciones** y seleccione esta acción: **HTTP - HTTP**
+
+      ![Adición de acción HTTP](media/logic-apps-enterprise-integration-metadata/http-action.png)
+
+   1. Proporcione información para los metadatos de artefacto que desea administrar. 
+
+      Por ejemplo, suponga que desea obtener los metadatos de `routingUrl` que se agregaron anteriormente en este tema. Estos son los valores de propiedad que tendría que especificar: 
+
+      | Propiedad | Obligatorio | Valor | DESCRIPCIÓN | 
+      |----------|----------|-------|-------------| 
+      | **Método** | SÍ | <*operation-to-run*> | La operación HTTP para ejecutar en el artefacto. Por ejemplo, esta acción HTTP utiliza el método **GET**. | 
+      | **URI** | SÍ | <*metadata-location*> | Para tener acceso al valor de metadatos de `routingUrl` del artefacto que ha recuperado, puede usar una expresión; por ejemplo: <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
+      | **Encabezados** | Sin  | <*header-values*> | Cualquier salida de encabezado del desencadenador que desea pasar a la acción de HTTP. Por ejemplo, para pasar el valor de propiedad `headers` del desencadenador: puede utilizar una expresión, por ejemplo: <p>`@triggeroutputs()['headers']` | 
+      | **Cuerpo** | Sin  | <*body-content*> | Cualquier otro contenido que desee pasar a través de la propiedad `body` de la acción HTTP. En este ejemplo se pasan los valores `properties` del artefacto en la acción HTTP: <p>1. Haga clic en la propiedad **Body** para que aparezca la lista de contenido dinámico. Si no aparece ninguna propiedad, elija **Ver más**. <br>2. En la lista de contenido dinámico, en **Búsqueda de artefactos de la cuenta de integración**, seleccione **Propiedades**. | 
+      |||| 
+
+      Por ejemplo: 
+
+      ![Especificación de los valores y expresiones para una acción HTTP](media/logic-apps-enterprise-integration-metadata/add-http-action-values.png)
+
+   1. Para comprobar la información proporcionada para la acción HTTP, vea la definición de JSON de la aplicación lógica. En la barra de herramientas del Diseñador de aplicación lógica, elija la **vista de código** para que aparezca la definición de JSON de la aplicación; por ejemplo:
+
+      ![Definición de JSON de aplicación lógica](media/logic-apps-enterprise-integration-metadata/finished-logic-app-definition.png)
+
+      Después de cambiar de nuevo al Diseñador de aplicación lógica, las expresiones que usó ahora aparecen resueltas, por ejemplo:
+
+      ![Expresiones resueltas en el Diseñador de aplicación lógica](media/logic-apps-enterprise-integration-metadata/resolved-expressions.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

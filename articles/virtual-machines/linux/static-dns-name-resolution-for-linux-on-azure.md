@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: acfdd9070b49805c20b8ef921b5387c151448aa1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 862d239227c277a92cbf80e54b010a4b184da016
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961508"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466098"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Creación de tarjetas de interfaz de red virtual y uso de DNS interno para la resolución de nombres de máquina virtual en Azure
 
@@ -49,7 +49,7 @@ az network nic create \
 ```
 
 ### <a name="deploy-a-vm-and-connect-the-vnic"></a>Implementación de una máquina virtual y su conexión a la vNic
-Cree la máquina virtual con [az vm create](/cli/azure/vm#az_vm_create). La marca `--nics` conecta la vNic a la máquina virtual durante la implementación en Azure. En el ejemplo siguiente se crea una máquina virtual llamada `myVM` con Azure Managed Disks y se conecta la vNic llamada `myNic` del paso anterior:
+Cree la máquina virtual con [az vm create](/cli/azure/vm). La marca `--nics` conecta la vNic a la máquina virtual durante la implementación en Azure. En el ejemplo siguiente se crea una máquina virtual llamada `myVM` con Azure Managed Disks y se conecta la vNic llamada `myNic` del paso anterior:
 
 ```azurecli
 az vm create \
@@ -80,7 +80,7 @@ az group create --name myResourceGroup --location westus
 
 El siguiente paso es crear una red virtual en las que iniciar las máquinas virtuales. En este tutorial, la red virtual contiene una subred. Para más información sobre las redes virtuales de Azure, consulte [Creación de una red virtual](../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network). 
 
-Cree la red virtual con [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). En el ejemplo siguiente se crea una red virtual denominada `myVnet` y una subred llamada `mySubnet`:
+Cree la red virtual con [az network vnet create](/cli/azure/network/vnet). En el ejemplo siguiente se crea una red virtual denominada `myVnet` y una subred llamada `mySubnet`:
 
 ```azurecli
 az network vnet create \
@@ -103,7 +103,7 @@ az network nsg create \
 ```
 
 ## <a name="add-an-inbound-rule-to-allow-ssh"></a>Adición de una regla de entrada para permitir SSH
-Agregue una regla de entrada para el grupo de seguridad de red con [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). En el ejemplo siguiente se crea una regla denominada `myRuleAllowSSH`:
+Agregue una regla de entrada para el grupo de seguridad de red con [az network nsg rule create](/cli/azure/network/nsg/rule). En el ejemplo siguiente se crea una regla denominada `myRuleAllowSSH`:
 
 ```azurecli
 az network nsg rule create \
@@ -149,7 +149,7 @@ az network nic create \
 ## <a name="deploy-the-vm-into-the-virtual-network-infrastructure"></a>Implementación de la máquina virtual en la infraestructura de la red virtual
 Ahora tenemos una red virtual, una subred, una vNic y un grupo de seguridad de red que actúa como firewall para proteger nuestra subred al bloquear todo el tráfico entrante excepto el del puerto 22 para SSH. Ahora se puede implementar la máquina virtual dentro de esta infraestructura de red existente.
 
-Cree la máquina virtual con [az vm create](/cli/azure/vm#az_vm_create). En el ejemplo siguiente se crea una máquina virtual llamada `myVM` con Azure Managed Disks y se conecta la vNic llamada `myNic` del paso anterior:
+Cree la máquina virtual con [az vm create](/cli/azure/vm). En el ejemplo siguiente se crea una máquina virtual llamada `myVM` con Azure Managed Disks y se conecta la vNic llamada `myNic` del paso anterior:
 
 ```azurecli
 az vm create \

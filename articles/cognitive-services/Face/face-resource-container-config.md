@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: eabbe8d771520d5b1d5360a3d86b96d27ea08277
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: a75f5ec11644bbd64a6bafeb8585371437eedc3b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359449"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476927"
 ---
 # <a name="configure-containers"></a>Configuración de contenedores
 
@@ -33,6 +33,7 @@ Las opciones de configuración del contenedor de Face son jerárquicas y todos l
 * [CloudAI](#cloudai-configuration-settings)
 * [Eula](#eula-configuration-setting)
 * [Fluentd](#fluentd-configuration-settings)
+* [Configuración de las credenciales del proxy HTTP](#http-proxy-credentials-settings)
 * [Registro](#logging-configuration-settings)
 * [Mounts](#mounts-configuration-settings)
 
@@ -162,6 +163,11 @@ En la tabla siguiente se describen las opciones de configuración compatibles en
 | `TlsConnectionEstablishmentTimeoutMs` | Entero | Tiempo de expiración (en milisegundos) para establecer una conexión SSL/TLS con el servidor de Fluentd. El valor predeterminado es 10 000 milisegundos (10 segundos).<br/> Si `UseTLS` se establece en false, este valor se ignora. |
 | `UseTLS` | boolean | Indica si el contenedor debe utilizar SSL/TLS para comunicarse con el servidor de Fluentd. El valor predeterminado es false. |
 
+
+## <a name="http-proxy-credentials-settings"></a>Configuración de las credenciales del proxy HTTP
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+
 ## <a name="logging-configuration-settings"></a>Opciones de configuración Logging
 
 Las opciones de configuración `Logging` administran la compatibilidad con el registro de ASP.NET Core del contenedor. Puede usar los mismos valores y opciones de configuración para el contenedor que para una aplicación ASP.NET Core. Los siguientes proveedores de registro son compatibles con el contenedor de Face:
@@ -212,3 +218,7 @@ Por ejemplo, el comando siguiente define un montaje de enlace de Docker para la 
   ```
 
 El contenedor de Face no usa los montajes de entrada o salida para almacenar datos de aprendizaje o de la base de datos. En su lugar, el contenedor de Face proporciona escenarios de almacenamiento para administrar los datos de aprendizaje y de la base de datos. Para obtener más información sobre el uso de escenarios de almacenamiento, consulte [Configuración de escenarios de almacenamiento](#storage-scenario-settings).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* Uso de [Contenedores de Cognitive Services](../cognitive-services-container-support.md)

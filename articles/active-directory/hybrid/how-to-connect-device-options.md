@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: opciones de dispositivo | Microsoft Docs'
+title: 'Azure AD Connect: Opciones de dispositivo | Microsoft Docs'
 description: En este documento se detallan las opciones de dispositivo disponibles en Azure AD Connect
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: billmath
 ms.assetid: c0ff679c-7ed5-4d6e-ac6c-b2b6392e7892
 ms.service: active-directory
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c21b4b8996d7dae62c2aa1937c2876a66f6f82bd
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 95c631c38b975c71d5e026d33391792ee811bbc6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320567"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477080"
 ---
-# <a name="azure-ad-connect-device-options"></a>Azure AD Connect: opciones de dispositivo
+# <a name="azure-ad-connect-device-options"></a>Azure AD Connect: Opciones de dispositivos
 
 La siguiente documentación proporciona información acerca de las distintas opciones de dispositivo disponibles en Azure AD Connect. Azure AD Connect se puede usar para configurar las dos operaciones siguientes: 
-* **Combinación de Azure AD híbrido**: si su entorno tiene un uso local de AD y también quiere aprovechar las ventajas de Azure AD, puede implementar dispositivos híbridos unidos a Azure AD. Estos dispositivos están unidos tanto al entorno local de Active Directory como a Azure Active Directory.
-* **Escritura diferida de dispositivos**: la escritura diferida de dispositivos se utiliza para habilitar el acceso condicional basado en dispositivos a los dispositivos protegidos de AD FS (2012 R2 o posterior)
+* **Unión a Azure AD híbrido**: si su entorno tiene un uso local de AD y también quiere aprovechar las ventajas de Azure AD, puede implementar dispositivos híbridos unidos a Azure AD. Estos dispositivos están unidos tanto al entorno local de Active Directory como a Azure Active Directory.
+* **Escritura diferida de dispositivo**: la escritura diferida de dispositivo se usa para permitir el acceso condicional basado en dispositivos protegidos con AD FS (2012 R2 o posterior).
 
 ## <a name="configure-device-options-in-azure-ad-connect"></a>Configurar opciones de dispositivo en Azure AD Connect
 

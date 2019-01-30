@@ -1,10 +1,10 @@
 ---
-title: 'Sincronización de Azure AD Connect: conceptos técnicos | Microsoft Docs'
+title: 'Sincronización de Azure AD Connect: Conceptos técnicos | Microsoft Docs'
 description: Explica los conceptos técnicos de la sincronización de Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 731cfeb3-beaf-4d02-aef4-b02a8f99fd11
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: df3f244b70b52b6145b664c4e575c66542ada5b9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2bf9876fc551b9ab0eb24c03a17f3d789c00530e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46309584"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463497"
 ---
-# <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect Sync: conceptos técnicos
+# <a name="azure-ad-connect-sync-technical-concepts"></a>Sincronización de Azure AD Connect: Conceptos técnicos
 Este artículo es un resumen del tema [Descripción de la arquitectura](how-to-connect-sync-technical-concepts.md).
 
 Sincronización de Azure AD Connect se basa en una sólida plataforma de sincronización de metadirectorios.

@@ -4,7 +4,7 @@ description: Aprenda a comprobar el estado de los trabajos de aprovisionamiento 
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/09/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: af5d7174a2726a6ff8a62477149606ec5d43e94e
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: def3c6aea7b915e8665367d4da27c1314374000c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356271"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463073"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Creación de informes sobre el aprovisionamiento automático de cuentas de usuario
 
@@ -42,7 +42,7 @@ En este artículo se utilizan los términos que se definen a continuación:
 
 * **Sistema de origen**: el repositorio de usuarios desde el que se sincroniza el servicio de aprovisionamiento de Azure AD. Azure Active Directory es el sistema de origen para la mayoría de los conectores de aprovisionamiento integrados previamente, sin embargo, hay algunas excepciones (ejemplo: Sincronización de entrada de Workday).
 
-* **Sistema de destino**: el repositorio de usuarios al que se sincroniza el servicio de aprovisionamiento de Azure AD. Suele ser una aplicación SaaS (ejemplos: Salesforce, ServiceNow, Google Apps, Dropbox para Empresas) pero en algunos casos puede ser un sistema local como Active Directory (ejemplo: Sincronización de entrada de Workday con Active Directory).
+* **Sistema de destino**: el repositorio de usuarios al que se sincroniza el servicio de aprovisionamiento de Azure AD. Esto suele ser una aplicación SaaS (ejemplos: Salesforce, ServiceNow, Google Apps, Dropbox Business), pero en algunos casos puede ser un sistema local como Active Directory (ejemplo: Sincronización de entrada de Workday a Active Directory).
 
 
 ## <a name="getting-provisioning-reports-from-the-azure-management-portal"></a>Obtención de informes de aprovisionamiento desde el Portal de administración de Azure
@@ -68,7 +68,7 @@ El informe de resumen de aprovisionamiento está visible en la pestaña **Aprovi
 
 El informe de resumen de aprovisionamiento debe ser el primer lugar en el que busquen los administradores para comprobar el estado operativo del trabajo de aprovisionamiento.
 
- ![Informe de resumen](./media/check-status-user-account-provisioning/summary_report.PNG)
+ ![Informe de resumen](./media/check-status-user-account-provisioning/summary_report.PNG)
 
 ## <a name="provisioning-audit-logs"></a>Registros de auditoría de aprovisionamiento
 Todas las actividades realizadas por el servicio de aprovisionamiento se registran en los registros de auditoría de Azure AD, que pueden verse en la pestaña **Registros de auditoría** en la categoría **Aprovisionamiento de cuentas**. Los tipos de eventos de actividades registradas incluyen:

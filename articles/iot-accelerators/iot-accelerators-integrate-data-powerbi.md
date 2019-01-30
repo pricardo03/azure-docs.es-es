@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: ae039573cf202059114f23cca86207c117a35ead
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9daf0f0d1c7ca94308bfb0d894366b457a045770
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970412"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470654"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualización de datos de supervisión remota con Power BI
 
 En este tutorial se ofrece orientación sobre cómo conectar los datos de la solución de supervisión remota de Cosmos DB a Power BI. Con esta conexión establecida, puede crear sus propios paneles personalizados y volver a agregarlos al panel de la solución de supervisión remota. Esta serie de tareas permite crear gráficos más especializados, además de otros listos para usar. Por tanto, puede usar este tutorial para integrarlo con otros flujos de datos o crear paneles personalizados para que se consuman fuera de la solución de supervisión remota. La creación de paneles en Power BI supone que también puede hacer que los paneles interactúen entre sí al seleccionar elementos específicos. Por ejemplo, podría disponer de un filtro para mostrar solo información sobre los camiones simulados y cada elemento del panel interactuaría para mostrar solo información simulada sobre el camión. Si desea usar una herramienta distinta a Power BI, también puede ampliar estos pasos para usar la herramienta de visualización de su elección y conectarla a la base de datos de Cosmos DB o a una base de datos personalizada, en caso de que haya configurado alguna. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Debe disponer de una solución de supervisión remota que esté en ejecución actualmente.
 - Debe acceder a [Azure Portal](https://portal.azure.com) y a la suscripción en que se ejecutan IoT Hub y la solución.
@@ -40,7 +40,7 @@ En este tutorial se ofrece orientación sobre cómo conectar los datos de la sol
 
     ![Grupo de recursos](./media/iot-accelerators-integrate-data-powerbi/resource_groups.png)
 
-5. En el panel de la izquierda, haga clic en la sección "Claves" y tome nota de los siguientes valores para su uso en Power BI:
+5. En el panel de la izquierda, haga clic en la sección "Claves" y anote los siguientes valores que se usarán en Power BI:
 
     - URI
     - Clave principal
@@ -84,11 +84,11 @@ En este tutorial se ofrece orientación sobre cómo conectar los datos de la sol
 
 ## <a name="creating-a-dashboard"></a>Creación de un panel
 
-Una vez conectado el flujo, ya puede crear paneles personalizados. El panel siguiente es un ejemplo de la imitación de la telemetría por parte de nuestros dispositivos simulados con la visualización de distintos elementos dinámicos alrededor, como: 
+Una vez conectado el flujo, ya puede crear paneles personalizados. El panel siguiente es un ejemplo de cómo se toma la telemetría que emiten nuestros dispositivos simulados, y se muestran distintos elementos dinámicos alrededor, como: 
 
 * Ubicación del dispositivo en un mapa (derecha)
 * Dispositivos con su estado y gravedad. (parte superior izquierda)
-* Dispositivos con reglas en vigor y si existen diferentes alarmas sonando (parte inferior izquierda)
+* Dispositivos con reglas en vigor y si hay alguna alerta que se active para ellos (parte inferior izquierda)
 
 ![Visualización de Power BI](./media/iot-accelerators-integrate-data-powerbi/visual_data.png)
 

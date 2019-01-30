@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: e241317231f3c607c373cb8a54e4b5bf6601b8e7
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 64cbf8f8704dbb216a15247caf741ff43690496a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620768"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54457071"
 ---
 > [!div class="op_single_selector"]
 > * [C en Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -41,7 +41,7 @@ Para completar este tutorial, deberá tener una cuenta activa de Azure. En caso 
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
-Antes de escribir ningún código para el dispositivo, implemente el acelerador de soluciones de supervisión remota y agregue un nuevo dispositivo físico a la solución.
+Antes de escribir ningún código para el dispositivo, implemente el acelerador de soluciones de supervisión remota y agregue un nuevo dispositivo real a la solución.
 
 ### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Implementación del acelerador de soluciones de supervisión remota
 
@@ -62,7 +62,7 @@ Para agregar un dispositivo a su solución de supervisión remota, realice los p
 
 1. Elija **+ Nuevo dispositivo** y, luego, **Físico** en **Tipo de dispositivo**:
 
-    ![Adición de un dispositivo físico](media/iot-suite-selector-connecting/devicesprovision.png)
+    ![Adición de un dispositivo real](media/iot-suite-selector-connecting/devicesprovision.png)
 
 1. Escriba **Refrigerador físico** como identificador de dispositivo. Elija las opciones **Clave simétrica** y **Generar claves automáticamente**:
 
@@ -72,7 +72,7 @@ Para agregar un dispositivo a su solución de supervisión remota, realice los p
 
     ![Recuperación de las credenciales](media/iot-suite-selector-connecting/credentials.png)
 
-Ya ha agregado un dispositivo físico al acelerador de soluciones de supervisión remota y ha anotado la cadena de conexión del dispositivo. En las siguientes secciones, implementará la aplicación cliente que utiliza la cadena de conexión del dispositivo para conectarse a la solución.
+Ya ha agregado un dispositivo real al acelerador de soluciones de supervisión remota y ha anotado la cadena de conexión del dispositivo. En las siguientes secciones, implementará la aplicación cliente que utiliza la cadena de conexión del dispositivo para conectarse a la solución.
 
 La aplicación cliente implementa el modelo de dispositivo **Chiller** integrado. Un modelo de dispositivo de acelerador de soluciones especifica lo siguiente acerca de un dispositivo:
 

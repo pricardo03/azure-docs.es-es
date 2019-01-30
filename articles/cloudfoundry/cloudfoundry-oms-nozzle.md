@@ -8,19 +8,19 @@ manager: jeconnoc
 editor: ''
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
-ms.service: virtual-machines-linux
+ms.service: azure-monitor
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 0039536caf917a051f0ddabd6be7cf2b1be90ba2
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 198d6e596faf47528c508a9323ab22de563dfc62
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404909"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819040"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Implementar el inyector de Azure Log Analytics para la supervisión del sistema Cloud Foundry
 
@@ -67,7 +67,7 @@ Puede crear el área de trabajo de Log Analytics manualmente o con una plantilla
    * **Suscripción**: si tiene varias suscripciones, elija la misma que la de la implementación de CF.
    * **Grupo de recursos**: puede crear un grupo de recursos o seleccionar el mismo que el de la implementación de CF.
    * **Ubicación**: escriba la ubicación.
-   * **Plan de tarifa**: haga clic en **Aceptar** para finalizar.
+   * **Plan de tarifa**: seleccione **Aceptar** para completar.
 
 Para más información, consulte [Introducción a Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
@@ -83,8 +83,8 @@ Para más información, consulte [Introducción a Log Analytics](https://docs.mi
     * **Ubicación del grupo de recursos**: seleccione la ubicación del grupo de recursos.
     * **OMS_Workspace_Name**: escriba un nombre de área de trabajo; si el área de trabajo no existe, la plantilla creará una.
     * **OMS_Workspace_Region**: seleccione la ubicación del área de trabajo.
-    * **OMS_Workspace_Pricing_Tier**: seleccione el SKU del área de trabajo de Log Analytics. Vea la [Guía de precios](https://azure.microsoft.com/pricing/details/log-analytics/) como referencia.
-    * **Condiciones legales**: haga clic en Condiciones legales y, después, en "Crear" para aceptar los términos legales.
+    * **OMS_Workspace_Pricing_Tier**: seleccione la SKU del área de trabajo de Log Analytics. Vea la [Guía de precios](https://azure.microsoft.com/pricing/details/log-analytics/) como referencia.
+    * **Términos legales**: haga clic en Términos legales y, después, en "Crear" para aceptar los términos legales.
 - Después de haber especificado todos los parámetros, haga clic en "Crear" para implementar la plantilla. Una vez completada la implementación, el estado se mostrará en la pestaña Notificaciones.
 
 

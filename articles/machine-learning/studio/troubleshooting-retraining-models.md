@@ -31,7 +31,7 @@ Con todos los elementos en su lugar, estos son los pasos principales que debe se
 ### <a name="check-to-see-if-you-have-the-correct-patch-url"></a>Compruebe si el valor de PATCH URL es el correcto
 El valor de PATCH URL que use deberá ser el único asociado con el nuevo punto de conexión de puntuación que agregó al servicio web de puntuación. Hay varias maneras de obtener el valor de PATCH URL:
 
-**Opción 1: mediante programación**
+**Opción 1: Mediante programación**
 
 Para obtener valor de PATCH URL correcto:
 

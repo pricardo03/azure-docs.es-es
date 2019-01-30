@@ -5,7 +5,7 @@ services: active-directory
 keywords: configuración de enterprise state roaming, nube de windows, preguntas más frecuentes sobre enterprise state roaming
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.component: devices
 ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
@@ -18,12 +18,12 @@ ms.date: 10/25/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: 3825d527e520fae87d0dd2712df767090adad4e5
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 417b909e4a5272b993a4696c1ef8d6718e055738
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248428"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452945"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Solución de problemas de la configuración de Enterprise State Roaming en Azure Active Directory
 
@@ -42,7 +42,7 @@ Antes de comenzar la solución de problemas, compruebe que el usuario y el dispo
 ## <a name="information-to-include-when-you-need-help"></a>Información para incluir si necesita ayuda
 Si no puede resolver el problema con las instrucciones siguientes, póngase en contacto con nuestros ingenieros de soporte técnico. Si se comunica con el soporte técnico, incluya la información siguiente:
 
-* **Descripción general del error**: ¿el usuario ve mensajes de error? Si no hay ningún mensaje de error, describe detalladamente el comportamiento inesperado observado. ¿Qué características están habilitadas para la sincronización y qué espera sincronizar el usuario? ¿Son varias características las que no se sincronizan o está aislado a una?
+* **Descripción general del error**: ¿Hay mensajes de error que ve el usuario? Si no hay ningún mensaje de error, describe detalladamente el comportamiento inesperado observado. ¿Qué características están habilitadas para la sincronización y qué espera sincronizar el usuario? ¿Son varias características las que no se sincronizan o está aislado a una?
 * **Usuarios afectados**: el funcionamiento o error de la sincronización afecta a uno o a varios usuarios. ¿Cuántos dispositivos están implicados por usuario? ¿No se está sincronizando ninguno de ellos o algunos se están sincronizando y otros no?
 * **Información sobre el usuario**: ¿qué identidad está usando el usuario para iniciar sesión en el dispositivo? ¿Cómo inicia sesión el usuario en el dispositivo? ¿Forman parte de un grupo de seguridad seleccionado al que se permite sincronizarse? 
 * **Información sobre el dispositivo**: ¿este dispositivo está unido a Azure AD o unido a un dominio? ¿Cuál es la compilación del dispositivo? ¿Cuáles son las actualizaciones más recientes?
@@ -74,7 +74,7 @@ Enterprise State Roaming requiere que el dispositivo esté registrado con Azure 
 **Problema potencial**: **WamDefaultSet** y **AzureAdJoined** tienen "NO" en el valor del campo, el dispositivo está unido a un dominio y registrado con Azure AD y no se sincroniza. Si se muestra esto, el dispositivo puede que tenga que esperar la aplicación de la directiva o se producirá un error de autenticación cuando el dispositivo se conecte a Azure AD. El usuario puede tener que esperar unas pocas horas para la directiva se aplique. Otros pasos de solución de problemas pueden incluir volver a intentar el registro automático mediante el cierre y el inicio de sesión, o el mediante el inicio de la tarea en el Programador de tareas. En algunos casos, puede ayudar a resolver este problema ejecutar "*dsregcmd.exe /leave*" en una ventana del símbolo del sistema con privilegios elevados, reiniciar y volver a intentar el registro.
 
 
-**Posible problema**: el campo de **SettingsUrl** está vacío y el dispositivo no se sincroniza. El usuario puede haber iniciado sesión en el dispositivo antes de habilitar Enterprise State Roaming en el portal de Azure Active Directory. Reinicie el dispositivo pida al usuario que inicie sesión. Si lo desea, en el portal, pruebe que los administradores vayan a **Azure Active Directory** > **Dispositivos** > **Enterprise State Roaming** y deshabilite y vuelva a habilitar **Los usuarios pueden sincronizar la configuración y los datos de aplicaciones en distintos dispositivos**. Cuando se haya vuelto a habilitar, reinicie el dispositivo pida al usuario que inicie sesión. Si el problema no se soluciona, puede que **SettingsUrl** esté vacío en el caso de un certificado de dispositivo defectuoso. En este caso, puede ayudar a resolver este problema ejecutar "*dsregcmd.exe /leave*" en una ventana del símbolo del sistema con privilegios elevados, reiniciar y volver a intentar el registro.
+**Problema potencial**: el campo de **SettingsUrl** está vacío y el dispositivo no se sincroniza. El usuario puede haber iniciado sesión en el dispositivo antes de habilitar Enterprise State Roaming en el portal de Azure Active Directory. Reinicie el dispositivo pida al usuario que inicie sesión. Si lo desea, en el portal, pruebe que los administradores vayan a **Azure Active Directory** > **Dispositivos** > **Enterprise State Roaming** y deshabilite y vuelva a habilitar **Los usuarios pueden sincronizar la configuración y los datos de aplicaciones en distintos dispositivos**. Cuando se haya vuelto a habilitar, reinicie el dispositivo pida al usuario que inicie sesión. Si el problema no se soluciona, puede que **SettingsUrl** esté vacío en el caso de un certificado de dispositivo defectuoso. En este caso, puede ayudar a resolver este problema ejecutar "*dsregcmd.exe /leave*" en una ventana del símbolo del sistema con privilegios elevados, reiniciar y volver a intentar el registro.
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>Enterprise State Roaming y Multi-Factor Authentication 
 
@@ -184,4 +184,4 @@ Continúe con los pasos enumerados en el artículo [KB3196528](https://support.m
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener una visión global, consulte [Información general sobre Enterprise State Roaming](enterprise-state-roaming-overview.md).
+Para obtener información general, consulte [Información general sobre Enterprise State Roaming](enterprise-state-roaming-overview.md).

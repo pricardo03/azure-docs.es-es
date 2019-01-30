@@ -8,19 +8,19 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 09/28/2018
 ms.topic: conceptual
-ms.openlocfilehash: 06909c06087219cdfa6edccbfed70ea1694e5a03
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 7a7a32cf1d67e9a4bbe49996b258164eb25c3763
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633738"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446772"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Crear y probar un nuevo dispositivo simulado
 
 El acelerador de soluciones de supervisión remota le permite definir sus propios dispositivos simulados. En este artículo muestra cómo definir un nuevo dispositivo simulado de Bombilla y, a continuación, probarlo localmente. El acelerador de soluciones incluye dispositivos simulados, como refrigeradores y camiones. Sin embargo, puede definir sus propios dispositivos simulados para probar sus soluciones de IoT antes de implementar dispositivos reales.
 
 > [!NOTE]
-> En este artículo se describe cómo usar dispositivos simulados hospedados en el servicio de simulación del dispositivo. Si quiere crear un dispositivo físico, consulte [Conectar el dispositivo al acelerador de soluciones de supervisión remota](iot-accelerators-connecting-devices.md).
+> En este artículo se describe cómo usar dispositivos simulados hospedados en el servicio de simulación del dispositivo. Si quiere crear un dispositivo real, consulte [Conectar el dispositivo al acelerador de la solución Supervisión remota](iot-accelerators-connecting-devices.md).
 
 En esta guía se muestra cómo personalizar el microservicio de simulación de dispositivos. Este microservicio es parte del acelerador de soluciones de supervisión remota. Para mostrar las funcionalidades del simulador de dispositivos, en esta guía paso a paso se usan dos escenarios en la aplicación IoT de Contoso:
 

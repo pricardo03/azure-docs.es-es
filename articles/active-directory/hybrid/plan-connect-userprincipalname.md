@@ -8,13 +8,13 @@ ms.date: 06/26/2018
 ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
-manager: mtillman
-ms.openlocfilehash: 59df0dc61be1f670f21b94fe24e56a2f040f950e
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+manager: daveba
+ms.openlocfilehash: da2ae0262ef8380f31f37bfbbe5ddca45c72ebd1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426815"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468104"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Rellenado de userPrincipalName de Azure AD
 
@@ -84,7 +84,7 @@ Cuando las actualizaciones de un objeto de usuario se sincronizan con el inquili
 ## <a name="upn-scenarios"></a>Escenarios de UPN
 A continuación se indican escenarios de ejemplo de cómo se calcula el UPN en función del escenario de que se trate.
 
-### <a name="scenario-1-non-verified-upn-suffix--initial-synchronization"></a>Escenario 1: sufijo de UPN no verificado (sincronización inicial)
+### <a name="scenario-1-non-verified-upn-suffix--initial-synchronization"></a>Escenario 1: Sufijo de UPN no comprobado (sincronización inicial)
 
 ![Escenario 1](./media/plan-connect-userprincipalname/example1.png)
 
@@ -104,7 +104,7 @@ Objeto de usuario del inquilino de AD Azure:
 - UserPrincipalName : us1@contoso.onmicrosoft.com
 
 
-### <a name="scenario-2-non-verified-upn-suffix--set-on-premises-mailnickname-attribute"></a>Escenario 2: sufijo de UPN no verificado (definición del atributo mailNickName local)
+### <a name="scenario-2-non-verified-upn-suffix--set-on-premises-mailnickname-attribute"></a>Escenario 2: Sufijo de UPN no comprobado (definición del atributo mailNickName local)
 
 ![Escenario 2](./media/plan-connect-userprincipalname/example2.png)
 
@@ -122,7 +122,7 @@ Objeto de usuario del inquilino de AD Azure:
 - MailNickName      : us4
 - UserPrincipalName : us1@contoso.onmicrosoft.com
 
-### <a name="scenario-3-non-verified-upn-suffix--update-on-premises-userprincipalname-attribute"></a>Escenario 3: sufijo de UPN no verificado (actualización del atributo userPrincipalName local)
+### <a name="scenario-3-non-verified-upn-suffix--update-on-premises-userprincipalname-attribute"></a>Escenario 3: Sufijo de UPN no comprobado (actualización del atributo userPrincipalName local)
 
 ![Escenario 3](./media/plan-connect-userprincipalname/example3.png)
 
@@ -141,7 +141,7 @@ Objeto de usuario del inquilino de AD Azure:
 - MailNickName      : us4
 - UserPrincipalName : us4@contoso.onmicrosoft.com
 
-### <a name="scenario-4-non-verified-upn-suffix--update-primary-smtp-address-and-on-premises-mail-attribute"></a>Escenario 4: sufijo de UPN no verificado (actualización del atributo "mail" local y de la dirección SMTP principal)
+### <a name="scenario-4-non-verified-upn-suffix--update-primary-smtp-address-and-on-premises-mail-attribute"></a>Escenario 4: Sufijo de UPN no comprobado (actualización del atributo "mail" local y de la dirección SMTP principal)
 
 ![Escenario 4](./media/plan-connect-userprincipalname/example4.png)
 
@@ -158,7 +158,7 @@ Objeto de usuario del inquilino de AD Azure:
 - MailNickName      : us4
 - UserPrincipalName : us4@contoso.onmicrosoft.com
 
-### <a name="scenario-5-verified-upn-suffix--update-on-premises-userprincipalname-attribute-suffix"></a>Escenario 5: sufijo de UPN verificado (actualización del sufijo del atributo userPrincipalName)
+### <a name="scenario-5-verified-upn-suffix--update-on-premises-userprincipalname-attribute-suffix"></a>Escenario 5: Sufijo de UPN comprobado (actualización del sufijo del atributo userPrincipalName)
 
 ![Escenario 5](./media/plan-connect-userprincipalname/example5.png)
 

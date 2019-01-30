@@ -4,7 +4,7 @@ description: Cómo usar la directiva de grupo para implementar el complemento de
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9ebd949460f826c9529b9f392bc4a7f4918ee170
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 7ccaf272a79268ecd781821593a6041d5653a39b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715047"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471895"
 ---
 # <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>Solución de problemas de la extensión del Panel de acceso para Internet Explorer
 Este artículo le ayudará a solucionar los siguientes problemas:
@@ -28,7 +28,7 @@ Este artículo le ayudará a solucionar los siguientes problemas:
 * No puede tener acceso a sus aplicaciones a través del portal de Mis aplicaciones con Internet Explorer.
 * Verá el mensaje "Instalar software" aunque ya haya instalado el software.
 
-Si es administrador, vea también: [Cómo implementar la extensión del Panel de acceso para Internet Explorer con la Directiva de grupo](deploy-access-panel-browser-extension.md)
+Si es administrador, consulte también: [Implementación de la extensión del Panel de acceso para Internet Explorer mediante la directiva de grupo](deploy-access-panel-browser-extension.md)
 
 ## <a name="run-the-diagnostic-tool"></a>Ejecutar la herramienta de diagnóstico
 Puede diagnosticar problemas de instalación con la extensión del Panel de acceso descargando y ejecutando la herramienta de diagnóstico del Panel de acceso:

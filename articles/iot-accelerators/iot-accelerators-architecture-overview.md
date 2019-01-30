@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: philmea
-ms.openlocfilehash: 5fb615ff042cc5cdd3b6b8e42e4d91b161ebf445
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: ba5eb50dcf800c186124db348ac584ff6f55cebb
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602382"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467322"
 ---
 # <a name="introduction-to-the-azure-iot-reference-architecture"></a>Introducción a la arquitectura de referencia de Azure IoT
 
@@ -79,7 +79,7 @@ A medida que la solución obtiene datos de telemetría, es importante comprender
 
 El enrutamiento puede enviar la telemetría a uno o más puntos de conexión de almacenamiento, procesos de análisis y acciones. Una solución puede combinar las fases en distintos pedidos y procesarlos con tareas paralelas simultáneas.
 
-La solución Remote Monitoring usa [Azure Stream Analytics](/azure/stream-analytics/) para el procesamiento de datos transmitidos por streaming. El motor de reglas de la solución usa las consultas de Stream Analytics para generar alarmas y acciones. Por ejemplo, la solución puede usar una consulta para identificar el momento en que la temperatura media del compartimiento de almacenamiento de un camión sea inferior a 36 grados durante más de cinco minutos.
+La solución Remote Monitoring usa [Azure Stream Analytics](/azure/stream-analytics/) para el procesamiento de datos transmitidos por streaming. El motor de reglas de la solución usa las consultas de Stream Analytics para generar alertas y acciones. Por ejemplo, la solución puede usar una consulta para identificar el momento en que la temperatura media del compartimiento de almacenamiento de un camión sea inferior a 36 grados durante más de cinco minutos.
 
 ### <a name="storage"></a>Storage
 

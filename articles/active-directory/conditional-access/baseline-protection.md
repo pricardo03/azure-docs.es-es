@@ -5,7 +5,7 @@ services: active-directory
 keywords: acceso condicional a aplicaciones, acceso condicional con Azure AD, acceso seguro a recursos de empresa, directivas de acceso condicional
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 585a4968672c8bcab0efb988d556e447983dfc5a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 67f3299bcf5b852e05308a8e71004fcd613e83cf
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158710"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446279"
 ---
 # <a name="what-is-baseline-protection-preview"></a>¿Qué es la protección de base de referencia (versión preliminar)?  
 
@@ -56,7 +56,7 @@ La directiva de base de referencia permite excluir usuarios. Podría desear excl
 
 ## <a name="enable-a-baseline-policy"></a>Habilitar una directiva de base de referencia 
 
-Mientras están en versión preliminar, las directivas de base de referencia están inactivas de forma predeterminada. Debe habilitar una directiva manualmente si quiere activarla. Si habilita explícitamente las directivas de línea de base en la etapa de versión preliminar, se mantendrán activas cuando la característica alcance la disponibilidad general. El cambio de comportamiento planeado es el motivo por el que, además de la activación y desactivación, tiene una tercera opción para establecer el estado de una directiva: **Automatically enable policy in the future** (Habilitar la directiva automáticamente en el futuro). Al seleccionar esta opción, puede dejar las directivas deshabilitadas durante la versión preliminar, pero Microsoft las habilitará automáticamente cuando la característica alcance la disponibilidad general. Si no habilita explícitamente las directivas de línea de base ahora y no selecciona la opción **Automatically enable policy in the future** (Habilitar la directiva automáticamente en el futuro), las directivas permanecerán deshabilitadas cuando esta característica alcance la disponibilidad general.
+Mientras están en versión preliminar, las directivas de base de referencia están inactivas de forma predeterminada. Debe habilitar una directiva manualmente si quiere activarla. Si habilita explícitamente las directivas de línea de base en la etapa de versión preliminar, se mantendrán activas cuando la característica alcance la disponibilidad general. El cambio de comportamiento planeado es el motivo por el que, además de la activación y desactivación, tiene una tercera opción para establecer el estado de una directiva: **Habilitar automáticamente la directiva en el futuro**. Al seleccionar esta opción, puede dejar las directivas deshabilitadas durante la versión preliminar, pero Microsoft las habilitará automáticamente cuando la característica alcance la disponibilidad general. Si no habilita explícitamente las directivas de línea de base ahora y no selecciona la opción **Automatically enable policy in the future** (Habilitar la directiva automáticamente en el futuro), las directivas permanecerán deshabilitadas cuando esta característica alcance la disponibilidad general.
 
 
 **Para habilitar una directiva de base de referencia:**  

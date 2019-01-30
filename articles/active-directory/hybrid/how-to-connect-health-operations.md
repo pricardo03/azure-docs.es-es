@@ -4,7 +4,7 @@ description: Este artículo describe las operaciones adicionales que pueden real
 services: active-directory
 documentationcenter: ''
 author: zhiweiwangmsft
-manager: mtillman
+manager: daveba
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 7e0e2e19f2f21fa3199cbc4911fed3427cbc162c
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 35bbc44a8a54071530806576294163cb7ba627ea
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280529"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478304"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operaciones de Azure Active Directory Connect Health
 Este tema describe las distintas operaciones que se pueden realizar mediante Azure Active Directory (Azure AD) Connect Health.
@@ -64,6 +64,7 @@ Azure AD Connect Health para Servicios de federación de Active Directory (AD FS
 
 1. Seleccione el nombre del servidor que se va a quitar para abrir la hoja **Servidor** en la hoja **Lista de servidores**.
 2. En la hoja **Servidor**, en la barra de acciones, haga clic en **Eliminar**.
+![Captura de pantalla de eliminación de servidor de Azure AD Connect Health](./media/how-to-connect-health-operations/DeleteServer2.png)
 3. Confirme el nombre del servidor; para ello, escríbalo en el cuadro de confirmación.
 4. Hacer clic en **Eliminar**.
 
@@ -86,8 +87,9 @@ Cuando elimine una instancia de servicio, tenga en cuenta lo siguiente:
 * Tras realizar esta acción, si desea empezar a supervisar el servicio, desinstale el agente de estado y vuelva a instalarlo en todos los servidores. Tras realizar esta acción, si desea empezar la supervisión del mismo servidor de nuevo, desinstale el agente de estado y regístrelo en ese servidor.
 
 #### <a name="to-delete-a-service-instance-from-the-azure-ad-connect-health-service"></a>Eliminación de una instancia de servicio del Servicio de Azure AD Connect Health
-1. Seleccione el identificador del servicio (nombre de la granja) que desea quitar para abrir la hoja **Servicio** en la hoja **Lista de Servicios**.
-2. En la hoja **Servidor**, en la barra de acciones, haga clic en **Eliminar**.
+1. Seleccione el identificador del servicio (nombre de la granja) que desea quitar para abrir la hoja **Servicio** en la hoja **Lista de Servicios**. 
+2. En la hoja **Servicio**, en la barra de acciones, haga clic en **Eliminar**. 
+![Captura de pantalla de eliminación de servicio de Azure AD Connect Health](./media/how-to-connect-health-operations/DeleteServer.png)
 3. Confirme el nombre del servicio. Para ello, escríbalo en el cuadro de confirmación (por ejemplo: sts.contoso.com).
 4. Hacer clic en **Eliminar**.
    <br><br>
@@ -110,7 +112,7 @@ Todos los demás roles (como "Administradores de acceso de usuario" o "Usuarios 
 ### <a name="access-scope"></a>Ámbito de acceso
 Azure AD Connect Health admite la administración de acceso a dos niveles:
 
-* **Todas las instancias de servicio**: esta es la ruta de acceso recomendada en la mayoría de los casos. Controla el acceso a todas las instancias de servicio (por ejemplo, a una granja de servidores de AD FS) en todos los tipos de rol que se estén supervisando mediante Azure AD Connect Health.
+* **Todas las instancias de servicio**: ruta de acceso recomendada en la mayoría de los casos. Controla el acceso a todas las instancias de servicio (por ejemplo, a una granja de servidores de AD FS) en todos los tipos de rol que se estén supervisando mediante Azure AD Connect Health.
 * **Instancia de servicio**: en algunos casos, puede que necesite separar el acceso según los tipos de rol o por una instancia de servicio. En este caso, puede administrar el acceso en el nivel de instancia de servicio.  
 
 El permiso se concede si un usuario final tiene acceso al nivel de directorio o de instancia de servicio.

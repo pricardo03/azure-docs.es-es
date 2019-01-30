@@ -3,6 +3,7 @@ título: Implementación de un área de trabajo de Studio con Azure Resource Man
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 05/02/2018
 ---
+
 # <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>Implementación del área de trabajo de Azure Machine Learning Studio mediante Azure Resource Manager
 
 El uso de una plantilla de implementación de Azure Resource Manager le permite ahorrar tiempo proporcionándole una manera escalable de implementar componentes interconectados con un mecanismo de validación y reintento. Para configurar áreas de trabajo de Azure Machine Learning, por ejemplo, debe configurar primero una cuenta de Almacenamiento de Azure y, a continuación, implementar el área de trabajo. Imagine que tiene que hacer esto manualmente para cientos de áreas de trabajo. Una alternativa más sencilla es utilizar una plantilla de Azure Resource Manager para implementar un área de trabajo de Azure Machine Learning y todas sus dependencias. Este artículo le guiará por este proceso paso a paso. Para ver una introducción excelente sobre Azure Resource Manager, consulte [Información general de Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
@@ -125,10 +126,8 @@ Una vez aprovisionada el área de trabajo, también puede automatizar muchas tar
 * Obtenga más información sobre la [creación de plantillas de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md). 
 * Eche un vistazo al [repositorio de plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates). 
 * Vea este vídeo acerca de [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39). 
-
-<!--Image references-->
-[1]: ./media/deploy-with-resource-manager-template/azuresubscription.png
-[2]: ./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png
+* Consulte la [ayuda de referencia de plantillas de Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.machinelearning/allversions)
+<!--Image references--> [1]: [2]./media/deploy-with-resource-manager-template/azuresubscription.png: ./media/deploy-with-resource-manager-template/ resourcegroupprovisioning.png
 
 
 <!--Link references-->

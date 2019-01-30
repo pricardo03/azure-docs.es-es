@@ -1,6 +1,6 @@
 ---
 title: 'Streaming en vivo con codificadores locales que crean transmisiones de velocidad de bits múltiple: Azure | Microsoft Docs'
-description: 'En este tema se describe cómo configurar un canal que recibe streaming en vivo de velocidad de bits múltiple desde un codificador local. Posteriormente, la transmisión se puede enviar a aplicaciones de reproducción cliente a través de uno o más puntos de conexión de streaming, mediante uno de los siguientes protocolos de streaming adaptable: HLS, Smooth Streaming y DASH.'
+description: 'En este tema se describe cómo configurar un canal que recibe streaming en vivo de velocidad de bits múltiple desde un codificador local. Posteriormente, la transmisión se puede enviar a aplicaciones de reproducción cliente a través de uno o más puntos de conexión de streaming, mediante uno de los siguientes protocolos de streaming adaptable: HLS, Smooth Streaming, DASH.'
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: e2d65c107d57d50bc15d5a1cd1698491bb607e25
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b0a047c4bf2c0c95896699e50e943277a138ecca
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262240"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809041"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Streaming en vivo con codificadores locales que crean transmisiones de velocidad de bits múltiple
 
@@ -35,11 +35,11 @@ En Azure Media Services, un *canal* representa una canalización para procesar c
   > El método de paso a través es la forma más económica de realizar un streaming en vivo.
 
 
-* Un codificador en directo local envía una secuencia de una sola velocidad de bits al canal que está habilitado para realizar codificación en directo con Media Services, con uno de los siguientes formatos: RTP o Smooth Streaming (MP4 fragmentado). Después, el canal codifica en vivo la transmisión entrante de una sola velocidad de bits en una de vídeo de velocidad de bits múltiple (adaptable). Media Services entrega la transmisión a los clientes que lo soliciten.
+* Un codificador en directo local envía una secuencia de una sola velocidad de bits al canal que está habilitado para realizar codificación en directo con Media Services, con uno de los siguientes formatos: RTMP o Smooth Streaming (MP4 fragmentado). Después, el canal codifica en vivo la transmisión entrante de una sola velocidad de bits en una de vídeo de velocidad de bits múltiple (adaptable). Media Services entrega la transmisión a los clientes que lo soliciten.
 
 A partir de la versión 2.10 de Media Services, al crear un canal puede especificar cómo desea que este reciba la transmisión entrante. También puede especificar si desea que el canal realice la codificación en vivo de la transmisión. Tiene dos opciones:
 
-* **Acceso directo**: especifique este valor si piensa usar un codificador en vivo local que genere una transmisión de velocidad de bits múltiple (transmisión de acceso directo) de salida. En este caso, la transmisión entrante pasa hasta la salida sin codificación. Este es el comportamiento de los canales antes de la versión 2.10. En este artículo se proporciona información sobre cómo trabajar con canales de este tipo.
+* **Pass Through**: especifique este valor si piensa usar un codificador en directo local que genere una transmisión de velocidad de bits múltiple (transmisión de acceso directo) de salida. En este caso, la transmisión entrante pasa hasta la salida sin codificación. Este es el comportamiento de los canales antes de la versión 2.10. En este artículo se proporciona información sobre cómo trabajar con canales de este tipo.
 * **Live Encoding**: elija este valor si piensa usar Media Services para codificar transmisiones en vivo con una sola velocidad de bits como transmisión de velocidad de bits múltiple. Dejar un canal con codificación en directo en estado **En ejecución** supone cargos de facturación. Se recomienda detener inmediatamente los canales en ejecución después que termine evento de streaming en vivo para evitar cargos por hora adicionales. Media Services entrega la transmisión a los clientes que lo soliciten.
 
 > [!NOTE]
@@ -89,7 +89,7 @@ En los pasos siguientes se describen las tareas que intervienen en la creación 
 Media Services admite la ingesta de fuentes en vivo mediante MP4 fragmentado y RTMP de velocidad de bits múltiple como protocolos de streaming. Al seleccionar el protocolo de streaming de ingesta RTMP, se crean dos puntos de conexión de ingesta (entrada) para el canal:
 
 * **URL principal**: especifica la dirección URL completa del extremo de introducción RTMP principal del canal.
-* **URl secundaria** : especifica la dirección URL completa del extremo de introducción RTMP secundario del canal.
+* **URL secundaria** (opcional): especifica la dirección URL completa del extremo de introducción RTMP secundario del canal.
 
 Use la dirección URL secundaria si quiere mejorar la durabilidad y la tolerancia a errores de la transmisión de ingesta, así como la conmutación por error y la tolerancia a errores del codificador, especialmente en los siguientes escenarios:
 
@@ -115,7 +115,7 @@ Puede obtener las direcciones URL de ingesta al crear el canal. Para obtener est
 Tiene la opción de ingerir una transmisión en vivo de MP4 fragmentado (Smooth Streaming) a través de una conexión SSL. Para introducir en SSL, asegúrese de actualizar la dirección URL de introducción a HTTPS. Actualmente, no se puede consumir RTMP a través de SSL.
 
 #### <a id="keyframe_interval"></a>Intervalo de fotogramas clave
-Cuando se usa un codificador en vivo local para generar una transmisión de velocidad de bits múltiple, el intervalo de fotogramas clave especifica la duración de grupo de imágenes (GOP) tal como la usa el codificador externo. Cuando el canal haya recibido esta transmisión entrante, puede entregar la transmisión en vivo a las aplicaciones cliente de reproducción en cualquiera de los siguientes formatos: Smooth Streaming, Dynamic Adaptive Streaming sobre HTTP (DASH) y HTTP Live Streaming (HLS). Cuando se realiza el streaming en vivo, HLS siempre se empaqueta dinámicamente. De forma predeterminada, Media Services calcula automáticamente la proporción de empaquetado por segmento HLS (fragmentos por segmento) según el intervalo de fotogramas clave que se recibe del codificador en vivo.
+Cuando se usa un codificador en vivo local para generar una transmisión de velocidad de bits múltiple, el intervalo de fotogramas clave especifica la duración de grupo de imágenes (GOP) tal como la usa el codificador externo. Una vez que el canal recibe esta transmisión de entrada, puede entregar su transmisión en vivo a las aplicaciones de reproducción del cliente en cualquiera de estos formatos: Smooth Streaming, Streaming adaptable dinámico a través de HTTP (DASH) y HTTP Live Streaming (HLS). Cuando se realiza el streaming en vivo, HLS siempre se empaqueta dinámicamente. De forma predeterminada, Media Services calcula automáticamente la proporción de empaquetado por segmento HLS (fragmentos por segmento) según el intervalo de fotogramas clave que se recibe del codificador en vivo.
 
 En la tabla siguiente se muestra cómo se calcula la duración de los segmentos:
 
@@ -127,7 +127,7 @@ En la tabla siguiente se muestra cómo se calcula la duración de los segmentos:
 
 Puede cambiar la proporción de fragmentos por segmento al configurar la salida del canal y establecer FragmentsPerSegment en ChannelOutputHls.
 
-También puede cambiar el valor del intervalo de fotogramas clave si establece la propiedad KeyFrameInterval en ChanneInput. Si establece explícitamente KeyFrameInterval, la proporción de empaquetado por segmento HLS FragmentsPerSegment se calcula según las reglas descritas anteriormente.  
+También puede cambiar el valor del intervalo de fotogramas clave si establece la propiedad KeyFrameInterval en ChannelInput. Si establece explícitamente KeyFrameInterval, la proporción de empaquetado por segmento HLS FragmentsPerSegment se calcula según las reglas descritas anteriormente.  
 
 Si establece explícitamente KeyFrameInterval y FragmentsPerSegment, Media Services usa los valores que usted establezca.
 
@@ -176,11 +176,11 @@ Incluso después de detener y eliminar el programa, los usuarios podrán transmi
 ## <a id="states"></a>Estados de los canales y facturación
 Los valores posibles para el estado actual de un canal incluyen:
 
-* **Stopped** (Detenido): estado inicial del canal después de su creación. En este estado, se pueden actualizar las propiedades del canal pero no se permite el streaming.
-* **Starting** (Iniciándose): el canal se está iniciando. No se permiten actualizaciones ni streaming durante este estado. Si se produce un error, el canal vuelve al estado **Stopped** (Detenido).
-* **En ejecución**: el canal puede procesar transmisiones en vivo.
-* **Stopping** (Deteniéndose): el canal se está deteniendo. No se permiten actualizaciones ni streaming durante este estado.
-* **Deleting** (Eliminándose): el canal se está eliminando. No se permiten actualizaciones ni streaming durante este estado.
+* **Stopped**: este es el estado inicial del canal después de su creación. En este estado, se pueden actualizar las propiedades del canal pero no se permite el streaming.
+* **Starting**: el canal se está iniciando. No se permiten actualizaciones ni streaming durante este estado. Si se produce un error, el canal vuelve al estado **Stopped** (Detenido).
+* **Running**: el canal puede procesar transmisiones en vivo.
+* **Stopping**: el canal se está deteniendo. No se permiten actualizaciones ni streaming durante este estado.
+* **Deleting**: el canal se está eliminando. No se permiten actualizaciones ni streaming durante este estado.
 
 En la tabla siguiente se muestra cómo se asignan los estados del canal al modo de facturación.
 

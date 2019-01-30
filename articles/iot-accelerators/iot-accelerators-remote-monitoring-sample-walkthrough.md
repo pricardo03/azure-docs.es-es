@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 2b6cb711bf0cd2f0ec7f5633bbb36ebaeb203690
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 6e21b1d8905dc0f0eda5b6282e345ef52006a75a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605541"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468036"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Información general sobre el acelerador de la solución de supervisión remota
 
@@ -47,11 +47,11 @@ La arquitectura en la nube ha evolucionado desde el lanzamiento de Microsoft de 
 
 La solución incluye los componentes siguientes en la parte de la conectividad de dispositivos de la arquitectura lógica:
 
-### <a name="physical-devices"></a>Dispositivos físicos
+### <a name="real-devices"></a>Dispositivos reales
 
-Puede conectar dispositivos físicos a la solución. Puede implementar el comportamiento de los dispositivos simulados con los SDK de dispositivo IoT de Azure.
+Puede conectar dispositivos reales a la solución. Puede implementar el comportamiento de los dispositivos simulados con los SDK de dispositivo IoT de Azure.
 
-Puede aprovisionar dispositivos físicos desde el panel en el portal de la solución.
+Puede aprovisionar dispositivos reales desde el panel en el portal de la solución.
 
 ### <a name="device-simulation-microservice"></a>Microservicio de simulación de dispositivo
 
@@ -66,7 +66,7 @@ Puede aprovisionar dispositivos simulados desde el panel en el portal de la solu
 
 ### <a name="iot-hub"></a>IoT Hub
 
-El [centro de IoT](../iot-hub/index.yml) ingiere datos de telemetría enviados desde los dispositivos físicos y simulados a la nube. El centro de IoT pone los datos de telemetría a disposición de los servicios en el back-end de la solución de IoT para su procesamiento.
+El [centro de IoT](../iot-hub/index.yml) ingiere datos de telemetría enviados desde los dispositivos reales y simulados a la nube. El centro de IoT pone los datos de telemetría a disposición de los servicios en el back-end de la solución de IoT para su procesamiento.
 
 La instancia de IoT Hub en la solución también:
 
@@ -106,7 +106,7 @@ El servicio proporciona un punto de conexión RESTful para operaciones CRUD en p
 
 ### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-Las implementaciones del acelerador de soluciones usan [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) para almacenar las reglas, alarmas, opciones de configuración y todo el almacenamiento en frío adicional.
+Las implementaciones del acelerador de soluciones usan [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) para almacenar reglas, alarmas, valores de configuración y todo el almacenamiento en frío adicional.
 
 ### <a name="azure-stream-analytics-manager-microservice"></a>Microservicio de administrador de Azure Stream Analytics
 

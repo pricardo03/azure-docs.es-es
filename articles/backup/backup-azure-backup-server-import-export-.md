@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
-ms.openlocfilehash: 1a0e196f4d96494aca1c19a7527ac7d81837fb5c
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 01b90d6bb18addd6a0235101f86b9d51953cc096
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34606484"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818564"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Flujo de copia de seguridad sin conexión para DPM y Azure Backup Server
 El servicio Azure Backup presenta varias eficiencias integradas para ahorrar costos de almacenamiento y red durante las copias de seguridad iniciales 'completas' de datos en Azure. Las copias de seguridad iniciales completas transfieren grandes cantidades de datos y requieren un mayor ancho de banda de red en comparación con las copias de seguridad sucesivas que solo transfieren los cambios diferenciales e incrementales. Azure Backup permite comprimir las copias de seguridad iniciales. A través del proceso de propagación sin conexión, Azure Backup puede usar discos para cargar los datos comprimidos iniciales de copia de seguridad sin conexión en Azure.
@@ -42,7 +42,7 @@ La copia de seguridad sin conexión es compatible con todos los modelos de imple
 > * Copia de seguridad de todas las cargas de trabajo y archivos con System Center Data Protection Manager (SC DPM). 
 > * Copia de seguridad de todas las cargas de trabajo y archivos con Microsoft Azure Backup Server. <br/>
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Asegúrese de que se cumplen los siguientes requisitos previos antes de iniciar el flujo de trabajo de copia de seguridad sin conexión:
 * Se ha creado [el almacén de Recovery Services](backup-azure-recovery-services-vault-overview.md). Para crear uno, consulte los pasos de [este artículo](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault).
 * Se ha instalado el agente de Azure Backup, Azure Backup Server o SC DPM en Windows Server o en un cliente de Windows, según corresponda, y el equipo está registrado con el almacén de Recovery Services. Asegúrese de que solo se utiliza la [versión más reciente de Azure Backup](https://go.microsoft.com/fwlink/?linkid=229525). 
@@ -59,7 +59,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos antes de iniciar 
 
 * Se crea una ubicación de almacenamiento provisional, que puede ser un recurso compartido de red o cualquier unidad adicional en el equipo, interna o externa, con suficiente espacio en disco para almacenar la copia inicial. Por ejemplo, si intenta realizar una copia de seguridad en un servidor de archivos de 500 GB, asegúrese de que el área de ensayo es de al menos 500 GB. (Se utilizará una cantidad menor gracias a la compresión).
 * Con respecto a los discos que se enviarán a Azure, asegúrese de que solo se utilizan unidades de disco duro SSD de 2,5 pulgadas o SATA II/III de 2,5 o 3,5 pulgadas internas. Puede utilizar unidades de disco duro de hasta 10 TB. Vea la [documentación del servicio Azure Import/Export](../storage/common/storage-import-export-requirements.md#supported-hardware) para conocer el conjunto más reciente de unidades de disco que admite el servicio.
-* Las unidades SATA deben estar conectadas a un equipo (llamado *equipo de copia*) desde donde se realiza la copia de los datos de copia de seguridad de la *ubicación de almacenamiento provisional* a SATA. Asegúrese de que BitLocker está habilitado en el *equipo de copia*. 
+* Las unidades SATA deben estar conectadas a un equipo (llamado *equipo de copia*) desde donde se realiza la copia de los datos de copia de seguridad de la *ubicación de almacenamiento provisional* a SATA. Asegúrese de que BitLocker está habilitado en el *equipo de copia* 
 
 ## <a name="workflow"></a>Flujo de trabajo
 La información de esta sección le ayuda a completar el flujo de trabajo de copia de seguridad sin conexión, por lo que los datos se pueden entregar a un centro de datos de Azure y cargarse en Azure Storage. Si tiene alguna pregunta sobre el servicio de importación o cualquier aspecto del proceso, consulte la documentación sobre la [Información general del servicio de importación](../storage/common/storage-import-export-service.md) a la que se ha hecho referencia anteriormente.
@@ -74,9 +74,9 @@ La información de esta sección le ayuda a completar el flujo de trabajo de cop
 
     La descripción de las entradas es la siguiente:
 
-    * **Ubicación de ensayo**: la ubicación de almacenamiento temporal en la que se escribe la copia de seguridad inicial. La ubicación de almacenamiento provisional podría estar en un recurso compartido de red o en un equipo local. Si el equipo de copia y el equipo de origen son diferentes, se recomienda especificar la ruta de acceso completa de red de la ubicación de ensayo.
-    * **Nombre del trabajo de importación de Azure**: el nombre único mediante el cual los servicios Azure Import y Azure Backup realizan el seguimiento de la transferencia de los datos enviados mediante discos a Azure.
-    * **Configuración de publicación de Azure**: proporcione la ruta de acceso local al archivo de configuración de publicación.
+    * **Ubicación de almacenamiento provisional**: la ubicación de almacenamiento temporal en la que se escribe la copia de seguridad inicial. La ubicación de almacenamiento provisional podría estar en un recurso compartido de red o en un equipo local. Si el equipo de copia y el equipo de origen son diferentes, se recomienda especificar la ruta de acceso completa de red de la ubicación de ensayo.
+    * **Nombre de trabajo de Azure Import**: el nombre único mediante el que los servicios Azure Import y Azure Backup realizan el seguimiento de la transferencia de los datos enviados en discos a Azure.
+    * **Configuración de publicación de Azure**: Proporcione la ruta de acceso local al archivo de configuración de publicación.
     * **Identificador de suscripción de Azure**: el identificador de la suscripción de Azure con la que descargó el archivo de configuración de publicación de Azure. 
     * **Cuenta de Azure Storage**: el nombre de la cuenta de almacenamiento de la suscripción de Azure asociada al archivo de configuración de publicación de Azure.
     * **Contenedor de Azure Storage**: el nombre del blob de almacenamiento de destino de la cuenta de Azure Storage donde se importan los datos de copia de seguridad.
@@ -116,7 +116,7 @@ La utilidad *AzureOfflineBackupDiskPrep* se usa para preparar las unidades SATA 
 
     `*.\AzureOfflineBackupDiskPrep.exe*   s:<*Staging Location Path*>   [p:<*Path to AzurePublishSettingsFile*>]`
 
-    | . | DESCRIPCIÓN |
+    | Parámetro | DESCRIPCIÓN |
     | --- | --- |
     | s:&lt;*Ruta de acceso de la ubicación de ensayo*&gt; |Entrada obligatoria que se utiliza para proporcionar la ruta de acceso a la ubicación de ensayo especificada en el flujo de trabajo de **inicio de la copia de seguridad sin conexión** . |
     | p:&lt;*Ruta de acceso a PublishSettingsFile*&gt; |Entrada obligatoria que se utiliza para proporcionar la ruta de acceso al archivo de **Configuración de publicación de Azure** especificado en el flujo de trabajo de **inicio de la copia de seguridad sin conexión**. |
@@ -157,7 +157,7 @@ La utilidad *AzureOfflineBackupDiskPrep* se usa para preparar las unidades SATA 
    
    `*.\AzureOfflineBackupDiskPrep.exe*  u:  s:<*Staging Location Path*>   p:<*Path to AzurePublishSettingsFile*>`
 
-    | . | DESCRIPCIÓN |
+    | Parámetro | DESCRIPCIÓN |
     | --- | --- |
     | u: | Entrada obligatoria usada para actualizar los detalles de envío de un trabajo de importación de Azure |
     | s:&lt;*Ruta de acceso de la ubicación de ensayo*&gt; | Entrada obligatoria cuando el comando no se ejecuta en el equipo de origen. Se utiliza para proporcionar la ruta de acceso a la ubicación de almacenamiento provisional especificada en el flujo de trabajo de **inicio de la copia de seguridad sin conexión**. |

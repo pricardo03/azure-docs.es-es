@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: 0a20f7629fbc102ae05c51c7388bbfd6915d6204
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 15393f8e10fcda99820d0279d46edf88c7781ff8
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257391"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811979"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Tutoriales avanzados sobre el flujo de trabajo premium del codificador multimedia
 ## <a name="overview"></a>Información general
@@ -293,7 +293,7 @@ Cree un tercer componente de salida de archivo para generar la transmisión sali
 *Multiplexor de audio creando una salida de archivo*
 
 ### <a id="MXF_to_MP4_with_dyn_packaging_ism_file"></a>Incorporación del archivo SMIL .ISM
-Para que el empaquetado dinámico funcione en combinación con ambos archivos MP4 (y con los archivos MP4 de solo audio) en nuestro recurso de Media Services, también es necesario un archivo de manifiesto (también denominado archivo "SMIL": en inglés, lenguaje de integración multimedia sincronizada). Este archivo indica a Azure Media Services qué archivos MP4 están disponibles para el empaquetado dinámico y cuáles de ellos debe tener en cuenta para el streaming de audio. Un archivo de manifiesto típico para un conjunto de archivos MP4 con una única secuencia de audio tiene el siguiente aspecto:
+Para que el empaquetado dinámico funcione en combinación con ambos archivos MP4 (y con los archivos MP4 de solo audio) en nuestro recurso de Media Services, también es necesario un archivo de manifiesto (también denominado archivo "SMIL": es decir, lenguaje de integración multimedia sincronizada). Este archivo indica a Azure Media Services qué archivos MP4 están disponibles para el empaquetado dinámico y cuáles de ellos debe tener en cuenta para el streaming de audio. Un archivo de manifiesto típico para un conjunto de archivos MP4 con una única secuencia de audio tiene el siguiente aspecto:
 
 ```xml
     <?xml version="1.0" encoding="utf-8" standalone="yes"?>
@@ -692,8 +692,8 @@ Antes de que podamos volver a escribir el xml de la lista de clips que se genera
 
 En primer lugar, necesitamos una manera de determinar desde dónde y hasta dónde desea recortar el vídeo. Para facilitar esto al usuario menos técnico del flujo de trabajo, publique dos propiedades en la raíz del gráfico. Para ello, haga clic con el botón derecho en la superficie del diseñador y seleccione "Add property" (Agregar propiedad):
 
-* Primera propiedad: "ClippingTimeStart" del tipo: "TIMECODE" (CÓDIGO DE TIEMPO)
-* Segunda propiedad: "ClippingTimeEnd" del tipo: "TIMECODE" (CÓDIGO DE TIEMPO)
+* Primera propiedad: "ClippingTimeStart" de tipo: "TIMECODE"
+* Segunda propiedad: "ClippingTimeEnd" de tipo: "TIMECODE"
 
 ![Cuadro de diálogo Add Property (Agregar propiedad) para el tiempo de inicio del recorte](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-clip-start-time.png)
 

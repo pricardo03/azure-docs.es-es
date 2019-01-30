@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 281c426170985d43401a13988218126ea3951634
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 17a2d1ac747b46ed9a55ceffeea3ba9f4b2f0bc7
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405621"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412055"
 ---
 # <a name="custom-roles-in-azure"></a>Roles personalizados en Azure
 
@@ -106,7 +106,7 @@ Un rol personalizado tiene las siguientes propiedades.
 
 Al igual que los roles integrados, la propiedad `AssignableScopes` especifica los ámbitos en los que el rol está disponible para la asignación. La propiedad `AssignableScopes` de un rol personalizado también controla quién puede crear, eliminar, actualizar o ver dicho rol.
 
-| Task | Operación | DESCRIPCIÓN |
+| Tarea | Operación | DESCRIPCIÓN |
 | --- | --- | --- |
 | Creación o eliminación de un rol personalizado | `Microsoft.Authorization/ roleDefinition/write` | Los usuarios que tienen acceso a esta operación en todos los ámbitos `AssignableScopes` del rol personalizado pueden crear (o eliminar) roles personalizados para usar en esos ámbitos. Por ejemplo, los [propietarios](built-in-roles.md#owner) y [administradores del acceso de los usuarios](built-in-roles.md#user-access-administrator) de las suscripciones, los grupos de recursos y los recursos. |
 | Actualización de un rol personalizado | `Microsoft.Authorization/ roleDefinition/write` | Los usuarios que tienen acceso a esta operación en todos los ámbitos `AssignableScopes` del rol personalizado pueden actualizar roles personalizados en esos ámbitos. Por ejemplo, los [propietarios](built-in-roles.md#owner) y [administradores del acceso de los usuarios](built-in-roles.md#user-access-administrator) de las suscripciones, los grupos de recursos y los recursos. |
@@ -116,3 +116,4 @@ Al igual que los roles integrados, la propiedad `AssignableScopes` especifica lo
 - [Creación de roles personalizados con Azure PowerShell](custom-roles-powershell.md)
 - [Creación de roles personalizados con la CLI de Azure](custom-roles-cli.md)
 - [Descripción de definiciones de roles](role-definitions.md)
+- [Solución de problemas de RBAC en Azure](troubleshooting.md)
