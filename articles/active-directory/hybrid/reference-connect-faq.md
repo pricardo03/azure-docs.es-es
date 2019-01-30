@@ -4,7 +4,7 @@ description: En este artículo se responden a las preguntas más frecuentes sobr
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 4e47a087-ebcd-4b63-9574-0c31907a39a3
 ms.service: active-directory
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/02/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 50ec49c22c64780c8f887b12eef1dd0e75c379ed
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 11141da09b5a231b2fb77a434369dcf0f00532de
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010611"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463582"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Preguntas más frecuentes sobre Azure Active Directory Connect
 
@@ -30,7 +30,7 @@ A partir de las compilaciones de febrero de 2016, se admite este escenario.
 **P: ¿Existe alguna manera de instalar Azure AD Connect de manera desatendida?**  
 La instalación de Azure AD Connect se admite solo cuando se usa el Asistente para la instalación. No se admite la instalación silenciosa desatendida.
 
-**P: Tengo un bosque en el que no se puede contactar con un dominio. ¿Cómo se puede instalar Azure AD Connect?**  
+**P: Tengo un bosque en el que no se puede establecer comunicación con un dominio. ¿Cómo se puede instalar Azure AD Connect?**  
 A partir de las compilaciones de febrero de 2016, se admite este escenario.
 
 **P: ¿Funciona el agente de estado de Azure Active Directory Domain Services (Azure AD DS) en Server Core?**  
@@ -54,7 +54,7 @@ La manera más sencilla de hacerlo es usar SQL Server Management Studio instalad
 3. Instale Azure AD Connect en la instancia remota de [SQL Database](how-to-connect-install-existing-database.md) existente.
    En el artículo se muestra cómo migrar para usar una instancia local de SQL Database. Si realiza la migración para usar una instancia remota de SQL Database, en el paso 5 del proceso también debe especificar una cuenta de servicio existente para la ejecución del servicio de sincronización de Windows. Esta cuenta de servicio del motor de sincronización se describe aquí:
    
-      **Usar una cuenta de servicio existente**: de forma predeterminada, Azure AD Connect usa una cuenta de servicio virtual para que la usen los servicios de sincronización. Si usa una instancia remota de SQL Server o un proxy que requiera autenticación, debe usar una cuenta de servicio administrada o una cuenta de servicio en el dominio, y conocer la contraseña. En esos casos, especifique la cuenta que se va a usar. Asegúrese de que los usuarios que ejecuten la instalación sean administradores del sistema de SQL para que se pueden crear credenciales de inicio de sesión para la cuenta de servicio. Para más información, consulte [Azure AD Connect: cuentas y permisos](reference-connect-accounts-permissions.md#adsync-service-account). 
+      **Uso de una cuenta de servicio existente**: de forma predeterminada, Azure AD Connect usa una cuenta de servicio virtual para que la utilicen los servicios de sincronización. Si usa una instancia remota de SQL Server o un proxy que requiera autenticación, debe usar una cuenta de servicio administrada o una cuenta de servicio en el dominio, y conocer la contraseña. En esos casos, especifique la cuenta que se va a usar. Asegúrese de que los usuarios que ejecuten la instalación sean administradores del sistema de SQL para que se pueden crear credenciales de inicio de sesión para la cuenta de servicio. Para más información, consulte [Azure AD Connect: cuentas y permisos](reference-connect-accounts-permissions.md#adsync-service-account). 
    
       Con la versión más reciente, el administrador SQL puede realizar ahora el aprovisionamiento de la base de datos fuera de banda y luego el administrador de Azure AD Connect puede instalarlo con derechos de propietario de la base de datos. Para más información, consulte [Instalación de Azure AD Connect con permisos de administrador delegado de SQL](how-to-connect-install-sql-delegation.md).
 
@@ -80,15 +80,15 @@ No, Azure AD Connect no admite entornos puros de IPv6.
  No, no se admite el uso de Azure AD Connect sobre NAT. 
 
 ## <a name="federation"></a>Federación
-**P.: ¿Qué debo hacer si recibo un correo electrónico que me pide que renueve el certificado de Office 365?**  
+**P: ¿Qué debo hacer si recibo un correo electrónico que me pide que renueve el certificado de Office 365?**  
 Para obtener instrucciones acerca de cómo renovar el certificado, consulte el artículo sobre la [renovación de certificados](how-to-connect-fed-o365-certs.md).
 
-**P.: Tengo establecido "Actualizar automáticamente usuario confianza" para el usuario de confianza de Office 365. ¿Es necesario realizar alguna acción cuando se implemente automáticamente mi certificado de firma de tokens?**  
+**P: Tengo establecido "Actualizar automáticamente usuario confianza" para el usuario de confianza de Office 365. ¿Es necesario realizar alguna acción cuando se implemente automáticamente mi certificado de firma de tokens?**  
 Siga las instrucciones que se describen en el artículo sobre la [renovación de certificados](how-to-connect-fed-o365-certs.md).
 
 ## <a name="environment"></a>Entorno
 **P: ¿Se admite cambiar el nombre del servidor después de haber instalado Azure AD Connect?**  
-No. Cambiar el nombre de servidor provoca que el motor de sincronización no se pueda conectar a la instancia de SQL Database y no se pueda iniciar el servicio.
+ No. Cambiar el nombre de servidor provoca que el motor de sincronización no se pueda conectar a la instancia de SQL Database y no se pueda iniciar el servicio.
 
 ## <a name="identity-data"></a>Datos de identidad
 **P: ¿Por qué el atributo userPrincipalName (UPN) de Azure AD no coincide con el UPN local?**  
@@ -99,27 +99,27 @@ Para obtener más información, consulte estos artículos:
 
 También puede configurar Azure AD para permitir que el motor de sincronización actualice el UPN, como se describe en [Características del servicio de sincronización de Azure AD Connect](how-to-connect-syncservice-features.md).
 
-**P: ¿Se admiten las coincidencias parciales de objetos de contacto o grupos de Azure AD locales con objetos de contacto o grupos de Azure AD existentes?**  
+**P: ¿Se admiten coincidencias parciales de objetos de contacto o grupo de Azure AD locales con objetos de contacto o grupo de Azure AD existentes?**  
 Sí, esta coincidencia parcial se basa en la propiedad proxyAddress. No se admite la coincidencia parcial en grupos no habilitados para correo.
 
-**P: ¿Se admite configurar manualmente el atributo ImmutableId en objetos de contacto o grupos de Azure AD existentes para conseguir una coincidencia exacta con objetos de contacto o grupos de Azure AD locales?**  
+**P: ¿Se admite configurar manualmente el atributo ImmutableId en objetos de contacto o grupo de Azure AD existentes para conseguir una coincidencia exacta con objetos de contacto o grupo de Azure AD locales?**  
 No, establecer manualmente el atributo ImmutableId en un objeto de contacto o grupo de Azure AD existente para conseguir una coincidencia exacta no se admite actualmente.
 
 ## <a name="custom-configuration"></a>Configuración personalizada
 **P: ¿Dónde se documentan los cmdlets de PowerShell para Azure AD Connect?**  
 A excepción de los cmdlets documentados en este sitio, el resto de cmdlets de PowerShell que se encuentran en Azure AD Connect no se admiten para uso del cliente.
 
-**P: ¿Puedo usar la opción "Exportación/importación de servidor" que se encuentra en Synchronization Service Manager para mover la configuración entre servidores?**  
-No. Esta opción no recupera todas las opciones de configuración y no debe usarse. En su lugar, use el asistente para crear la configuración base en el segundo servidor y utilizar el editor de reglas de sincronización para generar scripts de PowerShell para mover cualquier regla personalizada entre servidores. Para más información, consulte [Migración oscilante](how-to-upgrade-previous-version.md#swing-migration).
+**P: ¿Puedo usar la opción "Server export/server import" (Exportación/importación de servidor) que se encuentra en Synchronization Service Manager para mover la configuración entre servidores?**  
+ No. Esta opción no recupera todas las opciones de configuración y no debe usarse. En su lugar, use el asistente para crear la configuración base en el segundo servidor y utilizar el editor de reglas de sincronización para generar scripts de PowerShell para mover cualquier regla personalizada entre servidores. Para más información, consulte [Migración oscilante](how-to-upgrade-previous-version.md#swing-migration).
 
-**P: ¿Se pueden almacenar en caché las contraseñas de la página de inicio de sesión de Azure y se puede impedir este almacenamiento en caché porque contenga un elemento de entrada de contraseña con el atributo de *autocomplete = "false"*?**  
+**P: ¿Se pueden almacenar en caché las contraseñas de la página de inicio de sesión de Azure y se puede impedir este almacenamiento en caché porque contenga un elemento de entrada de contraseña con el atributo *autocomplete = "false"*?**  
 Actualmente, no se admite la modificación de los atributos HTML del campo **Contraseña**, incluida la etiqueta de autocompletar. Estamos trabajando en una característica que permita JavaScript personalizado, que permita agregar cualquier atributo al campo **Contraseña**.
 
 **P: En la página de inicio de sesión de Azure, se muestran nombres de usuario de los usuarios que han iniciado sesión anteriormente de forma correcta. ¿Este comportamiento se puede desactivar?**  
 Actualmente no se admite la modificación de los atributos HTML del campo de entrada **Contraseña**, incluida la etiqueta de autocompletar. Estamos trabajando en una característica que permita JavaScript personalizado, que permita agregar cualquier atributo al campo **Contraseña**.
 
 **P: ¿Existe alguna manera de evitar las sesiones simultáneas?**  
-No.
+ No.
 
 ## <a name="auto-upgrade"></a>Actualización automática
 
@@ -155,21 +155,21 @@ Para comprobar qué versión de Azure AD Connect está instalada en el servidor,
 ![Versión de Azure AD Connect en el Panel de control](./media/reference-connect-faq/faq1.png)
 
 **P: ¿Cómo actualizo a la versión más reciente de Azure AD Connect?**  
-Para más información sobre cómo actualizar a la versión más reciente, consulte el artículo [Azure AD Connect: actualización de una versión anterior a la versión más reciente](how-to-upgrade-previous-version.md). 
+Para saber cómo actualizar a la versión más reciente, consulte [Azure AD Connect: actualización de una versión anterior a la versión más reciente](how-to-upgrade-previous-version.md) 
 
 **P: Ya actualizamos a la última versión de Azure AD Connect el año pasado. ¿Es necesario actualizarla de nuevo?**  
-El equipo de Azure AD Connect realiza actualizaciones frecuentes en el servicio. Para beneficiarse de las correcciones de errores y las actualizaciones de seguridad, así como de las nuevas características, es importante mantener al día el servidor con la versión más reciente. Si habilita la actualización automática, se actualiza automáticamente la versión del software. Para buscar el historial de versiones de Azure AD Connect, vea [Azure AD Connect: historial de versiones](reference-connect-version-history.md).
+El equipo de Azure AD Connect realiza actualizaciones frecuentes en el servicio. Para beneficiarse de las correcciones de errores y las actualizaciones de seguridad, así como de las nuevas características, es importante mantener al día el servidor con la versión más reciente. Si habilita la actualización automática, se actualiza automáticamente la versión del software. Para encontrar el historial de versiones de Azure AD Connect, consulte [Azure AD Connect: historial de versiones](reference-connect-version-history.md).
 
 **P: ¿Cuánto tarda en realizarse la actualización y en qué afecta a mis usuarios?**  
 El tiempo necesario para la actualización depende del tamaño de su inquilino. Para las organizaciones más grandes, podría ser mejor realizar la actualización por la noche o durante el fin de semana. Durante la actualización, no se realiza ninguna actividad de sincronización.
 
-**P: ¿Creo que actualicé a Azure AD Connect, pero en el portal de Office todavía se menciona DirSync. ¿Por qué ocurre esto?**  
+**P: Creo que actualicé a Azure AD Connect, pero en el portal de Office todavía se menciona DirSync. ¿Por qué ocurre esto?**  
 El equipo de Office está trabajando para que las actualizaciones del portal de Office reflejen el nombre actual del producto. No refleja la herramienta de sincronización que se usa.
 
 **P: Mi estado de la actualización automática indica "Suspendida". ¿Por qué está suspendida? ¿Debo habilitarla?**  
 Se introdujo un error en una versión anterior que, en determinadas circunstancias, deja el estado de la actualización automática establecido en "Suspendida". Técnicamente, es posible habilitarla manualmente, pero requiere realizar varios pasos complejos. Lo mejor que se puede hacer es instalar la versión más reciente de Azure AD Connect.
 
-**P: Mi empresa tiene requisitos de administración de cambios estrictos y me gustaría estar al tanto de los nuevos lanzamientos. ¿Puedo controlar cuándo se lanza la actualización automática?**  
+**P: Mi empresa tiene requisitos estrictos de administración de cambios y me gustaría estar al tanto de los nuevos lanzamientos. ¿Puedo controlar cuándo se lanza la actualización automática?**  
 No, no existe esta característica actualmente. La característica se está evaluando para futuras versiones.
 
 **P: ¿Recibiré un correo electrónico si la actualización automática presenta algún error? ¿Cómo puedo saber si la actualización se realizó correctamente?**  

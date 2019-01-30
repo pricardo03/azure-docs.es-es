@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: ee54c39e-ce20-42a4-8531-da7b5f40f57c
 ms.service: active-directory
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 48dcb4a3b1e06ab62905092055ba1b48bd0dddb7
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 33d39e617bd55b88d8f04785d937faf176463ee5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114503"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808823"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Tutorial: Integración de Azure Active Directory con Salesforce Sandbox
 
 En este tutorial, aprenderá a integrar Salesforce Sandbox con Azure Active Directory (Azure AD).
 
 Los espacios aislados ofrecen la capacidad de crear varias copias de su organización en entornos independientes para una variedad de propósitos, como desarrollo, pruebas y aprendizaje, sin poner en peligro los datos y las aplicaciones de la organización de producción de Salesforce.
-Para más información, consulte el [resumen sobre Sandbox](https://help.salesforce.com/articleView?id=create_test_instance.htm&language=en_us&type=5).
+Para más información, consulte la  [información general sobre Sandbox](https://help.salesforce.com/articleView?id=create_test_instance.htm&language=en_us&type=5).
 
 La integración de Salesforce Sandbox con Azure AD proporciona las siguientes ventajas:
 
@@ -121,7 +121,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 5. En la sección **Configuración de SAML básica**, realice los siguientes pasos si desea configurar la aplicación en el modo iniciado por **IDP**:
 
-    a. Haga clic en **Cargar el archivo de metadatos**.
+     a. Haga clic en **Cargar el archivo de metadatos**.
 
     ![Carga del archivo de metadatos](./media/salesforce-sandbox-tutorial/upload_metadata.png)
 
@@ -176,7 +176,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 16. Si quiere configurar la aplicación en el modo iniciado por **SP**, estos son los requisitos previos:
 
-    a. Debe tener un dominio comprobado.
+     a. Debe tener un dominio comprobado.
 
     b. Se necesita configurar y habilitar su dominio en Salesforce Sandbox. Los pasos para hacerlo se explican más adelante en este tutorial.
 
@@ -256,7 +256,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Creación de un usuario de prueba de Azure AD](./media/salesforce-sandbox-tutorial/create_aaduser_02.png)
 
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
+     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
     b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com

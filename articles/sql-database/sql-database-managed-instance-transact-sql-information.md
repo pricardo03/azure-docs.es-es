@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 489eccf1b73e7f5df76a3ce681b4479893a9e0ac
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 95a9f3d553bb3d8ca07ed90578861f6267058532
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843213"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463752"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferencias de T-SQL en Instancia administrada de Azure SQL Database
 
@@ -235,7 +235,7 @@ Actualmente no se admite MSDTC ni las [Transacciones elásticas](https://docs.mi
 No se admiten algunos destinos específicos de Windows para XEvents:
 
 - No se admite `etw_classic_sync target`. Guarde los archivos `.xel` en Azure Blob Storage. Consulte [Destino etw_classic_sync](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etwclassicsynctarget-target).
-- No se admite `event_file target`. Guarde los archivos `.xel` en Azure Blob Storage. Consulte [Destino event_file](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#eventfile-target).
+- No se admite `event_file target`. Guarde los archivos `.xel` en Azure Blob Storage. Consulte [Destino event_file](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target).
 
 ### <a name="external-libraries"></a>Bibliotecas externas
 
@@ -503,6 +503,12 @@ Aunque este código funciona con datos en la misma instancia, requería el coord
 Los módulos de CLR colocados en Instancia administrada y las consultas distribuidas o servidores vinculados que hacen referencia a la instancia actual en algún momento no pueden resolver la dirección IP de la instancia local. Este error es un problema transitorio.
 
 **Solución alternativa**: use conexiones de contexto en el módulo de CLR, si es posible.
+
+### <a name="tde-encrypted-databases-dont-support-user-initiated-backups"></a>Las bases de datos cifrado TDE no son compatibles con las copias de seguridad iniciadas por el usuario
+
+No se puede ejecutar `BACKUP DATABASE ... WITH COPY_ONLY` en una base de datos cifrada con Cifrado de datos transparente (TDE). TDE fuerza el cifrado de las copias de seguridad con claves TDE internas y la clave no se puede exportar, por lo que no podrá restaurar la copia de seguridad.
+
+**Solución alternativa**: Use copias de seguridad automáticas y restauración a un momento dado o deshabilite el cifrado en la base de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

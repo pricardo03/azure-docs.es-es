@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con Intacct | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con Intacct | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory e Intacct.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 92518e02-a62c-4b1b-a8e9-2803eb2b49ac
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: d834ca75085878350e257cc1c50e60fc1bf28484
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d7075894bde20f56c9323568ceffe8cad4118cbc
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447346"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810098"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-intacct"></a>Tutorial: integración de Azure Active Directory con Intacct
+# <a name="tutorial-azure-active-directory-integration-with-intacct"></a>Tutorial: Integración de Azure Active Directory con Intacct
 
 En este tutorial, obtendrá información sobre cómo integrar Intacct con Azure Active Directory (Azure AD).
 
@@ -147,7 +147,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Inicio de sesión único](./media/intacct-tutorial/ic790039.png "inicio de sesión único")
 
-    a. Seleccione **Habilitar inicio de sesión único**.
+     a. Seleccione **Habilitar inicio de sesión único**.
 
     b. En **Tipo de proveedor de identidades**, seleccione **SAML 2.0**.
 
@@ -160,7 +160,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     f. Haga clic en **Save**(Guardar).
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -186,7 +186,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/intacct-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -212,7 +212,7 @@ Para configurar los usuarios de Azure AD para que puedan iniciar sesión en Inta
 
     ![Información del usuario](./media/intacct-tutorial/ic790043.png "Información del usuario")
 
-    a. Escriba el **Id. de usuario**, **Apellidos**, **Nombre**, **Dirección de correo electrónico**, **Puesto** y **Teléfono** de una cuenta de Azure AD que quiera aprovisionar en la sección **Información del usuario**.
+     a. Escriba el **Id. de usuario**, **Apellidos**, **Nombre**, **Dirección de correo electrónico**, **Puesto** y **Teléfono** de una cuenta de Azure AD que quiera aprovisionar en la sección **Información del usuario**.
 
     b. Seleccione **Privilegios administrativos** de una cuenta de Azure AD que quiera aprovisionar.
    

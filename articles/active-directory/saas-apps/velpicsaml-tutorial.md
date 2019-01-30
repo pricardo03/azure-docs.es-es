@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 2a8fe814801d00b3f27e52484d742cbe6c7b0770
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: eb59c61f89b3b23ce8b0a393ee1e0e842826e90b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114013"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811798"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>Tutorial: Integración de Azure Active Directory con Velpic SAML
 
@@ -112,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
     ![Configurar inicio de sesión único](./media/velpicsaml-tutorial/tutorial_velpicsaml_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba el valor como: `https://<sub-domain>.velpicsaml.net`
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba el valor como: `https://<sub-domain>.velpicsaml.net`
 
     b. En el cuadro de texto **Identificador**, pegue el valor de **"Single sign on URL"** (URL de inicio de sesión único), `https://auth.velpic.com/saml/v2/<entity-id>/login`
     
@@ -151,7 +151,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
     ![Complemento](./media/velpicsaml-tutorial/velpic_5.png)
 
-    a. En el cuadro de texto **Name** (Nombre), escriba el nombre del complemento SAML.
+     a. En el cuadro de texto **Name** (Nombre), escriba el nombre del complemento SAML.
 
     b. En el cuadro de texto **Issuer URL** (URL del emisor), pegue el **Id. de entidad de SAML** que copió de la ventana **Configurar inicio de sesión** de Azure Portal.
 
@@ -186,7 +186,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de admin
  
     ![Creación de un usuario de prueba de Azure AD](./media/velpicsaml-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -208,7 +208,7 @@ Inicie sesión como administrador en su sitio de la compañía de Velpic SAML y 
 
     ![user](./media/velpicsaml-tutorial/velpic_8.png)
     
-    a. En el cuadro de texto **First Name** (Nombre), escriba el nombre de Britta Simon.
+     a. En el cuadro de texto **First Name** (Nombre), escriba el nombre de Britta Simon.
 
     b. En el cuadro de texto **Last Name** (Apellido), escriba el apellido de Britta Simon.
 

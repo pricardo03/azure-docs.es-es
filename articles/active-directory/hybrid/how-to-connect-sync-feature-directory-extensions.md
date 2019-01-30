@@ -4,7 +4,7 @@ description: En este tema se describe la característica de extensiones de direc
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 10/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b6c5f55a575605eef3a280de4f973d9b2d0a4ace
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: e96a7d88a2e30bbedd6c57f9a72dd92f63586dd1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288312"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476910"
 ---
-# <a name="azure-ad-connect-sync-directory-extensions"></a>Sincronización de Azure AD Connect: Extensiones de directorio
+# <a name="azure-ad-connect-sync-directory-extensions"></a>Sincronización de Azure AD Connect: Sincronización de Azure AD Connect: Extensiones de directorio
 Puede usar extensiones de directorio para ampliar el esquema de Azure Active Directory (Azure AD) con sus propios atributos desde Active Directory local. Esta característica le permite compilar aplicaciones de LOB mediante el consumo de atributos que sigue administrando de forma local. Estos atributos se pueden consumir mediante [extensiones de directorio de API de Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) o [Microsoft Graph](https://developer.microsoft.com/graph/). Puede ver los atributos disponibles mediante el [Explorador de Azure AD Graph](https://graphexplorer.azurewebsites.net/) y el [Probador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer), respectivamente.
 
 En la actualidad, ninguna carga de trabajo de Office 365 consume estos atributos.
@@ -34,11 +34,11 @@ Configure qué atributos adicionales desea sincronizar en la ruta de acceso de c
 
 ![Asistente para la extensión de esquema](./media/how-to-connect-sync-feature-directory-extensions/extension2.png)  
 
-La instalación muestra los atributos siguientes, que son candidatos válidos:
+ La instalación muestra los atributos siguientes, que son candidatos válidos:
 
 * Tipos de objetos de usuario y de grupo
-* Atributos de valor único: cadena, booleano, entero y binario
-* Atributos multivalor: cadena y binario
+* Atributos de valor único: cadena, booleano, entero, binario
+* Atributos con varios valores: cadena, binario
 
 
 >[!NOTE]
@@ -63,7 +63,7 @@ O bien puede consultar los atributos a través de Microsoft Graph API, mediante 
 >[!NOTE]
 > Debe pedir que se devuelvan los atributos. Seleccione los atributos de forma explícita del modo siguiente: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division. 
 >
-> Para obtener más información, consulte [Microsoft Graph: Usar parámetros de consulta](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
+> Para más información, consulte [Microsoft Graph: Usar parámetros de consulta](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](how-to-connect-sync-whatis.md) .

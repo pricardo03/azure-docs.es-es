@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 0f59fedb-2cf8-48d2-a5fb-222ed943ff78
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 3d2dafd409c6c7b2be06a6f18c3d392aff681efe
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 1368bccfd71013f4f3c84148be1e74ffc98e3a51
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345784"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815691"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Tutorial: Configuración de GoToMeeting para el aprovisionamiento automático de usuarios
 
@@ -68,7 +68,7 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
 1. En la sección Credenciales de administración, realice los pasos siguientes:
    
-    a. En el cuadro de texto **Nombre de usuario de administrador de GoToMeeting**, escriba el nombre de usuario de un administrador.
+     a. En el cuadro de texto **Nombre de usuario de administrador de GoToMeeting**, escriba el nombre de usuario de un administrador.
 
     b. En el cuadro de texto **Contraseña de administrador de GoToMeeting**, escriba la contraseña del administrador.
 

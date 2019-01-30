@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 684a405b-8932-46f6-b43a-4d97a42b6b87
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: jeedes
-ms.openlocfilehash: f69955cb3e5419659e358e738c28f214fb7015b7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f8a30ba7eee7653e4a098df706450c6a4328cce9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429155"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819074"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>Tutorial: Integración de Azure Active Directory con UserVoice
 
@@ -110,7 +110,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de UserVoice](./media/uservoice-tutorial/tutorial_uservoice_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<tenantname>.UserVoice.com`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<tenantname>.UserVoice.com`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<tenantname>.UserVoice.com`
 
@@ -143,18 +143,18 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    
     ![Editar autenticación de usuario](./media/uservoice-tutorial/ic777521.png "Editar autenticación de usuario")
    
-    a. Haga clic en **Inicio de sesión único (SSO)**.
+     a. Haga clic en **Inicio de sesión único (SSO)**.
  
     b. Pegue el valor de **SAML Single Sign-On Service URL** (Dirección URL del servicio de inicio de sesión único de SAML) que copió de Azure Portal en el cuadro de texto **SSO Remote Sign-In** (Inicio de sesión remoto de SSO).
 
     c. Pegue el valor de **Sign-Out URL** (Dirección URL de cierre de sesión) que copió de Azure Portal en el cuadro de texto **SSO Remote Sign-Out** (Cierre de sesión remoto de SSO).
  
-    d. En el cuadro de texto **Current certificate SHA1 fingerprint** (Huella digital de SHA1 del certificado actual), pegue el valor de **Huella digital** que ha copiado de Azure Portal.
+    d. En el cuadro de texto  **Current certificate SHA1 fingerprint**  (Huella digital de SHA1 del certificado actual), pegue el valor de **Huella digital**  que ha copiado de Azure Portal.
     
     e. Haga clic en **Guardar configuración de autenticación**.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -181,7 +181,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/uservoice-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -214,7 +214,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en UserVoice, deben a
    
     ![Invitar a administradores](./media/uservoice-tutorial/ic777814.png "Invitar a administradores")
    
-    a. En el cuadro de texto de correos electrónicos, escriba la dirección de correo electrónico de la cuenta que quiere aprovisionar y luego haga clic en **Agregar**.
+     a. En el cuadro de texto de correos electrónicos, escriba la dirección de correo electrónico de la cuenta que quiere aprovisionar y luego haga clic en **Agregar**.
    
     b. Haga clic en **Invitar**.
 

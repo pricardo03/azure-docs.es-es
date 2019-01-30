@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: B42374E5-2559-4309-8EF2-820BEE7EBB0C
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: jeedes
-ms.openlocfilehash: ff4d634fb7f6f8057e5f370a694e46ca5e0d772d
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 67cc50f3b6812abc566620396369b195d106f2be
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114080"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815181"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Tutorial: Integración de Azure Active Directory con T&E Express
 
@@ -90,7 +90,9 @@ Para configurar y probar el inicio de sesión único de Azure AD con T&E Express
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
 1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **[Creación de un usuario de prueba de T&amp;E Express](#creating-a-te-express-test-user)**: para tener un homólogo de Britta Simon en T&amp;E Express que esté vinculado a la representación de ella en Azure AD.
+1. 
+  **
+  [Creación de un usuario de prueba de T&E Express](#creating-a-te-express-test-user)**: para tener un homólogo de Britta Simon en T&amp;amp;E Express que esté vinculado a la representación de ella en Azure AD.
 1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
@@ -112,7 +114,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
     ![Configurar inicio de sesión único](./media/tyeexpress-tutorial/tutorial_tyeexpress_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba el valor como `https://<domain>.tyeexpress.com`.
+     a. En el cuadro de texto **Identificador**, escriba el valor como `https://<domain>.tyeexpress.com`.
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<domain>.tyeexpress.com/authorize/samlConsume.aspx`.
 
@@ -163,7 +165,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de admin
  
     ![Creación de un usuario de prueba de Azure AD](./media/tyeexpress-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 

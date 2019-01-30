@@ -4,7 +4,7 @@ description: Obtenga información sobre cómo configurar el inicio de sesión ú
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: e238b574-9e9b-43b7-ab98-d2a87ff89d48
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 33732a2d08900d41653b5e6a494cf1633d4be055
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: b4cf9e8b907bfa2d7ff47b40c4fca8927a9e9335
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823865"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815840"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bamboo"></a>Tutorial: Integración de Azure Active Directory con Kantega SSO para Bamboo
 
@@ -218,7 +218,7 @@ En esta sección habilitará el inicio de sesión único de Azure AD en Azure Po
     c. Haga clic en **Save**(Guardar).
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".

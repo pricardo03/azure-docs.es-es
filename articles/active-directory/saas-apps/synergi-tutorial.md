@@ -4,7 +4,7 @@ description: Aprenda cómo configurar el inicio de sesión único entre Azure Ac
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 73c970e1-f1ba-420b-b225-414fdf93b140
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 91b831be10f71b8f7e5f4226a697ed92eadfd68c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 30d678d50408fb41e844ff474c464c4c467fed5e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446280"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818751"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-synergi"></a>Tutorial: integración de Azure Active Directory con Synergi
+# <a name="tutorial-azure-active-directory-integration-with-synergi"></a>Tutorial: Integración de Azure Active Directory con Synergi
 
 En este tutorial, aprenderá cómo integrar Synergi con Azure Active Directory (Azure AD).
 
@@ -110,7 +110,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Synergi](./media/synergi-tutorial/tutorial_synergi_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<company name>.irmsecurity.com`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<company name>.irmsecurity.com`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<company name>.irmsecurity.com/sso/<organization id>`.
 
@@ -132,7 +132,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 1. Para configurar el inicio de sesión único en **Synergi**, debe enviar el **certificado (Base64) descargado y la dirección URL de cierre de sesión y el identificador de entidad de SAML** al [equipo de soporte técnico de Synergi](https://www.irmsecurity.com/contact/).
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -158,7 +158,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/synergi-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -168,7 +168,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
   
 ### <a name="create-a-synergi-test-user"></a>Creación de un usuario de prueba de Synergi
 
-En esta sección, creará un usuario llamado Britta Simon en Synergi. Trabaje con el [equipo de soporte técnico de Synergi](https://www.irmsecurity.com/contact/) para agregar los usuarios a la plataforma Synergi. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en Synergi. Trabaje con el  [equipo de soporte técnico de Synergi](https://www.irmsecurity.com/contact/)  para agregar los usuarios a la plataforma Synergi. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -205,7 +205,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Synergi del panel de acceso, debería iniciar sesión automáticamente en su aplicación Synergi.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

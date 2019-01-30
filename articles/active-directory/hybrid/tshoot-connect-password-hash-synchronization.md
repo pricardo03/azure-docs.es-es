@@ -4,7 +4,7 @@ description: En este artículo se ofrece información sobre cómo solucionar pro
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 036933c6b6e86856871c5f59f08fea20a0343ad7
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 23787c777f20025d9310fac2efe0f429d66c4586
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310024"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470450"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Solución de problemas de sincronización de hash de contraseñas con la sincronización de Azure AD Connect
 En este tema se proporcionan los pasos para solucionar problemas relacionados con la sincronización de hash de contraseñas. Si las contraseñas no se sincronizan como se esperaba, puede ser para un subconjunto de usuarios o para todos los usuarios.
@@ -233,7 +233,7 @@ Siga estos pasos para determinar por qué no se sincronizan las contraseñas:
 3. Si la característica no está habilitada en Azure AD o si el estado del canal de sincronización no está habilitado, ejecute el Asistente para instalación de Connect. Seleccione **Personalizar las opciones de sincronización** y anule la selección de sincronización de contraseñas. Este cambio deshabilita temporalmente la característica. Después, vuelva a ejecutar al asistente y habilite de nuevo la sincronización de contraseñas. Vuelva a ejecutar el script para comprobar que la configuración es correcta.
 
 4. Busque errores en el registro de eventos. Busque los siguientes eventos, que podrían indicar un problema:
-    * Origen: "Sincronización de directorios" ID: 0, 611, 652, 655. Si ve estos eventos, significa que hay un problema de conectividad. El mensaje de registro de eventos contiene información de bosques en los que hay un problema. Para más información, vea [Problemas de conectividad](#connectivity problem).
+    * Origen: Identificador de "sincronización de directorios": 0, 611, 652, 655. Si ve estos eventos, tiene un problema de conectividad. El mensaje de registro de eventos contiene información de bosques en los que hay un problema. Para más información, vea [Problemas de conectividad](#connectivity problem).
 
 5. Si no ve ningún latido o si nada funciona, ejecute [Desencadenamiento de una sincronización completa de todas las contraseñas](#trigger-a-full-sync-of-all-passwords). Ejecute el script una sola vez.
 
@@ -285,7 +285,7 @@ Puede solucionar fácilmente los problemas relacionados con la sincronización d
 
 2. Si la contraseña parece correcta en Active Directory, siga al usuario en el motor de sincronización. Al seguir al usuario desde Active Directory local hasta Azure AD, puede ver si hay un error descriptivo en el objeto.
 
-    a. Inicie el [Synchronization Service Manager](how-to-connect-sync-service-manager-ui.md).
+     a. Inicie el [Synchronization Service Manager](how-to-connect-sync-service-manager-ui.md).
 
     b. Haga clic en **Conectores**.
 

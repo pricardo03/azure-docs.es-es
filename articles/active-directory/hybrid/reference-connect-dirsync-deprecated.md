@@ -4,7 +4,7 @@ description: Describe cómo actualizar desde DirSync y Azure AD Sync a Azure AD 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: bd68fb88-110b-4d76-978a-233e15590803
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f4bf3e68c64281cb875c063597ab01eb53bbf78
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 60994ee928709206c6b55b7b0b687341f3219b5d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310304"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472082"
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Actualización de la sincronización de Microsoft Azure Active Directory ("DirSync") y la sincronización de Azure Active Directory ("Azure AD Sync")
 Azure AD Connect es la mejor manera de conectar su directorio local con Azure AD y Office 365. Es una ocasión ideal para actualizar a Azure AD Connect desde la sincronización de Microsoft Azure Active Directory (DirSync) o desde la sincronización de Azure AD, ya que estas herramientas ahora están en desuso y ya no ofrecen soporte técnico desde el 13 de abril de 2017.
@@ -41,7 +41,7 @@ Azure AD Connect es el sucesor de DirSync y Azure AD Sync. Combina todos los esc
 |31 de diciembre de 2017|Azure AD dejará de aceptar comunicaciones procedentes de la sincronización de Windows Azure Active Directory ("DirSync") y de la sincronización de Microsoft Azure Active Directory ("Azure AD Sync").
 
 ## <a name="how-to-transition-to-azure-ad-connect"></a>Cómo realizar una transición a Azure AD Connect
-Si usa DirSync, hay dos formas de actualizar: mediante una actualización local y mediante una implementación paralela. Recomendamos la actualización local a la mayoría de los clientes, en caso de que tengan un sistema operativo reciente y menos de 50 000 objetos. En otros casos se recomienda realizar una implementación paralela, cuando la configuración de DirSync se mueve a un servidor nuevo que ejecuta Azure AD Connect.
+Si ejecuta DirSync, hay dos formas de realizar la actualización: actualización local e implementación paralela. Recomendamos la actualización local a la mayoría de los clientes, en caso de que tengan un sistema operativo reciente y menos de 50 000 objetos. En otros casos se recomienda realizar una implementación paralela, cuando la configuración de DirSync se mueve a un servidor nuevo que ejecuta Azure AD Connect.
 
 | Solución | Escenario |
 | --- | --- |
@@ -62,9 +62,9 @@ La notificación también se ha enviado a los usuarios de Azure AD Connect con u
 DirSync/Azure AD Sync continuarán funcionando el 13 de abril de 2017.  Sin embargo, Azure AD ya no aceptará las comunicaciones procedentes de DirSync ni Azure AD Sync a partir del 31 de diciembre de 2017.
 
 **P: ¿Desde qué versiones de DirSync se puede actualizar?**  
-Se admite la actualización desde cualquier versión de DirSync que se use en la actualidad. 
+ Se admite la actualización desde cualquier versión de DirSync que se use en la actualidad. 
 
-**P: ¿Qué sucede con el conector de Azure AD para FIM o MIM?**  
+**P: ¿Qué sucede con Azure AD Connector para FIM o MIM?**  
 **No** se ha anunciado que el conector de Azure AD para FIM o MIM esté en desuso. Se trata de una **inmovilización de características**; es decir, no se le agregan funcionalidades nuevas y no recibe correcciones de errores. Microsoft recomienda a los clientes que lo usan que planeen pasarse a Azure AD Connect. Se recomienda encarecidamente que no lo usen para iniciar nuevas implementaciones. En el futuro se anunciará que este conector está en desuso.
 
 ## <a name="additional-resources"></a>Recursos adicionales

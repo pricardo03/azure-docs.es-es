@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 4069fe32-a452-463f-973e-7aa0baa4c2fa
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 0a838e003fa4fde6c4a1d458cc6dadf6c6672842
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ee0e91cfc106cd065c233e3bba09ca2ceba04bb1
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426877"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815759"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefithub"></a>Tutorial: Integración de Azure Active Directory con BenefitHub
 
@@ -112,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/benefithub-tutorial/tutorial_benefithub_url1.png)
   
-    a. En el cuadro de texto **Identificador**, escriba: `urn:benefithub:passport`
+     a. En el cuadro de texto **Identificador**, escriba: `urn:benefithub:passport`
     
     b. En el cuadro de texto **URL de respuesta**, escriba: `https://passport.benefithub.info/saml/post/ac`
 
@@ -129,7 +129,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE]
     > Este valor de atributo no es real. Actualícelo con el identificador de organización real. Póngase en contacto con el [equipo de soporte técnico de BenefitHub](https://www.benefithub.com/Home/ContactUs) para obtener el identificador real.
     
-    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
 
     ![Configurar inicio de sesión único](./media/benefithub-tutorial/tutorial_attribute_04.png)
 
@@ -155,7 +155,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 1. Para configurar el inicio de sesión único en el lado de **BenefitHub**, es preciso enviar los datos descargados de **XML de metadatos** al [equipo de soporte técnico de BenefitHub](https://www.benefithub.com/Home/ContactUs). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
@@ -180,7 +180,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/benefithub-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -190,7 +190,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="creating-a-benefithub-test-user"></a>Creación de un usuario de prueba de BenefitHub
 
-En esta sección, creará un usuario llamado Britta Simon en BenefitHub. Trabaje con el [equipo de soporte técnico de BenefitHub](https://www.benefithub.com/Home/ContactUs) para agregar usuarios a la plataforma de BenefitHub. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
+En esta sección, creará un usuario llamado Britta Simon en BenefitHub. Trabaje con el  [equipo de soporte técnico de BenefitHub](https://www.benefithub.com/Home/ContactUs)  para agregar usuarios a la plataforma de BenefitHub. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -227,7 +227,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de BenefitHub en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación BenefitHub.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

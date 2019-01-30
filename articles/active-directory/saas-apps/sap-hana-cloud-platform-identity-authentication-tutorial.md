@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 1c1320d1-7ba4-4b5f-926f-4996b44d9b5e
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 266c9523f45294899e3cddbe782cbc54846eb119
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ecd9df8efdcd6d7fd7da26ff5cf569ef7e63573f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422314"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822066"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform-identity-authentication"></a>Tutorial: Integración de Azure Active Directory con SAP Cloud Platform Identity Authentication
 
@@ -132,7 +132,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de SAP Cloud Platform Identity Authentication](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_url.png)
 
-    a. En el cuadro **Identificador**, escriba una dirección URL con el siguiente patrón: `<IAS-tenant-id>.accounts.ondemand.com`
+     a. En el cuadro **Identificador**, escriba una dirección URL con el siguiente patrón: `<IAS-tenant-id>.accounts.ondemand.com`
 
     b. En el cuadro **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<IAS-tenant-id>.accounts.ondemand.com/saml2/idp/acs/<IAS-tenant-id>.accounts.ondemand.com`
 
@@ -158,7 +158,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 1. Si la aplicación de SAP espera un atributo, por ejemplo, **firstName**, agregue el atributo **firstName** de la sección **Atributos de usuario**. Esta opción está disponible en el cuadro de diálogo **Inicio de sesión único** del cuadro de diálogo **Atributos de token SAML**.
 
-    a. Seleccione **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**. 
+     a. Seleccione **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**. 
     
     ![Configurar inicio de sesión único](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_attribute_04.png)
     
@@ -221,7 +221,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/sap-hana-cloud-platform-identity-authentication-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 

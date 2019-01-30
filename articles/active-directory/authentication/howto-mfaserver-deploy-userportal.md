@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 1bd9dd82fb72c3d6b0759139680647be764f273a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 0c78974eb9775506f2ccbc6158eb03aa0c73be49
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161560"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431544"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portal de usuarios para el Servidor Azure Multi-Factor Authentication
 
@@ -132,13 +132,13 @@ Servidor Azure Multi-Factor Authentication ofrece varias opciones para el portal
 | Permitir que los usuarios inicien sesión | Permite a los usuarios especificar un nombre de usuario y una contraseña en la página de inicio de sesión del Portal de usuarios. Si no está seleccionada esta opción, las casillas se atenuarán. |
 | Permitir inscripción de usuario | Permite al usuario inscribirse en Multi-Factor Authentication al llevarlo a una pantalla de configuración en la que se solicita información adicional, como el número de teléfono. Solicitar teléfono de reserva permite a los usuarios especificar un número de teléfono secundario. Solicita un token OATH de terceros permite a los usuarios especificar un token OATH de terceros. |
 | Permitir a los usuarios iniciar Omisión por única vez | Permite a los usuarios iniciar Omisión por única vez. Si un usuario configura esta opción, entrará en vigor la próxima vez que el usuario inicie sesión. Solicitar segundos de omisión proporciona al usuario un cuadro para que puedan cambiar el valor predeterminado de 300 segundos. De lo contrario, la omisión por única vez solo funciona durante 300 segundos. |
-| Permitir a los usuarios seleccionar el método  | Permite a los usuarios especificar su método de contacto principal. Este método puede consistir en una llamada de teléfono, un mensaje de texto, una aplicación móvil o un token OATH. |
+|  Permitir a los usuarios seleccionar el método  | Permite a los usuarios especificar su método de contacto principal. Este método puede consistir en una llamada de teléfono, un mensaje de texto, una aplicación móvil o un token OATH. |
 | Permitir a los usuarios seleccionar el idioma | Permite a los usuarios cambiar el idioma que se usa para la llamada de teléfono, el mensaje de texto, la aplicación móvil o el token OATH. |
 | Permitir a los usuarios activar la aplicación móvil | Permite a los usuarios generar un código de activación para completar el proceso de activación de la aplicación móvil que se usa con el servidor.  También puede establecer el número de dispositivos en los que se puede activar la aplicación, entre 1 y 10. |
 | Usar preguntas de seguridad para la reserva | Permite preguntas de seguridad en caso de que la verificación en dos pasos genere un error. Puede especificar el número de preguntas de seguridad que se deben responder correctamente. |
 | Permitir a los usuarios asociar el token OATH de terceros | Permite a los usuarios especificar un token OATH de terceros. |
 | Usar token OATH para la reserva | Permite el uso de un token OATH en caso de que la verificación en dos pasos no sea correcta. También puede especificar el tiempo de espera de la sesión en minutos. |
-| Habilitación del registro | Habilita el registro en el Portal de usuarios. Los archivos de registro se encuentra en C:\Archivos de programa\Multi-Factor Authentication Server\Logs. |
+| Habilitación del registro | Habilita el registro en el Portal de usuarios. Los archivos de registro se encuentran en: C:\Archivos de programa\Multi-Factor Authentication Server\Logs. |
 
 La mayoría de estas configuraciones son visibles para el usuario del portal una vez que están habilitados y hayan iniciado sesión en el Portal de usuarios.
 

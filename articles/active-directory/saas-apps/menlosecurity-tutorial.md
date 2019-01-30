@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 9e63fe6b-0ad0-405d-9e41-6a1a40a41df8
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: jeedes
-ms.openlocfilehash: a1f7458d52ffdee4cb48e4be0f553e3d57413249
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 70b6693afe1a57e8acd62500d74f860dffc7c692
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428852"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808704"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-menlo-security"></a>Tutorial: Integración de Azure Active Directory con Menlo Security
 
@@ -112,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/menlosecurity-tutorial/tutorial_menlosecurity_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.menlosecurity.com/account/login`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.menlosecurity.com/account/login`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.menlosecurity.com/safeview-auth-server/saml/metadata`
 
@@ -137,22 +137,22 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     ![Configurar inicio de sesión único](./media/menlosecurity-tutorial/menlo_user_setup.png)
 
-    a. Active la casilla **Enable user authentication using SAML** (Habilitar la autenticación de usuario mediante SAML).
+     a. Active la casilla **Enable user authentication using SAML** (Habilitar la autenticación de usuario mediante SAML).
 
     b. Seleccione **Allow External Access** (Permitir acceso externo) en **Yes** (Sí).
 
     c. En **SAML Provider** (Proveedor de SAML), seleccione **Azure Active Directory**.
 
-    d. **SAML 2.0 Endpoint** (Punto de conexión de SAML 2.0): copie la **Dirección URL del servicio de inicio de sesión único de SAML** que ha copiado de Azure Portal.
+    d. **SAML 2.0 Endpoint** (Punto de conexión de SAML 2.0): pegue la **Dirección URL del servicio de inicio de sesión único de SAML** que copió de Azure Portal.
 
-    e. **Service Identifier (Issuer)** (Identificador del servicio [emisor]): copie el **Identificador de entidad en SAML** que ha copiado de Azure Portal.
+    e. **Service Identifier (Issuer)** (Identificador del servicio [emisor]): pegue el **Identificador de entidad de SAML** que copió de Azure Portal.
 
     f. **X.509 Certificate** (Certificado X.509): abra el **Certificado (Base64)** descargado de Azure Portal en el Bloc de notas y péguelo en este cuadro.
 
     g. Haga clic en **Guardar** para guardar la configuración.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
  
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -178,7 +178,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/menlosecurity-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -188,7 +188,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="creating-a-menlo-security-test-user"></a>Creación de un usuario de prueba de Menlo Security
  
-En esta sección, creará un usuario llamado Britta Simon en Menlo Security. Colabore con el [equipo de soporte de cliente de Menlo Security](https://www.menlosecurity.com/menlo-contact) para agregar los usuarios a la plataforma de Menlo Security. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
+En esta sección, creará un usuario llamado Britta Simon en Menlo Security. Colabore con el  [equipo de soporte al cliente de Menlo Security](https://www.menlosecurity.com/menlo-contact) para agregar los usuarios a la plataforma de Menlo Security. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 

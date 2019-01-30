@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Pagerduty | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con PagerDuty | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y PagerDuty.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 0410456a-76f7-42a7-9bb5-f767de75a0e0
 ms.service: active-directory
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 0e571880d9893c0027c200c6f49dc704fea09ead
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 703bc11ec7b0de0e8b0cfe3b99b7516afe8cac0b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443705"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810030"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>Tutorial: Integración de Azure Active Directory con Pagerduty
+# <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>Tutorial: Integración de Azure Active Directory con PagerDuty
 
 En este tutorial, aprenderá a integrar PagerDuty con Azure Active Directory (Azure AD).
 
@@ -109,7 +109,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de PagerDuty](./media/pagerduty-tutorial/tutorial_pagerduty_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<tenant-name>.pagerduty.com`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<tenant-name>.pagerduty.com`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<tenant-name>.pagerduty.com`
 
@@ -142,7 +142,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Habilitar inicio de sesión único](./media/pagerduty-tutorial/ic778537.png "Habilitar inicio de sesión único")
 
-    a. Abra el certificado codificado en Base 64 que descargó de Azure Portal en el Bloc de notas, copie el contenido en el Portapapeles y, luego, péguelo en el cuadro de texto **X.509 Certificate** (Certificado X.509)
+     a. Abra el certificado codificado en Base 64 que descargó de Azure Portal en el Bloc de notas, copie el contenido en el Portapapeles y, luego, péguelo en el cuadro de texto **X.509 Certificate** (Certificado X.509)
   
     b. En el cuadro de texto **Login URL** (Dirección URL de inicio de sesión), pegue la **dirección URL del servicio de inicio de sesión único de SAML** que copió desde Azure Portal.
   
@@ -178,7 +178,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Cuadro de diálogo Usuario](./media/pagerduty-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -208,7 +208,7 @@ En el caso de PagerDuty, el aprovisionamiento es una tarea manual.
    
     ![Invite your team (Invitar a su equipo)](./media/pagerduty-tutorial/ic778540.png "Invite your team (Invitar a su equipo)")
 
-    a. En el cuadro de texto **First and Last Name** (Nombre y apellidos), escriba el nombre de un usuario, por ejemplo, **Britta Simon**. 
+     a. En el cuadro de texto **First and Last Name** (Nombre y apellidos), escriba el nombre de un usuario, por ejemplo, **Britta Simon**. 
    
     b. Escriba el **Email** (correo electrónico) del usuario, por ejemplo **brittasimon@contoso.com**.
    

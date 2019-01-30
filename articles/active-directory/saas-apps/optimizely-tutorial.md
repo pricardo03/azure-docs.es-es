@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con Optimizely | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con Optimizely | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Optimizely.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 28ef03e1-9aad-4301-af97-d94e853edc74
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2018
 ms.author: jeedes
-ms.openlocfilehash: be56218e174e5d8b0e6bde394f2dfd40fc91e87d
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 72e0f19a665b1e8cc91939ae24cc71341b5f1674
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42143265"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819023"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Tutorial: integración de Azure Active Directory con Optimizely
+# <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Tutorial: Integración de Azure Active Directory con Optimizely
 
 En este tutorial, obtendrá información sobre cómo integrar Optimizely con Azure Active Directory (Azure AD).
 
@@ -116,7 +116,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/optimizely-tutorial/tutorial_optimizely_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://app.optimizely.net/<instance name>`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://app.optimizely.net/<instance name>`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `urn:auth0:optimizely:contoso`
 
@@ -133,7 +133,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | ---------------| --------------- |
     | email | user.mail |
 
-    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
 
     ![Configurar inicio de sesión único](./media/optimizely-tutorial/tutorial_attribute_04.png)
 
@@ -161,7 +161,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 10. En respuesta a su correo electrónico, Optimizely proporciona la URL de inicio de sesión (SSO iniciado por el proveedor de servicios) y los valores de Identificador (Id. de entidad del proveedor de servicios).
 
-    a. Copie la **URL de inicio de sesión único iniciado por SP** que proporciona Optimizely y péguela en el cuadro de texto **URL de inicio de sesión** en la sección **Dominio y direcciones URL de Optimizely** de Azure Portal.
+     a. Copie la **URL de inicio de sesión único iniciado por SP** que proporciona Optimizely y péguela en el cuadro de texto **URL de inicio de sesión** en la sección **Dominio y direcciones URL de Optimizely** de Azure Portal.
 
     b. Copie el **identificador de entidad del proveedor de servicios** que proporciona Optimizely y péguelo en el cuadro de texto **Identificador** de la sección **Dominio y direcciones URL de Optimizely** de Azure Portal.
 
@@ -201,7 +201,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/optimizely-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 

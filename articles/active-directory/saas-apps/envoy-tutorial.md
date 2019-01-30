@@ -4,7 +4,7 @@ description: Obtenga información sobre cómo configurar el inicio de sesión ú
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 71f7afcc-1033-4098-9b7e-4f9f2b26f734
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 06cccaeaea3ff43bd5a4100ef0d4628e8cc77254
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 12d14855c12234d1beeacbf1c9bce663ea3f961d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42145909"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808959"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-envoy"></a>Tutorial: integración de Azure Active Directory con Envoy
+# <a name="tutorial-azure-active-directory-integration-with-envoy"></a>Tutorial: Integración de Azure Active Directory con Envoy
 
 En este tutorial, obtendrá información sobre cómo integrar Envoy con Azure Active Directory (Azure AD).
 
@@ -148,14 +148,14 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     >[!NOTE]
     >La aplicación genera automáticamente el valor del identificador de ubicación de la sede central.
     
-    a. En el cuadro de texto **Fingerprint** (Huella digital), pegue el valor de **Huella digital** del certificado que haya copiado de Azure Portal.
+     a. En el cuadro de texto **Fingerprint** (Huella digital), pegue el valor de **Huella digital** del certificado que haya copiado de Azure Portal.
     
     b. Pegue el valor de la **dirección URL del servicio de inicio de sesión único de SAML**, que copió de Azure Portal, en el cuadro de texto **IDENTITY PROVIDER HTTP SAML URL** (Dirección URL de SAML HTTP del proveedor de identidades).
     
     c. Haga clic en **Guardar cambios**.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -182,7 +182,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](./media/envoy-tutorial/create_aaduser_04.png)
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
 
@@ -229,7 +229,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Envoy en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación Envoy.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con Soonr Workplace | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con Soonr Workplace | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Soonr Workplace.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: b75f5f00-ea8b-4850-ae2e-134e5d678d97
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: jeedes
-ms.openlocfilehash: af62db250a6d428797de0d39b852272326f2b6a8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7dd02aee83d42421cdda57f4feb54dde790db68c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442574"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809163"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-soonr-workplace"></a>Tutorial: integración de Azure Active Directory con Soonr Workplace
+# <a name="tutorial-azure-active-directory-integration-with-soonr-workplace"></a>Tutorial: Integración de Azure Active Directory con Soonr Workplace
 
 En este tutorial, obtendrá información sobre cómo integrar Soonr Workplace con Azure Active Directory (Azure AD).
 
@@ -112,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/soonr-tutorial/tutorial_soonr_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<servername>.soonr.com/singlesignon/saml/metadata`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<servername>.soonr.com/singlesignon/saml/metadata`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<servername>.soonr.com/singlesignon/saml/SSO`.
 
@@ -120,7 +120,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     ![Configurar inicio de sesión único](./media/soonr-tutorial/tutorial_soonr_url1.png)
 
-    a. Haga clic en la opción **Mostrar configuración avanzada de URL**.
+     a. Haga clic en la opción **Mostrar configuración avanzada de URL**.
 
     b. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<servername>.soonr.com/singlesignon/saml/SSO`.
 
@@ -145,7 +145,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     >Si necesita ayuda con la configuración de Autotask Workplace, consulte [esta página](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) para obtener asistencia con la cuenta de Workplace.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -171,7 +171,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/soonr-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 

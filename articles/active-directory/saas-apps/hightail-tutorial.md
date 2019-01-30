@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con Hightail | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con Hightail | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Hightail.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: e15206ac-74b0-46e4-9329-892c7d242ec0
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 1151044d5c1002c808ae1214086aff5fad84a55e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 59342aa95e50b29e58035892967be6d0407aae91
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431341"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812971"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hightail"></a>Tutorial: Integración de Azure Active Directory con Hightail
 
@@ -139,7 +139,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | Email | user.mail |    
     | UserIdentity | user.mail |
     
-    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
 
     ![Configurar inicio de sesión único](./media/hightail-tutorial/tutorial_officespace_04.png)
 
@@ -178,7 +178,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/hightail-tutorial/configure3.png)
 
-    a. En el cuadro de texto **Login URL** (Dirección URL de inicio de sesión), pegue el valor de **SAML Single Sign-On Service URL** (Dirección URL de inicio de sesión único de SAML) que copió de Azure Portal.
+     a. En el cuadro de texto **Login URL** (Dirección URL de inicio de sesión), pegue el valor de **SAML Single Sign-On Service URL** (Dirección URL de inicio de sesión único de SAML) que copió de Azure Portal.
 
     b. Abra el certificado codificado en Base 64 descargado de Azure Portal en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado SAML**.
 
@@ -209,7 +209,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/hightail-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 

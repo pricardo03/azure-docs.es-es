@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con StatusPage | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con StatusPage | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y StatusPage.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: f6ee8bb3-df43-4c0d-bf84-89f18deac4b9
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.openlocfilehash: e79eb2473760fd1eb7ccc3816ac73cce7c801f3e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0ea399ee510c235eca915416d77cabc1388044f9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445371"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809963"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Tutorial: Integración de Azure Active Directory con StatusPage
 
@@ -112,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/statuspage-tutorial/tutorial_statuspage_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:
     | |
     |--|
     | `https://<subdomain>.statuspagestaging.com/` |
@@ -127,7 +127,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE]
     > Póngase en contacto con el equipo de soporte técnico de StatusPage [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)a fin de solicitar los metadatos necesarios para configurar el inicio de sesión único. 
     >
-    >a. En los metadatos, copie el valor de Emisor y luego péguelo en el cuadro de texto **Identificador** .
+    > a. En los metadatos, copie el valor de Emisor y luego péguelo en el cuadro de texto **Identificador** .
     >
     >b. En los metadatos, copie el valor de URL de respuesta y luego péguelo en el cuadro de texto **URL de respuesta** .
 
@@ -159,14 +159,14 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/statuspage-tutorial/tutorial_statuspage_09.png) 
  
-    a. En el cuadro de texto **SSO Target URL** (Dirección URL de destino de SSO), pegue el valor de la **dirección URL del servicio de inicio de sesión único de SAML** que ha copiado de Azure Portal.
+     a. En el cuadro de texto **SSO Target URL** (Dirección URL de destino de SSO), pegue el valor de la **dirección URL del servicio de inicio de sesión único de SAML** que ha copiado de Azure Portal.
 
     b. Abra el certificado descargado en el Bloc de notas, copie el contenido y luego péguelo en el cuadro de texto **Certificado** . 
 
     c. Haga clic en **GUARDAR CONFIGURACIÓN**.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -192,7 +192,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/statuspage-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 

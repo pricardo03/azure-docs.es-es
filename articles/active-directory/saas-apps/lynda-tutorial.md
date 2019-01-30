@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: f6c92789-8b64-4049-bac9-8cb928398433
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 12f61e30321514b6e1283e04c5723d9fe2a4e054
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8b6d9e52063fe83853b50fc21e7db2461facc841
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449611"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825449"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lyndacom"></a>Tutorial: Integración de Azure Active Directory con Lynda.com
 
@@ -150,7 +150,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/lynda-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -200,7 +200,7 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
     
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para más información sobre el Panel de acceso, consulte la  [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

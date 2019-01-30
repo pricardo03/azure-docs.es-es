@@ -4,7 +4,7 @@ description: Obtenga información sobre cómo configurar el inicio de sesión ú
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 48b6bee0-dbc5-4863-964d-75b25e517741
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: d78276fad3da1b0ef4a860f147b17bc715932971
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 708ced1886cca32a89efdf8f095bf358996f13a8
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438807"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809945"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-showpad"></a>Tutorial: integración de Azure Active Directory con Showpad
+# <a name="tutorial-azure-active-directory-integration-with-showpad"></a>Tutorial: Integración de Azure Active Directory con Showpad
 
 En este tutorial, obtendrá información sobre cómo integrar Showpad con Azure Active Directory (Azure AD).
 
@@ -114,7 +114,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/showpad-tutorial/tutorial_showpad_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<comapany-name>.showpad.biz/login`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<comapany-name>.showpad.biz/login`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<company-name>.showpad.biz`
 
@@ -145,7 +145,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    
     ![Configuración del inicio de sesión único en la aplicación](./media/showpad-tutorial/tutorial_showpad_003.png) 
    
-    a. En el cuadro de texto **Nombre**, escriba el nombre del proveedor de identificadores (por ejemplo, el nombre de la compañía).
+     a. En el cuadro de texto **Nombre**, escriba el nombre del proveedor de identificadores (por ejemplo, el nombre de la compañía).
    
     b. Como **origen de metadatos**, seleccione **XML**.
    
@@ -156,7 +156,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     e. Haga clic en **Enviar**.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -182,7 +182,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/showpad-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 

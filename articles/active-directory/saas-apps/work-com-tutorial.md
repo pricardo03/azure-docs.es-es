@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 98e6739e-eb24-46bd-9dd3-20b489839076
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: f4247a24905b5865635495774412237118e3372a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 878ba9b5debd4c415a033ad5d885554f08185c1e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427370"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815674"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Tutorial: Integración de Azure Active Directory con Work.com
 
@@ -156,7 +156,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     ![SAML habilitado](./media/work-com-tutorial/ic781026.png "SAML habilitado")
     
-    a. Seleccione **SAML habilitado**.
+     a. Seleccione **SAML habilitado**.
     
     b. Haga clic en **Nuevo**.
 
@@ -164,7 +164,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     ![Inicio de sesión único SAML](./media/work-com-tutorial/ic794114.png "Inicio de sesión único SAML")
     
-    a. En el cuadro de texto **Name** (Nombre), escriba el nombre de la configuración.  
+     a. En el cuadro de texto **Name** (Nombre), escriba el nombre de la configuración.  
        
     > [!NOTE]
     > Si se proporciona un valor para **Name** (Nombre), el cuadro de texto **API Name** (Nombre de API) se completa automáticamente.
@@ -200,7 +200,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     ![Personalización de marca de página de inicio de sesión](./media/work-com-tutorial/ic784366.png "Personalización de marca de página de inicio de sesión")
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -226,7 +226,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Página del cuadro de diálogo Usuario](./media/work-com-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -255,7 +255,7 @@ Para que los usuarios de Azure Active Directory puedan iniciar sesión, deben ap
    
     ![Edición de usuarios](./media/work-com-tutorial/ic794118.png "Edición de usuarios")
    
-    a. En el cuadro de texto **Nombre**, escriba el **nombre** del usuario **Britta**.
+     a. En el cuadro de texto **Nombre**, escriba el **nombre** del usuario **Britta**.
     
     b. En el cuadro de texto **Apellido**, escriba el **apellido** del usuario **Simon**.
     

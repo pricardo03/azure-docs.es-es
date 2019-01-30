@@ -4,7 +4,7 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 220b5a486f5bb5d22c671ac6935e610a6eef62cf
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 2dab43499d5f55474117f88cfaa1cecd1a50bf3e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115992"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822049"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>Tutorial: Integración de Azure Active Directory con FilesAnywhere
 
@@ -117,7 +117,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
     ![Configurar inicio de sesión único](./media/filesanywhere-tutorial/tutorial_filesanywhere_url.png)
     
-    a. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<company name>.filesanywhere.com/saml20.aspx?c=215`.
+     a. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<company name>.filesanywhere.com/saml20.aspx?c=215`.
 > [!NOTE]
 > Tenga en cuenta que el valor **215** de **clientid** es simplemente un ejemplo. Es necesario reemplazarlo con el valor de clientid real.
 
@@ -125,7 +125,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
     
     ![Configurar inicio de sesión único](./media/filesanywhere-tutorial/tutorial_filesanywhere_url1.png)
 
-    a. Haga clic en la opción **Mostrar configuración avanzada de URL**.
+     a. Haga clic en la opción **Mostrar configuración avanzada de URL**.
 
     b. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<sub domain>.filesanywhere.com/`.
 
@@ -147,7 +147,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
     | ---------------| --------------- |    
     | clientid | *"uniquevalue"* |
 
-    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
 
     ![Configurar inicio de sesión único](./media/filesanywhere-tutorial/tutorial_FilesAnywhere_04.png)
 
@@ -198,7 +198,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de admin
  
     ![Creación de un usuario de prueba de Azure AD](./media/filesanywhere-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 

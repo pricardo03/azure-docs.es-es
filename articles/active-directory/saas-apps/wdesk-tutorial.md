@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con Wdesk | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con Wdesk | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Wdesk.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 06900a91-a326-4663-8ba6-69ae741a536e
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 9ff4d38240bf44cdb3112730b6f6962feed09a6a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ee4e81d0af1648aa4ee61501c231585cf0b1cbfa
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444443"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811781"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-wdesk"></a>Tutorial: integración de Azure Active Directory con Wdesk
+# <a name="tutorial-azure-active-directory-integration-with-wdesk"></a>Tutorial: Integración de Azure Active Directory con Wdesk
 
 En este tutorial, aprenderá a integrar Wdesk con Azure Active Directory (Azure AD).
 
@@ -112,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/wdesk-tutorial/tutorial_wdesk_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.wdesk.com/auth/saml/sp/metadata/<instancename>`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.wdesk.com/auth/saml/sp/metadata/<instancename>`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.wdesk.com/auth/saml/sp/consumer/<instancename>`.
 
@@ -151,7 +151,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig4.png)
 
-      a. Copia el valor de **Login URL** (Dirección URL de inicio de sesión) y péguelo en el cuadro de texto **Dirección URL de inicio de sesión** de Azure Portal.
+       a. Copia el valor de **Login URL** (Dirección URL de inicio de sesión) y péguelo en el cuadro de texto **Dirección URL de inicio de sesión** de Azure Portal.
    
       b. Copia el valor de **Metadata Url** (Dirección URL de metadatos) y péguelo en el cuadro de texto **Identificador** de Azure Portal.
        
@@ -168,7 +168,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     ![Configurar inicio de sesión único](./media/wdesk-tutorial/tutorial_wdesk_ssoconfigsavebutton.png)
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
@@ -193,7 +193,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/wdesk-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -226,7 +226,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Wdesk, tienen que 
   
     ![Creación de un usuario de prueba de Azure AD](./media/wdesk-tutorial/createuser4.png)
  
-    a. En el cuadro de texto **E-mail** (Correo electrónico), escriba el correo electrónico del usuario con el siguiente formato **brittasimon@contoso.com**.
+     a. En el cuadro de texto **E-mail** (Correo electrónico), escriba el correo electrónico del usuario con el siguiente formato **brittasimon@contoso.com**.
 
     b. En el cuadro de texto **First Name** (Nombre), escriba el nombre de usuario, en este caso **Britta**.
 
@@ -271,7 +271,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de Wdesk en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Wdesk.
-Para más información sobre el Panel de acceso, vea la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
+Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 
 ## <a name="additional-resources"></a>Recursos adicionales

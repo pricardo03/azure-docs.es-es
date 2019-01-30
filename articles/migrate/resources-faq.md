@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: snehaa
-ms.openlocfilehash: 2efa450b6b0cfa299370df3941224f4f64e91b4b
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: cc71aba3e884214b054e0ac4e888a52e38b1c390
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230771"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812546"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate: preguntas más frecuentes (P+F)
 
@@ -69,9 +69,9 @@ Se pueden agregar componentes adicionales (por ejemplo, un antivirus) en la plan
 
 Debe excluir las carpetas siguientes del dispositivo para el examen del antivirus:
 
-- La carpeta que contiene los archivos binarios del servicio Azure Migrate. Excluir todas las subcarpetas.
+- La carpeta que contiene los archivos binarios del servicio Azure Migrate. Excluya todas las subcarpetas.
   %ProgramFiles%\ProfilerService  
-- La aplicación web de Azure Migrate. Excluir todas las subcarpetas.
+- La aplicación web de Azure Migrate. Excluya todas las subcarpetas.
   %SystemDrive%\inetpub\wwwroot
 - La caché local de la base de datos y los archivos de registro. El servicio Azure Migrate necesita acceso RW a esta carpeta.
   %SystemDrive%\Profiler
@@ -159,7 +159,7 @@ Actualmente, Azure Migrate no es compatible con la estimación de costes de la [
 
 ### <a name="what-is-the-difference-between-as-on-premises-sizing-and-performance-based-sizing"></a>¿Cuál es la diferencia entre el ajuste de tamaño como local y el ajuste de tamaño basado en el rendimiento?
 
-Al especificar el criterio de ajuste de tamaño como local, Azure Migrate no tiene en cuenta los datos de rendimiento de las máquinas virtuales y ajusta el tamaño de las máquinas virtuales en función de la configuración local. Si el criterio de ajuste de tamaño se basa en el rendimiento, el ajuste se realiza basándose en datos de uso. Por ejemplo, si hay una máquina virtual local con 4 núcleos y 8 GB de memoria con un 50 % de uso de CPU y un 50 % de uso de memoria. Si el criterio de ajuste de tamaño es como local, se recomienda ajustar el tamaño de una SKU de máquina virtual de Azure con 4 núcleos y 8 GB de memoria. Sin embargo, si el criterio de ajuste de tamaño se basa en el rendimiento, se recomienda una SKU de máquina virtual de 2 núcleos y 4 GB, ya que el porcentaje de uso se tiene en cuenta al recomendar el tamaño. De forma similar, en el caso de los discos, el ajuste de tamaño de disco depende de dos propiedades de evaluación: criterio de ajuste de tamaño y tipo de almacenamiento. Si el criterio de ajuste de tamaño se basa en el rendimiento y el tipo de almacenamiento es automático, los valores de rendimiento y de IOPS del disco se tendrán en cuenta para identificar el tipo de disco de destino (estándar o prémium). Si el criterio de ajuste de tamaño se basa en el rendimiento y el tipo de almacenamiento es prémium, se recomienda un disco prémium. La SKU de disco prémium en Azure se selecciona en función del tamaño del disco local. Se usa la misma lógica para ajustar el tamaño del disco cuando el criterio de ajuste de tamaño es como local y el tipo de almacenamiento es estándar o prémium.
+Al especificar el criterio de ajuste de tamaño como local, Azure Migrate no tiene en cuenta los datos de rendimiento de las máquinas virtuales y ajusta el tamaño de las máquinas virtuales en función de la configuración local. Si el criterio de ajuste de tamaño se basa en el rendimiento, el ajuste se realiza basándose en datos de uso. Por ejemplo, si hay una máquina virtual local con 4 núcleos y 8 GB de memoria con un 50 % de uso de CPU y un 50 % de uso de memoria. Si el criterio de ajuste de tamaño es como local, se recomienda ajustar el tamaño de una SKU de máquina virtual de Azure con 4 núcleos y 8 GB de memoria. Sin embargo, si el criterio de ajuste de tamaño se basa en el rendimiento, se recomienda una SKU de máquina virtual de 2 núcleos y 4 GB, ya que el porcentaje de uso se tiene en cuenta al recomendar el tamaño. De forma similar, en el caso de los discos, el ajuste de tamaño de disco depende de dos propiedades de evaluación: criterio de ajuste de tamaño y tipo de almacenamiento. Si el criterio de ajuste de tamaño se basa en el rendimiento y el tipo de almacenamiento es automático, los valores de capacidad de proceso y de IOPS del disco se tendrán en cuenta para identificar el tipo de disco de destino (estándar o prémium). Si el criterio de ajuste de tamaño se basa en el rendimiento y el tipo de almacenamiento es prémium, se recomienda un disco prémium. La SKU de disco prémium en Azure se selecciona en función del tamaño del disco local. Se usa la misma lógica para ajustar el tamaño del disco cuando el criterio de ajuste de tamaño es como local y el tipo de almacenamiento es estándar o prémium.
 
 ### <a name="what-impact-does-performance-history-and-percentile-utilization-have-on-the-size-recommendations"></a>¿Qué impacto tiene el historial de rendimiento y uso de percentil en las recomendaciones de tamaño?
 

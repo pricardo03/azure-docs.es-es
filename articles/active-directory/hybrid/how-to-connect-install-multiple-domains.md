@@ -4,7 +4,7 @@ description: En este documento se describe cómo instalar y configurar varios do
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 5595fb2f-2131-4304-8a31-c52559128ea4
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8b5abe252ab9b3389680508537ea1d6f3823f910
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: abc01239a2bf61c39f99fe880bf17d7958a1597c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305764"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477939"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Compatibilidad con varios dominios para la federación con Azure AD
 La siguiente documentación proporciona una guía sobre cómo usar varios dominios y subdominios de nivel superior al federarse con Office 365 o con dominios de Azure AD.
@@ -136,7 +136,7 @@ Y el valor de IssuerUri en el nuevo dominio se ha establecido en https://bmfabri
 ## <a name="support-for-subdomains"></a>Compatibilidad con subdominios
 Cuando se agrega un subdominio, debido a la manera en que Azure AD controla los dominios, heredará la configuración del elemento primario.  Esto significa que la propiedad IssuerUri debe coincidir con los elementos primarios.
 
-Supongamos que tengo bmcontoso.com y que agrego corp.bmcontoso.com.  La propiedad IssuerUri de un usuario de corp.bmcontoso.com tendrá que ser **http://bmcontoso.com/adfs/services/trust.**  A pesar de la regla estándar implementada anteriormente para Azure AD, se generará un token con un emisor como **http://corp.bmcontoso.com/adfs/services/trust.** que no coincidirá con el valor obligatorio del dominio y se producirá un error de autenticación.
+Supongamos que tengo bmcontoso.com y que agrego corp.bmcontoso.com.  La propiedad IssuerUri de un usuario de corp.bmcontoso.com tendrá que ser **http://bmcontoso.com/adfs/services/trust.**  A pesar de la regla estándar implementada anteriormente para Azure AD, se generará un token con un emisor como **http://corp.bmcontoso.com/adfs/services/trust.**  que no coincidirá con el valor obligatorio del dominio y se producirá un error de autenticación.
 
 ### <a name="how-to-enable-support-for-subdomains"></a>Habilitación de la compatibilidad con subdominios
 Para solucionar este comportamiento, es necesario actualizar la relación de confianza para usuario autenticado de AD FS para Microsoft Online.  Para ello, debe configurar una regla de notificaciones personalizada para eliminar cualquier subdominio del sufijo UPN del usuario al construir el valor de emisor personalizado.
@@ -168,7 +168,7 @@ Siga los pasos indicados a continuación para agregar una notificación personal
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha instalado Azure AD Connect, puede [comprobar la instalación y asignar licencias](how-to-connect-post-installation.md).
 
-Para aprender más acerca de estas características que se habilitaron con la instalación, consulte la información sobre: [actualización automática](how-to-connect-install-automatic-upgrade.md), [cómo evitar eliminaciones accidentales](how-to-connect-sync-feature-prevent-accidental-deletes.md) y [Azure AD Connect Health](how-to-connect-health-sync.md).
+Obtenga más información acerca de estas características, que se habilitaron con la instalación: [Actualización automática](how-to-connect-install-automatic-upgrade.md), [Evitar eliminaciones involuntarias](how-to-connect-sync-feature-prevent-accidental-deletes.md) y [Azure AD Connect Health](how-to-connect-health-sync.md).
 
 Obtenga información acerca de estos temas habituales: [el programador y cómo desencadenar la sincronización](how-to-connect-sync-feature-scheduler.md).
 

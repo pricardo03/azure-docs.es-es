@@ -4,7 +4,7 @@ description: Explica cómo solucionar los errores que aparezcan durante la sincr
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 2209d5ce-0a64-447b-be3a-6f06d47995f8
 ms.service: active-directory
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c94ecc223c4e2c0533c23e58823bb203064ceef6
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 34a719c8fb62a2b993320d1bd9f97f9d47abf494
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250482"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463319"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Solución de errores durante la sincronización
 Pueden producirse errores cuando se sincronizan datos de identidad de Windows Server Active Directory (AD DS) con Azure Active Directory (Azure AD). En este artículo se proporciona información general sobre los distintos tipos de errores de sincronización, algunos de los posibles escenarios que provocan dichos errores y las posibles maneras de corregirlos. También se incluyen los tipos de error comunes, pero puede que no cubra todos los posibles errores.
@@ -171,11 +171,11 @@ El motivo más común por el que se aparece el error AttributeValueMustBeUnique 
 Azure Active Directory aplica varias restricciones a los datos antes de permitir que se escriban en el directorio. Estas restricciones garantizan que los usuarios finales obtienen las mejores experiencias posibles al usar las aplicaciones que dependen de dichos datos.
 
 #### <a name="scenarios"></a>Escenarios
-a. El valor del atributo UserPrincipalName tiene caracteres no válidos o no compatibles.
+ a. El valor del atributo UserPrincipalName tiene caracteres no válidos o no compatibles.
 b. El atributo UserPrincipalName no sigue el formato requerido.
 
 #### <a name="how-to-fix-identitydatavalidationfailed-error"></a>Solución del error IdentityDataValidationFailed
-a. Asegúrese de que el atributo userPrincipalName tiene caracteres compatibles y el formato requerido.
+ a. Asegúrese de que el atributo userPrincipalName tiene caracteres compatibles y el formato requerido.
 
 #### <a name="related-articles"></a>Artículos relacionados
 * [Preparación del aprovisionamiento de usuarios a Office 365 mediante la sincronización de directorios](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)

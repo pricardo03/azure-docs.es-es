@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con LogicMonitor | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con LogicMonitor | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y LogicMonitor.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 496156c3-0e22-4492-b36f-2c29c055e087
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: jeedes
-ms.openlocfilehash: a6bc220d15e720662eaa9605421e21ccb99892ab
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 5aa11c15e038c0af8447debba0cd385c944c0bce
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502352"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812427"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>Tutorial: Integración de Azure Active Directory con LogicMonitor
 
@@ -112,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/logicmonitor-tutorial/tutorial_logicmonitor_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.logicmonitor.com`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.logicmonitor.com`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.logicmonitor.com`
 
@@ -143,7 +143,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    
     ![Configuración de inicio de sesión único](./media/logicmonitor-tutorial/ic790054.png "Configuración de inicio de sesión único")
    
-    a. Seleccione **Habilitar inicio de sesión único**.
+     a. Seleccione **Habilitar inicio de sesión único**.
 
     b. En **Default Role Assignment** (Asignación de rol predeterminado), seleccione **readonly**.
    
@@ -174,7 +174,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/logicmonitor-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
@@ -200,7 +200,7 @@ Para que los usuarios de Azure AD puedan inician sesión, deben aprovisionarse p
    
     ![Agregar una cuenta](./media/logicmonitor-tutorial/ic790057.png "Agregar una cuenta")
    
-    a. En los cuadros de texto correspondientes, escriba los valores de **Nombre de usuario**, **Correo electrónico**, **Contraseña** y **Vuelva a escribir contraseña** del usuario de Azure Active Directory que quiera aprovisionar.
+     a. En los cuadros de texto correspondientes, escriba los valores de **Nombre de usuario**, **Correo electrónico**, **Contraseña** y **Vuelva a escribir contraseña** del usuario de Azure Active Directory que quiera aprovisionar.
    
     b. Seleccione **Roles**, **Ver permisos** y **Estado**.
    
@@ -242,7 +242,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
- 
+ 
 Al hacer clic en el icono de LogicMonitor en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación LogicMonitor.
 Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
 

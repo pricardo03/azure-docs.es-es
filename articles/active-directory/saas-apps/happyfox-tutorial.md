@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con HappyFox | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con HappyFox | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y HappyFox.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 8204ee77-f64b-4fac-b64a-25ea534feac0
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 95def1ce278b0a816f19e3cd4e1b47bd3f68f1a9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5fb71d4c5e8d9e094feb83a6c5f54cc37f5a5136
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440296"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825823"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-happyfox"></a>Tutorial: integración de Azure Active Directory con HappyFox
+# <a name="tutorial-azure-active-directory-integration-with-happyfox"></a>Tutorial: Integración de Azure Active Directory con HappyFox
 
 En este tutorial, aprenderá a integrar HappyFox con Azure Active Directory (Azure AD).
 
@@ -112,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/happyfox-tutorial/tutorial_happyfox_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.happyfox.com/`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.happyfox.com/`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.happyfox.com/saml/metadata/`
 
@@ -152,7 +152,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     ![Configurar inicio de sesión único](./media/happyfox-tutorial/savesettings.png)
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -178,7 +178,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
     ![Creación de un usuario de prueba de Azure AD](./media/happyfox-tutorial/create_aaduser_04.png) 
 
-    a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
+     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
 
