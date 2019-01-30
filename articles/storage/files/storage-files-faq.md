@@ -163,7 +163,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
     > Azure File Sync no permite mover la suscripción a un inquilino de Azure AD distinto.
     
 * <a id="afs-ntfs-acls"></a>
- **¿Mantiene Azure File Sync las listas ACL de NTFS a nivel de directorio/archivo junto con los datos almacenados en Azure Files? **
+ **¿Mantiene Azure File Sync las listas ACL de NTFS a nivel de directorio/archivo junto con los datos almacenados en Azure Files?**
 
     Las listas ACL de NTFS que provienen de los servidores de archivos locales se conservan en Azure File Sync como metadatos. Azure Files no admite la autenticación con credenciales de Azure AD para acceder a recursos compartidos de archivos que administra el servicio Azure File Sync.
     
@@ -180,7 +180,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
     - Azure File Sync conserva y replica todas las ACL discrecionales, o DACL, locales o basadas en Active Directory en todos los puntos de conexión de servidor con los que se sincroniza. Dado que Windows Server ya se autentica con Active Directory, Azure File Sync es una opción provisional eficaz hasta que llegue la compatibilidad total con autenticación basada en Active Directory y ACL.
 
 * <a id="ad-support-regions"></a>
-** ¿Está disponible la versión preliminar de Azure AD sobre SMB para Azure Files en todas las regiones de Azure?**
+ **¿Está disponible la versión preliminar de Azure AD sobre SMB para Azure Files en todas las regiones de Azure?**
 
     La versión preliminar está disponible en todas las regiones públicas.
 
