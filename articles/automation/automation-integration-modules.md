@@ -3,18 +3,18 @@ title: Creación de un módulo de integración de Azure Automation
 description: En este tutorial se explica cómo crear y probar módulos de integración en Azure Automation y se proporcionan ejemplos de uso.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7b7bd66d90ad01479965c928eb69bfb1dfccce5b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 609a841ed410832739041bbbbf7d33d3a01a4bfc
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000239"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436491"
 ---
 # <a name="azure-automation-integration-modules"></a>Módulos de integración de Azure Automation
 PowerShell es la principal tecnología que se esconde detrás de Azure Automation. Desde que Azure Automation se integró en PowerShell, los módulos de PowerShell resultan clave para la extensibilidad de Azure Automation. En este artículo, explicaremos los aspectos específicos sobre el uso de los módulos de PowerShell en Azure Automation, lo que se conoce como “Módulos de integración” y los procedimientos recomendados para crear sus propios módulos de PowerShell y asegurarse de que funcionan como módulos de integración en Azure Automation. 
@@ -207,4 +207,5 @@ Aunque los módulos de integración son esencialmente módulos de Powershell, ha
 
 * Para empezar a trabajar con Runbooks de flujo de trabajo de PowerShell, consulte [Mi primer runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md)
 * Para más información sobre la creación de módulos de PowerShell, consulte [Writing a Windows PowerShell Module](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx)
+
 

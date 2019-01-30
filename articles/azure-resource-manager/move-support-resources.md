@@ -195,7 +195,7 @@ Después de encontrar el proveedor de recursos y el tipo de recurso, use las tab
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 | Tipo de recurso | Grupos de recursos | Subscription |
 | ------------- | -------------- | ------------ |
-| aplicaciones de escala de web | SÍ | SÍ |
+| applications | SÍ | SÍ |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 | Tipo de recurso | Grupos de recursos | Subscription |
